@@ -1,15 +1,21 @@
-# Review of the exact spectral residue law
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The full claim is reconstructed from the two explicit derivative matrices, the permutation induced by the number of right-branch visits, and the signed-cycle characteristic polynomial. The only symbolic-counting premise is the published bijection between non-all-left periodic words and nontrivial fixed points of iterates. The \(\ell=2\) parity case is explicitly treated, so the conclusion does not incorrectly assume that a real polynomial of degree two necessarily has nonreal roots. The roots-of-unity filter proves the counts and convergence. Exact symbolic replay on the specified finite ranges returned `CHECK_OK`, but is not treated as an infinite proof.
+## correctness
 
-## Originality
-**PASS with residual priority risk.** The closest comparison is Saiki–Takahasi–Yorke, arXiv:2202.04304, Sections 2.1–2.3 and Proposition 2.7. It supplies the two end-residue sufficient conditions and only lower asymptotic bounds, not the exhaustive criterion for every nonzero residue or the exact real/nonreal partition. For \(M\geq4\), middle residues are necessary to attain the sharp nonreal proportion. The related Takahasi paper arXiv:2409.01261 concerns periodic-point distributions of a different heterochaos baker family. An equivalent general signed-monomial spectral observation may exist outside the inspected literature; no claim of absolute priority is made.
+PASS
 
-## Value
-**PASS.** The origin paper identifies simultaneous abundance and equidistribution of the two spectral types but leaves their relative global frequencies at the level of lower bounds. Determining those frequencies exactly for every dimension is a natural model-specific dynamical invariant: the nonreal class actually occupies asymptotic proportion \((M-1)/M\), as opposed to the earlier lower bound \(2/M\) for large \(M\). The proof reveals why every remaining twist class is nonreal, including a nonobvious negative two-cycle case.
+Inspected actual left derivative diag(2,1,…,1) and right derivative signed cyclic shift with −2 on wrap. For n-word with k right visits their product is signed monomial, underlying permutation +k mod M. Cycle length ℓ=M/gcd(k,M), each cycle wrap sign (−1)^{k/g}, weight magnitude 2^{a_h}, Σa_h=n; hence char polynomial ∏(λ^ℓ−(−1)^{k/g}2^{a_h}). If ℓ=1 all eigenvalues are real; if ℓ≥3 nonreal roots exist; if ℓ=2 then gcd(k/g,ℓ)=1 makes k/g odd, so λ²+2^{a_h} gives nonreal pair. Primary source establishes bijection of all n-words with k≥1 and nontrivial iterate-fixed points. Count via ∑_{M|j}binom(n,j)−1, complement, and roots-of-unity filter gives limiting real fraction 1/M and sharp error ≤(M−1)/M(2cos π/M)^n. Independently rederived exact symbolic matrices and polynomials for 600 nontrivial words across M=2…6, n=1…6, all consistent; general proof analytic and relies explicitly on primary coding theorem.
 
-## Scientific limitations
-The result excludes the nonisolated fixed face; periodic points mean fixed points of the iterate, not primitive cycles. The full spectral-radius distribution and perturbation stability are not determined. The symbolic correspondence is credited to the primary paper; the finite checker verifies only small dimensions and periods.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Independent statement-and-implication comparisons checked relevant original theorems rather than titles. The mirrored current record was excluded as an independent priority source. No inspected stronger theorem determines the entire audited final result; specific residual access/priority risks are retained.
+
+## value
+
+PASS
+
+Completing the spectrum classification of a natural established dynamical system and upgrading published partial residue lower bounds to exact counts and exponential convergence is a worthwhile structural dynamical result. The missing residues for M≥4 are mathematically essential; low dimensions M=2,3 were already covered and are not claimed as novel.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

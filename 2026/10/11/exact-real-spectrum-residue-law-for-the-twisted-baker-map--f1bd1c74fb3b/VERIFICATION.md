@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The algebraic proof uses the identity that each branch derivative is a signed monomial matrix. The right branch shifts coordinates cyclically and introduces one negative factor for each wrap; the left branch is positive diagonal. The induced permutation of an iterate is addition by the number of right visits modulo the dimension. The signed cycle products establish the exact characteristic-polynomial factorization and the real-spectrum equivalence. The published coding theorem identifies all nontrivial iterate-fixed points with non-all-left words.
+## correctness
 
-The standalone checker `check_spectrum.py` uses exact matrices and rational arithmetic, exhausts the \(2^n-1\) nontrivial symbolic words for each \(2\leq M\leq6\) and \(1\leq n\leq6\), solves the affine fixed-point equation for each word, checks the branch itineraries and the return, verifies the signed-cycle factorization, and verifies the binomial residue count. Run `python -m pip install -r requirements.txt` followed by `python check_spectrum.py`; success ends with `CHECK_OK`.
+PASS
 
-This finite enumeration is a diagnostic, **not** a proof for all integers \(M\) and \(n\). The infinite claim follows from the signed-cycle argument and the exact symbolic coding, not from extrapolating a table. No independent external audit has been performed.
+Inspected actual left derivative diag(2,1,…,1) and right derivative signed cyclic shift with −2 on wrap. For n-word with k right visits their product is signed monomial, underlying permutation +k mod M. Cycle length ℓ=M/gcd(k,M), each cycle wrap sign (−1)^{k/g}, weight magnitude 2^{a_h}, Σa_h=n; hence char polynomial ∏(λ^ℓ−(−1)^{k/g}2^{a_h}). If ℓ=1 all eigenvalues are real; if ℓ≥3 nonreal roots exist; if ℓ=2 then gcd(k/g,ℓ)=1 makes k/g odd, so λ²+2^{a_h} gives nonreal pair. Primary source establishes bijection of all n-words with k≥1 and nontrivial iterate-fixed points. Count via ∑_{M|j}binom(n,j)−1, complement, and roots-of-unity filter gives limiting real fraction 1/M and sharp error ≤(M−1)/M(2cos π/M)^n. Independently rederived exact symbolic matrices and polynomials for 600 nontrivial words across M=2…6, n=1…6, all consistent; general proof analytic and relies explicitly on primary coding theorem.
+
+## originality
+
+PASS
+
+Independent statement-and-implication comparisons checked relevant original theorems rather than titles. The mirrored current record was excluded as an independent priority source. No inspected stronger theorem determines the entire audited final result; specific residual access/priority risks are retained.
+
+## value
+
+PASS
+
+Completing the spectrum classification of a natural established dynamical system and upgrading published partial residue lower bounds to exact counts and exponential convergence is a worthwhile structural dynamical result. The missing residues for M≥4 are mathematically essential; low dimensions M=2,3 were already covered and are not claimed as novel.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

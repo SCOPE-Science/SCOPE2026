@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T14:48:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Exact assigned Git RESULT.md blob 89b4478af95020a101bdd7169bc64b7ccf065dca",
+        "Frozen Git tree 2b87afd393fd6855108415254055e9335f069c45"
+      ],
+      "rationale": "Inspected actual left derivative diag(2,1,…,1) and right derivative signed cyclic shift with −2 on wrap. For n-word with k right visits their product is signed monomial, underlying permutation +k mod M. Cycle length ℓ=M/gcd(k,M), each cycle wrap sign (−1)^{k/g}, weight magnitude 2^{a_h}, Σa_h=n; hence char polynomial ∏(λ^ℓ−(−1)^{k/g}2^{a_h}). If ℓ=1 all eigenvalues are real; if ℓ≥3 nonreal roots exist; if ℓ=2 then gcd(k/g,ℓ)=1 makes k/g odd, so λ²+2^{a_h} gives nonreal pair. Primary source establishes bijection of all n-words with k≥1 and nontrivial iterate-fixed points. Count via ∑_{M|j}binom(n,j)−1, complement, and roots-of-unity filter gives limiting real fraction 1/M and sharp error ≤(M−1)/M(2cos π/M)^n. Independently rederived exact symbolic matrices and polynomials for 600 nontrivial words across M=2…6, n=1…6, all consistent; general proof analytic and relies explicitly on primary coding theorem.",
+      "residual_risks": [
+        "Claims outside exact stated normalization, field, and domain have not been proved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Saiki–Takahasi–Yorke Lemma 2.2 handles M|k real; Lemma 2.3 handles nonreal for adjacent residues ±1, Proposition 2.7 gives lower asymptotic proportions.",
+          "Takahasi 2024 studies another heterochaos baker family with different dynamics."
+        ],
+        "reasoning": "For M=2 or 3 the original ±1 arguments cover all residues, so the restriction to those M is prior; M≥4 contains new intermediate residues not covered by that partial criterion.",
+        "searches": [
+          "arXiv:2202.04304 Lemmas 2.2 2.3 Proposition 2.7",
+          "arXiv:2409.01261"
+        ]
+      },
+      "checked_sources": [
+        "Frozen twisted-map RESULT.md, SLOGAN.txt, VERIFICATION.md",
+        "arXiv:2202.04304 full original",
+        "arXiv:2409.01261 principal statements",
+        "Independent exact 600-word finite symbolic sanity check",
+        "Resultary query Q4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original sufficient tests and lower densities cannot imply nonreal in every missing residue for M≥4.",
+          "The signed cycle argument fully resolves even ℓ=2 parity, giving exact 1/M real density and complement."
+        ],
+        "reasoning": "This is a genuine strengthening of partial spectral classification, though low dimensions 2,3 are credited to original results.",
+        "searches": [
+          "arXiv:2202.04304v3 §§2.1–2.3",
+          "arXiv:2409.01261"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A generic weighted-permutation decomposition is algebraically equivalent to the characteristic factorization.",
+          "The closest published source treats some twist residues but does not state an exhaustive if-and-only-if all M or the complete polynomial factorization."
+        ],
+        "reasoning": "Compared signed-permutation cycle formulations and exact dynamical coding, rather than only paper titles.",
+        "searches": [
+          "twisted baker map periodic point Jacobian real eigenvalues twist count divisibility M",
+          "Saiki Takahasi Yorke periodic Jacobian gcd signed cycle residues binomial",
+          "arXiv:2202.04304",
+          "arXiv:2409.01261",
+          "signed monomial matrix cycle polynomial twisted baker map gcd(k,M)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original source does list binomial counts by right-visit residue; these are *not* independently a table classifying spectral reality for all residues.",
+          "No independently established real/nonreal full partition was found in the relevant source."
+        ],
+        "reasoning": "The present exact counts depend on the new spectral iff law plus existing symbolic binomial counts; no novelty is claimed for binomial coefficient identity itself.",
+        "searches": [
+          "twisted baker spectrum counts exact binomial residue modulo M",
+          "Saiki Takahasi Yorke spectral real fraction 1/M exact",
+          "arXiv:2202.04304 Lemma 2.6"
+        ]
+      },
+      "rationale": "Independent statement-and-implication comparisons checked relevant original theorems rather than titles. The mirrored current record was excluded as an independent priority source. No inspected stronger theorem determines the entire audited final result; specific residual access/priority risks are retained.",
+      "residual_risks": [
+        "An unindexed general signed permutation spectral paper could imply the algebraic lemma as a special case.",
+        "Full coding theorem is imported from originating paper; finite checks are not independent infinite proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage for k divisible and residues ±1; no all-residue iff law for M≥4 in inspected statements.",
+          "evidence": [
+            "Lemmas 2.2–2.6, Proposition 2.7; 2022 preprint revised 2023."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2202.04304",
+          "material_read": "Complete original open-access PDF, especially §2.1–§2.3 Lemmas 2.1–2.6, Proposition 2.7, and proofs.",
+          "method": "Read original arXiv paper text and rendered pages.",
+          "title": "The twisted baker map",
+          "trigger": "Exactly the same dynamical map, symbolic fixed-point coding and Jacobian spectrum"
+        },
+        {
+          "assessment": "Distinct map and observables; inspected portion does not cover twisted-baker signed spectra.",
+          "evidence": [
+            "arXiv:2409.01261 introduction and main theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2409.01261",
+          "material_read": "Original paper abstract/introduction and principal periodic-point statement, definitions of heterochaos object; not entire appendices.",
+          "method": "Read open arXiv text and compared map definitions.",
+          "title": "Distributions of periodic points for the Dyck shift and the heterochaos baker maps",
+          "trigger": "Potential stronger baker periodic-point distribution results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Primary paper’s open spectral residue gaps",
+        "Exact all-M counts and exponential convergence"
+      ],
+      "rationale": "Completing the spectrum classification of a natural established dynamical system and upgrading published partial residue lower bounds to exact counts and exponential convergence is a worthwhile structural dynamical result. The missing residues for M≥4 are mathematically essential; low dimensions M=2,3 were already covered and are not claimed as novel.",
+      "residual_risks": [
+        "No least-period orbit distribution or general dynamical-map classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Every nontrivial periodic-point iterate of the twisted baker map in any M≥2 has entirely real Jacobian spectrum iff right-branch visit count k is divisible by M, with exact binomial residue counts and limiting densities.",
+  "limitations": [
+    "Count iterate-fixed points excluding the nonisolated left fixed face, not primitive orbit counts.",
+    "Relies on published symbolic coding."
+  ],
+  "schema_version": 1
+}
