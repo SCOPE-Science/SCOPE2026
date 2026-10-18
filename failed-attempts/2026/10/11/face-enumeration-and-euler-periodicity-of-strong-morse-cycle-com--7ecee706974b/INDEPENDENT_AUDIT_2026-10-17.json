@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T10:50:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An injective vertex filtration on C_n gives a nonconstant orientation sign word. A selected vertex-edge incidence forces both adjacent signs, producing a 3-color marked word with no adjacent opposite marks; any single-sign marked word must leave at least one edge with both endpoints unmarked. Conversely these conditions extend to an acyclic orientation and hence a filtration. The weighted cyclic compatibility matrix T(t) counts all allowed adjacency words, while U(t) counts each of the two disallowed monochromatic vertex covers; they are disjoint for n>=3. Eigenvalues at t=-1 yield the trigonometric Euler formula and least period 12. Independent integer-matrix evaluation yields F22(1)=263593441; exact evaluations for n=3..14 matched all twelve stated Euler residues. The formula is for faces and Euler only, not complete homology.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original Knudson–Owens–White gives full/pure complexes and finite homology tables through n=21.",
+          "Published dihedral theorem is strictly stronger than the audited Euler claim: complete signed traces for every rotation and reflection and quotient Euler formulas."
+        ],
+        "reasoning": "The identity-group component already covers periodic Euler behavior, and its proof contains the generating ingredients to recover all face coefficients.",
+        "searches": [
+          "Resultary/2026/10/11/SCOPE-dihedral-euler-characters-of-full-strong-morse-complexes-of-cycl--4819a9d67705/RESULT.md",
+          "arxiv:2609.06844v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary/2026/10/11/SCOPE-dihedral-euler-characters-of-full-strong-morse-complexes-of-cycl--4819a9d67705/RESULT.md",
+        "arxiv:2609.06844v1",
+        "arxiv:math/0011234"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At g=id, the stronger published theorem gives L(n)=−1+6*1_{3|n}−4*1_{4|n}, matching −F_n(−1).",
+          "For all t its proof already counts colored cyclic words and subtracts two monochromatic vertex-cover languages via T(t),U(t)."
+        ],
+        "reasoning": "The published stronger theorem logically entails the full face polynomial, Euler formula, least period and 22-count by coefficient/trace evaluation. The original topology paper alone did not, but the relevant published result does.",
+        "searches": [
+          "Resultary/2026/10/11/SCOPE-dihedral-euler-characters-of-full-strong-morse-complexes-of-cycl--4819a9d67705/RESULT.md",
+          "arxiv:2609.06844v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published dihedral result uses the SAME face criterion (adjacent opposite nonzero marks prohibited; single-sign marked words leave adjacent zeros).",
+          "Its proof Section 3 writes T(t)=[[1,t,t],[1,t,0],[1,0,t]] and U(t)=[[0,t],[1,t]], weighted exactly by mark count."
+        ],
+        "reasoning": "The generating function tr T(t)^n−2tr U(t)^n is not a novel combinatorial derivation once its whole local-state criterion and both weighted matrices are already published.",
+        "searches": [
+          "strong discrete Morse matching cycle complex face polynomial Euler characteristic transfer matrix periodicity",
+          "cycle strong Morse matching f-polynomial total faces Euler period 12 graph transfer",
+          "Resultary/2026/10/11/SCOPE-dihedral-euler-characters-of-full-strong-morse-complexes-of-cycl--4819a9d67705/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The full weighted matrices are present with symbolic variable t; F22(1) is a particular matrix-power evaluation.",
+          "Direct integer-matrix evaluation gives 263593441 for n=22."
+        ],
+        "reasoning": "This exact count is not an independent census outside the known matrix recurrence, and no distinct dataset or table needs to be reconstructed.",
+        "searches": [
+          "cycle strong Morse matching f-polynomial total faces Euler period 12 graph transfer",
+          "Resultary/2026/10/11/SCOPE-dihedral-euler-characters-of-full-strong-morse-complexes-of-cycl--4819a9d67705/RESULT.md"
+        ]
+      },
+      "rationale": "The published full strong-cycle dihedral Euler-character theorem already establishes precisely the same three-symbol face criterion and writes the same general weighted transfer matrices T(t) and U(t) in the proof of its much stronger character statement. It obtains the identity trace at t=-1 as a special case. Consequently F_n(t)=tr T(t)^n-2tr U(t)^n is an immediate full-weight generating-function reading of its already-displayed combinatorial enumeration, and the Euler period and n=22 count require only substitutions. This is stronger substantive coverage despite the absence of the full polynomial in its title.",
+      "residual_risks": [
+        "The dihedral publication does not promote the entire F_n(t) as a standalone displayed theorem, but explicitly provides the full weighted-language enumeration and both matrices, so implication does not depend on title.",
+        "No claim made concerning individual cycle homology groups or homotopy types from Euler alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS symbolic face counting and Euler periodicity",
+          "evidence": [
+            "Proof Sections 1 and 3 include identical allowed marked-word language, general T(t), U(t), and signed evaluation at t=-1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-dihedral-euler-characters-of-full-strong-morse-complexes-of-cycl--4819a9d67705/RESULT.md",
+          "material_read": "Entire published RESULT.md, especially theorem, three-symbol face criterion, symbolic transfer-matrix derivation and reflection/quotient formulas",
+          "method": "Direct read-only GitHub fetch, complete proof materially read",
+          "title": "Dihedral Euler characters of full strong Morse complexes of cycles",
+          "trigger": "Stronger same-object full strong cycle complex; needs check of exact symbolic transfer matrices"
+        },
+        {
+          "assessment": "FOUNDATIONAL_SOURCE, no claimed original general face polynomial",
+          "evidence": [
+            "Defines the full complex and reports homology through n=21; original omission does not undo stronger later coverage."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.06844v1",
+          "material_read": "Accessible primary arXiv HTML, definitions of descending domination and strong matching, Sections 3–4 and 8 cycle results and enumerative context",
+          "method": "Primary open-access HTML, targeted full-text sections",
+          "title": "Complexes of strong discrete Morse matchings",
+          "trigger": "Original definitions and finite cycle homology / pure complex distinction"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A full f-polynomial and 12-periodic Euler characteristic are natural, but the same generative three-state criterion and symbolic transfer matrices are already published as the core of a stronger equivariant theorem. Extracting coefficients and evaluating n=22 do not provide a further independently useful unknown mathematical invariant beyond direct matrix substitution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "No individual homology or homotopy information is inferred from the Euler trace."
+  ],
+  "schema_version": 1
+}
