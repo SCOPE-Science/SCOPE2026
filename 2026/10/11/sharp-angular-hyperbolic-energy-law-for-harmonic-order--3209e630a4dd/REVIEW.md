@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact moment is reconstructed from the holomorphic Fourier-mode cancellation, the Wirtinger identity \(\Delta[-\log(1-|\omega|^2)]=4|\omega'|^2/(1-|\omega|^2)^2\), and the disk divergence theorem. The normalized energy coefficient and all quantifiers are explicit, and the shear \(\omega(z)=az\) achieves equality at every radius. The rigidity deduction uses the nonnegative Schwarzian term and Schwarz–Pick, followed by the constant-dilatation Schwarzian equation. The executable exact-rational test checks model arithmetic only, not the universal proof.
+## correctness
 
-**Originality — PASS, for the sharp radial identity.** Efraimidis–Hernández (arXiv:2604.00269v1, Section 4) state the Schwarzian criterion and question. Sobczak-Kneć–Starkov–Szynal (2011, Corollary 3.5) and Arbeláez–Hernández–Sierra (arXiv:2107.01756v1, Proposition 3) already show \(\sup|A_f|\ge1\); that established result *combined with the 2026 criterion* immediately implies Möbius-only rigidity. Thus rigidity alone is not independently original. The inspected papers and Hernández–Martín (arXiv:1210.2330v1) do not supply the new exact first angular moment with its positive, sharp Poincaré-energy remainder. Searches cannot rule out an unindexed equivalent identity.
+PASS
 
-**Value — PASS.** Formula (1) measures the full radial contribution of the dilatation's hyperbolic energy to a canonical distortion coefficient. Its sharpness for nonconstant linear dilatation makes it a genuine quantitative refinement of the scalar order theorem and explains the rigidity of a natural 2026 criterion. It does not resolve the unrelated harmonic-inner-radius conjecture.
+PASS: Sense-preserving J_f>0 makes h′ nonvanishing and analytic ω with |ω|<1; all formulae on fixed r<1 avoid global disk boundary integrability. Let u=-log(1-|ω|²); direct Wirtinger gives u_z=barω ω′/(1-|ω|²) and Δu=4|ω′|²/(1-|ω|²)². For H=h″/h′ holomorphic the e^{iθ} first angular moment vanishes. Polar derivative e^{iθ}u_z=(u_r−i u_θ/r)/2 averages to U′(r)/2. Therefore average e^{iθ}A_f=−r−(1−r²)U′(r)/4; Green/divergence formula 2πr U′=4∫_{|z|<r} hyperbolic density yields claimed exact negative real first Fourier moment and lower bound by maximum. For ω=az, h=z, g=az²/2 with |a|<1, A_f=−bar z[1+|a|²(1−r²)/(2(1−|a|²r²))] has constant Fourier phase and integral π|a|²r²/(1−|a|²r²), showing sharpness for each r including constant ω boundary. For criterion (3), Schwarz–Pick |ω*|≤1 and division where ω′≠0 gives |A_f|≤1/4; r=1/2 bound contradicts nonconstant ω. For constant ω, S_h=0 means holomorphic Möbius; converse immediate. Finite model examples are illustrative, not infinite proof.
 
-**Limitations and risks.** The classification consequence is acknowledged as an immediate combination of prior results, not claimed as a separately new theorem. The energy identity is proved for sense-preserving locally univalent disk maps with no claim of a global total-energy bound or unique extremizers. Literature may contain unindexed equivalents, and no independent audit was performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for the exact angular Fourier/hyperbolic energy equality and its sharp inequality. The harmonic Möbius classification itself is explicitly flagged as ALREADY IMPLIED by published universal sup |A_f|≥1 with the 2026 criterion and receives no independent novelty credit. The full relevant 2026 primary text was read. A radial Jensen-type identity may be known under an alternative notation; this is residual priority risk, but no inspected prior source or Resultary match states the combined precise A_f moment and sharp shear equality.
+
+## value
+
+PASS
+
+PASS: The exact circlewise first Fourier moment gives a quantitative positive hyperbolic dilatation-energy remainder to a natural harmonic pre-Schwarzian order invariant, distinguishing analytic vs genuinely harmonic local behavior at every scale. It is sharp on a natural nonconstant-dilatation family. This adds mathematical content over existing global norm bounds; the routine Möbius corollary is not used to inflate its value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
