@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "All assumptions r>=2 and n_i>=2 are explicit. For each nonempty skew fort W, if the hub is absent each occupied blade must have at least three white vertices, while if the hub is present every blade must contain at least two white vertices. These exhaust the minimal forts. Forcing sets are exactly complements avoiding those two fort types; this gives the product-minus-correction polynomial. Both minimal-profile cases have N-2r blue vertices, with counts shown by direct labeled choices; maximal failing sets arise from minimal forts of size three, except the all-triangle case. Direct exhaustive adjacency-rule simulation on 182 parameter profiles agreed on all 1,291,680 initial subsets, while 71,009 candidate white subsets were examined for minimal forts. The infinite theorem rests on the structural proof, not these finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cooper and Fickes (2023) prove general closure and matching-saturation properties, not an enumeration specialized to clique bouquets.",
+        "Johnson, Vick, and Narayan (2022), Theorem 1 and Lemma 5, concern failed skew forcing numbers zero and one and cut-vertex lower bounds.",
+        "Here, if any peripheral clique has size at least three, the exact largest failure is N-3, and the all-size coefficients are determined; for r>=2 these graphs have F^- at least three."
+      ],
+      "reasoning": "Broad graph-theoretic closure/low-failure results give constraints but not the full two-case polynomial. The only shared special family, bouquets of triangles, is accounted for as prior coverage. An unindexed broader theorem on arbitrary clique-block sums remains a residual risk.",
+      "searches": [
+        "\"skew zero forcing\" \"block graphs\" clique sums",
+        "\"skew zero forcing\" \"block graph\" minimum",
+        "\"skew zero forcing\" \"complete windmill graph\" Z-",
+        "arxiv:2303.17419 Sections 3.2–3.4",
+        "arxiv:2209.09379, cut-vertex lemma and low failed-skew-number theorems"
+      ]
+    },
+    "checked_sources": [
+      "Jacob, The zero forcing span of a graph, arXiv:2309.06234 (HTML, definitions and principal relevant sections).",
+      "Cooper–Fickes, Zero loci of nullvectors and skew zero forcing in graphs and hypergraphs, arXiv:2303.17419 (HTML, graph-related sections).",
+      "Johnson–Vick–Narayan, Characterization of All Graphs with a Failed Skew Zero Forcing Number of 1, Math. 2022 (open HTML, relevant theorems).",
+      "DeAlba, Some results on minimum skew zero forcing sets, arXiv:1404.1618 (abstract only).",
+      "Publicly indexed zero-forcing polynomial of friendship graphs (standard forcing, retrieved summary only).",
+      "Publicly indexed dissociation polynomial of generalized windmills (different invariant, retrieved summary only).",
+      "Publicly indexed skew-zero-forcing sets of chain graphs (bipartite graphs, retrieved summary only)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jacob (2023): the triangle-bouquet zero-span case follows from odd-cycle bouquet classification; the heterogeneous clique-bouquet polynomial is not stated.",
+        "Johnson–Vick–Narayan (2022): F^- = 0 is characterized for odd-cycle bouquets, but the clique-bouquet family with any n_i >= 3 has F^- = N-3 > 1, outside their F^- = 0 or 1 results.",
+        "Cooper–Fickes (2023): the general skew closure machinery does not calculate the described two-type minimal skew forts.",
+        "An ordinary zero-forcing polynomial of friendship graphs does not determine a skew forcing polynomial because the forcing vertex may be white in the skew rule."
+      ],
+      "reasoning": "The original published statements are consistent with the triangular special case, but none inspected implies the entire product correction or the size-independent nonzero span. A statement about a different forcing rule or set invariant cannot imply the current coefficients merely from the common underlying graph.",
+      "searches": [
+        "arxiv:2309.06234 (Theorem 9, Corollary 10, spanning parameter definitions)",
+        "arxiv:2303.17419 (Propositions 2.14, 3.13, Theorem 3.9)",
+        "arxiv:2209.09379 (Theorem 1 and Theorem 3)",
+        "\"skew zero forcing\" \"friendship\" \"windmill\" graph polynomial"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jacob (2023), arXiv:2309.06234, Section 2 and Theorem 9: the skew rule, skew counting polynomial, and odd-cycle bouquet zero-span case.",
+        "Cooper and Fickes (2023), arXiv:2303.17419, Proposition 2.14 and Sections 3.2–3.4: closure-system and matching language.",
+        "Current theorem characterizes inclusion-minimal skew forts of two types, including a global hub transversal of cardinality 1+2r."
+      ],
+      "reasoning": "Equivalent language comprises skew forts, stalled white sets, skew forcing closure, and transversals of minimal forts. The cited general closure statements do not specify the two-type clique-bouquet fort hypergraph and so do not imply the coefficient formula. The r-triangle subfamily is covered by known zero-span results and is explicitly treated as a consistency specialization, not novelty.",
+      "searches": [
+        "\"skew zero forcing\" \"bouquet\" clique polynomial",
+        "\"skew zero forcing\" \"windmill\" OR \"friendship\" OR \"clique bouquet\" counting polynomial",
+        "arxiv:2309.06234 (skew forcing span and zero forcing polynomial)",
+        "arxiv:2303.17419 (closed sets, stalled sets, minimal forcing sets)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted index searches returned studies of ordinary zero forcing friendship-graph polynomials and skew forcing number/span, but no retrieved exact clique-bouquet skew coefficient table.",
+        "A related published windmill dissociation-polynomial result counts sets with induced maximum degree one, not skew-forcing sets.",
+        "Exhaustive graph-rule computation is recorded in verify.py and verify_output.txt as reproducibility evidence, not novelty evidence."
+      ],
+      "reasoning": "No exact external table of the claimed polynomial or minimum-set multiplicities was located in the inspected search results. Absence of a retrieved table alone is not evidence of uniqueness; the statement-level comparisons with the closest identified sources are the actual novelty basis.",
+      "searches": [
+        "\"skew zero forcing\" \"friendship graph\" count",
+        "\"skew zero forcing polynomial\" \"friendship\" OR \"windmill\"",
+        "\"skew zero forcing polynomial\" \"block graph\" \"clique\"",
+        "\"skew zero forcing\" \"windmill graph\" cliques"
+      ]
+    },
+    "rationale": "The inspected primary sources define the skew forcing polynomial and broad closure theory but do not calculate its all-subset distribution for clique bouquets with a peripheral clique of size at least three. The known odd-cycle bouquet regime with every peripheral clique of size two is acknowledged rather than asserted as novel. Publicly indexed related studies of ordinary zero forcing and dissociation use different definitions and do not imply the skew forcing enumeration or constant span without further mathematical arguments. Dedicated database and literature searches did not identify a covering statement; this is a bounded best-knowledge originality determination, not uniqueness proof.",
+    "residual_risks": [
+      "An equivalent block-graph skew-forcing polynomial may exist in unindexed or untranslated literature.",
+      "DeAlba (2014) was available as an abstract in this comparison; its complete text was not inspected.",
+      "Recent indexed records of related graph invariants were compared from their short public summaries rather than full texts; no whole-document noncoverage claim rests solely on those summaries.",
+      "The special case where all n_i=2 is previously subsumed by the known odd-cycle bouquet result and is not asserted as novel."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the all-triangle zero-span boundary; DOES NOT ESTABLISH the polynomial or nonzero span for larger clique blades in the inspected statements.",
+        "evidence": [
+          "Sections 1–2 define skew forcing, polynomial and span; Theorem 9 singles out odd-cycle bouquets as zero-span; the present large-blade cases have a failed set of size N-3."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2309.06234",
+        "material_read": "Accessible full HTML text: definition and polynomial in Sections 1–2, zero-span Theorem 9 and Corollary 10, and results on modules and forcing spans.",
+        "method": "Direct HTML full-text examination and comparisons of theorem statements and graph families.",
+        "title": "The zero forcing span of a graph",
+        "trigger": "Introduces the skew forcing polynomial and characterizes zero-span odd-cycle bouquets, potentially covering the triangular boundary."
+      },
+      {
+        "assessment": "The general closure and matching results are consistent but do not enumerate skew forcing sets for clique bouquets.",
+        "evidence": [
+          "Proposition 2.14 is monotonicity of closure; Proposition 3.13 gives matching saturation; Theorem 3.9 is a matroid-closure algorithm, not an exact clique-bouquet count."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2303.17419v1",
+        "material_read": "Accessible primary HTML: skew closure definition, Proposition 2.14, Sections 3.2–3.4 on closure matroids, matchings, and graph classes, and theorem locations throughout the graph part.",
+        "method": "Direct HTML section inspection and term searches for clique, windmill, block graph and bouquet.",
+        "title": "Zero loci of nullvectors and skew zero forcing in graphs and hypergraphs",
+        "trigger": "General closure theory could potentially subsume the newly classified skew forts."
+      },
+      {
+        "assessment": "Known all-triangle boundary and low-failure classification do not cover the present n_i >= 3 polynomial.",
+        "evidence": [
+          "Theorem 1 restates F^- = 0 odd-cycle bouquet characterization; Theorem 3 concerns F^- = 1, whereas the present large-blade family has F^- = N-3 >= 3."
+        ],
+        "identifier_or_url": "https://www.mdpi.com/2227-7390/10/23/4463",
+        "material_read": "Accessible full-text article introduction, Theorem 1, cut-vertex Lemma 5, and the stated scope of the main Theorem 3.",
+        "method": "Direct open-access HTML examination and checking numerical parameter scope.",
+        "title": "Characterization of All Graphs with a Failed Skew Zero Forcing Number of 1",
+        "trigger": "Characterizes small failed-skew-forcing values and references odd-cycle bouquets."
+      },
+      {
+        "assessment": "No demonstrated coverage in accessible material; the unread full text is acknowledged as a residual risk.",
+        "evidence": [
+          "Abstract describes complete multipartite graphs and certain bipartite/unicyclic matching structures, rather than clique-bouquet coefficients."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1404.1618",
+        "material_read": "Abstract only, describing extreme skew-zero-forcing values and matching relations in bipartite and unicyclic graphs.",
+        "method": "Abstract and bibliographic record only; no claim of full-text examination.",
+        "title": "Some results on minimum skew zero forcing sets, and skew zero forcing number",
+        "trigger": "Early skew zero forcing classification and complete-multipartite results could be general background."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d7c3e2b9-981e-4a71-a735-e6fe7e12ad63",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Skew zero forcing is a natural graph-propagation and inverse-eigenvalue invariant. The complete heterogeneous clique-bouquet polynomial determines every cardinality count, not only a numerical minimum; the exact minimal-fort hypergraph has both local triple obstructions and a global hub-transversal obstruction. The resulting skew forcing span is unexpectedly independent of clique sizes whenever one blade exceeds a triangle, depending only on r as 2r-2. The theorem also proves all inclusion-minimal forcing sets are minimum, and counts all of them. This fills an explicit gap between prior odd-cycle-bouquet zero-span results and general skew closure theory. The all-triangle case is prior-covered and acknowledged, not used as the sole value claim.",
+    "status": "PASS"
+  }
+}
