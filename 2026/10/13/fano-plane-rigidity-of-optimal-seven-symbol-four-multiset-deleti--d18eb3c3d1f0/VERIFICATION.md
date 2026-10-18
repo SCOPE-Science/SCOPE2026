@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Verification of the seven-symbol classification
+# Independent mathematical audit
 
-Run the bundled standalone `verify.py` using Python 3 and its standard library:
+## correctness
 
-```sh
-python3 verify.py
-```
+PASS
 
-Expected output (observed on the packaged source):
+For profiles in Z>=0^7 of weight 4, one unordered deletion is correctable iff L1 distance at least 4. Classify profile multiplicities as 1111/211/22/31/4 with respective counts x,y,z,a,b. Triple packing plus degree convexity rules out x=8, so x<=7; high coordinate uniqueness gives a+b<=7; 42 ordered arcs used at rates 2,2,1 for 211,22,31 imply 2y+2z+a<=42. Hence |C|<=35. Equality forces x=7,a=0,b=7,y+z=21 and all arcs used. Complements of seven compatible 4-subsets form an STS(7); any feasible 211 support meets every line, hence itself a Fano line. Omitting any 22 pair forces reverse 211 words on its unique line, violating distance. Thus y=0,z=21 and every maximizer has common even core 28 plus seven Fano complements. STS(7) has |Aut|=168, giving 7!/168=30 labeled codes. Independent exact cover enumerated 30 systems and checked every code distance.
 
-```
-VERIFY_OK: 210 profiles, 30 labeled Fano planes, 30 optimal code constructions, unique orbit, 168 stabilizer
-```
+## originality
 
-The checker enumerates all exact partitions of the \(21\) unordered pairs of a seven-set into seven triples, obtains \(30\) labeled Steiner triple systems, checks that their \(30\) associated \(35\)-word profile codes have pairwise \(\ell_1\) distance at least \(4\), and confirms that the complete \(7!\) permutation orbit comprises the same \(30\) codes. It separately computes ordered-arc contributions of all \(210\) weight-four profiles and confirms the five case counts used in the upper bound.
+PASS
 
-These finite computations corroborate the classification and prevent indexing mistakes. The independent proof that all maximum codes arise from the displayed pattern is in `RESULT.md`; enumerating the \(30\) constructions alone would not exclude a different optimal pattern. No claim about larger alphabets, other deletion counts or ordered-sequence codes is being checked.
+Optimal cardinality 35 and Fano construction are explicitly prior (Chen–Ma–Zhang; Zabokritskiy), so they are not claimed. The additional theorem establishes NECESSITY of Fano and no 211-trades, classifying every maximum code and orbit. Machacek uniqueness work covers three/four variables; later seven-alphabet paper provides value and witnesses but does not state the equality-case census. Bounded literature risk remains unindexed extremizer work.
+
+## value
+
+PASS
+
+Distinguishing unique rigidity up to labels from many unrelated designs is a natural extremal-code question, especially for the exceptional q=7,d=4 optimal packing. The exact 30 labeled maximum codebooks and universal 28-core are independently needed in classifying optimum multiset deletion codes, beyond the previously established optimal size or one witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof first bounds the seven-symbol weight-four profiles by classifying all five multiplicity types, using a sharp four-subset packing bound and a directed-arc counting inequality. Saturation forces a seven-block squarefree layer whose complements form a Fano plane; arc saturation plus the three-point blocking-set property eliminates every \((2,1,1)\) candidate, so every optimal code contains precisely the fixed \(28\) even profiles plus seven Fano complements. All implications, equality conditions, and the fixed labeled alphabet are explicit. The standard-library certificate enumerates the \(30\) labeled Fano planes and directly verifies every constructed code, while the proof establishes unrestricted uniqueness without extrapolating finite tests.
+## correctness
 
-**Originality — PASS with residual risk.** Chen–Ma–Zhang, Theorem III.2 (arXiv:2003.00483), already proves the optimal cardinality via a triple-packing formula and constructs the even-plus-Fano family. The present theorem does **not** claim either result as new: it proves that all maximum codebooks necessarily have that form and classifies their labeled multiplicity and orbit. Machacek (arXiv:2010.11112, Section 4.1) investigates optimizer counts in monomial graphs, but his listed computations and rigidity theorems do not include seven variables at degree four. Kreindel–Essayag–Zabokritskiy (arXiv:2601.05636) and Zabokritskiy (arXiv:2607.13733) give the multiset-deletion setting, cardinalities and examples but not this equality-case classification in the inspected material. Actual mathematical-record searches produced no dominating result; a historical unindexed enumeration remains possible.
+PASS
 
-**Value — PASS.** This resolves a natural structural issue for the first small exceptional seven-symbol multiset deletion code: whether the known optimal construction is one of many non-isomorphic maximum designs or is forced by equality. The answer characterizes every maximum code, identifies a universal \(28\)-profile common core, and ties the remaining codewords bijectively to labeled Fano planes. Such extremal rigidity is mathematically more informative than computing a known size or merely renaming a witness.
+For profiles in Z>=0^7 of weight 4, one unordered deletion is correctable iff L1 distance at least 4. Classify profile multiplicities as 1111/211/22/31/4 with respective counts x,y,z,a,b. Triple packing plus degree convexity rules out x=8, so x<=7; high coordinate uniqueness gives a+b<=7; 42 ordered arcs used at rates 2,2,1 for 211,22,31 imply 2y+2z+a<=42. Hence |C|<=35. Equality forces x=7,a=0,b=7,y+z=21 and all arcs used. Complements of seven compatible 4-subsets form an STS(7); any feasible 211 support meets every line, hence itself a Fano line. Omitting any 22 pair forces reverse 211 words on its unique line, violating distance. Thus y=0,z=21 and every maximizer has common even core 28 plus seven Fano complements. STS(7) has |Aut|=168, giving 7!/168=30 labeled codes. Independent exact cover enumerated 30 systems and checked every code distance.
 
-**Scope and limits.** The result is confined to one deletion, multiset size four, alphabet size seven. Existing cardinality and construction results receive priority credit; independent scrutiny of the novelty and proof is still outstanding. An unindexed source could contain the same optimizer classification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Optimal cardinality 35 and Fano construction are explicitly prior (Chen–Ma–Zhang; Zabokritskiy), so they are not claimed. The additional theorem establishes NECESSITY of Fano and no 211-trades, classifying every maximum code and orbit. Machacek uniqueness work covers three/four variables; later seven-alphabet paper provides value and witnesses but does not state the equality-case census. Bounded literature risk remains unindexed extremizer work.
+
+## value
+
+PASS
+
+Distinguishing unique rigidity up to labels from many unrelated designs is a natural extremal-code question, especially for the exceptional q=7,d=4 optimal packing. The exact 30 labeled maximum codebooks and universal 28-core are independently needed in classifying optimum multiset deletion codes, beyond the previously established optimal size or one witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
