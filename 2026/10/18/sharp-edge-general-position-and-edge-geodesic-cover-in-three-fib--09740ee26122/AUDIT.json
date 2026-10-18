@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For each of n=6,7,8, a finite independent verifier checks exactly F_n vertex-sequence certificates, admissible graph edges, geodesicity via endpoint Hamming equality, and complete edge coverage. The graph distance equals Hamming distance by first clearing and then setting differing bits, so each geodesic can cover at most one first-coordinate edge; hence the cover optimum is exactly F_n. Two endpoint coordinate edge classes give a 2F_n feasible general-position set; the cover implies the matching upper bound for any set. All graph and certificate paths are included and were checked with a second independent BFS distance reconstruction. No inference is made about dimension nine or above.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Manuel–Prabha–Klavžar, Lemma 2.4, proves the universal inequality; its solved graph families include torus, hypercube, and Beneš networks.",
+        "Tian–Klavžar–Tan (2024) characterizes near-all-edge and size-three cases and block graphs, not Fibonacci cubes with the present optima."
+      ],
+      "reasoning": "General min-max inequalities do not imply exact Fibonacci-cube cover sizes without the finite geodesic witnesses supplied here. The cited general classes are not known to contain the Fibonacci cubes at these dimensions in a way that would yield the claimed exact values.",
+      "searches": [
+        "\"generalization of edge general position problem\" \"Fibonacci cubes\" \"geodesic\" theorem",
+        "arXiv:2207.07357v1 Sections 2-5",
+        "doi:10.1007/s00373-024-02770-z"
+      ]
+    },
+    "checked_sources": [
+      "Klavžar–Tan, arXiv:2304.10114v1 §§1–4",
+      "Manuel–Prabha–Klavžar, arXiv:2207.07357v1 Lemma 2.4 and scope",
+      "Tian–Klavžar–Tan, doi:10.1007/s00373-024-02770-z",
+      "Manuel et al., arXiv:2210.12675 abstract",
+      "Relevant publicly accessible mathematical research records and published literature compared at the level of mathematical implications"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 4.3 is a matching universal lower bound only, not an upper bound. Proposition 4.4 proves dimension five; Conjecture 4.5 explicitly requests the all-dimensional upper bound.",
+        "Lemma 2.4 gives an upper bound in terms of the separately unknown cover number; it does not construct the claimed optimal Fibonacci-cube geodesic covers."
+      ],
+      "reasoning": "Each prior implication was reconstructed. Lower bound plus generic cover duality does not prove equality until a cover of cardinality F_n is constructed. The exact listed geodesic covers are the nontrivial newly supplied premises; consequently the new finite instances are not routine restatements of prior conclusions.",
+      "searches": [
+        "Klavžar Tan Edge General Position Sets Fibonacci Lucas Cubes conjecture 4.5 resolved 2024 2025 2026 Γn 2Fn",
+        "arXiv:2304.10114v1 Theorem 4.3 Proposition 4.4 Conjecture 4.5",
+        "arXiv:2207.07357v1 Lemma 2.4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem 4.3 of Klavžar–Tan gives lower bound, their Conjecture 4.5 is the desired equality in all dimensions; no enumerated upper bound for dimension six or later appears there.",
+        "A geodesic-cover certificate yields edge-general-position upper bounds by Manuel–Prabha–Klavžar Lemma 2.4; this reduction is explicitly credited."
+      ],
+      "reasoning": "The dual cover and geodesic upper bound are mathematically linked, so searching one formulation alone is insufficient. Both the value statement and exact covers in the three dimensions were compared with the primary literature. The universal theorem remains conjectural there.",
+      "searches": [
+        "\"Fibonacci cubes\" \"edge geodesic\" cover number",
+        "\"Fibonacci cube\" \"edge general position\" \"6\" 2025",
+        "\"Fibonacci cubes\" \"isometric path cover\" geodesics",
+        "arXiv:2304.10114v1 §4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The MathWorld Fibonacci-cube entry describes the graph and its total edge count, not exact edge-general-position or geodesic-cover optima for dimensions six through eight.",
+        "The 2023 source tabulates/establishes the dimension-five case but poses higher-dimensional equality as Conjecture 4.5."
+      ],
+      "reasoning": "The vertex/edge counts of Fibonacci cubes do not determine edge-geodesic cover or the edge-general-position number. Search did not locate a table with the three asserted optimum values; this is evidence of a gap, not a uniqueness proof.",
+      "searches": [
+        "\"Fibonacci cube\" \"edge general position\" \"6\" 2025",
+        "Fibonacci Cube Graph Wolfram MathWorld edge count",
+        "\"Fibonacci cube\" \"edge geodesic cover\" \"Fibonacci\" theorem"
+      ]
+    },
+    "rationale": "The exact values beyond dimension five and the matching covers in dimensions six through eight are absent from the closely inspected 2023 original conjecture and from the general cover inequality. Relevant later paper studies other graph families. Claim is first three unresolved cases, not novelty for the universal lower bound, the general cover inequality, the conjecture itself, or small cases through dimension five. Residual risk: unindexed coverage or an indirect stronger theorem.",
+    "residual_risks": [
+      "An unindexed publication, thesis or code table might already prove these instances or stronger bounds.",
+      "Possible indirect consequences of broader network/partial-cube covering theorems not identified by the inspected works.",
+      "No external independent bibliographic priority audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING dimensions six through eight: established lower bound and n<=5; later n remain conjectured",
+        "evidence": "Conjecture 4.5 states gp_e(Gamma_n)=2F_n for n>=2, after Proposition 4.4 proves n=5; no new explicit F_n-path covers in n>=6.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s40840-023-01517-y",
+        "material_read": "Full openly accessible article, especially definitions and §4, Theorem 4.3, Proposition 4.4, Conjecture 4.5",
+        "method": "Read primary open full-text article and compared claimed parameter ranges and upper/lower implications",
+        "title": "Edge General Position Sets in Fibonacci and Lucas Cubes",
+        "trigger": "Same graph family, same invariant, exact conjecture 4.5"
+      },
+      {
+        "assessment": "General inequality known, not a finite Fibonacci-cube cover construction; not covering new exact instances",
+        "evidence": "Lemma 2.4 supplies k-gp_e(G)<= (k-1)gcover_e(G); exact studied families include hypercube/torus/Beneš, no Fibonacci-cube case.",
+        "identifier_or_url": "https://arxiv.org/abs/2207.07357",
+        "material_read": "ArXiv v1 manuscript text, abstract, introduction, §2 Lemma 2.4 and sections listing handled networks",
+        "method": "Inspected freely accessible complete manuscript text with pertinent sections and searched for Fibonacci references",
+        "title": "Generalization of edge general position problem",
+        "trigger": "Directly related edge-geodesic cover duality might imply proposed optima"
+      },
+      {
+        "assessment": "NOT_COVERING three Fibonacci-cube cases; exact values concern different graph families",
+        "evidence": "The 2024 article treats graphs with gp_e equal to edge count minus one, value three, and block graphs; the Fibonacci-cube conjecture remains outside its stated exact scope.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00373-024-02770-z",
+        "material_read": "Official open full-text article: abstract, introduction, primary extremal classifications and scope of results",
+        "method": "Read primary Springer full-text and checked graph classes and parameter ranges",
+        "title": "Extremal Edge General Position Sets in Some Graphs",
+        "trigger": "Later primary article with same invariant and possibly dominating generic statements"
+      },
+      {
+        "assessment": "Different graph family; full paper not evaluated for indirect reductions",
+        "evidence": "Main asserted exact cover values are for butterfly networks, not Fibonacci cubes.",
+        "identifier_or_url": "https://arxiv.org/abs/2210.12675",
+        "material_read": "Abstract and network-specific main-result description",
+        "method": "Inspected publicly accessible abstract and publication summary, not entire proof",
+        "title": "The geodesic cover problem for butterfly networks",
+        "trigger": "Potential stronger edge-geodesic-cover methods"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "09740ee2-6122-41d6-9caf-62013d289d40",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Klavžar–Tan Conjecture 4.5 is a natural open invariant in Fibonacci cubes. The 2023 primary paper proves through dimension five only; exact dimensions six, seven and eight are the immediate subsequent instances, not an arbitrary slice. The finding also establishes matching exact shortest-path covering numbers with compact reproducible combinatorial witnesses (8,13,21 paths), and a principled duality argument explains the equality. It makes bounded but substantive progress without claiming the full conjecture or significant general downstream consequences.",
+    "status": "PASS"
+  }
+}
