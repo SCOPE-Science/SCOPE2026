@@ -1,15 +1,21 @@
-# Scientific review: edge-domination polynomial of heterogeneous windmill graphs
+# Independent mathematical audit
 
-## Correctness — PASS
-The independent-set characterization of vertices with zero selected degree converts edge domination into a hub-dependent, blade-local condition. Inclusion-exclusion with exact isolated rim vertices proves the full polynomial. The proof separately classifies equality cases at local minimum cost for even and odd blades; the parity-dependent minimum and exact first coefficient follow without assuming that an optimal edge dominating set is a matching. A standalone integer verifier compares every coefficient with exhaustive edge-subset enumeration on 58 small heterogeneous tuples and cross-checks the symbolic first-coefficient formulas on larger finite collections. The finite computation is supporting evidence, not the infinite proof.
+## correctness
 
-## Originality — PASS
-The general minimum edge-dominating-set algorithm of van Rooij–Bodlaender and the general coefficient-extraction construction of Alaeiyan–Mohammadian cover the definitions and computational frameworks but neither supplies the blade-isolation factorization and parity-sensitive nonmatching optimum multiplicities. The known friendship-graph saturation *number* is excluded from the originality basis. The public 2023 friendship-graph article treats connected vertex-edge domination, a different invariant. Semantic database searches for edge domination, line-graph domination, windmills, clique bouquets, parity and matching reductions did not find a dominating explicit theorem. The 2016 edge-domination-polynomial paper and some older sources were not available in full and remain specifically recorded coverage risks.
+PASS
 
-## Value — PASS
-The result determines every cardinality coefficient for the natural infinite class of arbitrary heterogeneous clique bouquets, a tractable benchmark for an NP-hard edge-domination counting/optimization problem. The hub changes the combinatorics, requiring subtraction of spoke-free false positives and replacement by full internal edge covers. The parity threshold and closed nonmatching optimum counts distinguish the new information from a routine scalar bound or a mere matching enumeration. It recovers stars and friendship graphs without asserting novelty for already known special-case scalar values.
+PASS: Reconstructed the zero-selected-degree lemma: F is edge dominating precisely when its incident-vertex complement is independent. Split disjointly into hub incident to a selected spoke (at most one rim isolated in each clique) versus no spoke (all rim vertices covered); exact-isolate inclusion-exclusion gives the three product terms with no double counting. Lower bound per blade uses at most two rim endpoints per internal selected edge; analyzed even local P perfect matchings/E one repeated internal endpoint/Q one spoke versus odd t matchings and one-extra-spoke types u, including singleton and size-two boundary. Direct independent edge-subset enumeration matched the inclusion-exclusion polynomial for nine small clique-bouquet choices; finite checks corroborate, while the combinatorial classification proves the unrestricted formula.
 
-## Limits and closest literature
-The theorem applies to a shared single hub and clique blades, not all block graphs. The claim does not enumerate only maximal matchings. Closest checked literature: van Rooij–Bodlaender (2011 public online), Alaeiyan–Mohammadian (2011), Chaluvaraju–Chaitra (2016, abstract only), Horton–Kilakos (minimum edge domination, abstract only), Gupta (friendship scalar), and Radhika–Suhi–Jangiti (connected vertex-edge domination, abstract only). Independent mathematical or bibliographic verification has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: a complete heterogeneous-clique-bouquet edge domination enumerator and all parity-conditioned optimum multiplicities were not located in the primary edge-domination coefficient literature or Resultary results. Do not claim originality for general edge domination, line-graph equivalence, or the known friendship-graph scalar parameter. Full relevant 2016 article inaccessible and explicitly retained as risk.
+
+## value
+
+PASS
+
+PASS: Edge domination is a standard graph optimization invariant. This all-size clique-bouquet family supports an explicit full coefficient enumerator and exact nonmatching optimum multiplicity, a substantive extension beyond scalar homogeneous friendship graph minima; parity dependence gives structurally meaningful extremal classification usable as benchmark for edge-domination counting on block graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
