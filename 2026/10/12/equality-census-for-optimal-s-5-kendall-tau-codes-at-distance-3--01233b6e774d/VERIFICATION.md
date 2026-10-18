@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` with a standard Python 3 interpreter. The verifier reconstructs the metric by two independent methods, checks all \(7140\) unordered pairs, proves nonexistence of a normalized size-\(21\) clique, enumerates all \(532\) normalized size-\(20\) maxima, expands them to all \(3192\) labeled maxima, rechecks every maximum, and recomputes the natural order-\(240\) orbit partition.
+# Independent mathematical audit
 
-The verifier also confirms the published 2016 example and its orbit size. It does not attempt to determine the full abstract automorphism group of the compatibility graph.
+## correctness
 
-Expected final line:
+PASS
 
-`VERIFY_OK vertices=120 pair_checks=7140 maximum=20 normalized_maxima=532 labeled_maxima=3192 natural_group=240 orbits=24 orbit_sizes=6x1,30x3,48x2,60x4,120x5,240x9 paper_example_orbit=120 normalized_sha256=502486838fdc6f3400e2372677ebb1ebf733bf9bdef71b690d7fad3c84d82eb2 labeled_sha256=018236d2efcea3622ecab4ccd90d7334de08a6074a5669452884c2d8d500d2b3`
+PASS: Two independent descriptions of Kendall tau as pair-order disagreement and adjacent-swap distance agree on all unordered permutation pairs. Every code with 20 elements maps by a symbol relabeling to one containing identity; thus normalized size-20 equality enumeration and no normalized size-21 clique suffice. Reviewed exact color-bounded clique enumeration over 120 permutations and independently replayed a fresh bitset/color-capped clique search: exactly 532 normalized 20-cliques, no 21-clique. Double count (code, selected word) yields N=532*120/20=3192; expansion under all 120 relabelings and reversal gives orbit profile 1*6+3*30+2*48+4*60+5*120+9*240=3192 and 24 orbits. Claimed symmetry is only the explicit 240 group; finite search is exhaustive for its fully specified 120-vertex graph.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge for complete equality-code census and natural-group orbit classification, not for known optimum P(5,3)=20 or the published explicit construction. Vijayakumaran (2016) provides the optimum and one code; Buzaglo--Etzion general bounds, and Jany--Ravagnani t-balanced structure at min distance>=4 do not mathematically imply distance-3 equality cases. Full Vijayakumaran article inaccessible due an explicit access/safety block, a residual priority risk.
+
+## value
+
+PASS
+
+PASS: Enumerating all equality cases at the smallest substantial Kendall metric parameter reveals precise multiplicity, nontrivial stabilizer variation and 24 symmetry classes beyond a known cardinality bound; this is a motivated complete finite extremizer classification useful for comparing permutation-code constructions and orbit-search benchmarks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
