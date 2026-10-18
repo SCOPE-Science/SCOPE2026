@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The derivative map is bijective after retaining the first bit, and direct calculation shows that a repetition inserts exactly one zero in the derivative. For fixed derivative weight, two-zero-insertion descendant intersection is equivalent to \(\ell_1\)-distance at most \(4\) between equal-sum zero-bin vectors; therefore correction requires distance at least \(6\). The six layer optima follow exactly from this criterion. The bundled verifier also reconstructs direct repetition descendants for all \(64\) words and exhaustively enumerates all layer equality cases.
+## correctness
 
-Risk: the finite result depends on the channel convention that a repetition duplicates one symbol adjacently and that received length identifies the number of repetitions. Those conventions are stated explicitly and match the cited repetition/tandem-duplication models.
+PASS
 
-## Originality
-PASS. The closest same-model source, Dolecek--Anantharam, develops the derivative reduction and asymptotic constructions/bounds for maximally sized repetition-immune sets but does not state the finite length-six, two-repetition optimum or enumerate equality cases. Jain--Farnoud--Schwartz--Bruck reduce fixed-length tandem-duplication correction to constant-weight \(\ell_1\) coding and leave general finite optimal-code construction outside their result. Kovačević--Tan develops asymptotic cardinality bounds and exact asymptotics for one duplication, not this finite two-duplication equality census. Targeted published-finding searches and the checked prior scientific ledger found no implication-equivalent claim.
+Binary first-symbol+XOR-derivative representation is bijective; one tandem repetition duplicates a bit and inserts a 0 into the derivative. For a fixed first bit and derivative weight w, length-five derivative corresponds to zero-bin composition b of 5−w into w+1 bins; two-repeat descendant intersections iff Σ max(b,b′)≤7−w, equivalently ||b−b′||₁≤4. Distinct two-repeat balls iff distance ≥6. Weight-layer maxima reconstructed as (1,2,3,1,1,1); equality counts (1,3,1,10,5,1). Sum=9 and product=150 for each first-bit sector; two disjoint first-bit sectors give 18 optimum and 150²=22,500 labeled maxima. Exactly-two disjointness implies exactly-one correction (and zero trivially); independent direct descendant construction and finite exhaustive layer clique checks reproduce each optimum/equality count and verify 142/256 length-eight coverage. Finite result, no assertion for n>6.
 
-Risk: an obscure or unindexed historical table could contain this small parameter. The literature comparison therefore supports, but cannot logically prove, priority.
+## originality
 
-## Value
-PASS. The result closes a finite extremal problem in the foundational repetition-error model at the smallest block length where the derivative-weight-two layer can contain three mutually compatible representatives. It gives not only the optimum but the complete labeled equality count and a rigid layer decomposition, plus exact received-space coverage. These data distinguish the extremal structure from the asymptotic constructions emphasized in the foundational literature and provide a compact benchmark for duplication-code methods.
+PASS
 
-## Closest literature and limitations
-The principal comparisons are `dblp:conf/isit/DolecekA07`, DOI `10.1137/080730093`, arXiv `1606.00397`, and arXiv `1808.10328`. The result is finite and parameter-specific, and no statement about longer block lengths is inferred.
+Dolecek–Anantharam studies precisely repetition errors and maps them to inserted derivative zeros, so derivative reduction is not novel. Their full-text 2010 work gives explicit constructions/prefixing and asymptotic bounds, not the six-layer equality census at n=6, t=2. Jain–Farnoud–Schwartz–Bruck provides more general fixed-length tandem duplication code machinery, with conditional ℓ1 viewpoint, but no specific 18/22500 layer-optimal classification found. The published Resultary palindromic length-two duplication code censuses use a different duplication operator, not length-one repetition. No claim that reduction itself is new.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The complete equality classification of a natural small binary multiple-repeat channel determines all 22,500 maxima and their uncorrected output-space density rather than a mere lower-bound instance. The six-layer decomposition gives an exact reusable benchmark for constrained ℓ1/zero-insertion codes; the finite result is self-contained and can inform validation of bounded-duplication constructions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

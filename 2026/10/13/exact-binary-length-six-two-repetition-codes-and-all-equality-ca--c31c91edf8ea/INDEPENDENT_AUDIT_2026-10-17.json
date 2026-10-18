@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T21:59:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Binary first-symbol+XOR-derivative representation is bijective; one tandem repetition duplicates a bit and inserts a 0 into the derivative. For a fixed first bit and derivative weight w, length-five derivative corresponds to zero-bin composition b of 5−w into w+1 bins; two-repeat descendant intersections iff Σ max(b,b′)≤7−w, equivalently ||b−b′||₁≤4. Distinct two-repeat balls iff distance ≥6. Weight-layer maxima reconstructed as (1,2,3,1,1,1); equality counts (1,3,1,10,5,1). Sum=9 and product=150 for each first-bit sector; two disjoint first-bit sectors give 18 optimum and 150²=22,500 labeled maxima. Exactly-two disjointness implies exactly-one correction (and zero trivially); independent direct descendant construction and finite exhaustive layer clique checks reproduce each optimum/equality count and verify 142/256 length-eight coverage. Finite result, no assertion for n>6.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jain et al. arXiv:1606.00397 develops codes correcting fixed-length tandem duplications.",
+          "Dolecek–Anantharam 2010 treats multiple repetition errors asymptotically."
+        ],
+        "reasoning": "General code construction framework does not supply equality cases for the finite derivative-bin layers without an additional exact small-instance calculation. Potential overlooked tables/appendices noted.",
+        "searches": [
+          "binary length 6 two repetition errors tandem duplication length one two copies maximum code size 18 equality 22500",
+          "Jain Farnoud Schwartz Bruck 1606.00397 duplication correcting codes constant weight l1"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md 23d9d25d1aed2bc33184ca01cd53957817b5633f, complete Git tree 7cfad62fe0aa29aa8bb3ca8d2f06b03a205aa345",
+        "Dolecek and Anantharam 2010 full preprint",
+        "Jain et al. arXiv:1606.00397",
+        "Resultary PAL2 results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior general zero-insertion bounds apply to the derivative channel.",
+          "The sharp bound 18 depends on full layer maxima 1,2,3,1,1,1 and independent sector sum."
+        ],
+        "reasoning": "Asymptotic and constructive results neither imply the exact extremizer multiplicity 22500 nor rule out 19 without the layer argument; the final finite proof supplies both.",
+        "searches": [
+          "binary length 6 two repetition errors tandem duplication length one two copies maximum code size 18 equality 22500",
+          "Dolecek Anantharam repetition errors upper bounds asymptotics",
+          "tandem duplication code bounds length 6 two errors"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dolecek–Anantharam 2010 introduces derivative/zero-insertion representation.",
+          "Exact n=6,t=2 all-equality census requires deriving each zero-bin layer maximum; prior representation does not include its counts."
+        ],
+        "reasoning": "Same channel and reduction are known, but the 150 sector maxima and 22,500 labeled optima are further finite classification, not identical to the reduction.",
+        "searches": [
+          "binary length 6 two repetition errors tandem duplication length one two copies maximum code size 18 equality 22500",
+          "Dolecek Anantharam repetition error correcting sets derivative zero insertion length 6",
+          "Jain Farnoud Schwartz Bruck tandem duplications length 1 derivative"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/4 SCOPE-exact-binary-two-mathrm-pal-2-code-sizes-through-length-eight--ba7c5d4a4968 involves length-two palindromic duplications.",
+          "Resultary 2026/10/4 SCOPE-exact-binary-length-6-palindromic-duplication-and-deletion-optim--d41a86ca777b is likewise PAL2 not repeat-one."
+        ],
+        "reasoning": "The searched small-code tables have different descendant operators and numerically distinct optima. No same-channel equality-classification table found in inspected sources.",
+        "searches": [
+          "binary length 6 two repetition errors tandem duplication length one two copies maximum code size 18 equality 22500",
+          "Resultary 2026 SCOPE binary two palindromic duplication length 2 code sizes"
+        ]
+      },
+      "rationale": "Dolecek–Anantharam studies precisely repetition errors and maps them to inserted derivative zeros, so derivative reduction is not novel. Their full-text 2010 work gives explicit constructions/prefixing and asymptotic bounds, not the six-layer equality census at n=6, t=2. Jain–Farnoud–Schwartz–Bruck provides more general fixed-length tandem duplication code machinery, with conditional ℓ1 viewpoint, but no specific 18/22500 layer-optimal classification found. The published Resultary palindromic length-two duplication code censuses use a different duplication operator, not length-one repetition. No claim that reduction itself is new.",
+      "residual_risks": [
+        "Do not conflate PAL2 with duplication length one; two first-bit sectors and same-weight components are independent only because first bit and derivative weight are invariant.",
+        "An obscure small-instance zero-insertion table may exist in literature not completely inspected.",
+        "Finite classification is n=6 only; 142/256 nonperfect coverage for exact-two output length 8."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Priority for reduction and asymptotics credited; no finite 22,500-label theorem identified",
+          "evidence": [
+            "SIAM J. Discrete Math. 23(4) (2010), DOI 10.1137/080730093"
+          ],
+          "identifier_or_url": "https://people.eecs.berkeley.edu/~ananth/2008%2B/DolecekAnanthSIAMsubmitted.pdf",
+          "material_read": "Full primary PDF: introductory model and multiple-repetition constructions, derivative and zero insertion framework, proof/results exposition",
+          "method": "lawful Berkeley author preprint PDF inspected including page 1 and relevant sections",
+          "title": "Repetition Error Correcting Sets: Explicit Constructions and Prefixing Methods",
+          "trigger": "Identical repetition channel and derivative method"
+        },
+        {
+          "assessment": "Related fixed-length tandem duplication framework; residual possible finite-case table",
+          "evidence": [
+            "arXiv:1606.00397 abstract"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1606.00397",
+          "material_read": "Abstract and relevant model/construction summary, complete full text not read",
+          "method": "arXiv abstract and OA catalogue",
+          "title": "Duplication-Correcting Codes for Data Storage in the DNA of Living Organisms",
+          "trigger": "Broader duplication code theorem could subsume finite case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete equality classification of a natural small binary multiple-repeat channel determines all 22,500 maxima and their uncorrected output-space density rather than a mere lower-bound instance. The six-layer decomposition gives an exact reusable benchmark for constrained ℓ1/zero-insertion codes; the finite result is self-contained and can inform validation of bounded-duplication constructions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Do not conflate PAL2 with duplication length one; two first-bit sectors and same-weight components are independent only because first bit and derivative weight are invariant.",
+    "An obscure small-instance zero-insertion table may exist in literature not completely inspected.",
+    "Finite classification is n=6 only; 142/256 nonperfect coverage for exact-two output length 8.",
+    "The metadata still has private provenance; plan not ready despite scientific acceptance; no publication, certification or GitHub write.",
+    "Potential newer/relevant full text not read as specifically documented; no unsuccessful novelty search asserted conclusive."
+  ],
+  "schema_version": 1
+}
