@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the elementary divisibility and parity reductions, specializes Chu's general \(p\equiv1\pmod4\) and \(p\equiv3\pmod4\) bounds to \(k=13\), and reduces every \(\beta>2\) branch to explicit finite exact checks. The \(t=2^v\) branch is handled symbolically by LTE and gives only \(\beta=2\). The checker deliberately includes composite candidates, so no prime can be lost through a primality test.
+## correctness
 
-## Originality
-PASS. Chu's primary source states the full \(\beta>1\) assertion as Conjecture 1.5 and proves it only for \(k=5\); the general theorem in the same paper is restricted to \(\beta=2\). The closest later result proves \(k=7\) and explicitly excludes \(k=13\) from its coverage. Targeted searches for the conjecture, \(\sigma_{13}\), thirteenth divisor powers, and the two-prime-power form did not locate a proof of the \(k=13\) case. An unindexed result remains a residual risk.
+PASS
 
-## Value
-PASS. This is a complete proof of the next unresolved Mersenne-exponent instance after \(k=7\) of an explicit published conjecture. The result covers the full original quantified domain for \(k=13\), not merely a bounded computation.
+Checked exact problem domain n=2^(alpha−1)p^(beta−1), alpha,beta>1, p odd prime <3·2^(alpha−1)−1, k=13, M=8191. Primary Chu Lemmas 8,9,10 yield alpha≤v+1 for p≡1(mod4), p^(2^v−27)<2^(13(v−1))/8191 for p≡3(mod4), alpha≤lambda+v for p+1=2^lambda q. Growth yields v≤4 or v≤5; p=M=8191 separately excluded by LTE. The non-Mersenne case t≠2^v uses finite bound 2^m ≤ (|2^(13v)−t^13|+1)/t. Independently regenerated all exact integer candidates admitting composite p (over-enumeration): p≡1 cases empty for v1,2 and only (alpha,p,valuation)=(4,5,1) at v3,4; p≡3 max valuation u=(0,1,1,2,2) at v1..5. These contradict beta−1≥2^v−1 except Mersenne p=2^alpha−1, beta=2. Chu Theorem3 reverse holds excluding 2^12·8191. Finite enumeration is proven exhaustive by prior inequalities; not mistaken for infinite proof.
 
-## Closest literature and limitations
-The primary source is H. V. Chu, “On Even Perfect Numbers II,” arXiv:2001.08633v1, later published in the *Journal of Integer Sequences* 24 (2021), Article 21.3.4. The closest later result is the \(k=7\) specialization. This result does not settle \(k=17,19,\ldots\), and the finite terminal step is computer-assisted with exact integer arithmetic.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Conjecture 5 of Chu is proved for k=5 and previously solved for k=7 in other publication; the k=13 branch needs its own new cutoffs and finite exact elimination and is not a corollary of source k5 or k7.
+
+## value
+
+PASS
+
+Settles an explicit genuinely open prime-exponent instance of Chu’s divisor-sum conjecture beyond the earlier k5/k7 cases; the exact finite certificate combined with global inequalities gives a meaningful arithmetic classification, not a finite table substituted for proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

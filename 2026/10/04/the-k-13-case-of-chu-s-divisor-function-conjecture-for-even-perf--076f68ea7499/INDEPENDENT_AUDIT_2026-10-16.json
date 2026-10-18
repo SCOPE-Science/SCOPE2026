@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T09:50:08.448965Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked exact problem domain n=2^(alpha−1)p^(beta−1), alpha,beta>1, p odd prime <3·2^(alpha−1)−1, k=13, M=8191. Primary Chu Lemmas 8,9,10 yield alpha≤v+1 for p≡1(mod4), p^(2^v−27)<2^(13(v−1))/8191 for p≡3(mod4), alpha≤lambda+v for p+1=2^lambda q. Growth yields v≤4 or v≤5; p=M=8191 separately excluded by LTE. The non-Mersenne case t≠2^v uses finite bound 2^m ≤ (|2^(13v)−t^13|+1)/t. Independently regenerated all exact integer candidates admitting composite p (over-enumeration): p≡1 cases empty for v1,2 and only (alpha,p,valuation)=(4,5,1) at v3,4; p≡3 max valuation u=(0,1,1,2,2) at v1..5. These contradict beta−1≥2^v−1 except Mersenne p=2^alpha−1, beta=2. Chu Theorem3 reverse holds excluding 2^12·8191. Finite enumeration is proven exhaustive by prior inequalities; not mistaken for infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chu k general beta=2 theorem and k5 theorem; SCOPE published k7 does not settle k13."
+        ],
+        "reasoning": "Finite bounds specialize general lemmas but require a distinct new elimination. General published theorem does not cover full beta>1 for k13.",
+        "searches": [
+          "Chu divisor function sigma_13 conjecture even perfect numbers k 13 8191",
+          "https://cs.uwaterloo.ca/journals/JIS/VOL24/Chu/chu26.pdf",
+          "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-sigma7-even-perfect-divisor-sum-characterization--5f32d551140e"
+        ]
+      },
+      "checked_sources": [
+        "https://cs.uwaterloo.ca/journals/JIS/VOL24/Chu/chu26.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-sigma7-even-perfect-divisor-sum-characterization--5f32d551140e",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-the-k-13-case-of-chu-s-divisor-function-conjecture-for-even-perf--076f68ea7499"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chu paper Conjecture5, k5 proof and general beta2 theorem; k7 separate proof, no k13 full theorem."
+        ],
+        "reasoning": "Prior results do not entail claimed general beta>1 k13 by simple parameter substitution, as crucial valuation ranges and exact checks differ.",
+        "searches": [
+          "https://cs.uwaterloo.ca/journals/JIS/VOL24/Chu/chu26.pdf",
+          "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-sigma7-even-perfect-divisor-sum-characterization--5f32d551140e",
+          "Chu divisor function sigma_13 conjecture even perfect numbers k 13 8191"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chu Theorems3-4 cover beta=2 for general relevant k, and full beta>1 only k=5; Conjecture5 explicitly states general unproved claim."
+        ],
+        "reasoning": "k13 extends published result to beta>2 in exact Mersenne-prime exponent case; analogous k7 is not an implication. No reduction to already-proved k5 exponent was found.",
+        "searches": [
+          "Chu divisor function sigma_13 conjecture even perfect numbers k 13 8191",
+          "https://cs.uwaterloo.ca/journals/JIS/VOL24/Chu/chu26.pdf",
+          "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-sigma7-even-perfect-divisor-sum-characterization--5f32d551140e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original journal page lists OEIS sequences but no all-beta k13 characterization; exact bounded tables in verifier established from proven exhaustive range."
+        ],
+        "reasoning": "Sequence entries and a finite table alone cannot imply global characterization; this proof includes completeness bounds and LTE.",
+        "searches": [
+          "Chu divisor function sigma_13 conjecture even perfect numbers k 13 8191",
+          "sigma_13 even perfect numbers sequence database",
+          "https://cs.uwaterloo.ca/journals/JIS/VOL24/Chu/chu26.pdf"
+        ]
+      },
+      "rationale": "Conjecture 5 of Chu is proved for k=5 and previously solved for k=7 in other publication; the k=13 branch needs its own new cutoffs and finite exact elimination and is not a corollary of source k5 or k7.",
+      "residual_risks": [
+        "Search is best-of-knowledge, not a complete priority census.",
+        "Finite exact exclusion depends on correctly implementing inequality-derived limits; independently recomputed and documented.",
+        "Paper references preliminary lemmas by an alternative section numbering (4.2–4.4), while primary journal version labels them Lemmas8–10; needs editorial alignment before public update."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves general beta2 and k5; states remaining as a conjecture. Supports imported inequalities.",
+          "evidence": [
+            "Theorem3, Theorem4, Conjecture5, Lemmas8–10, Lemma13, Appendix."
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL24/Chu/chu26.pdf",
+          "material_read": "Full 16-page primary PDF inspected: Abstract; Theorems 3-4 and Conjecture5; preliminary divisibility; Lemmas8,9,10 and appendices with required 2-adic valuations.",
+          "method": "Publisher-hosted primary PDF; source formulas compared directly",
+          "title": "Divisibility of Divisor Functions of Even Perfect Numbers",
+          "trigger": "Exact conjecture, primitive lemmas and cases"
+        },
+        {
+          "assessment": "Only k7; the numeric exponent difference prevents logical coverage of k13.",
+          "evidence": [
+            "k7 published finding with finite reduction stated."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-sigma7-even-perfect-divisor-sum-characterization--5f32d551140e",
+          "material_read": "Published mathematical record abstract and source comparison via Resultary index (not complete primary proof reread).",
+          "method": "Resultary index/source reference",
+          "title": "The k=7 case of Chu divisor-sum conjecture for even perfect numbers",
+          "trigger": "Natural closest previously published specialization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Settles an explicit genuinely open prime-exponent instance of Chu’s divisor-sum conjecture beyond the earlier k5/k7 cases; the exact finite certificate combined with global inequalities gives a meaningful arithmetic classification, not a finite table substituted for proof.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only k13 and constrained two-prime form; does not solve k17,19 or arbitrary integers.",
+    "Correct public source-lemma numbering requires editorial check."
+  ],
+  "schema_version": 1
+}
