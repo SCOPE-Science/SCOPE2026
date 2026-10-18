@@ -109,7 +109,7 @@ Brooks, Jenkins, Liechty and coauthors, *Using Real-Variable Techniques to Study
 
 ## Limitations
 
-The theorem is specific to degree three, co-analytic degree one, positive real coefficients and constant term \(-1\). It concerns **distinct** zeros at critical parameters; no general multiplicity theory at singular zeros is claimed. The exact equal-coefficient slice is already covered in the literature; originality concerns the full off-diagonal phase diagram, including its additional collision boundary. Although relevant published primary results were compared, an unindexed equivalent formulation remains possible. The finding has undergone same-model review only; no independent audit or external validation is claimed.
+The theorem is specific to degree three, co-analytic degree one, positive real coefficients and constant term \(-1\). It concerns **distinct** zeros at critical parameters; no general multiplicity theory at singular zeros is claimed. The exact equal-coefficient slice is already covered in the literature; originality concerns the full off-diagonal phase diagram, including its additional collision boundary. Although relevant published primary results were compared, an unindexed equivalent formulation remains possible. The finding has undergone self-review only; no independent audit or external validation is claimed.
 
 ## References
 

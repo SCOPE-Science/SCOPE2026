@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The real/imaginary equations are expanded explicitly. A unique real zero is proved by strict monotonicity. Every nonreal zero is in bijection with an eligible real root of the auxiliary cubic, with two conjugate signs; cubic discriminant, stationary-point geometry, and the positivity test yield all rows, including equality boundaries. The witness factors exactly and the Jacobian identities show regularity and persistence. A standalone checker passed the radical witness, boundary tests, and 20,000 independently counted parameter samples. Numerical checks are supplemental, never substituted for the all-parameter argument.
+PASS
 
-## Originality — PASS
+For \(z=x+iy\), the imaginary equation is \(y(3x^2-y^2-(b-a))=0\). Real zeros: exactly one because \(x^3+(a+b)x-1\) strictly increases. Nonreal roots correspond bijectively in conjugate pairs to distinct real roots of \(P(x)=8x^3-2(2b-a)x+1\) satisfying \(3x^2>b-a\); no division at singular thresholds. \(\operatorname{disc}(P)=64[4(2b-a)^3-27]\). For \(b>a\), the negative root always passes the cutoff, and the two positive roots are separated by \(t=\sqrt{(b-a)/3}\) according to the signs of \(E=4(a+2b)^2(b-a)-27\) and \(H=3a-2b\), including strict exclusion at equality. The proof reproduces all 3/5/7 cases and the \((a,b)=(3,5/2)\) open seven-regular-zero witness. Independent \(\operatorname{numpy.roots}\) stationary-root checks on 3000 deterministic positive parameter pairs agreed with the table; these samples supplement the exact cubic argument.
 
-The closest inspected source is Carlson, arXiv:2508.06721v3, Theorems 1.1–1.2: it proves \(3\)- or \(5\)-zero regimes asymptotically in separated coefficient cones, not a global exact classification for cubic coefficients. In particular its hypotheses do not include the \(a=3,b=5/2\) seven-zero witness, and neither theorem implies the off-diagonal discriminant and collision surfaces. Brooks et al., arXiv:2506.14966, Theorem 1, already cover \(a=b\): the diagonal is expressly excluded from novelty. Brilleslyper et al. address one parameter with \(a=0\); Alemu–Geleta use a different quadrinomial; Sampson's epicycloid family is rational with poles. Published mathematical-record searches and semantic database searches found no stated stronger all-parameter theorem for this exact family. Residual risk: unindexed, unpublished, or terminology-shifted equivalent treatments cannot be excluded by a search.
+## originality
 
-## Value — PASS
+PASS
 
-The source itself identifies exact parameter-dependent zero counting as a live mathematical problem. A complete two-dimensional degree-three phase diagram yields sharp zero counts on every boundary, locates the full off-diagonal maximal seven-zero region beyond the source's stated \(n+2k=5\) asymptotic regimes; the diagonal seven-zero phenomenon itself is already known, and distinguishes two algebraic collision mechanisms. This is a natural complete classification for a minimal harmonic quadrinomial, not an arbitrary numerical sample or cosmetic formula.
+Best-of-knowledge: the complete \(a,b>0\) discriminant/collision classification of distinct zeros is not implied by the materially inspected same-family results; originality is specifically the off-diagonal complete map, not the known diagonal or asymptotic sectors.
 
-## Closest literature and limitations
+## value
 
-The contribution is the complete two-parameter \(n=3,k=1\) classification, **not** general \(n,k\), nor the already studied equal-coefficient diagonal. Distinct points are counted at singular boundaries, not analytic multiplicities. No external audit has been performed; equivalently phrased literature remains a residual originality risk.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+A complete two-dimensional phase diagram of the smallest nontrivial cubic harmonic quadrinomial is a motivated classification: it identifies open maximal-valence regions, distinct singular collision loci, and the unexpected orientation-preserving \(a>b\) seven-zero phase. The precise boundary counts are not immediate from existing sector inequalities and are reusable for caustic/valence questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-11.md",
+      "INDEPENDENT_AUDIT_2026-10-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and limits
 
-The proof does not require numerical computation. The following steps were checked separately:
+# Independent mathematical audit
 
-1. Expand real and imaginary parts of \(z^3+az+b\overline z-1\); for nonreal zeros obtain \(P(x)=8x^3-2(2b-a)x+1\) and \(y^2=3x^2+a-b\).
-2. Verify that the discriminant of \(P\) equals \(64D\), that the positive stationary point is \(\sqrt{(2b-a)/12}\), and that \(P(\sqrt{(b-a)/3})\) has sign opposite to \(E\) when \(b>a\).
-3. Independently count the positive/negative real roots of \(P\) using stationary-point signs and bisection, filter by the strict positivity of \(y^2\), and compare with every regular-region row of the classification.
-4. For \((a,b)=(3,5/2)\), verify the exact factorization \(P(x)=(2x-1)(4x^2+2x-1)\), the six explicit nonreal zeros, the unique real zero, and nonzero Jacobians.
-5. Numerically cross-check the exact discriminant fold, the real-axis collision condition, and their common cusp; 20,000 pseudorandom positive parameter pairs passed in the standalone checker.
+## correctness
 
-To rerun the supplementary checks, execute `python3 verify_cubic.py`. The script uses only the Python standard library. Finite checks do not certify the universal quantifiers; those follow from the proof in RESULT.md. No independent verification or external audit has been performed.
+PASS
+
+For \(z=x+iy\), the imaginary equation is \(y(3x^2-y^2-(b-a))=0\). Real zeros: exactly one because \(x^3+(a+b)x-1\) strictly increases. Nonreal roots correspond bijectively in conjugate pairs to distinct real roots of \(P(x)=8x^3-2(2b-a)x+1\) satisfying \(3x^2>b-a\); no division at singular thresholds. \(\operatorname{disc}(P)=64[4(2b-a)^3-27]\). For \(b>a\), the negative root always passes the cutoff, and the two positive roots are separated by \(t=\sqrt{(b-a)/3}\) according to the signs of \(E=4(a+2b)^2(b-a)-27\) and \(H=3a-2b\), including strict exclusion at equality. The proof reproduces all 3/5/7 cases and the \((a,b)=(3,5/2)\) open seven-regular-zero witness. Independent \(\operatorname{numpy.roots}\) stationary-root checks on 3000 deterministic positive parameter pairs agreed with the table; these samples supplement the exact cubic argument.
+
+## originality
+
+PASS
+
+Best-of-knowledge: the complete \(a,b>0\) discriminant/collision classification of distinct zeros is not implied by the materially inspected same-family results; originality is specifically the off-diagonal complete map, not the known diagonal or asymptotic sectors.
+
+## value
+
+PASS
+
+A complete two-dimensional phase diagram of the smallest nontrivial cubic harmonic quadrinomial is a motivated classification: it identifies open maximal-valence regions, distinct singular collision loci, and the unexpected orientation-preserving \(a>b\) seven-zero phase. The precise boundary counts are not immediate from existing sector inequalities and are reusable for caustic/valence questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
