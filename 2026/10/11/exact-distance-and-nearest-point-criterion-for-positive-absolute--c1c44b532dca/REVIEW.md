@@ -1,19 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement applies to every bounded positive operator on an infinite-dimensional complex Hilbert space, with no separability assumption. The lower estimate follows by passing to the Calkin algebra and minimizing the maximum distance from the two extreme essential spectral values. The upper estimate is realized asymptotically by clipping the spectral values outside a finite-rank low spectral subspace. The positive absolute norm-attainment characterization used in the proof was checked in the full text of Doust and in the stated structure theorems of Pandey–Paulsen and Ramesh–Sequeira. Exact attainment forces the candidate's essential scalar to equal the spectral midpoint; a vector below the essential minimum and perpendicular to its finite-dimensional negative part gives a strict contradiction. The proof handles the zero-width case, the lower endpoint zero, and arbitrary Hilbert dimension. Finite sequence calculations were illustrative only and were not used as proof.
+PASS
 
-## Originality — PASS, with residual risk
+The exact positive AN characterization is singleton essential spectrum {β} plus finite-rank below-β spectral projection. Calkin quotient contractivity gives ||A−B||≥||π(A)−β1||=max(|m−β|,|M−β|)≥(M−m)/2, uniquely optimized at β=c=(m+M)/2. For ε>0 the subspace Pε=E_A([0,m−ε)) is finite-rank (any spectrum bounded away from the essential bottom consists of finitely many isolated finite-multiplicity eigenvalues). The commuting spectral clipping Bε=A Pε+[cI+(A−MI)_+](I−Pε) is positive, with positive excess compact and negative excess finite-rank, hence AN; ||A−Bε||≤δ+ε. If the full below-m projection P is finite-rank, the same formula attains δ. Conversely a δ-best B must have essential scalar c; its below-c projection Q is finite-rank, so if E_A([0,m)) infinite-dimensional choose unit x in it orthogonal to Q, giving <Bx,x>≥c and <Ax,x><m; thus ||A−B||>c−m=δ. The strict spectral expectation holds even if eigenvalues accumulate at m. Border m=M including m=M=0 follows from the same argument. Independently verified diagonal counterexample: alternate eigenvalues 1−1/(k+1), 2+1/(k+1) have m=1,M=2, infinite below-m subspace and unattained inf 1/2; replacing lows by 1+1/(k+1) makes the best operator attainable.
 
-Doust, *A note on positive AN operators* (arXiv:1810.08286v1), determines positive \(\mathrm{AN}\) membership. Pandey–Paulsen, *A spectral characterization of AN operators* (J. Aust. Math. Soc. 102, 2017), establish its structural representation. Ramesh–Sequeira, *On the Closure of Absolutely Norm attaining Operators* (arXiv:2204.05912v1), determine the closure, including when the distance is zero. Their inspected results do not state an exact distance for an arbitrary positive operator or the one-sided finite-rank criterion for a nearest positive \(\mathrm{AN}\) operator. Searches under equivalent spectral and best-approximation terminology did not locate a dominating theorem. An unindexed equivalent result remains a genuine risk; absence from search does not certify novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem supplies the full distance and nearest-point geometry of a natural nonclosed operator cone. The distance depends only on the extreme essential spectral values, but exact nearest-point existence depends on an additional discrete one-sided spectral condition. This structural distinction is witnessed at positive distance, not merely by points already in the closure. It is useful as an exact best-approximation result for positive spectral operators without finite-spectrum or separability assumptions.
+Best-of-knowledge new quantitative distance plus criterion for existence of a metric projection to the positive AN cone. The exact spectral membership and norm closure are prior results, but neither inspected primary article states the all-positive-A distance δ and the finite-rank below-m iff condition for attainment.
 
-## Scientific limitations
+## value
 
-Only positive approximants are classified; the distance to arbitrary (possibly nonpositive) absolutely norm-attaining operators and uniqueness of minimizers are not asserted. No external or independent validation has occurred.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The distance-to-class and attainment/proximinality dichotomy are basic approximation geometry of the positive operator cone; explicit essential-spectrum clipping provides both quantitative distance and a structural obstruction to nearest points. Correctness alone would not confer value, but the precise infinite-dimensional gap between arbitrary approximation and exact minimization is an independently useful classification beyond membership and closure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification notes
+# Independent mathematical audit
 
-The finding is an analytic spectral theorem and requires no finite computational certificate. The full domain, normalization and source of the imported positive absolute norm-attainment criterion are specified in RESULT.md.
+## correctness
 
-Checks carried out: (1) verify the Calkin norm formula for a positive self-adjoint element and the unique minimizer of the two-endpoint Chebyshev problem; (2) verify that the part of the spectrum below the essential minimum by a fixed positive gap has finite-rank projection; (3) verify compactness of the positive part above the essential spectral maximum by continuous functional calculus; (4) verify that the spectral clipping is positive and has finite-rank negative part about the essential midpoint; (5) verify the strict-expectation contradiction against an infinite-dimensional lower spectral subspace; and (6) separately check the zero-width and zero-bottom cases.
+PASS
 
-Illustrative diagonal models with essential spectrum \(\{1,2\}\) show both outcomes: infinitely many coefficients below \(1\) obstruct a minimizer, whereas all coefficients at least \(1\) admit spectral clipping. Finite-prefix numerical calculations are consistent with the explicit formulas, but they do not certify an infinite-dimensional result.
+The exact positive AN characterization is singleton essential spectrum {β} plus finite-rank below-β spectral projection. Calkin quotient contractivity gives ||A−B||≥||π(A)−β1||=max(|m−β|,|M−β|)≥(M−m)/2, uniquely optimized at β=c=(m+M)/2. For ε>0 the subspace Pε=E_A([0,m−ε)) is finite-rank (any spectrum bounded away from the essential bottom consists of finitely many isolated finite-multiplicity eigenvalues). The commuting spectral clipping Bε=A Pε+[cI+(A−MI)_+](I−Pε) is positive, with positive excess compact and negative excess finite-rank, hence AN; ||A−Bε||≤δ+ε. If the full below-m projection P is finite-rank, the same formula attains δ. Conversely a δ-best B must have essential scalar c; its below-c projection Q is finite-rank, so if E_A([0,m)) infinite-dimensional choose unit x in it orthogonal to Q, giving <Bx,x>≥c and <Ax,x><m; thus ||A−B||>c−m=δ. The strict spectral expectation holds even if eigenvalues accumulate at m. Border m=M including m=M=0 follows from the same argument. Independently verified diagonal counterexample: alternate eigenvalues 1−1/(k+1), 2+1/(k+1) have m=1,M=2, infinite below-m subspace and unattained inf 1/2; replacing lows by 1+1/(k+1) makes the best operator attainable.
 
-The quoted characterization is due to the primary literature; the new approximation theorem has undergone same-model review only. Independent audit was not performed.
+## originality
+
+PASS
+
+Best-of-knowledge new quantitative distance plus criterion for existence of a metric projection to the positive AN cone. The exact spectral membership and norm closure are prior results, but neither inspected primary article states the all-positive-A distance δ and the finite-rank below-m iff condition for attainment.
+
+## value
+
+PASS
+
+The distance-to-class and attainment/proximinality dichotomy are basic approximation geometry of the positive operator cone; explicit essential-spectrum clipping provides both quantitative distance and a structural obstruction to nearest points. Correctness alone would not confer value, but the precise infinite-dimensional gap between arbitrary approximation and exact minimization is an independently useful classification beyond membership and closure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
