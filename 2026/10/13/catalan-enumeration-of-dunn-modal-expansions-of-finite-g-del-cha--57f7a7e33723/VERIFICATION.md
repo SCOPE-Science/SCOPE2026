@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The standalone verifier works directly from the defining equations. For each \(m=2,\ldots,6\), it enumerates every weakly increasing map \(\Box:C_m\to C_m\) with \(\Box1=1\), every weakly increasing map \(\Diamond:C_m\to C_m\) with \(\Diamond0=0\), and checks both Dunn inequalities on every ordered pair \((a,b)\in C_m^2\).
+# Independent mathematical audit
 
-Every accepted pair is then required to satisfy exactly one of the following mutually exclusive descriptions: the exceptional pair \(\Box\equiv1,\Diamond\equiv0\), or the normal condition \(\Diamond1=1\) and \(\Box\le\Diamond\) pointwise (which also forces \(\Box0=0\)). The resulting exhaustive counts are \(2,7,51,491,5293\), exactly matching the claimed Catalan formula.
+## correctness
 
-The script additionally evaluates the finite MacMahon product for a \(2\times(m-2)\times(m-1)\) box and verifies its equality with \((2m-3)\mathrm{Cat}_{m-2}\mathrm{Cat}_{m-1}\) for every \(2\le m\le30\).
+PASS
 
-Replay:
+On an m-chain, meet- and join-preservation amount to monotonicity with the prescribed endpoint fixes. Dunn D1 with Diamond(1)<1 forces Box≡1; D2 then forces Diamond≡0. In the alternative Diamond(1)=1, D2 with its second argument 1 forces Box(x)≤Diamond(x), hence Box(0)=0; both operators then fix endpoints. Conversely, case division on order of arguments proves both Dunn inequalities for any endpoint-fixed monotone Box≤Diamond. Interior values form a 2×(m−2) plane partition of height m−1; MacMahon yields (2m−3)Cat(m−2)Cat(m−1) normal expansions plus one exceptional pair. The claimed asymptotic follows by Catalan asymptotics. Independent exhaustive check (not executing source code) enumerated all monotone endpoint-constrained pairs and inequalities for m=2..5: 2,7,51,491, and verified each classified case. These finite checks corroborate, do not replace, the symbolic theorem.
 
-```text
-python3 verify_dunn_godel_chain.py
-```
+## originality
 
-The terminal line begins with `VERIFY_OK`. Independent audit has not been performed.
+PASS
+
+Best-of-knowledge original after mathematical claim-versus-prior comparison: Prior definitions of the operations and the known MacMahon count are premises; they do not state the cross-inequality normal form and its resulting N_m for all m. The exact mathematical implication was examined. Explicit unexcluded risks and source-access limits are documented without claiming exhaustive novelty proof.
+
+## value
+
+PASS
+
+The complete set of modal expansions of a canonical finite Gödel chain is a natural algebraic enumeration problem. The sharp two-class normal form makes the Catalan product more than an arbitrary numerical slice; the explicit isomorphism-type count for all m is a nontrivial exact invariant and reusable test case for duality and finite semantics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
