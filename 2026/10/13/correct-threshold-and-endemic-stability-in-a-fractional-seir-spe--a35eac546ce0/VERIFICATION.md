@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,49 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The bundled script performs symbolic and exact-rational checks.
+# Independent mathematical audit
 
-For the disease-free exposed-infectious block
-\[
-A_0=
-\begin{pmatrix}
--(\omega+\mu)&n\Lambda/\mu\\
-\omega&-(\tau+\mu)
-\end{pmatrix},
-\]
-it verifies
-\[
-\det(\lambda I-A_0)
-=
-\lambda^2+(\omega+\tau+2\mu)\lambda
-+(\omega+\mu)(\tau+\mu)-\frac{n\Lambda\omega}{\mu}.
-\]
-It also checks that the source's displayed plus-eigenvalue condition produces the same threshold denominator
-\[
-\mu(\omega+\mu)(\tau+\mu).
-\]
+## correctness
 
-For the endemic state it symbolically obtains
-\[
-p(\lambda)
-=
-\lambda^3+
-(\mu+c+a+b)\lambda^2+
-(\mu+c)(a+b)\lambda+
-abc.
-\]
-The general strict Routh-Hurwitz inequality is proved in `RESULT.md`.
+PASS
 
-The exact witness
-\[
-\mu=1,\quad\omega=2,\quad\tau=3,\quad n=1,\quad\Lambda=4
-\]
-gives
-\[
-\mathcal R_*=\frac23,\qquad
-\mathcal R_{\mathrm{src}}=\frac43.
-\]
+Reconstructed the 2×2 infected Jacobian at B0=(Λ/μ,0,0,0). Its characteristic polynomial is r²+(ω+τ+2μ)r+(ω+μ)(τ+μ)−nΛω/μ; other eigenvalues −μ. For R*<1 all eigenvalues lie in the open left half plane, and for R*>1 a real positive eigenvalue occurs. The sample (μ,ω,τ,n,Λ)=(1,2,3,1,4) gives R*=2/3 and Rsrc=4/3 exactly. For R*>1 the endemic positive equilibrium has cubic coefficients A=μ+c+a+b, B=(μ+c)(a+b), C=abc, a=ω+μ,b=τ+μ,c=nI*>0. Direct symbolic determinant reconstruction confirms these and AB>C, giving Hurwitz stability and the Caputo angle condition for every 0<α≤1. At R*=1 linearization is nonhyperbolic; no global result follows.
 
-No simulation or finite enumeration is used to infer the general theorem.
+## originality
+
+PASS
+
+The original source already supplies the infected block and a quadratic eigenvalue expression, but misidentifies its zero-eigenvalue parameter threshold. Standard next-generation and fractional stability methods give general tools, while the source-specific reversed classification and endemic Hurwitz verification were not found in checked related results.
+
+## value
+
+PASS
+
+A wrong epidemic threshold literally reverses whether infection invades for an explicit positive-parameter regime; identifying exact corrected condition plus feasible endemic local stability is a substantive model diagnosis beyond a typographical substitution. The finding is deliberately limited to a concrete published specialization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

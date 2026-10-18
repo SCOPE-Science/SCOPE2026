@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T18:59:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the 2×2 infected Jacobian at B0=(Λ/μ,0,0,0). Its characteristic polynomial is r²+(ω+τ+2μ)r+(ω+μ)(τ+μ)−nΛω/μ; other eigenvalues −μ. For R*<1 all eigenvalues lie in the open left half plane, and for R*>1 a real positive eigenvalue occurs. The sample (μ,ω,τ,n,Λ)=(1,2,3,1,4) gives R*=2/3 and Rsrc=4/3 exactly. For R*>1 the endemic positive equilibrium has cubic coefficients A=μ+c+a+b, B=(μ+c)(a+b), C=abc, a=ω+μ,b=τ+μ,c=nI*>0. Direct symbolic determinant reconstruction confirms these and AB>C, giving Hurwitz stability and the Caputo angle condition for every 0<α≤1. At R*=1 linearization is nonhyperbolic; no global result follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "van den Driessche–Watmough (2002) provides the general next-generation-matrix framework.",
+          "Matignon (1996) supplies |arg λ|>απ/2 for commensurate Caputo linear systems; neither evaluates this 2026 specialization or its specific typo."
+        ],
+        "reasoning": "Broad tools imply how to test stability after inserting model coefficients, but do not state this model-specific correction or its discrepant invasion prediction.",
+        "searches": [
+          "van den Driessche Watmough 2002 reproduction number subthreshold endemic equilibria",
+          "Matignon 1996 stability fractional differential equation eigenvalue angle criterion"
+        ]
+      },
+      "checked_sources": [
+        "https://pjm.ppu.edu/sites/default/files/papers/PJM_15(1)_2026_200_to_213.pdf",
+        "https://pjm.ppu.edu/paper/2453-investigations-fractional-seiar-epidemic-model-utilizing-caputo-derivative",
+        "doi:10.1016/S0025-5564(02)00108-6",
+        "Matignon-1996-CESA"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A separate source-specific numerical F3/F4/F5 indexing correction is about discretization, not the next-generation eigenvalues.",
+          "The original paper prints a disease-free spectral formula which implies R*, yet labels thresholds by the distinct Rsrc."
+        ],
+        "reasoning": "The corrected invasion threshold does not follow from the printed final threshold claim; prior standard theory plus actual model data makes it derivable, but the juxtaposition exposes a substantive published classification error.",
+        "searches": [
+          "Sene Mansal 2026 numerical discretization component indexing mismatch",
+          "Sene Mansal 2026 reproduction number omega tau disease free",
+          "doi:10.1016/S0025-5564(02)00108-6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source infected matrix has offdiagonal nΛ/μ and ω; its determinant is (ω+μ)(τ+μ)−nΛω/μ.",
+          "Paper Eq. (4.11) instead uses μ²(ω+τ+μ); no independent covering correction appears in the targeted research-record search."
+        ],
+        "reasoning": "The zero determinant, next-generation radius, and printed square-root-eigenvalue inequality are equivalent conditions and all yield R*=1, unlike Rsrc=1. Search absence alone is not proof.",
+        "searches": [
+          "Sene Mansal Caputo SEIAR reproduction number omega tau mu",
+          "Investigations fractional SEIAR threshold endemic equilibrium correction",
+          "Resultary: fractional SEIR Sene Mansal 2026 corrected basic reproduction number endemic stability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related indexed epidemic-threshold findings concern different state structures (two-patch SEIR and other fractional epidemic models); none is the same source-specific denominator.",
+          "The original source is a model paper rather than a database containing a correct threshold table."
+        ],
+        "reasoning": "This continuous-parameter threshold is not a standalone finite database invariant. Exact-source and equation-level comparison is more probative than a negative table search.",
+        "searches": [
+          "Resultary: fractional SEIR Sene Mansal 2026 corrected basic reproduction number endemic stability",
+          "Sene Mansal Caputo SEIAR 2026 threshold omega tau paper table"
+        ]
+      },
+      "rationale": "The original source already supplies the infected block and a quadratic eigenvalue expression, but misidentifies its zero-eigenvalue parameter threshold. Standard next-generation and fractional stability methods give general tools, while the source-specific reversed classification and endemic Hurwitz verification were not found in checked related results.",
+      "residual_risks": [
+        "An unindexed corrigendum or independent note may have already documented the threshold error.",
+        "The general fractional-stability proceedings were checked via the standard criterion and bibliographic material, not newly full-text read.",
+        "Local not global and α=1 at threshold is nonhyperbolic."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PREMISES_COVERED_BUT_PRINTED_THRESHOLD_WRONG",
+          "evidence": "The infected-block determinant sets R*=1; Eqs. (4.10)–(4.11) instead set μ²(ω+τ+μ) in denominator.",
+          "identifier_or_url": "https://pjm.ppu.edu/sites/default/files/papers/PJM_15(1)_2026_200_to_213.pdf",
+          "material_read": "Full publisher open PDF, including specialized ψ=θ=0 system, pp. 206–207 eigenvalues and Eq. (4.9)–(4.11), endemic coordinates and claimed local stability.",
+          "method": "Statement-level and equation-level reading, including PDF-page visual check.",
+          "title": "Investigations on the fractional SEIAR epidemic model utilizing the Caputo derivative",
+          "trigger": "Exact model and asserted corrected threshold"
+        },
+        {
+          "assessment": "GENERAL_METHOD_ONLY",
+          "evidence": "Infection output nΛ/μ, progression ω and competing exits (ω+μ),(τ+μ) recover R*.",
+          "identifier_or_url": "doi:10.1016/S0025-5564(02)00108-6",
+          "material_read": "Next-generation approach and identified theorem/formula, not a newly completed full-text article inspection.",
+          "method": "Published-method comparison.",
+          "title": "Reproduction numbers and sub-threshold endemic equilibria for compartmental models of disease transmission",
+          "trigger": "General threshold mechanism"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A wrong epidemic threshold literally reverses whether infection invades for an explicit positive-parameter regime; identifying exact corrected condition plus feasible endemic local stability is a substantive model diagnosis beyond a typographical substitution. The finding is deliberately limited to a concrete published specialization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only local equilibrium stability in ψ=θ=0 specialization for 0<α≤1; no claim at nonhyperbolic R*=1 or global convergence.",
+    "General next-generation and Caputo criteria accepted from established literature; source-specific Jacobians verified here.",
+    "An unindexed corrigendum or independent note may have already documented the threshold error.",
+    "The general fractional-stability proceedings were checked via the standard criterion and bibliographic material, not newly full-text read.",
+    "Local not global and α=1 at threshold is nonhyperbolic."
+  ],
+  "schema_version": 1
+}
