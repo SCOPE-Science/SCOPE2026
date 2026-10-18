@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-14",
+  "audited_at_utc": "2026-10-14T22:52:14Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 55b0a9430a09ae88b21c1792950d41dc0de175ce",
+        "Inspected verify_genus6_alexander.py blob d6908fcd46e20e62185249fe59028a7261e38e14",
+        "Schmalian–Sivek, Lens space surgeries on knots of small genus, arXiv:2609.39260v1, Remark 1.7, Example 3.8, Corollary 3.7, Proposition 3.5, https://arxiv.org/html/2609.39260",
+        "Ni–Zhang, Finite Dehn surgeries on knots in S^3, Algebraic & Geometric Topology 18 (2018), Tables 2–5 and Known Facts, https://www.nsm.buffalo.edu/~xinzhang/finite%20surgery-agt.pdf",
+        "Independent exact SymPy Sturm certificate: 16 original; 11 after Prop 2.4; unique negative-root support (6,5,3,2,1)"
+      ],
+      "rationale": "Elliptic surgeries on hyperbolic g=6 knots give L-space fibered knots. Published bound r≤4g−1=23 and finite surgery denominator at most 2 reduce r>21 to r∈{43/2,22,45/2,23}; Ni–Zhang Table 4 places both half-integer values in genus-seven knot-Floer classes, so only r=22 or 23 remain. For Alexander polynomials, the L-space leading pair t^6−t^5 and alternating nonzero coefficients yield sixteen support patterns; Schmalian–Sivek Proposition 2.4 eliminates five patterns with odd offset of the initial missing term, leaving eleven. Their Corollary 3.7 requires a negative real zero <−1. I independently reimplemented all candidates in SymPy over exact rationals, formed Q=t^6Δ(t), and counted roots <−1 with exact Sturm sign variations: of eleven allowed patterns exactly the support {6,5,3,2,1} has one such root, yielding the displayed degree-12 symmetric polynomial. In addition, the source Remark 1.7 implies the SAME polynomial directly via irreducibility of the degree-ten factor, independently validating correctness (but destroying the originality claim). Source script checks finite support/Sturm only; no inference of existence or knot isotopy.",
+      "residual_risks": [
+        "The result is a necessary implication only, not uniqueness of the knot or existence of every surgery.",
+        "The half-integer exclusions require the exact source table (not mere integrality).",
+        "The decisive polynomial implication is already in primary older work; a computational checker cannot recover novelty."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Remark 1.7 states any genus-6 finite surgery of either slope 22 or 23 shares the dilatation of P(−2,3,9), regardless of lens/O/I finite-surgery type.",
+          "This is a stronger spectrum/dynamical statement than the polynomial equality once the source Example 3.8 factorization is used."
+        ],
+        "reasoning": "The original explicitly claims surgery-type independence; the remark already covers all such finite 22/23 surgeries and is not limited to the two examples in the Ni–Zhang O/I tables. Stronger prior coverage is decisive.",
+        "searches": [
+          "Resultary semantic query: genus 6 hyperbolic elliptic surgery Alexander polynomial P(-2,3,9) slopes 22 23",
+          "Schmalian–Sivek arXiv:2609.39260v1 Remark 1.7 / Example 3.8",
+          "Ni–Zhang 2018 Table 4"
+        ]
+      },
+      "checked_sources": [
+        "Schmalian–Sivek, Lens space surgeries on knots of small genus, arXiv:2609.39260v1, Remark 1.7, Example 3.8, Corollary 3.7, Proposition 3.5, https://arxiv.org/html/2609.39260",
+        "Ni–Zhang, Finite Dehn surgeries on knots in S^3, Algebraic & Geometric Topology 18 (2018), Tables 2–5 and Known Facts, https://www.nsm.buffalo.edu/~xinzhang/finite%20surgery-agt.pdf",
+        "Futer et al., Finite surgeries on three-tangle pretzel knots, arXiv:0809.4278"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior ⇒ claimed: r>21 and r≤23 with half-integer type restriction ⇒ r∈{22,23}; published Remark 1.7 ⇒ same λ as pretzel; minimal polynomial f of degree10 divides Q_K; monic reciprocal degree12 and Δ_K(1)=1 ⇒ quotient t²−t+1 ⇒ exactly Δ_P."
+        ],
+        "reasoning": "This explicit chain proves the pre-existing source DOES imply the precise original final claim, including the full coefficient list and slope interval. Originality cannot pass by emphasizing only that the source remarked on dilatation rather than printing this corollary.",
+        "searches": [
+          "Resultary semantic query: genus 6 hyperbolic elliptic surgery Alexander polynomial P(-2,3,9) slopes 22 23",
+          "Schmalian–Sivek Remark 1.7 / Corollary 3.7 / Example 3.8",
+          "Ni–Zhang Table 4",
+          "exact modular factorization mod2,mod3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same dilatation λ means common algebraic root −λ of the two genus-six monic reciprocal Alexander numerator polynomials.",
+          "Published P(-2,3,9) numerator factors (t²−t+1)(t10−t8+t5−t²+1); irreducible t10 factor plus Δ(1)=1 fixes remaining t²−t+1."
+        ],
+        "reasoning": "A nominally weaker equivalence of dynamical dilatation in the source is actually enough to force the entire Alexander polynomial at fixed genus six, because the minimal polynomial is degree ten and the normalized characteristic polynomial degree twelve. Exact same result is therefore covered without matching title or wording.",
+        "searches": [
+          "Resultary semantic query: genus 6 hyperbolic elliptic surgery Alexander polynomial P(-2,3,9) slopes 22 23",
+          "Schmalian–Sivek arXiv:2609.39260v1 Remark 1.7, Example 3.8",
+          "Exact factorization of Q_P over Q and mod2/mod3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 4 assigns genus 7 to 43/2 and 45/2 finite surgeries; the input g=6 excludes them.",
+          "Example 3.8 publishes the exact P(−2,3,9) Alexander polynomial and its unique real root below −1."
+        ],
+        "reasoning": "Published exact tables already give the slope cutoffs, and the full degree-twelve coefficient vector is in Example 3.8. New finite enumeration of the same polynomial is not independent of the stronger covering remark.",
+        "searches": [
+          "Resultary semantic query: genus 6 hyperbolic elliptic surgery Alexander polynomial P(-2,3,9) slopes 22 23",
+          "Ni–Zhang 2018 Tables 2–5, especially half-integer Table 4",
+          "Schmalian–Sivek Example 3.8"
+        ]
+      },
+      "rationale": "DECISIVE COVERAGE: Schmalian–Sivek, arXiv:2609.39260v1, Remark 1.7 explicitly states any genus-six knot with a finite surgery of slope 22 or 23 has the SAME monodromy dilatation as P(−2,3,9). Example 3.8 explicitly gives Δ_P(t) and its negative real root −λ. Multiplying by t^6, the cited polynomial factors Q_P(t)=(t²−t+1) f(t), f(t)=t^10−t^8+t^5−t²+1. Exact finite-field factorization certifies f irreducible over Q: modulo 2, factor degrees 2 and 8; modulo 3, factor degrees 5 and 5, all factors square-free/irreducible, leaving no common proper possible rational factor degree. Thus f is the minimal polynomial of −λ. For ANY genus-six elliptic surgery at r>21, the already-published slope facts force r∈{22,23}; Remark 1.7 forces the identical λ, so its monic reciprocal Q_K=t^6Δ_K, of degree 12, is divisible by f. The residual factor is monic reciprocal quadratic t²+c t+1, and Δ_K(1)=1=f(1)·(2+c) forces c=−1. Therefore Q_K=(t²−t+1) f=Q_P. This is precisely the original entire Alexander-polynomial claim, as a short algebraic consequence of the PUBLISHED STRONGER SAME-DILATATION RESULT. It is not novel merely because the source did not display the genus-six coefficient equality separately. The existing finite Sturm enumeration is an alternative verification of a covered conclusion.",
+      "residual_risks": [
+        "None that could rescue this original exact claim: the published same-dilatation statement plus normalization decisively covers it.",
+        "Possible subtleties about positive surgery half-integers do not affect the prior implication once standard Ni–Zhang table excludes them."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_COVERING_STRONGER_DILATATION",
+          "evidence": [
+            "Remark 1.7: EVERY genus-6 finite 22/23 surgery has pretzel dilatation; Example 3.8 gives Q_P and negative root. Mod2 factor degrees 2+8, mod3 5+5 exclude rational proper factor degree of f."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.39260",
+          "material_read": "Complete rendered primary HTML; Introduction Remark 1.7, Theorem 2.2, Proposition 2.4, Proposition 3.5, Corollary 3.7, Example 3.8; exact polynomial and negative λ root.",
+          "method": "Read full-text arXiv HTML (not just abstract), compared implications, checked irreducible degree-ten factor independently",
+          "title": "Lens space surgeries on knots of small genus",
+          "trigger": "Claim has same genus, same elliptic threshold and same exceptional pretzel as this primary paper"
+        },
+        {
+          "assessment": "EXACT_TABLE_SUPPORTS_SLOPE_REDUCTION",
+          "evidence": [
+            "43/2 and 45/2 list genus-seven sample HFK types; integer O-type 22 and I-type 23 examples have P(-2,3,9) HFK."
+          ],
+          "identifier_or_url": "https://www.nsm.buffalo.edu/~xinzhang/finite%20surgery-agt.pdf",
+          "material_read": "Primary complete 52-page PDF, Known Facts 1.1–1.2 and finite-type Tables 2–5, especially Table 4 on page 11.",
+          "method": "Read PDF extracted text and Table 4 page; cross-checked half-integers 43/2,45/2",
+          "title": "Finite Dehn surgeries on knots in S^3",
+          "trigger": "Half-integral surgery slopes in open interval (21,23) and integer 22/23 type dependence"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Schmalian–Sivek, Lens space surgeries on knots of small genus, arXiv:2609.39260v1, Remark 1.7, Example 3.8, Corollary 3.7, Proposition 3.5, https://arxiv.org/html/2609.39260",
+        "Ni–Zhang, Finite Dehn surgeries on knots in S^3, Algebraic & Geometric Topology 18 (2018), Tables 2–5 and Known Facts, https://www.nsm.buffalo.edu/~xinzhang/finite%20surgery-agt.pdf",
+        "Exact modular irreducibility certificate for f(t)"
+      ],
+      "rationale": "The genus-six polynomial classification is mathematically interesting, but as a putative new contribution it adds no unknown precise invariant or motivated remaining gap beyond the stronger published genus-six same-dilatation statement. The residual step is elementary factorization plus Δ(1)=1, or a redundant 16-case exact Sturm table. Once published implications are fully compared, neither computation nor alternate proof makes the already-covered target a substantive independently valuable result on this criterion. This does not contest mathematical correctness of the statement or its source relevance.",
+      "residual_risks": [
+        "An entirely different new theorem might be valuable, but cannot be appended as a disclaimer or extra certificate to make this covered original pass."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Scientifically rejected for decisive stronger-prior coverage, not for any arithmetic/root-count failure.",
+    "No repair or extra verification can make the same already-implied Alexander polynomial novel.",
+    "Statement does not identify knot type or prove existence of all 22/23 surgeries."
+  ],
+  "schema_version": 1
+}
