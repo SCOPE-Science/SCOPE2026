@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T08:19:40.610684Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Direct conjugation by commuting pairwise zz interactions gives exact mean spin <Jx>=n eta cos^(n-1)(tau)/2 and yz covariance Q, followed by independent single-qubit channel scaling only x,y. The minimum covariance eigenvalue is det(Q)/lambda_+; independent symbolic expansion confirmed H_n(tau): coefficient tau^2=1-n; tau^4=(n-1)(6n-11)/3; tau^6=(n-1)(15n^3-270n^2+945n-934)/90. Under tau=a n^(-3/5), eta=c n^(-1/5), eta^2 H_n -> c^2a^6/6 and lambda_+~c^2a^2n^(2/5), with uniform compact-parameter remainders. Hence limit 1/(c^4a^2)+a^4/(6c^2); unique positive minimum a=(3/c^2)^(1/6), threshold c*=(3^(2/3)/2)^(3/10). No global optimization over arbitrary time sequences or claim at equality finite n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ideal OAT variance and collective-noise results supply techniques but not this n-dependent independent-channel threshold.",
+          "2020 source treats dissipative/non-Markovian thermal noise in a different setting."
+        ],
+        "reasoning": "Known general OAT equations motivate covariance but inspected conditions do not dominate the specified local post-preparation visibility law.",
+        "searches": [
+          "Kitagawa Ueda Squeezed spin states Phys Rev A 47 1993",
+          "Zhong arXiv:1309.4842",
+          "Ji arXiv:1312.3743",
+          "Ma Ding Yu 2020 Phys Rev A 101 022327"
+        ]
+      },
+      "checked_sources": [
+        "Source RESULT.md blob a2b8aa1bcab40555dadc40cee9c3748f0852e135, assigned tree b56b2944a75fd4af1b6fef9a744bdb8b5b810eea",
+        "Ji/Liu/Jin arxiv:1312.3743 primary PDF",
+        "Zhong et al arxiv:1309.4842 primary PDF",
+        "Kitagawa-Ueda PRA47 1993 bibliographic baseline",
+        "Resultary: one-axis twisting spin squeezing independent local dephasing visibility n^-1/5 optimal time n^-3/5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior noise channel is distinct and cannot force local phase-damping covariance scaling; the ideal OAT formulas alone omit eta^(1,2) factors."
+        ],
+        "reasoning": "Exact local decay changes the asymptotic eigenvalue cancellation and threshold; no inspected implication establishes the final local claim.",
+        "searches": [
+          "arxiv:1309.4842 exact spin squeezing under collisional collective noise",
+          "arxiv:1312.3743 exact collective dephasing",
+          "PhysRevA.47.5138 original OAT"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ji et al. Dicke coherence multiplied according to squared magnetization difference for collective Jz dephasing.",
+          "The audited channel maps each local off-diagonal matrix entry by eta independently, so the two channels disagree even on basis coherences."
+        ],
+        "reasoning": "Compared Lindblad generator and exact moments, not paper titles; collective dephasing does not specialize to independent local phase damping.",
+        "searches": [
+          "Resultary: one-axis twisting spin squeezing independent local dephasing visibility n^-1/5 optimal time n^-3/5",
+          "Zhong et al arXiv:1309.4842",
+          "Ji Liu Jin arXiv:1312.3743"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest hits on unrelated local mean-field dephasing entropy and qubit control; no exact scaling constant."
+        ],
+        "reasoning": "No exact dataset is relevant to an analytic all-n asymptotic; searched for matching exponents and constants, with nonexhaustive literature risk.",
+        "searches": [
+          "Resultary: one-axis twisting spin squeezing independent local dephasing visibility n^-1/5 optimal time n^-3/5",
+          "spin squeezing eta=n^-1/5 twist n^-3/5 Wineland threshold"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS with genuine source-priority risk. Earlier exact OAT moment/noise studies Ji et al. and Zhong et al. treat collective dephasing generators proportional to Jz, whereas tensor-product local phase damping has different coherence decay by number of altered spins. Published collective-noise asymptotics do not imply the stated eta~n^-1/5 local visibility and Wineland-normalized limit. Broad independent-noise metrology literature remains to be exhaustively checked.",
+      "residual_risks": [
+        "Non-exhaustive independent local-noise spin metrology bibliography; equivalent limit may exist in older unrelated terminology.",
+        "Threshold is for constant positive a,c in the specified n^-3/5 twist family only, not globally optimal over all n-dependent choices.",
+        "At c=c* no finite-n sign asserted, and local phase damping occurs after rather than during ideal twisting."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Collective single Jz dephasing, not local per-qubit phase damping",
+          "evidence": [
+            "Coherence factor involves squared collective magnetization difference."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1312.3743",
+          "material_read": "Full-text model and master equation on page 2, relevant analytic solution",
+          "method": "arXiv full-PDF text and visual page inspection",
+          "title": "Spin Squeezing of One-Axis Twisting Model in The Presence of Phase Dephasing",
+          "trigger": "Closely matching OAT spin squeezing and phase dephasing title"
+        },
+        {
+          "assessment": "Collective noise context; no stated fixed eta~n^-1/5 threshold",
+          "evidence": [
+            "Collective dephasing model and OAT moment structure."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1309.4842",
+          "material_read": "Full-text OAT squeezing and collisional decoherence treatment",
+          "method": "arXiv primary PDF",
+          "title": "Quantum Fisher information and spin squeezing in one-axis twisting model",
+          "trigger": "Potential prior OAT squeezing result"
+        },
+        {
+          "assessment": "Unnoised OAT baseline only, not an entire document originality exclusion",
+          "evidence": [
+            "Original introduction of one-axis-twisted spin squeezing."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevA.47.5138",
+          "material_read": "Abstract/bibliographic foundational formulas as background, not full primary treatment",
+          "method": "bibliography and quoted formula context",
+          "title": "Squeezed spin states",
+          "trigger": "Foundational OAT squeezing"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Local post-twist dephasing directly governs scalable metrological gain. The critical visibility/time exponents and closed optimization function locate a nontrivial squeezing/no-squeezing boundary for a mathematically motivated experimental noise family; finite c threshold is not an arbitrary invariant slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Source RESULT.md blob a2b8aa1bcab40555dadc40cee9c3748f0852e135, assigned tree b56b2944a75fd4af1b6fef9a744bdb8b5b810eea",
+    "Ji/Liu/Jin arxiv:1312.3743 primary PDF",
+    "Zhong et al arxiv:1309.4842 primary PDF",
+    "Kitagawa-Ueda PRA47 1993 bibliographic baseline",
+    "Resultary: one-axis twisting spin squeezing independent local dephasing visibility n^-1/5 optimal time n^-3/5"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Non-exhaustive independent local-noise spin metrology bibliography; equivalent limit may exist in older unrelated terminology.",
+    "Threshold is for constant positive a,c in the specified n^-3/5 twist family only, not globally optimal over all n-dependent choices.",
+    "At c=c* no finite-n sign asserted, and local phase damping occurs after rather than during ideal twisting."
+  ],
+  "schema_version": 1
+}

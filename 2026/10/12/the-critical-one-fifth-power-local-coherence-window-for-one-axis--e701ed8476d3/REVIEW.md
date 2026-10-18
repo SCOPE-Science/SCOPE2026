@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two-spin moments are obtained by conjugation with commuting \(zz\) rotations, followed by a tensor product of independent phase-damping channels. They give an exact \(2\times2\) covariance matrix and mean-spin normalization. The determinant expansion has a leading \(n^4\tau^6/6\) term after lower-order cancellation; substitution and the eigenvalue relation prove the stated finite-window limit. Symbolic coefficient extraction, high-precision finite tests, and an independently constructed small-system density matrix corroborate the algebra. The limit and optimization concern only fixed positive scaling coefficients.
+PASS
 
-## Originality — PASS, subject to residual priority risk
+Direct conjugation by commuting pairwise zz interactions gives exact mean spin <Jx>=n eta cos^(n-1)(tau)/2 and yz covariance Q, followed by independent single-qubit channel scaling only x,y. The minimum covariance eigenvalue is det(Q)/lambda_+; independent symbolic expansion confirmed H_n(tau): coefficient tau^2=1-n; tau^4=(n-1)(6n-11)/3; tau^6=(n-1)(15n^3-270n^2+945n-934)/90. Under tau=a n^(-3/5), eta=c n^(-1/5), eta^2 H_n -> c^2a^6/6 and lambda_+~c^2a^2n^(2/5), with uniform compact-parameter remainders. Hence limit 1/(c^4a^2)+a^4/(6c^2); unique positive minimum a=(3/c^2)^(1/6), threshold c*=(3^(2/3)/2)^(3/10). No global optimization over arbitrary time sequences or claim at equality finite n.
 
-The closest full-text sources are Zhong et al. (arXiv:1309.4842) and Ji et al. (arXiv:1312.3743); their collisional/many-body generators use a collective \(J_z\) rather than independent single-spin damping. Their hypotheses cannot be specialized to reproduce this tensor-product channel; the mean-spin-normalized limiting function is not stated in those inspected treatments. Published general spin-squeezing results and numerical non-Markovian damping work might contain equivalent algebra; the absence of a located match is not independent confirmation of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The decay exponent of local single-spin coherence determines whether scalable metrological squeezing survives an increasingly dephased OAT preparation. The exact critical scaling function identifies an experimentally interpretable visibility/time balance and a sharp gain threshold **within the specified short-time window**. This is not an arbitrary finite parameter selection and is more informative than a special numerical example.
+Best-of-knowledge PASS with genuine source-priority risk. Earlier exact OAT moment/noise studies Ji et al. and Zhong et al. treat collective dephasing generators proportional to Jz, whereas tensor-product local phase damping has different coherence decay by number of altered spins. Published collective-noise asymptotics do not imply the stated eta~n^-1/5 local visibility and Wineland-normalized limit. Broad independent-noise metrology literature remains to be exhaustively checked.
 
-## Literature and limitations
+## value
 
-Primary comparisons: arXiv:1309.4842v1; arXiv:1312.3743v1; Kitagawa–Ueda (1993). A 2020 non-Markovian dissipative OAT study was located through its abstract but not compared at full-text theorem level; broad local-noise literature remains a priority risk. The result does not claim time-global optimality, equality-boundary finite-size behavior, or an independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Local post-twist dephasing directly governs scalable metrological gain. The critical visibility/time exponents and closed optimization function locate a nontrivial squeezing/no-squeezing boundary for a mathematically motivated experimental noise family; finite c threshold is not an arbitrary invariant slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
