@@ -1,0 +1,11 @@
+# Scientific review: weighted cactus edge-basis unconditional constants
+
+**Correctness — PASS.** The graph-edge Lipschitz norm and finite-dimensional duality yield the weighted edge-flow quotient. Edge-disjoint cactus cycles split the quotient into an \(\ell_1\)-sum, so sign multipliers decouple by blocks. The one-cycle multiplier norm is reconstructed from images of the quotient ball generators, with the omitted-edge image evaluated by a three-breakpoint weighted absolute-deviation problem. The reduction from PARTITION preserves geodesicity and uses a polynomially encoded integer-weighted cycle. The embedded independent dual-polytope checker passed 284 rational comparisons plus unit-weight and partition witnesses. Finite checks support but do not establish the general theorem.
+
+**Originality — PASS, subject to literature-indexing risk.** The full-text theorem on graph-circle retractions by Novotný (arXiv:1905.13188) concerns retractional basis constants and conditional infinite nets; it does not express the sign-change unconditional constant of a designated edge-molecule basis. Dilworth–Kutzarova–Ostrovskii (arXiv:1807.03814) establish the edge-flow quotient but do not evaluate the weighted cactus discrepancy constant. Basso (arXiv:2104.14238) addresses extension/projection constants rather than the present sign multipliers. Published numerical-index findings for finite cycles have a different operator optimization. A differently indexed theorem on unconditional constants of weighted hyperplane quotients is the main remaining originality risk.
+
+**Value — PASS.** The unconditional constant is an intrinsic stability invariant of a natural spanning-tree molecule basis, central to finite-dimensional representation of graph transportation spaces. The result classifies all weighted cactus graphs in one formula, recovers a sharp linear blow-up on unweighted cycles, and pinpoints why exact evaluation can require a partition search even when the metric graph is only one cycle. The complexity boundary is substantive rather than a table of isolated finite examples.
+
+**Limits.** Only real finite cactus graphs with geodesic cycle edges are covered. No uniqueness over arbitrary bases and no independent external proof check is claimed.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "For finite graph path metrics the Lipschitz edge-gradient dual has constraints |y_e|<=w_e and one zero-circulation constraint per cycle. Finite-dimensional polar duality identifies its predual with weighted ℓ1(E) modulo the cycle-flow space. A cactus has edge-disjoint cycles, hence an exact ℓ1 direct sum of one-cycle quotients and independent bridges. For a designated omitted edge, the operator norm is obtained from normalized edge atoms; retained-edge ratios are 1 because 2 max cycle weight <= total. The omitted-edge image is a weighted median problem whose only breakpoints are -1,0,1; optimization gives min(S,h+S-Delta)/h. The unweighted r-cycle yields r-1. Equality to S/h iff Delta<=h. For integer PARTITION with even total and all entries at most half, weights (2a_i,1) are geodesic; discrepancies are zero or at least four, proving the polynomial many-one reduction. Membership in NP is by signs. The included independent dual-increment-vertex checker passed 284 exact-rational cycle cases plus unit and partition cases. No finite enumeration is asserted to prove generality.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dilworth, Kutzarova and Ostrovskii, arXiv:1807.03814, Section 1.1, explicitly identify the unweighted finite graph free space with ℓ1(E)/Z(G).",
+        "Basso, arXiv:2104.14238, Theorem 1.4 relates absolute Lipschitz extendability to relative projection constants, not the norm of the finite signed edge-diagonal family."
+      ],
+      "reasoning": "The general quotient identity is an input representation, not an exact closed formula for unrestricted signed multipliers of weighted cactus edge bases. Its use here requires an explicit cactus block decomposition, cycle median optimization, and discrepancy complexity reduction. Neither the projection nor extension estimates dominate the named operator constant.",
+      "searches": [
+        "Lipschitz-free spaces finite weighted graphs cycle space projection onto cut space l1 graph 2019",
+        "arXiv:1807.03814",
+        "arXiv:1905.13188"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1905.13188 (Novotný, 2019)",
+      "arXiv:1807.03814 (Dilworth–Kutzarova–Ostrovskii, 2018)",
+      "arXiv:2104.14238 (Basso, 2021)",
+      "Published numerical-index parity result for finite graph cycles",
+      "Published bipartiteness criterion for graph metric numerical index"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Novotný Theorem 5 lower-bounds the Lipschitz norm of some retraction of a graph circle; the present invariant is a supremum over sign changes on an explicitly fixed basis.",
+        "The unweighted graph quotient theorem supplies a representation, but omits the signed operator parameter and the NP-complete equality threshold.",
+        "Basso optimizes projections and extension operators, not signed basis coordinate operators."
+      ],
+      "reasoning": "Neither theorem is a stronger statement implying the displayed discrepancy ratio without additional parameter-specific analysis; no named published result states the weighted cactus exact value or complexity classification. A hidden standard computation for weighted ℓ1 hyperplane quotients remains possible and is recorded as a risk.",
+      "searches": [
+        "arXiv:1905.13188",
+        "arXiv:1807.03814",
+        "arXiv:2104.14238"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Novotný, arXiv:1905.13188, Theorem 5 concerns norm bounds for retractions on graph circles, and Section 4 treats retractional bases on infinite nets.",
+        "The exact-rational candidate describes sign-multiplier norms for a designated molecule basis of a finite graph quotient, not a retractional basis constant."
+      ],
+      "reasoning": "The comparable words unconditional and cycle refer to different bases and operator families. A sign-change norm calculation is not provided in the inspected full-text sections. Searches for quotient-hyperplane, edge-molecule and partition terminology found no direct equivalent statement.",
+      "searches": [
+        "sharp unconditional basis constant of spanning-tree edge molecules of real Lipschitz-free spaces on weighted cycle graphs and signed coordinate transformations",
+        "weighted circle graph Arens Eells quotient ℓ1 hyperplane unconditional constants partition discrepancy",
+        "unconditional basis constant of canonical basis of quotient ell_1^n by span of positive vector",
+        "unconditional basis constant edge molecules graph circle partition problem"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published results titled Numerical-index parity law for Lipschitz-free spaces over cycles and Bipartiteness exactly characterizes numerical index one for finite graph metrics address numerical radius, not the designated unconditional-basis constant.",
+        "The available earlier local ledger claims include cycle Hilbert distortion and numerical index but no matching spanning-tree edge-molecule unconditional profile."
+      ],
+      "reasoning": "A published exact numerical index is not an exact table for the sign-change operator family. No matching exact parameter table for weighted cactus basis constants was found. This is a bounded database comparison, not a proof of uniqueness.",
+      "searches": [
+        "Unconditional constant of spanning-tree molecule basis in real Lipschitz-free space over weighted cactus graph; block decomposition of edge ℓ1 quotient by cycle flows",
+        "Sharp sign-change operator norm, weighted graph cycles, partition discrepancy, Lipschitz free Schauder basis unconditionality",
+        "unconditional basis constants graph cycle molecule basis 2019 2021"
+      ]
+    },
+    "rationale": "The inspected primary literature supplies the edge-flow quotient (Dilworth–Kutzarova–Ostrovskii), bounds for retractional Schauder bases on metric circles and conditionality of bases on nets (Novotný), and Lipschitz extension/relative projection theory (Basso). Those statements do not furnish the explicit weighted cactus unconditional constant or its exact partition-complexity threshold. Existing published numerical-index calculations for graph cycles optimize a distinct all-operator quantity. There is residual risk of equivalent sign-unconditional quotient results in differently indexed Banach basis literature.",
+    "residual_risks": [
+      "Equivalent canonical-basis sign-multiplier formulas might be indexed as weighted ℓ1-hyperplane quotient constants rather than metric free-space results.",
+      "Searches are not an exhaustive survey, and numerical-index papers were distinguished by statements and abstracts rather than claimed exhaustive review of every appendix."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closely related topic but no covering formula in inspected relevant sections.",
+        "evidence": [
+          "Theorem 5 is about Lipschitz constants of retractions on graph circles; Section 4 concerns infinite retractional bases and nets rather than the finite edge-molecule basis."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1905.13188",
+        "material_read": "Introduction and definitions, Theorem 5 and graph-circle proof, Section 4 unconditionality lemma and Theorem 10 with their assumptions and conclusions.",
+        "method": "Full-text PDF section and theorem comparison with visible page inspection.",
+        "title": "Some Remarks on Schauder Bases in Lipschitz Free Spaces",
+        "trigger": "Closest topic: graph-circle bases and unconditionality"
+      },
+      {
+        "assessment": "Foundational representation that does not state the exact signed-multiplier parameter formula.",
+        "evidence": [
+          "Equation (3) identifies the unweighted graph quotient ℓ1(E)/Z(G); the main theorems study finite-dimensional ℓ1-complementability and recursive graph families."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1807.03814",
+        "material_read": "Introduction, Section 1.1 cycle-flow quotient, overview of results and explicit graph quotient definitions.",
+        "method": "Primary full-text PDF, cycle-flow quotient text and page image inspected; comparison with the statement and scope of its principal results.",
+        "title": "Lipschitz free spaces on finite metric spaces",
+        "trigger": "Direct antecedent for cycle-flow quotient and graph-metric representation"
+      },
+      {
+        "assessment": "Different optimization problem, no covering implication in the inspected theorems.",
+        "evidence": [
+          "Its operators extend functions or project free-space inclusions; sign multipliers of a spanning-tree edge-molecule basis are not optimized."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2104.14238",
+        "material_read": "Introduction, definitions, Theorem 1.4 and the formula relating extension and relative projection constants.",
+        "method": "Primary full-text PDF introductory theorem text and page image inspected.",
+        "title": "Absolute Lipschitz extendability and linear projection constants",
+        "trigger": "Potentially dominating linear-operator constants on finite Lipschitz-free spaces"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2df29e7a-1efa-4fb3-bb71-ee362e45779f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Spanning-tree edge molecules are the canonical coordinate basis for a finite metric transportation space, so their unconditional constant quantifies basis stability under independent sign perturbations. An exact graph-wide formula covers arbitrary finite weighted cactus networks and all their spanning trees, not isolated instances. The sharp r-1 unit-cycle growth and integer-weight discrepancy threshold reveal both geometric instability and NP-complete exact threshold evaluation. This natural parameter-family classification is not a renamed known table or a tiny numeric improvement; no larger conjecture is claimed.",
+    "status": "PASS"
+  }
+}
