@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T19:43:58Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/475e612389968173d8ff1f5d87788e7b3684fd2d/2026/10/12/sharp-finite-grid-positivity-threshold-for-peaceman-rachford-hea--1fbe756efa1e/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/475e612389968173d8ff1f5d87788e7b3684fd2d/2026/10/12/sharp-finite-grid-positivity-threshold-for-peaceman-rachford-hea--1fbe756efa1e/VERIFICATION.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/475e612389968173d8ff1f5d87788e7b3684fd2d/2026/10/12/sharp-finite-grid-positivity-threshold-for-peaceman-rachford-hea--1fbe756efa1e/verify.py"
+      ],
+      "rationale": "The two tensor-split Peaceman–Rachford factors commute, yielding G=C_m(s_x)⊗C_n(s_y) with C_k=2(I+sT_k)^{-1}−I and T_k=tridiag(−1,2,−1). Cofactor inversion yields strictly positive offdiagonal C entries and diagonal (R_k)_{ii}=D_{i−1}D_{k−i}/D_k. Decreasing q_j=D_j/D_{j−1} makes minimum diagonal equal D_{k−1}/D_k at endpoints; derivative −vᵀT_kv<0 supplies exactly one crossing. If one factor has negative diagonal, a positive offdiagonal in the other detects a negative Kronecker entry. The limit is from q∞=(1+2s+sqrt(1+4s))/2, root 2−sqrt(2). Independent exact SymPy matrix identities give C_2(3/5)=[[-1,15],[15,−1]]/56, negative tensor entry −15/3136, and C_2(11/20) positive.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stability bounds alone constrain eigenvalues or norms and cannot imply all matrix entries are nonnegative, as the exact negative 2×2 witness illustrates."
+        ],
+        "reasoning": "Distinguished mathematical consequences from stronger prior results; a generic method alone does not automatically imply the sharp new statement.",
+        "searches": [
+          "Resultary semantic search: Peaceman Rachford ADI heat equation positivity preservation finite grid threshold nonnegative iteration matrix",
+          "Hundsdorfer Verwer Math Comp 53 (1989) Peaceman Rachford stability and convergence",
+          "Resultary 2026/9/20 SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac"
+        ]
+      },
+      "checked_sources": [
+        "https://ir.cwi.nl/pub/1674/1674D.pdf",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/475e612389968173d8ff1f5d87788e7b3684fd2d/2026/10/12/sharp-finite-grid-positivity-threshold-for-peaceman-rachford-hea--1fbe756efa1e/RESULT.md",
+        "Hundsdorfer Verwer Math Comp 53 (1989) Peaceman Rachford stability and convergence",
+        "Resultary 2026/9/20 SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 1989 convergence theorem supplies robust norm behavior but no contradiction to one-step componentwise negativity; both properties coexist in the verified counterexample."
+        ],
+        "reasoning": "Compared whether published statements alone logically entail the specific audited theorem versus requiring the demonstrated new step.",
+        "searches": [
+          "Resultary semantic search: Peaceman Rachford ADI heat equation positivity preservation finite grid threshold nonnegative iteration matrix",
+          "Hundsdorfer Verwer Math Comp 53 (1989) Peaceman Rachford stability and convergence",
+          "Resultary 2026/9/20 SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "C_k(s)=2(I+sT_k)^{-1}−I is the one-dimensional Crank–Nicolson transition matrix; the ADI full-step positivity condition is a tensor product of two such factors."
+        ],
+        "reasoning": "Compared discrete maximum principle, nonnegative ADI iteration matrix, monotonicity of Peaceman Rachford, positivity of Crank–Nicolson split factors; the claimed invariant and exact quantifiers are not thereby a known duplicate.",
+        "searches": [
+          "Resultary semantic search: Peaceman Rachford ADI heat equation positivity preservation finite grid threshold nonnegative iteration matrix",
+          "Hundsdorfer Verwer Math Comp 53 (1989) Peaceman Rachford stability and convergence",
+          "Resultary 2026/9/20 SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A sharp 2×2 counterexample is not a previously tabulated all-grid threshold; exact root σ_k of leading tridiagonal determinants gives every k."
+        ],
+        "reasoning": "Checked the nearest exact example/database and distinguished finite rows or differently scoped invariants from the stated uniform/complete claim.",
+        "searches": [
+          "Resultary semantic search: Peaceman Rachford ADI heat equation positivity preservation finite grid threshold nonnegative iteration matrix",
+          "Hundsdorfer Verwer Math Comp 53 (1989) Peaceman Rachford stability and convergence",
+          "Resultary 2026/9/20 SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac"
+        ]
+      },
+      "rationale": "Peaceman–Rachford/Hundsdorfer–Verwer stability theories are not lattice maximum principles: norm stability does not entail entrywise nonnegativity. The inspected 1989 primary paper does not present the finite Dirichlet resolvent endpoint polynomial threshold. Resultary positivity-preserving CN filtering uses a different composed scheme.",
+      "residual_risks": [
+        "A historic ADI discrete maximum principle or positivity-preserving factor condition might imply the explicit σ_k relation under older terminology.",
+        "The proof is limited to standard rectangular constant-coefficient Dirichlet grids, not general ADI systems."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Norm stability/convergence is not entrywise positivity and no exact determinant positivity frontier is supplied in inspected material",
+          "evidence": "Classical stability theory is credited; sharp boundary-dependent one-step nonnegative matrix criterion requires additional argument",
+          "identifier_or_url": "https://ir.cwi.nl/pub/1674/1674D.pdf",
+          "material_read": "Full accessible 21-page stability/convergence article, relevant analytic sections and proofs",
+          "method": "lawful AMS open-access primary PDF and inspected PDF pages",
+          "title": "Hundsdorfer and Verwer, Stability and Convergence of the Peaceman–Rachford ADI Method for Initial-Boundary Value Problems",
+          "trigger": "likely strongest classical ADI theorem"
+        },
+        {
+          "assessment": "Different modified operator on infinite/periodic heat lattice, no exact finite Dirichlet PR positivity criterion",
+          "evidence": "Additional BE filtering changes one-step product and positivity thresholds.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+          "material_read": "Published Resultary title and summary only",
+          "method": "Resultary semantic result; not claimed complete primary reading",
+          "title": "Backward-Euler-filtered Crank–Nicolson lattice positivity",
+          "trigger": "Related exact positivity result in a time-stepping product"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/475e612389968173d8ff1f5d87788e7b3684fd2d/2026/10/12/sharp-finite-grid-positivity-threshold-for-peaceman-rachford-hea--1fbe756efa1e/RESULT.md",
+        "https://ir.cwi.nl/pub/1674/1674D.pdf"
+      ],
+      "rationale": "A sharp necessary-and-sufficient step-size restriction for the physically essential positivity of heat solutions, including grid-size dependence and asymptotic frontier, clarifies a practical property absent from unconditional stability.",
+      "residual_risks": [
+        "A historic ADI discrete maximum principle or positivity-preserving factor condition might imply the explicit σ_k relation under older terminology.",
+        "The proof is limited to standard rectangular constant-coefficient Dirichlet grids, not general ADI systems."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Exact nonnegative full-step threshold of Peaceman–Rachford heat ADI on finite Dirichlet tensor grids",
+  "limitations": [
+    "A historic ADI discrete maximum principle or positivity-preserving factor condition might imply the explicit σ_k relation under older terminology.",
+    "The proof is limited to standard rectangular constant-coefficient Dirichlet grids, not general ADI systems.",
+    "No GitHub write/publication or external certification occurred. Source package privacy sanitation remains pending."
+  ],
+  "schema_version": 1
+}

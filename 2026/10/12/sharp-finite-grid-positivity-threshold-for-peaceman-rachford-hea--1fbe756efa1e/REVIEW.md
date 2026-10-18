@@ -1,12 +1,21 @@
-# Review of Sharp finite-grid positivity threshold for Peaceman–Rachford heat stepping
+# Independent mathematical audit
 
-## Correctness
-PASS. The one-step operator factorizes exactly into one-dimensional Crank–Nicolson factors. The tridiagonal inverse formula makes all off-diagonal signs explicit, while the diagonal-ratio argument proves that endpoint diagonals are the only possible obstruction. Strict resolvent monotonicity gives a unique threshold. The limit follows from the exact scalar fixed point, not from numerical extrapolation. The exact \(2\times2\) witness is independently replayed by the bundled checker.
+## correctness
 
-## Originality
-PASS. The original Peaceman–Rachford paper and the Hundsdorfer–Verwer analysis establish stability/convergence, not the finite-grid entrywise positivity law. Nearby positivity literature treats other Padé or exponential-splitting maps. Focused statement-level searches found a one-dimensional backward-Euler-filtered Crank–Nicolson positivity result as the closest published database match, but that map and geometry are different. No inspected source implied the determinant threshold, the rectangular if-and-only-if conditions, or the limit \(4-2\sqrt2\). The remaining risk is older discrete-maximum-principle literature using different terminology; abstract-only access to two nearby papers is also recorded in the structured audit.
+PASS
 
-## Value
-PASS. Peaceman–Rachford is classically unconditionally stable, so an exact positivity frontier answers a mathematically and numerically natural question that stability alone leaves open. The result supplies a complete finite-grid classification for the standard rectangular Dirichlet heat operator, an asymptotic constant, and a minimal exact counterexample illustrating the distinction.
+The two tensor-split Peaceman–Rachford factors commute, yielding G=C_m(s_x)⊗C_n(s_y) with C_k=2(I+sT_k)^{-1}−I and T_k=tridiag(−1,2,−1). Cofactor inversion yields strictly positive offdiagonal C entries and diagonal (R_k)_{ii}=D_{i−1}D_{k−i}/D_k. Decreasing q_j=D_j/D_{j−1} makes minimum diagonal equal D_{k−1}/D_k at endpoints; derivative −vᵀT_kv<0 supplies exactly one crossing. If one factor has negative diagonal, a positive offdiagonal in the other detects a negative Kronecker entry. The limit is from q∞=(1+2s+sqrt(1+4s))/2, root 2−sqrt(2). Independent exact SymPy matrix identities give C_2(3/5)=[[-1,15],[15,−1]]/56, negative tensor entry −15/3136, and C_2(11/20) positive.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Peaceman–Rachford/Hundsdorfer–Verwer stability theories are not lattice maximum principles: norm stability does not entail entrywise nonnegativity. The inspected 1989 primary paper does not present the finite Dirichlet resolvent endpoint polynomial threshold. Resultary positivity-preserving CN filtering uses a different composed scheme.
+
+## value
+
+PASS
+
+A sharp necessary-and-sufficient step-size restriction for the physically essential positivity of heat solutions, including grid-size dependence and asymptotic frontier, clarifies a practical property absent from unconditional stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
