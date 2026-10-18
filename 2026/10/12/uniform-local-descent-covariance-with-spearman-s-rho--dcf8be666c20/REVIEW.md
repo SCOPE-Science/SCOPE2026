@@ -1,18 +1,21 @@
-# Review
-## Correctness
-PASS. Conditioning on one adjacent descent determines the two affected conditional means exactly: the left value is the expected maximum of a uniform unordered pair and the right value is the expected minimum. Their weighted contribution to the rank inner product cancels the position index, producing the same shift at every adjacent location. The affine relations to squared displacement and Spearman's coefficient then give the local covariance. Summation and exact marginal variances give the global correlation.
+# Independent mathematical audit
 
-Exact exhaustive enumeration through \(n=9\) reproduces all local and global formulas. A separate exact calculation of the conditional pair means and weighted shift through \(n=500\) independently checks the proof mechanism.
+## correctness
 
-## Originality
-PASS, with a stated historical-literature risk. Conger's complete refined-Eulerian article studies descents jointly with endpoint values but contains no Spearman statistic. Jiang's complete permutation-metric article treats the Spearman family but contains no descent statistic. Targeted searches did not locate the displayed local covariance, conditional Spearman mean, or total-descent covariance.
+PASS
 
-The main residual risk is that the short covariance identity may have appeared under different notation in older permutation-statistics literature.
+PASS: For n>=2 and every i=1..n-1, using L=sum j*pi(j), D=2 sum j^2-2L. A uniformly selected unordered pair conditioned to be a descent has maximum 2(n+1)/3, minimum (n+1)/3, and other positions have mean (n+1)/2. Hence conditional L shift=-(n+1)/6 at every i, giving Cov(I_i,D)=(n+1)/6 and Cov(I_i,R)=-1/[n(n-1)]. Summing and using standard exact variances gives Cov(A,R)=-1/n and the stated correlation. Checked normalization and n=2 boundary, and independently enumerated exact rational permutation statistics for all n=2..7 and every i (not substituted for infinite proof).
 
-## Value
-PASS. Descents measure local rank disorder, while Spearman's coefficient measures global squared displacement. The exact position invariance is a structural fact, not merely a marginal moment: every adjacent descent contributes the same conditional Spearman shift. The resulting correlation formula quantifies their finite-null redundancy and identifies its sharp \(n^{-1}\) decay.
+## originality
 
-## Closest literature and limitations
-The closest sources separately develop refined descent distributions and Spearman-family metric dependence. Neither inspected source bridges the two statistics. The theorem assumes a uniform permutation with no ties and makes no claim about power under alternatives.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS best-of-knowledge: Conger concerns Eulerian descent distribution conditioned by the first value, not Spearman squared displacement; Jiang treats Spearman/distance asymptotics without local descent indicators. Resultary retrieval returned incidence inversion or fixed-point/descent statistics, not this covariance. Local position-invariance and global n^-1 constant not implied by inspected statements; possible older alternate notation remains residual risk.
+
+## value
+
+PASS
+
+PASS: An exact position-uniform covariance and conditional rank-correlation shift links a local Eulerian test statistic to a global rank-distance test statistic in the canonical uniform-permutation null, distinguishing boundary positions. The exact first-order decay constant and finite-n identity are natural reusable facts beyond a standard variance calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
