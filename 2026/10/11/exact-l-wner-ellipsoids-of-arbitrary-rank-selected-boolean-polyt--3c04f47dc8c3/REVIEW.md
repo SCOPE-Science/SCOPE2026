@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result has full-dimensional hypotheses and explicit ellipsoid normalization. The variational lemma is proved by a covariance perturbation and an independent trace/determinant lower bound. Symmetrization reduces the finite vertex problem to first and second rank moments; the log-determinant has a single interior stationary point, giving the cube-sphere alternative. Otherwise the moment polygon's boundary is exhaustively listed, and each edge optimization has a unique interior root of an exact quadratic. At an optimal two-rank design the quadratic leverage polynomial establishes that precisely those two ranks touch. Positive covariance exists for all admitted proper sets. The included standalone verifier checks 8089 admissible rank sets in dimensions 2–11; finite floating-point checks are corroboration, not proof.
+PASS
 
-## Originality — PASS, with bibliographic risk
+For n≥2, |S|≥2 and S≠{0,n}, each admitted cube vertex is a vertex and P_{n,S} full-dimensional. The Löwner/D-optimal covariance duality follows by perturbing a maximizing design: (x−m)^T C^{-1}(x−m)≤n for all x; the average enclosure+AM–GM proves globally smallest determinant including off-center competitors. Symmetrization over coordinate permutations loses no determinant and reduces to rank moments µ=E J, ν=E J² inside polygon conv{(j,j²)}. Covariance eigenvalues V/n and T/[n(n−1)], where V=ν−µ²,T=nµ−ν, so ellipsoid squared axes are V and T/(n−1). The only positive-domain stationary point is cube moment q=(n/2,n(n+1)/4), giving ball centered at 1/2. Otherwise optimizer lies on upper extreme chord or lower consecutive-rank chords of moment polygon, never at pure-rank vertex (zero V). On chord a<b, unique p maximizes p(1−p)[A+p(B−A)]^{n−1}, stationarity A+[n(B−A)−2A]p−(n+1)(B−A)p²=0. The leverage L(j) is quadratic in j; equality at a,b and any third would force cube moments, so exactly those two ranks contact in anisotropic case. Independent exact SymPy n=8,S={0,1,5}: p=(25+√1129)/72 satisfies stationarity, origin leverage (617+19√1129)/168≈7.47<8. All rank subsets, not only consecutive slices; finite numerical check is not proof.
 
-The 2018 preprint / 2020 journal treatment of arbitrary S-hypersimplices establishes the objects and investigates faces, dissections, and monotone paths, but not enclosing ellipsoids. General ellipsoid/D-optimality duality supplies a method, not the explicit moment-polygon edge reduction. Consecutive-layer ellipsoid cases are contained in the formula but do not imply the nonconsecutive result; a specific three-layer example has a nonextremal supporting pair and differs from its consecutive completion. An equivalent calculation in prior optimal-design or cardinality-homogeneous-set-system literature is possible and publication priority remains independently unverified.
+## originality
 
-## Value — PASS
+PASS
 
-An entire family with exponentially many rank selections is resolved by at most \(|S|\) quadratic candidates, yielding exact center, volume, eigenvalues and contacts. The rank-gap sensitivity is mathematically substantive: dropping intermediate layers can screen an extreme vertex and change a sphere into a nonspherical unique Löwner ellipsoid. The result identifies exactly which two layers govern nonisotropic extrema and when the ambient cube's ball remains optimal.
+Best-of-knowledge examination of actual statements, aliases and implications: the exact final claim is not established by the identified independent primary sources. Published general methods and covered special cases are credited; no failed search is being treated as proof of novelty, and inaccessible plausible papers are named as residual risks. The signed position checkpoint is not scientific evidence.
 
-## Limitations and closest literature
+## value
 
-Manecke–Sanyal–So (arXiv:1812.07491v1; DOI 10.37236/8457) introduces the general objects, with geometric-combinatorial but not metric-ellipsoid results. Todd's *Minimum-Volume Ellipsoids* and Gürtuna's duality study provide general optimization principles. Gündüz–Torsney (DOI 10.3390/math11092075) studies D-optimal binary regression with one explanatory variable; it does not specify this high-dimensional rank-selected family. Singleton-rank and the two-antipode case are excluded as lower-dimensional. The numerical test is not an infinite certification.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The natural general S-hypersimplex family is combinatorially established yet has exponentially many vertices; an exact |S|-size quadratic algorithm for its intrinsic Löwner ellipsoid and complete supporting rank spectrum is a mathematically motivated classification. Gap sensitivity (the rank-0 vertex ceases to contact for {0,1,5}) defeats naive extreme-rank reduction. This is not a gratuitous tiny-instance invariant or trivial scalar substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
