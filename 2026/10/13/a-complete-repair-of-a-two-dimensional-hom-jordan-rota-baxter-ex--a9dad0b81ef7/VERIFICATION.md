@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,48 +18,25 @@
   "schema_version": 1
 }
 ---
-The packaged checker `artifacts/verify.py` reconstructs the Hom-Jordan and Rota–Baxter equations from the multiplication table rather than hard-coding the final classification.
 
-For
-\[
-R=
-\begin{pmatrix}
-x&y\\
-z&w
-\end{pmatrix},
-\]
-it verifies symbolically that
-\[
-R\alpha-\alpha R
-\]
-is controlled by
-\[
-(\lambda-1)y,\qquad(1-\lambda)z.
-\]
+# Independent mathematical audit
 
-It computes the Rota–Baxter defect on the three unordered basis pairs and recovers the five equations used in `RESULT.md`.
+## correctness
 
-For the printed Example 2.2 map
-\[
-R(e_1)=b e_2,\qquad R(e_2)=0,
-\]
-the product defect is verified to vanish identically, while the twist defect equals
-\[
-(1-\lambda)b e_2.
-\]
+PASS
 
-The checker also verifies the Hom-Jordan identity symbolically for the displayed multiplication.
+The exact source multiplication and twist were inspected. For R=[[x,y],[z,w]], twist commutation gives (lambda-1)y=(lambda-1)z=0. Evaluating bilinear RB product defect on basis pairs yields equations x²+2lambda yz=0, z(lambda(x-w)-x)=0, lambda y(w+x)=0, lambda w²+(1-lambda)yz=0, (2lambda-1)y²=0. If lambda !=1, y=z=x=0 and lambda w²=0. If lambda=1, w=y=x=0 and z free. Thus exactly the three cases and 3q-2 pairs. Source Example2.2 map R(e1)=b e2 satisfies product equations always but fails Ralpha=alphaR unless (lambda-1)b=0; original Definition1.3 includes compatibility. Independently enumerated complete 2x2 maps over F3 and F5, reproducing distributions [q at 0,q at 1,one elsewhere]. Symbolic proof works over every field of char !=2; finite tests are only checks.
 
-Finally, it exhaustively enumerates all parameters and all \(2\times2\) maps over
-\[
-\mathbf F_3,\quad\mathbf F_5,\quad\mathbf F_7.
-\]
-At each odd field it finds \(q\) operators for \(\lambda=0\), \(q\) for \(\lambda=1\), and one for every other parameter, hence
-\[
-3q-2
-\]
-parameter-operator pairs.
+## originality
 
-The checker returns `VERIFY_OK`.
+PASS
 
-Finite enumeration is a replay check. The arbitrary-field theorem for \(\operatorname{char}K\ne2\) is proved by the symbolic case split in `RESULT.md`.
+The full Chtioui–Mabrouk–Makhlouf foundational paper expressly prints arbitrary lambda,b in Example2.2 while its Definition1.3 imposes twist commutation, so the correcting counterexample is to a specific source statement. The complete lambda=0 additional family is not the printed example. Sun–Huang–Zhao–Tian arXiv:2111.02035 classifies ordinary complex Jordan RB operators, not alpha-twisted Hom-Jordan operators; no logical implication. Resultary nearest four-dimensional exterior algebra RB operators over F2 are unrelated by algebra and characteristic. No indexed erratum established, with explicit residual risk.
+
+## value
+
+PASS
+
+The exact definitional defect invalidates use of a published claimed RB family to invoke the source construction theorem at generic parameters; the omitted lambda=0 operators and full two-dimensional classification are natural corrections in a central low-dimensional toy model, not a mere notation issue.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

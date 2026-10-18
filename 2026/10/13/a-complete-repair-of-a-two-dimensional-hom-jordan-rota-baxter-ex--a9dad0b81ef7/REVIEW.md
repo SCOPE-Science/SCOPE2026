@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The primary definition explicitly requires both twist commutation and the weight-zero product identity. A direct reconstruction for a general \(2\times2\) map produces the complete polynomial system, and its three parameter cases solve exactly to the stated families. The source's displayed map has identically zero product defect but twist defect \((1-\lambda)b e_2\). Symbolic and finite-field replay checks agree.
+PASS
 
-## Originality
+The exact source multiplication and twist were inspected. For R=[[x,y],[z,w]], twist commutation gives (lambda-1)y=(lambda-1)z=0. Evaluating bilinear RB product defect on basis pairs yields equations x²+2lambda yz=0, z(lambda(x-w)-x)=0, lambda y(w+x)=0, lambda w²+(1-lambda)yz=0, (2lambda-1)y²=0. If lambda !=1, y=z=x=0 and lambda w²=0. If lambda=1, w=y=x=0 and z free. Thus exactly the three cases and 3q-2 pairs. Source Example2.2 map R(e1)=b e2 satisfies product equations always but fails Ralpha=alphaR unless (lambda-1)b=0; original Definition1.3 includes compatibility. Independently enumerated complete 2x2 maps over F3 and F5, reproducing distributions [q at 0,q at 1,one elsewhere]. Symbolic proof works over every field of char !=2; finite tests are only checks.
 
-PASS. The primary source still contains the unrestricted Example 2.2 statement alongside the commutation requirement. Focused searches found no erratum or complete repair. The closest complete low-dimensional Rota–Baxter classification treats ordinary complex Jordan algebras and has no Hom-Jordan coverage. An unindexed correction remains a residual risk.
+## originality
 
-## Value
+PASS
 
-PASS. Example 2.2 is used directly with Corollary 2.1 to construct a Hom-pre-Jordan algebra, so enforcing the omitted defining condition is mathematically consequential. The result also replaces a parameter-generic example by the complete classification and finds the omitted \(\lambda=0\) family.
+The full Chtioui–Mabrouk–Makhlouf foundational paper expressly prints arbitrary lambda,b in Example2.2 while its Definition1.3 imposes twist commutation, so the correcting counterexample is to a specific source statement. The complete lambda=0 additional family is not the printed example. Sun–Huang–Zhao–Tian arXiv:2111.02035 classifies ordinary complex Jordan RB operators, not alpha-twisted Hom-Jordan operators; no logical implication. Resultary nearest four-dimensional exterior algebra RB operators over F2 are unrelated by algebra and characteristic. No indexed erratum established, with explicit residual risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact definitional defect invalidates use of a published claimed RB family to invoke the source construction theorem at generic parameters; the omitted lambda=0 operators and full two-dimensional classification are natural corrections in a central low-dimensional toy model, not a mere notation issue.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
