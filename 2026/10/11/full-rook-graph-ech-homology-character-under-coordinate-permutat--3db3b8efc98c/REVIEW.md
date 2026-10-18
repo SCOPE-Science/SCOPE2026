@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact object is the graph-geometric Čech complex of closed radius-one balls on the rook graph, identified with the union of row-column cross simplices. An equivariant elementary collapse retains the row/column simplex union and two triangles above every off-row/off-column diagonal edge. In the resulting pair, each mixed edge receives exactly two triangles and the relative boundary has full row rank. The boundaries of the paired triangles generate every rectangle four-cycle of the row-column incidence nerve, killing the first homology. The two relative signed-permutation character computations give the two formulas after subtracting the first homology representation of the row-column incidence nerve. Exhaustive signed Lefschetz calculations for all group elements at \(q=2,3,4\) agree. The argument is uniform in \(q\), while the finite verifier is solely a check.
+## correctness
 
-## Originality — PASS with residual risk
-The strongest same-object comparison is Matsushita's arXiv:2511.12608, Example 3.5, which *already determines* the nonequivariant sphere-wedge type and rank. Adams–Shukla–Singh arXiv:2212.05871 addresses binary hypercube Čech homotopy, and Antolín Camarena–Carnero Bravo arXiv:2307.12401 studies a categorically related independence complex. The relevant full-text sections contain no formula for the \(S_q\wr C_2\) homology character or the invariant-line reversal. Searches of equivalent descriptions and published mathematical findings did not reveal broader equivariant coverage. Unindexed parallel calculations remain a residual risk.
+PASS
 
-## Value — PASS
-The rook graphs are a natural, highly symmetric infinite family of Hamming graphs. The result upgrades known Betti numbers to complete equivariant data and distinguishes an invariant line for the coordinate-preserving subgroup from its disappearance under the full graph automorphism group. This information is not implied by the known nonequivariant classification and is obtained from a reusable equivariant relative-cell method.
+For the closed-neighborhood/radius-one Čech complex of K_q□K_q (q≥3), every maximal face is contained in row a ∪ column b. The invariant row/column subcomplex has H1≅U⊗U and coordinate exchange acts by negative flip. The prescribed unique-cross-center acyclic pairing reduces mixed faces to a relative chain module with two triangles over each diagonal edge; relative H2 is a signed permutation module and connecting boundaries of rectangles surject onto H1. The resulting exact rational H2 character is 2 C(fσ,2) C(fτ,2)+2tσtτ−(fσ−1)(fτ−1); for exchange it is −(f(στ)−1)^2. Relative invariants are 1d under Sq×Sq but exchange reverses them. Independently reconstructed all faces and oriented Lefschetz traces for q=2,3,4 and all 1232 group elements, confirming formulas; all q follows the uniform Morse/relative proof.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Matsushita’s Examples 3.5 and 5.7 already identify the same closed-neighborhood rook-graph object and determine the nonequivariant wedge rank and simple connectivity. Neither those results nor general Čech-complex topology supplies the full wreath-product character or the sign under coordinate interchange. Other Resultary rook-graph findings about OPEN neighborhood, three-cut and independence complexes have different simplicial definitions; their invariants cannot be substituted.
+
+## value
+
+PASS
+
+The rook graphs K_q□K_q are a canonical graph family with full wreath-product symmetry. An exact all-parameter H2 character, plus the nontrivial sign action on the unique Sq×Sq-invariant line, is mathematically motivated equivariant refinement and distinguishes symmetry data invisible in the known dimension/homotopy results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
