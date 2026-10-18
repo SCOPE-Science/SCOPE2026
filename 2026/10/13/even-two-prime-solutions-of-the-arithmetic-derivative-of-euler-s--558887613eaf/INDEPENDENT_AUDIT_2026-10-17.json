@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T06:13:10Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md Git blob fec8edc36954b64446acbb1fe71d462d88259117",
+        "pinned verify.py Git blob 30bf23a5e3deb798aa5c6d16453636137d7d93f7",
+        "science_checks.py independently evaluated 3960 cases with sympy.factorint and exact arithmetic derivative"
+      ],
+      "rationale": "For n=2^a p^b with p odd prime, a,b>=1, p−1=2^t u (u odd), D(m)/m=sum_{ell|m} e_ell/ell yields exactly a+t−1+2(b−1)/p+2sum_{q|u} e_q/q=4+4/(2^t u). Coprimality forces p|(b−1), so b=1+kp. Comparing powers of 2 in the denominators rules out t>=3; comparing q-adic valuations rules out repeated q factors in u. Thus u squarefree and t∈{1,2}; the equations become a=4−2k−2(S(u)−1/u) for t=1 and a=3−2k−(2S(u)−1/u) for t=2. When omega(u)<=2, the only integral positive possibilities are u=1,t=1 (p=3, three pairs), u=1,t=2 (p=5, two pairs), u=q prime,t=1 (safe-prime p=2q+1, two pairs), and u=3·5,t=2 (p=61,a=2,b=1). For u=qr,t=1, 0<(q+r−1)/(qr)<1 forbids integer a; for t=2 only q=3,r=5 makes (2q+2r−1)/(qr) integral. Direct reverse substitution proves sufficiency. Independently factored and evaluated 3960 exact positive-integer cases for primes p<201, permitted omega(u), 1<=a<=8, b=1..10 and b=p+1, including exceptional (p,a,b)=(61,2,1). The infinite classification follows from the valuation proof, not finite factoring.",
+      "residual_risks": [
+        "The bound omega(u)<=2 restricts odd prime factors of p−1, not factors of n.",
+        "No infinitude of Sophie Germain/safe primes is asserted; parameterized families are conditional on primality."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Logarithmic arithmetic-derivative factorization D(m)/m is classical; deriving all permissible t,u,a,b with omega(u)<=2 requires additional valuation and integrality analysis.",
+          "Grau–Oller-Marcén (2012) analyze Giuga numbers satisfying n′=an+1, not the totient-composed equation."
+        ],
+        "reasoning": "A broader or better-known method/family would cover this claim only if its actual hypotheses and conclusions imply the stated all-parameter mathematical result. The named sources and comparisons instead establish the specific narrower relationships above; no dominance of the full claim was identified.",
+        "searches": [
+          "Resultary semantic search: arithmetic derivative Euler totient n=D(phi(n)) two prime factors p-1 safe primes complete solutions",
+          "Web search: \"arithmetic derivative\" \"Euler totient\" \"2^a\" \"p^b\"",
+          "OEIS A248815 exact search of n=D(phi(n)) and A217715 for composition orientation",
+          "Grau and Oller-Marcén 2012 full JIS paper arithmetic derivative Giuga search"
+        ]
+      },
+      "checked_sources": [
+        "https://oeis.org/A248815",
+        "https://oeis.org/A217715",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL15/Oller/oller5.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A list of solutions of n=D(phi(n)) up to a finite bound cannot exclude infinite other prime and exponent cases.",
+          "D(n)-(n−phi(n)) fixed gap results involve no D(phi(n)); there is no substitution that yields the same equation or a stronger theorem."
+        ],
+        "reasoning": "These are the actual mathematical implication tests against closest sources. Prior named source results imply some background identities or special cases but do not, in material read, logically entail the entire submitted final claim. Unread plausible sources are retained as residual uncertainty.",
+        "searches": [
+          "Resultary semantic search: arithmetic derivative Euler totient n=D(phi(n)) two prime factors p-1 safe primes complete solutions",
+          "Web search: \"arithmetic derivative\" \"Euler totient\" \"2^a\" \"p^b\"",
+          "OEIS A248815 exact search of n=D(phi(n)) and A217715 for composition orientation",
+          "Grau and Oller-Marcén 2012 full JIS paper arithmetic derivative Giuga search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS A248815 precisely defines n=(phi(n))′ and lists solution values; it has no formula with the four parametric families.",
+          "OEIS A217715 explicitly defines n=phi(n′), which reverses composition, not equivalent."
+        ],
+        "reasoning": "OEIS A248815 lists specific solutions of the exact equation n=D(phi(n)) and code searching a finite range but states no complete two-prime-support classification or the p−1 odd-support restriction; it lists 244 and many samples consistent with the theorem. OEIS A217715 concerns the reversed composition n=phi(D(n)), logically a different equation even where its small witnesses overlap. Grau–Oller-Marcén, Giuga Numbers and the Arithmetic Derivative, derives properties of D and a Giuga-number equation n′=an+1, not D(phi(n))=n. Resultary ranked work on the cototient gap D(n)-(n−phi(n)), iterated D and unrelated totient fibers; these do not imply the present case analysis. No stronger covered classification was identified, retaining risk of unindexed literature.",
+        "searches": [
+          "Resultary semantic search: arithmetic derivative Euler totient n=D(phi(n)) two prime factors p-1 safe primes complete solutions",
+          "Web search: \"arithmetic derivative\" \"Euler totient\" \"2^a\" \"p^b\"",
+          "OEIS A248815 exact search of n=D(phi(n)) and A217715 for composition orientation",
+          "Grau and Oller-Marcén 2012 full JIS paper arithmetic derivative Giuga search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A248815 contains initial numerical sequence including 80,112,192,244,1296 and search scripts but no unrestricted theorem for the specified support.",
+          "OEIS A217715 contains distinct inverse-composition sequence; matching isolated entries would not imply two distinct predicates equal."
+        ],
+        "reasoning": "Compare full exact result, not coincident sample numbers or parameter labels. Source tables or indexed entries do not document this entire theorem; for continuous-parametric or structural cases, enumerative database coverage is not itself directly applicable, as explained in the evidence.",
+        "searches": [
+          "Resultary semantic search: arithmetic derivative Euler totient n=D(phi(n)) two prime factors p-1 safe primes complete solutions",
+          "Web search: \"arithmetic derivative\" \"Euler totient\" \"2^a\" \"p^b\"",
+          "OEIS A248815 exact search of n=D(phi(n)) and A217715 for composition orientation",
+          "Grau and Oller-Marcén 2012 full JIS paper arithmetic derivative Giuga search"
+        ]
+      },
+      "rationale": "OEIS A248815 lists specific solutions of the exact equation n=D(phi(n)) and code searching a finite range but states no complete two-prime-support classification or the p−1 odd-support restriction; it lists 244 and many samples consistent with the theorem. OEIS A217715 concerns the reversed composition n=phi(D(n)), logically a different equation even where its small witnesses overlap. Grau–Oller-Marcén, Giuga Numbers and the Arithmetic Derivative, derives properties of D and a Giuga-number equation n′=an+1, not D(phi(n))=n. Resultary ranked work on the cototient gap D(n)-(n−phi(n)), iterated D and unrelated totient fibers; these do not imply the present case analysis. No stronger covered classification was identified, retaining risk of unindexed literature.",
+      "residual_risks": [
+        "An unindexed analytic number-theory manuscript may classify the same equation under a different name.",
+        "The theorem deliberately omits omega(u)>=3, odd-only n and more general multi-prime n."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_EQUATION_FINITE_SEQUENCE_NOT_CLASSIFICATION",
+          "evidence": [
+            "Comment defines n=(phi(n))′; computational code tests up to finite cutoffs, not all a,b,p under omega restriction."
+          ],
+          "identifier_or_url": "https://oeis.org/A248815",
+          "material_read": "Full current OEIS page: sequence, comment defining n=(phi(n))′, example, program, references and cross-links",
+          "method": "Read complete HTML entry and inspected listed programs",
+          "title": "A248815: Numbers equal to arithmetic derivative of their Euler totient",
+          "trigger": "exact database and same predicate"
+        },
+        {
+          "assessment": "DIFFERENT_FUNCTION_COMPOSITION",
+          "evidence": [
+            "Equation n=phi(n′) contrasts with submitted n=(phi(n))′ despite some coincident values."
+          ],
+          "identifier_or_url": "https://oeis.org/A217715",
+          "material_read": "Full OEIS entry including Sophie Germain comment and defining equation",
+          "method": "Read complete page and compared expression order",
+          "title": "A217715: Numbers equal to Euler totient of their arithmetic derivative",
+          "trigger": "close alias with reversed composition and safe-prime examples"
+        },
+        {
+          "assessment": "RELATED_DERIVATIVE_TOOL_BUT_NOT_TOTIENT_COMPOSITE_CLASSIFICATION",
+          "evidence": [
+            "Abstract and theorem center on n′=an+1 / Giuga numbers, not D(phi(n))=n."
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL15/Oller/oller5.pdf",
+          "material_read": "Complete five-page 2012 JIS PDF, introduction and Giuga characterization; rendered first page",
+          "method": "Full PDF text and visual reading",
+          "title": "Giuga Numbers and the Arithmetic Derivative",
+          "trigger": "published primary derivative factorization and equation classifications"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://oeis.org/A248815",
+        "https://oeis.org/A217715",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL15/Oller/oller5.pdf",
+        "pinned RESULT.md Git blob fec8edc36954b64446acbb1fe71d462d88259117"
+      ],
+      "rationale": "An exact classification of an established OEIS composition equation on the natural even-two-prime family, with a motivated bound omega(odd(p−1))<=2, yields two genuinely infinite parameterized patterns and a rigid exceptional p=61 case. The special large exponent b=p+1 is not evident from finite OEIS search ranges. The support cutoff defines a natural tractable arithmetic slice, rather than arbitrary numerical truncation.",
+      "residual_risks": [
+        "An unindexed analytic number-theory manuscript may classify the same equation under a different name.",
+        "The theorem deliberately omits omega(u)>=3, odd-only n and more general multi-prime n."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only n=2^a p^b with odd p, omega(odd(p−1))<=2; no general support classification."
+  ]
+}
