@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and validation scope
+# Independent mathematical audit
 
-Execute `python3 verify.py` from the directory containing this file. It requires only Python 3 and standard-library modules, with no private data or network access. The script constructs the incidence-algebra derivation matrix from each choice of the two coefficients per edge, computes its linear-algebra rank by finite-field Gaussian elimination, and compares the full rank-frequency distribution against the graph-component formula. The implemented exhaustive fields are the prime fields of orders two and three; the theorem extends to nonprime prime powers by the field-independent proof, not by an exhaustive extension-field experiment.
+## correctness
 
-Checks performed: full derivation-parameter enumeration on the four-cycle for \(q=2\) and \(q=3\); six-cycle for \(q=2\); a five-vertex tree for \(q=2\) and \(q=3\); four-cycle with one bridge and \(K_{2,3}\) for \(q=2\). The code independently solves the full Leibniz linear constraints for all linear operators on the four-cycle algebra over both tested fields, obtaining the expected derivation-space dimension eight. It compares all ranks to the three-state edge formula. Additional graph-state checks verify the shortest-cycle coefficient on a four-cycle, six-cycle, \(K_{2,3}\), \(K_{3,3}\), and a four-cycle with bridge, and verify no coefficient deviation for a tree. The final script run printed `VERIFY_OK` and the expected girth lines, with no failed assertions.
+PASS
 
-Sample rank frequencies in ascending order are \((1,12,54,109,80)\) for the four-cycle at \(q=2\), \((1,32,384,2064,4080)\) at \(q=3\), and \((1,18,135,543,1231,1464,704)\) for \(K_{2,3}\) at \(q=2\). These are checkable finite witnesses, not an exhaustive proof of the infinite-graph theorem. The complete proof establishes the parameterization of all derivations, the incidence-rank calculation over all fields, the counting identity, and the girth coefficient without computational assumptions.
+PASS: For a height-two bipartite incidence algebra, derivations have one inner idempotent-arrow coefficient b_e and one scalar arrow coefficient λ_e per edge; idempotent Leibniz identities rule out other terms. The operator arrow-row block is [diag(b)∂ | diag(λ)]. Rows with λ!=0 pivot independently; remaining nonzero rows form a scaled incidence matrix with rank v−c(U) over any field. Counting per-edge zero/L/U states yields the polynomial. Its generating-subset expansion yields the printed Tutte substitution term by term. A rank deficit arises only from cycles in U, with first correction c_g(q−1)^g at degree g−1, and the unicyclic formula follows by moving the unique all-U cycle state down one degree. Independent state enumeration gave C4 q=2: (1,12,54,109,80); q=3: (1,32,384,2064,4080), and K2,3 q=2: (1,18,135,543,1231,1464,704). Finite cases corroborate; proof covers all finite simple bipartite graphs and all prime-power q.
 
-Review status: self-review passed on the mathematical statement, its comparison to available literature, and its mathematical motivation. Independent audit and independent validation are not performed; the checks above must not be presented as such.
+## originality
+
+PASS
+
+Best-of-knowledge original as precise final theorem, after distinguishing stronger priors and genuine access limitations. Failed search is not proof of novelty; see mathematical implication checks and source inspections.
+
+## value
+
+PASS
+
+PASS: Operator rank is a natural nontrivial invariant of an algebra derivation beyond dimension of the derivation space. One exact polynomial simultaneously enumerates every derivation rank for infinitely many algebras and recovers girth and the number of shortest cycles, a meaningful structural bridge to matroid theory. It does not claim complete graph reconstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
