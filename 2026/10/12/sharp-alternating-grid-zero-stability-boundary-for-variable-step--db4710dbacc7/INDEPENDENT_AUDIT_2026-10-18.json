@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T13:01:19Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md at Git blob 7714955a56f968152091bbd80e0446ff350ba4b8",
+        "bdf_alternating_check.py at e20e4f6e8672a639d4fbb9a0f8ef702c901680e5"
+      ],
+      "rationale": "Reconstructed the Lagrange cardinal-derivative recurrence and eliminated its constant mode with d_n=y_n-y_{n-1}. The two alternating companion matrices produce a (k-1)-dimensional monodromy; the submitted exact quadratic/cubic Schur polynomials, quartic reduction and positive coefficient certificates are consistent with the formulas and checked source checker. Independently constructed numerical Lagrange matrices for k=2,3,4,5 at nine ratios (0.01 through 100); BDF2–4 parasitic spectral radii remained below one, BDF5 crossed radius one at the stated reciprocal thresholds and was unstable on both exterior intervals. Infinite-range conclusions derive from exact positive-coefficient rational certificates, reciprocity, Descartes and the simple-root gcd, not these finite eigenvalue tests. The BDF1 case has no parasitic root. At endpoints the constant solution and simple -1 mode are semisimple in the difference recurrence.",
+      "residual_risks": [
+        "Only homogeneous two-periodic positive-step zero stability, not arbitrary mesh products or nonlinear convergence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Liao gives arbitrary-mesh BDF2 and conditional BDF3 results; Guglielmi–Zennaro studies spectral-radius approach to variable steps."
+        ],
+        "reasoning": "General sufficient estimates for arbitrary grids need not provide a sharp fixed-period interval, and cannot be treated as that exact all-r classification without an implication proof.",
+        "searches": [
+          "arXiv:2201.00527",
+          "Guglielmi–Zennaro doi:10.1007/s211-001-8010-0"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md at Git blob 7714955a56f968152091bbd80e0446ff350ba4b8",
+        "bdf_alternating_check.py at e20e4f6e8672a639d4fbb9a0f8ef702c901680e5",
+        "Li–Liao Stability of variable-step BDF2 and BDF3 methods, arXiv:2201.00527",
+        "Grigorieff Stability of multistep methods on variable grids, doi:10.1007/BF01389580",
+        "Guglielmi–Zennaro, doi:10.1007/s211-001-8010-0",
+        "Resultary semantic query: alternating step ratio BDF5 BDF4 Floquet zero stability step ratio sharp two periodic 0.159 6.288"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior arbitrary-grid BDF2 theorems imply the trivial or k2 portion but do not entail the BDF5 -1 crossings from their stated sufficient hypotheses."
+        ],
+        "reasoning": "The surviving sharp k5 threshold and endpoint Jordan/root proof require an additional parameter-specific calculation, so known special cases do not imply the main claim.",
+        "searches": [
+          "arXiv:2201.00527",
+          "doi:10.1007/BF01389580"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Periodic-coefficient Floquet multipliers are exactly spectral roots of P_k(r)=M_k(1/r)M_k(r); BDF2 case covered by arbitrary-grid BDF2 theory."
+        ],
+        "reasoning": "Alternative formulations via stable products of companion matrices and monodromy were checked; no inspected source furnished the reciprocal BDF5 sextic.",
+        "searches": [
+          "Resultary: alternating step ratio BDF5 BDF4 Floquet zero stability step ratio sharp two periodic 0.159 6.288",
+          "Grigorieff 1983 variable grids doi:10.1007/BF01389580"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Positive reciprocal roots and -1 boundary multiplier were compared against indexed records; no exact table match in returned Resultary hits."
+        ],
+        "reasoning": "No database matching is itself a novelty proof; the precise classified parameter is analytical Floquet stability, not an OEIS-like integer sequence.",
+        "searches": [
+          "Resultary BDF Floquet query",
+          "numerical analysis BDF5 alternating mesh positive root 0.159022893"
+        ]
+      },
+      "rationale": "The exact two-period Floquet boundary and endpoint ordinary-versus-strong distinction appear to remain outside the inspected arbitrary-grid variable-step BDF stability sources. The general BDF2 stability result is pre-existing, as is Schur analysis, but neither alone yields the BDF5 sharp reciprocal sextic without explicit monodromy. Priority is literature-limited because older two-periodic stability papers were not fully readable.",
+      "residual_risks": [
+        "Some older variable-grid and specifically periodic-ratio full texts not accessible; an equivalent sharp analysis may exist.",
+        "The embedded exact symbolic certificates were inspected, while independent checks covered a bounded ratio sample; no independent symbolic derivation of every long numerator was performed.",
+        "Only homogeneous two-periodic positive-step zero stability, not arbitrary mesh products or nonlinear convergence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "covers BDF2 and some BDF3, not an inspected BDF5 two-period classification",
+          "evidence": [
+            "Published scope describes arbitrary-grid BDF2, conditionally BDF3."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2201.00527",
+          "material_read": "arXiv HTML abstract and relevant stated general-grid scope; complete preprint not reread",
+          "method": "web arXiv abstract and indexed source",
+          "title": "Stability of variable-step BDF2 and BDF3 methods",
+          "trigger": "Same variable-step scheme and potentially dominating general stability result"
+        },
+        {
+          "assessment": "undetermined for specialized Floquet sextic; residual priority risk",
+          "evidence": [
+            "General spectral radius method must not be presumed to omit an uninspected specialized corollary."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s211-001-8010-0",
+          "material_read": "bibliographic metadata/available summaries, no complete article",
+          "method": "bibliographic search",
+          "title": "Zero-stability of variable stepsize multistep methods: spectral radius approach",
+          "trigger": "Plausible equivalence through matrix product spectral radii"
+        },
+        {
+          "assessment": "not sufficiently read to exclude exact prior overlap",
+          "evidence": [
+            "Institutional access returned vpn_disconnected; job 0f9c5852e65435ca4f20c304b1a1d742."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF01389580",
+          "material_read": "bibliographic metadata only; authorized full-text attempt VPN disconnected",
+          "method": "arXiv/OA attempts then Oxford institutional endpoint",
+          "title": "Stability of multistep methods on variable grids",
+          "trigger": "Highly relevant old variable BDF analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "bdf_alternating_check.py at e20e4f6e8672a639d4fbb9a0f8ef702c901680e5",
+        "Li–Liao Stability of variable-step BDF2 and BDF3 methods, arXiv:2201.00527",
+        "Grigorieff Stability of multistep methods on variable grids, doi:10.1007/BF01389580",
+        "Guglielmi–Zennaro, doi:10.1007/s211-001-8010-0"
+      ],
+      "rationale": "A sharp stability boundary for a standard numerical integration scheme on a natural alternating grid, with full classification across the first five BDF orders and exact endpoint behavior, is a motivated structural numerical-analysis result rather than a routine test of one random ratio.",
+      "residual_risks": [
+        "Some older variable-grid and specifically periodic-ratio full texts not accessible; an equivalent sharp analysis may exist.",
+        "The embedded exact symbolic certificates were inspected, while independent checks covered a bounded ratio sample; no independent symbolic derivation of every long numerator was performed.",
+        "Only homogeneous two-periodic positive-step zero stability, not arbitrary mesh products or nonlinear convergence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Some older variable-grid and specifically periodic-ratio full texts not accessible; an equivalent sharp analysis may exist.",
+    "The embedded exact symbolic certificates were inspected, while independent checks covered a bounded ratio sample; no independent symbolic derivation of every long numerator was performed.",
+    "Only homogeneous two-periodic positive-step zero stability, not arbitrary mesh products or nonlinear convergence."
+  ],
+  "schema_version": 1
+}
