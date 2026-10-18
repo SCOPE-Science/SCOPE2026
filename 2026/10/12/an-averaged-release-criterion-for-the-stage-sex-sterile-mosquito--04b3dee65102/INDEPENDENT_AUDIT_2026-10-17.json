@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T08:43:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Normalize x=BF/C and u=BHM: q=(A/C)*x/[(1+x)((D+u)x+u)]. Differentiating gives sign u-(D+u)x², maximizer x=√(u/(D+u)) for M>0, continuous envelope limit at M=0. Thus F’/F<=Q(M_s(t))-delta_F and integration yields the exact comparison bound for each F(0)>0. Strict eventual negative limsup average gives global exponential decay; for periodic profiles the time average is a single period integral. Independent 80-digit quadrature with the same source-derived K=416990000/20553, A=2499/40000, C=2/25, D=51/200, H=1/10, delta_F=1/25 gives 0.038221770950267804205... at s=120000 (<.04), and 0.073750171814416675109... at s=60000 (>.04). The result says nothing about persistence when the sufficient test fails. The application is separated from proof: quadrature establishes numerical strict inequality, analytic envelope establishes global theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "He–Li–Liu derive a pointwise asymptotic sterile-male lower-envelope extinction condition and show numerical crossing-threshold profiles in Figure2(a,b).",
+          "Huang–Liu–Song (2021) treat impulsive releases in a higher-dimensional two-sex model; 2023 delayed periodic model concerns a different time-delay mechanism."
+        ],
+        "reasoning": "A pointwise sufficient condition cannot infer extinction from an average below a different envelope; the nonlinear scalar maximization is additional, even though Gronwall after the estimate is standard.",
+        "searches": [
+          "DOI:10.3934/math.2023717 He Li Liu stage-sex source",
+          "DOI:10.3934/mbe.2021069 periodic impulsive two-sex",
+          "DOI:10.1002/mma.8864 delayed periodic compensation"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3934/math.2023717 AIMS abstract, figure captions",
+        "DOI:10.3934/mbe.2021069 abstract",
+        "DOI:10.1002/mma.8864 abstract",
+        "Resultary targeted periodic mosquito model query",
+        "Frozen verification script mathematical content and 80-digit independently recomputed averages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source pointwise condition fails for release minimum 36000 < reported constant-release threshold about95000, while new period-average Q criterion is strictly satisfied for s=120000.",
+          "For s=60000, criterion fails and correctly does NOT imply source-observed bistability."
+        ],
+        "reasoning": "The new sufficient criterion has a concrete domain not reached by the old sufficient condition; no claim that release shape results for different higher-dimensional models dominate this result.",
+        "searches": [
+          "He Li Liu AIMS Mathematics 8 (2023) Figures2a,2b and reported threshold",
+          "periodic release comparisons Huang Liu Song 2021, 2023"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The scalar wild-female equation may be expressed F’=F(q(F,M)-delta_F); the theorem bounds the maximal instantaneous logarithmic growth, not the original state-dependent exact nonlinear trajectory."
+        ],
+        "reasoning": "Compared equivalent average logarithmic-growth and periodic release formulations without mistaking generic Floquet thresholds for the exact model.",
+        "searches": [
+          "sterile mosquito stage sex scalar model periodic release average extinction global threshold He Li Liu",
+          "sterile insect SIT threshold periodic nonautonomous comparison Lyapunov averaged growth per capita release"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary neighboring findings concern distinct predator/prey, disease and seasonal mosquito models; no exact same-parameter averaged Q threshold result retrieved.",
+          "The two numerical averages were recomputed independently rather than copied from a table."
+        ],
+        "reasoning": "No preexisting numerical table proves the all-profile criterion. Failed lookup is not novelty proof; the motivating figure already displays its extinction phenomenon.",
+        "searches": [
+          "Resultary semantic exact query: sterile mosquito stage sex scalar model periodic release average extinction global threshold He Li Liu",
+          "He Li Liu 2023 Figure 2 sinusoidal 120000 global extinction proof averaged Q"
+        ]
+      },
+      "rationale": "He–Li–Liu 2023 derive exactly this model, an asymptotic pointwise sterile-population threshold, and simulation Figure2a of extinction for the crossing-threshold sinusoid; those are credited. The new state-uniform maximization Q(M) and negative average comparison yield an analytic sufficient criterion applicable where their pointwise theorem is silent. Other periodic sterile-release results involve distinct models and stability notions; precise equivalence in a less accessible periodic paper remains a risk.",
+      "residual_risks": [
+        "The initiating paper full mathematical body was not fully retrievable, so an implicit equivalent averaged estimate inside may have been missed.",
+        "The later periodic compensation article was only inspected through metadata/abstract; potential stronger same-model reduction remains material literature risk.",
+        "Numeric critical s≈114458.9455 is a criterion crossing, not actual sharp nonlinear extinction threshold."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source reports global extinction numerical Figure2(a) with alternating-crossing release and pointwise theorem; full-document noncoverage not asserted",
+          "evidence": [
+            "Figure 2(a): global extinction for one sinusoidal profile; Fig2(b): bistability for smaller."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/math.2023717",
+          "material_read": "OA publisher article landing text and Figure2 captions/abstract read; complete article proof body not fully retrievable through opened HTML in this execution. Actual source parameters and equations read from Git frozen package.",
+          "method": "Publisher metadata/abstract/figures plus frozen scientific source",
+          "title": "Global dynamics of a mosquito population suppression model with stage and sex structure",
+          "trigger": "Same scalar model, parameters and crossing-threshold Figure2"
+        },
+        {
+          "assessment": "Different higher-dimensional stage-structured impulsive-release dynamics",
+          "evidence": [
+            "Impulsive periodic control of mosquito-free periodic solutions."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/mbe.2021069",
+          "material_read": "Publisher abstract available; no full math inspected.",
+          "method": "Abstract-level comparison",
+          "title": "Study of sterile insect release technique for a two-sex mosquito population model",
+          "trigger": "Broader periodic-release extinction context"
+        },
+        {
+          "assessment": "Possible source of specialized periodic criterion; not used for whole-document noncoverage",
+          "evidence": [
+            "Sexual-lifespan/delay incorporation differs from scalar time-varying M_s equation."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/mma.8864",
+          "material_read": "Bibliographic metadata and abstract available only.",
+          "method": "Abstract-level inspection",
+          "title": "Modeling of periodic compensation policy for sterile mosquitoes incorporating sexual lifespan",
+          "trigger": "Plausible model and period-related threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural gap is that pointwise release thresholds do not explain why periodically subthreshold release eliminates the mosquito population in the motivating simulations. The explicit integral envelope closes that source-specific question and supplies a checkable sufficient criterion for arbitrary nonnegative periodic input, relevant for periodic-control design, while carefully not claiming necessity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the specified stage-sex sterile-mosquito scalar nonautonomous equation, the exact per-capita upper envelope Q(M)=A/[C(√(D+BHM)+√(BHM))²] yields a sufficient extinction test limsup_T average Q(M_s)<delta_F, applying analytically to the 120000-scale sinusoid from He–Li–Liu that violates the prior pointwise lower threshold.",
+  "limitations": [
+    "Sufficient condition only; no necessity, no persistence/bistability conclusion on failed bound.",
+    "Independent quadrature establishes application signs with numerical margin; not a formally interval-certified 80-digit inequality.",
+    "The initiating paper full mathematical body was not fully retrievable, so an implicit equivalent averaged estimate inside may have been missed.",
+    "The later periodic compensation article was only inspected through metadata/abstract; potential stronger same-model reduction remains material literature risk.",
+    "Numeric critical s≈114458.9455 is a criterion crossing, not actual sharp nonlinear extinction threshold."
+  ],
+  "schema_version": 1
+}

@@ -1,32 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The per-capita birth term reduces to a one-variable rational function whose derivative has sign
-\[
-u-(D+u)x^2.
-\]
-This gives the exact statewise envelope
-\[
-Q(M)
-=
-\frac{A}
-{C\left(\sqrt{D+BHM}+\sqrt{BHM}\right)^2}.
-\]
-The scalar differential inequality then proves the general average-extinction theorem. High-precision adaptive quadrature and an independent composite Simpson replay agree on the source's sinusoidal examples with margins that are large relative to numerical error.
+PASS
 
-## Originality
+Normalize x=BF/C and u=BHM: q=(A/C)*x/[(1+x)((D+u)x+u)]. Differentiating gives sign u-(D+u)x², maximizer x=√(u/(D+u)) for M>0, continuous envelope limit at M=0. Thus F’/F<=Q(M_s(t))-delta_F and integration yields the exact comparison bound for each F(0)>0. Strict eventual negative limsup average gives global exponential decay; for periodic profiles the time average is a single period integral. Independent 80-digit quadrature with the same source-derived K=416990000/20553, A=2499/40000, C=2/25, D=51/200, H=1/10, delta_F=1/25 gives 0.038221770950267804205... at s=120000 (<.04), and 0.073750171814416675109... at s=60000 (>.04). The result says nothing about persistence when the sufficient test fails. The application is separated from proof: quadrature establishes numerical strict inequality, analytic envelope establishes global theorem.
 
-PASS. Periodic sterile-insect release theory is established and is not claimed as new. The accepted contribution is the exact envelope and average criterion for the motivating scalar stage–sex reduction, together with its analytic resolution of the source's Figure 2(a) crossing-threshold case. Exact-source and alias searches found no published statement covering this implication. A later periodic-compensation paper is retained as a residual risk because only its abstract was accessible.
+## originality
 
-## Value
+PASS
 
-PASS. The motivating source explicitly notes that its pointwise conditions are only sufficient and leaves profiles crossing the constant threshold to numerical simulation. The new criterion applies precisely in that gap, certifies one of the source's main intermediate examples, and gives a reusable sufficient test for fluctuating releases.
+He–Li–Liu 2023 derive exactly this model, an asymptotic pointwise sterile-population threshold, and simulation Figure2a of extinction for the crossing-threshold sinusoid; those are credited. The new state-uniform maximization Q(M) and negative average comparison yield an analytic sufficient criterion applicable where their pointwise theorem is silent. Other periodic sterile-release results involve distinct models and stability notions; precise equivalence in a less accessible periodic paper remains a risk.
 
-## Closest literature and limitations
+## value
 
-The closest open prior work studies a higher-dimensional two-sex stage-structured impulsive model with a mosquito-free periodic solution. A later delayed stage–sex article studies periodic compensation and extinction stability, but its full mathematical statements were unavailable in the inspected material. A 2020 one-sided competition model also has periodic mass-release extinction conditions in a different system.
+PASS
 
-The criterion is sufficient rather than necessary and can be conservative because it maximizes over the wild-female state before averaging.
+A natural gap is that pointwise release thresholds do not explain why periodically subthreshold release eliminates the mosquito population in the motivating simulations. The explicit integral envelope closes that source-specific question and supplies a checkable sufficient criterion for arbitrary nonnegative periodic input, relevant for periodic-control design, while carefully not claiming necessity.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

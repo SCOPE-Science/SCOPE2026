@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,56 +18,25 @@
   "schema_version": 1
 }
 ---
-The analytic proof uses the exact per-capita birth envelope
-\[
-Q(M)
-=
-\frac{A}
-{C\left(\sqrt{D+BHM}+\sqrt{BHM}\right)^2}.
-\]
 
-The bundled checker reconstructs the source's displayed biological parameters as exact rational numbers and reconstructs the carrying capacity using the equilibrium identity printed in the numerical section.
+# Independent mathematical audit
 
-For the periodic family
-\[
-M_s(t)
-=
-s\left(1.3+\sin\frac{\pi t}{8}\right),
-\]
-it evaluates
-\[
-\overline Q(s)
-=
-\frac1{16}\int_0^{16}Q(M_s(t))\,dt
-\]
-with 80-digit adaptive quadrature and independently with a composite Simpson rule.
+## correctness
 
-The checker verifies
-\[
-\overline Q(120000)
-\approx
-0.0382217709502678042053
-<
-0.04
-\]
-and
-\[
-\overline Q(60000)
-\approx
-0.0737501718144166751096
->
-0.04.
-\]
+PASS
 
-It also numerically solves
-\[
-\overline Q(s)=0.04
-\]
-for the sufficient-envelope crossing and obtains
-\[
-s_{\rm env}
-\approx
-114458.94554370316814.
-\]
+Normalize x=BF/C and u=BHM: q=(A/C)*x/[(1+x)((D+u)x+u)]. Differentiating gives sign u-(D+u)x², maximizer x=√(u/(D+u)) for M>0, continuous envelope limit at M=0. Thus F’/F<=Q(M_s(t))-delta_F and integration yields the exact comparison bound for each F(0)>0. Strict eventual negative limsup average gives global exponential decay; for periodic profiles the time average is a single period integral. Independent 80-digit quadrature with the same source-derived K=416990000/20553, A=2499/40000, C=2/25, D=51/200, H=1/10, delta_F=1/25 gives 0.038221770950267804205... at s=120000 (<.04), and 0.073750171814416675109... at s=60000 (>.04). The result says nothing about persistence when the sufficient test fails. The application is separated from proof: quadrature establishes numerical strict inequality, analytic envelope establishes global theorem.
 
-The general extinction theorem is analytic. The numerical calculations are used only for the source-specific parameter application.
+## originality
+
+PASS
+
+He–Li–Liu 2023 derive exactly this model, an asymptotic pointwise sterile-population threshold, and simulation Figure2a of extinction for the crossing-threshold sinusoid; those are credited. The new state-uniform maximization Q(M) and negative average comparison yield an analytic sufficient criterion applicable where their pointwise theorem is silent. Other periodic sterile-release results involve distinct models and stability notions; precise equivalence in a less accessible periodic paper remains a risk.
+
+## value
+
+PASS
+
+A natural gap is that pointwise release thresholds do not explain why periodically subthreshold release eliminates the mosquito population in the motivating simulations. The explicit integral envelope closes that source-specific question and supplies a checkable sufficient criterion for arbitrary nonnegative periodic input, relevant for periodic-control design, while carefully not claiming necessity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
