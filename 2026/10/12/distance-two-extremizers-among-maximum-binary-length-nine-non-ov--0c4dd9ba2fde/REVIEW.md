@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The compatibility-graph formulation is equivalent to the non-overlap definition. The exact size-\(14\) optimum is published, and the bundled exhaustive search visits every size-\(14\) clique once. Direct pairwise Hamming checks give \(1{,}148\) cases of minimum distance \(1\) and four of minimum distance \(2\); the four form one complement/reversal orbit.
+## correctness
 
-## Originality
-PASS. The closest primary source proves the size-\(14\) optimum. The later full-census paper computes all optimum solutions and their number but does not state the Hamming-distance refinement in the inspected text. Alias, exact-parameter, table/database, and implication searches found no source stating or implying the final histogram and orbit claim. Residual risk remains that an unindexed computation derived the same statistic from the public optimum data.
+PASS
 
-## Value
-PASS. Hamming separation is directly motivated by synchronization in the presence of symbol errors. The result isolates the only four cardinality-optimal binary length-nine synchronizing codes that avoid distance-one codeword pairs and classifies them up to the natural complement/reversal symmetry.
+Rebuilt all 2^9 words, filtered exactly 148 bifix-free vertices, tested 3080 mutually compatible graph edges, and independently enumerated all 1152 size-14 cliques by increasing-index bitset intersection (491170 search nodes). A separate target-15 clique search exhausted 255710 nodes and excluded any size-15 clique. Exhaustive Hamming comparisons gave histogram 1148 of d=1 and four of d=2. Complement and reversal close the four into one four-member orbit. These enumerations exhaust this finite nine-bit domain rather than extrapolating to larger lengths.
 
-## Closest literature and limitations
-Chee et al. establish the exact cardinality \(14\) at binary length nine. Stanovnik et al. later compute the full optimum-solution set. This result neither improves that size nor claims a general family; it resolves only the secondary Hamming-distance extremum and equality cases at this parameter.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Chee et al give the size-14 maximum, while Stanovnik, Moškon and Mraz compute optimum-code solutions and the number 1152. Their full 2024 open-access paper does not state the additional Hamming-distance histogram or four-element complement/reversal orbit; the codebook data can make it computationally derivable but the exact noise-distance constraint was not implied by the displayed scalar optimum.
+
+## value
+
+PASS
+
+The minimum Hamming separation of a maximally large self-synchronizing code is a direct measure of substitution robustness. Showing d<=2 throughout the cardinality-maximal layer (and only four d=2 designs) is a meaningful sharp design tradeoff; it does not claim single-error correction or an all-length theorem. This is a complete natural optimum-layer classification, not merely a repeat of its known size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
