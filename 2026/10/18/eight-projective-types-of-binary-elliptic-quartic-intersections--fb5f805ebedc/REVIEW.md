@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+For a two-dimensional subspace of ten-dimensional quadratic forms over \(\mathbf F_2\), every nonzero pencil has precisely three members. Exact enumeration covers all \(174251\) subspaces, partitions them into \(54\) orbits via genuine generators of \(\operatorname{GL}_4(\mathbf F_2)\), and checks geometric nonsingularity on all four projective charts through the ideals of the equations plus the six minors of the Jacobian. The Jacobian tests use Gröbner bases over the algebraic closure via the Nullstellensatz and do not substitute point counts for smoothness. Eight smooth orbits have sizes summing to \(40320\); degree and genus follow from complete-intersection adjunction. Exact local contact computations and an explicit length-four local ideal verify the rational-osculation distinction. An independent direct-matrix program reproduces orbit cardinalities and coplanarity. No inference beyond the stated finite field is used.
+
+## Originality — PASS with residual priority risk
+The classical degree-four genus-one model as an intersection of two quadrics is known, and generic model invariants are treated in Tran's 2019 paper and Fisher's 2010 Hessian work. Full-text portions covering the relevant model definitions, invariants, and hypotheses were inspected. Neither supplies the complete binary projective-orbit distribution, rational quadric-type triples, or fourth-order rational contact/coplanarity split. Fisher's results cited are formulated under characteristic restrictions excluding characteristic two. Levine 2017 treats other quadratic-form enumerative questions and does not imply the exact binary census. Searches of relevant recorded results, accessible earlier claims, and web literature found no equivalent/stronger table. This is a best-knowledge priority assessment, not proof against unindexed work or classical implicit specializations.
+
+## Value — PASS
+Degree-four elliptic normal curves are the canonical first codimension-two genus-one models. The question is intrinsically geometric: count their projective embedded forms over the smallest field and determine how the three rational members of their defining quadric pencil vary between split, nonsplit and singular quadric surfaces. The complete table is nontrivial and distinguishes two natural embeddings with identical rational-point counts and quadric splitting profiles by rational fourth-order osculation versus coplanarity. These are useful arithmetic-geometric test cases of models and divisor embeddings, not arbitrary coefficient slices.
+
+## Closest literature and limitations
+Tran, arXiv:1911.01350v1 (2019), generic genus-one model invariants; Fisher, *The Hessian of a genus one curve* (2010), general degree-four models in characteristic restricted away from two; Levine, arXiv:1703.03049v1 (2017), quadratic enumerative forms in characteristic not two. Exact priority risk from unindexed binary tables remains. Finite exhaustive algorithms are exact for the claimed \(\mathbf F_2\) domain only.
+
+Self-review: passed. Independent audit: not yet performed.
