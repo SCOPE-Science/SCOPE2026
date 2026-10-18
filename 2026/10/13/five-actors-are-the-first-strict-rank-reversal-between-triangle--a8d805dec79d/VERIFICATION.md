@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,61 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_signed_balance_rank_reversal.py` performs an exact finite replay using only the Python standard library.
 
-It exhausts all raw sign assignments on \(K_3\), \(K_4\), and \(K_5\).
+# Independent mathematical audit
 
-For each signing it computes:
-- unbalanced triangles directly from edge-sign products;
-- frustration by exhaustive vertex bipartitions;
-- frustration independently as the minimum number of negative edges over every switching.
+## correctness
 
-It then switches every signing to the unique representative having all edges incident with vertex \(0\) positive and quotients the normalized switching classes under all vertex permutations using the unbalanced-triangle pattern.
+PASS
 
-The verified switching-isomorphism tables are:
-\[
-K_3:\ (0,0),(1,1),
-\]
-\[
-K_4:\ (0,0),(2,1),(4,2),
-\]
-and
-\[
-K_5:\ (0,0),(3,1),(4,2),(5,3),(6,2),(7,3),(10,4),
-\]
-where each ordered pair is \((U,L)\).
+Exact classification: switching to the unique star-positive K_n representative leaves 2^((n-1 choose 2)) signings. Triangle parity is invariant under switching; frustration is the minimum number of sign disagreements with all cuts. Independent complete normalized enumeration, including all vertex permutations, yields n=3 rows (0,0),(1,1); n=4 rows (0,0),(2,1),(4,2); n=5 seven rows (0,0,1),(3,1,10),(4,2,15),(5,3,12),(6,2,15),(7,3,10),(10,4,1). The unique strict conflict is (U,L)=(5,3) path-negative vs (6,2) two-edge matching. Their F values 2/5,3/5 and T values 1/2,2/5. Enumeration is genuinely exhaustive through n=5, rather than an extrapolation to larger n.
 
-The corresponding labeled switching-class multiplicities at order five are
-\[
-1,10,15,12,15,10,1.
-\]
+## originality
 
-There is exactly one strict rank-reversing pair:
-\[
-(5,3)\quad\text{versus}\quad(6,2).
-\]
+PASS
 
-The packaged representatives have normalized negative-edge sets
-\[
-\{12,14,23\}
-\]
-and
-\[
-\{14,23\},
-\]
-with
-\[
-(T,F)=\left(\frac12,\frac25\right)
-\]
-and
-\[
-(T,F)=\left(\frac25,\frac35\right).
-\]
+Best-of-knowledge PASS: The complete Aref–Wilson author-uploaded paper defines normalized frustration and triangle balance, analyzes special complete-graph families with one negative edge and all-negative edges, and notes disparities between metrics. Its sections 4 and 6 and relevant appendix do not give the seven-row K5 switching-isomorphism census or unique first pair. New exact finite first-reversal classification is not implied by analyzing two special signing families; generic disagreement is prior.
 
-Run:
+## value
 
-`python3 verify_signed_balance_rank_reversal.py`
+PASS
 
-The first output line must be:
+PASS: Triangle and frustration are prominent partial-balance indices; their earliest strict opposite ordinal judgment on complete networks, together with a full first layer and raw-signing multiplicities, is a natural meaningful sharp boundary rather than an arbitrary graph slice.
 
-`VERIFY_OK`
+The dated certificate retains the supplied scientific assessment, sources and limitations.

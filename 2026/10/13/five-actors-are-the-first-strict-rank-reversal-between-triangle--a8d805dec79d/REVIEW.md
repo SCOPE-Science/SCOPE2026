@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The full raw-signing domains of \(K_3\), \(K_4\), and \(K_5\) are exhausted. The frustration index is independently computed both by vertex bipartitions and by switching minimization, with exact agreement on every signing. The switching normalization and permutation quotient give the complete class tables. Through \(K_4\), unbalanced-triangle count and frustration increase together. At \(K_5\), the unique strict reversal is exactly \((U,L)=(5,3)\) versus \((6,2)\), producing \(T=1/2,F=2/5\) versus \(T=2/5,F=3/5\).
+## correctness
 
-Risk: the theorem is deliberately restricted to complete signed networks and stops at the first reversal order.
+PASS
 
-## Originality
-**PASS.** The primary literature explicitly compares triangle-based and frustration-based notions of partial balance and reports that different measures can give substantially different assessments. That qualitative disagreement is not claimed as new. The accepted claim is the exact onset of a **strict ordinal reversal** on complete networks, together with uniqueness of the first reversal pair up to switching and relabeling. Searches by aliases, exact order, switching language, and rank-reversal language did not locate that minimality result.
+Exact classification: switching to the unique star-positive K_n representative leaves 2^((n-1 choose 2)) signings. Triangle parity is invariant under switching; frustration is the minimum number of sign disagreements with all cuts. Independent complete normalized enumeration, including all vertex permutations, yields n=3 rows (0,0),(1,1); n=4 rows (0,0),(2,1),(4,2); n=5 seven rows (0,0,1),(3,1,10),(4,2,15),(5,3,12),(6,2,15),(7,3,10),(10,4,1). The unique strict conflict is (U,L)=(5,3) path-negative vs (6,2) two-edge matching. Their F values 2/5,3/5 and T values 1/2,2/5. Enumeration is genuinely exhaustive through n=5, rather than an extrapolation to larger n.
 
-Risk: failed search does not prove bibliographic uniqueness. An unindexed switching-class table, software corpus, or teaching note could contain the same \(K_5\) comparison.
+## originality
 
-## Value
-**PASS.** The motivating literature treats the choice of partial-balance measure as a substantive methodological problem. Restricting to complete networks removes missing-triangle and sparsity effects, so the first strict reversal isolates a genuine disagreement between a local triadic score and a global minimum-frustration score. The fact that only one pair of switching types reverses at the first possible order gives a compact diagnostic example for method selection and interpretation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge PASS: The complete Aref–Wilson author-uploaded paper defines normalized frustration and triangle balance, analyzes special complete-graph families with one negative edge and all-negative edges, and notes disparities between metrics. Its sections 4 and 6 and relevant appendix do not give the seven-row K5 switching-isomorphism census or unique first pair. New exact finite first-reversal classification is not implied by analyzing two special signing families; generic disagreement is prior.
+
+## value
+
+PASS
+
+PASS: Triangle and frustration are prominent partial-balance indices; their earliest strict opposite ordinal judgment on complete networks, together with a full first layer and raw-signing multiplicities, is a natural meaningful sharp boundary rather than an arbitrary graph slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
