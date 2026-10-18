@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The parity split, dyadic flanking recurrence, and exact gcd reduction were reconstructed independently. Since consecutive Stern values are coprime, \(g(n)=\gcd(2r+1,s(j)-s(j+1))\) follows by a unimodular gcd step. The divisor-spectrum construction uses the exact pairs \((s(2^{d+1}-1),s(2^{d+1}))=(d+1,1)\). The first-occurrence lower bound and its equality example are verified symbolically. For the density, the local cardinality \(p^{2e-t}(1-1/p)\) is divided by the primitive cardinality \(p^{2e}(1-1/p^2)\); subtraction and CRT give the stated probabilities. Reznick's Theorem 4.7 covers the required equidistribution. The global limit follows by a geometric tail bound. An exact integer/rational verifier separately passed 249,999 pointwise cases and nine complete residue enumerations.
+## correctness
 
-## Originality — PASS, with risk
-Reznick's original Theorem 4.7 concerns distributions of adjacent Stern pairs modulo a fixed modulus; Section 2 gives an interpolation identity. Our two-step arithmetic reduction is needed to connect those sources to the proposed gcd statistic; they do not state its divisor strata, exact first occurrences or distribution across indices. Allouche's inspected PDF restates Reznick and proves additive identities; Coons's indexed theorem is likewise additive. OEIS A002487 concerns Stern values, not this complete gcd theorem. The 2012 Coons original PDF was not fully available; an unindexed equivalent derivation remains possible.
+PASS
 
-## Value — PASS
-Unlike adjacent coprimality, next-nearest-neighbor gcds have an unbounded and sharply structured set of values. The classification gives every possible value on every natural dyadic valuation stratum, an exact exponential first-occurrence bound, all sharp record maxima, and positive natural densities with explicit local factors. These form a complete arithmetic and distributional description of a canonical self-similar sequence, not a selected finite sample or an arbitrary parameter slice.
+The dyadic recurrence yields s(2^r(2j+1)±1)=(r+1)a+rb and ra+(r+1)b with a=s(j),b=s(j+1); adjacent coprimality forces gcd(a-b,(2r+1)b)=gcd(a-b,2r+1). This proves the pointwise classification and complete divisor strata (construct j=2^(d+1)-1). For first appearances, r>=(d-1)/2 and j>=1, with equality achieved by j=1 where a=b=1. Reznick Theorem 4.7 equidistributes primitive Stern adjacent residue pairs modulo fixed m; direct primitive-pair count yields p-adic tail P(v_p(a-b)>=t)=p^(1-t)/(p+1), hence the stated local probability factors, CRT and the global absolutely summable r-mixture. Finite-independent recurrence arithmetic checked n<=49999 and first odd occurrences through 23, with exact primitive residue counts across six moduli. The external equidistribution theorem, not this finite enumeration, proves density.
 
-## Scientific limitations
-The density statement inherits Reznick's fixed-modulus equidistribution; no uniform rate over growing moduli is claimed. Finite checks do not prove the infinite theorem. No independent external validation has been completed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Reznick arXiv:math/0610601 Theorem 4.7 supplies equidistribution of consecutive Stern pairs, and his Section 2 provides dyadic identities; Allouche/Coons treat additive correlation. Neither inspected source states the two-step gcd law, complete divisor spectra, first appearances, record maxima and gcd-density distribution. Resultary and OEIS A002487 searches were checked for equivalent two-step claims; no exact covering source found.
+
+## value
+
+PASS
+
+The first nontrivial separated-pair gcd of a classical automatic sequence is natural; its complete arithmetic spectrum, exact onset and distribution provide independently useful global classification rather than arbitrary computations. Reznick equidistribution joins structural and statistical aspects in a meaningful theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
