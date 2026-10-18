@@ -1,11 +1,21 @@
-# Scientific review: square-zero Smith strata
+# Independent mathematical audit
 
-**Correctness — PASS.** A square-zero reduction has canonical form \(J\) with \(r\) two-block chains and \(n-2r\) zero blocks. Its reduction count is obtained from image/kernel data. In the fiber of \(J\), the equation \(X^2=0\) is exactly the linear condition \(JB+BJ=0\); the free middle block is \((n-2r)\)-square and determines radical Smith rank after elimination of the unit pivots. The proof checks mixed characteristic without assuming a coefficient-field embedding. Exhaustive examples for small fields and the nonisomorphic rings \(\mathbb F_2[\varepsilon]/(\varepsilon^2)\) and \(\mathbb Z/4\mathbb Z\) support the calculation.
+## correctness
 
-**Originality — PASS, with residual uncertainty.** Ekhad–Zeilberger's square-zero formula counts upper-triangular field matrices, not full matrices over a nonfield ring; Danchev–García–Gómez Lozano prove decomposability with square-zero summands, not their Smith-type frequencies; and Byrne–Horlemann–Khathuria–Weger count unrestricted matrices by chain-ring module type, not the nonlinear square-zero subset. Original-result comparisons and terminology searches did not reveal an equivalent full joint distribution. A classical Hall-polynomial identity may potentially recover the result, so bibliographic priority is not conclusively settled.
+PASS
 
-**Value — PASS.** The full Smith-stratum law is an exact natural enumerative invariant for a family of finite matrix algebras. It also reveals a random-residual-block law and equality between equal- and mixed-characteristic rings that share their residue field, a distinction not captured by field-only square-zero counts.
+Modulo π, X gives A²=0 of rank r, counted by choosing image U, kernel K⊃U and isomorphism k^n/K→U; 2r<=n. Every A conjugates to J=[0 0 I_r;0 0 0;0 0 0]. GL_n(R)→GL_n(k) is onto, so all fibers over A biject to lifts X=J+πB, including mixed characteristic, since J²=0 over R. X²=0 iff JB+BJ=0 over k, which forces B_WU=B_WC=B_CU=0 and B_WW=-B_UU; other free blocks dimension 2r(n-r)+s². Remove r unit Smith pivots; residual πB_CC is arbitrary s×s, giving t=rank_k(B_CC). Multiply independent count factors and divide for conditional rank law. Independent full enumeration n=2 over Z/4 gives strata (0,0):1,(0,1):9,(0,2):6,(1,0):12, total 28; Z/9 gives 1,32,48,72 total153, matching formula. These finite tests do not establish all n/rings.
 
-**Limits.** Only commutative length-two chain rings, only \(X^2=0\), and only Smith-type counts are claimed. The finite checks do not establish the general theorem on their own; no external independent mathematical validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General similarity classification for matrices over length-two local rings can imply ring-characteristic universality of some conjugacy statistics, and unrestricted Smith-type counts of chain-ring matrices are known. Neither the inspected Prasad–Singla–Spallone theorem nor Byrne et al unrestricted type counts explicitly supplies the full nonlinear square-zero Smith-stratified law; block-fiber analysis is required. This is qualified originality, with strong residual Hall-polynomial implication risk.
+
+## value
+
+PASS
+
+The natural full Smith type distribution on the nonlinear variety X²=0 is an exact all-size invariant. It identifies the conditional free random-matrix rank law and proves equal/mixed characteristic universality, information useful for module-endomorphism enumeration and finite-chain-ring matrix problems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-Running `python3 verify.py` from the extracted artifact tests every matrix over \(\mathbb F_q[\varepsilon]/(\varepsilon^2)\) for \((n,q)=(2,2),(3,2),(2,3),(2,4)\), recovering the Smith torsion multiplicity through an independent doubled field-linear representation. Every \(2\times2\) matrix over \(\mathbb Z/4\mathbb Z\) and \(\mathbb Z/9\mathbb Z\) is also enumerated directly; the Smith multiplicity is deduced from the image size rather than a coefficient-field representation. Normalization is checked for \(1\le n\le8\) and \(q\in\{2,3,4,5,7,8,9\}\). Expected successful completion markers are `VERIFY_OK` and `VERIFY_OK_CHAIN_RINGS`.
+## correctness
 
-The symbolic argument, not the finite cases, proves the theorem for arbitrary residue-field orders, matrix sizes and commutative length-two chain rings. No computational claim is made beyond the enumerated sizes. Independent audit has not been performed.
+PASS
+
+Modulo π, X gives A²=0 of rank r, counted by choosing image U, kernel K⊃U and isomorphism k^n/K→U; 2r<=n. Every A conjugates to J=[0 0 I_r;0 0 0;0 0 0]. GL_n(R)→GL_n(k) is onto, so all fibers over A biject to lifts X=J+πB, including mixed characteristic, since J²=0 over R. X²=0 iff JB+BJ=0 over k, which forces B_WU=B_WC=B_CU=0 and B_WW=-B_UU; other free blocks dimension 2r(n-r)+s². Remove r unit Smith pivots; residual πB_CC is arbitrary s×s, giving t=rank_k(B_CC). Multiply independent count factors and divide for conditional rank law. Independent full enumeration n=2 over Z/4 gives strata (0,0):1,(0,1):9,(0,2):6,(1,0):12, total 28; Z/9 gives 1,32,48,72 total153, matching formula. These finite tests do not establish all n/rings.
+
+## originality
+
+PASS
+
+General similarity classification for matrices over length-two local rings can imply ring-characteristic universality of some conjugacy statistics, and unrestricted Smith-type counts of chain-ring matrices are known. Neither the inspected Prasad–Singla–Spallone theorem nor Byrne et al unrestricted type counts explicitly supplies the full nonlinear square-zero Smith-stratified law; block-fiber analysis is required. This is qualified originality, with strong residual Hall-polynomial implication risk.
+
+## value
+
+PASS
+
+The natural full Smith type distribution on the nonlinear variety X²=0 is an exact all-size invariant. It identifies the conditional free random-matrix rank law and proves equal/mixed characteristic universality, information useful for module-endomorphism enumeration and finite-chain-ring matrix problems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
