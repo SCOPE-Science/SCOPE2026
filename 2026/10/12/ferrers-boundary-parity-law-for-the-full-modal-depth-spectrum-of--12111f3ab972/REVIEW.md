@@ -1,11 +1,21 @@
-# Scientific review: Ferrers-boundary modal-depth law
+# Independent mathematical audit
 
-**Correctness — PASS.** The claimed type count is the number of equivalence classes of formulas of depth at most the stated integer, not a count of formulas themselves. The row/column successor-set signature is justified by finite Boolean separation. Collapsing duplicate row and column profiles is legitimate precisely because ordinary modalities record the *presence* of successor types rather than multiplicity. The four reduced Ferrers boundary forms exhaust the positive-dimensional cases. The alternating interval-peeling induction yields the claimed counts, including the sharp saturation case and the constant/mixed singleton edge cases. Exhaustive finite checks corroborate, but do not prove, the unbounded theorem. Residual risk is a subtle induction-step oversight beyond enumerated sizes.
+## correctness
 
-**Originality — PASS, with stated uncertainty.** The main comparator, the 2023 Bezhanishvili–Meadors bimodal algebra treatment, establishes general generation and duality results but no all-Ferrers, depth-indexed count. Figallo–Mónica-Gomes classify subalgebras, not their creation stage from one specified valuation; the full seven-page paper was inspected. General bisimulation partition-refinement lower bounds and multiset color-refinement papers do not supply these exact set-based formulas. The preceding specific staircase spectrum is strictly subsumed; the new claim supplies both missing empty-boundary configurations, duplicate invariance and the parity-unbalanced law. An earlier equivalent chain-graph or cylindric-algebra formulation is a remaining literature risk.
+PASS
 
-**Mathematical value — PASS.** Arbitrary Ferrers/chain-graph marks form a natural and complete class of nested-neighborhood bipartite valuations. The result determines a finite definability invariant at *every* modal depth and sharp stabilization, replacing shape-specific computation by two parameters. The parity effect on the one-sided boundary is a genuine boundary phenomenon, not a renaming of the balanced staircase case. It supplies exact finite benchmarks for epistemic-algebra generation and set-based bisimulation refinement. This is a focused structural classification, not a claim to a general modal-logic theorem.
+For finite two-agent frame with named reflexive row and column relations and one Ferrers-valued atom, modal t-types are exactly the current truth signature and the SETS of predecessor t−1 types in its row and column. Twin rows/columns may be collapsed because counts do not enter. Every Ferrers profile reduces to one of four strict staircase incidence matrices (both boundaries absent/present or exactly one), where balanced (r=c) block peeling yields (t+1)²+1 modal types before capping r², while unbalanced |r−c|=1 alternating peel yields (t+1)²+1_even before cap rc. Cases including constant labels and r/c=1 are covered. This gives log2|D_t| exactly and the stated stabilization depths. An independent set-signature enumerator for every 912 Ferrers shapes with m,n≤5 passed 6,976 depth comparisons including all-zero/full/duplicated rows. The general induction, not finite enumeration, establishes arbitrary m,n.
 
-Independent examination of the mathematical result has not been performed; the finite verifier supplements, rather than replaces, the proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Figallo–Mónica-Gomes 2023 full primary 7-page article classifies the *static lattice* of finite Df2-algebra subalgebras, not the generation depth of one Ferrers valuation; inspected Theorem 2 distinguishes arbitrary subalgebras but has no modal-type spectrum. Bezhanishvili–Meadors 2023/24 gives broad MS4 algebraic local-finiteness setting, not this chain-graph parity law. Groote et al and Kiefer–McKay study general bisimulation refinement or multiset color refinement, not the set-signature Ferrers class. Earlier balanced staircase special result is strictly subsumed, but the boundary parity and all profiles are new against inspected literature. Best-of-knowledge O PASS with implicit chain-graph dual formulation risk.
+
+## value
+
+PASS
+
+Complete classification of the depth-indexed definability invariant over all finite Ferrers/chain-graph valuations gives an exact, motivated structural answer, robust under multiplicities. The unbalanced parity effect and exact sharp depth stabilization are not determined by total modal algebra size alone and provide benchmarks for modal generation and set-bisimulation partition refinement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
