@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. A nine-element subset of \(\{1,\ldots,10\}\) is determined by its single missing value. The proof that every admissible four-tuple with pairwise sums at most \(10\) has a pair summing to \(5\) is a complete three-case argument on its largest entry. For each other missing value, an explicit four-tuple supplies a witness. The small values \(h_4(1),\ldots,h_4(5)\) follow from direct boundary arguments, while the infinite stable range is explicitly cited rather than inferred computationally.
+## correctness
 
-## Originality
-PASS. The closest recent source states \(h_4(5)=5\) and supplies the missing-\(5\) example, but does not state uniqueness of the nine-element obstruction. Its earlier precursor gives general bounds and no \(n=5\) extremizer classification. Published-record searches for the exact set, the exceptional value, extremal classification, and equivalent pairwise-sum formulations located no covering statement. A related current result for the same source concerns only a parity-saturated \(n\ge6\) class and cannot imply the present all-nine-subsets classification at \(n=5\).
+PASS
 
-## Value
-PASS. The recent sharp theorem makes \(n=5\) the unique adjacent exceptional point. Classifying its maximum obstructions is therefore a natural equality-case question, not an arbitrary finite slice. The result shows that the jump from the stable value is caused by one rigid complement and closes the entire finite boundary of the invariant when combined with the published stable theorem.
+Every 9-element subset of [10] is [10] minus exactly one m. For m=5, a hypothetical four increasing positive summands with largest two sum≤10 necessarily includes a pair summing to 5: if largest=4 then {1,2,3,4}; if largest in {5,6}, the other three form 3-subset of {1,2,3,4}, containing (1,4) or (2,3); if largest≥7, three smaller must be {1,2,3}. For every other missing m, explicit witness quadruples are (1,2,3,4) for m∈{1,2,8,9,10}, (1,3,4,5) for m=3, (1,2,4,5) for m=4, (1,2,3,6) for m=6, and (1,2,3,7) for m=7. Independent direct positive-integer quartet enumeration found witness counts for missing m=1..10 of [10,10,4,4,0,3,1,3,3,6]. The n≤3 cases are formally vacuous h4(n)=n+1 (no four-distinct-positive witness fits [2n]); n4=4 and n5=5, while n≥6 value 4 is properly cited rather than independently proved.
 
-## Closest literature and limitations
-The principal source is arXiv:2609.39314v1. The new result is deliberately narrower than its stable-range theorem but sharper at the exceptional boundary: it classifies all maximum witness-free sets at \(n=5\), whereas the source records only the value and one example. The result does not attempt a general extremizer classification for \(n\ge6\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+van Doorn–Erlbacher 2026 proves stable h4(n)=4 for n≥6 and reportedly notes h4(5)=5 using exactly [10] without 5, but gives no equality-case uniqueness in abstract/search-accessible material. The present extra statement classifies all ten 9-element subsets at exceptional n=5, not the known numerical h4(5) value or its published example. No Resultary prior hit with this exact small-edge classification was found; complete primary PDF remains inaccessible, so a statement buried in the source cannot be definitively excluded.
+
+## value
+
+PASS
+
+This is a small but sharply motivated exact equality classification at the unique exceptional threshold point n=5 immediately preceding the stable n≥6 theorem. It identifies the sole extremal obstruction instead of merely reproducing known bound and example; a later researcher studying boundary equality cases can use the precise uniqueness. The value is bounded: ten missing-singleton cases and no general n≥6 extremizer theory. The trivial/vacuous n≤3 values alone are not assigned standalone value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
