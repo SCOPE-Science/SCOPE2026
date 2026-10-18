@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "Exact finite-size martingale differences and variance recurrence are independently reconstructed from conditional insertion depths and match arXiv:2610.00614v1 equations (25)–(29). Their recurrence yields \\(v_n\\sim cn^{1-\\beta}/(1-\\beta)\\) for \\(\\beta>1/2\\), because the entire damping correction is \\(o(n^{1-\\beta})\\). Riemann sums yield the explicit \\(\\beta<2/3\\) constant; harmonic summation yields \\(3c^3\\) at \\(\\beta=2/3\\). For \\(\\beta>2/3\\), both the martingale and Kronecker remainder are square summable, yielding almost-sure and \\(L^2\\) convergence. Reproducible exact enumeration of sizes 3 through 7 with rational parent probabilities independently confirms the finite-size variance formulas. Numerical checks are not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gałązka–Wdowicka 2026 Theorem 6.2 applies when \\(p_n=O(1/n)\\), violated for every beta in (1/2,1) here.",
+        "Sénizergues arXiv:1904.07115v3 §1.2.1 assumes cumulative weights \\(W_n\\sim Cn^{\\gamma}\\), whereas here log W_n grows as a positive power of n."
+      ],
+      "reasoning": "The motivating exact martingale identity covers all finite n, but its published asymptotic theorem does not cover the new growth regime. Known weighted-recursive-tree profile/height results operate under genuinely different cumulative-weight growth hypotheses and do not imply the asserted quadratic/superquadratic path-length variance transition.",
+      "searches": [
+        "Gałązka Wdowicka total path length power weight recursive trees variance martingale 2026 non O(1/n) attachment",
+        "\"weighted recursive tree\" \"total path length\" \"stretched exponential\" martingale",
+        "Sénizergues 2021 weighted random recursive trees growing weights exponential total path length profile"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.00614v1, full-text equations (25)–(35) and Section 10",
+      "arxiv:1904.07115v3, full-text Sections 1.1–1.2",
+      "arxiv:2101.01156, related height paper abstract only, not used to infer noncoverage",
+      "Public mathematical-result search: root-attachment/path-length covariance and other related tree claims, compared by statement not just title"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Finite-n variance and innovation identities from arXiv:2610.00614v1 are explicitly imported and not claimed novel.",
+        "The full comparison with arXiv:1904.07115v3 §1.2 excludes its polynomial cumulative-weight hypotheses for the present stretched-exponential family."
+      ],
+      "reasoning": "Substituting \\(p_n\\) into the source finite-size identity does not by itself constitute the entire theorem. A new asymptotic analysis of innovation variances and an extended martingale/Kronecker argument are needed for the sharp linear-\\(L^2\\) transition. A more abstract existing martingale theorem could subsume this argument and remains a priority risk.",
+      "searches": [
+        "\"recursive trees\" \"path length\" \"2/3\" variance attachment",
+        "\"weighted recursive trees\" \"stretched exponential\" asymptotic depth",
+        "\"recursive trees\" \"2/3\" \"total path length\" weighted limit"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.00614v1 §5 eqs. (26)–(29) gives the exact innovation/variance identity for arbitrary deterministic weights; §6 Theorem 6.2 assumes \\(p_n=O(1/n)\\).",
+        "arXiv:1904.07115v3 §§1.1–1.2 identifies weighted recursive trees and emphasizes polynomial cumulative-weight assumptions for its profile results."
+      ],
+      "reasoning": "The new statement concerns a sharp \\(\\beta=2/3\\) boundary for linear-scaled total path-length fluctuations and explicit three-regime variance rates under \\(p_n=cn^{-\\beta}\\). The source finite-size formulas are necessary mathematical ingredients but do not state the linear-scale convergence theorem for \\(p_n\\notin O(1/n)\\) or the sharp boundary.",
+      "searches": [
+        "weighted recursive trees total path length with attachment probabilities p_n ~ c n^{-beta}, beta between 1/2 and 1, sharp beta=2/3 transition for L2 martingale limit, variance n^(4-3beta) and critical n^2 log n",
+        "\"weighted recursive trees\" \"p_n\" \"2/3\" path length"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact n^2 log n variance coefficient or beta=2/3 recursive-tree path-length limit entry was located in the targeted mathematical-result queries.",
+        "The source paper Section 10 item (i) explicitly identifies relaxing \\(p_n=O(1/n)\\) as unresolved for its method."
+      ],
+      "reasoning": "Neither a numerical table nor an existing published exact phase diagram containing these parameter-dependent variance constants was located. Negative search evidence is not treated as proof of uniqueness.",
+      "searches": [
+        "phase transition n^2 log n variance weighted depth path length preferential random recursive tree fractional attachment probability",
+        "stretched exponential weights growing random recursive tree total path length fluctuation scaling p_n n^-beta beta 2/3"
+      ]
+    },
+    "rationale": "The precise \\(\\beta=2/3\\) transition and three variance regimes for stretched-exponential cumulative weights are not stated in the inspected motivating paper (which gives a published linear-scale theorem only for \\(p_n=O(1/n)\\)) or in the inspected 2019 weighted-tree geometry paper (which targets polynomial cumulative weights). Targeted mathematical-record and literature queries reveal no direct covering claim. The published general finite-size identity is fully acknowledged; potential coverage by an unlocated abstract martingale theorem is the residual priority risk.",
+    "residual_risks": [
+      "Independent priority verification has not been performed. An older general martingale criterion may imply the sharp result after nontrivial specialization.",
+      "Earlier published finite-n identities logically permit deriving portions of the asymptotic formulas; the incremental contribution must be assessed as the sharp regime classification and new a.s/L2 domain, not ownership of the identities.",
+      "No central limit theorem is claimed on the superquadratic side."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General exact finite-n martingale and variance identities are earlier work; the published n-scale limit assumes p_n=O(1/n) and does not state a stretched-exponential beta threshold.",
+        "evidence": [
+          "Section 5 equations (25)–(29)",
+          "Theorem 6.2 equation (30)",
+          "Section 10 open problem (i)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.00614v1",
+        "material_read": "Full HTML sections 1, 5, 6, 8 and 10, including exact identities, convergence theorem assumptions and open question",
+        "method": "Read primary full HTML theorem statements and proofs",
+        "title": "Total Path Length in Power-Weight Recursive Trees: Martingale Limits and Global Fluctuations",
+        "trigger": "Exact same total-path-length observable and deterministic weighted recursive trees"
+      },
+      {
+        "assessment": "Covers the general growing tree construction, but main profile theorems require cumulative weights asymptotic to a power; does not directly cover superpolynomial cumulative weights or this path-length phase diagram.",
+        "evidence": [
+          "Section 1.1 weighted-tree construction and the cumulative-weight hypothesis",
+          "Section 1.2.1 profile hypotheses"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1904.07115v3",
+        "material_read": "Full HTML introduction and Section 1.1–1.2, weighted-tree definitions, hypotheses on cumulative weights, height/profile statements",
+        "method": "Read primary open-access full HTML and checked exact growth hypotheses",
+        "title": "Geometry of weighted recursive and affine preferential attachment trees",
+        "trigger": "Potential stronger coverage of general deterministic weighted recursive trees"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d6bff5a1-6a98-4d31-b3f0-8d6efde2375f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating paper explicitly asks for deterministic-weight regimes beyond \\(p_n=O(1/n)\\) that retain a nondegenerate linear-scale limit. The model \\(p_n=cn^{-\\beta}\\) is a natural one-parameter family with stretched-exponential cumulative weights, beyond existing polynomial regimes. The sharp \\(2/3\\) critical exponent, exact logarithmic critical coefficient, lower-side leading variance constant, and almost-sure/\\(L^2\\) limit on the other side give a complete, motivated fluctuation-phase classification for \\(\\beta\\in(1/2,1)\\).",
+    "status": "PASS"
+  }
+}
