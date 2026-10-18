@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The cotangent-square argument forces a monomial linear part because every branch has nonzero quadratic term. Power relations then force equality of nilpotency lengths under the underlying permutation, and the annihilator calculation permits precisely one socle term on every off-branch coordinate. The finite algebra surjectivity argument and independent exact small-field enumeration check sufficiency and counting. All field characteristics are covered by the proof.
+## correctness
 
-**Originality — PASS, with literature risk.** The published uniform-length coordinate-cross classification applies when all exponents are equal, which is deliberately excluded here. General monomial-algebra automorphism papers from 2024 and September 2026 assume characteristic zero and do not explicitly give this finite-field heterogeneous-length count in inspected material. The 2026 primary was available at abstract level rather than full text; an equivalent specialization remains possible, and search absence is not a proof of novelty.
+PASS
 
-**Value — PASS.** Varying nilpotency thickness is a natural deformation of a union of fat coordinate branches; it breaks the full symmetric permutation group into exactly the length-preserving Young subgroup while retaining all cross-branch socle shears. The formula and complete normal forms classify every automorphism for all heterogeneous profiles, rather than computing selected examples.
+For q any prime power, n>=2 and each d_i>=3 with nonconstant branch-length vector, m/m^2 preserves the independent x_j^2 classes, so the relation x_i x_k=0 forces a monomial invertible linear matrix. For any off-principal target branch, a product with its principal preimage gives annihilator (x_j^{d_j-1}); nilpotency of phi(x_i) forces d_sigma(i)<=d_i, and equality follows over the permutation. Conversely principal truncated substitutions plus arbitrary off-branch top socle terms preserve mixed and power relations and invertible cotangent yields an automorphism of finite local algebra. Independent direct enumeration of two-branch (q,d)=(2;(3,4)) by enumerating all possible two generator images, checking all power and cross relations and determinant gives exactly 32, matching (product m_r!)(q-1)^n q^{sum(d_i-2)+n(n-1)}. This finite check corroborates but does not establish the universal theorem; its five-step proof does.
 
-Closest literature: arXiv:2609.13741; arXiv:2408.02197; published-finding corpus record `2026/10/4/SCOPE-automorphisms-of-truncated-coordinate-cross-algebras-over-arbitr--625ba30274cb` for the excluded uniform case.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge positive: nonconstant branch lengths introduce a forced label-preserving permutation subgroup and heterogeneous truncated substitution orders. The existing arbitrary-field theorem handles only common d; no checked published theorem explicitly counts arbitrary mixed profiles over all finite fields. Strong characteristic-zero monomial automorphism-group results do cover corresponding char-zero structural cases in principle, not the finite-characteristic counting formula. Inaccessibility of the newest char-zero paper is disclosed as risk, not a negative search proof.
+
+## value
+
+PASS
+
+Natural full automorphism classification of an explicitly motivated nonuniform truncated coordinate-axes Artin algebra family. The exact label-rigidity and finite-field group order are useful for classification/isomorphism and symmetry questions, not a bare restatement of the all-equal case. General char-zero theory alone does not mechanically give a field-uniform finite order.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
