@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite covariance matrix follows from disjoint-window independence and exhaustive counts of the \(4!\) and \(5!\) relative orders that govern one-step and two-step overlaps. The integer matrices are verified by direct exact-rational enumeration, and the analytic eigenbasis identities yield the six spectral values, including multiplicities at coincidences. The bounded contrast telescopes to two independent boundary ascent indicators; the rank-four limiting covariance and the multivariate CLT follow from the exact eigenvalues and finite-range dependence. The supplied standard-library verifier independently recomputes all covariance entries for the \(46,224\) permutations of orders four through eight, plus exact local overlaps and block eigen-identities through order nineteen. Risk: computation supports, but does not replace, the infinite combinatorial identity and standard finite-dependent CLT; the proof supplies both.
+## correctness
 
-## Originality — PASS (same-model; historical priority provisional)
-Elizalde (arXiv:1504.07265) surveys consecutive-pattern occurrence enumerations, not this complete six-pattern covariance spectrum. Hofer (arXiv:1704.00650), Introduction and further-directions discussion, proves a CLT for individual vincular patterns and explicitly identifies multivariate dependence as a topic for further study. Janson (arXiv:2106.09401), Theorem 14.1 and especially Remark 14.2, proves single-pattern constrained limits but leaves degeneracies of nontrivial linear combinations of constrained counts unclassified. The fully consecutive length-three classification is neither an univariate moment nor a consequence of Janson's cited **unconstrained** subsequence classification. Published-record searches found no identical statement; absence of matches is not proof of priority. Risk: an older specialized simultaneous-pattern generating function could imply the same matrix, or a general coboundary characterization could subsume the endpoint identity; independent review is needed.
+PASS
 
-## Value — PASS
-The six length-three local order patterns jointly determine adjacent turning behavior in a random permutation. Their empirical histogram is subject to one deterministic sum constraint, but also a distinct nontrivial fluctuation constraint: an explicit telescoping contrast stays discrete and bounded while four orthogonal contrasts fluctuate at square-root scale. Identifying all normalized variances and the unique bounded direction resolves a concrete first complete nontrivial instance of the constrained-pattern degeneracy problem highlighted by Janson. This is useful for selecting nonsingular coordinates and for variance calibration of simultaneous local-pattern statistics. The work does not claim an unrestricted general theorem or a finite-sample Gaussian law.
+Writing permutations as ranks of iid continuous X gives 2-dependent local indicators. Exact overlap counts for offsets d=0,1,2 yield (n-2)V0+(n-3)(V1+V1^T)+(n-4)(V2+V2^T); the supplied integer A,B follow from all 24 and 120 local orders. Independently reconstructed exact 36-entry rational covariances by brute-force permutation enumeration n=4..7, with eigenvalues and rank five as stated, including n=4 degeneracy. The identity W=R1-R_{n-1} telescopes each triple, hence three-point law and Var=1/2. Leading A/360 has nullspace exactly total-count direction and W; four positive modes give uniqueness for fixed coefficients, bounded stationary 2-dependent CLT by Cramer--Wold. No inference from finite enumeration to arbitrary n.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS: the full six-pattern finite spectral classification and classification of bounded contrasts are not stated by the inspected Janson constrained-U-statistics general CLT; his Remark 14.2 explicitly leaves degeneracies of constrained linear combinations as open to characterize. Hofer focuses on individual vincular counts and Elizalde surveys counting of local patterns. Classical all-subsequence covariance concerns nonconsecutive occurrences, so not dominating. Older implicit generating-function treatments remain possible.
+
+## value
+
+PASS
+
+A complete natural covariance classification for all six three-letter consecutive order patterns, its unique coboundary/endpoint fluctuation, and precise Gaussian rank provide a concrete, motivated resolution of the smallest multivariate degeneracy case, not an arbitrary table slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

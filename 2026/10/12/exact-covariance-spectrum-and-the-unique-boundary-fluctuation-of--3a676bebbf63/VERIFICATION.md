@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification of finite covariance and spectral structure
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 from the directory containing the program; it has no dependencies outside the standard library. It enumerates 4! and 5! overlapping order types, uses exact rational arithmetic to reconstruct the six-by-six covariance matrix, tests six eigenvector/block identities at 16 orders, exhaustively checks every permutation for orders 4 to 8, and compares the boundary contrast to its telescoping ascent representation. The complete exhaustive sweep covers 46,224 uniform permutations and 180 distinct covariance cells (36 per order).
+## correctness
 
-Output of the replay from the supplied artifact:
+PASS
 
-```
-n 4 permutations 24 exact-covariance entries 36 boundary-law verified
-n 5 permutations 120 exact-covariance entries 36 boundary-law verified
-n 6 permutations 720 exact-covariance entries 36 boundary-law verified
-n 7 permutations 5040 exact-covariance entries 36 boundary-law verified
-n 8 permutations 40320 exact-covariance entries 36 boundary-law verified
-VERIFY_OK
-```
+Writing permutations as ranks of iid continuous X gives 2-dependent local indicators. Exact overlap counts for offsets d=0,1,2 yield (n-2)V0+(n-3)(V1+V1^T)+(n-4)(V2+V2^T); the supplied integer A,B follow from all 24 and 120 local orders. Independently reconstructed exact 36-entry rational covariances by brute-force permutation enumeration n=4..7, with eigenvalues and rank five as stated, including n=4 degeneracy. The identity W=R1-R_{n-1} telescopes each triple, hence three-point law and Var=1/2. Leading A/360 has nullspace exactly total-count direction and W; four positive modes give uniqueness for fixed coefficients, bounded stationary 2-dependent CLT by Cramer--Wold. No inference from finite enumeration to arbitrary n.
 
-These checks verify exact finite identities and sample-space enumerations at the stated orders. They do not establish the central limit theorem or an exhaustive historical originality conclusion. The proof's infinite identities follow from finite-overlap stationarity, exact coefficient matrices, and a standard finite-dependent CLT. Independent audit has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS: the full six-pattern finite spectral classification and classification of bounded contrasts are not stated by the inspected Janson constrained-U-statistics general CLT; his Remark 14.2 explicitly leaves degeneracies of constrained linear combinations as open to characterize. Hofer focuses on individual vincular counts and Elizalde surveys counting of local patterns. Classical all-subsequence covariance concerns nonconsecutive occurrences, so not dominating. Older implicit generating-function treatments remain possible.
+
+## value
+
+PASS
+
+A complete natural covariance classification for all six three-letter consecutive order patterns, its unique coboundary/endpoint fluctuation, and precise Gaussian rank provide a concrete, motivated resolution of the smallest multivariate degeneracy case, not an arbitrary table slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
