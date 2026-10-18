@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem applies to all nonempty finite simple graphs, including disconnected graphs and the isolated-vertex zero case. Pair domination and root–private-leaf separation reduce exactly to a total dominating root set. Other root–leaf or leaf–leaf pairs are then automatically separated; the only remaining root–root collisions are vertices with no selected private leaves and equal closed neighborhoods inside the selected-root induced graph. At most one omitted leaf per class is both necessary and sufficient, giving the displayed polynomial by a bijection. The symbolic complete-graph and star specializations and the direct finite checks agree. There is no hidden infinite computation assumption.
+## correctness
 
-**Originality — PASS, with residual risk.** Feng–Wang (arXiv:1301.4295, 2013, Theorems 4.5–4.6) establishes minimum identifying-code cardinalities for complete and noncomplete connected one-leaf coronas, not the full code-size distribution. Argiroffo–Bianchi–Lucarini–Wagler (DOI:10.1016/j.entcs.2019.08.013, Section 3) treats generalized coronas with at least two private leaves per root and scalar minima. Foucaud–Lehtilä (arXiv:2204.05250v1, first posted 11 April 2022) gives bounds and corona extremal examples, not an arbitrary-base all-cardinality polynomial. General identifying-code set-cover polytopes and enumerations on threshold or chain graphs do not state or imply the present closed-twin-class factorization without a new specialization. A hidden equivalent enumeration is the main residual risk; title searches alone were not used as the novelty argument.
+PASS
 
-**Value — PASS.** The output is a complete exact combinatorial invariant of an arbitrary one-leaf corona, with a structural description of every admissible code and a direct formula for every coefficient. It refines familiar minimum-size results and identifies the coefficient of the natural lower bound as the number of totally dominating root sets whose induced subgraphs are closed-twin-free. The twin-class correction makes the result more than a substitution or a single-family recomputation. This is a mathematically motivated fault-identification counting problem; no unsupported algorithmic speedup is asserted.
+Reconstructed directly from root/leaf closed signatures. Pairwise root-versus-its-own-leaf separation forces N_G(v)∩R≠∅ for all v, precisely total domination. Every unselected root forces its private leaf selected; when two selected roots both omit their leaves, equal signatures occur exactly for closed twins within G[R]. Therefore at most one omitted leaf per twin class, contributing x^(|Q|-1)(x+|Q|). Multiplication by roots and mandatory leaves yields claimed x^n product. Isolates yield zero; nonempty disconnected graphs handled componentwise. Independent Python direct signature enumeration over every labeled G of orders 1..4 reproduces polynomial without relying on source verifier. Source verifier verify_identifying_corona.py read, but not executed as a substitute for proof.
 
-**Scientific limits.** The outer sum can be exponential; no publication or independent validation of the new identity is claimed. Verification covers finite graphs only, while the theorem is established by a general proof. Literature search cannot exclude all unpublished or unindexed material.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge full all-size corona identifying polynomial goes beyond previously published minimum identifying-code numbers and thick pendant extensions. Explicitly credits general identifying-code constraints and total domination, but their closed-twin-class enumerator for arbitrary base graphs is a nontrivial specialization not located in the inspected sources.
+
+## value
+
+PASS
+
+A complete cardinality-generating function for identifying codes of the natural one-leaf corona graph operation answers a motivated stronger enumeration question than minimal cardinality. The total-domination/closed-twin factorization gives exact coefficients and explicit interpretation of minimum-size terms, genuinely useful as an exact combinatorial invariant for arbitrary finite G.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

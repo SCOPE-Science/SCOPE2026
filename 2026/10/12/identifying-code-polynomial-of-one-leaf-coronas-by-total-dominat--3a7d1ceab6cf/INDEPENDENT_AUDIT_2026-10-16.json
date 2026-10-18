@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T12:51:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed directly from root/leaf closed signatures. Pairwise root-versus-its-own-leaf separation forces N_G(v)∩R≠∅ for all v, precisely total domination. Every unselected root forces its private leaf selected; when two selected roots both omit their leaves, equal signatures occur exactly for closed twins within G[R]. Therefore at most one omitted leaf per twin class, contributing x^(|Q|-1)(x+|Q|). Multiplication by roots and mandatory leaves yields claimed x^n product. Isolates yield zero; nonempty disconnected graphs handled componentwise. Independent Python direct signature enumeration over every labeled G of orders 1..4 reproduces polynomial without relying on source verifier. Source verifier verify_identifying_corona.py read, but not executed as a substitute for proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Foucaud--Lehtilä study bounds and special corona extremal cases",
+          "Argiroffo--Bianchi--Lucarini--Wagler study supports with at least two pendant leaves"
+        ],
+        "reasoning": "The number of leaves per support is crucial: for one leaf there are coupled total-domination and induced true-twin constraints. Bounds and multi-leaf results are not stronger all-size enumerations for arbitrary G.",
+        "searches": [
+          "arXiv:2204.05250 upper bounds corona",
+          "DOI:10.1016/j.entcs.2019.08.013 generalized corona"
+        ]
+      },
+      "checked_sources": [
+        "Feng--Wang arXiv:1301.4295 Theorems 4.5-4.6",
+        "Argiroffo et al DOI:10.1016/j.entcs.2019.08.013 Section 3",
+        "Foucaud--Lehtilä arXiv:2204.05250",
+        "Resultary connected threshold and thick chain identifying-code findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Minimum code size is an extremal degree not the full cardinality enumerator",
+          "General set-cover constraints imply existence of an encoding, not the stated factorized sum without a new structural analysis"
+        ],
+        "reasoning": "Known minimum-size and generic ILP encoding do not themselves state nor directly supply the explicit all-size total-dominating/twin-class formula; residual priority risk remains.",
+        "searches": [
+          "arXiv:1301.4295 Theorem 4.5-4.6",
+          "DOI:10.1016/j.dam.2017.06.005 identifying codes polyhedra"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Feng & Wang, arXiv:1301.4295v1, Theorems 4.5-4.6 treat minimum code sizes",
+          "Resultary same-topic hits were connected threshold and thick chain identifying-code polynomials, not arbitrary one-leaf coronas"
+        ],
+        "reasoning": "Closed-twin omission characterization is equivalent to direct signature separation for a one-leaf corona, but the checked literature does not display the resulting full enumerator.",
+        "searches": [
+          "identifying code polynomial all identifying codes pendant corona G corona K1 total domination true twins enumerator",
+          "arXiv:1301.4295 identifying codes corona product graph all sizes",
+          "DOI:10.1016/j.entcs.2019.08.013 pendant corona identifying code"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary threshold/chain graph code polynomials apply to different families",
+          "No relevant universal one-leaf corona coefficient database found in actual searches"
+        ],
+        "reasoning": "A general graph-dependent polynomial cannot be covered by a handful of special-family tables; search absence is not proof of priority.",
+        "searches": [
+          "identifying code polynomial all identifying codes pendant corona G corona K1 total domination true twins enumerator",
+          "one-leaf corona identifying polynomial exact coefficient sequence",
+          "Resultary: All identifying codes of connected threshold graphs"
+        ]
+      },
+      "rationale": "Best-of-knowledge full all-size corona identifying polynomial goes beyond previously published minimum identifying-code numbers and thick pendant extensions. Explicitly credits general identifying-code constraints and total domination, but their closed-twin-class enumerator for arbitrary base graphs is a nontrivial specialization not located in the inspected sources.",
+      "residual_risks": [
+        "Equivalent graph-code enumeration could exist under unindexed terminology",
+        "The sum over total dominating root subsets can be exponential and is not claimed to be a polynomial-time algorithm."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MINIMUM_SIZE_PREMISE_NOT_POLYNOMIAL",
+          "evidence": "Theorems 4.5-4.6 concern minimum identifying-code sizes for H∘K1, not all code subsets by size.",
+          "identifier_or_url": "https://arxiv.org/abs/1301.4295",
+          "material_read": "Full 14-page primary PDF; Theorems 4.5-4.6 and their surrounding minimum-cardinality arguments",
+          "method": "open-access arXiv PDF, full paper opened and theorem passages examined",
+          "title": "Identifying codes of corona product graphs",
+          "trigger": "Exact one-leaf corona and identification invariant"
+        },
+        {
+          "assessment": "PARTIAL_READING_DIFFERENT_LEAF_MULTIPLICITY",
+          "evidence": "Described results require at least two leaves per support; one-leaf formula not evidenced; no whole-document NOT_COVERING claim.",
+          "identifier_or_url": "https://doi.org/10.1016/j.entcs.2019.08.013",
+          "material_read": "Article descriptions and references around Section 3, not a separately verified complete full-text assessment",
+          "method": "bibliographic and published-source summary",
+          "title": "The Identifying Code, the Locating-dominating, the Open Locating-dominating and the Locating Total-dominating Problems Under Some Graph Operations",
+          "trigger": "Possible covering result on generalized pendant coronas"
+        },
+        {
+          "assessment": "BOUNDS_DIFFERENT_OUTPUT",
+          "evidence": "Bound and extremal code results do not enumerate all identifying codes.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.05250",
+          "material_read": "Paper description and stated upper-bound targets; full text not separately re-read in this run",
+          "method": "lawful open bibliographic source and targeted search",
+          "title": "Revisiting and improving upper bounds for identifying codes",
+          "trigger": "Closest bounds for one- and two-coronas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete cardinality-generating function for identifying codes of the natural one-leaf corona graph operation answers a motivated stronger enumeration question than minimal cardinality. The total-domination/closed-twin factorization gives exact coefficients and explicit interpretation of minimum-size terms, genuinely useful as an exact combinatorial invariant for arbitrary finite G.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every finite nonempty undirected simple base graph G, the full identifying-code enumerator for the one-leaf corona G∘K1 equals x^n sum over total dominating R of x^(|R|-c(R)) product of (x+|Q|) over induced closed-twin classes Q of G[R]; zero if no total dominating set.",
+  "limitations": [
+    "Numerical checks only up to four vertices independently; unrestricted theorem rests on signature proof",
+    "Priority not absolutely certified; full text of multi-leaf adjacent paper not independently re-read"
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Finite reproducibility checks
+# Independent mathematical audit
 
-The attached `verify_identifying_corona.py` is standalone Python standard-library code. Run it with `python verify_identifying_corona.py`. It checks the identifying-code definition directly from all closed-neighborhood signatures, compares each subset with the structural total-domination/twin criterion, and independently computes the polynomial by summing the theorem's twin-class factors. The pseudorandom seed for sample graphs is fixed at 1729.
+## correctness
 
-Every labeled simple graph on one through five vertices was exhausted (1,099 labeled bases). On six vertices, 120 pseudorandom graph edge masks plus the empty and complete graph were tested. On seven vertices, 16 pseudorandom graphs plus the empty and complete graph were tested. This is 1,239 base-graph instances and 1,860,132 initial vertex subsets. All comparisons passed; actual captured program output is included in `verification-output.txt`.
+PASS
 
-Separately, the complete-graph polynomial was symbolically evaluated for sizes two through twelve, and the star minimum-code coefficient was evaluated for two through ten leaves. Those tests passed, but finite enumeration cannot certify an infinite theorem. The theorem's independent proof is contained in `RESULT.md`; there is no external proof assistant or independent mathematical audit.
+Reconstructed directly from root/leaf closed signatures. Pairwise root-versus-its-own-leaf separation forces N_G(v)∩R≠∅ for all v, precisely total domination. Every unselected root forces its private leaf selected; when two selected roots both omit their leaves, equal signatures occur exactly for closed twins within G[R]. Therefore at most one omitted leaf per twin class, contributing x^(|Q|-1)(x+|Q|). Multiplication by roots and mandatory leaves yields claimed x^n product. Isolates yield zero; nonempty disconnected graphs handled componentwise. Independent Python direct signature enumeration over every labeled G of orders 1..4 reproduces polynomial without relying on source verifier. Source verifier verify_identifying_corona.py read, but not executed as a substitute for proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge full all-size corona identifying polynomial goes beyond previously published minimum identifying-code numbers and thick pendant extensions. Explicitly credits general identifying-code constraints and total domination, but their closed-twin-class enumerator for arbitrary base graphs is a nontrivial specialization not located in the inspected sources.
+
+## value
+
+PASS
+
+A complete cardinality-generating function for identifying codes of the natural one-leaf corona graph operation answers a motivated stronger enumeration question than minimal cardinality. The total-domination/closed-twin factorization gives exact coefficients and explicit interpretation of minimum-size terms, genuinely useful as an exact combinatorial invariant for arbitrary finite G.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
