@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** Probability of eventual detection is exactly the decay-centrality polynomial plus the self-seed term, divided by network order. The exhaustive leaf-extension census covers all unlabeled trees through eight vertices by a canonical-isomorphism invariant; the only three-profile exception has a strictly dominated polynomial competitor with exact difference \(p^2(1-p)^2\). Exact coefficient identities and strictly monotone crossing factors prove two successive unique-optimum switches on the nine-vertex witness for every real \(0<p<1\). The bundled pure-Python checker executed successfully. Risks: a code-generation or tree-canonicalization error would compromise the finite census; independent manual verification has not been performed.
+
+**Originality — PASS (best-knowledge, residual bibliography risk).** Tsakas (2016) studies maximum decay centrality and parameter regimes, but does not state the sharp three-distinct-global-maximizer minimum. Hurajová et al. (2018) prove cumulative-distance dominance and count ranking-stable trees, but ranking instability and changes in the identity of the unique global maximizer are different propositions; their inspected mathematical statements and tables do not imply the sharp nine-vertex boundary. Targeted mathematical literature and published-claim comparisons showed no equivalent coverage. Risks: equivalent sharpness may have been given under another term in graph-center, epidemic surveillance, or generalized closeness literature.
+
+**Mathematical value — PASS.** Three successive objectively optimal epidemic surveillance locations, as opposed to a simple pairwise rank reversal, exhibit an exact and surprising minimal network-size threshold. The result resolves a natural finite structural question with a universal lower bound, a concrete witness, exact algebraic crossings, and a reproducible finite certificate. The significance is mathematical, not a claim of immediate public-health effectiveness.
+
+The source material is an independent-edge percolation model only; no claim is made for general continuous-time epidemics or for multiple sentinels. No independent audit of the result has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
