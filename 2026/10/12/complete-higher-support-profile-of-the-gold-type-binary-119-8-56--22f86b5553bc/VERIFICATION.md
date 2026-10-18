@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,40 +18,25 @@
   "schema_version": 1
 }
 ---
-`artifacts/verify.py` uses only the Python standard library.
 
-It realizes
-\[
-\mathbb F_{256}=\mathbb F_2[\alpha]/(\alpha^8+\alpha^4+\alpha^3+\alpha^2+1)
-\]
-and verifies that \(\alpha\) has multiplicative order \(255\). It checks that
-\[
-a_1=\alpha^{17}\in\mathbb F_{16}\setminus\mathbb F_2
-\]
-and
-\[
-a_2=\alpha\notin\mathbb F_{16}.
-\]
+# Independent mathematical audit
 
-The defining set
-\[
-D=\{x\ne0:\operatorname{Tr}(a_1x^{17})=\operatorname{Tr}(a_2x^{17})=0\}
-\]
-is reconstructed directly and checked to have \(119\) elements.
+## correctness
 
-The eight polynomial-basis evaluation rows have rank \(8\) and are pairwise orthogonal. Exhausting all \(256\) messages gives
-\[
-1+136z^{56}+119z^{64}.
-\]
+PASS
 
-For each \(1\le r\le8\), every \(r\)-dimensional binary message subspace is generated exactly once in reduced-row-echelon form. The checked counts are
-\[
-255,\ 10795,\ 97155,\ 200787,\ 97155,\ 10795,\ 255,\ 1.
-\]
-For every basis, the bitwise union of its codeword supports is compared with the complete histogram in `artifacts/certificate.json`.
+Reconstructed F_256 with polynomial X^8+X^4+X^3+X^2+1 and primitive alpha=X; a1=alpha^17, a2=alpha. Direct two trace conditions gave exactly 119 nonzero coordinates, eight independent evaluation rows, self-orthogonality, and the source ordinary enumerator 1+136z^56+119z^64. Independently enumerated each positive-dimensional F2^8 message subspace exactly once in RREF (counts 255,10795,97155,200787,97155,10795,255,1; total 417198); support unions match every source-listed dimension histogram, yielding d=(56,84,100,108,112,116,118,119) and minimizer multiplicities. This exhausts the specific finite code only, not the whole Gold family.
 
-The total number of positive-dimensional subspaces checked is
-\[
-417198.
-\]
-Successful replay prints `VERIFY_OK`.
+## originality
+
+PASS
+
+The paper by Xiang and Song explicitly defines the same trace-Gold code and supplies its parameters/ordinary two-weight enumerator, but does not provide all higher subcode-support spectra. Qiao–Du 2025 proves generalized weights of a different product-field family, not the F_256 Gold intersection. Search of Resultary, source names, exact parameters, support histograms and generalized weights found no dominating same-object computation. The complete 417198-subcode spectrum is not implied by an ordinary weight enumerator alone. Best-of-knowledge with unindexed isomorphic representation risk.
+
+## value
+
+PASS
+
+A full support-size distribution in every subcode dimension is strictly finer than a weight hierarchy and determines all generalized weights plus number of minimizing subcodes; these are natural invariants in secret-sharing and support geometry of an explicit published self-orthogonal two-weight code. It is a complete, reproducible finite classification at the family first member, not a claim about arbitrary even m; mathematical value does not hinge on an all-m theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
