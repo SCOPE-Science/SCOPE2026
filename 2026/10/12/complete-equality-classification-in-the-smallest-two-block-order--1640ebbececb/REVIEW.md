@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The bound \(q^2\) is the ordered Singleton bound at \(n=r=2,d=3\). Equality forces bijectivity of the projection onto the two rightmost block coordinates. The remaining distance constraints are exactly the two stated families of permutation conditions, and the converse is checked case by case according to whether one or both rightmost coordinates change. The count \((q!)^{2q}\) follows from independent choices of \(2q\) permutations. The binary affine and orbit conclusions follow from the two permutations of \(\mathbb F_2\) and are independently exhaustively checked.
+## correctness
 
-## Originality
-PASS. The closest inspected source, Barg–Purkayastha, states the general Singleton bound and develops global bounds on ordered codes, but no equality classification or count for \(\overrightarrow H(q,2,2)\) at distance \(3\) was located in the full text. The closest later source inspected by bibliographic record, Barg–Park, is explicitly about linear ordered codes; it does not cover arbitrary nonlinear maxima. Targeted searches for the exact parameters, permutation-array formulation, and the count \((q!)^{2q}\) produced no matching published statement. Residual risk remains that the small equality case appears as an unindexed exercise, thesis remark, or consequence stated in terminology not retrieved by the searches.
+PASS
 
-## Value
-PASS. This is not merely another construction attaining the Singleton bound: it gives the entire equality layer for arbitrary codes, an exact closed count for every alphabet size, and a qualitative binary rigidity phenomenon in which all nonlinear freedom collapses to affine two-flats. The parameter set is the smallest one where two genuinely ordered blocks interact, making it a natural base case for equality questions in ordered-metric MDS theory.
+The ordered Singleton bound gives at most q^(4-3+1)=q^2. The two rightmost block coordinates (b,d) must distinguish codewords: if both agree, weight <=2. For equality they cover Q^2 bijectively. Holding b=u fixed and changing d=v makes the second block weight 2 and requires the first-coordinate map v->F(u,v) to be injective, hence a permutation. Holding d=v fixed symmetrically forces u->G(u,v) to permute. Both conditions suffice for distance>=3; there are 2q independent q-permutations, giving (q!)^(2q). At q=2 each permutation is affine, so F=v+alpha*u+beta and G=u+gamma*v+delta, and translations/shears act transitively. Independently exhausted all binary four-subsets of 16 words, finding exactly 16 maxima, and enumerated all 6^6=46656 q=3 permutation-function choices, verifying distinct codebooks and pairwise minimum distance >=3.
 
-## Closest literature and limitations
-The result uses the standard NRT definition and Singleton bound of Barg–Purkayastha and is adjacent to the linear ordered-MDS theory of Barg–Park. It does not claim a classification outside \(n=r=2,d=3\), and the binary symmetry assertion is restricted to the natural affine ordered-metric isometry group.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared the same objects and implications with primary prior literature and published research search. Prior optimal values or constructions are fully credited; no inspected stronger theorem implies the final complete classification. This is a best-of-knowledge determination, with the explicitly recorded unread-source risks.
+
+## value
+
+PASS
+
+The smallest two-interacting-block ordered-metric MDS problem yields an all-alphabet complete classification of unrestricted nonlinear equality cases and an exact factorial count. Projection injectivity combined with separate row/column permutations exposes degrees of freedom excluded by linear-only treatments; a motivated structural statement rather than arbitrary tiny parameter computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
