@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,34 +18,25 @@
   "schema_version": 1
 }
 ---
-The checker enumerates all degree-\(d\) monomials for
-\[
-1\le n\le7,
-\qquad
-2\le d\le10.
-\]
 
-For each exponent vector it computes the first monomial catalecticant rank as the support size and the second monomial catalecticant rank as the number of degree-two exponent vectors dominated by it.
+# Independent mathematical audit
 
-For \(d\ge3\), every monomial not of the form
-\[
-x_i^d
-\]
-or
-\[
-x_i^{d-1}x_j
-\qquad(i\ne j)
-\]
-is verified to have a first or second catalecticant rank at least three. The number of surviving fixed monomials is checked to be
-\[
-(n+1)^2.
-\]
+## correctness
 
-For \(d=2\), all degree-two monomials survive and their number is checked to be
-\[
-\binom{n+2}{2}.
-\]
+PASS
 
-The exact-stratum Euler values are checked by subtracting \(n+1\), the Euler characteristic of the Veronese variety.
+For n>=1,d>=2 over C, choose Q>d so all degree-d monomial torus weights are distinct. A monomial on sigma_2 must have first and second catalecticant rank <=2. First catalecticant excludes support >=3; for a two-variable monomial with both exponents >=2, second catalecticant has three divisors x_i^2,x_ix_j,x_j^2 and rank >=3. For d>=3 the surviving monomial points are exactly n+1 pure powers and n(n+1) tangent monomials x_i^(d-1)x_j, hence (n+1)^2; d=2 all binomial(n+2,2) monomials have symmetric rank <=2. Compactly supported C*-Euler localization on the projective secant gives the topological Euler numbers, subtracting chi(P^n)=n+1 gives the exact border-rank-two stratum. Independent monomial-exponent enumeration across n=1..5,d=2..7 reproduced the two counts; finite checks are not the proof. Crucially the claim concerns border rank, not ordinary symmetric rank.
 
-Finite checks are regression evidence only. The all-parameter result is proved symbolically in the accompanying result.
+## originality
+
+PASS
+
+Prior n=1 rational-normal-curve Euler specialization and the quadratic rank<=2 determinantal boundary are credited. The higher-dimensional all-d>=3 degree-independent (n+1)^2 phase transition was not present in materially inspected Veronese secant/flattening literature; this is best-of-knowledge, not absence-based certainty.
+
+## value
+
+PASS
+
+Topological Euler characteristic of a basic singular secant variety is a natural global invariant. The sharp quadratic-vs-higher-degree transition holds uniformly across all n>=2 and is not a routine degree substitution; it converts flattening geometry into an exact secant-stratum topological count. The known n=1/d=2 boundary cases merely calibrate the substantive higher-dimensional theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
