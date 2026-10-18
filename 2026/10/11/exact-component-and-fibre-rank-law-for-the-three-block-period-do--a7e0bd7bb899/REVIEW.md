@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The two-phase conjugacy is explicit, and the three-block lift is determined by its two initial symbols. The return-word induction computes both long return increments; the counts of ones and the determinant are checked by direct recurrences. Smith normal form gives the exact return-subgroup index. Crucially, the proof does not equate an arbitrary return subgroup with a minimal component without argument: almost periodicity supplies finitely many clopen components, whose fibre-translation stabilizer is shown to coincide with the stabilized return subgroup. This closes the finite-to-infinite step. The attached finite checker corroborates the return words and modular indices but is not treated as a proof of the theorem.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest direct comparison is Kang–Jäger, arXiv:2609.01140v1, Theorem 1.7 and Proposition 4.10 (minimal if and only if the three-block modulus is odd), and Lemma 4.11 (each minimal component has a well-defined fibre rank). Their results do not specify the exact number of components or their common rank when the modulus is even. Hedlund's decomposition and the known return-word combinatorics do not separately imply the stated arithmetic index without the stabilizer identification and integral Smith computation. Older literature on finite odometer extensions or period-doubling cocycles could contain equivalent terminology; the record does not claim absolute priority. The relevant primary preprint was read through its statements and proofs, including the decomposition section.
+PASS
 
-## Value — PASS
-Nonminimality alone leaves open the exact decomposition of a natural parametrized family of finite-to-one dynamical extensions. The result computes two intrinsic discrete invariants for every modulus, showing that the odd factor has no effect on the number of components while the two-primary factor controls all splitting. It makes the general rank concept concrete across an unbounded family and supplies an exact arithmetic mechanism, rather than an isolated numerical example.
+Over clopen substitution phase Y0=Γ(Ypd), square shift lift is G=(Z/κ)^2 additive cocycle c(z)=(1,1−z0). Return cylinders of u_n=Γ^n(1) minus last char have two return words τ_(n−1),τ_n by parity-recognizable induction; increments v_n=(2^{n−1},2^{n−1}−s_(n−1)), w_n=(2^n,2^n−s_n), s_n=(2^{n+1}+(-1)^n)/3. Exact determinant ±2^{n−1}, entries gcd1, Smith diag(1,2^{n−1}); modular generated subgroup index gcd(κ,2^{n−1}) eventually q=2^{ν2κ}. Kang–Jäger finite clopen minimal-component theorem gives almost-periodic skew extension; future-cylinder/return-recurrence proof equates component stabilizer H with Hn for large n, then coset count [G:H]=q, fibre size |H|=κ²/q. Independently recalculated Smith determinant and modular indices for n2..5 and κ2..20, and inspected bundled check_components.py n2..9 κ2..17; these finite examples supplement, not replace, the infinite return-induction/continuity proof.
 
-## Scope and limitations
-The formula applies to the period-doubling substitution and the length-three difference code only. The theorem does not classify measure spectra or other block lengths. The checker is finite; the analytic induction and stabilizer proof carry the infinite conclusion. Independent audit has not been conducted.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Kang–Jäger 2026 Theorem1.7 has prior odd-modulus minimality, while Theorem4.1/Cor4.2/Lemma4.11 provide finite clopen components and within-piece fibre-rank constancy. The exact number and uniform rank for every even modulus are not implications of their stated criterion; this claim adds an explicit 2-adic stabilizer/SNF law. Resultary failed; unknown older odometer-extension formula remains a risk.
+
+## value
+
+PASS
+
+Classifying precisely all minimal components and common fibre ranks of a natural nonminimal finite group extension, including every even modulus, fills a concrete dynamical invariant omitted from prior minimality-only results; the 2-adic law is structural and reusable, rather than mere parity restatement or one finite instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
