@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T07:21:03.959264Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=2 and ordinary multiplicity S(n)=sum p nu_p(n), the four possibilities prime/prime, prime/semiprime, semiprime/prime and semiprime/semiprime exhaust Omega(n),Omega(n+1)<=2. Adjacent primes 2,3 have unequal S. In prime/semiprime case p=ab-1=a+b gives (a-1)(b-1)=2 and uniquely a,b=2,3 so n=5. In reverse case a+b=ab+1 forces (a-1)(b-1)=0, impossible for primes. Two semiprimes ab,cd with cd-ab=1 and c+d=a+b yield the exact factorization 1=(c-a)(b-c). The two sign choices force three consecutive integers to be prime, necessarily 2,3,4, impossible. Repetition a=b and c=d is included; independent direct factorization scan through n=20000 found only n=5. Universal proof is symbolic, not finite.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published prime-containing theorem establishes 5,6 whenever one entry is prime, with no restriction on the other. The other result concerns sigma(n)=sigma(n+1), not S(n)=S(n+1)."
+        ],
+        "reasoning": "The stronger prime-containing theorem covers all low-Omega patterns involving a prime, but not two semiprimes. Equality of divisor sums sigma is logically different from equality of prime-factor sums S.",
+        "searches": [
+          "Resultary published \"The unique prime-containing Ruth–Aaron pair\" ID 97e42b1d2c85",
+          "Jiang and Miller Generalizing Ruth-Aaron Numbers arXiv:2010.14990",
+          "Resultary \"Unique two-almost-prime solution of the Erdős–Sierpiński equation\" ID 1ea62e4a9301"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verify.py at Git tree 52d2d475dda7906e1df668ee7559d36908ec3524",
+        "Jiang–Miller arXiv:2010.14990 (primary full PDF)",
+        "OEIS A039752",
+        "Published Resultary ID 97e42b1d2c85 unique prime-containing theorem",
+        "Published Resultary ID 1ea62e4a9301 uses sigma instead of S"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prime-containing uniqueness eliminates prime/prime and mixed patterns only; submitted equality (c-a)(b-c)=1 then excludes semiprime/semiprime pairs."
+        ],
+        "reasoning": "The combined complete low-Omega claim is not logically implied by the prior prime-containing theorem, though that theorem subsumes most component cases.",
+        "searches": [
+          "The unique prime-containing Ruth-Aaron pair (Resultary 2026/10/4/ID 97e42b1d2c85)",
+          "arXiv:2010.14990 sections defining the multiplicity invariant",
+          "semiprime/semiprime Diophantine aliases (ab,cd) consecutive"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jiang–Miller arXiv:2010.14990 introduces generalized Ruth–Aaron arithmetic; OEIS A039752 tabulates ordinary examples; no semiprime-semiprime theorem located in the read material."
+        ],
+        "reasoning": "The exact alias is equality of prime-factor sums S(ab)=S(cd) for cd=ab+1, with prime square cases included. Example lists do not rule out other pairs.",
+        "searches": [
+          "Ruth Aaron semiprime semiprime consecutive equal sum prime factors",
+          "Resultary: Ruth-Aaron pairs Omega at most 2 both consecutive semiprime classification (5,6)",
+          "OEIS A039752 ordinary multiplicity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing lists include (5,6) and many higher-complexity pairs, but no universal statement about all consecutive semiprimes."
+        ],
+        "reasoning": "Finite OEIS tables do not imply a bound-free impossibility of equal prime-factor sums for consecutive semiprimes.",
+        "searches": [
+          "OEIS A039752 multiplicity Ruth-Aaron pairs",
+          "Wolfram MathWorld Ruth-Aaron Pair (distinct versus multiplicity conventions)"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: the known published unique prime-containing Ruth-Aaron theorem already settles three of the four patterns, but does not settle the semiprime/semiprime pattern. The new exact factorization supplies that missing case; Jiang–Miller and the OEIS list the general object and examples without an inspected such complete two-almost-prime theorem.",
+      "residual_risks": [
+        "A possibly unindexed historical or recreational proof of the consecutive-semiprime obstruction may exist.",
+        "Source named prime-containing theorem covers most component cases; originality and value depend on the separate remaining semiprime-semiprime branch, not on reasserting its prime case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes and studies multiplicity/generalized Ruth–Aaron pairs, but no semiprime boundary shown in inspected material",
+          "evidence": [
+            "Defines conventional prime-factor sum, discusses broad generalized numbers and distribution; searched term semiprime had no occurrence in indexed PDF."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2010.14990; DOI 10.46787/pump.v4i0.2458",
+          "material_read": "Accessible arXiv PDF pages including definitions, examples and searched full text for semiprime terminology",
+          "method": "Full-text PDF viewing and text search in earlier research stage; cross-checked bibliographic identifiers",
+          "title": "Generalizing Ruth–Aaron Numbers",
+          "trigger": "Primary source with same prime-factor-sum equality and differing conventions"
+        },
+        {
+          "assessment": "Covers all prime-containing pairs, not semiprime-semiprime exclusion",
+          "evidence": [
+            "Its exact quantifier requires at least one member prime, whereas submitted last case assumes both composite semiprimes."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-the-unique-prime-containing-ruth-aaron-pair--97e42b1d2c85",
+          "material_read": "Published record title and detailed searchable summary: unique ordinary multiplicity pair containing a prime is (5,6)",
+          "method": "Semantic full-result abstract/summary inspection and implication comparison; not complete Git primary text",
+          "title": "The unique prime-containing Ruth–Aaron pair",
+          "trigger": "Highly overlapping published result from Resultary semantic search"
+        },
+        {
+          "assessment": "Tabulates witnesses, does not give a low-Omega semiprime impossibility theorem in inspected entry",
+          "evidence": [
+            "A finite sequence of values is not a complete semiprime-semiprime classification."
+          ],
+          "identifier_or_url": "https://oeis.org/A039752",
+          "material_read": "Sequence and cited definition/related tables",
+          "method": "OEIS entry and associated references as accessible",
+          "title": "OEIS A039752, Ruth-Aaron numbers (multiplicity convention)",
+          "trigger": "Canonical exact database and possible classification comment"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the complete first nontrivial factor-complexity boundary for the classical Ruth–Aaron invariant when multiplicities count. It closes an ordinary natural prime/semiprime comparison, explicitly including squares, by a sharp obstruction to two neighboring semiprimes. It is elementary and narrow, but a genuine natural exact classification rather than a generic rephrasing or an arbitrary numerical slice; no claims beyond Omega<=2 are made.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md and verify.py at Git tree 52d2d475dda7906e1df668ee7559d36908ec3524",
+    "Jiang–Miller arXiv:2010.14990 (primary full PDF)",
+    "OEIS A039752",
+    "Published Resultary ID 97e42b1d2c85 unique prime-containing theorem",
+    "Published Resultary ID 1ea62e4a9301 uses sigma instead of S"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "A possibly unindexed historical or recreational proof of the consecutive-semiprime obstruction may exist.",
+    "Source named prime-containing theorem covers most component cases; originality and value depend on the separate remaining semiprime-semiprime branch, not on reasserting its prime case."
+  ],
+  "schema_version": 1
+}

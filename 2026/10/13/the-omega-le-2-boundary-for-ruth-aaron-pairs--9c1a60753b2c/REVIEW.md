@@ -1,14 +1,21 @@
-# Self-review
-## Correctness
-PASS. The proof exhausts all possibilities when both consecutive integers have at most two prime factors counted with multiplicity. The two mixed prime/semiprime cases reduce to exact factorizations, and the semiprime/semiprime case reduces to \(1=(c-a)(b-c)\), after which the only unit-factor possibilities force a nonprime factor \(4\). Repeated prime factors are allowed throughout, so squares are not omitted. A finite checker is used only as a regression test, not as proof.
+# Independent mathematical audit
 
-## Originality
-PASS. The focal Jiang--Miller paper was inspected at its definition, initial table, main results, and future-work discussion; no low-\(\Omega\) or semiprime classification was found. The canonical OEIS entry is a table, not a proof of exhaustiveness. Targeted semantic searches for semiprime formulations found a closest result proving uniqueness only when one entry is prime. That result does not imply the new semiprime--semiprime obstruction.
+## correctness
 
-## Value
-PASS. The theorem closes the first natural factor-complexity boundary for the classical Ruth--Aaron equality and does so by a short structural identity rather than a bounded census. It separates the exceptional pair \((5,6)\) from all pairs whose two members are at most semiprime, furnishing a reusable sieve before higher-factor searches.
+PASS
 
-## Closest literature and limitations
-The closest checked indexed result covers only pairs containing a prime. Jiang--Miller provide the modern framework and tables but not this boundary theorem. Residual originality risk is an unindexed historical or recreational observation. The theorem does not address any pair once one entry has \(\Omega\ge3\), nor the distinct-prime-factor convention.
+For n>=2 and ordinary multiplicity S(n)=sum p nu_p(n), the four possibilities prime/prime, prime/semiprime, semiprime/prime and semiprime/semiprime exhaust Omega(n),Omega(n+1)<=2. Adjacent primes 2,3 have unequal S. In prime/semiprime case p=ab-1=a+b gives (a-1)(b-1)=2 and uniquely a,b=2,3 so n=5. In reverse case a+b=ab+1 forces (a-1)(b-1)=0, impossible for primes. Two semiprimes ab,cd with cd-ab=1 and c+d=a+b yield the exact factorization 1=(c-a)(b-c). The two sign choices force three consecutive integers to be prime, necessarily 2,3,4, impossible. Repetition a=b and c=d is included; independent direct factorization scan through n=20000 found only n=5. Universal proof is symbolic, not finite.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS best-of-knowledge: the known published unique prime-containing Ruth-Aaron theorem already settles three of the four patterns, but does not settle the semiprime/semiprime pattern. The new exact factorization supplies that missing case; Jiang–Miller and the OEIS list the general object and examples without an inspected such complete two-almost-prime theorem.
+
+## value
+
+PASS
+
+This is the complete first nontrivial factor-complexity boundary for the classical Ruth–Aaron invariant when multiplicities count. It closes an ordinary natural prime/semiprime comparison, explicitly including squares, by a sharp obstruction to two neighboring semiprimes. It is elementary and narrow, but a genuine natural exact classification rather than a generic rephrasing or an arbitrary numerical slice; no claims beyond Omega<=2 are made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
