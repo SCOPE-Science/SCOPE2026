@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The explicitly defined Lobatto quadrature Q and Euler preconditioner D yield a rational recurrence. Exact matrix algebra gives the noninitial error-block trace/determinant and a conjugate eigenpair of modulus |z|/[2(2+|z|)]<1/2 for every real z<0, implying convergence to the stable Simpson collocation multiplier. In the stiff limit the affine two-stage fixed point (-1/2,1) and characteristic polynomial t^2-(11/12)t+1/4 yield e_K=-2^(1-K) sin(K theta)/sin(theta), theta=arccos(11/12). A root-of-unity algebraic-integer argument proves theta/pi irrational, and irrational-circle equidistribution gives natural density 1/2. Exact rational recurrence proves first stiff overshoot at K=8 (35934757/35831808), and independent exact direct sweeps prove R_8(-5000)>1. The standalone verifier passes 114 exact checks; the infinite theorem does not depend on enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI:10.1137/24M1649800 §§2.2 and 3 describes spectral radii of stiff preconditioners and finite-sweep stability regions for different coefficients.",
+        "DOI:10.1137/23M1592596 analyzes second-order SDC stability and tabulates finite-sweep parity effects for oscillator models."
+      ],
+      "reasoning": "General matrix recurrences and stability-region computation do not by themselves yield the scalar end-stage trigonometric recurrence or its density-one-half theorem. The second-order velocity-Verlet SDC formulas are not identical to the specified first-order implicit-Euler/Lobatto sweep. These are important related mechanisms, not established covering theorems for this particular scalar decay test.",
+      "searches": [
+        "three-node Lobatto SDC implicit Euler preconditioner stiff limit of finite sweeps exceeds one for infinitely many iteration counts",
+        "SDC negative-real stiff limit recurrence complex eigenvalues sweep count oscillatory crossing A stability",
+        "spectral deferred correction implicit Euler Gauss Lobatto three nodes stability functions stiff finite sweeps",
+        "\"spectral deferred corrections\" \"A-stability\" \"number of sweeps\" \"Gauss-Lobatto\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2403.13454 full relevant method and adaptivity sections; first public date 2024-03-20",
+      "DOI:10.1137/24M1649800 full open HTML relevant stability sections",
+      "DOI:10.1137/23M1592596 full HTML relevant stability sections",
+      "DOI:10.4310/CMS.2003.v1.n3.a6 metadata/abstract only",
+      "Targeted numerical-analysis literature searches and public mathematical-result index searches (query strings recorded by check)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2403.13454 gives convergence/adaptivity mechanics, which do not assert finite-sweep negative-real stability.",
+        "DOI:10.1137/24M1649800 gives the general stiff iteration matrix; obtaining the end-point sign pattern requires the explicit affine forcing, initial data, and exact diagonalization.",
+        "M. L. Minion (2003) DOI:10.4310/CMS.2003.v1.n3.a6 abstract advertises stability studies, with complete article not compared in this run."
+      ],
+      "reasoning": "The prior general formulas make the model analyzable but do not themselves logically state or quantitatively establish a half-density of unstable sweep counts, its sharp first index, and an exact negative real witness. The inaccessible full earlier analysis remains an explicit priority risk, not evidence of noncoverage.",
+      "searches": [
+        "Simpson Gauss Lobatto spectral deferred correction implicit Euler sweeps stiff limit non-A stable oscillating amplification repeated iteration negative real axis",
+        "three-node Lobatto SDC implicit Euler preconditioner stiff limit of finite sweeps exceeds one for infinitely many iteration counts",
+        "SDC negative-real stiff limit recurrence complex eigenvalues sweep count oscillatory crossing A stability",
+        "spectral deferred correction Simpson Lobatto implicit Euler preconditioner A stability finite sweeps stiff limit stability oscillation",
+        "\"implicit Euler\" \"three\" \"Lobatto\" \"SDC\" \"stability\"",
+        "\"Gauss-Lobatto\" \"SDC\" \"stiff limit\" \"iterations\" implicit Euler"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2403.13454 §2.1 eqs. (7),(12),(13) gives the generic correction scheme; the exact endpoint recurrence and density-half classification are not stated in the inspected relevant sections.",
+        "DOI:10.1137/24M1649800 §2.1–§2.2 presents iterated-Runge–Kutta equivalence and generic fixed-point error matrices; it does not supply this Simpson/implicit-Euler endpoint angular classification."
+      ],
+      "reasoning": "SDC is equivalent to an iterated implicit Runge–Kutta construction, so both formulations were compared. The new statement depends on a specific physical end-stage observable, not just the spectrum of the error iteration. No searched source was found deriving the exact half-density sweep-count sign law for this configuration.",
+      "searches": [
+        "Simpson Gauss Lobatto spectral deferred correction implicit Euler sweeps stiff limit non-A stable oscillating amplification repeated iteration negative real axis",
+        "\"spectral deferred correction\" \"Lobatto\" \"sweep\" stiff limit instability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted public research-record searches returned method-adjacent ODE/iteration stability results, without a record specifying Simpson-Lobatto SDC, the rational 35934757/35831808, or its density law.",
+        "arXiv:2403.13454 includes adaptive-accuracy experiments, not an exact sweep-indexed stiff-limit table."
+      ],
+      "reasoning": "The exact eighth-sweep fraction was derived algebraically and checked against the direct stage recursion; it was not recovered from a known table. Absence of a matching database entry is negative search evidence only and not a uniqueness proof.",
+      "searches": [
+        "\"spectral deferred correction\" \"Lobatto\" \"sweep\" stiff limit instability",
+        "half-density of unstable finite-sweep spectral deferred correction Simpson implicit Euler method"
+      ]
+    },
+    "rationale": "The exact stiff-limit endpoint oscillation has a nontrivial phase angle with irrational rotation number; from this, half of positive sweep counts in natural density generate negative-axis growth despite strict contractivity of the SDC correction iteration for every fixed negative real timestep. Primary 2024 SDC paper gives the algorithm and adaptive estimators; the closest 2025 SDC paper gives general iteration matrices and alternative-preconditioner stability plots, not this three-node formula or density. Searches found no direct covering statement. Residual risk: earlier detailed SDC stability texts, particularly Minion 2003, could contain an equivalent special-case calculation.",
+    "residual_risks": [
+      "Full text of Minion 2003 stability analysis was not materially inspected; an exact special-case recurrence might predate this work.",
+      "Other historical iterated implicit-Runge–Kutta stability treatments may contain an equivalent finite-sweep negative-real asymptotic.",
+      "Search-index nonreturn is not an exhaustive uniqueness certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The generic method is covered prior art; the new exact stiff endpoint recurrence and count-density classification were not stated in inspected relevant sections.",
+        "evidence": "2024-09-04 v2, PDF pp. 3–10; initial public record 2024-03-20.",
+        "identifier_or_url": "https://arxiv.org/pdf/2403.13454",
+        "material_read": "Relevant full-text sections 2.1–2.3, equations (7), (12), (13), adaptive estimator Algorithm 1, and inspected pages of the downloadable PDF.",
+        "method": "Text of public arXiv PDF plus rendered page inspection (pages 5–10).",
+        "title": "Adaptive time step selection for Spectral Deferred Correction",
+        "trigger": "Defines the exact SDC framework, implicit-Euler sweeper and constant-node error estimator."
+      },
+      {
+        "assessment": "Provides the general error matrix and stiff limit; does not give the specific Simpson-Lobatto endpoint half-density theorem in the read sections.",
+        "evidence": "DOI:10.1137/24M1649800, especially the generic G(z) and G-infinity formulas.",
+        "identifier_or_url": "https://doi.org/10.1137/24M1649800",
+        "material_read": "Public full HTML, Introduction, §§2.1–2.2, §3 stability discussion and references/appendix descriptions.",
+        "method": "Full open-access HTML, equations (2.10)–(2.13), (2.39), and stability figures described in §3.",
+        "title": "Improving Efficiency of Parallel Across the Method Spectral Deferred Corrections",
+        "trigger": "Potential stronger published account of stiff sweep stability and equivalent iterated-IRK formulations."
+      },
+      {
+        "assessment": "Addresses velocity-Verlet-based second-order SDC and parity/stability numerics, not the same scalar first-order Lobatto/implicit-Euler theorem.",
+        "evidence": "DOI:10.1137/23M1592596, stability §3 and Table 1.",
+        "identifier_or_url": "https://doi.org/10.1137/23M1592596",
+        "material_read": "Full open-access HTML, abstract, stability-domain narrative, Figure 2 discussion, and Table 1.",
+        "method": "Full-text SIAM HTML inspection of second-order SDC formulas and stability comparisons.",
+        "title": "Spectral Deferred Correction Methods for Second-Order Problems",
+        "trigger": "Potential covering sweep-index stability phenomena."
+      },
+      {
+        "assessment": "Unresolved possible overlap; neither a positive covering theorem nor a whole-document noncoverage verdict is asserted.",
+        "evidence": "Minion 2003 DOI:10.4310/CMS.2003.v1.n3.a6, stability-and-accuracy abstract.",
+        "identifier_or_url": "https://digital.library.unt.edu/ark:/67531/metadc788262/",
+        "material_read": "Abstract and repository bibliographic material; limited accessible page excerpt, not entire article.",
+        "method": "Public institutional archive descriptive page and cited page excerpt; full article not classified as non-covering.",
+        "title": "Semi-Implicit Spectral Deferred Correction Methods for Ordinary Differential Equations",
+        "trigger": "Foundational historical SDC stability analysis that could include equivalent calculation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "124d0f71-bd59-4840-bef6-846defe51256",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The failure mechanism is not a cosmetic timestep substitution: for a widely used implicit-Euler SDC sweeper, an inner iteration which converges geometrically for every decaying scalar mode can still produce a finite-sweep integrator that grows on sufficiently stiff modes for a positive-density half of all sweep counts. The sharp first index and density theorem diagnose a genuine fixed-iteration-count selection hazard and show why convergence of correction sweeps cannot replace stability analysis of the end-step map. The result is narrowly but naturally tied to the standard three-node Lobatto stability benchmark; no nonlinear generality is claimed.",
+    "status": "PASS"
+  }
+}
