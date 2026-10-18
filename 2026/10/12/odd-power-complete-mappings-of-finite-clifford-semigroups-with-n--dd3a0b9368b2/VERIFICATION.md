@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The symbolic proof in `RESULT.md` has four checkable steps: semilattice-grade preservation for any positive \(k\), conversion of an ordinary complete mapping on a finite \(2\)-group for odd \(k\), simultaneous coprimality via CRT on odd-order group exponents, and a projected-product contradiction for a cyclic nontrivial Sylow-\(2\) group.
+## correctness
 
-`verify.py` was run using the Python standard library. It constructs and independently evaluates \(45\) actual finite group witnesses for odd exponents \(3,5,7\), including products with the nonabelian dihedral group of order \(8\) and a nonabelian Heisenberg group of order \(27\). It also exhaustively tests \(8\) cyclic-group obstruction instances; enumerates all permutations in \(4\) two-fiber Clifford examples, verifying subgroup preservation for every successful mapping; and tests \(765\) arithmetic CRT cases.
+PASS
 
-```text
-PRODUCT_WITNESSES=45 CYCLIC_OBSTRUCTIONS=8 CLIFFORD_EXHAUSTIVE=4 CRT_CASES=765 VERIFY_OK
-```
+For k≥1 and θ_k(x)=xα(x)^k, semilattice grades obey γ(θ_k(x))=e∧f≤e. A strictly order-increasing grade rank h(e)=|{d:d≤e}|, plus θ permutation, forces e∧f=e for each x. Thus e≤f; since α is also a permutation, a second sum-of-ranks argument forces e=f, proving group-fibre rigidity. Every nilpotent maximal G splits P₂×Q_odd. For odd k, raising a Hall–Paige complete-map witness β on noncyclic P₂ to the inverse exponent ℓ (kℓ≡1 mod exp P₂) gives α_P; on odd Q choose a by CRT avoiding a=0 and 1+ka=0 mod each odd prime. If P₂ is cyclic nontrivial, product of the projected α,θ permutations in the cyclic Sylow factor would require unique involution z to satisfy z^k=1, impossible for odd k. This proves iff for all finite Clifford semigroups with nilpotent groups. Read verifier code for positive group factors and small exhaustive semilattices; finite samples do not establish universal fibre rigidity.
 
-The finite checks establish only the enumerated instances, not a universal claim. Hall--Paige is an external established theorem cited explicitly; its proof is not replicated here. No independent audit has been conducted.
+## originality
+
+PASS
+
+Best-of-knowledge originality of the narrow final statement, not a general absence certificate. The nilpotent-fibre odd-power classification and universal fibre rigidity answer the specific Clifford power-complete problem not settled by ordinary Hall–Paige alone.
+
+## value
+
+PASS
+
+This answers a naturally stated power-complete-map classification question for a broad but mathematically meaningful class: arbitrary finite semilattices of nilpotent groups, not merely direct products. The fibre-rigidity lemma rules out all cross-fibre rescue and is structurally useful even for exponents outside the odd classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

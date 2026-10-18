@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The grade-rigidity lemma follows from the strict monotonicity of lower-set cardinalities on comparable semilattice elements and two equality-of-sums arguments; it applies to every positive power. The nilpotent group construction is legitimate because \(k\) is invertible modulo each \(2\)-group exponent, and two required powers are simultaneously units modulo an odd group exponent by CRT. Necessity projects the product identity to a nontrivial cyclic Sylow-\(2\) factor; its projected total product is its unique involution, incompatible with odd \(k\). All required hypotheses and the trivial-group cases are covered. The finite checker returned `VERIFY_OK`, but infinite uniformity rests on the proof, including the published Hall--Paige theorem.
+PASS
 
-## Originality — PASS, with residual risk
+For k≥1 and θ_k(x)=xα(x)^k, semilattice grades obey γ(θ_k(x))=e∧f≤e. A strictly order-increasing grade rank h(e)=|{d:d≤e}|, plus θ permutation, forces e∧f=e for each x. Thus e≤f; since α is also a permutation, a second sum-of-ranks argument forces e=f, proving group-fibre rigidity. Every nilpotent maximal G splits P₂×Q_odd. For odd k, raising a Hall–Paige complete-map witness β on noncyclic P₂ to the inverse exponent ℓ (kℓ≡1 mod exp P₂) gives α_P; on odd Q choose a by CRT avoiding a=0 and 1+ka=0 mod each odd prime. If P₂ is cyclic nontrivial, product of the projected α,θ permutations in the cyclic Sylow factor would require unique involution z to satisfy z^k=1, impossible for odd k. This proves iff for all finite Clifford semigroups with nilpotent groups. Read verifier code for positive group factors and small exhaustive semilattices; finite samples do not establish universal fibre rigidity.
 
-Problem 15.8 of Araújo--Bentz--Cameron--Hendrey--Kinyon (arXiv:2608.25092v1) expressly requests \(k\)-complete existence classifications for Clifford semigroups. Their Theorem 10.1 supplies the ordinary mapping (power \(k=1\)) inverse-semigroup test, not this odd-power criterion. The classical Hall--Paige result for groups alone does not make maps power-complete on an arbitrary nilpotent odd-order factor; an additional CRT construction is needed. Hsu--Keedwell's \((k,\lambda)\)-terminology means prescribed cycle length, not a power exponent. Searches for strong semilattices, Clifford semigroups, power orthomorphisms and Hall--Paige did not locate an equivalent odd-power theorem. Historical terminology and a general group-power theorem remain possible overlap risks.
+## originality
 
-## Value — PASS
+PASS
 
-The result resolves a specified odd-exponent part of an explicit recent open classification problem on a natural class of semigroups with arbitrarily complicated finite semilattices, connecting homomorphisms and nonabelian nilpotent group fibers. The obstruction is sharp and purely local, while rigidity excludes hidden cross-fiber counterexamples. This is not a finite-only census or a restatement of the ordinary group Hall--Paige theorem; it gives a uniform necessary-and-sufficient semigroup criterion with a construction.
+Best-of-knowledge originality of the narrow final statement, not a general absence certificate. The nilpotent-fibre odd-power classification and universal fibre rigidity answer the specific Clifford power-complete problem not settled by ordinary Hall–Paige alone.
 
-## Boundaries
+## value
 
-The theorem does not classify groups outside the nilpotent hypothesis, infinite Clifford semigroups, or the total numbers of complete maps. Self-review cannot guarantee historical originality. Independent scientific audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This answers a naturally stated power-complete-map classification question for a broad but mathematically meaningful class: arbitrary finite semilattices of nilpotent groups, not merely direct products. The fibre-rigidity lemma rules out all cross-fibre rescue and is structurally useful even for exponents outside the odd classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
