@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T01:56:35Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For stars, a color class has size at most floor((n-1)/2) unless K_1,1; n=2 is impossible. With two colors on m,n>=2, parity of m+n-2 and the identity row_i+col_j=H+2*x_ij force one whole side constant, hence m=2 and n even. Three-color cyclic i+j mod 3 satisfies local caps except (3,4),(4,4),(4,5),(4,7); explicit 4x4 and 4x7 matrices independently passed. For K_3,4, every valid color class of four edges is a C4 (18 cases), so partition into three four-cycles would force every vertex degree even, impossible. For K_4,5, each color class has at most six edges; 3 colors cover at most 18<20. Four-color modular constructions work. General inequalities prove infinite ranges. Independent 2^12/2^20 local-subgraph enumeration found maxima four and six; finite tests do not establish unbounded claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pękała–Przybyło report 3 colors for every graph of minimum degree at least 5, which settles upper bounds on large bicliques.",
+          "Resultary 2026/9/17/SCOPE005 proves the bipartite generalized threshold k^2+1; its k=2 K_4,5 obstruction covers that particular case."
+        ],
+        "reasoning": "General graph threshold settles several upper bounds, but not biclique exact indices for min-degree 1..4 or the two-color K_2,2r family.",
+        "searches": [
+          "Pękała Przybyło On Strong Majority Edge Colourings with Few Colours arXiv:2608.04122",
+          "Resultary 2026/9/17/SCOPE005 full RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2605.23828",
+        "https://arxiv.org/abs/2608.04122",
+        "https://github.com/Resultary/2026/blob/main/2026/9/17/SCOPE005/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "K_3,4 and K_4,5 lower bounds and min-degree>=5 upper bound are known.",
+          "No retrieved prior theorem forces 2-color iff K_2,2r or resolves star/narrow-range 3-color optima."
+        ],
+        "reasoning": "Separated covered corollaries from exact index characterization: known 3-color bound and isolated 4-color obstructions cannot determine the complete phase diagram by themselves.",
+        "searches": [
+          "arXiv:2605.23828",
+          "arXiv:2608.04122",
+          "Resultary/2026/2026/9/17/SCOPE005"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kalinowski et al. arXiv:2605.23828 gives the definition of the strong majority index and some graph families; no complete biclique theorem in inspected primary pages.",
+          "Exact row/column-sum two-colour condition on K_m,n is a distinct structural characterization absent from inspected prior statements."
+        ],
+        "reasoning": "Compared equivalent line-graph neighborhood-half definitions and generalized strong 1/k edge coloring at k=2. No found all-parameter formula; not equating a failed search with a novelty proof.",
+        "searches": [
+          "Resultary search: strong majority 1/2 edge colouring complete bipartite biclique exact chromatic index parity two colours",
+          "web: exact strong majority index complete bipartite"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary strongest overlapping full RESULT.md gives K_4,5 as witness and not a complete K_m,n table.",
+          "Independent class cap census confirms the two hard small obstructions but not bibliographic priority."
+        ],
+        "reasoning": "Neither a matching full biclique table nor a dominating parameter table was found in searched records. Literature absence is a residual priority risk.",
+        "searches": [
+          "Resultary semantic strong majority bipartite graph exact table and parity",
+          "web searches strong majority K3,4 K4,5"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS is confined to the all-biclique index phase diagram, especially the two-color parity family and small-degree transitions. The definition and several obstruction/upper-bound components were already published; they are expressly not claimed as new. No inspected stronger statement yields all cases and lower bounds.",
+      "residual_risks": [
+        "2026 rapidly evolving strong majority literature; the primary 2608.04122 full PDF was not accessible this run.",
+        "Published Resultary threshold may have associated archived research note not read; same-parameter or undocumented corollary remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines invariant and proves general results; inspected material not a complete-biclique classification.",
+          "evidence": [
+            "Definition of strong majority index, arXiv:2605.23828 pp. 1–3."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.23828",
+          "material_read": "Primary PDF pages 1–3 and textual portions concerning definitions, prior majority colorings and examples; full paper text accessible, selective relevant reading",
+          "method": "ArXiv PDF text and visual page inspection",
+          "title": "Strong majority colorings of graphs",
+          "trigger": "Primary introduction of the exact invariant"
+        },
+        {
+          "assessment": "Explicit minimum degree 5 three-color theorem; unread interior might contain additional relevant biclique details.",
+          "evidence": [
+            "Abstract: delta(G)>=5 implies a strong majority edge three-coloring; claimed threshold nearly sharp."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.04122",
+          "material_read": "Accessible arXiv/alphaXiv abstract only; attempted PDF and ar5iv full text returned inaccessible, not read",
+          "method": "ArXiv abstract, author/source metadata, bounded PDF alternate access",
+          "title": "On Strong Majority Edge Colourings with Few Colours",
+          "trigger": "Strong coverage of K_3,4 and minimum-degree threshold"
+        },
+        {
+          "assessment": "k=2 gives K_4,5 obstruction but no complete strong-majority index for all K_m,n.",
+          "evidence": [
+            "delta^bip_k=k^2+1; K_{k^2,k^2+1} witness; for k=2, K_{4,5}."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/17/SCOPE005/RESULT.md",
+          "material_read": "Entire accessible RESULT.md, including statement, proof, cases and limitations",
+          "method": "GitHub primary published-result source read",
+          "title": "Exact bipartite threshold for generalized strong-majority edge colouring",
+          "trigger": "Published exact generalized bipartite theorem and K_4,5 obstruction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact all-parameter classification of a canonical graph family for a recently introduced edge-coloring invariant, combining infinite sharp two-color parity family with a finite set of exceptional four-color obstructions. A benchmark determining optimum counts where broad minimum-degree bounds are silent; more than a numerical tiny-instance check.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2605.23828",
+    "https://arxiv.org/abs/2608.04122",
+    "https://github.com/Resultary/2026/blob/main/2026/9/17/SCOPE005/RESULT.md"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "2026 rapidly evolving strong majority literature; the primary 2608.04122 full PDF was not accessible this run.",
+    "Published Resultary threshold may have associated archived research note not read; same-parameter or undocumented corollary remains possible.",
+    "Full mathematical conclusions rely on analytic all-parameter proofs; independent finite enumeration is only corroboration."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "Defines invariant and proves general results; inspected material not a complete-biclique classification.",
+      "evidence": [
+        "Definition of strong majority index, arXiv:2605.23828 pp. 1–3."
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/2605.23828",
+      "material_read": "Primary PDF pages 1–3 and textual portions concerning definitions, prior majority colorings and examples; full paper text accessible, selective relevant reading",
+      "method": "ArXiv PDF text and visual page inspection",
+      "title": "Strong majority colorings of graphs",
+      "trigger": "Primary introduction of the exact invariant"
+    },
+    {
+      "assessment": "Explicit minimum degree 5 three-color theorem; unread interior might contain additional relevant biclique details.",
+      "evidence": [
+        "Abstract: delta(G)>=5 implies a strong majority edge three-coloring; claimed threshold nearly sharp."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2608.04122",
+      "material_read": "Accessible arXiv/alphaXiv abstract only; attempted PDF and ar5iv full text returned inaccessible, not read",
+      "method": "ArXiv abstract, author/source metadata, bounded PDF alternate access",
+      "title": "On Strong Majority Edge Colourings with Few Colours",
+      "trigger": "Strong coverage of K_3,4 and minimum-degree threshold"
+    },
+    {
+      "assessment": "k=2 gives K_4,5 obstruction but no complete strong-majority index for all K_m,n.",
+      "evidence": [
+        "delta^bip_k=k^2+1; K_{k^2,k^2+1} witness; for k=2, K_{4,5}."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/17/SCOPE005/RESULT.md",
+      "material_read": "Entire accessible RESULT.md, including statement, proof, cases and limitations",
+      "method": "GitHub primary published-result source read",
+      "title": "Exact bipartite threshold for generalized strong-majority edge colouring",
+      "trigger": "Published exact generalized bipartite theorem and K_4,5 obstruction"
+    }
+  ]
+}

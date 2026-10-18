@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof establishes the infinite classification. The packaged `verify.py` supplies finite stress tests and certificate replay only.
+# Independent mathematical audit
 
-Checks performed by the script:
+## correctness
 
-- all explicit claimed constructions for \(1\le m\le40\) and \(m\le n\le60\);
-- the exception set for the cyclic three-color sufficient inequality;
-- exhaustive enumeration of all \(3^{12}=531441\) three-colorings of \(K_{3,4}\);
-- exhaustive enumeration of all \(2^{20}\) single-color subsets of \(E(K_{4,5})\), confirming that any one color class satisfying the local strong-majority bound has at most six edges;
-- exhaustive two-color feasibility for the tested complete bipartite graphs with at most sixteen edges.
+PASS
 
-Replay output:
+For stars, a color class has size at most floor((n-1)/2) unless K_1,1; n=2 is impossible. With two colors on m,n>=2, parity of m+n-2 and the identity row_i+col_j=H+2*x_ij force one whole side constant, hence m=2 and n even. Three-color cyclic i+j mod 3 satisfies local caps except (3,4),(4,4),(4,5),(4,7); explicit 4x4 and 4x7 matrices independently passed. For K_3,4, every valid color class of four edges is a C4 (18 cases), so partition into three four-cycles would force every vertex degree even, impossible. For K_4,5, each color class has at most six edges; 3 colors cover at most 18<20. Four-color modular constructions work. General inequalities prove infinite ranges. Independent 2^12/2^20 local-subgraph enumeration found maxima four and six; finite tests do not establish unbounded claims.
 
-`ALL CHECKS PASSED; constructive_cases=1619; cyclic_exception_set=[(3, 4), (4, 4), (4, 5), (4, 7)]; K34_three_color_exhaustive=531441; K45_max_single_color=6; two_color_small_cases=11; constructive_range=1<=m<=40,m<=n<=60`
+## originality
 
-Limits: finite enumeration does not prove the infinite theorem. The general result rests on the symbolic star capacity argument, the two-color row/column-sum rigidity, the cyclic construction inequality, and the analytic exceptional-case obstructions in `RESULT.md`.
+PASS
+
+Best-of-knowledge PASS is confined to the all-biclique index phase diagram, especially the two-color parity family and small-degree transitions. The definition and several obstruction/upper-bound components were already published; they are expressly not claimed as new. No inspected stronger statement yields all cases and lower bounds.
+
+## value
+
+PASS
+
+Exact all-parameter classification of a canonical graph family for a recently introduced edge-coloring invariant, combining infinite sharp two-color parity family with a finite set of exceptional four-color obstructions. A benchmark determining optimum counts where broad minimum-degree bounds are silent; more than a numerical tiny-instance check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
