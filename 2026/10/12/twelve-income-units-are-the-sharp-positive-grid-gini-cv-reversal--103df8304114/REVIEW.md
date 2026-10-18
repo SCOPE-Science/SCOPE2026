@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** At fixed household count \(n\) and total income \(S\), Gini ranking is exactly ranking by the integer pairwise-distance sum \(D\), while coefficient-of-variation ranking is exactly ranking by the integer squared-deviation sum \(Q\). Positivity bounds the household count by \(n\le S\), so the lower-bound claim is a finite exhaustive statement. The verifier enumerates every positive integer partition and every same-\((n,S)\) pair through \(S=12\), totaling \(762\) comparisons. It finds no strict reversal through \(S=11\) and exactly one at \(S=12\), and independently checks the displayed fractions and the two-household identity.
+## correctness
 
-Risk: changing the domain to allow zero incomes or unequal totals changes the cutoff.
+PASS
 
-## Originality
-**PASS.** Sen and Allison establish the two measures as standard inequality indices, while Bendel et al. directly compare them and document that their empirical orderings and sensitivities can differ. The 1989 paper was inspected in full, including its constructed examples and discussion of right-tail sensitivity. Neither it nor the other checked sources states the smallest fixed-total positive-integer reversal, the unique \(S=12\) strict pair, or the unique \(S=10\) first tie split. Exact-vector, fixed-mean, integer-grid, and generalized-entropy searches did not locate those statements.
+At fixed n>=2 and total S with all incomes positive integers, ordering by Gini is exactly ordering by integer D=sum_{i<j}|x_i-x_j|, and ordering by population CV squared is exactly ordering by Q=sum_i (n x_i-S)^2. Since positive profiles are all partitions of S into n parts and n<=S, exhaustive independent enumeration of all nondecreasing partitions and every same-(n,S) unordered pair for 2<=S<=12 is a complete finite proof. Exactly 762 pairs occur, zero strict oppositely ranked pairs through S=11, and exactly one at S=12: A=(1,2,4,5), B=(2,2,2,6), with D(A)=14>D(B)=12 and Q(A)=160<Q(B)=192. The first weak-order difference at S=10 is (1,4,5) vs (2,2,6), a Gini tie but differing CV. Two-household V=2G holds identically.
 
-Risk: an unindexed exercise or software test could contain the same small witness even though the sharp global cutoff was not located.
+## originality
 
-## Value
-**PASS.** Gini and the coefficient of variation are established inequality measures with materially different sensitivity profiles. Holding both population size and total income fixed removes scale and population-size effects, isolating the effect of distributional shape alone. The exact first tie split and first strict reversal provide a compact finite-resolution benchmark for interpreting or testing implementations of the two measures.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sen, Allison and Bendel et al. establish standard measure definitions and different rank/tail sensitivities, not the smallest strictly positive integer total at fixed household count and total, or the uniquely first reversal and tie splitting. A related Gini–variance inequality covers a different invariant, not this integer-grid order comparison. Exact-vector and semantic searches found no prior 12-unit minimum, with unindexed exercise risk acknowledged.
+
+## value
+
+PASS
+
+The first discrete-resolution limit at which two widely used and Lorenz-consistent yet distinct inequality statistics strictly disagree is a naturally motivated complete finite boundary. The small number 12 is not selected arbitrarily: exhaustive classification proves minimality and a unique witness, useful as a sharp reproducible cautionary example in inequality measurement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
