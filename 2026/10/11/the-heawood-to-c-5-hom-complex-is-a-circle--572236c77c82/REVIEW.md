@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The verifier reconstructs the 14-vertex, 21-edge Fano incidence graph and checks its cubic degrees and point-pair incidence condition. Exhaustive backtracking gives exactly \(3300\) homomorphisms to \(C_5\). Direct generation of every legal single-vertex recoloring gives exactly \(11340\) edges and one connected component. All-source breadth-first search gives diameter and radius \(35\). For the explicit homomorphism sending points to \(0\) and lines to \(1\), the associated orientation sends every edge from the point side to the line side and is therefore acyclic. Theorem 5.1 of arXiv:2408.04802 then makes the unique component homotopy equivalent to \(S^1\).
+## correctness
 
-## Originality
-PASS. The closest primary paper, arXiv:2408.04802, was inspected through its definition of the associated orientation and Theorem 5.1, together with full-text searches for the Heawood and Fano names. It supplies the point-versus-circle criterion for a chosen component but contains no Heawood instance and does not imply that all \(3300\) colorings occupy one component. Wrochna's reconfiguration theorem supplies a general algorithm for square-free targets, not the outcome for this pair. Exact and alias searches for the Heawood graph, Fano incidence graph, \(C_5\)-colorings, recoloring diameter, and Hom-complex topology found no covering statement. The remaining risk is an unindexed finite computation.
+PASS
 
-## Value
-PASS. The Heawood graph is the unique cubic \(6\)-cage and the Levi graph of the Fano plane, while \(C_5\) is the smallest non-complete odd cycle target. Hom complexes to cycles encode both topology and single-vertex homomorphism reconfiguration. Determining that every one of the \(3300\) colorings belongs to one essential-circle component, together with its exact diameter \(35\), gives a reproducible benchmark at a canonical symmetric graph rather than an arbitrary finite slice.
+PASS: The explicit Fano incidence rule yields 14 vertices,21 edges and a cubic Heawood graph. Independent exhaustive backtracking across every legal map to C5 gives precisely 3300 maps. Reconstructing all legal single-vertex recolorings gives 11340 undirected edges; all-source BFS verifies connectedness and diameter/radius35. The constant-on-each-bipartition representative 0/1 has every oriented incidence edge from points to lines, so is acyclic. Apply the inspected published Fujii–Iwamasa–Kimura–Nozaki–Suzuki Theorem5.1 to the unique connected component: homotopy equivalent to S1. Finite enumeration is exhaustive for the fixed graph; the general Hom-complex theorem is external and not proved anew.
 
-## Closest literature and limitations
-The cycle-codomain theorem restricts every component to a point or circle, and the square-free-target reconfiguration literature gives general reachability algorithms. Neither supplies the Heawood component count, the \(3300\)-vertex connected recoloring graph, its diameter, or the resulting global circle homotopy type. The result is finite and graph-specific, and literature coverage cannot prove absolute novelty.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Fujii et al cycle-target Hom-complex Theorem5.1 supplies conditional homotopy classification of an individually specified component only, and not the global connectivity or number of Heawood C5 colorings or recoloring diameter. Wrochna homomorphism reconfiguration algorithm for square-free target supplies decidability, not values for this canonical graph pair. Cukic–Kozlov cycle-to-cycle source family excludes Heawood. Full primary relevant theorem and definitions were read; semantic published corpus and aliases yielded no prior 3300/11340/35 exact benchmark. Unindexed finite enumeration remains priority risk.
+
+## value
+
+PASS
+
+PASS: Heawood is the unique cubic girth-six cage and Fano plane incidence graph, C5 the smallest nonclique odd-cycle target. Its full coloring reconfiguration graph (size, connectivity, optimal graph diameter) is a natural exact combinatorial invariant, and the known Hom-cycle classification converts new connectedness into exact global topology; the count/diameter are useful reproducible benchmarks despite finite scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

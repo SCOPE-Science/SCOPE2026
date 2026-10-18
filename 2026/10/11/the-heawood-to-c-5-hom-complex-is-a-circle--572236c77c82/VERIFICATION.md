@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify_heawood_c5_hom.py` beside `verification_data.json`.
+# Independent mathematical audit
 
-The replay reconstructs the Fano-plane incidence graph from its modular incidence rule; checks \(14\) vertices, \(21\) edges, cubic degrees, and the unique common-line property for each point pair; exhaustively enumerates all \(3300\) graph homomorphisms to \(C_5\); regenerates the entire \(11340\)-edge recoloring graph; verifies that it is connected; and performs breadth-first search from every recoloring vertex to verify diameter and radius \(35\).
+## correctness
 
-For the representative mapping every point to \(0\) and every line to \(1\), the replay constructs the orientation used in Theorem 5.1 of arXiv:2408.04802 and verifies an explicit topological ordering of all \(14\) source vertices. This proves that the orientation has no directed cycle. The external theorem then identifies the unique Hom-complex component as a circle.
+PASS
 
-The finite certificate is exhaustive for the stated labeled graph and target. It does not reprove the published universal-cover theorem and does not establish a family statement for other incidence graphs, cages, or cycle targets.
+PASS: The explicit Fano incidence rule yields 14 vertices,21 edges and a cubic Heawood graph. Independent exhaustive backtracking across every legal map to C5 gives precisely 3300 maps. Reconstructing all legal single-vertex recolorings gives 11340 undirected edges; all-source BFS verifies connectedness and diameter/radius35. The constant-on-each-bipartition representative 0/1 has every oriented incidence edge from points to lines, so is acyclic. Apply the inspected published Fujii–Iwamasa–Kimura–Nozaki–Suzuki Theorem5.1 to the unique connected component: homotopy equivalent to S1. Finite enumeration is exhaustive for the fixed graph; the general Hom-complex theorem is external and not proved anew.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Fujii et al cycle-target Hom-complex Theorem5.1 supplies conditional homotopy classification of an individually specified component only, and not the global connectivity or number of Heawood C5 colorings or recoloring diameter. Wrochna homomorphism reconfiguration algorithm for square-free target supplies decidability, not values for this canonical graph pair. Cukic–Kozlov cycle-to-cycle source family excludes Heawood. Full primary relevant theorem and definitions were read; semantic published corpus and aliases yielded no prior 3300/11340/35 exact benchmark. Unindexed finite enumeration remains priority risk.
+
+## value
+
+PASS
+
+PASS: Heawood is the unique cubic girth-six cage and Fano plane incidence graph, C5 the smallest nonclique odd-cycle target. Its full coloring reconfiguration graph (size, connectivity, optimal graph diameter) is a natural exact combinatorial invariant, and the known Hom-cycle classification converts new connectedness into exact global topology; the count/diameter are useful reproducible benchmarks despite finite scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
