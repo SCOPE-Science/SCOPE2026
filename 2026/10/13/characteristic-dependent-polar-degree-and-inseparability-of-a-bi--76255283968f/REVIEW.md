@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** On a dense two-dimensional chart, the explicit gradient reduces the projective polar map to a one-variable rational function \(\phi=M^2/(h'D)\) and a separately recoverable coordinate. The proof verifies that \(h\) is separable, establishes all gcd cancellations, checks numerator/denominator degrees in each residue class, and distinguishes total field degree from distinct generic-fiber size. The derivative computation gives an exact necessary-and-sufficient inseparability criterion; squarefree examples show both outcomes at degree \(p\). Characteristic two is treated directly. The bundled verifier independently confirms representative exact finite-field cases, but finite samples are not used as the proof of universality.
+## correctness
 
-**Originality — PASS, with stated residual risk.** The 2023 Beorchia–Miró-Roig article already supplies this conic–line family, its complex freeness and characteristic-zero polar degree. The 2021 Bignalet-Cazalet article expressly establishes homaloidality in characteristic three for \(m=2\), and that single case is not presented as new. The new mathematical statement is a uniform exact degree calculation in all characteristics and for all distinct nonzero coefficients, plus the sharp inseparability characterization and opposite squarefree examples. Full-text comparisons with those sources and source/alias/parameter searches in a published mathematical-record collection revealed no theorem implying this statement. Residual risks include unindexed modular polar calculations and earlier general formulae not found by the searches. A negative search result is not a priority certificate.
+PASS
 
-**Value — PASS.** The exact arithmetic phase diagram reveals that a free characteristic-zero arrangement family with unchanged reduced geometric components can undergo two distinct degree drops, or even cease to define a dominant polar map. The inseparability criterion separates genuinely different generic-fiber geometries for identical values of \(p\) and \(m\). This advances the natural positive-characteristic polar-map question beyond one previously known quintic example and gives a reproducible universal classification with no genericity qualification beyond reducedness.
+Reconstructed source coordinates z=rs²,x=1 and gradient components s^(2m−2)(s²D,2sM,h′) where D=h+rh′ and M=mh−rh′; since V=2sM/h′, field extension degree equals reduced rational function φ=M²/(h′D). Coprimality uses squarefree h, h(0)≠0 and D+M=(m+1)h. Exceptional cancellations yield φ=r²h′/D when p|m, and φ=D/h′ when p|m+1, with degrees m and m−1; φ′=rh(2h′+rh′′)/D² establishes separability criterion. F_y=0 in char2 makes image line; distinct smooth conics remain so. Independently verified modular symbolic example rational-map degrees/separability for (p,m)=(3,2),(3,3),(5,5),(7,7) and char0 m3; these finite checks are not used as a proof of all parameters.
 
-**Scope and limitation.** Inseparable *total* degree does not enumerate distinct points in a geometric generic fiber. Complete separable/inseparable subdegree factorizations at arbitrary \(m\) are not asserted. Independent mathematical verification remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for positive-characteristic degree trichotomy and coefficient-sensitive inseparability boundary, explicitly excluding char-zero 2m−1 degree and p3,m2 birational special case already in literature.
+
+## value
+
+PASS
+
+A complete characteristic-sensitive polar degree calculation for the same smooth conic configuration, including inseparability boundary and opposite realizability, is an independently useful structural classification. It distinguishes field degree from geometric fiber counts rather than merely rebranding known characteristic-zero birationality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
