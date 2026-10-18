@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The published split fundamental-group description and the two-ring free-product presentation imply a two-column rational Lyndon--Hochschild--Serre spectral sequence. Mayer--Vietoris for the base identifies the coefficient-group homology and preserves traces under point permutations. Signed tensor-cycle enumeration then proves the identity for every degree and every parameter. The embedded `verify.py` program independently enumerated all \(874\) permutations through six points and reproduced both sides exactly. Limit: the conclusion concerns \(H_*(\pi_1(M_{2,k});\mathbb Q)\), not the homology of the non-aspherical configuration space itself.
+## correctness
 
-**Originality — PASS, with residual risk.** Makri's complete relevant text gives a group splitting and Nielsen-theoretic applications, not the equivariant homology character. Brendle--Hatcher furnish ring-motion presentations; Jensen--McCammond--Meier analyze a distinct pure ring-motion group, not the mixed ordered-point extension. Search comparisons against indexed records and earlier results found no equivalent cycle-index statement, no stronger parameter theorem dominating this case, and no direct table containing it. These are positive implication comparisons based on the objects, not uniqueness inferred merely from absence of matching titles; an unindexed equivalent computation remains possible.
+PASS
 
-**Value — PASS.** The least nontrivial ring count has a nontrivial torsion/free-product base and simultaneous ring-monodromy action on all point factors. Computing the full degree-by-degree point-label character, not just numerical homology dimensions, reveals a parity-sensitive even-cycle correction and gives closed results in every degree for infinitely many newly defined mixed-motion groups. This is a structural response to the newly introduced mixed configuration construction, not a selected numerical instance.
+The frozen proof is reconstructed from group presentation G_k=(F_2)^k ⋊ LB_2, LB_2=Z*C_2, and the fact both ring-motion generators act as the same transposition J on each rank-2 abelianization. For any coefficient module W with common involution J_W, Mayer--Vietoris for Z*C_2 yields H_0(B;W)=W_+ and 0→W_+→H_1(B;W)→W_-→0, with H_p=0 for p>=2 rationally. The LHS spectral sequence has columns p=0,1 only and collapses without differentials. Its trace on H_1 is trace on W; on H_0 it is half the ordinary and J-twisted traces. Permutation-stable subsets are unions of cycles; Koszul signs (-1)^(j-1) produce F, while J^j has trace 0 for odd j and 2 for even j, producing E. Checked directly k=0 gives 1+t, k=2 identity gives (1,3,6,4), transposition yields character polynomial 1+t-2t²-2t³, and reviewed full standalone exact enumeration design for 874 permutations through k=6. This is rational group homology, not H_*(M_{2,k}) or integral torsion.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Makri introduces the exact mixed-motion group and proves the split extension but describes Nielsen fixed point applications rather than an all-degree rational S_k-character. Brendle--Hatcher give the loop-braid presentation; Jensen--McCammond--Meier concern pure ring-motion rather than the mixed semidirect extension. Resultary comparisons with link-complement configuration-space Betti polynomials are not the same group-homology object. No searched covering character theorem located; full Makri text was inaccessible, so a hidden homological appendix remains priority risk, not automatic failure.
+
+## value
+
+PASS
+
+The new mixed circle/point motion group has a nontrivial free-product base and diagonal monodromy on arbitrarily many free factors. An all-degree equivariant character yields much more than ranks, detects even cycle parity, and is a motivated structural invariant for the first nontrivial ring count, not a tiny arbitrary finite instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
