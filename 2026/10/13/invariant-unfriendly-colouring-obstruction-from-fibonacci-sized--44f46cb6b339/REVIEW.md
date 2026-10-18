@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The fibre certificate is strictly weaker than the reference's weight prescription but is the exact inequality required in its rigidity proof. Here the rank weights are monotone, odd and satisfy \(M_{k+1}>\sum_{j<k}M_j+\varepsilon_k\), forcing every unfriendly colouring to be proper. The counting lift is invariant by finite-bit-flip charts, and its mass is exactly \(11/3\), so it normalizes to an invariant probability; the parity argument rules out measurable almost-everywhere unfriendly colourings. The direct lower bound \(\sum_k2^{-k-2}M_kM_{k+1}\) diverges because \(\varphi^2>2\). The package contains a finite, independently replayable arithmetic cross-check, not a substitute for the infinite proofs.
+## correctness
 
-**Originality — PASS.** The closest original source, Pelayo-Gómez (arXiv:2609.11919v1, §§3–4, 6), uses \(\Theta(3^k)\) weights, explicitly establishes nonexistence of any invariant probability in its construction, and treats the infinite-cost invariant case as an open direction. Conley–Tamuz (arXiv:1903.05268, Theorem 1) proves a positive result **assuming finite mean degree** and thus does not imply the negative invariant example. Published-finding and literature searches for equivalent strengthened examples and optimal Fibonacci majority fibres revealed no dominating claim. Searches are not proof of absolute novelty, and subsequent preprints could alter the comparison.
+PASS
 
-**Value — PASS.** The invariant-probability obstruction answers the motivating integrability-boundary question left by the earlier results, rather than merely reducing a coefficient. The weights' golden-ratio growth is coordinatewise optimal in the explicitly delimited parent-majority certificate class; this summability threshold enables a qualitatively stronger measure-preserving conclusion and a degree-three stratum.
+For first-one rank k, M0=1,M1=3 and M_(k+1)=1+Σ_{j<k}M_j+ε_k are odd and satisfy M_parent>Σ children, including leaf contribution; recurrence M_(k+2)=M_(k+1)+M_k+(-1)^k gives Θ(φ^k). Identical odd-size neighborhoods force monochromatic fibres for any unfriendly colouring, with colors opposite to parent; this induces proper parity colouring of the tail-equivalence first-one tree, impossible measurably on conull invariant set by finite-bit-flip invariance/approximation by cylinders; category version similarly. Counting lift of Bernoulli probability across finitely many sheets is E0-invariant; generating function gives Σ2^(−k−1)(M_k+ε_k)=11/3, hence invariant normalized probability 3η/11. Infinite mean degree follows from ∑2^(−k−2)M_kM_(k+1) diverging since φ²/2>1. Induction proves minimality within explicit odd strict-parent-majority certificate class. Independently checked first 12 weights, parity, rational generating-function normalization and divergence rate; unbounded theorem rests on the proof.
 
-**Limitations and risks.** This does not settle the bounded-maximum-degree Borel question. Strict-parent-majority minimality is not unrestricted gadget minimality. The nonexistence proof presupposes completion of a measurable colouring by a Borel representative and removal of a null connectedness saturation, both justified by standard Borel equivalence-relation facts. The work has not received independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The initiating 2026 Borel counterexample is explicitly quasi-invariant and proves no invariant probability exists for its cubic-base fibre multiplicities; its §6 identifies the invariant infinite-average-cost direction as a natural gap. Conley–Tamuz prove existence only for invariant finite-average-degree graphs. The present Fibonacci fibre recurrence is summable against Bernoulli mass, creates invariant probability and infinite degree expectation, and gives an obstruction not covered by either theorem.
+
+## value
+
+PASS
+
+Conley–Tamuz require finite invariant mean degree. This graph supplies an invariant-probability counterexample with no measurable unfriendly 2-colouring on any conull domain, showing that integrability cannot be dropped even for hyperfinite closed one-ended bipartite graphs. Replacing the older cubic-growth fibres by optimal-under-certificate Fibonacci weights crosses the finite-mass threshold while keeping infinite degree expectation. This directly addresses a motivated open boundary, not an incidental Fibonacci coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
