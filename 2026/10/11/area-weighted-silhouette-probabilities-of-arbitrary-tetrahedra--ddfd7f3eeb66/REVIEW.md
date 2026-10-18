@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** A generic tetrahedral projection loses at most one vertex, so triangle shadows are exactly the disjoint pairs of spherical tangent cones. On each cone the projected area is the absolute projected opposite-face area. The spherical Laplace identities for linear and centered quadratic coordinate functions, the outward face conormals, and the exact great-circle-arc integral prove the two area-weighted formulas without finite approximation. Cauchy's brightness identity and the two-direction absolute spherical kernel give the unconditional first two moments. Algebraic specialization gives all four regular-tetrahedron conditional values; a triple-angle inequality proves the strict difference between the means. The bundled independent Gauss--Legendre cone quadrature and projected convex-hull tests agree with those exact identities. The experiments are not substitutes for the analytic all-shape proof.
+## correctness
 
-## Originality
-**PASS, with historical-search limitations.** The full Feldman--Klain paper establishes only the unweighted cone-angle probability; this is quoted as prior work. Finch's full §2.1 states regular-tetrahedron unconditional area moments and silhouette probabilities, and his §5 specifies a directional area integrand, but neither section evaluates the conditional first and second area moments. The new calculation is an arbitrary-tetrahedron geometric finite-sum formula for those weighted probabilities and its canonical regular specialization. Black--Criado is about shadow vertex counts and edge projections rather than area-conditioned moments. Searches under weighted solid angles, silhouette-conditioned chorowidth, triangular/three-vertex shadow area, tetrahedral projection moments, and mechanical aliases revealed no dominating published formula. A possible older stereology calculation remains a residual risk.
+PASS
 
-## Value
-**PASS.** Conditioning on silhouette type is natural in stereological inference from visible projected shapes; the class probabilities alone do not quantify area selection bias. The exact all-tetrahedra formulas make two conditional moments computable without simulation for arbitrary asymmetric shapes. The regular-tetrahedron calculation gives a strict and quantitatively meaningful bias (conditional means approximately \(3.2901\) versus \(3.5582\) at edge length \(2\sqrt2\)) and distinct conditional variances, extending two established but separate random-projection calculations.
+The four disjoint antipodal vertex tangent cones partition precisely the triangular-shadow event. On C_i, brightness equals A_i(n_i·u); by spherical Green identities Δf=-2f and Δ(f²-1/3)=-6(f²-1/3), integration over the three geodesic sides gives I1=-1/2 Σθ(n_i·n_oppositeedge) and I2=Ω_i/3-(1/3)Σ(n_i·n_oppositeedge)tan(θ/2)n_i·(e_ij+e_ik), preserving outward normal sign. Thus first two area-weighted moments are Σ A_i^k I_k,i/(2π); Cauchy brightness and the Gaussian absolute-moment kernel yield unconditional first and second moments and quadrilateral complements. All formulas hold for any nondegenerate tetrahedron and Haar-uniform directions. Independently reconstructed regular tetrahedron projected brightness and cone-interior tests on 180,000 isotropic directions: p3≈0.350783, E[B|3]≈3.290130, E[B|4]≈3.558981, consistent with the exact constants; sampling proves no general quantifier. The exact divergence and Gaussian kernel—not the saved verifier output—establish the universal conclusion.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge comparison of exact statements, aliases and mathematical implications in primary sources; original general methods and previously known components are explicitly acknowledged. There is no decisive prior theorem covering the full surviving claim in the material actually read. Inaccessible priority sources and failed Resultary check remain material residual risks and are not evidence of novelty.
+
+## value
+
+PASS
+
+The silhouette event is an intrinsic observable of polytope projections. Computing first and second conditional area moments for all asymmetric tetrahedra gives a natural mixed geometric statistic that unweighted cone probabilities and unconditional area averages cannot determine. Both conditional means/variances and a strict regular-tetrahedron bias result provide reusable exact baselines; not merely a restatement of Cauchy brightness or a numerical toy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
