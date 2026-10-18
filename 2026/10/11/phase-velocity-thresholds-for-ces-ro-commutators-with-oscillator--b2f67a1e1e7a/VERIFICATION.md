@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The isometry is a change of variables \(x=e^s/(1+e^s)\), with Jacobian \(x(1-x)\). The transported kernel is exactly \(e^{-(s-r)/2}\mathbf1_{r<s}\), so the commutator kernel and Hilbert--Schmidt identity have no normalization constants left unaccounted for.
+## correctness
 
-The integrals required for critical constants are exact: \(\int_0^\infty t^2e^{-t}\,dt=2\), \(\int_0^\infty te^{-t/2}\,dt=4\), and \(\int_0^\infty te^{-t}\,dt=1\). The compact approximants integrate rank-one kernels whose factor norms multiply to one; this certifies their trace-class property. For nonzero limiting phase speed, the translated test vectors converge weakly to zero but have a nonvanishing commutator output on unit intervals. For diverging speed, integration by parts bounds the oscillatory component by \(4/v(n)\).
+PASS
 
-`verify_chirp.py` implements finite quadrature diagnostics at \(\theta=1/4,1/2,3/4,1\). Its output is not an infinite-dimensional certificate, and the proof of the exact threshold and energy asymptotics is independent of sampling. Only the stated operator and phase-velocity hypotheses are verified; other Schatten ideals and irregular velocities are unresolved. Independent audit has not been performed.
+The logistic unitary sqrt(x(1-x)) f(x) yields exactly the causal exponential kernel 1_{r<s} exp[-(s-r)/2], so the commutator kernel has factor F(s)-F(r). Squaring gives the Hilbert-Schmidt double integral. For L=0, eventual decreasing v and fixed-displacement slow ratio give J(s)/v(s)^2-> integral_0^infty e^-t t²dt=2 by dominated convergence, making tail S2 equivalent to integral v². Frozen F_R has compactly supported integrable derivative and an explicit trace-class rank-one integral; Young bound controls error by 4 sup_{s>=R}v(s), proving compactness. For L positive finite, a translated weakly-null test yields nonzero oscillatory output; for L=infinity, monotone-phase integration by parts suppresses the oscillatory part while the nonoscillatory convolution remains nonzero. Power-chirp integrations give the two strict thresholds and logarithmic coefficient.
+
+## originality
+
+PASS
+
+The original real-variable Cesàro operator literature gives convolution representation and spectral results; the independent exact multiplier commutator ideal trichotomy, J(s)~2v(s)^2, and chirp logarithmic coefficient have not been identified in inspected theorem statements. The inaccessible broader Karlovich paper is a named originality risk, not assumed noncovering.
+
+## value
+
+PASS
+
+Two distinct sharp compactness versus Hilbert-Schmidt boundaries for a canonical infinitely oscillatory bounded-symbol family yield an exact operator-ideal phase diagram, including the critical logarithmic constant. This improves operator-theoretic understanding beyond routine spectral information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

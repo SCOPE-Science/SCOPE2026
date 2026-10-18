@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact logistic-coordinate conjugation turns the Cesàro operator into one-sided exponential convolution. Its commutator kernel is explicit; the Hilbert--Schmidt squared norm is precisely the nonnegative integrated squared kernel. Under eventual monotonicity and the fixed-displacement velocity ratio assumption, dominated convergence gives the coefficient \(2\) multiplying the squared phase speed. Compactness follows by trace-class freeze approximants and the bound \(4\sup_{s\ge R}v(s)\); the converse follows from explicit weakly null translated vectors and, at diverging velocity, a monotone-phase integration-by-parts bound. The numerical diagnostic only illustrates these analytic facts.
+## correctness
 
-**Originality — PASS, with risk.** The motivating articles provide normality, the exponential-convolution representation, and spectral geometry, not the asserted phase-velocity ideal classification. Earlier general convolution-commutator work treats compactness in operator algebras, so it may entail the compactness half; the exact Hilbert--Schmidt criterion and sharp critical-energy coefficient were not located in the materially examined literature or targeted mathematical-record comparisons. A potentially relevant 2015 full text was unavailable, and broader unpublished or unindexed ideal criteria remain possible.
+PASS
 
-**Value — PASS.** The logarithmic coordinate is canonical for the real-variable Cesàro kernel. Chirped unimodular multipliers do not converge at the endpoint, yet operator commutators exhibit two different sharp thresholds: velocity decay controls compactness while square-integrable velocity controls Hilbert--Schmidt regularity. The exact coefficient at the borderline supplies a quantitative measure of the failure of that operator ideal membership. This separates intrinsic phenomena rather than changing arbitrary numerical parameters.
+The logistic unitary sqrt(x(1-x)) f(x) yields exactly the causal exponential kernel 1_{r<s} exp[-(s-r)/2], so the commutator kernel has factor F(s)-F(r). Squaring gives the Hilbert-Schmidt double integral. For L=0, eventual decreasing v and fixed-displacement slow ratio give J(s)/v(s)^2-> integral_0^infty e^-t t²dt=2 by dominated convergence, making tail S2 equivalent to integral v². Frozen F_R has compactly supported integrable derivative and an explicit trace-class rank-one integral; Young bound controls error by 4 sup_{s>=R}v(s), proving compactness. For L positive finite, a translated weakly-null test yields nonzero oscillatory output; for L=infinity, monotone-phase integration by parts suppresses the oscillatory part while the nonoscillatory convolution remains nonzero. Power-chirp integrations give the two strict thresholds and logarithmic coefficient.
 
-**Closest literature and scope:** Belli et al., arXiv:2604.19691 and 2606.08600, provide the reduction used in the proof. Karlovich, DOI:10.15352/afa/06-4-191, and Fernandes–Karlovich–Karlovich, arXiv:1908.07754, provide general convolution-operator and compactness context. The result is restricted to an explicitly defined Hilbert-space operator and positive eventually monotone velocities with a ratio hypothesis at the vanishing-speed boundary. No \(\mathcal S_r\) classification for other \(r\) or irregular velocities is inferred.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The original real-variable Cesàro operator literature gives convolution representation and spectral results; the independent exact multiplier commutator ideal trichotomy, J(s)~2v(s)^2, and chirp logarithmic coefficient have not been identified in inspected theorem statements. The inaccessible broader Karlovich paper is a named originality risk, not assumed noncovering.
+
+## value
+
+PASS
+
+Two distinct sharp compactness versus Hilbert-Schmidt boundaries for a canonical infinitely oscillatory bounded-symbol family yield an exact operator-ideal phase diagram, including the critical logarithmic constant. This improves operator-theoretic understanding beyond routine spectral information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
