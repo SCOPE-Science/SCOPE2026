@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T02:58:12Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob bb943f82e838631a13efa03d4c054fc8aa5448a8",
+        "assigned verify.py blob 77e53388fb7e437d7676e0302f0c4039c629f31a",
+        "Bojarovska–Flinth arXiv:1503.05800 Theorems 2.2–2.3"
+      ],
+      "rationale": "For prime p≥5 and complex z, directly expand the ambiguity of normalized g=1+zδ_0 into (0,0), (u=0,v≠0), (u≠0,v=0), and mixed uv≠0 branches. Weyl matrices form an orthonormal Hilbert–Schmidt basis and its columns after lifting are orthogonal p²-Fourier characters, producing exactly the claimed p² singular values, mixed j multiplicity p−1. The trivial ambiguity 1 gives s_max=√p. For z=re^{i phi}, mixed branches give s_min/√p≤2r mu_p(phi)/(p+r²+2r cosphi)≤mu_p(phi)/(√p+cosphi), equality in radial AM–GM only when r=√p. Angular zero phases form the p-grid with one missing node; case splitting for cosphi≥0, the outer two intervals, and the middle interval proves the sharp unique phase ±π/2. At z=±i√p unmixed normalized branches equal 1/2 and the mixed minimum sin(pi/p)/√p is smaller, so s_min=sin(pi/p)>0 and κ=√p/sin(pi/p), with exactly two optimizers. Finite actual SVD/angle-grid independent checks p=5,7 corroborated the theorem but do not replace the global angular proof.",
+      "residual_risks": [
+        "The condition number concerns full complex-linear lifting, not stronger nonlinear noise stability or arbitrary windows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General finite Weyl calculus and Gabor lifted-spectrum theorem cover any window structurally.",
+          "Li 2026 constructs other quantitatively more stable windows; its unrestricted family has a different normalized ambiguity margin and no claimed bound for one-spike flat seeds."
+        ],
+        "reasoning": "The broader arbitrary-window theorem has weaker information for the restricted numerical optimum. Better windows outside the family do not dominate a sharp constrained design barrier.",
+        "searches": [
+          "complex impulse flat Gabor window 1+z delta conditioning minimax singular values phase retrieval",
+          "arXiv:1503.05800",
+          "arXiv:math/0703228",
+          "arXiv:2609.09614 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Bojarovska–Flinth 2015 primary theorems 2.2–2.3",
+        "Feichtinger–Kozek–Luef arXiv:math/0703228 Fourier/Weyl context",
+        "Li arXiv:2609.09614 abstract only",
+        "Resultary positive-impulse quadratic chirps full RESULT.md",
+        "Resultary semantic search complex impulse flat Gabor window 1+z delta conditioning minimax singular values phase retrieval"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem2.3 yields singular values when input ambiguity is specified, so the spectrum component follows known general theory.",
+          "The different real positive chirp impulse optimum does not imply complex phase shift or sharp √p/sin(pi/p) bound."
+        ],
+        "reasoning": "Exact implication: prior all-window spectral characterization PLUS explicit elementary ambiguity computation recovers singular multiset, but determining global minimax requires a new angular inequality. Thus the original contribution is the sharp optimizer/barrier, not the Fourier diagonalization.",
+        "searches": [
+          "Bojarovska–Flinth Theorem2.3 primary text",
+          "Resultary single-impulse quadratic chirps full RESULT",
+          "Li arXiv:2609.09614 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bojarovska–Flinth: singular spectrum of Weyl-lifted intensity map is √p times ambiguity magnitudes for every window.",
+          "Published single-positive-impulse quadratic chirp optimization chooses t=√N but assumes a different seed and real t>0."
+        ],
+        "reasoning": "The ambiguity-margin minimax and lifted-operator condition number are equivalent formulations. The general spectral diagonalization implies only a starting reduction, not a sharp all-complex optimizer. A chirped seed with restricted positive t does not imply the nonchirped complex minimax.",
+        "searches": [
+          "complex impulse flat Gabor window 1+z delta conditioning minimax singular values phase retrieval",
+          "arXiv:1503.05800 Theorem 2.3",
+          "Resultary single-impulse quadratic chirps full RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior exact Gabor spectra for positive-impulse chirps cover a proper different family and arithmetic rank obstruction."
+        ],
+        "reasoning": "The claimed equality parameters solve continuous complex minimax for infinitely many primes and cannot be read from finite prime tables or parameter grids.",
+        "searches": [
+          "complex impulse flat Gabor window 1+z delta conditioning minimax singular values phase retrieval",
+          "Resultary prime cyclic Gabor published findings"
+        ]
+      },
+      "rationale": "A sharp phase-radius minimax for the two-level flat-plus-one-complex-impulse family and rigid optimizers ±i√p survive; the general Weyl-ambiguity singular formula was already known and is explicitly excluded from novelty.",
+      "residual_risks": [
+        "Li 2026 full article not obtained; unindexed earlier two-level radar-sequence optimization could contain equivalent complex minimax.",
+        "Spectrum theorem itself is established prior work and is not treated as novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers Weyl diagonalization and phase-retrieval sufficient criterion but not flat-complex-impulse minimax",
+          "evidence": [
+            "General singular values = √p|ambiguity| and nonzero ambiguity gives lift injectivity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1503.05800",
+          "material_read": "Full public primary manuscript via ResearchGate access, with Theorems 2.2–2.3 and spectrum/ambiguity statement inspected",
+          "method": "Full-text web source, targeted theorem passages",
+          "title": "Phase Retrieval from Gabor Measurements",
+          "trigger": "Same lifted Gabor intensity operator with singular-value relation"
+        },
+        {
+          "assessment": "Distinct positive perturbation of quadratic chirp, not same base window or complex parameter class",
+          "evidence": [
+            "Published optimal condition number (1+√N)/sin(pi/(2N)) for odd N and t>0 differs from candidate sharp complex impulse."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-single-impulse-quadratic-chirps-exact-cyclic-gabor-tomography-sp--03361b3cff9c/RESULT.md",
+          "material_read": "Complete RESULT.md, including odd/even arithmetic spectrum and positive t=√N optimum",
+          "method": "Read-only GitHub file",
+          "title": "Single-impulse quadratic chirps: exact cyclic Gabor tomography spectrum and arithmetic rank obstruction",
+          "trigger": "Close published same Gabor scalar optimizations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "phase-retrieval injectivity condition",
+        "optimal complex angular proof",
+        "prior generic lifted Gabor spectrum"
+      ],
+      "rationale": "Conditioning of a natural minimal-perturbation flat Gabor window is a meaningful restricted signal-design problem. The theorem identifies both globally sharp stability loss of order p^{3/2} and the uniquely optimal imaginary perturbations, a nontrivial phase effect missed by positive-real spikes. The restricted family is explicitly motivated and the claim does not conflate it with unrestricted Gabor-window optimization.",
+      "residual_risks": [
+        "A linear-lifting condition number is not a full nonlinear reconstruction robustness statement."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only prime p≥5 and g_z=1+zδ0; not arbitrary Gabor seeds, missing measurements or composite length.",
+    "Some broader 2026 full-text priority literature was only abstract accessible."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For prime \(p\ge5\), additive-character orthogonality gives all four exact ambiguity branches. Weyl orthogonality converts them into the complete singular spectrum with multiplicities and normalization. A radius AM–GM inequality forces optimal \(|z|=\sqrt p\). The phase-circle missing-node geometry and a strict two-region trigonometric comparison force precisely the two imaginary phases. Direct substitution checks the other ambiguity branches, which must not lie below the claimed optimum. Reproducible singular-value comparisons are corroboration, not a substitute for the general proof.
+## correctness
 
-## Originality — PASS (with historical-priority risk)
-The prior general theorem of Bojarovska–Flinth, Theorem 2.3, already supplies the ambiguity/singular-value correspondence and is acknowledged as prior. Its Section 2.3 constructs random and difference-set windows, not the all-complex-impulse minimax or uniqueness result. The older finite Weyl calculus supplies the expansion but not this optimization. A previously analyzed positive-real-spike subfamily gives a larger optimum; restricting the new result to real parameters does not yield the global complex answer. Related Gabor-window constructions with superior *unrestricted* ambiguity margins do not imply a sharp lower bound specifically for this two-level design. Publicly discoverable indexing and source searches did not reveal a covering result, but search absence is not a proof of novelty.
+PASS
 
-## Value — PASS
-The optimization is dictated by the simplest nonconstant modification of a flat signal, a low-complexity, full-support Gabor window. It determines not just feasibility but the globally best reconstruction-conditioning parameter, proves its uniqueness up to conjugation, and identifies an intrinsic \(p^{3/2}\)-order obstruction for this restricted design. The complex phase improves the large-prime condition number by a factor approaching two over the positive-real choice; general windows can do substantially better, making the limitation explicit rather than overclaiming a global optimum. This is a natural sharp design result, not an arbitrary finite table.
+For prime p≥5 and complex z, directly expand the ambiguity of normalized g=1+zδ_0 into (0,0), (u=0,v≠0), (u≠0,v=0), and mixed uv≠0 branches. Weyl matrices form an orthonormal Hilbert–Schmidt basis and its columns after lifting are orthogonal p²-Fourier characters, producing exactly the claimed p² singular values, mixed j multiplicity p−1. The trivial ambiguity 1 gives s_max=√p. For z=re^{i phi}, mixed branches give s_min/√p≤2r mu_p(phi)/(p+r²+2r cosphi)≤mu_p(phi)/(√p+cosphi), equality in radial AM–GM only when r=√p. Angular zero phases form the p-grid with one missing node; case splitting for cosphi≥0, the outer two intervals, and the middle interval proves the sharp unique phase ±π/2. At z=±i√p unmixed normalized branches equal 1/2 and the mixed minimum sin(pi/p)/√p is smaller, so s_min=sin(pi/p)>0 and κ=√p/sin(pi/p), with exactly two optimizers. Finite actual SVD/angle-grid independent checks p=5,7 corroborated the theorem but do not replace the global angular proof.
 
-## Closest work and limits
-Closest full-text material: Bojarovska–Flinth (arXiv:1503.05800), sections 2.1–2.4, especially Theorem 2.3; and Feichtinger–Kozek–Luef (arXiv:math/0703228), the spreading representation. Related later work: Li (arXiv:2609.09614), abstract comparison only. A possible older treatment of optimally perturbed flat windows is a residual priority risk. Results concern prime dimensions and the Hilbert–Schmidt lifted norm, not nonlinear robustness for all noise models.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+A sharp phase-radius minimax for the two-level flat-plus-one-complex-impulse family and rigid optimizers ±i√p survive; the general Weyl-ambiguity singular formula was already known and is explicitly excluded from novelty.
+
+## value
+
+PASS
+
+Conditioning of a natural minimal-perturbation flat Gabor window is a meaningful restricted signal-design problem. The theorem identifies both globally sharp stability loss of order p^{3/2} and the uniquely optimal imaginary perturbations, a nontrivial phase effect missed by positive-real spikes. The restricted family is explicitly motivated and the claim does not conflate it with unrestricted Gabor-window optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

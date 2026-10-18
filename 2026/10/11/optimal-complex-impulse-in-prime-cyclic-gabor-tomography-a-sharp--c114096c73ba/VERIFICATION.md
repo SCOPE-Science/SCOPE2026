@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The included `verify.py` builds the normalized finite Gabor orbit and complete lifted measurement matrix independently of the closed-form ambiguity-spectrum calculation. It compares all singular values for primes 5, 7 and 11, four complex impulses per prime, including both claimed optimizers, and evaluates 17,835 radius-angle trial parameters. It uses NumPy and prints `VERIFY_OK` on success.
+# Independent mathematical audit
 
-The proof covers every prime of order at least five and uses exact Fourier orthogonality, a prime-field product multiplicity, and elementary real inequalities. Finite floating-point comparisons do not prove the unbounded-prime assertion. No independent audit has been performed.
+## correctness
+
+PASS
+
+For prime p≥5 and complex z, directly expand the ambiguity of normalized g=1+zδ_0 into (0,0), (u=0,v≠0), (u≠0,v=0), and mixed uv≠0 branches. Weyl matrices form an orthonormal Hilbert–Schmidt basis and its columns after lifting are orthogonal p²-Fourier characters, producing exactly the claimed p² singular values, mixed j multiplicity p−1. The trivial ambiguity 1 gives s_max=√p. For z=re^{i phi}, mixed branches give s_min/√p≤2r mu_p(phi)/(p+r²+2r cosphi)≤mu_p(phi)/(√p+cosphi), equality in radial AM–GM only when r=√p. Angular zero phases form the p-grid with one missing node; case splitting for cosphi≥0, the outer two intervals, and the middle interval proves the sharp unique phase ±π/2. At z=±i√p unmixed normalized branches equal 1/2 and the mixed minimum sin(pi/p)/√p is smaller, so s_min=sin(pi/p)>0 and κ=√p/sin(pi/p), with exactly two optimizers. Finite actual SVD/angle-grid independent checks p=5,7 corroborated the theorem but do not replace the global angular proof.
+
+## originality
+
+PASS
+
+A sharp phase-radius minimax for the two-level flat-plus-one-complex-impulse family and rigid optimizers ±i√p survive; the general Weyl-ambiguity singular formula was already known and is explicitly excluded from novelty.
+
+## value
+
+PASS
+
+Conditioning of a natural minimal-perturbation flat Gabor window is a meaningful restricted signal-design problem. The theorem identifies both globally sharp stability loss of order p^{3/2} and the uniquely optimal imaginary perturbations, a nontrivial phase effect missed by positive-real spikes. The restricted family is explicitly motivated and the claim does not conflate it with unrestricted Gabor-window optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
