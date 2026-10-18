@@ -1,0 +1,15 @@
+# Assessment of the commuting-pair distribution theorem
+
+## Correctness — PASS
+
+The identity \((u*v)*u=v\) is equivalent, by comparison of its three independent affine coefficients, to \(B=A^{-1}\), \(A^3=-I\), and \((A+I)c=0\). The commuting difference is \(A(A+I)(u-v)\), giving exactly \(q^{-r}\) for \(r=\operatorname{rank}(A+I)\). The three cases of the centralizer calculation are split separable, nonsplit separable, and nilpotent Jordan, respectively. In the last case the conjugate partition is \((a+b+c,a+b,a)\), yielding the advertised centralizer. The fixed-field Gaussian-weight comparison gives dimension-independent tail bounds and the two-thirds exponent. All hypotheses and positive-dimensional boundaries are stated. The supplied checker independently exhausts fourteen finite-field matrix configurations and seven direct quasigroup configurations, but the infinite statement is proved algebraically, not inferred from enumeration.
+
+## Originality — PASS, with residual risk
+
+Allsop–Wanless's 2024 preprint/2025 article establishes the **unrestricted** possible number of commuting ordered pairs in finite quasigroups and explicitly suggests studying structured families; it does not enumerate labelled affine semisymmetric quasigroups, give their conditioned distribution, or quantify its dimension dependence. Smith–Wang already establishes the linear semisymmetry criterion \(A^3=-I\), and Fulman's matrix cycle-index survey includes the centralizer identities from which the matrix enumeration is a specialization. These precursor statements are credited and are not presented as new. The contribution that survives them is the combined commuting statistic, affine-translation weighting, all-characteristic exact conditioned distribution and the fixed-field two-thirds concentration estimate. Related quadratic-quasigroup and nucleus results address different invariants or restricted families. Relevant database, alias, direct-literature, and implication checks did not locate an equivalent conditioned distribution. It remains possible that another source derives the same specialized asymptotic from the known cycle-index framework; the motivating 2026 nucleus preprint's full text was not available for inspection. An independent novelty determination has not been made.
+
+## Value — PASS
+
+A complete statistic on a natural algebraic subclass answers precisely the structured-family question highlighted in the quasigroup commuting-pairs literature. It distinguishes three finite-field factorization regimes, including the truncated rank spectrum in characteristic three, while showing that the same quantitative commuting rarity and bounded fluctuations persist in all three. It gives a reproducible dimension-parametric answer rather than a one-off example or an arbitrary selection of small parameters. The theorem does not count isomorphism classes, does not cover non-affine quasigroups, and does not determine sharp constants for the mean.
+
+Self-review: passed. Independent audit: not yet performed.
