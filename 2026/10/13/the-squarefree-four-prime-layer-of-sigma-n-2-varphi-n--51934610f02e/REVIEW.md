@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. For squarefree \(n=pqrs\), the equation is exactly \(H(p)H(q)H(r)H(s)=2\) with \(H(t)=(t+1)/(t-1)\) strictly decreasing. Parity excludes \(2\), the value \(p=3\) is immediately impossible, and \(p\ge13\) makes the whole product too small. Successive monotonic bounds leave only four \((p,q)\) pairs and fifteen \((p,q,r)\) triples. For each triple the fourth factor is uniquely \(s=(2+A)/(2-A)\), where \(A=H(p)H(q)H(r)\). The exact table leaves eight prime values and rejects every other triple. The attached rational-arithmetic verifier reproduces the same eight quadruples and checks the defining equation.
+## correctness
 
-## Originality
-PASS. The exact database A062699 lists the integers but does not give a proof that its four-prime squarefree layer is exhausted by these eight. The primary 2013 paper proves the complete classification only through three distinct prime factors and proves general fixed-support finiteness, not the four-prime list. The 2014 sequel displays \(24871\) merely as one squarefree support-four example in a heuristic construction table. A broader Dedekind-psi database contains the same support patterns because \(\psi=\sigma\) on squarefree integers, but it likewise supplies no four-support theorem. Exact-statement, factor-list, database, and implication searches located no same or stronger classification.
+PASS
 
-## Value
-PASS. The published exact classification stops at three distinct prime factors, while the sequel explicitly explores larger squarefree supports only by examples. Four distinct primes are therefore the first natural unclassified squarefree support layer. Determining the layer exactly gives a finite structural bridge between the published theorem and the later heuristic examples, and explains why the first eight four-prime terms of the database are exhaustive rather than incidental.
+For squarefree n=pqrs with p<q<r<s, sigma(n)=2phi(n) becomes H(p)H(q)H(r)H(s)=2, H(t)=(t+1)/(t-1) strictly decreasing. Even n and p=3 are excluded; p>=13 gives product <(7/6)^4<2. Ordered q/r monotone bounds leave exactly p,q in (5,11),(5,13),(5,17),(7,11) and 15 eligible triples. For any triple A=H(p)H(q)H(r), fourth prime is uniquely s=(2+A)/(2-A) if A<2. Independent rational branch enumeration reproduced exactly eight prime quadruples: (5,11,23,109), (5,13,17,127), (5,13,19,71), (5,13,23,43), (5,13,29,31), (5,17,19,31), (7,11,13,29), (7,11,17,19). The packaged exact verifier was read, but infinite exhaustiveness is from the displayed inequalities, not a blind size cutoff.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact eight-element support-four classification is not established by the inspected prior sources. Broughan–Delbourgo (2013) exhaust solutions with at most three distinct primes; Broughan–Zhou (2014) Table 3 offers one support-four example rather than a classification. OEIS A062699 lists all eight near its beginning but does not establish their exhaustiveness within this constrained support class. Best-of-knowledge PASS with explicit risk of unindexed elementary enumeration.
+
+## value
+
+PASS
+
+Four prime factors are the first squarefree-support size beyond the published support-at-most-three exact theorem. Its unbounded, exact eight-solution classification is a natural next case, explains the database prefix, and closes a motivated invariant rather than an arbitrary numeric cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

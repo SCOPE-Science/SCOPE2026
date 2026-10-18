@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T08:14:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For squarefree n=pqrs with p<q<r<s, sigma(n)=2phi(n) becomes H(p)H(q)H(r)H(s)=2, H(t)=(t+1)/(t-1) strictly decreasing. Even n and p=3 are excluded; p>=13 gives product <(7/6)^4<2. Ordered q/r monotone bounds leave exactly p,q in (5,11),(5,13),(5,17),(7,11) and 15 eligible triples. For any triple A=H(p)H(q)H(r), fourth prime is uniquely s=(2+A)/(2-A) if A<2. Independent rational branch enumeration reproduced exactly eight prime quadruples: (5,11,23,109), (5,13,17,127), (5,13,19,71), (5,13,23,43), (5,13,29,31), (5,17,19,31), (7,11,13,29), (7,11,17,19). The packaged exact verifier was read, but infinite exhaustiveness is from the displayed inequalities, not a blind size cutoff.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2013 theorem: 3, 35, 1045 exhaust solutions having at most three distinct prime divisors.",
+          "2014 Section 7/Table 3 gives a heuristic squarefree construction and one example of each support size through 10, not support-four completeness."
+        ],
+        "reasoning": "The stronger-looking finiteness theorem for bounded prime-factor count is not a classification; the earlier exhaustive theorem stops at support three.",
+        "searches": [
+          "Broughan & Delbourgo JIS 16 (2013) Article 13.8.8",
+          "Broughan & Zhou JIS 17 (2014) Article 14.9.2"
+        ]
+      },
+      "checked_sources": [
+        "JIS:16:13.8.8",
+        "JIS:17:14.9.2",
+        "OEIS:A062699",
+        "OEIS:A292390",
+        "Git tree 75c8833e22ef3bdfabf38771dd7d4a3e87f0f6f4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2013 exact theorem has support bound at most three.",
+          "The 2014 support-four row is one example and its construction is heuristic."
+        ],
+        "reasoning": "No inspected prior implication establishes four-support exhaustiveness; new monotonic cutoff and rational enumeration deliver it.",
+        "searches": [
+          "JIS 16 (2013) Theorem stated in abstract",
+          "JIS 17 (2014) Section 7 and Table 3",
+          "OEIS:A062699"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For squarefree n, Dedekind psi(n)=sigma(n), so the same theorem can be phrased as the squarefree four-support psi(n)=2phi(n) classification.",
+          "OEIS A062699 records sigma(n)=2phi(n) but does not supply an exhaustive squarefree support-four theorem."
+        ],
+        "reasoning": "Identified divisor-sum/totient and Dedekind-psi formulations; neither inspected source proves exact four-support exhaustion.",
+        "searches": [
+          "sigma(n)=2 phi(n) squarefree exactly four prime factors complete list 24871 29029 50065 58435 64285 87685 137885 140335",
+          "OEIS A062699",
+          "OEIS A292390"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A062699 opening entries contain 24871,29029,50065,58435,64285,87685,137885,140335 consecutively.",
+          "The 2014 table contains only 24871 at support four."
+        ],
+        "reasoning": "A list of sequence terms and a support-size example table do not imply that all possible squarefree support-four values have been captured.",
+        "searches": [
+          "OEIS:A062699",
+          "JIS 17 (2014) Table 3",
+          "Resultary query: sigma(n)=2 phi(n) squarefree exactly four prime factors complete list 24871 29029 50065 58435 64285 87685 137885 140335"
+        ]
+      },
+      "rationale": "The exact eight-element support-four classification is not established by the inspected prior sources. Broughan–Delbourgo (2013) exhaust solutions with at most three distinct primes; Broughan–Zhou (2014) Table 3 offers one support-four example rather than a classification. OEIS A062699 lists all eight near its beginning but does not establish their exhaustiveness within this constrained support class. Best-of-knowledge PASS with explicit risk of unindexed elementary enumeration.",
+      "residual_risks": [
+        "Possible unindexed exact support-four computation or elementary contest solution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DOES_NOT_COVER_FOUR_PRIME_EXHAUSTION",
+          "evidence": "Published exact classification ends at at most three distinct prime factors.",
+          "identifier_or_url": "https://www.maths.tcd.ie/EMIS/journals/JIS/VOL16/Broughan/broughan26.pdf",
+          "material_read": "Abstract, introduction, theorem statement, specified prime-support limit",
+          "method": "Public OA PDF and search result",
+          "title": "On the Ratio of the Sum of Divisors and Euler’s Totient Function I",
+          "trigger": "Closest existing exact solution-classification theorem"
+        },
+        {
+          "assessment": "EXAMPLE_ONLY_NOT_EXHAUSTIVE",
+          "evidence": "Table 3 has support-four entry 24871 and not the remaining seven.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL17/Broughan/bro32.pdf",
+          "material_read": "Section 7 construction, 2014 Table 3 and surrounding discussion; full document available, focused mathematical passages inspected",
+          "method": "Public OA PDF (22 pages), page text and table",
+          "title": "On the Ratio of the Sum of Divisors and Euler’s Totient Function II",
+          "trigger": "Closest squarefree construction for arbitrary support"
+        },
+        {
+          "assessment": "DATA_LIST_NOT_CLASSIFICATION",
+          "evidence": "All eight appear in initial sequence terms; no complete four-prime proof in inspected entry.",
+          "identifier_or_url": "https://oeis.org/A062699",
+          "material_read": "Definition, initial terms, comments, references",
+          "method": "Public database entry",
+          "title": "OEIS A062699",
+          "trigger": "Exact sequence/data check"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Four prime factors are the first squarefree-support size beyond the published support-at-most-three exact theorem. Its unbounded, exact eight-solution classification is a natural next case, explains the database prefix, and closes a motivated invariant rather than an arbitrary numeric cutoff.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "JIS:16:13.8.8",
+    "JIS:17:14.9.2",
+    "OEIS:A062699",
+    "OEIS:A292390",
+    "Git tree 75c8833e22ef3bdfabf38771dd7d4a3e87f0f6f4"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only squarefree support exactly four; nonsquarefree or support >=5 not classified.",
+    "An unindexed note or OEIS-derived proof may already show the identical eight-element exhaustion."
+  ],
+  "schema_version": 1
+}
