@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T20:58:16Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Ore’s exact criterion (as reproduced in Oller-Marcén) identifies non-arithmetic squarefree integers as n=2m with m odd squarefree and every p|m congruent 1 mod 4. Prabhu Theorem 3 for N=4, k=r−1, residue tuple (1,…,1) then directly yields E_r(x)∼x(loglog x)^(r−2)/(2^r (r−2)! log x) for fixed r≥3. For r=2 the prime number theorem mod4 gives E_2(x)∼x/(4log x). Landau fixed-r formula implies relative deficit (r−1)/(2^r loglog x). Independent direct factorization confirmed Ore equivalence for every squarefree n≤20,000, with exceptional layers {1:1,2:609,3:353,4:34}; this is a finite consistency check, not proof of asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prabhu 2016 Theorem 3 permits arbitrary fixed modulus N, prime-factor count k≥2 and reduced residue tuple (m_1,...,m_k), not only N=4 and all ones; for k=1 Dirichlet/PNT applies."
+        ],
+        "reasoning": "Prabhu’s stronger theorem directly supplies the entire analytic asymptotic; the additional Ore theorem converts the named arithmetic-number class to exactly that covered residue subcase. Combining existing explicit theorems is a routine corollary rather than separate original analytic coverage.",
+        "searches": [
+          "Resultary semantic query: non-arithmetic squarefree numbers fixed number prime factors primes 1 mod 4 Landau",
+          "web: \"arithmetic numbers\" \"squarefree\" \"r prime factors\" asymptotic",
+          "Oller-Marcén arXiv:1206.1823 Proposition/Ore criterion",
+          "Prabhu arXiv:1605.00088 Theorem 3 N=4, m=(1,...,1)",
+          "Prabhu arXiv:1605.00088 p.12 even-number x/2 argument"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1206.1823",
+        "https://arxiv.org/pdf/1605.00088",
+        "Landau (1900) fixed-r almost-prime theorem",
+        "Resultary search for fixed-prime-factor arithmetic numbers"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ore criterion + Prabhu 2016 Theorem 3 + Landau 1900, exactly the three premises explicitly invoked in source RESULT.md."
+        ],
+        "reasoning": "Formal substitution: E_r(x)=π_{r−1,(1,...,1)}(x/2;N=4); Prabhu gives leading factor 2^{−(r−1)}·(x/2); dividing Landau yields the stated ratio. Thus the claimed result is mathematically implied by prior results, even if no paper spells out “non-arithmetic fixed layer.”",
+        "searches": [
+          "Resultary semantic query: non-arithmetic squarefree numbers fixed number prime factors primes 1 mod 4 Landau",
+          "web: \"arithmetic numbers\" \"squarefree\" \"r prime factors\" asymptotic",
+          "Oller-Marcén arXiv:1206.1823 Proposition/Ore criterion",
+          "Prabhu arXiv:1605.00088 Theorem 3 N=4, m=(1,...,1)",
+          "Prabhu arXiv:1605.00088 p.12 even-number x/2 argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Oller-Marcén (arXiv:1206.1823) explicitly recalls Ore squarefree criterion; source RESULT.md exact n=2m ⇔ p|m≡1 mod4."
+        ],
+        "reasoning": "Counting non-arithmetic squarefree numbers with fixed ω=r is exactly counting shifted prescribed-residue squarefree (r−1)-almost-primes at height x/2, without any loss or exceptional families.",
+        "searches": [
+          "Resultary semantic query: non-arithmetic squarefree numbers fixed number prime factors primes 1 mod 4 Landau",
+          "web: \"arithmetic numbers\" \"squarefree\" \"r prime factors\" asymptotic",
+          "Oller-Marcén arXiv:1206.1823 Proposition/Ore criterion",
+          "Prabhu arXiv:1605.00088 Theorem 3 N=4, m=(1,...,1)",
+          "Prabhu arXiv:1605.00088 p.12 even-number x/2 argument"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prabhu fixed-residue table/formula Theorem 3, including 1/φ(N)^k and x(loglog x)^(k−1)/(k−1)!log x; Landau fixed-r formula."
+        ],
+        "reasoning": "No numerical table is needed. The claimed constant 2^{−r} and scaling are obtained symbolically by Prabhu with N=4, k=r−1 and x/2; direct finite count corroborates definitions but cannot rescue originality.",
+        "searches": [
+          "Resultary semantic query: non-arithmetic squarefree numbers fixed number prime factors primes 1 mod 4 Landau",
+          "web: \"arithmetic numbers\" \"squarefree\" \"r prime factors\" asymptotic",
+          "Oller-Marcén arXiv:1206.1823 Proposition/Ore criterion",
+          "Prabhu arXiv:1605.00088 Theorem 3 N=4, m=(1,...,1)",
+          "Prabhu arXiv:1605.00088 p.12 even-number x/2 argument"
+        ]
+      },
+      "rationale": "FAIL: the final proposed asymptotic is a literal corollary of TWO explicit prior theorems, with the source authors’ parameters substituted: Ore’s criterion plus Prabhu Theorem 3 (and PNT for r=2). All needed counting content and the x/2 even split are present in prior published literature. The exact arithmetic-number wording is new labeling, not an independent mathematical result; absence of the same printed corollary cannot establish originality.",
+      "residual_risks": [
+        "The mathematical statement itself is correct; rejection is for direct prior implication and limited independent mathematical content, not scientific falsity.",
+        "No uniformity as r grows with x; no error term is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Odd squarefree n are arithmetic; even squarefree n are arithmetic iff an odd prime divisor is 3 mod 4. Thus E_r(x) is literally the count of 2 times (r−1) distinct primes ≡1 mod 4 at height x/2.",
+          "evidence": [
+            "Ore squarefree characterization in opening propositions/discussion, pp.2–3."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1206.1823",
+          "material_read": "Complete lawfully accessible arXiv full PDF, criterion for odd and even squarefree n and factorization",
+          "method": "Read and compared accessible full-text primary document, including stated theorems and relevant proof sections",
+          "title": "On arithmetic numbers",
+          "trigger": "Ore theorem exactly characterizing all squarefree arithmetic integers"
+        },
+        {
+          "assessment": "Theorem 3 for fixed N and k gives the exact leading (φ(N))^{-k}× X(loglog X)^{k−1}/((k−1)!log X) for all squarefree products with prescribed prime residues. Substitution N=4, k=r−1, each residue1, X=x/2 yields the disputed asymptotic with no new analytic argument. The paper already explicitly uses an even-number x/2 reduction in related congruence counts.",
+          "evidence": [
+            "Theorem 3: fixed residue tuple density φ(N)^{-k}; p.12: even n counted by odd squarefree n≤x/2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1605.00088",
+          "material_read": "Full 13-page primary PDF, Theorem 3 p.3, defining tuple residues p.2, and proof/concluding even-case on p.12",
+          "method": "Read and compared accessible full-text primary document, including stated theorems and relevant proof sections",
+          "title": "Density of solutions to quadratic congruences",
+          "trigger": "Potential stronger fixed-prime-factor congruence theorem implying E_r exact term"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: Although the arithmetic-number exceptional class is natural, the specific formula requires only the routine specialization N=4 and tuple 1^(r−1), replacing x by x/2, plus division by Landau’s theorem. It supplies no new estimate, uniformity, error term, structural obstruction, or independent classification beyond those premises, and hence is not a motivated mathematical gap under the shared value standard.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1206.1823",
+    "https://arxiv.org/pdf/1605.00088",
+    "Landau (1900) fixed-r almost-prime theorem",
+    "Resultary search for fixed-prime-factor arithmetic numbers"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "The mathematical statement itself is correct; rejection is for direct prior implication and limited independent mathematical content, not scientific falsity.",
+    "No uniformity as r grows with x; no error term is established."
+  ],
+  "residual_risks": [
+    "The mathematical statement itself is correct; rejection is for direct prior implication and limited independent mathematical content, not scientific falsity.",
+    "No uniformity as r grows with x; no error term is established."
+  ],
+  "schema_version": 1
+}
