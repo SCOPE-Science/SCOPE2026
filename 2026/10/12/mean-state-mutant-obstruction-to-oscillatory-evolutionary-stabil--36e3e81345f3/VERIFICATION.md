@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The general theorem follows from inserting \(m(t)=p\) into the strict comparison and evaluating the two period averages; no numerical certificate is needed. For Definition 1c, \(m_\eta=(1-\eta)r+\eta p\) is distinct, stays in the simplex, shares period mean \(p\), and tends uniformly to the resident, so the same exact equality contradicts strictness in every deleted neighborhood.
+## correctness
 
-For replicator trajectories, the stationary-mean statement follows from the identity
-\[
-0=\frac1\tau\int_0^\tau\frac{d}{dt}\log r_i(t)\,dt
-=(Ap)_i-\frac1\tau\int_0^\tau r(t)^{\mathsf T}Ar(t)\,dt
-\]
-on each occupied strategy, followed by summation with weights \(p_i\). This is an analytic, all-dimensional argument with no simulation assumption.
+PASS
 
-`verify.py` performs exact rational checks for the published four-strategy game matrix, a nonconstant strictly interior trigonometric simplex path with known period mean, the global constant mutant, several near-path same-mean mutants and rational invasion fractions. It also checks stationarity of the uniform strategy in the three-strategy zero-sum rock–paper–scissors replicator game. Execute with `python verify.py`; no dependencies beyond the Python standard library. The trigonometric test path is **not claimed to solve** the four-strategy replicator system, and its finite algebraic checks do not certify existence, stability, or the universal theorem by enumeration. The unrestricted proof is in `RESULT.md`.
+For p=average(r), constant m=p is distinct from nonconstant r and its sliding period mean is p, so both mean payoffs in the strict Definition 1a Eq(6) equal p^T A p for every invasion epsilon. Nearby m_eta=(1-eta)r+eta p has same period mean p, lies in simplex, differs from r, tends to it uniformly and ties Definition 1c Eq(9). For an actual autonomous replicator cycle the positive support is time-independent, and integrating d log r_i/dt=(Ar)_i-r^TAr yields (Ap)_i=c on support; p^T A p=c; hence p is stationary and global counter-mutant is genuine replicator trajectory. These exact algebraic arguments hold for arbitrary real A without simulation. Limit: nearby interpolants need not be trajectories, but literal Definition 1c quantifies over mutant state sequences.
+
+## originality
+
+PASS
+
+The 2026 primary article specifies universally strict averaged-mutant inequalities while exhibiting numerically stable cycles; the literal mean-matched comparator no-go is not proved there. Classical time-average replicator stationary mean is old and explicitly credited; earlier 2021/2024 discrete orbit stability studies employ distinct fitness functionals. The finding is a precise logical obstruction to the *stated* strict definitions, not a claim that dynamical cycles cannot exist.
+
+## value
+
+PASS
+
+Tests logical consistency of a newly introduced universally quantified evolutionary stability definition and provides a simple admissible universal witness that defeats any nonconstant periodic candidate. This motivates a necessary revision of the mathematical stability predicate, substantive despite short proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
