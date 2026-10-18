@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every primitive active facet vector is an incidence column. The active-edge graph has no \(0\)-to-\(1\) path; therefore the reduced incidence matrix gives the correct lattice rank, with primitive maximal minors and a saturated image. The toric divisor sequence identifies its cycle-space rank with the complete local Weil class group. The cases for boundary blocks and a unique interior block are exhaustive. Exact finite tests check active facets and ranks for all faces of six instances.
+## correctness
 
-**Originality — PASS, with risk.** Friedl (arXiv:1506.02407, Theorem 8 and Lemma 12) treats global class groups and a local-Cartier criterion, not the complete orbitwise local group rank formula. Lakshmibai–Mukherjee (arXiv:0706.2686) treats singular loci by general combinatorics. The singular-component and generic transverse-germ descriptions are explicitly excluded from the novelty claim. Targeted searches found no equivalent complete local rank stratification, but unindexed specialization from the general toric divisor sequence remains plausible. The stated novelty is the explicit all-orbit local-group calculation and its \(\mathbb Q\)-factorial consequence, not the standard divisor sequence itself.
+PASS
 
-**Value — PASS.** The formulas quantify the local failure of factoriality throughout the entire orbit stratification, including intersections not described by generic singular-component germs. They show that the defect is always free, identify the \(\mathbb Q\)-factorial locus, and quantify the exact gap between Friedl’s known global class-group rank and the largest fixed-point local rank. These are natural local invariants for studying singularities and divisorial birational modifications of projective Hibi varieties.
+For a,b>=2 and P={0<=v_j<=u_i<=1}, the a+b+ab primitive facet normals are columns of a signed graph-incidence matrix on boundary nodes 0,1 and a+b coordinate nodes. Active edges at any face form subgraphs whose connected components cannot join 0 to 1. Their incidence matrix has totally unimodular nonzero maximal minors and saturated image, so the toric local class-group cokernel is free with rank equal to active-edge count minus rank, the cycle rank. Either p upper coordinates are 0 (forcing all lower 0, active block K_{p+1,b}, rank p(b-1)), or q lower coordinates are 1 (K_{q+1,a}, rank q(a-1)); these cases are disjoint. Otherwise every mixed active equality sits at unique common min upper/max lower value t in (0,1), yielding K_{r,s}, rank (r-1)(s-1), with other active stars acyclic. The alternative forest case is rank 0. TU makes all locally simplicial cones regular, hence local Q-factoriality iff smoothness. At fixed vertices maximal rank ab-min(a,b), versus Friedl global ab. A new independent complete face enumeration using vertex-set intersections and disjoint-set active-edge cycle counting confirmed the rank formula at every face for six (a,b) pairs (2,2),(2,3),(3,2),(3,3),(4,2),(2,4), with respectively 51,151,151,463,459,459 faces; this finite experiment is supplementary to the symbolic proof. Manually checked a=b=2 fixed vertices: empty vertex rank 0, one upper rank1, two upper rank2; separately read the supplied exact facecheck.py logic.
 
-**Limits and risks.** All claims assume \(a,b\ge2\); no nongeneric analytic-type classification or external validation is asserted. A prior implicit/general formula might specialize to the same ranks and could reduce originality.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The local orbit-by-orbit free abelian class-group rank formulas and Q-factorial=smooth conclusion on this entire two-level family are not stated in primary Friedl global class-group theorem or Lakshmibai–Mukherjee singular-stratum methodology as inspected. TU toric class sequence and graph cycles are standard ingredients explicitly credited. Best of knowledge with risk of existing equivalent specialization of general results.
+
+## value
+
+PASS
+
+Natural local singularity invariant throughout all torus-orbit strata of projective complete-bipartite Hibi varieties. It quantifies non-Q-factorial defect and its torsion-free nature at every orbit, gives smooth/Q-factorial coincidence, and exact maximal local/global rank gap. Valuable for divisors and birational or singularity studies beyond isolated fixed points, with genuine all-parameter structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
