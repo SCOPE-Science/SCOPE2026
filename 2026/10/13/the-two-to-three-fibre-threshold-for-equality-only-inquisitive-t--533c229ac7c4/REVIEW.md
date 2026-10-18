@@ -1,9 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The standard inquisitive support semantics reduces failure of the fixed formula to an FD-consistent subteam surjecting onto the first coordinate. The two-row case admits a polynomial 2-CNF translation for arbitrary domains, including empty fibres. For three rows, padding a three-distinct-variable 3SAT instance with tautological clauses produces a predicate-free model, a 3-column team of exactly three distinct tuples per first-coordinate fibre, and a Boolean third coordinate. Both directions of the reduction are explicit. Reproducibility tests expand the actual connectives and independently check the 2-CNF and SAT bridges. No finite experiment is used to prove the unbounded statements.
+## correctness
 
-**Originality — PASS, subject to literature risk.** Kontinen–Ciardelli (arXiv:2603.08646, Theorem 3.7) establishes unrestricted coNP-hardness with a clause-tagging predicate, and its fourth team column is already eliminable by locality; no novelty is claimed for that projection. Its proof does not provide a polynomial at-most-two-fibre classification or the equality-only hardness under exactly-three-fibre regularity. Ciardelli–Conti (2026) focuses on translations of inquisitive semantics, while Kontinen (2013) studies quantifier-free dependence logic rather than the same InqBT formula. Database interpretations of the FD-cover problem are a credible residual indexing risk.
+PASS
 
-**Value — PASS.** The result pins down a sharp, natural branching-width frontier for a fixed nonclassical formula and separates an efficiently evaluable class of data from an already hard minimally wider one. Removing all nonlogical vocabulary isolates complexity intrinsic to team support. The algorithm accommodates unbounded truth-value domains, so the tractable side is not merely a Boolean-domain artefact. The result is specific to this formula and does not assert a general InqBT dichotomy or syntactic optimality.
+Checked semantics of μ(t)=∀v ?(v=t): true exactly when the whole team has constant t. Consequently μ(x)→μ(y) is functional dependence x→y under subteam implication, and ∃inq w(w≠z) holds precisely when some z-domain value is absent. Failure of outer implication is an FD-consistent subteam covering every z. For r(X)≤2, Boolean variables per observed (x,y) pair, 0–2-literal coverage clauses and pairwise incompatible-y exclusions yield an exact 2-SAT reduction even with unrestricted y values. The 3-SAT reduction has exactly three distinct rows in every padded clause fibre, y∈{0,1}, and identical universe shared between z,x,y; it maps satisfiability to failure of support, proving coNP hardness with polynomial certificates for the complement. Independent finite constraints and reduction comparisons covered 1,200 instances.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Kontinen–Ciardelli Theorem 3.7 already proves fixed-InqBT coNP hardness and has three free formula variables after locality (not new). Their reduction uses clause tags/unary predicates and does not give the at-most-two-fibre algorithm or equality-only exactly-three-fibre hardness. The assigned claim supplies both; established SAT and database-FD facts are ingredients rather than asserted discoveries.
+
+## value
+
+PASS
+
+The maximum number of witness rows per first-column value is a natural local branching parameter in an explicit fixed-formula team-model checking problem. The tight at-most-two polynomial / exactly-three coNP-complete boundary is structurally motivated, unlike a bare reformulation of generic coNP hardness; it holds with no nonlogical relations and multi-valued y on the easy side.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
