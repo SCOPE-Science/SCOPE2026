@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
-Run `python3 verify.py` using the Python 3 standard library. Successful execution prints:
+# Independent mathematical audit
 
-`VERIFY_OK determinant_degree_t=6 exact_Newton_orders=1..16 brute_orders=3..10 vertex_subsets=1398080 all_coefficients_and_Lucas_maximum_orders=3..40`
+## correctness
 
-The checker reconstructs all sixteen coefficients of \(\det(I-tT(z))\) by Newton identities over \(\mathbb Z[z]\) using independently computed trace polynomials. It exhaustively evaluates every vertex subset of each simple cyclic prism for orders \(3\) through \(10\), comparing its actual induced maximum degree against the weighted cyclic-word transfer. It separately compares the maximum size and coefficient to the Lucas expression through order \(40\).
+PASS
 
-# Boundaries
-No finite test demonstrates an unrestricted identity by itself; the unrestricted graph-theoretic proof, matrix trace relation, and binary-word counting are stated in `RESULT.md`. No independent external audit or formal proof assistant was used. The inaccessible complete text of a relevant 2024 maximal-dissociation enumeration leaves a residual priority uncertainty.
+The exact legal triple predicate for 0/top/bottom/both is necessary and sufficient for maximum induced degree <=1. Trace of the 16-state two-column transfer counts every cyclic word, with det(I-tT)=Q(t,z). I independently reconstructed the full polynomial determinant using symbolic linear algebra and obtained exactly the two factors claimed; direct binary-subset enumeration for n=3,...,7 agreed coefficient-by-coefficient. The successor-empty injection shows #double <= #empty, hence size <=n; equality requires either an alternating double/empty cyclic word (two when n even) or a binary singleton cyclic word avoiding 000 and 111. The latter four-state transfer has eigenvalues of (lambda²-lambda-1)(lambda²+lambda+1), giving L_n + (2 if 3|n else -1). Complements are exactly minimum P3-vertex covers. The proof covers every n>=3; bounded experiments are regression only.
+
+## originality
+
+PASS
+
+Related grid-dissociation enumeration in Zhou et al. explicitly uses OPEN grid P_m square P_n with terminal boundary vectors, while the claim is a closed cyclic prism with a full coefficient polynomial and Lucas leading coefficient. Tian–Tu concern inclusion-maximal sets, a different statistic. General cubic-graph bound and dissociation results do not give the exact cyclic two-row transfer determinant. The best-of-knowledge comparison is positive with the inaccessible 2024 full text named as risk.
+
+## value
+
+PASS
+
+The cycle prism is a canonical cubic graph family and full dissociation polynomial is a natural combinatorial invariant relevant to P3 covers. A closed 16-state determinant and exact Lucas extremal multiplicity solve a complete nontrivial boundary-condition classification. This is substantially more than a computational sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
