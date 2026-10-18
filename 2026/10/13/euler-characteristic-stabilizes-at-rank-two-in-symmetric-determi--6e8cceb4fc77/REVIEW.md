@@ -1,18 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. A diagonal one-parameter subgroup with weights \(2^i\) acts by congruence on symmetric matrices and preserves rank. The induced weights \(2^i+2^j\) on the projective symmetric coordinates are pairwise distinct, so the only fixed points are the coordinate symmetric matrices. There are \(n\) rank-one diagonal points and \(\binom n2\) rank-two off-diagonal points.
+## correctness
 
-Euler characteristic of a complex projective variety with an algebraic \(\mathbb C^*\)-action equals the Euler characteristic of its fixed locus, even when the variety is singular. Hence the rank-one locus has Euler characteristic \(n\), while every cumulative rank locus from rank two onward has Euler characteristic \(\binom{n+1}{2}\). Constructible additivity gives the exact-rank statement.
+PASS
 
-The bundled checker verifies the distinct-weight and counting steps through \(n=100\). Finite computation is regression evidence only.
+The claim concerns projectivized nonzero complex symmetric matrices with n>=2 and 1<=r<=n. The diagonal C-star congruence action with weights 2^i gives distinct projective weights 2^i+2^j: the binary representation separates diagonals from unordered off-diagonals. The n diagonal fixed points have matrix rank one, the n(n-1)/2 off-diagonal fixed points have rank two. Euler-characteristic fixed-point localization for projective complex varieties, including singular ones, gives n at r=1 and n(n+1)/2 for all r>=2; constructible additivity gives exact-rank n, C(n,2), and 0 thereafter. Verified n=2 (full rank bound ambient P^2) and r=n, including degenerate empty strata; independent distinct-weight check n=2..10. No inference from finite checks to arbitrary n: binary uniqueness and localization are the infinite proof.
 
-## Originality
-PASS. The inspected symmetric-determinantal papers define and study the same projective rank loci but do not state the rank-two Euler stabilization in the inspected material. A broad Euler formula for degeneracy loci of general bundle morphisms was also checked; its generality hypothesis does not directly cover the symmetric constrained universal matrix. Targeted literature searches did not locate the exact-rank vanishing statement.
+## originality
 
-Residual risk remains because characteristic-class formulas for symmetric determinantal loci may encode the same global values implicitly, and the fixed-point proof is short.
+PASS
 
-## Value
-PASS. The result collapses the topological Euler bookkeeping of the entire symmetric determinantal rank tower to ranks one and two. Exact-rank strata of every higher rank have Euler characteristic zero, a uniform structural statement for a fundamental singular family rather than a low-dimensional computation.
+The exact projective symmetric determinantal tower is studied by Ilic–Landsberg and Hosono–Takagi, but their inspected work treats geometry, rank degeneracy, resolutions and duality rather than the explicit stabilization of total Euler characteristic at rank two. The general torus localization identity is classical and acknowledged: the contribution is identifying this complete symmetric rank filtration and its zero-Euler higher exact layers. No stronger same-object formula or database that mechanically gives these numbers was found in bounded searches; absence of discovery is not a proof of priority. Relevant independently inspected published SCOPE comparison: Schubert rank-minor conditions are indexed by permutations and restrict each north-east submatrix, rather than bounding total matrix rank. Its Euler expression does not imply stabilization of all GLn-invariant symmetric rank towers.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Natural classical singular projective determinantal varieties; the exact-rank Euler profile resolves a structural topology question, showing surprisingly that every rank-three-or-higher layer contributes zero despite being nonempty. This is a complete all-rank statement, not a random small-instance calculation, though elementary after the decisive fixed-weight choice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
