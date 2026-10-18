@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T07:06:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=10000 and positive powers a=n-tau(n), b=n+1-tau(n+1), an unequal exponent collision sigma(n)^a=sigma(n+1)^b forces both bases to powers of a common C>=2, with exponent s=b/gcd(a,b). The divisor pairing tau(m)<=2sqrt(m) bounds gcd(a,b)<=1+4sqrt(n+1), hence s>sqrt(n+1)/5-1, contradicting s<=log_2(sigma(n))<=log_2(n(1+log n)) by the checked endpoint and derivative comparison. For 2<=n<10000 an independently implemented exact sieve and prime-valuation equality check finds no powered collisions (only n=1 excluded). Therefore every n>=2 collision has equal exponents/bases, i.e. sigma(n)=sigma(n+1), tau(n+1)=tau(n)+1; converse immediate. Parity makes one member square, common odd sigma makes other twice square, yielding x^2-2y^2=+-1 and O(log X) Pell count.",
+      "risk": [
+        "Finite 2<=n<10000 is exhaustive there alone; all larger n rely on analytic growth comparison.",
+        "Does not prove conjectured absence of nontrivial collisions."
+      ],
+      "sources": [
+        "Assigned RESULT.md and independent verify_valuations.py source",
+        "independent1613_checks.py exact independent full n<10000 valuation test",
+        "Benito arXiv:0707.2190 Theorem 3 (only prior Pell consequence)"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Benito restricts already equal odd ordinary divisor sums, not powered collisions with potentially unequal exponents; Resultary examples study different equations or a prime-support restriction."
+        ],
+        "reasoning": "None supplies the missing implication from equal powered values to equal divisor sums and exponents.",
+        "searches": [
+          "Benito arXiv:0707.2190 Theorem 3 sigma n equal consecutive odd Pell",
+          "Resultary Pell rigidity five-term proper divisor sums",
+          "Resultary unique two almost prime equal sigma consecutive"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A236288",
+        "OEIS A002961",
+        "arXiv:0707.2190 Theorem 3",
+        "Resultary: unique two-almost-prime sigma neighbors",
+        "Resultary: Pell rigidity for five-term proper-divisor sums"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior formula and conjecture do not rule out unequal positive power exponents for all large adjacent pairs.",
+          "New gcd/logarithm bounds exclude precisely those exponent-different collisions and extend finite exact sieve to all n>=2."
+        ],
+        "reasoning": "The exponent-rigidity step is mathematically additional; the Pell and logarithmic implications then follow through previously known parity/Pell structure.",
+        "searches": [
+          "OEIS A236288 comments/conjecture",
+          "Benito arXiv:0707.2190 Theorem 3",
+          "Assigned RESULT.md exponent rigidity section"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS A236288 defines F and poses consecutive collision conjecture without necessary-and-sufficient exponent/base conditions."
+        ],
+        "reasoning": "The old sequence definition is not the stronger uniform equivalence; the new claim is exact even if nontrivial collisions do not exist.",
+        "searches": [
+          "OEIS A236288 sigma(n)^(n-tau(n)) consecutive equality",
+          "Consecutive equality sigma(n)^(n-tau(n)) iff same sum divisor count jump",
+          "Resultary: sigma(n)^(n-tau(n)) sigma(n+1)^(n+1-tau(n+1)) consecutive"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A236288: conjecture and finite examples; OEIS A002961: indices with equal ordinary sigma; no infinite collision-equivalence table."
+        ],
+        "reasoning": "A table of tested noncollisions cannot imply a universal characterization; separate classical Pell necessity is credited.",
+        "searches": [
+          "OEIS A236288",
+          "OEIS A002961",
+          "Resultary semantic: consecutive equality sigma(n)^(n-tau(n)) divisor sum power collision Pell equation"
+        ]
+      },
+      "rationale": "PASS best of knowledge: OEIS A236288 defines exactly this weighted divisor-sum power and conjectures no consecutive nontrivial collisions, but does not prove that equality forces simultaneous equal sigma and divisor-count jump one. Benito 2007 Theorem 3 gives the Pell restriction after assuming equal odd sigma, not this new exponent-rigidity necessity. Other Resultary restricted prime-support/proper-divisor equations differ.",
+      "residual_risks": [
+        "A prior unindexed bound on unequal powers of adjacent sigma values could imply the logarithmic exclusion; not located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINES_OPEN_QUESTION",
+          "evidence": "No statement of necessary common base/equal exponent for all adjacent indices.",
+          "identifier_or_url": "https://oeis.org/A236288",
+          "material_read": "Entry definition and stated consecutive collision question, including computational comments.",
+          "method": "Direct OEIS definition/statement comparison.",
+          "title": "OEIS A236288: sigma(n)^(n-tau(n))",
+          "trigger": "Exact same arithmetic function and associated conjecture"
+        },
+        {
+          "assessment": "PRIOR_CONSEQUENCE_ONLY",
+          "evidence": "Assumes ordinary sigma equality already; does not address powered exponent equality.",
+          "identifier_or_url": "https://arxiv.org/abs/0707.2190",
+          "material_read": "Accessible primary paper Theorem 3 on equal odd neighboring sigma and Pell equations.",
+          "method": "ArXiv full-text theorem-level reading.",
+          "title": "Solutions of the problem of Erdős–Sierpiński: sigma(n)=sigma(n+1)",
+          "trigger": "Prior theorem on odd equal sigma Pell restriction"
+        },
+        {
+          "assessment": "DIFFERENT_PREDICATE",
+          "evidence": "Equal ordinary sums are necessary but not sufficient for the powered collision condition.",
+          "identifier_or_url": "https://oeis.org/A002961",
+          "material_read": "Definition and scope of ordinary equal-sigma index list.",
+          "method": "OEIS entry comparison.",
+          "title": "OEIS A002961, consecutive equal ordinary divisor sums",
+          "trigger": "Possible table with same consecutive domain"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: for a precisely posed consecutive collision conjecture involving huge weighted powers, the theorem gives a necessary-and-sufficient structural reduction to simultaneous ordinary divisor-sum and divisor-count identities, and a sharp qualitative logarithmic sparsity upper bound via Pell solutions. It is a meaningful motivated reduction even though existence remains open.",
+      "risk": [
+        "Does not solve the conjecture or exclude all Pell candidates; asymptotic O(log X) is an upper bound only."
+      ],
+      "sources": [
+        "OEIS A236288",
+        "Benito arXiv:0707.2190",
+        "Assigned RESULT.md"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The result applies to n>=2; n=1 is an exceptional collision.",
+    "Pell conditions are necessary, not sufficient; nontrivial collision existence remains unknown.",
+    "Exact verification stops at n<10000, with global proof supplied separately."
+  ],
+  "schema_version": 1
+}

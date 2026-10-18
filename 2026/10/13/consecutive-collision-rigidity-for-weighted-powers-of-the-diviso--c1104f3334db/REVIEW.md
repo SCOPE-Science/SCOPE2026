@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For all \(n\ge10000\), unequal exponents in the powered equality would force an integer common power base of exponent at least \(\sqrt{n+1}/5-1\). Its divisor-sum base has logarithm smaller than that lower bound. The comparison is globally monotone after the explicit endpoint. Two independent exact implementations verify all smaller cases. The parity and Pell consequences follow from the proved equivalence and the classical parity characterization of \(\sigma\). No finite data is used as a proof beyond the declared endpoint.
+## correctness
 
-## Originality
-**PASS with residual risk.** OEIS A236288 contains the powered function and conjecture but not the unrestricted converse saying unequal positive exponents cannot collide at adjacent indices. Benito's 2007 Theorem 3 already proves the Pell restriction for equal odd divisor sums; that prior result is acknowledged rather than reclaimed. Nearby published classifications concern equal divisor sums on low-prime-support pairs or proper-divisor sums across longer runs, neither of which gives the present equivalence. Older or unindexed derivations remain a risk.
+PASS
 
-## Value
-**PASS.** A natural conjecture about equality of huge integer powers is reduced exactly to simultaneous equalities of two familiar arithmetic functions. This rules out all but logarithmically many starting indices below \(X\), independent of computational search size. It does not settle the open nonexistence conjecture.
+For n>=10000 and positive powers a=n-tau(n), b=n+1-tau(n+1), an unequal exponent collision sigma(n)^a=sigma(n+1)^b forces both bases to powers of a common C>=2, with exponent s=b/gcd(a,b). The divisor pairing tau(m)<=2sqrt(m) bounds gcd(a,b)<=1+4sqrt(n+1), hence s>sqrt(n+1)/5-1, contradicting s<=log_2(sigma(n))<=log_2(n(1+log n)) by the checked endpoint and derivative comparison. For 2<=n<10000 an independently implemented exact sieve and prime-valuation equality check finds no powered collisions (only n=1 excluded). Therefore every n>=2 collision has equal exponents/bases, i.e. sigma(n)=sigma(n+1), tau(n+1)=tau(n)+1; converse immediate. Parity makes one member square, common odd sigma makes other twice square, yielding x^2-2y^2=+-1 and O(log X) Pell count.
 
-## Limits
-The argument is specific to consecutive indices and exponents \(m-\tau(m)\). The Pell condition is necessary, not sufficient. No independent review is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: OEIS A236288 defines exactly this weighted divisor-sum power and conjectures no consecutive nontrivial collisions, but does not prove that equality forces simultaneous equal sigma and divisor-count jump one. Benito 2007 Theorem 3 gives the Pell restriction after assuming equal odd sigma, not this new exponent-rigidity necessity. Other Resultary restricted prime-support/proper-divisor equations differ.
+
+## value
+
+PASS
+
+PASS: for a precisely posed consecutive collision conjecture involving huge weighted powers, the theorem gives a necessary-and-sufficient structural reduction to simultaneous ordinary divisor-sum and divisor-count identities, and a sharp qualitative logarithmic sparsity upper bound via Pell solutions. It is a meaningful motivated reduction even though existence remains open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
