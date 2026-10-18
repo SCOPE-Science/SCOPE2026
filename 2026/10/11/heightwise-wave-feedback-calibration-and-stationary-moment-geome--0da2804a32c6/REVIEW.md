@@ -1,24 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. An antiderivative test in \(z\) gives
-\[
-\mathbb E[xy\mid z]=bz.
-\]
-Stationarity of \(x^2+s w^2\) gives the weighted horizontal identity because the \(xw\) terms cancel exactly. Stationarity of \(y^2\) and \(z^2\) eliminates \(\mathbb E[xyz]\) and yields
-\[
-\mathbb E[y^2]+b\operatorname{Var}(z)=bm(r-m).
-\]
-The endpoint analysis proves that \(m=0\) is exactly the origin measure and \(m=r\) is impossible. Conditional orthogonality then gives the variance-defect, covariance, and correlation formulas.
+## correctness
 
-Risk: compact support is used for all polynomial moments and generator tests; the theorem does not assert existence of a nontrivial compact invariant measure for arbitrary parameters.
+PASS
 
-## Originality
-PASS. The complete open 2013 same-object article was inspected across its equations, hyperchaotic parameters, equilibria, control, and synchronization sections and contains no matching conditional-expectation, invariant-measure, or variance theorem. Earlier accessible same-object work covers fixed-point stability, bifurcations, periodic/chaotic attractors, and ultimate bounds. Quadratic Lyapunov cancellation used in boundedness work is treated as prior and is not claimed.
+Stationarity of H(z) for arbitrary smooth H gives E[xy|z]=bz. Exact derivative (x²+s w²)/2 has σ(xy−x²−s w²), yielding E[x²]+sE[w²]=bm. Derivative balances of y²/2 and z²/2 eliminate E[xyz] and give E[y²]+b Var(z)=bm(r−m). Since b,r>0 this implies 0≤m≤r; m=0 forces y=z=x=w=0 on invariant support, whereas m=r would require dot z=−br while support sits at y=0,z=r, impossible. Conditional orthogonality yields Var(xy)=b² Var(z)+E dot z² and Cov(z,xy)=b Var(z), with correlation only for positive Var(z).
 
-Risk: some early sources were available only as previews or bibliographic records, and the short generator argument could have an unindexed equivalent.
+## originality
 
-## Value
-PASS. The finding connects the defining quadratic height forcing of the acoustic-gravity-wave model to every compact stationary component, then combines it with an exact wave-mode cancellation and second-moment balances to constrain mean height and energy. The laws provide exact diagnostics across periodic and hyperchaotic regimes rather than another orbit-specific numerical statistic.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Relevant 2013 same-object full article and earlier bifurcation/boundedness sources do not supply all-invariant-measure conditional law or exact stationary parabola. Prior quadratic cancellation is acknowledged; the genuinely additional statement combines a fiberwise regression with coupled second-moment geometry. Best-of-knowledge with older 2010 bounds full-text access risk.
+
+## value
+
+PASS
+
+The moment parabola and sharp invariant-mean interval constrain all compact stationary states of a natural atmospheric-wave feedback system, and the speed defect makes a measurable exact covariance relation; this has mathematical and dynamical motivation beyond routine numerical parameter checks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
