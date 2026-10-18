@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T17:12:09Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the source-form first-order RotoGrad update at matched states with nonzero current and initial task gradients, if each task objective is multiplied from initialization by s_k>0, G'_k=s_kG_k and (G^0)'_k=s_k G_k^0. Thus unit directions U'_k=U_k and relative-norm weights alpha'_k=alpha_k. Since C=sum alpha_k||G_k||, p_k=alpha_k||G_k||/C is a probability vector and exactly C'/C=sum p_ks_k (bounded between min and max scales). The backbone update vector C sum U_k is multiplied by this mean. The individual head gradients and rotation losses/gradients are each homogeneous of degree one in s_k because the rotation target is normalized and the feature gradient is held constant under rotation differentiation. For common scale s, both displayed first-order learning rates divided by s cancel all gradient scaling at each step, giving full trajectory equivalence by induction. For independent unequal scales and two nonzero head gradients one common scalar learning rate cannot reproduce both, as it would require r s_i=r s_j=1. Independently constructed 350 trials compare gradients and weighted mean on matched vectors. Zero sum U gives zero backbone vector; do not assert a defined geometric direction there. Proof excludes adaptive optimizers, loss pre-normalization beyond source form, and state comparisons after divergent task-specific updates.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Javaloy–Valera introduce RotoGrad and describe gradient norm equalization, but do not derive a task-unit equivalence across backbone, rotation and heads in the inspected sections.",
+          "Dual-Balancing uses logarithmic loss transformations and different gradient normalizations, so its performance motivation does not yield the source RotoGrad identity."
+        ],
+        "reasoning": "General linearity of gradients under scalar loss changes is a classical premise; the exact mixed invariance/homogeneity of the coupled displayed RotoGrad update is an algorithm-specific combination.",
+        "searches": [
+          "arxiv:2103.02631",
+          "arxiv:2308.12029"
+        ]
+      },
+      "checked_sources": [
+        "Javaloy–Valera arXiv:2103.02631 original full article, Sections 3 and Appendix C",
+        "Lin et al Dual-Balancing arXiv:2308.12029 public abstract and source-level description",
+        "Resultary semantic search on RotoGrad scale sensitivities and other optimizer invariances"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The defining algorithm equations logically allow the law by substitution but its full task-unit transformation is not supplied verbatim; the submitted theorem derives and connects four channels.",
+          "Original experimental appendix discusses separate initialization-time loss normalization; such a practical variant could change observed scale sensitivity."
+        ],
+        "reasoning": "The result is an elementary but explicit corollary of source RotoGrad equations, not a distinct new optimizer. Under the value bar, the coupled exact transformation and non-compensability is independently useful mathematical analysis of the published algorithm; the original equations are fully credited and no assertion about all implementations is made.",
+        "searches": [
+          "arxiv:2103.02631",
+          "arxiv:2308.12029",
+          "Git-RESULT-BLOB:943b6712401d215a64c1825f80b9fad91023501a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Javaloy–Valera arXiv:2103.02631 Algorithm 1 prescribes C=sum alpha_k||G_k|| and update using C sum U_k.",
+          "Independent Resultary hits on optimizer scale balancing and normalizations are not a RotoGrad three-channel exact transformation."
+        ],
+        "reasoning": "Homogeneity under independent task rescaling is equivalently a weighted arithmetic-mean multiplicative law, and the exact equations are absent as a stated joint theorem in the inspected primary source.",
+        "searches": [
+          "Resultary:RotoGrad task objective scaling invariance gradient normalization target magnitude arithmetic mean rotation update",
+          "arxiv:2103.02631"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identity C^′/C=sum p_k s_k is symbolic and continuous, not a finite datum; no plausible fixed numerical database enumerates this exact law."
+        ],
+        "reasoning": "A discrete computational table is not a natural prior source for a universal identity about positive task-scale vectors; specific inapplicability of exact-database check.",
+        "searches": [
+          "Resultary:RotoGrad task objective scaling invariance gradient normalization target magnitude arithmetic mean rotation update"
+        ]
+      },
+      "rationale": "The full defining Javaloy–Valera RotoGrad paper supplies the gradient normalization, magnitude target, head and rotation updates (Algorithm 1) but does not itself articulate the simultaneous positive task-unit transformation for all three update channels, nor the exact scalar compensability conditions. Later Dual-Balancing introduces another method treating loss-unit disparities. The calculation is elementary but source-specific, correctly scoped, and a useful explicit diagnostic for a multi-objective algorithm; an implicit implementation remark remains a priority risk.",
+      "residual_risks": [
+        "The derivation is short substitution in existing RotoGrad equations; an equivalent observation may be considered implicit/folklore or stated in unindexed code discussions.",
+        "Practical implementations that normalize losses by their initial magnitudes, use adaptive optimizers, change scales mid-run, or depart from first-order source updates need not exhibit the same transformation.",
+        "If sum_k U_k=0, the backbone vector is invariant as zero but has no defined direction; directional prose is interpreted only for nonzero sums."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_RULES_PRIOR; JOINT_TRANSFORMATION_NOT_STATED",
+          "evidence": [
+            "Normalization U=G/||G|| and C=sum alpha||G|| plus task-specific head/rotation updates imply the submitted mean-scale law under fixed task multipliers; Appendix C describes practical initial-loss normalization as a different implementation issue."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2103.02631",
+          "material_read": "Full primary paper, especially Sections 3.1-3.3, equations (1)-(2), rotation objective, Algorithm 1, and Appendix C initial-loss normalizations",
+          "method": "public arXiv primary PDF with page inspection",
+          "title": "RotoGrad: Gradient Homogenization in Multitask Learning",
+          "trigger": "Exact same algorithm and its equations"
+        },
+        {
+          "assessment": "DIFFERENT_ALGORITHM; FULL_TEXT_NOT_NEGATIVELY_ASSESSED",
+          "evidence": [
+            "Uses logarithmic loss transformation and gradient normalization rather than coupled RotoGrad rotation update."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2308.12029",
+          "material_read": "Accessible abstract, stated method and metadata; full article not reread in this run",
+          "method": "public arXiv abstract/source literature comparison",
+          "title": "Dual-Balancing for Multi-Task Learning",
+          "trigger": "Broader treatment of differing loss units"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Independent task-loss units are an intrinsic methodological issue in multi-task learning, precisely the domain RotoGrad addresses. The exact law distinguishes the normalized direction, shared magnitude, task-specific head/rotation timescales, and global versus nonuniform learning-rate compensation at fixed states. This identifies a concrete dynamical sensitivity of the defining algorithm and clarifies which claimed homogenizations are unit-invariant, rather than an arbitrary arithmetic reformulation or benchmarking promise. It does not assert novel optimizer design or empirical improvement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Strictly positive task multipliers held fixed from initialization and nonzero initial/current feature gradients.",
+    "Independent-scale statements pointwise at matched states; full trajectory equivalence common scales under both reciprocal first-order learning rates only.",
+    "Different source implementations/initial-loss normalization may modify the observable effect."
+  ],
+  "schema_version": 1
+}
