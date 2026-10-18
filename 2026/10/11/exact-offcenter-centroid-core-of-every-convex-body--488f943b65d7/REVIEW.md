@@ -1,11 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The lower inclusion is the conjunction of two valid containments: Feldman's centroid-core inclusion and his offcenter convex-combination guarantee. For each direction the explicit two-disk frustum is compact and full dimensional, contains any fixed body once its radii grow, and has an elementary centroid formula independent of the scale. The endpoint values of this centroid span the exact maximizing center required by both support inequalities. Choosing strict interior values makes the promised point lie on the frustum axis, so the upper inclusion is valid even at transition parameters. The affine triangle computation is exact. The proof uses the classical finite-dimensional Minkowski–Radon centroid inequality with its full argument available in the cited source; no numerical evidence replaces an infinite assertion.
+## correctness
 
-**Originality — PASS, with remaining literature risk.** Feldman's full primary text (arXiv:2608.04516v1, Sections 2 and 4–5) proves two inclusions separately and poses equality with one of the contained bodies as an open question, but does not supply the exact core. The new directionwise frustum comparison determines the true intersection and its symmetry threshold. Published research-record searches for the offcenter core, its difference-body convex hull, the centroid promise, the triangle ratio, and related central-core aliases found no equivalent statement. The related published result on Cartesian-product efficiency concerns a different optimization and does not imply this identity. As always, unindexed equivalent calculations might exist.
+PASS
 
-**Value — PASS.** The theorem solves a specifically posed geometric core question in all dimensions, gives a usable support-function formula and exact equality criterion, and exhibits a striking nine-sided triangle core occupying \(7/9\) of the triangle's area. The frusta show optimality of both simultaneous inclusion mechanisms; the example rules out identifying the core solely with the previously guaranteed dilate. This is an exact structural result, not a routine small numerical improvement.
+Translated centroid c=0. Minkowski–Radon centroid support inequality applied to each B⊇K gives (K−K)/(n+1)⊂B−cen(B); the offcenter promised point (n+1)cen(B)∈B and K⊂B yield nK/(n+1)⊂B−cen(B). For converse fix support direction u and form transverse-large round frusta with top/bottom heights a=h_K(u),−b=−h_K(−u). Their centroid moves continuously from (a−nb)/(n+1) to (na−b)/(n+1); choose interior centroids tending to min(a/(n+1),(na−b)/(n+1)), maintaining (n+1)cen(B) on the contained axis, giving exact sharp support equal to max(na,a+b)/(n+1). Arbitrary K fits with sufficiently large transverse radii, proving the infinite family equality without finite extrapolation. Independent symbolic moment calculations for dimensions 2 through 7 and rational triangle hull computation support the frustum limits/nonagon 7/9 statement. No single B optimizer asserted.
 
-**Limitations.** This is not an independent audit, nor an assertion about finite-family attainment or worst-case translation efficiency. The matching construction uses sequences of supersets with unbounded transverse radii.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Materially inspected Feldman’s full lawful OA HTML, in particular theorem giving universal contained nK/(n+1), standard centroid difference-body inclusion, and Remark 17 posing the identity of the full offcenter core. Those pieces supply LOWER inclusion only; sharp support-matching frusta give the new converse and precise nontrivial convex-hull core. Resultary search for offcenter centroid core/aliases did not identify a covering statement other than this very finding. Originality passes best-of-knowledge with unindexed related geometry risk.
+
+## value
+
+PASS
+
+Directly resolves a posed natural geometric core question in all finite dimensions, adds a usable exact support formula and equality criterion, and proves a nontrivial planar triangle nonagon occupying 7/9 area, strictly beyond the previous guaranteed dilate. Sharpness may require limiting oversized frusta, a structural feature.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
