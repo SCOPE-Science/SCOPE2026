@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Computational verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` from this directory, using the Python standard library. The captured deterministic transcript is `verification_output.txt`. The checker is standalone and contains the definitions, path-block formula, recurrence, and extrema it tests; no external files or network resources are required.
+## correctness
 
-The direct oracle explicitly constructs every vertex and edge of the triangular graph \(T_n=L(K_n)\). It tests the edge-open-packing relation by searching for a distinct third edge meeting both selected edges at endpoints. It enumerates every feasible edge set for each \(2\leq n\leq8\), without using the short-path classification as a feasibility test, then checks that the represented selected edges decompose uniquely into disjoint original \(P_3\) and \(P_4\) paths and matches each polynomial coefficient against the closed formula. This checks 21,517 valid packings across those values of \(n\).
+PASS
 
-Separate exact integer calculations compare the coefficient sum, exponential-formula recurrence, degree, and maximum-set coefficient for every \(0\leq n\leq60\). The final output contains `VERIFY_OK` and enumerates the case results. This is finite corroboration, not a formal infinite proof or independently authored validation. The infinite claim is proved by the bijection and combinatorial counting in `RESULT.md`.
+PASS: A selected edge set is open-packed iff the graph induced by all selected endpoints is the corresponding induced disjoint star forest. A T_n=L(K_n) vertex has a neighborhood composed of two cliques, hence selected star components have at most two leaves; chosen K2 and P3 in T_n correspond exactly to disjoint original 2-edge P3 and 3-edge P4 paths on respectively three and four labels. There are 3 and 12 undirected paths on each prescribed three/four labels. The labeled exponential formula yields exp(u+u³z/2+u⁴z²/2), coefficient n!/((n-3a-4b)! a! b! 2^(a+b)), and maximum degree floor(n/2)-1_{n≡2 mod4}; direct optimization of 3a+4b at fixed a+2b gives the stated piecewise leading coefficients, including n=0,1,2,3. Independently constructed T_n edges and their literal third-edge conflicts and exhaustively enumerated packing sets for n=3,4,5,6; coefficient profiles exactly agreed. These small cases corroborate, while the general bijection proves the all-n statement.
+
+## originality
+
+PASS
+
+PASS (best of knowledge): the main final all-parameter/complete enumeration is not implied by the inspected relevant prior results. Known general tools and specialized prior fibers/cases are acknowledged, with indexed-query and equivalent-formulation residual risks recorded.
+
+## value
+
+PASS
+
+PASS: The all-cardinality edge-open-packing polynomial of the classical Johnson/triangular graph J(n,2) is a natural complete enumerative graph invariant. The disjoint short-path bijection explains its coefficient sequence, explicit recurrence, residue-class obstruction to maximal cardinality and coexistence of two maximizing block types when n≡2 mod4, n≥6. These precise facts are useful for comparing packing polynomials on line-graph families and are not just restatements of general induced-star definitions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
