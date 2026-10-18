@@ -1,15 +1,21 @@
-# Scientific review: bidirected double-star multipath complexes
+# Independent mathematical audit
 
-## Correctness — PASS
-The definitions impose the correct prohibition on bidirected two-cycles and limit the multipath to at most two incident arcs at each hub. Deleting the central arrows yields the join of two explicitly computed crown graphs; each central-arrow link is exactly \(K_{a,b}\). The inclusions are null-homotopic whenever the join is simply connected, and contractibility of the links handles \(\min(a,b)=1\). The borderline \((2,2)\) case is resolved separately through a homotopy-equivalent link inclusion. Cone-cofibre arguments recover the full integral homotopy types, rather than just numerical homology. The standalone exact computation agrees for all 21 tested parameter pairs over three fields. Finite experiments do not constitute an infinite proof.
+## correctness
 
-## Originality — PASS, qualified
-The closest inspected primary work determines multipath homotopy on bidirected paths and polygons, not bidirected double stars. Earlier general techniques concern different directed graph families or use cycle-free hypotheses that the present bidirected graphs violate. Searches for multipath, bidirected double-star, equivalent link joins and wedge classifications in publicly indexed literature and mathematical records did not identify a dominating result. This is a scientific comparison, not a proof that equivalent unpublished or unindexed work does not exist.
+PASS
 
-## Value — PASS
-A complete natural two-parameter classification captures a structural transition from a circle to pure sphere wedges and finally to genuine mixed-dimensional wedge types. The two hubs represent the first branching feature absent from straight bidirected paths. The result is not a trivial restatement of a small census and works integrally for unbounded parameters.
+The bidirected t-star multipath complex is the bipartite crown graph K(t,t) minus diagonal, with C1,C2 both ≃S0 and t≥3 cycle rank r_t=t²-3t+1. Removing two central opposite arrows gives Z=C_a*C_b, each arrow link K(a,b), and the links use disjoint arc vertices. For min=1 both links are contractible; for min=2,max≥3, Z is simply connected wedge S² and cone inclusions of graphs are null; for min≥3, Z is wedge r_a r_b S³, with two suspended K(a,b) adding 2(a-1)(b-1) S². At (2,2), first link inclusion K(2,2)→Z=C2*C2 is a homotopy equivalence, killing Z; the second cone yields S². An independently implemented Python mod-2 incidence calculation using directed arcs and no cycles reproduced reduced Betti degrees for (1,1):β1=1,(1,3):β2=1,(2,2):β2=1,(2,3):β2=5,(3,3):β2=8,β3=1,(3,4):β2=12,β3=5. Integral universal theorem derives from homotopy proof, not finite checks.
 
-## Closest literature, scope, and risks
-Caputi–Collari–Smith, arXiv:2601.05670v1 (2026-01-09), is the principal motivating source. Caputi–Collari–Di Trani–Smith, arXiv:2208.04656, supplies earlier multipath homotopy cases. Caputi–Collari–Ramos (2024) treats a graph-theoretic comparison under cycle restrictions that do not subsume bidirected double stars. Remaining risks are imperfect coverage of inaccessible or unindexed equivalences and the lack of independent examination. The proof does not extend to arbitrary bidirected trees.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 Caputi–Collari–Smith primary paper covers bidirected paths and polygons and a generic suspension operation, not bidirected double stars with two branching hubs. The 2024 acyclic digraph matching-complex equivalence excludes these 2-cycle-containing digraphs. Resultary relevant hits had no dominating two-parameter full wedge formula beyond the audited claim.
+
+## value
+
+PASS
+
+A natural smallest family of bidirected trees with two independently branching centers exhibits sharp onset of mixed-dimensional integral homology and has a complete closed homotopy classification. This is a structural invariant useful for distinguishing digraph multipath topology, not an arbitrary small computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

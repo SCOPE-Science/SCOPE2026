@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and mathematical limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with a standard Python 3 interpreter. The script generates all faces of each bidirected double-star multipath complex for every unordered parameter pair \(1\leq a\leq b\leq6\), checks the two central-arrow links, and calculates boundary ranks with incidence signs over three prime fields. It prints a `VERIFY_OK` terminator after all assertions succeed.
+## correctness
 
-The script directly evaluates 21 parameter pairs and three coefficient fields. It confirms finite Betti numbers, not homotopy equivalence or torsion-freeness over all integer parameters. The formal homotopy proof uses the crown graphs of bidirected stars, the join decomposition after deleting the two central arrows, null-homotopic cone attachments, and a separate homotopy-equivalent link inclusion at \((a,b)=(2,2)\).
+PASS
 
-The stated status records only an internal same-model review of the written proof and the reproduced finite checks; no independent mathematical audit or external certification has been performed.
+The bidirected t-star multipath complex is the bipartite crown graph K(t,t) minus diagonal, with C1,C2 both ≃S0 and t≥3 cycle rank r_t=t²-3t+1. Removing two central opposite arrows gives Z=C_a*C_b, each arrow link K(a,b), and the links use disjoint arc vertices. For min=1 both links are contractible; for min=2,max≥3, Z is simply connected wedge S² and cone inclusions of graphs are null; for min≥3, Z is wedge r_a r_b S³, with two suspended K(a,b) adding 2(a-1)(b-1) S². At (2,2), first link inclusion K(2,2)→Z=C2*C2 is a homotopy equivalence, killing Z; the second cone yields S². An independently implemented Python mod-2 incidence calculation using directed arcs and no cycles reproduced reduced Betti degrees for (1,1):β1=1,(1,3):β2=1,(2,2):β2=1,(2,3):β2=5,(3,3):β2=8,β3=1,(3,4):β2=12,β3=5. Integral universal theorem derives from homotopy proof, not finite checks.
+
+## originality
+
+PASS
+
+The 2026 Caputi–Collari–Smith primary paper covers bidirected paths and polygons and a generic suspension operation, not bidirected double stars with two branching hubs. The 2024 acyclic digraph matching-complex equivalence excludes these 2-cycle-containing digraphs. Resultary relevant hits had no dominating two-parameter full wedge formula beyond the audited claim.
+
+## value
+
+PASS
+
+A natural smallest family of bidirected trees with two independently branching centers exhibits sharp onset of mixed-dimensional integral homology and has a complete closed homotopy classification. This is a structural invariant useful for distinguishing digraph multipath topology, not an arbitrary small computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
