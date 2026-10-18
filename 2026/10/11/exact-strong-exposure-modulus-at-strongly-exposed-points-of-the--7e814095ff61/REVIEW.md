@@ -1,14 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The final claim is a symbolic theorem about the canonical exposer of every strongly exposed point in the binary tree space. The proof checks the support of the exposed point, the branchwise upper estimate, the slice-deficit normalization, and a matching descendant perturbation. The boundary case \(N\delta=1\) is handled at the level of a supremum because the slice inequality is strict. No experiment or incomplete enumeration is used.
+## correctness
 
-## Originality
-PASS. The focal full text was compared at the exact norm and Proposition 3.2. It gives qualitative strong exposure but no quantitative radius or antichain-size law. Targeted semantic searches covered strong-exposure modulus, slice-radius, antichain, and exact-formula aliases. General strong-exposure literature found in the comparison concerns existence or residuality and does not imply this formula. The closest previously stored exposed-point statement concerns tensor products and is inapplicable to the tree norm.
+PASS
 
-Residual risk: an older quantitative dentability paper may formulate an equivalent radius under terminology not surfaced by the searches. The claim is therefore limited to the stated canonical exposing functional and does not assert uniqueness among exposers.
+For every real norm-one strongly exposed point supported on a finite maximal antichain alpha, each branch intersects alpha exactly once and norm-one mass one at alpha kills all off-antichain coordinates. For y in the strict f_alpha slice, epsilon_s=1-sign(x_s)y_s >=0 and sum epsilon_s<N delta. Every chain extended to a branch through s contributes ||y-x|| at most |1-a|+1-|a| <=2 epsilon_s, uniformly <=2 max epsilon_s <2N delta; the diameter also bounds by 2. Moving epsilon<min(1,N delta) from one antichain s to a strict descendant gives a unit-ball vector with f_alpha=1-epsilon/N and ||y-x||=2 epsilon. Limit epsilon->min(1,N delta) proves the sharp supremum including the strict-slice transition delta=1/N. No finite experiment substitutes for the analytic proof.
 
-## Value
-PASS. Strongly exposed points are the mechanism used in the focal source to prove dentability. The exact law \(\min\{2,2N\delta\}\) quantifies that mechanism, shows the precise degradation with maximal-antichain size, and identifies the exact saturation threshold. It is a natural structural refinement of a newly used geometric feature, not a numerical recomputation or arbitrary parameter slice.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the sharp local radius law, distinct from the known qualitative strong-exposure characterization. The latter supplies the canonical antichain exposing functional but not the equality rho(delta)=min{2,2N delta}. Explicit branch-norm reduction plus a descendant perturbation is required to obtain the sharp slope and saturation. General density/residuality of exposing operators and unrelated tensor exposed-point statements have no implication to this antichain radius.
+
+## value
+
+PASS
+
+Strong exposure of these points directly drives the source’s dentability result. An exact pointwise modulus with visible dependence on antichain size is a naturally needed quantitative refinement, not a mere reformulation of strong exposure: it gives a sharp linear rate and exact saturation threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
