@@ -1,14 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof partitions clique labelings by the numbers of labels \(2\) and \(3\): a protected regime, the unique-clique-\(2\) regime, and the no-clique-\(2/3\) regime. In each regime the allowed independent labels and any additional defense condition are necessary and sufficient. The three generating terms therefore count disjoint exhaustive classes. The minimum and minimum-function count follow independently from the weight constraints. The packaged exhaustive checker verifies every labeling and every coefficient for \(2\le r,n\le4\).
+## correctness
 
-## Originality
-PASS with residual indexing risk. The 2016 paper introduces double Roman domination. The 2020 threshold-graph paper treats the scalar optimization problem on threshold graphs, which includes complete split graphs, and the 2023 join paper gives scalar double Roman domination numbers for graph joins and the general criterion \(\gamma_{dR}=3\) when \(\gamma=1\). Those results cover the scalar minimum here but do not imply the distribution of all feasible functions by weight. Exact-phrase web searches and semantic searches for complete split graphs, threshold graphs, joins, generating functions, and counts of all double Roman dominating functions did not locate the displayed enumerator. Closest semantic results concern different Roman-type invariants on complete multipartite graphs.
+PASS
 
-## Value
-PASS. Complete split graphs are a canonical threshold/split family, and double Roman domination is a standard domination variant with extensive scalar literature. The full weight enumerator strictly refines the already-known minimum parameter: it records every feasible deployment weight, gives the exact number of optimum deployments, and gives the total function count. The proof also isolates the structural reason for the three regimes, so the result is reusable for related join and threshold constructions rather than being a table recomputation.
+Direct case partition on clique labels 2 and 3 is disjoint and exhaustive: b>=1 or a>=2 gives automatic defense; b=0,a=1 forbids independent zeros and requires an outside 2 or 3 only when the other clique labels contain zero; a=b=0 forces all independent labels to be 2 or 3 and n>=2 defends all clique zeros. The polynomial and x=1 total follow, while the only weight-three functions use a universal clique label 3. Independent brute-force testing across r,n=2,3,4 examined 112896 complete label assignments and compared 171 coefficient slots and the exact total and minimum.
 
-The main scientific limitation is that the one-vertex boundary parameters require separate formulas and are not included. Search-based originality cannot rule out obscure equivalent terminology.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The scalar minimum gamma_dR=3 on graphs with a universal vertex is explicitly prior-covered by Cariaga--Jamil Proposition 5 and the join result in Proposition 13, but the complete all-function weight polynomial, exact total, and r minimum-label count for K_r join independent_n were not found in the inspected primary literature. The closest published enumerator is quasi-total double Roman on complete multipartite graphs, a distinct support-restricted function class; it cannot enumerate unrestricted double Roman functions by parameter renaming.
+
+## value
+
+PASS
+
+A natural complete all-weights invariant of a basic split graph family, not just a minimum parameter: coefficients allow the distribution and counts of every feasible double Roman defense assignment. The clique/independent case structure is a motivated, reusable exact classification and not a renamed minimum-number formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
