@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T16:00:16Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n≥1 with 3∤n, set z=2^n and epsilon=(-1)^n. The Jacobsthal closed form produces C=z²+epsilon z+1, E=z^6+epsilon z³+1 and F=z^18+epsilon z^9+1 with T_n=CE/171 and T_(3n)=EF/171. C,F are divisible by 3; -8 mod 19 has order 3, so w=(-8)^n is a nontrivial cube root for 3∤n, which gives 19|E. Thus H=E/57, U=C/3, V=F/3 are integers and the quotient factors are HU and HV. Mod C, z³≡epsilon, hence z^9≡epsilon, F≡3, gcd(C,F)=3 and gcd(U,V)=1. Therefore gcd(T_n,T_(3n))=H=J_(9n)/(57J_(3n)). For n=1 U=1; for all n≥2 C>3 so T_n∤T_(3n). Independent arbitrary-precision test n=1..25 checked original J-values, gcd and all factors; unbounded proof is modular algebra, not enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 7 hypothesis gcd(mn,Δ)=1 is decisively false for the pair (n,3n), Δ=9.",
+          "Sanna valuations apply termwise and could indirectly yield special-prime factors, but no inspected corollary claims this pair of composite normalized quotients."
+        ],
+        "reasoning": "A genuinely general explicit gcd formula for all exceptional pairs would cover the claim; the known normal-range theorem deliberately excludes exactly this stratum. A potential valuation-based derivation remains noted rather than assumed absent.",
+        "searches": [
+          "Panraksa–Tangboonduangjit Theorem 7 (Δ-almost strong divisor theorem)",
+          "Sanna 2016 rank-of-apparition valuation formulas"
+        ]
+      },
+      "checked_sources": [
+        "https://cs.uwaterloo.ca/journals/JIS/VOL25/Tangboonduangjit/tang17.pdf",
+        "https://www.researchgate.net/publication/304251918_The_p-adic_valuation_of_Lucas_sequences"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The excluded 3n index fails precisely the condition required for the published strong-divisibility identity, and for n≥2 the attempted divisibility is false.",
+          "General p-adic valuation structure may offer an alternate route but would require additional prime-by-prime reduction; the examined paper does not present H,U,V or gcd(U,V)=1."
+        ],
+        "reasoning": "Failure of a theorem hypothesis does not prove failure of its conclusion; the new work directly constructs the counter-stratum and exact lost factor via a nontrivial modular order and polynomial gcd calculation.",
+        "searches": [
+          "Panraksa–Tangboonduangjit Theorem 7 hypothesis",
+          "Sanna 2016 abstract and author-posted introductory text"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original theorem proves normalized quotient strong divisibility only away from the discriminant; the index 3n violates gcd(mn,9)=1.",
+          "Sanna gives valuations of Lucas terms, not an explicit statement about these normalized quotients in the source material examined."
+        ],
+        "reasoning": "Aliases such as Lucasnomials, discriminant-exceptional cyclotomic factors, and Jacobsthal polynomial gcd were searched; none inspected states the exact same normalized gcd.",
+        "searches": [
+          "Panraksa–Tangboonduangjit JIS 2022 Theorem 7",
+          "Resultary: Jacobsthal Lucas quotient gcd T_n T_3n first excluded index 9 almost strong divisibility cyclotomic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original JIS paper tabulates illustrative quotient behavior, but not the infinite coprime factorization at (n,3n).",
+          "A short Jacobsthal number table is insufficient to show gcd for every n."
+        ],
+        "reasoning": "No database/table checked supplies the all-index quotient gcd identity; even if numerical values coincide at small n, the proof requires an exact modular-19/divisibility argument.",
+        "searches": [
+          "JIS 25 (2022) normalized Lucas quotient examples",
+          "Jacobsthal/Jacobsthal-Lucas sequence databases and Resultary cyclotomic gcd search"
+        ]
+      },
+      "rationale": "Panraksa–Tangboonduangjit (JIS 2022) prove Δ-almost strong divisibility for normalized Lucas quotients under gcd(mn,Δ)=1. Here the Jacobsthal discriminant Δ=9 and the pair (n,3n) violates the hypothesis, so their Theorem 7 does not imply this gcd. General Sanna p-adic Lucas valuations can rederive prime-wise behavior, but the inspected source summary does not give this pairwise normalized-quotient factorization. No inspected Resultary cyclotomic/Jacobsthal result states the exceptional gcd and exact missing factor. Best-of-knowledge PASS, with potential implicit corollary risk.",
+      "residual_risks": [
+        "Sanna valuation formulas or a less visible Lucas-quotient identity may imply this gcd through additional derivations; no claim of exhaustive literature exclusion.",
+        "The theorem holds only for 3∤n and does not classify all discriminant-exceptional index pairs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General theorem excludes (n,3n) for Δ=9; no exact exceptional gcd identity in inspected material",
+          "evidence": "Theorem 7 requires coprimality with Δ and concerns only the regular stratum, unlike the submitted pair.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL25/Tangboonduangjit/tang17.pdf",
+          "material_read": "Complete open-access JIS article PDF, including definition and Theorem 7 with quantifier and discriminant coprimality hypothesis; visual page verification",
+          "method": "Read full PDF, visually checked Theorem 7 and related proofs",
+          "title": "Some Divisibility Properties Concerning Lucas and Elliptic Divisibility Sequences",
+          "trigger": "Defines exact quotient sequence and almost-strong divisibility condition"
+        },
+        {
+          "assessment": "General valuation tool is potentially relevant; exact normalized pairwise gcd claim not established as covered",
+          "evidence": "The paper gives ν_p(U_n) in terms of rank of apparition and ν_p(n), without an explicitly retrieved T_n,T_3n factorization.",
+          "identifier_or_url": "https://www.researchgate.net/publication/304251918_The_p-adic_valuation_of_Lucas_sequences",
+          "material_read": "Author-posted scholarly text available through public web result: abstract, introduction and stated prime-adic rank-of-apparition results; complete all-theorems comparison not independently achieved",
+          "method": "Read public author manuscript excerpt and bibliographic abstract, not a full formal theorem-by-theorem audit",
+          "title": "The p-adic Valuation of Lucas Sequences",
+          "trigger": "Possible stronger p-adic theorem yielding the gcd as corollary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact factorization resolves the first excluded local family of a published almost-strong divisibility theorem and identifies precisely why the naive extension fails. The independent coprime factors and sharp n=1 versus all n≥2 boundary are natural arithmetic information, beyond a table of small Jacobsthal integers.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Sanna valuation formulas or a less visible Lucas-quotient identity may imply this gcd through additional derivations; no claim of exhaustive literature exclusion.",
+    "The theorem holds only for 3∤n and does not classify all discriminant-exceptional index pairs.",
+    "The frozen potentially public AUDIT.json and METADATA.json each contain a scope_run_id operational provenance identifier. Public versions cannot be published or synchronized without verified complete sanitization. The unchanged private original blobs and all mathematical evidence are preserved."
+  ],
+  "schema_version": 1
+}

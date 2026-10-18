@@ -1,19 +1,21 @@
-# Scientific review: exact normalized Jacobsthal quotient gcd
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A complete algebraic proof is given in `RESULT.md`. The identities \(J_{3n}=J_nC\), \(J_{9n}=J_{3n}E\), and \(J_{27n}=J_{9n}F\) follow by difference of cubes. For \(3\nmid n\), \((-8)^n\) is a nontrivial third root of unity modulo \(19\), so \(57\mid E\); and \(3\mid C,F\). Substituting proves that both normalized quotients are integers and share \(H_n=E/57\) as a factor. The exact congruence \(F\equiv3\pmod C\) forces \(\gcd(C,F)=3\), so their remaining factors are coprime and the gcd is exactly \(H_n\). The unbounded index restriction and \(n=1\) boundary are explicit. Reproducible exact-arithmetic checks of 267 admissible indices supplement the symbolic proof, not replace it.
+PASS
 
-## Originality — PASS, subject to stated bibliographic risk
+For n≥1 with 3∤n, set z=2^n and epsilon=(-1)^n. The Jacobsthal closed form produces C=z²+epsilon z+1, E=z^6+epsilon z³+1 and F=z^18+epsilon z^9+1 with T_n=CE/171 and T_(3n)=EF/171. C,F are divisible by 3; -8 mod 19 has order 3, so w=(-8)^n is a nontrivial cube root for 3∤n, which gives 19|E. Thus H=E/57, U=C/3, V=F/3 are integers and the quotient factors are HU and HV. Mod C, z³≡epsilon, hence z^9≡epsilon, F≡3, gcd(C,F)=3 and gcd(U,V)=1. Therefore gcd(T_n,T_(3n))=H=J_(9n)/(57J_(3n)). For n=1 U=1; for all n≥2 C>3 so T_n∤T_(3n). Independent arbitrary-precision test n=1..25 checked original J-values, gcd and all factors; unbounded proof is modular algebra, not enumeration.
 
-Panraksa--Tangboonduangjit (2022), equation (4) and Theorem 7, study the same normalized quotient, but the strong-divisibility theorem requires indices coprime to the discriminant \(9\). The pair \((n,3n)\) lies outside that hypothesis. Yildiz (2022) covers divisibility of Jacobsthal terms, not this quotient gcd. Sanna (2016) supplies broader valuation machinery, and Ballot (2018) treat Lucasnomial quotients, but neither inspected source presents the explicit coprime factorization or exact \(n\)-versus-\(3n\) gcd. OEIS A396358 concerns a different quotient. The residual risks are an unindexed equivalent and possible implicit derivation from general term-valuation formulas; the checked statements do not directly cover the specific formula.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result completes the exact gcd for an infinite, natural first-excluded family of the focal almost-strong-divisibility theorem, not a deliberately chosen finite slice. It proves a structural coprime decomposition with an explicit common factor and pinpoints the exact factor that disappears at the next local index layer. The result establishes universal failure of \(T_n\mid T_{3n}\) for every admissible \(n\ge2\), rather than an isolated negative example. No extension to arbitrary pairs or other Lucas families is asserted.
+Panraksa–Tangboonduangjit (JIS 2022) prove Δ-almost strong divisibility for normalized Lucas quotients under gcd(mn,Δ)=1. Here the Jacobsthal discriminant Δ=9 and the pair (n,3n) violates the hypothesis, so their Theorem 7 does not imply this gcd. General Sanna p-adic Lucas valuations can rederive prime-wise behavior, but the inspected source summary does not give this pairwise normalized-quotient factorization. No inspected Resultary cyclotomic/Jacobsthal result states the exceptional gcd and exact missing factor. Best-of-knowledge PASS, with potential implicit corollary risk.
 
-## Remaining scientific limits
+## value
 
-The theorem is confined to the Jacobsthal specialization and the index pair \((n,3n)\) with \(3\nmid n\). The standalone verifier performs finite exact checks, not external or independent certification. A fully independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact factorization resolves the first excluded local family of a published almost-strong divisibility theorem and identifies precisely why the naive extension fails. The independent coprime factors and sharp n=1 versus all n≥2 boundary are natural arithmetic information, beyond a table of small Jacobsthal integers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
