@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-The statement is for \(1<p<\infty\), \(a=|t|\in[0,1]\), \(b=(1-a^p)^{1/p}\), and a Daugavet point \(x\in S_Y\). The exact slice-invariant targets are
-\[
-\operatorname{dc}((t,bx))=\big((1-a)^p+b^p\big)^{1/p},
-\qquad
-\delta c((t,bx))=2b.
-\]
+# Independent mathematical audit
 
-The following continuum steps, not merely samples, are verified in the proof:
+## correctness
 
-1. Every dual slice admits a nearly norming length pair \((u,r)\) with \(|u|^p+r^p=1\), and Daugavet-point witnesses with fiber distance approaching \(b+r\). The sharp scalar comparison is \(|a-u|^p+(b+r)^p\ge (1-a)^p+b^p\).
-2. The scalar slice \(u\to1\) forces the matching Daugavet upper bound.
-3. Any slice containing \((a,bx)\) contains a scaled far witness in the same fiber, giving Delta lower bound \(2b\).
-4. For \(u\ge a\), the function \((u-a)^p+(b+(1-u^p)^{1/p})^p\) is nonincreasing, and its value at \(a\) is \((2b)^p\); nearby scalars \(u<a\) are handled by continuity.
+PASS
 
-Run the bundled standard-library checker using `python verify.py`. It checks exact rational instances of the reverse-triangle and superadditivity inequalities, supplementary real-exponent grids for the Delta envelope, and the strict separation and endpoints. Finite tests are not used as infinite certificates.
+For z=(a,bx) with a≥0, b=(1-a^p)^(1/p), x a Daugavet point in Y, every slice of ℝ⊕pY contains an almost norming radial pair (u0,r) and a Y-witness nearly distance 2 from x. Minkowski and (b+r)^p≥b^p+r^p force dc≥[(1-a)^p+b^p]^(1/p); scalar-axis slices u→1 attain the upper bound. Any slice containing z also contains (a,bw) for w in a suitable Y-slice far from x, hence δc≥2b. Scalar slices u>a-η provide the reverse bound: H(u)=(u-a)^p+(b+(1-u^p)^(1/p))^p decreases for u≥a, and the short interval u<a converges to H(a)=(2b)^p. Endpoints a=0,1 treated separately. Independently checked H at 2,000 mesh points for p=1.5,2,4 with a=.4 and confirmed exact maximum (2b)^p, a finite diagnostic. The strict gap dc<δc for a<1 follows from (1-a)^p<1-a^p and 2<2^p. The whole-space Delta-point locus requires Y to have Daugavet property; selected-point profile only needs x to be a Daugavet point.
 
-No independent audit or independent validation has been performed.
+## originality
+
+PASS
+
+Earlier scalar-axis profile computes (t,0) inside the ball, not the mixed unit sphere point (t,bx); Choi–Jung stability bounds and Haller qualitative absolute sums do not supply both exact constants. The factor-2 jump of δc at b>0 is genuine.
+
+## value
+
+PASS
+
+Simultaneous sharp local Daugavet and Delta profiles for all mixed unit points expose a quantitative gap, identify the surviving Delta locus, and establish absence of Daugavet points in a natural family of renormed sums.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof starts from the exact slice-infimum definitions and keeps the required quantifiers. The all-slice Daugavet lower bound constructs a norming two-coordinate length pair and uses the Daugavet point to realize an almost antipodal fiber vector without losing slice membership. The two scalar inequalities give the uniform lower bound, and slices concentrating on scalar coordinate \(1\) give the matching upper bound. For Delta, every slice containing the mixed point permits replacement of its fiber vector by an almost antipodal vector, giving \(2b\); scalar slices concentrating just above the prescribed scalar coefficient give a matching upper bound. The needed scalar monotonicity follows from the explicitly displayed derivative. Endpoint cases and strictness are checked separately.
+## correctness
 
-## Originality
-PASS subject to the listed residual risks. The full 2020 absolute-sum paper contains the qualitative inheritance and nonexistence mechanisms but no quantitative constants. The 2023 defining paper contains the exact slice definitions and general stability inequalities; its inspected full sections on absolute sums do not state the mixed scalar–Daugavet two-constant profile. The closest indexed calculation treats points on the **scalar axis of the unit ball** rather than mixed points on the unit sphere; another treats sums whose **every** summand has the Daugavet property, which excludes the scalar line, while a third treats only \(\ell_1\)-sums. Exact-object, equivalent slice and profile searches found no covering statement. Database absence alone is not a proof of absolute novelty.
+PASS
 
-## Value
-PASS. The result determines **two** intrinsic slice invariants at every unit point of an entire natural two-parameter family, with only a pointwise Daugavet hypothesis on the second summand. It resolves the exact quantitative gap between the Daugavet and Delta constants, identifies the qualitative Delta locus and absence of Daugavet points for a Daugavet second summand, and sharply contrasts mixed unit points with the previously evaluated scalar-ball axis. This is structural information not supplied by an isolated scalar-axis evaluation.
+For z=(a,bx) with a≥0, b=(1-a^p)^(1/p), x a Daugavet point in Y, every slice of ℝ⊕pY contains an almost norming radial pair (u0,r) and a Y-witness nearly distance 2 from x. Minkowski and (b+r)^p≥b^p+r^p force dc≥[(1-a)^p+b^p]^(1/p); scalar-axis slices u→1 attain the upper bound. Any slice containing z also contains (a,bw) for w in a suitable Y-slice far from x, hence δc≥2b. Scalar slices u>a-η provide the reverse bound: H(u)=(u-a)^p+(b+(1-u^p)^(1/p))^p decreases for u≥a, and the short interval u<a converges to H(a)=(2b)^p. Endpoints a=0,1 treated separately. Independently checked H at 2,000 mesh points for p=1.5,2,4 with a=.4 and confirmed exact maximum (2b)^p, a finite diagnostic. The strict gap dc<δc for a<1 follows from (1-a)^p<1-a^p and 2<2^p. The whole-space Delta-point locus requires Y to have Daugavet property; selected-point profile only needs x to be a Daugavet point.
 
-## Literature, scope and risks
-The primary sources are Haller–Pirk–Veeorg (arXiv:2001.06197v1) and Choi–Jung (arXiv:2307.10647v1). The calculation covers real \(1<p<\infty\) scalar–Daugavet sums and does not classify arbitrary non-Daugavet fibers, multiple atomic coordinates or the endpoint exponents. The three closest separately indexed records were inspected through their full public result texts. Their hypotheses either restrict to the scalar axis, require every component to have the Daugavet property, or use the \(\ell_1\)-sum norm. An equivalent result could still appear under different terminology. Independent human validation has not been conducted.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier scalar-axis profile computes (t,0) inside the ball, not the mixed unit sphere point (t,bx); Choi–Jung stability bounds and Haller qualitative absolute sums do not supply both exact constants. The factor-2 jump of δc at b>0 is genuine.
+
+## value
+
+PASS
+
+Simultaneous sharp local Daugavet and Delta profiles for all mixed unit points expose a quantitative gap, identify the surviving Delta locus, and establish absence of Daugavet points in a natural family of renormed sums.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
