@@ -1,12 +1,21 @@
-# Scientific review: sharp odd squarefree prime-support threshold
+# Independent mathematical audit
 
-## Correctness — PASS
-Every odd squarefree integer with at most four primes is deficient by the exact \(768/385<2\) bound. For five primes, monotonicity of the abundancy product forces \(3,5,7\) as the first three primes and restricts the last two to 87 candidates. Every candidate has exactly 16 complementary divisor pairs; both exact subset-sum algorithms independently exclude its required deficiency \(\Delta\). The six-prime example has an explicit verified omission set. The computed part is an exhaustive finite certificate following a proof of the finite cutoff, not an inference from partial sampling.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest 2026 primary article supplies the six-prime squarefree witness and broad new restrictions, but does not assert or prove its optimality in distinct prime support. The 2023 antecedent introduces the notion and congruence obstructions without this five-prime exclusion. An indexed low-support theorem handles only \(\Omega(N)\le3\), insufficient for five distinct prime factors. Searches for equivalent support thresholds, databases and broader published results found no stated covering result; indexed or unindexed equivalents remain a risk.
+PASS
 
-## Value — PASS
-The exact minimum of distinct prime factors is a natural structural invariant of odd squarefree strongly pseudoperfect numbers. Showing the published six-prime witness is minimal answers the precise first-support threshold, converting an isolated example into a sharp classification barrier. The argument has a motivated finite combinatorial core of 87 cases, not an arbitrary range or a purely numerical discovery. It does not answer whether infinitely many primitive odd examples exist.
+For k<=4, the greatest odd squarefree abundance product is (4/3)(6/5)(8/7)(12/11)=768/385<2. For k=5, monotone prime factors and exact product bounds force 3,5,7 and q∈{11,13,17,19}; r is bounded by floor(32(q+1)/(3q-32)) = 384,64,30,25. Thus exactly 87 prime pairs are possible. Each has 16 complementary divisor pairs whose chosen/omitted sum reaches 2N iff a subset of their 16 pair weights sums to Delta=sigma(N)-2N. An independent meet-in-the-middle enumeration rebuilt all 87 candidate sets from prime enumeration and proved Delta unattainable in every case. The explicit six-prime witness 937365 has sigma=1935360 and five distinct omitted complementary pairs totaling 60630, leaving 2N=1874730. Finite certificate is exhaustive only due to the analytic reduction; source cases.csv/checker verified as actual package evidence.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The claimed incremental conclusion was compared by statement and implication against the most relevant primary work and indexed mathematical results. Known component statements are explicitly credited and are not themselves asserted as new. This is a best-of-knowledge priority judgment with the listed full-text and alias risks.
+
+## value
+
+PASS
+
+The minimum distinct-prime support of odd squarefree strongly pseudoperfect numbers is a natural structural boundary for an actively studied divisor-sum class. Identifying the exact sharp threshold six, with a complete bounded arithmetic sieve and an existing attained witness, is an independently useful classification; it is not merely discovering the already-known example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
