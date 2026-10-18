@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "For every integer m>=2 and positive price t, the explicit rank-m PSD matrix Y has exact squared lengths 1 on the pendant and hub-to-core edges, and min(t,2(m+1)/m) on each inner-clique edge. Every Laplacian with gap >=1 costs at least tr(Y). The stated weights have a complete exact spectrum with m Fiedler modes and attain tr(Y). Complementary slackness forces any optimizer to agree on the full rank-m Fiedler space; the only possible rank-one difference would create a forbidden leaf-to-core offdiagonal, proving global uniqueness. The supplied program replays 1960 finite checks; the infinite proof is analytical.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sun–Boyd–Xiao–Diaconis (2006), DOI 10.1137/S0036144504443821, secs 1–5, pp.681–697",
+        "Boyd–Diaconis–Parrilo–Xiao (2007), arXiv:0709.0955v1, secs 1–4 and 4.3.1",
+        "Fiedler (1990), DOI 10.1080/03081089008817967, abstract only"
+      ],
+      "reasoning": "The 2006 full-text statement covers all graphs algorithmically, but closed-form path/cycle examples and general optimality conditions do not state this specialization. Fiedler treats trees: its conclusion overlaps only the star-support phase, not the positive internal-clique regime. The 2007 symmetry paper optimizes discrete-time stochastic SLEM rather than the continuous-time Laplacian gap.",
+      "searches": [
+        "single leaf attached to clique optimal Laplacian spectral gap arbitrary edge weights budget",
+        "weighted pineapple graph algebraic connectivity optimizing internal edges and bridge weight",
+        "\"pendant vertex\" \"optimal algebraic connectivity\" weights",
+        "\"complete graph with a pendant\" \"algebraic connectivity\" \"optimal\""
+      ]
+    },
+    "checked_sources": [
+      "Sun–Boyd–Xiao–Diaconis (2006), DOI 10.1137/S0036144504443821, secs 1–5, pp.681–697",
+      "Boyd–Diaconis–Parrilo–Xiao (2007), arXiv:0709.0955v1, secs 1–4 and 4.3.1",
+      "Fiedler (1990), DOI 10.1080/03081089008817967, abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2006 FMMP dual certificate and examples; 2007 discrete-time clique-bridge analysis; 1990 tree theory; same-topic prior exact results on full pendant coronas, priced wheels, and two-community graphs as represented by their mathematical claims."
+      ],
+      "reasoning": "None of these inspected claims directly implies the mixed-regime clique-plus-single-leaf formula: transitive full coronas have a leaf at every base vertex, and the two-community designs have no pendant bottleneck. General semidefinite optimality and symmetry averaging are inputs to the new calculation, not broader closed-form instances that already specify this threshold. Distinct support topology and objective constraints are mathematically relevant, not word matching.",
+      "searches": [
+        "fastest mixing Markov process clique with one pendant leaf pineapple K_n with one pendant edge sharp price critical deletion",
+        "algebraic connectivity optimum complete graph with pendant vertex weighted peripheral clique edges threshold",
+        "weighted pineapple graph algebraic connectivity optimizing internal edges and bridge weight",
+        "fastest mixing Markov process complete graph with a pendant leaf attached clique optimal weights algebraic connectivity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun–Boyd–Xiao–Diaconis (2006), DOI 10.1137/S0036144504443821, secs 1–5, pp.681–697",
+        "Boyd–Diaconis–Parrilo–Xiao (2007), arXiv:0709.0955v1, secs 1–4 and 4.3.1",
+        "Searches returned nonidentical graph invariants and general eigenvalue optimization; no exact matching formula identified."
+      ],
+      "reasoning": "The continuous-time Laplacian-gap problem equals a priced fastest-mixing Markov-process SDP; its maximum-variance-unfolding dual is equivalent. The comparison therefore inspects general dual conditions, not merely the literal clique-graph title. General SDP equivalence does not by itself evaluate the specific threshold or all optimizer equality cases.",
+      "searches": [
+        "fastest mixing Markov process clique with one pendant leaf pineapple K_n with one pendant edge sharp price critical deletion",
+        "algebraic connectivity optimum complete graph with pendant vertex weighted peripheral clique edges threshold",
+        "fastest mixing Markov process complete graph with a pendant leaf attached clique optimal weights algebraic connectivity",
+        "kite graph fastest mixing Markov process",
+        "\"pineapple graph\" \"fastest mixing\" weights"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted mathematical-results searches showed a pineapple curvature-distortion classification, not the spectral-gap resource allocation; no exact table with t,m and all weights was found."
+      ],
+      "reasoning": "No exact numerical or symbolic value table was located for this graph-and-price family. Non-detection is only limited search evidence, not a proof of novelty.",
+      "searches": [
+        "fastest mixing Markov process clique with one pendant leaf pineapple K_n with one pendant edge sharp price critical deletion",
+        "single leaf attached to clique optimal Laplacian spectral gap arbitrary edge weights budget",
+        "\"kite graph\" \"fastest mixing\" \"Markov process\"",
+        "\"pineapple graph\" \"maximum algebraic connectivity\" weights"
+      ]
+    },
+    "rationale": "Explicit all-order priced clique-plus-one-leaf support transition and equality rigidity were not identified in the relevant mathematical-results searches or inspected primary statements. The general continuous-time FMMP convex dual is acknowledged, and the discrete-time symmetry and tree results are compared by actual scope; no novelty is inferred merely from differing titles or graph naming.",
+    "residual_risks": [
+      "An equivalent closed-form specialization of general semidefinite eigenvalue optimization may exist in unindexed or inaccessible literature.",
+      "The tree reference was inspected through its abstract only; no claim of full-text exclusion is made.",
+      "The symmetry paper comparison is supported by inspected relevant sections, not a claim of exhaustive reading of all 39 pages."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General framework and path/cycle cases are acknowledged. No explicit single-pendant-clique parameter theorem located in inspected material.",
+        "evidence": "PDF pp. 681–697, especially pp. 682–683 (problem), 691 (duality conditions), 694–697 (worked examples).",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "Lawful open PDF, 19 pages; definitions and semidefinite/duality sections; optimality conditions and the worked examples in Sec. 5 (paths and cycles).",
+        "method": "Full-text inspection of relevant formulas, examples, and numerical/analytic solution statements, including search for pendant-specific terms.",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "Same optimization objective and exact linear price constraints"
+      },
+      {
+        "assessment": "Objective minimizes discrete-time SLEM under stochastic constraints; worked two-clique bridge is not one clique plus one leaf. This source does not furnish the exact claimed formula in inspected parts.",
+        "evidence": "arXiv:0709.0955v1 pp.1–4, 17–20; §§1.1, 1.3, 4.3.1.",
+        "identifier_or_url": "https://arxiv.org/pdf/0709.0955",
+        "material_read": "Open arXiv 39-page preprint; intro and problem constraints, example list, Sec. 4.3.1 (two cliques joined by a bridge) and formulas for stochastic orbit chains; other sections only screened.",
+        "method": "Compared objective, topology, and published example equations against the claim; searched full extracted text for pendant/kite mentions.",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Graph-orbit block reduction and two-clique bridge examples might dominate symmetric clique-with-pendant calculations"
+      },
+      {
+        "assessment": "Tree results cannot establish a priced optimum in which all clique internal edges are positive; equivalence risk confined to already-known methods or higher-price special cases.",
+        "evidence": "Fiedler, Linear and Multilinear Algebra 26 (1990), 85–106, abstract.",
+        "identifier_or_url": "https://doi.org/10.1080/03081089008817967",
+        "material_read": "Bibliographic record and abstract, not full primary article.",
+        "method": "Compared its stated tree domain with the new mixed-support clique regime.",
+        "title": "Absolute Algebraic Connectivity of Trees",
+        "trigger": "The expensive-core regime reduces to a weighted star, a tree"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "45632063-ad9c-4f41-a59c-98b64b14c4a6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A clique with a single pendant bottleneck is a natural model of diffusion on a dense core connected to an endpoint. The exact threshold decides whether dense-core redundancy is worth its price; the square-root conductance profile and global rigidity are explicit over all graph sizes and prices. It is not a merely rescaled existing theorem, arbitrary finite instance, or known table recomputation.",
+    "status": "PASS"
+  }
+}
