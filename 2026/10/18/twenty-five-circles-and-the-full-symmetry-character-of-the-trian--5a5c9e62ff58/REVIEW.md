@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** A complete reconstruction of all 720 vertex orders yields exactly 18 vertices, 66 edges and 24 triangles of the strong-Morse complex. A fully explicit matching certificate has 41 disjoint covering pairs and one critical vertex plus 25 critical edges; orientation reversal on all 204 Hasse covers gives a directed acyclic graph by a complete 108-vertex topological sort. Forman's theorem proves a 25-circle integral homotopy type. A second independently written verifier recalculates the mod-two boundary ranks and signed chain traces of every group automorphism; the resulting character equals two regular representations plus the inflated sign. The computer certificate is finite and exhaustive; it makes no infinite-family claim.
+
+**Originality — PASS, with residual risk.** The September 6, 2026 primary paper gives the strong-Morse definition and results for paths, cycles, stars and simplex examples, but no triangular-prism classification. The closest exact prism record is for the **ordinary** Morse complex, with 1,727 nonempty faces and 64 four-spheres; its theorem neither contains nor implies the 108-face **strong** subcomplex classification. Searches checked the alternative graph-prism, rooted-forest and directed-incidence descriptions and automorphism-module aliases. No matching or stronger result was identified, but unindexed or differently named computations are still possible.
+
+**Mathematical value — PASS.** The triangular prism is the canonical smallest nontrivial three-regular prism, immediately outside the published path/cycle/star families. The computation demonstrates a substantial topological difference between the strong and ordinary Morse complexes of exactly the same graph and determines the entire twelve-automorphism rational homology action, not just an isolated Betti number. The classification provides a reproducible benchmark for structural analysis of strong-Morse complexes on graphs with multiple cycles.
+
+The mathematical claims here concern only the unfilled, one-dimensional prism. The rational representation formula does not claim an integral representation splitting. No independent external mathematical validation has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
