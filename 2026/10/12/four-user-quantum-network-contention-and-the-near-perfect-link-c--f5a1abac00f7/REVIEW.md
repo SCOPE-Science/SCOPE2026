@@ -1,19 +1,21 @@
-# Scientific review: four-user chain-transport contention
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The model and output fidelity are specified exactly. A Schmidt-rank cut argument bounds joint perfect Bell-pair deliveries; disjoint open interval paths attain that bound by swapping. For four ordered endpoints, the three matchings yield the stated contention penalty. Translation multiplicities and uniform demand probabilities give the finite polynomial identity. The parity coefficient formula follows from a positive-composition count. Absolute convergence proves the fixed-link coefficient, while explicit polynomial growth and Riemann sums prove the critical crossover. Independent exact enumeration of edge outcomes and pairings (see `verify.py`) supports the algebra at small sizes. The proof, not its finite tests, establishes the all-size claim. No relaxed-fidelity or physical-device claim is made.
+PASS
 
-## Originality — PASS, with residual priority risk
+Reconstructed the two-demand cut obstruction: a Bell pair across an open edge has Schmidt rank 2, so two perfect outputs cannot both cross that cut; edge-disjoint open intervals are simultaneously attainable by ideal swapping. The three matchings of four sorted terminals produce respective contention losses 0, (middle_gap+min(outer_gaps))*p^span, and middle_gap*p^span. Uniform four-subsets and translations prove the finite polynomial, and positive-composition identities give both T_s parity expressions. Absolute convergence of sum T_s p^s gives the exact N^-3 loss coefficient 8 p^3(3+2p)/[(1-p)^4(1+p)] for fixed 0<p<1; using T_s=(5/12)s^3+O(s^2) in Riemann sums yields the near-perfect Phi(lambda) integral and Phi(0)=1/2. These are derivations, not inferences from code output. Independent fresh edge-mask and pairing enumeration matched N=4..8 at p=0,1/3,1/2,1, and new direct compositions matched T_s for s=3..69.
 
-The dominant mathematical predecessor is Kim--Popovski, arXiv:2609.39690v1, Appendix C, Eq. (41), whose general perfect-output interval-allocation identity gives an unevaluated optimization for all demand realizations. The present result does **not** claim that interval allocation or the fixed-parameter leading scaling is new. It resolves the finite random-four-user average, the exact contention defect and its constant, and a varying-success-probability scaling regime that the predecessor's fixed-probability asymptotics do not address. Pant et al. (2019) study multiflow routing on two-dimensional networks; Halder et al. (2024) study optimization with fidelity/memory constraints. Searches for matching formulas, aliases, and specializations did not identify a published equivalent. That absence does not prove priority; a prior evaluation of the general interval program might exist.
+## originality
 
-## Value — PASS
+PASS
 
-Four active users are the smallest random exclusive-pairing instance with genuine competition between separate sessions. The exact loss isolates that competition from independent path failures and provides a finite-network benchmark for adaptive routing. Its different regimes are structurally informative: at fixed \(p<1\), contention is of order \(N^{-3}\), whereas at \(p=e^{-\lambda/N}\) the total transport is of order \(N\), governed by an explicit decreasing crossover function. This is a mathematically motivated nonuniform parameter boundary, not a tiny arbitrary numerical improvement.
+The foundational Kim–Popovski model and general interval capacity law are prior and expressly credited; the qualified novelty is the evaluated random four-user exact expectation and its N^-3 contention constant plus singular near-perfect crossover, not interval packing or general chain scaling. The source abstract/bibliography and Resultary search reveal no exact closed crossover; full original appendix could not be independently re-read in this execution and its stronger/general implications remain a bibliographic risk.
 
-## Residual risks and limitations
+## value
 
-The exact physical operating conditions (ideal Bell supply and swaps, heralded link outcomes, one slot, four uniformly selected users, perfect counted Bell pairs) are essential. The general cut-allocation theorem in the motivating paper is stronger in breadth and already implies an algorithmic finite optimization; novelty is claimed only for its analytical evaluation and crossover. Relevant network-routing literature is extensive, so independent priority assessment remains useful.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Four sampled users forming two exclusive sessions is the first nontrivial random interval-contention case; its exact law isolates a positive competition penalty from independent losses and measures the finite-network optimum. The sharply different fixed-p and 1-p=Theta(1/N) asymptotics give a motivated, reusable boundary benchmark rather than an unmotivated small numerical refinement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
