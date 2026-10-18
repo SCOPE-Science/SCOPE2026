@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T14:08:12.063323Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For arbitrary bivariate copula with uniform U,V (singular allowed) and independent Bernoulli retention p, write centered conditional CDF d(u,v)=P(V<=v|U=u)−v. Reflection maps it to −d(u,1−v); split d into antisymmetric E=(d(v)−d(1−v))/2 and symmetric O=(d(v)+d(1−v))/2. The two are orthogonal in joint L², and new fluctuation equals E+(2p−1)O. For folded uniform T=2min(V,1−V), its conditional CDF fluctuation is 2E(u,t/2), so xi(T|U)=24||E||². Therefore xi(Wp|U)=(2p−1)²xi(V|U)+p(1−p)xi(T|U). Standard total-variance equality 0 iff independence, 1 iff measurable response gives the sharp upper 1−3p(1−p) and complete equality/zero conditions (p=1/2 special). Mixture V=U with probability a, otherwise independent uniform, produces xi(V|U)=xi(T|U)=a² for all a∈[0,1], realizing entire interval. At p=1/2 response-reflection symmetry forces Kendall tau and Spearman rho zero. Fresh exact Fraction integration over 100 nonsymmetric 4×4 checkerboard channel cases corroborated identity and capacity; unrestricted result follows from orthogonal conditional CDF proof.",
+      "risk": [
+        "For p!=1/2 the zero and upper equality conditions involve original V; for p=1/2 only folded T, not necessarily V.",
+        "Random orientation coin must be independent; xi direction response conditioned on predictor U is fixed; density not required."
+      ],
+      "sources": [
+        "RESULT.md blob 7af7d2714be568353b793e1bf62e785976a0e498",
+        "VERIFICATION.md blob d8be7760f7e4072ddec6d2b739e39af47fa6cbae",
+        "independent_1683_checks.py RANK_REFLECTION_EXACT_CHECKERBOARD_ATTENUATION_OK"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2025 globally attainable (rho,xi) region is broader in copula inputs but too coarse to identify output xi from two specific input xi values under a fixed channel.",
+          "The 2026 Kendall/Spearman comparison assumes stochastically increasing copulas and is inapplicable to arbitrary reflection-symmetrized outputs."
+        ],
+        "reasoning": "Compared parameter direction and actual hypotheses, not just names; no stronger pointwise Markov-channel formula subsumes the reviewed all-copula identity in inspected material.",
+        "searches": [
+          "arxiv:2506.15897 joint xi rho range",
+          "arxiv:2606.22074 stochastic increasing dependence",
+          "DOI:10.1515/demo-2024-0002 copula family Table6"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2606.22074",
+        "arxiv:2506.15897",
+        "DOI:10.1515/demo-2024-0002"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The existing xi-rho region permits many couplings, so it cannot provide channel-specific exact quadratic attenuation from xi(V|U),xi(T|U).",
+          "A known fair Fréchet family realizes xi=1/4 but cannot prove the p-dependent identity/equality for all copulas."
+        ],
+        "reasoning": "The new orthogonal decomposition of conditional CDFs is essential. Known endpoint and global bound are acknowledged, and the theorem survives by including arbitrary-input formula and equality switch.",
+        "searches": [
+          "arxiv:2506.15897 global xi-rho bounds",
+          "DOI:10.1515/demo-2024-0002 Table6",
+          "arxiv:2606.22074 Theorem1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General rank-correlation data processing and Markov symmetrization anticipate contraction but not the exact E/O coefficient identity for every input copula.",
+          "2024 copula-family Table6 contains Fréchet mixture values for particular family; the full arbitrary-input response channel is different."
+        ],
+        "reasoning": "Looked for aliases random sign flipping, reflection of response rank, copula symmetrization, folded response and conditional distribution variance. No exact universal identity seen.",
+        "searches": [
+          "Chatterjee coefficient random reflection copula attenuation folding Kendall Spearman sharp capacity",
+          "arxiv:2506.15897 full xi-rho region",
+          "DOI:10.1515/demo-2024-0002 Tables6 and AppendixA"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The previously tabulated Fréchet mixture endpoint 1/4 is credited, not claimed new.",
+          "No complete all-p attainable interval and upper-equality transition for independent reflection coin appeared in the indexed results."
+        ],
+        "reasoning": "Finite family formula or joint coefficient table does not imply identity for every arbitrary copula; source comparison preserves known extremal example.",
+        "searches": [
+          "Chatterjee coefficient random reflection copula attenuation folding Kendall Spearman sharp capacity",
+          "2024 Ansari Rockel Table 6 Frechet copula rank correlation",
+          "Resultary query Chatterjee random reflection folded rank capacity"
+        ]
+      },
+      "rationale": "Best-of-knowledge: exact two-component conditional-CDF attenuation and p-dependent equality classification for arbitrary copula are distinct from known Fréchet special-family endpoint 1/4, generalized joint xi/rho feasible region and positive-dependence comparisons.",
+      "residual_risks": [
+        "An abstract Hilbert conditional-expectation / Markov data processing theorem might encode the E/O reflection identity in earlier literature.",
+        "The 2024 publisher Table6 and its relevant appendix were visible through HTML extracts but not read end to end; no whole-document priority claim made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Controls unconditional feasible coefficient region, not exact independent reflection channel",
+          "evidence": "Theorem2 SI xi<=|rho|; Fig1 and Corollary1 bound joint region.",
+          "identifier_or_url": "arxiv:2506.15897",
+          "material_read": "Full primary PDF main theorems and early sections on feasible xi-rho region and SI comparison, including page3 visual verification",
+          "method": "arxiv original PDF and screenshot",
+          "title": "The exact region and an inequality between Chatterjee's and Spearman's rank correlations",
+          "trigger": "Potential general dominating attainable-region theorem"
+        },
+        {
+          "assessment": "Known formulas on Fréchet copula family, not all-copula reflection transformation",
+          "evidence": "Table6 explicitly groups Fréchet family as a parametric coefficient source.",
+          "identifier_or_url": "DOI:10.1515/demo-2024-0002; arxiv:2310.17307",
+          "material_read": "Published open-access HTML accessible via indexing, abstract, Table6 discussion and AppendixA.5 headings/snippets; not full page-by-page text",
+          "method": "Publisher indexed public full text; relevant table and appendix extracts",
+          "title": "Dependence properties of bivariate copula families",
+          "trigger": "Exact Chatterjee formulas and potential known 1/4 endpoint"
+        },
+        {
+          "assessment": "Restricted stochastic-increasingness statement; no whole-document noncoverage asserted",
+          "evidence": "Positive-dependence bound assumption excludes arbitrary reflection input channel.",
+          "identifier_or_url": "arxiv:2606.22074",
+          "material_read": "Abstract and indexed theorem statement only, not full text",
+          "method": "arxiv indexed abstract",
+          "title": "Kendall and Spearman bounds for Chatterjee rank correlation under positive dependence",
+          "trigger": "Closest 2026 rank-dependence comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Independent random response reflection models latent orientation/sign ambiguity and is meaningful for directional rank prediction. The exact all-copula attenuation law determines each post-noise xi, the sharp full capacity interval and a genuine phase switch in equality conditions at a fair coin, while explaining zero Kendall and Spearman yet surviving directional rank dependence. The previously known 1/4 example is ancillary, not the main contribution.",
+      "risk": [
+        "Population copula conditional-uniform ranks only; does not establish sample-statistic biases or observation-dependent flipping."
+      ],
+      "sources": [
+        "arxiv:2606.22074",
+        "arxiv:2506.15897",
+        "DOI:10.1515/demo-2024-0002"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "U,V uniform copula; coin independent of U,V; p∈[0,1]; response direction fixed; singular copulas allowed.",
+    "Best-of-knowledge not an independent bibliographic priority certification, with known fair Fréchet endpoint credited."
+  ],
+  "schema_version": 1
+}
