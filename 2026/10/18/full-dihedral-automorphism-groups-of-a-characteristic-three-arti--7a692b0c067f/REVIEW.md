@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The proof establishes geometric connectedness and smooth normalization, computes the genus and \(3\)-rank from the ramification and pole data, proves uniqueness of the degree-three rational subfield using the \((3,3)\)-curve arithmetic genus bound, and bounds base symmetries using a nonzero binary Hessian in characteristic \(3\). It explicitly constructs a subgroup achieving the upper bound and therefore rules out extra automorphisms. The exact checker corroborates four distinct degrees; this is not presented as an exhaustive proof.
+
+**Originality — PASS, with residual priority risk.** Kazemifard–Tafazolian (arXiv:2610.04702v1) give the genus-eight model and a cyclic order-\(15\) subgroup, but their boundary theorem and table do not determine the complete automorphism group. Their later paper (arXiv:2610.13279v1) develops general automorphism descent and existence of models with minimal group, but does not state the full dihedral group for this family. Targeted exact-formula, group, index and literature comparisons located no dominating explicit result. General automorphism-classification theorems might still contain the specialization implicitly; absolute novelty is not certified.
+
+**Mathematical value — PASS.** Full automorphism groups determine a natural geometric symmetry invariant for a singled-out wild genus-eight curve, and the infinite extension identifies the exact value for every \(m\equiv2\pmod3\), rather than just an additional involution or a cyclic lower bound. The calculation can inform quotient actions and geometric moduli strata. It does not provide automorphism classifications for other characteristics or residue classes.
+
+**Nearest literature and limitations.** The two preceding arXiv papers treat the explicit cyclic cover and broader Artin–Schreier automorphism methods, respectively. Relevant classical descent and stabilizer methods are used rather than claimed as new. The residual risk is that a more general unindexed source may imply this formula. All statements concern automorphisms over an algebraic closure in characteristic \(3\), and the genus and Hessian assumptions are essential.
+
+Self-review: passed. Independent audit: not yet performed.
