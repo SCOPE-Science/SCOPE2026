@@ -1,19 +1,21 @@
-# Review: A forty-term obstruction for distinct semiprime Egyptian fractions
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The assumption of an **integer** sum forces each prime-local residue to vanish when all denominators are included. A nonzero residue among head denominators must be repaired by a tail denominator incident with that prime; since each semiprime has two prime factors, at most twice the number of tail terms require repair. The weighted dual exactly compensates the uniform tail bound. The finite computation checks the entire prime-pair head up to \(2000\) using an integer-only residue dynamic program with proved outward rounding. The exact upper rational \(7767730087/7812500000\) is less than one, so the contradiction is rigorous and independent of solver tolerances. A known \(48\)-term representation validates the local residue criterion on a genuine positive example.
+PASS
 
-## Originality — PASS
+Reconstructed integer-sum p-adic cancellation for each prime: nonzero head residue must use a tail semiprime, so b<=2t. The local residue-maximization inequality gives 1 <= lambda*k + sum_p C_p because 2*mu+1/2001=lambda. Independently coded dictionary residue dynamic programming from the RESULT definition using Python Fraction, modular inverses and conservative integer rounding: exactly 563 eligible pq<=2000, 168 incident primes, 13 positive contributions, total scaled local maxima 704269451136 at 10^12, yielding 0.994269451136<1. This exhausts only the bounded head; the preceding symbolic inequality covers every larger denominator. Watanabe supplies a known 47-term upper witness. All denominators squarefree and pairwise distinct; repeated prime supports are permitted.
 
-The closest same-invariant paper is Watanabe, arXiv:2009.03275v2; it presents \(47\)-term representations and **conjectures**, without proving, that they are minimal. Its constructive search begins with prime factors at most \(53\), and its Section 4.1 rules out exactly \(46\)-term examples when every prime factor is at most \(101\); neither result covers arbitrary primes. Li, arXiv:2606.15159v2, proves universal existence but no short-rank lower bound. The separate published bound for fixed two-prime support \(\{2,p\}\) does not cover arbitrary distinct semiprimes. Searches of exact formulation, aliases, near-neighbor statements and prior current claims found no equivalent unrestricted \(r\ge41\) proof. A later same-object paper on rational existence was accessible only at abstract level; that material does not assert this lower bound and remains a documented access risk.
+## originality
 
-## Value — PASS
+PASS
 
-This is a motivated quantitative step toward Watanabe's explicit conjecture that the true minimum is \(47\). The elementary reciprocal-sum obstruction gives only \(38\), so the new lower bound \(41\) eliminates three additional candidate ranks. More importantly, the proof combines a global prime-local congruence with a tail-independent finite dual, addressing the genuine challenge that a search restricted to small prime factors cannot rule out arbitrary large primes. No exact-rank classification is claimed.
+Direct primary work gives 47-term constructions and only a maximum-prime-factor-101 restricted nonexistence claim at 46; Li gives universal existence rather than this unrestricted rank lower bound. No stronger or equivalent statement was identified in comparison with direct literature and relevant published records.
 
-## Limitations
+## value
 
-The exact value of \(r\) remains unknown in the interval \(41\) through \(47\). The proof does not establish the conjectural upper endpoint as minimal, and its numerical certificate applies only to the particular exact dual, not to a full unrestricted enumeration of representations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural least number r of distinct squarefree-semiprime reciprocals summing to one has a published 47-term conjectural optimum. The unconditional global exclusion of r<=40, near this open optimum and independent of bounded prime searches, is a nontrivial structural lower bound with a transferable residue-dual method; neither a trivial numerical instance nor known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

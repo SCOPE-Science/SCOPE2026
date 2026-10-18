@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T16:12:36Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob a6704465310595ec07b9f25b3f911d9966c95c43",
+        "Frozen artifacts/verify.py blob 98dccdf0a9c0673315caca853c0c6e525975bf0d",
+        "Independent /mnt/data/audit_independent_check.py exact dictionary DP",
+        "Watanabe arXiv:2009.03275v2"
+      ],
+      "rationale": "Reconstructed integer-sum p-adic cancellation for each prime: nonzero head residue must use a tail semiprime, so b<=2t. The local residue-maximization inequality gives 1 <= lambda*k + sum_p C_p because 2*mu+1/2001=lambda. Independently coded dictionary residue dynamic programming from the RESULT definition using Python Fraction, modular inverses and conservative integer rounding: exactly 563 eligible pq<=2000, 168 incident primes, 13 positive contributions, total scaled local maxima 704269451136 at 10^12, yielding 0.994269451136<1. This exhausts only the bounded head; the preceding symbolic inequality covers every larger denominator. Watanabe supplies a known 47-term upper witness. All denominators squarefree and pairwise distinct; repeated prime supports are permitted.",
+      "residual_risks": [
+        "Lower bound is r>=41 only; does not determine r or exclude lengths 41..46. Finite DP is a valid certificate only after proving the unrestricted prime-tail inequality."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li arXiv:2606.15159v2 proves existence for every positive integer; construction does not impose lower bounds for target 1.",
+          "Watanabe §4.1 excludes some 46-term cases with largest prime <=101, not all prime supports."
+        ],
+        "reasoning": "Neither an existential construction nor a bound with a prime-support hypothesis implies an unrestricted <=40 nonexistence theorem.",
+        "searches": [
+          "Egyptian fractions summing one distinct squarefree semiprimes minimum terms lower bound Watanabe 47 Johnson 48 prime congruence residue",
+          "arXiv:2606.15159 distinct semiprime Egyptian unit fractions Li"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2009.03275v2",
+        "arXiv:2606.15159v2",
+        "arXiv:2609.32140 abstract only",
+        "OEIS A201650",
+        "Resultary binary-gap rank and prime-reciprocal records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Resultary binary-gap theorem requires fixed two-prime support {2,p}.",
+          "Resultary three-term semiprime theorem represents 1/p rather than 1.",
+          "Watanabe gives only finite-support 46-term exclusion and an upper construction."
+        ],
+        "reasoning": "Fixed support and changed target change quantifiers; neither statement dominates the unrestricted integer-one lower bound.",
+        "searches": [
+          "Egyptian fractions summing one distinct squarefree semiprimes minimum terms lower bound Watanabe 47 Johnson 48 prime congruence residue",
+          "Resultary published SCOPE binary-gap two-prime Egyptian fractions",
+          "Resultary three-term semiprime prime reciprocal"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Watanabe arXiv:2009.03275v2 introduces 47 as conjectural optimum, not an unconditional r>=41.",
+          "The present statement forbids all <=40 distinct squarefree-semiprime summands with unrestricted prime support."
+        ],
+        "reasoning": "Rephrasing as a minimum-length obstruction or global prime-local dual certificate did not yield equivalence with published restricted searches or existence results.",
+        "searches": [
+          "Egyptian fractions summing one distinct squarefree semiprimes minimum terms lower bound Watanabe 47 Johnson 48 prime congruence residue",
+          "\"semiprime\" \"minimum\" \"41\" unit fractions",
+          "arXiv:2009.03275"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Watanabe tables list 17 length-47 representations; OEIS A201650 records a 48-term example.",
+          "A bounded 46-term calculation with maximum prime 101 does not exhaust all semiprimes."
+        ],
+        "reasoning": "Witness tables give upper bounds, not exhaustive unrestricted length-exclusion certificates.",
+        "searches": [
+          "Egyptian fractions summing one distinct squarefree semiprimes minimum terms lower bound Watanabe 47 Johnson 48 prime congruence residue",
+          "OEIS A201650 semiprime reciprocal Johnson 48"
+        ]
+      },
+      "rationale": "Direct primary work gives 47-term constructions and only a maximum-prime-factor-101 restricted nonexistence claim at 46; Li gives universal existence rather than this unrestricted rank lower bound. No stronger or equivalent statement was identified in comparison with direct literature and relevant published records.",
+      "residual_risks": [
+        "Newer Li arXiv:2609.32140 full text was not inspected; accessible abstract is about representability, so possible unexpected rank implications remain a risk.",
+        "An unindexed unrestricted rank exclusion could exist; negative search results alone do not certify novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING unrestricted r>=41",
+          "evidence": "Section 4.1 restricts 46-term search to largest prime at most 101, while 47 is presented as conjectured minimal length.",
+          "identifier_or_url": "arXiv:2009.03275v2",
+          "material_read": "Open PDF introduction, results, §4.1 restricted search and concluding conjecture, including rendered pages 1 and 11",
+          "method": "Full legal OA PDF; text and selected page-image inspection",
+          "title": "New examples of the representation of 1 by the sum of reciprocals of semiprime numbers",
+          "trigger": "Same denominators and known 47-term construction"
+        },
+        {
+          "assessment": "EXISTENCE_ONLY",
+          "evidence": "Universal target representability does not supply a minimum number of terms for 1.",
+          "identifier_or_url": "arXiv:2606.15159v2",
+          "material_read": "Accessible abstract, theorem statement and constructions as separately inspected in current search; did not perform line-by-line full reread",
+          "method": "ArXiv indexed manuscript/theorem inspection",
+          "title": "Every natural number is a sum of distinct semiprime unit fractions",
+          "trigger": "Recent identical denominator family"
+        },
+        {
+          "assessment": "RESTRICTED_SUPPORT_NOT_DOMINATING",
+          "evidence": "Bound concerns supported fractions {2,p}, unlike arbitrary prime-pair denominators.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-binary-gap-rank-bound-for-two-prime-egyptian-fractions--660c5979bc83",
+          "material_read": "Resultary hit title and summary, not a full-body review",
+          "method": "Published semantic search result",
+          "title": "A binary-gap rank bound for two-prime Egyptian fractions",
+          "trigger": "Published semantically related minimum-rank theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Watanabe arXiv:2009.03275v2 §4.1 and conjecture",
+        "Independent all-residue exact dual certificate"
+      ],
+      "rationale": "The natural least number r of distinct squarefree-semiprime reciprocals summing to one has a published 47-term conjectural optimum. The unconditional global exclusion of r<=40, near this open optimum and independent of bounded prime searches, is a nontrivial structural lower bound with a transferable residue-dual method; neither a trivial numerical instance nor known-table recomputation.",
+      "residual_risks": [
+        "Not a determination of the exact minimum r."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "41<=r<=47, not exact optimum; no bound on 41..46 separately.",
+    "New published/unindexed rank results might change O; latest Li paper abstract-only."
+  ]
+}
