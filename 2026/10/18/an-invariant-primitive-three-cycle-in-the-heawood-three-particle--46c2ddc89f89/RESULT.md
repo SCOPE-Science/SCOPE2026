@@ -1,0 +1,47 @@
+# An invariant primitive three-cycle in the Heawood three-particle space
+
+## Finding
+Let \(H\) be the Heawood graph, the point–line incidence graph of the Fano plane, and let \(X=\operatorname{UConf}_3(|H|)\) be the unordered configuration space of three distinct points. Give each of the 21 original edges a midpoint and write \(D\) for the standard unordered Abrams cubical complex on the resulting 35-vertex, 42-edge subdivision. Then
+\[
+H_3(X;\mathbb Z)\cong H_3(D;\mathbb Z)\cong\mathbb Z.
+\]
+The **unique primitive top cellular cycle, up to sign**, has exactly \(3136\) nonzero coefficients in the canonical three-cube basis of \(D\), each \(+1\) or \(-1\). Thus its cubical \(\ell^1\)-norm, relative to this specified one-bisection model, is exactly \(3136\).
+
+There is a useful compression: in the unsubdivided disjoint-cell complex \(D_0\) on the original graph, the unique primitive top cycle has exactly \(392\) unit-coefficient three-cubes among \(644\) possible cubes. For any triple \(M\) of pairwise vertex-disjoint original edges, form the additional edge set
+\[
+E\bigl(H[V(M)]\bigr)\setminus M.
+\]
+**The coefficient of \(M\) in this cycle is nonzero if and only if this additional edge set is a nonempty matching.** Such triples form exactly three orbits, of sizes \(168,168,56\), under the full \(336\)-element graph automorphism group. The remaining three cube orbits have sizes \(168,56,28\). After fixing the normalization of one coefficient, the integer boundary equations determine all the signs.
+
+Every graph automorphism, including those interchanging the point and line parts, acts by \(+1\) on the integral generator of \(H_3(X;\mathbb Z)\). The generator is not a product of three graph-cycle classes on disjoint subgraphs: the Heawood graph has girth six and only fourteen vertices, hence cannot contain three disjoint cycles.
+
+## Assumptions and scope
+Use vertex sets \(p_i=i\) and \(\ell_j=7+j\) for \(i,j\in\mathbb Z/7\mathbb Z\), with \(p_i\) adjacent to \(\ell_j\) precisely when \(i-j\in\{0,1,3\}\). Equivalently, line \(\ell_j\) contains points \(j,j+1,j+3\). All original and subdivided edges are oriented from smaller to larger endpoint, and each unordered cubical cell is oriented by increasing edge indices. A top cube is a triple of edges with pairwise disjoint endpoint sets. Its boundary is the alternating sum obtained by replacing each oriented edge with its terminal vertex minus its initial vertex.
+
+The unsubdivided \(D_0\) is an **auxiliary cellular compression** and is *not* claimed to be a deformation retract of \(X\). Each original edge is bisected to obtain \(D\): any path between distinct essential vertices then has at least two edges, while each homotopically nontrivial closed path has at least twelve. The three-particle hypothesis of the Abrams–Farley–Sabalka cubical deformation-retraction theorem therefore applies. The exact norm \(3136\) refers to this bisection and these cellular orientations, not to a subdivision-independent or geometric length invariant.
+
+## Proof
+**1. Original cubical kernel and a support rule.** Enumerate the 21 graph edges lexicographically. Exactly \(644\) triples have disjoint endpoints. Taking the integer cubical boundary \(\partial_3\) gives \(1680\) distinct two-cell rows. Sparse Gaussian elimination over \(\mathbb F_3\) gives rank \(643\). With the free-column value one, back-substitute to get a modular kernel vector. Replace residues \(0,1,2\) by integers \(0,1,-1\), normalize its first nonzero coefficient to \(+1\), and directly substitute into **every integer boundary equation**; all vanish. There are \(196\) coefficients \(+1\), \(196\) coefficients \(-1\), and \(252\) zeros. The mod-three rank and this nonzero integral cycle force the rational kernel to be one-dimensional; its unit entries make it the primitive generator of the integral kernel.
+
+For each of the \(644\) triples, enumerate extra edges in the induced graph on its six endpoints. Direct enumeration shows that the coefficient is nonzero precisely when these extra edges form a nonempty matching. The distribution by number of extra edges is \(84\) zeros with none, \(168\) nonzeros with one, \(168\) nonzeros and \(168\) zeros with two, and \(56\) nonzeros with three. This exhausts all triples; the certificate is recomputed by the standalone verifier rather than asserted from a search log.
+
+**2. Actual configuration-space model and integral primitiveness.** Bisect each edge. The subdivided complex has \(9072\) three-cubes and \(24654\) two-cell rows incident to at least one three-cube. Each original top cube decomposes into eight smaller top cubes. Lift the integer cycle by the oriented cubical subdivision map. Distinct original cubes give disjoint sets of subdivided top cubes, so the lift has exactly \(8\cdot392=3136\) unit entries. Direct integer multiplication by the full subdivided boundary verifies that it is closed. Independently, a fresh sparse \(\mathbb F_3\)-rank computation on the subdivided boundary gives \(9071\). Together these facts imply rational kernel rank exactly one. As there are only three particles, the model has no four-cells. Its integral top kernel is saturated and the unit-coordinate lift is primitive, hence it generates \(H_3(D;\mathbb Z)\cong\mathbb Z\). The cubical deformation retract transfers this result to \(X\). Since the integral kernel is generated by one primitive chain and there are no higher cellular boundaries, every integral cycle representing a primitive top class is exactly this chain up to sign; the \(\ell^1\)-norm is therefore sharp in the specified cell basis.
+
+**3. Full symmetry action.** Enumerate all permutations of the seven points preserving the seven Fano lines; exactly \(168\) extend to point–line preserving graph automorphisms. Composing with the point–line duality \(p_i\mapsto\ell_{-i}\), \(\ell_j\mapsto p_{-j}\) produces all \(336\) graph automorphisms. For an oriented three-cube, track the three edge-orientation signs and the parity of the induced sorting permutation. The integer cycle is fixed coefficientwise under every one of the \(336\) actions. Its support has the three asserted orbits, while its complement has orbit sizes \(168,56,28\). Cubical subdivision is natural under graph automorphisms, so the lifted top cycle and hence the integral homology generator are fixed as well.
+
+## Verification
+Run `python3 artifacts/verify.py` with a standard Python 3 installation. The program reconstructs the Fano incidence graph and both cubical boundary matrices from scratch; computes their exact \(\mathbb F_3\)-ranks; solves the original one-dimensional kernel; substitutes the resulting signed vectors into **integer** boundaries; checks the nonempty-matching support criterion over all \(644\) original cubes; enumerates all \(336\) graph automorphisms and six cube orbits; and constructs and verifies the \(3136\)-cube subdivided generator. Successful output ends with `HEAWOOD_THREE_CONFIGURATION_THEOREM_VERIFIED`. No third-party libraries or precomputed vector files are required.
+
+## Relationship to prior work
+Farley and Sabalka explain the Abrams cubical model, its subdivision conditions, and graph-braid discrete Morse techniques; these general methods are credited. An, Drummond-Cole, and Knudsen describe a subdivision-independent chain model for graph-configuration homology. Maciążek and Sawicki analyze product-cycle generation and give nonproduct examples, including three-dimensional phenomena on \(K_{3,3}\); the cited paper does not give this Heawood cycle or symmetry classification.
+
+The earlier published calculation *Three-particle homology of the Heawood graph* already establishes \(H_3(X;\mathbb Z)\cong\mathbb Z\) and supplies an \(881\)-term primitive generator in a **different**, reduced Świątkowski chain basis. That rank and existence of an integral generator are not presented as novel here. The present result is the particular canonical cubical representative, its sharp bisection-model norm and induced-matchings support criterion, and the full integral automorphism character. The former rank statement does not imply these geometric and equivariant refinements.
+
+## Limitations
+This is a complete statement about top-dimensional integral homology and its specified cubical representative, not a calculation of lower integral homology, cup products, geometric lengths, or a subdivision-invariant minimal number of cubes. The compressed \(392\)-cube count belongs to the unsubdivided auxiliary complex; only the \(3136\)-cube count belongs to the sufficiently subdivided deformation-retract model. The construction is reproducible but has not received independent scientific audit. Literature comparisons do not establish absolute priority against all unindexed sources.
+
+## References
+1. D. Farley and L. Sabalka, *Discrete Morse theory and graph braid groups*, arXiv:math/0410539, first posted 2004-10-25; *Algebraic & Geometric Topology* **5** (2005), 1075–1109, especially Section 3 and Theorem 3.1.
+2. B. H. An, G. C. Drummond-Cole, and B. Knudsen, *Subdivisional spaces and graph braid groups*, arXiv:1708.02351, first posted 2017-08-08; Section 4.
+3. T. Maciążek and A. Sawicki, *Non-abelian Quantum Statistics on Graphs*, arXiv:1806.02846, first posted 2018-06-07; Section 5.
+4. *Three-particle homology of the Heawood graph*, published mathematical record `7524bced20b8`, 2026; full scientific statement and proof compared.
