@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The planar generic SQP subproblem is solved explicitly; orthogonal normal and tangential steps yield a sign-independent squared-radius map. Its positive fixed root, period-two factor, existence thresholds and multipliers are obtained by direct algebra. The included symbolic checker verifies these identities and the exact superattracting witness. The proof makes only local stability assertions and explicitly excludes source global-convergence hypotheses.
+
+**Originality: PASS, with residual risks.** The primary two-stepsize SQP work introduces the decomposition and convergence theory, not this exact circle radial map or its noise-dependent flip windows. The earlier stochastic SQP decomposition paper studies different convergence questions. Targeted searches for circle constraints, tangential noise, period-two behavior and equivalent rational maps did not identify a covering primary statement. Generic rational-map period-doubling is classical and is not claimed. Risk: an equivalent exact calculation may occur in numerical Newton/SQP dynamics or rational-map literature; searching cannot certify universal priority.
+
+**Value: PASS.** The example isolates a structural issue in normal/tangential decomposition on curved constraints: tangential noise enters the nonlinear feasibility dynamics through a quadratic term. The exact local flip thresholds identify when this forcing stabilizes a nonfeasible two-cycle and when it stabilizes a biased fixed radius. The rational superattracting cycle is an analytically checkable stress test for constraint-correction design, beyond a cheap first-order feasibility estimate. It does not establish a practical large-stepsize recommendation.
+
+**Closest literature and limitations.** O'Neill (2024), arXiv:2408.16656, generic algorithm and proof assumptions; Berahas et al., DOI 10.1137/20M1354556; classical flip-bifurcation theory. The deliberately large fixed outer step is not within published sufficient bounds. The oracle matches unbiased bounded conditional variance but need not come from a globally single-valued sample objective, and the circle violates the global uniform Jacobian assumption. Only local radial attraction is proved; all claims of global behavior are withheld.
+
+Self-review: passed. Independent audit: not yet performed.
