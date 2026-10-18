@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof establishes the exact operator norm, excludes all eigenvalues for every non-scalar kernel by the first nonzero off-diagonal coefficient, constructs adjoint eigenfunctionals for every point of the closed disk, and proves the reverse spectral inclusion through the maximal ideal space of the convolution Banach algebra \(\ell_1(\mathbb N_0)\). The scalar exception is treated separately. No finite computation is used as a substitute for an infinite argument.
+## correctness
 
-## Originality
-PASS. The closest inspected same-space theorem is the finite-band result of Saha and Patra for polynomial functions of the unilateral right shift on \(\ell_\infty\). Earlier papers by Birbonshi--Srivastava and Altun likewise concern finite-band triangular matrices. A separate recent paper treats general convolution on weighted Hahn spaces, not on \(\ell_\infty\). Searches under one-sided convolution, lower-triangular Toeplitz, Wiener-symbol, residual-spectrum, and bounded-sequence formulations found no statement covering arbitrary \(\ell_1\) kernels on \(\ell_\infty\). The main residual risk is an older equivalent formulation in abstract Banach-algebra or semigroup language that does not use fine-spectrum terminology.
+PASS
 
-## Value
-PASS. Passing from finite-band symbols to all absolutely summable one-sided kernels is the natural completion of the recent \(\ell_\infty\) result. The conclusion is structurally stronger than spectral mapping alone: every spectral value remains residual and both the point and continuous spectra stay empty despite arbitrary infinite tails.
+The representation T_a=Σ_{k≥0}a_kR^k converges in operator norm since a∈ℓ₁ and ||R||=1. Phase-align finitely many x_{N−k} to show ||T_a||≥Σ_{k≤N}|a_k| for every N, yielding exact norm ||a||₁. For non-scalar a, first nonzero offdiagonal a_m and first nonzero coordinate x_j of an eigenvector force eigenvalue a_0 and then contradiction a_m x_j=0 in coordinate j+m, so point spectrum empty. For |z|<1, summation F_z(x)=Σz^n x_n is a nonzero adjoint eigenfunctional for R; for |z|=1, twist a shift-invariant Banach limit L((z^n x_n)) to obtain a nonzero eigenfunctional. Therefore T_a−Φ_a(z) has range inside a proper closed hyperplane and is injective, hence Φ_a(closed disk) is residual. Conversely characters on convolution algebra ℓ₁(N₀) are evaluations at |z|≤1, so outside Φ_a(closed disk) the algebraic convolution inverse gives an actual bounded inverse on ℓ∞. No tail truncation or approximate eigenvectors are mistaken for the infinite theorem. The scalar kernel exception is separately correct.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Saha–Patra same-space ℓ∞ fine-spectrum result is explicitly polynomial / finite-band (Theorem 5.5), while their infinite convolution section works on a different σ∞ space. The claim covers all one-sided infinite-support ℓ₁ kernels with a precise residual-vs-point/continuous partition. A general analytic Toeplitz/Wiener algebra theorem might imply the same result under different words; no decisive covering statement was located, and this residual risk is recorded.
+
+## value
+
+PASS
+
+Provides the natural infinite-support closure of recent finite-band ℓ∞ residual-spectrum classification and proves the fine-spectral partition survives arbitrary summable tails, not just the total spectrum. Boundary Banach-limit separation and the Wiener inverse make it a useful exact class statement rather than finite-band substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
