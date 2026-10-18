@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T04:46:07.360462Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual source RESULT.md Git blob da4a501bddd235e3f1f9f90e3f43a5c715bed6ce",
+        "Actual verify.py Git blob cd655f6c603d9d5d05d6395243a60c46a4c6bb2b",
+        "Fresh independently written /mnt/data/scope09_science_checks_0429.py, ADAM_COMPRESSION finite checks"
+      ],
+      "rationale": "Source RESULT.md explicitly gives bias-corrected silent-history moment factors c1=(1-beta1)/(1-beta1^tau) and c2=sqrt((1-beta2)/(1-beta2^tau)). Hence mini coordinate update denominator is c2||g||_2/sqrt(d)+epsilon versus c2|g_j|+epsilon for Adam. Cancelling the identical numerator yields the claimed ratio. |g_j|<=||g|| proves <=sqrt(d), achieved in the infinite-impulse-amplitude limit for one nonzero coordinate with fixed epsilon>0. Equal k-support gives sqrt(d/k). Maximizing over blocks produces sqrt(max d_b) and pigeonhole gives the optimal sqrt(ceil(N/B)); balanced partitions attain it. Independent new checks covered d<=14, all k, and small integer partitions. No claim of actual training-loss amplification is proven.",
+      "residual_risks": [
+        "Requires the specified scalar mean-square blocks and same epsilon placement, zero initial moments, no decay; blocks treated coordinatewise by Adam-mini are excluded.",
+        "Positive epsilon gives a limiting supremum, not finite-amplitude attainment."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adam-mini motivates Hessian partitioning, flags zero embedding gradients, and warns of coarse-partition instability.",
+          "SPAM analyzes momentum resets and gradient spikes, whereas BORA uses a rank-one curvature projector.",
+          "No inspected statement establishes a sharp all-partitions N/B sparse-impulse gain bound."
+        ],
+        "reasoning": "Neither empirical optimizer comparisons nor a rank-one spiked-Hessian correction implies an exact worst coordinate step ratio for the unmodified block-average recurrence.",
+        "searches": [
+          "Zhang et al., Adam-mini, arXiv:2406.16793",
+          "SPAM arXiv:2501.06842",
+          "BORA DOI:10.1109/ICASSP55912.2026.11464667"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query: Adam-mini sparse impulse block size square root d k adaptive learning rate gradient coordinatewise Adam amplification memory tradeoff",
+        "arXiv:2406.16793",
+        "arXiv:2501.06842",
+        "DOI:10.1109/ICASSP55912.2026.11464667"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original method determines v_b=EMA(mean g_b²) and describes sparse embedding examples, but that alone does not assert the quantitative sharp comparison.",
+          "BORA studies anisotropic Hessian conditioning and changes the optimizer, so its conditioning claim does not imply this update formula."
+        ],
+        "reasoning": "The new bound is deduced from the old recurrence by a fresh exact comparison and optimized across partitions; no stronger prior theorem implying this comparison was found in material read.",
+        "searches": [
+          "arXiv:2406.16793v7 method/partition summary",
+          "BORA publisher abstract DOI:10.1109/ICASSP55912.2026.11464667"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Block RMS normalization can be restated as a diagonal preconditioner ratio; the exact norm ratio is (c2|g_j|+eps)/(c2||g||/sqrt(d)+eps).",
+          "Resultary nearest AdaX sparse-impulse gain concerns temporal memory, not block compression: 2026/10/4/SCOPE-exact-sparse-impulse-gain-law-for-adax-long-term-memory--92e0ee44969d."
+        ],
+        "reasoning": "The analytical form matches the Adam-mini recurrence but the identified semantic match computes a different optimizer and different quantity.",
+        "searches": [
+          "Adam-mini sparse impulse block size square root d k adaptive learning rate gradient coordinatewise Adam amplification memory tradeoff",
+          "Adam-mini arXiv:2406.16793v1/v7 block second moment and embedding sparsity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest optimizer entries: AdaX isolated impulse (92e0ee44969d); SM3 cover-transversal (1c7f082f2ba0).",
+          "No retrieved indexed exact sqrt(ceil(N/B)) statement for Adam-mini."
+        ],
+        "reasoning": "This is a parametric analytical extremal statement rather than a known discrete numerical table; generic pigeonhole tables do not encode the optimizer-specific denominator comparison.",
+        "searches": [
+          "Adam-mini sparse impulse block size square root d k adaptive learning rate gradient coordinatewise Adam amplification memory tradeoff",
+          "Resultary semantic search optimizer sparse impulse block-size exact gain"
+        ]
+      },
+      "rationale": "The defining Adam-mini rule and observed sparse embedding-row instability predate this claim. The audited statement is a precise universally sharp coordinate-response comparison and optimal fixed-state-count partition frontier. Accessible source material and Resultary results do not contain that exact theorem. Comparisons do not confuse this criterion with Hessian optimality or empirical loss-spike claims.",
+      "residual_risks": [
+        "Adam-mini complete versioned primary PDF not independently reread; no snippet-only assertion of full-document noncoverage.",
+        "The sharp ratio follows elementary normalization, so an unindexed informal calculation of the same quantity may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms block-averaged second moment and Hessian-based partition goal; snippet/excerpt alone cannot establish full-document noncoverage.",
+          "evidence": [
+            "https://www.sciencestack.ai/paper/2406.16793",
+            "https://www.alphaxiv.org/abs/2406.16793"
+          ],
+          "identifier_or_url": "arXiv:2406.16793v1,v7",
+          "material_read": "Source abstract plus accessible ScienceStack method/partition table of contents, AlphaXiv method and embedding partition summary; complete PDF text was not accessible in this execution.",
+          "method": "Public research landing page and structured method excerpt comparison",
+          "title": "Adam-mini: Use Fewer Learning Rates To Gain More",
+          "trigger": "Definition of exact scalar block rule and most plausible prior coverage"
+        },
+        {
+          "assessment": "Mechanism changes moment histories rather than sharp spatial block-mean amplification.",
+          "evidence": [
+            "https://www.alphaxiv.org/abs/2501.06842v2"
+          ],
+          "identifier_or_url": "arXiv:2501.06842",
+          "material_read": "Accessible abstract and detailed AlphaXiv public summary describing spike detection, clipping, and momentum reset.",
+          "method": "Public abstract and detailed scientific summary",
+          "title": "SPAM: Spike-Aware Adam with Momentum Reset for Stable LLM Training",
+          "trigger": "Related sparse spike and optimizer robustness literature"
+        },
+        {
+          "assessment": "Rank-one anisotropy correction under spiked-Hessian model, not the same single-impulse comparison; remaining full text is a residual risk.",
+          "evidence": [
+            "https://doi.org/10.1109/ICASSP55912.2026.11464667"
+          ],
+          "identifier_or_url": "DOI:10.1109/ICASSP55912.2026.11464667",
+          "material_read": "Publisher abstract and displayed beginning of introduction; remainder behind sign-in.",
+          "method": "Publisher scientific abstract and introduction excerpt",
+          "title": "BORA: Blockwise Orthogonal Rank-1 Adaptive Optimization",
+          "trigger": "Potential stronger blockwise preconditioning result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2406.16793, block state compression/embedding sparsity",
+        "Exact denominator comparison reconstructed from original recurrence",
+        "DOI:10.1109/ICASSP55912.2026.11464667, motivation for anisotropic correction"
+      ],
+      "rationale": "The scalar-memory compression in Adam-mini creates a mathematically meaningful, optimizer-specific sparse-coordinate response vulnerability. The sharp sqrt(d/k) support law and sqrt(ceil(N/B)) memory-count frontier quantify the exact unavoidable cost, which a researcher can use when choosing or testing partitions under sparse updates. This is not asserted as a universal training-loss or convergence guarantee; its elementary pigeonhole step is only part of the calculation, not the significance by itself.",
+      "residual_risks": [
+        "Balanced partitions may be bad for Hessian geometry; the value lies only in isolated-impulse robustness."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For scalar-mean-square Adam-mini blocks with zero pre-impulse gradients and matching Adam hyperparameters, the active-coordinate impulse amplification is at most sqrt(d), sharp on a large-amplitude one-coordinate impulse; for k equal-magnitude active coordinates it tends to sqrt(d/k); N coordinates grouped into B nonempty blocks have sharp minimax worst gain sqrt(ceil(N/B)).",
+  "limitations": [
+    "Only blocks using scalar averaged-square state, not architecture-specific coordinatewise exceptions.",
+    "Silent gradient history, epsilon>0, beta1,beta2 in [0,1), no weight decay.",
+    "Sharp factors are high-impulse suprema, not loss bounds or global optimizer quality statements."
+  ],
+  "schema_version": 1
+}

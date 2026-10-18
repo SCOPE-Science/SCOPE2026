@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Under the stated silent history, the source first- and second-moment recurrences collapse exactly to a vector numerator \(c_1g\) and a scalar denominator \(c_2\lVert g\rVert_2/\sqrt d+\epsilon\). The sharp coordinate bound follows from \(|g_j|\le\lVert g\rVert_2\), one-sparse impulses prove sharpness, and the fixed-state-budget frontier is the exact pigeonhole optimum over integer block sizes.
+PASS
 
-Scientific risk: the theorem isolates an impulse response; nonzero accumulated second moments can reduce the effect.
+Source RESULT.md explicitly gives bias-corrected silent-history moment factors c1=(1-beta1)/(1-beta1^tau) and c2=sqrt((1-beta2)/(1-beta2^tau)). Hence mini coordinate update denominator is c2||g||_2/sqrt(d)+epsilon versus c2|g_j|+epsilon for Adam. Cancelling the identical numerator yields the claimed ratio. |g_j|<=||g|| proves <=sqrt(d), achieved in the infinite-impulse-amplitude limit for one nonzero coordinate with fixed epsilon>0. Equal k-support gives sqrt(d/k). Maximizing over blocks produces sqrt(max d_b) and pigeonhole gives the optimal sqrt(ceil(N/B)); balanced partitions attain it. Independent new checks covered d<=14, all k, and small integer partitions. No claim of actual training-loss amplification is proven.
 
-## Originality
+## originality
 
-PASS. The Adam-mini source qualitatively identifies dilution from averaging zeros in sparse embedding blocks and reports instability from inappropriate partitions, but it does not state the sharp support-size law or the exact minimax tradeoff over a fixed number of scalar second-moment states. Later spike-aware and block-anisotropy work addresses different mechanisms, and focused published-record searches did not identify an implication-equivalent theorem.
+PASS
 
-Residual risk: an equivalent block-normalization inequality may exist in unindexed technical notes; later BORA full publisher text was not available in the inspected access path.
+The defining Adam-mini rule and observed sparse embedding-row instability predate this claim. The audited statement is a precise universally sharp coordinate-response comparison and optimal fixed-state-count partition frontier. Accessible source material and Resultary results do not contain that exact theorem. Comparisons do not confuse this criterion with Hessian optimality or empirical loss-spike claims.
 
-## Value
+## value
 
-PASS. Adam-mini's principal design goal is second-moment memory compression, so a sharp lower bound relating the number of retained block states to worst sparse-coordinate response directly characterizes a cost of the defining mechanism. The result also quantifies the source's qualitative warning that sparse zero patterns and coarse partitions can distort block learning rates.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The scalar-memory compression in Adam-mini creates a mathematically meaningful, optimizer-specific sparse-coordinate response vulnerability. The sharp sqrt(d/k) support law and sqrt(ceil(N/B)) memory-count frontier quantify the exact unavoidable cost, which a researcher can use when choosing or testing partitions under sparse updates. This is not asserted as a universal training-loss or convergence guarantee; its elementary pigeonhole step is only part of the calculation, not the significance by itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
