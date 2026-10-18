@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-14",
+  "audited_at_utc": "2026-10-14T23:53:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a!=0, all real b, direct cancellation in H=z+x/a gives Hdot=1-b*z. When b=0, on radius R the bound |H|<=R*sqrt(1+a^-2) and Hdot=1 give T<=2R*sqrt(1+a^-2). For b!=0 equilibrium E_b=(-b^-2,0,b^-1) has radius sqrt(b^-4+b^-2). If a length-T trajectory resides below this radius, time averages give |zbar-1/b|<=2K/(|b|T) and |zbar^2-b^-2|<=4K(1+K)/(b^2 T) for T>=1, while ydot=x+z^2 and Jensen imply xbar<=-b^-2+(C+2R)/T; a second Jensen bound yields R^2>=b^-4+b^-2-(2LD+C)/T once T>=2D/L. Thus all below-radius residence times admit uniform upper bounds, whereas equilibrium yields unbounded length at or above radius. Invariant measures have E[z|H]=1/b via arbitrary smooth test functions, E[x]=-b^-2-Var(z), Cov(x,z)=-a Var(z) and exact radial expectation L^2+L+(2L+1)v+v^2+Var(x)+E y^2. If v=0 invariance enforces the unique equilibrium; any other state straddles its z-height. Independent SymPy check Hdot identity and radius substitution; checked numerical bounds algebra. This is about trajectory *segments*, not all escaping solutions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published SCOPE sharp residence threshold for the Li–Sprott reversible quadratic flow has R*=sqrt(a+a^-1), with a different vector field and parameters.",
+          "Sprott A/Nosé–Hoover conditional-temperature laws have different flows and observables."
+        ],
+        "reasoning": "The formal similarity of residence methods and conditional stationary laws cannot entail this case-N radius or E[z|H] identity without a conjugacy/equation-specific proof; no stronger covering result identified.",
+        "searches": [
+          "Sprott N x'=-a y y'=x+z² z'=1+y-bz critical residence radius ball stationary measure conditional z given z+x/a",
+          "Sprott N x'=-a y y'=x+z^2 z'=1+y-b z origin-centered compact residence Euclidean radius upper bound invariant measures",
+          "Resultary 2026/10/11/SCOPE-sharp-ball-residence-threshold-for-a-reversible-quadratic-flow--696f60330a7d"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1103/PhysRevE.50.R647",
+        "https://sprott.physics.wisc.edu/technote/regions.htm",
+        "Resultary mathematical records; searches Sprott N x'=-a y y'=x+z² z'=1+y-bz critical residence radius ball stationary measure conditional z given z+x/a",
+        "Resultary targeted comparison Sprott N x'=-a y y'=x+z^2 z'=1+y-b z origin-centered compact residence Euclidean radius upper bound invariant measures"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unique equilibrium has norm sqrt(b^-4+b^-2).",
+          "The source contains no proof every subcritical radius has bounded residence time, which needs Hdot and ydot average inequalities."
+        ],
+        "reasoning": "The equilibrium norm implies the easy sufficiency direction of the threshold but not its necessity; the latter demands quantitative control of all possible long-lived non-equilibrium trajectories. Conditional stationary covariance is not implied by a fixed-point location.",
+        "searches": [
+          "Sprott N x'=-a y y'=x+z² z'=1+y-bz critical residence radius ball stationary measure conditional z given z+x/a",
+          "Sprott N x'=-a y y'=x+z^2 z'=1+y-b z origin-centered compact residence Euclidean radius upper bound invariant measures",
+          "Sprott 1994 critical point data for case N"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sprott (1994) introduced 19 simple chaotic flows including case N, giving critical points and numerical dynamical summaries.",
+          "Sprott (2013) parameter-region atlas treats the same normalized case N and discusses parameter scans, not a universal finite-residence bound."
+        ],
+        "reasoning": "Neither a numerical attractor plot nor equilibrium coordinates yields a uniform upper bound on durations of every orbit segment inside a small ball. The strong occupation/conditional-moment property is separate from the mere fixed-point radius.",
+        "searches": [
+          "Sprott N x'=-a y y'=x+z² z'=1+y-bz critical residence radius ball stationary measure conditional z given z+x/a",
+          "Sprott N x'=-a y y'=x+z^2 z'=1+y-b z origin-centered compact residence Euclidean radius upper bound invariant measures",
+          "DOI:10.1103/PhysRevE.50.R647",
+          "Sprott Dynamic Regions in Simple Chaotic Flows 2013 case N"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The case-N atlas tabulates/colors dynamical regions by numerical initial-condition sampling."
+        ],
+        "reasoning": "Neither finite-parameter region plots nor the 1994 catalogue enumerate all trajectory segments or compact invariant measures and hence do not compute the radius threshold.",
+        "searches": [
+          "Sprott N x'=-a y y'=x+z² z'=1+y-bz critical residence radius ball stationary measure conditional z given z+x/a",
+          "Sprott 2013 regions case N numerical parameter atlases"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison against the same primary mathematical object, stronger theorems, equivalent reductions, exact tables and indexed related results finds no previously established result implying the full final statement. Searches alone are not novelty proof. Most relevant full primary texts were read where accessible; restricted sources and mathematical priority uncertainties are named below.",
+      "residual_risks": [
+        "1994 original primary article full text not directly accessible in this run; avoid interpreting publisher abstract as whole-document noncoverage; author 2013 full technical note adds relevant material.",
+        "Other unindexed generalized Sprott N balance laws might overlap.",
+        "Finite upper bound is not optimal residence-time constant; no non-equilibrium recurrence inferred at radius threshold."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original modelling context confirmed; lack of the exact residence theorem cannot be established from abstract alone",
+          "evidence": "Phys. Rev. E 50 R647–R650 (1994); source abstract lists numerical invariants, not all-time result",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.50.R647",
+          "material_read": "Original published article metadata/abstract specifying 19 chaotic examples, their critical points, Lyapunov and fractal dimensions; full primary text unavailable in this run",
+          "method": "publisher abstract and author bibliography",
+          "title": "Some simple chaotic flows",
+          "trigger": "Introduction of canonical Sprott case N"
+        },
+        {
+          "assessment": "Parameter plots and numerical behavior rather than sharp ball-residence theorem or conditional invariant-measure identity",
+          "evidence": "April 27 2013 technical note, case N portion and method discussion",
+          "identifier_or_url": "https://sprott.physics.wisc.edu/technote/regions.htm",
+          "material_read": "Author-hosted full 2013 technical note on parameter-region sampling, including case N diagrams and methodology",
+          "method": "full open author technical note",
+          "title": "Dynamic Regions in Simple Chaotic Flows",
+          "trigger": "Same two-parameter normalization of Sprott N"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An origin-centered exact radius necessary and sufficient for arbitrarily long residence is a natural dynamical invariant of the canonical Sprott N flow. The explicit uniform time bound distinguishes prolonged chaotic-looking transients from possible compact recurrence; the height-conditioned stationarity and strict radial defect add meaningful infinite-time statistics beyond a trivial equilibrium existence calculation. The parameter b=0 boundary is separately sharp. No broader attractor classification is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "1994 original primary article full text not directly accessible in this run; avoid interpreting publisher abstract as whole-document noncoverage; author 2013 full technical note adds relevant material.",
+    "Other unindexed generalized Sprott N balance laws might overlap.",
+    "Finite upper bound is not optimal residence-time constant; no non-equilibrium recurrence inferred at radius threshold."
+  ],
+  "schema_version": 1
+}
