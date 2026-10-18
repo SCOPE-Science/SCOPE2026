@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,26 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof in `RESULT.md` has two exact components. First, the source negation table gives the count recurrence
-\[
-(t_{n+1},u_{n+1},f_{n+1})=(u_n+f_n,u_n+f_n,t_n),
-\]
-from the base \((1,0,1)\). Second, the source support condition is applied directly to every \(\mathbf U\)-entry, yielding the four surviving row patterns for every \(n\ge2\).
+# Independent mathematical audit
 
-`verify_negation_tower.py` independently performs literal row generation and repeated support deletion through depth \(13\). It checks the full survivor set, not only its cardinality. It also checks the closed Fibonacci formulas and recurrence through depth \(200\).
+## correctness
 
-Replay:
+PASS
 
-```text
-python3 verify_negation_tower.py
-```
+From published three-valued Nmatrix, atomic p∈{T,F}, negation T→F and F,U→{T,U}. Exact recurrence (t,u,f)→(u+f,u+f,t) with (1,0,1), so initial totals F_{n+3} and terminal distribution (F_{n+1},F_{n+1},F_n) for n≥1. The support rule requires each U position to be F in some row preserving every T of the candidate. Reconstructed the proof of first-round survivors: T-start forced alternating row, F-start all-U, F-start immediate T alternating, and F-start U^k T alternating rows; any U following a previous T is unsupported. At second pruning all mixed rows with k≥2 lose support at coordinate 1 when k even and 2 when k odd≥3; precisely k=1 survives. Hence n=0,1,≥2 sizes 2,3,4 and the four explicit A/B/C/D patterns for every n≥2; stabilization by two rounds. Independent literal generation and iterative support deletions matched all rows and first-pruning normal forms through n=13. The universal conclusion follows from the described normal-form induction, not the finite replay.
 
-Recorded terminal line:
+## originality
 
-```text
-VERIFY_OK 919 exact assertions
-```
+PASS
 
-The finite replay is corroborative only; the universal result is established by the recurrence and support argument in `RESULT.md`. Independent audit has not been performed.
+Leme–Coniglio–Lopes arXiv:2308.13664 gives exactly the semantics/support rule and coarse 2^{subformula count} initial bound, but its full HTML sections examined do not state the Fibonacci profile, two-round deletion or four-row normal form for the iterated-negation family. Resultary search for negation-tower support deletion / Fibonacci returned no relevant duplication. This is an exact new analysis of published semantics, not a new semantics/decision method. An equivalent observation in unindexed teaching/software notes is possible.
+
+## value
+
+PASS
+
+Iterated unary negation is the most canonical depth-unbounded one-variable stress test for this Nmatrix. The theorem sharply distinguishes Fibonacci-sized initial generation from a constant four-row stabilized table. This quantifies a meaningful algorithmic phenomenon and provides a closed exact test family; it does not imply constant running time when materializing the initial rows or generalize to formulas containing implication.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

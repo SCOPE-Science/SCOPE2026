@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T08:17:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 41331b3a57bda29760e5c9bd89997d01b91ff1ed and verify_negation_tower.py blob 18a467487c74431471464d5a2c0d3a24284ba5ef",
+        "Independent row generator/pruner through depth n=13; source negation figure and support definitions"
+      ],
+      "rationale": "From published three-valued Nmatrix, atomic p∈{T,F}, negation T→F and F,U→{T,U}. Exact recurrence (t,u,f)→(u+f,u+f,t) with (1,0,1), so initial totals F_{n+3} and terminal distribution (F_{n+1},F_{n+1},F_n) for n≥1. The support rule requires each U position to be F in some row preserving every T of the candidate. Reconstructed the proof of first-round survivors: T-start forced alternating row, F-start all-U, F-start immediate T alternating, and F-start U^k T alternating rows; any U following a previous T is unsupported. At second pruning all mixed rows with k≥2 lose support at coordinate 1 when k even and 2 when k odd≥3; precisely k=1 survives. Hence n=0,1,≥2 sizes 2,3,4 and the four explicit A/B/C/D patterns for every n≥2; stabilization by two rounds. Independent literal generation and iterative support deletions matched all rows and first-pruning normal forms through n=13. The universal conclusion follows from the described normal-form induction, not the finite replay.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original broad upper bound is 2^{n+1}; exact initial count F_{n+3} and stabilized size four are strictly sharper and not implied by a bound alone."
+        ],
+        "reasoning": "The primary support algorithm is a premise; its existence does not by itself assert that this family has two-round refinement or provide exact rows.",
+        "searches": [
+          "arXiv:2308.13664 sections on generation/deletion and complexity",
+          "Resultary search for Nmatrix simplifications"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2308.13664, Leme–Coniglio–Lopes, full HTML negation Nmatrix, Definition support deletion and complexity discussion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full initial recurrence and survivor induction apply the primary rules nontrivially to the pure tower."
+        ],
+        "reasoning": "A generic complexity upper bound and an executable elimination rule do not mathematically imply the exact Fibonacci-to-four asymptotic claim without structural analysis.",
+        "searches": [
+          "Leme–Coniglio–Lopes negation multioperation",
+          "primary support condition Definition 9",
+          "source generic worst-case bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primary paper defines semantics and general algorithm; no displayed iterated-negation four-row normal form in material searched."
+        ],
+        "reasoning": "Alias search includes negation tower, unary-depth Nmatrix, support deletion and golden-ratio initial row count; no matching theorem appeared in returned results.",
+        "searches": [
+          "Resultary semantic search (2026-10-15 UTC): intuitionistic nondeterministic truth tables iterated negation Fibonacci support deletion four rows Leme Coniglio Lopes",
+          "arXiv:2308.13664 HTML search for iterated negation and Fibonacci"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No indexed n-dependent exact row sequence 2,3,4,... tied to this Nmatrix was found."
+        ],
+        "reasoning": "No tabulation was discovered that covers the all-n exact normal forms; finite n examples would not prove the induction.",
+        "searches": [
+          "arXiv 2308.13664 exact row tables",
+          "Resultary Fibonacci negation Nmatrix query"
+        ]
+      },
+      "rationale": "Leme–Coniglio–Lopes arXiv:2308.13664 gives exactly the semantics/support rule and coarse 2^{subformula count} initial bound, but its full HTML sections examined do not state the Fibonacci profile, two-round deletion or four-row normal form for the iterated-negation family. Resultary search for negation-tower support deletion / Fibonacci returned no relevant duplication. This is an exact new analysis of published semantics, not a new semantics/decision method. An equivalent observation in unindexed teaching/software notes is possible.",
+      "residual_risks": [
+        "Exact rows are an elementary algorithm specialization and may appear in unpublished notes or Nmatrix software tests."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE SEMANTICS, NOT EXACT SPECIALIZATION",
+          "evidence": "Atomic T/F, negation multioperation and support rule correspond; paper states generic exponential upper bound but not the claimed Fibonacci/four-row formula in inspected material.",
+          "identifier_or_url": "arXiv:2308.13664; DOI:10.1017/jsl.2025.10174",
+          "material_read": "Accessible primary full HTML; Section 8 negation multioperation, Section 9 support deletion and complexity section inspected.",
+          "method": "Full primary HTML focused sections plus term search",
+          "title": "A new decision method for Intuitionistic Logic by 3-valued non-deterministic truth-tables",
+          "trigger": "Exact foundational Nmatrix and deletion algorithm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "The all-depth normal form is proved by support parity arguments; numerical replay bounded to n≤13."
+      ],
+      "rationale": "Iterated unary negation is the most canonical depth-unbounded one-variable stress test for this Nmatrix. The theorem sharply distinguishes Fibonacci-sized initial generation from a constant four-row stabilized table. This quantifies a meaningful algorithmic phenomenon and provides a closed exact test family; it does not imply constant running time when materializing the initial rows or generalize to formulas containing implication.",
+      "residual_risks": [
+        "Only a precise unary formula family; no proof of time complexity improvement for naive initial-table generation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only pure iterated negation and the specified support condition; nothing asserted for implication/binary connective towers.",
+    "Four surviving rows are not proof of constant implementation time."
+  ]
+}

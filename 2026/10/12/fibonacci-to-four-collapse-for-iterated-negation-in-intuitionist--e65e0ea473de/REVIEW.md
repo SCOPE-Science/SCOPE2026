@@ -1,25 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The full initial table for the negation tower is governed by a three-state linear recurrence read directly from the source's negation multioperation. The atomic-value restriction supplies the base vector \((1,0,1)\), giving the exact Fibonacci distribution. The support condition then has a complete parity-based analysis: one deletion round leaves exactly the rows with a single initial \(\mathbf U\)-block, and the second leaves only four explicit patterns.
+PASS
 
-The standalone replay independently generates and prunes finite tables and agrees exactly with the symbolic classification.
+From published three-valued Nmatrix, atomic p∈{T,F}, negation T→F and F,U→{T,U}. Exact recurrence (t,u,f)→(u+f,u+f,t) with (1,0,1), so initial totals F_{n+3} and terminal distribution (F_{n+1},F_{n+1},F_n) for n≥1. The support rule requires each U position to be F in some row preserving every T of the candidate. Reconstructed the proof of first-round survivors: T-start forced alternating row, F-start all-U, F-start immediate T alternating, and F-start U^k T alternating rows; any U following a previous T is unsupported. At second pruning all mixed rows with k≥2 lose support at coordinate 1 when k even and 2 when k odd≥3; precisely k=1 survives. Hence n=0,1,≥2 sizes 2,3,4 and the four explicit A/B/C/D patterns for every n≥2; stabilization by two rounds. Independent literal generation and iterative support deletions matched all rows and first-pruning normal forms through n=13. The universal conclusion follows from the described normal-form induction, not the finite replay.
 
-## Originality
+## originality
 
-PASS with residual risk. The primary paper states the general upper bound \(2^{|sub(\alpha)|}\), emphasizes that table size depends on subformula shape, and gives the deletion procedure, but it does not state the negation-tower profile. Its full text contains no occurrence of "Fibonacci" or "iterated negation." Targeted literature and mathematical-result-index searches using the exact source, negation-tower aliases, initial-row terminology, Fibonacci formulas, and golden-ratio formulations did not locate an equivalent result.
+PASS
 
-The result is a concise derived specialization of published ingredients, so an unindexed observation remains possible.
+Leme–Coniglio–Lopes arXiv:2308.13664 gives exactly the semantics/support rule and coarse 2^{subformula count} initial bound, but its full HTML sections examined do not state the Fibonacci profile, two-round deletion or four-row normal form for the iterated-negation family. Resultary search for negation-tower support deletion / Fibonacci returned no relevant duplication. This is an exact new analysis of published semantics, not a new semantics/decision method. An equivalent observation in unindexed teaching/software notes is possible.
 
-## Value
+## value
 
-PASS. Pure iterated negation is the simplest family in which formula depth grows without increasing the number of atoms. It therefore directly tests the source's observation that one-variable formulas can still generate large non-deterministic tables. The exact \(F_{n+3}\)-to-\(4\) profile sharply separates branching in the initial semantics from the effect of support refinement and supplies a useful benchmark for implementations and further complexity analysis.
+PASS
 
-## Closest literature and limitations
+Iterated unary negation is the most canonical depth-unbounded one-variable stress test for this Nmatrix. The theorem sharply distinguishes Fibonacci-sized initial generation from a constant four-row stabilized table. This quantifies a meaningful algorithmic phenomenon and provides a closed exact test family; it does not imply constant running time when materializing the initial rows or generalize to formulas containing implication.
 
-The closest source is Leme--Coniglio--Lopes, arXiv:2308.13664, which provides all semantic ingredients and the general complexity bound. No inspected source supplied the exact iterated-negation recurrence or final four-row normal form.
-
-The theorem does not extend automatically to formulas containing implication, conjunction, or disjunction, and it does not claim that an implementation explicitly materializing the initial table runs in constant time or space.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
