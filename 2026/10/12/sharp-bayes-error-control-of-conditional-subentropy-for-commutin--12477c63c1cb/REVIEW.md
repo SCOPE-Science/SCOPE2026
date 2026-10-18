@@ -1,19 +1,21 @@
-# Review of the commuting conditional-subentropy inequality
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The source definition of subentropy and the Jozsa–Mitchison half-axis integral agree with the normalized formula used here. The central new lemma is verified directly: the integrand difference for a split \(w\mapsto(w-a,a)\) is nonnegative; the log-convex product form proves concavity along the split; and the right derivative at \(a=0\) is at most one. These facts give \(0\le\Delta Q\le a\) with all endpoint and zero-probability cases included. Telescoping over the conditional outcome masses yields \(Q(X|B)\le1-p_{\mathrm{guess}}(X|B)\). For \((1-\varepsilon,\varepsilon)\) the derivative is exactly one, proving uniform optimality of the coefficient. The computation validates 48 rational instances, not the universal claim.
+PASS
 
-## Originality — PASS, with residual literature risk
+Normalized subentropy integral Q(v)=∫[t/(1+t)-∏t/(t+v_i)]dt; splitting one mass w into w-a and a changes Q by a(w-a)∫ tP/[(t+w)(t+w-a)(t+a)]dt≥0. Convexity of each product factor as exponential of sum of -log(t+v_i) makes Q concave in affine mass split; one-sided derivative at zero ≤w∫(t+w)^(-2)dt=1, so change≤a. Peel every nonmodal conditional mass, telescope to 1-Σ_b max_x p_xb. Binary (1-e,e) yields derivative exactly1 as e→0. Zero entries and repeated spectra are continuity limits. Commuting signal states share diagonal measurement. Frozen verifier supplies finite illustrative tables, not the theorem.
 
-Datta–Dorlas–Jozsa–Benatti, arXiv:1310.1312, §2.5, prove nonnegativity and an analytically restricted case, but leave the general min-entropy upper bound conjectural. Jozsa–Mitchison, arXiv:1404.7694, equation (14) and Property 9, already prove the integral formula and monotonicity under marginalization. Those known contributions are credited, not treated as novel. The exact sharp mass-splitting rate and the posterior-maximum Bayes-error upper bound were not found in searched related formulations or in the two inspected full-text sources. A differently named decision-theoretic or refinement result could supply equivalent coverage, so this review does not assert an exhaustive literature census.
+## originality
 
-## Value — PASS
+PASS
 
-This settles a mathematically natural, complete class of the original conditional-subentropy conjecture: all finite ensembles with mutually commuting signal states, with no binary, purity, or uniformity constraints. The linear estimate is strictly sharper than the conjectured logarithmic one away from certainty and has an optimal universal constant. It also supplies a bound on optimal classical guessing directly from the conditional subentropy and a usable structural proof mechanism.
+Datta et al. conjecture a negative-log guessing bound for general cq ensembles and prove general lower nonnegativity. Sharp Bayes-error linear upper bound with best coefficient for all commuting signals survives; Jozsa-Mitchison integral/marginal monotonicity are explicitly credited.
 
-## Limits and provenance of evidence
+## value
 
-No general result for noncommuting signal ensembles is established. The subentropy formula and earlier marginal nonnegativity are from the cited literature; the linear conditional upper estimate is the new claim. Numerical checks do not independently establish universal correctness. An independent mathematical review has not yet taken place.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Establishes a sharp and operationally interpretable, dimension-independent linear Bayes-error control for an entire commuting sector of a published conditional-subentropy conjecture; noncommuting case remains open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

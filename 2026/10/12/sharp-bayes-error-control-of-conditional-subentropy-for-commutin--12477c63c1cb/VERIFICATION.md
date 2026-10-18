@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The mathematical claim is the universal sharp bound \(0\le Q(X|B)\le1-p_{\mathrm{guess}}(X|B)\) for every finite commuting conditional ensemble. Its proof, not the verifier script, establishes it for all finite dimensions, zeros, repeated eigenvalues, and the full parameter range.
+## correctness
 
-The standalone `verify_subentropy.py` uses Python's standard-library `decimal` arithmetic at precision 85 and exact-rational normalized inputs. It calculates \(Q\) independently through the divided-difference definition for nonrepeated positive eigenvalues. The script checks 48 reproducible two-observation, three-label joint distributions, including a case with zero entries, against the spectral-marginal inequality and the Bayes-error bound. Three binary near-deterministic samples check the sign and expected first-order sharpness. The actual script replay produced:
+PASS
 
-`VERIFY_OK tables=48 binary_edges=3 precision=85 analytic_proof_required=yes`
+Normalized subentropy integral Q(v)=∫[t/(1+t)-∏t/(t+v_i)]dt; splitting one mass w into w-a and a changes Q by a(w-a)∫ tP/[(t+w)(t+w-a)(t+a)]dt≥0. Convexity of each product factor as exponential of sum of -log(t+v_i) makes Q concave in affine mass split; one-sided derivative at zero ≤w∫(t+w)^(-2)dt=1, so change≤a. Peel every nonmodal conditional mass, telescope to 1-Σ_b max_x p_xb. Binary (1-e,e) yields derivative exactly1 as e→0. Zero entries and repeated spectra are continuity limits. Commuting signal states share diagonal measurement. Frozen verifier supplies finite illustrative tables, not the theorem.
 
-The checker does not attempt to numerically resolve repeated nonzero eigenvalues, test an infinite continuum, or establish independent validation. Those cases are addressed by the analytic proof and its continuity argument; the publication comparison is limited to the inspected cited literature.
+## originality
+
+PASS
+
+Datta et al. conjecture a negative-log guessing bound for general cq ensembles and prove general lower nonnegativity. Sharp Bayes-error linear upper bound with best coefficient for all commuting signals survives; Jozsa-Mitchison integral/marginal monotonicity are explicitly credited.
+
+## value
+
+PASS
+
+Establishes a sharp and operationally interpretable, dimension-independent linear Bayes-error control for an entire commuting sector of a published conditional-subentropy conjecture; noncommuting case remains open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
