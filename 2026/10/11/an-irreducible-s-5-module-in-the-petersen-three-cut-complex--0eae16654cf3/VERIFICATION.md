@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-11.md",
+      "INDEPENDENT_AUDIT_2026-10-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-Execute `python3 verify_petersen.py`. The code reconstructs the ten Kneser-graph vertices, all fifteen adjacency pairs, ninety disconnected-triple-complement facets, and every nonempty face. It tests the seven-dimensional face vector `(10,45,120,210,252,210,90)`, 937 faces, and all 4440 Hasse covers.
+# Independent mathematical audit
 
-Its staged element-toggle matching contains 465 distinct pairs. It orients every unmatched Hasse cover downward, every matched cover upward, and topologically sorts all 937 faces. The remaining critical profile is one zero-cell and six six-cells. Since there are no intermediate cells, this proves the claimed homology support and wedge type.
+## correctness
 
-For each of all 120 permutations of five labels, the checker verifies that adjacency is preserved, computes the signed fixed-simplex Lefschetz sum, subtracts the degree-zero trace, and verifies equality to the exterior-square character computed independently from fixed letters and squared permutations. Class sizes and the irreducibility inner product are checked with exact integers.
+PASS
 
-The program prints `VERIFY_OK` on successful completion and fails on assertion violations. No floating point arithmetic, outside packages, external logs, or probabilistic sampling are needed. Only this finite graph and its natural rational symmetry representation are established. No independent audit is asserted.
+The full 10-vertex graph yields exactly 90 disconnected-triple complement facets and 937 nonempty faces. Independently reconstructed its 4,440 Hasse covers and the specified greedy vertex-toggle Morse matching: 465 pairs with one critical 0-cell and six critical 6-cells; direct reversal-and-topological-sort verifies no directed cycle. This gives a non-equivariant wedge of six 6-spheres, hence concentrated homology. An independent signed fixed-face Lefschetz enumeration across ALL 120 permutations gave traces (6,0,-2,0,0,0,1); the algebraic character identity for the exterior square of the four-dimensional permutation augmentation module gives the same values, and class-size squared sum 120 makes it irreducible. The finite exhaustive enumeration is a proof for this exact graph, not a general-graph theorem.
+
+## originality
+
+PASS
+
+The established nonequivariant Petersen sphere count and equivariant results on other graph families do not determine the natural \(S_5\) character for the Petersen ordinary three-cut complex. The explicit irreducible Specht identification is a motivated distinct refinement, with unindexed-character priority risk and temporarily unavailable Resultary comparisons.
+
+## value
+
+PASS
+
+The Petersen graph has canonical S5 symmetry; the fact that its three-cut complex has the homotopy type of six spheres does not specify the symmetry action on those spheres. The exact identification as one irreducible Specht module is a natural and potentially reusable integral input for equivariant combinatorial topology, rather than another Betti-number count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

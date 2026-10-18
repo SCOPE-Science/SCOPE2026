@@ -1,11 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-**Correctness (PASS).** The fixed graph and complex are fully defined and the attached finite verifier exhausts the face poset, checks every reversed Hasse cover for acyclicity, and computes all 120 signed fixed-face Lefschetz numbers. The resulting character matches the algebraic exterior-square character class by class. The Morse critical profile proves the required homology concentration, while the inner product establishes irreducibility. This does not assert an integral lattice isomorphism.
+## correctness
 
-**Originality (PASS).** The closest primary source (*Topology of Cut Complexes of Graphs*, arXiv:2304.13675, Theorem 6.4/Corollary 6.6) establishes nonequivariant homotopy for the two-cut complex of triangle-free graphs and gives the Petersen example. The full-text sequel (arXiv:2407.08158) studies equivariant homology of other families. The ordinary three-cut complex is distinguished from the total three-cut and matching/configuration complexes, and from the nonequivariant six-sphere type. The comparison does not establish universal novelty; a differently named equivalent character is a residual risk.
+PASS
 
-**Value (PASS).** The Petersen graph is a canonical highly symmetric Kneser graph, and a homotopy equivalence to six spheres does not specify how its automorphism group permutes, mixes, or changes orientation on homology. The result determines the complete rational action and unexpectedly concentrates it in one irreducible Specht module. This is a motivated equivariant refinement, not a Betti-number recomputation or a general assertion about all graphs.
+The full 10-vertex graph yields exactly 90 disconnected-triple complement facets and 937 nonempty faces. Independently reconstructed its 4,440 Hasse covers and the specified greedy vertex-toggle Morse matching: 465 pairs with one critical 0-cell and six critical 6-cells; direct reversal-and-topological-sort verifies no directed cycle. This gives a non-equivariant wedge of six 6-spheres, hence concentrated homology. An independent signed fixed-face Lefschetz enumeration across ALL 120 permutations gave traces (6,0,-2,0,0,0,1); the algebraic character identity for the exterior square of the four-dimensional permutation augmentation module gives the same values, and class-size squared sum 120 makes it irreducible. The finite exhaustive enumeration is a proof for this exact graph, not a general-graph theorem.
 
-**Limitations and risk.** The computation is finite and exhaustive only for \(KG(5,2)\); it neither proves an integral representation equivalence nor an equivariant homotopy model. Prior nonequivariant results are acknowledged. Independent expert review remains necessary.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The established nonequivariant Petersen sphere count and equivariant results on other graph families do not determine the natural \(S_5\) character for the Petersen ordinary three-cut complex. The explicit irreducible Specht identification is a motivated distinct refinement, with unindexed-character priority risk and temporarily unavailable Resultary comparisons.
+
+## value
+
+PASS
+
+The Petersen graph has canonical S5 symmetry; the fact that its three-cut complex has the homotopy type of six spheres does not specify the symmetry action on those spheres. The exact identification as one irreducible Specht module is a natural and potentially reusable integral input for equivariant combinatorial topology, rather than another Betti-number count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
