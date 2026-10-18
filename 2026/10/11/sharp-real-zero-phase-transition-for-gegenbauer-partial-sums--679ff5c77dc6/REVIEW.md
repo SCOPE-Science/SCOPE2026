@@ -1,74 +1,21 @@
-# Review of Sharp real-zero phase transition for Gegenbauer partial sums
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For fixed
-\[
-0<\alpha<1,
-\]
-the DLMF interior asymptotic writes \(C_k^{(\alpha)}(\cos\theta)\) as an oscillatory term with amplitude comparable to
-\[
-k^{\alpha-1}
-\]
-plus a summable
-\[
-O(k^{\alpha-2})
-\]
-remainder, uniformly away from the endpoints. The exact Pochhammer amplitude decreases because
-\[
-(k+2\alpha)/(k+\alpha+1)<1.
-\]
-Uniform Dirichlet summation therefore makes the tail of the Gegenbauer series
-\[
-O(n^{\alpha-1}),
-\]
-and its ordinary sum equals its Abel value
-\[
-(2-2x)^{-\alpha}.
-\]
-Hence the partial sums are eventually positive on every fixed compact interior interval.
+PASS
 
-The exact derivative identity raises the parameter to
-\[
-\alpha+1>1.
-\]
-The primary theorem therefore places all derivative zeros in
-\[
-(-1,1)
-\]
-for large degree and gives their arcsine limiting density. Rolle counting confines any real zeros of the original partial sum to arbitrarily thin endpoint layers, apart from at most one zero on the negative exterior ray. Taking the endpoint-layer width to zero yields
-\[
-R_n(\alpha)/n\to0.
-\]
+For 0<alpha<1, DLMF 18.15.10 supplies a uniform interior asymptotic C_k^(alpha)(cos theta) with amplitude (2alpha)_k/(alpha+1)_k∼k^(alpha-1), decreasing to zero and oscillatory phase; the remainder O(k^(alpha-2)) is summable. Uniform Dirichlet summation proves S_n^(alpha)(x)=(2-2x)^(-alpha)+O_K(n^(alpha-1))>0 on compact K⊂(-1,1). The exact derivative identity S_n'=2alpha S_(n-1)^(alpha+1), together with Tran–White’s all-real derivative zeros and arcsine limiting density for alpha+1>1, bounds the number of real S_n zeros by derivative zeros in shrinking endpoint neighborhoods plus at most three (two components and one negative exterior root). x>=1 positivity follows from generating-function coefficient positivity; x<=-1 admits at most one zero since the derivative has no exterior zeros. The endpoint arcsine mass tends to zero, yielding R_n/n→0. Tran–White Theorem 1 covers alpha>=1; α=1 classical Chebyshev. Exact rational Legendre recurrence checked n=3,5,8,10,12 as a diagnostic only.
 
-## Originality
+## originality
 
-PASS. The fresh paper proves eventual real-rootedness for
-\[
-\alpha\ge1
-\]
-and displays a Legendre counterexample, but it does not state a theorem for all
-\[
-0<\alpha<1
-\]
-or quantify the asymptotic real-zero count.
+PASS
 
-Searches for Gegenbauer partial sums, subcritical real-zero proportions, converse real-rootedness, and exact-source follow-ups found no implication-equivalent published result. Classical positivity papers concern differently weighted or normalized Jacobi/Gegenbauer sums and do not classify the real zeros of the unweighted polynomial in its spatial variable.
+The complete Tran–White full text proves eventual all-real zeros and arcsine distribution only for alpha>=1, with the Legendre case illustrated as nonreal but without an all-alpha<1 real-zero-density bound. DLMF provides the classical ultraspherical asymptotic, not the new zero-count inference via derivative interlacing and endpoint concentration. Ruscheweyh’s 1978 Gegenbauer partial-sum zero-free theorem is about a DIFFERENT polynomial in an auxiliary generating variable with normalized coefficients; it does not imply a count of zeros in x for unweighted sums. No equivalent all-subcritical asymptotic found.
 
-A residual risk is that an older orthogonal-polynomial source may contain the same subcritical consequence under a different partial-sum terminology, but the closest located results do not cover it.
+## value
 
-## Value
+PASS
 
-PASS. The source theorem leaves open whether
-\[
-\alpha\ge1
-\]
-is a true geometric threshold or merely the range accessible to its proof. The new result gives the strongest possible qualitative converse: below \(1\), not just some but asymptotically almost all zeros are nonreal.
+The previously one-sided real-rootedness threshold is shown to be a genuine discontinuity of asymptotic zero geometry: real fraction jumps from zero below alpha=1 to one above. This is a complete natural qualitative phase classification requiring nontrivial uniform asymptotic and derivative zero-density control, although it neither determines finite-n counts nor the complex limiting measure.
 
-This produces a complete zero-geometry phase diagram for the real-zero fraction and identifies the derivative parameter shift
-\[
-\alpha\mapsto\alpha+1
-\]
-as the mechanism connecting the two phases.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
