@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify_sink_complete.py` using Python 3.9 or later in the directory containing both standalone artifacts, then compare standard output with `verification_results.json`. The script requires no third-party packages.
+## correctness
 
-For each \(m\in\{4,5,6\}\), the checker constructs the complete \(m^2\) zero-cells, \(2m\binom m2\) one-cells, and \(\binom m2(\binom m2-1)\) two-cells of the graph-product sink complex, checks every column of \(\partial_1\partial_2=0\), and constructs for every edge two integral triangle cycles whose coordinate product is a unit in that edge and zero elsewhere. It computes the two boundary ranks modulo \(2,3,5,7\), verifies all Betti numbers, and exhaustively checks the signed cellular Lefschetz traces for all \(2m!\) graph-permutation/label-swap combinations.
+PASS
 
-The verified outcomes are \((16,48,30)\) cells with Betti ranks \((1,6,3)\) at \(m=4\), \((25,100,90)\) with \((1,12,26)\) at \(m=5\), and \((36,180,210)\) with \((1,20,85)\) at \(m=6\). The respective counts of checked group elements are \(48,240,1440\).
+For ordered two-particle configurations on the graph K_m with coincidences permitted precisely at original vertices (m≥4), Ramos Theorem 3.2 identifies the natural cubical model as K_m×K_m with exactly E=binom(m,2) interiors of diagonal edge squares deleted. Integral relative long exact sequence yields Q:H1(K_m;Z)⊗H1(K_m;Z)→Z^E taking coordinatewise products of oriented edge coefficients. For every edge ab, distinct c,d outside {a,b} exist and the triangle cycles abc and abd overlap only on that edge, so Q maps their tensor product to ±one standard edge coordinate; hence surjective INTEGRALLY. H1(Y)=Z^{2b}, H2(Y)=ker Q free of rank b²−E, no higher homology, where b=binom(m−1,2). For a permutation π, trace on oriented edge chain is binom(f,2)−t and trace on U=H1(K_m;Q) is p=binom(f,2)−t−f+1; fixed unordered edges F=binom(f,2)+t. Graded swap acts as minus flip on U⊗U and minus on removed edge-square module; exact equivariant characters are H1(π,1)=2p, H1(π,τ)=0, H2(π,1)=p²−F, H2(π,τ)=F−p(π²), with + swap eigenspace wedge²U. Independently computed triangle cycle product Q rank E for m=4,5 yielding Betti (1,6,3), (1,12,26); full all-m proof is symbolic, not finite extrapolation.
 
-These finite computations do not establish any infinite statement by enumeration and modular ranks alone cannot exclude torsion. The all-parameter proof in `RESULT.md` uses an integral surjectivity argument and the integral relative homology long exact sequence, independently of bounded experiments. Group characters are rational and are not claimed to be a classification of integral group lattices. Independent audit status: not performed.
+## originality
+
+PASS
+
+Ramos (2017) supplies the natural sink cubical model and studies general graphs in high particle number and exact tree cases; it does not give this all-m complete-graph integral edgewise-product calculation or S_m×C2 character. Later Ramos–He Yun complete-graph representation results concern collision-free, not vertex-sink, spaces. Resultary published anchored spaces require occupation of designated anchors and allow collisions elsewhere, a different topology; those ranks cannot imply the current characters. The complete-graph all-m integral surjectivity and swap character remain best-of-knowledge original.
+
+## value
+
+PASS
+
+The complete graph is a canonical highly symmetric graph and the all-vertex sink convention is a natural and distinct collision model. A uniform integral additive-homology classification with no torsion and the full S_m×C2 character reveals nontrivial sign and edge-permutation structure invisible to nonequivariant ranks. The edgewise cycle-product surjectivity is reusable for comparing other graph families and genuinely mathematical, not a mere finite enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
