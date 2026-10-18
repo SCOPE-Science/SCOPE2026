@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T06:12:30Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md SHA d8b685f10ec98b84e191979599c3faca1abac8d1",
+        "frozen verifier SHA ae0a1d8a7bd67ba227204f95ce4f8fc67d367a1c",
+        "independent SymPy extrema/normalization /mnt/data/scope05_independent_replay.py",
+        "Lassak 2003 full text Theorem 1 centered treatment"
+      ],
+      "rationale": "For centered affine-regular hexagons H=conv{±u,±v,±(v−u)} with nonsingular u,v, area=3|det(u,v)|. Regular unit octagon has eight facets n_j·z≤1 over Q(√2), n_j=(±1,±(√2−1)) or swapped. Dihedral symmetry fixes u on first edge. The boundary conditions for v and v−u reduce via facet enumeration to three positive determinant edge chambers (and reflected negative partners), with quadratic D_i(s) and parameter intervals in frozen RESULT.md. Independently symbolically differentiated all three D_i and verified their endpoint maximum (3−√2)/2, unique interior minimum (2+3√2)/8 at s=1/2−√2/4, 1/2, 1/2+√2/4, with middle chamber spanning the full range. The area spectrum is 3 times determinant interval, divided by octagon area 2√2 for normalized interval. Independently enumerated 8^5 possible active facet assignments for general translated center c (using linear solves and linear-program feasibility): 3392 rank-deficient facet systems, 29 feasible polyhedra and no detected noncentral nondegenerate sampled vertex-pair solutions; this computational exploration does not by itself formally prove centrality or exhaustive positive-dimensional interior cases. Lassak 2003 explicitly treats the same center o of K and inscribed H in its extremal theorem, consistent with the centered reduction. Bundled verify.py has complete symbolic chamber enumeration but uses high-precision float comparisons for signs, so call it exact symbolic formulas with numerically classified signs, not fully certified sign arithmetic.",
+      "residual_risks": [
+        "Centered reduction for all inscribed affine-regular hexagons relies on central symmetry/inscribed convention and Lassak treatment; unconstrained translated hexagons were examined by bounded facet LP but formal proof of centering was not independently reconstructed. The facet proof and source checker assert all cases; mathematical residual risk retained. VERIFICATION.md contains U+000C formfeed disrupting a fraction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lassak 2003 Theorem1 gives additional dodecagon-vertex pair criteria for extrema of inscribed affine-regular hexagons in any centrally symmetric body.",
+          "Theorem2 establishes existence of an *inscribed* centrally symmetric octagon, not the area spectrum for a prescribed regular octagon.",
+          "Lassak 2004 concerns relatively equilateral polygons, not this numerical spectrum."
+        ],
+        "reasoning": "General qualitative conditions cover larger body families but do not evaluate determinant extremal values in the regular octagon; octagon packing remarks concern different invariant.",
+        "searches": [
+          "DOI:10.1515/advg.2003.004 Theorem1/2",
+          "DOI:10.5486/PMD.2004.2953",
+          "search query: affine regular hexagon inscribed regular octagon exact minimum maximum area spectrum Lassak"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1515/advg.2003.004 full pp45–51",
+        "EUDML:123070",
+        "DOI:10.5486/PMD.2004.2953 abstract",
+        "search query: affine regular hexagon inscribed regular octagon exact minimum maximum area spectrum Lassak"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Structural extremal contact information does not evaluate extrema on a specified polytope.",
+          "Prior mention of regular octagon gives homothetic self-packing ratio (5+2√2)/17, mathematically different from relative hexagon area."
+        ],
+        "reasoning": "No implication from prior packing bound to these two determinant radicals; new octagon facet calculation is necessary and supplied.",
+        "searches": [
+          "Lassak 2003 Theorem1, Theorem2, last section discussion",
+          "search query: affine regular hexagon inscribed regular octagon exact minimum maximum area spectrum Lassak"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Centered affine-regular hexagon is equivalently three boundary vectors u,v,v−u with their antipodes, area 3|det(u,v)|.",
+          "General terminology includes affinely regular inscribed 6-gons, smallest/largest area in a centrally symmetric disk."
+        ],
+        "reasoning": "Matched the area problem through vector-determinant and extremal hexagon names; an arbitrary inscribed octagon in Lassak Theorem2 must not be mistaken for the regular octagon of this claim.",
+        "searches": [
+          "Lassak 2003 DOI:10.1515/advg.2003.004",
+          "search query: affine regular hexagon inscribed regular octagon exact minimum maximum area spectrum Lassak"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary paper gives no octagon minimum or maximum inscribed hexagon area formula at the inspected theorem/remarks.",
+          "Exact normalized endpoints (9+3√2)/16 and (9√2−6)/8 derive from three distinct quadratic chambers, not a known table seen."
+        ],
+        "reasoning": "The octagon is natural fixed body rather than arbitrary slice; exact area pair and entire range were not found in the checked source or metadata. Older unindexed geometry tables remain possible.",
+        "searches": [
+          "Lassak 2003 Theorem1/2 and regular octagon packing remark",
+          "EUDML:123070",
+          "search query: affine regular hexagon inscribed regular octagon exact minimum maximum area spectrum Lassak"
+        ]
+      },
+      "rationale": "Lassak 2003 addresses the exact extremal geometric object in every centrally symmetric planar body but gives structural necessary extremal conditions rather than the numerical octagon spectrum. Its reference to the regular octagon concerns packing ratio, not area extremizers. The specialized facet enumeration and complete attainable interval are a new natural exact case on the inspected evidence.",
+      "residual_risks": [
+        "Older unindexed octagon geometric optimizations might record exact extremes.",
+        "Incomplete formal proof of global centered reduction for all translated candidates; independent LP survey found no counterexample but numerical survey cannot substitute for analytic exhaustive argument.",
+        "Source verify.py numerical sign decisions and existing U+000C malformed display should be corrected for certification.",
+        "Resultary mandatory search temporarily_unavailable/search_completed:false."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_EXTREMAL_STRUCTURE_NOT_REGULAR_OCTAGON_AREA_SPECTRUM",
+          "evidence": [
+            "Theorem 1/2, common-center line, last section regular octagon ratio unrelated to area spectrum"
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/244959566_Affine-Regular_Hexagons_of_Extreme_Areas_Inscribed_in_A_centrally_Symmetric_Convex_Body",
+          "material_read": "Full-text original pp45–51: introduction, Theorem1, proof centered at common center o, Theorem2, regular octagon packing remarks and references",
+          "method": "author-uploaded 2003 paper full-text HTML PDF transcription",
+          "title": "Affine-regular hexagons of extreme areas inscribed in a centrally symmetric convex body",
+          "trigger": "Exact extremal object and potential stronger theorem"
+        },
+        {
+          "assessment": "SAME_PRIMARY_PAPER, NOT_AN_EXTRA_RESULT",
+          "evidence": [
+            "Year 2003, Advances in Geometry 3:45–51"
+          ],
+          "identifier_or_url": "https://eudml.org/doc/123070",
+          "material_read": "Bibliographic EUDML record and full-PDF availability; no extra mathematical full text beyond author copy",
+          "method": "EUDML bibliographic record",
+          "title": "Affine-regular hexagons of extreme areas inscribed in a centrally symmetric convex body",
+          "trigger": "Exact database entry for source comparison"
+        },
+        {
+          "assessment": "RELATIVE_DISTANCE_PROBLEM rather than exact hexagon area",
+          "evidence": [
+            "Different invariant: relatively equilateral polygons"
+          ],
+          "identifier_or_url": "https://doi.org/10.5486/PMD.2004.2953",
+          "material_read": "Title and result summary/bibliographic information, not full text reread this turn",
+          "method": "publisher/author bibliographic record",
+          "title": "On relatively equilateral polygons inscribed in a convex body",
+          "trigger": "Related affine-regular hexagons potentially same invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Lassak 2003 §1/theorems",
+        "exact octagon facet chamber structure"
+      ],
+      "rationale": "The regular octagon is a canonical symmetric test body for the general extremal-area affine-regular hexagon problem, contrasted with the constant-area ellipse/parallelogram cases. Exact min/max together with attainment of *every* intermediate area give a complete meaningful finite classification and benchmark for centrally symmetric convex geometry, not an arbitrary coefficient trick or small gain.",
+      "residual_risks": [
+        "A more general exact regular-2m-gon theorem might dominate this case, but none was materially found; the result is intentionally one natural body."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Inscribed centered convention/all-candidate coverage must be independently formalized to eliminate numerical active-facet LP residual; no extrapolation to arbitrary bodies.",
+    "Source VERIFICATION.md contains formfeed U+000C in LaTeX; plan not_ready.",
+    "Resultary search failed; no exhaustive priority certification."
+  ]
+}

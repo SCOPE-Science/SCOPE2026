@@ -1,16 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Every centered affine-regular hexagon has the exact representation
-\[
-\operatorname{conv}\{\pm u,\pm v,\pm(v-u)\}
-\]
-and area \(3\lvert\det(u,v)\rvert\). Dihedral symmetry fixes \(u\) to one octagon edge. Solving the other two boundary conditions against the eight exact facet inequalities leaves exactly three positive-orientation chambers and their reflections. In each chamber the determinant is the displayed convex quadratic. Direct differentiation gives the common minimum \((2+3\sqrt2)/8\), while every chamber endpoint has the common maximum \((3-\sqrt2)/2\). The middle chamber realizes every intermediate determinant value. The bundled checker independently enumerates all oriented edge cases symbolically over \(\mathbb Q(\sqrt2)\).
+## correctness
 
-## Originality
-**PASS, with an elementary-computation residual risk.** Lassak's primary paper was materially inspected through its introduction, Theorem 1, the extreme-area discussion, Theorem 2, and the remarks on bodies with constant affine-regular-hexagon area. It gives structural necessary conditions for extreme positions in arbitrary centrally symmetric bodies but does not evaluate the regular octagon. A later full-text paper on relatively equilateral polygons uses affine-regular hexagons as canonical objects but likewise does not supply the octagonal extreme-area spectrum. Searches under regular-octagon, affine-regular-hexagon, minimum/maximum area, and area-spectrum formulations found no implication-equivalent result.
+PASS
 
-## Value
-**PASS.** The invariant is exactly the extreme-area quantity studied in the motivating primary paper, and the regular octagon is the first highly symmetric centrally symmetric regular polygon beyond the constant-area parallelogram case where a nontrivial spectrum occurs. The result gives both sharp extrema and the complete attainable interval, providing a concrete benchmark for the general extreme-area theory and quantifying how close the octagon is to the constant-area phenomenon.
+For centered affine-regular hexagons H=conv{±u,±v,±(v−u)} with nonsingular u,v, area=3|det(u,v)|. Regular unit octagon has eight facets n_j·z≤1 over Q(√2), n_j=(±1,±(√2−1)) or swapped. Dihedral symmetry fixes u on first edge. The boundary conditions for v and v−u reduce via facet enumeration to three positive determinant edge chambers (and reflected negative partners), with quadratic D_i(s) and parameter intervals in frozen RESULT.md. Independently symbolically differentiated all three D_i and verified their endpoint maximum (3−√2)/2, unique interior minimum (2+3√2)/8 at s=1/2−√2/4, 1/2, 1/2+√2/4, with middle chamber spanning the full range. The area spectrum is 3 times determinant interval, divided by octagon area 2√2 for normalized interval. Independently enumerated 8^5 possible active facet assignments for general translated center c (using linear solves and linear-program feasibility): 3392 rank-deficient facet systems, 29 feasible polyhedra and no detected noncentral nondegenerate sampled vertex-pair solutions; this computational exploration does not by itself formally prove centrality or exhaustive positive-dimensional interior cases. Lassak 2003 explicitly treats the same center o of K and inscribed H in its extremal theorem, consistent with the centered reduction. Bundled verify.py has complete symbolic chamber enumeration but uses high-precision float comparisons for signs, so call it exact symbolic formulas with numerically classified signs, not fully certified sign arithmetic.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Lassak 2003 addresses the exact extremal geometric object in every centrally symmetric planar body but gives structural necessary extremal conditions rather than the numerical octagon spectrum. Its reference to the regular octagon concerns packing ratio, not area extremizers. The specialized facet enumeration and complete attainable interval are a new natural exact case on the inspected evidence.
+
+## value
+
+PASS
+
+The regular octagon is a canonical symmetric test body for the general extremal-area affine-regular hexagon problem, contrasted with the constant-area ellipse/parallelogram cases. Exact min/max together with attainment of *every* intermediate area give a complete meaningful finite classification and benchmark for centrally symmetric convex geometry, not an arbitrary coefficient trick or small gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
