@@ -1,16 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source algorithm, efficient-rank rule, thresholding map, lower-bound update, and simple-step rule were reconstructed from the primary full text. For the stated quadratic, \(L=\mu=1\), \(B_t=0\), and \(d_t=\sqrt2|s_t|\) follow exactly. The first two updates, iteration-three rank test, full-rank oracle map, invariant rank-two region, gamma product, and exact-line-search collapse were derived symbolically and replayed from the packaged checker.
+## correctness
 
-Risk: the claim is intentionally confined to the diagonal invariant line and the stated parameter choices. It does not infer behavior outside that domain.
+PASS
 
-## Originality
-PASS. Searches covered the primary source identifier and title, efficient/thresholding rank aliases, centered quadratic and full-rank formulations, exact finite rank identification, gamma-product trajectories, and simplex/spectral-oracle reductions. The closest published work proves general convergence or defines the predecessor oracle geometry but does not state or imply the exact iteration-three identification plus closed trajectory and objective exponent.
+Conditional on the primary method's Algorithm1 thresholding/radius definition quoted in the inspected source package, f(X)=||X−I/2||_F²/2 has L=mu=1, optimum X*=I/2, initial lower bound B0=f*=0 and scalar diagonal coordinate f=s². With eta1=1, eta2=2/3 and opposite rank-one oracle, s1=−sgn(s0)/2, s2=sgn(s0)/6. Since d2=sqrt2/6 < smallest eigenvalue(X2)=1/3, the thresholding and efficient ranks both become full 2 at t=3; for |s|<=1/6 inequality 1/2−|s|−sqrt2|s|>0 is invariant. Full oracle maps s to −(1+sqrt2)s, giving recurrence s_t=(t−3−2sqrt2)/(t+1)s_{t−1}, t>=3, and exact gamma product with objective exponent 8+4sqrt2. Exact line search from any nonzero diagonal start reaches I/2 at t=1. Independent symbolic gamma-product iterations through t=24 confirmed the recurrence and invariant range. The full primary ERSO-FW article could not be read, so matching the source algorithm's quoted normalization remains an explicit correctness-documentation risk, not silently independently certified.
 
-Risk: the diagonal family is isomorphic to a two-coordinate simplex problem, so an unlocated specialized simplex calculation could reproduce part of the algebra. The inspected full-text predecessor gives the simplex-ball oracle and general rates but no matching exact trajectory or exponent.
+## originality
 
-## Value
-PASS. Rank identification is the central mechanism of the 2026 method. A completely solvable full-rank benchmark gives a sharp finite identification time, quantifies the conservatism of the general burn-in bound on a natural isotropic model, and isolates the large dynamical difference between the source's canonical simple steps and exact line search. The result is structural rather than a numerical recomputation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge, with substantive documented primary access gap: 2026 ERSO-FW establishes general eventual rank identification, while checked 2020 spectral FW and 2025 simplex precursor do not determine this exact centered trajectory, t=3 optimal-rank event, gamma-product exponent or one-step line-search contrast.
+
+## value
+
+PASS
+
+Rank identification is the central stated design goal of the new optimization method. A solvable isotropic full-rank benchmark provides a meaningful exact finite identification time (3 vs generic sufficient 290), reveals unusual gamma exponent 8+4sqrt2 for simple steps, and demonstrates the one-step contrast with exact line search. This motivated algorithm-specific structural calculation is not just a tiny numerical gain or normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

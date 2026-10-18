@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T14:08:12.063312Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditional on the primary method's Algorithm1 thresholding/radius definition quoted in the inspected source package, f(X)=||X−I/2||_F²/2 has L=mu=1, optimum X*=I/2, initial lower bound B0=f*=0 and scalar diagonal coordinate f=s². With eta1=1, eta2=2/3 and opposite rank-one oracle, s1=−sgn(s0)/2, s2=sgn(s0)/6. Since d2=sqrt2/6 < smallest eigenvalue(X2)=1/3, the thresholding and efficient ranks both become full 2 at t=3; for |s|<=1/6 inequality 1/2−|s|−sqrt2|s|>0 is invariant. Full oracle maps s to −(1+sqrt2)s, giving recurrence s_t=(t−3−2sqrt2)/(t+1)s_{t−1}, t>=3, and exact gamma product with objective exponent 8+4sqrt2. Exact line search from any nonzero diagonal start reaches I/2 at t=1. Independent symbolic gamma-product iterations through t=24 confirmed the recurrence and invariant range. The full primary ERSO-FW article could not be read, so matching the source algorithm's quoted normalization remains an explicit correctness-documentation risk, not silently independently certified.",
+      "risk": [
+        "Exact algorithm-normalization provenance cannot be independently checked against unread full 2609.08522 source; primary accessible abstract identifies efficient rank but no equations.",
+        "Restricted to diagonal 2x2 centered quadratic and exact B0=0, mu=1, simple step t index; no generic guarantee or inference for nondiagonal starts."
+      ],
+      "sources": [
+        "RESULT.md blob 0da6f9c53cc62bc09dd932c9de44cc931f6b04d9",
+        "VERIFICATION.md blob 75aa7afd11b411a1686ae8eac11f1575c1d8cff1",
+        "independent_1683_checks.py CENTERED_ERSO_GAMMA_PRODUCT_BURN_IN_AND_EXPONENT_OK"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "ERSO-FW source abstract asserts eventual r* identification and linear convergence; this does not numerically imply exact identification iteration three or the exotic polynomial objective exponent for simple steps.",
+          "Ding et al. 2020 analyze fixed-rank spectral FW, different selected-rank dynamics."
+        ],
+        "reasoning": "The general guarantees are weaker about this exact instance. Full relevant 2026 paper was not accessed, so no whole-manuscript noncoverage assertion.",
+        "searches": [
+          "arxiv:2609.08522 public abstract method and finite burn-in theorem description",
+          "arxiv:2006.01719 Sections 1 and algorithms",
+          "arxiv:2509.24279 simplex FW method"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2609.08522",
+        "arxiv:2006.01719",
+        "arxiv:2509.24279"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General rhat_t<=r_t<=r* and eventual rank identification do not fix iteration 3, the multiplier (t−3−2sqrt2)/(t+1), or the asymptotic coefficient.",
+          "Simplex predecessor may geometrically motivate but uses its own algorithm and assumptions."
+        ],
+        "reasoning": "A reader must compute source-specific radius, oracle, switching, and recurrence. This additional analysis does not follow by mere numerical substitution into a quoted asymptotic convergence bound; inaccessible full source remains a material risk.",
+        "searches": [
+          "arxiv:2609.08522 abstract",
+          "arxiv:2006.01719 original spectral FW algorithm",
+          "arxiv:2509.24279 simplex FW source sections"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The full-rank centered 2x2 spectrahedron line is isomorphic to two-point simplex, so a simplex-oracle exact trajectory would be an equivalent formulation.",
+          "Inspected preceding simplex method describes generic geometry but no matching exact ERSO t=3/gamma law in relevant text."
+        ],
+        "reasoning": "Aliased the method to adaptive block Frank–Wolfe, simplex ball and invariant scalar recurrence; no covering identity located, with unread originating source flagged.",
+        "searches": [
+          "rank identification centered two by two spectrahedron rank adaptive Frank Wolfe exact steps gamma asymptotic",
+          "arxiv:2609.08522 centered Frobenius spectrahedron efficient rank threshold rank",
+          "arxiv:2509.24279 simplex Frank Wolfe spectral nonconvex oracle"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact two-coordinate trajectory or t^(−8−4sqrt2) result emerged from the result database.",
+          "Prior published algorithms primarily give finite convergence-rate bounds and rank assumptions, not an exact orbit table."
+        ],
+        "reasoning": "The claim is not simply lookup of a numerical constant: explicit scalar dynamics and gamma-product asymptotic require solving a recurrence. Database nonfindings are bounded.",
+        "searches": [
+          "rank identification centered two by two spectrahedron rank adaptive Frank Wolfe exact steps gamma asymptotic",
+          "published Resultary search centered 2x2 gamma exponent efficient rank Frank Wolfe",
+          "arxiv:2006.01719 Algorithms1–3"
+        ]
+      },
+      "rationale": "Best-of-knowledge, with substantive documented primary access gap: 2026 ERSO-FW establishes general eventual rank identification, while checked 2020 spectral FW and 2025 simplex precursor do not determine this exact centered trajectory, t=3 optimal-rank event, gamma-product exponent or one-step line-search contrast.",
+      "residual_risks": [
+        "Critical origin paper arxiv:2609.08522 full Algorithm1 and proof were inaccessible through lawful public routes; Oxford returned vpn_disconnected; source formula correspondence not independently cross-checked.",
+        "The general source may already contain a stronger explicit special-case trajectory in unread sections; this cannot be dismissed by an abstract.",
+        "A precise two-coordinate simplex reduction might be known under other method nomenclature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Cannot certify full text does not already contain trajectory or audit exact Algorithm1 normalization independently",
+          "evidence": "Abstract gives rank adaptive spectral oracle and eventual rank identification, not exact centered special case.",
+          "identifier_or_url": "arxiv:2609.08522v1",
+          "material_read": "Full abstract and metadata only; PDF/HTML and ar5iv inaccessible, authorized institutional retrieval returned vpn_disconnected, job beef19e835d400639d51e4c98ae141dc",
+          "method": "arxiv abstract and lawful alternative attempts; Oxford authorization respected",
+          "title": "Rank-Adaptive and Linearly Convergent Frank–Wolfe Method over Spectrahedron via Nonconvex Oracle",
+          "trigger": "Precisely specified source algorithm and potential prior coverage"
+        },
+        {
+          "assessment": "Fixed-rank spectral/block method, not same ERSO efficient-rank sequence",
+          "evidence": "Algorithm2 uses fixed k eigenvectors; line search and spectral FW bounds are not the gamma trajectory.",
+          "identifier_or_url": "arxiv:2006.01719v4",
+          "material_read": "Full accessible primary PDF, introduction and Algorithms1–3 with hypotheses and rates; relevant algorithms/sections inspected",
+          "method": "arxiv open PDF",
+          "title": "Spectral Frank-Wolfe Algorithm: Strict Complementarity and Linear Convergence",
+          "trigger": "Earlier spectral matrix-constrained FW method"
+        },
+        {
+          "assessment": "Simplex oracle source may share geometry but no inspected exact 2x2 ERSO trajectory",
+          "evidence": "Generic simplex relaxation algorithm and rates rather than iteration-three efficient-rank event.",
+          "identifier_or_url": "arxiv:2509.24279",
+          "material_read": "Full accessible primary PDF, method and convergence overview; no claim to having read all 47 pages",
+          "method": "arxiv open PDF",
+          "title": "Simplex Frank–Wolfe: Linear Convergence and Its Numerical Efficiency for Convex Optimization over Polytopes",
+          "trigger": "Closest geometric simplex precursor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Rank identification is the central stated design goal of the new optimization method. A solvable isotropic full-rank benchmark provides a meaningful exact finite identification time (3 vs generic sufficient 290), reveals unusual gamma exponent 8+4sqrt2 for simple steps, and demonstrates the one-step contrast with exact line search. This motivated algorithm-specific structural calculation is not just a tiny numerical gain or normalization check.",
+      "risk": [
+        "Highly special diagonal start and exact parameters; no generic linear-convergence or worst-case claim, source matching access risk."
+      ],
+      "sources": [
+        "arxiv:2609.08522",
+        "arxiv:2006.01719",
+        "arxiv:2509.24279"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Centered diagonal 2x2 spectrahedron, nonzero |s0|<=1/2, B0=0, mu=L=1, eta_t=2/(t+1); separate exact line search branch.",
+    "The primary arxiv:2609.08522 full text was not accessible and authorization was not bypassed; uncertainty disclosed instead of fabricated noncoverage."
+  ],
+  "schema_version": 1
+}
