@@ -1,19 +1,21 @@
-# Review of Sharp dyadic floors and the complete sub-five spectrum of the two-block odd partition function
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof uses the exact published formulas for \(a(n)\), then establishes the needed bounds on \(\lambda(m)\) directly from its prime-power factors. The dyadic minima follow from \(0\le\lambda(m)\le\tau(m)\) and \(\sigma(m)-\tau(m)\ge m-1\) for odd \(m>3\). The sub-five spectrum is exhausted by a prime, prime-power, and multiple-prime-factor case split for \(\sigma(m)-\lambda(m)\le16\). No finite experiment is used as an infinite proof.
+PASS
 
-## Originality
+Read frozen RESULT.md and METADATA.json, independently reconstructed the divisor identity a(2^k m)=((2^(k+1)-3)σ(m)-λ(m))/4 for k>=1, m odd and the bound 0<=λ(m)<=τ(m). For k>=2, m=1 attains 2^(k-1)-1; among m>1, m=3 attains 2^(k+1)-3, and m>3 gives strict inequality because σ(m)-τ(m)>=m-1>=4 and C_k>1. For odd m, prime, higher-prime-power and two-prime-factor cases rigorously exclude all further a(m)<5; doubling a(2m)=a(m), and dyadic bounds limit k>=2 to 4,8. Independently computed signed q-series and divisor sums for n<=100 and checked fibers; no finite test used to infer the global theorem.
 
-PASS. The first primary paper proves the zero set \(\{1,2\}\) and the coefficient formula. The second primary paper proves the dyadic identity and congruence consequences. Full-text inspection and published-finding corpus searches found no statement of the sharp dyadic minima/equality cases or the exact fibers \(a(n)=1,2,3,4\). The known zero fiber is explicitly credited and is not counted as new.
+## originality
 
-## Value
+PASS
 
-PASS. The theorem gives a natural exact lower-envelope structure and a complete classification of all coefficient values strictly below \(5\). The cutoff is structural: \(5\) is the first possible coefficient on the \(k=2\) dyadic layer once the pure power of two is removed. This supplies exact boundary data for a signed partition function whose prior theory established positivity but not its first positive fibers.
+The structural dyadic identity and positivity/zero set are already in Merca (2026); only the sharp layer minima, equality cases and complete pre-five fibers are assessed. The newer Merca dyadic source is abstract-accessible, with full text uninspected because open arXiv attempts failed and authorized institutional access returned VPN disconnected; this is residual risk, not proof of novelty. No equivalent family theorem was identified in accessible primary results or the semantic records.
 
-## Closest literature and limitations
+## value
 
-The closest literature consists of Merca's two 2026 papers on the same function. The result is deliberately limited to dyadic minima and coefficient fibers below \(5\); no claim is made about complete higher fibers or coefficient asymptotics. Literature searches cannot prove uniqueness, and very recent indexing may be incomplete.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact sharp minima on each dyadic layer and the entire sub-five fiber classification are natural arithmetic information about an introduced signed partition statistic. The cutoff is motivated rather than arbitrary: 5 is the first non-pure-power-of-two value possible on layer k=2. The classification does not pretend to solve higher fibers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

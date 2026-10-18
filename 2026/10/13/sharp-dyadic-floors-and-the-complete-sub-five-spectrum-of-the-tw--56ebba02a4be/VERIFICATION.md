@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The infinite proof is symbolic. It depends on two published exact identities for the two-block odd partition function and on elementary divisor inequalities proved in `RESULT.md`.
+# Independent mathematical audit
 
-The bundled `artifacts/verify.py` performs three finite consistency checks:
+## correctness
 
-1. It evaluates the defining signed partition sum directly and compares it with the divisor-sum formula for every \(1\le n\le120\).
-2. It computes the divisor-sum formula for every \(1\le n\le20000\) and verifies that the fibers \(a(n)=0,1,2,3,4\) are exactly the sets stated in the theorem.
-3. It tests the sharp dyadic bounds for \(2\le k\le12\) and every odd \(3\le m<1000\), including the equality case \(m=3\).
+PASS
 
-These finite checks test normalization and arithmetic implementation only. They do not certify the universal quantifiers; those are established by the proof.
+Read frozen RESULT.md and METADATA.json, independently reconstructed the divisor identity a(2^k m)=((2^(k+1)-3)σ(m)-λ(m))/4 for k>=1, m odd and the bound 0<=λ(m)<=τ(m). For k>=2, m=1 attains 2^(k-1)-1; among m>1, m=3 attains 2^(k+1)-3, and m>3 gives strict inequality because σ(m)-τ(m)>=m-1>=4 and C_k>1. For odd m, prime, higher-prime-power and two-prime-factor cases rigorously exclude all further a(m)<5; doubling a(2m)=a(m), and dyadic bounds limit k>=2 to 4,8. Independently computed signed q-series and divisor sums for n<=100 and checked fibers; no finite test used to infer the global theorem.
+
+## originality
+
+PASS
+
+The structural dyadic identity and positivity/zero set are already in Merca (2026); only the sharp layer minima, equality cases and complete pre-five fibers are assessed. The newer Merca dyadic source is abstract-accessible, with full text uninspected because open arXiv attempts failed and authorized institutional access returned VPN disconnected; this is residual risk, not proof of novelty. No equivalent family theorem was identified in accessible primary results or the semantic records.
+
+## value
+
+PASS
+
+The exact sharp minima on each dyadic layer and the entire sub-five fiber classification are natural arithmetic information about an introduced signed partition statistic. The cutoff is motivated rather than arbitrary: 5 is the first non-pure-power-of-two value possible on layer k=2. The classification does not pretend to solve higher fibers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
