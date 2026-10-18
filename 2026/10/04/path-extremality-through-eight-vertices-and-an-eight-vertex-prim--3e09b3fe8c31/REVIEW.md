@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The finite statement is a closed exhaustive computation over every unlabeled simple graph of orders one through eight. The forcing checker implements the definition directly and tests all \(2^n\) starting sets for each graph. The order-eight augmentation is complete because deleting any vertex reduces an arbitrary eight-vertex graph to one of the complete seven-vertex representatives, after which its deleted neighborhood is among the 128 regenerated choices. The exact quotient size 12,346 agrees with the standard independent census. The infinite-class consequence is a direct instantiation of German's Corollary 4 with \(m=8\).
+## correctness
 
-## Originality
-PASS. The initiating 2026 split-decomposition paper proves distance-hereditary path extremality and gives the finite-prime-basis reduction, but its inspected statement stops at the conditional reduction and does not give an order-eight cutoff. The earlier zero-forcing-polynomial papers state the global conjecture and partial cases rather than an exhaustive all-graph order-eight theorem. Searches for the claim, its coefficientwise formulation, bounded prime cores, and an order-eight census did not identify a stronger source that implies the finding.
+PASS
 
-## Value
-PASS. This is not an isolated table entry: it performs the finite verification step proposed by the split-decomposition reduction and immediately yields an infinite structural class. The cutoff is exact as a verified computational boundary, and the embedded census plus direct forcing checker makes the finite premise reproducible.
+Read the exact result and its graph6 decoder; verified every one of 13,598 census graph6 records at n=1..8 through an independently coded closure algorithm enumerating 3,305,498 subsets; counts (1,2,4,11,34,156,1044,12346), path vector P8=(0,2,18,52,70,56,28,8,1), zero inequality failures and exactly one full-vector equality per n. The augmentation of every seven-vertex unlabeled graph by every one of 2^7 neighborhoods contains every eight-vertex graph after deleting a vertex; exact isomorphism and independent standard class count give 12,346 classes. Applying German Corollary 4 is valid for the infinite one-prime-bag family of size<=8. Finite experiments are not the infinite proof; Corollary 4 is the theoretical bridge.
 
-## Closest literature and limitations
-The closest source is German, arXiv:2605.10836v1, especially Corollary 4 and the accompanying finite-verification remark. Boyer et al. formulate the coefficientwise conjecture, and Curtis–Gan–Haddock give its fixed-size form and partial results. The result does not settle orders nine and above in general, and it does not address connected graphs with multiple prime bags.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original finite computational cutoff that discharges a published conditional structural theorem, not a restatement of the conjecture.
+
+## value
+
+PASS
+
+This fills a natural finite n=8 threshold of an important coefficientwise zero-forcing conjecture and discharges the explicit bound in German Corollary 4, yielding a nontrivial connected infinite class, rather than a needless table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

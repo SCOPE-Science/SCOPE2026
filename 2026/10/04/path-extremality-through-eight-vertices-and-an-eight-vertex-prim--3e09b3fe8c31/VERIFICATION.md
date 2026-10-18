@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,21 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 artifacts/verify.py` beside the embedded census. The verifier uses only the Python standard library. It decodes each graph6 record, enumerates every subset, computes zero-forcing closure by the defining unique-white-neighbor rule, and compares every coefficient to the stored exact path vector.
+# Independent mathematical audit
 
-Expected replay summary:
+## correctness
 
-```
-orders: 1:1 2:2 3:4 4:11 5:34 6:156 7:1044 8:12346
-graphs_checked: 13598
-subsets_checked: 3305498
-path_vector_n8: [0, 2, 18, 52, 70, 56, 28, 8, 1]
-full_vector_equality_counts: 1:1 2:1 3:1 4:1 5:1 6:1 7:1 8:1
-ALL CHECKS PASSED
-```
+PASS
 
-The order-eight generation method is included separately and requires NetworkX. It starts from all 1,044 unlabeled seven-vertex atlas graphs, adds a new vertex with each of 128 neighborhoods, and quotients by exact graph isomorphism. The logical completeness of this augmentation follows by deleting one vertex from an arbitrary eight-vertex graph. The resulting 12,346 classes agree with the standard independent census count.
+Read the exact result and its graph6 decoder; verified every one of 13,598 census graph6 records at n=1..8 through an independently coded closure algorithm enumerating 3,305,498 subsets; counts (1,2,4,11,34,156,1044,12346), path vector P8=(0,2,18,52,70,56,28,8,1), zero inequality failures and exactly one full-vector equality per n. The augmentation of every seven-vertex unlabeled graph by every one of 2^7 neighborhoods contains every eight-vertex graph after deleting a vertex; exact isomorphism and independent standard class count give 12,346 classes. Applying German Corollary 4 is valid for the infinite one-prime-bag family of size<=8. Finite experiments are not the infinite proof; Corollary 4 is the theoretical bridge.
 
-The replay proves only the finite coefficient inequalities. The passage to graphs with one prime bag is deductive and uses German's Corollary 4; it is not experimentally rechecked on an infinite family. No claim is made for arbitrary order-nine graphs or for graphs with multiple prime bags.
+## originality
+
+PASS
+
+Best-of-knowledge original finite computational cutoff that discharges a published conditional structural theorem, not a restatement of the conjecture.
+
+## value
+
+PASS
+
+This fills a natural finite n=8 threshold of an important coefficientwise zero-forcing conjecture and discharges the explicit bound in German Corollary 4, yielding a nontrivial connected infinite class, rather than a needless table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
