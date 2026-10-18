@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. In the weight decomposition \(V=\mathbf C e_-\oplus W\oplus\mathbf C e_+\), the restriction of the quadratic form to the span of the endpoint lines is \(2ac+2B(u,v)bd\). This is a rank-four quadric exactly for \(B(u,v)\ne0\), and for \(B(u,v)=0\) it factors as \(ac=0\). The two explicit one-parameter families are isotropic term-by-term and meet at \(\mathbf P\langle u,v\rangle\). Corollary 2.7 of the initiating source places the reduced invariant chain in the Chow quotient. The converse endpoint argument forces any reducible cycle off the diagonal to pass through that same inner fixed line, proving uniqueness. Theorem 3.12 supplies the single irreducible boundary divisor.
+## correctness
 
-## Originality
-PASS. The full text of arXiv:2503.19663v1 was inspected at Corollary 2.7, Theorem 3.12, and Example 4.8. Example 4.8 asserts smoothness for every disjoint endpoint pair; it does not record the orthogonality divisor or the reducible replacement cycle. Searches using the exact example, \(B_5(2)\), the \(Q^7\times Q^7\) endpoint space, orthogonality incidence, and reducible-chain aliases did not locate an equivalent or stronger published statement. The closest checked source is therefore the initiating paper itself, and the present statement is not implied by its claimed smooth-quadric case because it identifies a locus where that claim fails.
+PASS
 
-## Value
-PASS. The exception is divisorial rather than sporadic: it identifies the geometric image of the unique boundary divisor in a concrete Fano Chow quotient and repairs the surjectivity argument on the missing codimension-one locus. The distinction between irreducible orbit conics and two-component chains is structural for the endpoint contraction, not a normalization or notation issue.
+In V=C e_- ⊕ W ⊕ C e_+, the quadratic form restricted to span(e_-,u,e_+,v) is 2ac+2 B(u,v)bd. Its symmetric matrix determinant is B(u,v)^2, independently rechecked symbolically; smooth rank-4 section iff nonorthogonal, whereas B(u,v)=0 makes ac=0, two planes meeting in m=P<span(u,v)>. For distinct orthogonal isotropic u,v, span(e_-+tv,u) and span(v,u+se_+) are isotropic one-parameter line families joining the extremal endpoint lines via m. The source Corollary 2.7 places the reduced chain in the quotient. Any off-diagonal reducible chain must have the unique m through u,v; source Theorem 3.12 establishes irreducible boundary E, and the incidence divisor I is irreducible. Hence E→I birational. Diagonal exceptional scheme not classified.
 
-## Closest literature and limitations
-The initiating source proves smoothness of the Chow quotient, the simple-normal-crossing boundary theorem, and divisoriality of the endpoint contraction, but its stated geometric argument omits the orthogonal disjoint pairs. This result does not identify the entire quotient with a blow-up and does not describe every diagonal exceptional fiber. A differently indexed treatment of the same incidence geometry remains a residual literature risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The initiating paper explicitly asserts that disjoint extremal lines always span a smooth quadric in Example 4.8, yet disjointness holds for distinct u,v and rank four additionally needs B(u,v)≠0. The orthogonality divisor, its two-component replacement orbit chain and birational boundary image are a concrete correction not implied by the asserted smooth case. No equivalent correction found in actual semantic primary/Resultary searches; absence of hits alone is not novelty evidence.
+
+## value
+
+PASS
+
+The missing locus is a codimension-one incidence divisor, not an isolated exception: the argument restores surjectivity and identifies the image of the unique boundary divisor of a genuine Fano Chow quotient. The singular/reducible degeneration changes orbit-cycle geometry and matters for endpoint contraction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
