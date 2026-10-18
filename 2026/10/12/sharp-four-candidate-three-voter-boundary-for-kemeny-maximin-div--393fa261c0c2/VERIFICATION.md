@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,50 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_kemeny_maximin_first_layer.py` performs an exact finite replay using only the Python standard library.
 
-For Kemeny, it independently:
-1. maximizes total pairwise agreement over every candidate ranking;
-2. minimizes total Kendall inversion distance to the voters' ballots.
+# Independent mathematical audit
 
-It verifies the identity
-\[
-S_P(\pi)+D_P(\pi)=6|P|
-\]
-for every four-candidate ranking \(\pi\).
+## correctness
 
-For maximin, it independently:
-1. maximizes minimum pairwise support;
-2. minimizes maximum opposing support.
+PASS
 
-It verifies
-\[
-m_P(x)+o_P(x)=|P|
-\]
-for every candidate.
+Using the exact result definitions, Kemeny score plus sum of Kendall inversions equals 6 times electorate size for any ranking, and maximin support plus worst opposition equals electorate size. Independently implemented subset-DP optimal ranking scores and minimum pairwise supports for every 24^1+24^2+24^3 strict labeled four-candidate profile. Counts: all 24 and 576 small-voter profiles agree; at three voters 12,768 equal and 1,056 strict Kemeny subsets of maximin (cells (1,3)=144,(1,4)=576,(3,4)=336); eight candidate/voter orbits seven of size144 and one size48. This independent DP differs from the package verifier’s direct rank enumeration; the package script and RESULT.md were inspected. Published 3-candidate equality supplies the separate minimal-candidate premise. The finite universe here is exhaustive, not a sample.
 
-The verifier exhausts:
-- all \(24\) one-voter profiles;
-- all \(576\) two-voter profiles;
-- all \(13824\) three-voter profiles.
+## originality
 
-It confirms:
-- equality for all one- and two-voter profiles;
-- \(12768\) equal three-voter profiles;
-- \(1056\) divergent profiles;
-- exact incidence \(11/144\);
-- \(K(P)\subsetneq M(P)\) in every divergence;
-- divergent size counts \(144,576,336\);
-- exactly eight divergent isomorphism classes;
-- seven orbits of size \(144\) and one orbit of size \(48\);
-- all displayed canonical winner sets.
+PASS
 
-Run:
+The new statement is the complete first four-candidate three-voter divergence and orbit census. Classical three-candidate coincidence and the possibility of disagreement at more alternatives are prior. Resultary related results concern different rule pairs; searches did not reveal the same full table, but that alone is not novelty proof.
 
-`python3 verify_kemeny_maximin_first_layer.py`
+## value
 
-The first output line must be:
+PASS
 
-`VERIFY_OK`
+A fully enumerated minimal boundary between two natural voting choice correspondences gives exact first divergence frequency, a universal containment direction, and symmetry classification useful for benchmarking tie rules. This is not merely a single counterexample; its exhaustiveness is mathematically motivated by the sharp minimal electorate/candidate boundary.
 
-The universal equality for all three-candidate electorates is a cited published theorem and is not inferred from finite testing.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
