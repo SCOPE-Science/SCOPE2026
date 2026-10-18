@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-The finite checks described here were actually executed using the packaged `verify.py` source. Its only dependency is the Python standard library. Run `python verify.py` alongside `RESULT.md` to reproduce the diagnostics.
+## correctness
 
-The program checks 3,520 exact-rational polynomial identities (using an independent formal placeholder for the exponential), 40 direct numerical quadrature comparisons between the FGM joint-density integral and the closed-form sum density, the strict rational bounds on \(\log4\) needed by the explicit counterexample, and finite-grid signs and a numerical minimization of the elementary threshold formula.
+PASS
 
-The program is not a continuous-domain certificate. The analytic derivations in RESULT.md establish the sign of the curvature for all eligible rates, dependence parameters and positive times. The displayed approximate minimizing parameter and time are diagnostics, not validated rounding statements. There has been no independent audit, authorship verification, or external certification.
+The exact FGM joint density integrates to f_S(s)=lambda exp(-t)[t+theta B(t)], B=t-4+4(t+1)exp(-t), t=lambda s. Independently differentiating yields curvature numerator F=-1+theta[4t(t+1)e^-t-2]+theta^2[-1+4(t^2-3t+4)e^-t-16e^-2t]. The source proves theta<=0 by negative concavity cross terms, and for theta>=0 rules out violations at t<=1. For t>1 its strictly negative quadratic term Q and monotonic F(t,theta)/theta^2 on 0<theta<=1 yield a unique possible violation threshold per t. Compactness at a sub-unit level yields the attained theta*=inf r(t), so not merely a numerical optimization. Independent symbolic expansion and numeric minimization corroborate theta*=0.8602582730974543 at t=1.64184454095; log4, theta=1 gives F>0. The lambda rescaling and endpoints theta=-1,0,1 have been checked.
+
+## originality
+
+PASS
+
+The exact global ILR/log-density-concavity boundary within the equal-rate exponential FGM family is distinct from the earlier IFR preservation theorem; the sharp variational threshold and counterexample at positive dependence are not identified in the examined primary result.
+
+## value
+
+PASS
+
+Determines a sharp, natural dependence-phase boundary for a classical reliability model, separating strict density log-concavity from the known all-parameter IFR property. This corrects an extrapolation from plotted positive-dependence examples and provides an exact analytic counterexample rather than routine parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

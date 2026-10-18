@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T18:59:43Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned complete RESULT.md including five proof steps; independently reproduced symbolic derivative identities and curvature threshold; no interval arithmetic certification of reported decimals."
+      ],
+      "rationale": "The exact FGM joint density integrates to f_S(s)=lambda exp(-t)[t+theta B(t)], B=t-4+4(t+1)exp(-t), t=lambda s. Independently differentiating yields curvature numerator F=-1+theta[4t(t+1)e^-t-2]+theta^2[-1+4(t^2-3t+4)e^-t-16e^-2t]. The source proves theta<=0 by negative concavity cross terms, and for theta>=0 rules out violations at t<=1. For t>1 its strictly negative quadratic term Q and monotonic F(t,theta)/theta^2 on 0<theta<=1 yield a unique possible violation threshold per t. Compactness at a sub-unit level yields the attained theta*=inf r(t), so not merely a numerical optimization. Independent symbolic expansion and numeric minimization corroborate theta*=0.8602582730974543 at t=1.64184454095; log4, theta=1 gives F>0. The lambda rescaling and endpoints theta=-1,0,1 have been checked.",
+      "residual_risks": [
+        "Equal exponential marginal rates and bivariate FGM survival copula only; no general FGM marginals, unequal rates or multivariate statement."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Navarro and Pellerey (2022), Example 2; Navarro and Sarabia (2020), DOI 10.1017/S0269964820000649, accessible abstract."
+        ],
+        "reasoning": "The prior IFR proof in this FGM sum is weaker: log-concavity implies IFR, not conversely. Navarro–Sarabia (2020) gives general copula-convolution/hazard representations, but its accessible abstract does not establish a global ILR threshold; full article was not retrievable through the authorized institutional route.",
+        "searches": [
+          "FGM copula exponential sum distribution log concavity ILR sharp parameter transition theta Navarro Pellerey",
+          "https://onlinelibrary.wiley.com/doi/full/10.1002/asmb.2657",
+          "https://doi.org/10.1017/S0269964820000649"
+        ]
+      },
+      "checked_sources": [
+        "https://onlinelibrary.wiley.com/doi/full/10.1002/asmb.2657",
+        "https://doi.org/10.1017/S0269964820000649",
+        "Resultary semantic FGM copula exponential sum distribution log concavity ILR sharp parameter transition theta Navarro Pellerey",
+        "https://github.com/Resultary/2026/tree/main/2026/9/18/SCOPE-fgm-block-substitution-threshold-entropy-defect--8e6f21783699"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published example proves IFR; current exact curvature F(t,theta) controls ILR, and F(log4,1)>0."
+        ],
+        "reasoning": "Their marginal IFR result survives beyond theta*. A closed expression for the joint-sum density does permit differentiation but neither an IFR conclusion nor plotted densities logically establishes the sharp iff log-curvature transition; the source supplies a new global sign argument.",
+        "searches": [
+          "FGM copula exponential sum distribution log concavity ILR sharp parameter transition theta Navarro Pellerey",
+          "https://onlinelibrary.wiley.com/doi/full/10.1002/asmb.2657",
+          "https://doi.org/10.1017/S0269964820000649"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Navarro and Pellerey (2022), Example 2 and Figure 3; their ILR/IFR definitions and graphical discussion, DOI 10.1002/asmb.2657."
+        ],
+        "reasoning": "FGM survival-copula sum log-concavity translates to ILR aging in the terminology of Navarro and Pellerey. Their Example 2 studies the same exponentials and dependence, so this alias was directly compared.",
+        "searches": [
+          "FGM copula exponential sum distribution log concavity ILR sharp parameter transition theta Navarro Pellerey",
+          "https://onlinelibrary.wiley.com/doi/full/10.1002/asmb.2657",
+          "https://doi.org/10.1017/S0269964820000649"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Navarro and Pellerey (2022), Figure 3 plots theta=-1,-.5,0,.5,1, no exact ILR cutoff."
+        ],
+        "reasoning": "The threshold is over a continuous dependence parameter and time, not a tabulated discrete optimal invariant. Figure 3 plots only five parameter cases and cannot imply the global 0.860258... transition.",
+        "searches": [
+          "FGM copula exponential sum distribution log concavity ILR sharp parameter transition theta Navarro Pellerey",
+          "https://onlinelibrary.wiley.com/doi/full/10.1002/asmb.2657",
+          "https://doi.org/10.1017/S0269964820000649"
+        ]
+      },
+      "rationale": "The exact global ILR/log-density-concavity boundary within the equal-rate exponential FGM family is distinct from the earlier IFR preservation theorem; the sharp variational threshold and counterexample at positive dependence are not identified in the examined primary result.",
+      "residual_risks": [
+        "Navarro–Sarabia full 2020 article is plausibly overlapping but unavailable because institutional VPN disconnected; only abstract was read, so whole-paper NOT_COVERING is not asserted.",
+        "A separate earlier derivation of the same ILR boundary under likelihood-ratio aging terminology could exist.",
+        "Decimal optimizer is diagnostic not a certified numerical enclosure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier theorem proves IFR for these parameters; it supplies model density and plots but no sharp global ILR iff cutoff; theta=1 plotting requires algebraic caution",
+          "evidence": [
+            "Example 2 FGM exponential copula, Figure 3 and IFR discussion."
+          ],
+          "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/asmb.2657",
+          "material_read": "Full accessible HTML sections 2–4, Example 2, Figure 3 and surrounding discussion",
+          "method": "full_text_html",
+          "title": "Preservation of ILR and IFR aging classes in sums of dependent random variables",
+          "trigger": "Same exponential FGM sum and both ILR/IFR notions"
+        },
+        {
+          "assessment": "Cannot assert this entire paper lacks equivalent curvature analysis; uninspected body is an explicit risk",
+          "evidence": [
+            "Abstract explicitly mentions FGM copulas, sum distribution representations and hazard bounds."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0269964820000649",
+          "material_read": "Cambridge abstract and bibliographic description only; no full body",
+          "method": "abstract_only_authorized_vpn_disconnected",
+          "title": "Copula representations for the sum of dependent risks: models and comparisons",
+          "trigger": "Models include FGM dependent sums and hazard representations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://onlinelibrary.wiley.com/doi/full/10.1002/asmb.2657",
+        "https://doi.org/10.1017/S0269964820000649",
+        "Resultary semantic FGM copula exponential sum distribution log concavity ILR sharp parameter transition theta Navarro Pellerey",
+        "https://github.com/Resultary/2026/tree/main/2026/9/18/SCOPE-fgm-block-substitution-threshold-entropy-defect--8e6f21783699"
+      ],
+      "rationale": "Determines a sharp, natural dependence-phase boundary for a classical reliability model, separating strict density log-concavity from the known all-parameter IFR property. This corrects an extrapolation from plotted positive-dependence examples and provides an exact analytic counterexample rather than routine parameter substitution.",
+      "residual_risks": [
+        "Navarro–Sarabia full 2020 article is plausibly overlapping but unavailable because institutional VPN disconnected; only abstract was read, so whole-paper NOT_COVERING is not asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Equal exponential marginal rates and bivariate FGM survival copula only; no general FGM marginals, unequal rates or multivariate statement.",
+    "The variational minimizer need not be unique; decimal approximations are noncertified.",
+    "Relevant 2020 primary full text unavailable due institutional access disconnection."
+  ],
+  "schema_version": 1
+}

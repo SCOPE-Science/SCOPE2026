@@ -1,15 +1,21 @@
-# Scientific review: a sharp log-concavity transition for FGM-coupled exponential sums
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns two equal-rate exponential marginals joined by a bivariate Farlie–Gumbel–Morgenstern survival copula with dependence parameter in the closed admissible interval. Direct integration gives the sum density, and differentiation reduces log-concavity exactly to the sign of a quadratic in the dependence parameter. The analytic sign proof covers negative parameters, all times at most one after scaling, and the remaining region by a strictly increasing normalized curvature expression. A positive-threshold minimum is attained; strict positive curvature at a rationally controlled logarithmic time proves failure for parameter one. Rechecking the key expansions and endpoint inequalities, followed by exact-rational identity tests and independent quadrature, found no outstanding mathematical gap. Numerical minimization is not used to certify the all-parameter theorem.
+## correctness
 
-## Originality — PASS (subject to stated prior-art risk)
-The closest full text inspected is Navarro and Pellerey, DOI 10.1002/asmb.2657 (first published November 26, 2021), especially Example 2 and its Figure 3 discussion. It proves increasing failure rate (IFR) for the same FGM-coupled exponential-sum model and remarks on the plotted stronger ILR property, but it does not derive the sharp ILR parameter criterion. Indeed, its graphical ILR reading at parameter one is contradicted by the explicit second-derivative calculation. A separate Navarro–Pellerey–Mulero article on the time-transformed exponential class (DOI 10.1007/s11749-022-00805-2) addresses another dependence family and does not subsume the FGM classification. Semantic search of the indexed mathematics records including FGM, dependent exponential sums, ILR, IFR, and threshold aliases found no equivalent covering result; the closest FGM record instead concerns blockwise copula substitution and entropy. Navarro and Sarabia (DOI 10.1017/S0269964820000649, first published December 23, 2020) is a relevant prior sum-copula treatment, but only its bibliographic abstract was accessible, so an earlier equivalent theorem cannot be excluded. Neither missing access nor unsuccessful searches are represented as proof of historical uniqueness.
+PASS
 
-## Value — PASS
-This sharp classification resolves a concrete regularity question for the elementary dependent-exponential sum, separates the known weaker IFR preservation theorem from the stronger ILR/log-concavity property, and corrects a misleading published graphical claim without challenging its proved IFR statement. An exact phase boundary and an elementary interior counterexample are substantively more informative than a numerical shape plot. The scope is deliberately the natural equal-rate bivariate FGM family; extending to unequal rates or general copulas remains open.
+The exact FGM joint density integrates to f_S(s)=lambda exp(-t)[t+theta B(t)], B=t-4+4(t+1)exp(-t), t=lambda s. Independently differentiating yields curvature numerator F=-1+theta[4t(t+1)e^-t-2]+theta^2[-1+4(t^2-3t+4)e^-t-16e^-2t]. The source proves theta<=0 by negative concavity cross terms, and for theta>=0 rules out violations at t<=1. For t>1 its strictly negative quadratic term Q and monotonic F(t,theta)/theta^2 on 0<theta<=1 yield a unique possible violation threshold per t. Compactness at a sub-unit level yields the attained theta*=inf r(t), so not merely a numerical optimization. Independent symbolic expansion and numeric minimization corroborate theta*=0.8602582730974543 at t=1.64184454095; log4, theta=1 gives F>0. The lambda rescaling and endpoints theta=-1,0,1 have been checked.
 
-## Limits and priority risk
-The minimizer uniqueness and a certified decimal interval for the threshold are not asserted. The 2020 general copula-sum paper remained unavailable in full, and earlier equivalent work could exist. Analytical validity here is a self-review, not independent confirmation or external certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact global ILR/log-density-concavity boundary within the equal-rate exponential FGM family is distinct from the earlier IFR preservation theorem; the sharp variational threshold and counterexample at positive dependence are not identified in the examined primary result.
+
+## value
+
+PASS
+
+Determines a sharp, natural dependence-phase boundary for a classical reliability model, separating strict density log-concavity from the known all-parameter IFR property. This corrects an extrapolation from plotted positive-dependence examples and provides an exact analytic counterexample rather than routine parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
