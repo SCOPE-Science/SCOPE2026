@@ -1,15 +1,21 @@
-# Review: Exact fold diagram for the symmetric BEG boundary-law equation on Cayley trees
+# Independent mathematical audit
 
-## Correctness
-PASS. The source reduction to the scalar equation is explicit. Rewriting the equation as a horizontal-level problem for \(q(s)\) reduces the global root count to the sign of a strictly convex function \(H(s)\). Its exact minimum gives the sharp threshold \(c_1^*\), and its two-root regime gives the fold heights. Direct differentiation proves exact triple multiplicity at the cusp. The proof covers every integer \(k\ge2\) and every positive \(c_1,c_2\).
+## correctness
 
-## Originality
-PASS. The primary paper states the same arbitrary-order scalar equation but only an upper bound of three positive solutions in the relevant positive-coefficient regime, and its order-two theorem supplies a sufficient uniqueness condition rather than the sharp fold diagram. Searches using the source title, equation shape, positive-root count, fold/cusp terminology, and exact cusp constants found no statement implying the all-order partition. A 2013 order-two paper remains a limited residual risk because only its abstract was available.
+PASS
 
-## Value
-PASS. The result resolves the natural ambiguity left by the source's “at most three” statement on the very scalar branch used to construct symmetric translation-invariant splitting Gibbs measures. It gives a complete phase diagram, explicit folds, and the exact triple-root merger for every tree order rather than a routine isolated parameter computation.
+At every integer Cayley order k>=2, on the specified symmetric translation-invariant branch z=t of the zero-field source model, the equation P(s)=c1 s^(k+1)-c2 s^k+s-1=0 holds for s>0 and arbitrary positive coefficients c1,c2 realizable by source real parameters. Rearranging to c2=q(s)=c1 s+(s-1)/s^k makes q prime have the sign of the strictly convex H(s)=c1 s^(k+1)-(k-1)s+k. The minimum is nonnegative iff c1>=((k-1)/(k+1))^(k+1), forcing one root for every c2>0. Subcritical H has exactly two roots s_-<s_+, yielding two positive distinct fold levels c2lo<c2hi, exactly 3 simple positive roots between, 2 distinct roots with one double at folds, and 1 root otherwise. At critical coefficients (rho^(k+1),rho^(k-1)), s=1/rho is one triple root with P=P'=P''=0, P'''=k(k-1)rho^2>0. Independent exact symbolic differentiation using SymPy verified cusp derivatives for k=2,3,4,5,6,10,20. All-k classification rests on the convexity proof, not bounded checking. No nonsymmetric root count or physical dominance is proved.
 
-## Closest literature and limitations
-The closest source is Botirov--Haydarov--Qayumov (2023), which provides the scalar equation and qualitative upper bounds. Ganikhodjaev--Idris (2013) studies an order-two physical subfamily, while Lima (2020/2021) treats a different \(d\)-dimensional uniqueness problem. The finding is restricted to the symmetric translation-invariant boundary-law branch and makes no claim about the total Gibbs-measure phase diagram.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Botirov–Haydarov–Qayumov (2023) is the exact same arbitrary-k positive-coefficient symmetric boundary-law equation but gives at most three positive roots and partial sufficient uniqueness criteria, not the sharp all-k fold/cusp plane. Critically, FULL older Ganikhodjaev–Idris (2013) seven-page paper was independently inspected: it already gives a k=2 simple BEG exact three/two/one-solution interval and fold geometry for its particular physical subfamily (Lemma 1, eqs.10–13), so k=2 phase coexistence is prior work and must be credited. That older result does not imply the complete all-k, all-positive-coefficient parameterization here. General cubic cusp calculus is routine background, but the specific sourced higher-k global diagram resolves an open upper-bound ambiguity; no dominating source located by published Resultary search.
+
+## value
+
+PASS
+
+The sharp exact boundary between one and three symmetric translation-invariant boundary laws for arbitrary integer tree order and positive parameters resolves the source paper’s incomplete "at most three" description. Critical triple-root cusp and explicit folds give model-specific order-uniform structural information beyond the prior k2 special case. This is a branch-local classification, not a full Gibbs-measure phase diagram or stability statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
