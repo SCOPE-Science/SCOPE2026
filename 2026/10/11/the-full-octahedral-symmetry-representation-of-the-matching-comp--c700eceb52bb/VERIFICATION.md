@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_octahedral_matching.py` using Python 3 and no third-party packages. It constructs the ordinary matching complex from six graph vertices and the three omitted antipodal edges. It verifies the entire face vector \((12,30,8)\), the incidence of free faces, eight elementary collapses, connectedness of the residual graph, and an explicit basis of eleven integral cycles.
+## correctness
 
-The verifier independently computes all forty-eight exact integer homology action matrices from fundamental graph cycles, including reduction modulo the removed triangle boundaries. It tests every one of the \(48^2=2304\) group composition identities, calculates signed simplicial-chain Lefschetz traces separately, confirms the ten conjugacy-class values, and takes inner products with the ten rational \(S_4\times C_2\) irreducible characters. The asserted multiplicities are four copies of distinct irreducibles, each with multiplicity one, and zero for all others. Successful completion prints `VERIFY_OK`.
+PASS
 
-The group-representation computation uses integer arithmetic without floating-point approximation. The full homotopy conclusion follows from the general elementary-collapse argument in `RESULT.md`, not from extrapolating the finite verification to other graphs. No independent audit was performed.
+For the six graph vertices and missing antipodal edges 01,23,45, explicit independent enumeration yields 12 matching-complex vertices, 30 edges and 8 triangles, with every triangle having a free 1-face. Eight elementary collapses give a connected 12-vertex 22-edge graph, hence integral homotopy ∨¹¹S¹ and H1=Z¹¹. Enumerating all 48 signed-coordinate graph symmetries and signed fixed-simplex traces independently reproduces all ten listed class character values including central inversion trace -5. The pinned complete verifier source constructs 11 integral cycle matrices and 2304 multiplication assertions, inspected algebraically; decomposing the ten-class character with ordinary S4×C2 character orthogonality gives Specht summands (31)⊗ε,(211),(211)⊗ε,(22)⊗ε. The decomposition is rational, not an integral module splitting.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for new full rational automorphism character: the same-graph Morse result is a different complex, and the inspected complete-graph matching-complex representation theorem does not imply the subgraph H1 character. Exact ten classes and irreducible constituents distinguish this theorem from an ordinary eleven-circle homotopy calculation. Limits on other primary access and potential reductions are explicitly retained.
+
+## value
+
+PASS
+
+The ordinary matching complex of the regular octahedron is a natural small object with a full rank-three reflection symmetry. Its entire eleven-dimensional rational homology representation, inversion parity split (3,8), and absence of fixed classes are genuinely structural equivariant data not determined by the circle-wedge homotopy type or generic complete-graph modules. It is a motivated finite base case, with no unsupported family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

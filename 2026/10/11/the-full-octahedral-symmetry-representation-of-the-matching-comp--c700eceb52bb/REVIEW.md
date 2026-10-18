@@ -1,11 +1,21 @@
-# Scientific review: octahedral matching-complex homology
+# Independent mathematical audit
 
-**Correctness — PASS.** The complex has twelve vertices, thirty edges and eight triangular faces. Every triangle has a unique free edge that occurs in no other triangle, so eight elementary collapses leave a connected graph with twelve vertices and twenty-two edges. Its integral first homology therefore has rank eleven and is free. The full group is the signed-coordinate group of order forty-eight, isomorphic to the direct product of the rotational \(S_4\) and central inversion. The equivariant Euler–Poincaré identity yields the ten-class character. In addition to signed fixed-simplex counts, the standalone verifier computes the group action on eleven explicit integral cycles and checks all 2,304 composition laws, so the character computation has a separate algebraic check.
+## correctness
 
-**Originality — PASS, with a limited literature risk.** The primary 2022 matching-complex work treats paths, cycles, and Dutch windmills, and supplies no octahedral character. The 2023 complete-hypergraph representation result concerns a larger symmetric graph and does not imply homology of this induced matching subcomplex. The equivariant log-concavity result concerns the graded permutation spaces on matchings rather than cycles modulo boundaries. A published result about the *Morse complex* of the same octahedral graph is different: gradient fields rather than disjoint-edge matchings are its vertices. Targeted database searches of aliases, homotopy, and automorphism representations found no equivalent octahedral matching-complex module. An unindexed formulation could still exist.
+PASS
 
-**Value — PASS.** The regular octahedron is the first three-dimensional cross-polytope, and its reflection group is the rank-three signed-permutation group. The exact first-homology module resolves all ten rational irreducible multiplicities, separates inversion parity, and proves the absence of full symmetry invariants. Its eleven-circle homotopy type alone does not determine these distinctions. This is a natural finite equivariant topology benchmark and a possible base case for studying the wider cocktail-party family, not a claim of a family theorem.
+For the six graph vertices and missing antipodal edges 01,23,45, explicit independent enumeration yields 12 matching-complex vertices, 30 edges and 8 triangles, with every triangle having a free 1-face. Eight elementary collapses give a connected 12-vertex 22-edge graph, hence integral homotopy ∨¹¹S¹ and H1=Z¹¹. Enumerating all 48 signed-coordinate graph symmetries and signed fixed-simplex traces independently reproduces all ten listed class character values including central inversion trace -5. The pinned complete verifier source constructs 11 integral cycle matrices and 2304 multiplication assertions, inspected algebraically; decomposing the ten-class character with ordinary S4×C2 character orthogonality gives Specht summands (31)⊗ε,(211),(211)⊗ε,(22)⊗ε. The decomposition is rational, not an integral module splitting.
 
-**Limitations.** The irreducible splitting is rational, not an integral group-lattice classification. The result concerns a single six-vertex graph. Bibliographic comparison is based on identified primary material and targeted database coverage, not a universal novelty certificate.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for new full rational automorphism character: the same-graph Morse result is a different complex, and the inspected complete-graph matching-complex representation theorem does not imply the subgraph H1 character. Exact ten classes and irreducible constituents distinguish this theorem from an ordinary eleven-circle homotopy calculation. Limits on other primary access and potential reductions are explicitly retained.
+
+## value
+
+PASS
+
+The ordinary matching complex of the regular octahedron is a natural small object with a full rank-three reflection symmetry. Its entire eleven-dimensional rational homology representation, inversion parity split (3,8), and absence of fixed classes are genuinely structural equivariant data not determined by the circle-wedge homotopy type or generic complete-graph modules. It is a motivated finite base case, with no unsupported family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
