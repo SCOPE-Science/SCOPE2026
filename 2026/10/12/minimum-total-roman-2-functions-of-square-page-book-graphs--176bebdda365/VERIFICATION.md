@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,34 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The checker constructs \(B_m\) directly and tests the defining zero-neighborhood inequality and the no-isolated-positive condition.
+# Independent mathematical audit
 
-For every
-\[
-1\le m\le12,
-\]
-it exhausts every labeling whose total weight is at most the relevant minimum candidate.
+## correctness
 
-Recorded output:
+PASS
 
-```text
-VERIFY_OK
-m=1: gamma_tR2=3, minimum_functions=4
-m=2: gamma_tR2=4, minimum_functions=6
-m=3: gamma_tR2=4, minimum_functions=1
-m=4: gamma_tR2=4, minimum_functions=1
-m=5: gamma_tR2=4, minimum_functions=1
-m=6: gamma_tR2=4, minimum_functions=1
-m=7: gamma_tR2=4, minimum_functions=1
-m=8: gamma_tR2=4, minimum_functions=1
-m=9: gamma_tR2=4, minimum_functions=1
-m=10: gamma_tR2=4, minimum_functions=1
-m=11: gamma_tR2=4, minimum_functions=1
-m=12: gamma_tR2=4, minimum_functions=1
-bounded_labelings_checked = 88801
-all minimum functions matched the classification
-```
+For total Roman {2} domination on B_m (m≥2 shared-edge four-cycles), labels f∈{0,1,2}; a zero needs open-neighborhood label sum≥2, and each positive vertex needs a positive neighbor. The spine labeling (2,2) and all-zero pages always has weight four. With fixed spine (a,b), minimum page sums are 0 for (2,2) uniquely at (0,0), 2 for (0,0), and 1 for every other spine pair, subject to later totality checks. When m≥4 those bounds already exclude weight ≤4 off the spine; when m=3 the only remaining a+b=1 patterns produce isolated page-positive vertices. Therefore m≥3 has the unique spine optimum. For m=2, totality eliminates spurious page patterns and yields precisely six minimizers: spine(2,2), all page ones/spine zero, and four (1,1) spine variants, one positive page vertex on each page. Fresh exhaustive enumeration gives (m,min,count)=(2,4,6),(3,4,1),(4,4,1). The case-based proof covers all m≥2; m=1=C4 has optimum 3 and is excluded.
 
-The \(m=1\) computation is a boundary check only. The finite computation is exhaustive for all labelings relevant to the minimum-value and minimum-function claims in the tested range; the arbitrary-\(m\) theorem is proved symbolically in `RESULT.md`.
+## originality
+
+PASS
+
+The two foundational total Roman {2} domination papers establish the invariant, bounds, small-value characterizations and algorithms but do not give the optimizer census for m C4 pages sharing an edge. Published exact all-weight complete-multipartite formulas do not apply to square-page book graphs with m≥2.
+
+## value
+
+PASS
+
+Square-page books are a canonical shared-edge construction; knowing γ=4 alone hides a genuine minimizer-structure jump from six at m=2 to one at m≥3. A complete natural family equality classification, including the exact boundary anomaly, is a motivated combinatorial structural fact. The result does not purport to be a general theorem on arbitrary theta graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
