@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "Every rotation class contains the unique edge 0101; Euler circuits are bijective with 2-choice incoming-to-outgoing edge pairings that form a single 24-edge orbit. The checker exhausts all \\(2^{12}=4096\\) local pairings and independently all rooted edge-use DFS tours; both sets coincide with 384 words. Each has all 24 proper four-factors exactly once. Direct rotation/reversal and all six global alphabet-permutation checks establish the counts 24, 204, 64, 34 and the four six-element reflective orbits. Separate reflection-window involution arguments prove the universal parity obstruction for all \\(q\\ge3\\), \\(k\\ge3\\); the finite computation is not used as proof of this infinite statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Burris, Motta, Shipman, arXiv:1608.08480v1 (https://arxiv.org/abs/1608.08480) uses both reading directions to cover each unoriented length-n class, whereas each proper directed word is required separately here.",
+        "Rosenfeld Theorem 9 (https://imi.pmf.kg.ac.rs/kjm/pub/12617301003674_3.pdf) counts all orientation-sensitive maximal Kautz cycles but does not enumerate reversal-fixed points."
+      ],
+      "reasoning": "The general Kautz total-count theorem implies 384 but neither 24 fixed points nor 34 relabeling-and-reversal classes. The de Bruijn unoriented coverage optimum does not imply the orbit census for a restricted adjacency language.",
+      "searches": [
+        "unoriented de Bruijn Burris Motta Shipman Kautz graph cycles reversed",
+        "adjacent-unequal universal cycles unoriented dihedral symmetry counts"
+      ]
+    },
+    "checked_sources": [
+      "https://imi.pmf.kg.ac.rs/kjm/pub/12617301003674_3.pdf",
+      "https://doi.org/10.1007/978-3-642-22300-6_50",
+      "https://arxiv.org/abs/1608.08480",
+      "https://portal.mardi4nfdi.de/wiki/Constructing_orthogonal_de_Bruijn_sequences"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Rosenfeld 2002 (https://imi.pmf.kg.ac.rs/kjm/pub/12617301003674_3.pdf), Theorem 9 provides the 384 total; it is explicitly inherited rather than claimed new.",
+        "Lin et al. 2011 (https://doi.org/10.1007/978-3-642-22300-6_50) investigates orthogonal sequence constructions and uses Eulerian counting, not reversal-fixed complete Kautz cycles.",
+        "Burris et al. 2016 (https://arxiv.org/abs/1608.08480) changes the coverage condition itself. published-finding corpus closest 2026/10/11/SCOPE-exact-eleven-petal-local-rigidity-census--8ff357b52171 is about petal words, not Kautz cycles."
+      ],
+      "reasoning": "An unoriented cover in Burris et al. may cover one of a reversed pair and hence can be much shorter than an ordinary complete Kautz cycle. Rosenfeld orientation-sensitive totals cannot determine the involution fixed points without the new explicit calculation. No prior stronger statement from inspected material implies the four reflective symbol orbits.",
+      "searches": [
+        "Kautz reversal-symmetric Euler tours reflection invariant sequences order four",
+        "Kautz sequences 24 384 204 bracelets 34 symbol permutation symmetry",
+        "Kautz sequences order four ternary reversible reverse-symmetric cyclic word 24 384 204"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rosenfeld, 2002, Section 4.2 (https://imi.pmf.kg.ac.rs/kjm/pub/12617301003674_3.pdf) says its Kautz cycle enumeration does not identify cycles read backwards.",
+        "No direct Kautz equivalence arose from the published-finding corpus matches; nearest 2026/10/4/SCOPE-odd-bracelet-orbit-profile-of-the-set-homogeneous-hypergraph-n3--1ab37fe389cf treats odd-weight binary bracelet objects, not Eulerian cycles."
+      ],
+      "reasoning": "Reversal-equivalence is tested on rotations of a complete directed Kautz Euler circuit; unoriented de Bruijn coverage is different because it only needs one word from each reversal pair. Symbol relabeling is also separately quotient-tested, including reversal combined with a permutation.",
+      "searches": [
+        "ternary Kautz sequences order four 24 reverse invariant 204 necklaces bracelets 24 achiral symmetry",
+        "Kautz reversal-symmetric Euler tours reflection invariant sequences order four",
+        "Kautz sequences up to dihedral equivalence alphabet permutations counts"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact 24/204/34 ternary Kautz table was returned in published-finding corpus. The closest orbit-profile record 2026/10/4/SCOPE-fixed-content-bracelet-orbit-profiles-for-simon-s-circular-finit--087e4dd04736 concerns tuples of a generic cover, not proper ternary four-factors.",
+        "The 2002 Kautz paper publishes general unquotiented enumeration, and its Section 4.2 explicitly notes reversal is not identified."
+      ],
+      "reasoning": "An ordinary sequence count 384 alone cannot yield 24 fixed cycles or four achiral relabeling types; an exact equality under titles/synonyms was not located, which remains negative evidence rather than proof of absolute novelty.",
+      "searches": [
+        "Kautz sequences 24 384 204 bracelets 34 symbol permutation symmetry",
+        "ternary Kautz sequences order four 24 reverse invariant 204 necklaces bracelets 24 achiral symmetry",
+        "Kautz sequences order four ternary reversible reverse-symmetric cyclic word 24 384 204"
+      ]
+    },
+    "rationale": "The 384 Kautz total is established in Rosenfeld 2002 and explicitly excluded from the novelty claim. Relevant full material was inspected: Rosenfeld 2002 does not quotient by reversal; Lin et al. 2011 concerns constructions/orthogonality; Burris et al. 2016 counts different unoriented coverage objects. Actual published-finding corpus source/alias/number searches retrieved unrelated orbit tables, not equivalent Kautz reflection classes. Residual risk remains for unindexed enumeration under alternative terminology.",
+    "residual_risks": [
+      "The exact first public calendar day of the 2002 Rosenfeld paper was not established, so the earliest exactly day-verified source used is the 2011-08-12 publication; this is not a claim that the underlying field began in 2011.",
+      "An unindexed finite Kautz reversal orbit table, perhaps under necklaces or chemical graph symmetry terminology, may already imply the same counts.",
+      "The all-alphabet necessary parity condition might be known as a general palindrome obstruction; the meaningful core claim is the exact first nontrivial ternary orbit census."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the total 384 by a stronger general formula, but explicitly says reversing is not identified and does not provide reflection-fixed or relabeled bracelet orbit numbers.",
+        "evidence": "Pages 25-26 (graph/Eulerian correspondence), 31-32 (Theorem 9), 36-37 (original count does not admit reversal).",
+        "identifier_or_url": "https://imi.pmf.kg.ac.rs/kjm/pub/12617301003674_3.pdf",
+        "material_read": "Abstract, definitions, Eulerian correspondence, Theorem 9 and its proof, full Section 4.2 and open problems; inspected PDF page images and searchable text.",
+        "method": "Direct 23-page original PDF with section-level reading and searches for reversal, dihedral and isomorphism.",
+        "title": "Enumerating Kautz Sequences",
+        "trigger": "The foundational exact enumeration of the identical Kautz objects, strongest prior possible coverage."
+      },
+      {
+        "assessment": "Concerns orthogonality and sequence construction rather than the order-four complete Kautz reversal/relabeling census.",
+        "evidence": "DOI 10.1007/978-3-642-22300-6_50; MaRDI publication date 2011-08-12.",
+        "identifier_or_url": "https://doi.org/10.1007/978-3-642-22300-6_50",
+        "material_read": "Accessible full-text hosted transcript, its construction and counting material; metadata independently verifies publication date.",
+        "method": "Open full-text presentation and published bibliographic metadata, searched Kautz and reversal context.",
+        "title": "Constructing Orthogonal de Bruijn Sequences",
+        "trigger": "Relevant theoretical-computer-science reference with a verified day, 2011-08-12, and MSC 68R05."
+      },
+      {
+        "assessment": "The required word coverage is fundamentally different: a reversed word can substitute for an original instead of requiring every original word once. The paper does not supply the Kautz cycle orbit count.",
+        "evidence": "arXiv:1608.08480v1 abstract and full text.",
+        "identifier_or_url": "https://arxiv.org/abs/1608.08480",
+        "material_read": "Accessible original 13-page preprint PDF including statement and constructions; checked for Kautz terminology.",
+        "method": "Direct arXiv original PDF and 2016-08-30 submission metadata.",
+        "title": "An Unoriented Variation on de Bruijn Sequences",
+        "trigger": "Most plausible apparent implication due to reversed-window identification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "06733fee-d141-4a6f-813e-a2c08d801b8f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The refinement to reflective versus nonreflective Kautz cycles answers an intrinsic symmetry-classification problem left distinct from the classical enumeration: the exact 24 fixed points, 204 bracelets, four specific reflective relabeling types and 34 full isomorphism types. An elementary general obstruction explains their parity constraints. The result supplies a complete natural finite classification with reproducible independent exhaustive enumeration, rather than a routine extra total or arbitrary slice.",
+    "status": "PASS"
+  }
+}
