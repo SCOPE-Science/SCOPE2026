@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For every n≥3 and every positive rate vector, the cycle resolvent is an exactly summable finite geometric series, with diagonal (1−t_i)/(1−P). The theta-step is a positive scalar multiple of this resolvent minus a diagonal matrix, so the fastest-rate diagonal uniquely controls entrywise positivity. A strict log-derivative inequality from the positive cross-terms of ∏(1+a_j/t_j) proves single crossing from 1 to π_min without reversibility. The theta endpoints are direct. Strict concavity of log(sr/(1+sr)) and Karamata establish the rate-majorization law; stationarity and continuity settle uniform optimizer uniqueness, critical boundary and nonuniqueness above. Exact-rational standalone checker replayed with 1065 assertions groups, not offered as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Horváth 1998 §4–§5 and 2005 §§2–4 address general positivity radii, strict class thresholds and positive-invariant sets, without a heterogeneous directed-cycle specialization or rate-budget objective.",
+        "Hadjimichael et al. 2021 abstract, Introduction and main results explicitly use centered/higher-order periodic stencils whose spatial semidiscretizations are not Metzler; the paper studies a different matrix class and positivity mechanism.",
+        "The publicly accessible 2026 reversible return law is broad in its algebraic identity but not in nonreversible single-crossing nor in rate majorization."
+      ],
+      "reasoning": "General Runge–Kutta positivity bounds and the Cayley/resolvent identity do not determine a sharp fixed-generator horizon or the optimal distribution of a finite rate budget. An exact specialization would require the new return-product and strict fastest-state inequality; no such dominating consequence was found in the inspected full texts.",
+      "searches": [
+        "Positivity of Runge-Kutta and diagonally split Runge-Kutta methods Horvath",
+        "On the positivity step size threshold of Runge-Kutta methods Horvath 2005",
+        "Positivity preservation of implicit discretizations of the advection equation arxiv 2105.07403",
+        "Crank Nicolson positivity Markov generator"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1016/j.apnum.2004.08.026",
+      "DOI:10.1016/S0168-9274(98)00050-6",
+      "DOI:10.13001/1081-3810.1086",
+      "arXiv:2105.07403",
+      "2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The general resolvent identity is already present in Fallat–Tsatsomeros and the 2026 Markov-return paper; it is an expressly acknowledged input, not the result.",
+        "The latter derives monotonicity through symmetric similarity only for reversible generators; its §Limitations explicitly excludes nonreversible positivity-window classification.",
+        "Horváth gives all-problem bounds, not one-way cyclic rate optimization. Hadjimichael et al. use centered spatial stencils and cannot imply the sign pattern for an upwind directed CTMC."
+      ],
+      "reasoning": "The novel implication chain starts only after prior Cayley algebra: a directed cyclic geometric product determines the fastest-state diagonal; a strict product inequality proves nonreversible single crossing; strict concavity of log[ sr/(1+sr) ] gives Schur monotonicity and the exact loss of uniqueness at theta=(n−1)/n. The inspected prior results do not supply those conclusions.",
+      "searches": [
+        "DOI:10.1016/j.apnum.2004.08.026",
+        "DOI:10.1016/S0168-9274(98)00050-6",
+        "DOI:10.13001/1081-3810.1086",
+        "2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+        "arxiv:2105.07403"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The fixed-generator update is the theta-method rational function of a Markov generator, equivalently a discrete positive upwind transport step on a periodic ring.",
+        "The 2026 resolvent-return public record proves the general Crank–Nicolson diagonal resolvent criterion but its monotone threshold is demonstrated under reversibility; its stated limitations leave nonreversible positivity windows open.",
+        "No inspected statement gave the heterogeneous directed-cycle cyclic product or the fixed-sum strict majorization implication."
+      ],
+      "reasoning": "Searches targeted cyclic CTMC, unidirectional transport, Markov resolvents, implicit trapezoidal and theta terminology, Schur/majorization aliases. Equivalence is tested at the level of the rate-vector theorem, not solely the diagonal-resolvent identity.",
+      "searches": [
+        "theta-method positivity cyclic continuous time Markov chain heterogeneous rates majorization",
+        "Markov chain resolvent directed cycle heterogeneous rates closed form diagonal",
+        "strict Schur concavity majorization midpoint rule positivity timestep directed cyclic Markov chain fixed total exit rates",
+        "implicit trapezoidal Crank Nicolson cyclic transport generators all timestep positive classification rate balancing"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned nearby records about reversible Markov resolvents, filtered Crank–Nicolson lattice kernels, and fourth-order Padé barriers, but no directly matching heterogeneous directed-cycle positivity theorem.",
+        "Full inspection of the closest research record found no rate-allocation table or cyclic-product majorization formula."
+      ],
+      "reasoning": "The relevant database is semantic and cannot prove absence; no cited exact table or database entry was found that would make the all-positive-rate/real-parameter classification a recomputation.",
+      "searches": [
+        "sharp positivity threshold theta method unidirectional cycle heterogeneous transition rates explicit resolvent and unique positivity interval",
+        "strict Schur concavity majorization midpoint rule positivity timestep directed cyclic Markov chain fixed total exit rates",
+        "implicit trapezoidal Crank Nicolson cyclic transport generators all timestep positive classification rate balancing",
+        "directed cycle unequal rates positivity theta method implicit trapezoidal numerical time step"
+      ]
+    },
+    "rationale": "The closest published method-class analysis (Horváth 1998/2005), cyclic centered-difference theta positivity (Hadjimichael–Ketcheson–Lóczi 2021), matrix Cayley identity (Fallat–Tsatsomeros 2002), and public resolvent-return Markov theorem (2026) do not, in their inspected material, imply the theorem for genuinely nonreversible one-way cycles with arbitrary heterogeneous rates and fixed-budget strict majorization. A general diagonal resolvent criterion is acknowledged as prior. The new logical steps are the cyclic-product return formula, fastest-site monotonicity, and global rate-allocation transition; an unindexed equivalent remains possible.",
+    "residual_risks": [
+      "The general resolvent-diagonal criterion is known prior art; novelty must rest on the directed-cycle strict monotonicity and rate-majorization optimization, not that identity.",
+      "Specialized CTMC circulation, cyclic upwind discretization, and Schur-order theory may contain an equivalent theorem not indexed or retrieved.",
+      "Novelty assessment and proof review are not independent expert validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_METHOD_CLASS_NOT_COVERING_DIRECTED_RATE_ALLOCATION",
+        "evidence": "The paper treats positivity radius and arbitrary positive/dissipative IVP classes, not the one-way cycle return product or its rate-budget majorization classification.",
+        "identifier_or_url": "DOI:10.1016/S0168-9274(98)00050-6",
+        "material_read": "Complete 18-page article, including §§3–5 and Example 1",
+        "method": "Institutionally authorized publisher full-text read",
+        "title": "Positivity of Runge–Kutta and Diagonally Split Runge–Kutta Methods",
+        "trigger": "Class-level RK positivity bounds might subsume the cycle result"
+      },
+      {
+        "assessment": "GENERAL_CLASS_BOUNDS_NOT_SAME_THEOREM",
+        "evidence": "The paper proves sharp method-class bounds and positive invariant sets, not universal strict rate majorization or a one-way cyclic generator exact formula.",
+        "identifier_or_url": "DOI:10.1016/j.apnum.2004.08.026",
+        "material_read": "Complete 16-page article; first-online date 27 October 2004 on page 1; §§2–4 including strict thresholds and invariant sets",
+        "method": "Institutionally authorized publisher full-text read",
+        "title": "On the Positivity Step Size Threshold of Runge–Kutta Methods",
+        "trigger": "Earliest dated seed; possibility of exact fixed-ODE positivity characterization"
+      },
+      {
+        "assessment": "CAYLEY_ALGEBRA_COVERED_CYCLE_OPTIMIZATION_NOT_COVERED",
+        "evidence": "Lemma 2.2 gives the Cayley/resolvent algebra and §4 treats M-matrices; neither determines the cyclic rate-product, diagonal monotonicity, or the sharp uniform-optimizer transition.",
+        "identifier_or_url": "DOI:10.13001/1081-3810.1086",
+        "material_read": "Complete seven-page lawful open-access article, Lemma 2.2 and §4",
+        "method": "Publisher open-access PDF textual inspection",
+        "title": "On the Cayley Transform of Positivity Classes of Matrices",
+        "trigger": "Potential prior equivalence of theta step and resolvent positivity"
+      },
+      {
+        "assessment": "DIFFERENT_SPATIAL_DISCRETIZATION_NO_RATE_MAJORIZATION",
+        "evidence": "Analyzes centered/higher-order difference and spectral semidiscretizations, which the paper identifies as not positivity preserving; the present operator is a positive one-sided generator with vertex-dependent rates.",
+        "identifier_or_url": "arXiv:2105.07403",
+        "material_read": "Full arXiv paper, introduction and positivity results and conclusions",
+        "method": "Lawful arXiv open-access full-text inspection",
+        "title": "Positivity Preservation of Implicit Discretizations of the Advection Equation",
+        "trigger": "Same theta-method and periodic advection object"
+      },
+      {
+        "assessment": "GENERAL_DIAGONAL_TEST_PRIOR_NONREVERSIBLE_CYCLE_GAP",
+        "evidence": "The paper proves the general CN diagonal test but uses reversibility for monotonicity; nonreversible window classification is expressly left open. It does not optimize heterogeneous directed-cycle rates.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+        "material_read": "Full RESULT.md, including Finding, Proof, Relationship to prior work and Limitations; also AUDIT.json first section",
+        "method": "Public source document via read-only repository access",
+        "title": "A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains",
+        "trigger": "Closest published general Markov resolvent criterion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3710d0eb-11a2-49fa-916a-d2ff7e0c4837",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Fixed-generator theta-method positivity on irreversible cyclic transport is mathematically and numerically natural. The result decides the entire positive timestep set without matrix inversion, proves no reentrant positivity in a nonreversible class, and gives a sharp rate-budget design principle with strict majorization and a precise uniqueness/nonuniqueness transition at θ=(n−1)/n. The decision is exact for all positive real rates and infinitely many graph sizes, not an arbitrary finite example.",
+    "status": "PASS"
+  }
+}
