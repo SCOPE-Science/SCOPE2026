@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,31 +18,25 @@
   "schema_version": 1
 }
 ---
-The classification is proved analytically from the printed vector fields and sliding equation.
 
-At \(\mathcal R_0=1\), the checker verifies
-\[
-I_{c0}=0
-\]
-and
-\[
-S_{c2}=\frac{r_0}{\Delta}I_c+\frac{br_1}{\Delta}.
-\]
-It then verifies symbolically that
-\[
-S_s\ge S_{c2}
-\]
-is equivalent to
-\[
-\Lambda\Delta-\mu b r_1\ge I_c\bigl((\mu+\nu)\Delta+\mu r_0\bigr).
-\]
+# Independent mathematical audit
 
-For the exact witness, the replay confirms
-\[
-I_c^{\dagger}=\frac{1597}{150},\qquad
-S_{c2}=\frac{53}{20},\qquad
-S_s=45,
-\]
-with \(I_c=5<I_c^{\dagger}\), opposite normal-field signs, zero sliding velocity, and \(S_s+I_c<\Lambda/\mu\).
+## correctness
 
-The witness is only a concrete certificate. The full parameter classification follows from the preceding symbolic identities and inequalities.
+PASS
+
+At beta=r1=q+h1 (R0=1), the source auxiliary Ic0=b(r1-beta)/(beta-r0)=0, contrary to its feasible positive Ic statement. Recomputed lower normal flow X1sigma=-r1 Ic^2/(S+Ic)<0. Simplified upper tangency to Sc2=(r0 Ic+b r1)/Delta; upper field is positive for S>Sc2, so the sliding ray is repulsing. The source sliding field -mu(S-Ss), Ss=(Lambda-q Ic)/mu, has a feasible zero exactly when Lambda Delta - mu b r1 >= Ic(q Delta+mu r0). With a positive numerator this yields 0<Ic<=Ic-dagger, and strict interior pseudo-saddles for Ic<Ic-dagger; at equality it is tangency. Independent Fraction substitutions for exact witness produce Ic-dagger=1597/150, Sc2=53/20, Ss=45, normal values -27/20 and 2541/340, population total 50<80.
+
+## originality
+
+PASS
+
+Primary original equations give an impossible equality cutoff and the ingredients for a nonempty repulsing sliding wedge but not the corrected Ic-dagger classification; distinct Filippov limited-resource models have different switching laws and scalar sliding fixed points. The correction is a substantive missing critical boundary, not a repetition of the printed formulas alone.
+
+## value
+
+PASS
+
+The reproduction-one surface organizes the epidemiological regime boundary in a model where pseudo-equilibria and repulsing sliding geometry control bifurcations. The original cutoff incorrectly declares an entire physically valid positive switching region empty. The new exact Ic-dagger phase inequality, explicit interior pseudo-saddle witness and endpoint tangency repair a material classification gap rather than a decorative special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

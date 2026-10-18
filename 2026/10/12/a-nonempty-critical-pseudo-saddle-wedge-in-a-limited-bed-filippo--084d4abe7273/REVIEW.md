@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. At \(\mathcal R_0=1\), the source identity \(\beta=r_1\) makes its printed auxiliary cutoff exactly \(I_{c0}=0\). Direct substitution into the two vector fields shows that the equality-case repulsing sliding ray starts at \(S_{c2}=r_0I_c/\Delta+br_1/\Delta\). Comparing this with the exact sliding fixed point \(S_s=(\Lambda-(\mu+\nu)I_c)/\mu\) gives a necessary-and-sufficient positive cutoff \(I_c^{\dagger}\). The field signs, sliding derivative, and invariant-region condition are all checked exactly.
+PASS
 
-## Originality
+At beta=r1=q+h1 (R0=1), the source auxiliary Ic0=b(r1-beta)/(beta-r0)=0, contrary to its feasible positive Ic statement. Recomputed lower normal flow X1sigma=-r1 Ic^2/(S+Ic)<0. Simplified upper tangency to Sc2=(r0 Ic+b r1)/Delta; upper field is positive for S>Sc2, so the sliding ray is repulsing. The source sliding field -mu(S-Ss), Ss=(Lambda-q Ic)/mu, has a feasible zero exactly when Lambda Delta - mu b r1 >= Ic(q Delta+mu r0). With a positive numerator this yields 0<Ic<=Ic-dagger, and strict interior pseudo-saddles for Ic<Ic-dagger; at equality it is tangency. Independent Fraction substitutions for exact witness produce Ic-dagger=1597/150, Sc2=53/20, Ss=45, normal values -27/20 and 2541/340, population total 50<80.
 
-PASS. The primary article states the empty condition \(I_c<I_{c0}\) for \(\mathcal R_0=1\) and does not state the corrected positive wedge. The closest inspected limited-resource Filippov predecessor has a different switching law and different sliding fixed point. Source-title, DOI, symbol, equality-threshold, pseudo-equilibrium, and correction searches did not locate a covering repair.
+## originality
 
-## Value
+PASS
 
-PASS. The correction concerns the central reproduction-number boundary and restores an entire regime of pseudo-saddles that the printed classification excludes. Because pseudo-saddles are organizing objects for the source's sliding bifurcations and homoclinic structures, the boundary is mathematically structural rather than cosmetic.
+Primary original equations give an impossible equality cutoff and the ingredients for a nonempty repulsing sliding wedge but not the corrected Ic-dagger classification; distinct Filippov limited-resource models have different switching laws and scalar sliding fixed points. The correction is a substantive missing critical boundary, not a repetition of the printed formulas alone.
 
-## Closest literature and limitations
+## value
 
-Qin et al. analyze pseudo-equilibria in a related limited-resource Filippov epidemic model but with different equations and no implication for this cutoff. Shan and Zhu analyze hospital-bed limitations in a smooth SIR system rather than a Filippov switching system. The correction does not change the source's noncritical regimes. At \(I_c=I_c^{\dagger}\), the pseudo-equilibrium coincides with the tangency point; genuine interior pseudo-saddles have strict inequality.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The reproduction-one surface organizes the epidemiological regime boundary in a model where pseudo-equilibria and repulsing sliding geometry control bifurcations. The original cutoff incorrectly declares an entire physically valid positive switching region empty. The new exact Ic-dagger phase inequality, explicit interior pseudo-saddle witness and endpoint tangency repair a material classification gap rather than a decorative special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
