@@ -1,15 +1,21 @@
-# Self-review of the twelve-erasure ambiguity theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The specified parity-check matrix has every three-column minor nonzero, giving the quaternary \([6,3,4]\) MDS code, and satisfies the Hermitian orthogonality condition. Every binary two-space has support at least twelve; equality forces three weight-eight words. Their quaternary support intersections of sizes four, three, and two yield exactly \(15\), \(180\), and \(45\) distinct two-spaces. The three-space support bound is at least fourteen, so no two of these planes yield the same twelve-mask. Double counting nonzero codeword occurrences in \(\binom{18}{12}\) masks gives the exact three ambiguity classes. Exhaustive parity-restriction rank calculations and independent direct codeword enumeration agree on every one of the \(18564\) masks. The proof is finite and exhaustive, not an extrapolation.
+## correctness
 
-## Originality — PASS, with limits
-The concatenation is established in Jin–Fu (arXiv:2605.04618), Example 6.5. Earlier self-orthogonal-code classifications include the matching \([18,6,8]\) weight distribution. Kurz–Landjev–Rousseva (arXiv:2601.00250) consider generalized weight parameters. These publications do not explicitly state the count of exactly \(240\) rank-two twelve-erasure masks or its three block-profile multiplicities in the inspected relevant material. Neither the ordinary weight enumerator nor a single minimum generalized weight formally specifies those counts. Residual risk: a prior full support enumerator for the same classical code might imply the enumeration and could be unindexed; no global uniqueness or priority certification is claimed.
+PASS
 
-## Value — PASS
-For distributed storage under erasures, the difference between two and four consistent completions is intrinsic to decoding reliability. The exact twelve-erasure spectrum quantifies the first four-way ambiguity threshold and resolves the geometry of every minimal two-dimensional support relative to the natural locality-two repair blocks. The complete count is a motivated finite invariant rather than a new description of an already known minimum distance.
+The outer [6,3,4] MDS property gives 45 nonzero quaternary weight-4 words and 18 weight-6, hence binary 1+45z^8+18z^12. For a binary two-plane, 2|supp|=wt(a)+wt(b)+wt(a+b)>=24; minimum supports require three words of weight 8. Partition by overlap 4,3,2 of the two four-coordinate outer supports gives 15,180,45 plane profiles respectively, each a distinct 12-mask because any 3-space support has >=14. Incidence count 45*C(10,4)+18=9468 gives 8748 masks with one nonzero supported word and 9576 with none; 240 masks have 3 supported nonzero words and four completions. Independent full finite reconstruction corroborated all counts, not extrapolated to any other code.
 
-## Scope and status
-All conclusions concern the displayed binary code and its specified six repair groups. They do not assert stronger erasure-capacity bounds, automorphism-invariance of the three block patterns, or independent checking beyond the reproducible calculations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Jin-Fu Example 6.5 constructs the concatenation and gives its [18,6,8] parameters and usual weight distribution. These do not imply the exact 12-erasure ambiguity histogram or 6-block support profiles without a further subcode-support incidence calculation. Related code-classification and generalized-weight work may determine d2 but not the full stated profile.
+
+## value
+
+PASS
+
+An exact erasure-ambiguity distribution for a natural explicit locality-two code distinguishes patterns indistinguishable by ordinary minimum distance or weight enumerator, and the block profile matters to the prescribed repair grouping.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

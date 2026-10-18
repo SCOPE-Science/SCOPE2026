@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Execute `python3 verify.py` using only Python 3 standard-library modules. Successful execution prints `VERIFY_OK` after comparing two independent exact methods.
+## correctness
 
-The first method reconstructs \(\mathbb F_4\), checks all \(20\) relevant quaternary rank-three minors and the Hermitian product condition, enumerates the complete \(64\)-word binary code and its \(651\) binary two-dimensional subcodes, and verifies \(240\) distinct twelve-coordinate plane supports, partitioned into the three claimed repair-block profiles. The second method derives a six-row binary generator from the quaternary code, and for each of the \(18564\) twelve-coordinate masks computes the binary parity-restriction rank on the six unerased coordinates. It independently tests the same ambiguity dimension by counting all compatible codewords. The results are \(9576\) dimension-zero masks, \(8748\) dimension-one masks and \(240\) dimension-two masks. The incidence count is independently checked.
+PASS
 
-The source code itself is included as `verify.py`. Its loops cover the entire finite domain indicated above; no random sampling, inaccessible database, or unstated software dependency is involved. The argument for why these checks imply the enumerated theorem is presented in `RESULT.md`. No independently performed audit or scientific priority certification is claimed.
+The outer [6,3,4] MDS property gives 45 nonzero quaternary weight-4 words and 18 weight-6, hence binary 1+45z^8+18z^12. For a binary two-plane, 2|supp|=wt(a)+wt(b)+wt(a+b)>=24; minimum supports require three words of weight 8. Partition by overlap 4,3,2 of the two four-coordinate outer supports gives 15,180,45 plane profiles respectively, each a distinct 12-mask because any 3-space support has >=14. Incidence count 45*C(10,4)+18=9468 gives 8748 masks with one nonzero supported word and 9576 with none; 240 masks have 3 supported nonzero words and four completions. Independent full finite reconstruction corroborated all counts, not extrapolated to any other code.
+
+## originality
+
+PASS
+
+Jin-Fu Example 6.5 constructs the concatenation and gives its [18,6,8] parameters and usual weight distribution. These do not imply the exact 12-erasure ambiguity histogram or 6-block support profiles without a further subcode-support incidence calculation. Related code-classification and generalized-weight work may determine d2 but not the full stated profile.
+
+## value
+
+PASS
+
+An exact erasure-ambiguity distribution for a natural explicit locality-two code distinguishes patterns indistinguishable by ordinary minimum distance or weight enumerator, and the block profile matters to the prescribed repair grouping.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
