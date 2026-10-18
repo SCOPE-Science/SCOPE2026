@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-The standalone verifier `artifacts/verify_q7_frameproof.py` rebuilds the forbidden-triple relation directly from the binary Hamming-geodesic definition. It exhaustively enumerates all valid nine-word and ten-word codes after translating one codeword to `0000000`; the former count is 7,560 and the latter is zero. It then checks every enumerated maximum directly, reconstructs all coordinate permutations and translations, partitions the maxima into the two claimed Hamming-isometry orbits, and recomputes stabilizers, pair-distance profiles, and coordinate multiplicities.
+# Independent mathematical audit
 
-The verifier uses no timeout, randomized search, external solver, cached certificate, or unproved pruning rule. Its only pruning step removes a future word exactly when that word and two already chosen words form a forbidden triple. The exhaustive search is finite over all 128 binary words of length seven. The result does not assert any classification in other lengths or alphabets.
+## correctness
 
-Expected successful replay begins with:
+PASS
 
-```text
-VERIFY_OK vertices=128 maximum=9 origin_maxima=7560 target10=0 labeled_maxima=107520 natural_group=645120 orbits=2 orbit_sizes=80640,26880 stabilizers=8,24
-```
+In Q_7, the 2-frameproof constraint is exactly no third distinct vertex on any pairwise Hamming geodesic. The inspected normalized lexicographic DFS excludes precisely all bad third vertices for each selected pair; induction on increasing extensions makes the enumeration exhaustive, not heuristic. Independent full origin-normalized enumeration found 7,560 size-nine codes and zero size-ten codes (2,986,961 and 2,029,645 explored recursion nodes respectively). Since nine is odd, no nonzero cube translation stabilizes a maximum, so labeled count =7560*128/9=107,520. Independently constructed coordinate-permutation and translation orbit action yielding exactly two classes sized 80,640 and 26,880, stabilizers 8 and 24; source pair-distance profiles distinguish them.
+
+## originality
+
+PASS
+
+Exact maximum |C|=9 in dimension seven is known and explicitly NOT claimed new. The assessed theorem is the complete labeled equality census and 2 Hamming-isometry orbits. The full primary hypercube general-position article gives cardinalities, not orbit profiles or equality counts; related Resultary dimension-eight optimum likewise does not imply this classification.
+
+## value
+
+PASS
+
+The full classification of equality configurations under all hypercube automorphisms is a natural, independently useful code-invariant refinement beyond the already tabulated cardinality. Orbit stabilizers and distance profiles distinguish structurally different extremizers; this finite result is mathematically motivated by equality rigidity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

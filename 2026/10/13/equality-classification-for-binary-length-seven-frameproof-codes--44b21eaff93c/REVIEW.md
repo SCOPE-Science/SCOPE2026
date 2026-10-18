@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The definition is reconstructed at the triple level and the exhaustive search is normalized only by a proved translation symmetry. The candidate-mask recursion removes exactly forbidden third vertices, and every enumerated maximum is directly replayed against the defining triple condition. Target size \(10\) has zero normalized solutions, while target size \(9\) has \(7{,}560\). The labeled count follows from the free translation action on an odd nine-set, and the two full Hamming-isometry orbits are reconstructed from every translation and all coordinate permutations. The bundled verifier reproduces all claimed numbers and profiles from scratch.
+## correctness
 
-## Originality
-PASS. Primary and supporting sources were compared under the frameproof, \((2,1)\)-separating, and hypercube general-position formulations. The 2023 hypercube paper and OEIS record the exact dimension-seven cardinality/example; the closest published-finding corpus record proves the distinct dimension-eight value. None of the inspected material gives the \(107{,}520\) equality count, the two orbit sizes, stabilizers, or the structural profiles. Exact claim, alias, representative, and parameter searches did not find a stronger covering statement. Residual risk remains from an obscure or unindexed historical enumeration, especially the exact Bevan source behind the OEIS witness.
+PASS
 
-## Value
-PASS. This is a complete equality-case classification of a standard finite benchmark, not a routine recomputation of the known optimum. It exhibits two genuinely different extremal geometries and supplies intrinsic fingerprints and stabilizers, giving reusable structural information for separating/frameproof codes and hypercube general-position sets.
+In Q_7, the 2-frameproof constraint is exactly no third distinct vertex on any pairwise Hamming geodesic. The inspected normalized lexicographic DFS excludes precisely all bad third vertices for each selected pair; induction on increasing extensions makes the enumeration exhaustive, not heuristic. Independent full origin-normalized enumeration found 7,560 size-nine codes and zero size-ten codes (2,986,961 and 2,029,645 explored recursion nodes respectively). Since nine is odd, no nonzero cube translation stabilizes a maximum, so labeled count =7560*128/9=107,520. Independently constructed coordinate-permutation and translation orbit action yielding exactly two classes sized 80,640 and 26,880, stabilizers 8 and 24; source pair-distance profiles distinguish them.
 
-## Closest literature and limitations
-The closest published finite source is Korže--Vesel (2023), which certifies exact hypercube general-position values through dimension seven but does not classify equality cases in the inspected text. The closest published-finding corpus record is the exact dimension-eight theorem. The result here is finite and computer-assisted and does not automatically extend to higher dimensions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exact maximum |C|=9 in dimension seven is known and explicitly NOT claimed new. The assessed theorem is the complete labeled equality census and 2 Hamming-isometry orbits. The full primary hypercube general-position article gives cardinalities, not orbit profiles or equality counts; related Resultary dimension-eight optimum likewise does not imply this classification.
+
+## value
+
+PASS
+
+The full classification of equality configurations under all hypercube automorphisms is a natural, independently useful code-invariant refinement beyond the already tabulated cardinality. Orbit stabilizers and distance profiles distinguish structurally different extremizers; this finite result is mathematically motivated by equality rigidity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
