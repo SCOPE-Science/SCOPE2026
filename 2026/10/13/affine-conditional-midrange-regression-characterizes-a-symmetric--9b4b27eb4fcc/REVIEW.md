@@ -1,22 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Conditioning on the median of a continuous three-sample makes the lower and upper observations independent draws from the lower and upper truncations. In quantile coordinates this gives the exact tail-mean formulas (8)--(9). Central symmetry fixes the intercept, and the affine regression becomes the integral equation (10).
+PASS
 
-Differentiation gives the first-order ODE (11), whose solution is the displayed power quantile. Monotonicity supplies the sharp threshold \(a\ge\frac12\); negative slopes are excluded by first-moment divergence. Direct integration of the candidate quantile proves sufficiency. The tail exponent follows from inversion of the endpoint quantile asymptotic.
+Given sample median Q(p), truncated lower/upper conditional means are H(p)/p and -H(p)/(1-p), H(p)=int_0^p Q. The affine regression yields (1-2p)H=2ap(1-p)Q after centering; symmetry forces the intercept. Differentiating gives a first-order quantile ODE whose symmetric solution is Q=constant*z*(1-z^2)^(1/(2a)-1). Positivity of its derivative on -1<z<1 forces a>=1/2 when a>0; for a<0 its endpoint power contradicts finite mean. Direct antiderivative verifies sufficiency. Independently checked regression identities at rational p and slopes, uniform a=1/2, Student-t2 a=1 and Pareto power index 2a/(2a-1). Boundary behavior is carefully restricted to parent regularity.
 
-## Originality
+## originality
 
-PASS, with a bounded residual risk from the extensive order-statistic characterization literature. The closest full primary source studies the same conditional midrange object with identity regression and explicitly flags the affine \(a x+b\) replacement as an interesting extension. Its symmetric identity case is the single point \(a=1\), not the slope-indexed family proved here.
+PASS
 
-The closest related sample-mean and later Student-\(t_2\) regression papers inspected use identity regressions or different order-statistic functionals. Targeted searches for affine midrange, symmetric midrange-median regression, and equivalent quantile formulations did not locate the claimed slope family.
+Best-of-knowledge original full statement after specific same-object and theorem-level comparisons, including relevant published Resultary findings and primary sources. The results attributed to earlier authors are not counted as new; residual risks remain explicit. 
 
-## Value
+## value
 
-PASS. The result closes a natural affine extension explicitly raised in the foundational midrange-characterization paper, under the canonical central-symmetry restriction. It gives a structural classification rather than an isolated example: the regression slope becomes a tail-shape parameter, with a sharp bounded-support boundary and a classical Student distribution as an interior landmark.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Characterization closes the centrally symmetric three-observation affine-regression slice of the published midrange question and identifies a continuous slope-indexed family with a sharp integrability/monotonicity boundary and interpretable tail index. This is an exact natural statistical distribution classification, not merely identifying another isolated special case.
 
-
-Exact replay: `VERIFY_OK ode_checks=28 identity_checks=56 conditional_regression_checks=56 monotonicity_checks=45`.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

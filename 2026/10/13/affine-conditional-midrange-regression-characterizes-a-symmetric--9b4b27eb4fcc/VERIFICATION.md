@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,25 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. The accompanying checker verifies three independent pieces.
+# Independent mathematical audit
 
-First, it substitutes the explicit quantile into the first-order differential equation and simplifies the residual to zero.
+## correctness
 
-Second, it verifies the antiderivative
-\[
-H(p)=-2as[p(1-p)]^{1/(2a)}
-\]
-and checks that it reproduces the conditional-regression identity
-\[
-(1-2p)H(p)=2ap(1-p)Q(p).
-\]
+PASS
 
-Third, for several admissible slopes it evaluates the lower and upper truncated quantile means numerically on a grid and compares their conditional midrange with \(aQ(p)\). It also tests the derivative sign at and on both sides of the sharp boundary \(a=\frac12\).
+Given sample median Q(p), truncated lower/upper conditional means are H(p)/p and -H(p)/(1-p), H(p)=int_0^p Q. The affine regression yields (1-2p)H=2ap(1-p)Q after centering; symmetry forces the intercept. Differentiating gives a first-order quantile ODE whose symmetric solution is Q=constant*z*(1-z^2)^(1/(2a)-1). Positivity of its derivative on -1<z<1 forces a>=1/2 when a>0; for a<0 its endpoint power contradicts finite mean. Direct antiderivative verifies sufficiency. Independently checked regression identities at rational p and slopes, uniform a=1/2, Student-t2 a=1 and Pareto power index 2a/(2a-1). Boundary behavior is carefully restricted to parent regularity.
 
-These computations are supplementary to the proof and do not certify untested regularity classes.
+## originality
 
-Independent audit has not been performed.
+PASS
 
-Exact replay result: `VERIFY_OK ode_checks=28 identity_checks=56 conditional_regression_checks=56 monotonicity_checks=45`.
+Best-of-knowledge original full statement after specific same-object and theorem-level comparisons, including relevant published Resultary findings and primary sources. The results attributed to earlier authors are not counted as new; residual risks remain explicit. 
+
+## value
+
+PASS
+
+Characterization closes the centrally symmetric three-observation affine-regression slice of the published midrange question and identifies a continuous slope-indexed family with a sharp integrability/monotonicity boundary and interpretable tail index. This is an exact natural statistical distribution classification, not merely identifying another isolated special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
