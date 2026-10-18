@@ -1,22 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The slow equation alone gives the mean from stationarity of \(y\) and the covariance from stationarity of \(y^2\). Positive semidefiniteness gives the variance bound. Equality in Cauchy–Schwarz forces the affine relation
-\[
-y-\mathbb E[y]
-=
-\frac{\mu}{2}(x-(\sigma-1)).
-\]
-Combining this relation before and after one iterate with the exact slow update forces reflection of \(x\) about \(\sigma-1\), hence period dividing two.
+## correctness
 
-Risk: fixed points have zero fast variance, so the strict correlation statement is limited to nondegenerate ergodic states.
+PASS
 
-## Originality
-PASS. The foundational full text, the complete classical chaos analysis, and a modern open parameter study were compared at statement and implication level. They cover the slow nullcline, spiking/bursting bifurcations, canards, homoclinic mechanisms, Lyapunov exponents, and periodicity diagrams, but no checked source states the exact stationary covariance coefficient, covariance-determinant bound, or period-two equality rigidity.
+For any compactly supported invariant probability measure the slow increment Δy=-μ(x-(σ−1)) has zero mean, giving E[x]=σ−1. Stationarity of y² expands to 0=−2μ Cov(x,y)+μ² Var(x), hence Cov=(μ/2)Var(x); no fast-map regularity is required. Cauchy–Schwarz gives the sharp variance lower bound. Equality with nonzero Var(x) fixes y−Ey=(μ/2)(x−m) almost surely, and invariance applies this relation at the image point, so x_{n+1}−m=−(x_n−m), y_{n+2}=y_n a.s.; any ergodic nondegenerate equality measure is a two-cycle. The strict correlation assertion correctly excludes zero Var(x), fixed points and period-two equality. Independent hand expansion and exact-rational source-code inspection confirm normalization μ=.001, σ=.322.
 
-Risk: the second-moment calculation is short, so an unindexed equivalent observation remains possible.
+## originality
 
-## Value
-PASS. The covariance is intrinsic to the model's defining slow feedback. The result provides an exact attractor-independent diagnostic across silent, spiking, periodic-bursting, and chaotic-bursting regimes. Its equality case is not merely algebraic: it excludes all higher-period and chaotic dynamics from the lower variance boundary.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Best-of-knowledge: original and later same-map primary treatments focus on the slow nullcline, spiking/bursting bifurcations, canards and chaos, rather than an all-compact-invariant-measure covariance determinant and period-two equality classification. The second-moment balance is short and could be independently known under stationary-energy terminology; explicitly retain that originality risk. Resultary did not complete and contributes no negative-search evidence.
+
+## value
+
+PASS
+
+Stationary fast–slow covariance is a natural physical statistic for the canonical Rulkov neuron map. The result gives an exact global consistency law and fluctuation bound across all compact stationary regimes and, crucially, converts equality in a statistical bound into a dynamical period-two obstruction. That motivated structural rigidity exceeds a trivial normalizing observation and is independently useful for comparing simulated regular versus bursting invariant statistics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

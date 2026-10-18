@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T21:07:54Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any compactly supported invariant probability measure the slow increment Δy=-μ(x-(σ−1)) has zero mean, giving E[x]=σ−1. Stationarity of y² expands to 0=−2μ Cov(x,y)+μ² Var(x), hence Cov=(μ/2)Var(x); no fast-map regularity is required. Cauchy–Schwarz gives the sharp variance lower bound. Equality with nonzero Var(x) fixes y−Ey=(μ/2)(x−m) almost surely, and invariance applies this relation at the image point, so x_{n+1}−m=−(x_n−m), y_{n+2}=y_n a.s.; any ergodic nondegenerate equality measure is a two-cycle. The strict correlation assertion correctly excludes zero Var(x), fixed points and period-two equality. Independent hand expansion and exact-rational source-code inspection confirm normalization μ=.001, σ=.322.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rulkov 2002 gives slow fast map, nullcline x=σ−1 and spiking/bursting regimes.",
+          "Shilnikov–Rulkov 2003 derives fixed-point and bifurcation mechanisms (Hopf, canard, homoclinic), not a quantified invariant-measure moment identity in its model and dynamics sections."
+        ],
+        "reasoning": "Universal theory of stationarity yields the proof method, but pointwise nullcline and bifurcation analysis do not imply the measured covariance or equality rigidity as already evaluated theorem. Risk of broad stationary-moment lemma elsewhere retained.",
+        "searches": [
+          "Rulkov two-dimensional spiking bursting map invariant measure stationary mean slow-fast covariance second moments two-cycle equality sigma-1",
+          "Origin of Chaos in a Two-Dimensional Map Modeling Spiking-Bursting Neural Activity",
+          "Distribution of spiking and bursting in Rulkov neuron model"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:nlin/0201006, full primary preprint",
+        "doi:10.1142/S0218127403008521, full author-provided text read",
+        "mcp GitHub result: frozen RESULT.md and verify.py for tree 8e347b6fe51920424c2b5d18304abf09e60bb4ce",
+        "Resultary query attempted but unavailable"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zero instantaneous drift at x=σ−1 only identifies the balance level, whereas E(x)=σ−1 follows from invariant averaging; neither alone implies Cov(y,x)=μ Var(x)/2.",
+          "Bifurcation/chaos descriptions do not give the Cauchy–Schwarz equality classification or universal strict correlation bounds."
+        ],
+        "reasoning": "The final theorem includes an all-stationary-compact-law quantifier and an equality-to-period-two result. Same equations in primary work are premises, not automatically a prior theorem with the same conclusion.",
+        "searches": [
+          "Rulkov two-dimensional spiking bursting map invariant measure stationary mean slow-fast covariance second moments two-cycle equality sigma-1",
+          "arXiv:nlin/0201006",
+          "doi:10.1142/S0218127403008521"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The identity Cov(x,y)=μ Var(x)/2 is equivalent to E[y_{n+1}²-y_n²]=0 after using E(x)=σ−1.",
+          "The equality condition is an affine support line invariant under the slow update, equivalent to the reflection relation x′−m=−(x−m)."
+        ],
+        "reasoning": "Compared stationary moment, martingale/increment-energy and dynamical two-cycle formulations, not just covariance wording. The primary paper identifies instantaneous zero slow drift at x=m but does not itself state the stationary second-moment constraint in the inspected model/regime sections.",
+        "searches": [
+          "Rulkov two-dimensional spiking bursting map invariant measure stationary mean slow-fast covariance second moments two-cycle equality sigma-1",
+          "Rulkov covariance (SCOPE-Science GitHub code search)",
+          "arXiv:nlin/0201006"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The claim is uniform over all compact invariant measures and all μ>0, not a finite data/table value.",
+          "The published numerical dynamics studies give parameter plots and Lyapunov regimes, not an exact covariance table providing this theorem."
+        ],
+        "reasoning": "No finite database can prove all-measure identities; nevertheless a documented exact stationary-moment formula in another invariant-statistics source could cover it and was not ruled out exhaustively.",
+        "searches": [
+          "Rulkov two-dimensional spiking bursting map invariant measure stationary mean slow-fast covariance second moments two-cycle equality sigma-1",
+          "Rulkov covariance (SCOPE-Science GitHub code search)"
+        ]
+      },
+      "rationale": "Best-of-knowledge: original and later same-map primary treatments focus on the slow nullcline, spiking/bursting bifurcations, canards and chaos, rather than an all-compact-invariant-measure covariance determinant and period-two equality classification. The second-moment balance is short and could be independently known under stationary-energy terminology; explicitly retain that originality risk. Resultary did not complete and contributes no negative-search evidence.",
+      "residual_risks": [
+        "Resultary semantic search was attempted with the recorded query but returned temporarily_unavailable/search_internal_error with search_completed:false; neither a negative search nor evidence of novelty.",
+        "Moment stationarity may appear under invariant-energy or Markov-chain balance identities in less searchable literature; proof simplicity is a substantive priority risk.",
+        "Public publisher image/PDF of the same-map 2003 article not obtained; author-provided complete text was read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No stationary covariance/variance/equality theorem in the inspected sections; source is the original premise defining the dynamics.",
+          "evidence": "Original map y_{n+1}=y_n−μ(x_n+1−σ), with x_s=−1+σ slow-nullcline level.",
+          "identifier_or_url": "arXiv:nlin/0201006; doi:10.1103/PhysRevE.65.041922",
+          "material_read": "Full preprint text inspected at model equations, x_s=−1+σ balance level and discussion of silent, periodic and chaotic spiking/bursting; first PDF page visually checked.",
+          "method": "Public arXiv original PDF, text and screenshot",
+          "title": "Modeling of Spiking-Bursting Neural Behavior Using Two-Dimensional Map",
+          "trigger": "Original Rulkov map, exact slow variable and nullcline"
+        },
+        {
+          "assessment": "The observed source sections characterize dynamics rather than state this invariant-measure second-moment identity; unindexed equivalent wording remains possible.",
+          "evidence": "Paper treats phase transitions and chaotic bursting of exactly the same slow-fast map, so its scope was checked rather than dismissed based on title.",
+          "identifier_or_url": "doi:10.1142/S0218127403008521; https://www.researchgate.net/publication/215628531_Origin_of_Chaos_in_a_Two-Dimensional_Map_Modeling_Spiking-Bursting_Neural_Activity",
+          "material_read": "Full author-provided article transcription read at model, fixed-point, Hopf, canards and chaotic bursting; targeted text finds for covariance and variance gave no matches.",
+          "method": "Full textual article with section reading and term searches; author-site PDF inaccessible",
+          "title": "Origin of Chaos in a Two-Dimensional Map Modeling Spiking-Bursting Neural Activity",
+          "trigger": "Highly relevant same-map original detailed chaos analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Stationary fast–slow covariance is a natural physical statistic for the canonical Rulkov neuron map. The result gives an exact global consistency law and fluctuation bound across all compact stationary regimes and, crucially, converts equality in a statistical bound into a dynamical period-two obstruction. That motivated structural rigidity exceeds a trivial normalizing observation and is independently useful for comparing simulated regular versus bursting invariant statistics.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Compactly supported invariant Borel probabilities only; no existence or uniqueness of chaotic invariant measures is established.",
+    "Equal covariance determinant with Var(x)>0 forces support on period≤2 points a.s.; a nonergodic mixture is not necessarily a single 2-cycle.",
+    "Result asserts no quantitative prediction for higher moments or all return-time statistics."
+  ]
+}
