@@ -1,11 +1,21 @@
-# Self-review
-## Correctness
-PASS. The primary source was inspected at the exact propositions supplying the sixty Weierstrass points, the three class-(i) tritangent families, and their contact divisors. The degree-six canonical hyperplane section excludes unlisted point-plane incidences. The embedded exact checker reconstructs the finite incidence structure, identifies all maximal cliques, enumerates all graph automorphisms, and verifies the cubic Galois calculation.
+# Independent mathematical audit
 
-## Originality
-PASS, for the narrowed curve-specific claim. The source gives the formulas and orbit decomposition but not the arrangement-graph identification, the full type-preserving incidence group, or the interpretation of the extra factor as the Galois permutation of root positions. General arrangement-graph symmetry is known and is not claimed. The closest unresolved source is Edge's 1981 tritangent paper, whose full text was unavailable; its abstract establishes equations and contact coordinates but does not state the present structural identification.
+## correctness
 
-## Value
-PASS. The class-(i) tritangents are a natural geometric subsystem: exactly the sixty tritangents all of whose contacts are Weierstrass points. Identifying their complete incidence geometry simultaneously organizes the three twenty-plane theta orbits, recovers the configuration from a standard graph, and separates geometric from arithmetic symmetry.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact contact fibers over five labels: 60 ordered injective triples; for each of 3 omitted coordinate positions and each ordered pair of remaining labels, one 3-point block. Each point lies on 3 blocks, and distinct points are collinear iff exactly one coordinate changes; gives A(5,3). Each block is a maximal 3-clique and there are exactly 60 such cliques. Independently reconstructed graph has 60 vertices, 180 edges and all 60 3-cliques; S5×S3 gives 720 distinct automorphisms and exhaustive graph automorphism count in inspected source is 720. The cubic t^3+2t^2+3t+4 has no rational zero and discriminant −200, giving Galois group S3; this action permutes root-label positions, not curve holomorphic automorphisms. Degree-six canonical hyperplane section forces no extra Weierstrass incidence beyond 3 double contacts.
+
+## originality
+
+PASS
+
+PASS for curve-specific equivalence of 60 all-Weierstrass tritangents with the clique geometry of A(5,3), and arithmetic interpretation of the extra S3; abstract arrangement graph, its symmetry and source contact formulas are credited to prior work.
+
+## value
+
+PASS
+
+The distinguished 60 tritangents are all those with Weierstrass contacts, a canonical geometric subsystem of a highly symmetric genus-four curve. Its incidence organization into three parallel classes, intrinsic clique reconstruction, and separation of holomorphic S5 from the larger arithmetic incidence symmetry are useful invariant structural facts, not an arbitrary small-graph exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

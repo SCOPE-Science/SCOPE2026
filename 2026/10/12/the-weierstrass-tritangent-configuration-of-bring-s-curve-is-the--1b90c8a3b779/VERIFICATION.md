@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The embedded `verify.py` uses exact finite combinatorics and exact symbolic arithmetic.
 
-It checks all \(60\) ordered injective triples and all \(60\) tritangent blocks, proves each of the three twenty-block families partitions the point set, and verifies point valency three and block size three. It then checks that two points share a block exactly when their triples differ in one coordinate, giving \(A_{5,3}\). All maximal cliques are enumerated: there are exactly \(60\), all of size three, and they are exactly the tritangent blocks. Thus the block structure is recoverable from the point graph.
+# Independent mathematical audit
 
-The graph automorphism enumeration is exhaustive and returns exactly \(720\) automorphisms. Independently, all \(120\cdot6=720\) maps obtained from symbol permutations \(S_5\) and coordinate-position permutations \(S_3\) are constructed and verified to preserve adjacency, so these exhaust the type-preserving incidence automorphisms.
+## correctness
 
-For \(f(T)=T^3+2T^2+3T+4\), exact symbolic arithmetic verifies irreducibility over \(\mathbb Q\), discriminant \(-200\), and a Galois group of order six with element orders \(1,2,2,2,3,3\), hence \(S_3\).
+PASS
 
-A fresh execution of the artifact embedded in the finding package returned:
+Exact contact fibers over five labels: 60 ordered injective triples; for each of 3 omitted coordinate positions and each ordered pair of remaining labels, one 3-point block. Each point lies on 3 blocks, and distinct points are collinear iff exactly one coordinate changes; gives A(5,3). Each block is a maximal 3-clique and there are exactly 60 such cliques. Independently reconstructed graph has 60 vertices, 180 edges and all 60 3-cliques; S5×S3 gives 720 distinct automorphisms and exhaustive graph automorphism count in inspected source is 720. The cubic t^3+2t^2+3t+4 has no rational zero and discriminant −200, giving Galois group S3; this action permutes root-label positions, not curve holomorphic automorphisms. Degree-six canonical hyperplane section forces no extra Weierstrass incidence beyond 3 double contacts.
 
-`VERIFY_OK points=60 blocks=60 incidence=60_3 point_graph=A(5,3) maximal_cliques=60 aut_type_preserving=720=S5xS3 cubic_disc=-200 cubic_galois=S3`
+## originality
 
-The computation does not assess incidences with class-(ii) tritangents, type-swapping dualities of the Levi graph, or projective realizability of the extra \(S_3\); these are outside the claim.
+PASS
+
+PASS for curve-specific equivalence of 60 all-Weierstrass tritangents with the clique geometry of A(5,3), and arithmetic interpretation of the extra S3; abstract arrangement graph, its symmetry and source contact formulas are credited to prior work.
+
+## value
+
+PASS
+
+The distinguished 60 tritangents are all those with Weierstrass contacts, a canonical geometric subsystem of a highly symmetric genus-four curve. Its incidence organization into three parallel classes, intrinsic clique reconstruction, and separation of holomorphic S5 from the larger arithmetic incidence symmetry are useful invariant structural facts, not an arbitrary small-graph exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
