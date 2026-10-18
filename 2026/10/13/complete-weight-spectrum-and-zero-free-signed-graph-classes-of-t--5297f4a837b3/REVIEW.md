@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Orthogonality of the ten distinct sign characters proves injective evaluation and dimension ten. The two-point fiber criterion gives a structural, exhaustive classification of every zero-free degree-two form, including the case split on the number of terms incident to an isolated vertex. Each of the \(59049\) coefficient tuples is enumerated by two exact methods for the full weight counts; orbit BFS agrees with an independent Burnside sum over all \(3840\) group elements. The supplied standalone verifier reconstructs every object rather than importing precomputed records.
+## correctness
 
-**Originality — PASS, with residual risk.** The full text of Carvalho–Patanker (arXiv:2502.18084; DOI 10.1007/s10623-026-01811-3), especially its definitions, minimum-weight theorem, and next-to-minimum section, treats the first few weights in a regime beginning at \(q\ge4\), \(d\ge3\), and does not determine the present finite full spectrum or classify its weight-\(32\) words. The older generalized-weight and basic-parameter sources concern different invariants. Actual exact-parameter searches and published-result semantic searches found no matching theorem. An earlier unindexed weight table or an equivalent signed-graph classification remains a possible limitation; failed searches are not treated as proof of novelty.
+PASS
 
-**Value — PASS.** Rather than an arbitrary parameter slice, the code is the smallest nontrivial five-vertex signed-graph evaluation model of degree-two hypersimplex toric coding over the smallest permitted field. The exact full weight distribution determines all ordinary support multiplicities, relevant to weight enumerators and error detection, beyond the known distance-only analysis. The classification of all zero-free forms has a direct algebraic interpretation as all quadratic evaluations invertible pointwise on the torus, with three structurally distinct realizations. The \(62\)-orbit decomposition exposes its symmetry and allows independent orbit-based reproduction. The finite result is not extrapolated to any larger family.
+PASS: The ten degree-two characters on {±1}^5 are orthogonal with squared length 32≡2 modulo 3, yielding injectivity and dimension 10. The f(y,t)=g(y)+tL(y) criterion, with r=0..4 nonzero coefficients in L, structurally reduces nowhere-zero quadratics to one edge, a frustrated signed C4 or signed K5; 20+120+32=172. Independently generated all 59049 coefficient 10-tuples, evaluated each at all 32 torus points using a fresh NumPy matrix, reproduced entire enumerator (1,120,720,2240,4500,8000,10992,12384,10320,6240,2880,480,172 at weights 0,8,12,14,16,18,20,22,24,26,28,30,32), and constructed orbits using swaps, switches, global sign: 62 total, zero-free orbit sizes 20/32/120. Finite exhaustion IS the exact proof of this finite census; no inference to general q,s,d.
 
-**Literature and limitations.** The closest primary source is Carvalho–Patanker, arXiv:2502.18084 (2025), published 2026. Supporting antecedents are Jaramillo–Vaz Pinto–Villarreal (2021), and Patanker–Singh (arXiv:2002.10920). Full-text access to the former main source was available; the secondary 2020 paper's abstract and bibliographic record were inspected and indirect earlier coverage remains a risk. No stronger equivalence claim about the full monomial automorphism group is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Carvalho–Patanker 2026 paper covers minimal and next-minimal weight multiplicities for hypersimplex toric codes, especially q>=4,d>=3, but full publicly accessible HTML did not provide the all-weight [32,10]_3 spectrum or three signed-graph zero-free classes. Patanker–Singh generalized Hamming weights and prior minimum distance do not determine word counts at every weight. Resultary searches found other codes with enumerators but no matching exact code and natural graph orbit census. Potential unpublished/equivalent table remains a material risk.
+
+## value
+
+PASS
+
+PASS: An exhaustive full Hamming spectrum and complete natural equivalence classification of maximum-support quadratic forms are exact useful code invariants, not merely restating already-known minimum distance eight. The signed-graph forms (edge, frustrated cycle, complete graph) give structural explanation and natural zero-free extremizer taxonomy. Precisely bounded small-instance result, no general-family claims necessary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and its standard library. The code constructs all \(32\) sign-cube evaluation points and all \(10\) unordered vertex pairs, checks that the generator columns have Gram matrix \(32I_{10}\) over the integers, and enumerates all \(3^{10}=59049\) coefficient vectors.
+## correctness
 
-The direct evaluation and the logically separate two-point-fiber computation agree on every word. They reproduce the full weight distribution, the \(172\) nowhere-zero words, and its support-of-coefficients decomposition \(20+120+32\). A breadth-first traversal by the nine signed-graph generators obtains \(62\) classes, and a second calculation using all \(3840\) group elements gives a Burnside fixed-point sum of \(238080\), hence \(62\) as well. The script prints `VERIFY_OK` only after every assertion succeeds.
+PASS
 
-The structural proof of the zero-free classification is included in `RESULT.md` and does not depend upon finite exploration. The numerical exhaustive enumeration certifies only this \([32,10,8]_3\) code. Independent audit is not performed.
+PASS: The ten degree-two characters on {±1}^5 are orthogonal with squared length 32≡2 modulo 3, yielding injectivity and dimension 10. The f(y,t)=g(y)+tL(y) criterion, with r=0..4 nonzero coefficients in L, structurally reduces nowhere-zero quadratics to one edge, a frustrated signed C4 or signed K5; 20+120+32=172. Independently generated all 59049 coefficient 10-tuples, evaluated each at all 32 torus points using a fresh NumPy matrix, reproduced entire enumerator (1,120,720,2240,4500,8000,10992,12384,10320,6240,2880,480,172 at weights 0,8,12,14,16,18,20,22,24,26,28,30,32), and constructed orbits using swaps, switches, global sign: 62 total, zero-free orbit sizes 20/32/120. Finite exhaustion IS the exact proof of this finite census; no inference to general q,s,d.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Carvalho–Patanker 2026 paper covers minimal and next-minimal weight multiplicities for hypersimplex toric codes, especially q>=4,d>=3, but full publicly accessible HTML did not provide the all-weight [32,10]_3 spectrum or three signed-graph zero-free classes. Patanker–Singh generalized Hamming weights and prior minimum distance do not determine word counts at every weight. Resultary searches found other codes with enumerators but no matching exact code and natural graph orbit census. Potential unpublished/equivalent table remains a material risk.
+
+## value
+
+PASS
+
+PASS: An exhaustive full Hamming spectrum and complete natural equivalence classification of maximum-support quadratic forms are exact useful code invariants, not merely restating already-known minimum distance eight. The signed-graph forms (edge, frustrated cycle, complete graph) give structural explanation and natural zero-free extremizer taxonomy. Precisely bounded small-instance result, no general-family claims necessary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
