@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed the Nyström projector formula, positivity of both residuals, exact compressed spectral identity and operator Jensen via resolvent kernels. Verified the homotopy derivative is a nonnegative pairwise covariance and integrates to the desired projector trace order for all ranks, including common kernel reduction. Exact strict 2D witness and 38,400 supplementary finite comparisons executed from package verifier. Limits: exact arithmetic, same sketch, operator monotone f, untruncated nuclear norm.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2023 paper guarantees near-optimality of f(N_G(A)) relative to the optimal tail if N_G(A) is near-optimal; it does not bound the direct Nyström error using the same G.",
+        "The 2022 paper reports probabilistic bounds for funNyström and computational comparisons."
+      ],
+      "reasoning": "Neither an approximation-to-best-tail bound nor a distributional bound orders two coupled constructions pointwise. The claim does not cover their Frobenius or spectral bounds, or their extra subspace-iteration passes where sketches differ.",
+      "searches": [
+        "Algorithm-Agnostic Low-Rank Approximation of Operator Monotone Matrix Functions",
+        "arxiv:2311.14023 Theorem 1.1 §2 §3",
+        "arxiv:2209.11023 Theorems 3.4 3.9"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2209.11023 first public 2022-09-22",
+      "arxiv:2311.14023 first public 2023-11-23",
+      "EPFL doctoral thesis 2024, Chapter 4",
+      "Published mathematical-results semantic searches including exact coupled trace and operator monotone aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The first source explicitly says its funNyström numerical results are never worse in the experiments; no coupled trace theorem is stated.",
+        "The second source transfers near-optimality under an assumption on the original Nyström error, unlike the unconditional paired estimate.",
+        "Earlier planar power-function phase results quantify expectations for one scheme and do not compare two schemes for arbitrary rank/sketch."
+      ],
+      "reasoning": "Proposed claim is samplewise with arbitrary common sketch. No bound comparing each algorithm to an optimal tail alone entails which error is lower; neither known one-scheme result subsumes it.",
+      "searches": [
+        "arxiv:2209.11023 §§3–5",
+        "arxiv:2311.14023 Theorem 1.1 §2",
+        "arxiv:2209.11023 Figure 2 comparison",
+        "arxiv:2311.14023 proof of operator monotone transfer"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2209.11023 §4.3 presents numerical error comparisons, without a universal samplewise nuclear theorem.",
+        "arxiv:2311.14023 Theorem 1.1 has one approximant and compares to best-rank tail, not two different Nyström targets."
+      ],
+      "reasoning": "Equivalent formulations include comparing trace capture rather than nuclear residual, and monotone spectral-reweighting of projectors. Both were checked against the primary papers; an unknown classical form remains a residual risk.",
+      "searches": [
+        "same sketch matrix Omega Nyström applied to A then operator monotone function always lower nuclear error than Nyström applied to f(A)",
+        "samplewise trace dominance f(A Omega (Omega^T A Omega)^dagger Omega^T A) versus f(A) Omega (Omega^T f(A) Omega)^dagger Omega^T f(A)",
+        "arxiv:2209.11023 §4.3",
+        "arxiv:2311.14023 §1.2/§2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected numerical Figure 2 is an empirical error/rank plot, not a tabulated deterministic all-sketch theorem.",
+        "The nearest published research records concern unrelated low-rank pivoting or operator-norm phenomena, not the same transformation and norm."
+      ],
+      "reasoning": "No exact database/table entry was located for the theorem. That is evidence of missing overlap in the inspected resources, not proof of global novelty.",
+      "searches": [
+        "funNyström",
+        "operator monotone function Nyström sketch-before-function deterministic Schatten one norm dominance trace",
+        "arxiv:2209.11023 Figure 2/§4.3"
+      ]
+    },
+    "rationale": "The original 2022 method and its empirical comparison, the 2023 algorithm-agnostic near-optimality theorem, and the 2024 doctoral exposition do not give a samplewise common-sketch trace/nuclear ordering for every sketch rank. The proof via a continuously reweighted projector and pairwise covariance addresses that missing implication; a classical equivalent may still exist. Searches of published mathematical research did not reveal an exact or stronger covering statement, but search failure alone is not priority certification.",
+    "residual_risks": [
+      "The spectral projector covariance lemma may be present in older matrix-analysis literature under a different name, making the same-sketch theorem an overlooked corollary.",
+      "The comparison is nuclear/trace and common-sketch only; numerical plots for Frobenius, spectral, or different sketches do not follow.",
+      "Published research search has incomplete coverage; independent priority and proof audit not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Numerical superiority observation and separate probabilistic error bounds; no unconditional same-sketch nuclear order.",
+        "evidence": [
+          "§4.3 states the method was never worse in the shown experiments.",
+          "§3.2 and §3.3 derive error bounds rather than pairwise trace domination."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2209.11023",
+        "material_read": "Abstract; Nyström definition and methods §§1–2; relevant error bounds §3; numerical comparison §4.2–4.3; trace applications §5.",
+        "method": "Read searchable primary PDF text and viewed the primary comparative page image.",
+        "title": "Randomized Low-Rank Approximation of Monotone Matrix Functions",
+        "trigger": "The motivating funNyström method and direct comparison"
+      },
+      {
+        "assessment": "Near-optimality transfers from the original matrix to the function, not direct same-sketch paired comparison.",
+        "evidence": [
+          "Theorem 1.1 compares f(Ahat) to the best-rank tail and depends on assumed accuracy of Ahat.",
+          "No Nyström(f(A)) coupled ordering is asserted there."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2311.14023",
+        "material_read": "Introduction and Nyström definitions; Theorem 1.1; operator-monotone/nuclear results in §2; relevant later comparisons and references.",
+        "method": "Read publicly accessible arXiv full-text PDF and inspected page image of Theorem 1.1.",
+        "title": "Algorithm-Agnostic Low-Rank Approximation of Operator Monotone Matrix Functions",
+        "trigger": "Plausible stronger general result about arbitrary sketch methods"
+      },
+      {
+        "assessment": "No all-ranks deterministic common-sketch trace dominance detected; overlaps in methodology and motivation acknowledged.",
+        "evidence": [
+          "The chapter states near-optimality transfer theorems and numerical comparisons instead."
+        ],
+        "identifier_or_url": "https://infoscience.epfl.ch/server/api/core/bitstreams/27e0cc2a-aa2c-440b-a081-f9b1212202f0/content",
+        "material_read": "Chapter 4 treatment of funNyström and algorithm-agnostic transfer, including comparison and its limitations.",
+        "method": "Inspected the accessible doctoral thesis PDF section text and relevant scanned page image.",
+        "title": "Randomized Low-Rank Approximation and Its Applications",
+        "trigger": "Long-form follow-up potentially strengthening direct comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6eb5c09d-58c2-47e5-bf52-be9883df7a9b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Motivated by the published funNyström-versus-direct comparison. It supplies a deterministic, all-ranks decision theorem absent from the inspected probabilistic near-optimality bounds and settles a qualitative numerical observation precisely for nuclear error. A strict samplewise witness and failure of Loewner comparability delimit the claim. Not a routine parameter substitution or a known-table recomputation.",
+    "status": "PASS"
+  }
+}
