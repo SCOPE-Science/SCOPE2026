@@ -1,0 +1,12 @@
+# Review of analytic Markov sum-dominance probabilities
+
+## Correctness — PASS
+The statement fixes the stationary two-state chain and restricts both parameters to the open unit interval. The fringe-score identification follows from the motivating source's full-middle estimate and geometric mixing. An independently reconstructed finite-energy bound covers adjacent and nonadjacent selected coordinates. Disjoint representations show that the fringe score almost never changes at a large new index. Crucially, the proof transfers the **same event** to complex transition parameters through an absolute likelihood-ratio estimate; geometric real convergence by itself would not imply analyticity. Normal convergence of the finite rational approximants proves holomorphy; Cauchy estimates establish derivative convergence. Exact finite enumerations check the telescoping identity and full-middle correspondence, but are not invoked as infinite proofs.
+
+## Originality — PASS, subject to literature risk
+The full relevant text of arXiv:2610.08394v1 proves existence and positivity of limiting event probabilities, and treats a distinct rational expected gap. Neither its theorem statements nor its future-work discussion gives real analyticity or derivative convergence. The closest earlier correlated-pair model (arXiv:1401.2588v1) explicitly proves continuity, not analyticity, and has independent per-index correlations rather than a time-Markov chain. Zhao's exact-fringe theory (arXiv:0911.2292) addresses the fixed uniform law. Searches of published research records and primary literature revealed no theorem whose hypotheses and conclusion imply this two-parameter Markov result. A prior unindexed extension, general complex-parametric theorem, or implicit unpublished proof remains a residual risk.
+
+## Mathematical value — PASS
+This proves a structural regularity theorem for three natural arithmetic probabilities newly introduced in the Markov MSTD literature. The authors explicitly propose a two-parameter maximization conjecture; differentiable and analytic dependence and geometrically convergent derivative certificates supply missing foundations for rigorous local optimization. The complex-uniform tail argument is substantive: continuity and real exponential fringe convergence alone are insufficient. The finding does not claim to solve the conjecture or to provide computationally efficient bounds near degenerate transitions.
+
+Self-review: passed. Independent audit: not yet performed.
