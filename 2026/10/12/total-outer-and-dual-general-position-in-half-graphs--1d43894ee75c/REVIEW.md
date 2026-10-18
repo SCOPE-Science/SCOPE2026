@@ -1,12 +1,21 @@
-# Review of Total, outer, and dual general position in half graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. The only simplicial vertices are \(a_n\) and \(b_1\), so the total statement follows from the published characterization. The mutually maximally distant pairs are exactly the distance-\(3\) cross nonedges \(\{a_i,b_j\}\) with \(j<i\); all same-side and adjacent cross pairs have an explicit neighbor farther from the opposite endpoint. This gives the entire strong resolving graph and the outer result. For dual general position, every set of size at least three is first forced to be independent, and convexity witnesses then restrict selected vertices to \(a_n\) and \(b_1\). A complete case split excludes every other two-vertex set. The direct-definition checker exhausts \(21{,}760\) subsets for \(4\le n\le7\) and matches every maximum family.
+## correctness
 
-## Originality
-PASS. The 2024 introducing paper was inspected in full searchable text: it proves the three general characterizations but has no half-graph or chain-graph occurrence. A 2025 full-text paper uses half graphs for mobile ordinary general position and states the ordinary value, but not the total, outer, or dual variants. Exact web searches and semantic published-result searches under half-graph, chain-graph, strong-resolving, convex-complement, and variant terminology found no equivalent theorem. A recent strong-metric chain-graph result is a genuine nearby comparison, but its stated strong-metric dimension and basis classification optimize vertex covers of the strong resolving graph rather than the clique structure needed for outer general position.
+PASS
 
-## Value
-PASS. The three variants were introduced precisely to separate different shortest-path visibility requirements. Half graphs are a canonical ordered bipartite family already used in later general-position research. Here all three new scalar invariants collapse to \(2\), while their extremal geometry sharply diverges: total and dual have one forced leaf pair, whereas outer general position has all \(\binom n2\) diametral cross nonedges. The complete strong-resolving-graph description and the unique dual optimum make the result structural rather than a routine scalar evaluation.
+Fresh final dual-only statement rigorously follows: leaves a_n,b_1 are simplicial, so selecting both leaves a convex complement. Every general-position set of size>=3 is independent; if independent and a_i (i<n) selected, outside b_i,b_{i+1} have shortest path through a_i, contradicting convexity. Similarly selected b_j,j>1 is excluded. For size-2 same-shore and adjacent cross pairs, explicit outside-vertex geodesics exclude them; only nonadjacent pair {a_n,b_1} survives. Entire n>=4 is proved structurally; independent direct-definition exhaustive checks at n4,n5,n6 match, manuscript n7 checker also inspected. The full repaired RESULT and SLOGAN attribute prior MMD/outer results.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The ORIGINAL outer portion is covered by an actual full previously published stronger result: chain-graph strong-resolving-graph theorem of 2026-10-04 explicitly lists ALL mutually-maximally-distant pairs. Combined with Tian–Klavžar outer characterization, this implies the half-graph outer optimum and all maximum sets. The repaired final finding CLAIMS ONLY the independently derived convex-complement **dual** optimum and unique pair; no inspected prior statement implies this dual uniqueness. Broad chain-graph strong metric dimension does not concern convex complements or dual position.
+
+## value
+
+PASS
+
+The surviving dual-only half-graph result is a natural complete infinite-family classification of an independently motivated shortest-path visibility invariant. It identifies exactly which selected vertices leave the complement convex, separating dual rigidity from the already-known outer MMD classification. It is not merely a renaming of the MMD prior result because convex complement is a different structural constraint.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

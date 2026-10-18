@@ -1,168 +1,56 @@
-# Total, outer, and dual general position in half graphs
+# Unique maximum dual general-position set of the half graph
+
 ## Finding
-For every integer \(n\ge4\), let \(H_n\) be the half graph with bipartition
-\[
-A=\{a_1,\ldots,a_n\},\qquad B=\{b_1,\ldots,b_n\},
-\]
-and adjacency
-\[
-a_i b_j\in E(H_n)
-\quad\Longleftrightarrow\quad
-i\le j.
-\]
 
-Then
+For every integer \(n\ge4\), let \(H_n\) be the connected half graph with bipartition
+\(A=\{a_1,\ldots,a_n\}\) and \(B=\{b_1,\ldots,b_n\}\), where
 \[
-\operatorname{gp}_{\mathrm t}(H_n)
-=
-\operatorname{gp}_{\mathrm o}(H_n)
-=
-\operatorname{gp}_{\mathrm d}(H_n)
-=
-2.
+ a_i b_j\in E(H_n)\quad\Longleftrightarrow\quad i\le j.
 \]
+A set \(X\) is in *general position* if no selected vertex is internal to a shortest path between two other selected vertices. It is in *dual general position* if, in addition, \(V(H_n)\setminus X\) is geodesically convex (equivalently: no shortest path between two unselected vertices passes through a selected vertex).
 
-The unique maximum total general-position set and the unique maximum dual general-position set are both
+**Theorem (dual general-position rigidity).** For every \(n\ge4\),
 \[
-\{a_n,b_1\}.
+ \operatorname{gp}_{\mathrm d}(H_n)=2,
+ \qquad\text{and}\qquad
+ \{a_n,b_1\}
 \]
+is the **unique** maximum dual general-position set.
 
-The mutually maximally distant pairs are exactly
-\[
-\{a_i,b_j\},
-\qquad
-1\le j<i\le n.
-\]
-Equivalently, the strong resolving graph of \(H_n\) has precisely those edges. Hence the maximum outer general-position sets are exactly these pairs, and their number is
-\[
-\binom n2.
-\]
+This is a complete infinite-family classification of the dual optimum, not a claim that the three existing general-position variants or the mutually-maximally-distant structure are newly introduced. For context, the already-known general characterizations and previously published chain-graph strong-resolving-graph structure give \(\operatorname{gp}_{\mathrm t}(H_n)=\operatorname{gp}_{\mathrm o}(H_n)=2\): total general position has the same unique leaf-pair optimum, while outer general position has exactly \(\binom n2\) optimum pairs \(\{a_i,b_j\}\) with \(j<i\). These context facts are credited as prior implications, **not presented as new findings**. The contribution here is the explicit dual convex-complement exclusion and uniqueness for all \(n\ge4\).
 
 ## Assumptions and scope
-For \(X\subseteq V(G)\), vertices \(u,v\in V(G)\) are \(X\)-positionable when every shortest \(u,v\)-path meets \(X\) only in possible endpoints.
 
-A total general-position set requires every pair of vertices of \(G\) to be \(X\)-positionable. An outer general-position set requires this for pairs inside \(X\) and for pairs with one endpoint in \(X\). A dual general-position set requires it for pairs inside \(X\) and for pairs outside \(X\).
-
-The proof uses three established characterizations: total general-position sets are exactly subsets of the simplicial vertices; outer general-position sets are exactly sets whose vertices are pairwise mutually maximally distant; and a general-position set is dual exactly when its complement is convex.
+All graphs are finite, simple, undirected and connected. A vertex set \(C\) is geodesically convex if **every** shortest path between any two vertices of \(C\) lies entirely within \(C\). The dual condition therefore quantifies over *all* shortest paths between outside vertices, not just the existence of one avoiding \(X\). The theorem covers all \(n\ge4\); at \(n=3\) an additional dual optimum exists and uniqueness as stated does not hold. No assertion about arbitrary chain-graph twin-class sizes is made.
 
 ## Proof
-The degrees in \(H_n\) are
-\[
-\deg(a_i)=n-i+1,
-\qquad
-\deg(b_j)=j.
-\]
-Because \(H_n\) is bipartite, a vertex of degree at least two cannot be simplicial. Hence the only simplicial vertices are
-\[
-a_n\quad\text{and}\quad b_1.
-\]
-The total-general-position characterization therefore gives
-\[
-\operatorname{gp}_{\mathrm t}(H_n)=2,
-\]
-with unique maximum set \(\{a_n,b_1\}\).
 
-For outer general position, first note that
-\[
-d(a_i,b_j)=3
-\qquad
-\text{when }i>j.
-\]
-The half graph has diameter \(3\), so every such pair is diametral and therefore mutually maximally distant.
+The degrees are \(\deg(a_i)=n-i+1\) and \(\deg(b_j)=j\). Thus \(a_n\) and \(b_1\) are precisely the degree-one vertices of \(H_n\); both are simplicial. A simplicial vertex cannot be an internal vertex of a shortest path between two other vertices. Consequently \(X_0=\{a_n,b_1\}\) is in general position, and its complement is geodesically convex: a shortest path between unselected endpoints cannot pass internally through either simplicial selected vertex. Thus \(X_0\) is dual.
 
-No other pair is mutually maximally distant. If \(i<k\), then
-\[
-d(a_i,a_k)=2
-\]
-but \(b_i\) is a neighbor of \(a_i\) and
-\[
-d(b_i,a_k)=3,
-\]
-so \(a_i\) is not maximally distant from \(a_k\). The same argument, with the bipartition classes interchanged, excludes same-side \(B\)-pairs.
+We show there is no larger dual set. First, **any general-position set containing three or more vertices is independent**. Suppose it contains an adjacent pair \(a_i,b_j\) (\(i\le j\)) and a third vertex. If the third is \(a_k\), then for \(k\le j\) the length-two path \(a_i-b_j-a_k\) is a geodesic (for distinct \(a_k,a_i\)); for \(k>j\) the path \(b_j-a_i-b_n-a_k\) is a length-three geodesic (the endpoints \(b_j,a_k\) are nonadjacent). Either way, one member of the selected triple is interior to a selected-pair geodesic. If the third vertex lies in \(B\), the same conclusion follows by swapping the shores and reversing their index orders. Therefore a set of size at least three in general position has no adjacent pair.
 
-Now let \(a_i b_j\) be an edge, so \(i\le j\). If \(i<n\), then \(a_i\) has at least two neighbors; choose a neighbor \(b_\ell\ne b_j\). Since distinct \(B\)-vertices are at distance \(2\),
-\[
-d(b_\ell,b_j)=2>d(a_i,b_j)=1,
-\]
-so \(a_i\) is not maximally distant from \(b_j\). If \(i=j=n\), then \(b_n\) has another neighbor \(a_\ell\ne a_n\) and
-\[
-d(a_\ell,a_n)=2>1,
-\]
-so \(b_n\) is not maximally distant from \(a_n\).
+Let \(X\) be an *independent* dual set. If \(a_i\in X\) for \(i<n\), independence forces \(b_i,b_{i+1}\notin X\), since both are neighbors of \(a_i\). Their distance is two and \(b_i-a_i-b_{i+1}\) is a shortest path crossing the selected vertex \(a_i\). This contradicts convexity of the complement. Thus \(X\cap A\subseteq\{a_n\}\). Dually, if \(b_j\in X\) for \(j>1\), then \(a_{j-1},a_j\notin X\) and their distance-two path \(a_{j-1}-b_j-a_j\) violates complement convexity. Hence \(X\cap B\subseteq\{b_1\}\). An independent dual set therefore has size at most two. Combining this with the preceding independence argument, no dual set has three or more vertices.
 
-Thus the strong resolving graph has edge set
-\[
-\big\{a_i b_j:1\le j<i\le n\big\}.
-\]
-It is bipartite and has edges, so its clique number is \(2\). Hence
-\[
-\operatorname{gp}_{\mathrm o}(H_n)=2,
-\]
-and its maximum sets are exactly the \(\binom n2\) displayed pairs.
+To establish *uniqueness* among two-element sets, first consider two distinct vertices on the same shore. For \(i<k\), the unselected endpoints \(b_i,b_k\) have a length-two geodesic \(b_i-a_i-b_k\) crossing a selected vertex of \(\{a_i,a_k\}\). Likewise two selected \(B\)-vertices have an analogous geodesic crossing a selected \(b\)-vertex. Thus no same-shore pair is dual.
 
-It remains to prove the dual statement. The pair
-\[
-\{a_n,b_1\}
-\]
-is dual because both vertices are simplicial.
+For a nonadjacent cross-shore pair \(\{a_i,b_j\}\) with \(i>j\), independence holds. The convexity witnesses from the preceding paragraph force \(i=n\) and \(j=1\), so this pair is \(X_0\).
 
-We next show that no dual general-position set has size at least three. Any general-position set of size at least three in \(H_n\) is independent: if it contains an edge \(a_i b_j\) with \(i\le j\), then every third selected vertex lies with that edge on a shortest path. Indeed, a third \(a_k\) with \(k\le j\) gives the geodesic
-\[
-a_i-b_j-a_k,
-\]
-while \(k>j\) gives the geodesic
-\[
-b_j-a_i-b_n-a_k.
-\]
-The cases of a third \(B\)-vertex are symmetric.
+Finally consider an adjacent cross-shore pair \(\{a_i,b_j\}\), with \(i\le j\). If \(i\le n-2\), then \(a_i\) has at least three distinct neighbors in \(B\), of which at most \(b_j\) is selected. Two others are unselected and joined by a length-two geodesic through \(a_i\), contradicting convexity. Otherwise \(i\ge n-1\), which together with \(n\ge4\) gives \(j\ge n-1\ge3\). Hence \(b_j\) has at least three neighbors in \(A\); two are not the selected \(a_i\) and their length-two geodesic crosses \(b_j\). No adjacent pair is dual. All other two-element possibilities have been excluded; \(X_0\) is the unique dual optimum. \(\square\)
 
-Let \(X\) now be an independent dual general-position set. If \(a_i\in X\) with \(i<n\), independence forces every selected \(B\)-vertex to have index less than \(i\). Hence \(b_i,b_{i+1}\notin X\), while
-\[
-b_i-a_i-b_{i+1}
-\]
-is a shortest path. Thus \(H_n-X\) is not convex. Therefore every selected \(A\)-vertex must be \(a_n\). Symmetrically, every selected \(B\)-vertex must be \(b_1\). Hence an independent dual set has size at most two.
+## Finite verification and its limitations
 
-Finally consider arbitrary two-vertex sets. Two vertices from the same bipartition class cannot be dual: for \(a_i,a_k\) with \(i<k\), the complement contains \(b_i,b_k\), and
-\[
-b_i-a_i-b_k
-\]
-is a shortest path through a deleted vertex; the \(B\)-side argument is symmetric.
+The supplied `verify.py` independently constructs shortest-path distances and tests every vertex subset directly against the definitions of total, outer and dual general position for \(4\le n\le7\). In particular, it checks the dual optimum is \(2\) with exactly one maximizing set, \(\{a_n,b_1\}\), at every tested order. The complete arbitrary-\(n\) dual assertion rests on the geodesic/convexity argument above; testing finitely many graphs does not prove an infinite theorem.
 
-For a nonadjacent cross pair \(\{a_i,b_j\}\) with \(i>j\), the preceding convexity witnesses force \(i=n\) and \(j=1\). For an adjacent pair \(\{a_i,b_j\}\) with \(i\le j\), if \(i\le n-2\), then \(a_i\) has at least two unselected neighbors in \(B\), whose distance-\(2\) geodesic passes through \(a_i\). If \(i\ge n-1\), then \(j\ge3\) because \(n\ge4\), and \(b_j\) has at least two unselected neighbors in \(A\), whose distance-\(2\) geodesic passes through \(b_j\). Thus no adjacent pair is dual.
+## Relationship to prior work and contribution boundary
 
-Therefore
-\[
-\operatorname{gp}_{\mathrm d}(H_n)=2,
-\]
-and \(\{a_n,b_1\}\) is its unique maximum set.
+Tian and Klavžar, *Variety of General Position Problems in Graphs* (arXiv:2402.17338, 2024; later published 2025), introduced the total/outer/dual distinctions and proved that dual general-position sets are precisely general-position sets with geodesically convex complements. Their general criterion is a premise, not a half-graph classification. Shallcross and coauthors, *Solution to some conjectures on mobile position problems* (arXiv:2507.16622, 2025), explicitly study half graphs for **mobile ordinary general position**, not the dual convex-complement optimum.
 
-## Verification
-The included checker constructs \(H_n\) for
-\[
-4\le n\le7
-\]
-and exhausts every vertex subset. It tests the defining \(X\)-positionability condition directly for total, outer, and dual general position, without using the structural characterizations from the proof.
+The earlier published result *Strong metric bases of chain graphs from the canonical cut* (Resultary, 2026-10-04) already **explicitly determines the complete mutually maximally distant edge relation** of the strong resolving graph for every connected chain graph. Specializing its singleton-class result gives exactly the half-graph cross nonedges \(\{a_i,b_j\}\) with \(j<i\), and Tian--Klavžar's outer characterization then gives the outer optimum and its entire maximum-pair family. These outer facts were thus **prior-covered**; neither the present finding nor its significance claims novelty for them. The total leaf-pair calculation is similarly immediate from the published simplicial-vertex characterization. Neither cited result supplies the convexity case classification above proving uniqueness of the **dual** optimum on every half graph.
 
-For each order, it verifies the three maximum values and compares the complete maximum-set families with the theorem.
-
-## Relationship to prior work
-The total, outer, and dual variants were introduced together in 2024. The introducing paper proves the three structural characterizations used above and lists Mathematics Subject Classification \(05C12\), \(05C69\), and \(05C76\). Its full searchable text contains no half-graph or chain-graph specialization.
-
-A later paper on mobile position problems uses the same half graph and proves mobile and completely mobile ordinary general-position results. It records the ordinary general-position value
-\[
-\operatorname{gp}(H_n)=n,
-\]
-but does not study total, outer, or dual general position.
-
-A recent result on strong metric bases of chain graphs determines the strong metric dimension and all minimum strong resolving sets. This is related because strong metric dimension is governed by the strong resolving graph, but a vertex-cover optimum of that graph does not determine its clique number or the complete set of mutually maximally distant pairs. The outer statement here therefore requires the explicit strong-resolving-graph calculation above.
-
-## Limitations
-The theorem is stated for \(n\ge4\). Small half graphs have exceptional dual maximum sets: the boundary \(n=3\) case has an additional maximum dual pair.
-
-The exhaustive verification through \(n=7\) is corroborative only. The arbitrary-order theorem follows from the explicit simplicial, mutually-maximally-distant, and convex-complement arguments.
-
-A differently phrased or non-indexed treatment of these variants on half graphs may exist.
+The genuinely assessed contribution is the dual-geodesic rigidity argument: within a highly structured infinite graph family, the requirement that the *entire complement* remain convex forces exactly the two degree-one vertices, and excludes all other pairs. It gives a precise benchmark for separating ordinary, outer and dual shortest-path visibility on chain graphs. A differently indexed dual-position classification may exist, so originality remains best-of-knowledge rather than absolute priority certification.
 
 ## References
-1. J. Tian and S. Klavžar, “Variety of General Position Problems in Graphs,” arXiv:2402.17338v1, 27 February 2024; Bulletin of the Malaysian Mathematical Sciences Society 48 (2025), article 5, DOI 10.1007/s40840-024-01788-z.
-2. E. Shallcross, J. Tuite, A. Evans, A. Krishnakumar, and S. Boshar, “Solution to some conjectures on mobile position problems,” arXiv:2507.16622v1, 22 July 2025.
+
+1. J. Tian and S. Klavžar, *Variety of General Position Problems in Graphs*, arXiv:2402.17338, 2024; *Bulletin of the Malaysian Mathematical Sciences Society* 48 (2025), article 5, DOI 10.1007/s40840-024-01788-z.
+2. E. Shallcross, J. Tuite, A. Evans, A. Krishnakumar, and S. Boshar, *Solution to some conjectures on mobile position problems*, arXiv:2507.16622, 2025.
+3. *Strong metric bases of chain graphs from the canonical cut*, Resultary, published 2026-10-04, https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-strong-metric-bases-of-chain-graphs-from-the-canonical-cut--b2ee564f2dc9/RESULT.md.
