@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof was reconstructed from the source definitions and checked algebraically. The repaired bounds follow from Minkowski and the reverse triangle inequality. The one-point counterexample satisfies all source hypotheses exactly and has identically zero perturbed energy, so it cannot possess a positive lower \(K\)-frame bound.
+## correctness
 
-## Originality
-**PASS.** The target theorem, its same-author continuous \(K\)-\(g\)-frame predecessor, and the later Hilbert \(C^*\)-module perturbation theorem were compared by hypotheses and implications. The later theorem uses the same threshold shape in a different global/module setting, but does not state the target theorem's contraction failure, its explicit scalar witness, or the sharpness result. Searches under the source DOI, theorem number, contraction language, and threshold aliases found no covering correction. Residual risk remains for an unindexed erratum or informal note.
+PASS
 
-## Value
-**PASS.** The published theorem can certify a zero perturbed family as a frame when \(0<\|K\|<1\). The repair removes exactly the unsafe factor, supplies usable quantitative bounds, and proves the threshold cannot be weakened using only the listed parameters.
+PASS: In singleton H=C take K=I/2, v=~v=1, Λ=I, ~Λ=0, frame bounds A=B=4, λ1=λ2=1/2, ε=3/2. Original lower 4||K*h||²=||h||² and upper ||h||²≤4||h||² hold. Perturbation error |h|≤1/2|h|+3/2*1/2|h|=5/4|h|; printed condition (1−λ1)√A−ε||K||V=1−3/4=1/4>0; yet new energy=0, violating positive K-frame lower bound. Reverse triangle/Minkowski gives Y≥[((1−λ1)√A−εV)/(1+λ2)]||K*h|| and analog upper. At εV≥(1−λ1)√A scalar zero-family construction proves universal strict threshold sharp (for V>0 and sufficiently small K).
 
-## Closest literature and limitations
-The 2018 same-author perturbation theorem uses a different quadratic operator-difference hypothesis. The 2023 Hilbert \(C^*\)-module theorem assumes a global perturbation estimate with \(\varepsilon<(1-\lambda_1)\sqrt A\) and an additional complemented-range hypothesis. Neither implies the final statement about the 2021 pointwise Hilbert-space theorem. The repaired upper bound is not claimed optimal.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified: The 2021 specific pointwise perturbation theorem wrongly multiplies the smallness condition by ||K||. The 2019 same-author continuous K-g-frame theorem has a different operator-difference hypothesis; 2023 Hilbert C*-module theorem has a similar parameter threshold but different global error norm/complemented range, neither corrects this source theorem or supplies the one-point counterexample and universal sharpness. No independently located erratum.
+
+## value
+
+PASS
+
+PASS: Detects an invalid published frame-stability theorem certifying the zero analysis family and proves the exact sufficient lower threshold including usable sharp quantitative replacement. Structural flaw matters for operator-valued frame perturbation with contractions, not a cosmetic constant typo.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
