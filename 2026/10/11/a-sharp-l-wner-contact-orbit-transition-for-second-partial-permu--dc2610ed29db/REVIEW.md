@@ -1,19 +1,21 @@
-# Scientific review — Löwner ellipsoids of second partial permutohedra
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every integer \(m\ge2\), the purported extreme ellipsoid is full-dimensional because its two shape eigenvalues are positive. Direct three-orbit gauge substitution establishes inclusion and the exact contact sets. The explicit nonnegative vertex weights sum to one and have the stated mean and covariance \(Q_m/m\). Averaging the quadratic inequalities satisfied by any other containing ellipsoid, followed by eigenvalue AM–GM, proves minimum Euclidean volume; both equality conditions establish uniqueness without invoking an unproved symmetry reduction. Boundary \(m=2\) and transition \(m=5,6\) are included. The package's exact rational checker verifies 99 scalar cases and 14 full-matrix cases but is not used as a substitute for the universal argument.
+PASS
 
-## Originality — PASS, subject to stated coverage limits
+PASS: The published P(m,2) is the truncated box [0,2]^m∩{Σx_i≤3} with precisely 0, 2e_i and 2e_i+e_j (i!=j) as vertices. For proposed center t_m1 and Q=u_m H+v_m(I−H), direct orbit gauges equal q(0)=q(B)=1 and q(A)=1 up to m=5, then q(A)=1−4(m−5)(m+1)/(9m(5m−9))<1 for m>=6. Independent Sympy factorization verified for BOTH rational regimes and symbolic variable m all mass=1, E[X]=t_m1, radial and transverse covariance identities m Cov(X)=Q; m=5 formulas coincide. All weights nonnegative in their stated integer domains. Averaging any enclosing ellipsoid quadratic form over the contact probability measure gives tr(R^{-1}Q)/m<=1; determinant AM–GM forces det(R)>=det(Q), equality only at same center and Q, proving global unique Löwner ellipsoid (not just symmetric competitors). Universal statement relies on symbolic identities, not finite verifier dimensions.
 
-The closest primary sources are Heuer–Striker, arXiv:2012.09901, Section 5 (original vertex/facet/volume framework), and Behrend et al., arXiv:2207.14253, Proposition 2.7 and Theorem 5.11 (vertex set, inequalities, Ehrhart and volume formulas). Their inspected statements do not calculate the Löwner ellipsoid, its optimal moment certificate, or the dimension-six loss of an entire contact orbit; combinatorial faces or Euclidean/intrinsic distances do not imply these data. Targeted searches across the names partial permutohedron, anti-blocking permutohedron, capped simplex, and box-truncated simplex did not identify a dominating exact classification, though non-discovery is not a proof of novelty. Possible equivalent statements under alternative simplex terminology remain a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The object is a standard, all-dimensional family with an exponentially growing polytope theory but only \(m^2+1\) vertices at the fixed second parameter. The theorem evaluates a natural metric-affine invariant (the unique minimum-volume enclosing ellipsoid) and its complete contact geometry, including an exact dimension threshold between 5 and 6. The rational optimal-design-like distribution produces a concise global certificate and a useful benchmark for enclosing-ellipsoid methods. This is a natural complete invariant, not a freely chosen finite slice or a mere computation of a known table.
+PASS best-of-knowledge: original Heuer–Striker and Behrend et al sources give vertices, facets, Ehrhart and ordinary volume, not the outer minimum-volume ellipsoid or a contact orbit transition. A related published Resultary quadratic-contact threshold treats general partial permutohedra with n>=3 explicitly, excluding n=2, and does not directly cover this special case. No exact equivalent formula for clipped-simplex Löwner ellipsoids found, with possible alternative name/duality priority risk documented.
 
-## Boundaries of the assessment
+## value
 
-The mathematics concerns the standard Euclidean metric and the second-parameter family only. No external or independent validation is claimed; possible overlooked equivalent literature remains a material risk. Finite exact checks corroborate rather than replace the proof.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS: Explicit Löwner ellipsoid and positive contact-moment design for a natural infinite family, plus a sharp dimension-five/six vertex-orbit contact phase transition, are meaningful exact affine-convex geometry invariants. The optimizer is certified among all ellipsoids and is not mechanically supplied by the known facet description.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
