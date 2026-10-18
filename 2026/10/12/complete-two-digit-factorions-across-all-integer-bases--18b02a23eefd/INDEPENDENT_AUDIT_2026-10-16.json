@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T05:05:26.994415Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For two exact base-b digits 1<=a<b and 0<=c<b, digit-factorial fixed-point equation ab+c=a!+c! forces the UNIQUE base b=(a-1)!+(c!-c)/a. Integrality iff a divides c!-c. Exhaustive case split: c=0 only (a,c,b)=(1,0,2); c=1 or 2 requires a>=4 with b=(a-1)!; c>=3,a<=c gives a|c (because a|c!) and excludes sole (a,c)=(3,3) failing strict digit bound; c>=3,a>c gives a|c!-c, then b>(a) since a>=4. All inequalities and edge cases are algebraic. Disjoint divisor sets give for fixed c>=4 count tau(c)+#{a>c:a|(c!-c)}. Independently checked all 6480 digit pairs a=1..80,c=0..80, including c=0 and small bounds; finite checks corroborate unrestricted proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kiss original work addresses fixed decimal representations, not an all-base converse.",
+          "Gupta note title is directly relevant but only Cambridge preview and references accessible, with Oxford authorization blocked by vpn_disconnected.",
+          "Public arbitrary-base summaries give a=1 or c=1,2 constructions, not general divisors a>c."
+        ],
+        "reasoning": "No inspected full general theorem subsumes the four-case all-base criterion; uncertainty around Gupta is retained as a material originality risk rather than a fabricated negative inspection.",
+        "searches": [
+          "Kiss A Generalization of a Problem in Number Theory 1977 decimal factorial fixed points",
+          "Gupta Sum of the factorials of the digits of integers 2004",
+          "factorions in arbitrary bases infinite constructions"
+        ]
+      },
+      "checked_sources": [
+        "OEIS:A193163",
+        "OEIS:A260651",
+        "Kiss DOI:10.24546/0100492051",
+        "Gupta DOI:10.1017/S0025557200174996 preview and Oxford vpn_disconnected",
+        "Resultary semantic searches forced-base and digit-factorial equations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known arbitrary-base constructions are recovered as proper subcases of classes 2 and 3.",
+          "The c>=3,a>c divisibility branch is not included in those described special constructions.",
+          "Full fixed-c count needs both divisor classes, not just a list for finitely many bases."
+        ],
+        "reasoning": "Prior known families and rows are insufficient as implications of the complete arithmetic iff theorem. The missing Gupta source prevents unconditional historical priority certification, not the proof itself.",
+        "searches": [
+          "OEIS:A193163",
+          "OEIS:A260651",
+          "DOI:10.24546/0100492051 Kiss",
+          "DOI:10.1017/S0025557200174996 Gupta"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two-digit equation yields an equivalent divisibility criterion a|c!-c plus both strict digit bounds.",
+          "OEIS A193163 tabulates examples by base; arbitrary-base summaries cover special families but not the four disjoint iff cases."
+        ],
+        "reasoning": "Compared definitions across arbitrary-base digit factorial fixed points, digit equation, forced-base formula and divisor fibers. Known constructions are proper subfamilies of the complete theorem.",
+        "searches": [
+          "Resultary: two digit factorions all integer bases classification digit factorial ab+c=a!+c!",
+          "two digit factorion forced base (a-1)!+(c!-c)/a",
+          "OEIS A193163 factorions by base"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A193163 lists explicit solutions for specific bases and A260651 provides their base-by-base counts; neither displayed page gives the symbolic fixed-trailing divisor formula.",
+          "For c=4 the uncovered a>c branch includes a=5,10,20, producing extra bases (including b=28 for a=5), beyond standard a=1/c=1,2 construction."
+        ],
+        "reasoning": "An infinite database table of examples need not imply necessity and sufficiency for ALL b,a,c. Search nonappearance is not a proof of novelty.",
+        "searches": [
+          "OEIS A193163 factorions by base",
+          "OEIS A260651 number of factorions base",
+          "two-digit factorion c!-c divisor table"
+        ]
+      },
+      "rationale": "OEIS A193163 and A260651 already tabulate arbitrary-base factorions; public descriptions include (m,1),(m,2) at base (m-1)! and (1,m) at base m!-m+1. The submitted four-case theorem includes those families but also new c>=3,a>c divisor solutions (e.g. a=5,c=4 -> b=4!+4=28) and a COMPLETE iff converse/fixed-trailing divisor count. Kiss 1977 deals with decimal fixed points. Gupta 2004 note has closest title but complete text unavailable (Oxford vpn disconnected), so this remains material priority risk; elementary algebra classification could exist in unindexed recreational sources.",
+      "residual_risks": [
+        "Gupta 2004 complete note inaccessible: Oxford authorization returned vpn_disconnected, so earlier all-base content cannot be excluded.",
+        "An elementary recreational-number-theory note may have already derived the same forced-base iff classification without indexed title.",
+        "No claim for three-digit or longer factorions or global count by base."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Database examples, not symbolic all-base two-digit converse",
+          "evidence": "Row n lists factorions in base n; known fixed-point object is older than the theorem.",
+          "identifier_or_url": "https://oeis.org/A193163",
+          "material_read": "Public OEIS definition, initial rows, date and related links.",
+          "method": "Direct sequence-page inspection",
+          "title": "OEIS A193163: Factorions by base",
+          "trigger": "Exact arbitrary-base factorion examples and earliest indexed dataset"
+        },
+        {
+          "assessment": "Counts all lengths by base, not two-digit pairs across variable base",
+          "evidence": "Provides concrete counts but not the fixed trailing-digit divisor formula.",
+          "identifier_or_url": "https://oeis.org/A260651",
+          "material_read": "Public OEIS numerical count interpretation and cross-reference to A193163.",
+          "method": "Direct sequence-page inspection",
+          "title": "OEIS A260651: Number of factorions in base n",
+          "trigger": "Exact base count possible prior dominating table"
+        },
+        {
+          "assessment": "Covers decimal case, not arbitrary integer-base pair classification",
+          "evidence": "Decimal fixed points/cycles include 1,2,145,40585; arbitrary b is not a variable there.",
+          "identifier_or_url": "https://doi.org/10.24546/0100492051",
+          "material_read": "Complete six-page lawful public archive PDF, including the decimal digit-factorial example, all seven decimal cycles, and references, inspected in this run.",
+          "method": "Complete six-page original text and page-3 visual inspection, mathematical statement-level comparison",
+          "title": "A Generalization of a Problem in Number Theory",
+          "trigger": "Archival primary on digit factorial fixed points"
+        },
+        {
+          "assessment": "ACCESS_LIMITED, no claim of whole-paper noncoverage",
+          "evidence": "Mathematical Gazette 88(512) (2004) pp.258–261; may contain an unindexed generalized-base observation.",
+          "identifier_or_url": "https://doi.org/10.1017/S0025557200174996",
+          "material_read": "Cambridge publisher preview page, author, 2004 journal issue and references; full text inaccessible after open-access attempt and Oxford vpn_disconnected.",
+          "method": "Publisher primary abstract/preview and bounded lawful institutional retrieval",
+          "title": "Sum of the factorials of the digits of integers",
+          "trigger": "Closest title could conceal older all-base fact"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Factorions are a natural digit-dynamical fixed-point object; classifying exactly two-digit solutions simultaneously for all integer bases yields the complete first nontrivial digit-length stratum. The forced-base and divisor dichotomy identify previously missing trailing/leading digit families and give an exact arithmetic fiber count tau(c)+number of large divisors of c!-c for fixed c>=4; these are natural precise answers, not arbitrary finite sample or only renamed standard examples. The elementary derivation does not by itself diminish the complete classification, but substantially longer lengths remain open.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Two-digit factorions only; b ranges over integers >=2, standard 0!=1 convention.",
+    "Finite a<=80,c<=80 test corroborates but unrestricted statement is proved by the full divisibility and digit-bound argument.",
+    "Gupta 2004 complete note inaccessible: Oxford authorization returned vpn_disconnected, so earlier all-base content cannot be excluded.",
+    "An elementary recreational-number-theory note may have already derived the same forced-base iff classification without indexed title.",
+    "No claim for three-digit or longer factorions or global count by base."
+  ],
+  "schema_version": 1
+}
