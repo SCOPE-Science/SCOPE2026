@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-# Reproducible checks
-Execute `python3 verify.py` using Python 3 with the standard library. The script enumerates reduced-row-echelon subspaces and checks simultaneous zero coordinates reconstructed directly from cycle vertices, the bound \(Q^{d+1}\), and the residue-partition extremizer count.
+# Independent mathematical audit
 
-Direct enumeration covers all \(40\) and \(130\) subspaces for \((q,k)=(3,2)\) and \(d=1,2\), all \(156\) and \(806\) subspaces for \((5,2)\), and all \(364\), \(11011\), and \(33880\) subspaces for \((3,3)\), \(d=1,2,3\). The observed maximizing-subspace counts in those seven cases are \((4,6,16,8,16,120,60)\), respectively.
+## correctness
 
-An independent image-based computation enumerates all \(3906\) one-dimensional and \(508431\) two-dimensional subspaces of \(\mathbb F_5^6\), obtaining image maxima \(4\) and \(16\), and extremizer counts \(256\) and \(576\), respectively. The script constructs the predicted \(96\) distinct three-dimensional extremizer planes of \(\mathbb F_5^6\) and checks all torus assignments on each. That last construction verifies attainment, **not exhaustive optimality** for three-dimensional planes. All-parameter assertions follow instead from the classification proof.
+PASS
 
-The expected terminal line is `VERIFY_OK`. The finite field arithmetic in the executable tests is integer arithmetic modulo the **prime** fields \(\mathbb F_3\) and \(\mathbb F_5\). The proof, which uses only finite-field multiplicative cyclicity and the \(q>2\) additive-sum property, covers all prime powers. These numerical checks are neither infinite proofs nor independently performed audits.
+The edge-product map from vertex torus onto H:{∏odd u_i=∏even u_i} has each fiber of size Q. For r-dimensional coefficient space W, simultaneous zero coordinates correspond to U=W^⊥ of dimension d, giving Q|U∩H|≤Q^{d+1} by an injective choice of d coordinate functionals. Balanced odd/even blocks attain equality for d≤k. If equality holds, each coordinate linear functional of U must be nowhere zero on the full parameter torus; q>2 forces support on exactly one parameter variable. The full torus H constraint is equivalent to occupancy differences divisible by Q and a single scalar-product equation. Modding out d free block scalings yields Q^{2k−d−1} planes per unlabeled partition. Independent enumerations of balanced/residue block partitions produced q=5 six-cycle minimizers 256,576,96 for d=1,2,3 and q=3 six-cycle d=3 minimizers 60. The code’s included verification script treats the q=5,d=3 construction as nonexhaustive; global optimality relies on proof, not that construction.
+
+## originality
+
+PASS
+
+The inspected closest primary statements and indexed results were compared in mathematical substance, not just titles. This independent recognition/evaluation is best-of-knowledge, not a guarantee of publication priority.
+
+## value
+
+PASS
+
+Natural higher-dimensional support invariants and a complete extremal-subspace classification for a sparse toric code family whose ordinary weight enumerator is already known. The exact congruence-balanced partition phase across field sizes is a mathematically motivated nontrivial refinement. The half-dimensional threshold and full r≥k hierarchy can inform higher-support geometric and coding questions, without requiring a downstream general theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
