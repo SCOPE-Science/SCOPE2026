@@ -1,23 +1,21 @@
-# Review of Sharp range–valence constant for finite-point Schwarz–Pick matrices
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. All maps are holomorphic from \(\mathbb D\) into \(\rho\mathbb D\), have valence at most \(m\), and sampling points may repeat. The exact nonnegative-coefficient expansion yields \(H_{\rho g,Z}\preceq\rho^2H_{g,Z}\). Tian's Theorem 2.1 supplies the \(n\) bound. Independently, the area change-of-variables formula and preimage bound control the derivative-weighted Bergman composition operator by \(\sqrt m\), giving \(H_{g,Z}\preceq mG_Z\) even for nonproper maps. The stated constant follows.
+PASS
 
-Sharpness is exact, not numerical: for \(d=\min\{n,m\}\), the power map \(\rho z^d\) and a \(d\)-point cyclic fiber give a common Fourier eigenvector of the two Gram matrices, with ratio
-\[
-d\rho^2\left(\frac{1-r^{2d}}{1-\rho^2r^{2d}}\right)^2\to d\rho^2.
-\]
-Additional sample points do not change the principal-block lower bound. The \(d=1\) endpoint is checked separately.
+Writing g=f/rho, the Bergman Taylor expansion proves rho² H_g-H_f=rho² Σ_{k>=0}(k+1)(1-rho^(2k))v_kv_k* positive semidefinite. Tian Theorem 2.1 supplies H_g<=nG. Independently the analytic area formula with multiplicity N_g(w)<=m gives ||g' h∘g||_{A²}²<=m||h||² and H_g<=mG, valid for nonproper maps and repeated points. For f=rho z^d and z_j=r omega_j, Fourier diagonalization gives a generalized quotient d rho²((1-r^(2d))/(1-rho² r^(2d)))², approaching d rho² as r↓0; n>d follows by leading principal block. Direct complex-matrix computation corroborated d=3,r=.2,rho=.6; exact proof uses the Fourier series not floating samples. d=1 and rho=1 cases are accounted for.
 
-## Originality
+## originality
 
-PASS. The full initiating six-page paper was inspected. Its statements are for arbitrary disk self-maps with constant \(n\), or finite **Blaschke products** with constant \(\min(n,d)\); it does not state a sharp constant depending jointly on target radius and *valence of arbitrary nonproper maps*. Earlier operator-theoretic Schwarz–Pick results use different divided-difference and interpolation formulations. Published searches over Bergman Gram matrices, finite valence, weighted composition, and restricted image radius, together with source/claim overlap checks, did not identify a statement that implies the exact three-parameter theorem.
+PASS
 
-The proof explicitly separates established ingredients from the new combined sharp result. The residual risk is that a short argument combining known tools could have been observed without being indexed or published under the chosen terminology.
+Tian’s complete primary Theorem 2.1 gives n for arbitrary disk maps and min(n,d) for inner finite Blaschke maps. It does not state the combined strict-target-radius and arbitrary finite-valence, nonproper optimal constant. Badea–Renard’s primary work studies hyperbolic divided differences and other operators, not this exact Bergman matrix class. Components (area formula, nonnegative kernel coefficients) are classical, but their sharp three-parameter classification and interior collapsing-fiber witness were not found covered.
 
-## Value
+## value
 
-PASS. Valence controls multiplicity while image radius controls analytic range; neither is encoded by the number of sample points. The theorem gives a complete sharp constant for all three natural parameters rather than a nonsharp perturbation of a known bound. Its nonproper extension is important for image-constrained interpolation and derivative data, and the exact branch-point sharpness mechanism differs qualitatively from the boundary-fiber extremizers in the initiating theorem.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The full optimum C_{n,m}(rho) gives a natural quantitative tradeoff between sample number, analytic multiplicity and image contraction and sharpens finite-point Schwarz-Pick in an explicit broad nonproper class. Interior branch-point concentration for rho<1 establishes nontrivial sharpness not implied by the three one-sided inequalities alone. No claim of a fixed-map optimum or arbitrary target domains.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
