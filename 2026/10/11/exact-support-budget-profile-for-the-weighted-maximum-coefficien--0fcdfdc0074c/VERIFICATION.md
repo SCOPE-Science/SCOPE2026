@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,40 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof uses two exact published premises from arXiv:2610.01500v1. For every \(|\alpha|=m\),
-\[
-|a_\alpha|
-\le
-\left(\frac{m^m}{\alpha^\alpha}\right)^{1/p}\|P\|_p,
-\]
-and for every \(\|u\|_t\le1\),
-\[
-|u^\alpha|
-\le
-\left(\frac{\alpha^\alpha}{m^m}\right)^{1/t}.
-\]
-Their product gives the exact patternwise upper bound
-\[
-|a_\alpha u^\alpha|
-\le
-\left(\frac{m^m}{\alpha^\alpha}\right)^{1/p-1/t}\|P\|_p.
-\]
+## correctness
 
-If \(u^\alpha\neq0\) and \(\#\operatorname{supp}u\le s\), then \(\#\operatorname{supp}\alpha\le k=\min\{s,m\}\). For \(p<t\), minimizing \(\alpha^\alpha\) under this constraint uses exactly \(k\) positive parts: any part \(a\ge2\) can be split into \(a-1\) and \(1\), strictly decreasing the powered product. Among \(k\) parts, strict convexity of \(x\log x\) shows that any gap of at least two can be smoothed to reduce the product. Thus the unique exponent multiset at the minimum is
-\[
-\underbrace{q,\ldots,q}_{k-r\text{ times}},
-\underbrace{q+1,\ldots,q+1}_{r\text{ times}},
-\qquad m=kq+r.
-\]
-This gives
-\[
-\min\alpha^\alpha=q^{q(k-r)}(q+1)^{(q+1)r}.
-\]
+PASS
 
-Sharpness is exact, not numerical. Taking the corresponding monomial \(P(z)=z^{\alpha^*}\) and its norming \(\ell_t\)-vector gives equality in both published premises simultaneously. When \(t\le p\), the pattern exponent is nonpositive and \(m^m/\alpha^\alpha\ge1\), while the pure power gives equality at constant \(1\).
+Reconstructed without relying solely on the inaccessible original paper: for each complex multi-index alpha with |alpha|=m, Fourier integration on coordinatewise circles inside the ell_p unit ball gives |a_alpha| ≤ (m^m/alpha^alpha)^(1/p)||P||_p, with p=infinity interpreted via unit polydisc. Weighted AM-GM/Hölder maximizes |u^alpha| over ||u||_t≤1 at (alpha^alpha/m^m)^(1/t), including t=infinity. Thus each coefficient term is ≤(m^m/alpha^alpha)^(1/p-1/t)||P||_p||u||_t^m. If t≤p the exponent is nonpositive and the pure monomial z1^m gives sharp C=1. If p<t, only alpha with support at most k=min(s,m) matter; splitting a part ≥2 strictly reduces alpha^alpha until exactly k parts, while strict convexity of x log x shows minimizers have balanced parts q,q+1 for m=kq+r. A monomial with precisely those exponents and diagonal u_j=(alpha_j/m)^(1/t), or 1 at infinity, attains both optimizations, including all m,s,n,1<=p,t<=infinity. Strict support growth through k=m follows from a strict split. No enumeration purports to prove arbitrary m.
 
-Checks at the boundaries agree with the theorem: \(s=1\) gives \(1\); \(s\ge m\) gives the published unrestricted constant; \(p=t\) gives \(1\); and \(t=\infty\) is covered by \(1/\infty=0\).
+## originality
 
-No finite experiment, partial enumeration, or timeout is used to justify the all-dimensional statement. No converse or finite-exponent weighted Hardy--Littlewood theorem is claimed beyond the stated maximum endpoint.
+PASS
+
+Best-knowledge PASS for this specific finite *weight-vector* support-budget profile, with material direct-source risk. The focal paper publicly studies sparse coefficient bounds and weighted Hardy--Littlewood functionals; the frozen research package identifies an unrestricted maximum as Proposition 4.4. Primary full text could not be read this execution, so coverage of its detailed propositions is not ruled out. The directly read 2026 Springer paper treats bounded variables in each nonzero monomial and an ell_q coefficient-sum Bohnenblust--Hille norm, not an s-supported diagonal weight in a coefficient *maximum*. The exact balanced-composition staircase is not implied by the unrestricted constant without the new constrained integer optimization.
+
+## value
+
+PASS
+
+Diagonal-weight sparsity is a natural variable in weighted polynomial estimates; the formula gives a complete exact finite support threshold k=min(s,m), strict increase for s<=m, the balanced exponent geometry and both published unrestricted and pure-coordinate endpoints. This supports choosing sharp constants in sparse inputs rather than an arbitrary small-computation exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
