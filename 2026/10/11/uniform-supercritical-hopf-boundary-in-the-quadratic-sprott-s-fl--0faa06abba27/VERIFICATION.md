@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification details
 
-Exact symbolic checks in `verify_hopf.py` reconstruct the Hopf-point Jacobian polynomial, normalized complex eigenvectors, full bilinear second derivative, resolvent terms, first Lyapunov coefficient, and positive crossing rate. The script uses symbolic \(\omega>0\) with \(a=\omega^2\), not finite parameter sampling. It verifies \(l_1(1)=-9/10\). Reproduction: place `verify_hopf.py` in the same directory and run `python verify_hopf.py` with a working SymPy installation.
+# Independent mathematical audit
 
-The nonlinear periodic-orbit existence and its orbital stability follow from the standard nondegenerate Hopf bifurcation theorem once the explicitly verified spectral and sign conditions are established; they are not inferred from experiments. No independent audit has been performed, and no global attractor or parameter-continuation claim is assessed.
+## correctness
+
+PASS
+
+From the actual RESULT.md Jacobian determinant independently verifies p_b(lambda)=lambda^3+lambda^2+a lambda+2a sqrt(b). Routh–Hurwitz places stable region 0<b<1/4; at b=1/4 roots are -1 and ±i sqrt(a), and transversality dRe(lambda)/db=a/(a+1)>0. The full quadratic B(u,v)=(0,2u_3 v_3,0) and normalized eigenvectors yield G21=-2w(12w-5i)/[3(w-i)(2w-i)], so exact symbolic simplification l1=-w(8w²+1)/[(w²+1)(4w²+1)]<0 for w=sqrt(a)>0. Independent SymPy matrix inversion confirmed expression, sign and derivative (not simply trusted VERIFY_OK). Nondegenerate Hopf theorem supplies unique local orbitally stable branch for b>1/4; stable third eigendirection persists.
+
+## originality
+
+PASS
+
+This is the exact all-positive-a Hopf threshold, sign, normalized coefficient and stable-cycle conclusion for the specific Sprott-S system; numerical parameter regimes are not an existence theorem.
+
+## value
+
+PASS
+
+For a natural named quadratic chaotic-flow family, proves an all-a sharp local bifurcation phase boundary and exact criticality sign rather than inferring periodic behavior from a numerical bifurcation atlas. It fixes location, side and stability of small cycles for every a>0.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

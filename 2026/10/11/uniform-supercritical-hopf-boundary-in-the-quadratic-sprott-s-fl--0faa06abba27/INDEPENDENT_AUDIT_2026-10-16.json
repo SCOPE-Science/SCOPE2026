@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T05:59:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From the actual RESULT.md Jacobian determinant independently verifies p_b(lambda)=lambda^3+lambda^2+a lambda+2a sqrt(b). Routh–Hurwitz places stable region 0<b<1/4; at b=1/4 roots are -1 and ±i sqrt(a), and transversality dRe(lambda)/db=a/(a+1)>0. The full quadratic B(u,v)=(0,2u_3 v_3,0) and normalized eigenvectors yield G21=-2w(12w-5i)/[3(w-i)(2w-i)], so exact symbolic simplification l1=-w(8w²+1)/[(w²+1)(4w²+1)]<0 for w=sqrt(a)>0. Independent SymPy matrix inversion confirmed expression, sign and derivative (not simply trusted VERIFY_OK). Nondegenerate Hopf theorem supplies unique local orbitally stable branch for b>1/4; stable third eigendirection persists.",
+      "residual_risks": [
+        "First Lyapunov coefficient depends on the explicitly fixed complex eigenvector normalization, though its sign and bifurcation direction do not.",
+        "Neighborhood size is allowed to depend on a; no uniform-in-a Hopf neighborhood or global cycle count."
+      ],
+      "sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/uniform-supercritical-hopf-boundary-in-the-quadratic-sprott-s-fl--0faa06abba27/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/uniform-supercritical-hopf-boundary-in-the-quadratic-sprott-s-fl--0faa06abba27/verify_hopf.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sprott 2013/2014 atlas describes parameter regions from numeric calculations, not a rigorous normal-form l1 for every a>0.",
+          "Resultary returns Sprott case F and Q Hopf findings with different vector fields; they do not cover S by simply matching a parameter symbol."
+        ],
+        "reasoning": "A numerical atlas or a theorem for Sprott F/Q does not imply the supercritical Hopf existence theorem for S without a proved conjugacy preserving the exact local problem.",
+        "searches": [
+          "Sprott S quadratic flow Hopf bifurcation uniform supercritical first Lyapunov coefficient parameter",
+          "Sprott 2013 Dynamic Regions in Simple Chaotic Flows phase atlas",
+          "Resultary Sprott F Q supercritical Hopf"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md 4fc10179fc6bbc82f3c3df77e3be760749ede9e9",
+        "Sprott original 1994 DOI 10.1103/PhysRevE.50.R647",
+        "Sprott 2013/2014 parameter atlas",
+        "Mendes et al 2021 DOI 10.1063/5.0058330"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact Routh–Hurwitz linear stability alone identifies loss of stability but cannot establish stable periodic-orbit birth; l1 sign is required.",
+          "Known stationary-moment or period bounds on pre-existing cycles are necessary constraints and do not prove local existence."
+        ],
+        "reasoning": "The all-a l1 computation plus Hopf theorem is a substantive additional step beyond published numerical parameter-plane or linear stability descriptions.",
+        "searches": [
+          "Sprott S Lyapunov coefficient b=1/4",
+          "Sprott S stationary moment period inequality vs Hopf existence",
+          "Sprott 1994 Some simple chaotic flows S"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sprott (1994) original S system and numerical stability descriptions; Mendes–Lainscsek–Letellier (2021) discusses jerk/topology comparisons between Sprott flows, not this exact all-a normal form."
+        ],
+        "reasoning": "Looked for jerk coordinate re-expression and case aliases; standard transformation of a flow would transfer an existing Hopf theorem, but no precise dominating coefficient or cycle theorem was identified.",
+        "searches": [
+          "Sprott S quadratic flow Hopf bifurcation uniform supercritical first Lyapunov coefficient parameter",
+          "Sprott S equivalent jerk equation local Hopf coefficient b=1/4",
+          "Sprott S xdot -x-ay ydot x+z^2 zdot b+x"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Sprott 1994 Table I lists selected equilibria and numerical exponents; the 2013/14 regions atlas plots parameter windows.",
+          "No indexed exact coefficient formula matching -sqrt(a)(8a+1)/[(a+1)(4a+1)] was retrieved for S."
+        ],
+        "reasoning": "The displayed all-a formula is not a finite numerical table result; source plots may indicate a Hopf locus but do not certify transversality and cubic criticality.",
+        "searches": [
+          "Sprott S quadratic flow Hopf bifurcation uniform supercritical first Lyapunov coefficient parameter",
+          "Sprott S bifurcation b=0.25 all a Lyapunov coefficient analytic"
+        ]
+      },
+      "rationale": "This is the exact all-positive-a Hopf threshold, sign, normalized coefficient and stable-cycle conclusion for the specific Sprott-S system; numerical parameter regimes are not an existence theorem.",
+      "residual_risks": [
+        "An earlier Sprott-S jerk normal-form or local bifurcation calculation might exist under different parameters; checked textual sources do not conclusively exclude it.",
+        "Original 1994 and 2021 manuscripts not completely read in this run, leaving whole-document priority uncertainty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NUMERICAL_CONTEXT_NOT_COVERING",
+          "evidence": "It reports computational regions rather than an exact all-a l1 and stable-cycle theorem.",
+          "identifier_or_url": "https://sprott.physics.wisc.edu/technote/regions.htm",
+          "material_read": "Public complete technical atlas including case S equations, qualitative phase plots and discussion of parameter regions",
+          "method": "Full readable webpage inspection",
+          "title": "Dynamic Regions in Simple Chaotic Flows",
+          "trigger": "Original author parameter-dependent Sprott families"
+        },
+        {
+          "assessment": "ORIGINAL_SYSTEM_NO_VERIFIED_EXACT_HOPF",
+          "evidence": "Original article motivates same dynamical system; cannot claim full-text NOT_COVERING from snippets alone.",
+          "identifier_or_url": "doi:10.1103/PhysRevE.50.R647",
+          "material_read": "Available journal abstract and table-description excerpts; full primary page-by-page reinspection not performed in this run",
+          "method": "Public abstract and bibliographic source check",
+          "title": "Some simple chaotic flows",
+          "trigger": "Original introduction of the Sprott cases"
+        },
+        {
+          "assessment": "EQUIVALENCE_RISK_PARTIALLY_INSPECTED",
+          "evidence": "Potential coordinate reduction is relevant; no all-positive-a exact l1 implication verified.",
+          "identifier_or_url": "doi:10.1063/5.0058330",
+          "material_read": "Accessible bibliographic excerpt and existing comparison summary; full source not read afresh",
+          "method": "Source lookup, partial text",
+          "title": "Diffeomorphical equivalence vs topological equivalence among Sprott systems",
+          "trigger": "Plausible jerk-equivalence coverage for case S"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural named quadratic chaotic-flow family, proves an all-a sharp local bifurcation phase boundary and exact criticality sign rather than inferring periodic behavior from a numerical bifurcation atlas. It fixes location, side and stability of small cycles for every a>0.",
+      "residual_risks": [
+        "An earlier Sprott-S jerk normal-form or local bifurcation calculation might exist under different parameters; checked textual sources do not conclusively exclude it.",
+        "Original 1994 and 2021 manuscripts not completely read in this run, leaving whole-document priority uncertainty."
+      ],
+      "sources": [
+        "Frozen RESULT.md 4fc10179fc6bbc82f3c3df77e3be760749ede9e9",
+        "Sprott original 1994 DOI 10.1103/PhysRevE.50.R647",
+        "Sprott 2013/2014 parameter atlas",
+        "Mendes et al 2021 DOI 10.1063/5.0058330"
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md 4fc10179fc6bbc82f3c3df77e3be760749ede9e9",
+    "Sprott original 1994 DOI 10.1103/PhysRevE.50.R647",
+    "Sprott 2013/2014 parameter atlas",
+    "Mendes et al 2021 DOI 10.1063/5.0058330"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only upper-z equilibrium and local b near 1/4; no complete dynamics/chaos or global attractor.",
+    "The first Lyapunov number is normalization-specific although the negative sign is intrinsic."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "NUMERICAL_CONTEXT_NOT_COVERING",
+      "evidence": "It reports computational regions rather than an exact all-a l1 and stable-cycle theorem.",
+      "identifier_or_url": "https://sprott.physics.wisc.edu/technote/regions.htm",
+      "material_read": "Public complete technical atlas including case S equations, qualitative phase plots and discussion of parameter regions",
+      "method": "Full readable webpage inspection",
+      "title": "Dynamic Regions in Simple Chaotic Flows",
+      "trigger": "Original author parameter-dependent Sprott families"
+    },
+    {
+      "assessment": "ORIGINAL_SYSTEM_NO_VERIFIED_EXACT_HOPF",
+      "evidence": "Original article motivates same dynamical system; cannot claim full-text NOT_COVERING from snippets alone.",
+      "identifier_or_url": "doi:10.1103/PhysRevE.50.R647",
+      "material_read": "Available journal abstract and table-description excerpts; full primary page-by-page reinspection not performed in this run",
+      "method": "Public abstract and bibliographic source check",
+      "title": "Some simple chaotic flows",
+      "trigger": "Original introduction of the Sprott cases"
+    },
+    {
+      "assessment": "EQUIVALENCE_RISK_PARTIALLY_INSPECTED",
+      "evidence": "Potential coordinate reduction is relevant; no all-positive-a exact l1 implication verified.",
+      "identifier_or_url": "doi:10.1063/5.0058330",
+      "material_read": "Accessible bibliographic excerpt and existing comparison summary; full source not read afresh",
+      "method": "Source lookup, partial text",
+      "title": "Diffeomorphical equivalence vs topological equivalence among Sprott systems",
+      "trigger": "Plausible jerk-equivalence coverage for case S"
+    }
+  ]
+}
