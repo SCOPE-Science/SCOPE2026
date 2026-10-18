@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the RK4 end-step to an exact degree-four polynomial in the deterministic successor matrix. The coefficient signs and the merging of powers at the absorbing boundary give a complete case split for \(N=2\), \(N=3\), \(N=4\), and \(N\ge5\). The two algebraic threshold cubics have strictly positive derivatives, so each boundary root is unique. The packaged verifier replays the matrix identities and exact rational witnesses, but the theorem does not depend on finite testing.
+## correctness
 
-## Originality
-PASS. Horváth's full 2005 article develops strict positivity-step-size thresholds for broad positive problem classes and larger invariant cones for special linear problems, but it does not give the exact all-positive-vector threshold of the fixed homogeneous pure-birth generator as a function of state count. The closest stability-function theory establishes that absolute monotonicity governs linear positivity, while the closest application paper explicitly uses classical RK4 for CTMC transient probabilities. None of these inspected full texts gives the four-case pure-birth table. A published result on the same pure-birth chain for the fourth-order \([2/2]\) Padé map is structurally close but uses a different rational map and has an eight-state, disconnected-window phenomenon rather than the RK4 thresholds proved here.
+PASS
 
-## Value
-PASS. Pure-birth chains are canonical finite CTMCs, and classical RK4 is explicitly used for CTMC transient probabilities. The result gives a sharp, dimension-resolved probability-preservation limit and identifies exactly when the canonical chain first attains the stability polynomial's universal linear absolute-monotonicity radius. The small-state enlargement is therefore a natural structural refinement, not an arbitrary parameter slice.
+From Q=P-I and R4(z)=sum_{k=0}^4 z^k/k!, expand R4(xQ)=sum_{j=0}^4 a_j(x)P^j with a_j=x^j E_{4-j}(-x)/j!. For N=2, absorbing powers collapse: 1-a0>=0 iff x<=unique root rho2 of x^3-4x^2+12x-24. For N=3 the sign of a1 gives rho3; a2+a3+a4=x^2(3x^2-8x+12)/24>0. For N=4 first-row last entry is a3+a4=x^3(4-3x)/24, yielding 4/3. For N>=5 distinct first-row third-step entry a3=x^3(1-x)/6 becomes negative immediately after x=1, and 0<=x<=1 makes every coefficient nonnegative. All row sums remain one. Independent exact symbolic checks reproduced all five coefficient identities and rational witnesses N4,x=3/2:-9/128 and N5,x=6/5:-36/625; these checks corroborate the symbolic proof.
 
-## Closest literature and limitations
-The strongest overlap is with Horváth's general positivity-threshold theory, absolute-monotonicity theory for Runge--Kutta stability functions, direct RK4 computation of CTMC transient probabilities, and the published \([2/2]\) Padé pure-birth positivity barrier. Residual risk remains that older Markov-chain numerics or polynomial absolute-monotonicity literature contains the same specialization under another description. The claim does not extend to arbitrary generators, nonuniform rates, or internal RK4 stages.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Horvath (2005) establishes broad positive-IVP step-size bounds, not the exact N=2,3,4,>=5 homogeneous absorbing-path classification in the accessible abstract. Lóczi--Ketcheson arXiv:1303.6651 develops absolute-monotonicity radius, yielding the universal RK4 radius 1 but not the finite-dimensional larger end-step windows. Related Resultary Padé, SSP-SDIRK and Crank--Nicolson findings have different stability maps and cannot imply this table. Relevant inaccessible older full text remains an explicit priority risk.
+
+## value
+
+PASS
+
+The smallest pure-birth state count that witnesses the universal RK4 absolute-monotonicity barrier is a motivated and natural sharp finite cutoff; the exact smaller-state exceptions quantify how final-time stochasticity can persist when general sufficient RK positivity bounds fail. It is not a numerical toy parameter sweep or an arbitrary slice: the absorbing-path generator is canonical and the full N>=2 family is classified.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

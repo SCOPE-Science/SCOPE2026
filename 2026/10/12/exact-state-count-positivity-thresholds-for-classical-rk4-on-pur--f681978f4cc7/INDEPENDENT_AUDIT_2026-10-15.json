@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T20:06:56Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/12/exact-state-count-positivity-thresholds-for-classical-rk4-on-pur--f681978f4cc7/RESULT.md"
+      ],
+      "rationale": "From Q=P-I and R4(z)=sum_{k=0}^4 z^k/k!, expand R4(xQ)=sum_{j=0}^4 a_j(x)P^j with a_j=x^j E_{4-j}(-x)/j!. For N=2, absorbing powers collapse: 1-a0>=0 iff x<=unique root rho2 of x^3-4x^2+12x-24. For N=3 the sign of a1 gives rho3; a2+a3+a4=x^2(3x^2-8x+12)/24>0. For N=4 first-row last entry is a3+a4=x^3(4-3x)/24, yielding 4/3. For N>=5 distinct first-row third-step entry a3=x^3(1-x)/6 becomes negative immediately after x=1, and 0<=x<=1 makes every coefficient nonnegative. All row sums remain one. Independent exact symbolic checks reproduced all five coefficient identities and rational witnesses N4,x=3/2:-9/128 and N5,x=6/5:-36/625; these checks corroborate the symbolic proof.",
+      "residual_risks": [
+        "Thresholds are strictly end-step and do not cover internal RK stages or nonuniform birth rates."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Absolute monotonicity radius 1 is sufficient universally; pure-birth N=2,3,4 allow larger x"
+        ],
+        "reasoning": "General radius 1 does not imply exact exceptional thresholds, and Padé uses a rational rather than RK4 polynomial.",
+        "searches": [
+          "arXiv:1303.6651",
+          "Resultary 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+          "Resultary semantic search: Runge Kutta RK4 classical pure birth Markov chain end step positivity state count absolute monotonicity N=2 3 4 5",
+          "web primary search: Horvath positivity step size threshold Runge Kutta homogeneous Markov pure birth RK4 2005"
+        ]
+      },
+      "checked_sources": [
+        "Horvath, Applied Numerical Mathematics 53 (2005), DOI:10.1016/j.apnum.2004.08.026",
+        "Loczi--Ketcheson arXiv:1303.6651",
+        "Resultary 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "R4 absolute monotonicity yields N>=5 barrier but not N2/N3/N4 exceptions"
+        ],
+        "reasoning": "The combination of known universal SSP/absolute monotonicity data and class-wise positivity statements does not supply the full sharp exceptional classification without new path-structure computation.",
+        "searches": [
+          "Horvath 2005 abstract",
+          "arXiv:1303.6651",
+          "Resultary semantic search: Runge Kutta RK4 classical pure birth Markov chain end step positivity state count absolute monotonicity N=2 3 4 5",
+          "web primary search: Horvath positivity step size threshold Runge Kutta homogeneous Markov pure birth RK4 2005"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Class-wise RK positivity criteria, not state-count threshold vector"
+        ],
+        "reasoning": "The absorbing-path polynomial coefficient signs are a more specific exact end-step problem; no equivalent finite-state table was found.",
+        "searches": [
+          "Horvath DOI:10.1016/j.apnum.2004.08.026",
+          "Resultary RK positivity search",
+          "Resultary semantic search: Runge Kutta RK4 classical pure birth Markov chain end step positivity state count absolute monotonicity N=2 3 4 5",
+          "web primary search: Horvath positivity step size threshold Runge Kutta homogeneous Markov pure birth RK4 2005"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No known exact dimension-by-dimension RK4 stochasticity table found"
+        ],
+        "reasoning": "Finite state-count threshold table needs explicit coefficient analysis; lack of a search hit is not novelty proof.",
+        "searches": [
+          "Search RK4 pure-birth state count N2 N3 N4 N5",
+          "Resultary query 1",
+          "Resultary semantic search: Runge Kutta RK4 classical pure birth Markov chain end step positivity state count absolute monotonicity N=2 3 4 5",
+          "web primary search: Horvath positivity step size threshold Runge Kutta homogeneous Markov pure birth RK4 2005"
+        ]
+      },
+      "rationale": "Horvath (2005) establishes broad positive-IVP step-size bounds, not the exact N=2,3,4,>=5 homogeneous absorbing-path classification in the accessible abstract. Lóczi--Ketcheson arXiv:1303.6651 develops absolute-monotonicity radius, yielding the universal RK4 radius 1 but not the finite-dimensional larger end-step windows. Related Resultary Padé, SSP-SDIRK and Crank--Nicolson findings have different stability maps and cannot imply this table. Relevant inaccessible older full text remains an explicit priority risk.",
+      "residual_risks": [
+        "Horvath full paper and some older RK positivity literature were not independently obtained; an exact pure-birth case may be covered under other terminology.",
+        "Thresholds are strictly end-step and do not cover internal RK stages or nonuniform birth rates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FULL_TEXT_NOT_ACCESSED; abstract does not establish the exact N-state pure-birth RK4 table",
+          "evidence": "Abstract: positivity for arbitrary positive initial vectors under classes of IVPs; no state-count formula in accessible material",
+          "identifier_or_url": "DOI:10.1016/j.apnum.2004.08.026",
+          "material_read": "publisher/university abstract only: broad class-wise positivity thresholds and invariant cones",
+          "method": "web search result abstract ",
+          "title": "On the positivity step size threshold of Runge-Kutta methods",
+          "trigger": "closest general RK positivity theory"
+        },
+        {
+          "assessment": "General absolute monotonicity covers radius 1, not shown to dominate finite state-specific larger windows",
+          "evidence": "The RK4 third derivative is 1+z, giving the radius-one bound; the exact finite-state threshold table is derived separately",
+          "identifier_or_url": "arXiv:1303.6651",
+          "material_read": "bibliographic/arXiv scope information, not a full systematic primary read",
+          "method": "arXiv metadata / published result comparison",
+          "title": "Rational functions with maximal radius of absolute monotonicity",
+          "trigger": "universal stability polynomial radius"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Horvath, Applied Numerical Mathematics 53 (2005), DOI:10.1016/j.apnum.2004.08.026",
+        "Loczi--Ketcheson arXiv:1303.6651",
+        "Resultary 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab"
+      ],
+      "rationale": "The smallest pure-birth state count that witnesses the universal RK4 absolute-monotonicity barrier is a motivated and natural sharp finite cutoff; the exact smaller-state exceptions quantify how final-time stochasticity can persist when general sufficient RK positivity bounds fail. It is not a numerical toy parameter sweep or an arbitrary slice: the absorbing-path generator is canonical and the full N>=2 family is classified.",
+      "residual_risks": [
+        "Horvath full paper and some older RK positivity literature were not independently obtained; an exact pure-birth case may be covered under other terminology.",
+        "Thresholds are strictly end-step and do not cover internal RK stages or nonuniform birth rates."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Horvath, Applied Numerical Mathematics 53 (2005), DOI:10.1016/j.apnum.2004.08.026",
+    "Loczi--Ketcheson arXiv:1303.6651",
+    "Resultary 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Horvath full paper and some older RK positivity literature were not independently obtained; an exact pure-birth case may be covered under other terminology.",
+    "Thresholds are strictly end-step and do not cover internal RK stages or nonuniform birth rates."
+  ],
+  "residual_risks": [
+    "Horvath full paper and some older RK positivity literature were not independently obtained; an exact pure-birth case may be covered under other terminology.",
+    "Thresholds are strictly end-step and do not cover internal RK stages or nonuniform birth rates."
+  ],
+  "schema_version": 1
+}
