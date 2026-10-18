@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The positive linear facet \(f_3\) dominates two-thirds of every norm facet; hence every positive unit pair has sum norm at least \(4/3\). The published witness attains this bound. Equality forces both vectors onto two explicitly classified positive norm facets; the remaining three inequalities define exactly the stated closed triangle. Every necessity and sufficiency implication is checked analytically, and the exact rational verifier independently evaluates the facet identities and all triangle vertices.
+## correctness
 
-**Originality — PASS, with limited residual risk.** The inspected primary source, arXiv:2505.16775v1, Example 3.5, establishes only \(\lambda^+\le4/3\) and \(\beta=15/11\), not a matching lower bound or the full equality set. The source's subsequent structural theorems do not settle this concrete norm computation. Searches for the author's example, fraction pair, aliases and equality classification found no covering statement. An unindexed equivalent calculation, or a variant in a different edition, remains possible; no independence or exhaustive coverage is asserted.
+PASS
 
-**Value — PASS.** This is the exact invariant of the published first three-dimensional example in which the two positive-lattice constants separate. Its full minimizing-pair triangle explains the degeneracy of the original witness, supplies the previously unknown exact quantitative gap \(1/33\), and gives a concrete benchmark for future extremal comparisons. The case is chosen by an identified mathematical gap, not by arbitrary numerical parameter selection. The proof is short because one supporting functional is simultaneously sharp on both minimizing faces; brevity alone does not make the complete natural classification a standard exercise.
+For w≥0, four positive norm facets f1=x+z/2,f2=y+z/2,f3=(2x+2y+z)/3,f4=5(x+y)/6 satisfy exact coefficientwise 3f3-2f_i=(0,2,0),(2,0,0),(2/3,2/3,1/3),(1/3,1/3,1), respectively; independently verified with rational arithmetic. Hence f3(w)≥(2/3)N(w), and for any positive unit u,v, N(u-v)≤N(u+v)≥f3(u)+f3(v)≥4/3. Published pair (4/5,0,2/5),(0,4/5,2/5) attains 4/3. Equality forces each vector onto either x=0 or y=0 facet; same-type pairs yield norm 2. Opposite types u=(a,0,2(1-a)),v=(0,b,2(1-b)) have sum facets 2-b,2-a,4/3,5(a+b)/6. Their simultaneous ≤4/3 inequalities give a,b≥2/3,a+b≤8/5; the complete triangle has vertices (2/3,2/3),(14/15,2/3),(2/3,14/15). Previously established beta=15/11 implies gap 1/33 and ratio 45/44 without claiming new beta proof.
 
-**Scientific limitations.** This is an exact fixed-example theorem and not a bound for arbitrary lattices. Independent external review remains outstanding.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the missing lower bound lambda+≥4/3 and full minimizer triangle in the SAME published Rincón-Villamizar/Oikhberg norm. Read primary full arXiv:2505.16775v1 (639-line HTML) including Example 3.5/Remark 3.7; there beta=15/11 and a witness lambda+≤4/3 were already proved, not sharpness/equalities. Its general lattice comparisons are not an implication of exact extremizer classification. Credit original norm, beta, witness and one-sided inequality; Resultary unavailable leaves followup-priority risk.
+
+## value
+
+PASS
+
+Completing exact value and full continuous equality locus of a published invariant-separating Banach-lattice example closes a natural mathematical gap, not an arbitrary 3D computational slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
