@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T19:55:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For k>=2 the source threshold tau_c(k)=min_{a>0}[2+(2a^k+1)/(a+...+a^(k-1))] has a unique minimizer by its one-sign-change derivative polynomial. Reciprocal comparison puts it below 1, and comparison with a=1 plus a^-1-1 lower bound yields 0< c_k=-k log a_k<=3k/(k-1)<=6. Rescaling gives F_k(c)=k(tau(c)-2)=F(c)+G(c)/k+O(k^-2) uniformly with a derivative on the compact domain. F(c)=c(e^c+2)/(e^c-1) has unique positive nondegenerate minimizer c* solving e^c+1-2e^-c=3c. Thus c_k=c*+O(k^-1) and tau_c(k)=2+C*/k+D*/k^2+O(k^-3), with C*=F(c*) and D*=c*^2(1+2e^-c*)(1+e^-c*)/[2(1-e^-c*)^2]. Expanding 2cosh beta recovers beta_c=sqrt(C*) k^-1/2+(D*-C*^2/12)/(2sqrt(C*)) k^-3/2+O(k^-5/2). Independent 55-digit root/minimum computations recovered c*=1.035658479401893..., C*=2.745643576732724..., D*=2.986777725427654..., and k=20,100,1000 values; finite checks only supplement rigorous uniform expansion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Henning et al derive the exact unique scalar minimum at each k; Potts paper broadly classifies translation-invariant splitting Gibbs measures."
+        ],
+        "reasoning": "Existence/implicit characterization for every tree order is not a stated asymptotic expansion, and the new uniform perturbation of the minimizer is needed for the explicit k^-1 and k^-2 coefficients.",
+        "searches": [
+          "three periodic SOS gradient Gibbs boundary law Cayley tree Potts large degree critical beta asymptotic",
+          "arXiv:1310.6220 general order Potts critical threshold",
+          "arXiv:1902.04909 equations (4.20)-(4.23)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1902.04909 Lemma 6 and Sec.4.4",
+        "arXiv:1609.00159 SOS/Potts transformation",
+        "arXiv:1310.6220 Potts TISGM general-order classification",
+        "Resultary semantic query three-periodic SOS large-degree threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The defining scalar equation, uniqueness, and Potts mapping are fully prior; the submitted limit equation and two-term expansion are additional mathematics."
+        ],
+        "reasoning": "The prior theorem implies existence of tau_c(k) but not the explicit evaluated asymptotic without the new logarithmic scaling a=e^-c/k and nondegenerate minimizer perturbation. Equivalence under Potts variable is accounted for.",
+        "searches": [
+          "arXiv:1902.04909 Lemma 6 and equation 4.23",
+          "arXiv:1609.00159 SOS/Potts beta transform",
+          "arXiv:1310.6220 critical temperatures"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The SOS minimum tau_c(k) maps to a three-state Potts parameter using beta_tilde=log(2cosh beta-1); both formulations were considered."
+        ],
+        "reasoning": "A Potts-variable formulation is the same threshold after a smooth variable change and could in principle cover it; the relevant inspected Potts results do not state the constants c*=1.035658..., C*=2.745643..., D*=2.986777... .",
+        "searches": [
+          "three periodic SOS gradient Gibbs boundary law Cayley tree Potts large degree critical beta asymptotic",
+          "SOS Cayley tree high degree critical inverse temperature k^{-1/2}",
+          "arXiv:1609.00159 Potts change of variables"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No Resultary hit with the same SOS/Potts critical constants; earlier paper reports a k=2 exact transition, not high-degree tables."
+        ],
+        "reasoning": "No matching exact constants located; negative search is explicitly not a novelty proof.",
+        "searches": [
+          "three periodic SOS gradient Gibbs boundary law Cayley tree Potts large degree critical beta asymptotic",
+          "three periodic SOS high degree psi_k minimum transcendental e^c+1-2e^-c=3c",
+          "Resultary three periodic SOS gradient Gibbs boundary law Cayley tree Potts large degree critical beta asymptotic"
+        ]
+      },
+      "rationale": "Henning–Külske–Le Ny–Rozikov prove existence and uniqueness of the same scalar threshold and evaluate small tree order, and Potts sources prove equivalent phase parametrization and larger phase classification, all credited prior work. None of the relevant full-text sections materially inspected states the two-term large-k asymptotic, the c* equation or explicit constants; weakly indexed Bethe-lattice equivalents remain a residual risk.",
+      "residual_risks": [
+        "A weakly indexed older Bethe-lattice or Potts high-degree critical-temperature derivation could give equivalent coefficients after variable changes.",
+        "The exact normalization counts Cayley-tree order k and vertex degree k+1; other conventions must not be silently interchanged."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The original paper proves the unique positive minimizer defining tau_c(k) but does not derive its k→infinity C/k+D/k^2 expansion in the inspected relevant theorem; finite k=2 is treated separately.",
+          "evidence": "Equations (4.22)-(4.23) define tau=2+(2a^k+1)/(a+...+a^(k-1)) and unique global minimum.",
+          "identifier_or_url": "https://arxiv.org/pdf/1902.04909",
+          "material_read": "Read relevant source Section 4.4 including equations (4.20)-(4.23), Lemma 6 and Theorem 5 on PDF pages 21-23; checked exact polynomial derivative and normalization 2cosh beta.",
+          "method": "full-text arXiv PDF and searched exact equations",
+          "title": "Gradient Gibbs measures for the SOS model with countable values on a Cayley tree",
+          "trigger": "Same SOS model, exact scalar equation and threshold to which asymptotic applies."
+        },
+        {
+          "assessment": "The transformation beta_tilde=log(2cosh beta-1) relates the same thresholds, but inspected results address binary tree rather than high-degree asymptotic constants.",
+          "evidence": "Three-state Potts correspondence and binary-tree explicit critical values in source.",
+          "identifier_or_url": "https://arxiv.org/pdf/1609.00159",
+          "material_read": "Read accessible primary PDF relevant SOS/Potts correspondence section and parameter transformation; other sections not exhaustively examined.",
+          "method": "arXiv full-text relevant section",
+          "title": "Gradient Gibbs measures and fuzzy transformations on trees",
+          "trigger": "Potts/SOS dual parameter correspondence might give stronger prior formula."
+        },
+        {
+          "assessment": "General-order critical phase counts and implicit equations do not state a two-term k→infinity expansion of the mapped threshold.",
+          "evidence": "Source classification of translation-invariant splitting Gibbs measures with explicit formulas highlighted at binary tree.",
+          "identifier_or_url": "https://arxiv.org/pdf/1310.6220",
+          "material_read": "Read general-order Potts classification and critical-value statements in complete 13-page accessible PDF, specifically the portions identifying explicit k=2 cases.",
+          "method": "arXiv full-text searched theorem and mathematical comparisons",
+          "title": "Description of the translation-invariant splitting Gibbs measures for the Potts model on a Cayley tree",
+          "trigger": "General-order Potts threshold may dominate the three-periodic SOS asymptotic."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The onset of mirror-symmetric three-periodic gradient Gibbs boundary laws on a natural high-degree tree family has a nontrivial inverse-temperature scale k^-1/2. Sharp first two coupling coefficients and critical rescaled minimizer quantify the existence transition for arbitrary large k, a meaningful model invariant rather than arbitrary numerical table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1902.04909 Lemma 6 and Sec.4.4",
+    "arXiv:1609.00159 SOS/Potts transformation",
+    "arXiv:1310.6220 Potts TISGM general-order classification",
+    "Resultary semantic query three-periodic SOS large-degree threshold"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only mirror-symmetric 3-periodic family threshold and k->infinity regime; not thermodynamic free-energy phase, extremality, reconstruction, or arbitrary periodic boundary laws."
+  ],
+  "residual_risks": [
+    "A weakly indexed older Bethe-lattice or Potts high-degree critical-temperature derivation could give equivalent coefficients after variable changes.",
+    "The exact normalization counts Cayley-tree order k and vertex degree k+1; other conventions must not be silently interchanged."
+  ],
+  "schema_version": 1
+}
