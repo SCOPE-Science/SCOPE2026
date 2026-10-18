@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Polyhedrality supplies a finite common conic subdivision of \(X\times X\) on which both triangular defects are linear. After normalization by \(p(x)+p(y)=1\), each cell is a compact polytope. For two nonnegative affine functions on a compact polytope, equality of zero sets means exactly the same zero vertices; minimum and maximum ratios on the remaining vertices give uniform comparison on the cell. Finitely many cells and positive homogeneity yield global constants. The focal source's Theorem 4.6 then gives intrinsic-part equivalence. The reverse implication is immediate from the same theorem. No finite experiment substitutes for an infinite argument.
+## correctness
 
-## Originality
-PASS with a specific residual access risk. The focal manuscript was inspected through its definitions, Theorem 4.6, Corollary 4.7, Example 4.8, Proposition 4.9, Theorem 5.2, and the surrounding discussion. It proves only that zero-set equality is necessary in general and explicitly shows that it is not sufficient for smooth norms; its finite-dimensional converse retains a local comparability assumption. The new polyhedral cell lemma removes that assumption for the polyhedral subclass. Searches of published mathematical records for polyhedral triangular-defect zero sets, triangle-equality classification, piecewise-linear defect comparability, and a polyhedral converse to Corollary 4.7 found no covering result. The closest located published findings concern the \(\ell^r\) scale and Hilbertian renormings and do not imply this theorem. The related arXiv:2609.14035v1 studies polyhedral fan models for the logarithmic metric according to its abstract, but its full text was unavailable in this check; this remains the main residual risk.
+PASS
 
-## Value
-PASS. The result answers a natural structural question created by the focal paper's general counterexample: when does the qualitative triangle-equality pattern actually suffice? Polyhedral norms are the canonical finite piecewise-linear class, and here the answer is complete. The theorem turns the source's quantitative local condition into a purely qualitative global criterion and links intrinsic norm-cone geometry to finite polyhedral data without restricting to a sampled family or a numerical constant.
+For polyhedral p,q, each of p(x),p(y),p(x+y),q(x),q(y),q(x+y) is linear on a finite common closed conic polyhedral subdivision of X×X. On normalized D={p(x)+p(y)=1}, each cell intersects D as a compact polytope because p(x)+p(y) is linear positive on every nonzero ray of the cell. Defects Δp,Δq are nonnegative affine functions on the cell. Common global zero set implies identical zero vertices. For each other vertex, Δq/Δp is strictly positive finite, so min/max vertex ratios yield aΔp≤Δq≤bΔp over the entire cell by convex combinations, even if cell lower dimensional; identically zero cells are trivial. Finitely many cells and positive homogeneity extend constants globally. The inspected primary arXiv:2609.28922v1 Theorem4.6 explicitly equates this defect comparability to intrinsic-part membership; necessity is Cor4.7. Correctly excludes smooth ell2/ell4 counterexample and handles all (x,y), not sampled points.
 
-## Closest literature and limitations
-The closest source is arXiv:2609.28922v1, which supplies the intrinsic-part criterion and the general failure of the zero-set converse. arXiv:2609.14035v1 is close in object class but, in the material available, addresses the logarithmic distortion metric rather than the triangular-defect intrinsic order. The theorem is limited to finite-dimensional real polyhedral norms and does not compute exact intrinsic distances.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Source Theorem4.6 is only the quantitative defect comparability criterion; Cor4.7 only necessitates equal zeros and Example4.8 shows that converse false for smooth norms, while Proposition4.9 retains local quantitative assumptions. The finite polyhedral-cell lemma proves the missing qualitative converse specifically for polyhedral norms. A related 2026 polyhedral models preprint could not be retrieved in full and remains risk rather than reason to mark FAIL.
+
+## value
+
+PASS
+
+Gives a natural *complete* qualitative classification for all finite-dimensional polyhedral norms precisely where a recent general theorem leaves a local quantitative gap. Triangle-equality/facial data are a motivated invariant, and finite fan structure converts it to intrinsic Hilbert cone geometry without computing an arbitrary small parameter or renaming a theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

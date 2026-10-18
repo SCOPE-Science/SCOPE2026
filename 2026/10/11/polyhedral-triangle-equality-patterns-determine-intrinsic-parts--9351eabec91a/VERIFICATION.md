@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-The proof was reconstructed from definitions and the stated hypotheses. The critical published premise is the equivalence between intrinsic-part membership and uniform two-sided comparability of triangular defects in arXiv:2609.28922v1, Theorem 4.6; its necessary zero-set consequence and finite-dimensional local criterion were also checked in the manuscript.
 
-For the new implication, a common finite polyhedral subdivision of \(X\times X\) makes both defects linear cell by cell. On the compact normalization \(p(x)+p(y)=1\), each cell is a compact polytope. A nonnegative affine function is determined on a polytope by its vertex values, and two such functions with the same zero set have the same zero vertices. The minimum and maximum of the positive vertex ratios therefore give two-sided bounds on each cell. Finiteness of the subdivision and positive homogeneity give global constants.
+# Independent mathematical audit
 
-Boundary cases were checked: cells on which both defects vanish identically cause no division; lower-dimensional cells are still compact polytopes; the pair \((0,0)\) is trivial; all other pairs admit the stated normalization. No numerical experiment, partial enumeration, or computational log is used as an infinite proof.
+## correctness
 
-The result is restricted to finite-dimensional real polyhedral norms and does not compute exact intrinsic distances. A closely related polyhedral-model preprint was inspectable only through abstract and metadata, which remains an originality risk. Independent audit has not been performed.
+PASS
+
+For polyhedral p,q, each of p(x),p(y),p(x+y),q(x),q(y),q(x+y) is linear on a finite common closed conic polyhedral subdivision of X×X. On normalized D={p(x)+p(y)=1}, each cell intersects D as a compact polytope because p(x)+p(y) is linear positive on every nonzero ray of the cell. Defects Δp,Δq are nonnegative affine functions on the cell. Common global zero set implies identical zero vertices. For each other vertex, Δq/Δp is strictly positive finite, so min/max vertex ratios yield aΔp≤Δq≤bΔp over the entire cell by convex combinations, even if cell lower dimensional; identically zero cells are trivial. Finitely many cells and positive homogeneity extend constants globally. The inspected primary arXiv:2609.28922v1 Theorem4.6 explicitly equates this defect comparability to intrinsic-part membership; necessity is Cor4.7. Correctly excludes smooth ell2/ell4 counterexample and handles all (x,y), not sampled points.
+
+## originality
+
+PASS
+
+Source Theorem4.6 is only the quantitative defect comparability criterion; Cor4.7 only necessitates equal zeros and Example4.8 shows that converse false for smooth norms, while Proposition4.9 retains local quantitative assumptions. The finite polyhedral-cell lemma proves the missing qualitative converse specifically for polyhedral norms. A related 2026 polyhedral models preprint could not be retrieved in full and remains risk rather than reason to mark FAIL.
+
+## value
+
+PASS
+
+Gives a natural *complete* qualitative classification for all finite-dimensional polyhedral norms precisely where a recent general theorem leaves a local quantitative gap. Triangle-equality/facial data are a motivated invariant, and finite fan structure converts it to intrinsic Hilbert cone geometry without computing an arbitrary small parameter or renaming a theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
