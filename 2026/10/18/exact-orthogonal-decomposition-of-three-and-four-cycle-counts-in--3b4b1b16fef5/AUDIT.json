@@ -1,0 +1,174 @@
+{
+  "correctness": {
+    "rationale": "Exact finite 4-vertex table and conditional identities \\(\\mathbb E[B_S\\mid T[U]]=1/4+I_U/2\\), \\(\\mathbb E[A_S\\mid T[U]]=I_U+3/4\\) establish \\(\\mathbb E[Z_S\\mid T[U]]=0\\). Conditional independence over shared-edge information proves pairwise orthogonality and orthogonality to each triangle indicator for all \\(n\\ge4\\). Summing over 4-subsets produces \\(Y_n-\\mathbb EY_n=(n-3)(X_n-\\mathbb EX_n)/2+R_n\\). Direct moment calculation yields \\(\\operatorname{Var}(R_n)=3\\binom{n}{4}/64\\), \\(\\operatorname{Var}(X_n)=3\\binom{n}{3}/16\\), \\(\\operatorname{Cov}(X_n,Y_n)=3\\binom{n}{4}/8\\) and \\(\\operatorname{Corr}(X_n,Y_n)=\\sqrt{4(n-3)/(4n-11)}\\). All boundaries \\(n\\ge4\\) covered. Exhaustive exact enumeration of orders 4, 5 and 6 and algebraic checks all integer orders through 100 corroborate but do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Andersson (1998) abstract: normalized asymptotic subgraph counts for a fixed digraph; relevant general fluctuation framework, full text unavailable.",
+        "Chan et al. (2019), arxiv:1902.00572: extremal lower bound for four-cycle density conditional on three-cycle density, not joint finite-moment covariance.",
+        "Ma and Tang (2020), arxiv:2011.14142: normalized cycle-density extremal analysis, not an exact random-tournament cross-moment theorem."
+      ],
+      "reasoning": "The only potentially dominating stochastic source identified is Andersson. Asymptotic marginal fluctuation theorems alone do not entail the exact conditional-projection and finite-n correlation formula. Generalized U-statistics could subsume the technique, but without a checked explicit instance there is residual, not decisive, coverage.",
+      "searches": [
+        "Pontus Andersson 1998 On the asymptotic distributions of subgraph counts in a random tournament",
+        "Moran 1947 On the method of paired comparisons",
+        "Janson Nowicki generalized U-statistics random tournament subgraph counts",
+        "arxiv:1902.00572",
+        "arxiv:2011.14142"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1405.1576",
+      "arxiv:1902.00572",
+      "arxiv:2011.14142",
+      "https://tqft.net/web/research/students/TejasIyer/thesis.pdf",
+      "https://www.mat.ufmg.br/posgrad/wp-content/uploads/TesesDissertacoes/Tese090.pdf",
+      "Andersson 1998 publisher abstract and references",
+      "Moran 1947 journal metadata and Iyer secondary source",
+      "Published published-finding corpus semantic queries listed in named checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem claimed: for \\(n\\ge4\\), \\(Y_n-\\mathbb EY_n=(n-3)(X_n-\\mathbb EX_n)/2+\\sum_{|S|=4}Z_S\\) with local triple-conditional degeneracy and orthogonal residuals; \\(\\operatorname{Corr}(X_n,Y_n)=\\sqrt{4(n-3)/(4n-11)}\\).",
+        "Prior inspected deterministic results constrain possible (c3,c4) tuples for a single tournament or sequences of tournaments; they do not calculate expectations of products of random variables.",
+        "Prior classical Moran/Iyer statement provides the individual variance formulas separately; arbitrary joint couplings sharing the same marginals can have different covariance."
+      ],
+      "reasoning": "The exact orthogonal decomposition and its cross-moment require proving conditional vanish on all triples and overlap orthogonality. Neither deterministic extremal bounds nor single-variable variance formulas imply this. A stronger stochastic projection theorem might, and historical full-text unavailability prevents a blanket no-prior-work claim.",
+      "searches": [
+        "arxiv:1405.1576 Observation 1.2",
+        "arxiv:1902.00572",
+        "arxiv:2011.14142",
+        "Iyer 2016 Section 2.4.1",
+        "Andersson 1998 random tournament subgraph counts"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Linial and Morgenstern (arxiv:1405.1576), Observation 1.2: deterministic relation among four-vertex types, counting cyclic triples in a four-set; the local A table is known.",
+        "Iyer, Random Tournaments (2016), pp. 22–23: Moran-credited individual means, variances and asymptotic normal limits for directed three-/four-cycles; no joint covariance equation in the relevant inspected section.",
+        "The new residual is \\(B_S-A_S/2+1/8\\) with conditional expectation zero for each three-vertex orientation, unlike a bare deterministic class identity."
+      ],
+      "reasoning": "The deterministic four-type relation supplies one algebraic input, and marginal distributions supply the two variance values, but neither determines the cross-moment or conditional-degenerate residual. A known general orthogonal-projection identity could subsume the construction; the inaccessible Andersson full text is recorded as a concrete residual risk.",
+      "searches": [
+        "published-finding corpus: random tournament four-cycle count three-cycle count orthogonal local kernel pairwise uncorrelated four-vertex residual",
+        "published-finding corpus: directed triangle and directed 4-cycle correlation sqrt 4(n-3)/(4n-11)",
+        "published-finding corpus: tournament cyclic-triangle four-cycle Hoeffding projection variance",
+        "arxiv:1405.1576 Observation 1.2",
+        "arxiv:1902.00572 sections 1–4",
+        "Tejas Iyer (2016) Section 2.4.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Linial–Morgenstern (2014), Observation 1.2, lists the same four-vertex pattern types; already covers elementary local pattern classification.",
+        "Ribas (2017), Chapter 5.2, computes the individual cycle-count variances \\(3\\binom{n}{3}/16\\) and \\(3(4n-11)\\binom{n}{4}/64\\) for a sieve estimate.",
+        "No inspected published-finding corpus record or relevant table gives \\(\\operatorname{Cov}(X_n,Y_n)=3\\binom{n}{4}/8\\), each Z_S orthogonal to all triangle indicators, or \\(\\operatorname{Var}(\\sum_S Z_S)=3\\binom{n}{4}/64\\)."
+      ],
+      "reasoning": "Four-vertex frequencies and separate marginals are existing exact data and explicitly acknowledged. The new exact cross-correlation and local orthogonal residual have different quantified objects; merely matching some numbers from the classical table does not itself imply the joint theorem.",
+      "searches": [
+        "Linial Morgenstern 2014 four-vertex tournament types C4 W L T4",
+        "Ribas thesis Chapter 5.2 Corollary 5.2.4",
+        "Tejas Iyer 2016 theorem 2.4.2",
+        "published-finding corpus: directed triangle and directed 4-cycle correlation sqrt 4(n-3)/(4n-11)"
+      ]
+    },
+    "rationale": "Inspected published deterministic cycle-density works and exact individual random tournament moment tables cover the underlying 4-vertex classes and marginal variance, explicitly excluded from novelty. The claimed conditional-degenerate orthogonal decomposition and exact cross-correlation have distinct mathematical content not implied by those prior statements. published-finding corpus queries and own earlier claims showed no equivalent. Andersson (1998) and Moran (1947) full texts inaccessible; potential equivalent general stochastic results remain residual historical-priority risks; the PASS is best-knowledge based on accessible material, not certification of priority.",
+    "residual_risks": [
+      "Pontus Andersson (1998) full article unavailable: may contain stronger general Hoeffding/projection results specifically subsuming this count pair.",
+      "Moran (1947) original paired-comparisons paper unavailable; may state a joint covariance not reproduced by Iyer.",
+      "Generalized U-statistic mixed projections might make the result an implicit corollary of older theory even without the exact formula being written."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_OLD_LOCAL_TABLE_NOT_JOINT_COVARIANCE",
+        "evidence": [
+          "Observation 1.2: cyclic triangle count on a four-set is 0,1,2 by four-vertex isomorphism type; no stochastic covariance identity stated."
+        ],
+        "identifier_or_url": "arxiv:1405.1576",
+        "material_read": "Full accessible arXiv HTML: introduction, Observation 1.2, maximum/minimum relations, and remaining results sections.",
+        "method": "Compared deterministic profile constraints and four-class identity with local conditional stochastic residual.",
+        "title": "On the number of 4-cycles in a tournament",
+        "trigger": "Identical cycle objects and four-vertex classes."
+      },
+      {
+        "assessment": "EXTREMAL_NOT_COVERING_FINITE_STOCHASTIC_JOINT_LAW",
+        "evidence": [
+          "Addresses minimum directed four-cycle density at prescribed directed-three-cycle density via spectral constraints."
+        ],
+        "identifier_or_url": "arxiv:1902.00572",
+        "material_read": "Open-access full paper, introduction and proof/results sections 1–4.",
+        "method": "Checked theorem statements for random-model joint covariance, regression, projection, or residual variance.",
+        "title": "Cycles of length three and four in tournaments",
+        "trigger": "Same cycle parameters, potential stronger result."
+      },
+      {
+        "assessment": "DIFFERENT_EXTREMAL_QUESTION",
+        "evidence": [
+          "Addresses sharp deterministic extremal densities, not exact pairwise random count moments."
+        ],
+        "identifier_or_url": "arxiv:2011.14142",
+        "material_read": "Open-access full text, theorem statements and proof sections.",
+        "method": "Compared normative cycle density bounds with covariance and projection formula.",
+        "title": "Minimizing cycles in tournaments and normalized q-norms",
+        "trigger": "Later extremal results may dominate earlier cycle comparisons."
+      },
+      {
+        "assessment": "STRONG_EXISTING_MARGINAL_COVERAGE_BUT_NOT_JOINT",
+        "evidence": [
+          "Theorem 2.4.2 lists exact separate variances \\(3\\binom{n}{3}/16\\) and \\(3(4n-11)\\binom{n}{4}/64\\)."
+        ],
+        "identifier_or_url": "https://tqft.net/web/research/students/TejasIyer/thesis.pdf",
+        "material_read": "Section 2.4.1, pages numbered 22–23; verified visible page images.",
+        "method": "Read theorem attributed to Moran and compared listed normalization against the new covariance.",
+        "title": "Random Tournaments",
+        "trigger": "Closest exact classical single-count variance and normality formulas."
+      },
+      {
+        "assessment": "COVERS_MARGINAL_MOMENTS_NOT_JOINT_IDENTITY",
+        "evidence": [
+          "Corollary 5.2.4 uses exact marginal three- and four-cycle variances to bound rare small cycle counts."
+        ],
+        "identifier_or_url": "https://www.mat.ufmg.br/posgrad/wp-content/uploads/TesesDissertacoes/Tese090.pdf",
+        "material_read": "Chapter 5.2, including Corollary 5.2.4 and nearby moment computations, text and corresponding page.",
+        "method": "Compared marginal cycle-count formulas with claimed cross-moment identity.",
+        "title": "Extremal product-one free sequences and the shifted Turán sieve method on tournaments",
+        "trigger": "Existing exact moment tables for cycle counts."
+      },
+      {
+        "assessment": "UNRESOLVED_PLAUSIBLE_BROADER_COVERAGE",
+        "evidence": [
+          "Abstract concerns asymptotic laws for subgraph counts, an overlapping general framework; cannot certify explicit 3-/4-cycle comparison absence."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/(SICI)1098-2418(199810/12)13:3/4<249::AID-RSA4>3.0.CO;2-V",
+        "material_read": "Publisher abstract and references only; full text unavailable.",
+        "method": "Attempted OA/arXiv sources, then institutional paper retrieval; full text not obtained.",
+        "title": "On the asymptotic distributions of subgraph counts in a random tournament",
+        "trigger": "Potentially stronger general joint orthogonal decomposition of random tournament subgraph statistics."
+      },
+      {
+        "assessment": "KNOWN_CLASSICAL_MARGINAL_SOURCE_WITH_UNRESOLVED_ORIGINAL_TEXT",
+        "evidence": [
+          "Iyer Theorem 2.4.2 attributes exact marginal moments/normality to Moran."
+        ],
+        "identifier_or_url": "https://doi.org/10.1093/biomet/34.3-4.363",
+        "material_read": "Citation metadata and Iyer secondary reproduction; original full text unavailable.",
+        "method": "Distinguished established marginal formulas from proposed cross-moment law.",
+        "title": "On the method of paired comparisons",
+        "trigger": "Moran classical marginal random tournament fluctuation results."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3b4b1b16-fef5-4515-8a67-07bc96782f06",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Three-/four-cycle counts are canonical first nontrivial tournament motifs, and their joint fluctuation is not determined by previously recorded marginal variances. The theorem provides a complete finite-size least-squares projection, universally orthogonal local residuals, exactly quantified explained variance and the rate at which correlation tends to one. Its local conditional-independence mechanism is transferable to the study of jointly fluctuating motif counts and is not merely a numerical special case.",
+    "status": "PASS"
+  }
+}
