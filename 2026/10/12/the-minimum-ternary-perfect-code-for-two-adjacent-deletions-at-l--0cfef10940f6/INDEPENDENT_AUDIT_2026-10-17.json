@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T11:41:04Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 1646308b4a4ddd25cce1458efcecd09ee4db049f",
+        "Git actual verify.py ad4f431f7f1304bf98cc7d5f188ca346d86daac1 and exhaustive_lower.cpp bba3c24a000c89a550bd99b40ff6a3d775cd096b",
+        "Independent separately coded exact enumeration of every word and DFS admissibility"
+      ],
+      "rationale": "For x∈Σ⁵ its 2-adjacent deletion shadow is the set {x₃x₄x₅,x₁x₄x₅,x₁x₂x₅,x₁x₂x₃}, of size at most four. Independent direct enumeration confirms the eight exhibited shadows have sizes (4,3,4,4,3,3,2,4), are pairwise disjoint and cover all 27 triples. A seven-word cover is the only remaining possible smaller cardinality because ceil(27/4)=7. Exhaustive bitset DFS enumerates all 3⁵=243 input words; at each state chooses an uncovered received triple, branches on *every* candidate shadow containing it with necessary remaining coverage bound u−4(r−1), memoizes (uncovered mask,r). Independent reproduction visits exactly 649 cached states and rejects seven-word covers (even without enforcing disjointness, so the rejection is stronger). Branching/pruning proof establishes that no candidate cover is missed; not a timed-out solver or heuristic census. Thus eight is optimal.",
+      "residual_risks": [
+        "Only single burst of exactly two adjacent deletions; not nonadjacent deletion or general spectra."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2015 sharp q³/4 family is stated for even q, whereas q=3 is odd and this result concerns exact eight-word optimum.",
+          "2026 covering theorem is not a perfect disjoint partition and does not supply a sharp eight-word requirement for this finite case."
+        ],
+        "reasoning": "Neither inspected general upper/construction theorem proves this specific ternary minimum by substitution, though uninspected 2015 body could have a stronger finite enumeration.",
+        "searches": [
+          "doi:10.1109/ISIT.2015.7282792 original spectrum theorem and q³/4 even alphabet",
+          "arXiv:2606.15379 general nonbinary burst covering"
+        ]
+      },
+      "checked_sources": [
+        "Chee–Li–Zhang 2015 DOI:10.1109/ISIT.2015.7282792 (indexed excerpts only; full text inaccessible)",
+        "Xie–Sun–Ge arXiv:2606.15379v1 (public abstract/sections only)",
+        "Resultary same-parameters perfect deletion-code search",
+        "Frozen RESULT.md and two complete exact-search implementations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The main 2015 even-q optimum requires an even alphabet and therefore cannot imply q=3 by parameter substitution.",
+          "2026 general covering constructions yield upper bounds, not simultaneous sharp lower and exact disjointness for the ternary shadow hypergraph."
+        ],
+        "reasoning": "Existing results do not establish eight as the minimum or exclude seven by the seen derivations; the inspected code adds an exact finite set-cover lower obstruction and explicit perfect partition.",
+        "searches": [
+          "Chee–Li–Zhang DOI 10.1109/ISIT.2015.7282792",
+          "Xie–Sun–Ge arXiv:2606.15379",
+          "Resultary named perfect two-adjacent deletion q3 n5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Perfect code is both covering and shadow-disjoint; generic covering bound does not characterize perfection.",
+          "The 2015 recursive ternary examples at nine or more words differ from an eight-word optimal partition.",
+          "Resultary nearest hits concern ternary single deletion at n=5 or different burst covering syndromes, not this exact perfect 2-burst code."
+        ],
+        "reasoning": "Aliases checked include 2-consecutive deletion, length-5 burst shadow partition, Spec_B(3,5,2) and minimum perfect code size; not conflated with maximum error-correcting code or minimum covering-only code.",
+        "searches": [
+          "Chee Li Zhang Spectrum of sizes for perfect burst deletion correcting codes 2015 ternary 5 two burst",
+          "Xie Sun Ge arXiv 2606.15379 burst deletion covering constructions",
+          "Resultary: ternary perfect code length five two adjacent burst deletions eight codewords minimum exact covering"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact target table entry is min Spec_B(3,5,2)=8.",
+          "Ranked Resultary results cover other codes; the source authors describe multiple ternary examples 9,12,15, not a complete minimum proof in inspected materials."
+        ],
+        "reasoning": "The answer is an exact finite classification invariant, so looked for same-parameter spectrum tables, not merely a theorem title. Source-body access risk is especially material here.",
+        "searches": [
+          "Spec_B(3,5,2) 8 perfect burst deletion code",
+          "2015 spectrum of sizes burst deletion codes table q=3 n=5",
+          "Resultary: exact ternary length five deletion covering number"
+        ]
+      },
+      "rationale": "The natural ternary length-five two-burst perfect-code size spectrum is introduced by Chee–Li–Zhang (2015), whose reported ternary recursive family yields sizes nine, twelve and fifteen, while its stated sharp even-alphabet size theorem does not imply this odd-alphabet eight-word optimum. Xie–Sun–Ge (2026) give broad nonbinary covering-code constructions without the same perfect-code size proof in inspected accessible material. The concrete eight-word disjoint partition and exhaustive lower bound are not in the indexed material. The highly relevant 2015 body was inaccessible through lawful inspected routes, leaving substantive priority risk rather than automatic failure.",
+      "residual_risks": [
+        "The highly relevant 2015 paper may contain a finite ternary table or classification in inaccessible full text. Authorized Oxford access reported VPN disconnected; no bypass attempted.",
+        "The exact minimum does not determine entire spectrum nor an infinite code family."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "HIGH_PRIORITY_INACCESSIBLE_SOURCE",
+          "evidence": [
+            "The 2015 article introduced Spec_B, supplies an even-q optimum and constructive ternary sizes 9,12,15; unseen full text may list minimum 8."
+          ],
+          "identifier_or_url": "doi:10.1109/ISIT.2015.7282792",
+          "material_read": "Indexed ISIT 2015 abstract, publication metadata and readily accessible statements on even-q size q³/4 and ternary constructive examples; complete article PDF not read",
+          "method": "Located author-available PDF but extraction/download failed; attempted authorized institution source only after OA failed; returned VPN disconnected; did not infer whole-paper noncoverage",
+          "title": "Spectrum of sizes for perfect burst deletion-correcting codes",
+          "trigger": "Same perfect burst deletion spectrum and same parameters"
+        },
+        {
+          "assessment": "BROADER_COVERING_NOT_SHOWN_TO_DOMINATE",
+          "evidence": [
+            "Construction covers but does not assert pairwise shadow disjointness or min perfect 8 in accessible material."
+          ],
+          "identifier_or_url": "arXiv:2606.15379v1",
+          "material_read": "Public arXiv abstract and indexed theorem snippets on nonbinary burst covering constructions, including section identifiers for two-burst bounds; entire source text not independently obtained",
+          "method": "Compare covering-only scope and bound forms to exact perfect shadow partition",
+          "title": "New bounds for covering codes under insertions or deletions",
+          "trigger": "Potential dominating covering theorem for q=3,n=5,2-burst"
+        },
+        {
+          "assessment": "RELATED_DISTINCT_DELETION_MODELS",
+          "evidence": [
+            "Nearest results address one deletion or non-perfect covering and do not imply the precise q=3 n=5 two-consecutive-deletion partition minimum."
+          ],
+          "identifier_or_url": "Resultary: ternary perfect code length five two adjacent burst deletions eight codewords minimum exact covering",
+          "material_read": "Ranked titles and summaries of ternary length-five single-deletion covering, other burst syndrome sizes, and unrelated code families",
+          "method": "Resultary semantic search and compare error model",
+          "title": "Published finite deletion-code findings",
+          "trigger": "Check precise table/alias collisions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Chee–Li–Zhang 2015 perfect burst-deletion spectrum motivation",
+        "Xie–Sun–Ge 2026 general insertion/deletion covering context"
+      ],
+      "rationale": "The size spectrum of perfect burst-deletion codes is a canonical synchronization-coding invariant. The first small odd-alphabet length-five/two-adjacent-deletion case has genuine overlap and packing constraints, and the exact minimum eight improves the inspected nine-word ternary construction. The exhibited eight-word perfect partition plus complete seven-word exclusion is a substantive exact finite optimum, not merely a logged example or arbitrary unmotivated slice. The fact can be useful as a benchmark and boundary even without an infinite family.",
+      "residual_risks": [
+        "The result is deliberately narrow; no general-q asymptotics follow."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For Σ={0,1,2}, length-five codewords and deletion of exactly two adjacent symbols, the minimum cardinality of a perfect code (disjoint burst shadows partition all 27 received length-three strings) is exactly eight; one eight-word code is 02200, 01001, 10021, 11002, 21012, 22120, 21111, 20122.",
+  "limitations": [
+    "Exactly one burst of two adjacent deletions, ternary alphabet, length five; no general spectrum computed.",
+    "Full same-parameter 2015 original paper unavailable due to lawful-access/VPN block, residual originality risk retained."
+  ],
+  "schema_version": 1
+}
