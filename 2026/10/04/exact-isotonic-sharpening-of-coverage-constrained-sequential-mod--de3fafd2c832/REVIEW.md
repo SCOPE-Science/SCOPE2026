@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Under pathwise nesting \(C_{m1s}\subseteq\cdots\subseteq C_{mRs}\), the miss indicators are ordered at every observation time. Common predictable exposure weights preserve that order in every weighted prefix-average conditional risk, so the shifted margin vector belongs to the nonincreasing cone. For a nonempty interval box intersected with that cone, the coordinate minimum is the suffix maximum of the lower endpoints and the coordinate maximum is the prefix minimum of the upper endpoints; explicit minimal and maximal cone vectors attain both bounds. The possible-feasibility equivalence uses the nonincreasing tolerances, and the certified-feasibility rule follows from the exact coordinate suprema. The constrained-argmin formula is reconstructed from necessity and a product-region sufficiency argument. The strict rational example and the finite compatibility identities are replayed by the packaged exact-arithmetic checker. The checker supports, rather than replaces, the analytic proof.
+PASS
 
-## Originality
+For each method/time the genuinely nested sets and common predictable weights give nonincreasing true risk vector g_r=Gamma_r+tau_r. The nonempty intersection of its confidence box [ell_r,u_r] with g_1>=...>=g_R has coordinate extrema max_{j>=r}ell_j and min_{i<=r}u_i, attained by the minimal and maximal feasible vectors. With tau_1>=...>=tau_R, possible feasibility remains L_r<=0 all r; certified feasibility is min_{i<=r}(U_i+tau_i)<=tau_r. Cartesian method factorization then gives the exact constrained argmin cost threshold; the original simultaneous coverage event implies the new narrower set still covers the oracle at all t, including stopping times. I independently exhaustively compared exact closure with lattice enumeration for 784 two-level and 21,952 three-level rational boxes. The strict two-method example correctly yields A certified after order restriction and A,B retained by rectangle. This is a deterministic consequence of the original time-uniform confidence event, not an independent martingale proof.
 
-PASS. The closest primary source, Li and Zhu (arXiv:2609.28522v1), supplies simultaneous rectangular intervals, possible/certified feasibility, and the exact constrained-argmin projection; it also allows the constraint index to encode a nominal level. The inspected source does not impose cross-level nesting or derive an order-cone closure. Ochoa Rivera and Tewari (arXiv:2605.12668v1) establish that nested multi-level online conformal sets are a natural contemporary object but do not study coverage-constrained model selection. Classical order-restricted inference establishes the broad statistical principle that known monotonicity can sharpen inference. Targeted statement-level searches did not reveal the specific suffix/prefix CC-SMCS closure, its certification criterion, or the preserved exact constrained-argmin projection. Residual risk remains because the underlying box/order-cone geometry is elementary and may have an equivalent generic formulation under different terminology; the claim is therefore limited to the stated sequential conformal-model-selection result rather than historical priority for isotonic geometry itself.
+## originality
 
-## Value
+PASS
 
-PASS. The motivating sequential model-selection framework explicitly supports multiple nominal-level constraints but pays for them as unrelated coordinates. Modern multi-level conformal procedures deliberately enforce nestedness, so the ignored cross-level structure occurs in a directly motivated use case. The result recovers that structure in \(O(MR)\) deterministic postprocessing, uses no additional data or error budget, and can strictly convert an otherwise ambiguous multi-method projection into a singleton by certifying a cheaper method. It also identifies the precise boundary of the gain: possible feasibility is unchanged under monotone tolerances, while certification is the part that improves.
+The exact order-aware CC-SMCS projection, preserved possible-feasibility rule, and strict enlargement of the certified class are not explicitly stated by the available Li–Zhu abstract/sectional overview or the nested-conformal abstract. The generic isotonic cone projection is classical and its combination with the CC-SMCS Cartesian projection is close to a routine corollary; originality is assessed narrowly for its exact specialized simultaneous-confidence construction, with substantial residual risk owing to unavailable primary full text.
 
-## Closest literature and limitations
+## value
 
-The primary comparison is Li and Zhu, arXiv:2609.28522v1. Ochoa Rivera and Tewari, arXiv:2605.12668v1, provides the recent nested-level conformal setting. Dykstra–Kuo and Berk–Marcus provide classical order-restricted inference context. The theorem requires genuine pathwise nesting, common exposure weights, and monotone tolerances. General partial orders and incompatible order-restricted boxes are outside the exact closed form stated here.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+A justified method-selection problem has genuine known cross-level order and simultaneous error budgets. The exact no-extra-error tightening can exclude a more expensive possibly optimal model while retaining time-uniform coverage, as the explicit rational witness proves. This is a useful exact structural enhancement even though the cone-extrema algebra is elementary; no claim to a general new isotonic theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

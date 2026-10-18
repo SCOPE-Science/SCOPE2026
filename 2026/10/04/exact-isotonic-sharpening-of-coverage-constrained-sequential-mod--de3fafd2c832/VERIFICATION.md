@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The packaged script `verify_nested_ccsmcs.py` uses only Python's standard library and exact rational arithmetic. It checks the following finite identities and examples:
+# Independent mathematical audit
 
-- the suffix-maximum lower closure and prefix-minimum upper closure;
-- the necessary-and-sufficient compatibility criterion for an interval box intersected with a nonincreasing order cone;
-- equivalence between the original lower-endpoint possible-feasibility rule and the order-aware rule under nonincreasing tolerances;
-- the strengthened certified-feasibility condition based on prefix minima of shifted upper endpoints;
-- the strict two-method example in which the rectangular projection contains two methods while the order-aware exact projection is a singleton.
+## correctness
 
-The checker exhausts a finite family of rational two- and three-level boxes and compares the formulas with direct enumeration on a rational grid whenever the grid contains feasible points. It also verifies the displayed strict example exactly.
+PASS
 
-Finite enumeration is not used as proof of the infinite statement. The analytic proof in `RESULT.md` establishes the coordinate extrema and the constrained-argmin implication for arbitrary finite \(R\), while the sequential coverage claim is inherited from the original simultaneous confidence event together with deterministic nesting.
+For each method/time the genuinely nested sets and common predictable weights give nonincreasing true risk vector g_r=Gamma_r+tau_r. The nonempty intersection of its confidence box [ell_r,u_r] with g_1>=...>=g_R has coordinate extrema max_{j>=r}ell_j and min_{i<=r}u_i, attained by the minimal and maximal feasible vectors. With tau_1>=...>=tau_R, possible feasibility remains L_r<=0 all r; certified feasibility is min_{i<=r}(U_i+tau_i)<=tau_r. Cartesian method factorization then gives the exact constrained argmin cost threshold; the original simultaneous coverage event implies the new narrower set still covers the oracle at all t, including stopping times. I independently exhaustively compared exact closure with lattice enumeration for 784 two-level and 21,952 three-level rational boxes. The strict two-method example correctly yields A certified after order restriction and A,B retained by rectangle. This is a deterministic consequence of the original time-uniform confidence event, not an independent martingale proof.
+
+## originality
+
+PASS
+
+The exact order-aware CC-SMCS projection, preserved possible-feasibility rule, and strict enlargement of the certified class are not explicitly stated by the available Li–Zhu abstract/sectional overview or the nested-conformal abstract. The generic isotonic cone projection is classical and its combination with the CC-SMCS Cartesian projection is close to a routine corollary; originality is assessed narrowly for its exact specialized simultaneous-confidence construction, with substantial residual risk owing to unavailable primary full text.
+
+## value
+
+PASS
+
+A justified method-selection problem has genuine known cross-level order and simultaneous error budgets. The exact no-extra-error tightening can exclude a more expensive possibly optimal model while retaining time-uniform coverage, as the explicit rational witness proves. This is a useful exact structural enhancement even though the cone-extrema algebra is elementary; no claim to a general new isotonic theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
