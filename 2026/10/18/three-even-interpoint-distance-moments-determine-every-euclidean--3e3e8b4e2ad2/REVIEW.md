@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+Barycentric coordinates of a uniform triangular point give exact Dirichlet factorial moments. Independent-copy and multinomial expansion establishes the three moment polynomials; exact polynomial interpolation on 99 rational tensor-grid nodes provides a reproducible identity certificate. Elementary symmetric inversion identifies the squared sides, and side-side-side congruence handles repeated roots without genericity. The two-moment collision satisfies the strict triangle determinant; the sharpness pair is a genuine family near equilateral shapes. The uniform inverse estimate uses explicit coefficient perturbation bounds and componentwise Rouché root counts, with separate zero-error and large-error cases. Finite checks verify algebraic identities because the polynomial-degree bound is independently proved; they are not extrapolated statistical experiments.
+
+## Originality — PASS, with residual priority risk
+O'Hara's publicly accessible statement proves reconstruction of generic polygons from a **full function**, not universal reconstruction from three specified even moments; the inaccessible manuscript remains a priority risk. Tong–Ahmadi–Pan's openly readable triangle paper derives the **forward law** and verifies it by simulation, not finite-moment inversion. Bäsel's full text treats regular polygons and confirms the equilateral numerical specialization, not the inverse for scalene triangles. Tong–Pan 2016 is similarly a forward-law algorithm. Searches for alternative terminology—Riesz-energy samples, distance moment tomography, triangular pair-distance moment inversion—and comparison with nearby published geometry results found no dominating three-moment theorem; absence of search hits is not taken as proof of global novelty. Related parallelogram moment reconstruction cannot supply the triangular barycentric moment identities or sharp cubic-root instability.
+
+## Mathematical value — PASS
+An explicit finite and minimal measurement scheme solves a natural inverse integral-geometric problem for the complete smallest polygon class, including nongeneric right, obtuse, and equilateral cases left outside generic-only formulations. The first two measurements fix **area** but provably not shape; the third repairs this obstruction. The optimal uniform \(1/3\)-Hölder rate gives a precise geometric noise limit, sharp already arbitrarily close to equilateral triangles, and can guide finite-moment shape acquisition. The result is more than a forward-moment calculation or a routine restriction of a full-law theorem.
+
+## Limitations and closest literature
+The 2026 full manuscript is not available for page-by-page comparison; older unindexed geometric-probability formulas could also overlap. The result does not identify polygons with four or more sides, and the stability rate is for normalized **squared** side lengths rather than vertex coordinates. Independently verifying priority remains necessary.
+
+Self-review: passed. Independent audit: not yet performed.
