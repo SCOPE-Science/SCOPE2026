@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source's bird equilibrium gives \(I_b^*>0\) exactly when \(\mathcal R_0^b>1\). With \(\beta_{bh}>0\), this makes the human quadratic's constant term strictly negative while its leading coefficient is positive, so the two real roots have opposite signs and exactly one is biologically feasible. Substitution recovers positive human susceptible, exposed, infectious, and recovered components. The three small-spillover limits follow directly from the exact positive root.
+## correctness
 
-## Originality
-PASS. The source itself states the stronger requirement \(\mathcal R_0^h>1\), and source-specific searches found no correction. Earlier stochastic animal-human and reservoir-spillover papers already establish the broad fact that reservoir forcing matters under subcritical human transmission; that phenomenon is not claimed as new. They do not contain the deterministic 2026 model's exact root or its three-regime crossover.
+PASS
 
-## Value
-PASS. The result changes the parameter region in which the paper's fully endemic state is biologically feasible and sharpens the interpretation of intervention thresholds. It separates autonomous human persistence from reservoir-forced human prevalence and quantifies the singular response at \(\mathcal R_0^h=1\).
+The bird subsystem gives I_b*=mu_b(R0_b-1)/beta_b, so all-positive necessity and positivity of kappa coincide with R0_b>1. Substitution into the full human S/E/I/R equilibrium equations reduces to beta_h I_h^2+[kappa+mu_h(1-R0_h)]I_h -(mu_h R0_h/beta_h)kappa=0. Since beta_h>0 and constant term negative for kappa>0, one root is positive and one negative, and remaining compartments reconstruct positive. Expanding the exact positive root yields the three distinct kappa downarrow zero regimes. Independently checked rational constant terms for mu_h=2/5,beta_h=3/2,kappa=1/7,R0_h in {1/2,1,3/2}: -2/105,-4/105,-2/35. No stability conclusion asserted.
 
-## Closest literature and limitations
-Voinson et al. (2018), DOI 10.1016/j.jtbi.2018.08.017, is the closest inspected full-text reservoir-forcing prior and explicitly treats subcritical direct transmission with recurrent spillover. Singh, Schneider, and Myers (2014), DOI 10.1103/PhysRevE.89.032702, gives related stochastic animal-human outbreak theory. Neither implies the exact deterministic equilibrium calculation in the motivating model. Stability of the forced positive equilibrium is not established here.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 source explicitly prints a stronger incorrect joint R0_b>1 AND R0_h>1 biological feasibility requirement, despite its own negative constant-term quadratic. Earlier zoonotic spillover papers establish the general concept but are stochastic or use a different model; the source-specific exact correction and singular response law are a meaningful result. Best-of-knowledge PASS, recognizing general reservoir-forcing priority.
+
+## value
+
+PASS
+
+Changing a published feasibility region from a joint condition to reservoir-only threshold materially changes interpretation of human endemic burden and intervention strategy; the unique equilibrium and three critical response scalings are model-specific, mathematically useful corrections rather than a generic slogan about spillover.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
