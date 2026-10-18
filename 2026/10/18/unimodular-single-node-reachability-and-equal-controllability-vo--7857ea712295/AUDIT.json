@@ -1,0 +1,158 @@
+{
+  "correctness": {
+    "rationale": "For each n>=2, diagonalize the exact unit-path Laplacian in its normalized DCT-II basis. A shared odd factor in gcd(2j-1,n) produces a zero cosine component. A coprime odd factor permutes absolute modal cosines modulo 2n, giving squared modal product (2n)^(-(n-1)); independently the endpoint integer Krylov matrix is unit triangular, fixing Vandermonde square (2n)^(n-1). Hence every Kalman determinant is 0 or +/-1 and every full-rank matrix is unimodular. Discrete Gramians are products of Krylov matrices at H=n or D_j C_H D_j for H>=n; continuous Gramians are D_j C_T D_j with positive definite exponential kernel for T>0. Cauchy determinant cancellation gives the gamma>0 infinite-horizon spectral product. Tests use actual verify.py package in the same directory and pass exact integer/rational calculations; finite verification is not substituted for the infinite proof. No numerical conditioning assertion is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fitch-Leonard ECC2016 Theorem 2 factors reduced-disagreement reachable-volume into eigenvector amplitudes, not the full n-mode path Kalman determinant.",
+        "Dilip 2019 Theorem 3 is a general Hadamard/spectral ranking result valid for diagonalizable symmetric systems; its specific path Example 1 covers n=6, without an all-n arithmetic formula.",
+        "Summers-Cortesi-Lygeros arxiv:1404.7665 studies generic Gramian objectives and actuator-set optimization, not a path-specific unimodularity classification.",
+        "A path adjacency operator differs from a shifted path Laplacian by endpoint diagonal terms, so an adjacency-only calculation cannot substitute for this Laplacian identity."
+      ],
+      "reasoning": "General spectral factorization is the strongest established prior framework; it implies a calculation method but not the displayed Laplacian path arithmetic identity without a separate cosine-product proof. A path Laplacian differs from shifted adjacency dynamics by nonconstant endpoint diagonal corrections and hence is not related by affine functional calculus.",
+      "searches": [
+        "Fitch-Leonard ECC2016 Theorem 2 (author-hosted PDF)",
+        "\"The Controllability Gramian, the Hadamard Product\" \"path\" single input",
+        "\"path network\" \"volume\" \"controllability\" \"leader\"",
+        "arxiv:1404.7665v1",
+        "Fitch dissertation Chapter 6.3.2 Theorem 7 (author-hosted PDF)"
+      ]
+    },
+    "checked_sources": [
+      "Parlangeli-Notarstefano arxiv:1109.3556v1",
+      "Fitch-Leonard ECC2016 author-hosted paper",
+      "Fitch 2016 doctoral thesis Chapter 6.3.2",
+      "Dilip 2019 IEEE Control Systems Letters paper full public author text",
+      "Summers-Cortesi-Lygeros arxiv:1404.7665v1",
+      "Relevant indexed published graph/actuator search results; limited to results inspected"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known rank-only theorem implies which determinants vanish, but not positive determinant magnitudes, unimodularity, or equality.",
+        "Known generic product formula implies location rankings once modal weights are evaluated, and is expressly acknowledged; evaluation to a universal integer determinant zero/one is the additional assertion.",
+        "An adjacency path operator is mathematically different from the Laplacian, because their endpoint diagonal entries do not agree up to a scalar multiple of identity.",
+        "The finite P6 optimality tie is explicitly published in Dilip 2019 and must not be counted as independently novel."
+      ],
+      "reasoning": "No inspected source contains a theorem whose stated hypotheses directly give the all-n integer Kalman determinant without computing a new arithmetic product. The finite P6 observation is covered and is not advertised as novel. Residual risk is nonexcluded alternative derivations in broader controllability and integer-matrix literature.",
+      "searches": [
+        "arxiv:1109.3556v1 Theorem IV.4",
+        "Fitch-Leonard ECC2016 Theorem 2 (author-hosted PDF)",
+        "doi:10.1109/LCSYS.2019.2919278 Theorem 3, Example 1",
+        "\"path graph\" \"Gramian determinant\" equal all controllable nodes",
+        "Dilip 2019 Example 1 six-node path tie and full-state formula"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Parlangeli-Notarstefano arxiv:1109.3556v1, Theorem IV.4, gives path rank controllability from arithmetic congruences.",
+        "Dilip DOI 10.1109/LCSYS.2019.2919278, Example 1, reports the tie among vertices 1,3,4,6 of P6; Theorem 3 gives a generic spectral determinant ranking.",
+        "The exact identity det K in {0,+1,-1} for every n, and the closed common finite/infinite horizon determinant, were not stated in the inspected relevant sections."
+      ],
+      "reasoning": "Rank controllability and the six-node special case are *already known*. The new quantified statement is an exact integral unimodularity identity on every path, with all-size determinant values for continuous/damped/discrete dynamics. The closest generic spectral factorization reduces the problem to a nontrivial roots-of-unity product; it does not state or directly classify the full infinite path family. Search absence alone is not treated as proof of historical originality.",
+      "searches": [
+        "\"path graph\" \"Gramian determinant\" equal all controllable nodes",
+        "\"path graph\" \"controllability matrix\" determinant unimodular node",
+        "\"2i-1\" \"n\" controllability path Gramian determinant",
+        "unweighted path Laplacian single leader controllability Krylov matrix determinant unimodular 0 plus minus one gcd",
+        "arxiv:1109.3556v1, Theorem IV.4",
+        "doi:10.1109/LCSYS.2019.2919278, Theorem 3 and Example 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact six-vertex tie is already numerically listed by Dilip 2019 and therefore explicitly excluded from standalone priority.",
+        "Full family formula has no matching exact-value table in the examined relevant primary full texts. Relevant indexed published results address different graph classes or different objectives."
+      ],
+      "reasoning": "No known catalogue is claimed complete. The result is not a recomputation of the six-vertex benchmark: it gives a closed all-n arithmetic criterion, an integer-lattice basis property, totient count, and exact horizon-dependent common determinant.",
+      "searches": [
+        "\"unimodular Kalman controllability matrices for path Laplacian 0 1 determinant totient count\"",
+        "\"equal Gramian determinant path diffusion unit weights every finite horizon coordinate sensors\"",
+        "\"controllability matrix\" \"path\" determinant \"+1\" \"-1\" Laplacian",
+        "doi:10.1109/LCSYS.2019.2919278 Example 1"
+      ]
+    },
+    "rationale": "The claim differs materially from known qualitative path reachability and generic full/reduced spectral Gramian factorization; it determines exact integral Kalman determinant and all-n/every-horizon Gramian volume, not merely that a matrix is full rank or a single six-node numerical tie. The six-node tie is explicitly prior. A path adjacency matrix cannot be substituted for the path Laplacian, whose endpoint degrees change the relevant eigenvectors. Exhaustive historical priority is neither demonstrated nor claimed.",
+    "residual_risks": [
+      "The generic 2016/2019 spectral determinant formula plus the standard DCT basis may make the exact Laplacian-path theorem an overlooked corollary in other published work.",
+      "A six-node path tie already appears in Dilip 2019; it is not a new standalone example.",
+      "Published-search indexing may miss equivalent titles or integral walk-matrix statements. An independent priority review has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS qualitative zero/nonzero reachability; no equal-volume or integer Kalman determinant formula in inspected text.",
+        "evidence": [
+          "Theorem IV.4 (i),(iii) gives odd-prime divisibility obstruction and unreachable eigenvalues.",
+          "2011-09-16 09:23:54 UTC version date verified from arXiv history.",
+          "https://arxiv.org/html/1109.3556v1"
+        ],
+        "identifier_or_url": "arxiv:1109.3556v1",
+        "material_read": "Theorem IV.4, surrounding proof, the arithmetic single-node reachability criterion and introduction in the arXiv HTML.",
+        "method": "Author-posted arXiv v1 HTML with theorem-level reading",
+        "title": "On the reachability and observability of path and cycle graphs",
+        "trigger": "Identical unit-path Laplacian and single-node controllability"
+      },
+      {
+        "assessment": "COVERS generic reduced-space modal factorization, NOT the unweighted path-specific integer determinant and all-size result.",
+        "evidence": [
+          "Theorem 2 makes log-volume depend on product of eigenvector coordinates.",
+          "https://naomi.princeton.edu/wp-content/uploads/sites/744/2021/03/Fitch_Leonard_ECC_16_final.pdf"
+        ],
+        "identifier_or_url": "Fitch-Leonard ECC2016, 6-page author-hosted PDF",
+        "material_read": "Six-page paper Sections I-II, IV-B Theorem 2 with proof, Section V applications, and conclusion.",
+        "method": "Author-hosted lawful PDF, page 4 visually inspected",
+        "title": "Optimal Leader Selection for Controllability and Robustness in Multi-agent Networks",
+        "trigger": "Closest generic Laplacian reachable volume objective"
+      },
+      {
+        "assessment": "The path-specific chapter addresses robustness, while the volume chapter gives generic eigenvector-product ranking; no exact all-path integer Kalman volume statement identified.",
+        "evidence": [
+          "Chapter 6.3.2 Theorem 7.",
+          "https://naomi.princeton.edu/wp-content/uploads/sites/744/2021/03/Fitch_thesis_final2.pdf"
+        ],
+        "identifier_or_url": "Katherine Fitch doctoral thesis, author-hosted 2016 PDF",
+        "material_read": "Table of contents and introduction; Chapter 4.2 topic and Chapter 6.3.2 Theorem 7 with proof and related discussion.",
+        "method": "Lawful author-hosted dissertation PDF text, theorem and application sections",
+        "title": "Optimal Leader Selection in Multi-agent Networks: Joint Centrality, Robustness and Controllability",
+        "trigger": "Thesis might strengthen ECC2016 theorem or cover path application"
+      },
+      {
+        "assessment": "COVERS the n=6, four-actuator-location tie and generic spectral method, not the exact all-n unimodular theorem. This is the principal residual overlap risk.",
+        "evidence": [
+          "Example 1: vertices 1,3,4,6 on P6 all tie at horizon 5.",
+          "Theorem 3: determinant-optimal node by product of spectral actuator components.",
+          "https://www.researchgate.net/publication/333408055_The_Controllability_Gramian_the_Hadamard_Product_and_the_Optimal_ActuatorLeader_and_Sensor_Selection_Problem"
+        ],
+        "identifier_or_url": "DOI:10.1109/LCSYS.2019.2919278",
+        "material_read": "Author-posted complete textual paper, Section III-A Theorem 3 and Section III-D Example 1 and conclusion.",
+        "method": "Author-uploaded open public full text as parsed HTML",
+        "title": "The Controllability Gramian, the Hadamard Product, and the Optimal Actuator/Leader and Sensor Selection Problem",
+        "trigger": "Explicitly mentions finite-horizon determinant actuator selection on a path"
+      },
+      {
+        "assessment": "General log-determinant optimization theory; no path-specific exact integer identities.",
+        "evidence": [
+          "Gramian metric and general actuator subset problem.",
+          "https://arxiv.org/html/1404.7665v1"
+        ],
+        "identifier_or_url": "arxiv:1404.7665v1",
+        "material_read": "Public arXiv HTML sections stating the general Gramian objective and log-determinant submodularity.",
+        "method": "Public arXiv full HTML",
+        "title": "On Submodularity and Controllability in Complex Dynamical Networks",
+        "trigger": "Broader determinant-based actuator-selection theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7857ea71-2295-41df-99ec-9d27bf19e883",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural D-optimal coordinate actuator problem for unit-path Laplacian dynamics has an exact exhaustive answer for every network size, gain and time horizon: phi(2n) equally optimal nodes, explicitly characterized, without Gramian computation. The stronger unimodularity implies exact reachability of every integer target in n discrete steps using integer inputs and exposes an integer-lattice structure not encoded by rank-only controllability. It distinguishes determinant objective from trace or minimum eigenvalue; the fact is motivated as an infinite-family design classification, not an arbitrary finite slice. Path adjacency and path Laplacian are distinct operators with different endpoint diagonal structure.",
+    "status": "PASS"
+  }
+}
