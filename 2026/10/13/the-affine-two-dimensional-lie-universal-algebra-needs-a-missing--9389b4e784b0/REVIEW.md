@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source's general formula gives \(X_{11}-X_{11}X_{22}+X_{21}X_{12}\), and direct bracket preservation independently gives \(X_{21}=0\) and \(X_{11}(1-X_{22})=0\). The finite-field checker verifies the full monoid census and the point-count contradiction with the printed polynomial ring.
+PASS
 
-## Originality
+For [e1,e2]=e1, direct bracket preservation of f(e1)=a e1+c e2 and f(e2)=b e1+d e2 yields c=0 and a=ad. Agore-Militaru general universal-polynomial formula gives X11-X11 X22+X21 X12 and X21=0, hence A=k[a,b,d]/(a(1-d)), not the printed k[X,Y,Z]/(X-YZ) domain. Over F_q the union of two planes gives 2q^2-q points. Rank counts 1,q^2-1,q(q-1), idempotents q+2, nilpotents q, center {0,I}, centralizer strata and commuting probability (4q^2-3)/(q(2q-1)^2) follow from explicit 2x2 triangular multiplication and were independently enumerated for F_2,F_3,F_5,F_7 and F_4.
 
-PASS. Focused searches under the exact example, printed polynomial, corrected relation, affine-Lie endomorphism monoid, and erratum terminology found no published correction. The primary full text itself contains both the erroneous specialization and the general formula that corrects it. An unindexed erratum remains the main bibliographic risk.
+## originality
 
-## Value
+PASS
 
-PASS. The correction changes the geometry and finite-field point count of the universal algebra in the source's first nonabelian Lie example; it is not a cosmetic variable rename. The monoid census gives a reproducible structural consequence.
+Example 2.9 of Agore-Militaru prints X11-X12 X22+X12 X21 and deduces a domain. The same paper's general structure-constant formula and direct Lie brackets require X11-X11 X22+X12 X21 and a reducible coordinate algebra. This is a genuine correction to a printed first nonabelian example plus a complete finite-field monoid census; not a claimed correction of the general theory.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The missing diagonal factor changes the represented endomorphism functor: union of two planes rather than an affine plane, with 2q^2-q rather than q^2 rational points. The rank/centralizer distribution quantifies consequential monoid geometry; this is not cosmetic symbol substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
