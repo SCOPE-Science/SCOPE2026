@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. The proof reconstructs the covariance formula for permutation linear statistics after double centering and evaluates every required finite sum explicitly. Independent exact checks enumerate all permutations through \(n=9\) and separately verify the double-centered matrix identities through \(n=60\).
+# Independent mathematical audit
 
-## Originality
-PASS, with a stated literature risk. Jiang's complete article defines the same \(p=1\) footrule and \(p=2\) squared-displacement statistics and states that correlations among the family can be computed by a same-index/different-index calculation, but the inspected text does not state the finite covariance, finite correlation, or limiting coefficient for this pair. The Berry-Mielke comparison article was accessible only at abstract level and remains a residual risk.
+## correctness
 
-## Value
-PASS. Footrule and Spearman's coefficient are classical complete-ranking summaries. Their exact null correlation answers a natural redundancy question quantitatively and shows that their standardized dependence remains strong asymptotically rather than fading with \(n\).
+PASS
 
-## Closest literature and limitations
-The closest full-text source supplies the general joint-metric perspective and the calculational route. The accepted finding supplies the explicit all-\(n\) coefficient and its null interpretation. It assumes complete rankings without ties and does not compare power under alternatives.
+For arbitrary arrays A,B the random permutation linear statistics X_A=sum_i a_(i,Pi(i)) satisfy Cov(X_A,X_B)=(n-1)^-1 sum_ij a^circle_ij b^circle_ij by direct same-index/different-index sampling and double centering. Take A=(i-j)^2 and B=|i-j|, use row/column sums and cubic distance sums to obtain Cov(F,D)=n(n+1)(n^2+1)/30; analogous centered-square calculation gives Var(F)=(n+1)(2n^2+7)/45 and Var(D)=n^2(n-1)(n+1)^2/36. Applying the affine transformation R=1-6D/[n(n^2-1)] yields exact covariance/correlation and the nonzero limit. Independently enumerated EVERY n! permutation for n=2..7 and recomputed exact mixed moments with fractions. This bounded enumeration does not prove all n, which follows from the centering identity and polynomial sums.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Jiang arXiv:1110.0807 defines exactly the footrule p=1 and squared-displacement p=2 metrics and discusses computability of their correlations, but its inspected Sections 4-5 do not display this pair-specific finite polynomial or limiting -3/sqrt(10). Diaconis--Graham supplies foundational F marginal distribution/variance and other permutation-metric comparisons without the mixed F/R formula. Berry--Mielke is plausibly directly relevant but only abstract accessible; authorized institutional full-text retrieval returned vpn_disconnected; this is an explicit material originality risk, not evidence of coverage. Closest Resultary Spearman rho--Gini boundary concerns different measures.
+
+## value
+
+PASS
+
+Footrule and rho are two canonical rank-disagreement summaries with no ties; the exact finite-sample null correlation quantifies how much duplicate information they encode, and its strong asymptotic anticorrelation persists rather than vanishing. The natural all-n mixed invariant is independently useful as a null calibration benchmark, even though double-centering is the standard proof method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

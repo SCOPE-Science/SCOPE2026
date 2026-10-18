@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T06:48:32.347625Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Git blob 9ab6e0be615d6e2844f58bf7494585f4c952f521",
+        "checker.py Git blob f07084e1c273d643e8d0bc7166f6fc759fb99144",
+        "Independent exact permutation enumeration n=2..7"
+      ],
+      "rationale": "For arbitrary arrays A,B the random permutation linear statistics X_A=sum_i a_(i,Pi(i)) satisfy Cov(X_A,X_B)=(n-1)^-1 sum_ij a^circle_ij b^circle_ij by direct same-index/different-index sampling and double centering. Take A=(i-j)^2 and B=|i-j|, use row/column sums and cubic distance sums to obtain Cov(F,D)=n(n+1)(n^2+1)/30; analogous centered-square calculation gives Var(F)=(n+1)(2n^2+7)/45 and Var(D)=n^2(n-1)(n+1)^2/36. Applying the affine transformation R=1-6D/[n(n^2-1)] yields exact covariance/correlation and the nonzero limit. Independently enumerated EVERY n! permutation for n=2..7 and recomputed exact mixed moments with fractions. This bounded enumeration does not prove all n, which follows from the centering identity and polynomial sums.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jiang, Asymptotic correlations of metrics on the symmetric groups, arXiv:1110.0807, Section 4 provides general comparisons/asymptotic independence with permutation class functions and a general same/different-index method; Diaconis--Graham (1977), Spearman footrule as a measure of disarray, doi:10.1111/j.2517-6161.1977.tb01624.x is a foundational footrule marginal analysis."
+        ],
+        "reasoning": "The general summation method makes this exact computation possible but is not a theorem fixing the coefficient for the F and D arrays. Existing marginal variance and methods do not directly state the exact joint covariance.",
+        "searches": [
+          "Spearman footrule Spearman rho squared ranks permutation null exact covariance correlation -3/sqrt(10)",
+          "Jiang, Asymptotic correlations of metrics on the symmetric groups, arXiv:1110.0807, Section 4",
+          "Diaconis--Graham (1977), Spearman footrule as a measure of disarray, doi:10.1111/j.2517-6161.1977.tb01624.x"
+        ]
+      },
+      "checked_sources": [
+        "Jiang, Asymptotic correlations of metrics on the symmetric groups, arXiv:1110.0807, Section 4",
+        "Diaconis--Graham (1977), Spearman footrule as a measure of disarray, doi:10.1111/j.2517-6161.1977.tb01624.x",
+        "Berry--Mielke (1997), Spearman footrule as a measure of agreement, doi:10.2466/pr0.1997.80.3.839",
+        "Resultary:Spearman footrule Spearman rho squared ranks permutation null exact covariance correlation -3/sqrt(10)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Jiang p=1/p=2 definitions and normal limits are not a printed covariance statement; Diaconis--Graham footrule mean/variance and Kendall comparisons do not determine rho covariance."
+        ],
+        "reasoning": "One can derive the formula by applying the general double-centering identity to explicitly known arrays, but the coefficient is not a numerical consequence of the prior marginal formulas alone. If Berry--Mielke already computed this null covariance, originality would fail; this was not verifiable due access.",
+        "searches": [
+          "Spearman footrule Spearman rho squared ranks permutation null exact covariance correlation -3/sqrt(10)",
+          "Jiang, Asymptotic correlations of metrics on the symmetric groups, arXiv:1110.0807, Section 4",
+          "Diaconis--Graham (1977), Spearman footrule as a measure of disarray, doi:10.1111/j.2517-6161.1977.tb01624.x",
+          "Berry--Mielke (1997), Spearman footrule as a measure of agreement, doi:10.2466/pr0.1997.80.3.839"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jiang, Asymptotic correlations of metrics on the symmetric groups, arXiv:1110.0807, Section 4 defines rho_1=sum_i |Pi(i)-i| and rho_2=sum_i (Pi(i)-i)^2, exactly F and D."
+        ],
+        "reasoning": "Spearman rho coefficient R is an affine transform of squared displacement D, so computing Cov(F,D) determines Corr(F,R) with a negative sign. The source mentions these same statistics but does not display this exact pair-specific formula in the inspected sections.",
+        "searches": [
+          "Spearman footrule Spearman rho squared ranks permutation null exact covariance correlation -3/sqrt(10)",
+          "Jiang, Asymptotic correlations of metrics on the symmetric groups, arXiv:1110.0807, Section 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits involving Spearman--Gini and ordinal scores do not use this permutation-null F--R pair.",
+          "The accessible Berry--Mielke abstract explicitly compares F and rank-order coefficient but does not expose an exact null covariance table."
+        ],
+        "reasoning": "No table was actually inspected that contains the exact coefficient; inaccessible article is a direct risk, not a negative inspection conclusion.",
+        "searches": [
+          "Spearman footrule Spearman rho squared ranks permutation null exact covariance correlation -3/sqrt(10)",
+          "Berry--Mielke (1997), Spearman footrule as a measure of agreement, doi:10.2466/pr0.1997.80.3.839"
+        ]
+      },
+      "rationale": "Jiang arXiv:1110.0807 defines exactly the footrule p=1 and squared-displacement p=2 metrics and discusses computability of their correlations, but its inspected Sections 4-5 do not display this pair-specific finite polynomial or limiting -3/sqrt(10). Diaconis--Graham supplies foundational F marginal distribution/variance and other permutation-metric comparisons without the mixed F/R formula. Berry--Mielke is plausibly directly relevant but only abstract accessible; authorized institutional full-text retrieval returned vpn_disconnected; this is an explicit material originality risk, not evidence of coverage. Closest Resultary Spearman rho--Gini boundary concerns different measures.",
+      "residual_risks": [
+        "Berry--Mielke 1997 complete article inaccessible, authorized institutional download returned vpn_disconnected; an equivalent exact null formula may already appear there.",
+        "Classic permutation-linear-statistic covariance method makes this a short derivation; earlier statistical tables may contain identical coefficient."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_AS_STATED",
+          "evidence": "Defines same statistics, general computation method; no inspected theorem supplies finite F--D polynomial coefficient or -3/sqrt(10) F--R limit.",
+          "identifier_or_url": "Jiang, Asymptotic correlations of metrics on the symmetric groups, arXiv:1110.0807, Section 4",
+          "material_read": "Public 21-page article PDF: Section 4 definitions of rho_1, rho_2, adjacent Section 5 correlation/independence results, and pertinent conclusion.",
+          "method": "ArXiv primary PDF; relevant original sections and displayed formulas inspected.",
+          "title": "Asymptotic correlations of metrics on the symmetric groups",
+          "trigger": "Same p=1 and p=2 metrics, plausible stronger asymptotic correlation theory."
+        },
+        {
+          "assessment": "NOT_COVERING_AS_STATED",
+          "evidence": "Supplies footrule moments and other permutation distances but no explicit pairwise F--Spearman-rho null covariance.",
+          "identifier_or_url": "Diaconis--Graham (1977), Spearman footrule as a measure of disarray, doi:10.1111/j.2517-6161.1977.tb01624.x",
+          "material_read": "Seven-page publicly available full article visually inspected page-by-page, including the footrule moments/comparisons.",
+          "method": "Lawfully accessible article full PDF, all seven pages inspected.",
+          "title": "Spearman footrule as a measure of disarray",
+          "trigger": "Foundational complete-ranking footrule mean, variance and related metrics."
+        },
+        {
+          "assessment": "INACCESSIBLE_MATERIAL_ORIGINALITY_RISK",
+          "evidence": "The full paper may contain the exact pairwise null correlation. No whole-document noncoverage conclusion is made.",
+          "identifier_or_url": "Berry--Mielke (1997), Spearman footrule as a measure of agreement, doi:10.2466/pr0.1997.80.3.839",
+          "material_read": "Bibliographic metadata and abstract only; attempted full primary text via accessible routes, then authorized Oxford returned vpn_disconnected.",
+          "method": "Publisher abstract plus authorized institutional retrieval attempt; not full text.",
+          "title": "Spearman footrule as a measure of agreement",
+          "trigger": "Title and abstract explicitly compare footrule with Spearman rank-order coefficient."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Jiang, Asymptotic correlations of metrics on the symmetric groups, arXiv:1110.0807, Section 4",
+        "Diaconis--Graham (1977), Spearman footrule as a measure of disarray, doi:10.1111/j.2517-6161.1977.tb01624.x",
+        "Berry--Mielke (1997), Spearman footrule as a measure of agreement, doi:10.2466/pr0.1997.80.3.839",
+        "Resultary:Spearman footrule Spearman rho squared ranks permutation null exact covariance correlation -3/sqrt(10)"
+      ],
+      "rationale": "Footrule and rho are two canonical rank-disagreement summaries with no ties; the exact finite-sample null correlation quantifies how much duplicate information they encode, and its strong asymptotic anticorrelation persists rather than vanishing. The natural all-n mixed invariant is independently useful as a null calibration benchmark, even though double-centering is the standard proof method.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For uniform permutations n>=2, standard L1 Spearman footrule F, squared displacement D, and no-ties Spearman rho R=1-6D/[n(n^2-1)], Cov(F,D)=n(n+1)(n^2+1)/30; Corr(F,R)=-3(n^2+1)/sqrt(5(n-1)(n+1)(2n^2+7)), limiting -3/sqrt(10).",
+  "limitations": [
+    "Only uniform complete rankings without ties and unweighted L1 footrule, ordinary squared displacement/rho.",
+    "No claim for partial rankings, tied ranks or nonuniform permutation alternatives."
+  ],
+  "schema_version": 1
+}
