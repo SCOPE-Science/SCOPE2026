@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "For every fixed finite atomic specification, construct the Hilbert–Schmidt Dirichlet map, prove positive Gram-minor determinants by the exponential-polynomial zero lemma, decompose each exterior Gram operator as positive weighted rank-one terms, isolate the unique minimal tuple product k! and bound the full remaining infinite series by a convergent zeta(2) majorant. Consecutive products produce the explicit determinant-ratio asymptotics and exponential error. Exact rational checks verify 294 finite instances of the algebraic identities; they are not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Miheisi–Pushnitski, arXiv:1709.06326v1 Theorem 1.1, addresses an infinite-rank, fixed logarithmic Helson symbol with eigenvalue index tending to infinity.",
+        "Ma–Lu–Zu, arXiv:2610.12252v1 Theorem 3.4, controls trace class and trace, not each ordered positive eigenvalue.",
+        "Chavan–Sahu–Sinha, arXiv:2407.04124v2, concerns norm bounds, Schatten membership, compactness, and scattering for measure-induced Helson matrices, without the stated finite-atomic translation spectrum."
+      ],
+      "reasoning": "Infinite-rank fixed-symbol asymptotics do not specialize to the finite-rank right-translation regime; a trace identity gives only the sum of eigenvalues and does not determine m distinct scales or their determinant coefficients. General singular-value minimax identifies approximation error once spectral constants are known, but it does not supply those constants.",
+      "searches": [
+        "\"Helson matrix\" \"eigenvalues\" \"atomic\" \"zeta\"",
+        "\"finite\" \"atomic\" \"Helson\" \"eigenvalues\" asymptotics",
+        "arxiv:1709.06326v1 Theorem 1.1",
+        "arxiv:2610.12252v1 Theorem 3.4",
+        "arxiv:2407.04124v2 Sections 2–4"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.12252v1, Introduction and Section 3.4 (2026-10-08)",
+      "arxiv:1611.03772, Sections 5 and 6 (original full text)",
+      "arxiv:1709.06326v1, Theorem 1.1 and Sections 2–4 (original full text)",
+      "arxiv:2407.04124v2, Introduction and Sections 2–4 (original full text; first public 2024-07-04)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 motivating theorem gives H=N*N, a domain analysis and a trace-class identity, but no fixed-rank spectral coefficients.",
+        "The 2018 paper gives the zeta-kernel equivalence and finite-rank structure, neither of which alone computes asymptotic individual eigenvalues.",
+        "The 2017 paper derives eigenvalue-index power laws for an infinite-rank symbol, not right-translation rates.",
+        "The 2024 paper's norm/trace/scattering conclusions do not recover the individual translated-atom Gram minor ratios."
+      ],
+      "reasoning": "The motivating 2026 source and the 2018 paper together imply the finite zeta Gram representation, so it is explicitly treated as background. To deduce the new statement one additionally needs the unique-lowest-integer-product exterior-power expansion and a uniform infinite tail estimate, producing Delta_k/Delta_(k-1) for every k. No inspected prior theorem has a hypothesis and conclusion that directly imply this complete asymptotic hierarchy.",
+      "searches": [
+        "arxiv:2610.12252v1 Sections 1 and 3.4",
+        "arxiv:1611.03772 Sections 5.1, 6.3–6.5",
+        "arxiv:1709.06326v1 Sections 1–4",
+        "\"exterior powers\" \"spectral asymptotics\" \"weighted\" \"Gram\"",
+        "arxiv:2407.04124v2 Theorems 2.1 and 4.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Perfekt–Pushnitski, arXiv:1611.03772 Section 5.1, proves moment-form/zeta-kernel equivalence, so the zeta Gram representation is already known.",
+        "The asserted new statement is the leading minor-ratio coefficient of each eigenvalue in the translated-atom limit, not that equivalence."
+      ],
+      "reasoning": "An equivalent formulation is a finite zeta Gram matrix with entries sqrt(w_i w_j) zeta(2R+s_i+s_j), or the singular spectrum of a Dirichlet evaluation map. The inspected kernel-equivalence theorem yields that matrix but does not state or directly settle its large-R individual eigenvalue constants. The new exterior-power dominance argument is necessary to obtain every coefficient.",
+      "searches": [
+        "\"Helson\" \"finite rank\" \"eigenvalues\" zeta",
+        "\"Dirichlet\" \"zeta(s+t)\" eigenvalues \"finite\"",
+        "\"Gram matrices\" \"exponentially weighted\" \"eigenvalues\" \"Vandermonde\" asymptotic",
+        "arxiv:1611.03772 Section 5.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected 2018 finite-rank classification supplies parametrizations, not a tabulated spectral hierarchy for shifted atoms.",
+        "The 2017 explicit asymptotic table is for a separate infinite-rank family with logarithmic kernel."
+      ],
+      "reasoning": "No exact table, published parameterized formula, or indexed entry matching all k-th rates and minor-ratio coefficients was located in the checked literature. This negative search is not a proof of global uniqueness; earlier unindexed calculations remain a residual risk.",
+      "searches": [
+        "\"zeta\" \"Gram matrix\" \"eigenvalue asymptotics\" exponential",
+        "\"Gram matrices\" \"large exponents\" eigenvalues \"first\"",
+        "\"Helson\" \"finite rank\" \"eigenvalues\" zeta",
+        "\"zeta\" \"kernel\" \"finite rank\" \"shift\" eigenvalue"
+      ]
+    },
+    "rationale": "The three highly relevant primary papers establish moment/trace theory, rank and zeta-kernel equivalence, or an unrelated infinite-rank n→∞ asymptotic. No inspected source supplies the fixed-rank translated-atom determinant-ratio law. Searches under parameter aliases and stronger coverage found no direct implication; a possible unindexed general separated-frame theorem remains a priority risk.",
+    "residual_risks": [
+      "An equivalent old result for strongly separated positive rank-one sums or Vandermonde Gram matrices may exist under terminology not reached by the searches.",
+      "Only fixed-parameter R→infinity novelty is claimed; the finite Gram correspondence and generic approximation-number minimax are known."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers moment representation, operator domain, trace class and trace; does not derive the translated finite-atomic eigenvalue hierarchy.",
+        "evidence": [
+          "Theorem 3.4 gives Tr H_mu=int zeta(2s) dmu(s) under summability, which identifies only a sum of eigenvalues.",
+          "Primary MSC 47B35 and arXiv v1 first date 2026-10-08."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.12252v1",
+        "material_read": "Original full-text HTML Introduction, domain framework, and Sections 3.3–3.4 on bounded approximation, trace class and maximal matrix realization.",
+        "method": "Inspected original full text and compared the matrix, measure, trace and spectrum claims.",
+        "title": "Unbounded Helson Forms with a Moment Representation",
+        "trigger": "Exact class of positive moment Helson forms and the motivating public mathematical article."
+      },
+      {
+        "assessment": "Already establishes the Gram/zeta equivalence and finite rank; no coefficient formula for all individual eigenvalues in the large-translation limit identified.",
+        "evidence": [
+          "Section 5.1 states M(alpha) and zeta-kernel integral G are unitarily equivalent modulo kernels.",
+          "Theorem 6.6 classifies finite-rank Helson forms but not their ordered eigenvalue asymptotics."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1611.03772",
+        "material_read": "Full-text HTML Sections 5.1 and 6.1–6.5, including Theorem 5.1 and Theorem 6.6 and finite-rank corollaries.",
+        "method": "Compared the stated equivalence, rank classifications, exact parameterizations and consequences.",
+        "title": "On Helson matrices: moment problems, non-negativity, boundedness, and finite rank",
+        "trigger": "Most directly overlapping finite-rank, zeta-kernel, and moment representation theory."
+      },
+      {
+        "assessment": "Not covering: the paper studies a fixed infinite-rank logarithmic symbol and lambda_n as n tends to infinity, rather than finite rank m and translating R to infinity.",
+        "evidence": [
+          "Theorem 1.1 yields \\(\\lambda_n\\sim C n^{-\\alpha}\\) for a particular logarithmic symbol as \\(n\\to\\infty\\).",
+          "Sections 2–4 concern continuous-integral comparison and Schatten bounds for that different family."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1709.06326v1",
+        "material_read": "Full-text HTML Introduction, Theorem 1.1, Sections 2.2, 3.2 and 4.1 and the stated reductions to integral Helson operators.",
+        "method": "Compared fixed symbol and eigenvalue-rank limit to translated atomic family with fixed rank.",
+        "title": "A Helson matrix with explicit eigenvalue asymptotics",
+        "trigger": "Highly plausible same-title spectral-asymptotic coverage."
+      },
+      {
+        "assessment": "Not covering. Norm and trace conditions cannot determine the full ordered m-eigenvalue asymptotic constants; its operators generally begin with index 2 and have unrelated limiting regimes.",
+        "evidence": [
+          "Theorem 2.1 gives operator norm bounds for Helson matrices indexed by integers at least 2.",
+          "Section 4 gives compactness, trace-class and scattering assertions for measure-induced operators."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2407.04124v2",
+        "material_read": "Original full-text HTML Introduction, Theorem 2.1 and examples in Section 3 and trace/compactness statements in Section 4.",
+        "method": "Compared operator domain (indices beginning at 2), type of measure, and norm/scattering conclusions against translated finite-atomic spectral expansion.",
+        "title": "Helson matrices induced by measures",
+        "trigger": "Previous broad treatment of Helson matrices induced by positive measures, norm, Schatten and scattering."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5e401106-7280-46c5-bc40-b65cd4d5dd74",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The full ordered nonzero spectrum of a motivated finite-atomic Helson family is resolved simultaneously, with universal arithmetic rate bases, explicit positive determinant coefficients, quantitative exponential errors, eventual simplicity and sharp rank-approximation scaling. These facts go beyond boundedness, rank, trace, or a narrow numerical table, and identify how distinct Dirichlet evaluation modes enter the spectrum.",
+    "status": "PASS"
+  }
+}
