@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T13:52:45.801615Z",
+  "axes": {
+    "correctness": {
+      "rationale": "If hub absent, each blade must be represented for domination and selected subgraph is a disjoint union of cliques: perfect matching iff every blade selected count is positive even. With hub selected, domination is automatic and matching the hub to exactly one blade forces precisely that blade odd, all others even; conversely such parity permits internal matchings. Binomial parity subpolynomials E_m and O_m enumerate disjoint cases; x=1 yields exact total, coefficient x² is km and no 0- or 1-member paired domination exists. Independent brute-force domination, exact perfect matching recursion, and polynomial coefficients agree for six parameter pairs (k,m)=(2,2),(2,3),(2,4),(3,2),(3,3),(4,2) including first boundary cases.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Complete multipartite and chain graphs have different adjacency, not W_(k,m) for k,m>=2 (which has triangles and block cliques meeting at hub).",
+          "Earlier gamma_pr result is a minimum only."
+        ],
+        "reasoning": "Those broad polynomials do not specialize to the windmill family; no stronger all-graph formula supplying this enumerator found.",
+        "searches": [
+          "Resultary:paired domination polynomial generalized windmill French windmill",
+          "Resultary:2026/10/4/SCOPE-paired-domination-polynomial-of-complete-multipartite-graphs--ea2bc935cbba",
+          "Resultary:2026/10/4/SCOPE-paired-domination-polynomial-of-chain-graphs--38091feaa528"
+        ]
+      },
+      "checked_sources": [
+        "Eakawinrujee/Trakultraipruk 2023 DOI:10.1142/S1793557123501231 (abstract)",
+        "Eakawinrujee Thammasat thesis 2023 Section 3.5.1 (full section)",
+        "Haynes-Slater Networks 1998 paired domination",
+        "Puttaswamy/Alwardi/Nayaka paired domination polynomial 2016",
+        "Resultary published matching graph-polynomial searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Scalar minimum set cardinality does not mathematically determine total or intermediate coefficients.",
+          "Dissociation sets restrict induced degree, not perfect matchability; enumerators differ."
+        ],
+        "reasoning": "The proof supplies a full independent parity-based classification, not a restatement of the minimum or a substitution into a known family polynomial.",
+        "searches": [
+          "2023 Thammasat dissertation Section 3.5.1",
+          "Resultary:2026/10/4/SCOPE-dissociation-polynomial-and-all-maximal-dissociation-sets-of-gen--2c55298c97bc",
+          "Haynes-Slater 1998 paired domination definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The French windmill W_(p,q) is exactly K1 join q copies of Kp; source proves minimum paired-domination number two.",
+          "No all-cardinality polynomial or full selection parity classification stated in the inspected source section."
+        ],
+        "reasoning": "Same graph equivalence confirmed to avoid false novelty from a naming alias; counted coefficients are a distinct stronger object.",
+        "searches": [
+          "Resultary:paired domination polynomial generalized windmill French windmill K1 join k copies Km parity count",
+          "DOI:10.1142/S1793557123501231",
+          "2023 Thammasat Eakawinrujee dissertation Section 3.5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior published values cover gamma_pr=2, not polynomial coefficient-by-coefficient table.",
+          "Resultary retrieved windmill dissociation polynomial, a different graph invariant."
+        ],
+        "reasoning": "No duplicate generating polynomial located; the same graph family with different invariant is explicitly not evidence of prior coverage.",
+        "searches": [
+          "Resultary:paired domination polynomial generalized windmill French windmill",
+          "DOI:10.1142/S1793557123501231",
+          "Eakawinrujee 2023 dissertation"
+        ]
+      },
+      "rationale": "The paired-domination number gamma_pr=2 for the identical French windmill is previously proved by Eakawinrujee/Trakultraipruk. The source 2023 dissertation windmill section 3.5.1 states only that scalar minimum, not the all-cardinality paired-domination set classification or polynomial. Prior all-cardinality polynomials on chain/complete multipartite graphs concern nonisomorphic families. Although the matching proof is elementary, those prior claims do not imply every polynomial coefficient as a claimed published result; best-of-knowledge original exact enumerator.",
+      "residual_risks": [
+        "Publisher full text of the 2023 journal article not independently read; equivalent first-author dissertation windmill section was inspected and does not supply the polynomial.",
+        "Value is a concrete exact natural invariant despite elementary derivation; not a claim of a sweeping new graph-polynomial technique."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "establishes gamma_pr=2 but not polynomial",
+          "evidence": "Its scalar minimum result is deliberately acknowledged as prior; the asserted contribution is all-cardinality enumeration.",
+          "identifier_or_url": "https://ethesisarchive.library.tu.ac.th/thesis/2023/TU_2023_6109320413_17206_27705.pdf",
+          "material_read": "Full accessible dissertation, focused review of windmill Section 3.5.1, visually inspected adjacent thesis pages",
+          "method": "read authorized open-access dissertation PDF and windmill section",
+          "title": "Total and Paired Domination Numbers and γ-Total and γ-Paired Dominating Graphs of Some Graphs",
+          "trigger": "Same French windmill and paired domination"
+        },
+        {
+          "assessment": "full journal content not excluded; risk retained",
+          "evidence": "Abstract announces total and paired domination numbers of windmill graphs, not all-set polynomial.",
+          "identifier_or_url": "DOI:10.1142/S1793557123501231",
+          "material_read": "Abstract; publisher full text was not accessible; corresponding first-author thesis full relevant section read",
+          "method": "indexed abstract and substitute complete author thesis review",
+          "title": "Total and paired domination numbers of windmill graphs",
+          "trigger": "Identical French windmill scalar result"
+        },
+        {
+          "assessment": "different graph family and no inclusion",
+          "evidence": "Windmill blades are cliques with no cross-blade adjacency except center; not complete multipartite.",
+          "identifier_or_url": "Resultary:2026/10/4/SCOPE-paired-domination-polynomial-of-complete-multipartite-graphs--ea2bc935cbba",
+          "material_read": "Published Resultary title and scientific summary",
+          "method": "read published record summary and test graph-family containment",
+          "title": "Paired-domination polynomial of complete multipartite graphs",
+          "trigger": "Exact same enumerator for another graph family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete coefficient enumerator is a natural established graph invariant, not a contrived parameter slice. It refines the known paired-domination minimum to every feasible cardinality and makes the exact incidence of center and peripheral clique selections transparent for an infinite family; an exact benchmark for paired-domination polynomial questions. The proof is elementary but the full natural unknown invariant remains useful.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For generalized windmill graphs W_(k,m)=K1 join kK_m with k,m>=2, paired-dominating sets have exactly one odd selected blade when the hub is present, or positive even selections in every blade when hub absent, yielding polynomial k*x*O_m(x)*E_m(x)^(k-1)+(E_m(x)-1)^k with total k*2^(k(m-1))+(2^(m-1)-1)^k and km minimum sets.",
+  "limitations": [
+    "Publisher full text of the 2023 journal article not independently read; equivalent first-author dissertation windmill section was inspected and does not supply the polynomial.",
+    "Value is a concrete exact natural invariant despite elementary derivation; not a claim of a sweeping new graph-polynomial technique."
+  ],
+  "schema_version": 1
+}

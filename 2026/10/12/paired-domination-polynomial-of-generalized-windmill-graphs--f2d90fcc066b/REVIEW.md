@@ -1,14 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof separates on whether the universal center is selected. Without the center, domination forces every blade to be represented and the induced graph is a disjoint union of selected cliques, so perfect matchability is equivalent to positive even blade counts. With the center, a perfect matching uses the center exactly once; deleting that matched edge leaves disjoint selected cliques, forcing and sufficing for exactly one odd blade. The generating function is then a direct count of the two disjoint cases. An exhaustive checker independently verifies the equivalence and coefficients on eight small parameter pairs.
+## correctness
 
-## Originality
-PASS. The same-object windmill literature was inspected at full-text dissertation level. It identifies the French windmill \(W_{p,q}\) as \(K_1\vee qK_p\) and proves only \(\gamma_{\mathrm{pr}}(W_{p,q})=2\). The retained claim is strictly stronger in a different direction: it characterizes every paired-dominating set and every cardinality coefficient. published-finding corpus searches for “French windmill paired domination polynomial,” “generalized windmill paired dominating sets parity center blades,” and “friendship graph paired domination polynomial” returned no same-object formula. The closest same-invariant records concern complete multipartite and chain graphs, neither of which covers generalized windmills with \(k,m\ge2\).
+PASS
 
-## Value
-PASS. Paired-domination polynomials are a natural refinement of the minimum paired-domination number, and the formula gives all coefficients, the number of minimum sets, and the total number of paired-dominating sets from a short structural parity law. The classification explains exactly how the cut vertex mediates perfect matchings across otherwise disconnected blades, which is information absent from the known scalar result.
+If hub absent, each blade must be represented for domination and selected subgraph is a disjoint union of cliques: perfect matching iff every blade selected count is positive even. With hub selected, domination is automatic and matching the hub to exactly one blade forces precisely that blade odd, all others even; conversely such parity permits internal matchings. Binomial parity subpolynomials E_m and O_m enumerate disjoint cases; x=1 yields exact total, coefficient x² is km and no 0- or 1-member paired domination exists. Independent brute-force domination, exact perfect matching recursion, and polynomial coefficients agree for six parameter pairs (k,m)=(2,2),(2,3),(2,4),(3,2),(3,3),(4,2) including first boundary cases.
 
-The direct windmill source used for comparison is the accessible dissertation treatment corresponding to the later journal work; the journal article itself was not available as open full text. No external audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The paired-domination number gamma_pr=2 for the identical French windmill is previously proved by Eakawinrujee/Trakultraipruk. The source 2023 dissertation windmill section 3.5.1 states only that scalar minimum, not the all-cardinality paired-domination set classification or polynomial. Prior all-cardinality polynomials on chain/complete multipartite graphs concern nonisomorphic families. Although the matching proof is elementary, those prior claims do not imply every polynomial coefficient as a claimed published result; best-of-knowledge original exact enumerator.
+
+## value
+
+PASS
+
+A complete coefficient enumerator is a natural established graph invariant, not a contrived parameter slice. It refines the known paired-domination minimum to every feasible cardinality and makes the exact incidence of center and peripheral clique selections transparent for an infinite family; an exact benchmark for paired-domination polynomial questions. The proof is elementary but the full natural unknown invariant remains useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
