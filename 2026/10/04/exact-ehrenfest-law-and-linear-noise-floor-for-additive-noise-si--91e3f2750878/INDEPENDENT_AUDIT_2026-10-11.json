@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-11",
+  "audited_at_utc": "2026-10-11T19:17:28Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md blob d2b1e86ebd70b6f581fe69326e545b21bfa5bd5a",
+        "frozen verify.py blob 2c510054a5a0f3813a392b4cf688ba1eb81b7324",
+        "independent M=7 exact rational transition/invariant/variance check",
+        "arXiv:1802.04434 abstract and algorithm context",
+        "arXiv:2607.12360 accessible abstract"
+      ],
+      "rationale": "From the inspected signSGD update and uniform noise, the transition probability P(k->k-1)=P(xi>B-2Bk/M)=k/M for 0<=k<=M, with the complementary upward probability. States outside move deterministically toward the band, including boundary inward transitions. Detailed balance yields pi_k=2^{-M}binom(M,k), unique by irreducibility, and every move flips parity. Setting Y=k-M/2 gives E[Y'|Y]=(1-2/M)Y and E[(Y')²|Y]=(1-4/M)Y²+1. The exact second-moment recurrence, stationary E f=delta B/4, M=1 constant loss, M=2 period-two loss, and M>=3 convergence follow analytically. Independently checked the M=7 rational transition matrix against its binomial invariant and E Y²=M/4; finite code verified only representative cases, not infinity.",
+      "residual_risks": [
+        "Originality may be recorded in generic Ehrenfest random-walk/optimizer analyses under different terminology; an incomplete external literature search could not resolve this.",
+        "The recent multiplicative-noise signSGD comparison was not read in full, so possible additive results remain literature-access risk.",
+        "Only uniform iid additive scalar oracle, commensurate noise band and support-aligned initial lattice; M=2 last-iterate expected loss does not converge."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical Ehrenfest dynamics apply after a nontrivial optimizer/noise-to-Markov identification; generic signSGD convergence bounds do not entail the displayed exact stationary loss.",
+          "The closest recent noisy optimizer comparison advertises multiplicative-noise signSGD and additive-noise ordinary SGD, rather than the same additive-uniform aligned signSGD urn."
+        ],
+        "reasoning": "Neither an unrelated multiplicative signSGD stationary family nor generic unbiased-oracle convergence bounds dominate this explicit additive-uniform optimizer process.",
+        "searches": [
+          "Bernstein et al arXiv:1802.04434 signSGD stochastic convergence",
+          "Singh, Mishra, Raut arXiv:2607.12360 optimizer normalization and noise"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md blob d2b1e86ebd70b6f581fe69326e545b21bfa5bd5a",
+        "frozen verify.py blob 2c510054a5a0f3813a392b4cf688ba1eb81b7324",
+        "independent M=7 exact rational transition/invariant/variance check",
+        "arXiv:1802.04434 abstract and algorithm context",
+        "arXiv:2607.12360 accessible abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The generic urn theorem immediately yields pi once transition equality is proved; the transition equality is specific to the uniform additive oracle and lattice support.",
+          "The optimizer transient quadratic loss and period-two exception are exact consequences of that specific mapping and explain constant-step behavior."
+        ],
+        "reasoning": "Unlike a relabeling of a presented urn problem, the claim identifies an optimizer stochastic kernel with a classical process; no examined primary optimization theorem states this kernel or risk law.",
+        "searches": [
+          "arXiv:1802.04434",
+          "arXiv:2607.12360",
+          "classical Ehrenfest model"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The birth-death transition coincides exactly with the classical M-ball Ehrenfest urn; classical binomial stationary law is acknowledged and not novel.",
+          "Optimizer-specific identification arises from uniform-noise threshold probabilities k/M and M=2B/(lambda delta)."
+        ],
+        "reasoning": "Compared aliases Bernoulli-Laplace/Ehrenfest urn, Hamming-weight walk, stochastic sign-gradient lattice Markov chain; exact urn distribution is known, but application to this original noisy signSGD model and its exact loss formula were not identified in accessible literature.",
+        "searches": [
+          "Published-finding semantic query: signSGD uniform additive noise scalar quadratic Ehrenfest urn binomial invariant stationary exact loss floor [search not completed]",
+          "published SCOPE repository search: Ehrenfest law additive signSGD [zero indexed results]",
+          "arXiv:1802.04434 signSGD update",
+          "arXiv:2607.12360 stationary signSGD under multiplicative noise"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "An exact standard Ehrenfest stationary table exists, but it is not a precomputed optimizer outcome until the given oracle-induced transitions are identified."
+        ],
+        "reasoning": "This is an all-M formula for a physically motivated lattice, not a narrow lookup of M values.",
+        "searches": [
+          "published SCOPE repository search: Ehrenfest law additive signSGD [zero indexed results]",
+          "arXiv:1802.04434",
+          "arXiv:2607.12360"
+        ]
+      },
+      "rationale": "A standard Ehrenfest birth-death chain is obtained by a concrete support-aligned uniform-noise signSGD reduction; the urn's binomial invariant and parity are classical, not claimed as new. Best-of-knowledge originality is in the exact model identification, resulting step-linear optimizer noise floor and exceptional last-iterate behavior for this specified optimization oracle. Bernstein et al introduce signSGD but do not supply this exact chain; the closest recent Singh–Mishra–Raut source considers primarily multiplicative signSGD noise and a different additive-SGD comparison. The failed semantic-index search and inaccessible full recent paper remain material risks.",
+      "residual_risks": [
+        "Originality may be recorded in generic Ehrenfest random-walk/optimizer analyses under different terminology; an incomplete external literature search could not resolve this.",
+        "The recent multiplicative-noise signSGD comparison was not read in full, so possible additive results remain literature-access risk.",
+        "Only uniform iid additive scalar oracle, commensurate noise band and support-aligned initial lattice; M=2 last-iterate expected loss does not converge."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ALGORITHM SOURCE ONLY; FULL-TEXT CLAIM EXCLUSION NOT ASSERTED",
+          "evidence": "Source defines the stochastic sign gradient framework; exact 1D uniform lattice law proved from the present package.",
+          "identifier_or_url": "arXiv:1802.04434",
+          "material_read": "Original paper's abstract/algorithm description and actual repository discussion of the sign update; full paper not independently obtained this run.",
+          "method": "Comparison of sign-step oracle and convergence scope",
+          "title": "signSGD: Compressed Optimisation for Non-Convex Problems",
+          "trigger": "Original algorithm and bounded-noise oracle setup"
+        },
+        {
+          "assessment": "POTENTIALLY RELEVANT, FULL TEXT UNAVAILABLE",
+          "evidence": "Abstract-level information cannot support a whole-document NOT_COVERING conclusion; residual risk retained.",
+          "identifier_or_url": "arXiv:2607.12360",
+          "material_read": "Accessible abstract and package citation to multiplicative-noise signSGD / additive-noise SGD; recent primary full text was not obtained.",
+          "method": "Model/noise comparison at abstract level",
+          "title": "Same Loss, Same Noise, Opposite Schedules: Noise Structure and Optimizer Normalization Jointly Determine Whether Learning-Rate Cooldown Helps",
+          "trigger": "Closest claimed exact stationary signSGD distribution under other noise models"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "frozen RESULT.md blob d2b1e86ebd70b6f581fe69326e545b21bfa5bd5a",
+        "frozen verify.py blob 2c510054a5a0f3813a392b4cf688ba1eb81b7324",
+        "independent M=7 exact rational transition/invariant/variance check",
+        "arXiv:1802.04434 abstract and algorithm context",
+        "arXiv:2607.12360 accessible abstract"
+      ],
+      "rationale": "An exact finite-state invariant law and phase-resolved transient loss for a natural optimizer under a canonical bounded additive oracle are useful diagnostics of constant-step stochastic optimization. Step-linear loss and M=2 nonconvergence quantify behavior that a generic stationary upper bound misses. The support lattice and commensurability are motivated by noise-band resolution; no general dimension or off-lattice claim is made.",
+      "residual_risks": [
+        "Originality may be recorded in generic Ehrenfest random-walk/optimizer analyses under different terminology; an incomplete external literature search could not resolve this.",
+        "The recent multiplicative-noise signSGD comparison was not read in full, so possible additive results remain literature-access risk.",
+        "Only uniform iid additive scalar oracle, commensurate noise band and support-aligned initial lattice; M=2 last-iterate expected loss does not converge."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Originality may be recorded in generic Ehrenfest random-walk/optimizer analyses under different terminology; an incomplete external literature search could not resolve this.",
+    "The recent multiplicative-noise signSGD comparison was not read in full, so possible additive results remain literature-access risk.",
+    "Only uniform iid additive scalar oracle, commensurate noise band and support-aligned initial lattice; M=2 last-iterate expected loss does not converge."
+  ],
+  "schema_version": 1
+}

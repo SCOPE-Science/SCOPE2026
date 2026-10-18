@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. On the support-aligned lattice, uniform additive noise makes the signSGD downward probability exactly \(k/M\) at state \(k\), and the upward probability exactly \((M-k)/M\). This is the \(M\)-ball Ehrenfest chain. Binomial detailed balance proves the unique invariant law. The period-two structure follows because every update changes the lattice index by one. Exact conditional moment identities give the transient second moment and the stationary loss \(\delta B/4\).
+PASS
 
-Risk: distributional convergence without parity conditioning is false; the finding explicitly retains that period-two obstruction.
+From the inspected signSGD update and uniform noise, the transition probability P(k->k-1)=P(xi>B-2Bk/M)=k/M for 0<=k<=M, with the complementary upward probability. States outside move deterministically toward the band, including boundary inward transitions. Detailed balance yields pi_k=2^{-M}binom(M,k), unique by irreducibility, and every move flips parity. Setting Y=k-M/2 gives E[Y'|Y]=(1-2/M)Y and E[(Y')²|Y]=(1-4/M)Y²+1. The exact second-moment recurrence, stationary E f=delta B/4, M=1 constant loss, M=2 period-two loss, and M>=3 convergence follow analytically. Independently checked the M=7 rational transition matrix against its binomial invariant and E Y²=M/4; finite code verified only representative cases, not infinity.
 
-## Originality
+## originality
 
-PASS. The defining signSGD paper gives the constant-sign update, bounded-variance oracle assumptions, symmetric-unimodal noise discussion, and a noisy quadratic experiment, but no additive-noise stationary law. The 2020 geometric analysis treats deterministic sign methods and norm geometry rather than stochastic invariant measures. A highly relevant 2026 paper solves an exact signSGD stationary law under pure multiplicative noise and explicitly identifies its period-two lattice structure; its additive-noise proposition instead solves the stationary second moment of ordinary SGD. The inspected source therefore does not cover the finite binomial Ehrenfest law, support-width phase parameter, or exact linear-in-step signSGD additive floor proved here.
+PASS
 
-Residual risk: the same birth-death identification may have appeared under classical Markov-chain terminology without signSGD naming.
+A standard Ehrenfest birth-death chain is obtained by a concrete support-aligned uniform-noise signSGD reduction; the urn's binomial invariant and parity are classical, not claimed as new. Best-of-knowledge originality is in the exact model identification, resulting step-linear optimizer noise floor and exceptional last-iterate behavior for this specified optimization oracle. Bernstein et al introduce signSGD but do not supply this exact chain; the closest recent Singh–Mishra–Raut source considers primarily multiplicative signSGD noise and a different additive-SGD comparison. The failed semantic-index search and inaccessible full recent paper remain material risks.
 
-## Value
+## value
 
-PASS. Constant-magnitude sign updates are known to create a granularity floor, and recent work distinguishes multiplicative from additive noise as qualitatively different scheduling regimes. The exact Ehrenfest reduction resolves the additive side on a canonical bounded symmetric noise model: it gives the full invariant law, a closed noise floor \(\delta B/4\), the exceptional \(M=2\) last-iterate oscillation, and a direct contrast with the quadratic-in-step floor of pure multiplicative noise. This is a structural benchmark rather than a generic recomputation of a Markov chain.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+An exact finite-state invariant law and phase-resolved transient loss for a natural optimizer under a canonical bounded additive oracle are useful diagnostics of constant-step stochastic optimization. Step-linear loss and M=2 nonconvergence quantify behavior that a generic stationary upper bound misses. The support lattice and commensurability are motivated by noise-band resolution; no general dimension or off-lattice claim is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
