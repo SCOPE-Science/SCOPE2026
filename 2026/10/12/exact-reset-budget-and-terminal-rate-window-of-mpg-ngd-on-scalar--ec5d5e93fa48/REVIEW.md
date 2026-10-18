@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Substitution into the source curvature quotient gives an exact threshold at \(2\eta_0/L\) and exact reset value \(2\eta_1/L\). Consecutive resets consume disjoint multiplicative expansion blocks of factor greater than \(\eta_0/\eta_1\), which yields the finite reset budget. The post-reset limit interval and its realizability follow from positive summable product tails. The scalar gradient step gives the exact asymptotic error factor.
+PASS
 
-## Originality
+For f(x)=Lx²/2 the exact Bregman curvature difference is (L/2)(x_k−x_{k−1})², reducing Algorithm 2 test to λ_{k−1}>τ=2η0/L and its reset output to r=2η1/L; otherwise λ grows by 1+ε_{k−1}. After consecutive resets disjoint expansion-factor blocks each exceed τ/r=η0/η1, so total finite P yields N−1<log P/log(η0/η1) and N≤ceil(log P/log ratio), including N=1 when P=1. Since all later positive factors would trigger a new reset above τ, the post-last-reset stepsizes increase to λ∞∈(r,τ]. An explicit positive summable dyadic product realizes each λ∞, and scalar gradient recurrence gives asymptotic |1−Lλ∞|. For η0≤1/2 this gives [1−2η0,1−2η1); small λ0 with no reset yields factor near one. Finite-termination and never-reset branches are scoped separately; numerical verifier is supporting only.
 
-PASS. The primary full text and targeted published-record searches were compared at statement and implication level. The source proves eventual monotonicity and convergence of the stepsizes but does not give the scalar controller recurrence, reset-count bound, realizable terminal interval, or exact post-reset rate window. The related later adaptive proximal-gradient work uses a different framework.
+## originality
 
-A residual risk is an unindexed note carrying out the same scalar specialization.
+PASS
 
-## Value
+The primary Hoai–Hoang–Lara MPG-NGD manuscript provides Algorithm 2 and general eventual monotonicity and convergence lemmas but no exact scalar reset count, total-multiplicative budget inequality, realizable continuum terminal-step interval, or quantitative rate dichotomy. An indexed earlier NIPG scalar spike/reset law is for the original gradient-difference rule rather than this function-value MPG-NGD normalization, and is not a dominating statement. The scalar analysis here imposes specialized hypotheses and obtains a structurally useful, substantially sharper classification, not just a restatement of eventual monotonicity.
 
-PASS. The result completely resolves the central adaptive rule on the canonical strongly convex scalar model and directly interprets the source's repeated parameter choice. It also exposes a meaningful dichotomy: a reset produces near-optimal asymptotic tuning for the displayed parameters, while a no-reset run can remain arbitrarily slow.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A canonical strongly convex scalar test isolates an adaptive nonlinear controller and yields an exact finite reset budget and sharp rate window for parameters repeatedly used in the method. The post-reset near-optimal tuning versus arbitrarily slow no-reset branch exposes initialization-dependent behavior absent from the general convergence guarantee; a meaningful interpretable boundary case, though not a multidimensional theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

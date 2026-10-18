@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T17:12:52.020961Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/0c9388fc1533d38ed91063a55c96c9c935f40448/2026/10/12/exact-reset-budget-and-terminal-rate-window-of-mpg-ngd-on-scalar--ec5d5e93fa48/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/0c9388fc1533d38ed91063a55c96c9c935f40448/2026/10/12/exact-reset-budget-and-terminal-rate-window-of-mpg-ngd-on-scalar--ec5d5e93fa48/VERIFICATION.md"
+      ],
+      "rationale": "For f(x)=Lx²/2 the exact Bregman curvature difference is (L/2)(x_k−x_{k−1})², reducing Algorithm 2 test to λ_{k−1}>τ=2η0/L and its reset output to r=2η1/L; otherwise λ grows by 1+ε_{k−1}. After consecutive resets disjoint expansion-factor blocks each exceed τ/r=η0/η1, so total finite P yields N−1<log P/log(η0/η1) and N≤ceil(log P/log ratio), including N=1 when P=1. Since all later positive factors would trigger a new reset above τ, the post-last-reset stepsizes increase to λ∞∈(r,τ]. An explicit positive summable dyadic product realizes each λ∞, and scalar gradient recurrence gives asymptotic |1−Lλ∞|. For η0≤1/2 this gives [1−2η0,1−2η1); small λ0 with no reset yields factor near one. Finite-termination and never-reset branches are scoped separately; numerical verifier is supporting only.",
+      "residual_risks": [
+        "The reset count uses an expansion product P over the full prescribed infinite sequence, not only factors before the first reset; this can overestimate actual resets and is still valid."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hoai–Hoang–Lara Lemmas 4.1–4.2 assert eventual stepsize monotonicity and positivity",
+          "No published bound on N or sharp full terminal interval in inspected paper"
+        ],
+        "reasoning": "Eventual convergence does not imply N≤ceil(logP/log(η0/η1)) nor that every λ∞ in (r,τ] is attainable.",
+        "searches": [
+          "MPG-NGD modified projected gradient scalar quadratic adaptive step reset eta_0 eta_1",
+          "MPG-NGD eventually nondecreasing convergence λk theorem"
+        ]
+      },
+      "checked_sources": [
+        "https://optimization-online.org/wp-content/uploads/2026/03/MPG-5-3-26.pdf",
+        "https://optimization-online.org/2026/03/a-modified-projected-gradient-algorithm-for-solving-quasiconvex-programming-with-applications/",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-spike-and-reset-law-for-nipg-on-scalar-strongly-convex-qua--4385d4d84505",
+        "Resultary search: MPG-NGD modified projected gradient scalar quadratic adaptive step reset eta_0 eta_1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Algorithm 2 supplies raw recurrence; disjoint-product accounting and realizability are separate derived assertions",
+          "Existing paper has no full budget-to-terminal-rate mapping"
+        ],
+        "reasoning": "Raw algorithm supplies premises, but published convergence theorem does not entail exact bound and every-factor achievability without new argument.",
+        "searches": [
+          "MPG-NGD modified projected gradient scalar quadratic adaptive step reset eta_0 eta_1",
+          "MPG-NGD Hoai paper Lemma 4.2 scalar"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primary full paper Algorithm 2, Lemmas 4.1–4.2",
+          "Resultary NIPG scalar spike-reset case uses gradient difference and different threshold scaling"
+        ],
+        "reasoning": "Exact same method has a nonlinear threshold rule; a different adaptive method cannot be relabeled into this result without proving parameter equivalence, which fails for normalization.",
+        "searches": [
+          "MPG-NGD modified projected gradient scalar quadratic adaptive step reset eta_0 eta_1",
+          "scalar MPG-NGD quadratic curvature reset λ eta0 eta1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary spike-and-reset NIPG differs as source of curvature; other AdaGrad terminal-rate windows use other state dynamics"
+        ],
+        "reasoning": "No exact table; sourced compared algorithm identifiers and update formula instead of using title match.",
+        "searches": [
+          "MPG-NGD modified projected gradient scalar quadratic adaptive step reset eta_0 eta_1",
+          "Resultary scalar reset adaptive gradient NIPG",
+          "optimization-online 33877 Algorithm 2"
+        ]
+      },
+      "rationale": "The primary Hoai–Hoang–Lara MPG-NGD manuscript provides Algorithm 2 and general eventual monotonicity and convergence lemmas but no exact scalar reset count, total-multiplicative budget inequality, realizable continuum terminal-step interval, or quantitative rate dichotomy. An indexed earlier NIPG scalar spike/reset law is for the original gradient-difference rule rather than this function-value MPG-NGD normalization, and is not a dominating statement. The scalar analysis here imposes specialized hypotheses and obtains a structurally useful, substantially sharper classification, not just a restatement of eventual monotonicity.",
+      "residual_risks": [
+        "The reset count uses an expansion product P over the full prescribed infinite sequence, not only factors before the first reset; this can overestimate actual resets and is still valid.",
+        "The no-reset example and post-reset window are restricted to scalar unconstrained quadratics and nonterminal trajectories; no multidimensional generalization.",
+        "An unindexed note might already analyze precisely the MPG-NGD scalar specialization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Algorithms match; extra scalar bound and realization not covered by reported source theorem",
+          "evidence": "Algorithm 2 and Lemmas 4.1–4.2 of March 2026 manuscript",
+          "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2026/03/MPG-5-3-26.pdf",
+          "material_read": "complete source PDF Algorithm 2, curvature expression, Lemmas 4.1–4.2, stated strongly convex parameter choices and convergence discussion",
+          "method": "lawful Optimization Online OA PDF textual/paged inspection",
+          "title": "A Modified Projected Gradient Algorithm for Solving Quasiconvex Programming with Applications",
+          "trigger": "identical MPG-NGD source algorithm and precise thresholds"
+        },
+        {
+          "assessment": "Related but distinct NIPG gradient-difference controller; residual risk if separate older analysis uses identical algebra",
+          "evidence": "published index result 2026-10-04, source not claimed read in full",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-spike-and-reset-law-for-nipg-on-scalar-strongly-convex-qua--4385d4d84505",
+          "material_read": "Resultary indexed title and complete scientific summary, update normalization and bounded-spike statement",
+          "method": "published-finding semantic search, summary-level only",
+          "title": "Exact spike-and-reset law for NIPG on scalar strongly convex quadratics",
+          "trigger": "high-scoring potentially broader published record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://optimization-online.org/wp-content/uploads/2026/03/MPG-5-3-26.pdf",
+        "https://optimization-online.org/2026/03/a-modified-projected-gradient-algorithm-for-solving-quasiconvex-programming-with-applications/"
+      ],
+      "rationale": "A canonical strongly convex scalar test isolates an adaptive nonlinear controller and yields an exact finite reset budget and sharp rate window for parameters repeatedly used in the method. The post-reset near-optimal tuning versus arbitrarily slow no-reset branch exposes initialization-dependent behavior absent from the general convergence guarantee; a meaningful interpretable boundary case, though not a multidimensional theorem.",
+      "residual_risks": [
+        "The reset count uses an expansion product P over the full prescribed infinite sequence, not only factors before the first reset; this can overestimate actual resets and is still valid.",
+        "The no-reset example and post-reset window are restricted to scalar unconstrained quadratics and nonterminal trajectories; no multidimensional generalization.",
+        "An unindexed note might already analyze precisely the MPG-NGD scalar specialization."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The reset count uses an expansion product P over the full prescribed infinite sequence, not only factors before the first reset; this can overestimate actual resets and is still valid.",
+    "The no-reset example and post-reset window are restricted to scalar unconstrained quadratics and nonterminal trajectories; no multidimensional generalization.",
+    "An unindexed note might already analyze precisely the MPG-NGD scalar specialization.",
+    "Published-source priority checked at the level of mathematical implication and given available lawful primary access; neither a universal priority certification nor publication authorization.",
+    "Source metadata sanitization is a distinct transport/publication blocker, not a scientific proof defect."
+  ],
+  "schema_version": 1
+}
