@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete proof treats \(n=1\), all prime powers, two odd prime supports, and an even support with one odd prime. Its essential local lemma is verified from exact bi-unitary prime-power formulas and a precise \(2\)-adic valuation argument, not by enumeration. The forced cases give exactly \(6\) and \(45\), which satisfy the equation; the standalone exact-arithmetic verifier agrees for all eligible \(n\le10^6\). No unproved infinitude or computational-exhaustion assertion is used.
+## correctness
 
-**Originality — PASS, with residual risk.** Sándor (2011), §3, first defines \(H_5\), proves its relation to \(H^{**}\), and identifies a restricted \(p^2q\) example, but does not assert an unrestricted two-support classification. Wall (1983) studies the distinct unitary harmonic quotient; the two conditions already differ at \(270\). Manea–Minculete (2016) treat ordinary bi-unitary harmonic numbers and selected factorization patterns, not the general \(H_5\) condition. The closest published exclusion for \(p^3q^{2^{t+1}}\) is also for the usual bi-unitary harmonic quotient and a fixed exponent pattern. The numerical OEIS list is neither an exact \(H_5\) table nor an infinite theorem. An unindexed independent earlier proof remains possible.
+PASS
 
-**Value — PASS.** This finishes a natural first nontrivial prime-support classification for one of the distinct harmonic quotients introduced in the founding study. Arbitrarily large exponents are excluded uniformly through a structural obstruction. That the numerical witnesses coincide with the different unitary harmonic examples does not make the claim a corollary, since the integrality properties differ beyond exponent \(2\).
+Use exact σ**(p^a)=(Σ_{j=0}^a p^j)-1_(a even) p^(a/2). For n=p^a, 1<H5<2; n=1 gives 1. For odd p<q, evenness of each divisor sum and coprimality with its base force Fp(a)=2q^v and Fq(b)=2p^u and an odd integer H5 strictly between1 and4, hence H5=3, p=3. The coprime factors of F3(2m) require m=1, q^b=5, yielding45. For n=2^a q^b, F2(a)=q^j while Fq(b) must be a power of2. The local lemma rules out all b>=2 for odd q, so b=1, q+1 power2 and F2(a)=q; inequalities force q=2^(a+1)-1, a odd; primality forces a+1=2, hence n=6. Direct fractions check H5(1)=1,H5(6)=2,H5(45)=3; independent bounded two-prime exponent enumeration found no further witnesses.
 
-**Scientific limitations.** Nothing is concluded for \(\omega(n)\ge3\), and no claim of absolute novelty or independent validation is made. Published-source comparisons and numerical checks are limited in coverage.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The assessed H5 function is genuinely different from unitary, usual bi-unitary and infinitary harmonic quotients. Sándor introduced H5 and gives isolated two-prime examples, while published similarly named 6/45 classifications involve different denominator/divisor-number conventions. No checked statement implies the all-exponents H5 two-support iff. Priority not guaranteed against unindexed earlier H5-only work.
+
+## value
+
+PASS
+
+The H5 quotient is a natural divisor-theoretic variant introduced by Sándor. Completing the entire first two prime-support strata with arbitrary exponents and proving exclusion by a nontrivial local power-of-two obstruction resolves more than a small tabular lookup or a mere renaming of the unitary harmonic theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
