@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The first public source proves the necessary condition, and the later full-text theorem proves sufficiency for the **same** congruence property. The distinct-prime moment calculation, exact rough-number inclusion–exclusion, and Mertens product asymptotic reconstruct the proof with the correct real-\(x\) and \(n=1\) boundaries. The needed \(O(x/\log\log x)\) concentration term is negligible on the claimed scale; finite direct residue-compatibility checks support interpretation but are not substituted for the infinite argument.
+## correctness
 
-## Originality — PASS
-Primary texts of Adenwalla (arXiv:2501.15170) and Jia–Li–Liu (arXiv:2504.09579) were materially inspected. Their identical objects are respectively called non-intersecting and nice integers. The former reports densities of **residues covered** by individual systems, whereas the proposed theorem counts **integers admitting** a good system. The latter gives the exact arithmetic criterion but not the distributional count. Indexed literature searches for both aliases, for the criterion, and for the full leading term returned no equivalent stronger statement; related published mathematical findings concern other integer classes or coverage optimizations. The remaining risk is undiscovered or unindexed equivalent work, not a claim of absolute priority.
+PASS
 
-## Value — PASS
-The theorem determines the first-order global distribution, including its explicit constant, for a newly classified natural class from a classical covering-system problem. The triple-logarithmic scale is not apparent from special constructions or the cited iff criterion alone; the proof connects rare small-prime avoidance with normal order of distinct-prime counts. This is an exact motivated mathematical asymptotic, not a table lookup.
+With the published iff criterion nice(n)⇔ω(n/P⁻(n))<P⁻(n) for all n≥2 (no covering condition), set L=log log x, z=x^(1/3), Wz(n)=Σ_{p≤z}1_{p|n}. At most two prime factors of n≤x exceed z, so |ω(n)−Wz(n)|≤2. Prime harmonic sum gives Σ_{p≤z}1/p=L+O(1). The exact second-moment expansion with diagonal floors and p≠q products has O(π(z)²/x+π(z)L/x) normalized error, therefore Var(Wz)=O(L) and E(x)=#{|ω(n)−L|>L/4}=O(x/L). If a nice integer has least prime p≤L/2, its ω≤p≤L/2 and is exceptional; any n with p>2L and ω≤2L is nice. Hence R_{2L}(x)−E−1≤N(x)≤R_{L/2}(x)+E. For y=L/2,2L, inclusion-exclusion gives R_y=x∏_{p≤y}(1−1/p)+O(2^{π(y)}), error ≤(log x)^{2 log2}=o(x/log L). Mertens gives both products ∼e^(−γ)/log L, and x/L=o(x/log L). This proves e^(−γ)x/logloglog x unconditionally, modulo the clearly identified published classification and prime asymptotics. Independent small exact count of 5409 nice n for 2≤n≤10000 checks the coding of ω(n/p); it does not prove the limit.
 
-## Limits
-The external combinatorial characterization is assumed as a published theorem. This review is not independent validation; no effective second term or convergence rate at computational scales is claimed. Unindexed work is a residual originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Read both Adenwalla’s nonintersecting-congruence definition and necessity lemma and Jia–Li–Liu’s exact sufficiency theorem for the same condition. Their coverage-density discussions concern fixed congruence residue proportions, not the frequency of admissible moduli n up to x. Direct paper searches and Resultary semantic comparison against prime-factor/asymptotic records found no prior statement with the triple-log count or leading Euler constant. Standard normal-order ω and Mertens roughness are inputs, not a previously stated enumeration of precisely this class. Best-of-knowledge PASS, not exhaustive novelty certification.
+
+## value
+
+PASS
+
+A natural class defined by a resolved Erdős–Graham congruence problem acquires its complete first-order size, constant and density zero. The triple logarithm is a non-obvious scale; this is an infinite quantitative theorem on a motivated set, not a finite numerical statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
