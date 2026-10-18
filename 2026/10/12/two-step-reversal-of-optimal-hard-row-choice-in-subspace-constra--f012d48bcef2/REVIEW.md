@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The derivation is self-contained: after fixing one row, two residual-line projectors satisfy the exact identity \(TUT=zT\), giving closed formulas for the one- and two-step minimax mean-squared errors. The integer matrix has determinant \(17\); the exact rational Gram parameters and square-root bounds certify all strict order reversals. A positive two-state transfer operator yields the asymptotic factor. The exact-rational checker constructs the original projected operators rather than merely replaying listed values. Minimality follows because the remaining equation in a nonsingular two-row system solves the one-dimensional feasible error in one step.
+PASS
 
-## Originality — PASS, with residual risk
+An invertible integer A=[[-2,-1,3],[-1,0,-3],[0,-2,1]] has determinant 17. For each enforced row i, the two projected remaining normals span the residual plane; p=a/(a+b), q=1-p, z=d^2/(ab) in [0,1). The projected line annihilators T,U satisfy TUT=zT, UTU=zU. The first-step M1=pT+qU has max eigenvalue (1+sqrt(1-4pq(1-z)))/2. The second-step M2=(p^2+pqz)T+(q^2+pqz)U has the claimed eigenvalue formula, and its two-coefficient positive recursion has Perron root rho=(1+sqrt((p-q)^2+4pq z^2))/2 for nonzero z. Independent exact rational Gram computations reproduced the source p,z values (91/136,7/585), (91/132,841/3731), (45/86,80/369), and separate radical comparisons prove L1(1)<L3(1)<L2(1) while L3(2)<L1(2)<L2(2); row 3 minimizes rho as well. Strict inequalities ensure openness. For nonsingular 2x2 and one fixed hard row, the one remaining projected row annihilates the one-dimensional error in one update; hence dimension three is minimal. Minimax is over different hard-row-specific unit initial errors, NOT over a single common initialization.
 
-The SCRK algorithm and its norm-proportional projected-row sampling are due to Lok and Rebrova, arXiv:2309.04889. Sun, Qi, Han, and Xie, arXiv:2605.29304v1, Section 3.2, address fixed-block selection via convergence bounds and surrogates, not distinct exact finite-horizon minimax rankings. Agaskar, Wang, and Lu (2014) provide a broad, exact mean-square operator identity; it can reproduce the special-case matrix calculations, so the identity and calculation method are not new. The strict existence of a **horizon-dependent reversal in which equation is held exact**, together with its minimal dimension and persistence, is not asserted or implied as an existence theorem by the inspected work. Searches did not identify the same counterexample; unknown unindexed equivalents are a residual risk, and lack of search results alone does not prove novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The fixed subsystem is chosen before repeated stochastic updates, often by an asymptotic contraction surrogate. The witness shows why an exactly best short-horizon hard-row choice need not remain best even one iteration later, while asymptotic optimization selects a different row. That is a nontrivial policy-selection distinction involving different feasible subspaces rather than tuning probabilities within one subspace; its dimension-minimal and open-set character rules out a singular or isolated numerical coincidence.
+Sun et al. 2026 Sec 3.2 selects fixed subsystems using a convergence-factor surrogate; Lok-Rebrova 2024 introduce the projected SCRK update and bound its mean-square rate. Agaskar-Wang-Lu's prior exact MSE operator formalism can compute any fixed case, but its existence does not itself state an integer matrix where the OPTIMAL hard-row index reverses at t=1 versus t=2, nor dimension minimality. The source does not claim novelty of the projection recursion itself. Best-of-knowledge no exact equivalent found.
 
-## Limits
+## value
 
-The comparison is minimax over each hard row's unit feasible-error subspace, not a comparison using one common right-hand side and start. It concerns unrelaxed, independently sampled projected Kaczmarz in exact arithmetic. The overarching randomized-moment formalism was known. Novelty is provisional until external independent literature assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a motivated, smallest-dimension discrete hard-equation selection reversal in a known preconditioned randomized algorithm. It cautions that optimizing a one-step minimax loss, even with exactly computable projected row weights, can select a different hard equation than two-step or long-run criteria. The exact integer witness, dimension barrier and open stability provide a nontrivial counterexample and structural boundary without claiming a new general MSE formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
