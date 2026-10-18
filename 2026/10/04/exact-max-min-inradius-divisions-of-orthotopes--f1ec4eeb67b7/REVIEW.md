@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For any two-piece hyperplane division with minimum inradius \(r\), radius-\(r\) inballs lie in opposite half-spaces and therefore form a two-ball packing. Conversely, two disjoint equal balls are separated by the perpendicular bisector of their centers, giving a valid two-division with the same guaranteed inradius. Thus the division invariant equals the two-equal-ball packing radius.
+PASS
 
-For an orthotope, radius-\(r\) centers form the eroded orthotope \(R_r\), whose diameter is \(\sqrt{\sum_i(L_i-2r)^2}\). Feasibility is exactly the quadratic inequality \(q(r)\ge0\). The derivative is strictly negative throughout \([0,\ell/2]\), so there is either saturation at \(\ell/2\) or one relevant root. In the nonsaturated case, equality of center distance with the eroded-box diameter forces opposite vertices, and tangency forces the unique middle separating hyperplane. The boundary case is covered by the same diameter argument.
+Any two-piece hyperplane cut with both inradii ≥r contains radius-r balls in opposite half-spaces and hence with center separation ≥2r; conversely the perpendicular bisector of two nonoverlapping equal balls contained in convex C separates them into two valid inball-containing halves. For an orthotope balls are centered in R_r=∏[r,L_i−r] and can coexist iff diameter(R_r)=sqrt(∑(L_i−2r)^2)≥2r, 0≤r≤ell/2. q=B−4Ar+4(d−1)r² has derivative −4A+8(d−1)r<0 throughout admissible domain, so Δ=q(ell/2) gives exact saturated branch or unique quadratic smaller root; d-cube and rectangle specialization follow. When Δ≤0 optimal centers form diameter pair of eroded box and tangent balls enforce the unique central orthogonal-diagonal separator; Δ>0 optimum simply requires separation of two full-radius balls. These are analytic arbitrary-dimensional arguments, not inferred from finite checker.
 
-## Originality
+## originality
 
-PASS with a residual risk stated below. The primary full text was inspected at its definition of successive-hyperplane divisions and throughout the max-min inradius subsection, including its general lower bound and implicit two-piece rounded-body theorem. It explicitly identifies refinement of the optimal value as an open issue. Orthotopes occur elsewhere in the paper for diameter and width bounds, but the inradius subsection contains no orthotope, rectangle, cube, or packing formula.
+PASS
 
-Searches covered max-min inradius divisions of rectangles, orthotopes, boxes, and hypercubes; two-equal-ball packing aliases; and the exact closed form. No equivalent division statement was located. The classical two-ball packing subproblem itself is not claimed as new.
+The established general theory is explicitly credited (including implicit two-cut characterization), as are classical equal-ball packings. The submitted all-dimensional orthotope closed form, transition parameter and complete nonsaturated cut rigidity are not stated in inspected primary division literature and are not a mere known-square numerical substitution. Best-of-knowledge limitations retained.
 
-## Value
+## value
 
-PASS. The source leaves the max-min inradius value largely implicit even for two pieces and explicitly calls for refined optimal-value information. Orthotopes are a canonical all-dimensional convex family, and the result gives a complete exact value, a geometric phase transition, and all optimizers in the nonsaturated regime. The cube corollary supplies a clean benchmark in every dimension, while the rectangle specialization gives an immediately interpretable threshold at aspect ratio \(2\).
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Gives a natural exact two-division optimization theorem on all Euclidean orthotopes, with a sharp geometric phase transition and optimizer classification in arbitrary d, evaluating a previously implicit convex-body invariant. This is a substantial geometrically motivated classification rather than an arbitrary low-dimensional sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

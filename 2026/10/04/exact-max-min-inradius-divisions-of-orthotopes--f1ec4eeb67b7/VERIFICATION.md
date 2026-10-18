@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,39 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-For a two-piece hyperplane division, the proof first establishes the exact identity between the max-min inradius and the largest radius of two equal disjoint balls in the body.
+## correctness
 
-For the orthotope
-\[
-R=\prod_i[0,L_i],
-\]
-a radius-\(r\) ball center lies in
-\[
-R_r=\prod_i[r,L_i-r].
-\]
-Thus two such balls fit exactly when
-\[
-D(R_r)^2-4r^2
-=
-\sum_i(L_i-2r)^2-4r^2
-\ge0.
-\]
-The checker reconstructs this quadratic, verifies exact monotonicity bounds on rational test families, checks the branch transition at \(r=\ell/2\), and compares the closed form against direct bisection of the feasibility inequality on deterministic multidimensional examples.
+PASS
 
-It also verifies the cube identity
-\[
-\sqrt d\,(1-2r)=2r
-\]
-for
-\[
-r=\frac{\sqrt d}{2(\sqrt d+1)},
-\]
-and the rectangle transition at aspect ratio \(2\).
+Any two-piece hyperplane cut with both inradii ≥r contains radius-r balls in opposite half-spaces and hence with center separation ≥2r; conversely the perpendicular bisector of two nonoverlapping equal balls contained in convex C separates them into two valid inball-containing halves. For an orthotope balls are centered in R_r=∏[r,L_i−r] and can coexist iff diameter(R_r)=sqrt(∑(L_i−2r)^2)≥2r, 0≤r≤ell/2. q=B−4Ar+4(d−1)r² has derivative −4A+8(d−1)r<0 throughout admissible domain, so Δ=q(ell/2) gives exact saturated branch or unique quadratic smaller root; d-cube and rectangle specialization follow. When Δ≤0 optimal centers form diameter pair of eroded box and tangent balls enforce the unique central orthogonal-diagonal separator; Δ>0 optimum simply requires separation of two full-radius balls. These are analytic arbitrary-dimensional arguments, not inferred from finite checker.
 
-The embedded `verify.py` was replayed from its actual package path. The replay output was:
+## originality
 
-`VERIFY_OK orthotope max-min inradius profile`
+PASS
 
-Finite computations are consistency checks only. The proof in `RESULT.md` establishes the formula and optimizer classification for every dimension \(d\ge2\) and every positive orthotope side-length vector.
+The established general theory is explicitly credited (including implicit two-cut characterization), as are classical equal-ball packings. The submitted all-dimensional orthotope closed form, transition parameter and complete nonsaturated cut rigidity are not stated in inspected primary division literature and are not a mere known-square numerical substitution. Best-of-knowledge limitations retained.
+
+## value
+
+PASS
+
+Gives a natural exact two-division optimization theorem on all Euclidean orthotopes, with a sharp geometric phase transition and optimizer classification in arbitrary d, evaluating a previously implicit convex-body invariant. This is a substantial geometrically motivated classification rather than an arbitrary low-dimensional sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
