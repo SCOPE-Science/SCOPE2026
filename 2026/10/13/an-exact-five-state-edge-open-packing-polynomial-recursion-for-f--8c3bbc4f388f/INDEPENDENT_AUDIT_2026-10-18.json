@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T15:47:19Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/13/an-exact-five-state-edge-open-packing-polynomial-recursion-for-f--8c3bbc4f388f/RESULT.md",
+        "2026/10/13/an-exact-five-state-edge-open-packing-polynomial-recursion-for-f--8c3bbc4f388f/VERIFICATION.md",
+        "2026/10/13/an-exact-five-state-edge-open-packing-polynomial-recursion-for-f--8c3bbc4f388f/edgeopen_forest_verify.py"
+      ],
+      "rationale": "An edge-open packing S has endpoint-induced graph consisting of nontrivial star components: an unselected joining edge or a four-vertex path contradicts the third-edge exclusion. Conversely such an induced star forest yields a unique S. Canonical selected vertex degree 0/1/>=2 prevents multiplicities (even for K2). Five parent interfaces separate unselected, leaf with selected parent, leaf without selected parent, center with unselected parent, center with selected leaf parent. The specific a,b,h,c,d recurrences in inspected RESULT.md enumerate these classes and attach each parent-child selected edge with exactly one z. Root uses a+h+c; connected components multiply. Induction proves all n, not the finite tests. Independent fresh brute-force third-edge checks on P5, K1,4 and six-vertex fork produced polynomials [1,4,4], [1,4,6,4,1], [1,5,6,2], equal to a separate implementation of the 5-state recurrence. O(n^3) counts polynomial arithmetic not bit complexity.",
+      "residual_risks": [
+        "Unindexed explicit all-coefficient tree-DP may exist, even if scalar results do not imply it."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brešar–Samadi arXiv:2403.00750 Section 3 proves linear-time maximum",
+          "General bounded-treewidth counting frameworks (no explicit exact EOP recurrence located)"
+        ],
+        "reasoning": "A sufficiently general counting MSO tree automaton may imply polynomial computability but not this explicit positive five-state all-coefficient circuit; a previously known equivalent tree automaton remains possible.",
+        "searches": [
+          "Resultary semantic query: edge-open packing polynomial forest tree all cardinality generating function dynamic programming induced star counting (top 15 published records)",
+          "Primary article comparison for tree finite-state counting and MSO dynamic programming"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2403.00750",
+        "https://www.numdam.org/item/10.1051/ro/2022171.pdf",
+        "https://arxiv.org/pdf/2406.04020",
+        "frozen RESULT.md and edgeopen_forest_verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3.6 and Section 3 of arXiv:2403.00750 solve maximum size",
+          "All-coefficient P_F determines max coefficient but the maximum alone cannot determine P_F"
+        ],
+        "reasoning": "The new result strictly refines scalar optimization: taking deg P_F recovers the optimum, but there is no converse inference of all counts from a scalar maximum.",
+        "searches": [
+          "Resultary semantic query: edge-open packing polynomial forest tree all cardinality generating function dynamic programming induced star counting (top 15 published records)",
+          "Primary article comparison for Brešar–Samadi optimizer"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chelladurai/Kalimuthu/Soundararajan 2022 DOI 10.1051/ro/2022171: support induces stars",
+          "Brešar/Samadi arXiv:2403.00750: scalar optimum in trees"
+        ],
+        "reasoning": "The induced-star correspondence is equivalent to admissible edge supports and credited; neither stated antecedent supplies this five-class polynomial counting recurrence. Distinguish edge-open from vertex-open packing and induced matching.",
+        "searches": [
+          "Resultary semantic query: edge-open packing polynomial forest tree all cardinality generating function dynamic programming induced star counting (top 15 published records)",
+          "Primary article comparison for edge open packing induced stars and related open packing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent P5, star and fork polynomials match recurrence",
+          "Source claims 436 nonisomorphic tree checks, but proof rests on induction"
+        ],
+        "reasoning": "No natural exact database with coefficients for ALL forests exists in inspected sources; finite tree tables would not themselves imply the recursion for arbitrary trees.",
+        "searches": [
+          "Resultary semantic query: edge-open packing polynomial forest tree all cardinality generating function dynamic programming induced star counting (top 15 published records)",
+          "Primary article comparison for count tables for EOP trees"
+        ]
+      },
+      "rationale": "Chelladurai et al. 2022 already noted induced-star support; Brešar–Samadi 2024 compute only the largest EOP size in trees by scalar DP. Their inspected Section 3 and Theorem 3.6 do not present a complete coefficient polynomial. The specific disjoint coefficient-counting recurrence is assessed new best-of-knowledge, not the structural star equivalence or basic tractability.",
+      "residual_risks": [
+        "Unindexed explicit all-coefficient tree-DP may exist, even if scalar results do not imply it.",
+        "The known induced-star equivalence is not itself novel.",
+        "Arithmetic operation complexity does not bound output bit length; excludes graphs with cycles."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes optimal size in linear time, not the full P_F(z) coefficient distribution",
+          "evidence": "Section 3 scalar algorithm and theorem scope",
+          "identifier_or_url": "https://arxiv.org/html/2403.00750",
+          "material_read": "Accessible full HTML, particularly Section 3 and Theorem 3.6, the dynamic-programming scalar bound and induced-star characterization",
+          "method": "Full primary arXiv HTML and corresponding PDF page 6 inspected",
+          "title": "Edge open packing: complexity, algorithmic aspects, and bounds",
+          "trigger": "Closest primary algorithm for EOP in trees"
+        },
+        {
+          "assessment": "Star-support fact explicitly credited as prior, not claimed new",
+          "evidence": "Known support is a union of stars",
+          "identifier_or_url": "https://www.numdam.org/item/10.1051/ro/2022171.pdf",
+          "material_read": "Paper citation, definition and structural claim from audited result; full paper not independently read this execution",
+          "method": "Primary bibliographic comparison",
+          "title": "Edge open packing sets in graphs",
+          "trigger": "Original definition/support equivalence"
+        },
+        {
+          "assessment": "Studies equality of optimum parameters and products, different from full EOP polynomial",
+          "evidence": "Different counted object",
+          "identifier_or_url": "https://arxiv.org/pdf/2406.04020",
+          "material_read": "Source-title and scope from primary metadata; full sections not read this execution",
+          "method": "Published-scope comparison",
+          "title": "Induced matching vs edge open packing: trees and product graphs",
+          "trigger": "Related edge packing/induced matching alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/html/2403.00750",
+        "https://www.numdam.org/item/10.1051/ro/2022171.pdf",
+        "https://arxiv.org/pdf/2406.04020"
+      ],
+      "rationale": "The studied natural packing invariant has an all-cardinality distribution, number of optimal solutions, and counting recurrence beyond the known extremal scalar. A canonical state decomposition for every forest is independently useful and not an arbitrary single-graph computation; practical polynomial-time arithmetic produces coefficient multiplicities.",
+      "residual_risks": [
+        "Arithmetic operation complexity does not bound output bit length; excludes graphs with cycles."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every finite simple forest F, including empty/isolated vertices, the edge-open-packing generating polynomial P_F(z)=sum_{valid S subset E(F)} z^{|S|} is exactly computed by a disjoint five-state rooted recursion in O(n^3) integer-arithmetic operations for n vertices.",
+  "limitations": [
+    "Unindexed explicit all-coefficient tree-DP may exist, even if scalar results do not imply it.",
+    "The known induced-star equivalence is not itself novel.",
+    "Arithmetic operation complexity does not bound output bit length; excludes graphs with cycles."
+  ],
+  "schema_version": 1
+}

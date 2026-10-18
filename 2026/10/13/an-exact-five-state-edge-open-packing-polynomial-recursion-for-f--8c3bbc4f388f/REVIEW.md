@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For finite undirected simple forests, the edge-support induced subgraph of any edge-open packing is a disjoint union of nontrivial stars, and each such induced star forest determines one edge-open packing. The central new proof step is the disjoint five-state parent interface (unselected, selected leaf with parent, selected leaf without parent, selected center without parent, selected center with leaf parent), which covers every selected degree pattern exactly once and counts each selected edge exactly once. The induced-degree colors uniquely identify each packing; in particular a two-vertex star is not assigned an arbitrary center. The induction gives the polynomial and forest product. The standalone direct checker completed 310,855 exhaustive edge-subset cases over 436 nonisomorphic trees, 310,855 support-identity comparisons, 350,018 direct cases over 600 random forests, and 98 exact star tests. All passed. These checks support but do not replace the infinite proof.
+## correctness
 
-## Originality — PASS, with residual risk
-[1] already observes the induced-star structure and derives scalar packing parameters; this is credited and not claimed as new. The closest primary work [2], inspected through the optimization theorem and algorithm, finds only the maximum number in linear time, not the full coefficient distribution. [3] concerns optimal-size induced matching comparisons, not counting all edge-open packing sets. Exact indexed-publication searches using edge-open-packing, polynomial, all-cardinality forest, induced-star forest, and alias terms returned unrelated character/forest/matching results and a vertex-open-packing extremal result, not an equivalent five-state counting theorem. The latter is a different graph invariant. A counting interpretation of broader finite-state methods is possible; an unindexed or unpublished explicit recurrence remains a risk. Failure to locate one is not a proof of global uniqueness.
+PASS
 
-## Value — PASS
-The polynomial is a natural refinement of a studied extremal graph invariant. It yields the number of maximum and nonmaximum edge-open packings for **every** finite tree and forest, whereas an optimization-only recurrence cannot recover these multiplicities without a nonoverlapping counting decomposition. The five canonical states are explicit and readily implemented, with cubic arithmetic complexity and no arbitrary family or truncation parameter. The exact result extends a structural observation to all-cardinality enumeration for a broad graph class, without claiming an unrelated graph-theoretic conjecture or a generic counting complexity breakthrough.
+An edge-open packing S has endpoint-induced graph consisting of nontrivial star components: an unselected joining edge or a four-vertex path contradicts the third-edge exclusion. Conversely such an induced star forest yields a unique S. Canonical selected vertex degree 0/1/>=2 prevents multiplicities (even for K2). Five parent interfaces separate unselected, leaf with selected parent, leaf without selected parent, center with unselected parent, center with selected leaf parent. The specific a,b,h,c,d recurrences in inspected RESULT.md enumerate these classes and attach each parent-child selected edge with exactly one z. Root uses a+h+c; connected components multiply. Induction proves all n, not the finite tests. Independent fresh brute-force third-edge checks on P5, K1,4 and six-vertex fork produced polynomials [1,4,4], [1,4,6,4,1], [1,5,6,2], equal to a separate implementation of the 5-state recurrence. O(n^3) counts polynomial arithmetic not bit complexity.
 
-## Closest literature and limitations
-The nearest source is Brešar–Samadi (arXiv:2403.00750, 2024), especially its Section 3 and Theorem 3.6, establishing maximum EOP computation on trees. Chelladurai et al. (2022) introduced EOP and the induced-star observation. Brešar et al. (arXiv:2406.04020) studied the induced-matching equality boundary. General finite-state logic counting could imply theoretical tractability, but an explicit disjoint five-state all-cardinality recurrence is not thereby supplied in these checked proofs. Subsequent and incompletely indexed literature may contain equivalent enumeration; this review does not constitute independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Chelladurai et al. 2022 already noted induced-star support; Brešar–Samadi 2024 compute only the largest EOP size in trees by scalar DP. Their inspected Section 3 and Theorem 3.6 do not present a complete coefficient polynomial. The specific disjoint coefficient-counting recurrence is assessed new best-of-knowledge, not the structural star equivalence or basic tractability.
+
+## value
+
+PASS
+
+The studied natural packing invariant has an all-cardinality distribution, number of optimal solutions, and counting recurrence beyond the known extremal scalar. A canonical state decomposition for every forest is independently useful and not an arbitrary single-graph computation; practical polynomial-time arithmetic produces coefficient multiplicities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
