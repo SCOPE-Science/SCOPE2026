@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T12:01:07Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Over any Fq, rank-one idempotents are ordered pairs of distinct rational lines (L,K), q(q+1) choices, plus 0 and I. For non-scalar A, det(A-E)=det A-tr A+tr(AE); with c=tr A-det A, fixed line L permits q bad complement projections if it is an eigenspace with eigenvalue c, zero if a different eigenvalue, or one if non-eigenline. Since det(A-cI)=det A*det(A-I), c is an eigenvalue precisely if A or A-I is singular. The number of bad rank-one idempotents is (q+1-e(A))+q epsilon(A), yielding c(A)=q²-1+e(A)-q epsilon(A)+u0+u1; scalar cases 1 for lambda0/1, otherwise q²+q+2. Exact field-uniform counting proof works in characteristic 2 and extensions. Independent full enumerations over F2,F3,F5 matched formula for all q^4 matrices and all q(q+1)+2 idempotents; distributions F2 {1:2,3:12,5:2}, F3 {1:2,7:28,8:24,10:18,11:8,14:1}, F5 {1:2,21:78,22:180,26:200,27:72,28:90,32:3}. Finite checks corroborate rather than establish arbitrary q.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Clean index sup_A c(A) is a single global maximum, not the full c(A) function.",
+          "Chen establishes criteria and examples for clean decompositions in matrix rings, no exhaustive elementwise count found in inspected full article.",
+          "Thesis computes ring indices for matrix rings over Z/n; abstract does not assert full elementwise spectrum."
+        ],
+        "reasoning": "Known global and qualitative results do not determine the complete similarity-type law. But thesis full text uninspected and remains a potential dominating source.",
+        "searches": [
+          "Lee–Zhou 2012 clean index",
+          "Chen 2009 Clean matrices over commutative rings full PDF",
+          "Schoonmaker dissertation 2018 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Chen2009 full PDF DML-CZ:140469",
+        "LeeZhou2012 DOI:10.1080/00927872.2010.538781 abstract",
+        "Schoonmaker2018 BYU ETD:7027 abstract and inaccessible PDF",
+        "Resultary clean-index M2 and related factorization searches",
+        "Frozen RESULT.md and verify_clean_m2.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The qualitative statement M2(Fq) is clean implies c(A)>=1 only, and sup c(A) does not determine intermediate values.",
+          "The submitted formula needs eigenline-count and determinant analysis absent from inspected statements."
+        ],
+        "reasoning": "Known definitions and existence results do not logically imply the elementwise numeric profile; the inaccessible thesis could nevertheless contain more detail, listed as risk.",
+        "searches": [
+          "Lee–Zhou 2012 definition clean index",
+          "Chen 2009 full paper",
+          "Schoonmaker thesis abstract 2018"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The count c(A) is |{E idempotent : A-E invertible}| in clean-ring terminology.",
+          "Strong cleanness adds commutation and is not the ordinary clean decomposition counted here."
+        ],
+        "reasoning": "Compared equivalent matrix-factor sum terminology and separated clean from strongly clean/nil-clean/t-fine decompositions returned by semantic search.",
+        "searches": [
+          "Resultary: clean index 2x2 finite field matrix elementwise number idempotents clean decompositions",
+          "Lee–Zhou Clean Index of Rings 2012",
+          "Chen Clean matrices 2009"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related Resultary t-fine decompositions count torsion-unit plus nilpotent, not idempotent plus unit; its numbers do not apply.",
+          "No exact all-matrix c(A) frequency table located in accessible papers."
+        ],
+        "reasoning": "A ring-level clean-index table can share its maximum without covering every A. No inference of novelty from missing table alone.",
+        "searches": [
+          "Resultary finite-field idempotent and t-fine factorization searches",
+          "Schoonmaker 2018 published abstract",
+          "Chen2009 examples"
+        ]
+      },
+      "rationale": "The ring clean-index literature defines the maximum of the elementwise clean-idempotent counts and proves qualitative existence; that max does not recover a complete similarity-type pointwise multiplicity function. The Chen 2009 complete primary article gives matrix-cleanness criteria but not a count for every A in M2(Fq) in the inspected theorems. Schoonmaker 2018 dissertation abstract says it computes clean indices of M_n(Z/n), potentially including maxima for prime fields, but the full PDF gave HTTP 403, so potential elementwise formulas are a named priority risk. The submitted all-A full multiplicity profile is assessed original relative to accessible statements.",
+      "residual_risks": [
+        "Schoonmaker 2018 dissertation full text inaccessible (HTTP 403) and could already give M2(Fp) c(A) values or a stronger formula; cannot claim it is noncovering.",
+        "Other finite-field matrix clean-index papers may contain the same pointwise formula; priority not exhaustively certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives qualitative clean matrix criteria, not the exact q/eigenline-dependent multiplicities in inspected full text.",
+          "evidence": [
+            "https://www.dml.cz/bitstream/handle/10338.dmlcz/140469/CzechMathJ_59-2009-1_10.pdf",
+            "2009 Czech Math J 59 pp145-158"
+          ],
+          "identifier_or_url": "https://www.dml.cz/handle/10338.dmlcz/140469",
+          "material_read": "Complete 15-page archival journal PDF read, theorem statements, matrix construction and examples",
+          "method": "Read relevant primary-source text and compared mathematical statements, objects and domain",
+          "title": "Clean matrices over commutative rings",
+          "trigger": "Matrix-cleanness criteria directly relevant to M2(Fq)"
+        },
+        {
+          "assessment": "Ring-wide index is maximum, no full-document noncoverage inferred.",
+          "evidence": [
+            "Communications in Algebra 40 (2012), 807-822"
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/00927872.2010.538781",
+          "material_read": "Abstract and bibliographic information, not full primary body",
+          "method": "Read relevant primary-source text and compared mathematical statements, objects and domain",
+          "title": "Clean Index of Rings",
+          "trigger": "Defines c(A) maximization"
+        },
+        {
+          "assessment": "Abstract establishes index calculations over Z/n matrix rings; could contain pointwise counts, not ruled out.",
+          "evidence": [
+            "BYU ScholarsArchive 7027, submitted November 2018",
+            "Archived PDF download returned HTTP 403, not read"
+          ],
+          "identifier_or_url": "https://scholarsarchive.byu.edu/etd/7027/",
+          "material_read": "Original BYU archive title, abstract and degree metadata; download of full dissertation failed HTTP 403",
+          "method": "Read relevant primary-source text and compared mathematical statements, objects and domain",
+          "title": "Clean Indices of Common Rings",
+          "trigger": "Potential matrix-ring clean-index classification with same dimension"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete elementwise number of decompositions A=E+U is a natural enumerative invariant refining the clean index; it distinguishes scalar, eigenline and special eigenvalue strata in every finite field, including char2. The classification is self-contained and reusable for clean ring statistics, not merely a different label for matrix cleanness or a known ring-wide maximum.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Chen2009 full PDF DML-CZ:140469",
+    "LeeZhou2012 DOI:10.1080/00927872.2010.538781 abstract",
+    "Schoonmaker2018 BYU ETD:7027 abstract and inaccessible PDF",
+    "Resultary clean-index M2 and related factorization searches",
+    "Frozen RESULT.md and verify_clean_m2.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Schoonmaker 2018 dissertation full text inaccessible (HTTP 403) and could already give M2(Fp) c(A) values or a stronger formula; cannot claim it is noncovering.",
+    "Other finite-field matrix clean-index papers may contain the same pointwise formula; priority not exhaustively certified.",
+    "The completed best-of-knowledge C/O/V scientific assessment is not publication, proof of exhaustive novelty, formal verification or external certification.",
+    "Unneutralized operational metadata prevents safe public-source change-set preparation."
+  ],
+  "residual_risks": [
+    "Schoonmaker 2018 dissertation full text inaccessible (HTTP 403) and could already give M2(Fp) c(A) values or a stronger formula; cannot claim it is noncovering.",
+    "Other finite-field matrix clean-index papers may contain the same pointwise formula; priority not exhaustively certified."
+  ],
+  "schema_version": 1
+}
