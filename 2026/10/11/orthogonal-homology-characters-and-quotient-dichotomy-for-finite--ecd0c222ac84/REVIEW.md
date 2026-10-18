@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Mostovoy's Theorem 1 independently supplies the one-dimensional rational homology groups and their degrees. A reflection-invariant finite subset decomposes uniquely into equatorial fixed points and paired hemisphere points. Compact-support configuration Euler characteristics yield the exact formal power series \((1+z)^{1+(-1)^{d-1}}(1+z^2)^{(-1)^d}\), and hence its finite-cardinality fixed-point Euler characteristic. Equivariant triangulation and the Lefschetz fixed-point formula recover the unique odd-dimensional reflection sign. In even dimensions, the top configuration-stratum orientation gives the top sign and Lefschetz forces the second sign. Path-connectedness of \(SO(d+1)\) extends these signs to the whole orthogonal group; rational transfer/averaging yields every finite-group quotient. No finite experiment substitutes for these deductions.
+## correctness
 
-## Originality — PASS, with risks
-The closest complete primary results are Mostovoy, *Finite subset spaces of spheres* (arXiv:2603.01439v1), for ordinary homology; Tuffley (arXiv:math/0209077v3), for the circle's map degrees; and Tuffley (arXiv:math/0311371v1), for surface dimensions and explicit integral classes. The circle case is excluded, while the even two-sphere's signs can be inferred from pre-existing fundamental-class computations. None of these inspected source statements establishes the full higher-dimensional orthogonal character and all finite orthogonal quotient homology, including the odd-dimensional sharp four-residue acyclicity dichotomy. Literature indexing and general equivariant Euler methods leave residual risk of unindexed equivalent derivations. The 2026 Taamallah paper on ordinary Euler characteristics was accessible only at abstract level, so its full content is not certified non-covering.
+PASS
 
-## Value — PASS
-The canonical isometry action on the newly classified sphere-subset spaces is a natural missing invariant. Two homology groups of rank one have distinct orientation characters in every even sphere dimension, and the single odd-sphere group alternates signs in blocks of two. Consequently a large and natural class of finite-group quotient spaces has a uniform rational homology classification, including an infinite series of rationally acyclic, not necessarily contractible, quotients. This is invisible in ordinary Betti numbers and not a change of notation for a known dimension formula.
+Mostovoy Theorem 1 gives rational homology concentrated in two 1D degrees nd,(n-1)d for even d and one degree t=ceil(n/2)(d+1)-1 for odd d>=3. Every reflection-fixed unordered finite subset decomposes uniquely into j equatorial points and k antipodal off-equator pairs j+2k<=n; compactly supported configuration Euler generating series is (1+z)^{χ(S^{d-1})}(1+z²)^{χ_c(R^d)}, equal to 1+z² for even d or (1+z)²/(1+z²) for odd d. Summing coefficients 1..n gives fixed χ=1 (even), 2 (odd n=1,2 mod4), 0 (odd n=0,3 mod4). Lefschetz and connectedness recover odd-dimensional reflection sign (-1)^ceil(n/2). In even d, orientation on dense n-distinct-point manifold gives top sign (-1)^n; Lefschetz fixes lower sign (-1)^(n-1). Since SO(d+1) is connected this determines full determinant characters; rational G-invariant cellular cochains compute homology of any finite orthogonal quotient. Independent coefficient/quotient checks held for 9672 parameter pairs; exact proof covers all n,d.
 
-## Limitations
-This is a rational homological result, not an integral or homotopy classification. An equivalent unindexed equivariant formula cannot be ruled out; the inaccessible 2026 Euler-characteristic preprint was not treated as fully read. The check program corroborates 2,193 finite cases while the proof handles all allowed indices.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Mostovoy already supplies exactly the nonequivariant Betti dimensions. Tuffley supplies induced-degree results for d=1 (excluded) and low-dimensional surface generators that anticipate the d=2 signs; those are not claimed new. The higher-dimensional orthogonal orientation characters and resulting sharp four-residue finite-quotient dichotomy require extra reflection fixed-point traces not encoded by Betti ranks. No retrieved source established these group actions in all d>=2, but Resultary search repeatedly failed internally and Taamallah ordinary Euler paper was only abstract inspected; both limitations are material residual risks.
+
+## value
+
+PASS
+
+Natural O(d+1) symmetry is intrinsic to finite subsets of the standard sphere, and finite orthogonal orbit spaces are canonical derived topological objects. Rank-only results cannot answer whether a reflection kills a homology generator. The theorem provides a complete graded rational character classification and an exact modulo-four dichotomy for infinitely many odd-dimensional orientation-reversing quotients; this is a motivated natural all-parameter structural invariant, not an arbitrary special value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

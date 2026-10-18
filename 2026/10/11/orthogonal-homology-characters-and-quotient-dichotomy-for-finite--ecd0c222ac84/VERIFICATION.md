@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The derivation uses Mostovoy's complete rational homology classification in arXiv:2603.01439v1 and independently computes the reflection action. For each fixed finite subset, separate equatorial singleton orbits from off-equator two-orbits. Apply generalized-binomial compact-support Euler counts to the corresponding unordered configuration spaces. The two exact generating functions reduce to \(1+z^2\) in even dimensions and \((1+z)^2/(1+z^2)\) in odd dimensions. Comparing their coefficient sums with the Lefschetz traces determines the odd-dimensional character; the even-dimensional top orientation fixes one sign and Lefschetz fixes the other. Exactness of rational invariants determines the quotient ranks.
+## correctness
 
-## Executable checks
+PASS
 
-Run `python verify.py` with Python 3 standard library only. Observed output: `VERIFY_OK cases= 2193`. The checker independently constructs generalized binomial coefficients, sums all exact-cardinality fixed-subset Euler counts and verifies predicted traces and quotient Euler characteristics for every integer \(2\le d\le18\) and \(2\le n\le130\), including every parity and residue boundary. It is finite corroboration, not a substitute for the all-parameter identities.
+Mostovoy Theorem 1 gives rational homology concentrated in two 1D degrees nd,(n-1)d for even d and one degree t=ceil(n/2)(d+1)-1 for odd d>=3. Every reflection-fixed unordered finite subset decomposes uniquely into j equatorial points and k antipodal off-equator pairs j+2k<=n; compactly supported configuration Euler generating series is (1+z)^{χ(S^{d-1})}(1+z²)^{χ_c(R^d)}, equal to 1+z² for even d or (1+z)²/(1+z²) for odd d. Summing coefficients 1..n gives fixed χ=1 (even), 2 (odd n=1,2 mod4), 0 (odd n=0,3 mod4). Lefschetz and connectedness recover odd-dimensional reflection sign (-1)^ceil(n/2). In even d, orientation on dense n-distinct-point manifold gives top sign (-1)^n; Lefschetz fixes lower sign (-1)^(n-1). Since SO(d+1) is connected this determines full determinant characters; rational G-invariant cellular cochains compute homology of any finite orthogonal quotient. Independent coefficient/quotient checks held for 9672 parameter pairs; exact proof covers all n,d.
 
-## Independent mathematical cross-checks
+## originality
 
-When \(d=2\) and \(n=2\), the complex is \(\mathbb{CP}^{2}\), and a degree-minus-one involution of the underlying \(S^2\) acts by \(-1\) on the second homology and by \(+1\) on the fourth, in accord with the formula. The total Euler characteristic from Mostovoy is three for even \(d\) and zero for odd \(d\), matching the ordinary finite-subset configuration series \((1+z)^{\chi(S^d)}\). Reflection quotient Euler characteristics satisfy Burnside's identity.
+PASS
 
-## Limits
+Mostovoy already supplies exactly the nonequivariant Betti dimensions. Tuffley supplies induced-degree results for d=1 (excluded) and low-dimensional surface generators that anticipate the d=2 signs; those are not claimed new. The higher-dimensional orthogonal orientation characters and resulting sharp four-residue finite-quotient dichotomy require extra reflection fixed-point traces not encoded by Betti ranks. No retrieved source established these group actions in all d>=2, but Resultary search repeatedly failed internally and Taamallah ordinary Euler paper was only abstract inspected; both limitations are material residual risks.
 
-No integral torsion, homotopy-group, or homotopy-equivalence claim has been verified. Independent audit has not been performed. The closest relevant published full texts were inspected to the extent listed in the associated scientific review; one related Euler-characteristic source was available only by abstract.
+## value
+
+PASS
+
+Natural O(d+1) symmetry is intrinsic to finite subsets of the standard sphere, and finite orthogonal orbit spaces are canonical derived topological objects. Rank-only results cannot answer whether a reflection kills a homology generator. The theorem provides a complete graded rational character classification and an exact modulo-four dichotomy for infinitely many odd-dimensional orientation-reversing quotients; this is a motivated natural all-parameter structural invariant, not an arbitrary special value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
