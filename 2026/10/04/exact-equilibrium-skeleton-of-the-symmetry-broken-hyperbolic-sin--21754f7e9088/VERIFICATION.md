@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,43 +19,24 @@
 }
 ---
 
-The verification re-derives all displayed scalar thresholds from the printed asymmetric vector fields.
+# Independent mathematical audit
 
-Checks performed:
+## correctness
 
-1. The fold function
-\[
-M(q)=q\operatorname{arcosh}q-\sqrt{q^2-1}
-\]
-is bracketed at \(M(q)=0.01\), giving \(q=1.048351831276690\ldots\). Its derivative is \(\operatorname{arcosh}q>0\), so the fold root is unique.
+PASS
 
-2. The Case-C stability equation
-\[
-0.2x+x\cosh x-\sinh x=0.01
-\]
-is bracketed at its unique positive root. Its derivative is \(0.2+x\sinh x>0\) for \(x>0\).
+PASS: Set y=z=0, solve F_a(x)=a x-d sinh(x)=0.01 and k=a-d cosh(x); the linearized cubic is lambda^3+0.2 lambda^2+lambda+k, Hurwitz iff 0<k<0.2. The fold function M(q)=q arcosh(q)-sqrt(q^2-1) is strictly increasing for q>1. Independent scalar root brackets reproduce -1.0483518312766908 for Case D fold and a_C=1.2012399862498022 in Case C. The two Case-D outer imaginary-pair thresholds are a_L=-1.116233346441185 and a_R=-1.0769969279698952, and their ordering yields a_R<a<a_SN as the two-sink window. Three roots persist throughout Case C [1.1,1.656]. At the double root at fold a zero eigenvalue is present; 'two distinct equilibria' means one non-simple equilibrium and one simple one. These are equilibrium/linear classifications, not Hopf nonlinear criticality claims.
 
-3. The Case-D eliminated stability equation
-\[
-0.2x-x\cosh x+\sinh x=0.01
-\]
-is bracketed at the two roots belonging to the outer branches within the three-equilibrium interval, as well as the additional positive root whose parameter lies outside the plotted interval.
+## originality
 
-4. Every stability threshold is converted back with \(a=0.2-d\cosh x\), and the ordering
-\[
-a_L<a_R<a_{\mathrm{SN}}<-0.83
-\]
-is checked.
+PASS
 
-5. The characteristic polynomial
-\[
-\lambda^3+0.2\lambda^2+\lambda+k
-\]
-is checked against the cubic Routh--Hurwitz conditions: stable exactly for \(0<k<0.2\), one right-half-plane root for \(k<0\), and two right-half-plane roots for \(k>0.2\). At \(k=0.2\) it factors as
-\[
-(\lambda+0.2)(\lambda^2+1).
-\]
+PASS best of knowledge: The paper studies the forced Cases C/D mainly through orbit bifurcation plots; the exact equilibrium skeleton and branchwise Hurwitz thresholds are not in the examined case analysis. A separate symmetric (unforced) compact-recurrence theorem is not equivalent under adding 0.01 forcing.
 
-The bundled `verify.py` uses only the Python standard library and prints `VERIFY_OK` when these checks pass.
+## value
 
-Limits: the checker verifies scalar threshold arithmetic and branch ordering. It is not a numerical trajectory integration and does not establish nonlinear Hopf criticality, global basins, or attractor existence.
+PASS
+
+PASS: An exact fold and a quantitative two-stable-equilibria interval explain the organizing fixed-point structure of a natural symmetry-broken jerk model used for numerical period-doubling. A complete linear-stability partition over the original study's parameter windows is more than arbitrary parameter sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T07:50:48.796031Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Set y=z=0, solve F_a(x)=a x-d sinh(x)=0.01 and k=a-d cosh(x); the linearized cubic is lambda^3+0.2 lambda^2+lambda+k, Hurwitz iff 0<k<0.2. The fold function M(q)=q arcosh(q)-sqrt(q^2-1) is strictly increasing for q>1. Independent scalar root brackets reproduce -1.0483518312766908 for Case D fold and a_C=1.2012399862498022 in Case C. The two Case-D outer imaginary-pair thresholds are a_L=-1.116233346441185 and a_R=-1.0769969279698952, and their ordering yields a_R<a<a_SN as the two-sink window. Three roots persist throughout Case C [1.1,1.656]. At the double root at fold a zero eigenvalue is present; 'two distinct equilibria' means one non-simple equilibrium and one simple one. These are equilibrium/linear classifications, not Hopf nonlinear criticality claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary also returns 2026/10/11/SCOPE-a-sharp-global-period-floor-for-the-hu-sang-wang-hyperbolic-sine--e078463bae35; its statement concerns period lower bounds of periodic orbits, not exact equilibrium count.",
+          "Generic cubic Routh-Hurwitz supplies criterion 0<k<0.2 only once the equilibria and branch k are found."
+        ],
+        "reasoning": "Neither the dynamical period bound nor cubic stability criterion alone gives the two asymmetric branch crossings and fold locations.",
+        "searches": [
+          "hyperbolic sinh jerk 0.01 Hu Sang Wang Case C Case D equilibrium saddle node thresholds",
+          "Hu Sang Wang global period floor hyperbolic sine jerk"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3934/math.2022861",
+        "researchgate:355106996",
+        "2026/10/4/SCOPE-exact-equilibrium-skeleton-of-the-symmetry-broken-hyperbolic-sin--21754f7e9088",
+        "2026/10/4/SCOPE-a-sharp-compact-recurrence-threshold-for-a-hyperbolic-sine-jerk--e3c8f2764332",
+        "2026/10/11/SCOPE-a-sharp-global-period-floor-for-the-hu-sang-wang-hyperbolic-sine--e078463bae35"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary Sections 3.2/4.2 discuss Cases C/D under the small additive 0.01 forcing; analytic symmetric-case Hopf behavior does not quantify their unfolded equilibria.",
+          "M(q)=0.01 and k=0.2 introduce nonzero forcing-specific equations."
+        ],
+        "reasoning": "The source supplies the vector fields, but the thresholds require new monotone root bracketing and branchwise Routh classification not entailed by its numerical plots.",
+        "searches": [
+          "doi:10.3934/math.2022861 symmetric and forced case comparison",
+          "hyperbolic sinh jerk 0.01 Hu Sang Wang Case C Case D equilibrium saddle node thresholds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned target 2026/10/4/SCOPE-exact-equilibrium-skeleton-of-the-symmetry-broken-hyperbolic-sin--21754f7e9088 then unforced hyperbolic-sine threshold 2026/10/4/SCOPE-a-sharp-compact-recurrence-threshold-for-a-hyperbolic-sine-jerk--e3c8f2764332.",
+          "The unforced theorem fixes epsilon=0 and has different equilibrium symmetry."
+        ],
+        "reasoning": "The constant 0.01 unfolds a symmetry and creates two distinct outer stability thresholds; the symmetric source does not supply that root classification.",
+        "searches": [
+          "hyperbolic sinh jerk 0.01 Hu Sang Wang Case C Case D equilibrium saddle node thresholds",
+          "GitHub SCOPE2026 code search: hyperbolic sine jerk asymmetric equilibrium",
+          "Hu Sang Wang 0.01 forced sinh jerk Case C Case D"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary source shows forward/backward period-doubling diagrams for Cases C and D, not an exact tabulation of three root counts or three stability thresholds."
+        ],
+        "reasoning": "Displayed numerical bifurcation diagrams are not an exhaustive exact fixed-point table.",
+        "searches": [
+          "doi:10.3934/math.2022861 Case C Case D figures and parameter windows",
+          "Hu Sang Wang asymmetric jerk 0.01 saddle node numerical bifurcation"
+        ]
+      },
+      "rationale": "PASS best of knowledge: The paper studies the forced Cases C/D mainly through orbit bifurcation plots; the exact equilibrium skeleton and branchwise Hurwitz thresholds are not in the examined case analysis. A separate symmetric (unforced) compact-recurrence theorem is not equivalent under adding 0.01 forcing.",
+      "residual_risks": [
+        "An unindexed same-source local equilibrium derivation could contain these exact thresholds.",
+        "At the imaginary-pair crossings, nonlinear Lyapunov coefficients and global attractor coexistence remain unproved.",
+        "Numerical decimal thresholds are independent bracketing checks; analytic count relies on monotonicity and branch geometry."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Studies numerical asymmetric bifurcation diagrams; the claim-specific fold, three linear thresholds and two-sink window are not stated in inspected sections.",
+          "evidence": "Case C d=+1, a in [1.1,1.656]; Case D d=-1, a in [-1.42,-.83], both with forcing 0.01",
+          "identifier_or_url": "DOI:10.3934/math.2022861; author preprint researchgate:355106996",
+          "material_read": "Author full-text Sections 2.2, 3.2, 4.2, including Case C/D equation displays and figure descriptions; final publisher article abstract/metadata",
+          "method": "Open author manuscript and publisher full-text comparison",
+          "title": "The chaotic mechanisms in some jerk systems",
+          "trigger": "Same exact forced Cases C and D"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: An exact fold and a quantitative two-stable-equilibria interval explain the organizing fixed-point structure of a natural symmetry-broken jerk model used for numerical period-doubling. A complete linear-stability partition over the original study's parameter windows is more than arbitrary parameter sampling.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed same-source local equilibrium derivation could contain these exact thresholds.",
+    "At the imaginary-pair crossings, nonlinear Lyapunov coefficients and global attractor coexistence remain unproved.",
+    "Numerical decimal thresholds are independent bracketing checks; analytic count relies on monotonicity and branch geometry.",
+    "Both AUDIT.json and METADATA.json retain original operational provenance; publication is not_ready pending confidential-safe transformation, irrespective of science PASS."
+  ],
+  "schema_version": 1
+}
