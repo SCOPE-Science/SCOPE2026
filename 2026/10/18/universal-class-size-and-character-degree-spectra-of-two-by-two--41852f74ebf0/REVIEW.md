@@ -1,0 +1,11 @@
+# Review of the joint Borel spectra theorem
+
+**Correctness.** The product decomposition of the Borel group, two-case centralizer formula, disjoint valuation partition, and Clifford-theoretic character orbit argument were reconstructed. The class counts and degree-square sum agree with the group order. Direct computations check both characteristic-mixed and equal-characteristic ring models for shared parameters. The abstract argument, rather than finite tests, establishes arbitrary length and characteristic.
+
+**Originality.** The full Borel *internal conjugacy-class-size* distribution is different from ambient matrix similarity and from the Gelfand-pair multiplicity results compared. Singla (arXiv:1001.5304) treats full general linear groups at length two; Prasad–Singla–Spallone (arXiv:1212.6157) treat ambient matrix similarity at length two. Gupta–Singla (arXiv:2410.21761) already identify unit orbits on additive characters, an antecedent making the degree portion comparatively elementary. Fulman–Guralnick (arXiv:2112.15219) treat affine groups of finite-field vector spaces, rather than affine groups of higher-length chain rings. The affine splitting is standard. Comparisons against available published mathematical statements found no identical two-family class-size spectrum. Specialized affine-group conjugacy classifications may nevertheless contain it; priority remains a residual risk.
+
+**Value.** Exact class-size multiplicities and character degrees are natural complete finite-group invariants, providing commuting probability, the complex group-algebra isomorphism type and the sharp residue-two center exception. The theorem works for every ring length and distinguishes the distributions from the much weaker class-number calculation. Its point is this complete spectrum, not a renamed field-level Borel calculation.
+
+**Limitations.** This is an internal Borel-group theorem over commutative chain rings; it makes no claim for non-chain rings, higher matrix sizes, ambient \(\operatorname{GL}_2\)-similarity, or explicit character values. No assertion of unqualified literature priority or independent checking is made.
+
+Self-review: passed. Independent audit: not yet performed.
