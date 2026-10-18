@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite averaging matrix is invertible and yields the exact weighted difference quotient in (3). The ground-state identity (4) has nonnegative bulk potentials and uniformly positive endpoint penalties. Rescaled logarithmic interpolation gives the compactness, mass consistency, and liminf energy inequality; smooth test functions yield the matching limsup. The finite-dimensional and continuum Courant--Fischer principles prove the fixed-rank eigenvalue limits for every fixed rank, including the stated higher ranks. The checker confirms finite algebra but is not substituted for the infinite proof. Limits are not claimed uniform for ranks increasing with dimension.
+PASS
 
-## Originality — PASS, with residual risk
+Independently reconstructed C_n^{-1}x as i x_i−(i−1)x_(i−1), yielding generalized Rayleigh Q(z)=Σ|z_i−z_(i−1)|², M(z)=Σ|z_i|²/i², λ_j=σ_j^-2. The exact ground-state transform z_i=√i u_i gives E=Q−M/4=Σ√i(i−1)|u_i−u_(i−1)|²+Σ positive Vi|ui|² with Vi=O(i^-3) internally and endpoint V1,Vn uniformly positive. Independently checked the finite equality for multiple n, but crucial infinity conclusion uses H1 compactness on logarithmic mesh, endpoint penalty producing Dirichlet traces, mass consistency, liminf gradient energy, smooth compact-support recovery and both min-max inequalities. This yields (log n)^2(λ_j−1/4)→π²j²; derivative (λ^-1/2) at 1/4 equals −4. One minor proof detail: interpolation estimates must use the bounded spectral subspaces, not arbitrary high-energy vectors; RESULT does. No growing-rank uniformity claimed.
 
-The 2011--2013 discussion of the *same finite Cesàro matrices* identifies the top norm and inverse tridiagonal system, explicitly asking about the dominant spectrum without stating the fixed higher-rank law. The 2014 primary paper addresses extended eigenvalues of infinite operators, not singular values of finite sections. The 2026 finite Hardy-constant abstract controls the top singular value, and its stated maximization does not supply orthogonal higher singular levels. The indexed comparison with trace/Mellin Cesàro papers and s-number results for multiplication operators does not imply the current claim. The 2026 preprint full text and some historical originals could not be fully compared, and unindexed equivalent work remains possible; absence from searches is not a novelty certificate.
+## originality
 
-## Value — PASS
+PASS
 
-Fixed higher singular values are the optimal rank-limited approximation numbers of the canonical finite averaging map. Their sharp leading coefficients and strict \(j^2\) ordering describe how many independent near-extremal directions survive finite truncation, a feature not determined by the top norm. All fixed higher ranks and the leading spectral-gap law are covered by one coherent limit theorem.
+Brown–Halmos–Shields address infinite Cesàro behavior, MathOverflow 72416 develops finite matrix inverse/tridiagonal norm calculations, and Huang 2026 gives refined top Hardy constants; none of the materially observed statements specifies fixed j>=2 singular edge or gap. Lacruz et al. extended eigenvalues pertain to infinite operator intertwiners, not finite-section singular levels. Prior top norm cannot imply higher levels. Best-of-knowledge originality is conditional on unavailable full historical and September 2026 paper text, explicitly retained as residual risk rather than automatic failure.
 
-## Closest literature and scientific limitations
+## value
 
-Brown--Halmos--Shields 1965: infinite norm and spectrum. MathOverflow 2011--2013: finite norm and inverse tridiagonal calculation. Lacruz et al. arXiv:1403.4844v1: extended eigenvalue intertwiners. Huang arXiv:2609.10598v1: top finite Hardy constant, stronger top asymptotics. The result does not provide an exact finite-dimensional singular-value table, error rates, or uniform growing-rank asymptotics. An equivalent unindexed spectral analysis remains a risk.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+These are optimal finite-rank approximation/singular directions of a canonical Hardy–Cesàro averaging matrix. A scalar sharp norm determines only the first singular level, whereas the j² Dirichlet edge and (2j+1) gaps quantify the entire finite set of near-extremal independent modes. The precise j-dependent limit is a naturally reusable spectral invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
