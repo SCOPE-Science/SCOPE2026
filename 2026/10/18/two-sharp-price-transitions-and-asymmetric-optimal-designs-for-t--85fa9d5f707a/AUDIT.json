@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The unrestricted graph has three universal Rayleigh trace upper bounds determined only by cross and internal sums. The groupwise-uniform graph attains their minimum exactly. Piecewise-linear normalized cost has slopes changing at 2pq/(2pq-p-q) and 2p/(p-1) (p>q) or p/(p-1) (p=q). The equality conditions prove the stated uniqueness and critical segments, and strict quotient spectral separation yields nonuniform optimal high-price cross allocations. The standalone program successfully checked 3,055 cases/assertions including exact rational branch identities and independent full Laplacian eigenvalues.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sun et al. 2006 proves the general convex SDP and dual conditions, not an explicit family-specific phase law.",
+        "Jafarizadeh 2015, section 5.3.6, studies two cliques sharing vertices with unpriced total conductance, a different graph structure.",
+        "The art of interconnections (2024) optimizes interlayer allocation with fixed intralayer Laplacians (sections 4.1–4.2), rather than splitting the same budget over all three classes."
+      ],
+      "reasoning": "The general SDP applies to this instance, and the present formulas are derived as an exact nontrivial parametric specialization. Neither the generic optimization theorem nor the cited different constrained families presents the two community-size-dependent switch points and the asymmetric high-price degeneracy. Possible undiscovered stronger exact block-symmetric SDP results remain an originality risk.",
+      "searches": [
+        "\"optimal\" \"algebraic connectivity\" \"two complete graphs\" edge weights",
+        "\"fastest mixing\" \"price\" \"complete bipartite\" \"clique\"",
+        "The art of interconnections maximum algebraic connectivity multilayer networks all-to-all interconnection"
+      ]
+    },
+    "checked_sources": [
+      "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+      "https://arxiv.org/pdf/1509.05823",
+      "https://www.cambridge.org/core/journals/network-science/article/art-of-interconnections-achieving-maximum-algebraic-connectivity-in-multilayer-networks/67B428A634B2BF0741AFD0B350F8AB4E"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sun et al. 2006 provides general convex duality, but its examples cover the weighted path and cycle, not the complete priced two-block graph.",
+        "Jafarizadeh 2015, sections 5.2–5.3, provides an unpriced full-clique solution and other topologies.",
+        "A related two-community result optimizes total effective resistance; maximizing the minimum nonzero Laplacian eigenvalue is not implied by minimizing the sum of inverse nonzero eigenvalues."
+      ],
+      "reasoning": "The prior effective-resistance problem has a different spectral objective and different threshold formulas; neither theorem implies the other. The unpriced complete-graph solution is the t=1 specialization only, so it does not imply the two critical-price boundaries or the high-price asymmetric family. Generic SDP existence alone is not an explicit all-parameter phase classification.",
+      "searches": [
+        "published-finding corpus semantic: optimal spectral gap for priced complete multipartite networks and phase transitions",
+        "published-finding corpus semantic: fastest mixing algebraic connectivity priced complete bipartite graph within-group edges sharp optimal thresholds",
+        "\"fastest mixing\" \"complete split graph\" continuous time"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun et al. 2006, DOI 10.1137/S0036144504443821, sections 1.2, 4.3–4.4, 5.2–5.3",
+        "Jafarizadeh 2015, arXiv:1509.05823, sections 5.2–5.3"
+      ],
+      "reasoning": "Fastest mixing of a continuous-time symmetric chain, maximizing weighted Laplacian algebraic connectivity and E-optimal network conductance allocation are equivalent formulations of the objective. Neither inspected source supplies the exact cost-class switching thresholds or compares the set of all unrestricted optima on this two-price complete graph. Discrete-time second-largest-eigenvalue-modulus fastest mixing is not equivalent due to its stochastic row-sum and sign constraints.",
+      "searches": [
+        "\"fastest mixing\" \"complete bipartite\" \"cliques\" edge weights budget",
+        "\"algebraic connectivity\" \"two communities\" \"intra\" \"inter\" \"optimal\" weights",
+        "published-finding corpus semantic: Complete two-block graph weighted cross links uniform within clique links optimal fastest continuous time diffusion sharp two breakpoints in price"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest non-equivalent examples included 2026/10/11/SCOPE-sharp-spectral-demixed-two-sensor-frame-bounds-on-finite-cycles--b03d8e4c7818 and 2026/10/11/SCOPE-sharp-gain-optimization-for-consensus-with-exponential-fading-me--a3cf7ff47956; these address different spectral or dynamical objectives.",
+        "The public sources inspected were theoretical articles, with no catalog of these two-price conductance thresholds."
+      ],
+      "reasoning": "The specific numeric thresholds are rational functions of arbitrary integer p,q, not a known-entry lookup in an examined table. No exact matching tabulation was found; this is limited search evidence rather than a uniqueness certificate.",
+      "searches": [
+        "published-finding corpus semantic: For p>q two groups complete graph all cross edges have unit cost within each group edges common price t maximizing the Laplacian algebraic connectivity spectral gap yields two thresholds and asymmetric high-price optima",
+        "published-finding corpus semantic: maximum algebraic connectivity priced two communities fastest mixing compare effective resistance",
+        "\"algebraic connectivity\" \"intra-community\" \"inter-community\" \"conductance\" \"optimal\""
+      ]
+    },
+    "rationale": "Inspected primary source texts give the general FMMP convex framework, unpriced complete graph and other topologies, and fixed-intralayer coupling problems, not the stated two-price universal phase theorem. Objective-implication comparisons separate effective resistance, discrete-time mixing and fixed-subgraph coupling. Risk remains that an unindexed explicit exact specialization exists.",
+    "residual_risks": [
+      "Exact parametric results in unindexed matrix-optimization or mixing literature may exist.",
+      "Generic semidefinite or E-optimal design duality may be viewed as conceptually stronger, although it does not itself state or tabulate the exact thresholds and high-price optimal-face property.",
+      "The result does not fully classify nonsymmetric optimal allocations precisely at the upper critical price for unequal groups."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_GENERAL_FORMULATION_NOT_SPECIFIC_THEOREM",
+        "evidence": "Page 683 states weighted rate cost and maximizing lambda2; section 4.4 gives primal-dual optimality; section 5.2 covers paths and 5.3 cycles. No complete two-block priced phase theorem is stated.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "Abstract and sections 1.2, 4.3–4.4, 5.2–5.3, including formulas, examples and result statements; first-public electronic date shown on page 681",
+        "method": "Opened full 19-page searchable PDF; read cited sections and tested full-text terms complete, bipartite, multipartite",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "Foundational continuous-time spectral gap optimization with general weighted rate budget and possible dominating dual result"
+      },
+      {
+        "assessment": "DIFFERENT_COST_AND_TOPOLOGY; unpriced complete graph included as a specialization",
+        "evidence": "Section 5.2.2 derives uniform weights for the single-price complete graph; section 5.3.6 defines two complete graphs with a nonempty vertex overlap, rather than a complete graph of two price classes.",
+        "identifier_or_url": "https://arxiv.org/pdf/1509.05823",
+        "material_read": "Abstract, introduction, sections 5.2 (linear programming and complete graphs) and 5.3 (including two coupled complete graphs), and conclusions",
+        "method": "Opened searchable 48-page arXiv PDF and inspected the cited results and their graph definitions",
+        "title": "Optimizing the Convergence Rate of the Continuous Time Quantum Consensus",
+        "trigger": "Closest full-length collection of analytical spectral-gap optima for symmetric network classes"
+      },
+      {
+        "assessment": "NOT_DOMINATING: layer edge weights treated as preexisting, optimization budget on interlayer rates",
+        "evidence": "Sections 4.1–4.2 keep subgraph Laplacians fixed and vary cross-layer rate allocation; the present problem purchases all intra- and intercommunity conductances with one cost-weighted budget.",
+        "identifier_or_url": "https://www.cambridge.org/core/journals/network-science/article/art-of-interconnections-achieving-maximum-algebraic-connectivity-in-multilayer-networks/67B428A634B2BF0741AFD0B350F8AB4E",
+        "material_read": "Web-accessible full-text methodology and sections 4.1–4.2 on all-pairs interconnections, fixed intralayer Laplacians and coupling thresholds",
+        "method": "Read the accessible full-text HTML and relevant derivations and scope conditions",
+        "title": "The art of interconnections: Achieving maximum algebraic connectivity in multilayer networks",
+        "trigger": "Intercommunity coupling and threshold behavior could subsume a priced two-community theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "85fa9d5f-707a-400d-89e9-8d6d50390996",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result answers a structurally motivated all-size network design question with two explicit cost thresholds, shows when the optimal support changes from all edges to only one reinforced group to bipartite coupling, and proves the practically relevant loss of unique allocation at high internal price. The sharp formulas avoid repeated semidefinite optimization and distinguish continuous-time spectral gap from the related but non-equivalent resistance objective.",
+    "status": "PASS"
+  }
+}
