@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The trace-decreasing no-detection generator is completely positive; positive on-site and edge jump rates force positivity improvement, hence a unique globally attracting Perron density for every m>=2, p>0, eta<1. Leaf permutations reduce the stationary eigenproblem exactly to the displayed five-variable matrix. Elimination is justified by lambda>-2p and Gamma>=4. An implicit-function argument near -p(1+eta) yields a positive eigenmatrix and all fixed-efficiency coefficients. The eta=xi/m crossover is obtained from the same scalar equations, with xi=0 checked exactly. The independent full Liouvillian construction and asymptotic checks pass 216 assertions in check_star.py; finite numerics are not used as proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2405.11812, Liu and Chen derive general normalization and analyze postselected skin dynamics on a different lattice.",
+        "arxiv:2204.01836, Section 2 Eq. (5) concerns trace-preserving QSW evolution at eta=0.",
+        "arxiv:0905.2942 introduces QSWs without conditional trajectory loss."
+      ],
+      "reasoning": "General Perron–Frobenius methods and conditioned Lindbladian theory could supply a general framework, but the inspected material does not explicitly cover the specialized star coefficients, order-of-limits crossover, and aggregate coherence scaling. Access to the full 2025 Liu–Chen text was unavailable; its known example has different geometry and scope.",
+      "searches": [
+        "postselection nonlinear Lindblad quantum stochastic walk degree heterogeneity star graph stationary localization coherent steady state exact formula",
+        "nonlinear Lindblad star graph quantum stochastic walk near perfect detection degree growth stationary hub depletion spectral gap",
+        "arxiv:2405.11812 (source inspection)",
+        "arxiv:2204.01836 (source inspection)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2603.17629v1/v3",
+      "arxiv:0905.2942v2",
+      "arxiv:2204.01836v1",
+      "arxiv:2405.11812 (abstract only)",
+      "MSC2020 81Q35 classification"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The motivating paper establishes non-uniformity of stationary states for irregular graphs and numerically observes persistent coherence, but leaves the full stationary form difficult analytically (Section III.A and Appendix A).",
+        "The 2022 QSW paper proves unconditional classicalization with eta=0, which is strictly distinct from fixed eta>0."
+      ],
+      "reasoning": "The source conditions are necessary equilibrium equations, not a solution for arbitrary star degree; after symmetry reduction the offdiagonal leaf and hub coherences affect the eigenvalue and must be solved. Our fixed-eta inverse-degree coefficients and xi/m transition require this new reduction. Existing unconditional steady states coincide only in the explicitly acknowledged eta=0 boundary case.",
+      "searches": [
+        "conditioned Markov jump process star graph degree-dependent killing quasi-stationary distribution central occupancy scaling",
+        "arxiv:2603.17629 postselected quantum stochastic walk strong degree star finite-coherence thermodynamic limit",
+        "arxiv:2603.17629v1 Appendix A (source inspection)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2603.17629, Eq. (6) is the same conditional evolution after normalization; Eqs. (7)-(8) are general stationary consistency conditions, with unknown coherence entries; the six-spin star example uses a different XY-spin and edge-only jump model.",
+        "arxiv:2603.17629, Fig. 9 depicts a six-vertex XY-spin star with different edge-only jump operators and transient concurrence; no all-degree Laplacian-QSW asymptotic statement in the relevant primary sections."
+      ],
+      "reasoning": "Equivalence to the source nonlinear Lindblad equation is explicit. The new claim adds asymptotic coefficients and a singular degree/efficiency regime; neither follows from the paper as a stated consequence without separately solving the full coherent eigenproblem.",
+      "searches": [
+        "postselection induced localization coherence quantum walks heterogeneous networks",
+        "postselection induced localization coherence in quantum walks on heterogeneous networks arxiv 2603.17629",
+        "arxiv:2603.17629v1 Eq. (6), Appendix A (source inspection)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact coefficient table was found in the inspected star example (six sites) or its Appendix A.",
+        "The closest indexed entries concern unrelated quantum graph spectral problems, dephasing, and transfer, not this conditional Lindbladian."
+      ],
+      "reasoning": "The result is an analytic degree-asymptotic, not the value of an existing finite graph table; the checked entries were compared by model, normalization and asymptotic domain.",
+      "searches": [
+        "postselected quantum stochastic walk star graph conditional Perron eigenstate stationary hub probability m^-2 coherence vanishes as 1/m",
+        "postselected Laplacian quantum stochastic star graph degree m monitoring efficiency eta hub density (1-eta)/(eta m^2) site basis l1 coherence inverse m"
+      ]
+    },
+    "rationale": "The 2026 motivating paper develops the postselected QSW, the degree-balance criterion, diagonal stationary constraints, and finite-graph simulations (with a separate edge-jump XY-spin star illustration); it does not state a general exact star eigenreduction, quadratic hub asymptotic, aggregate-coherence decay coefficient, or eta~1/m crossover. Earlier QSW papers treat unconditional evolution, so their uniform steady-state and decoherence statements do not imply the conditional asymptotic. The comparison is at the level of model and claimed limits, not title matching; possible implicit coverage from broader quasi-stationary spectral theory is acknowledged.",
+    "residual_risks": [
+      "A broader uninspected theory of conditioned completely positive semigroups may imply the star asymptotic as a specialization.",
+      "The 2025 Liu–Chen article was not available for full-text inspection, although its accessible abstract concerns different models.",
+      "No claim of experimental finite-sample stability or uniformity as p approaches zero/eta approaches one."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies generator and finite-network evidence; no arbitrary-degree star coherence/hub asymptotics located",
+        "evidence": [
+          "Equation (6) gives the exact master equation used here.",
+          "Section III.A notes full analytic steady state difficult; Appendix A gives implicit diagonal constraints.",
+          "Figure 9 includes a six-site star; Appendix C discusses numerical size-dependent localization time on a cylinder."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2603.17629",
+        "material_read": "Abstract, Sections II and III.A, distinct star XY-spin-network Section III.B, conclusions, Appendices A and C; equations (1)-(8), (A1)-(A7), Figures 9, 12 and 13",
+        "method": "Read arXiv full-text PDF rendered text and relevant page image",
+        "title": "Postselection-induced localization and coherence in quantum walks on heterogeneous networks",
+        "trigger": "Exact target model, finite-star simulation, stationary constraint"
+      },
+      {
+        "assessment": "Foundational unconditional QSW framework, not detected-jump postselection or star large-degree limits",
+        "evidence": [
+          "Defines QSW and quantum-to-classical interpolation without conditional jumps."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0905.2942",
+        "material_read": "Introduction, axioms, quantum-versus-classical interpolation, table and concluding discussion on pages 1-4",
+        "method": "Read primary arXiv PDF text and page 3 image",
+        "title": "Quantum stochastic walks: A generalization of classical random walks and quantum walks",
+        "trigger": "Foundational quantum stochastic walk reduction and jump normalization"
+      },
+      {
+        "assessment": "Studies trace-preserving quantum stochastic walk and its classicalization; not conditional postselection",
+        "evidence": [
+          "Section 2 Eq. (5) has no eta-dependent conditioning term; at eta=0 our equation reduces to this framework."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2204.01836",
+        "material_read": "Abstract, Sections 1-2 and Section 2.1 quantum stochastic walk equation, accompanying PDF page",
+        "method": "Read arXiv PDF text and page 3 image",
+        "title": "Decoherence and classicalization of continuous-time quantum walks on graphs",
+        "trigger": "Star quantum stochastic walk decoherence and stationary classicalization"
+      },
+      {
+        "assessment": "General nonlinear normalization and postselected skin effect; unresolved implicit-coverage possibility, not represented as a full-text negative check",
+        "evidence": [
+          "Accessible abstract describes postselected skin effect rather than a star-graph many-degree asymptotic."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2405.11812",
+        "material_read": "Accessible abstract and model description; complete primary text unavailable",
+        "method": "Checked arXiv PDF and HTML and publisher OA options; full text remained inaccessible",
+        "title": "Lindbladian dynamics with loss of quantum jumps",
+        "trigger": "Potential dominating general normalized-Lindblad theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7a73699f-5726-41d0-b208-adaeea049056",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 paper argues that postselection-induced peripheral localization can preserve quantum coherence in finite heterogeneous quantum networks. The star is a canonical degree-heterogeneous test family; exact hub suppression from O(m^-1) to O(m^-2) and aggregate-coherence collapse at O(m^-1) reveal an experimentally and conceptually relevant large-network boundary. The eta~1/m crossover gives a quantitative monitoring-strength scale separating unconditional-like and strongly suppressed hub probabilities, with the full coherent mixing parameter retained. This is not a value claim based merely on symbolic reduction or numeric computation.",
+    "status": "PASS"
+  }
+}
