@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "For every b>=2 and r>=4, both directions follow from congruence-preserving finite cyclic carrying and explicit reverse-carry witnesses with pairwise distinct base-b exponents. The exact genus is a floor sum on a reduced coprime lattice, and the greatest gap comes from the zero residue class. Every boundary (b=2, d>1, c=1, a=1) is addressed. A separate verifier passed 1518 exact finite-weight decisions in 34 settings and 1260 positive witnesses, not claimed as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2020 Corollary 7 proves the repunit is sturdy: lower bound r only. Its Theorem 4 gives upward progressions from known weights, without characterizing the starting weights for each residue.",
+        "2023 Theorem 1 gives necessary gcd divisibility and a cofinite criterion; Question 2 asks exact outputs.",
+        "2009 results compare one chosen digit sum to another or give density-zero statements over integers n."
+      ],
+      "reasoning": "These stronger-general-setting statements do not by themselves imply the displayed complete closed-form spectrum as an identified result; the cyclic normal form determines every individual residue-class threshold. The source proof methods are acknowledged as antecedents, and possible unstated short corollaries remain a risk.",
+      "searches": [
+        "arXiv:2002.02731 Corollaries 7 and 8 sturdiness generalized repunits",
+        "arXiv:2303.13017 Theorem 1 cofinite digit-sum output",
+        "Dartyge Luca Stanica On digit sums of multiples of an integer 2009 Theorems 1–4",
+        "repunit cyclic carrying proof exact digit sum spectrum (b^r-1)/(b-1) modulo (b-1)"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2002.02731",
+      "https://arxiv.org/abs/2303.13017",
+      "https://faculty.nps.edu/pstanica/research/2009JNT_digit-sums-multiple.pdf",
+      "https://oeis.org/wiki/Generalized_repunit_numbers"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The separate length-three theorem is previously covered and removed from the present quantified claim.",
+        "2020 Theorem 4 yields the inclusion of all progressions from rj (since jM itself is a multiple), but the opposite inclusion requires the cyclic-carry terminal classification.",
+        "2023 Example 4 for n=33 is only a negative weight 3 example, not a classification of 1111 and higher repunits."
+      ],
+      "reasoning": "Existing equality/necessity/sturdiness statements provide component constraints and lower bounds, not the reverse containment as a published theorem. This new proof establishes it uniformly and calculates sharp exceptional cardinality. Other works based on the same ideas may nevertheless be very close.",
+      "searches": [
+        "Phunphayap Noppakaew Pongsriiam Question 2 digit sums of multiples repunits answers arbitrary length",
+        "full digit sum set multiples of repunit b^r-1 over b-1 all lengths r b; Frobenius semigroup generators gcd",
+        "exact repunit full spectra and Frobenius genus",
+        "arXiv:2303.13017 Examples 4–5 / Questions 1–4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2020 Theorem 3 equates a weight with a sum of distinct base powers; Theorem 4 ensures increments of b-1 after a given weight, but neither locates every minimal admissible residue weight.",
+        "2023 Question 2 requests full Out(s_b,n) sets when the gcd condition is not sufficient."
+      ],
+      "reasoning": "The candidate output-set formulation is equivalent to a residue-wise threshold statement: for each residue class inside multiples of d, the first digit sum is rj for the unique smallest j in 1..(b-1)/d. Neither inspected paper gives those thresholds for every generalized repunit length. General decidability is not an evaluated closed form.",
+      "searches": [
+        "complete digit sum sets of multiples of generalized repunits in arbitrary base and length, Frobenius, conductor, gap genus",
+        "For all bases b and length r the attainable digit sums of positive multiples of repunit R_r(b) = (b^r-1)/(b-1) are exactly r j + (b-1)t for j=1,...,b-1 and t>=0; cyclic carry complete spectrum",
+        "arXiv:2002.02731 Theorem 3 and Theorem 4",
+        "arXiv:2303.13017 Theorem 1 and Question 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The OEIS generalized-repunit page defines R_n^(b) and lists numerical values, but gives no all-b/all-r complete digit-sum output table.",
+        "A previously derived length-three spectrum does not address lengths at least four."
+      ],
+      "reasoning": "No exact database table or matching earlier claim located for the universal length-at-least-four range; failure to find a table is not a novelty certificate.",
+      "searches": [
+        "site:oeis.org \"multiples of 1111\" \"digit sums\"",
+        "site:oeis.org \"digit sums\" \"repunits\" \"multiples\"",
+        "OEIS generalized repunit numbers R_n^(b) definitional page",
+        "earlier length-three generalized repunit output spectrum"
+      ]
+    },
+    "rationale": "A complete spectrum, precise initial threshold for every residue class, and a sharp relative genus/conductor for all lengths >=4 are not stated in the inspected published theorems; the cyclic-carry reduction establishes an essential residue-wise minimality not furnished by published upward-closure alone. The prior length-three computation is strictly excluded. Specific residual implication/coverage risks are recorded below.",
+    "residual_risks": [
+      "An older paper could have stated the exact spectrum under a different formulation or in an unindexed table.",
+      "The 2020 power-sum/upward-closure toolkit is close, and an unstated corollary might be considered covered on a stricter implication reading.",
+      "No independent audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_EXPLICITLY_COVERING; supplies essential techniques and may imply some steps; no exact all-length residue thresholds/relative genus stated",
+        "evidence": [
+          "2020-02-07 earliest arXiv posting",
+          "Theorem 3: distinct power-of-b congruence",
+          "Theorem 4: closure by b−1",
+          "Corollary 7: generalized repunits sturdy"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2002.02731",
+        "material_read": "Accessible arXiv full-text HTML, introduction and Sections 2–3 Theorems 3, 4, 5, Corollaries 7–8, subsequent section content index",
+        "method": "Read full-text HTML and compared exact hypotheses, strength of each theorem and implications for each digit-sum residue",
+        "title": "Computational Aspects of Sturdy and Flimsy Numbers",
+        "trigger": "same generalized repunit objects and digit-sum multiple properties"
+      },
+      {
+        "assessment": "NOT_COVERING; theorem gives gcd restriction and cofiniteness but poses complete determination as a question",
+        "evidence": [
+          "2023-03-23 first arXiv date",
+          "Theorem 1 output congruence restriction",
+          "Question 2 asks complete output sets"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2303.13017",
+        "material_read": "Accessible arXiv full-text HTML Sections 1–3 including Theorems 1–3, Examples 4–5 and Questions 1–4",
+        "method": "Read full text, locate digit-sum output-set statements, example modulus 33, exact-spectrum question and relevance",
+        "title": "Directed graphs of integers with arcs determined by an arithmetic function",
+        "trigger": "published exact-output-set question"
+      },
+      {
+        "assessment": "NOT_COVERING; nontrivial equal-weight multiples and densities rather than complete attainable digit-sum spectra",
+        "evidence": [
+          "Theorem 1: existence of equal digit-sum nontrivial multiple",
+          "Theorem 4: density-zero property for sturdy numbers",
+          "Repunit discussed in introduction as equal-weight example"
+        ],
+        "identifier_or_url": "https://faculty.nps.edu/pstanica/research/2009JNT_digit-sums-multiple.pdf",
+        "material_read": "Lawfully available 11-page PDF, introductory results, theorem statements and proofs, relevant constructions and later asymptotic sections",
+        "method": "Read PDF text, inspected page images 1–2, searched repunit terminology, reviewed later analytical content and distinction in theorem scope",
+        "title": "On digit sums of multiples of an integer",
+        "trigger": "earlier potentially dominating general digit-sum paper"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "612537f7-b691-4b8a-ac9b-b0d63f6f915d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The two-parameter generalized-repunit family is a natural extension of the explicit output-set/Frobenius questions. Its fully determined spectrum and sharp genus/conductor in the relevant gcd-lattice close the exact arithmetic classification for all lengths >=4. This is a structural, uniform and genuinely quantitative answer, not only a finite example or a renamed known theorem.",
+    "status": "PASS"
+  }
+}
