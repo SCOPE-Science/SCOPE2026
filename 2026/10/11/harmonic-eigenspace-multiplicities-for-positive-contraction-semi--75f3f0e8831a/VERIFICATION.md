@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The theorem and its example have **analytic verification**; no computation or empirical extrapolation is used as an infinite-dimensional proof.
+## correctness
 
-The following proof obligations were checked against the cited primary full texts and reconstructed: (1) The hypotheses on \(E\) and \(T_\tau\) exactly match the fixed-space theorem [1, Theorem 3.1], which gives \(F=\operatorname{Fix}(T_\tau)\) the inherited Banach lattice structure and Dedekind completeness. (2) For every \(0\leq s\leq\tau\), commutativity gives invariance of \(F\), while \(T_sT_{\tau-s}=T_\tau\) gives inverse positive restrictions. These are lattice automorphisms, irrespective of whether \(F\) is a sublattice of \(E\). (3) The forward generator-eigenvector implication follows from the semigroup eigenfunction identity. The reverse follows because \(ma\bmod\tau\) is dense when \(a/\tau\) is irrational and the periodic orbit is strongly continuous; the generator derivative then exists with the required eigenvalue. (4) The lattice-homomorphism estimate [2, Proposition 3.1(b)] is valid on order-complete \(F\), with the normalized-powers independence proof in [2, Lemma A.4]. These steps establish both inequalities without assumptions on isolated spectrum or eigenspace finiteness.
+PASS
 
-For the example, functions \(e^{in\theta}\), \(n\in\mathbb Z\), are the only characters of the circle translations; each associated Fourier mode in one \(L_1(\mathbb T)\) summand has one complex dimension. The first translation speed has generator eigenvalues \(in\), the second \(2in\), yielding dimensions \(1\) at \(i\) and \(2\) at \(2i\). The \(L_1\) direct sum is monotonically complete and has the Fatou property.
+For beta=0 the spaces coincide. For beta!=0 set tau=2pi/|beta|, F=Fix(T_tau). Gluck 2021 Theorem 3.1 makes F a Dedekind-complete Banach lattice in its inherited order and norm, without requiring it be a sublattice of E. Restrictions U_s=T_s|F and U_{tau-s} are positive inverse operators, hence lattice automorphisms; choose a/tau irrational. Eigenvectors of U_a with eigenvalue exp(i j beta a) must satisfy U_t x=exp(i j beta t)x by density of nonnegative irrational multiples mod tau and strong continuity; their right derivative yields A x=i j beta x. Thus the eigenspaces agree for every integer j. Apply Gluck 2015 Proposition 3.1(b), whose normalized lattice-power/independence proof compares dimensions of an eigenvalue and its powers. For L1(T) plus L1(T) translations at speeds 1 and 2, Fourier modes give dimension 1 at i and 2 at 2i. This proves exact finite geometric multiplicity inequality, not generalized or approximate eigenspace claims.
 
-Not claimed: verification of all possible equivalent historical formulations; comparison of different infinite cardinalities; multiplicities beyond eigenspaces; generalization to approximate spectrum or arbitrary noncontractive semigroups.
+## originality
 
-Scientific references: [1] arXiv:2108.05174v1 §§2–3; [2] arXiv:1503.02430v2 §3 and Appendix A.
+PASS
+
+Gluck 2021 explicitly proposes a semigroup dimension estimate after Corollary 3.5 but refrains because no convenient generator/semigroup multiplicity theorem is available. The audited irrational single-time sampling transfers Gluck 2015 DISCRETE multiplicity inequality to exact generator eigenspaces, genuinely resolving the stated obstacle for the given hypotheses. This is a bounded best-of-knowledge priority assessment.
+
+## value
+
+PASS
+
+A finite geometric-multiplicity upgrade of the established cyclicity theorem directly answers the structural question Gluck 2021 left open for semigroups, and the explicit strictness example shows the inequality has quantitative content beyond eigenvalue existence. A precise reusable fixed-space/sampling lemma bridges discrete lattice homomorphism theory and continuous generators, making the result substantive without claiming broader spectra or a new cyclicity theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

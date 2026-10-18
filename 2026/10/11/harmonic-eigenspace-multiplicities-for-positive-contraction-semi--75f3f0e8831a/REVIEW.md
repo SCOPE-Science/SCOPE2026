@@ -1,9 +1,21 @@
-# Scientific review: harmonic eigenspace multiplicities
+# Independent mathematical audit
 
-**Correctness — PASS.** With \(\tau=2\pi/|\beta|\), the period-fixed space is a Dedekind-complete complex Banach lattice by Glück (2021), Theorem 3.1. Every restricted time map has a positive inverse and hence is a lattice automorphism. An irrational sample of the periodic group has exactly the generator eigenspaces at the designated harmonics: density of sampled times and strong continuity eliminate possible aliasing. Glück (2015), Proposition 3.1(b), with Appendix Lemma A.4 supplies the valid dimension comparison. All signs of the integer harmonic, the zero-frequency case, and the finite-or-infinite dimension convention are accounted for. Strictness is witnessed by two translation speeds on \(L_1(\mathbb T)\oplus_1L_1(\mathbb T)\).
+## correctness
 
-**Originality — PASS with residual risks.** The motivating primary source, *A note on the fixed space of positive contractions* (arXiv:2108.05174v1), gives qualitative generator cyclicity but expressly describes the analogous geometric-dimension assertion as a likely, untreated extension. *On the Peripheral Spectrum of Positive Operators* (arXiv:1503.02430v2), Proposition 3.1(b), covers the discrete ingredient, not this generator result; the exact irrational-sampling reduction is essential. Other inspected semigroup papers compare spectral sets or require finite-rank poles of individual operators. Source-ID, implication, Fourier-mode alias and indexed-record searches did not identify prior coverage, but they do not prove absolute priority. The classical Arendt et al. (1986) volume could not be inspected in full.
+PASS
 
-**Mathematical value — PASS.** The theorem answers a specifically identified quantitative gap in the literature. It strengthens existence at harmonic frequencies to a universal finite geometric-multiplicity inequality and provides a concrete conceptual link between continuous positive semigroups and discrete lattice automorphism theory. Strict examples show nonvacuous new information. It makes no claims about algebraic multiplicities, the continuous spectrum, or the separate single-operator open problem.
+For beta=0 the spaces coincide. For beta!=0 set tau=2pi/|beta|, F=Fix(T_tau). Gluck 2021 Theorem 3.1 makes F a Dedekind-complete Banach lattice in its inherited order and norm, without requiring it be a sublattice of E. Restrictions U_s=T_s|F and U_{tau-s} are positive inverse operators, hence lattice automorphisms; choose a/tau irrational. Eigenvectors of U_a with eigenvalue exp(i j beta a) must satisfy U_t x=exp(i j beta t)x by density of nonnegative irrational multiples mod tau and strong continuity; their right derivative yields A x=i j beta x. Thus the eigenspaces agree for every integer j. Apply Gluck 2015 Proposition 3.1(b), whose normalized lattice-power/independence proof compares dimensions of an eigenvalue and its powers. For L1(T) plus L1(T) translations at speeds 1 and 2, Fourier modes give dimension 1 at i and 2 at 2i. This proves exact finite geometric multiplicity inequality, not generalized or approximate eigenspace claims.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Gluck 2021 explicitly proposes a semigroup dimension estimate after Corollary 3.5 but refrains because no convenient generator/semigroup multiplicity theorem is available. The audited irrational single-time sampling transfers Gluck 2015 DISCRETE multiplicity inequality to exact generator eigenspaces, genuinely resolving the stated obstacle for the given hypotheses. This is a bounded best-of-knowledge priority assessment.
+
+## value
+
+PASS
+
+A finite geometric-multiplicity upgrade of the established cyclicity theorem directly answers the structural question Gluck 2021 left open for semigroups, and the explicit strictness example shows the inequality has quantitative content beyond eigenvalue existence. A precise reusable fixed-space/sampling lemma bridges discrete lattice homomorphism theory and continuous generators, making the result substantive without claiming broader spectra or a new cyclicity theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
