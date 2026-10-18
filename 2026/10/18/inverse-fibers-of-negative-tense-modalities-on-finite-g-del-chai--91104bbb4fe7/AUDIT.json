@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The fixed-chain dual equivalence is Theorem 4.4 of arXiv:2212.14756, with the required (S1)-(S3) in Definition 4.1. On the n-point dual chain, requiring both sets of empty and nonempty row (and column) indices to be upsets eliminates mixed emptiness. For nonempty row intervals [a_i,b_i], preserving all upsets under g and f makes both endpoints nonincreasing. Coverage of every column is equivalent to a_last=0, b_first=n-1 and b_next>=a_prev-1. Conversely those conditions imply all row and column fibers are nonempty intervals with nonincreasing endpoints, hence all four operations preserve upsets. The duality is faithful and g(U_t) is exactly {i:a_i<t}. Therefore g profiles are unique, every nonincreasing a ending at zero is realized, and all b completions are counted with no collisions. Stars-and-bars gives 1+binomial(2n-2,n-1) reducts and maximum fiber binomial(2n-2,n-1); two explicit b vectors give the minimum two for n>=2, attained for a=(n-1,...,n-1,0). Independent exhaustive tests evaluate the original algebraic T1-T8 on chains of size 2..4, all admissible relations through 4 dual points, and endpoint formulas through 5 dual points. The arbitrary-n proof is deductive, not inferred from the finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2212.14756 (2022), Def. 4.1, Lemma 4.4, Prop. 4.3 and Thm. 4.4: all negative tense expansions correspond to admissible relations on Heyting spaces",
+        "Ma and Li (2022 online), abstract: GN-frame duality and completeness; accessible content does not state the claimed finite-chain fiber counts",
+        "Almiñana and Pelaitay, 2024 preprint doi:10.21203/rs.3.rs-4025452/v1 abstract: subdirect irreducibility classification, not an explicit one-operator fiber count"
+      ],
+      "reasoning": "The general duality is a premise of the present derivation, but its statement neither classifies relations on dual chains by moving interval endpoints nor evaluates the forgetful fibers. The logical setting is covered, while the specific reconstruction theorem is not implied by a quoted numeric or stronger specialized theorem.",
+      "searches": [
+        "On Heyting algebras with negative tense operators arxiv 2212.14756 full text Section 4",
+        "Characterization of Subdirectly Irreducible Heyting Algebras with Negative Tense Operators finite chains",
+        "On Heyting algebras with negative tense operators II abstract topological properties",
+        "Characterizing intermediate tense logics in terms of Galois connections"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2212.14756 (2022 first public preprint), full text",
+      "doi:10.1007/s11225-023-10053-6 (2023 journal version of same paper), publisher abstract/metadata",
+      "doi:10.1007/s11225-022-10014-5 (Ma and Li), abstract/metadata",
+      "doi:10.21203/rs.3.rs-4025452/v1 (2024 follow-up), abstract/metadata",
+      "doi:10.1093/JIGPAL/JZU024 (Dzik, Järvinen and Kondo), bibliographic scope and abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2022 source gives the existence/faithfulness of relational representation (a needed general premise), while the new proof specializes S1-S3 to exact endpoint inequalities and then counts inverse fibers",
+        "Related Gödel-chain results for Dunn modalities and Heyting-Lewis strict implication impose different operator identities and therefore do not imply this four-operator theorem"
+      ],
+      "reasoning": "The nearest stronger theorem is only a representation equivalence: to obtain the new conclusion one must prove the absence of mixed empty fibers, the no-gap relation characterization, and exact reduct-to-completion correspondence. Neither the source theorem nor results about other operator signatures states these steps or their enumeration.",
+      "searches": [
+        "arXiv:2212.14756 T1 T8 S1 S2 S3 dual equivalence",
+        "Intuitionistic propositional logic with Galois negations Ma Li 2022 relational semantics",
+        "negative tense Heyting chain completion counting fibers"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2212.14756 Definition 2.1 and Example 2.2; Section 4 full text establishes definitions and duality, not the precise chain-profile inverse fibers",
+        "Ma and Li, doi:10.1007/s11225-022-10014-5, abstract discusses GN relational semantics, not counts"
+      ],
+      "reasoning": "Antitone Galois connections and convex relational matrices are plausible aliases. An equivalent theorem would need the same fixed-chain four-operator signature, the exact tuple inequalities, and the fiber of the forgetful map onto a single negative operator. No inspected source establishes that entire implication.",
+      "searches": [
+        "negative tense Heyting Gödel chain exact enumeration admissible relations convex fibers reduct g counting",
+        "finite chains negative Galois tense operators monotone nonincreasing interval relation enumeration",
+        "finite Gödel chain tense Heyting algebra negative modal Galois operator one reduct extension multiplicities",
+        "Galois negations Gödel chains negative tense operator four operators counting 2017 2020",
+        "Intuitionistic propositional logic with Galois negations finite chain count"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The derived numbers of nonempty relations with n=1..5 dual points are 1,4,29,266,2762, with full totals 2,5,30,267,2763",
+        "Polyomino papers address generic row/column convex classes under different geometric equivalences and often different parameters; none of the inspected excerpts give exact g-reduct fiber profiles"
+      ],
+      "reasoning": "A tabulated unrefined sequence, even if found later, would cover the finite totals but not necessarily the exact compatibility completion count for every possible negative unary modality. No assertion of uniqueness from an absent sequence search is made.",
+      "searches": [
+        "\"1, 4, 29, 266, 2762\" polyomino",
+        "\"29\" \"266\" \"2762\" convex polyomino matrix",
+        "count monotone interval row and column complete matrices convex polyomino sequences",
+        "relation rows intervals nonincreasing endpoints all columns nonempty enumeration polyomino"
+      ]
+    },
+    "rationale": "The fully inspected 2022 negative-tense duality paper proves a general representation theorem but has no Gödel-chain enumeration or inverse fibers of the one-operator forgetful map. The 2022 Ma-Li logic paper introduces Galois negations and general relational semantics; only its accessible abstract and citation metadata could be read. Later topological work addresses subdirect irreducibility, not the stated numerical fibers in its accessible abstract. Existing exact finite-chain expansions for other operator signatures concern distinct identities and do not imply the negative-tense four-operator classification. The count for unrefined monotone convex incidence shapes may overlap classical polyomino enumeration, so originality is assigned to the logical reconstruction and exact parameter-indexed fibers, not to the abstract existence of monotone lattice-path counts. The comparison remains provisional pending independent priority review.",
+    "residual_risks": [
+      "A differently phrased classification of dual Galois relations, monotone convex matrices, or polyominoes may already contain some enumerative or inverse-fiber statements",
+      "The 2022 Ma--Li article and the 2024 follow-up were not inspected in full; no whole-document noncoverage is asserted for either",
+      "Published semantic searches and inspected sources cannot establish absolute priority or reveal unpublished overlapping work"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the representation, not the finite-chain endpoint classification or exact single-negative-modality fiber theorem",
+        "evidence": [
+          "arXiv:2212.14756v1, pp.3-4,14,16-21"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2212.14756",
+        "material_read": "The entire 22-page open preprint, including Definition 2.1, Example 2.2, Definition 4.1, Lemma 4.4, Proposition 4.3, Theorem 4.4 and references",
+        "method": "Text-extracted open PDF with visual inspection of the pages containing admissibility and duality",
+        "title": "On Heyting algebras with negative tense operators",
+        "trigger": "Defines exactly the target four negative tense operations and their dual relational semantics"
+      },
+      {
+        "assessment": "No exact fiber theorem evident from accessible portion; incomplete full-text comparison retained as residual priority risk",
+        "evidence": [
+          "Ma and Li, Studia Logica 111 (2023), 21-56; online 26 September 2022"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s11225-022-10014-5",
+        "material_read": "Publisher abstract, introductory metadata and references only; full text not accessible in this investigation",
+        "method": "Publisher abstract inspection and alternate preprint discovery search",
+        "title": "Intuitionistic Propositional Logic with Galois Negations",
+        "trigger": "Introduces the negative Galois-pair signature and general relational semantics"
+      },
+      {
+        "assessment": "Focuses on subdirect irreducibility, not a stated exact fixed-chain reduct count; unresolved full comparison is noted",
+        "evidence": [
+          "Almiñana and Pelaitay, first posted 8 March 2024; abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.21203/rs.3.rs-4025452/v1",
+        "material_read": "Accessible abstract and metadata, not a full read",
+        "method": "Open preprint discovery and abstract inspection",
+        "title": "Characterization of Subdirectly Irreducible Heyting Algebras with Negative Tense Operators",
+        "trigger": "Same algebraic signature in subsequent literature; potentially stronger classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "91104bbb-4fe7-49a6-9194-1789e3c30699",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact inverse fibers of the four-to-one negative tense reduct are an intrinsic reconstruction invariant: they quantify which single modalities extend and how many complete operator structures they admit. The sharp general nonfaithfulness theorem for every nonzero reduct on chains of at least three elements, the extremal fibers, and the complete parameter classification solve the natural representation/reconstruction question raised by the established negative-tense duality. This is a complete finite-family classification rather than a merely computed initial sequence; the proof explains and controls all n, with clear application to information loss between unary and four-operator semantics.",
+    "status": "PASS"
+  }
+}
