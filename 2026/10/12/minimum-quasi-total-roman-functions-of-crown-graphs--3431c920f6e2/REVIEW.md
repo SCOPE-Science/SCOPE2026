@@ -1,12 +1,21 @@
-# Review of Minimum quasi-total Roman functions of crown graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof excludes one-sided label-\(2\) configurations below weight \(6\), excludes three label-\(2\) vertices at weight \(6\), and then forces exactly one label \(2\) and one label \(1\) per side. The unique-defender condition forces matched partners to be positive, which yields exactly the two claimed families. Both families are directly checked. Exhaustive evaluation of \(5{,}380{,}749\) ternary labelings for \(3\le n\le7\) agrees with the theorem for \(4\le n\le7\).
+## correctness
 
-## Originality
-PASS. The 2019 introducing paper was inspected in searchable full text and contains no crown or complete-bipartite occurrence. The closest prior structural result is the complete-multipartite all-function theorem, whose \(K_{n,n}\) specialization has minimum \(4\) and does not survive deletion of the perfect matching. A 2022 bondage paper studies edge-deletion sensitivity and bipartite complexity but does not state the crown optimizer classification in the inspected material. Exact and semantic searches under crown and deleted-perfect-matching aliases did not locate an equivalent theorem.
+PASS
 
-## Value
-PASS. Deleting a perfect matching from \(K_{n,n}\) raises the quasi-total Roman minimum from \(4\) to \(6\). The theorem explains this jump structurally and classifies every minimum labeling, with exact count \(n^2(n-1)\), on a standard dense regular bipartite family.
+PASS. Quasi-total Roman means every zero sees a 2, and every 2 has some positive neighbor (isolated positive vertices are allowed only with label 1). In Cr_n, if a shore lacks 2, the opposite shore is wholly positive; such a configuration has weight≥n+2, with equality at n4 impossible because the required single supportive opposite-shore vertex is the unique missing matched neighbor. Thus any candidate ≤6 has 2 in each shore. With at least three 2 labels weight6 would contain no 1 and the unique 2 on a shore has no positive neighbor outside its matched forced partner. Therefore exactly one 2 and one 1 on each shore. If 2s are matched at index i, supporting 1s can be independently chosen at j,l≠i giving n(n−1)^2; if 2s are at different indices i,k, matched zero prohibition forces 1 at a_k and b_i, giving n(n−1). Every listed function feasible, so gamma=6 and n²(n−1) minima for n≥4. Independent bounded-weight complete enumeration through n7 agrees counts 48,100,180,294 and n3 exceptional count37. The universal proof is combinatorial rather than extrapolation.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS. Cabrera-García et al. arXiv:1903.09789 provide the precise quasi-total Roman definition and general inequalities, cycles and boundary conditions, but inspection of the 15-page full paper finds no crown or complete-bipartite optimizer classification. A prior exact all-function theorem for complete multipartite graphs yields gamma_qtR(K_nn)=4, but a crown deletes one matched edge at each vertex, invalidating those optima. A 2022 quasi-total Roman bondage paper studies edge deletion and hardness; no inspected material implies this matching-deleted sharp count. No equivalent crown result found by crown/Knn−M/alias Resultary searches; unindexed aliases remain a risk.
+
+## value
+
+PASS
+
+PASS. A natural perturbation of K_nn raises quasi-total Roman weight from 4 to 6 for every n≥4, with a nontrivial complete optimizer dichotomy (matched-defenders vs cross-supports) and precise n²(n−1) census. Edge sensitivity and equality classification are independently interesting; this is not merely substituting a known complete multipartite formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
