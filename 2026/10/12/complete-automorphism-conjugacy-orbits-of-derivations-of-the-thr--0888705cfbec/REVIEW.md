@@ -1,11 +1,21 @@
-# Scientific review: automorphism-conjugacy of Heisenberg derivations
+# Independent mathematical audit
 
-**Correctness (PASS).** Ordinary derivations and Lie automorphisms are characterized from the three-dimensional bracket. Their full conjugation law reduces orbit classification to the \(2\times2\) similarity class and the central-row quotient. The identity \(\det(A-\operatorname{tr}A I)=\det A\), the scalar-centralizer action, and the determinant-twisted contragredient action at \(A=0\) establish the exact split without characteristic restrictions. Finite-field centralizers yield all orbit sizes. Exhaustive actual conjugacy actions over four fields and bracket-based independent matrix enumeration over two fields replay successfully, but are not proofs beyond their finite scope.
+## correctness
 
-**Originality (PASS, residual risk acknowledged).** Feldvoss–Siciliano–Weigel's restricted derivations involve an additional \(p\)-map and existence questions. La Rosa–Mancini give derivation algebra structures but not finite-field conjugacy orbits. Dath's real Heisenberg controllability normal forms apply to controlled systems with rank hypotheses, not all individual ordinary derivations. Searches of related published records and prior known claims, including same-object rank and fixed-space profiles, did not find the full orbit classification. The 2026 real-flow conjugacy paper was accessible only by abstract, so possible overlapping formulations remain a genuine bibliographic risk.
+PASS
 
-**Value (PASS).** The result is a complete natural moduli invariant of the smallest nonabelian nilpotent Lie algebra across all finite fields. The two-orbit resonance at singular quotient blocks and the \((q+1)^2\) count, with seven precise size strata, quantify which infinitesimal Lie endomorphisms are geometrically equivalent; rank distributions alone cannot recover this classification.
+For H=[x,y]=z, derivations preserve kz, giving uniquely D(A,u) with lower-right tr(A). All Lie automorphisms are P(B,v) with central multiplier det(B). Exact conjugation sends A to BAB^{-1} and row u to [v(A-trA·I)+(detB)u]B^{-1}. The quotient row space by row(A-trA·I) has dimension 0 for det A≠0, 1 for singular nonzero A, 2 for A=0, because det(A-trA·I)=det A over every characteristic. Central scalar subgroup acts transitively on nonzero elements of 1D quotient, and determinant-twisted contragredient GL2 action transitive on nonzero rows in 2D. Thus singular similarity class splits exactly in two; nonsingular one. There are q²+q matrix similarity classes, q+1 singular, giving (q+1)² orbits. Independent exact F2 full automorphism-conjugacy enumeration over all 64 derivations gave 9 orbits, sizes [1,3,4,6,6,8,12,12,12], matching each seven-type table size; symbolic block argument, not sample, proves all fields.
 
-Independent verification and full bibliographic exhaustiveness are not claimed. References and limitations are detailed in `RESULT.md` and `AUDIT.json`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+La Rosa–Mancini 2023 determines derivation *algebras* (primarily R,C and Leibniz), not full finite-field Aut action orbit sizes. Feldvoss–Siciliano–Weigel concern restricted derivations of restricted p-Lie algebras with chosen p-map; no inference of all ordinary derivation orbit sizes. The real Heisenberg group-flow conjugacy preprint by Stelmastchuk (July 2026) is closest title; its abstract says real connected Lie groups/quotients and admissible projectable derivations, not full finite-field q-orbit sizes, but full text could not be read (arxiv HTML and PDF errors), so a genuine overlap risk remains. Resultary Heisenberg exact automorphism counts are different action. Based on read texts and abstract limitations, no demonstrated stronger covering formula.
+
+## value
+
+PASS
+
+The complete Aut-conjugacy census of ordinary derivations, including individual sizes and a precise singular-matrix resonance, is a canonical finite-field orbit-classification invariant not obtainable merely from the dimension of Der H. Uniform treatment of all finite fields, especially characteristic two, and full q dependence supply a nontrivial reference classification and geometric orbit stratification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
