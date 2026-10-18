@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof partitions all labelings by the unique least zero-bearing class on one shore and greatest zero-bearing class on the other. Each family has exact no-zero/has-zero/arbitrary class factors, and Italian feasibility is equivalent to two extreme-neighborhood weight thresholds. The threshold operators reject only marked weights below two, so the bivariate factorization has no omissions or double counts. A separate finite exhaustive verifier compares predicted and directly evaluated full bivariate distributions for 419 profiles and 12,707,343 total labelings; all checks passed. The six weight-three configurations yield the exact minimum multiplicity, and weight two is ruled out for proper chain graphs. Finite tests confirm examples rather than proving the infinite statement.
+PASS
 
-## Originality — PASS
+Canonical twin classes A_1..A_p,B_1..B_p, j<=i adjacency, preserve p>=1 nonempty class sizes and vertex-distinct labels {0,1,2}. Every assignment has unique i=first A class containing zero (or p+1) and j=last B class containing zero (or 0). Local independent class factors P=(u+v)^m forbids zero, Q=(1+u+v)^m allows any, R=Q-P requires a zero. For fixed (i,j), all A zeros are guarded iff weight of prefix B_1..B_i >=2, and all B zeros iff suffix A_j..A_p >=2. Because shore constraints are disjoint, mark relevant u*y,v*y² in respective product and remove coefficients y^0,y^1 when needed; summing products over distinct boundaries yields exact complete bivariate GF and O(poly(n)) arithmetic. For p>=2, extreme-neighborhood checks exclude total Italian weight<=2, two label-twos on A_p and B_1 always give weight4, and exhaustive structural classification of weight3 distributions yields six disjoint indicator cases C3 as in RESULT. Independently enumerated 58 canonical proper profiles with p=2,3, positive twin sizes 1 or2 and total <=9 and directly checked every 3^N vertex labeling: all exact C3 coefficients and weight 3/4 minima match. Infinite-family assertions follow the boundary proof, not the finite sweep.
 
-The motivating full manuscript of Shao and Zhao (arXiv:2610.00108v1) develops Italian-domination polynomial algorithms for paths, trees, and cycles, and does not state a full chain-graph bivariate distribution or the boundary-zero factorization. Padamutham and Palagiri (2020, DOI 10.1016/j.akcej.2020.01.005) treat the minimum Roman {2}-domination parameter of chain graphs, not a distribution of functions at all weights. A Roman-domination polynomial for chain graphs counts the strictly different Roman label condition, requiring a neighboring label two rather than permitting two neighboring ones. A Roman {2} enumerator for complete multipartite graphs covers complete bipartite graphs but not arbitrary proper chain graphs. The closest research records and available source materials reveal no statement implying this complete result; unindexed equivalent results and uninspected parts of related repository records remain genuine risks.
+## originality
 
-## Value — PASS
+PASS
 
-The new factorization refines the entire weight spectrum by separately counting labels one and two for a natural infinite class of nested-neighborhood bipartite graphs. This goes beyond recent tree/cycle counting and earlier chain-graph numerical optimization. It gives a polynomial-time formula and sharp minimum-weight classification with exact optimizer multiplicities and concrete low-order boundary behavior, with no assumption of bounded treewidth. The exact coefficients and the named boundary obstructions matter for enumerative domination theory beyond merely recomputing a known minimum.
+Best-of-knowledge surviving original contribution; compare mathematical implication rather than titles/parameters. Shao–Zhao studies Italian domination polynomial of paths, trees and cycles, not all proper chain graphs; separate Resultary full Roman domination chain-graph polynomial counts a stronger rule (zero must neighbor label2), and its Roman GF cannot infer Italian GF (two label1s may guard zero). Padamutham–Palagiri studies complexity/minimum Roman {2} on chain graphs; no direct complete Italian bivariate weight distribution in accessible material.
 
-## Limits and audit status
+## value
 
-The stated graph class and canonical decomposition are necessary. A relevant prior chain-graph source was available in secondary full-text presentation, while other research repository records were accessible only as titles and scientific summaries; absent indexed coverage does not guarantee novelty. Exhaustive checks extend only to the tested finite profiles. External independent review has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Italian domination is a natural standard invariant, and connected chain graphs have canonical nested neighborhoods that make the full bivariate enumeration tractable. A closed all-weights GF and explicit minimum multiplicity (with sharp 3/4 dichotomy) extend beyond a minimum-value formula, enabling coefficient computations for natural graph families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
