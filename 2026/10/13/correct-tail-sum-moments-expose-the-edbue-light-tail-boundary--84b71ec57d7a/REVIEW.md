@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact PMF telescopes through \(G_k\), giving survival \(1-G_k\). The source's own geometric-with-\(1/k\) asymptotic yields the exact PGF radius and MGF boundary. The corrected raw moments follow from the nonnegative tail-sum identity. The printed Eq. (6.4) has summand asymptotic to \(-rk^{r-1}\) and therefore cannot converge to a raw moment. The bundled checker independently matches direct PMF moments with the corrected tail sums.
+## correctness
 
-## Originality
-PASS. The target full PDF was inspected at its model definition, asymptotic section, hazard limit, moment/MGF formulas, and the simulation setting labeled heavy-tailed. Eight focused published-result searches covered the exact DOI, EDBuE aliases, moment-equation corrections, MGF convergence, and heavy-tail terminology. No source-specific correction was located. General tail-sum and heavy-tail theory supplies tools but does not identify the target's internal contradiction.
+PASS
 
-Residual risk remains from an unindexed author correction and from the possibility that the source's numerical tables used direct PMF summation rather than the printed formulas.
+From p_n=G_{n+1}-G_n, P(X>=k)=1-G_k~(alpha/lambda)theta^k/k with lambda=-log theta. Hence p_n~alpha(1-theta)/lambda *theta^n/n, PGF radius 1/theta, E(e^{tX}) finite precisely for t<lambda, and diverges harmonically at t=lambda. Tonelli on x^r=sum_{k<=x}(k^r-(k-1)^r) yields corrected moments sum_k (k^r-(k-1)^r)(1-G_k). The printed Eq6.4 summand ((k-1)^r-k^r)G_k~-r*k^(r-1), so its sum diverges to -infinity. Proof holds for all alpha>0,0<theta<1, integer r>=1.
 
-## Value
-PASS. The new model advertises moment summaries and tail flexibility as core properties. Correcting its raw-moment identities and determining its exact exponential-moment domain changes how variance, skewness, kurtosis, and heavy-tail claims should be interpreted. The correction is structural across the full parameter space rather than a single numerical counterexample.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Elementary survival tail-sum identities and MGF convergence criteria are prior, and even the source PMF asymptotic is known. The novel narrow result is a needed, explicitly corrected family-specific moment formula and rigorous identification of the source’s incorrect distribution interpretation; no exact prior corrigendum located.
+
+## value
+
+PASS
+
+Provides convergent formulas for every population moment of a new actuarial/reliability family and resolves a substantive contradiction: the printed moment formula diverges and the claimed heavy-tail regimes cannot hold asymptotically. Despite relying on standard tail identities, source-specific validity matters for interpreting model shape and risk.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

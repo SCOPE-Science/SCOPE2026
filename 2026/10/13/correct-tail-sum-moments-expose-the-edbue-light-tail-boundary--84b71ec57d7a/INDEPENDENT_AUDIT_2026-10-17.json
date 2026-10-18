@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T06:17:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From p_n=G_{n+1}-G_n, P(X>=k)=1-G_k~(alpha/lambda)theta^k/k with lambda=-log theta. Hence p_n~alpha(1-theta)/lambda *theta^n/n, PGF radius 1/theta, E(e^{tX}) finite precisely for t<lambda, and diverges harmonically at t=lambda. Tonelli on x^r=sum_{k<=x}(k^r-(k-1)^r) yields corrected moments sum_k (k^r-(k-1)^r)(1-G_k). The printed Eq6.4 summand ((k-1)^r-k^r)G_k~-r*k^(r-1), so its sum diverges to -infinity. Proof holds for all alpha>0,0<theta<1, integer r>=1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Heavy-tail criterion and Tonelli formula are classical. Source asymptotic itself almost states the MGF conclusion."
+        ],
+        "reasoning": "The novelty is not generic light-tail theory; it is the explicit rigorous contradiction of a 2026 distribution paper’s moment Eq6.4 and interpretation, with correct all-order moment identities and MGF boundary.",
+        "searches": [
+          "ISBN:9781316511732 heavy-tail standard MGF criterion",
+          "general discrete survival summation moments Tonelli",
+          "doi:10.3934/math.2026471 PMF asymptotic"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3934/math.2026471",
+        "ISBN:9781316511732"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known source PMF tail already implies geometric rate, but the source later calls some settings heavy-tailed and prints divergent Eq6.4; standard definitions show direct contradiction."
+        ],
+        "reasoning": "The source and generic probability theory provide ingredients but do not themselves assert the source-specific corrected moment list and identify both errors as the primary paper’s false claims.",
+        "searches": [
+          "doi:10.3934/math.2026471 asymptotic Eq2.6 and Section6.2",
+          "ISBN:9781316511732 heavy tails mgf",
+          "discrete lattice tail-sum formula raw moments"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source itself gives p_n~const θ^n/n, which implies MGF radius and correct survival by telescoping.",
+          "Eq6.4 printed G_k-series diverges and is not a rearrangement of E[X^r]."
+        ],
+        "reasoning": "Standard tail-sum identity and geometric convergence are equivalent proof techniques but no checked prior EDBuE-specific correction states the precise radius, harmonic boundary and moment error together.",
+        "searches": [
+          "exponentiated discrete Burr Hatke exponential EDBuE moments tail heavy-tailed geometric MGF correction",
+          "EDBuE discrete Burr Hatke exponential pgf radius 1/theta tail-sum moments",
+          "doi:10.3934/math.2026471"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Primary distribution paper contains the PMF and errant formulas; Resultary search on same model did not return a prior source-specific correction."
+        ],
+        "reasoning": "The finite-range kurtosis labels and printed population-moment tables are not independently validated; an unindexed corrigendum remains possible. No novelty claim rests solely on unsuccessful indexing.",
+        "searches": [
+          "exponentiated discrete Burr Hatke exponential EDBuE moments tail heavy-tailed geometric MGF correction",
+          "10.3934/math.2026471 erratum moment formula",
+          "EDBuE heavy tail light tail mgf correction moments 2026"
+        ]
+      },
+      "rationale": "Elementary survival tail-sum identities and MGF convergence criteria are prior, and even the source PMF asymptotic is known. The novel narrow result is a needed, explicitly corrected family-specific moment formula and rigorous identification of the source’s incorrect distribution interpretation; no exact prior corrigendum located.",
+      "residual_risks": [
+        "The correction is mathematically elementary given PMF, which constrains but need not eliminate its value as a published source error correction.",
+        "The original numerical tables may use a different correct algorithm despite erroneous displayed formulas."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_MOMENT_DIVERGENCE",
+          "evidence": "p_n~alpha(1-theta)/lambda *theta^n/n is already given, forcing light tails; printed moment summand ((k-1)^r-k^r)G_k tends to -r k^(r-1) and diverges.",
+          "identifier_or_url": "doi:10.3934/math.2026471",
+          "material_read": "Primary full open PDF PMF and asymptotic (2.6), hazard, Eq6.4/6.6/6.7 and simulation label heavy-tailed; page 11 visually inspected",
+          "method": "Open-access full 36-page original PDF",
+          "title": "The generalized discrete Burr–Hatke exponential distribution: Mathematical characterization, reliability analysis, and applications to censored actuarial, clinical, and agricultural data",
+          "trigger": "Exact source distribution and published Section6.2 divergence and heavy-tail interpretation"
+        },
+        {
+          "assessment": "DEFINITIONAL_PRIOR_NOT_SOURCE_CORRECTION",
+          "evidence": "Heavy-tailed if all positive exponential moments diverge; EDBuE has finite such moments for t<−log theta.",
+          "identifier_or_url": "ISBN:9781316511732",
+          "material_read": "Standard heavy-tail definition and background, not a claimed fresh full-book inspection",
+          "method": "Published text reference and elementary generating-function criterion",
+          "title": "The Fundamentals of Heavy Tails: Properties, Emergence, and Estimation",
+          "trigger": "Definition of heavy tail via absent positive exponential moments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Provides convergent formulas for every population moment of a new actuarial/reliability family and resolves a substantive contradiction: the printed moment formula diverges and the claimed heavy-tail regimes cannot hold asymptotically. Despite relying on standard tail identities, source-specific validity matters for interpreting model shape and risk.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "doi:10.3934/math.2026471",
+    "ISBN:9781316511732"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only asymptotic heavy-tail definition, not finite-sample histogram appearance.",
+    "Does not assert numerical tables or estimation results necessarily used the erroneous infinite sum."
+  ],
+  "residual_risks": [
+    "The correction is mathematically elementary given PMF, which constrains but need not eliminate its value as a published source error correction.",
+    "The original numerical tables may use a different correct algorithm despite erroneous displayed formulas."
+  ],
+  "schema_version": 1
+}
