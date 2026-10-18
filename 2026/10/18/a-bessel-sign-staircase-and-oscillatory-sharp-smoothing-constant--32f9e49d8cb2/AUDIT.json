@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Exact convolution kernel equals exp(-2t) I_abs(n)(2t). Riccati equation for I_n prime/I_n proves strict order in n and a unique crossing at x_n>n^2, excluding tangencies. Sign ordering and telescoping yield the sharp endpoint norm and all sign-extremizers. Uniform local Fourier/Edgeworth expansions with differentiated error bounds give x_n=n^2+1/2+O(n^-2) and an adjacent-kernel expansion whose second coefficient is 1/6 minus the squared rounding displacement; after x=2t the coefficient is 1/12-rho^2/2. Rounding boundaries differ O(1) in x, implying uniform O(t^-3/2) relative remainder. The checker runs 134 finite tests but infinite statements are proved analytically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ignat (2006), selected theorems on sign, positivity, and heat-scheme decay, treat related lattice convolution but do not state exact sharp derivative norm.",
+        "Abadias, González-Camus, Miana and Pozo (2021), Theorem 4.3(iii), show the directly covering-order bound ||Delta G_t||_1 <= C/t but do not identify the optimal coefficient, the exact signed-kernel switching index, or the oscillating next-order term. Their full author manuscript is publicly accessible as arXiv:2401.16377."
+      ],
+      "reasoning": "The 2021 Theorem 4.3(iii) covers the order-one-in-time estimate for the same kernel and all p but does not imply the exact sharp norm. Its Lemma 4.1 and Section 7.2 are qualitative/upper-bound statements, not a complete signed variation classification. The proposed Bessel thresholds and oscillatory second-order norm law are not corollaries of that estimate.",
+      "searches": [
+        "exact l1 norm second difference discrete Gaussian and oscillatory large-time Bessel correction",
+        "doi:10.1007/978-3-540-34288-5_56",
+        "doi:10.1016/j.jmaa.2021.125137"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0206089",
+      "doi:10.1007/978-3-540-34288-5_56",
+      "arXiv:1401.2091",
+      "doi:10.1007/s00028-022-00851-1",
+      "doi:10.1016/j.jmaa.2021.125137 / arXiv:2401.16377 (full author manuscript, Theorem 4.3(iii) and Section 7.2)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ciaurri et al. (2014), section 1 and main results: Bessel kernel, maximal heat and fractional/Riesz harmonic analysis.",
+        "Grünbaum and Iliev (2002), inspected article introduction and heat-kernel expansion material: Bessel representations for integer heat kernels, including Darboux transformations.",
+        "Abadias and de León-Contreras (2022), pointwise and l1 spatial difference bounds without the oscillatory second-order coefficient.",
+        "Abadias et al. (2021), full author manuscript Theorem 4.3(iii) and Section 7.2: exact same second spatial difference but only decay-rate estimates, without leading sharp coefficient."
+      ],
+      "reasoning": "The matching operator appears explicitly in Abadias et al. (2021), but their result is only ||Delta G_t||_1 <= C/t with unspecified C; the new exact all-time formula and phase-dependent sharp second-order coefficient are strictly more quantitative and not implied by any cited theorem. Independent global-priority certification is still absent.",
+      "searches": [
+        "sharp endpoint operator norm of time derivative of integer lattice heat semigroup",
+        "heat equation on integers exact sharp l infinity to l infinity norm of time derivative total variation modified Bessel order staircase",
+        "arXiv:math/0206089",
+        "arXiv:1401.2091"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ciaurri et al. (2014) formula for integer-lattice heat semigroup is G_t(n)=exp(-2t) I_n(2t), yet stated aims and theorems concern maximal, Poisson, fractional, Riesz and square-function operators.",
+        "Abadias and de León-Contreras (2022), Lemmas 2.4-2.6 and Remark 2.7, estimate spatial differences of G_t and relate even differences to time derivatives, without identifying their exact l1 norms or discrete threshold indices.",
+        "Abadias et al. (2021), Theorem 4.3(iii), treat the same ||Delta_d G(t,.)||_1 as an unnamed-constant bound C/t."
+      ],
+      "reasoning": "Using H_t=Delta G_t, the proposed norm is equivalently twice total variation of the signed Skellam time derivative, or a sharp l1 second-difference norm. These aliases were tested; the reviewed bounds do not imply the exact formula or the next-order oscillatory refinement.",
+      "searches": [
+        "Bessel order dependence of log derivative and a unique threshold solving I_n prime = I_n",
+        "sharp endpoint operator norm of time derivative of integer lattice heat semigroup",
+        "arXiv:1401.2091",
+        "doi:10.1007/s00028-022-00851-1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A search of published mathematical finding summaries returned discrete heat numerical positivity, sharp finite diagonal heat maximal regularity, and discrete Sobolev Green-function results; no retrieved description contained this Bessel time-derivative norm or its thresholds.",
+        "Classic modified-Bessel kernel formulas appear in Grünbaum and Iliev (2002) and Ciaurri et al. (2014), but these are not tables of sharp norm values."
+      ],
+      "reasoning": "No checked exact-data table or published finding reproduces the theorem as a corollary under a different normalization; negative search alone does not prove global novelty.",
+      "searches": [
+        "sharp endpoint operator norm of time derivative of integer lattice heat semigroup",
+        "exact l1 norm second difference discrete Gaussian and oscillatory large-time Bessel correction",
+        "modified Bessel I_n derivative equals I_n threshold x_n asymptotic n squared plus one-half",
+        "discrete heat time derivative kernel signed total variation asymptotics"
+      ]
+    },
+    "rationale": "The examined classical and contemporary heat-kernel references give modified-Bessel representations and qualitative or order-sharp difference estimates, but no exact all-time endpoint norm with uniquely ordered sign-change thresholds or oscillatory second-order coefficient. The scalar Bessel threshold system and lattice-phase accumulation interval are distinct positive claims. This is a best-knowledge priority assessment, not proof that no historical equivalent exists.",
+    "residual_risks": [
+      "An equivalent exact norm/phase law may have appeared under Skellam signed total variation, Bessel derivative-ratio, or discrete semigroup smoothing terminology outside the retrieved historical sources.",
+      "Although the closest 2021 theorem was compared at full-text level, a literature search cannot establish worldwide priority or substitute independent mathematical assessment."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides Bessel heat-kernel background, not located a sharp temporal derivative endpoint norm or switching theorem",
+        "evidence": "Grünbaum and Iliev, arXiv:math/0206089 (2002).",
+        "identifier_or_url": "https://arxiv.org/abs/math/0206089",
+        "material_read": "Full available HTML, introduction and main heat-kernel expansion sections on integer lattice and Darboux transformations",
+        "method": "Read primary article text and compared operators and spectral expansion aims",
+        "title": "Heat kernel expansions on the integers",
+        "trigger": "Earliest exact lattice heat kernel Bessel source and archive anchor"
+      },
+      {
+        "assessment": "Qualitative heat scheme results, no identified exact Bessel sign-index staircase or second-order phase",
+        "evidence": "Ignat (2006), Theorems 3-4.",
+        "identifier_or_url": "doi:10.1007/978-3-540-34288-5_56",
+        "material_read": "Author-hosted full PDF, introduction and theorems 3 and 4 on discrete kernel positivity, monotonicity and norm control",
+        "method": "Read paper text, compared difference bounds with exact Delta G_t norm",
+        "title": "Qualitative Properties of a Numerical Scheme for the Heat Equation",
+        "trigger": "Historical study of discrete heat kernel sign and decay"
+      },
+      {
+        "assessment": "Establishes classical kernel and related transforms, not this exact derivative norm or threshold accumulation interval",
+        "evidence": "Ciaurri et al., arXiv:1401.2091 (2014), Introduction, Theorems 1-3.",
+        "identifier_or_url": "https://arxiv.org/abs/1401.2091",
+        "material_read": "Full publicly readable HTML, introduction, sections treating discrete heat kernel and stated main theorems",
+        "method": "Compared same generator normalization, heat kernel, and operator-norm outputs",
+        "title": "Harmonic Analysis associated with a discrete Laplacian",
+        "trigger": "Direct Bessel representation and operator-semigroup framework"
+      },
+      {
+        "assessment": "Provides order-sharp estimates but not exact all-time norms or oscillatory coefficients",
+        "evidence": "Abadias and de León-Contreras (2022), Lemmas 2.4-2.6, Remark 2.7.",
+        "identifier_or_url": "doi:10.1007/s00028-022-00851-1",
+        "material_read": "Open full HTML, especially Lemmas 2.4 and 2.6 and Remark 2.7",
+        "method": "Compared quantitative kernel difference estimates and links between even differences and time derivatives",
+        "title": "Discrete Hölder spaces and their characterization via semigroups associated with the discrete Laplacian and kernel estimates",
+        "trigger": "Closest semigroup derivative/difference estimate treatment"
+      },
+      {
+        "assessment": "Establishes same t^-1 norm decay order but not the exact norm, Bessel threshold staircase, or oscillatory second-order sharp term",
+        "evidence": "Abadias, González-Camus, Miana and Pozo (2021), JMAA 500, Theorem 4.3(iii), Section 7.2; arXiv:2401.16377 posted 2024.",
+        "identifier_or_url": "https://arxiv.org/abs/2401.16377 (published 2021 as doi:10.1016/j.jmaa.2021.125137)",
+        "material_read": "Full publicly readable author manuscript, especially Section 4 Theorem 4.3(iii), its proof of ||Delta G_t||_1 <= C/t, and Section 7.2 discussing finite-difference decay",
+        "method": "Compared identical kernel and generator normalization, theorem hypotheses and claimed quantitative output, including dependence of leading constants",
+        "title": "Large time behaviour for the heat equation on Z, moments and decay rates",
+        "trigger": "Very close exact-operator heat-kernel decay study"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "32f9e49d-8cb2-4d5b-8f7e-a60dcf431bcf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact sharp endpoint time-smoothing norms are natural operator-theoretic stability quantities for discrete diffusion. The theorem gives an all-time computable closed Bessel extremum, exact spatial sign structure and maximizer switches, a sharp leading continuum rate, and a nonconvergent next-order coefficient with a full interval of limit points. These are structurally meaningful, not an arbitrary isolated parameter or routine repackaging of the kernel formula.",
+    "status": "PASS"
+  }
+}
