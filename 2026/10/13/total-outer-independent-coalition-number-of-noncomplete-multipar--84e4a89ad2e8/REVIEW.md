@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof was reconstructed from the definitions. For \(r\ge3\), a TOIDS is exactly a set whose complement lies in one part. This characterization gives the three-block construction and makes the four-or-more-block contradiction exhaustive. The accompanying finite checker independently confirms the exact value on every noncomplete complete-multipartite profile through order \(8\); this computation is corroborative, not a substitute for the symbolic proof.
+## correctness
 
-## Originality — PASS
-The closest primary source is Buntina–Golmohammadi, arXiv:2607.23623v1. Its exact-values section treats complete graphs, complete bipartite graphs, paths, and cycles. The new claim excludes the already-known complete-graph case and addresses noncomplete complete multipartite graphs with at least three parts. Searches under the invariant name, its notation, multipartite aliases, and the equivalent independent-complement formulation found no statement implying this theorem. The residual risk is a poorly indexed equivalent result under different terminology.
+PASS
 
-## Value — PASS
-The theorem completes a natural neighboring regime of the newly introduced invariant and exposes a structural transition: complete bipartite graphs have a size-dependent value, whereas adding a third part forces the maximum coalition partition down to exactly three blocks. The classification is uniform in all part sizes and is not a parameter substitution or isolated small case.
+PASS: For r>=3 complete multipartite, D is total outer-independent dominating iff Y=V\D is contained in one part: independence gives necessity, and at least r−1>=2 fully selected other parts ensure sufficiency for total domination. Taking y,z in different parts and the partition (V\{y,z},{y},{z}) yields 3 non-TOIDS blocks with each a coalition partner. For any supposed >=4-block partition take coalition A,B; all other blocks lie in the one part P containing V\(A∪B). A remaining C cannot partner A (or B), because B and an additional remaining block lie in the complement of A∪C, forcing B⊆P and then A itself TOIDS. Nor can two remaining blocks C,E⊆P be total dominating (all vertices inside P have no neighbor in C∪E), contradiction. Hence at most 3. Independently enumerated all set partitions and definition-level predicates for K(1,1,2), K(1,2,2), K(2,2,2), K(1,1,1,3): maxima 3. All-part-size conclusion rests on symbolic proof. Complete graphs excluded as prior-covered and r=2 separate.
 
-## Closest literature and limitations
-The initiating preprint supplies the definitions and exact clique/biclique formulas. Earlier TOIDS work concerns the minimum total outer-independent domination number, which does not determine coalition partitions. The finding does not claim novelty for complete graphs or re-prove the complete-bipartite formula.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Buntina–Golmohammadi's initiating July 2026 full primary arXiv text defines this precise TOI-coalition invariant and gives C_t^{oi}(K_n)=3 and C_t^{oi}(K_{r,s})=s+1 but no r>=3 complete multipartite formula. Its general bounds C≤alpha(G)+2 and C≤n−gamma_t^{oi}+2 do not imply constant 3 as the largest part grows. Here the proof uses an additional complementary-part rigidity argument. Resultary and topic-alias searches gave other domination parameters, not this coalition invariant's exact multipartite classification. Priority from possibly unindexed work remains a residual risk.
+
+## value
+
+PASS
+
+PASS: Distinguishing r=2 vs r>=3 is a meaningful structural boundary for a newly defined graph coalition invariant. Unlike the unbounded bipartite value s+1, all noncomplete multipartite graphs with >=3 parts collapse to the sharp constant 3. The proof explains this discontinuity through support rigidity of complements, rather than merely computing tiny graph instances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
