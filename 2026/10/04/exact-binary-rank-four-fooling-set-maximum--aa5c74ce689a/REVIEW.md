@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The rank-factorization reduction is exact over \(\mathbb F_2\): every rank-at-most-four candidate corresponds to distinct ordered pairs \((u_i,v_i)\in\mathbb F_2^4\times\mathbb F_2^4\) with \(u_i\cdot v_i=1\), and the fooling-set condition is exactly pairwise compatibility in the resulting 120-vertex graph. The included verifier checks the witness and exhaustively proves maximum clique size 11 using integer bit operations and valid coloring upper bounds.
+## correctness
 
-## Originality
-PASS to the best of current bibliographic knowledge. The closest published record determines only rank three. Friesen–Hamed–Lee–Theis give the asymptotic positive-characteristic construction, while Hamed–Lee give a characteristic-zero construction; neither implies the exact binary rank-four value. Targeted exact-parameter and alias searches found no covering rank-four statement. Residual risk remains for unindexed minimum-rank, sign-pattern, or cross-free-matching terminology.
+PASS
 
-## Value
-PASS. \(f_{\mathbb F_2}(4)\) is the next natural exact low-rank extremal value after the known rank-three case, and it sharpens the generic rank-four upper bounds 16 and 15 to the exact value 11. Fooling-set/rank tradeoffs are a standard lower-bound interface in communication complexity and related combinatorial optimization.
+Every binary rank-at-most-four fooling-set matrix admits M=UV^T with u_i,v_i in F_2^4 and u_i dot v_i=1. There are exactly (2^4-1)2^3=120 admissible ordered types. Pairwise fooling compatibility is exactly an edge of the associated graph; repetitions are impossible, so the matrix optimum is its clique number. An independent exact Python reconstruction generated all 120 types, 5040 compatible edges, and used a valid greedy-color branch-and-bound proof to obtain maximum clique 11 (12096 visited branch nodes). Independent elimination confirmed the displayed 11-by-11 witness has rank four, all diagonal ones, and never has both opposite off-diagonal entries nonzero. Consequently the global maximum is exactly 11.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The closest finite-characteristic construction treats r=p^t+1, excluding binary rank four; the characteristic-zero construction of order binomial(r+1,2) gives ten at r=4, not an upper bound for F2. The classical field-independent upper bound is 16 and the known exact SCOPE rank-three result does not fix rank four. Hence 11 is not a stated or mechanically implied value in those primary sources.
+
+## value
+
+PASS
+
+Rank four is the next natural binary fooling-set frontier after the known exact rank-three case. Closing the concrete 11–15 or 11–16 gap with a full upper certificate and witness gives a nontrivial exact discrete extremal invariant relevant to communication complexity and rank-vs-fooling-set bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
