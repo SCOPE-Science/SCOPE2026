@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "A productive-simple-cycle least-common-multiple lemma proves the accepted unary length set eventually has the cycle LCM as period. The primitive prime-power period then divides this LCM, forcing one productive simple cycle of length divisible by the entire modulus. Bipartite underlying graphs force that non-loop cycle length to be even, giving the exact lower bound. Deterministic complete cycles of lengths m and lcm(m,2) attain the unrestricted and bipartite-cactus bounds. Enumeration subtracts all translation-invariant subsets and the 2m singleton/co-singleton controls. verify.py independently corroborates 935 primitive masks, 55,567 witness lengths and 214,660 small unary NFA candidates.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.11717v1 Theorem 1.1: universal existence only; Section 4: size optimization explicitly open",
+        "arXiv:2302.06435v3: ordinary unary NFA/UFA bounds; no bipartite-cactus condition in its searched full text"
+      ],
+      "reasoning": "The universal representation theorem does not bound optimal state sizes for the family; general unary state-complexity arguments do not imply the exact additional parity factor. The previously established singleton-residue special case covers only predicates with one accepted residue and is outside the claimed domain.",
+      "searches": [
+        "Every Regular Language Has a Bipartite Cactus Automaton odd prime period language 2p states",
+        "graph restricted NFA state complexity bipartite cactus unary periodic language",
+        "Languages given by Finite Automata over the Unary Alphabet bipartite cactus"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.11717v1",
+      "doi:10.4204/EPTCS.454.9",
+      "arXiv:2302.06435v3",
+      "doi:10.1007/s00236-021-00402-0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.11717v1 gives representation existence, not optimal quantitative cost",
+        "Known singleton-residue theorem fixes one accepted congruence class, not two-or-more accepted and two-or-more rejected classes",
+        "doi:10.1007/s00236-021-00402-0 forbids most non-parity unary modular languages through the stronger transition-symmetry definition"
+      ],
+      "reasoning": "A result for one residue does not force a lower bound for a union of residues under nondeterminism, and the known one-residue cases are excluded. Primitive multiresidue predicates require an eventual-period/LCM argument to show that a long directed simple cycle is forced in every accepting NFA. The 2026 general existence theorem and symmetric-transition classification do not imply the displayed exact counts.",
+      "searches": [
+        "arXiv:2610.11717 bipartite cactus unary modular length predicates minimum states",
+        "bipartite automata prime power regular length residue languages",
+        "cactus NFA unary modulo state complexity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.11717v1, Sections 2 and 4: graph definition and explicit open quantitative question",
+        "doi:10.1007/s00236-021-00402-0, Section 3: undirected means labelwise symmetric transitions, not bipartite underlying graph"
+      ],
+      "reasoning": "Parity-lift automata, unary periodic NFAs, and symmetric-transition machines were distinguished from epsilon-free NFAs whose simple underlying graphs are bipartite cacti. No equivalent exact formula for arbitrary genuinely multiresidue primitive prime-power predicates was located.",
+      "searches": [
+        "bipartite cactus automata unary modulo m least states factor two exact odd modulus",
+        "epsilon-free NFA bipartite graph unary multiples of odd m minimal 2m states",
+        "bipartite prime power unary automata state complexity periodic languages"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching multiresidue prime-power bipartite-cactus complexity table in examined published works",
+        "The arXiv:2610.11717v1 conclusion describes state-overhead bounds as unresolved"
+      ],
+      "reasoning": "No table or finite census was found containing an exact formula for this infinite multiresidue class. The formula is proved for all qualifying moduli and is not extrapolated from finite observations.",
+      "searches": [
+        "bipartite cactus unary modular modulo automaton state blowup",
+        "state minimal cactus NFA congruence languages prime modulus",
+        "odd cycle unary automata bipartite transition graph modular language"
+      ]
+    },
+    "rationale": "The publicly examined 2026 structural representation theorem proves existence of bipartite-cactus NFAs but leaves quantitative blow-up unsettled; earlier exact singleton-residue results do not imply the new genuinely multiresidue classification. Primary work on symmetric-transition undirected automata is a different model, while general unary NFA complexity lacks the graph restriction. Full-period multiresidue sets are compared by mathematical implication rather than title similarity. No direct covering result was identified; unindexed equivalence remains a risk.",
+    "residual_risks": [
+      "Historical-priority risk: an equivalent multiresidue graph-restricted theorem may exist in unindexed literature.",
+      "Only the relevant identified portions of two lengthy primary texts were examined; absent terminology alone does not prove a paper-wide negative.",
+      "Not a claim about arbitrary composite modulus or a universal cactus blow-up bound."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Existence without tight size bounds; no exact multiresidue prime-power calculation identified in inspected material",
+        "evidence": [
+          "Theorem 1.1 universal existence",
+          "Section 2 suppresses loop and parallel edges in underlying graph",
+          "Conclusion explicitly leaves the smallest state blow-up unresolved"
+        ],
+        "identifier_or_url": "arXiv:2610.11717v1",
+        "material_read": "PDF abstract, Section 1 statement, Section 2 graph definitions, Theorem 3.8 and Section 4 conclusion (relevant portions of pages 1-4 and 12-13)",
+        "method": "Direct examination of arXiv v1 full-text PDF and its mathematical definitions",
+        "title": "Every Regular Language Has a Bipartite Cactus Automaton",
+        "trigger": "Originating theorem and explicit state-complexity gap"
+      },
+      {
+        "assessment": "Different model: requires every labeled transition to have a same-label reverse transition; unary languages collapse to parity/threshold types, so it cannot imply the presently stated modular family",
+        "evidence": [
+          "Definition of labelwise transition symmetry in abstract",
+          "Corollary 1 gives four unary deterministic languages",
+          "Theorem 2 classifies unary nondeterministic undirected automata"
+        ],
+        "identifier_or_url": "doi:10.1007/s00236-021-00402-0",
+        "material_read": "Open-access full-text HTML abstract, introduction, Sections 3.1-3.2 on unary symmetric-transition models, and related operation-complexity discussion",
+        "method": "Direct inspection of the publisher open-access article",
+        "title": "Finite automata with undirected state graphs",
+        "trigger": "Possible stronger graph-restricted automata coverage"
+      },
+      {
+        "assessment": "Addresses ordinary unary NFA/UFA operations, with no reported bipartite-cactus graph state minimization",
+        "evidence": [
+          "Introduction: unary NFA/UFA computational complexity focus",
+          "Table of state complexity for regular operations",
+          "No bipartite or cactus term in indexed PDF text"
+        ],
+        "identifier_or_url": "arXiv:2302.06435v3",
+        "material_read": "PDF abstract, introduction, state-complexity summary table; full-text searches for bipartite and cactus terms",
+        "method": "Examination of arXiv open PDF and targeted full-text term searches",
+        "title": "Languages given by Finite Automata over the Unary Alphabet",
+        "trigger": "General unary NFA state complexity and possible dominating period results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "84a0f94b-711d-4841-925d-892ba5c47ab9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The originating structural regular-language theorem explicitly leaves quantitative state overhead open. For every prime-power modulus at least four, the new classification settles the exact overhead for 2^(p^k)-2^(p^(k-1))-2p^k genuinely multiresidue predicates, separating odd-prime and two-primary behavior and showing bipartite graphs and bipartite cacti have identical exact cost on this natural class. This is a complete infinite-family invariant with substantive model motivation, not a finite test or generic pumping exercise.",
+    "status": "PASS"
+  }
+}
