@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T06:52:59.309386Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cd76f0b741a81ebc64b2fc7846361df5d730832d/2026/10/04/exact-cycle-stability-frontier-for-scalar-sam-with-ema-momentum--ccfcc569ef82/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cd76f0b741a81ebc64b2fc7846361df5d730832d/2026/10/04/exact-cycle-stability-frontier-for-scalar-sam-with-ema-momentum--ccfcc569ef82/verify.py"
+      ],
+      "rationale": "Reconstructed the exact sign-switched affine two-state update A=[[1-s,-alpha*beta],[(1-beta)*lambda,beta]], q=[-s*rho,(1-beta)*lambda*rho], trace(A)=1+beta-s, determinant(A)=beta. The alternating symmetry z_-=-z_+ follows from det(I-A)=s>0, while det(I+A)=2(1+beta)-s gives c=s*rho/[2(1+beta)-s]. Sign consistency and the three Jury inequalities agree exactly on 0<s<2(1+beta); the 2-step Jacobian is A^2. The determinant bound and discriminant yield minimal one-step modulus sqrt(beta) on the claimed closed band. For m_{-1}=0 and s>=2(1+beta), the magnitude recurrence y_{t+1}=(s-1-beta)y_t-beta*y_{t-1}+s*rho starts increasing: at equality increments obey d_{t+1}=beta*d_t+2(1+beta)*rho, above equality they grow geometrically. Independently checked orbit equations with exact rational beta in {0,1/3,2/3}, several s, and independent sign conventions. This proves only the fixed-preconditioner scalar deterministic case, not adaptive or stochastic SAM.",
+      "residual_risks": [
+        "Finite orbit checks do not replace the recurrence/Jury proof; the result does not extend to adaptive preconditioners."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/2210.01513",
+          "https://arxiv.org/abs/2306.09850",
+          "https://arxiv.org/abs/2301.06308",
+          "https://arxiv.org/abs/2303.00565",
+          "https://arxiv.org/abs/2401.12033"
+        ],
+        "reasoning": "Bartlett–Long–Bousquet and Si–Yun treat no-momentum practical SAM cycles; Kim studies momentum-dependent saddle dynamics; AdaSAM proves stochastic convergence with a varying preconditioner; MSAM alters the perturbation direction. None proves an exact deterministic fixed-preconditioner EMA two-cycle and divergence law.",
+        "searches": [
+          "Sharpness Aware Minimization scalar quadratic normalized exponential moving average momentum sign alternating period two stability threshold spectral radius"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2210.01513",
+        "https://arxiv.org/abs/2306.09850",
+        "https://arxiv.org/abs/2301.06308",
+        "https://arxiv.org/abs/2303.00565",
+        "https://arxiv.org/abs/2401.12033",
+        "Sharpness Aware Minimization scalar quadratic normalized exponential moving average momentum sign alternating period two stability threshold spectral radius"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/2210.01513",
+          "https://arxiv.org/abs/2303.00565",
+          "https://arxiv.org/abs/2401.12033"
+        ],
+        "reasoning": "The beta=0 specialization is covered by no-momentum work, but beta>0 with fixed EMA forcing is not obtained from those statements by parameter renaming. Stochastic adaptive convergence bounds are not exact deterministic necessary/sufficient conditions.",
+        "searches": [
+          "Sharpness Aware Minimization scalar quadratic normalized exponential moving average momentum sign alternating period two stability threshold spectral radius"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/2210.01513",
+          "https://arxiv.org/abs/2303.00565"
+        ],
+        "reasoning": "Translated the EMA update into a forced heavy-ball recurrence. Heavy-ball spectral conditions alone concern the homogeneous linearization; the sign-consistent two-cycle, amplitude and global boundary itinerary require the specific SAM forcing absent from inspected SAM theorems.",
+        "searches": [
+          "Sharpness Aware Minimization scalar quadratic normalized exponential moving average momentum sign alternating period two stability threshold spectral radius",
+          "\"sharpness-aware\" \"momentum\" \"two-cycle\" scalar quadratic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the same claim as a nearest hit and adjacent optimization results, not an independent exact table; retrieved primary SAM text contained no table determining this full six-parameter scope."
+        ],
+        "reasoning": "No external database/table locating the combined sharp threshold, amplitude and rate plateau was identified. Absence of a search hit is not proof of priority.",
+        "searches": [
+          "Sharpness Aware Minimization scalar quadratic normalized exponential moving average momentum sign alternating period two stability threshold spectral radius"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the precise combined EMA momentum SAM orbit/stability/divergence theorem. Ordinary heavy-ball Jury inequalities are classical but do not alone supply the SAM sign-consistent forced orbit and standard-initialization sharp boundary; closest SAM primary sources analyze zero-momentum cycles, stochastic diffusion, adaptive stochastic bounds, or a different momentum perturbation. A hidden switched-affine/heavy-ball equivalent remains plausible.",
+      "residual_risks": [
+        "A prior exact forced-heavy-ball or border-collision-cycle calculation outside the searched SAM terminology could imply the theorem.",
+        "Finite orbit checks do not replace the recurrence/Jury proof; the result does not extend to adaptive preconditioners."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Analyzes practical SAM without normalized EMA momentum; beta=0 is related but no general beta phase diagram.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.01513",
+          "material_read": "Full accessible preprint: relevant quadratic gradient SAM and bouncing-cycle theorem/proof sections",
+          "method": "Compared exact hypotheses, theorem statements, proof mechanisms, and logical implications rather than titles.",
+          "title": "Dynamics of Sharpness-Aware Minimization: Bouncing Across Ravines and Drifting Towards Wide Minima",
+          "trigger": "Same scalar quadratic SAM cycle phenomenon"
+        },
+        {
+          "assessment": "PARTIAL_NOT_DECISIVE",
+          "evidence": "Dynamic adaptive second moment and stochastic convergence bounds are a different claim; uninspected appendices remain bibliographic risk.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.00565",
+          "material_read": "Abstract, algorithm definitions and convergence theorem summaries; full paper not exhaustively read",
+          "method": "Compared exact hypotheses, theorem statements, proof mechanisms, and logical implications rather than titles.",
+          "title": "AdaSAM: Boosting Sharpness-Aware Minimization with Adaptive Learning Rate and Momentum",
+          "trigger": "Explicit normalized first moment in a SAM-related algorithm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2210.01513",
+        "https://arxiv.org/abs/2306.09850"
+      ],
+      "rationale": "An exact existence/stability, amplitude and spectral-rate phase diagram is a useful benchmark for sign-oscillatory practical SAM with normalized EMA momentum. It identifies a sharp discrete switching boundary and distinguished local optimization band that are not a mere raw application of the no-momentum scalar theory. The scalar restriction bounds the significance but does not eliminate motivation.",
+      "residual_risks": [
+        "Scope is bounded to the exact natural object class and invariant stated, not a general extension."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A prior exact forced-heavy-ball or border-collision-cycle calculation outside the searched SAM terminology could imply the theorem.",
+    "Finite orbit checks do not replace the recurrence/Jury proof; the result does not extend to adaptive preconditioners."
+  ],
+  "schema_version": 1
+}
