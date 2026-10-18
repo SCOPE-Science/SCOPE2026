@@ -1,0 +1,166 @@
+{
+  "correctness": {
+    "rationale": "For all integer n >= 3, cubicity makes complements of double total dominating sets exactly open packings. Direct enumeration of common-neighbor edges equals the square of the auxiliary two-regular graph; its components depend on the parity of n. Cyclic gap compositions prove every coefficient of the squared-cycle independence polynomial and the six residue counts. The standalone verifier separately checks direct labeling, complete conflict backtracking, graph edge identities, and coefficient maxima. Finite testing is corroboration only; the four-step general proof is complete.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Henning–Maritz, Ars Combinatoria 81 (2006), Section 5.4, covers the numerical minimum; the present result explicitly does not claim that minimum as new.",
+        "Bermudo et al. (2017), Theorem 4.4(a), bounds \\(\\gamma^t_2(P_{2s}\\square C_n)\\), including width two, but does not enumerate all feasible sets.",
+        "Brešar et al., arXiv:2309.04963, Theorem 2.2, assumes bipartite base graph and states a maximum cardinality only.",
+        "Li et al. (2023), DOI 10.3934/math.2023479, explicitly covers Cartesian products of paths rather than cycle prisms."
+      ],
+      "reasoning": "All previous exact minimum-size coverage is acknowledged and excluded from the novel core. A theorem giving an optimum number is insufficient to imply all coefficients or the number of optimizers. The 2023 bipartite-prism theorem extends only an extremal equality, leaving the odd cycle case outside its hypothesis.",
+      "searches": [
+        "2017 Total k-domination in Cartesian product graphs double total domination prism P_2 square C_n",
+        "double total domination number prism graph cycle square K2 2n mod6",
+        "Henning Maritz \"Stratification and domination in prisms\" 2005 full text pdf total double domination prism gamma sets",
+        "Number of minimum double total dominating sets in prism graph circular ladder n equals 9 n squared 3 2n or n(n/3) depending n modulo six"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2309.04963 (preprint submitted 2023-09-10); Theorem 2.2",
+      "Ars Combinatoria 81 (2006), Henning–Maritz, printed page 357 Section 5.4",
+      "Ediz (2009), International Mathematical Forum 4, Theorem 3",
+      "doi:10.1007/s10998-017-0191-2, Section 4 Theorems 4.2–4.4",
+      "doi:10.3934/math.2023479, abstract and references",
+      "doi:10.1007/s40840-021-01200-0, general bounds",
+      "2026/10/4/SCOPE-roman-3-domination-of-complete-prisms--879e297963d2 (published-finding corpus summary: other invariant)",
+      "2026/10/11/SCOPE-complete-dihedral-and-layer-swap-homology-representations-of-cir--23f0c7be491f (published-finding corpus summary: other invariant)",
+      "2026/9/20/SCOPE-sharp-upper-lower-open-packing-spread--d14b87c012d6 (published-finding corpus summary: bounds only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2006 source states a relationship with the minimum double total domination number, and supplies no explicit all-size generating function in Section 5.4.",
+        "The 2023 bipartite prism result supplies only the equality between two maximum cardinalities, and does not apply to odd-cycle bases.",
+        "The 2017 product result supplies an interval for \\(\\gamma_2^t(P_2\\square C_n)\\), not the all-coefficient polynomial."
+      ],
+      "reasoning": "The full claimed distribution yields \\(\\Theta(n)\\) many coefficients and six distinct counts of optimizing labeled subsets; the cited earlier numerical minima and bounds cannot recover this information. The elementary cyclic-gap enumeration is a proof component, not a standalone novelty claim; the key graph-specific reduction plus entire polynomial distinguishes the result.",
+      "searches": [
+        "For n-rung circular ladders C_n Cartesian K_2, double total dominating sets counted by inverse independence polynomial of squared cycles; odd even parity periodic 6 and coefficient count",
+        "Henning Maritz \"Stratification and domination in prisms\" Ars Combinatoria 81 2006 PDF",
+        "2023 arxiv 2309.04963 Packings in bipartite prisms and hypercubes Brešar Klavžar Rall open packing theorem 2.2",
+        "2017 Total k-domination in Cartesian product graphs double total domination prism P_2 square C_n"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem 2.2 of arXiv:2309.04963 gives \\(\\rho^{o}(G\\square K_2)=2\\rho_2(G)\\) for bipartite \\(G\\), which is only an extremal invariant.",
+        "The inspected subsection 5.4 of Henning–Maritz (2006) defines and relates the numerical double total domination parameter; its Proposition 16 refers to \\(\\gamma^t_{\\times2}\\), not an all-set enumerator.",
+        "published-finding corpus closest title 2026/10/11/SCOPE-complete-dihedral-and-layer-swap-homology-representations-of-cir--23f0c7be491f studies homology of circular-ladder independence complexes rather than common-neighbor independent-set counts."
+      ],
+      "reasoning": "The accepted theorem is equivalent to a full independent-set polynomial of the common-neighbor graph, not to its maximum independent-set size. Searched explicit conflict-graph reduction and squared-cycle names; identified works are on other invariants or maximum sizes. Ordinary domination, 2-domination, and total 2-domination are not interchangeable.",
+      "searches": [
+        "The two-step common-neighbor graph of prism C_n Cartesian K2 is square of 2n cycle for odd n and two disjoint squares of n cycle for even n",
+        "For n-rung circular ladders C_n Cartesian K_2, double total dominating sets counted by inverse independence polynomial of squared cycles; odd even parity periodic 6 and coefficient count",
+        "open packing polynomial circular ladder C_n square K2 independence polynomial",
+        "double total domination polynomial of prism graph cycle Cartesian K2 exact counting sets"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus hit 2026/10/4/SCOPE-roman-3-domination-of-complete-prisms--879e297963d2 concerns Roman three-domination on \\(K_n\\square K_2\\), not total two-domination on \\(C_n\\square K_2\\).",
+        "published-finding corpus hit 2026/9/20/SCOPE-sharp-upper-lower-open-packing-spread--d14b87c012d6 is a general open-packing extremal bound, not an all-set census.",
+        "The inspected principal prism and cylinder papers report minimum parameters and selected structural arguments, not the claimed coefficient table."
+      ],
+      "reasoning": "The actual searches did not yield a covering exact table or coefficient formula, including under the open-packing dual formulation. Absence of a match is not itself proof of novelty; the positive implication comparison with the closest known theorems is the main basis of this assessment.",
+      "searches": [
+        "Exact double total domination polynomial and counts of double total dominating vertex subsets of prism graphs C_n square K_2; equivalence with the open-packing polynomial of cubic circular ladders.",
+        "exact full double total domination set enumerator polynomial of prisms and circular ladder graphs; count all optimal double total dominating subsets",
+        "open packing maximum sets circular ladders 2-packing on cycles counting modulo three",
+        "\"total double domination\" \"prism\" number of minimum sets polynomial"
+      ]
+    },
+    "rationale": "Claimed originality is the all-subset polynomial, parity-twisted cycle-square classification, and all-optimal-sets multiplicities; the numerical minimum and elementary cyclic gap count are explicitly acknowledged as previously available or elementary. Direct comparisons with same-object 2006 source and later prism and product papers find no implication of the full enumeration, with cited residual bibliographic limitations.",
+    "residual_risks": [
+      "Some pages of the scanned 2006 article outside its explicitly relevant Section 5.4 were not individually inspected; a hidden enumeration cannot be ruled out purely from the scanned section.",
+      "An equivalent full independent-set polynomial for the common-neighbor graph under a different graph name could exist in unindexed literature.",
+      "published-finding corpus semantic searches, even together with direct primary literature comparisons, cannot establish global novelty.",
+      "Independent review and external validation are not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Extremal equality for bipartite base graphs; not complete enumerator; odd cycle bases not bipartite",
+        "evidence": [
+          "Theorem 2.2 asserts \\(\\rho^o(G\\square K_2)=2\\rho_2(G)\\) for bipartite \\(G\\).",
+          "There is no occurrence of the term polynomial in the indexed full text."
+        ],
+        "identifier_or_url": "arxiv:2309.04963; https://users.fmf.uni-lj.si/klavzar/preprints/2309.04963.pdf",
+        "material_read": "Abstract, definitions, full Section 2 including Lemma 2.1 and Theorem 2.2 and proof, Section 3–5 descriptions, concluding remarks, references; primary 11-page preprint text searchable",
+        "method": "Publisher-author open manuscript PDF text and visual first page checked; theorem and exact hypotheses compared",
+        "title": "Packings in bipartite prisms and hypercubes",
+        "trigger": "Directly relevant prism open-packing theorem with a matching graph product"
+      },
+      {
+        "assessment": "The minimum parameter is old; subsection 5.4 gives numerical parameter comparisons but no all-set generating polynomial",
+        "evidence": [
+          "Section 5.4 defines double total domination number and gives Propositions 16 and 17 about its numeric relation to stratified parameters.",
+          "Theorem 9 includes minimum values of stratified parameters; no all-size census is given there."
+        ],
+        "identifier_or_url": "Ars Combinatoria 81 (2006), 343–358; https://combinatorialpress.com/article/ars/Volume%20081/volume-81-paper-24.pdf",
+        "material_read": "Scanned article cover/abstract, numerical parameter comparison in Theorem 9, and complete explicitly relevant Section 5.4 on printed page 357; selective images, not every page",
+        "method": "Publisher-hosted original scanned primary PDF, visual inspection of pages 1, 8 and 15 of 16",
+        "title": "Stratification and Domination in Prisms",
+        "trigger": "Same prism family and same double total domination invariant, identified through Ediz 2009 citation"
+      },
+      {
+        "assessment": "Prior numeric relation but no all-size polynomial or optimizer multiplicities",
+        "evidence": [
+          "Theorem 3 relates the stratified parameter to \\(\\gamma^t_{\\times2}\\) with a special congruence class.",
+          "Main contribution is stratified domination by odd cycles, not enumeration of all double total dominating subsets."
+        ],
+        "identifier_or_url": "https://www.m-hikari.com/imf-password2009/45-48-2009/edizIMF45-48-2009.pdf",
+        "material_read": "Definitions in introduction; Theorems 1–3, including Theorem 3 item 4 and bibliography, and main result; 8-page indexed primary PDF",
+        "method": "PDF text with visual check of the main parameter-comparison theorem",
+        "title": "On Stratified Domination in Prisms",
+        "trigger": "Full restatement of Henning–Maritz numerical total double domination result"
+      },
+      {
+        "assessment": "Theorem 4.4 gives bounds for width two; no full double-total cardinality enumerator",
+        "evidence": [
+          "Theorem 4.4(a): bounds for \\(\\gamma_2^t(P_{2s}\\square C_n)\\).",
+          "Theorem 4.2 addresses odd-width path-cycles and even-width cycle-cycle products, neither the full counting polynomial."
+        ],
+        "identifier_or_url": "doi:10.1007/s10998-017-0191-2; https://www.researchgate.net/publication/318604314_Total_k-domination_in_Cartesian_product_graphs",
+        "material_read": "Publicly accessible author-hosted full textual article including definitions, Section 2 and 3, Section 4 Theorems 4.2–4.4, and references",
+        "method": "Full-text HTML text extraction of the published paper reproduction and direct comparison of the even-width case",
+        "title": "Total k-domination in Cartesian product graphs",
+        "trigger": "Potential stronger theorem for arbitrary Cartesian products of cycles and paths"
+      },
+      {
+        "assessment": "Explicitly studies Cartesian products of paths and minimum values, not cycle prisms/all-subset polynomial",
+        "evidence": [
+          "Abstract: values of \\(\\gamma_{\\times2,t}(P_i\\square P_n)\\) for \\(i=2,3\\) and bounds for larger \\(i\\)."
+        ],
+        "identifier_or_url": "doi:10.3934/math.2023479; https://www.aimspress.com/article/doi/10.3934/math.2023479",
+        "material_read": "Journal title, abstract, scope statement, references, bibliographic metadata",
+        "method": "Publisher open HTML abstract and references",
+        "title": "Double total domination number of Cartesian product of paths",
+        "trigger": "Title contains same invariant and a related Cartesian graph product"
+      },
+      {
+        "assessment": "Defines and bounds the minimum parameter; no all-subset prism polynomial",
+        "evidence": [
+          "Focus is on bounds on the double total domination number for arbitrary graphs."
+        ],
+        "identifier_or_url": "doi:10.1007/s40840-021-01200-0",
+        "material_read": "Definitions, abstract, stated general bounds and examples in accessible full article",
+        "method": "Full-text science review of general lower and upper bounds",
+        "title": "New Bounds on the Double Total Domination Number of Graphs",
+        "trigger": "Foundational double total domination bounds potentially implying exact values"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7d9b1efd-0d6b-401d-810c-93757dd896a8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The all-cardinality domination polynomial is a natural substantial strengthening of the earlier numeric prism invariant and supplies all optimal configurations and six sharp residue-class counting formulas. The parity-coupled common-neighbor graph turns the original two-layer cyclic domination constraints into independent selections on one or two squared cycles. This explicit structure is reusable for probabilistic sampling/counts of feasible configurations; the special value lies in the natural complete family and structural classification, not in computing an isolated small example.",
+    "status": "PASS"
+  }
+}
