@@ -1,14 +1,21 @@
-# Scientific review
-## Correctness
-**PASS.** The graph shortest-path and inversion-count metrics agree on all 576 ordered vertex pairs. Two independent algorithms compute the finite Rips filtration: exact simplicial-boundary rank elimination and filtration-ordered persistence pairing. Their cross-check establishes all scale-zero through scale-four Betti numbers and the sole ambiguous inclusion-map rank, one in degree two from scale two to three. The scale-five complex is explicitly the independence complex of a 12-edge matching and hence a join of 12 copies of \(S^0\); at scale six the full simplex is contractible. There is no inference from sampled parameter values: all 24 permutations and all 17,372 simplices through scale four are enumerated.
+# Independent mathematical audit
 
-## Originality
-**PASS, with residual risk.** The paper on graph powers gives general properties but not this full persistence module. The circle Rips classification concerns cyclic metrics. The Platonic-solids computation does not cover the Archimedean permutahedron. Permutahedral-lattice approximation for extrinsic point clouds has a different object and metric. Published Rips findings for the truncated tetrahedron and truncated cube cover different graph-metric spaces, rather than implying this calculation. Search terms included both adjacent-transposition and Kendall distance, graph-metric Rips, permutahedron, truncated octahedron, and full barcode. An unindexed exact computation might still preempt the numerical determination; no assertion of exhaustive bibliographic coverage is made.
+## correctness
 
-## Value
-**PASS.** Kendall distance is a standard natural metric on rankings, and the 24-vertex permutahedron is a canonical non-regular example in graph-metric persistent topology. A complete persistence module (not just one Betti number) detects a surviving two-class across an intermediate threshold, simultaneous high-dimensional groups at another threshold, and a final sphere in dimension eleven. The computation provides a self-contained exact benchmark with independently implemented boundary and persistence checks. It makes no unsupported claim about general symmetric groups.
+PASS
 
-## Verification status and limits
-Both embedded programs use only standard-library Python; their expected terminal markers are `VERIFY_OK` and `PERSISTENCE_OK`. Correctness is established for this finite metric; an independent scientific audit has not occurred. Literature overlap remains subject to unindexed or inaccessible work.
+The metric is inversion count on S_4, equal to graph shortest-path distance on the adjacent-swap Cayley graph with 24 vertices and 36 edges. The audited two standard-library programs enumerate every clique and reduce exact F_2 boundary matrices; K_2 has face vector (24,96,112,30), K_3 (24,168,472,618,384,92) and K_4 (24,228,1112,3042,4848,4592,2592,822,112). Independently implemented BFS/clique enumeration and exact boundary reduction reproduced all K_4 face counts and ranks (0,23,205,907,2135,2708,1882,710,112,0), while cycle-image elimination reproduced 39 Z_2(K_2) generators, rank B_2(K_3)=326 and rank(B_2(K_3)+image Z_2(K_2))=327, so the critical map H_2(K_2)->H_2(K_3) has rank one. This gives eight bars [2,3) and one [2,4), not merely the Betti numbers; ranks of all other degrees give 13 H_1[1,2), five H_4[4,5) and two H_5[4,5). Each vertex has one distance-six antipode, giving K_5=(S^0)^{*12}=S^11 and K_6 a full simplex. Full finite enumeration certifies this one metric; not a theorem about S_n for all n or integral coefficients.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The strongest overlapping published result proves complete stagewise HOMOTOPY TYPES of the identical 24-vertex truncated-octahedral graph, including all nonzero Betti dimensions, and is explicitly credited. It does not determine the inclusion map H_2(K_2)->H_2(K_3) or barcode: identical source and target groups Z_2^9 to Z_2 admit image rank 0 OR 1 without extra data. The independently verified rank-one persistence bridge and therefore full barcode are the surviving original claim, not the stagewise homotopy classifications. Best-of-knowledge, with substantial same-day overlap and possibility of an earlier implicit calculation.
+
+## value
+
+PASS
+
+Kendall adjacent-swap distance on the 24 rankings is canonical, and its precise interval decomposition is a natural exact invariant beyond scale-by-scale homotopy. The one surviving degree-two class across scale 3 is not implied by Betti dimensions; knowing that persistence rank provides a reproducible test case for graph-metric persistent homology. Its finite size does not negate the motivation, and no extrapolation beyond S_4 is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
