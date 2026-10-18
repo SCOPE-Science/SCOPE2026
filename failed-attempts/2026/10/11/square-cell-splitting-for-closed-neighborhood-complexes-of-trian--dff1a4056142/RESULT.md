@@ -51,7 +51,7 @@ Matsushita, *Closed neighborhood complexes of graphs* (arXiv:2511.12608, initial
 
 ## Limitations
 
-Graphs containing triangles or a pair of vertices with three common neighbors need not obey the stated collapse sequence or splitting. No claim is made about such graphs, about Čech filtration scales other than two, about torsion or homotopy of the square-filled complex \(X_G\) itself, or about a canonical based wedge decomposition. The finding has received only a same-model scientific review; an independent audit has not been performed. No priority claim beyond the actual literature comparisons is implied.
+Graphs containing triangles or a pair of vertices with three common neighbors need not obey the stated collapse sequence or splitting. No claim is made about such graphs, about Čech filtration scales other than two, about torsion or homotopy of the square-filled complex \(X_G\) itself, or about a canonical based wedge decomposition. The finding has received only a self-review; an independent audit has not been performed. No priority claim beyond the actual literature comparisons is implied.
 
 ## References
 
