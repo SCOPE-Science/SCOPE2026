@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness: PASS.** The matrix representation proves that zero indices are exact multiples of the first index and the period-to-rank quotient is at most two. For \(a\equiv4\pmod6\), the first zero and period modulo \(2^{\nu_2(a)+1}\) are exactly four. The tripling identity \(U_{3r}=U_r(3+(a^2-4)U_r^2)\) guarantees an odd zero index modulo each \(3^j\); period reduction to modulus three forces zero count two. Least-common-multiple identities then prove the order-one product. A finite exact-arithmetic checker was executed; it is not the infinite proof.
+## correctness
 
-**Originality: PASS relative to inspected sources.** Conjecture 5.2, Table 8 in Benfield--Lippard (arXiv:2407.20048v1 and v2) predicts order two in the mixed order-one/order-two situation. The exhibited family gives order one. Renault (Mathematics Magazine 86 (2013), Theorem 1) gives general lcm identities for rank and period and these are credited. The inspected statements do not present or classify this explicit infinite contrary family. Searches for equivalent versions and broader covering statements found no direct equivalent. Unindexed earlier or parallel work remains a bibliographic risk.
+PASS
 
-**Value: PASS.** This is not a renamed identity or isolated low-parameter test: it refutes a stated uniform multiplication-table conjecture across infinitely many even coefficients and infinitely many power-of-three moduli for each coefficient, with an exact structural proof. The theorem does not classify all possible mixed pairs or the other table cells.
+For T=[[a,-1],[1,0]], det=1, T^r scalar iff U_r=0 mod t; first scalar exponent is alpha and matrix period pi, and its scalar value squares to 1. Rank and period obey lcm under modulus lcm. With a≡4 mod6, e=v2(a), m=2^(e+1), U4=a(a²-2) has v2=e+1 and U5≡1 mod m, giving alpha(m)=pi(m)=4. Modulo 3^j the tripling identity U_(3r)=U_r(3+(a²-4)U_r²) yields an odd zero exponent 3^j, while pi(3^j) is even by reduction to 3, forcing pi=2alpha. Combining odd rank R with alpha(m)=4 yields pi(m3^j)=alpha(m3^j)=4R. Independently checked a=4,10,16 and j=1,2,3 by modular recurrence-state traversal, not substituted for universal argument.
 
-**Sources and limitations.** Benfield--Lippard, arXiv:2407.20048v1 (2024-07-29) and v2 (2025-01-30); Renault, DOI:10.4169/math.mag.86.5.372 (2013). The available literature comparison is non-exhaustive; finite code checks cannot substitute for the universal proof. External independent validation has not been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Benfield–Lippard Conjecture 5.2 mixed (1,2) table entry predicts output 2; the explicit a≡4 mod6, moduli 2^(e+1),3^j give output 1 infinitely often. Renault already proves general rank and period lcm laws; the new simultaneous rank/parity realization is not contained in merely stating those laws. Resultary nearby Lucas records discuss other invariants. Best-of-knowledge directly new counterexample family to explicit conjecture.
+
+## value
+
+PASS
+
+Refutes a mathematically specific published multiplication-table conjecture, not just a small modular exception: infinitely many recurrence coefficients and infinitely many moduli per coefficient are covered by an exact structural argument. It motivates correction of one identified table entry without claiming a full classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
