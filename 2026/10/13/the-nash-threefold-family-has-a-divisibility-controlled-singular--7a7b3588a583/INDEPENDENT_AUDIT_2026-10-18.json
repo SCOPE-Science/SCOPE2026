@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T07:08:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every n>=2 with algebraically closed char p>0 dividing n, the prime-characteristic Jacobian-minor monomials omit exactly the minor n, yielding three Newton vertices. On one normalized chart the character cone has primitive rays (1,0,0),(0,1,0),(-1,-2,n),(-2,-1,n); its dual primitive rays r0=(0,0,1), rx=(n/g2,0,2/g2), rm=(n/g3,n/g3,3/g3), ry=(0,n/g2,2/g2). Their consecutive cross-product gcds are n/g2,n/(g2*g3),n/(g2*g3),n/g2. Four rays give singular fixed point; the nonregular two-faces give 0,2,4 per-chart curve components as claimed. Solving <m,r>=1 gives m=((g2-2)/n,(g2-2)/n,1) and consistency g3=2*g2-1, hence n multiple of 6 has Cartier index 1, odd n coprime to 3 has exact index n, others are not Q-Cartier. I independently recomputed gcd cases n=2,3,4,5,6,7,8,9,10,12,15,30 (independent_checks.py), and checked the pinned verifier code, which exhaustively tests n=2..512; finite tests do not prove the uniform theorem. Boundary cases n=2,3,6 checked separately. Scope per affine chart, not global irreducible-curve count.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.9 supplies an algorithm for any prime-characteristic toric semigroup; generic algorithm requires special n/gcd arithmetic to derive this claim.",
+          "The later criterion studies characteristic independence; it does not tabulate this p|n family."
+        ],
+        "reasoning": "Generic algorithmic coverage is not a precomputed complete statement; explicit arithmetic sharp classification is not mechanically a title-level restatement.",
+        "searches": [
+          "arXiv:2208.05599 Theorem 1.9",
+          "arXiv:2501.09811 characteristic-free toric Nash criteria",
+          "published Resultary semantic search: normalized Nash blowup characteristic p of toric threefold hypersurface w^n=abc singular strata Q-Gorenstein index for p dividing n (top 8)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2208.05599",
+        "arXiv:2501.09811",
+        "Cox–Little–Schenck Toric Varieties, toric orbit smoothness and canonical divisor criteria"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior theorem implies that the Nash blowup can be computed from logarithmic Jacobian/Newton combinatorics; claim additionally determines all primitive rays, saturated indices and canonical support equations for all n."
+        ],
+        "reasoning": "If a previous paper explicitly furnished the full chart-cone formula for arbitrary n, this calculation could be a routine corollary; inspected relevant primary statements do not furnish that family-wide cone. Genuine residual source equivalence risk retained.",
+        "searches": [
+          "arXiv:2208.05599 Theorem 1.9, final example",
+          "arXiv:2501.09811 Example 2.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "First normalized Nash chart of toric binomial abc=w^n; divisibility of edge lattice indices and Q-Cartier support function are equivalent formulations of the result.",
+          "Primary n=2 example is the parameter boundary, not a universal classification."
+        ],
+        "reasoning": "Compared Newton-fan, toric-face, and canonical-divisor support-function formulations instead of only the title; no prior published same family classification found.",
+        "searches": [
+          "published Resultary semantic search: normalized Nash blowup characteristic p of toric threefold hypersurface w^n=abc singular strata Q-Gorenstein index for p dividing n (top 8)",
+          "arXiv:2208.05599 Sections 1–4",
+          "arXiv:2501.09811"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published worked case is n=2; no table of all n indices identified."
+        ],
+        "reasoning": "This infinite family is not a finite table entry; the only exact matching example is n=2, acknowledged as known.",
+        "searches": [
+          "published Resultary semantic search: normalized Nash blowup characteristic p of toric threefold hypersurface w^n=abc singular strata Q-Gorenstein index for p dividing n (top 8)",
+          "Duarte et al 2024 threefold example"
+        ]
+      },
+      "rationale": "Best-of-knowledge new all-exponent per-chart singular-face and canonical-index trichotomy. Duarte–Jeffries–Núñez-Betancourt provide the positive-characteristic Nash algorithm and n=2 example; standard toric face/Gorenstein criteria alone do not state the divisibility-index enumeration without an additional explicit family computation.",
+      "residual_risks": [
+        "A different parametrization of the family may encode this trichotomy in a toric fan table; broad semantic search does not prove novelty.",
+        "No global curve-count theorem is claimed; chart overlaps could identify curves."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers general monomial Jacobian blowup rule and n=2 contrast; not the all-n indices",
+          "evidence": "Theorem 1.9; 3-dimensional characteristic-two example",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.05599",
+          "material_read": "Entire 10-page preprint, especially Theorem 1.9 and last-dimensional example",
+          "method": "Read published open-access PDF, including relevant theorems, proofs, tables and references",
+          "title": "Nash blowups of toric varieties in prime characteristic",
+          "trigger": "Same toric Nash algorithm and related threefold example"
+        },
+        {
+          "assessment": "Risk remains for hidden stronger chart computation; no direct all-n classification established",
+          "evidence": "arXiv:2501.09811 abstract and described Example 2.3",
+          "identifier_or_url": "https://arxiv.org/abs/2501.09811",
+          "material_read": "Abstract and indexed description plus targeted comparison in record; not all PDF pages freshly reread",
+          "method": "Compared available abstract and source-specific described example; full text not inspected in this execution",
+          "title": "Characteristic-free normalized Nash blowup of toric varieties",
+          "trigger": "Later general toric Nash criteria"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A geometrically natural higher-dimensional Nash family displays exact transitions among isolated/nonisolated singularities and Gorenstein/Q-Gorenstein failures. The n-divisibility boundaries and precise canonical index supply useful data for singularity and birational classification beyond a routine single-instance calculation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2208.05599",
+    "arXiv:2501.09811",
+    "Cox–Little–Schenck Toric Varieties, toric orbit smoothness and canonical divisor criteria"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only p|n, normal first Nash blowup, counts per affine chart; finite certificate n<=512 does not cover infinity."
+  ],
+  "schema_version": 1
+}

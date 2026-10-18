@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The parent toric hypersurface is normal, and the characteristic-dependent logarithmic Jacobian ideal has exactly three Newton vertices. Explicit saturation and polarity yield four primitive rays in every normalized affine chart; all four two-face lattice indices follow by cross products. The standard toric orbit criterion gives the complete chart singular locus, and a four-equation rational support-function calculation proves the canonical-divisor trichotomy and exact Cartier index. The actual embedded checker verifies the independent integer calculations for 511 sample integers. The proof itself is uniform in every integer and every admissible characteristic.
+## correctness
 
-**Originality — PASS, with priority risk.** The source of the toric Nash algorithm already contains the \(n=2\) cone and its normalized semigroups. This special instance is prior art, not a new contribution. The claimed theorem adds an infinite natural family, exact per-chart singular-curve counts, transverse lattice indices, and a complete arithmetic \(\mathbb Q\)-Gorenstein classification. The 2025 characteristic-free normalized Nash paper revisits the exponent-two cone but does not state those formulas, and the 2025 computational Nash paper's toric hypersurface examples are four-dimensional and different. No equivalent statement was found in the available mathematical records or source comparisons; unindexed results or an overlooked implication remain possible.
+PASS
 
-**Value — PASS.** The example in the originating paper motivates understanding which threefold singularities persist under normalized Nash modification. In the simplest symmetric family containing it, the singular locus abruptly changes dimension, while the canonical class changes among Cartier, higher-index \(\mathbb Q\)-Cartier, and non-\(\mathbb Q\)-Cartier by divisibility. The uniform indices and exact boundary cases are intrinsic birational-geometric information, not a routine finite census.
+For every n>=2 with algebraically closed char p>0 dividing n, the prime-characteristic Jacobian-minor monomials omit exactly the minor n, yielding three Newton vertices. On one normalized chart the character cone has primitive rays (1,0,0),(0,1,0),(-1,-2,n),(-2,-1,n); its dual primitive rays r0=(0,0,1), rx=(n/g2,0,2/g2), rm=(n/g3,n/g3,3/g3), ry=(0,n/g2,2/g2). Their consecutive cross-product gcds are n/g2,n/(g2*g3),n/(g2*g3),n/g2. Four rays give singular fixed point; the nonregular two-faces give 0,2,4 per-chart curve components as claimed. Solving <m,r>=1 gives m=((g2-2)/n,(g2-2)/n,1) and consistency g3=2*g2-1, hence n multiple of 6 has Cartier index 1, odd n coprime to 3 has exact index n, others are not Q-Cartier. I independently recomputed gcd cases n=2,3,4,5,6,7,8,9,10,12,15,30 (independent_checks.py), and checked the pinned verifier code, which exhaustively tests n=2..512; finite tests do not prove the uniform theorem. Boundary cases n=2,3,6 checked separately. Scope per affine chart, not global irreducible-curve count.
 
-Limits: positive characteristic dividing \(n\), per-chart curve counts, and only one normalized Nash step. Later iterates and other characteristics are not classified. Publication priority is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new all-exponent per-chart singular-face and canonical-index trichotomy. Duarte–Jeffries–Núñez-Betancourt provide the positive-characteristic Nash algorithm and n=2 example; standard toric face/Gorenstein criteria alone do not state the divisibility-index enumeration without an additional explicit family computation.
+
+## value
+
+PASS
+
+A geometrically natural higher-dimensional Nash family displays exact transitions among isolated/nonisolated singularities and Gorenstein/Q-Gorenstein failures. The n-divisibility boundaries and precise canonical index supply useful data for singularity and birational classification beyond a routine single-instance calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
