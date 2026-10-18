@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-Run `python3 verify.py` in the extracted package. The verifier constructs endomorphism matrices and their multiplication explicitly, tests all generator fixed domains \(D_{g,h}\) through products \(gh\), closes these domains under intersection, and compares them with independently constructed image/kernel rectangles over binary fields. It also generates the complete partial inner automorphism monoid in the smallest nontrivial binary case, rather than assuming its idempotents arise only from generator-domain intersections.
+## correctness
 
-Observed results:
+PASS
 
-- \(n=2,q=2\): \(16\) matrices; \(11\) idempotent domains (one of size \(1\), nine of size \(2\), one of size \(16\)); exactly \(4\) domains have zero multiplication. The full partial inner monoid has \(52\) maps and \(11\) idempotents.
-- \(n=3,q=2\): \(512\) matrices; \(198\) idempotent domains (one of size \(1\), \(49\) of size \(2\), \(98\) of size \(4\), \(49\) of size \(16\), one of size \(512\)); exactly \(36\) domains have zero multiplication.
-- \(n=2,q=3\): \(81\) matrices; \(18\) idempotent domains (one of size \(1\), sixteen of size \(3\), one of size \(81\)).
+For K any field and n>=2, D_{e,I}={A:eA=A=Ae}=B(ker(e-I),im(e-I)). Rectangular B(U,W) corresponds to Hom(V/W,U). The source and target 1-eigenspaces and quotients are isomorphic under g,h, so images/preimages/intersections of rectangular domains stay rectangular through all generators; rank-one generators T_ij with ker intersections U and image sums W realize every pair of nonzero proper subspaces. Intersection identity is B(U∩Uprime,W+Wprime), with {0} when U intersection zero or W sum V. Recover U by span of images and W by intersection of kernels; count Gaussian subspaces and square-zero iff U⊆W. Independent F2 n=2 enumeration recovered 9 distinct proper rectangle domains plus top/bottom =11; finite checks not the all-field proof.
 
-Execution from the extracted package terminates with `VERIFY_OK`. This finite enumeration checks examples, not all dimensions, all fields, or the general proof. There is no independent review or certification.
+## originality
+
+PASS
+
+Araújo et al. 2026 define Inn(S) and explicitly pose structural determination for finite-dimensional full linear monoids in Problem 7.9, but inspected text does not supply the semilattice classification. The submission solves only idempotents, not the entire open inverse-monoid problem; Gaussian counting is standard but realization as exactly these domains is the asserted distinct result. Resultary query did not return an equivalent.
+
+## value
+
+PASS
+
+Computing all idempotent domains with meet law and Gaussian count is a nontrivial structural partial answer to a specifically posed open full-linear-monoid inverse-monoid problem. The exact finite idempotent and squarezero-domain counts are natural semigroup invariants; no claim of full monoid classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
