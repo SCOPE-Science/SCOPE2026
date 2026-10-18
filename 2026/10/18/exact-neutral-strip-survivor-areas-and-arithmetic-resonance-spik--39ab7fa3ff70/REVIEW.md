@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+The claimed result follows from the exact invariant positive-definite quadratic form for the central Jacobian, a Euclidean rotation conjugacy, the strip-normal dual norm, and the tangent-polygon area calculation. Infinite-horizon conclusions use either a finite cyclic normal set or density of an irrational circle rotation. Arithmetic discontinuities follow from the regular-polygon excess; bounded-type finite-horizon rates follow from convergent-denominator mesh bounds and Jensen's inequality. The separate exact-rational and numerical polygon-clipping script verifies sample normalizations and genuinely reconstructs the inequalities. The proof, not finite computation, covers all parameters and horizons.
+
+## Originality — PASS, with priority limitations
+The complete accessible 2023 primary article already proves tangent invariant ellipses and invariant polygons at the center threshold. Its §§2, 4.7 and conclusions were compared directly with the present statement; those sections do not quantify all finite-horizon survivor areas, an exact parameter-wide infinite-area function, dense rational area spikes, or Diophantine convergence rates. The 2006 and 2008 Sushko–Gardini center-bifurcation studies concern related but distinct one-switch geometries and do not supply these formulas for this three-zone neutral map. A 2025 study by overlapping authors analyzes a homogeneous common-fixed-point map class rather than this nonhomogeneous model. Semantic searches of published research records did not identify a covering claim; a mathematically equivalent general convex-geometric computation elsewhere remains a priority risk.
+
+## Value — PASS
+The magnitude of the maximal no-switching region is a natural missing quantity in the source model: it measures the initial-state volume exposed to permanent neutral behavior at a delicate center bifurcation. The exact finite-horizon formula permits quantitative transient calculations; the Thomae-like resonance spikes identify sharp arithmetic sensitivity invisible in the source's qualitative polygon-versus-ellipse statement; the sharp \(m^{-2}\) rate for bounded-type irrational angles identifies a nontrivial first-switching-time law with finite mean and infinite second moment. The result is not a claim about full global basins or a new construction of the known invariant polygons.
+
+## Source relationship and remaining limitations
+Primary source: Gardini–Radi–Schmitt–Sushko–Westerhoff, *Chaos, Solitons & Fractals* 176 (2023), 114143, DOI 10.1016/j.chaos.2023.114143, §4.7. Related antecedents: Sushko–Gardini (2006, chapter 2), Sushko–Gardini (2008), and Gardini et al. (2025, arXiv:2504.04778). The established area identities apply only to neutral survivor sets at the center slice; bounded-type rate assumptions are essential to the stated uniform quadratic upper bound. Searches cannot rule out older equivalent convex-geometric area identities or uncatalogued specializations.
+
+Self-review: passed. Independent audit: not yet performed.
