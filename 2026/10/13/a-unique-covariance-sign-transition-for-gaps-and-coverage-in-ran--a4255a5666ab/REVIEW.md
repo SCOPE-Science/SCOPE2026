@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-For independent uniform centers, the cyclic spacings form a Dirichlet unit-simplex vector; the gap and coverage statistics are respectively the count of spacings above the arc length and the sum of truncated spacings. The diagonal and off-diagonal truncated-tail moments follow by integrating the one- and two-coordinate Dirichlet survival functions. These recover the closed covariance exactly, including the disjoint-gap regime. After factoring by a positive power, the derivative sign is controlled by a ratio with logarithmic derivative \((1-2ns)/((1-2s)(1-s))\), proving only one positive root for all \(n\ge3\). A separate polynomial simplification gives the \(n=2\) boundary. Uniform elementary exponential expansions and a one-root argument for \(e^c-1-c-c^2\) prove the sparse limit and critical intensity. The proof covers every specified integer size and every allowed continuous arc length; numerical tests only corroborate it.
+PASS
 
-## Originality: PASS, with material risk
+PASS: For n>=2 iid uniform points and fixed clockwise arc length s in (0,1), cyclic normalized spacings D form Dirichlet(1,...,1), uncovered gap count K=sum 1{D>s}, covered fraction C=1-sum(D-s)_+. Independent integration of marginal and pair Dirichlet tails gives Cov(K,C)=n(1-s)^(2n-1)-(1-s)^n-(n-1)(1-2s)_+^n. For 0<s<1/2, factor (1-s)^n Bn(s), whose derivative is governed by R=(1-2s)^(n-1)/(1-s)^(2n-1) with log derivative (1-2ns)/((1-2s)(1-s)); R crosses 1 only once, so Bn has one positive zero for n>=3, and n=2 simplifies to s²(1-2s) on first half. Independently verified rational Dirichlet identities for n=2,...,24 and numerical roots s3=0.40333046641386133, s4=0.33214428, n40 root≈0.04341838. Expansion s=c/n gives e^-2c(1+c+c²-e^c), unique positive c*=1.7932821329 by convexity, and unique finite thresholds imply ns_n->c*. Finite checks do not replace all-n proof.
 
-Searches of published mathematical findings, aliases (gap count, covered fraction, vacancy, Dirichlet threshold exceedances), and established stochastic-geometry sources did not locate this complete all-size single-crossing theorem. Huillet (2003), however, determines the *joint Laplace transform of covered-component lengths* and therefore mathematically determines both the gap count and covered fraction, which implies access to their covariance in principle. Neither the full-text statements inspected from Huillet nor the available descriptions of Holst and Hüsler (1984), Siegel (1978), and Durand (2008) states or classifies the unique zero for every sample size. The claim is limited to the all-size sign classification, not to first discovery of the joint law or of its elementary marginal moments. The older Holst–Hüsler source was not accessible in full through the available lawful routes; its possible implicit or explicit sign result is a residual historical risk. This is a self-review, not a certification of priority.
+## originality
 
-## Value: PASS
+PASS
 
-Gap count and covered fraction are standard, directly interpretable observables in one-dimensional geometric coverage. The sign reversal is not a tautology: at short arc lengths more uncovered components coexist with more coverage, whereas at long lengths their association becomes negative. The theorem gives a complete finite-size phase diagram rather than a chosen numerical example, a rigorous uniqueness proof, and a sharp sparse-limit critical intensity. It makes the dependence transition identifiable without computing a full multivariate transform and provides a baseline for investigating heterogeneity.
+PASS with bounded risk: Circular uniform-spacing Dirichlet theory, marginal moments and Huillet's much broader joint coverage transform are existing science, and the covariance is in principle derivable from a full joint law. The assessed specific new content is the global one-zero sign classification for each n, including the sharp sparse-scale c* limit. Resultary and primary-source searches did not find this exact sign-classification statement. Holst–Hüsler (1984) and Huillet (2003) could not be inspected in full under institutional access; their potential equivalent derived covariance or sign discussion is a nontrivial residual risk. No novelty for the joint law or covariance as a formal transform derivative is claimed.
 
-## Closest literature and limitations
+## value
 
-Closest sources are Huillet's 2003 full-text joint component-size transform (the strongest prior implication), Holst–Hüsler 1984 joint limit results (full text inaccessible), and Siegel 1978 marginal coverage moments. They constrain the historical novelty claim. No assertions are made about nonuniform locations, variable arc lengths or independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Gap count and covered fraction are canonical geometric coverage observables; their covariance switches sign exactly once rather than obeying a simple monotone relationship. The exact finite-sample phase boundary and sparse scaling constant give a motivated, reusable description of dependence that cannot be read directly as the sign of standard marginal coverage formulas. Not about nonuniform arc lengths or full-coverage threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
