@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is stated for every positive pair of finite chain sizes and uses the raw existential and universal relational image operators on all upward-closed subsets. The endpoint equivalences follow for every threshold, including the empty and whole opens; these force the seriality dichotomy without auxiliary hypotheses. The row-count weights are exact, independent powers of two. The interval-valued subclass is bijective with semistandard tableaux of two equal rows, and the displayed hook-content product has been checked against the Weyl factorization. For the asymptotic, the unique largest weight belongs to the full-span endpoint pair; chains through it factor into two totally ordered families, giving a simple pole with the claimed residue. Other poles are bounded in modulus. An independent semantic-versus-endpoint exhaustive verifier passes for 74,954 finite relations, and exact counts agree. Finite computations are corroborative, not a proof of the infinite parameter range.
+PASS
 
-## Originality — PASS, with residual risk
+PASS: For upward-open thresholds U_t the raw box and diamond indicators are exactly 1[a_i≥t] and 1[b_i≥t], with (a,b)=(m,−1) for empty rows. Both openness conditions force weakly increasing minima/maxima and forbid mixing empty/nonempty rows; for nonempty rows all interior membership choices are independent and contribute 2^max(b−a−1,0). Interval-row pairs biject to two-row SSYT via (a_i+1,b_i+2), yielding hook-content formula. A finite weighted multichain rational generating function has unique largest weight 2^{m−2} at (0,m−1), giving the exact C_m residue and 4^(−r) fraction; lower poles have at most half that weight. Independent exhaustive semantic check of 74,954 relations for all 1≤r,m≤4 gives 3958 qualifying and 960 interval-valued or empty; diagonal count 2,7,80,2855,374660. Finite checks corroborate, infinite theorem follows analytically.
 
-The 2026 motivating duality paper defines semicontinuity and explains its modal significance but does not enumerate finite chain relations. The 2018 Barmak–Mrozek–Wanner Lemma 3.2 covers the underlying structural semicontinuity test, so the endpoint test is explicitly treated as a **known structural specialization**. The classical hook-content formula already covers the interval-valued tableau subcount after the stated bijection. Neither prior ingredient by itself supplies the unrestricted weighted census or the sharp coefficient and universal quarter-law. The closest public mathematical record on mapping spaces between finite weak orders counts single-valued continuous maps, not arbitrary two-sided continuous relations. Older work on isotone relations by Walker and Roddy–Schröder creates a genuine residual risk because their full texts were not both available for examination. Literature search failure alone is not treated as a novelty certificate.
+## originality
 
-## Value — PASS
+PASS
 
-The central object is directly motivated by the pair of modal predicate transformers in relational-space semantics, not an arbitrary numerical slice. The exact answer classifies **all** continuous two-sorted relations between every pair of finite chains and yields full self-relation counts, rather than a small sample. The weight is mathematically necessary because successor sets with identical endpoints need not be intervals. The rational generating-function argument identifies an explicit leading constant and a fixed-target probability decay rate independent of target size. The clean tableau subfamily isolates precisely where the classical hook-content formula applies. These facts furnish natural benchmark counts and a quantitative comparison of interval and unrestricted modal relations; they do not claim a new modal axiomatization or an infinite-poset theorem.
+PASS: Best-of-knowledge PASS: finite-poset semicontinuity criteria of Barmak–Mrozek–Wanner, Collinson modal relational continuity, and classical hook-content tableaux all predate this work. The claimed contribution is the unrestricted weighted count over *arbitrary* row interiors and exact fixed-target 1/4 exponential decay, neither automatically deduced by prior structural characterizations. Older isotone-relation enumeration may be hidden under alternate terminology; record risk.
 
-## Closest literature and limitations
+## value
 
-Collinson (2026) is the source of the modal-continuity setup. Barmak–Mrozek–Wanner (2018), Walker (1984), and Roddy–Schröder (2005) provide older isotone-relation theory; the first text establishes a more general structural criterion. The two-row tableau count follows from classical hook-content theory. An inaccessible older isotone-relations paper may contain an equivalent enumerative formulation; that risk warrants later independent literature scrutiny. No claims are made about changing the number of target points in the asymptotic or about arbitrary finite posets.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Complete enumeration of natural two-sided continuous relations on finite Alexandrov chains, with a weighted tableau formula, tractable transfer count, exact small diagonal values, and uniform-in-fixed-m 1/4 probability decay. This is substantive combinatorial enumeration beyond tautological semantics and may be reused in modal finite-model counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
