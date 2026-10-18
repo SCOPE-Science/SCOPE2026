@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Exact DFT interpolation gives the full normalized moment cone and strict interior. A rational arithmetic script proves all 1953 positive-index nodal inequalities and their sign reversals for degrees N<=62; an all-N midpoint estimate based on |(sin t/t) double prime|<=1/3 and a rigorous Si(3pi/2) enclosure proves overshoot for every N>=63. Abel summation plus integration by parts verifies the limiting extremum. Continuous positive-mass inputs have mean strictly within (-pi,pi); smooth nonnegative endpoint bumps supply infeasible examples below the threshold. Code and all necessary files are embedded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cai–Lin–Lin (2023), https://arxiv.org/html/2304.11847 , section 2.1 and Theorem 2 (H3), states feasibility as an assumption, not a universal sharp degree in the visible portions.",
+        "Pareschi–Rey (2021), https://arxiv.org/abs/2105.13158 , develops moment-preserving Fourier projection without the specified nodal positivity constraint.",
+        "The published SIAM abstract of the 2024 version lists spectral convergence and optimization, https://doi.org/10.1137/23M1563918 ."
+      ],
+      "reasoning": "The general existence and spectral-accuracy theorem assumes strictly feasible nodal moment data; it does not directly imply a uniform degree for all physical inputs. The earlier unconstrained moment projection does not imply positivity-constrained feasibility. Later material was only partially retrievable, so possible stronger coverage remains a residual risk.",
+      "searches": [
+        "published-finding corpus: positive moment preserving Fourier method 65T40 Slater hypothesis H3 discrete positivity momentum exact resolution",
+        "Web: Cai Lin Lin 2023 Fourier positive moment preserving method Gibbs first moment interpolation",
+        "Web: collocation positive moments feasibility Fourier spectral"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2304.11847v1 (accessible full-text passages)",
+      "doi:10.1137/23M1563918 (abstract/MSC)",
+      "arxiv:2105.13158 (abstract)",
+      "Classical Fourier sawtooth/Gibbs background",
+      "Accessible current-week numerical-analysis ledger: 76 previous claim statements",
+      "published-finding corpus semantic searches recorded in four named checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Classical Fourier sawtooth identity gives the finite nodal kernel and asymptotic sampled Gibbs values, both treated as prior tools.",
+        "Cai–Lin–Lin, arXiv:2304.11847v1, prescribes inequality constraints plus moment constraints and posits strict feasibility in its main hypothesis.",
+        "published-finding corpus closest 2026/10/4/SCOPE-a-sharp-three-knot-positivity-defect-for-natural-cubic-interpola--0b51d8330304 concerns cubic interpolation undershoot, not this moment cone."
+      ],
+      "reasoning": "The prior method and generic Gibbs overshoot together make the analytical direction natural, but their visible conclusions do not directly state the sharp universal N=63 feasibility classification, which requires comparison with the physical moment range and finite exact cutoff evidence. This does not eliminate undiscovered mathematically equivalent interpolation estimates.",
+      "searches": [
+        "published-finding corpus: positive moment preserving Fourier spectral method collocation positivity raw first moment Gibbs overshoot mass mean outside physical interval",
+        "published-finding corpus: Slater condition spectral positivity moment projection first moment nodal trigonometric polynomial Gibbs",
+        "Web: moment preserving Fourier-Galerkin method Pareschi Rey positivity feasibility"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Classical sawtooth Fourier coefficients 2(-1)^(k+1)/k and Gibbs overshoot: https://en.wikipedia.org/wiki/Sawtooth_wave",
+        "Cai–Lin–Lin arXiv:2304.11847v1 uses positivity only at 2N+1 nodes and moments against 1 and x.",
+        "published-finding corpus closest 2026/10/4/SCOPE-exact-discrete-carath-odory-fej-r-constant-for-the-isolated-thir--e309f8e59103 discusses sampled harmonic extrema, not raw polynomial first moment."
+      ],
+      "reasoning": "The exact moment-cone edge equals a sawtooth Fourier partial sum evaluated on the same grid. The classical Gibbs result explains a limiting excess but does not supply the exact integer cutoff 63 nor its Slater universality. The retrieved discrete Carathéodory–Fejér result optimizes coefficients of a different nonnegative harmonic polynomial, not (mass, ∫xp) under nodal constraints.",
+      "searches": [
+        "published-finding corpus: trigonometric interpolant nonnegative nodal values unphysical first moment Fourier sawtooth discrete cone sharp threshold",
+        "Web: discrete sawtooth Fourier interpolation overshoot nodes",
+        "Web: finite trigonometric interpolation sawtooth discrete Gibbs overshoot Si 3pi 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches returned related Fourier-sampling and harmonic-extremum records, including 2026/10/4/SCOPE-exact-sampling-rigidity-for-singleton-carath-odory-fej-r-extrema--9b35d1dc25db; no retrieved table or finite 63 degree cutoff.",
+        "A replayable exact-rational calculation checks 1953 exact nodal comparisons for all N<=62 and an analytic bound covers all N>=63."
+      ],
+      "reasoning": "No exact numerical database or table with this degree cutoff was found in searched sources. The finite integer is not drawn from an existing table; its certificate is provided. A search failure by itself is not a proof of novelty.",
+      "searches": [
+        "published-finding corpus: sharp finite Fourier degree threshold feasibility positivity at collocation points and prescribed mass and first raw moment 63",
+        "published-finding corpus: Dirichlet interpolation Fourier sawtooth sample nodes moment-cone extreme first raw moment",
+        "Web: sawtooth Fourier partial sums on equally spaced interpolation grid first overshoot 63"
+      ]
+    },
+    "rationale": "Cai–Lin–Lin 2023 supplies nodal Fourier positivity and strict feasibility hypothesis (H3); the classical Fourier sawtooth supplies partial-sum and Gibbs tools. The assessed original output is the exact universal strict-feasibility degree 63 for (mass, first raw moment), established by exhaustive finite rational inequalities and an all-degree analytic bound. Compared with the accessible 76 prior numerical-analysis claims and eight semantic mathematical-record queries; no covering implication was located. This is a qualified self-review, not a uniqueness certificate.",
+    "residual_risks": [
+      "The exact integer cutoff may have an equivalent formulation in specialized trigonometric interpolation literature not returned by semantic or web searches.",
+      "Later sections of the original preprint and the full published journal version were not exhaustively accessible in the current research window.",
+      "The sampled Gibbs limit is a consequence of classical theory and is not independently claimed as new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Definitively supplies the defining grid and H3 hypothesis. No sharp all-data first-moment N=63 threshold occurs in the inspected material; later text could not be excluded exhaustively.",
+        "evidence": [
+          "arXiv:2304.11847v1, 2023-04-24, section 2.1: grid positivity (2), projection (3), strict feasibility H3 in Theorem 2."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2304.11847 (arXiv:2304.11847v1)",
+        "material_read": "HTML original preprint: article metadata/MSC, introduction, section 2.1, equations (1)–(8), Theorem 2 hypotheses H1–H3, and beginning of section 3.1 (through its QP reformulation introduction).",
+        "method": "Direct HTML full-text passage reading; later sections could not be revisited after subsequent page-retrieval failures.",
+        "title": "A positive and moment-preserving Fourier spectral method",
+        "trigger": "Exact nodal cone and H3 strict feasibility are the objects under study."
+      },
+      {
+        "assessment": "Confirms numerical-method identity, publication metadata and 65T40 ownership; full published version may contain uninspected observations.",
+        "evidence": [
+          "SIAM Journal on Numerical Analysis 62 (2024) 273–294; primary MSC 65T40."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/23M1563918",
+        "material_read": "Publisher abstract, bibliographic record and MSC list; journal body not accessible.",
+        "method": "Published abstract page inspection.",
+        "title": "A Positive and Moment-Preserving Fourier Spectral Method",
+        "trigger": "Potential later published version of the same primary paper."
+      },
+      {
+        "assessment": "Describes moment conservation without the later nodal positivity requirement; cannot be used as whole-text evidence of noncoverage.",
+        "evidence": [
+          "arXiv:2105.13158, 2021-05-27 abstract."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2105.13158",
+        "material_read": "Abstract only.",
+        "method": "arXiv abstract retrieval.",
+        "title": "Moment preserving Fourier-Galerkin spectral methods and application to the Boltzmann equation",
+        "trigger": "Foundational earlier conserved-moment projection."
+      },
+      {
+        "assessment": "Classical Gibbs theory covers the qualitative overshoot and scaling-limit mechanism, not asserted as novel.",
+        "evidence": [
+          "https://en.wikipedia.org/wiki/Sawtooth_wave",
+          "https://en.wikipedia.org/wiki/Gibbs_phenomenon"
+        ],
+        "identifier_or_url": "https://en.wikipedia.org/wiki/Gibbs_phenomenon",
+        "material_read": "Public background discussion of Fourier partial-sum overshoot and nonuniform convergence; sawtooth coefficient formula checked separately.",
+        "method": "Web reference reading and independent derivation of relevant Fourier identities.",
+        "title": "Gibbs phenomenon and Fourier sawtooth",
+        "trigger": "Classical stronger coverage of the asymptotic mechanism."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "69ef5281-f4b1-4049-b9cd-d55278dc10c2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For a published positivity-and-moment-preserving Fourier optimization problem, its Slater-type hypothesis determines whether numerical projection exists with all positive nodal values. The result identifies the exact degree 63 ensuring feasibility uniformly over all real nonnegative physical data for the natural (mass,raw first moment) pair, and constructs smooth admissible failures below it. This resolves a method-level, physically motivated feasibility cutoff rather than an arbitrarily chosen Fourier coefficient or a generic Gibbs restatement. It is limited to 1D and two moments.",
+    "status": "PASS"
+  }
+}
