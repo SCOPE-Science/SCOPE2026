@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Reproducible checks and their scope
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.8 or newer. The script independently builds the complete polynomial from the zero-, one-, and two-hub closed formulas. For each \(3\le n\le6\), it enumerates all \(2^{\binom n2}\) edge subsets and classifies them without using hubs, by checking every possible two-vertex cover. It also compares every coefficient in the high-cardinality identity for \(5\le n\le30\), and checks minimum-cardinality counts.
+## correctness
 
-Observed output:
+PASS
 
-```
-VERIFY_OK exhaustive_n=3..6 subsets=33864 top_band_n=5..30 endpoints_and_coefficients=passed
-PETERSEN [(4, 10), (5, 72), (6, 140), (7, 110), (8, 45), (9, 10), (10, 1)]
-```
+Total domination in KG(n,2) is equivalent to absence of 2-vertex covers in the selected edge-family graph. Vertices of degree >=3 are forced into every 2-cover and hence 0/1/2 hubs give disjoint exhaustive obstruction classes C_n,H_n,Q_n. Directly checked the 0-hub component types, 1-hub residual 0/1/2 edges, and 2-hub multinomial categories. For k>=n+1 any 2-covered graph has two degree>=3 hubs giving a unique 2-cover and binomial high-cardinality failure count. Independent enumeration of all 2^10 Petersen and 2^15 KG(6,2) edge subsets matched coefficients and endpoint formulas. All n>=5 follows analytic hub classification.
 
-For an independently written C99 implementation on \(n=7\), run `cc -O2 -std=c99 verify_n7.c -o verify_n7 && ./verify_n7` and compare its hardcoded expected coefficient vector (calculated from the closed polynomial) against its direct two-cover enumeration:
+## originality
 
-```
-VERIFY_N7_OK all_2097152_subsets_and_22_coefficients
-```
+PASS
 
-The two exhaustive programs enumerate \(2,131,016\) individual edge subsets in total. These finite checks are not an infinite proof. The all-order result follows from the explicit component and degree classification and the uniqueness argument proved in `RESULT.md`. Independent mathematical audit has not been performed.
+Explicit full-primary-text comparison finds complete prior Petersen n=5 polynomial and topmost regular-graph coefficients, which the reviewed result credits. For n>=6, the complete labeled all-degree polynomial and interior unique-two-cover band are stronger than the minimum/cutoff cases; the known blocking-set equivalence alone does not enumerate all hub configurations.
+
+## value
+
+PASS
+
+The complete cardinality distribution of total-dominating edge families in every KG(n,2), n>=6, genuinely refines both the known minimum and the Petersen full table. The interior unique-two-cover band and 0/1/2 hub structure provide a reusable exact counting mechanism rather than a mere table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

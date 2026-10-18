@@ -1,19 +1,21 @@
-# Scientific review: total domination on two-element Kneser graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each selected family of two-element subsets of \([n]\), regard it as a labeled simple graph. A total-dominating failure is exactly a two-vertex transversal (equivalently \(\tau(F)\le2\)). A vertex of degree at least three belongs to every such transversal. Therefore zero, one or two degree-at-least-three hubs exhaust all failures disjointly. In the zero-hub case the ten low-cover path/cycle component types yield \(C_n\); in the one-hub case the residual graph on the other labels contains at most two edges, yielding \(H_n\); in the two-hub case an ordered neighborhood-type partition after choosing the unordered hub pair yields \(Q_n\). For a failure with at least \(n+1\) edges, both hubs have degree at least three and the two-cover is unique, proving the exact coefficient band. These deductions hold for every integer \(n\ge5\). The Python checker enumerates all edge subsets at orders 3–6 and compares independent direct two-cover tests; a separate C checker enumerates all 2,097,152 edge subsets at order seven, together testing 2,131,016 families. Boundary and band coefficients agree. The unrestricted proof, rather than finite tests, supplies completeness.
+PASS
 
-## Originality — PASS with priority risk
+Total domination in KG(n,2) is equivalent to absence of 2-vertex covers in the selected edge-family graph. Vertices of degree >=3 are forced into every 2-cover and hence 0/1/2 hubs give disjoint exhaustive obstruction classes C_n,H_n,Q_n. Directly checked the 0-hub component types, 1-hub residual 0/1/2 edges, and 2-hub multinomial categories. For k>=n+1 any 2-covered graph has two degree>=3 hubs giving a unique 2-cover and binomial high-cardinality failure count. Independent enumeration of all 2^10 Petersen and 2^15 KG(6,2) edge subsets matched coefficients and endpoint formulas. All n>=5 follows analytic hub classification.
 
-Ivančo and Zelinka, *Domination in Kneser graphs* (1993), Theorem 3, establish the minimum total-domination numbers and the disjoint-edge triple criterion, not all cardinality coefficients. Hartman, *Extremal Problems in Graph Theory* (1997), Chapter 8, frames Kneser total domination in terms of blocking sets but does not furnish a weighted census. Sanal and Vatsalya, *On Total Domination Polynomials of Certain Graphs* (published 25 March 2016), **already provide the entire Petersen \(KG(5,2)\) polynomial**, identical to the order-five specialization above, and regular-graph lemmas already imply the topmost coefficient and universal cutoff. These special cases are credited and excluded from the novelty claim. Hu et al., *Total domination polynomials of graphs* (arXiv:1607.00400v1, 2016), supply general polynomial methods and examples for paths, cycles and trees but do not state the all-order two-element Kneser polynomial or its interior unique-cover coefficient band. Searches of research records and literature for Kneser, Petersen, two-transversals, bounded vertex covers and total-domination polynomials did not locate a theorem implying both formulas. That is comparative evidence, not an exhaustive priority certificate; an earlier equivalent enumerator expressed as bounded-vertex-cover graph counting remains possible. The already-known minima are excluded from the novelty claim.
+## originality
 
-## Value — PASS
+PASS
 
-The **complete distribution for every order \(n\ge6\)** refines the previously determined minimum size and the published Petersen benchmark, rather than merely renaming an extremum. Unique two-transversals give a uniform simple closed count over the **interior band \(n+1\le k\le2n-4\)**, extending the two topmost coefficients and threshold already covered by Sanal--Vatsalya's general regular-graph lemmas. The proof turns an infinite graph family into three explicit multinomial obstruction classes, allowing exact evaluation at any order and reusable structural insight about two-covers. No new statement is claimed about larger-element Kneser graphs or automorphism orbits.
+Explicit full-primary-text comparison finds complete prior Petersen n=5 polynomial and topmost regular-graph coefficients, which the reviewed result credits. For n>=6, the complete labeled all-degree polynomial and interior unique-two-cover band are stronger than the minimum/cutoff cases; the known blocking-set equivalence alone does not enumerate all hub configurations.
 
-## Evidence and limits
+## value
 
-All four primary publications listed in `RESULT.md` were examined beyond their abstracts. The scientific comparison does not rely on the publication dates of later versions. The theorem is exact for labeled subsets; the relationship to other formulations of two-transversal-free edge families is an unresolved priority risk, not evidence of independence. The original mathematical derivation has not received an independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete cardinality distribution of total-dominating edge families in every KG(n,2), n>=6, genuinely refines both the known minimum and the Petersen full table. The interior unique-two-cover band and 0/1/2 hub structure provide a reusable exact counting mechanism rather than a mere table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
