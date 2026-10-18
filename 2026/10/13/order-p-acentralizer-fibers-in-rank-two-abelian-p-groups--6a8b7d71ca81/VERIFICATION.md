@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,58 +18,25 @@
   "schema_version": 1
 }
 ---
-The proof is symbolic and uses the standard automorphism matrix for
-\[
-C_{p^a}\oplus C_{p^b},
-\qquad
-a<b.
-\]
 
-The packaged checker `artifacts/verify.py` directly enumerates every automorphism and every group element for
-\[
-(p,a,b)
-=
-(2,1,2),
-(2,1,3),
-(2,2,3),
-(3,1,2),
-(3,1,3),
-(3,2,3),
-(5,1,2).
-\]
-For each automorphism it computes the fixed subgroup exactly. When that subgroup has order \(p\), the checker identifies the subgroup as \(U_\infty\) or one of the \(U_t\).
+# Independent mathematical audit
 
-The exact observed multiplicities are
-\[
-(2,1,2):\quad (m_\infty,m_t)=(2,0),
-\]
-\[
-(2,1,3):\quad (0,0),
-\]
-\[
-(2,2,3):\quad (32,0),
-\]
-\[
-(3,1,2):\quad (30,9),
-\]
-\[
-(3,1,3):\quad (54,27),
-\]
-\[
-(3,2,3):\quad (2430,486),
-\]
-and
-\[
-(5,1,2):\quad (380,75).
-\]
+## correctness
 
-For the \(C_p\oplus C_{p^2}\) cases, it also verifies that
-\[
-m_\infty+p\,m_t
-=
-p(2p^3-4p^2+1).
-\]
+PASS
 
-The checker returns `VERIFY_OK`.
+Every automorphism has matrix [[alpha,beta],[p^(b-a)c,delta]] with diagonal units. On G[p] the induced triangular map has columns (alpha_bar,c_bar) and (0,delta_bar). If alpha_bar !=1, delta_bar=1, the first fixed equation solves x and the remaining congruence has exactly p solutions iff E has valuation one; all such kernels lie on U_infty and count N1=p^(3a+b-3)(p−1)(p−2). If alpha_bar=1,delta_bar!=1 the second equation solves y, valuation-one condition for a>=2 (automatic a=1) counts N2; fixed socle slopes run uniformly over all t as c_bar varies, giving N2/p. If both diagonal residues 1, exact p-element kernel forces beta,c units and b-a=1; its p-element kernel is U_infty, counted N3=p^(4a-3)(p−1)^2. Disjoint cases give displayed formula. Independent full enumeration of automorphism matrices and all group fixed points for five small (p,a,b) cases reproduced each subgroup fiber including p=2 adjacent threshold. Nonenumerated p,a,b rely on valuation proof.
 
-Finite enumeration is not used to prove the formulas.
+## originality
+
+PASS
+
+Mozafar-Taeri classify which rank-two abelian p-group subgroups are Acentralizers but do not count the automorphisms over each line. Hayat et al count total theta(G,p), and a relevant prior published Resultary finding already proves the complete arbitrary-exponents theta(G,p) formula using these very same three residue cases. **Major overlap acknowledged:** the current result is not novel for the aggregate total or the case partition. Its distinct surviving content is the full ordered fiber distribution on all p+1 *individual* order-p subgroups, showing a distinguished long-factor line and uniform p finite lines, which aggregate counting does not state. This is a best-of-knowledge narrow but real refinement.
+
+## value
+
+PASS
+
+Fixed-subgroup fibers refine the natural Acentralizer existence problem, distinguish the characteristic socle line from other order-p subgroups, and quantify the exact p=2 exceptional restriction. Unlike only counting fixed-point totals, they answer which particular subgroup is fixed by how many automorphisms; the complete family is a useful group-action invariant, despite using the prior theta proof case split.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

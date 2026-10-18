@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The rank-two automorphism matrix gives an exhaustive three-case split on the induced action on \(G[p]\). In the first two cases, one diagonal difference is invertible and the fixed-point system reduces to one cyclic congruence, so exact order \(p\) is precisely a valuation-one condition. In the third case, exact order \(p\) forces both off-diagonal residues to be nonzero and the exponent gap to be one; for larger gaps the reduced system has kernel at least \(p^2\). The socle action identifies the fixed line and shows equal distribution among the \(p\) finite slopes. Exhaustive enumeration over seven parameter triples reproduces every formula.
+PASS
 
-## Originality
+Every automorphism has matrix [[alpha,beta],[p^(b-a)c,delta]] with diagonal units. On G[p] the induced triangular map has columns (alpha_bar,c_bar) and (0,delta_bar). If alpha_bar !=1, delta_bar=1, the first fixed equation solves x and the remaining congruence has exactly p solutions iff E has valuation one; all such kernels lie on U_infty and count N1=p^(3a+b-3)(p−1)(p−2). If alpha_bar=1,delta_bar!=1 the second equation solves y, valuation-one condition for a>=2 (automatic a=1) counts N2; fixed socle slopes run uniformly over all t as c_bar varies, giving N2/p. If both diagonal residues 1, exact p-element kernel forces beta,c units and b-a=1; its p-element kernel is U_infty, counted N3=p^(4a-3)(p−1)^2. Disjoint cases give displayed formula. Independent full enumeration of automorphism matrices and all group fixed points for five small (p,a,b) cases reproduced each subgroup fiber including p=2 adjacent threshold. Nonenumerated p,a,b rely on valuation proof.
 
-PASS. The 2020 primary paper classifies which subgroups occur as Acentralizers but does not count automorphisms per prescribed subgroup. The 2018 theta-value paper aggregates automorphisms only by the order of their fixed subgroup and gives the full \(d=p\) value only for \(C_p\oplus C_{p^2}\). The accepted theorem resolves the finer inverse-fiber problem for every order-\(p\) subgroup and arbitrary unequal rank-two exponents. Targeted database and web searches found no subgroup-by-subgroup multiplicity formula. Older automorphism-counting literature under different terminology remains a residual risk.
+## originality
 
-## Value
+PASS
 
-PASS. Fiber multiplicity is the natural quantitative refinement of the fixed-point map studied in the primary source. The theorem detects a characteristic subgroup that aggregate theta-values cannot distinguish, gives an exact even-prime boundary, and recovers the classical special total after summation.
+Mozafar-Taeri classify which rank-two abelian p-group subgroups are Acentralizers but do not count the automorphisms over each line. Hayat et al count total theta(G,p), and a relevant prior published Resultary finding already proves the complete arbitrary-exponents theta(G,p) formula using these very same three residue cases. **Major overlap acknowledged:** the current result is not novel for the aggregate total or the case partition. Its distinct surviving content is the full ordered fiber distribution on all p+1 *individual* order-p subgroups, showing a distinguished long-factor line and uniform p finite lines, which aggregate counting does not state. This is a best-of-knowledge narrow but real refinement.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Fixed-subgroup fibers refine the natural Acentralizer existence problem, distinguish the characteristic socle line from other order-p subgroups, and quantify the exact p=2 exceptional restriction. Unlike only counting fixed-point totals, they answer which particular subgroup is fixed by how many automorphisms; the complete family is a useful group-action invariant, despite using the prior theta proof case split.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
