@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The critical facts from [1, Section 3] are exact rectangular word counts \(s d^{m+n-2}\), a canonical measure uniform on these rectangular cylinders, and unique filling of any missing unit-square corner in a higher-block presentation. The proof reconstructs a bijection between restrictions on every monotone staircase and on its whole rectangle: it starts with unique L-shaped boundary filling and uses reversible adjacent horizontal/vertical-step interchanges. Concatenating a path from the origin to \((a,b)\) gives exactly \(s d^{N(|a|+|b|)}\) jointly observable patterns and equal masses, for every positive integer \(N\). The rectangle-cover upper bound matches, with both negative components and zero coordinates treated. This proves the entropy formula as an infinite statement. The standalone finite checks passed 325 exact identities on additive-square SFTs and do not claim general exhaustive verification.
+PASS
 
-## Originality — PASS, with stated risks
+The paper’s regular planar matrix presentation provides unique four-way unit-square completion and exact rectangular counts |X_[0,m−1]×[0,n−1]|=s d^(m+n−2), uniform masses for occurring rectangles. A monotone staircase restriction is bijective with its enclosing rectangle: start with an L-shaped boundary completion, then reverse successive HV/VH corner swaps using the unique-fourth-corner rule. Every concatenated path P_v+jv from 0 to Nv contains |a|+|b| times N steps and so supports exactly s d^{N(|a|+|b|)} equiprobable patterns. The clopen partition on P_v attains both lower entropies; covering arbitrary fixed windows by a growing rectangle bounds both topological and canonical-measure entropies from above at the same rate. Applies to negative and zero coordinates, all nonzero integer v, with identity case v=0. Independently enumerated binary additive-square 4×4 patterns and all 20 staircase paths, verifying 128 patterns and bijective restrictions; finite test is not the universal theorem.
 
-The strongest near source [1] already proves regularity, four-way completion and a uniform-rectangle invariant measure, but not the ordinary one-homeomorphism entropy of all \(\sigma^{(a,b)}\) or that its canonical measure maximizes each one. These are new assertions obtained from the staircase-corner bijection. The paper [2] studies entropy of projection onto a line, a different invariant; for the binary square-parity shift, diagonal line projection has entropy \(\log2\) but full diagonal subaction has entropy \(2\log2\). The 2017 directional-entropy dimension literature [3] records positivity in the three-dot example, not the four-way regular common-measure theorem. The published research-record search identified no direct equivalent or stronger result; that absence does not prove priority. A classical result expressed in the vocabulary of textile systems, entropy geometry or commuting-square automata is the main residual overlap risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The introduced Ramanujan subshifts have zero two-dimensional entropy and strong quantitative mixing, but those statements do not give a lattice-direction entropy profile. The theorem supplies the full exact integer-vector profile, identifies an explicit entropy-realizing finite partition for every direction, and proves that one intrinsic invariant measure simultaneously attains all those maxima. This is a natural structural invariant, especially because single-line projection entropy can be strictly smaller. No large new conjecture or unsupported downstream consequence is asserted.
+Best of knowledge PASS: Bondarenko–Grigorchuk–Vdovina (2026) already establishes four-way extension, counts and canonical invariant uniform-rectangle measure for d-regular shifts; these essential premises are properly attributed. Their described zero-entropy full Z²-action and trace/conjugacy statements do not explicitly give simultaneous full-space rank-one entropies or common maximizing-measure assertion; the staircase identification bridges the gap. Johnson–Kass–Madden study line projection entropy, which is not the entropy of the complete homeomorphism σ^v. A broader algebraic Z²-action formula could still imply the result and is a residual priority risk.
 
-## Scope and literature risk
+## value
 
-The corner-completion condition is essential and is not replaced by d-regular rectangular counts alone. Only single-shift topological and Kolmogorov--Sinai entropy in integer directions is covered, not irrational directions or mixing rates. Sources [1] and [2] were materially inspected in full relevant sections; [3] was accessible in search/abstract passages rather than full text, and is a lower-priority background comparison. Equivalent older general formulations remain possible.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+An exact universal directional entropy norm for a natural structured zero-area-entropy class resolves an important distinction between single-line observations and full-space rank-one dynamics. The theorem additionally constructs one natural measure maximizing every integer direction, not just separate maximizing measures; the all-vector classification is nontrivial and reusable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

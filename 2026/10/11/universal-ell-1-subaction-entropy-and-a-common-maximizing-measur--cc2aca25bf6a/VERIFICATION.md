@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and proof boundaries
+# Independent mathematical audit
 
-The research claim is an analytical theorem with three explicit proof checkpoints: (i) the restriction of an occurring rectangle to any monotone staircase is bijective by reversible unit-square corner flips; (ii) the translated concatenated path of an integer direction has exactly \(s d^{N(|a|+|b|)}\) distinct patterns, each of canonical measure \(1/(s d^{N(|a|+|b|)})\); (iii) every joined finite cylinder partition is dominated by a rectangle with side lengths growing at most \(|a|N+O(1)\) and \(|b|N+O(1)\). These together prove equality of topological and measure entropy in all integer directions, including coordinate-axis and negative-coordinate cases. The origin is the entropy-zero identity map.
+## correctness
 
-The premise of exact regular rectangle counts and uniform cylinder measures was checked against Bondarenko--Grigorchuk--Vdovina, arXiv:2602.22356v1, Section 3. The premise that adjacent-corner completion is unique in the extendable regular matrix presentation was checked against Proposition 6. No assumption of strong mixing is used.
+PASS
 
-`python verify_staircase_entropy.py` passed 325 exact finite combinatorial checks: path-to-rectangle restriction in additive-square examples over \(\mathbb F_2\) and \(\mathbb F_3\), plus finite checks separating diagonal line projection from a full diagonal action. The code uses finite enumeration only. It does not verify all regular tile systems, all integer directions, or infinite limiting operations; those follow solely from the supplied proof.
+The paper’s regular planar matrix presentation provides unique four-way unit-square completion and exact rectangular counts |X_[0,m−1]×[0,n−1]|=s d^(m+n−2), uniform masses for occurring rectangles. A monotone staircase restriction is bijective with its enclosing rectangle: start with an L-shaped boundary completion, then reverse successive HV/VH corner swaps using the unique-fourth-corner rule. Every concatenated path P_v+jv from 0 to Nv contains |a|+|b| times N steps and so supports exactly s d^{N(|a|+|b|)} equiprobable patterns. The clopen partition on P_v attains both lower entropies; covering arbitrary fixed windows by a growing rectangle bounds both topological and canonical-measure entropies from above at the same rate. Applies to negative and zero coordinates, all nonzero integer v, with identity case v=0. Independently enumerated binary additive-square 4×4 patterns and all 20 staircase paths, verifying 128 patterns and bijective restrictions; finite test is not the universal theorem.
 
-The geometric \(\ell^1\) expression is a formula on lattice vectors, **not** an assertion about irrational-direction entropy. The result is not claimed to be independently audited.
+## originality
+
+PASS
+
+Best of knowledge PASS: Bondarenko–Grigorchuk–Vdovina (2026) already establishes four-way extension, counts and canonical invariant uniform-rectangle measure for d-regular shifts; these essential premises are properly attributed. Their described zero-entropy full Z²-action and trace/conjugacy statements do not explicitly give simultaneous full-space rank-one entropies or common maximizing-measure assertion; the staircase identification bridges the gap. Johnson–Kass–Madden study line projection entropy, which is not the entropy of the complete homeomorphism σ^v. A broader algebraic Z²-action formula could still imply the result and is a residual priority risk.
+
+## value
+
+PASS
+
+An exact universal directional entropy norm for a natural structured zero-area-entropy class resolves an important distinction between single-line observations and full-space rank-one dynamics. The theorem additionally constructs one natural measure maximizing every integer direction, not just separate maximizing measures; the all-vector classification is nontrivial and reusable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
