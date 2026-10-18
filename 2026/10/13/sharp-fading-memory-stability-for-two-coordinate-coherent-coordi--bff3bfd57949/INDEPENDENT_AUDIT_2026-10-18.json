@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T07:14:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read exact CoCD elementary update rule and the derived 3-dimensional sweep state (x1,x2,h). Independently constructed first and second coordinate refresh/decay linear maps with SymPy, multiplied to reproduce T and det(zI−T)=z³+bz²+cz+d. Symbolically verified p(1)=α²(1+γ)²(1−ρ²), −p(−1)=[2−α(1+γ)]²+α²ρ²(1−γ)² and 1−c+bd−d²=α(1+γ)(1+αγρ²)Q(α). Strict real-cubic Schur criterion and determinant boundary prove stable iff 0<α<4/[1+γ+sqrt((1+γ)²−8γ(1−γ)ρ²)]. Independently checked sampled spectra and endpoint γ=0,1 and ρ=0; exact proof, not samples, handles all γ in [0,1] and |ρ|<1. Matrix still describes both full-coordinate iterate updates, not standard block CD.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": "Original CoCD source abstract and indexed results address algorithm and general sufficient performance; incremental aggregated gradients have different scalar-component gradient structure and update ordering.",
+        "reasoning": "Sufficient upper bounds and asymptotic convergence generalities do not imply a sharp iff stability surface. No accessible stronger theorem with precisely this state transition matrix was located; inaccessible original Appendix remains a concrete risk.",
+        "searches": [
+          "Liang et al. arXiv:2605.14373",
+          "Gürbüzbalaban et al. arXiv:1506.02081",
+          "Wright Coordinate Descent Algorithms DOI:10.1007/s10107-015-0892-3"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE frozen RESULT.md blob dd4ad03022188ffbaa455998b0d45ba1cb26bef1",
+        "Liang et al. arXiv:2605.14373 and publisher metadata",
+        "Gürbüzbalaban et al. arXiv:1506.02081",
+        "Classical strict Schur/Jury cubic criterion",
+        "Resultary numerical optimizer family comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": "Known underlying buffer update, standard Schur criterion, and incremental aggregated gradient sufficient rates are antecedents. The archived CoCD result does not in the accessible material present this exact two-coordinate cubic root frontier.",
+        "reasoning": "The needed nonstandard step is deriving and factoring the exact fade-refresh sweep. Without full text of the CoCD Appendix one cannot claim total literature exclusion; best-of-knowledge O PASS with explicit access risk.",
+        "searches": [
+          "Liang et al., Turning Stale Gradients into Stable Gradients, arXiv:2605.14373",
+          "Gürbüzbalaban et al., On the Convergence Rate of Incremental Aggregated Gradient Algorithms, arXiv:1506.02081"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": "The actual CoCD two-refresh sweep is a nonnormal 3x3 matrix, not ordinary coordinate-descent or momentum. Different indexed SCOPE work treats skew rotations and other algorithms, not this stability surface.",
+        "reasoning": "Searched CoCD, stale gradient, incremental aggregated gradients, Schur/Jury stability, and cyclic coordinate descent aliases. The exact refresh-plus-decay dynamics preclude direct substitution of ordinary CD rates.",
+        "searches": [
+          "Resultary semantic search: Coherent Coordinate Descent fading gradient buffer cyclic quadratic sharp spectral stability step size",
+          "public web primary-source search: Coherent Coordinate Descent two coordinates cyclic gradient buffer Schur polynomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": "No published exact continuous two-parameter stability table or exact spectral characteristic polynomial identified in inspected accessible material.",
+        "reasoning": "Sampled training diagrams cannot replace the iff criterion over all α,ρ,γ; the current review verified the exact characteristic factors algebraically.",
+        "searches": [
+          "public web primary-source search: CoCD quadratic stability learning rate heatmap example coupling memory",
+          "Resultary semantic search: Coherent Coordinate Descent fading gradient buffer cyclic quadratic sharp spectral stability step size"
+        ]
+      },
+      "rationale": "The 2026 CoCD article introduces the rule and reports sufficient convergence conditions, whereas the frozen statement gives a necessary-and-sufficient two-coordinate positive-quadratic stability frontier, including strict stabilization beyond step 2 under coupling. The characteristic cubic Schur test is prior mathematics, not claimed new; new content lies in applying it to the exact nontrivial fading-buffer sweep. Closest full original article was not accessible, so possible Appendix overlap is retained as risk, not automatically failed.",
+      "residual_risks": [
+        "Original CoCD full article/appendix not read: OA retrieval unsuccessful; authorized VPN disconnected with no bypass or retry.",
+        "Older periodically switched stale-gradient systems may contain algebraically equivalent exact stability criteria under another name."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known CoCD rule and qualitative/sufficient analyses, but full-text originality comparison limited; possible matching special case remains risk",
+          "evidence": "arXiv:2605.14373 abstract; PMLR 2026 accessible metadata",
+          "identifier_or_url": "https://arxiv.org/abs/2605.14373",
+          "material_read": "Publisher PMLR bibliographic abstract and accessible indexed research description; full article and appendices not read",
+          "method": "PMLR/arXiv OA attempts; authorized institutional access returned vpn_disconnected",
+          "title": "Turning Stale Gradients into Stable Gradients: Coherent Coordinate Descent with Implicit Landscape Smoothing for Lightweight Zeroth-Order Optimization",
+          "trigger": "Exact originating optimizer and buffer rule"
+        },
+        {
+          "assessment": "Component-function structure differs from per-coordinate partials for ρ≠0, so not a direct proof of claimed iff threshold",
+          "evidence": "Gürbüzbalaban, Ozdaglar, Parrilo (2017) abstract and algorithm hypotheses",
+          "identifier_or_url": "https://arxiv.org/abs/1506.02081",
+          "material_read": "Accessible abstract and research summary; full paper not read",
+          "method": "arXiv abstract",
+          "title": "On the Convergence Rate of Incremental Aggregated Gradient Algorithms",
+          "trigger": "Possible broader stale-gradient rate theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact stability set (including α>2 enabled only by partial memory and strong coupling) answers a nontrivial optimizer-design question for the algorithm, countering the naive implication that worse Hessian conditioning always contracts the stable step. Boundaries γ=0,1, ρ=0, and zero-buffer starts are treated, giving natural complete classification for the simplest coupled case.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE frozen RESULT.md blob dd4ad03022188ffbaa455998b0d45ba1cb26bef1",
+    "Liang et al. arXiv:2605.14373 and publisher metadata",
+    "Gürbüzbalaban et al. arXiv:1506.02081",
+    "Classical strict Schur/Jury cubic criterion",
+    "Resultary numerical optimizer family comparison"
+  ],
+  "disposition": "passed",
+  "limitations": "Two coordinates, equal unit diagonal SPD quadratic, cyclic updates with full-vector step and decaying stored coordinate, arbitrary buffers, 0<=γ<=1; no general nonlinear convergence or per-update monotonic descent.",
+  "residual_risks": [
+    "Original CoCD full article/appendix not read: OA retrieval unsuccessful; authorized VPN disconnected with no bypass or retry.",
+    "Older periodically switched stale-gradient systems may contain algebraically equivalent exact stability criteria under another name."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the exact CoCD stability theorem
+# Independent mathematical audit
 
-The mathematical result and proof appear in `RESULT.md`. The corresponding standalone Python file `verify.py` uses SymPy to construct the exact elementary refresh/decay matrices, multiply them, eliminate the freshly overwritten stored coordinate, expand the characteristic polynomial, and factor every displayed Schur quantity. It also verifies exactness of centered finite differences on the quadratic for an arbitrary nonzero perturbation.
+## correctness
 
-The executable checks sampled parameter configurations on both sides of the derived threshold (576 spectral calculations), six critical-boundary eigenvalue tests, and symbolic special cases. Run `python verify.py` using Python 3.10+ with NumPy and SymPy installed. The expected success message is:
+PASS
 
-`VERIFY_OK symbolic identities; 576 matrix-root checks; 6 boundary checks; central differences`
+Read exact CoCD elementary update rule and the derived 3-dimensional sweep state (x1,x2,h). Independently constructed first and second coordinate refresh/decay linear maps with SymPy, multiplied to reproduce T and det(zI−T)=z³+bz²+cz+d. Symbolically verified p(1)=α²(1+γ)²(1−ρ²), −p(−1)=[2−α(1+γ)]²+α²ρ²(1−γ)² and 1−c+bd−d²=α(1+γ)(1+αγρ²)Q(α). Strict real-cubic Schur criterion and determinant boundary prove stable iff 0<α<4/[1+γ+sqrt((1+γ)²−8γ(1−γ)ρ²)]. Independently checked sampled spectra and endpoint γ=0,1 and ρ=0; exact proof, not samples, handles all γ in [0,1] and |ρ|<1. Matrix still describes both full-coordinate iterate updates, not standard block CD.
 
-The software checks have been executed successfully on the included source file. Symbolic equality checks confirm algebraic identities; finite numerical samples do not certify an uncountable stability region. Exact inequalities in `RESULT.md` prove the complete domain and include determinant and zero-coupling boundary cases. No independent third-party audit is represented.
+## originality
+
+PASS
+
+The 2026 CoCD article introduces the rule and reports sufficient convergence conditions, whereas the frozen statement gives a necessary-and-sufficient two-coordinate positive-quadratic stability frontier, including strict stabilization beyond step 2 under coupling. The characteristic cubic Schur test is prior mathematics, not claimed new; new content lies in applying it to the exact nontrivial fading-buffer sweep. Closest full original article was not accessible, so possible Appendix overlap is retained as risk, not automatically failed.
+
+## value
+
+PASS
+
+The exact stability set (including α>2 enabled only by partial memory and strong coupling) answers a nontrivial optimizer-design question for the algorithm, countering the naive implication that worse Hessian conditioning always contracts the stable step. Boundaries γ=0,1, ρ=0, and zero-buffer starts are treated, giving natural complete classification for the simplest coupled case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

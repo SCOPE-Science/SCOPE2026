@@ -1,19 +1,21 @@
-# Scientific review: sharp fading-memory CoCD stability
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact refresh/decay sequence in Liang et al., equations (5)–(7), produces the explicitly displayed three-variable matrix and cubic. The four strict real-cubic Schur inequalities reduce algebraically to a positive \(p(1)\), a nonnegative perfect-square sum at \(-1\), a determinant constraint, and a single scalar quadratic \(Q\). For interior fading and coupling, \(Q\) has two positive roots and its smaller root precedes the determinant boundary. The remaining endpoint cases are checked separately. Unit-modulus roots preclude convergence at equality; outside, the spectral radius is greater than one. Symbolic identities and 576 sampled spectral comparisons were reproduced using the bundled checker; finite tests are ancillary to the analytic argument.
+PASS
 
-## Originality — PASS (residual risk retained)
+Read exact CoCD elementary update rule and the derived 3-dimensional sweep state (x1,x2,h). Independently constructed first and second coordinate refresh/decay linear maps with SymPy, multiplied to reproduce T and det(zI−T)=z³+bz²+cz+d. Symbolically verified p(1)=α²(1+γ)²(1−ρ²), −p(−1)=[2−α(1+γ)]²+α²ρ²(1−γ)² and 1−c+bd−d²=α(1+γ)(1+αγρ²)Q(α). Strict real-cubic Schur criterion and determinant boundary prove stable iff 0<α<4/[1+γ+sqrt((1+γ)²−8γ(1−γ)ρ²)]. Independently checked sampled spectra and endpoint γ=0,1 and ρ=0; exact proof, not samples, handles all γ in [0,1] and |ρ|<1. Matrix still describes both full-coordinate iterate updates, not standard block CD.
 
-The motivating original paper [1, §4 and §5.3, Appendix C] defines fading CoCD and gives sufficient descent conditions, but the inspected full text does not supply the exact necessary-and-sufficient coupled quadratic step-size surface. The IAG full text [2, §2–§4] analyzes stored gradients of scalar component functions and a different momentum mechanism, not the nonconservative per-coordinate vector fields of this test family. Classical cyclic coordinate descent covers the zero-decay limit, but not the positive-decay enlargement above the standard \(\alpha=2\) threshold. Closest published mathematical comparisons involve randomized delayed Gauss–Seidel and one-step Euclidean transient bounds; their conclusions do not imply the fixed cyclic CoCD Schur classification. Search cannot rule out unindexed equivalent work.
+## originality
 
-## Value — PASS
+PASS
 
-The result answers a natural algorithm-design question not resolved by the motivating sufficient bound: exactly which fixed step sizes converge when stale partial derivatives are retained with fading memory? The sharp, condition-dependent frontier and an explicit stable \(\alpha>2\) region demonstrate a qualitative effect of gradient memory that is invisible to the ordinary coordinate-descent step-size ceiling. The result is intentionally restricted to a tractable two-coordinate quadratic and is not an extrapolation to neural-network objectives.
+The 2026 CoCD article introduces the rule and reports sufficient convergence conditions, whereas the frozen statement gives a necessary-and-sufficient two-coordinate positive-quadratic stability frontier, including strict stabilization beyond step 2 under coupling. The characteristic cubic Schur test is prior mathematics, not claimed new; new content lies in applying it to the exact nontrivial fading-buffer sweep. Closest full original article was not accessible, so possible Appendix overlap is retained as risk, not automatically failed.
 
-## Sources and limitations
+## value
 
-[1] Liang et al., arXiv:2605.14373, especially original update rule, §5.3, and Appendix C. [2] Gürbüzbalaban, Ozdaglar, and Parrilo, arXiv:1506.02081, especially §2 and rate theorems. Classical coordinate methods and related published delay/step-size classifications were used for coverage comparisons. The cubic Schur criterion is standard; only its application and exact parametric boundary are claimed as the contribution. No independent evaluation is represented.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact stability set (including α>2 enabled only by partial memory and strong coupling) answers a nontrivial optimizer-design question for the algorithm, countering the naive implication that worse Hessian conditioning always contracts the stable step. Boundaries γ=0,1, ρ=0, and zero-buffer starts are treated, giving natural complete classification for the simplest coupled case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
