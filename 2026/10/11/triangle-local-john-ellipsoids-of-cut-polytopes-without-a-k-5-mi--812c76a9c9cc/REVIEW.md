@@ -1,19 +1,21 @@
-# Scientific review: triangle-local John ellipsoids of cut polytopes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proposed ellipsoid is fully characterized for finite simple graphs with at least one edge and no \(K_5\) minor. Uniqueness of John's ellipsoid and elementary cut-switching fix the center at the half-vector and annihilate every off-diagonal shape-matrix entry. Barahona--Mahjoub Corollary 3.10 supplies every relevant supporting facet. Its odd-cycle slack is exactly \((k-2)/2\), while diagonal ellipsoid support is \(\sqrt{\sum_{e\in C}s_e}\). For lengths at least four, coordinate caps alone imply the required bounds; triangles alone impose the nontrivial coupled bounds. Existence and uniqueness follow from a strictly concave objective. Tangency equality determines *all* facet contacts. Explicit positive Lagrange multipliers certify the wheel and book parameter formulas. Exact-rational `verify.py` passes 22 finite instances, 1,522 signed-cycle inequalities, and 12,840 cut assignments; finite tests are corroboration, not the infinite proof.
+PASS
 
-## Originality — PASS, subject to priority uncertainty
+For finite simple K5-minor-free G with ≥1 edge, the unique full-dimensional John ellipsoid is invariant under cut-switching coordinate reflections; individual edge flips force center=1/2, and singleton endpoint flips separating any pair of distinct simple edges force covariance diagonal. Barahona–Mahjoub Cor3.10 gives all nontriangle coordinate and odd chordless-cycle facets. Ellipsoid support on a k-cycle yields Σ_{C}s_e≤(k−2)^2/4; triangle k=3 is active, while coordinate cap s_e≤1/4 implies all k≥4 cycle inequalities, with possible k=4 equality only if all four s=1/4. Strict concavity of Σlog s and positive Slater point imply unique optimum with box and triangle constraints. Contact equality and Q a/√(a^TQa) yield exhaustive facet contacts; wheel and book formulae satisfy exact KKT. Independently checked their rational multiplier identities for wheels 4≤k≤24 and books 1≤n≤29. Finite computations do not replace all-graph cut facet theorem.
 
-The full-text Barahona--Mahjoub 1986 result is a **facet classification**, not an ellipsoid calculation. Chimani et al. (2019) extend minor-free facet/combinatorial studies without calculating inscribed ellipsoids. Nikolaev (2024, arXiv:2402.13591, primary MSC 52B05) studies graph-of-polytope adjacency, clique numbers, and graph diameter, rather than John semiaxes or facet contacts. Gartsman--Linial (2023) calculates the John ellipsoid of the **metric** polytope and explicitly asks about the **cut** polytope in Section 4, which does not logically cover the present minor-free result. Published-result searches for graph cut-polytope John ellipsoids, switching-diagonal forms, log-determinant triangle incidence, and longer-cycle redundancy revealed no exact or stronger coverage; this is evidence of noncoverage among inspected sources, not a global priority proof. A differently named or uninspected optimal-design treatment remains a risk. Comparisons are recorded in `AUDIT.json`.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural, complete structural invariant for a broad infinite minor-closed family of cut polytopes, not a one-off numerical fit. It reduces a potentially enormous and long-cycle facet system to a strictly concave program indexed just by edges and triangles, determines every principal semiaxis and contact facet, and proves genuinely nonuniform formulas for wheels and page-book graphs. The disappearance of length-five-and-higher facets from all contacts, together with the sharp length-four boundary case, is geometrically informative even though the defining cycle facets remain important for the polytope itself. The general graph solution is a finite variational characterization rather than a radical closed form, and general graphs with a \(K_5\) minor remain outside its scope.
+Best-of-knowledge scientific implication comparison grounded in primary mathematical text; residual risks and access boundaries remain explicit.
 
-## Residual risks and limits
+## value
 
-The proof relies on the correct applicability of the complete cut-polytope facet description to graphs without a \(K_5\) minor. A distinct publication under D-optimal design, optimal-volume inscribed ellipsoid, or covariance switching could precede this formulation; independent literature and proof verification have not occurred. No claim is made about a minimum-volume circumscribed ellipsoid, graphs containing a \(K_5\) minor, or a closed-form polynomial in arbitrary graph parameters.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Answers a specifically raised cut-polytope John ellipsoid question on the full natural K5-minor-free class, reducing all possible cycle facets to local triangles and exhaustively classifying contacts. Infinite wheel/book/cactus families exhibit nontrivial anisotropy and triangle incidence dependence; not a generic log-det restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

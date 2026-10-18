@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T04:54:36Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Barahona and Mahjoub, On the cut polytope, Math. Programming 36 (1986), Corollary 3.10, DOI:10.1007/BF02592023",
+        "Gartsman and Linial, On the Löwner-John Ellipsoids of the Metric Polytope, arXiv:2305.02113",
+        "Frozen RESULT.md blob bd704badc9dff950844d2504f459ee0ff8e81e99"
+      ],
+      "rationale": "For finite simple K5-minor-free G with ≥1 edge, the unique full-dimensional John ellipsoid is invariant under cut-switching coordinate reflections; individual edge flips force center=1/2, and singleton endpoint flips separating any pair of distinct simple edges force covariance diagonal. Barahona–Mahjoub Cor3.10 gives all nontriangle coordinate and odd chordless-cycle facets. Ellipsoid support on a k-cycle yields Σ_{C}s_e≤(k−2)^2/4; triangle k=3 is active, while coordinate cap s_e≤1/4 implies all k≥4 cycle inequalities, with possible k=4 equality only if all four s=1/4. Strict concavity of Σlog s and positive Slater point imply unique optimum with box and triangle constraints. Contact equality and Q a/√(a^TQa) yield exhaustive facet contacts; wheel and book formulae satisfy exact KKT. Independently checked their rational multiplier identities for wheels 4≤k≤24 and books 1≤n≤29. Finite computations do not replace all-graph cut facet theorem.",
+      "residual_risks": [
+        "K5-minor-free is essential: extra facets can invalidate triangle locality beyond this class.",
+        "Triangle books with n=1 are K3 and the family formulas coincide; no extension to the global Löwner ellipsoid or nonminorfree cut polytopes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gartsman–Linial §4 explicitly asks for the Löwner-John ellipsoid of the cut polytope; their main results concern M_n.",
+          "Barahona–Mahjoub supplies complete K5-minor-free facet system but not ellipsoid covariance or contact classification."
+        ],
+        "reasoning": "The prior facet inequality system is an essential input but does not itself state log-determinant triangle locality and global optimal ellipsoid; this is a restricted answer to a named open metric problem.",
+        "searches": [
+          "Resultary: K5 minor free cut polytope John ellipsoid triangle constraints inner ellipsoid diagonal",
+          "Gartsman–Linial arXiv:2305.02113 §4",
+          "Barahona–Mahjoub Cor3.10",
+          "Chimani–Juhnke-Kubitzke–Nover–Römer arXiv:1903.01817"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/triangle-local-john-ellipsoids-of-cut-polytopes-without-a-k-5-mi--812c76a9c9cc",
+        "Barahona and Mahjoub, On the cut polytope, Math. Programming 36 (1986), Corollary 3.10, DOI:10.1007/BF02592023",
+        "Gartsman and Linial, On the Löwner-John Ellipsoids of the Metric Polytope, arXiv:2305.02113",
+        "Frozen RESULT.md blob bd704badc9dff950844d2504f459ee0ff8e81e99"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Full cut-switching group reduces ellipsoid shape to diagonal; for k≥4 the cycle support constraint sum s_e ≤(k−2)^2/4 follows from simple coordinate caps.",
+          "The published metric-polytope ellipsoid does not satisfy the same cut facial system in general."
+        ],
+        "reasoning": "Barahona–Mahjoub supplies the facets but not the symmetry/KKT/geometry proof; the audited all-graph class structural reduction and sharp facet contact list are additional implications, not a special case of a published ellipsoid solution.",
+        "searches": [
+          "Gartsman–Linial arXiv:2305.02113 discussion",
+          "Barahona–Mahjoub 1986 Cor3.10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cut polytope P_G is not the metric polytope M_n; M_n has noncut vertices for sufficiently large n.",
+          "The John ellipsoid is the maximal inscribed one, not the minimum circumscribed Löwner ellipsoid."
+        ],
+        "reasoning": "Distinguish graph-specific cut-incidence geometry from complete-graph metric polytope and outer ellipsoid problems; metric-polytope answer does not determine this cut-polytope John ellipsoid.",
+        "searches": [
+          "Resultary: K5 minor free cut polytope John ellipsoid triangle constraints inner ellipsoid diagonal",
+          "Barahona–Mahjoub 1986 Cor3.10",
+          "Gartsman–Linial arXiv:2305.02113"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known cut-polytope facets include odd inequalities of all chordless cycle lengths; all but triangle constraints disappear from *ellipsoid feasibility*, except equality contacts for four-cycles."
+        ],
+        "reasoning": "Facet lists or MaxCut tables cannot be read as tables of Euclidean ellipsoid semiaxes; wheel and book exact KKT profiles are not provided by cited facet results.",
+        "searches": [
+          "Resultary: cut polytope K5 minor free triangle John ellipsoid",
+          "Barahona–Mahjoub 1986 signed chordless-cycle facet list"
+        ]
+      },
+      "rationale": "Best-of-knowledge scientific implication comparison grounded in primary mathematical text; residual risks and access boundaries remain explicit.",
+      "residual_risks": [
+        "Semantic search indexing and bibliographic completeness are necessarily bounded; no absolute priority certification or independent human attestation is claimed.",
+        "The current published Resultary hit for the exact title is the work being reviewed, not independent prior evidence.",
+        "Unindexed equivalent or stronger results under alternative mathematical terminology could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NON_COVERING of maximum-volume ellipsoid; exact facet constraints are an essential premise.",
+          "evidence": "Corollary 3.10: facet description comprises nontriangle-edge box inequalities and odd signed chordless-cycle inequalities for graphs with no K5 minor.",
+          "identifier_or_url": "DOI:10.1007/BF02592023; https://www.lamsade.dauphine.fr/~mahjoub/Papers/BM86.pdf",
+          "material_read": "Primary PDF §3, pp.9–13, including Corollary 3.10 and its proof context.",
+          "method": "Author-hosted original full-text PDF, inspected Cor.3.10 page image.",
+          "title": "On the cut polytope",
+          "trigger": "Complete K5-minor-free facet system required by proof."
+        },
+        {
+          "assessment": "NON_COVERING; works with larger metric polytope, expressly asks for cut-polytope Löwner-John ellipsoid.",
+          "evidence": "§4 p.15: “Can one find the Löwner-John ellipsoid of the Cut Polytope?” Unlike the assigned result, main ellipsoid is for M_n.",
+          "identifier_or_url": "arXiv:2305.02113",
+          "material_read": "Introduction/definitions pp.1–4, main metric ellipsoid results, and §4 Discussion/Open Problems pp.15–16.",
+          "method": "Public arXiv full-text PDF and inspected title page image.",
+          "title": "On the Löwner-John Ellipsoids of the Metric Polytope",
+          "trigger": "Same ellipsoid objective and neighboring metric/cut polytopes."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "DOI:10.1007/BF02592023; https://www.lamsade.dauphine.fr/~mahjoub/Papers/BM86.pdf",
+        "arXiv:2305.02113"
+      ],
+      "rationale": "Answers a specifically raised cut-polytope John ellipsoid question on the full natural K5-minor-free class, reducing all possible cycle facets to local triangles and exhaustively classifying contacts. Infinite wheel/book/cactus families exhibit nontrivial anisotropy and triangle incidence dependence; not a generic log-det restatement.",
+      "residual_risks": [
+        "Mathematical importance is specific to the natural invariant/gap described; no claim of a broad new theory, universal optimality beyond scope, or human expert endorsement."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/triangle-local-john-ellipsoids-of-cut-polytopes-without-a-k-5-mi--812c76a9c9cc",
+    "Barahona and Mahjoub, On the cut polytope, Math. Programming 36 (1986), Corollary 3.10, DOI:10.1007/BF02592023",
+    "Gartsman and Linial, On the Löwner-John Ellipsoids of the Metric Polytope, arXiv:2305.02113",
+    "Frozen RESULT.md blob bd704badc9dff950844d2504f459ee0ff8e81e99"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "K5-minor-free is essential: extra facets can invalidate triangle locality beyond this class.",
+    "Triangle books with n=1 are K3 and the family formulas coincide; no extension to the global Löwner ellipsoid or nonminorfree cut polytopes.",
+    "Semantic search indexing and bibliographic completeness are necessarily bounded; no absolute priority certification or independent human attestation is claimed.",
+    "The current published Resultary hit for the exact title is the work being reviewed, not independent prior evidence.",
+    "Unindexed equivalent or stronger results under alternative mathematical terminology could exist."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "NON_COVERING of maximum-volume ellipsoid; exact facet constraints are an essential premise.",
+      "evidence": "Corollary 3.10: facet description comprises nontriangle-edge box inequalities and odd signed chordless-cycle inequalities for graphs with no K5 minor.",
+      "identifier_or_url": "DOI:10.1007/BF02592023; https://www.lamsade.dauphine.fr/~mahjoub/Papers/BM86.pdf",
+      "material_read": "Primary PDF §3, pp.9–13, including Corollary 3.10 and its proof context.",
+      "method": "Author-hosted original full-text PDF, inspected Cor.3.10 page image.",
+      "title": "On the cut polytope",
+      "trigger": "Complete K5-minor-free facet system required by proof."
+    },
+    {
+      "assessment": "NON_COVERING; works with larger metric polytope, expressly asks for cut-polytope Löwner-John ellipsoid.",
+      "evidence": "§4 p.15: “Can one find the Löwner-John ellipsoid of the Cut Polytope?” Unlike the assigned result, main ellipsoid is for M_n.",
+      "identifier_or_url": "arXiv:2305.02113",
+      "material_read": "Introduction/definitions pp.1–4, main metric ellipsoid results, and §4 Discussion/Open Problems pp.15–16.",
+      "method": "Public arXiv full-text PDF and inspected title page image.",
+      "title": "On the Löwner-John Ellipsoids of the Metric Polytope",
+      "trigger": "Same ellipsoid objective and neighboring metric/cut polytopes."
+    }
+  ]
+}
