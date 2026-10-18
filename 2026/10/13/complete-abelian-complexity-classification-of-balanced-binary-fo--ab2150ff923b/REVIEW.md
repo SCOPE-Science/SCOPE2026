@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The pair-saturation induction is valid for every positive displacement: its three base distances and four residue-wise letter-pair lifts are finite exhaustively verified identities, while every induction call refers to strictly smaller positive gaps. The aligned-block counting identity includes all start offsets and both boundary source letters. For unequal images, pair saturation makes every endpoint combination realizable; the possible one-counts form an interval under single-position shifts. Coincident images are periodic. The packaged checker proves all finite preconditions and tests 1,152 explicit factor instances, but the theorem rests on the symbolic argument, not the sampled range.
+## correctness
 
-**Originality — PASS, with limits.** Rigo–Stipulanti–Whiteland, arXiv:2405.18032, Theorem 3 gives an algorithm for automatic abelian complexity, not this table or the distance-pair lemma; Section 6 explicitly asks the broader periodicity question. Results concerning three-uniform binary or ternary substitutions do not imply this four-uniform result. Searches for length-four balanced substitutions, their image aliases, and ordered pairs at all positive separations found no stronger covering published claim. The priority risk from unindexed equivalent special-case calculations is nonzero.
+PASS
 
-**Value — PASS.** This is the complete first balanced binary four-uniform classification: eighteen natural substitutions, with a proof of exact periodicity and sharp values (including complexity five) for all factor lengths. The all-distance pair-saturation lemma supplies a structural mechanism that replaces per-length automaton calculations, and the classification gives a substantive restricted affirmative case of the open Parikh-constant periodicity question. No implication for arbitrary image lengths or alphabets is asserted.
+All 18 morphisms are enumerated by 3 balanced four-letter images u beginning with 0 and 6 balanced images v. For u≠v, the finite base P(d)={0,1}^2 for distances d=1,2,3 and the four residue-lifting identities are exact enumerations over 15 morphisms. For d=4q+r≥4, source separations q and q+floor((t+r)/4) are positive smaller than d; induction provides every endpoint pair. A factor of length 4q+r has 2 per full block and a computable prefix/suffix correction, and attained one-count values form an integer interval by sliding one position. The resulting 18-row residue table follows, including complexity 5 at multiples of 4 for 0011/1100; u=v yields periodic words. Independent exhaustive base/lift check succeeded for 105 predicates and sliding-window counts in 1,440 length/morphism cases n≤80. The finite sample is not the infinite proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS on best-of-knowledge: Rigo–Stipulanti–Whiteland arXiv:2405.18032 proves automaticity and provides an effective algorithm for Parikh-collinear morphisms. Their Theorem 3 does not assert eventual periodicity or a closed explicit 18-family classification, and §6 asks the general Parikh-constant eventual-periodicity question. Exact 18 morphisms and distance-pair saturation provide extra structure. The general computability theorem permits one to calculate instances but neither states nor directly implies the exact periodic table without additional calculation and induction. Searches did not reveal an equivalent four-uniform family classification; unindexed case tables remain a risk.
+
+## value
+
+PASS
+
+PASS: Abelian complexity is a natural factor invariant and the distinction between automaticity and eventual periodicity is a stated mathematical issue. The theorem completely resolves a structured minimal nontrivial balanced length-four binary family and proves all-distance pair saturation that makes the classification uniform in factor length. Complexity-five example shows new behavior beyond the simplest periodic/two-letter counts. This is a motivated exact small-family classification, not a claim to solve arbitrary Parikh-constant periodicity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
