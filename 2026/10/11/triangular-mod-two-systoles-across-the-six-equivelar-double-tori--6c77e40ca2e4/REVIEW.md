@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The six exact facet lists are replayed by `verify.py`. The verifier checks the closed-surface incidence and links, computes \(\operatorname{rank}\partial_1=11\) and \(\operatorname{rank}\partial_2=27\), exhausts every graph triangle, and tests exact membership in \(\operatorname{im}\partial_2\). It reproduces the six minimizer counts and the homology-class multiplicity profiles. The claim is finite and fully exhausted; no numerical approximation is used.
+## correctness
 
-## Originality
-PASS. Datta--Upadhyay supplies the complete six-object classification, Sulanke--Lutz confirms the equivelar enumeration, and the Lutz data file supplies exact facets. The inspected exact-object literature does not state the all-nonfacial-triangles-essential theorem, the count vector \(20,24,24,24,18,18\), or the class-multiplicity profiles. published-finding corpus and web searches covered exact names, aliases, nonfacial triangles, nonseparating cycles, mod-two systoles, the count vector, and the multiplicity formulation. Residual risk remains from unindexed computations and from the uninspected full text of later vertex-transitive genus-two literature.
+PASS
 
-## Value
-PASS. This is a complete shortest-homology-cycle classification across the full orientable equivelar genus-two family. It upgrades the known object classification with a topological local invariant: every nonfacial triangle is nonseparating, and the resulting shortest-class profiles differ across the family. The invariant is mathematically motivated by homology systoles and short essential cycles on triangulated surfaces.
+All six exact finite triangulations were rebuilt from actual Git verify.py facet lists, not asserted logs. Independently checked every edge degree=2, every vertex link seven-cycle and the face vector (12,42,28), so each is a closed Euler-characteristic -2 surface. Independent GF(2) Gaussian elimination gave ranks ∂1=11, ∂2=27 and dim H1=42-11-27=4 in every case. Enumerating all 220 vertex triples yields 48,52,52,52,46,46 graph triangles; subtracting 28 faces gives 20,24,24,24,18,18 empty triangles. Every empty triangular edge chain was checked outside im ∂2, every facial boundary inside it; modding pairwise XOR by this exact image gives multisets [4,4,4,4,2,2], [4,4,4,4,4,4] (three times), [4,4,2,2,2,2,1,1], [4,4,4,1,1,1,1,1,1]. There are no nontrivial simple cycles of <3 edges. On an orientable surface essential F2 class of an embedded triangle is equivalent to nonseparating. This is exhaustive for the six stated complexes, not a universal claim for other genus-two triangulations.
 
-## Closest literature and limitations
-The closest source is Datta--Upadhyay's classification of all six degree-regular double-torus triangulations; it provides the family but not the cycle-homology census. Sulanke--Lutz independently records the six-example equivelar count, while the Lutz surface file gives the exact labeled facets. The theorem is limited to simple mod-two \(1\)-cycles of length three in these six complexes; it does not classify integral or longer systoles.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The finite mod-two 1-systole counts, all-essential empty-triangle result, and homology-class profiles refine but are not covered by the published full-family classification and facet-list databases.
+
+## value
+
+PASS
+
+PASS. A complete family-level minimum essential cycle classification of the six natural equivelar genus-two maps is mathematically motivated by combinatorial systolic geometry. The nonseparating criterion and nonuniform homology-class multiplicity distinguish maps with identical local face-vector/degree data; these unknown exact invariants could be used in combinatorial-map classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

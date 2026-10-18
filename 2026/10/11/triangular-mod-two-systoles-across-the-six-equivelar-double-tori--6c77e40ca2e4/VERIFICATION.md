@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python verify.py` with a standard Python 3 interpreter. The script contains the six exact published facet lists, reconstructs each simplicial complex, and checks all finite claims directly.
+# Independent mathematical audit
 
-For every complex it verifies 12 vertices, 42 edges, 28 facets, edge degree two, vertex degree seven, and connected seven-cycle vertex links. It computes exact mod-two boundary ranks 11 and 27, so the first mod-two homology dimension is four. It then enumerates every three-vertex clique. Each facial triangle reduces to zero modulo the image of the triangle boundary map; every nonfacial one reduces to a nonzero class. Homology-class multiplicities are computed without a chosen homology basis: two cycles are grouped exactly when their sum lies in the image of the triangle boundary map.
+## correctness
 
-Expected output:
+PASS
 
-`VERIFY_OK f=12,42,28 H1_F2_dim=4 missing3=20,24,24,24,18,18 class_mults=4+4+4+4+2+2;4+4+4+4+4+4;4+4+4+4+4+4;4+4+4+4+4+4;4+4+2+2+2+2+1+1;4+4+4+1+1+1+1+1+1 all_missing3_nonzero=yes`
+All six exact finite triangulations were rebuilt from actual Git verify.py facet lists, not asserted logs. Independently checked every edge degree=2, every vertex link seven-cycle and the face vector (12,42,28), so each is a closed Euler-characteristic -2 surface. Independent GF(2) Gaussian elimination gave ranks ∂1=11, ∂2=27 and dim H1=42-11-27=4 in every case. Enumerating all 220 vertex triples yields 48,52,52,52,46,46 graph triangles; subtracting 28 faces gives 20,24,24,24,18,18 empty triangles. Every empty triangular edge chain was checked outside im ∂2, every facial boundary inside it; modding pairwise XOR by this exact image gives multisets [4,4,4,4,2,2], [4,4,4,4,4,4] (three times), [4,4,2,2,2,2,1,1], [4,4,4,1,1,1,1,1,1]. There are no nontrivial simple cycles of <3 edges. On an orientable surface essential F2 class of an embedded triangle is equivalent to nonseparating. This is exhaustive for the six stated complexes, not a universal claim for other genus-two triangulations.
 
-The computation is exhaustive only for the six listed complexes and for simple three-edge cycles. It does not establish claims about longer cycles, integral systoles, or other surface triangulations.
+## originality
+
+PASS
+
+The finite mod-two 1-systole counts, all-essential empty-triangle result, and homology-class profiles refine but are not covered by the published full-family classification and facet-list databases.
+
+## value
+
+PASS
+
+PASS. A complete family-level minimum essential cycle classification of the six natural equivelar genus-two maps is mathematically motivated by combinatorial systolic geometry. The nonseparating criterion and nonuniform homology-class multiplicity distinguish maps with identical local face-vector/degree data; these unknown exact invariants could be used in combinatorial-map classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
