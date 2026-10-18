@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The local factor identity for the unitary-divisor sum is exact. Strict monotonicity of \(R_p(a)=p(1+p^{-a})/(p-1)\) closes all prime-support branches, including \(n=1\), the full even range, odd prime powers, and odd two-prime factorizations. The \(q=5\) modular step is necessary to exclude intermediate exponents, and the remaining rational bounds are strict. Independent integer-factorization checks through \(10^6\) corroborate the unrestricted argument, without substituting for it.
+## correctness
 
-**Originality — PASS, with residual risk.** Broughan–Delbourgo's 2013 theorem treats \(\sigma(n)=2\varphi(n)\), agreeing on squarefree numbers but excluding the genuine unitary solution \(99\). The 2014 sequel still uses ordinary \(\sigma\). Trudgian's 2013/2014 preprint addresses unitary-sum growth and comparison with \(\sigma^{(e)}\), not this exact ratio; OEIS A034448 supplies a function table rather than an exact solution classification. Relevant searchable research records concerning unitary harmonicity, iterated unitary sums, and unitary–exponential equality have distinct equations. An unindexed elementary classification remains possible.
+PASS
 
-**Value — PASS.** The multiplier-two totient fiber is a natural divisor-sum problem explicitly studied in the ordinary setting, and switching to the unitary sum changes the answer at the first nonsquarefree layer. The result completely resolves every two-prime-support case, gives a global parity obstruction, identifies the unique nonsquarefree low-support witness \(99\), and locates the sharp support boundary at \(1045\). The claim is not merely a table extension and makes no extrapolation from finite computation.
+PASS: For n=∏p^a, the local ratio R_p(a)=(1+p^a)/(p^{a-1}(p-1))=p/(p-1)(1+p^(−a)) decreases in a, and R_2(a)>2 excludes all even n; n=1 fails. A one-odd-prime equation p^{a-1}(p−2)=1 forces n=3. For 3<=p<q with p>=5, maximum (p+1)/(p−1)*(q+1)/(q−1)<= (6/4)(8/6)=2 with equality only 5*7. For p=3,q>=11, R_3(a)R_q(b)<=R_3(2)R_11(1)=2 with equality only 3²*11=99, given a>=2 since a=1 factor already 2. For q=7, b=1 gives >2, b>=2 gives <=125/63<2; for q=5, b=1 >2, b>=2 leads 3^a≡−1 mod5 so a≡2 mod4, with a=2 >2 and a>=6 <=949/486<2. This exhausts all supports<=2; direct n=1045=5*11*19 has σ*=1440=2φ. Independent exact integer factoring through 50,000 found precisely 3,35,99 at support<=2 and 1045 first support3. Finite checks supplement the all-exponent congruence/inequalities.
 
-**Closest comparison and limits.** Ordinary divisor-sum classification: Broughan–Delbourgo, JIS 16 (2013), Theorem 11; Broughan–Zhou, JIS 17 (2014). Unitary-function source: Trudgian, arXiv:1312.4615. OEIS A034448 and A062699 encode different functions; no result cited here yields the full present nonsquarefree two-support statement. Solutions of odd support \(\ge3\) remain unclassified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Broughan–Delbourgo's Theorem 11 (2013) classifies ordinary σ(n)=2φ(n) through three supports (3,35,1045), but its distinct function misses nonsquarefree n=99 for which σ*(99)=120=2φ(99) but σ(99)=156. Trudgian (arXiv:1312.4615) proves unitary-sum growth/comparison, not exact φ ratio. OEIS A034448 is unitary-sum value sequence, A062699 ordinary ratio, not this all-exponent classification. Resultary two-prime unitary findings address iterated σ* or unitary-versus-exponential equations, not σ*/φ=2. Search does not establish absolute novelty; unindexed elementary duplicates remain a risk.
+
+## value
+
+PASS
+
+PASS: Multiplier-two divisor-sum/totient fibers are naturally studied in an established integer-sequence/classification program. The unitary analogue changes the answer at first nonsquarefree layer (99), and a complete support<=2 classification with a global parity obstruction and explicit sharp three-support boundary 1045 is a precise usable cutoff, not a recomputation of an ordinary known table. It does not claim an exhaustive higher-support census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
