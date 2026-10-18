@@ -1,0 +1,161 @@
+{
+  "correctness": {
+    "rationale": "For \\(\\varepsilon,\\beta>0\\), \\(c=\\varepsilon\\beta\\in(0,1)\\), and \\(\\omega^2=\\varepsilon-c^2>0\\), the Jacobian at either signed Hopf voltage has trace \\(\\mu\\) and determinant \\(\\omega^2-c\\mu\\). The current unfolding is transverse: \\(dI/d\\mu=-\\omega^2/(2cs)\\neq0\\) at onset. Exact reversible scalar reduction yields the quadratic Fourier correction, and projecting the third-order forcing onto sine/cosine gives \\(m=(\\omega^2-2c(1-c))/(4\\omega^2)\\) and \\(\\nu=-(1-c)(c^2+\\omega^2)/(6\\omega^3)\\). For \\(m\\neq0\\), the nondegenerate Hopf theorem gives the unique local periodic orbit, branch side, stability and a rigorous expansion. Its quadratic normalized period coefficient \\(K=-\\nu/\\omega\\) is positive over the quantified domain; for \\(\\mu<0\\), the equilibrium imaginary eigenfrequency \\(\\sqrt{\\omega^2-c\\mu-\\mu^2/4}\\) is larger than \\(\\omega\\). Exact SymPy Fourier reconstruction and five numerical periodic-orbit shooting checks in the standalone verification script support the derived coefficients. Numerics corroborate, not substitute for, the analytic derivation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brizard, arxiv:2107.11642, sections III.C–IV and equations (55)–(60): integrals over slow large-amplitude relaxation segments in the singular regime.",
+        "Guckenheimer–Kuehn, doi:10.3934/dcdss.2009.2.851, abstract and introduction: singular-limit homoclinic-bifurcation curves.",
+        "Bisquert–Fenollosa–Cordero–Torregrosa, doi:10.1021/acs.jpclett.5c00288, sections 2.1–2.4: FHN Hopf linear period followed by S-type oscillator analysis and slow-fast period integral.",
+        "General planar Hopf theorem separates real and imaginary resonant cubic coefficients; their signs are not universally constrained."
+      ],
+      "reasoning": "The available broader theories concern existence/stability, local linear frequency, spatial/singular-limit homoclinic bifurcations or large-amplitude relaxation periods. None of their material examined gives a parameter-uniform positive nonlinear period coefficient for the canonical cubic FHN family. An arbitrary complex Hopf cubic coefficient may have either imaginary sign, so a generic Hopf theorem alone cannot imply this sign.",
+      "searches": [
+        "FitzHugh Nagumo period function monotonicity near Hopf bifurcation period constant nonlinear frequency limit cycle",
+        "FitzHugh Nagumo limit cycle period increasing amplitude Hopf bifurcation formula",
+        "FitzHugh Nagumo generalized Hopf Bautin frequency correction imaginary normal form",
+        "arxiv:2107.11642",
+        "doi:10.3934/dcdss.2009.2.851",
+        "doi:10.1021/acs.jpclett.5c00288"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1016/S0006-3495(61)86902-6 (original model; publication metadata and abstract)",
+      "doi:10.1142/S0218127404009685 (full OA preprint, Appendix B)",
+      "doi:10.33993/jnaat291-659 (abstract only)",
+      "doi:10.3934/dcdss.2009.2.851 (PDF abstract and introduction)",
+      "arxiv:2107.11642 (full OA preprint; singular relaxation-period derivation)",
+      "doi:10.1021/acs.jpclett.5c00288 (published open sections 2.1–2.4)",
+      "arxiv:2507.01623 (open introduction and research scope)",
+      "doi:10.1007/978-94-015-9548-3_3 (book chapter table of contents and abstract, complete text inaccessible)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kostova et al., full preprint Appendix B pp.18–19 determines sign of G4 and hence cycle stability only; no physical-time frequency solvability equation is stated there.",
+        "Brizard, arxiv:2107.11642, equations (55)–(60), assumes large-amplitude slow-fast relaxation and is not an expansion in the first voltage harmonic at a Hopf point.",
+        "Bisquert et al. 2025, section 2.4, near-Hopf linear eigenperiod is consistent with the opposite-direction prediction established here for subcritical cycles."
+      ],
+      "reasoning": "The contemporaneous equilibrium eigenperiod is \\(2\\pi\\) divided by its positive imaginary eigenvalue, which becomes shorter on the subcritical FHN branch, while the proved cycle period becomes longer. The local real Lyapunov coefficient, Hopf surface, and slow-fast large-cycle period formula cannot entail this nonlinear-versus-linear reversal. The earlier invariant-moment relation for the same model fixes a speed-weighted voltage mean but supplies no phase or period scaling.",
+      "searches": [
+        "\"FitzHugh Nagumo\" nonlinear frequency shift \"subcritical\" eigenfrequency",
+        "FitzHugh-Nagumo ẋV=V-V^3/3-W+I ẋW=epsilon(V+a-bW) Hopf period amplitude expansion first order frequency drift w^2",
+        "doi:10.1142/S0218127404009685",
+        "arxiv:2107.11642"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kostova–Ravindran–Schonbek, publicly released full preprint https://www.its.caltech.edu/~matilde/FHNLyapunov.pdf, Appendix B pp.18–19: computes the real focal/Lyapunov coefficient G4 for Hopf stability.",
+        "Rocşoreanu–Giurgiţeanu–Georgescu (2000), doi:10.33993/jnaat291-659, abstract: degenerate Hopf/Bautin normal forms and numerical study; complete article could not be examined."
+      ],
+      "reasoning": "The standard cubic FHN and the Bonhoeffer–van der Pol cubic oscillator are affine/time-scaled normalizations of related planar neuron dynamics. The physically timed cubic imaginary resonance, first-harmonic amplitude scaling and positive sign are additional information: the real focal coefficient and a general Hopf normal form determine bifurcation side but do not imply the signed period response. The 2000 Bautin paper is specifically identified as an unresolved priority risk rather than declared inapplicable.",
+      "searches": [
+        "FitzHugh Nagumo Bonhoeffer van der Pol cubic recovery model near Hopf nonlinear oscillation angular frequency decreasing with limit cycle amplitude for all damping parameters period slope",
+        "Bonhoeffer van der Pol oscillator period nonlinear frequency near Hopf cubic restoring 2D",
+        "doi:10.1142/S0218127404009685 Appendix B",
+        "doi:10.33993/jnaat291-659"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Bisquert et al. (2025), section 2.4 equation (37): a near-Hopf harmonic period estimated from the equilibrium eigenfrequency, without the first nonlinear correction.",
+        "Brizard (2021), Fig.11 and equations (59)–(60): numerical and singular asymptotic periods for large relaxation cycles.",
+        "The exact coefficient is an explicit rational function of the Hopf trace and frequency parameters, not an experimentally tabulated datum."
+      ],
+      "reasoning": "Tables and plotted periods found in the inspected period literature concern linear Hopf approximations or singularly perturbed relaxation cycles. No identified table/data point covers the analytic small-cycle coefficient or its universal sign. Failure to find a table is not by itself used to infer priority.",
+      "searches": [
+        "FitzHugh Nagumo Hopf bifurcation amplitude frequency period correction coefficient normal form 2000 2004",
+        "FitzHugh Nagumo frequency correction bifurcating limit cycle near Hopf 2000 2003 Bautin periodic time scale",
+        "FitzHugh Nagumo period function monotonicity near Hopf bifurcation period constant nonlinear frequency limit cycle",
+        "doi:10.1021/acs.jpclett.5c00288"
+      ]
+    },
+    "rationale": "The positive coefficient for physical-time least period, computed uniformly for both signs of the FHN first-Hopf coefficient, is not a consequence of the known supercritical/subcritical classification, generic Hopf normal form, linear onset-frequency formula or singular-limit large-amplitude relaxation periods. The subcritical reversal relative to the eigenfrequency is a distinct sign conclusion. Material comparisons were made with the closest public full texts; relevant inaccessible earlier studies create explicit residual priority risk, not evidence of novelty.",
+    "residual_risks": [
+      "The 2000 Rocşoreanu–Giurgiţeanu–Georgescu Bautin article and its associated 2000 monograph are closely related but their complete original-result sections were inaccessible; they may contain an equivalent imaginary normal-form coefficient. Available material does not establish coverage.",
+      "No exhaustive search of all textbook normal-form exercises or non-English regional historical publications is possible; publication priority remains open to independent literature review.",
+      "The 2025 survey/full article was inspected in the directly relevant published frequency sections, not every appendix; no unsupported whole-document noncoverage assertion is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Appendix B gives G4 for stability but no signed imaginary cubic coefficient for the physically timed small-cycle period; neither that result nor the phase-plane classifications implies the present universal sign.",
+        "evidence": [
+          "PDF pp.5,19–20; journal doi:10.1142/S0218127404009685"
+        ],
+        "identifier_or_url": "https://www.its.caltech.edu/~matilde/FHNLyapunov.pdf",
+        "material_read": "Public 23-page preprint: model and introduction, bifurcation sections and Appendix B (PDF pages 19–20), including equations defining and evaluating the real focal coefficient.",
+        "method": "PDF readable text and page-image examination.",
+        "title": "FitzHugh–Nagumo Revisited: Types of Bifurcations, Periodical Forcing and Stability Regions by a Lyapunov Functional",
+        "trigger": "Same nondiffusive FHN cubic equations and explicit supercritical/subcritical Hopf calculations."
+      },
+      {
+        "assessment": "Computes large-amplitude relaxation-oscillation periods by slow branch integrals for small separation parameter; does not cover generic finite-frequency Hopf small cycles or the claimed first-harmonic coefficient.",
+        "evidence": [
+          "arxiv:2107.11642 equations (55)–(60), Fig.11"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2107.11642",
+        "material_read": "Full nine-page open preprint with sections III and IV; detailed comparison of period formulas on PDF pp.6–9, especially (55)–(60).",
+        "method": "PDF text and page images for section III.C and summary.",
+        "title": "Asymptotic Limit-cycle Analysis of the FitzHugh-Nagumo Equations",
+        "trigger": "Direct FHN period calculation, plausibly stronger than a small-cycle result."
+      },
+      {
+        "assessment": "Describes a singular-limit bifurcation diagram rather than a weakly nonlinear period coefficient; no whole-document absence claim is made.",
+        "evidence": [
+          "doi:10.3934/dcdss.2009.2.851, abstract and Introduction"
+        ],
+        "identifier_or_url": "https://pi.math.cornell.edu/~gucken/PDF/fhnc.pdf",
+        "material_read": "Abstract and introduction including the statement of the singular-limit homoclinic and bifurcation-curve scope.",
+        "method": "Public PDF page-image and text examination.",
+        "title": "Homoclinic Orbits of the FitzHugh–Nagumo Equation: The Singular-Limit",
+        "trigger": "Global Hopf/saddle-node cycle diagrams for the same canonical model."
+      },
+      {
+        "assessment": "Section 2.4 treats the FHN linear harmonic approximation at onset; principal broader frequency results target S-type oscillators. Those equations do not supply the nonlinear small-amplitude correction or its universal sign.",
+        "evidence": [
+          "doi:10.1021/acs.jpclett.5c00288, section 2.4 equation (37), section 2 introduction"
+        ],
+        "identifier_or_url": "https://doi.org/10.1021/acs.jpclett.5c00288",
+        "material_read": "Accessible published article sections 2.1–2.4: FHN circuit, linearized eigenfrequency, near-Hopf harmonic period and slow-fast period methodology; conclusion/abstract distinguishing S-type target.",
+        "method": "Indexed publisher full-text sections and journal bibliographic page.",
+        "title": "Bifurcation and Frequency Properties of S-Type Neuronic Oscillators",
+        "trigger": "Title promises oscillator period and frequency and FHN is an explicit preliminary example."
+      },
+      {
+        "assessment": "Abstract emphasizes Bautin normal form, but full coverage comparison remains an explicit historical-priority risk; not classified as not covering.",
+        "evidence": [
+          "doi:10.33993/jnaat291-659, public abstract dated 2000-02-01"
+        ],
+        "identifier_or_url": "https://doi.org/10.33993/jnaat291-659",
+        "material_read": "Journal title, abstract, DOI, bibliographic date and references only; PDF full text not retrievable.",
+        "method": "Open journal landing page and available metadata; attempted full-text viewer.",
+        "title": "Degenerated Hopf Bifurcation in the FitzHugh–Nagumo System. 2. Bautin Bifurcation",
+        "trigger": "Direct study of degenerate Hopf normal forms in FHN could contain a frequency coefficient."
+      },
+      {
+        "assessment": "States aims of local/global bifurcation curves, canards and behavior at infinity, not a period coefficient. This is scope evidence, not a full-document exclusion.",
+        "evidence": [
+          "arxiv:2507.01623, introduction §§1.1–1.4"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2507.01623",
+        "material_read": "Available full-text introduction, exact model definitions, originality statement and scope of sections 3–5.",
+        "method": "Open arXiv HTML full text, introduction §§1.1–1.4.",
+        "title": "FitzHugh-Nagumo equation: bifurcations, slow-fast system and dynamics near infinity",
+        "trigger": "Recent comprehensive FHN bifurcation account may synthesize earlier Hopf literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "26391f16-b1b8-4f96-b2b1-a9e1a97bc29c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The physical least period in the canonical neuron oscillator is a natural bifurcation observable. The sign of nonlinear period softening is uniform over the full admissible two-parameter Hopf domain, despite a change from attracting to repelling cycles across the Bautin criticality threshold. The subcritical sign reversal relative to equilibrium eigenfrequency makes a clear, structurally motivated boundary between linear predictions and true nonlinear cycles, unlike a mere coefficient recalculation or arbitrarily selected numerical setting. The finite-amplitude-global regime is deliberately not claimed.",
+    "status": "PASS"
+  }
+}
