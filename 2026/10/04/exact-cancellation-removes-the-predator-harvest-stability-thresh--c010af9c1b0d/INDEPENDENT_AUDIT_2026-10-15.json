@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T05:44:40.483985Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cd76f0b741a81ebc64b2fc7846361df5d730832d/2026/10/04/exact-cancellation-removes-the-predator-harvest-stability-thresh--c010af9c1b0d/RESULT.md",
+        "Git blob 208a04a0e00790d8d4bfa8ca8d30fd3b8c57d504",
+        "Git blob 1c5f7053c620f9fa912e889108ba27583a08cee5",
+        "DOI:10.3934/math.2026025"
+      ],
+      "rationale": "For the predator-extinction orbit with tau_l=0 and psi(0)=0, the prey solves xdot=rx(1-x/K). Hence d(log(K-x))/dt=-rx/K and exp(integral -rx/K)=(K-x_T)/(K-x_0)=B/A. This cancels the A/B factor in the exact printed source multiplier, leaving rho=(1-p2 E_l)e^{-mu T}, strictly in (0,1) for finite T and 0<p2 E_l<1. Witness r=2,K=100,mu=1,eta=3/5,h=30,p1=3/10,E=2,p2=1/10 gives A=48, B=30, T=log2, p2<3/16 and nevertheless rho=2/5. Independent Fraction computation confirmed the cancellation and exact counterexample. The assertion is local orbital stability under the same state-dependent impulse criterion as the source, not a classification of positive cycles.",
+      "residual_risks": [
+        "Uses the applicable state-dependent impulsive multiplier criterion for the stated orbit; does not assert existence or global attraction of positive cycles."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xu–Zou specify psi(0)=0, making -mu the transverse predator linearization; earlier weighted-fishing models discussed in the source employ different prey-dependent contributions."
+        ],
+        "reasoning": "An earlier criterion for impulsive stability does not determine the 2026 model-specific cancellation or refute its printed threshold; a 2022 predecessor remained unread.",
+        "searches": [
+          "DOI:10.3934/math.2026025",
+          "DOI:10.3934/mbe.2023071",
+          "DOI:10.1016/j.chaos.2022.112597"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3934/math.2026025",
+        "DOI:10.3934/mbe.2023071",
+        "DOI:10.1016/j.chaos.2022.112597",
+        "Resultary semantic: predator prey weighted harvesting Xu Zou 2026 Allee semitrivial periodic logistic stability multiplier cancellation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Printed source asserts p2<pbar implies rho1>1; computed admissible p2=1/10<pbar=3/16 has rho1=2/5<1."
+        ],
+        "reasoning": "The primary statement being corrected is logically incompatible with this counterexample; therefore the correction cannot be a corollary of that erroneous implication.",
+        "searches": [
+          "DOI:10.3934/math.2026025 Theorem 2.1 and 2.2",
+          "Resultary semantic: predator prey weighted harvesting Xu Zou 2026 Allee semitrivial periodic logistic stability multiplier cancellation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source pp.582–583 present rho1 with geometric A/B and exponential; equivalent Floquet/logistic multiplier after integration is (1-p2 E)e^{-mu T}."
+        ],
+        "reasoning": "Direct comparison was made between the source formula and claimed simplified equivalent, not just matching model titles.",
+        "searches": [
+          "Resultary semantic: predator prey weighted harvesting Xu Zou 2026 Allee semitrivial periodic logistic stability multiplier cancellation",
+          "DOI:10.3934/math.2026025 convergence ratio rho1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The publisher primary paper is the exact scientific object, not a numerical database. No checked erratum displacing the printed threshold was identified."
+        ],
+        "reasoning": "Exact rational witness is a proof of false implication when combined with the symbolic cancellation, not an arbitrary experiment.",
+        "searches": [
+          "Resultary semantic: predator prey weighted harvesting Xu Zou 2026 Allee semitrivial periodic logistic stability multiplier cancellation",
+          "AIMS Mathematics 2026 erratum correction threshold rho1"
+        ]
+      },
+      "rationale": "The exact 2026 Xu–Zou primary PDF prints the unsimplified ratio and then the erroneous converse implication p2<pbar => instability. The logistic integral evaluation removes the proposed threshold. Earlier weighted-harvesting models do not visibly establish this cancellation for the same general predator Allee condition. This is a substantive primary-result correction, with earlier inaccessible source risk noted.",
+      "residual_risks": [
+        "The 2022 weighted-escapement predecessor was not inspected full text.",
+        "The 2023 predecessor full mathematical argument was not re-read here; comparisons rely on model distinctions and 2026 source discussion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_CONTAINS_ERROR",
+          "evidence": "Source gives unsimplified formula; after exact integration its inequality asserting instability for p2 below bar p2 is contradicted by exact rational witness.",
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2026/1/PDF/math-11-01-025.pdf; DOI:10.3934/math.2026025",
+          "material_read": "Lawfully open-access publisher PDF: model/impulses and pages 582–583 containing convergence ratio, proposed p2 threshold and instability implication; visually inspected PDF pages 4–5 (zero-index).",
+          "method": "Substituted exact logistic endpoint identity into the displayed source expression.",
+          "title": "Dynamics of a predator-prey model with the Allee effect for the predator induced by weighted harvesting strategy",
+          "trigger": "The exact model and theorem being corrected"
+        },
+        {
+          "assessment": "ACCESS_LIMITED_PRIOR_RISK",
+          "evidence": "Earlier system is described as a different predator linearization; this run cannot exclude all internal results of uninspected full text.",
+          "identifier_or_url": "DOI:10.3934/mbe.2023071",
+          "material_read": "Bibliographic and source-model comparison from the 2026 primary literature discussion; predecessor full body not independently read in this execution.",
+          "method": "Compared Allee zero linearization vs earlier prey-dependent linearized predator growth.",
+          "title": "A fishery predator-prey model with anti-predator behavior and complex dynamics induced by weighted fishing strategies",
+          "trigger": "Earlier related orbital-stability criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "DOI:10.3934/math.2026025",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cd76f0b741a81ebc64b2fc7846361df5d730832d/2026/10/04/exact-cancellation-removes-the-predator-harvest-stability-thresh--c010af9c1b0d/RESULT.md"
+      ],
+      "rationale": "Corrects the proposed harvesting stability threshold in an identifiable published nonlinear impulsive model: stability is uniform over the stated admissible predator-harvest parameter range, changing the interpretation of management regimes and undercutting a downstream instability premise.",
+      "residual_risks": [
+        "This local correction does not settle existence or basin stability of coexistence cycles."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite logistic cycle with tau_l=0, psi(0)=0, and source parameter bounds; boundary h=eta K not addressed.",
+    "The correction of one multiplier does not disprove positive-periodic-orbit existence conclusions."
+  ],
+  "schema_version": 1
+}

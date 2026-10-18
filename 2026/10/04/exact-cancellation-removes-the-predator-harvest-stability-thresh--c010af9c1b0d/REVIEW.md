@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. The published convergence ratio is simplified by the exact logistic identity \(d\log(K-x(t))/dt=-rx(t)/K\). Endpoint substitution gives the reciprocal of the printed geometric prefactor, leaving \(\rho_1=(1-p_2E_l)e^{-\mu T}\). Under \(h_l<\eta K\), \(0<p_1E_l<1\), \(0<p_2E_l<1\), and \(\mu>0\), the flight time is positive and the multiplier lies strictly between zero and one. The exact witness with \(p_2=1/10<3/16=\bar p_2\) nevertheless has \(\rho_1=2/5\), directly falsifying the source's below-threshold instability implication.
+# Independent mathematical audit
 
-## Originality
-PASS. Statement-level searches for the source title, the convergence ratio, the proposed predator-harvest threshold, weighted-escapement aliases, and correction/erratum variants found the 2026 source but no publication giving this exact cancellation or correcting its threshold claim. The inspected 2023 weighted-fishing predecessor has a different predator linearization at \(y=0\), so it does not imply the result. The 2022 predecessor was only inspectable through abstract/bibliographic material, and is retained as a residual literature risk rather than treated as negative evidence.
+## correctness
 
-## Value
-PASS. The correction changes the ecological interpretation of the semi-trivial cycle: within the stated finite-cycle regime, natural predator mortality over a flight period already supplies strict transverse contraction, so increasing predator harvesting is not what creates local orbital stability. The same false instability premise is used at the start of case (1) of Theorem 2.2, so the exact simplification identifies a concrete downstream proof obligation without making unsupported claims about the existence of positive cycles.
+PASS
 
-## Closest literature and limitations
-The closest full-text comparison is Tian–Gao–Sun (2023), which states the same impulsive orbital-stability criterion but uses an anti-predator model whose predator growth remains linearly prey-dependent at extinction. Xu–Zou (2026) explicitly distinguishes its model by the general predator Allee effect with \(\psi(0)=0\). The 2022 weighted-escapement predecessor may contain related threshold algebra, but its full text was not inspected; only its abstract and bibliographic record were available. The present claim is therefore restricted to the exact 2026 formula and model.
+For the predator-extinction orbit with tau_l=0 and psi(0)=0, the prey solves xdot=rx(1-x/K). Hence d(log(K-x))/dt=-rx/K and exp(integral -rx/K)=(K-x_T)/(K-x_0)=B/A. This cancels the A/B factor in the exact printed source multiplier, leaving rho=(1-p2 E_l)e^{-mu T}, strictly in (0,1) for finite T and 0<p2 E_l<1. Witness r=2,K=100,mu=1,eta=3/5,h=30,p1=3/10,E=2,p2=1/10 gives A=48, B=30, T=log2, p2<3/16 and nevertheless rho=2/5. Independent Fraction computation confirmed the cancellation and exact counterexample. The assertion is local orbital stability under the same state-dependent impulse criterion as the source, not a classification of positive cycles.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact 2026 Xu–Zou primary PDF prints the unsimplified ratio and then the erroneous converse implication p2<pbar => instability. The logistic integral evaluation removes the proposed threshold. Earlier weighted-harvesting models do not visibly establish this cancellation for the same general predator Allee condition. This is a substantive primary-result correction, with earlier inaccessible source risk noted.
+
+## value
+
+PASS
+
+Corrects the proposed harvesting stability threshold in an identifiable published nonlinear impulsive model: stability is uniform over the stated admissible predator-harvest parameter range, changing the interpretation of management regimes and undercutting a downstream instability premise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
