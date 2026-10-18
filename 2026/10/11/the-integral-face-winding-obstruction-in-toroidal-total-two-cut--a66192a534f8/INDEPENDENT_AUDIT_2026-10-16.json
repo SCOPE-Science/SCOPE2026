@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T13:47:34Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked total 2-cut K=(Cl G)^* and triangle-freeness for m,n≥4; equivariant combinatorial Alexander duality concentrates integral reduced homology at mn−4, rank |E|−|V|+1=mn+1, with vertex-orientation twist. The torus CW exact sequence ker ∂₂=Z(sum of mn squares), im ∂₂=B=ε⊗(Z[F]/ZΣF), H₁(G)/B≅H₁(torus)=Z² is natural under coordinate dihedral Γ. For translations T, all invariant graph 1-chains are integer sums of the two transitive oriented-edge orbit totals X,Y; they are cycles and map to n·e₁,m·e₂ in torus winding. A T-equivariant lift of q·e_i exists iff n|q or m|q, giving exact extension summand orders n,m and total lcm; duality preserves integral Ext order for free lattices. Rational splitting, orientation determinant on faces and trace on H₁(torus) give the stated character. Independently reconstructed winding orbit counts for 4×4,4×5,5×7,6×8; finite checks corroborate but do not prove the all-size extension order. The stated Γ need not be the full exceptional automorphism group.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Carnero Bravo considers Cartesian products of paths and of complete graphs. Chauhan et al. explicitly list K_m□C_n, K_m□P_n and powers C_n^p, not products of two cycles both length≥4."
+        ],
+        "reasoning": "The closest 'cycle Cartesian product' family has a COMPLETE graph factor; because C_m≠K_m for m≥4, it is not a dominating parameter theorem. Moreover, its nonequivariant type cannot imply integral extension order.",
+        "searches": [
+          "Carnero Bravo arXiv:2602.21427 §5.4",
+          "Chauhan–Shukla–Vinayak arXiv:2512.04486 classes of Cartesian products",
+          "Bayer et al arXiv:2209.13503"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md toroidal cellular chain proof, verify_torus.py",
+        "Carnero Bravo arXiv:2602.21427v3",
+        "Chauhan–Shukla–Vinayak arXiv:2512.04486v1",
+        "Bayer et al. arXiv:2209.13503",
+        "Chandrakar et al. arXiv:2408.07646",
+        "Hatcher Algebraic Topology cellular torus/duality"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General duality implies the abelian homology rank; torus cellular homology gives an exact face/winding sequence; no compared earlier source computes its integral equivariant non-splitting lcm order."
+        ],
+        "reasoning": "Standard topology gives inputs only. The group-module arithmetic of invariant lattice lifts computes the new exact obstruction; earlier nonequivariant sphere counts do not furnish it.",
+        "searches": [
+          "Bayer et al general total cut complex definition",
+          "Carnero Bravo 2026 §5.4",
+          "Chauhan et al 2025 full 2-cut product classifications",
+          "Hatcher cellular torus H1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Total two-cut equals Alexander dual of graph clique complex; toroidal graph H1 is free rank mn+1; translation module extension order lcm(m,n) uses invariant edge orbit winding index."
+        ],
+        "reasoning": "Equivalent group-ring statement is the integral graph cycle extension 0→face-boundaries→H₁(G)→Z²→0, not just homology of K as abelian group. Known abstract Alexander duality does not determine exact nonsplitting order.",
+        "searches": [
+          "Resultary query: total two cut complex toroidal grid Cartesian cycle product torus equivariant integral face winding extension translation lcm homology",
+          "integral translation equivariant graph H1 toroidal grid face winding Ext class",
+          "combinatorial Alexander duality 2-cut graph torus"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary retrieved the same record and different total three-cut or open-neighborhood complexes, not the Z[C_m×C_n]-extension order."
+        ],
+        "reasoning": "There is no relevant precomputed table in these different graph-complex constructions; self-indexed output is not novelty evidence.",
+        "searches": [
+          "Resultary total-cut toroidal lcm extension search",
+          "Resultary toroidal grid Lovasz neighborhood 737edf71bc86",
+          "Resultary total 3-cut prisms d01fa35dd99c"
+        ]
+      },
+      "rationale": "Searched Resultary total-cut toroidal products, integral extension, duality and equivariant characters, and published original work. Bayer et al. introduces total-cut complexes and examples; Chandrakar et al. studies rectangular path grids; Carnero Bravo 2026 full text §5.4 treats Cartesian products of paths and complete graphs. Chauhan–Shukla–Vinayak 2025 full text treats cycle powers and K_m□P_n/K_m□C_n, neither of which contains C_m□C_n with m,n≥4, because C_m is not a complete graph for m≥4. Their nonequivariant wedge counts are in any case not integral T-lattice extension-class order. No compared published theorem determines the exact lcm obstruction for toroidal graphs. Residual possibility of an unindexed equivariant torus-chain formulation remains.",
+      "residual_risks": [
+        "A classic integral equivariant face/winding extension may already be formulated under a different terminology in representation theory or graph module literature; no exhaustive mathematical-priority attestation.",
+        "Γ denotes only the designated coordinate automorphisms; exceptional larger automorphism groups not classified.",
+        "Finite character checks do not prove exact extension order; proof relies on invariant orbit lift and integral duality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Cartesian products of paths and complete graphs, not periodic two-cycle grids; does not directly calculate integral translation module class",
+          "evidence": "Abstract lines 12–14 and table contents §5.4",
+          "identifier_or_url": "arXiv:2602.21427v3 (2026)",
+          "material_read": "33-page complete OA primary PDF, abstract/contents and §5.4 Cartesian-product family theorems, especially p.28 onward",
+          "method": "arXiv full PDF text and visual relevant pages",
+          "title": "Total cut complexes and their duals",
+          "trigger": "Most directly overlapping total 2-cut and Cartesian product paper"
+        },
+        {
+          "assessment": "No product C_m□C_n with m,n≥4 (noncomplete first factor); computes homotopy wedges, not integral Ext class",
+          "evidence": "Paper abstract lists the three families explicitly",
+          "identifier_or_url": "arXiv:2512.04486v1 (2025)",
+          "material_read": "Complete accessible 16-page PDF, abstract, introduction and product-family definitions; identified K_m□C_n and K_m□P_n",
+          "method": "arXiv full PDF text",
+          "title": "Total 2-cut complexes of powers of cycle graphs and Cartesian products of certain graphs",
+          "trigger": "Cycle-product results might cover toroidal products"
+        },
+        {
+          "assessment": "Defines complex and computes some ordinary types; no exact toroidal translation lattice extension found in inspected parts",
+          "evidence": "Original total-cut definition and path-type examples",
+          "identifier_or_url": "arXiv:2209.13503",
+          "material_read": "OA primary PDF, definition and representative graph-family results in introductory and grid sections",
+          "method": "arXiv PDF text and page inspection",
+          "title": "Star clusters/total cut introduction by Bayer et al., Total Cut Complexes of Graphs",
+          "trigger": "Introduced graph complex and benchmark computations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact lcm(m,n) is a nontrivial integral representation-theoretic obstruction invisible to the nonequivariant homology rank and to rational character. It quantifies precisely how primitive torus winding classes fail to lift translation-invariantly into graph-cycle homology, while the full rational character identifies the complete natural coordinate-symmetry action. This is a uniform structural invariant, not a routine individual sphere census.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For G=C_m□C_n, m,n≥4, the integral face–winding homology extension of the total 2-cut complex restricted to the translation group has additive order lcm(m,n); the rational Γ-character is sgn_V(g)[det(A_g)(f(g)−1)+tr(A_g)].",
+  "limitations": [
+    "m,n≥4, graph simple and triangle-free; no triangular factors or exceptional full automorphism-group assertion.",
+    "Extension order is over Z[T], not rational Γ-representation splitting or equivariant homotopy."
+  ],
+  "schema_version": 1
+}
