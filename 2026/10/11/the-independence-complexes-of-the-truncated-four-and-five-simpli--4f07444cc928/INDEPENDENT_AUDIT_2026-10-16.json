@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T13:47:34Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reconstructed the ordered-pair graph with m(m−1) vertices, clique edges for a=c and reversed-arc cross-edges, and all independent faces. For m=5 and m=6, exhaustive face vectors are (20,150,520,815,444) and (30,360,2200,7170,11700,7360). Independently recreated lexicographic greedy Hasse matching: 959 and 13,922 matched pairs; complete 7,340- and 138,660-incidence oriented Hasse digraphs both topologically sort all 1,949 and 28,820 faces. Critical counts are (1 in dim0,6 in dim3,24 in dim4), and (1 in dim0,7 in dim4,968 in dim5). Signed gradient-path reduction independently gives 6×24 and 7×968 integral boundary matrices of rank one, an entry ±1 and all 2×2 minors zero. Hurewicz for dim≥3 makes attaching maps degree vectors; unit Smith factor cancels one pair and leaves (5,23) and (6,967) spheres. The independent scripts establish these finite exact cases; no induction for all m is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Engström principal theorem lower bounds claw-free graph independence connectivity; Barmak Theorem 5.5 connectivity and examples; Goyal–Shukla–Singh generalized Mycielski/categorical product results."
+        ],
+        "reasoning": "Connectivity and suspension class results do not determine the two full integral homotopy types; the truncated-simplex graphs have cliques and are not the triangle-free special cases.",
+        "searches": [
+          "Engström arXiv:math/0512420",
+          "Barmak arXiv:1007.0418 Section 5",
+          "Goyal–Shukla–Singh arXiv:1905.06926"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md ordered-pair graph; verify_morse.py and verify_homology.py",
+        "Barmak arXiv:1007.0418v1",
+        "Engström arXiv:math/0512420v1",
+        "Goyal–Shukla–Singh arXiv:1905.06926v1",
+        "Resultary 9ee3868fe62b truncated cube"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A general lower connectivity bound and homology-support interval cannot supply exact ranks or integral attaching maps; source results use different graph constructions."
+        ],
+        "reasoning": "No inspected theorem implies the mixed-dimensional wedge structure or counts. Explicit signed acyclic Morse and unit differential are genuinely additional finite information.",
+        "searches": [
+          "Barmak Theorem 5.5 homology support interval",
+          "Engström claw-free connectivity Theorem 3.2",
+          "Goyal–Shukla–Singh main families"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "T_m=L(sd K_m), so Ind(T_m)=matching complex of sd K_m; Barmak §5 surveys matching complexes of K_n/chessboard, not sd K_n."
+        ],
+        "reasoning": "The line-graph/matching reformulation is explicitly recognized; neither unsubdivided matching-complex nor chessboard complexes are isomorphic to these particular partial-injection-with-reversal constraints.",
+        "searches": [
+          "Resultary query: independence complex of truncated four simplex truncated five simplex directed partial function graph matching complex of subdivided complete graph wedge of spheres",
+          "matching complex once-edge-subdivided complete graph K_5 K_6",
+          "partial functions no directed two-cycles matching complexes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned this own indexed result, distinct truncated cube and truncated octahedron complexes, and other separate graph families."
+        ],
+        "reasoning": "The exact sphere-multiplicity pair was not found independently; same-source indexing is explicitly excluded from novelty evidence.",
+        "searches": [
+          "Resultary exact truncated simplex and sphere multiplicity search",
+          "Resultary truncated cube 9ee3868fe62b; truncated octahedron 4c0894f5e0e3",
+          "matching complex subdivided complete graph 5 23 6 967"
+        ]
+      },
+      "rationale": "The ordered-pair graphs are line graphs of once-subdivided complete graphs, so both independence and matching-complex formulations were searched. Engström's claw-free theorem and Barmak's matching-complex theorem give connectivity/degree ranges, not integral sphere multiplicities for these two graphs. Barmak's triangle-free suspension theorem does not apply since T_m contains size-(m−1) cliques. Goyal–Shukla–Singh treats other families. Resultary's truncated-cube independence complex is a different graph, not a dominating calculation. Exact integral Morse differential and wedge counts are not implied by any located theorem; hidden computation remains a stated priority risk.",
+      "residual_risks": [
+        "An unindexed exact matching-complex computation of the once-subdivided complete graph may exist; no global absence theorem.",
+        "Finite acyclic Morse certificates establish only m=5,6, not all truncated simplices.",
+        "Field-rank checks alone do not prove homotopy splitting; integral signed differential and Hurewicz arguments are required and checked."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives connectivity statements but not these graph-specific mixed wedges",
+          "evidence": "Theorem 3.4 requires vertex contained in no triangle; T_m has cliques; Theorem 5.5 bound only",
+          "identifier_or_url": "arXiv:1007.0418v1",
+          "material_read": "22-page OA primary PDF, introduction, Theorem 3.4 and §5 matching-complex and claw-free connectivity Theorem 5.5",
+          "method": "arXiv full PDF text, visual first page and §5 theorem lines",
+          "title": "Star clusters in independence complexes of graphs",
+          "trigger": "General matching/independence complexes and clique-free theorems"
+        },
+        {
+          "assessment": "Provides general connectivity bounds and selected other examples, not truncated-simplex exact ranks",
+          "evidence": "Title, abstract and main connectivity theorem",
+          "identifier_or_url": "arXiv:math/0512420v1",
+          "material_read": "8-page OA primary PDF, abstract, connectivity theorem and its scope",
+          "method": "arXiv PDF text and first-page screenshot",
+          "title": "Independence complexes of claw-free graphs",
+          "trigger": "T_m line graph so claw-free"
+        },
+        {
+          "assessment": "Different families; no implication to ordered-pair graphs found",
+          "evidence": "Abstract specifically lists generalized Mycielski and categorical product constructions",
+          "identifier_or_url": "arXiv:1905.06926v1",
+          "material_read": "18-page OA PDF, abstract, introduction and the named generalized Mycielski, categorical-product family formulations; searched for truncated simplex",
+          "method": "arXiv PDF text and first-page screenshot",
+          "title": "Homotopy Type of Independence Complexes of Certain Families of Graphs",
+          "trigger": "Possible stronger full graph-family classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Truncated four-/five-simplex graphs are natural highly symmetric polytope edge graphs and the first two members of this family with dimension at least four. Exact integral homotopy types in adjacent dimensions, including the marked growth in multiplicities 23→967, supply a substantive finite classification and benchmark for broader matching/independence-complex theory. These are exact homotopy conclusions, not merely field Betti tables.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For m=5,6, the independence complex of the truncated (m−1)-simplex graph T_m has integral homotopy types (∨^5 S³)∨(∨^23 S⁴) and (∨^6 S⁴)∨(∨^967 S⁵).",
+  "limitations": [
+    "Only m=5 and m=6, with exactly the ordinary independence complex of the truncated-simplex edge graph.",
+    "Finite exhaustive proof and integral matrix reduction; no all-dimensional classification or all-graphs extrapolation."
+  ],
+  "schema_version": 1
+}

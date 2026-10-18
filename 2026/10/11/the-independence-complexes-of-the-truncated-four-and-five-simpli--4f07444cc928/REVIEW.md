@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof specifies the graph as ordered pairs, its exact graph adjacency, and the complete finite scope \(m\in\{5,6\}\). Exhaustive face enumeration is independently reconstructed via the partial-function characterization. The supplied integral verifier enumerates every nonempty face (\(1949\) and \(28820\)), tests every gradient arrow (\(7340\) and \(138660\)), and obtains acyclic Morse models with critical counts \((1,6,24)\) and \((1,7,968)\) in the indicated dimensions. Signed gradient-path elimination gives respective \(6\times24\) and \(7\times968\) cellular matrices of rank one and with unit coefficients; all two-by-two minors vanish. Degree-vector classification and integral cellular cancellation establish the wedge homotopy types. Independent computations over three small fields agree, without being substituted for the integral proof. Limits: exhaustive finite cases only; no all-dimension result.
+## correctness
 
-## Originality — PASS
-Actual literature comparisons included Engström, *Independence complexes of claw-free graphs* (arXiv:math/0512420v1; sections 1–4), whose results concern connectivity, not these exact wedges; Barmak, *Star clusters in independence complexes of graphs* (arXiv:1007.0418v1; sections 1–5), whose triangle-free suspension theorem does not apply to the clique-containing graphs; and Goyal–Shukla–Singh, *Homotopy Type of Independence Complexes of Certain Families of Graphs* (arXiv:1905.06926v1; introduction and relevant graph-family sections), whose constructions are different. The isomorphism \(T_m\cong L(\operatorname{sd}K_m)\) makes the problem also the matching complex of the once-edge-subdivided complete graph. Searches explicitly under both the subdivision/matching formulation and the truncated-simplex, arc-reversal, partial-function-without-two-cycles, and precise sphere-multiplicity formulations found no covering statement. Barmak’s §5 matching-complex theorem gives connectivity, not these exact homotopy types. Nearby indexed Rips, matching, and other independence-complex results apply to different simplicial complexes or different graphs and do not imply the two claimed integral homotopy types. Residual risk: unpublished or unindexed equivalent calculation; search nonretrieval cannot certify absolute novelty.
+PASS
 
-## Value — PASS
-These are the first two truncated-simplex edge graphs in dimensions at least four; their independence complexes are canonical graph-topological invariants. The exact result exhibits nontrivial homotopy in two adjacent dimensions and a striking jump in upper-dimensional sphere multiplicity, \(23\) to \(967\). An explicit signed integral attaching-map cancellation resolves information unavailable from connectivity theorems or field ranks alone. The paired calculation is a structurally motivated comparison within one geometrically natural family, not an arbitrary numerical slice. It supplies exact finite benchmarks for investigations of truncated-simplex independence complexes. No higher-dimensional extrapolation is claimed.
+Independently reconstructed the ordered-pair graph with m(m−1) vertices, clique edges for a=c and reversed-arc cross-edges, and all independent faces. For m=5 and m=6, exhaustive face vectors are (20,150,520,815,444) and (30,360,2200,7170,11700,7360). Independently recreated lexicographic greedy Hasse matching: 959 and 13,922 matched pairs; complete 7,340- and 138,660-incidence oriented Hasse digraphs both topologically sort all 1,949 and 28,820 faces. Critical counts are (1 in dim0,6 in dim3,24 in dim4), and (1 in dim0,7 in dim4,968 in dim5). Signed gradient-path reduction independently gives 6×24 and 7×968 integral boundary matrices of rank one, an entry ±1 and all 2×2 minors zero. Hurewicz for dim≥3 makes attaching maps degree vectors; unit Smith factor cancels one pair and leaves (5,23) and (6,967) spheres. The independent scripts establish these finite exact cases; no induction for all m is claimed.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The ordered-pair graphs are line graphs of once-subdivided complete graphs, so both independence and matching-complex formulations were searched. Engström's claw-free theorem and Barmak's matching-complex theorem give connectivity/degree ranges, not integral sphere multiplicities for these two graphs. Barmak's triangle-free suspension theorem does not apply since T_m contains size-(m−1) cliques. Goyal–Shukla–Singh treats other families. Resultary's truncated-cube independence complex is a different graph, not a dominating calculation. Exact integral Morse differential and wedge counts are not implied by any located theorem; hidden computation remains a stated priority risk.
+
+## value
+
+PASS
+
+Truncated four-/five-simplex graphs are natural highly symmetric polytope edge graphs and the first two members of this family with dimension at least four. Exact integral homotopy types in adjacent dimensions, including the marked growth in multiplicities 23→967, supply a substantive finite classification and benchmark for broader matching/independence-complex theory. These are exact homotopy conclusions, not merely field Betti tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
