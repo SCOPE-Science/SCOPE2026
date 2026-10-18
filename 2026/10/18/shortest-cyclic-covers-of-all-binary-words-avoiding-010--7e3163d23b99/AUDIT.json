@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The overlap digraph has divergence +1 at vertices beginning 10 and not ending 01 and -1 at those ending 01 and not beginning 10. Every augmentation needs a negative-to-positive route per negative vertex. The exceptional vertex 0^(n-2)1 has distance n-1, and ordinary negative vertices have distance equal to the first 10 index; explicit shortest extensions 1^b0^a have pairwise distinct positive targets distinguished by the rightmost 01. The matching gives an Eulerian augmentation equal to the universal lower bound. Run decomposition supplies the B(z) series and exact coefficient formula. The checker constructs legal optimal covers and independently checks shortest distances for n=3..12, with exhaustive shorter-length exclusions n=3,4; infinite correctness rests on the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:0711.1695 Theorem 1 guarantees Euler tours in its periodic-admissibility graph, and Theorem 3 characterizes lexicographic minimal walks.",
+        "arXiv:2510.16545 section 4.5 addresses necklace classes avoiding consecutive zeros and maximal universal cycles, not an unrestricted linear n-word target set."
+      ],
+      "reasoning": "Neither inspected theorem is a stronger uniform minimum-cost augmentation that specializes to the 010 overlap graph. The general directed-postman equivalence is an optimization reformulation, not a closed-form optimum. Results forbidding 0^r cover a different language; the explicit earlier case forbidding 00 is not an instance of 010.",
+      "searches": [
+        "General minimum cyclic superstring all words avoiding any fixed forbidden factor, non-Eulerian restricted de Bruijn graph",
+        "Forbidden substring 010 binary minimum cyclic superstring covering all allowed length n words, n=3 length 9 n=4 length 15 n=5 length 26 n=6 length 47",
+        "Shortest covering sequence for all binary 010-avoiding length-n words, min cost Eulerian extension directed de Bruijn graph generating function",
+        "arXiv:0711.1695 full text Theorem 1 and Theorem 3",
+        "arXiv:2510.16545 full text subsection 4.5"
+      ]
+    },
+    "checked_sources": [
+      "Moreno and Matamala, arXiv:0711.1695, complete PDF and Theorems 1/3",
+      "Sawada and Gabrić, arXiv:2510.16545, complete PDF, section 4.5",
+      "Searches under shortest cyclic superstring, 010 avoidance, constrained de Bruijn graph, directed postman and sample counts; none yields direct inspected coverage"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Original 2007 paper defines language by legal infinite periodic repetition of candidate words and asks for lexicographically least de Bruijn cycle.",
+        "2025 paper treats a forbidden 0^z necklace family, rather than a linear 010-avoiding superstring covering problem."
+      ],
+      "reasoning": "The new claim determines the exact extra duplicated n-windows necessary to cover *all linearly admissible* blocks in one legal cycle. The earlier periodic restriction removes some target windows, and a generator for Eulerian admissible necklace classes does not establish the necessary matching of all non-Eulerian vertex imbalances or the excess-cost series. Direct implication is absent from inspected results.",
+      "searches": [
+        "Exact minimum length cyclic word avoiding 010 that contains every binary length-n 010-avoiding word as a contiguous cyclic factor, constrained de Bruijn graph directed Chinese postman",
+        "Shortest universal cyclic cover of pattern-avoiding words, forbid 010, all linearly admissible windows, Eulerian augmentation formula",
+        "General minimum cyclic superstring all words avoiding any fixed forbidden factor, non-Eulerian restricted de Bruijn graph",
+        "Moreno–Matamala 2007 sections 2.1 and 3",
+        "Sawada–Gabrić 2025 section 4.5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Moreno–Matamala define permitted words using periodic extension and minimize lexicographic Eulerian cycle labels, arXiv:0711.1695 pp. 1–5.",
+        "Sawada–Gabrić explicitly treat forbidden runs of zeros in section 4.5, arXiv:2510.16545, not alternating 010."
+      ],
+      "reasoning": "Aliases include restricted de Bruijn sequence, cyclic universal cover, forbidden-factor shortest common superstring and directed postman augmentation. Periodic-language Euler tours select an edge set different from all linearly avoiding n-words; lexicographic minimum of fixed-length Euler cycles does not imply shortest repeated-edge coverage. A run-zero ban is not equivalent by alphabet permutation to forbidding 010.",
+      "searches": [
+        "Exact minimum length cyclic word avoiding 010 that contains every binary length-n 010-avoiding word as a contiguous cyclic factor, constrained de Bruijn graph directed Chinese postman",
+        "Shortest universal cyclic cover of pattern-avoiding words, forbid 010, all linearly admissible windows, Eulerian augmentation formula",
+        "Moreno Matamala 2007 arXiv:0711.1695 sections 1-3",
+        "Sawada Gabric 2025 arXiv:2510.16545 section 4.5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Computed initial minimal lengths 9,15,26,47,85,152,270,478,844,1487 are reproduced in the included checker.",
+        "The located published works discuss Eulerian constructions, cyclically admissible necklaces, or general algorithmic generation; no exact 010 length table was identified in searches."
+      ],
+      "reasoning": "Searched both parameter-specific small values and sequence descriptions. No exact table implying the infinite rational generating function was located. An unsuccessful database search is not proof of novelty.",
+      "searches": [
+        "Forbidden substring 010 binary minimum cyclic superstring covering all allowed length n words, n=3 length 9 n=4 length 15 n=5 length 26 n=6 length 47",
+        "Finite-type shift forbidding 010 shortest universal cycle covering all locally legal blocks with repetition 9 15 26 47",
+        "binary 010 avoiding universal cycle optimum length sequence 9 15 26 47",
+        "De Bruijn sequences in forbidden substring languages"
+      ]
+    },
+    "rationale": "Searched aliases, exact small-length sequence, directed-postman equivalents, and primary full-text papers. Closest studies optimize lexicographic Euler tours of periodic-admissible graphs or construct Eulerian cycles avoiding constant runs; neither inspected statement determines the minimum duplicated-window count for all linear 010-free length-n words. Published-database queries produced no direct coverage; an inaccessible older thesis and unindexed equivalent results remain risks, not asserted exclusions.",
+    "residual_risks": [
+      "An older Moreno dissertation was not fully accessible and could contain a related result.",
+      "Unindexed, differently named or later papers may already solve the exact alternating forbidden-factor case.",
+      "Database search scores are only discovery aids; no proof of global novelty or independent referee assessment."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different admissibility (periodic rather than linear) and lexicographic optimization; inspected results do not imply the 010 shortest covering length.",
+        "evidence": [
+          "Section 2.1 defines w as in the language only if periodic extension w^infty is in the SFT; Theorem 1 gives Euler tour existence.",
+          "Section 3, Theorem 3, characterizes when a lexicographically minimal walk is an Eulerian cycle."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0711.1695",
+        "material_read": "Complete 9-page arXiv PDF parsed; title, introduction, section 2 definition (pp. 1–3), Theorem 1, Theorem 3 and remainder of section 3, conclusion; original page 2 viewed.",
+        "method": "Read primary open-access paper text and inspected original PDF page image.",
+        "title": "Minimum de Bruijn Sequence in a Language with Forbidden Substrings",
+        "trigger": "Extremely close title, de Bruijn cycles in forbidden-substring languages, possibility of general covering theorem."
+      },
+      {
+        "assessment": "The 0^z-forbidden cyclic-necklace Eulerian construction does not cover alternating 010, nor shortest repeated-window augmentation for all linearly admissible blocks.",
+        "evidence": [
+          "Section 4.5 explicitly defines no 0^z substring under rotation and constructs universal cycles of these necklace classes; ordinary linear word count differs from the cyclic target.",
+          "arXiv v1 first submitted October 18, 2025."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2510.16545",
+        "material_read": "Full 14-page open-access PDF parsed; introduction and section 4.5 (printed p. 11) including necklace condition and recurrence, with original page 11 viewed.",
+        "method": "Read primary complete PDF text and inspect the exact section/page image for the closest forbidden-pattern family; checked initial arXiv v1 date.",
+        "title": "Las Vegas algorithms to generate universal cycles and de Bruijn sequences uniformly at random",
+        "trigger": "Recent (2025) universal-cycle study with forbidden substrings and restricted de Bruijn graphs."
+      },
+      {
+        "assessment": "No reliable whole-document comparison; documented residual originality risk.",
+        "evidence": [
+          "Unable to inspect relevant chapters or appendices; no NOT_COVERING assessment is asserted."
+        ],
+        "identifier_or_url": "https://theses.hal.science/tel-00628709",
+        "material_read": "Bibliographic and abstract-level source only; the accessible landing page required an anti-bot verification and the alternate institutional PDF returned 403.",
+        "method": "Attempted lawful OA thesis landing page and alternate full PDF; complete text not accessible.",
+        "title": "De Bruijn graphs and sequences in languages with restrictions",
+        "trigger": "An older thesis may contain a broader formulation of de Bruijn optimization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7e3163d2-3b99-4a24-8c6b-f1d4d804c976",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Solves a natural infinite constrained shortest-cyclic-superstring family exactly, including rational ordinary generating function of unavoidable repeated windows and explicit matched-path augmentation. The nontrivial imbalance-specific matching supplies a sharp proof certificate beyond finite examples or standard Eulerian existence; the property is not a routine normalization of forbidden-zero-run universal cycles.",
+    "status": "PASS"
+  }
+}
