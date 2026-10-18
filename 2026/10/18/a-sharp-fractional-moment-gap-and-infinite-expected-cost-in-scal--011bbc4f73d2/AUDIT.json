@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Reconstruction from first principles: costate p(t)=X sinh(q(2-t))/D solves the strictly convex scalar LQ boundary-value system and gives the true-plant transition m=e^{2a}-H/D. Interval arithmetic with exact Fraction operations and rational Taylor-remainder bounds certifies the strict signed multipliers 1.38<m_-<1.40, -0.50<m_+<-0.47, 0.39<m_a<0.40; direct computed enclosures also certify rho_1<1<rho_2 and AB<1. Independence gives exact all-p moment products. Strict convexity of (A^p+B^p)/2, the SLLN for bounded log multipliers, and independence/positivity of quadratic stage costs complete the infinite-horizon proof. Independent RK4 checks endpoints but is not used as a proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2211.05463v3 Theorem 1: sufficient bound on E|state|, not all p moments or cost",
+        "arXiv:2109.13798 published open-access text, Sections 2–3: open-loop L2 convergence as time grid refines",
+        "arXiv:2405.15552 abstract: uncertain-model MPC performance criteria; full text was not accessible"
+      ],
+      "reasoning": "General sufficient mean-square MPC criteria or random-matrix Lyapunov theory could apply to the sign of a specific moment if instantiated, but neither inspected full text furnishes these particular two exact finite-horizon optimal controls or the simultaneous almost-sure finite and expected infinite true-plant cost. The 2024 uncertain-model MPC manuscript was only abstract-accessible; this is a residual risk, not a NOT_COVERING assertion.",
+      "searches": [
+        "Random batch model predictive control exact scalar stability threshold stochastic sampled feedback mean-square almost surely",
+        "MPC Riccati terminal penalty zero model mismatch two point random switching fractional moment stability critical exponent",
+        "web: linear quadratic receding horizon random model mismatch fractional moment exponent scalar multipliers"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2211.05463v3 (full HTML Sections II–V)",
+      "arXiv:2109.13798v2 / Numerische Mathematik 2022 (full open HTML Sections 2–3)",
+      "arXiv:2405.15552 (abstract only)",
+      "2026/10/4/SCOPE-exact-mean-square-stability-frontier-and-a-signed-mean-blind-spo--e15c00248209",
+      "2026/10/4/SCOPE-exact-first-moment-stability-frontier-for-two-client-scalar-spam--170ca03b5dee",
+      "2026/10/4/SCOPE-sharp-mean-square-stability-loss-for-bernoulli-error-feedback-sp--db9fbbc3513e"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1 source conclusion E|state| <= M exp(-mu t)|initial| subject to positivity; no E|state|^2 implication without uniform integrability",
+        "Finite-horizon randomized OCP convergence in 2021 source is a refinement-limit statement, not fixed coarse batching closed-loop moment control",
+        "2026/10/4/SCOPE-exact-mean-square-stability-frontier-and-a-signed-mean-blind-spo--e15c00248209 only concerns Kaczmarz-with-momentum, unrelated transition"
+      ],
+      "reasoning": "The source first-moment bound cannot imply decay of the second moment in unbounded trajectory distributions. The new endpoint law proves both first-moment decay and second-moment growth for one admissible fixed coarse batch design; strictly stronger in the characterization of its specific risk than the source guarantee. Conversely the source states no impossibility of such divergence outside its sufficient small-variance regime. The control-cost separation uses the fresh-batch independence and strictly positive quadratic stage cost.",
+      "searches": [
+        "arXiv:2211.05463v3: Section II equations (5)-(10), Section IV Theorem 1, Section V",
+        "arXiv:2109.13798: Example 1, open-loop convergence theorem",
+        "Veldman Borkowski Zuazua randomized model predictive control RBM-MPC scalar Riccati sampled drift two point first moment second moment Lyapunov threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2211.05463v3 §§II,IV (randomized MPC control and first absolute moment)",
+        "arXiv:2109.13798 Example 1 and §§2–3 (two-singleton batch and open-loop approximation)",
+        "2026/10/4/SCOPE-exact-first-moment-stability-frontier-for-two-client-scalar-spam--170ca03b5dee (random component optimizer with a first-moment threshold, not MPC)"
+      ],
+      "reasoning": "Equivalent names include random model predictive control, time-split LQ optimal control, scalar switched multipliers, positive-order moment Lyapunov exponents. The algebraic iid product-moment rule is classical; the claimed new mathematical object is the explicitly derived, Riccati-generated true-plant multiplier pair with an exact control-cost dichotomy. The compared SPAM record is not equivalent because it has different state update and no quadratic closed-loop control cost.",
+      "searches": [
+        "Veldman Borkowski Zuazua randomized model predictive control RBM-MPC scalar Riccati sampled drift two point first moment second moment Lyapunov threshold",
+        "random batch model predictive control exact moment growth instability almost surely stable even expected absolute state decays",
+        "web: randomized MPC model mismatch first moment stable second moment unstable finite horizon"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/10/4/SCOPE-exact-mean-square-stability-frontier-and-a-signed-mean-blind-spo--e15c00248209 (KGSM mean-square frontier)",
+        "2026/10/4/SCOPE-exact-first-moment-stability-frontier-for-two-client-scalar-spam--170ca03b5dee (SPAM first moment)",
+        "2026/10/4/SCOPE-sharp-mean-square-stability-loss-for-bernoulli-error-feedback-sp--db9fbbc3513e (Bernoulli error feedback threshold)"
+      ],
+      "reasoning": "Returned research-index entries involve other algorithms and distinct update recurrences, hence cannot imply the Riccati-derived MPC multiplier or its cost dichotomy by numeric parameter coincidence. Neither sources nor searches revealed a database/table for the exact fractional-moment root in this sampled-model controller; absence from search is not uniqueness proof.",
+      "searches": [
+        "Random batch model predictive control exact scalar stability threshold stochastic sampled feedback mean-square almost surely",
+        "Veldman Borkowski Zuazua randomized model predictive control RBM-MPC scalar Riccati sampled drift two point first moment second moment Lyapunov threshold",
+        "random batch model predictive control exact moment growth instability almost surely stable even expected absolute state decays",
+        "MPC Riccati terminal penalty zero model mismatch two point random switching fractional moment stability critical exponent"
+      ]
+    },
+    "rationale": "The inspected source establishes expected absolute-state stability under a sufficient small-batching-error condition; it does not supply an explicit state/input multiplier, exact scalar all-positive-moment threshold, or finite-a.s.-but-infinite-mean true-plant quadratic cost benchmark. The predecessor studies randomized open-loop finite-horizon control convergence rather than repeated horizon dynamics. Published mathematical records returned other random-iteration moment/stability results, but no matching random-batch MPC Riccati transition. This is a best-knowledge statement comparison, not a proof of uniqueness; the generic iid multiplier calculus and LQ adjoint are acknowledged prior tools.",
+    "residual_risks": [
+      "A prior random-switching, stochastic LQ, or risk-sensitive MPC theorem might subsume the qualitative moment separation without naming randomized batching.",
+      "The full text of arXiv:2405.15552 was not accessible; no full-document noncoverage conclusion is asserted.",
+      "Numeric parameter choice is only a concrete strict, open-set witness; generic scalar iid product-moment convexity is classical."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the exact scalar multipliers and complete moment/cost dichotomy; only an expected absolute-state bound under sufficient conditions",
+        "evidence": [
+          "Randomization definition equations (5)-(10), algorithm steps 1-5",
+          "Theorem 1 equation (52) uses E|x|; Remark 5 uses first-moment Markov bound"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2211.05463v3",
+        "material_read": "Full text, especially Sections II (equations (1)-(13)), III-IV (Theorem 1), V, numerical illustration and conclusion",
+        "method": "HTML full-text statement and assumptions comparison",
+        "title": "Stability and Convergence of a Randomized Model Predictive Control Strategy",
+        "trigger": "Exactly matching randomized receding-horizon control mechanism"
+      },
+      {
+        "assessment": "NOT_COVERING for repeated closed-loop exact fractional moments; study is finite-horizon OCP approximation as mesh tends to zero",
+        "evidence": [
+          "Example 1 chooses singleton of two pieces with probability one half",
+          "Theorems in Sections 2-3 bound randomized-dynamics and optimal-control approximation errors"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00211-022-01290-3",
+        "material_read": "Open-access full HTML, method Section 2 including Example 1, main convergence results Sections 2–3, concluding remarks",
+        "method": "Full HTML statement/scope/assumption comparison",
+        "title": "A framework for randomized time-splitting in linear-quadratic optimal control",
+        "trigger": "Immediate open-loop method precursor; fair singleton sampling Example 1"
+      },
+      {
+        "assessment": "UNRESOLVED potential broader result; modeled uncertainty and conditions may differ; this source is an explicit residual originality risk",
+        "evidence": [
+          "Abstract addresses sufficient robust stability and performance guarantees for uncertain linear systems; no accessible theorem text for full comparison"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2405.15552",
+        "material_read": "Abstract and bibliographic identifier only; complete preprint material was not accessible in attempted HTML retrieval",
+        "method": "Abstract comparison only, no exhaustive coverage assertion",
+        "title": "Stability and Performance Analysis of Model Predictive Control of Uncertain Linear Systems",
+        "trigger": "Related model mismatch and MPC performance"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "011bbc4f-73d2-4673-a408-0605026a40a8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source method optimizes a quadratic objective and measures stability using expected absolute state. A robust counterexample where absolute expectation decays but expected realized quadratic costs grow (hence total expected cost is infinite despite finite almost-sure total cost) exposes a substantive performance gap. The exact positive moment cutoff characterizes the entire risk spectrum, not merely a negative example. Strict inequalities persist under nearby drift/horizon parameters. This scalar example is not claimed to yield computation savings or a broad numerical method.",
+    "status": "PASS"
+  }
+}
