@@ -1,0 +1,9 @@
+# Self-review
+
+**Correctness — PASS.** The six-smallest-denominator bound excludes lengths at most six. Elementary positivity bounds force the fifth or sixth denominator into explicit complete small lists for lengths seven and eight. The exact last-pair equation \((ax-b)(ay-b)=b^2\) exhausts arbitrarily large final denominators. The included rational-arithmetic certificate checks \(21\) and \(18564\) prefixes, respectively, and finds zero completions; independent depth-first search reaches the same result. The nine-term reciprocal identity and factorization conditions are checked by exact arithmetic. This is an exhaustive finite proof, not a heuristic search with a hidden cutoff.
+
+**Originality — PASS, with residual risk.** Full text of Li's 2026 semiprime existence theorem and earlier partial rational theorem was inspected; their existence/covering statements do not imply a sharp nine-term minimum. Martin and Shi's full 2025 finite-denominator algorithm treats a specified finite input, not the unrestricted minimum length. Related published-record searches were made for target, prime-support, rank, smallest number of terms, and equivalent final-pair Diophantine descriptions. The closest records concern three-term representations of prime reciprocals and two-prime-support rank bounds; neither covers the varying-prime-set target \(1/2\). Residual risk: an older specialized numerical table or computation not indexed by the searches could contain the same value.
+
+**Mathematical value — PASS.** This is a sharp natural invariant—the least number of summands for the simplest nonintegral rational target of the recently resolved semiprime Egyptian-fraction theorem. It supplies a reproducible small-instance benchmark for quantitative refinements of the existence problem. The value is not claimed as a general optimal-length theorem for other targets.
+
+Self-review: passed. Independent audit: not yet performed.
