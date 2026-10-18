@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,26 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked directly against the source formulas for Theorem 3.5, Theorem 3.6, Theorem 6.1, and Lemma 6.12 of arXiv:2609.39113v1.
+# Independent mathematical audit
 
-Exact substitutions give
-\\[
-\\frac{6}{m(m-1)}<\\frac{2m}{3(m-1)(m-2)}
-\\iff (m-3)(m-6)>0
-\\]
-for integer \\(m>3\\), and
-\\[
-\\alpha_m=\\frac{2(m-6)}{3(m^2-4)}.
-\\]
-The exact consecutive difference is
-\\[
-\\alpha_{m+1}-\\alpha_m
-=\\frac{2(-m^2+11m+2)}{3(m^2-4)(m^2+2m-3)}.
-\\]
-The positive root \\((11+\\sqrt{129})/2\\) lies in \\((11,12)\\), so the coefficient increases through \\(m=12\\) and decreases thereafter. This proves the infinite-domain uniqueness claim analytically.
+## correctness
 
-`artifacts/verify.py` checks the rational identities, the endpoint values \\(\\alpha_7=2/135\\) and \\(\\alpha_{12}=1/35\\), the improvement factor \\(27/14\\), and a wide finite range as a corroborative regression check. The finite range check is not used as proof of the all-integer statement.
+PASS
 
-The parameter \\(m\\) is an auxiliary symmetrization size used in the soundness analysis. The physical base tester in the source still consumes three copies per round. No exact general-\\(m\\) spectral gap beyond the source's lower bound is claimed.
+Conditional on the published spectral-gap guarantee c_m=2m/[3(m-1)(m-2)] and published Theorem 3.5 conversion, the sufficient feasibility inequality 6/[m(m-1)]<c_m reduces to (m-3)(m-6)>0 for m>3. Substitution gives alpha_m=2(m-6)/[3(m^2-4)]. Exact difference alpha_(m+1)-alpha_m has numerator 2(-m^2+11m+2), changing sign between m=11 and 12, proving a unique integer maximum m=12 at 1/35. The tolerant conversion sqrt(3/alpha) gives sqrt(105), while alpha_7=2/135; gain 27/14. Independent Fraction computations verified the values and difference for m=7..199. These prove the algebraic optimization, not the underlying new bosonic spectral-gap lemma; the primary full text could not be accessed in this run.
+
+## originality
+
+PASS
+
+Under a best-of-knowledge qualified assessment, the source's published three-copy theorem as identified in its abstract and frozen cited source chooses the first feasible auxiliary m=7 certificate. The present claim uniquely optimizes the free integer analysis parameter across all m≥7 and obtains a quantitative sharper tolerance constant, rather than claiming any new spectral-gap proof. Separate literature and Resultary searches did not identify the exact m=12 optimum. The original published general formula is powerful prior art, and a full-text review of its inaccessible body remains a material residual priority risk; the optimization is a short algebraic consequence, not a new method.
+
+## value
+
+PASS
+
+The number of analysis registers is a naturally selectable proof parameter in a concrete Gaussian-state property tester; finding its sharp optimizer materially raises the guaranteed soundness coefficient by 27/14 and reduces the permitted tolerant-separation factor to about 72% of the originally instantiated proof. These are mathematically meaningful certified constants with a precise domain, not arbitrary numeric slices. Does not improve base-test copy count or claim information-theoretic optimality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
