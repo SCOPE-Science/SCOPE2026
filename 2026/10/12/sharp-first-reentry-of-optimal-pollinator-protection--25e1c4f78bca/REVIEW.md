@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every plant contributes \(q^{|N(s)|}\) to the expected rescue gain of each incident pollinator, by coupling one protected survivor to independent baseline extinctions. The proof compares all candidate choices, not merely two arbitrary scores. For up to three primary species, pairwise strict winning regions are intervals. With four primary species and at most twelve secondary species, every putative twice-crossing pair has coefficient triple \((1,5,5)\) or \((1,5,6)\); the unavoidable third pollinator strictly beats the returning candidate beyond its second crossover. A complete explicit thirteen-plant witness makes \(A\) dominate \(C,D\) throughout \(0<q<1\), so the exact quadratic roots give the global policy transitions. The `verify.py` program checks all thirteen neighborhoods, exact mask expectations, and both exceptional coefficient cases. No infinite claim rests on finite experimentation alone.
+PASS
 
-## Originality — PASS, subject to residual risk
+With independent homogeneous primary loss q, a plant contributes q^degree to each incident protected pollinator. For r<=3 every pairwise score difference is q times a linear polynomial, hence each unique-optimum region is an interval. With r=4 a strict return needs q(a-bq+cq²) with a,b,c>0, b²>4ac, a+c>b, a<c. Enumerating all coefficient triples of total mass <=12 independently gives only (1,5,5),(1,5,6). In either case five B-only degree-2 plants place at least three on C or D; the c A-only degree-3 plants are on both. The latter rival beats returning A for q>1/2, which includes the postsecond-root interval. Explicit thirteen-plant network gives gains A=q+2q²+5q³, B=7q², C=3q²+5q³, D=2q²+5q³ and roots (5±sqrt5)/10; independent symbolic coefficient/root tests passed. Conditional minimum only at r=4, not all larger r.
 
-The all-neighbors-lost model is inherited from Memmott et al. (2004), and random-removal extinction patterns from Dunne et al. (2002). Jones, Zurell and Wiesner (2024) give general analytic secondary-extinction probabilities; Traveset, Tur and Eguíluz (2017) assess keystone pollinators in a more involved stochastic model. These are substantive overlaps in objects and motivation, and the elementary protection-gain identity is **not** presented as novel. Their inspected statements, methodological sections and comparisons do not furnish the exact first strict-reentry threshold \((4,13)\) or the global-optimum obstruction for smaller networks. Searches by alternative descriptions, the exact guild sizes and probability thresholds did not reveal a covering theorem. This is a bounded self-review, not a proof of worldwide novelty. Unindexed analyses of small protection networks remain a risk.
+## originality
 
-## Value — PASS
+PASS
 
-The object is directly motivated by a natural conservation intervention: guarantee the survival of exactly one pollinator and count expected prevented plant coextinctions. The theorem identifies both a structural impossibility boundary and the first nontrivial setting in which a previously optimal choice can become suboptimal and later optimal again as extinction pressure varies. The thirteen-plant minimum matters because pairwise ranking crossings alone need not change the global optimum; the lower-bound proof detects that obstruction. No empirical prevalence, multi-species optimization or heterogeneous-risk extension follows.
+The all-partners-lost gain and plant survival probabilities are standard (Jones et al. 2024). The new statement is sharp impossibility for r<=3 and (r,m)=(4,<=12), together with globally optimal A-B-A reentry at (4,13), not merely changed rankings. Full-text Wiley model and Nature keystone discussion do not supply this exact global-optimization boundary in the material inspected; qualified best-of-knowledge priority remains.
 
-## Closest literature and limitations
+## value
 
-Memmott et al. (2004), DOI 10.1098/rspb.2004.2909, was examined in its complete lawful open PDF (model, removal scenarios, results and limitations). Jones et al. (2024), DOI 10.1002/ecm.1601, was examined through its freely accessible full-text mathematical sections. Traveset et al. (2017), DOI 10.1038/s41598-017-07037-7, was examined through its freely accessible full-text results and methods. Dunne et al. (2002), DOI 10.1046/j.1461-0248.2002.00354.x, was checked at the publisher abstract level and is acknowledged as a conceptual predecessor. The exact theorem uses a simplified homogeneous one-step extinction model and permits multiple plants with identical partner sets; neither its realistic frequency nor its empirical benefit has been tested.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determines the first possible species-network complexity at which the conservation target with maximal prevented extinctions reverses priority twice as q changes, correcting the tempting but invalid inference from pairwise crossings to global top choice; explicit thresholds and minimality can benchmark intervention policies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
