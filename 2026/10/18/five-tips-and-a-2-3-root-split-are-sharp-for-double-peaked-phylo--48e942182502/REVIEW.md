@@ -1,0 +1,19 @@
+# Scientific review
+
+## Correctness — PASS
+For a rooted ultrametric tree, rooted PD at one sampled tip is the common root-to-tip length, and sampling all tips is deterministic. With at most four tips this excludes two nonadjacent strict interior maxima. At five tips every full binary rooted shape is one of the two \(1+4\) shapes or the \(2+3\) shape. Exact symbolic evaluation of \(\binom5k\) equally likely subsets gives \(V_2-V_3<0\) for both \(1+4\) shapes, using the displayed strictly negative positive-length decompositions. For \(2+3\) it gives the exact phase polynomials \(P\) and \(Q\); strict double peaks are equivalent to \(P,Q>0\). The rational witness has strict positive peak gaps \(7/960\) and \(1/1200\). Independent enumerations in `verify.py` agree on every one of the 31 nonempty subsets, and symbolic differences are tested exactly. This is a finite algebraic proof; no numerical extrapolation is invoked.
+
+## Originality — PASS, with remaining bibliographic risk
+Nipperess and Matsen (arXiv:1208.6552, published 2013) already give exact mean and variance expressions for arbitrary rooted PD rarefaction. These formulas are not new here and allow evaluation of any specified tree. The inspected article's main methods, results, discussion, and appendix do not state the strict double-peak root-split exclusion or the complete necessary-and-sufficient five-tip age region; its discussion explicitly proposes sensitivity to tree shape for further investigation. O'Dwyer, Kembel, and Green (2012) cover related sampled-PD variances in different sampling schemes and do not characterize these fixed-cardinality peaks. Faller, Pardi, and Steel (2008) address independent extinction rather than conditioning on exactly \(k\) survivors. An accessible historical research claim of arbitrarily many variance peaks in independent-extinction probability is not equivalent to the present sample-size and topology theorem. Semantic searches of published findings and literature did not reveal the exact statement. The original general covariance identities make the present finite specialization computationally accessible, so independent expert verification of the extent of originality is still warranted.
+
+## Mathematical value — PASS
+A variance curve used to represent sampling uncertainty need not have one hump, even when every sampled tip lies at the same evolutionary age. The sharp five-tip threshold, proof that both \(1+4\) shapes are excluded regardless of positive branch lengths, and exact phase region within the only viable \(2+3\) shape distinguish a topology-dependent structural effect from an isolated numerical example. The strict parameter region shows the effect survives perturbation. The conclusion is limited to rooted PD, equal tip weights, and uniform without-replacement sampling; its magnitude in observed data is not established.
+
+## Closest literature and limitations
+- Nipperess and Matsen, *The mean and variance of phylogenetic diversity under rarefaction*, arXiv:1208.6552; DOI 10.1111/2041-210X.12042. Broad prior exact variance framework; no matching sharp topology phase classification found in the inspected full article.
+- O'Dwyer, Kembel, and Green, *Phylogenetic Diversity Theory Sheds Light on the Structure of Microbial Communities*, DOI 10.1371/journal.pcbi.1002832. Distinct community-sampling models.
+- Faller, Pardi, and Steel, *Distribution of phylogenetic diversity under random extinction*, DOI 10.1016/j.jtbi.2007.11.034. Independent extinction, not fixed-size rarefaction; abstract-level inspection only.
+
+An equivalent algebraic classification might have appeared in specialized phylogenetic rarefaction studies not located by the stated queries. No empirical or clinical inference is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
