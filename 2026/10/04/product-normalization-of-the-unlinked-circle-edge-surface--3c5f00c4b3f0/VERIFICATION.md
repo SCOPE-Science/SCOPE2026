@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked at three levels. First, the source equation was algebraically rewritten as \((s^2-3t^2)(u^2-3v^2)=4t^2v^2\), and the zero/pole orders of \((s^2-3t^2)/t^2\) on the smooth \((2,2)\)-curve were tracked using this identity. This yields the principal divisor \(2B_\infty-2A_\infty\) and hence the equality of the two squared projection line bundles.
+# Independent mathematical audit
 
-Second, the incidence surface was reconstructed from the two quadratic parametrizations. The two endpoint line subbundles have degrees \(-4\) and \(-4\), so the tautological hyperplane square on their projectivization is \(8\). The published image degree is also \(8\), forcing generic degree one. Three explicit stationary-bisecant parameters rule out a common vertex, hence rule out contracted horizontal curves. Proper plus quasi-finite gives finite, and finite birational from the smooth incidence surface gives the normalization.
+## correctness
 
-Third, `artifacts/verify.py` checks the factor identity, the explicit ruling witnesses, and the exact cross-ratio relation from the four branch points and the \(\mathbb Q(\sqrt5)\) simplification of the branch-point formula to \(24918016/45\). The checker is finite arithmetic support for the displayed symbolic proof; it is not used as a substitute for the normalization argument.
+PASS
 
-The result does not determine all local analytic singularity types of the image and does not generalize the product conclusion beyond the named example.
+The explicit (2,2) equation is smooth (four simple branch points) and yields a genus-one ruling curve. The divisor ((s²−3t²)/t²) is 2B∞−2A∞, giving π1*O(2)≅π2*O(2) on E and hence a trivial P1-bundle for the incidence surface. The tautological hyperplane square equals 8; the primary paper establishes edge surface degree 8, so the incidence morphism is birational. Three explicit ruling lines have no common fixed point, so no curve is contracted, the proper map is finite and thus normalization. Independently simplified four-branch cross-ratio to exact j=24918016/45. One special-example theorem, not a general-conics claim.
+
+## originality
+
+PASS
+
+Nash–Pir–Sottile–Ying supply the explicit elliptic edge equation, degree-eight ruled surface and general j formula, but do not give the intrinsic equality of two endpoint line bundles, the resulting product normalization, or the exact specialization of j. A general ruled surface statement would require the present explicit two-torsion divisor computation.
+
+## value
+
+PASS
+
+The product trivialization identifies the *normalization* of a geometrically motivated singular degree-eight ruled edge surface, explaining how the two conic endpoint double curves arise. The exact elliptic modulus is supplementary; the nontrivial line-bundle equality and finite-birational normalization are mathematically reusable data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
