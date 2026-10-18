@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-`verify_q_threshold.py` performs exact finite checks of the Rudin--Shapiro recurrence through order ten. For each checked order it verifies that all coefficients are signs, that the nonzero autocorrelations of the complementary pair cancel exactly, and that the constant square-sum coefficient is \(2N\). This is the coefficient form of
-\[
-|P_r(z)|^2+|Q_r(z)|^2=2^{r+1}
-\]
-on the unit circle.
+## correctness
 
-The script also verifies the exact logarithmic block-mass formula
-\[
-\log_2 \nu_q(B(L_m,1))=m^2(1-q/2)-q(m+5)
-\]
-for representative rational exponents below \(2\), the square-mass identity \(\nu_2(B(L_m,1))=2^{-2m-10}\), and the positive lower bound
-\[
-1-\frac{\sqrt2}{16}>0.91
-\]
-for the constructed density. The replay output is stored in `verification_output.txt` and ends with `VERIFY_OK`.
+PASS
 
-These checks are supplementary. They do not replace the analytic proof of the infinite construction, distributional Fourier-transform identity, or the all-\(q\) threshold.
+Rudin–Shapiro recursion implies all coefficients ±1 and |P_r|∞<=sqrt(2*2^r), hence sum g_m converges uniformly with norm <=sqrt2/16 and f>0. Distinct clusters [10m,10m+1/8) and reflections yield locally finite spectral support; compact-support test functions see only finitely many blocks, so distributional Fourier equality holds without absolute global spectral summability. Each q-powered cluster has mass 2^{m²(1-q/2)-qm-5q}, diverging for every 0<q<2, while q=2 masses decay and q>2 are pointwise dominated. Fourier convention and translation-bounded balls accounted for.
+
+## originality
+
+PASS
+
+Best-of-knowledge, implication-based comparison of exact theorem and primary findings; not a guarantee of globally exhaustive prior art. The source expressly identifies q<2 as open (as of 2025); constructing positive density and q<2 local divergence supplies an actual counterexample, not a routine restatement of Parseval ℓ². A classical construction may imply it and remains a stated risk.
+
+## value
+
+PASS
+
+Explicitly resolves Boyvalenkov–Favorov Remark 2 asking whether Fourier squared local mass exponent 2 extends below 2, with one positive bounded continuous density failing for all q<2. The exact exponent threshold is a natural sharpness obstruction, not a finite numerical curiosity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

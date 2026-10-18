@@ -1,21 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The construction uses the elementary Rudin--Shapiro recursion, whose pointwise square-sum identity gives a uniform \(O(\sqrt N)\) bound for blocks with \(N\) signs. After normalization, the spatial blocks have summable uniform norms, so the density converges uniformly and remains strictly positive. The frequency blocks are locally finite and mutually separated. For compactly supported frequency tests, the distributional Fourier transforms of the partial sums stabilize to the displayed pure-point measure. The powered mass of the \(m\)-th block is exactly
-\[
-2^{m^2(1-q/2)-qm-5q},
-\]
-which diverges for every \(0<q<2\), while the square-mass blocks are \(2^{-2m-10}\) and hence uniformly locally bounded. The comparison \(|b|^q\le |b|^2\) finishes every \(q>2\).
+## correctness
 
-## Originality
-PASS, subject to the residual literature risk stated below. The primary source explicitly leaves the \(q<2\) case open in Remark 2. Statement-level searches using the exact paper title, the remark wording, powered-mass/translation-bounded aliases, almost-periodic Fourier-coefficient aliases, and Rudin--Shapiro counterexample language found no source stating or implying this threshold counterexample. The closest modern classification papers impose growth conditions not met by the constructed Fourier measure. The classical Rudin--Shapiro literature provides the flat polynomial ingredient but not the scale-separated measure answering the powered-mass question.
+PASS
 
-## Value
-PASS. The result resolves a concrete open question from a recent primary source and identifies the exact exponent threshold, with one explicit positive bounded density simultaneously disproving every subquadratic exponent. It also isolates the mechanism behind sharpness: large finite spectral clusters can have square-summable local mass while Rudin--Shapiro cancellation keeps their inverse transforms uniformly small.
+Rudin–Shapiro recursion implies all coefficients ±1 and |P_r|∞<=sqrt(2*2^r), hence sum g_m converges uniformly with norm <=sqrt2/16 and f>0. Distinct clusters [10m,10m+1/8) and reflections yield locally finite spectral support; compact-support test functions see only finitely many blocks, so distributional Fourier equality holds without absolute global spectral summability. Each q-powered cluster has mass 2^{m²(1-q/2)-qm-5q}, diverging for every 0<q<2, while q=2 masses decay and q>2 are pointwise dominated. Fourier convention and translation-bounded balls accounted for.
 
-## Closest literature and limitations
-The closest source is Boyvalenkov--Favorov, *Growth of masses of crystalline measures*, whose Theorem 2 proves translation boundedness at exponent \(2\) and whose Remark 2 asks about exponents below \(2\). Gonçalves--Vedana classify Fourier summation formulas under exponential-growth/summability hypotheses; the present blocks deliberately violate those coefficient-growth assumptions. Rudin's 1959 work supplies the flat-sign polynomial family used in the proof.
+## originality
 
-The construction does not settle variants with uniformly separated spectra, bounded local spectral multiplicity, or with both the original measure and its spectrum locally finite. Unindexed folklore remains a residual originality risk.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Best-of-knowledge, implication-based comparison of exact theorem and primary findings; not a guarantee of globally exhaustive prior art. The source expressly identifies q<2 as open (as of 2025); constructing positive density and q<2 local divergence supplies an actual counterexample, not a routine restatement of Parseval ℓ². A classical construction may imply it and remains a stated risk.
+
+## value
+
+PASS
+
+Explicitly resolves Boyvalenkov–Favorov Remark 2 asking whether Fourier squared local mass exponent 2 extends below 2, with one positive bounded continuous density failing for all q<2. The exact exponent threshold is a natural sharpness obstruction, not a finite numerical curiosity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
