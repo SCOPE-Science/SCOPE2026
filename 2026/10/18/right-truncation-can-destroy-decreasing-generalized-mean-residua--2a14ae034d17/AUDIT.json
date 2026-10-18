@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The survival function is continuous, positive, and defines an absolutely continuous probability law. Exact integration gives \\(m_X(x)=1+2e^{x-1}\\) for \\(0<x<1\\) and \\(m_X(x)=3\\) for \\(x>1\\); the derivative of \\(m_X(x)/x\\) is strictly negative on both pieces and the quotient is continuous at \\(x=1\\). With \\(T=1+3\\log(5/4)\\), the truncated survival is \\(S_Y(x)=(S_X(x)-S_X(T))/(1-S_X(T))\\), the left hazard limit at \\(x=1\\) equals \\(5\\), and \\(m_Y(1)=3-12\\log(5/4)\\). Differentiating the survival integral gives \\(\\lim_{x\\uparrow1}\\ell_Y'(x)=11-48\\log(5/4)>1/4\\), certified by the exact alternating-series bound \\(\\log(5/4)<43/192\\). The standalone checker reproduces the rational certificate and high-precision diagnostics; the analytic proof covers all required positive ages and a genuine open interval of violation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "doi:10.1287/opre.2013.1198, Proposition 1 (IGFR preservation)",
+        "doi:10.1007/s10479-023-05425-z, Section 4, right-truncation discussion"
+      ],
+      "reasoning": "IGFR implies DGMRL, but the existing right-truncation closure theorem only covers IGFR sources. The exhibited piecewise exponential lifetime is not IGFR because its generalized hazard drops from \\(1\\) to \\(1/3\\) at the switch; thus IGFR preservation neither implies nor conflicts with this nonclosure example. Literature on ordinary MRL or right censoring addresses different properties or operations.",
+      "searches": [
+        "mean residual life divided by age decreasing truncation conditional survival Weibull exponential counterexample",
+        "generalized mean residual life aging right truncated distributions closure stochastic orders",
+        "\"Technical Note—New Results Concerning Probability Distributions with Increasing Generalized Failure Rates\" pdf"
+      ]
+    },
+    "checked_sources": [
+      "Leonardos and Melolidakis, arXiv:1805.06327v5 (2018 initial source, 2021 revision)",
+      "Leonardos, Koki and Melolidakis, DOI 10.1007/s10479-023-05425-z (2023 online)",
+      "Banciu and Mirchandani, DOI 10.1287/opre.2013.1198 (2013)",
+      "Relevant published mathematical-record search results for DGMRL, DGMRD, generalized mean residual demand, and right truncation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1805.06327v5, Section 4.3, p. 11",
+        "doi:10.1007/s10479-023-05425-z, Section 4, right-truncation discussion",
+        "doi:10.1287/opre.2013.1198, Proposition 1 (IGFR preservation)"
+      ],
+      "reasoning": "The new statement is existential nonclosure of DGMRL under conditional right truncation. The older results prove DGMRL closure under left truncation/positive scaling and IGFR closure under right truncation; neither forces right-truncation closure for the strictly larger DGMRL class. In fact, the cited 2021/2023 treatments explicitly say that such closure remains unclear. The exact derived positive derivative settles their binary question by counterexample.",
+      "searches": [
+        "DGMRD generalized mean residual demand right truncation closure open problem Leonardos Melolidakis",
+        "decreasing generalized mean residual life DGMRL class right truncation closure counterexample stochastic demand 2023 Leonardos Koki Melolidakis",
+        "\"DGMRL\" \"truncation\" \"closure\" 2024 2025 2026",
+        "\"Technical Note—New Results Concerning Probability Distributions with Increasing Generalized Failure Rates\" pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1805.06327v5, Section 4.3, p. 11",
+        "doi:10.1007/s10479-023-05425-z, Section 4, right-truncation discussion"
+      ],
+      "reasoning": "DGMRD (mean residual demand divided by price) and DGMRL (mean residual life divided by age) denote the same mathematical invariant for nonnegative distributions. Both primary versions explicitly describe the right-truncation question as open, rather than proving either a closure theorem or a counterexample. No exact equivalent was identified by the stated synonym queries.",
+      "searches": [
+        "DGMRL decreasing generalized mean residual life not preserved by right truncation conditional distribution counterexample piecewise exponential decreasing hazard",
+        "DGMRD generalized mean residual demand right truncation closure open problem Leonardos Melolidakis",
+        "decreasing generalized mean residual life DGMRL class right truncation closure counterexample stochastic demand 2023 Leonardos Koki Melolidakis",
+        "\"decreasing generalized mean residual demand\" \"right truncation\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:1805.06327v5, Section 4.3, p. 11",
+        "doi:10.1007/s10479-023-05425-z, Section 4, right-truncation discussion",
+        "doi:10.1287/opre.2013.1198, Proposition 1 (IGFR preservation)"
+      ],
+      "reasoning": "Available primary full text contains an explicit unresolved question and a theorem for another class, not a tabulated DGMRL right-truncation counterexample or a list that subsumes this piecewise-hazard law. Searches for a known example, exact hazard pair, or relevant table did not surface a covering source; a failed search is not proof of absence.",
+      "searches": [
+        "DGMRL decreasing generalized mean residual life not preserved by right truncation conditional distribution counterexample piecewise exponential decreasing hazard",
+        "\"decreasing generalized mean residual life\" \"right truncation\" counterexample",
+        "\"generalized mean residual life\" truncated counterexample closure",
+        "DGMRL right truncated conditional X<=b counterexample mean residual life divided by x"
+      ]
+    },
+    "rationale": "The motivating preprint (2018, revised 2021) and its 2023 successor explicitly leave DGMRL right-truncation closure unresolved. The older IGFR closure theorem assumes a strictly smaller class and does not apply: the example has a downward jump of generalized hazard. Searches under DGMRL, DGMRD, generalized mean residual demand, and residual-age formulations found no theorem implying closure failure or a competing counterexample in the material inspected. Residual unindexed-priority risk remains.",
+    "residual_risks": [
+      "An older or unindexed equivalent result under a non-DGMRL terminology may exist; priority is not independently established.",
+      "The 2018 source was compared in its publicly accessible 2021 revision; the historical original-version wording of its right-truncation passage was not separately checked.",
+      "The counterexample has a hazard discontinuity; smooth-hazard analogues are not addressed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The revised preprint leaves right-truncation preservation for DGMRD unresolved; no counterexample covers the present claim.",
+        "evidence": "Section 4.3: closure under right truncations is described as unclear (PDF page 11). The arXiv record verifies the first public submission on 15 May 2018.",
+        "identifier_or_url": "https://arxiv.org/pdf/1805.06327",
+        "material_read": "Sections 3.1, 4.1–4.3, including the right-truncation discussion on PDF p. 11, and reference context",
+        "method": "Read open full preprint text and inspected the actual PDF page containing the statement",
+        "title": "A Class of Distributions for Linear Demand Markets",
+        "trigger": "Same distributional class and right-truncation closure question in original preprint"
+      },
+      {
+        "assessment": "Section 4 explicitly states right-truncation closure of DGMRL remains unclear; Theorem 6 addresses scaling and left truncation only.",
+        "evidence": "Section 4 immediately after Theorem 6; first online publication 7 June 2023.",
+        "identifier_or_url": "https://doi.org/10.1007/s10479-023-05425-z",
+        "material_read": "Introduction, Section 3 distribution relationships, Section 4 Theorems 5–6 and adjacent discussion, Section 5 and references",
+        "method": "Read openly accessible full article text; compared statements of right and left truncation",
+        "title": "A generalization of the increasing generalized failure rate unimodality condition",
+        "trigger": "Later open-access publication revisiting the same preservation question"
+      },
+      {
+        "assessment": "Right-truncation preservation is proved for IGFR, not DGMRL; it does not cover the present non-IGFR law.",
+        "evidence": "Proposition 1: truncated continuous IGFR laws remain IGFR. The displayed lifetime has generalized hazard dropping from \\(1\\) to \\(1/3\\) at the switch.",
+        "identifier_or_url": "https://doi.org/10.1287/opre.2013.1198",
+        "material_read": "Introduction, Section 2.1 on truncation, Proposition 1 and nearby assumptions in accessible author-manuscript text",
+        "method": "Read full-text reproduction of the author manuscript and compared its class hypothesis with the example",
+        "title": "Technical Note—New Results Concerning Probability Distributions with Increasing Generalized Failure Rates",
+        "trigger": "Potentially stronger existing truncation preservation theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2a14ae03-4d17-4066-b257-17f9a260ea80",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Right-truncation closure of the DGMRL class is explicitly posed as unresolved by primary research, and determines whether a useful stochastic-demand and reliability aging condition survives information updates imposing finite ceilings. The explicit two-rate, connected-support, absolutely continuous counterexample settles this natural binary question, exposes the distinction from established IGFR preservation, and has a strict exact one-sided derivative margin. The result is not merely a numerical observation or a reformulation of a textbook derivative identity.",
+    "status": "PASS"
+  }
+}
