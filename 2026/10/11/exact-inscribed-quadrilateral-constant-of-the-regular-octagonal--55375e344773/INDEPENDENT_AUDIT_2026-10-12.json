@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T17:15:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The real unit ball of N(s,t)=max(|s|,|t|,(|s|+|t|)/sqrt2) has eight vertices ±(1,√2−1), ±(√2−1,1) with all sign rotations. The adjacent antipodal quadruple has zero centroid and two distances 2(√2−1), four distances2, yielding 40−16√2. For each of 8^4 ordered choices of sphere edges, the centroid equalities cut out a compact affine parameter polytope of rank1 or2; the objective ΣN(x_i−x_j)^2 is convex on each. Thus maxima lie at affine-polytope vertices, captured by fixing 3 (rank1) or 2 (rank2) parameters to endpoints and solving the rest. Exact Q(√2) source verifier fully inspected, including its exact comparison arithmetic and degenerate rank-one case, enumerates 4032 rank2 and64 rank1 cells and exactly 11136+576=11712 candidate occurrences. A separately coded independent floating-point full vertex-cell enumeration yielded the SAME counts and maximum 17.37258300203048=40−16√2. Independently evaluated 64 octagon-vertex pairs for C_NJprime=4−2√2. Since the exact source verifier uses rational-pair arithmetic, the finite certificate is exhaustive after convexity, not sampling.",
+      "residual_risks": [
+        "Exact computation is for one canonical polygon only; no classification of all maximizing quadruples.",
+        "Independent alternate replay uses floating point but source certificate and exact arithmetic logic were inspected, so rigorous comparison rests on exact verifier."
+      ],
+      "sources": [
+        "RESULT.md blob 04f9d6a5c0edbf29b103e8dc6c9e5643f0b6442a",
+        "verify_jin_octagon.py full blob 902eba1148b1fff45d677b2fcc901c980ce40160",
+        "verification_output.txt blob 452df977518861df09e70c7fa206cbb5efc0d481 (secondary)",
+        "Independent_checks.py separate 11712-vertex-cell enumeration",
+        "2021 J_in Definition3 and Prop1"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Strict-convex planar equality hypothesis fails for octagon with nontrivial sides.",
+          "Proposition1 supplies only lower inequality; knowledge of C_NJprime alone cannot imply J_in≤40−16√2."
+        ],
+        "reasoning": "Neither general lower bound nor the strict-convex-plane equality theorem dominates the polygon claim. The exact upper optimization is additional.",
+        "searches": [
+          "Ahmad–Liu–Li 2021 Proposition1",
+          "Strictly convex normed plane J_in collapse record as cited in package",
+          "Regular octagon modified von Neumann Jordan profile as cited"
+        ]
+      },
+      "checked_sources": [
+        "Full 2021 Ahmad Liu Li OA original article",
+        "Frozen assigned package literature references to strict-convex and C_NJprime results (not falsely claimed directly re-read)",
+        "Entire source exact verifier code and local independent enumeration"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known C_NJprime=4−2√2 implies J_in≥40−16√2 but no upper bound.",
+          "Flat octagon is not strictly convex, so theorem stated only for strictly convex planes is inapplicable."
+        ],
+        "reasoning": "The remaining 11712-case exhaustive vertex bound is genuinely necessary, not a routine substitution into a known full theorem.",
+        "searches": [
+          "Ahmad–Liu–Li 2021 Proposition1 and examples",
+          "Published strictly convex collapse statement from assigned scientific source"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2021 paper defines exactly the same centered six-distance objective.",
+          "Octagon result may alternatively read as equality in universal bound J_in≥8+8C_NJprime."
+        ],
+        "reasoning": "The equivalent lower-bound-sharpness formulation and exact radical were searched; none accessed states the upper bound for this flat polygon.",
+        "searches": [
+          "regular octagonal Banach plane inscribed quadrilateral constant 40-16sqrt(2) modified von Neumann Jordan 4-2sqrt(2)",
+          "\"regular octagon\" \"inscribed quadrilateral\" Banach constant",
+          "40-16 sqrt2 regular octagon J_in C_NJ"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2021 Example1/2 evaluate max/sum plane norms as24, not regular octagon.",
+          "No verified matching published octagon four-point table; indexed search limitations acknowledged."
+        ],
+        "reasoning": "Checked exact radical and polygon aliases; known C_NJprime tabulation is a DIFFERENT invariant and cannot serve as a published J_in value.",
+        "searches": [
+          "J_in regular octagon 40-16sqrt(2)",
+          "\"regular octagon\" \"inscribed quadrilateral\"",
+          "2021 published paper square-type examples"
+        ]
+      },
+      "rationale": "The defining 2021 full text gives a lower bound J_in≥8+8C_NJprime and evaluates only square-type l1/l∞ planes, not regular octagon. A separate strictly convex planar equality theorem noted in the frozen scientific package excludes octagon because all eight boundary edges are flat; its hypothesis cannot be silently weakened. A known exact C_NJprime(X8)=4−2√2 would yield the lower bound, but not the missing four-point upper bound. No direct regular-octagon computation was verified in literature/indices, with Resultary outage retained as significant search limitation.",
+      "residual_risks": [
+        "Resultary unavailable, search_completed:false; possible unindexed regular-polygon computation.",
+        "Referenced strictly convex and octagon C_NJ profile published records were known through source package descriptions and not independently re-fetched from their own frozen blobs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines lower J_in≥8+8C_NJprime, not equality for regular octagon.",
+          "evidence": [
+            "Definition3, Proposition1, Examples1–2."
+          ],
+          "identifier_or_url": "https://pdfs.semanticscholar.org/717d/3171df4e80970bcb009cfd6d1c161869295c.pdf",
+          "material_read": "Full 10-page original 2021 OA PDF, including Definition3 and Proposition1 p4, square-type examples p5, Theorem1 and conclusion; rendered pages4–5.",
+          "method": "Read primary full PDF, rendered critical formula pages and checked polygon examples.",
+          "title": "Geometric Constants in Banach Spaces Related to the Inscribed Quadrilateral of Unit Balls",
+          "trigger": "Defining exact object, inequality and polygon examples"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The regular octagon is the standard flat, highly symmetric Banach plane lying outside strict convexity. Proving sharpness of the defining J_in–C_NJprime lower comparison on this boundary case is a mathematically motivated exact complete optimization, not an arbitrary slice; exhaustive algebraic certificate demonstrates that flatness does not force strict inequality.",
+      "residual_risks": [
+        "Only this octagon, not a general class of all centrally symmetric polygons."
+      ],
+      "sources": [
+        "Defining Ahmad Liu Li 2021 Proposition1 and polygon examples",
+        "Canonical octagonal norm and complete exact vertex-cell proof in RESULT.md"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": "Real regular octagonal norm exactly specified; complete maxima value but not all extremizers nor a general polygon theorem."
+}
