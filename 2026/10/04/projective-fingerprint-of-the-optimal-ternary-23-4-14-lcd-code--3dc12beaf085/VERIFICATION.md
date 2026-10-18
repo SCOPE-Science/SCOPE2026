@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-`artifacts/verify.py` uses only the Python standard library and begins from the published \(4\times23\) generator matrix.
 
-It verifies rank \(4\), computes \(GG^T\) and its nonzero determinant, enumerates all \(81\) ternary codewords, and reproduces the exact Hamming weight distribution. It normalizes the generator columns projectively, checks that all \(23\) are distinct, constructs the \(40\) points and \(130\) lines of \(\mathrm{PG}(3,3)\), and recomputes the complete line and hyperplane intersection spectra.
+# Independent mathematical audit
 
-For the stabilizer, it colors each pair of code points by the size of the intersection of its joining projective line with the \(23\)-point set. Exact backtracking enumerates all color-preserving permutations. Every projective stabilizer must occur in this list. The verifier obtains exactly four permutations and checks that each is realized by an explicit invertible projective matrix from `artifacts/certificate.json`; their orders are \(1,2,2,2\). Thus the projective stabilizer is exactly \(C_2\times C_2\).
+## correctness
+
+PASS
+
+Independently recomputed the given 4×23 ternary generator matrix rank four and Gram determinant 1, all 81 codewords and their exact Hamming weights 0:1,14:18,15:28,16:22,17:6,18:4,22:2. All 23 columns are distinct in PG(3,3); enumerated all 130 lines, obtaining intersection multiplicities 0:10,1:11,2:43,3:62,4:4, and all 40 projective hyperplanes (counts 1:1,5:2,6:3,7:11,8:14,9:9). Independently enumerated all four automorphisms of the colored 23-vertex incidence graph and confirmed each lifts to an invertible projective matrix: group has identity plus three involutions, hence Klein four. Finite exhaustive classifications are exactly finite claims, with no extrapolation.
+
+## originality
+
+PASS
+
+An–Hong–Kim–Lim publish existence, a concrete generator and the optimal minimum distance, not its full weight enumerator, all-line incidence spectrum or exact PGL stabilizer. Earlier Li–Shi–Liu bounds precede that specific representative; related results for a different code C3,2 do not determine C3,1.
+
+## value
+
+PASS
+
+The exactly specified new distance-optimal code is a natural inequivalence benchmark among many [23,4,14] representatives. Its entire projective line-incidence distribution and small symmetry group give information independent from the known minimum distance and can distinguish later constructions. This is not a random slice or mere known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

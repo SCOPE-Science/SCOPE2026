@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The published generator matrix is reconstructed over \(\mathbb F_3\); its Gram determinant is \(1\), all \(81\) codewords are exhausted, and all \(40\) projective hyperplanes and \(130\) projective lines are generated independently. The weight enumerator, hyperplane spectrum, and line spectrum agree with the required incidence identities. An exhaustive colored-graph automorphism search gives exactly four possible projective point permutations, and all four are explicitly realized by invertible \(4\times4\) matrices. The three nonidentity elements are involutions, proving the stabilizer is Klein four.
+PASS
 
-## Originality
+Independently recomputed the given 4×23 ternary generator matrix rank four and Gram determinant 1, all 81 codewords and their exact Hamming weights 0:1,14:18,15:28,16:22,17:6,18:4,22:2. All 23 columns are distinct in PG(3,3); enumerated all 130 lines, obtaining intersection multiplicities 0:10,1:11,2:43,3:62,4:4, and all 40 projective hyperplanes (counts 1:1,5:2,6:3,7:11,8:14,9:9). Independently enumerated all four automorphisms of the colored 23-vertex incidence graph and confirmed each lifts to an invertible projective matrix: group has identity plus three involutions, hence Klein four. Finite exhaustive classifications are exactly finite claims, with no extrapolation.
 
-PASS. The closest 2026 source and its accompanying data publish the code, its generator, and its distance, but not its weight enumerator, projective line spectrum, or automorphism group. The predecessor literature fixes only the earlier distance interval. Exact-parameter, exact-coefficient, projective/secant, and automorphism searches did not locate the claimed fingerprint. Residual risk remains that an equivalent code has been computed in an unindexed source.
+## originality
 
-## Value
+PASS
 
-PASS. The source reports many inequivalent codes at the new optimal parameter set, so invariants finer than \([n,k,d]\) are useful for distinguishing representatives. The hyperplane spectrum, line spectrum, and projective stabilizer jointly describe distance, lower-dimensional incidence, and symmetry of the displayed code. This is a natural structural fingerprint rather than a routine parameter increment.
+An–Hong–Kim–Lim publish existence, a concrete generator and the optimal minimum distance, not its full weight enumerator, all-line incidence spectrum or exact PGL stabilizer. Earlier Li–Shi–Liu bounds precede that specific representative; related results for a different code C3,2 do not determine C3,1.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exactly specified new distance-optimal code is a natural inequivalence benchmark among many [23,4,14] representatives. Its entire projective line-incidence distribution and small symmetry group give information independent from the known minimum distance and can distinguish later constructions. This is not a random slice or mere known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
