@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` in this directory with standard Python 3. It checks all 105 published-normal-form candidates against all seven proved identities in words of length at most ten and verifies exactly 35 connected congruence classes; it checks all 35 proposed normal forms are present as distinct classes. It then validates two explicitly encoded four-world birelational frames and checks that all 35 representative operators have distinct semantic signatures across their 24 admissible valuations.
+## correctness
 
-Expected output:
+PASS
 
-```
-UPPER_NORMAL_FORMS=35
-FINITE_WITNESSES=35
-VERIFY_OK
-```
+Within stated nonfallible locally linearly ordered preorder, reflexive/transitive modal R and all three confluence requirements, B is interior, D is closure and N Heyting pseudo-negation on the upset lattice. Context-stable sound identities BB=B, DD=D, BDBD=BD, DBDB=DB, NNN=N, BN=ND and DNB=NB were checked against the given semantic argument. Pacheco’s published reduction covers the larger GS4^c class by 105 universal candidate modalities (7 pure and 14 classical prefixes followed by N and 7 suffixes); an independently implemented context-congruence quotient of those 105 candidates under the seven equations yields exactly 35 classes, and all listed representatives occupy different classes. Independently verified two explicit four-world confluence frames, each 12 upsets; 35 listed words give 35 different joint truth-set signatures across 24 upsets. These finite lower witnesses plus sound all-frame identities and the published 105 upper reduction establish exact 35; a finite frame sample alone would not give a universal upper bound.
 
-A separate small-size enumeration performed as a stress test checked 457 admissible ordered three-world frame pairs and all upward-closed valuations for all seven word equations. The construction of the infinite-model upper bound uses sound equations and Pacheco's published reduction. Finite tests alone would not establish an infinite-frame theorem. No independent audit has been performed.
+## originality
+
+PASS
+
+PASS best-of-knowledge: Leonardo Pacheco’s September 2026 GS4^c modalities theorem provides at most 105 canonical words in a broader potentially fallible class, not this specific 35-class quotient under nonfallible semantics and the new BN=ND / DNB=NB equations. Classical S4 fourteen-word lists do not imply these intuitionistic-modal identities, and the published 35 LOWER examples for a larger frame class cannot establish 35 on the restricted subfamily without the two valid witnesses and upper reduction.
+
+## value
+
+PASS
+
+PASS: a natural exact unary modal-algebra classification with a full finite presentation and separating finite models resolves a concrete 105-to-35 gap for a well-motivated nonfallible Gödel–S4 semantics. This is a complete structural operator equivalence result, not an arbitrary sample or merely finite model enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
