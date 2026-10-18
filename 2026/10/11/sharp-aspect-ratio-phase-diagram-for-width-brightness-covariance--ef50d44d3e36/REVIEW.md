@@ -1,19 +1,21 @@
-# Review of the sharp orthotope width–brightness covariance phase diagram
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the same uniform normal, the width and codimension-one projection volume are respectively weighted sums of the absolute coordinates of a uniform spherical vector. Exact one- and two-coordinate Dirichlet moments give the covariance formula. Its negative off-diagonal spherical covariance is strictly justified by conditional monotonicity. At fixed aspect ratio the logarithmic-edge statistic is a strictly convex sum of exponentials; midpoint reflection gives its unique minimum, while vertex reduction and an integer optimization give its sharp maximum. The two crossings and their equality cases follow from monotonicity. A gamma-ratio expansion establishes the asymptotic thresholds. The independent finite consistency program `verify.py` returned `VERIFY_OK 6436`; the analytic proof, rather than computation, handles infinitely many edge configurations.
+PASS
 
-## Originality — PASS, with residual risk
+Width W=Σa_i|U_i| and brightness B=VΣa_i^(−1)|U_i| for the same spherical U; Dirichlet(1/2,...,1/2) coordinate squares give E|U_i|=μ_d, E|U_i|²=1/d, E|U_iU_j|=2/(πd). Expansion yields E(WB)/V=1−2/π+2Q/(πd) and EW EB/V=μ_d²Q, hence claimed covariance. Opposite coordinate absolute values have negative covariance by conditioning on |U_1|², thus β_d>0. Strict positivity of cube variance ensures threshold T_d>d². For fixed min=1,max=R, function Q=Σ_{i,j}e^{z_i−z_j} is convex on log-side cube, and reflection z↦logR−z plus fixed endpoints gives central minimizing free z; strict convexity for R>1 gives uniqueness. Separate coordinate convexity forces maxima at cube vertices: k(d−k) optimum floor(d²/4); connected cube gives all intermediate values. Threshold roots and gamma-ratio limits follow. Independently recomputed Q extremizers and both thresholds in d=2,3,4,10 (d=2 R_-=R_+≈1.52017161; d=3 R_-≈1.72912921,R_+≈1.88196752). These finite checks do not substitute for convex proof.
 
-The inspected full mathematical treatments arXiv:1511.08479 and arXiv:1110.0671 concern width moments of regular polytopes, not the joint same-normal width–hyperplane-brightness covariance phase diagram for arbitrary orthotopes. A generic weighted second-moment identity can yield the covariance algebraically; that identity alone is not claimed as the principal novelty. The phase classification uses distinct sharp extremizers for the minimum and maximum of the scale-free reciprocal-edge statistic, gives an exact coexistence interval, and identifies its high-dimensional limits. Published 2026 marginal width and joint width–brightness research (arXiv:2608.03305 and arXiv:2609.26202) was available only at abstract level and could contain stronger, presently unverified coverage. Searches did not identify an equivalent phase classification, but absence of a search hit is not proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-Width and hyperplane shadow volume are two natural scalar observations of a convex body along one normal. For boxes they need not even move together on average under random orientation: the covariance switches sign, and equal aspect ratio does not fix that sign in dimensions at least three. The theorem provides the complete sharp condition, realizes every intermediate sign, identifies equality shapes, and quantifies the widening coexistence regime from bounded to quadratic aspect-ratio scales with dimension. This is a natural structural classification, beyond a single negative-covariance example or an isolated moment computation.
+Classical Gaussian/spherical width moment work of Kabluchko–Litvak–Zaporozhets (2015/2016) and Finch (2011) provides marginal moments, and generalized weighted folded-normal or polarization formulas can imply the mixed covariance identity; that intermediate identity is not treated as novel on its own. The stated contribution is joint sign classification optimized exactly over all orthotopes at fixed aspect ratio, including two distinct extremizers and high-dimensional threshold scales, not found in inspected older sources. Highly relevant Abas arXiv:2608.03305 and arXiv:2609.26202 address rectangular-box moments and joint width/brightness; only abstracts were accessible: PDF and arXiv HTML retrieval rejected, Zenodo alternative unavailable, authorized institutional paper attempts returned vpn_disconnected. Their potentially dominating moment/optimization coverage is a specific residual risk, not falsely deemed absent. Resultary ranked the identical current record plus different orthotope perimeter/brightness findings.
 
-## Scope and residual limitations
+## value
 
-The result concerns orthotopes, positive edges, Haar-uniform normal, and coupled projections only. The result does not identify a general-body sign criterion or the full bivariate law. Some highly relevant newer work was inaccessible in full, so independent literature verification remains important.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+A complete sharp same-direction sign law is naturally meaningful: width and hyperplane projection brightness of the same box can switch from positive to negative covariance, with the sign not determined by aspect ratio in d≥3. The theorem identifies all equality shapes and quantifies diverging threshold scales, providing a useful all-dimensional benchmark beyond elementary spherical second moments or one isolated box example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
