@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Exact verification
+# Independent mathematical audit
 
-Keep `verify.py`, `DUAL.txt`, and `WITNESS.txt` together and invoke `python3 verify.py` with standard assertions enabled. Only the Python 3 standard library is required.
+## correctness
 
-The program deterministically reconstructs the 120 nonpalindromic eight-bit reversal pairs, 72 seven-bit reversal orbits, 240 labeled ports and 330 graph edges. It checks the pivotal signed-incidence identity for both orientations of every reversal pair at every nonpalindromic orbit, then verifies the complete 240-integer dual vector: its sum is exactly 28 and every edge satisfies its integer inequality. Consequently every induced perfect matching has omission cost at least 28.
+PASS
 
-Separately the program checks all 92 cyclic length-eight windows of `WITNESS.txt`, including uniqueness, absence of palindromes, and pairwise reversal incompatibility. The observed replay was:
+The cycle selects at most one member of each of 120 nonpalindromic length-eight reversal pairs. Its balanced directed de Bruijn incidence forces selected signed ports to pair positively/negatively in each of 72 reversal orbits; matching omitted pair ports through cost-one edges yields a perfect matching on 240 ports. The independently rebuilt graph has 120 cost-one omission plus 210 cost-zero transition edges. The actual pinned DUAL.txt 240 integers sum to 28 and satisfy y_u+y_v<=cost for every one of 330 edges, proving at least 28 omitted reversal pairs and hence length<=92 without trusting solver output. The pinned WITNESS.txt has exactly 92 cyclic distinct nonpalindromic length-eight factors, no reversal collisions and fundamental period92. A separate independent script reconstructed graph, all inequalities, port-count and witness tests from source bytes. No exhaustive search or computational timeout is invoked as impossibility.
 
-```text
-VERIFY_OK order=8 pair_orbits=120 quotient_vertices=72 ports=240 certificate_edges=330 dual_sum=28 upper_bound=92 witness_period=92
-```
+## originality
 
-The dual feasibility alone supplies the finite upper-bound certificate, conditional on the stated mathematical reduction from orientable cycles to perfect matchings; the executable also checks its local identity but cannot substitute for understanding that reduction. No exhaustive enumeration of all binary cycles is asserted. No generalization beyond window length eight has been proved here.
+PASS
+
+The published lower construction length 92 and previous published upper 96 are different assertions. A new exact integral matching dual certificate that proves upper 92 closes that genuine gap; no inspected primary source states the bound 92 as proved.
+
+## value
+
+PASS
+
+Resolves a concrete and long-tabulated natural extremal sequence problem at the first disputed small order beyond exact cases. A compact exactly checkable matching-dual obstruction proves optimality of a previously known construction and may guide further order-specific certificates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

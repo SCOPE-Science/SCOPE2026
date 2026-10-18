@@ -1,15 +1,21 @@
-# Review of the order-eight orientable-cycle maximum
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof converts every cyclic orientable word of order eight into a matching on a specifically defined 240-port graph: each used nonpalindromic reversal pair contributes two locally signed ports, balanced at each seven-bit reversal orbit, while each unused pair contributes its cost-one omission edge. At the 56 nonpalindromic orbits this is a consequence of the precise identity between signed port counts and de Bruijn degree-imbalance differences; the identity is independently checked for both orientations of all 120 pairs. At the 16 palindromic seven-bit vertices it follows from degree parity and the enumerated port degrees (two singletons and fourteen doubletons). An explicit 240-entry integer vector has total 28 and satisfies every one of the 330 edge dual inequalities, forcing at least 28 omissions and hence at most 92 factors. The explicit 92-symbol cyclic witness has distinct, reversal-disjoint, nonpalindromic length-eight factors. The supplied standard-library checker replays all finite facts exactly from the packaged files; its actual execution returned `VERIFY_OK`.
+## correctness
 
-## Originality — PASS, subject to priority uncertainty
-Gabrić–Sawada's orientable-sequence paper (arXiv:2401.14341, Table 2) explicitly lists the length-92 construction and upper bound 96 at order eight, stating that exact maxima are established only through order seven. Mitchell–Wild's earlier arXiv:2108.03069 gives upper bound 96, and their later arXiv:2507.02526 addresses general bounds and constructions but not this exact maximum. The newer 2026 generalized constructions also do not report a binary order-eight optimality theorem. Burris–Motta–Shipman's arXiv:1608.08480 studies the distinct minimum-length unoriented covering problem (including palindromes) and does not determine this palindrome-excluding maximum. The contribution is the finite exact upper-bound certificate closing the 92-to-96 gap, not the previously published existence of a length-92 example. Search-index silence is not a proof of novelty; an unindexed equivalent certificate is a residual risk.
+PASS
 
-## Value — PASS
-The maximal period is a fundamental capacity parameter for bidirectional binary position-sensing sequences. Identifying 92 as the exact optimum settles the first binary order whose maximum was unresolved in the inspected primary literature, strengthens a published 96 upper bound, and supplies a compact reproducible integer certificate. The work does not purport to classify maximizers or provide infinite-family bounds.
+The cycle selects at most one member of each of 120 nonpalindromic length-eight reversal pairs. Its balanced directed de Bruijn incidence forces selected signed ports to pair positively/negatively in each of 72 reversal orbits; matching omitted pair ports through cost-one edges yields a perfect matching on 240 ports. The independently rebuilt graph has 120 cost-one omission plus 210 cost-zero transition edges. The actual pinned DUAL.txt 240 integers sum to 28 and satisfy y_u+y_v<=cost for every one of 330 edges, proving at least 28 omitted reversal pairs and hence length<=92 without trusting solver output. The pinned WITNESS.txt has exactly 92 cyclic distinct nonpalindromic length-eight factors, no reversal collisions and fundamental period92. A separate independent script reconstructed graph, all inequalities, port-count and witness tests from source bytes. No exhaustive search or computational timeout is invoked as impossibility.
 
-## Verification scope
-The proof and certificate apply only to cyclic binary order-eight orientable sequences. All counts are finite exact integer checks; no finite experiment is presented as an infinite theorem. The proof is specific to 8-bit windows and does not settle other orders. Full mathematical scrutiny by a separate reviewer remains desirable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The published lower construction length 92 and previous published upper 96 are different assertions. A new exact integral matching dual certificate that proves upper 92 closes that genuine gap; no inspected primary source states the bound 92 as proved.
+
+## value
+
+PASS
+
+Resolves a concrete and long-tabulated natural extremal sequence problem at the first disputed small order beyond exact cases. A compact exactly checkable matching-dual obstruction proves optimality of a previously known construction and may guide further order-specific certificates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T18:59:43Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md, DUAL.txt, WITNESS.txt, verify.py at exact Git blob SHAs; independent 240-port/330-edge recreation and integer certificate tests."
+      ],
+      "rationale": "The cycle selects at most one member of each of 120 nonpalindromic length-eight reversal pairs. Its balanced directed de Bruijn incidence forces selected signed ports to pair positively/negatively in each of 72 reversal orbits; matching omitted pair ports through cost-one edges yields a perfect matching on 240 ports. The independently rebuilt graph has 120 cost-one omission plus 210 cost-zero transition edges. The actual pinned DUAL.txt 240 integers sum to 28 and satisfy y_u+y_v<=cost for every one of 330 edges, proving at least 28 omitted reversal pairs and hence length<=92 without trusting solver output. The pinned WITNESS.txt has exactly 92 cyclic distinct nonpalindromic length-eight factors, no reversal collisions and fundamental period92. A separate independent script reconstructed graph, all inequalities, port-count and witness tests from source bytes. No exhaustive search or computational timeout is invoked as impossibility.",
+      "residual_risks": [
+        "Order eight binary cyclic words; linear words, larger orders and nonbinary alphabets not covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gabrić–Sawada arxiv:2401.14341 Table 2; Mitchell–Wild arxiv:2108.03069 Table 1; arxiv:2507.02526 and 2603.18646."
+        ],
+        "reasoning": "Mitchell–Wild and Gabrić–Sawada general order-n bounds give 96 at n=8 and general algorithms producing period 92, neither yields impossibility of 93–96. A recent 2026 asymptotic-period theorem is not a fixed-order optimum proof. The new 28-cost dual is not implied by a larger general upper bound.",
+        "searches": [
+          "binary orientable sequences order 8 maximum period 92 proven optimal upper bound",
+          "https://arxiv.org/abs/2401.14341",
+          "https://arxiv.org/abs/2108.03069"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2401.14341",
+        "https://arxiv.org/abs/2108.03069",
+        "https://arxiv.org/abs/2507.02526",
+        "https://arxiv.org/abs/2603.18646",
+        "https://debruijnsequence.org/db/orientable",
+        "Resultary semantic binary orientable sequences order 8 maximum period 92 proven optimal upper bound"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source DUAL.txt integer sum28 and 330 edge inequalities; published upper96 and known witness92."
+        ],
+        "reasoning": "The previous 96 bound does not imply 92. The explicit cost28 feasible dual and matching reduction certify a previously missing four-unit strengthening while the displayed cyclic witness already provides the lower bound. The dual inequalities were directly checked against all 330 actual edges.",
+        "searches": [
+          "binary orientable sequences order 8 maximum period 92 proven optimal upper bound",
+          "https://arxiv.org/abs/2401.14341",
+          "https://arxiv.org/abs/2108.03069"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gabrić–Sawada (2024) definition and Table2; Burris–Motta–Shipman (2016) covering variant."
+        ],
+        "reasoning": "Orientable order-eight cycles are reversal-unique cyclic de Bruijn factors; maximum period is the same as optimum count of reversal pairs on a closed Eulerian binary order-seven de Bruijn subgraph. Prior sequence papers use these definitions, while unoriented de Bruijn cover-all classes are dual but mathematically different because they require palindromes.",
+        "searches": [
+          "binary orientable sequences order 8 maximum period 92 proven optimal upper bound",
+          "https://arxiv.org/abs/2401.14341",
+          "https://arxiv.org/abs/2108.03069"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Gabrić and Sawada (2024), Table 2 records longest known 92, upper bound 96; debruijnsequence.org/db/orientable."
+        ],
+        "reasoning": "The exact value 92 appears in previously published tables as the longest KNOWN cycle length, not a theorem establishing the maximum; this distinction directly controls the originality judgment. The database orientable table also records this lower-versus-upper context.",
+        "searches": [
+          "binary orientable sequences order 8 maximum period 92 proven optimal upper bound",
+          "https://arxiv.org/abs/2401.14341",
+          "https://arxiv.org/abs/2108.03069"
+        ]
+      },
+      "rationale": "The published lower construction length 92 and previous published upper 96 are different assertions. A new exact integral matching dual certificate that proves upper 92 closes that genuine gap; no inspected primary source states the bound 92 as proved.",
+      "residual_risks": [
+        "Possibility of an unindexed intervening mathematical proof of the same 92 upper bound since the examined papers; no failed search is represented as novelty proof.",
+        "The explicit dual certificate establishes only order eight; no larger-order claim or extremizer classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "At n=8, lower construction92 reported with upper96; does not claim exact maximum",
+          "evidence": [
+            "Table2 n=8 binary lower92 and upper96."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2401.14341",
+          "material_read": "Complete full HTML/paper, Table2, order-eight discussion and conclusions",
+          "method": "primary_full_html",
+          "title": "Construction of orientable sequences in O(1)-amortized time per bit",
+          "trigger": "Published fixed-order-eight maximum status and constructions"
+        },
+        {
+          "assessment": "General order-eight upper96, no 92 upper",
+          "evidence": [
+            "Theorem 2.5 and Table1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2108.03069",
+          "material_read": "Full primary PDF definitions, Theorem2.5 and Table1 as inspected",
+          "method": "primary_pdf",
+          "title": "Constructing orientable sequences",
+          "trigger": "Original general upper bound for order-eight binary case"
+        },
+        {
+          "assessment": "New constructions and bounds but no fixed binary order-eight upper92 theorem in inspected sections",
+          "evidence": [
+            "Definitions and order-eight discussion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2507.02526",
+          "material_read": "Primary PDF Sections1–2 and conclusions",
+          "method": "primary_pdf_sections",
+          "title": "New orientable sequences",
+          "trigger": "Related later construction might supersede bound"
+        },
+        {
+          "assessment": "Asymptotic or general formula not exact order-eight optimum",
+          "evidence": [
+            "Introduction and period results."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2603.18646",
+          "material_read": "Primary PDF introduction and statements separating binary/nonbinary scope",
+          "method": "primary_pdf_sections",
+          "title": "Constructing orientable and negative orientable sequences with asymptotically optimal period",
+          "trigger": "Latest potentially stronger general bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2401.14341",
+        "https://arxiv.org/abs/2108.03069",
+        "https://arxiv.org/abs/2507.02526",
+        "https://arxiv.org/abs/2603.18646",
+        "https://debruijnsequence.org/db/orientable",
+        "Resultary semantic binary orientable sequences order 8 maximum period 92 proven optimal upper bound"
+      ],
+      "rationale": "Resolves a concrete and long-tabulated natural extremal sequence problem at the first disputed small order beyond exact cases. A compact exactly checkable matching-dual obstruction proves optimality of a previously known construction and may guide further order-specific certificates.",
+      "residual_risks": [
+        "Possibility of an unindexed intervening mathematical proof of the same 92 upper bound since the examined papers; no failed search is represented as novelty proof."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Order eight binary cyclic words; linear words, larger orders and nonbinary alphabets not covered.",
+    "Finite exact certificate is an exhaustive set of inequalities for that graph, not a universal formula."
+  ],
+  "schema_version": 1
+}
