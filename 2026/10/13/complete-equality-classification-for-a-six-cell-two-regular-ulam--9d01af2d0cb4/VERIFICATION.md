@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,25 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py`.
+# Independent mathematical audit
 
-The verifier uses only the Python standard library and performs complete finite checks:
+## correctness
 
-1. Generate all \(90\) rank assignments with multiplicities \((2,2,2)\).
-2. Generate all \(8\) representative permutations for every rank assignment.
-3. Compute every defining representative-class Ulam distance twice: once by dynamic-programming LCS and once by an independent relative-permutation LIS algorithm; require the full matrices to agree.
-4. Build the minimum-distance-\(3\) compatibility graph.
-5. Enumerate maximum cliques with exact Bron--Kerbosch search.
-6. Independently prove existence of a five-clique and nonexistence of a six-clique with fixed-size backtracking.
-7. Independently regenerate every five-clique by nested adjacency intersections and require the result to equal the \(72\)-maximum census.
-8. Recompute every internal distance and require all maxima to be equidistant at distance \(3\).
-9. Independently enumerate all perfect matchings and all \(1\)-factorizations of \(K_6\), then match every optimum to exactly one factorization and verify exactly \(12\) optima per factorization.
-10. Apply all \(720\) cell-label permutations and reproduce the single \(72\)-element optimum orbit and stabilizer order \(10\).
+PASS
 
-The replayed terminal line is:
+Retrieved the actual rank-assignment convention: 90 permutations of multiset (0,0,1,1,2,2), each associated with eight ordinary six-cell permutations. Reconstructed all 4005 pairwise minimum LCS distances, independently obtaining histogram d=1:1080, d=2:1440, d=3:1440, d=4:45; an independent LIS correspondence checks LCS on permutations. Compatibility edges mean distance≥3. Complete bitset clique enumeration gives no six-clique and exactly 72 five-cliques (maximum 5); their ten pair-distances all equal three. Independently checking the 15 perfect matchings and their six partitions into five one-factors proves each maximum yields a K6 1-factorization, with exactly 12 optima over each. The S6 orbit of one maximum contains all 72, hence stabilizer 720/72=10. Scope limited to this finite metric convention.
 
-`VERIFY_OK maximum=5 labeled_maxima=72 equidistant=true factorizations=6 optima_per_factorization=12 S6_orbits=1 orbit_size=72 stabilizer=10`
+## originality
 
-The verification is exhaustive for the stated finite domain and does not establish claims outside it.
+PASS
+
+Best-of-knowledge PASS: 2013 foundational paper defines same quotient-Ulam metric and bounds/constructions but does not imply 5, 72, or K6 one-factorization rigidity. The later sphere-analysis convention differs; the published ordinary (5,3) Ulam permutation census is a different object.
+
+## value
+
+PASS
+
+PASS: a complete optimum classification for a natural storage-code distance is useful on its own; the unexpected K6 one-factorization correspondence and S6-transitive structure explain all 72 maximizers. The classification is not a generic 90-object output table nor mechanically implied by known sphere bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

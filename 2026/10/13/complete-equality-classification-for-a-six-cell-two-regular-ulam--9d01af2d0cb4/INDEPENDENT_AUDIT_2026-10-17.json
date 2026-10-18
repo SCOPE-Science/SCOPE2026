@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T02:49:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Retrieved the actual rank-assignment convention: 90 permutations of multiset (0,0,1,1,2,2), each associated with eight ordinary six-cell permutations. Reconstructed all 4005 pairwise minimum LCS distances, independently obtaining histogram d=1:1080, d=2:1440, d=3:1440, d=4:45; an independent LIS correspondence checks LCS on permutations. Compatibility edges mean distance≥3. Complete bitset clique enumeration gives no six-clique and exactly 72 five-cliques (maximum 5); their ten pair-distances all equal three. Independently checking the 15 perfect matchings and their six partitions into five one-factors proves each maximum yields a K6 1-factorization, with exactly 12 optima over each. The S6 orbit of one maximum contains all 72, hence stabilizer 720/72=10. Scope limited to this finite metric convention.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "At (6,2,3), the general bound evaluates to S(4,3,2)=54, far above exact five."
+        ],
+        "reasoning": "No bound found that dominates in the sense of proving the exact five-codeword upper bound and enumerating 72 equality sets; the new finite structural result is not an immediate specialization.",
+        "searches": [
+          "Farnoud–Milenkovic 2013 general upper bound A◦(n,r,d)≤S(n-d+1,n/r,r)",
+          "Kong–Hagiwara 2017 sphere bounds"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1312.2163v1; DOI:10.1109/JSAC.2014.140512",
+        "arXiv:1701.03896v1",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-complete-census-of-maximum-5-3-ulam-permutation-codes--b06744f952a6",
+        "Resultary 2026-10-17 semantic query: 2 regular multipermutation Ulam code n=6 r=2 distance 3 one factorization 5 codewords 72 maxima"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original n=6,r=2 semi-Latin-square illustration concerns distance two and does not constrain distance-three maximal-clique multiplicities."
+        ],
+        "reasoning": "Neither construction nor sphere-size bound implies five perfect matchings in one K6 1-factorization; the exact 72 classification needs the finite compatibility graph computation.",
+        "searches": [
+          "Farnoud–Milenkovic § constructions at n=6,r=2",
+          "Kong–Hagiwara sphere-analysis model"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2013 codewords are ordered partitions of six labeled cells into three rank-two blocks, 90 possibilities, each represented by eight permutations."
+        ],
+        "reasoning": "Do not identify ordinary permutation codes or later multipermutation correspondence with this quotient metric. Independently, the later rank-word LCS metric has different six-cell pair histogram 711/2130/1107/57, compared to 1080/1440/1440/45 here.",
+        "searches": [
+          "Resultary 2026-10-17 semantic query: 2 regular multipermutation Ulam code n=6 r=2 distance 3 one factorization 5 codewords 72 maxima",
+          "arXiv:1312.2163v1 quotient metric definition",
+          "arXiv:1701.03896v1 alternate multipermutation model"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest Resultary item counts 4020 ordinary length-five permutation maxima, a different ambient set; no 90-point table with 72 maxima located."
+        ],
+        "reasoning": "No identical 72-code census or K6 factorization table found in searched sources; potential unindexed computations remain a risk.",
+        "searches": [
+          "Resultary 2026-10-17 semantic query: 2 regular multipermutation Ulam code n=6 r=2 distance 3 one factorization 5 codewords 72 maxima",
+          "Resultary (5,3) ordinary Ulam permutation equality census",
+          "Web: \"multipermutation\" \"6,2,3\" \"5\" Ulam"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: 2013 foundational paper defines same quotient-Ulam metric and bounds/constructions but does not imply 5, 72, or K6 one-factorization rigidity. The later sphere-analysis convention differs; the published ordinary (5,3) Ulam permutation census is a different object.",
+      "residual_risks": [
+        "Different definitions of multipermutations versus rank-classes in the 2017 source must not be silently equated; novelty under alternate metrics is not asserted.",
+        "Unindexed small-parameter code catalogues could already contain the 72 optimum lists or the K6 factorization structure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MODEL_SAME_GENERAL_BOUNDS_NOT_FULL_EQUALITY",
+          "evidence": "General bound specializes to non-sharp S(4,3,2)=54, and illustrated n=6,r=2 small construction has distance two; does not imply optimum 5 or exactly 72 five-codeword maximizing sets.",
+          "identifier_or_url": "arXiv:1312.2163v1; DOI:10.1109/JSAC.2014.140512",
+          "material_read": "Complete lawful arXiv PDF accessible; studied representation definition, set-minimum Ulam distance, upper-bound formula, n=6,r=2 semi-Latin-square construction sections and relevant example; these do not include distance-3 exact maximum/census.",
+          "method": "Primary full-text arXiv PDF, definitions, theorem and constructions",
+          "title": "Multipermutation Codes in the Ulam Metric for Nonvolatile Memories — Farnoud and Milenkovic",
+          "trigger": "Foundational primary definition using rank-equivalence classes; six-cell construction"
+        },
+        {
+          "assessment": "NOT_DEMONSTRATED_TO_IMPLY_SAME_CENSUS",
+          "evidence": "Their explicitly changed inverse/forward correspondence yields a genuinely different 90-point pair-distance histogram at n6,r2, so no same-metric equality result follows. Scope is sphere sizes/bounds, not the 2013 quotient metric one-factorization census.",
+          "identifier_or_url": "arXiv:1701.03896v1",
+          "material_read": "Lawful full arXiv PDF opened, read §II mapping definition (explicitly distinguished from the inverse correspondence of [4]), §III rank-word LCS criterion, and sphere-size/bounds scope. Direct 90-word comparison gives their rank-LCS pair histogram d=1:711, d=2:2130, d=3:1107, d=4:57, in contrast to 2013 quotient metric d=1:1080, d=2:1440, d=3:1440, d=4:45.",
+          "method": "Lawful arXiv source/abstract and model comparison",
+          "title": "Multipermutation Ulam Sphere Analysis Toward Characterizing Maximal Code Size — Kong and Hagiwara",
+          "trigger": "Potential stronger bounds or alternate multipermutation metric"
+        },
+        {
+          "assessment": "DIFFERENT_AMBIENT_METRIC",
+          "evidence": "Five ordinary permutation coordinates vs six rank assignments of shape (2,2,2) produce unrelated compatibility graphs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-complete-census-of-maximum-5-3-ulam-permutation-codes--b06744f952a6",
+          "material_read": "Published result summary checked; ordinary permutations of length 5 at distance 3, with 4020 code maxima.",
+          "method": "Resultary semantic search and source summary",
+          "title": "Complete census of maximum (5,3) Ulam permutation codes — published Resultary finding",
+          "trigger": "Closest semantic Resultary finding on Ulam code equality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: a complete optimum classification for a natural storage-code distance is useful on its own; the unexpected K6 one-factorization correspondence and S6-transitive structure explain all 72 maximizers. The classification is not a generic 90-object output table nor mechanically implied by known sphere bounds.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The 90 six-cell 2-regular Ulam rank words at distance at least three form codes of maximum size five; exactly 72 maxima exist, each equidistant and inducing a one-factorization of K6; the maxima form one S6 orbit.",
+  "limitations": [
+    "Different definitions of multipermutations versus rank-classes in the 2017 source must not be silently equated; novelty under alternate metrics is not asserted.",
+    "Unindexed small-parameter code catalogues could already contain the 72 optimum lists or the K6 factorization structure.",
+    "Result is a natural but finite exact classification; no general all-length or all-parameter theorem is claimed.",
+    "Publication specifically NOT READY because potentially public AUDIT.json/METADATA.json preserve operational IDs and private provenance references; complete sanitized replacement source bytes are not supplied, so no accepted publication row."
+  ],
+  "schema_version": 1
+}
