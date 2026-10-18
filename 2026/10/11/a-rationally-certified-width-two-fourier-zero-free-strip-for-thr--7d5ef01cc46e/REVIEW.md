@@ -1,12 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The exact domain is all \(\alpha>0\) for the three-dimensional balanced bipyramid. The Fourier representation agrees with the direct Bessel transform of each circular section. Two integrations by parts reduce the all-real-frequency question to positivity of \(H(u,s)\). Strict monotonicity of \(J_0(z)-zJ_1(z)\) on \([0,2]\) reduces all transverse arguments to one endpoint. Small and large axial frequencies have independent explicit rational lower bounds; the intervening compact band is certified by 261 exact rational samples **plus** a uniform interpolation bound and Bessel/Taylor remainder estimates. The packaged program was replayed successfully and checked the claimed integer/rational inequalities. The equal-volume ball's first root and volume normalizations were reconstructed. No unproved extrapolation from a finite grid is made.
+## correctness
 
-## Originality (PASS, with residual risk)
-The closest direct comparison is Gómez-Serrano, Levitin, Platt and Polterovich, arXiv:2609.10517v1 (Sections 1 and 2), which establishes an unspecified positive transverse zero-free interval and qualitative sufficiently large parameter \(\alpha\). A public September 2026 Pólya–Bessel zero-free-strip note (identifier `72c1da0f9bb0`) establishes the more specific but weaker bound \(s\le r_3\approx1.25578\) and sufficient \(\alpha>91.6248\). Its positivity-of-second-derivative premise fails at \(s=2\); the present certificate instead proves positivity of an integrated signed kernel and yields \(s\le2\) and every \(\alpha\ge23\). A prior geometric asymptotic result with an uncomputed sharp transverse threshold also does not imply the numeric value \(2\). Title and formula searches cannot exclude unindexed or unpublished equivalent proofs; a 2009 antecedent paper was not comprehensively inspected.
+PASS
 
-## Mathematical value (PASS)
-The result turns a qualitative counterexample into an explicit parameter-uniform constructive family and improves the existing sufficient elongation threshold by approximately a factor of four. Its principal mechanism—a zero-free integral beyond the pointwise convexity of its kernel—is reusable for sharper Fourier-zero estimates. The proof supplies a rational reproducibility certificate with an analytically controlled continuous domain. No optimality claim for \(2\) or \(23\) is made, and the result does not solve unrestricted isoperimetry for Fourier zeros.
+Integrating disk slices and twice integrating by parts gives \(u^2F(u,s)/(4\pi)=H(u,s)=\int_0^1g(s(1-x))(1-\cos ux)\,dx\) with \(g(z)=J_0(z)-zJ_1(z)\), transverse \(s=\|\eta\|_2/\alpha\). The Bessel sign estimates make \(g\) strictly decreasing on \([0,2]\), so the continuum of transverse frequencies reduces to \(s=2\). The analytic inequalities prove \(H(u,2)\ge11u^2/120\) for \(0<u\le1\), and \(H(u,2)>1/175\) for \(u\ge14\). For \(1\le u\le14\), a fresh independent exact-Fraction evaluation of the paper-defined degree-40/11-term integrated Taylor polynomial on all 261 nodes found minimum about 0.11520649; its exact rational value exceeds \(1/20\), the uniform Taylor remainder is less than \(10^{-10}\), and the proved derivative interpolation error is at most \(3/80\). This is a complete continuum certificate, not an unsupported finite grid. The zero-axial-frequency original slice integral is positive. Volume \(2\pi/(3\alpha^2)\) and \(j_{3/2,1}<9/2\) give the equal-volume ball comparison at \(\alpha\ge23\). The nonempty closed real zero-set theorem ensures the attained minimum is strictly beyond the closed strip.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The initiating 2026 Fourier-zero isoperimetry preprint proves a positive but unquantified transverse zero-free strip and reports a numerical elongated bicone; it does not imply a universal explicit width of two or threshold 23. A prior mathematical note reportedly established width roughly 1.25578 and sufficient cutoff roughly 91.625 from convexity of the slice kernel. That pointwise-convexity argument ceases to apply at width two; positivity of the integrated oscillatory kernel and its rational certificate are an additional strengthening. The earlier note was identified but its standalone full text was not accessible; the comparison retains an explicit risk.
+
+## value
+
+PASS
+
+This is a substantive quantitative advance on an explicitly motivated Fourier-zero isoperimetric counterexample family. It certifies a strictly wider *all-frequency* zero-free region and lowers a sufficient geometric elongation parameter from about 92 to 23 by combining analytic inequalities and an exact rational continuum certificate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
