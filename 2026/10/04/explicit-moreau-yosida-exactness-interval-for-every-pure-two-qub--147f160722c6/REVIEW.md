@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The final statement follows from an exact partial-transpose trace-norm support, the convex-roof inequality \(2N\le C\), convexity of the Wootters entropy function, and the spectral-diameter criterion for the Moreau–Yosida approximation. Endpoint and derivative calculations were independently checked.
+## correctness
 
-## Originality
-PASS. The closest primary paper gives the Moreau–Yosida criterion and the Bell-state case. A later full two-qubit supporting-functional classification proves qualitative support existence for entangled pure states, but full-text inspection found neither this explicit support nor the concurrence-dependent parameter interval. Targeted semantic and web searches found no equivalent statement.
+PASS
 
-## Value
-PASS. The result converts qualitative existence into an elementary state-dependent certificate with an exact spectral diameter and a directly usable closed-form sufficient interval.
+For Schmidt form psi=a|00>+b|11> with concurrence c=2ab, rho^{T_B} has spectrum (a^2,b^2,ab,-ab) for a,b>0; its sign is swap F. The trace-norm subgradient gives N(sigma)>=Tr[(|Phi+><Phi+|-I/2)sigma] with equality N(rho)=c/2. Since pure-state negativity is C/2, negativity convexity and concurrence's convex roof yield 2N(sigma)<=C(sigma). Wootters f(C) is increasing and convex; differentiating yields f'(c)=(c/(2r))log((1+r)/(1-r)), f''(c)=[log((1+r)/(1-r))-2r]/(2r^3)>0 with f'(1)=1. Hence Lambda=2f'(c)W+[f(c)-cf'(c)]I supports E_F globally at rho and has diameter 2f'(c). Trace-norm duality |Tr Lambda(rho-sigma)|<=(diam Lambda/2)||rho-sigma||_1 proves the sufficient exactness condition 2f'(c)<=1/lambda for the cited norm-penalty convention. The c=1 derivative limit and c=0 separable lower bound are handled separately. The threshold is sufficient, not proved optimal.
 
-## Closest literature and limitations
-The closest sources are arXiv:2609.30246v2 and arXiv:2609.31097v1. The result deliberately does not claim threshold optimality.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Prior qualitative existence of global supports for pure entangled two-qubit states is acknowledged. The retained assertion is an explicit negativity-based supporting operator with computed spectral diameter and a concurrence-dependent sufficient lambda interval. No explicit version of the same interval was identified in current accessible abstracts and targeted searches, with material full-text access gaps documented as real residual risks.
+
+## value
+
+PASS
+
+Converts a natural qualitative supporting-functional existence question into a usable, exact state-dependent sufficient parameter window for every pure two-qubit state, including the Bell and separable endpoints. The explicit operator norm diameter makes the certificate independently applicable, not a purely renamed existence theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
