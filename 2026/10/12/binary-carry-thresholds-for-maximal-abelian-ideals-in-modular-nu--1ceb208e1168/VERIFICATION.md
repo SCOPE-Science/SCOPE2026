@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-The executable `artifacts/verify.py` reconstructs the integral binomial product defining the canonical null-filiform Zinbiel algebra. It evaluates the Zinbiel coefficient identity on all triples of indices from \(1\) through \(25\), and independently checks the mod-two bit-overlap criterion for all pairs through \(256\).
+# Independent mathematical audit
 
-The program reconstructs the least total degree of a nonzero product in each tail by searching both product orientations through indices \(1024\), and checks the theorem's \(j+t(j)\) formula for \(1\le j\le512\). It independently checks the closed \(\beta\) formula for \(2\le n\le512\).
+## correctness
 
-For each \(2\le n\le6\), it explicitly constructs **every** vector subspace of \(\mathbf F_2^n\), tests both left and right ideal conditions against the full basis, and confirms that the only ideals are the \(n+1\) tails and that exactly one largest abelian ideal exists. The numbers of all subspaces are \(5,16,67,374,2825\), respectively. It also checks the unbounded-gap instances \(2\le r\le9\).
+PASS
 
-The checker output is embedded as `artifacts/verify_output.txt` and ends in `VERIFY_OK`.
+Left multiplication by e_1 has one Jordan block, so every two-sided ideal is a chain tail A_j, provided the specified multiplication is Zinbiel (the integral binomial identity verifies this in every reduction). Lucas parity gives e_i∘e_k nonzero exactly when (i-1)&k=0, in range i+k<=n. The candidate product e_j∘e_{t(j)} has odd coefficient; for all smaller i+k with i,k>=j, the common t(j)/2 bit forces even coefficients. Thus least nonzero total degree is j+t(j), the tail is abelian exactly when j+t(j)>n, and solving within powers of two gives beta=min(2^r,n-2^{r-1}) and unique largest tail. Independent direct modular-binomial enumeration checked 8,255 pairs of n,j across 2<=n<=128, including all threshold cases; the infinite claim follows from Lucas and Jordan-block reasoning.
 
-These finite computations do not prove the infinite claims; the arbitrary-dimension proof is given in `RESULT.md`.
+## originality
+
+PASS
+
+The closest same-object Ceballos–Towers result is over C and gives a numerically incompatible cutoff. The canonical form from Camacho et al holds more broadly but does not classify char2 abelian ideal dimensions. Lucas is a standard tool, yet applying it to the minimal nonzero tail-product degree and exact all-n beta produces a different invariant theorem.
+
+## value
+
+PASS
+
+The maximal dimension of abelian two-sided ideals is a natural invariant for nilpotent nonassociative algebras. The canonical one-generated Zinbiel family has a known characteristic-zero value but a sharply different modular behavior: an exact binary-carry classification and an unbounded excess along n=3·2^{r-1}. The explicit all-dimension formula provides a nonroutine modular structural fact; finite enumeration alone is not its justification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

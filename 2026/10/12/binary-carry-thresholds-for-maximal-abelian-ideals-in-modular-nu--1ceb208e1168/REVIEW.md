@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the canonical binomial Zinbiel product, the integer coefficient identity verifies the Zinbiel law in all characteristics. Since left multiplication by \(e_1\) is one nilpotent Jordan block, every ideal is a tail. Lucas parity proves that the least degree of a nonzero product within the tail beginning at \(e_j\) is precisely \(j+t(j)\), with \(t(j)\) the least power of two at least \(j\). Solving that inequality yields the claimed unique largest abelian ideal and exact dimension. The bundled checker supplies independent finite replay, not an infinite proof.
+PASS
 
-## Originality — PASS
+Left multiplication by e_1 has one Jordan block, so every two-sided ideal is a chain tail A_j, provided the specified multiplication is Zinbiel (the integral binomial identity verifies this in every reduction). Lucas parity gives e_i∘e_k nonzero exactly when (i-1)&k=0, in range i+k<=n. The candidate product e_j∘e_{t(j)} has odd coefficient; for all smaller i+k with i,k>=j, the common t(j)/2 bit forces even coefficients. Thus least nonzero total degree is j+t(j), the tail is abelian exactly when j+t(j)>n, and solving within powers of two gives beta=min(2^r,n-2^{r-1}) and unique largest tail. Independent direct modular-binomial enumeration checked 8,255 pairs of n,j across 2<=n<=128, including all threshold cases; the infinite claim follows from Lucas and Jordan-block reasoning.
 
-Ceballos–Towers Proposition 4.2 is the closest exact object and invariant, but it assumes complex scalars, and its nonvanishing argument does not survive in characteristic two. Camacho and collaborators recall the arbitrary-field binomial normal form, but the inspected theorem does not give modular abelian-ideal dimensions. Targeted equivalent-formulation, broader-coverage, and exact-formula searches found no dominating statement. An equivalent result under modular shuffle-algebra terminology remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The maximal abelian-ideal invariant is a standard motivated structural quantity. Its complex formula fails in an unbounded way in the canonical characteristic-two family, and the new result gives a complete power-of-two cutoff and unique maximizer for all dimensions. This sharp, field-characteristic-sensitive classification is not reducible to one exceptional low-dimensional example.
+The closest same-object Ceballos–Towers result is over C and gives a numerically incompatible cutoff. The canonical form from Camacho et al holds more broadly but does not classify char2 abelian ideal dimensions. Lucas is a standard tool, yet applying it to the minimal nonzero tail-product degree and exact all-n beta produces a different invariant theorem.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The maximal dimension of abelian two-sided ideals is a natural invariant for nilpotent nonassociative algebras. The canonical one-generated Zinbiel family has a known characteristic-zero value but a sharply different modular behavior: an exact binary-carry classification and an unbounded excess along n=3·2^{r-1}. The explicit all-dimension formula provides a nonroutine modular structural fact; finite enumeration alone is not its justification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
