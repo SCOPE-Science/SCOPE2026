@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The object and endpoint convention are stated explicitly. The finite verifier reconstructs every source set for \(2\le n\le11\), compares direct one-deletion-shadow disjointness with a separate longest-common-subsequence dynamic program on every pair, exhaustively enumerates all candidate subsets through the first impossible size, and rechecks the three length-eleven maxima. The decisive upper bound at \(n=11\) is exhaustive: all \(11628\) five-subsets fail. The published Theorem V.2 value \(823/105\) is independently re-evaluated from its formula.
+## correctness
 
-## Originality
-PASS. The closest primary source is Kulkarni--Kiyavash arXiv:1211.3128, whose Section V-A defines this constrained source and gives a general upper bound; it does not state the exact \((n,d)=(11,2)\) optimum or equality cases and explicitly leaves exact simplification of its RLL bounds outside its scope. The directly inspected Palunčić et al. article gives an asymptotic construction/decoder rather than a fixed-length extremal census. The Cheng--Ferreira--Broere and Bours works are construction-oriented and do not supply an implication-equivalent finite result in the inspected material. Targeted exact-parameter and alias searches found no published equality classification. Residual risk remains for an obscure or unindexed finite enumeration.
+PASS
 
-## Value
-PASS. The case \(d=2\) is the first nontrivial regime of the cited RLL theorem, and \(n=11\) is the first length at which the exact optimum reaches four. The published bound there is only \(823/105\), hence the integer bound seven, so the exact value four closes a real finite gap rather than merely recomputing a known table. The three equality cases and their reversal structure provide a compact benchmark for constrained deletion-code algorithms.
+For n=2..11 the source consists of binary words with length>=2 leading/trailing zero runs, singleton one runs, and at least two zeros between ones. Independently generated all source words, formed each distinct length-(n-1) deletion shadow and built the compatibility graph. Exhaustive recursive clique enumeration returned source cardinalities 1,1,1,2,3,4,6,9,13,19, exact optima 1,1,1,1,1,1,2,2,3,4 and labeled maximizing-code counts 1,1,1,2,3,4,1,6,3,3. At n=11 exactly three maxima exist; absence of clique size five is certified by complete 19-word compatibility-graph enumeration, not a heuristic. Their displayed codewords are compatible. Distinct shadow intersections are equivalent to LCS length >= n-1. No all-n statement was inferred.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Kulkarni-Kiyavash prove a general constrained-source fractional matching bound and use exactly the strict endpoint-run convention, but do not in their Section V supply the exact n<=11 maxima or the three equality cases. Subsequent RLL synchronization constructions address code families and asymptotic rates rather than these exact small-block optimum multiplicities in searched sources.
+
+## value
+
+PASS
+
+The full initial exact profile through first attainment of size four, with all three n=11 maximizers and reversal symmetry, sharpens a natural but loose published upper bound (integer <=7) to exactly 4. It is a finite but complete and reproducible exact coding-theoretic benchmark under a specific physically motivated constrained-source convention.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

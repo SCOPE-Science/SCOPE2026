@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T16:01:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n=2..11 the source consists of binary words with length>=2 leading/trailing zero runs, singleton one runs, and at least two zeros between ones. Independently generated all source words, formed each distinct length-(n-1) deletion shadow and built the compatibility graph. Exhaustive recursive clique enumeration returned source cardinalities 1,1,1,2,3,4,6,9,13,19, exact optima 1,1,1,1,1,1,2,2,3,4 and labeled maximizing-code counts 1,1,1,2,3,4,1,6,3,3. At n=11 exactly three maxima exist; absence of clique size five is certified by complete 19-word compatibility-graph enumeration, not a heuristic. Their displayed codewords are compatible. Distinct shadow intersections are equivalent to LCS length >= n-1. No all-n statement was inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kulkarni-Kiyavash theorem yields 823/105 (integer bound seven) at n=11,d=2, strictly weaker than four. Earlier construction literature covers families but not certified full exact equality case in inspected source."
+        ],
+        "reasoning": "General LP upper bounds and asymptotic code constructions do not imply the exact optimum four or count three without this finite compatibility analysis.",
+        "searches": [
+          "arxiv:1211.3128 run-length limited Theorem 5.2 bounds",
+          "Paluncic Abdel-Ghaffar Ferreira Clarke multiple insertion deletion RLL codes"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1211.3128 full PDF",
+        "DOI:10.1109/TIT.2011.2172725 bibliographic description",
+        "Resultary RLL deletion optimum search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary paper explicitly says exact simplification of RLL bounds beyond scope, and bounds size by <=7 here; three n=11 maximum sets require additional exact search."
+        ],
+        "reasoning": "A general algorithm capable of enumeration is not itself an already-computed equality classification; the claim adds nontrivial finite optimization rather than rephrasing the bound.",
+        "searches": [
+          "Kulkarni Kiyavash 2012 constrained source n 11 d 2 upper bound",
+          "Bours 1994 runlength-limited codes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kulkarni-Kiyavash Section V-A formally defines S_n(d,k) with strict boundary zero runs and deletion code maximum as hypergraph matching."
+        ],
+        "reasoning": "Finite optimum is maximum clique of pairwise disjoint deletion shadows; generic maximum-matching reduction is a framework, not a tabulated solution at n=11.",
+        "searches": [
+          "\"S_n(2,infinity)\" \"11\" single deletion optimum",
+          "run length limited source one-deletion compatibility graph maximum clique"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returns other finite coding tasks: binary substring edit, unrestricted ternary deletion and VT code census, none the strict (2,infinity) source."
+        ],
+        "reasoning": "No known table with exact n=11/maximizer count was retrieved, but an obscure earlier enumeration remains possible.",
+        "searches": [
+          "Resultary RLL (2,infty) single deletion length 11 exact",
+          "\"run length limited\" \"11\" \"three\" deletion codes"
+        ]
+      },
+      "rationale": "Kulkarni-Kiyavash prove a general constrained-source fractional matching bound and use exactly the strict endpoint-run convention, but do not in their Section V supply the exact n<=11 maxima or the three equality cases. Subsequent RLL synchronization constructions address code families and asymptotic rates rather than these exact small-block optimum multiplicities in searched sources.",
+      "residual_risks": [
+        "Novelty specifically finite exact initial profile and labeled n=11 equality cases; does not establish an all-n exact formula.",
+        "No exhaustive full-text check of every earlier engineering code table was feasible.",
+        "Reproduction enumerates only n<=11 as claimed; no confidence extrapolation beyond it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The authors derive non-asymptotic bounds, not the n<=11 exact optima or three maximum codes.",
+          "evidence": [
+            "Section V-A lines 1984-2024 specifies first and last zero-runs of length >=d and both-symbol single-deletion channel; Theorem V.2 supplies upper bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1211.3128",
+          "material_read": "Full 18-page PDF: Sections I-II and V-A, source definition, constrained-source theorem, RLL conventions, and references",
+          "method": "Primary indexed full-text PDF, checked page images",
+          "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+          "trigger": "Exact origin of constrained source and numerical bound"
+        },
+        {
+          "assessment": "Construction and asymptotic performance are not a demonstrated exact labeled optimum table in material read; residual risk explicit.",
+          "evidence": [
+            "Kulkarni-Kiyavash Section II identifies the article as a full deletion-channel RLL construction."
+          ],
+          "identifier_or_url": "doi:10.1109/TIT.2011.2172725",
+          "material_read": "Abstract/bibliographic scope and citation via Kulkarni-Kiyavash reference; full text not inspected in this execution",
+          "method": "Bibliographic/primary-reference context",
+          "title": "A Multiple Insertion/Deletion Correcting Code for Run-Length Limited Sequences",
+          "trigger": "Closely related same deletion channel on RLL source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full initial exact profile through first attainment of size four, with all three n=11 maximizers and reversal symmetry, sharpens a natural but loose published upper bound (integer <=7) to exactly 4. It is a finite but complete and reproducible exact coding-theoretic benchmark under a specific physically motivated constrained-source convention.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:1211.3128 full PDF",
+    "DOI:10.1109/TIT.2011.2172725 bibliographic description",
+    "Resultary RLL deletion optimum search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Novelty specifically finite exact initial profile and labeled n=11 equality cases; does not establish an all-n exact formula.",
+    "No exhaustive full-text check of every earlier engineering code table was feasible.",
+    "Reproduction enumerates only n<=11 as claimed; no confidence extrapolation beyond it.",
+    "Publication withheld: no source mutation or finalized sanitized import package.",
+    "Best-of-knowledge primary-source and computation review; no formal, independent expert, or external certification."
+  ],
+  "residual_risks": [
+    "Novelty specifically finite exact initial profile and labeled n=11 equality cases; does not establish an all-n exact formula.",
+    "No exhaustive full-text check of every earlier engineering code table was feasible.",
+    "Reproduction enumerates only n<=11 as claimed; no confidence extrapolation beyond it."
+  ],
+  "schema_version": 1
+}

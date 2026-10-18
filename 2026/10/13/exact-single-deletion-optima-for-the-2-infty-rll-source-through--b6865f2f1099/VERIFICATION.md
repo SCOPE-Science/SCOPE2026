@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`artifacts/verify.py` reconstructs the Kulkarni--Kiyavash source convention directly for every \(2\le n\le11\). For every source pair it compares two independently implemented compatibility tests: exact intersection of the distinct one-deletion shadows, and a dynamic-programming longest-common-subsequence calculation. The two tests agree on every pair.
+# Independent mathematical audit
 
-For each length, the script enumerates every candidate subset at successive sizes until the first cardinality with no compatible subset. This proves the optimum sequence \(1,1,1,1,1,1,2,2,3,4\) for lengths \(2\) through \(11\), together with maximizer counts \(1,1,1,2,3,4,1,6,3,3\). At length \(11\), all \(\binom{19}{5}=11628\) five-subsets are checked and rejected, while exactly three four-subsets survive.
+## correctness
 
-The verifier checks the three explicit maxima, their common all-zero word, the weight-two condition on every other codeword, the shadow-size profile \(1,5,5,5\), total received-word coverage \(16\), and the reversal orbit sizes \(1\) and \(2\). It separately evaluates Kulkarni--Kiyavash Theorem V.2 at \((n,d)=(11,2)\) as \(823/105\), whose integer consequence is only the upper bound \(7\).
+PASS
 
-The claim is finite and exact. No random sampling, heuristic search, timeout result, or extrapolation beyond length \(11\) is used.
+For n=2..11 the source consists of binary words with length>=2 leading/trailing zero runs, singleton one runs, and at least two zeros between ones. Independently generated all source words, formed each distinct length-(n-1) deletion shadow and built the compatibility graph. Exhaustive recursive clique enumeration returned source cardinalities 1,1,1,2,3,4,6,9,13,19, exact optima 1,1,1,1,1,1,2,2,3,4 and labeled maximizing-code counts 1,1,1,2,3,4,1,6,3,3. At n=11 exactly three maxima exist; absence of clique size five is certified by complete 19-word compatibility-graph enumeration, not a heuristic. Their displayed codewords are compatible. Distinct shadow intersections are equivalent to LCS length >= n-1. No all-n statement was inferred.
+
+## originality
+
+PASS
+
+Kulkarni-Kiyavash prove a general constrained-source fractional matching bound and use exactly the strict endpoint-run convention, but do not in their Section V supply the exact n<=11 maxima or the three equality cases. Subsequent RLL synchronization constructions address code families and asymptotic rates rather than these exact small-block optimum multiplicities in searched sources.
+
+## value
+
+PASS
+
+The full initial exact profile through first attainment of size four, with all three n=11 maximizers and reversal symmetry, sharpens a natural but loose published upper bound (integer <=7) to exactly 4. It is a finite but complete and reproducible exact coding-theoretic benchmark under a specific physically motivated constrained-source convention.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
