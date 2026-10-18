@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T10:12:07Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md b9d25570d1f58e3eadbf4d90cb2aff7f82bc202d",
+        "Pinned verify.py a60d25ed6cebf78bd3f4b1527249d3842b808eb9",
+        "Independent check1, five angular minimizations and exact rational thresholds"
+      ],
+      "rationale": "The posterior information matrix P^{-1}+r^{-1}hh^T has trace independent of h in dimension two. Its condition number strictly decreases with its determinant at fixed trace, and the matrix determinant lemma reduces maximal determinant to the simple largest-eigenvalue Rayleigh quotient; hence exactly h=±u_L minimizes conditioning. The posterior variances are Lr/(L+r), mu; division yields q=Lr/[mu(L+r)] and condition max(q,1/q). Solving q=1 gives r*=Lmu/(L-mu), while q<1/(L/mu) is equivalent to r<Lmu^2/(L^2-mu^2). Normalization ||h||=1, positive r and strict L>mu are necessary; exact (4,1) example checks r*=4/3 and r=1/4 gives 17/4. This is an analytic all-parameter proof, not finite extrapolation.",
+      "residual_risks": [
+        "The result is only 2-dimensional, one scalar measurement, unit direction, fixed prior and Gaussian independent noise; no state prediction or sensor library is analyzed.",
+        "The packaged verifier checks finite rational cases, not a universal statement."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Belabbas concerns Riccati/estimation error, Tzoumas trace and logdet; Oshman conceptual largest-uncertainty direction."
+        ],
+        "reasoning": "These general sensor-design works do not provide a dominating theorem for the spectral condition-number objective at fixed scalar noise, as far as inspected statements support.",
+        "searches": [
+          "arXiv:1503.05968",
+          "arXiv:1509.08146",
+          "Oshman 1994 IEEE TAC sensor-selection"
+        ]
+      },
+      "checked_sources": [
+        "H. Wolkowicz, Measures for Symmetric Rank-One Updates, Math. Oper. Res. 19 (1994), PDF first page and p820",
+        "Belabbas, Geometric methods for optimal sensor design, arXiv:1503.05968 (abstract read)",
+        "Herring and Melsa, Optimum measurements for estimation, IEEE TAC 19 (1974) landing/abstract (full text blocked)",
+        "Resultary semantic Kalman condition/isotropy query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wolkowicz secant-quasi-Newton is not a conditional Gaussian posterior; Herring–Melsa same-object full content unavailable."
+        ],
+        "reasoning": "Only the eigenvector preference has clear prior coverage. Strict prior-worsening inequality and exact noise isotropy remain qualified new best-of-knowledge results; the uninspected IEEE text is a material residual risk, not a fabricated negative comparison.",
+        "searches": [
+          "Herring–Melsa 1974, DOI landing / Oxford authorized attempt",
+          "Wolkowicz 1994 PDF introduction and p820"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both Kalman information update and quasi-Newton update are SPD rank-one perturbations, but Wolkowicz optimizes under secant constraints and scale-dependent ellipsoid measures."
+        ],
+        "reasoning": "Translating the posterior inverse to an SPD rank-one update does not turn Wolkowicz’s secant-constrained optimality statement into the fixed-1/r two-eigenvalue threshold, so no established implication was found; algebraic equivalence remains a risk.",
+        "searches": [
+          "Resultary semantic search: 2x2 Kalman scalar measurement optimum condition number isotropic posterior critical measurement noise",
+          "Wolkowicz 1994 PDF on condition-optimal symmetric rank-one updates"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact posterior condition number/noise threshold table located; related Resultary spectral-calibration records optimize other covariance metrics."
+        ],
+        "reasoning": "The target is a two-parameter analytic frontier, not an existing finite computation or database item; lack of search hits is not novelty proof.",
+        "searches": [
+          "Resultary Kalman query",
+          "targeted searches: optimum measurements condition number posterior isotropic threshold"
+        ]
+      },
+      "rationale": "The preferred maximum-variance measurement direction is previously recognized in Kalman sensor selection; the candidate cannot claim that alone. Belabbas optimizes estimation error and steady-state Riccati sensor geometry, Tzoumas and others use trace/log determinant, and Wolkowicz (1994) proves condition-oriented quasi-Newton rank-one updates with secant constraints rather than a fixed-noise Bayesian covariance update. Their inspected statements do not explicitly entail the joint optimum posterior anisotropy envelope, unique noise for isotropy and exact prior-worsening frontier. IEEE 1974 Herring–Melsa is a plausible same-subject source but its full text was blocked, so this is a qualified best-of-knowledge PASS with material priority risk.",
+      "residual_risks": [
+        "Uninspected Herring–Melsa 1974 IEEE full body may give condition-number thresholds; institutional downloader reported vpn_disconnected, with no bypass.",
+        "Older rank-one condition-number optimization may contain algebraically equivalent 2x2 formulas outside Kalman terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_OVERLAP_NOT_PROVED_COVERING",
+          "evidence": "Defines quasi-Newton secant B s=y, sized rank-one updates and κ conditioning; does not in inspected pages state scalar Gaussian r*.",
+          "identifier_or_url": "https://www.math.uwaterloo.ca/~hwolkowi/henry/reports/sr1MOR.pdf",
+          "material_read": "Original PDF abstract/introduction p815 and theorem/ellipsoid constraints p820; NOT full 17-page body",
+          "method": "web PDF page screenshots",
+          "title": "Measures for Symmetric Rank-One Updates",
+          "trigger": "Condition number optimization of SPD rank-one updates"
+        },
+        {
+          "assessment": "PLAUSIBLE_ALTERNATIVE_UNRESOLVED",
+          "evidence": "Optimizes estimation error with Riccati-geometry commuting operators; condition-number objective not identified from abstract alone.",
+          "identifier_or_url": "https://arxiv.org/abs/1503.05968",
+          "material_read": "Abstract and metadata only; full theorem proof not read in this run",
+          "method": "arXiv bibliographic/abstract",
+          "title": "Geometric methods for optimal sensor design",
+          "trigger": "Kalman continuous sensor design"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_SOURCE",
+          "evidence": "IEEE full-page fetch returned bot restriction; authorized institutional tool returned vpn_disconnected and requested manual connection.",
+          "identifier_or_url": "https://ieeexplore.ieee.org/document/1100568/",
+          "material_read": "Title, citation, abstract/index and original 3-page PDF search listing; full text access blocked",
+          "method": "IEEE landing and public search, then authorized Oxford downloader",
+          "title": "Optimum measurements for estimation",
+          "trigger": "1974 early measurement-choice priority"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "The distinction between Loewner monotonicity and condition-number nonmonotonicity is explicit in the pinned proof",
+        "Wolkowicz 1994 motivates condition criteria independently of trace/volume",
+        "Exact 4/3 isotropy versus 1/4 overmeasurement witness"
+      ],
+      "rationale": "The optimum noise strength is a genuine model boundary: one scalar observation can exactly isotropize a 2D uncertainty ellipsoid, whereas improving its precision past a second explicit boundary raises spectral anisotropy above the prior while reducing covariance in Loewner order. The exact direction and thresholds answer a natural sensor-design criterion that is not simply the conventional trace or volume objective; this narrow self-contained closed frontier can inform diagnostic choice.",
+      "residual_risks": [
+        "The derivation is short and uses standard 2x2 spectral algebra; significance is limited to the genuinely motivated anisotropy threshold, not a general sensor-selection principle."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "2D strictly anisotropic prior; normalized scalar Gaussian measurement with positive noise; no prediction or many-sensor generalization."
+  ]
+}
