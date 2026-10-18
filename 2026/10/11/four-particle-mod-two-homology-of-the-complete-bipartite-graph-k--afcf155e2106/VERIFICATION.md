@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact chain verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with only Python 3's standard library. The script must print two equal rank/Betti reports for opposite local reference-edge conventions and then `VERIFY_OK`.
+## correctness
 
-The program exhaustively enumerates all reduced weight-four chain generators of \(K_{5,4}\), builds every differential column from the published local halfedge rule, and performs exact Gaussian elimination over \(\mathbb F_2\) using integer bitwise XOR. It checks dimensions \((8855,47740,89460,68120,17461)\), differential ranks \((8854,38873,50306,17461)\), and resulting mod-two Betti dimensions \((1,13,281,353,0)\). It also checks the full \(\partial^2=0\) identity on degree-two through degree-four chains for one complete choice of local references; the second reference choice is computed separately. Finally it evaluates the coefficient of \(t^4\) in Gal's independent Euler series, obtaining \(-84\).
+PASS
 
-The computation is finite, exhaustive and characteristic two. Neither a failed run nor a timeout would constitute a mathematical impossibility result. It does not establish integral, rational, odd-characteristic or equivariant homology and no independent audit has been performed.
+Used reduced Świątkowski weight-four generators and exact mod-two local differential. Rebuilt all chain groups (8855,47740,89460,68120,17461) and independently recomputed exact boundary ranks (8854,38873,50306,17461) via bitvector elimination, with both first- and last-reference halfedges; verified d²=0 exhaustively in all applicable degrees for one reference and Gal Euler coefficient −84. Rank-nullity gives the stated full β-vector. This finite computation enumerates the entire finite chain model, not a partial search, and the chain-model theorem transfers to the actual configuration space.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS: An’s highly relevant new full primary document itself calls for this class of lower Betti values; exhaustive finite rank computation addresses exact K5,4 case and is not implied by known top/torsion statements.
+
+## value
+
+PASS
+
+This is the natural first m=4,r=1 test case of An’s explicit open complete-bipartite graph-braid Betti question. Its exact lower characteristic-two homology fills a specific missing invariant, neither the top homology theorem nor the Euler characteristic provides these two independent middle ranks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
