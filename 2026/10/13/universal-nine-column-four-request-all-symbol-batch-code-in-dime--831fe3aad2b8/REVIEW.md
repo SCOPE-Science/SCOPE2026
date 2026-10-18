@@ -1,19 +1,21 @@
-# Review: Universal nine-column four-request all-symbol batch code in dimension four
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The nine integer columns contain an identity block, so the rank is four over any field. `certificates.json` supplies signed coefficient expansions with supports disjoint across all four requests for each of the nine repeated-symbol cases and all 36 repeated-pair cases. `verify.py` reproduced all 45 bundles directly over the integers, then constructed and checked all 495 possible four-request multisets. The proof shows why these 45 primitive cases suffice: multiplicities \(3+1\) and \(2+1+1\) are handled by avoiding at most two singleton coordinates among four disjoint PIR sets, and four distinct requests use singletons. Specializing exact integer identities proves the upper bound over every field. The lower bound nine follows from Proposition 18's exact three-request optimum eight at dimension four and Proposition 10(iii)'s strict monotonicity, both in Boruchovsky et al., arXiv:2601.04041v2. No enumeration is extrapolated to an infinite field family.
+PASS
 
-## Originality: PASS, subject to stated residual risk
+At the frozen nine-column rank-four integer generator, a fresh independent JavaScript verifier checked all 45 primitive disjoint signed integer recovery bundles (nine quadruple repeats and 36 two-pair requests) and explicitly all 495 four-request multisets, totaling 540 successful bundles / 2160 exact integer identities. Four-request partitions 4,3+1,2+2,2+1+1,1+1+1 reduce to those checks; for 3+1 and 2+1+1, at most one or two of four disjoint repeated-symbol recovery sets meet the singles, leaving enough disjoint sets. Integer equations hold in every characteristic, including odd fields. The identity block ensures rank 4. Boruchovsky et al. Proposition 18 gives ASP(4,3,q)=8, and Proposition 10(iii) strictly increases minimal length with requests, so lower bound 9. Theorem 23/Proposition 24 locate the previous gap. Checked complete certificates.json Git blob 2277f051f2e3c4d17c07dc75e35959fd01490079; evidence is exact, not field sampling.
 
-The full HTML of arXiv:2601.04041v2 was inspected, especially Propositions 10, 18, 24, Theorem 23, Remark 25, and Examples 26–27. Theorem 23 gives only the interval \(9\) to \(10\) for odd-field dimension-four four-request all-symbol codes, and Proposition 24 proves nine in characteristic two. The source's nine-column single-parity construction is, up to elementary equivalence, the very generator matrix used here; its construction is therefore not claimed as original. The new fact is that its specific dimension-four four-cycle instance admits *all* four-request all-symbol batch recovery identities over the integers, including odd characteristic. The source's dimension-five characteristic-three example is not an all-odd-field dimension-four result. A published mathematical record on dimension-three four-request codes concerns different rank-three objects and does not imply the rank-four theorem. Searches also considered the exact equality, all-odd-field aliases, 4x9 generator matrix, the four-cycle parity construction, and orthogonal-repair equivalences. No stronger covering result was found. A previous unindexed calculation remains possible; absence from searches is not a uniqueness proof.
+## originality
 
-## Value: PASS
+PASS
 
-The motivating 2026 paper explicitly asks for exact small-parameter all-symbol batch lengths and leaves a one-column gap for odd characteristic at dimension four. The result closes that entire prime-power family rather than a single finite-field numerical instance. It also resolves whether the smallest characteristic-two nine-column construction can retain four-request batch functionality in odd characteristic. This is a natural complete optimal-length determination with directly applicable disjoint-recovery witnesses; no downstream theorem is required to motivate this precise invariant.
+Best-of-knowledge PASS specifically for universal odd-characteristic four-request recovery of the nine-column known single-parity design; matrix construction and characteristic-two optimum and 9 lower bound are explicitly prior.
 
-## Limitations and literature
+## value
 
-The theorem covers four requests among nine stored symbols, not arbitrary functional requests, higher dimensions, uniqueness, or all matrices realizing equality. The proof uses a published lower bound and explicit self-contained upper-bound certificates. Published coverage could be incomplete for unindexed notes or manuscripts. The abstract of the related dimension-three record was accessible, not its whole mathematical proof; the parameter mismatch is decisive for the comparison made here. See the references in `RESULT.md` and the structured comparisons in `AUDIT.json`.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Closes a natural exact finite coding-theory parameter gap uniformly over finite-field characteristic. A complete all-symbol four-request recovery certificate for the optimal length nine is a motivated, reusable exact fact; the finite case is neither arbitrary nor merely a recomputation of a known bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
