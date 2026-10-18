@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T13:15:38Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For coherent resonant trimer H with couplings J1,J2>0, Lindblad sink L=sqrt(kappa)|vac><1| with kappa>0, and initial |3>, Q=-iH-kappa|1><1|/2 has Re all eigenvalues<0: equality of dissipative energy forces zero first component then via positive links all vanish. Thus survival integral Gramian X is uniquely defined and solves Q^*X+XQ=-I. Substitution of explicit 3x3 Hermitian X yields tau=X33=kappa/(2J1^2)+(2J2^2/J1^2+J1^2/J2^2)/kappa. Set x=J1^2/J2^2 and E=J1^2+J2^2; AM-GM minimizes over kappa, leaving (x-2)^2(2x+1)/(2x^2)>=0, equality iff x=2. Hence J1^2=2E/3,J2^2=E/3,kappa=2sqrt(E), tau=3/sqrt(E). Equal links give tau=2sqrt(3)/sqrt(E). Independent SymPy verified all nine symbolic Lyapunov entries and exact factorization; endpoints x->0,infty diverge. No optimizer outside positive coupling domain or other cost class claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2017 provides N/Γ+(N-1)Γ/(4Ω^2) for uniform clean chain, optimizing Γ alone; Riberi semi-infinite hopping, Contreras source/drain steady triple-dot plus dephasing."
+        ],
+        "reasoning": "Those studies are broader in other parameters but do not contain the two-variable quadratic resource allocation with a pure terminal sink and endpoint initial state.",
+        "searches": [
+          "Zhang et al. 2017 PhysRevE96 052103 Eq17",
+          "Riberi 2026 arXiv:2605.08056",
+          "Contreras-Pulido et al. 2014 arXiv:1407.0924"
+        ]
+      },
+      "checked_sources": [
+        "Zhang et al. 2017 arXiv:1706.09524 full PDF Eq17",
+        "Riberi 2026 arXiv:2605.08056 full PDF §2",
+        "Contreras-Pulido et al. 2014 arXiv:1407.0924 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zhang Eq17 fixes all couplings equal Ω and optimizes sink; Riberi uses semi-infinite lattice with boundary loss and no finite trimer cost constraint."
+        ],
+        "reasoning": "Inclusion of a special parameter slice does not imply its unique global optimality once link powers are allocated. Independent Lyapunov and AM-GM proof establishes non-equal ratio2 and exact loss optimum.",
+        "searches": [
+          "Zhang et al. 2017 arXiv:1706.09524 §III.B Eq17",
+          "Riberi 2026 arXiv:2605.08056 §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resonant three-site chain with one absorbing endpoint and a specific initial endpoint; absorption time equals no-jump survival integral / Lyapunov Gramian."
+        ],
+        "reasoning": "Compare states, initial site, sink, rates, resource. Prior clean uniform chain formula is exactly the equal J1=J2 slice, not the unequal-link optimum.",
+        "searches": [
+          "three site chain quantum absorber sink mean first passage time optimum coupling strengths",
+          "\"quantum trimer\" \"mean first passage\" sink rate optimal hopping",
+          "Zhang et al. arXiv:1706.09524 Eq17",
+          "Riberi arXiv:2605.08056"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table for all positive J1,J2 with E=J1^2+J2^2 identified; existing homogeneous trimer formula has analytic fixed ratio x=1."
+        ],
+        "reasoning": "A known homogeneous optimum is not this free-link exact optimization; no negative-search novelty proof claimed.",
+        "searches": [
+          "three site chain quantum absorber sink mean first passage time optimum coupling strengths",
+          "quantum walk three-site absorption optimal couplings numerical"
+        ]
+      },
+      "rationale": "The uniform-coupling opposite-end trapping-time formula (Zhang et al. 2017 Eq17 for clean linear N-site chain) and optimizing a single sink rate are prior facts; at N=3 it yields the equal-link benchmark. Riberi 2026 treats a semi-infinite absorbing walk, not independently adjustable two finite links. No inspected primary result solves the same unconstrained J1,J2,kappa joint optimization at fixed sum of squared couplings. Prior Lyapunov inversion itself is classical and not claimed novel.",
+      "residual_risks": [
+        "A prior three-site Lyapunov calculation might implicitly optimize the identical quadratic resource even without identical title; historical novelty remains best-of-knowledge.",
+        "Single-excitation resonant Markovian three-site only, no interaction/dephasing/nonuniform site energies, no alternative costs.",
+        "Value is an exact small-network design invariant, not claimed macroscopic quantum transport generalization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS homogeneous chain mean and sink-rate optimization, not joint unequal hopping resource design",
+          "evidence": "Eq17 tau=N/Gamma+(N-1)Gamma/(4 Omega^2), choosing N=3 and J1=J2 Omega matches submitted equal-link benchmark.",
+          "identifier_or_url": "arXiv:1706.09524; DOI:10.1103/PhysRevE.96.052103",
+          "material_read": "Entire 16-page primary PDF with §III.B and Eq17, visually inspected page5",
+          "method": "Compared homogeneous clean three-site transport formula and distinct optimization variables",
+          "title": "Zhang, Celardo, Borgonovi, and Kaplan, Optimal dephasing for ballistic energy transfer in disordered linear chains",
+          "trigger": "Exactly related clean endpoint-to-sink finite chain and mean hitting time"
+        },
+        {
+          "assessment": "NOT SAME OBJECT: semi-infinite constant-hopping walk, not 3-site 2-link allocation",
+          "evidence": "Section 2 explicitly semi-infinite s>=1 with constant hopping Ω and boundary loss κ.",
+          "identifier_or_url": "arXiv:2605.08056; original title An Exactly Solvable Absorbing Quantum Walk",
+          "material_read": "Entire 23-page public primary PDF, especially model §2 and boundary-loss limits; visually inspected p4",
+          "method": "Compared Hilbert space cardinality and tuning parameters",
+          "title": "Riberi, Boundary-localized non-Hermitian modes in an absorbing quantum walk",
+          "trigger": "Same one boundary Lindblad absorber may imply mean-time optimization"
+        },
+        {
+          "assessment": "NOT FULLY ASSESSED; possible nearby derivation risk, no blanket noncoverage inference",
+          "evidence": "Steady current with injection and dephasing is different from single initial excitation and sole sink.",
+          "identifier_or_url": "arXiv:1407.0924",
+          "material_read": "Bibliographic abstract/primary description only, full text not inspected",
+          "method": "Read explicit model differences only",
+          "title": "Contreras-Pulido et al., Dephasing-assisted transport in linear triple quantum dots",
+          "trigger": "Same graph topology but injected steady transport"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Given the natural quadratic Frobenius hopping resource, allocating strength toward the absorbing endpoint and tuning the sink together is a concrete minimum-first-passage optimization. Its unique fully analytic solution beats equal couplings by ~13.4%, a reproducible design benchmark even for a small canonical graph; no longer-chain or general cost optimality is implied.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A prior three-site Lyapunov calculation might implicitly optimize the identical quadratic resource even without identical title; historical novelty remains best-of-knowledge.",
+    "Single-excitation resonant Markovian three-site only, no interaction/dephasing/nonuniform site energies, no alternative costs.",
+    "Value is an exact small-network design invariant, not claimed macroscopic quantum transport generalization."
+  ],
+  "schema_version": 1
+}
