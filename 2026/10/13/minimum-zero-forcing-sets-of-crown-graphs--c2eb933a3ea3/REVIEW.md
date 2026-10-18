@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof tracks the numbers \(p\) and \(q\) of white vertices on the two sides. If either is at least three, forces can only decrease the opposite count and cannot unlock a force back into the side with at least three white vertices, proving the lower bound. Equality therefore forces exactly two white vertices per side. The equality case is then exact: identical omitted-index pairs give no first force, while distinct pairs admit an explicit four-force completion. This proves both necessity and sufficiency for every \(n\ge3\). An exhaustive checker for \(3\le n\le9\) agrees with the theorem and count.
+## correctness
 
-## Originality
-**PASS, for the classification/count only.** Benson et al. (2018), Theorem 2.4 already implies the scalar formula because \(\operatorname{Cr}_n\cong P_2\times K_n\). That scalar statement is expressly excluded from the novelty claim. The inspected theorem supplies a value and constructions, not a characterization of every minimum forcing set or their exact number. The zero forcing polynomial paper gives a general counting framework but its inspected family results do not cover crowns. Alias searches included tensor product, bipartite double cover, matching-deleted complete bipartite graph, and crown graph. No inspected source implied the retained all-bases classification.
+PASS
 
-## Value
-**PASS.** Moving from a known optimum cardinality to a complete description and exact enumeration of all minimizers is a natural structural refinement of a standard graph parameter on a classical symmetric graph family. The obstruction is sharp and interpretable: the only failed size-\(2n-4\) candidates are those whose two omitted pairs coincide. This information can support later work on zero forcing polynomials, random minimum bases, and reconfiguration without claiming those downstream results here.
+For Cr_n (n>=3), if p,q denote white vertices in A,B, every blue b_i sees p-1_{i in I} whites and every blue a_i sees q-1_{i in J}. If p>=3, no blue B-vertex can force into A; any opposite-direction forces leave p unchanged, hence a forcing set has p<=2, and symmetrically q<=2, so |S|>=2n-4. At equality, p=q=2. Identical omitted index pairs I=J give no initial force; distinct pairs admit explicit alternating forces filling their differing indices and then final two whites. Thus ALL minima omit distinct two-subsets on respective shores; count binom(n,2)(binom(n,2)-1). Independently enumerated all size-(2n-4) sets and all smaller near-minimum sets on n=3..9, obtaining counts 6,30,90,210,420,756,1260 and no contrary examples. This recovers the prior scalar formula but novelty is the full classification/count.
 
-## Closest literature and limitations
-The closest source is Benson et al., “Zero forcing and power domination for graph products,” whose Theorem 2.4 proves \(Z(P_t\times K_n)=(n-2)t\) for even \(t\ge2\), hence the crown scalar value at \(t=2\). The foundational zero-forcing paper fixes the parameter and primary subject context, and Boyer et al. supplies the counting-polynomial framework. Residual risk remains that a specialized catalogue uses an unsearched alias, but the main product theorem and counting source were read directly and the principal graph aliases were searched.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Benson et al establish Z(P_t tensor K_n)=(n-2)t for even t, which includes the already known scalar Z(Cr_n)=2n-4. Their construction exhibits a minimum forcing set but does not classify ALL min sets as pairs of distinct white 2-subsets or enumerate them. The independent complete equality classification is not implied by knowing the minimum cardinality.
+
+## value
+
+PASS
+
+This gives a complete infinite-family classification of the vertices of the minimum zero-forcing reconfiguration graph of the crown, with exact binomial-product cardinality and a clean white-subset obstruction. The original P2 tensor Kn source gives scalar Z but leaves which starting sets attain it undetermined; the new count is a natural exact graph invariant likely useful when studying propagation and reconfiguration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

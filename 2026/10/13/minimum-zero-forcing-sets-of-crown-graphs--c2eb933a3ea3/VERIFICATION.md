@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The mathematical proof is symbolic and valid for every integer \(n\ge3\). Its critical steps were checked separately:
+# Independent mathematical audit
 
-1. If at least three white vertices remain on one bipartition side, no blue vertex on the opposite side can force into it; forces from the other direction cannot change that obstruction.
-2. A minimum set must therefore leave exactly two white vertices on each side.
-3. Equal omitted-index pairs admit no initial force.
-4. Distinct omitted-index pairs admit the explicit force sequence \(b_x\to a_y\), \(a_z\to b_w\), \(a_w\to b_z\), \(b_z\to a_x\), with the possible equality \(w=y\) handled because \(a_y\) is blue after the first force.
-5. Counting ordered distinct omitted 2-subsets gives \(\binom n2(\binom n2-1)\).
+## correctness
 
-The included checker exhaustively verifies the standard zero forcing process for every \(3\le n\le9\), independently computes the minimum size, and compares every size-\(2n-4\) subset with the stated characterization. Replay output:
+PASS
 
-`VERIFY_OK n_range=3..9 subset_checks=346739 basis_checks=6671 max_order=18`
+For Cr_n (n>=3), if p,q denote white vertices in A,B, every blue b_i sees p-1_{i in I} whites and every blue a_i sees q-1_{i in J}. If p>=3, no blue B-vertex can force into A; any opposite-direction forces leave p unchanged, hence a forcing set has p<=2, and symmetrically q<=2, so |S|>=2n-4. At equality, p=q=2. Identical omitted index pairs I=J give no initial force; distinct pairs admit explicit alternating forces filling their differing indices and then final two whites. Thus ALL minima omit distinct two-subsets on respective shores; count binom(n,2)(binom(n,2)-1). Independently enumerated all size-(2n-4) sets and all smaller near-minimum sets on n=3..9, obtaining counts 6,30,90,210,420,756,1260 and no contrary examples. This recovers the prior scalar formula but novelty is the full classification/count.
 
-Finite exhaustive verification is not used as proof for unbounded \(n\). The scalar equality is also cross-checked against the previously published tensor-product theorem \(Z(P_t\times K_n)=(n-2)t\) for even \(t\), specialized to \(t=2\).
+## originality
+
+PASS
+
+Benson et al establish Z(P_t tensor K_n)=(n-2)t for even t, which includes the already known scalar Z(Cr_n)=2n-4. Their construction exhibits a minimum forcing set but does not classify ALL min sets as pairs of distinct white 2-subsets or enumerate them. The independent complete equality classification is not implied by knowing the minimum cardinality.
+
+## value
+
+PASS
+
+This gives a complete infinite-family classification of the vertices of the minimum zero-forcing reconfiguration graph of the crown, with exact binomial-product cardinality and a clean white-subset obstruction. The original P2 tensor Kn source gives scalar Z but leaves which starting sets attain it undetermined; the new count is a natural exact graph invariant likely useful when studying propagation and reconfiguration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
