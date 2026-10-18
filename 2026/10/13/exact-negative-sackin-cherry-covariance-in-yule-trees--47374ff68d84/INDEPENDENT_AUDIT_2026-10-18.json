@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T06:48:32.347595Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Git blob cda7c4bc2488b55421156e409e24cfc46106a3bd",
+        "verify.py Git blob acf5c480d541a677cd49a352f64cdd44e5097f72",
+        "Independent exact rational tip-splitting enumerations n=2..7"
+      ],
+      "rationale": "Conditional on a uniformly chosen leaf at depth d and cherry-membership J, S_next=S+d+2 and C_next=C+1-J. Introducing Q as total depths of cherry-member leaves gives E[Q_next|T]=(1-2/n)Q+2S/n+2. Multiplication before conditioning produces mixed E[S_next C_next|T]=(1-1/n)SC+(1+1/n)S+(2-4/n)C-Q/n+2. The solved marginal recurrences n>=3 imply the covariance recurrence g_(n+1)=(1-1/n)g_n-2/9 with g3=0 and the displayed exact expression; the n=2 initial exception and n=3 zero are handled. Independently implemented rational tip-splitting enumeration over the full ordered tree distribution through n=7 and checked every covariance, supplementing rather than replacing the all-n recurrence.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cardona--Mir--Rossello, Exact formulas for the variance of several balance indices under the Yule model, arXiv:1202.6573 computes Sackin variance/covariance with cophenetic balance; Wu--Choi (2015), On joint subtree distributions under two evolutionary models, arXiv:1508.03139 studies cherry--pitchfork count laws."
+        ],
+        "reasoning": "These other pairwise joint distributions do not dominate the mixed Sackin--cherry statistic, and the relevant variables cannot be substituted just because they are all tree-balance indices.",
+        "searches": [
+          "Yule Harding phylogenetic trees covariance Sackin index number of cherries exact formula",
+          "Cardona--Mir--Rossello, Exact formulas for the variance of several balance indices under the Yule model, arXiv:1202.6573",
+          "Wu--Choi (2015), On joint subtree distributions under two evolutionary models, arXiv:1508.03139"
+        ]
+      },
+      "checked_sources": [
+        "Cardona--Mir--Rossello, Exact formulas for the variance of several balance indices under the Yule model, arXiv:1202.6573",
+        "Dearlove--Frost (2015), Measuring Asymmetry in Time-Stamped Phylogenies, doi:10.1371/journal.pcbi.1004312",
+        "Wu--Choi (2015), On joint subtree distributions under two evolutionary models, arXiv:1508.03139",
+        "doi:10.1186/s12859-020-3405-1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mixed proof requires the auxiliary Q=sum(depths of leaves in cherries), absent from the cited Sackin-only and cherry--pitchfork moments."
+        ],
+        "reasoning": "Knowing either marginal or a different mixed pair does not determine E[S C]; no direct all-n implication was identified from the inspected theorems, which concern genuinely different variables.",
+        "searches": [
+          "Yule Harding phylogenetic trees covariance Sackin index number of cherries exact formula",
+          "Cardona--Mir--Rossello, Exact formulas for the variance of several balance indices under the Yule model, arXiv:1202.6573",
+          "Dearlove--Frost (2015), Measuring Asymmetry in Time-Stamped Phylogenies, doi:10.1371/journal.pcbi.1004312",
+          "Wu--Choi (2015), On joint subtree distributions under two evolutionary models, arXiv:1508.03139"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dearlove--Frost uses the same sum-of-root-to-tip depths (Sackin) and cherry count; changing to a planted root adds deterministic n to S and preserves covariance."
+        ],
+        "reasoning": "Renormalizing the root convention does not create a new claim. Qualitative joint evaluation of both indices leaves the exact mixed second moment undetermined.",
+        "searches": [
+          "Yule Harding phylogenetic trees covariance Sackin index number of cherries exact formula",
+          "Dearlove--Frost (2015), Measuring Asymmetry in Time-Stamped Phylogenies, doi:10.1371/journal.pcbi.1004312"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The PLOS 2015 paper reports empirical/simulation-based weak correlations rather than an exact all-size rational covariance table."
+        ],
+        "reasoning": "A finite table or qualitative weak-correlation statement cannot certify the exact n-dependence; no same-pair exact entry was found in inspected sources.",
+        "searches": [
+          "Yule Harding phylogenetic trees covariance Sackin index number of cherries exact formula",
+          "Dearlove--Frost (2015), Measuring Asymmetry in Time-Stamped Phylogenies, doi:10.1371/journal.pcbi.1004312"
+        ]
+      },
+      "rationale": "Cardona et al study Sackin variance and its covariance with the total cophenetic index; the C used for Colless there is not cherry count. Wu--Choi derive cherries paired with pitchfork counts rather than global depth sum. Dearlove--Frost explicitly analyze Sackin and cherries as two shape summaries and report weak correlation qualitatively; inspected Methods/Results do not state this exact negative rational covariance. No Resultary matching all-n Sackin/cherry covariance appeared, though a more general historical mixed-moment theorem might imply it.",
+      "residual_risks": [
+        "An older exact joint-moment recurrence for all subtree/shape indices could imply the present formula.",
+        "Only standard unit-edge Yule tree shapes were audited, not chronological branch lengths."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_PAIR",
+          "evidence": "The covariance in this article is Sackin with cophenetic, not with cherry count; C elsewhere denotes Colless.",
+          "identifier_or_url": "Cardona--Mir--Rossello, Exact formulas for the variance of several balance indices under the Yule model, arXiv:1202.6573",
+          "material_read": "Full public article PDF; theorem statements and definitions of Sackin, Colless and cophenetic indices and covariance results.",
+          "method": "ArXiv primary full PDF, relevant sections inspected.",
+          "title": "Exact formulas for the variance of several balance indices under the Yule model",
+          "trigger": "Closest full primary theory of Yule Sackin and balance-index mixed moments."
+        },
+        {
+          "assessment": "NOT_COVERING_AS_STATED",
+          "evidence": "Describes weak correlations of the two statistics but no exact finite-n Yule--Harding covariance formula.",
+          "identifier_or_url": "Dearlove--Frost (2015), Measuring Asymmetry in Time-Stamped Phylogenies, doi:10.1371/journal.pcbi.1004312",
+          "material_read": "Public complete PLOS article HTML, Methods and Results on joint shape summaries and correlations.",
+          "method": "Publisher lawful OA primary full text; relevant methods/results inspected.",
+          "title": "Measuring Asymmetry in Time-Stamped Phylogenies",
+          "trigger": "Both precise Sackin and cherry statistics explicitly compared on phylogenies."
+        },
+        {
+          "assessment": "DIFFERENT_PAIR",
+          "evidence": "The stated joint variables are cherries and pitchforks, not Sackin path-length sum.",
+          "identifier_or_url": "Wu--Choi (2015), On joint subtree distributions under two evolutionary models, arXiv:1508.03139",
+          "material_read": "ArXiv abstract and identified cherry--pitchfork joint theorem in primary descriptions; full proof not reread here.",
+          "method": "ArXiv/public text bounded comparison.",
+          "title": "On joint subtree distributions under two evolutionary models",
+          "trigger": "Potential stronger joint distribution of cherries and other tree variables."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Cardona--Mir--Rossello, Exact formulas for the variance of several balance indices under the Yule model, arXiv:1202.6573",
+        "Dearlove--Frost (2015), Measuring Asymmetry in Time-Stamped Phylogenies, doi:10.1371/journal.pcbi.1004312",
+        "Wu--Choi (2015), On joint subtree distributions under two evolutionary models, arXiv:1508.03139",
+        "doi:10.1186/s12859-020-3405-1"
+      ],
+      "rationale": "Sackin depth and cherries are standard complementary phylogenetic balance indices. Their exact all-n negative covariance and sharp sign transition calibrate joint behavior, improve on descriptive qualitative dependence, and are naturally relevant when both features are used to assess Yule-model tree balance.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For standard uniformly tip-split Yule--Harding rooted binary trees, Cov(Sackin sum-of-leaf-depths, number of cherries)=0 at n=2 and -n/9+2/[3(n-1)] for every n>=3; zero n=3, negative n>=4, asymptotic -n/9.",
+  "limitations": [
+    "The formula does not extend to birth-death models, nonuniform leaf-selection or time-weighted edges.",
+    "Covariance is not an assertion of complete negative dependence or joint distribution."
+  ],
+  "schema_version": 1
+}
