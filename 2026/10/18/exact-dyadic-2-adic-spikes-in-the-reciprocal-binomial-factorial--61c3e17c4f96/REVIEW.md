@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The two infinite logarithmic and dilogarithmic cancellations are justified by convergent \(2\)-adic power series, and the dilogarithm reflection identity is differentiated directly. The cubic coefficient has a single minimum-valuation summand at index \(4\). The three exhaustive cases for \(\nu_2(j)\) prove the comparison remainder strictly smaller in \(2\)-adic norm than that coefficient. Multiplication by the exact tail factor and Legendre's factorial valuation gives the final identity. Exact code independently constructs the original integers through \(n=4096\); finite testing is additional evidence, not an infinite proof.
+
+**Originality — PASS within inspected evidence.** Farhi's two 2022 papers contain the sequence, its factorial formula and lower bounds, but not an exact valuation for powers of two. Dubickas's 2024 sharp inequality has equality at \(n=2^k-1\), an adjacent but different family, and does not determine the dyadic family. Farhi's 2023 prime-adic bounds likewise do not decide the actual \(2\)-adic cancellation beyond the lower bound. OEIS A003149 describes the integer sequence and sample values but not this valuation formula. Targeted indexed-record searches for formula, powers of two, and both sequence aliases found no dominating statement. The 2026 reciprocal-binomial generating-function paper's abstract concerns generating functions; its introductory material and targeted document searches found no valuation assertion. There remains a risk of equivalent work in unindexed literature or in unexamined portions of that large paper.
+
+**Value — PASS.** This computes an exact natural valuation invariant on all dyadic indices, resolving an infinite family of unusually strong cancellations within a sequence specifically investigated for its \(2\)-adic divisibility. Relative to the factorial factor, the extra valuation is precisely \(3m-2\). The effect depends on a non-obvious double polylogarithmic cancellation, not a single textbook substitution or numerical table.
+
+The claims are limited to \(m\ge4\); there is no generalization asserted to all indices or primes. Scientific priority remains subject to further independent literature examination.
+
+Self-review: passed. Independent audit: not yet performed.
