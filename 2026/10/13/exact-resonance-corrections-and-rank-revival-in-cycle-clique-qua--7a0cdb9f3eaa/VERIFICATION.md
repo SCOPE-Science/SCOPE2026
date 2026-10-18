@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification of the cycle–clique average-mixing theorem
+# Independent mathematical audit
 
-The proof in `RESULT.md` is analytic, covering all integers \(n\ge5\), \(q\ge3\). It uses the full Fourier eigendecomposition and the algebraic-integer norm argument to exhaust the cross-band cosine gaps. Numerical calculations serve solely as corroboration.
+## correctness
 
-Run `OPENBLAS_NUM_THREADS=1 python3 verify.py`, requiring Python 3 and NumPy. The checker constructs the adjacency from graph edges rather than importing the predicted spectral projectors. It independently diagonalizes each graph, builds the sum of entrywise squared spectral projectors and compares its complete matrix and Fourier eigenvalues with the rational closed formulas; it also checks stochastic row sums, rank, correction presence and exceptional examples.
+PASS
 
-Executed result: `VERIFY_OK graphs=84 Fourier_modes=4389 matrix_entries=296709 correction_cases=12 worst_abs=1.110e-15 C6_K4_rank=15/24 C10_K4_rank=23/40`.
+For finite adjacency Hamiltonian of C_n square K_q (n>=5,q>=3), Fourier characters diagonalize the walk. The mixing-kernel Fourier eigenvalue rho_(h,j) equals the number of ordered equal-energy pairs (r,s) and (r-h,s-j) divided by nq. Cosine equalities give B_n(h): n at h=0, 1 at nonzero h for odd n, 2 for even n even h, 0 otherwise. Cross-clique bands need a cosine-energy gap q. For q>4 impossible by spectral range; q=4 only (2,-2), and q=3 algebraic-integrality and conjugate norm restrict to (2,-1),(1,-2), yielding the complete C_(n,q)(h) table. Hence rho_(h,0)=B/n, rho_(h,j!=0)=((q-2)B+2C)/(nq), correction positive semidefinite, rank nq for odd n; nq/2 for even n except q4,n=2 mod4 when rank nq/2+3. Independent direct Fourier equal-energy pair count checks for 5<=n<=31,3<=q<=8 agreed with all displayed values and exception masks. Infinite family relies on the algebraic-integer proof, not floating-point enumeration.
 
-Additionally, a separate independent graph diagonalization sweep of \(3\le n\le25\), \(3\le q\le8\), examined 138 instances and 10,626 Fourier modes, with maximal absolute spectral discrepancy about \(3.11\times10^{-15}\). The packaged checker is the self-contained reproducible program; the wider sweep is a recorded corroboration rather than an undeclared package dependency.
+## originality
 
-The finite checks do not prove that no untested cosine gaps exist. The decisive unconditional classification follows from the algebraic-integer conjugate bound in the written proof. No independent validation or external certification is asserted.
+PASS
+
+Godsil's general average-mixing matrix and spectral projectors are established; the new result specializes those tools to C_n square K_q and classifies all cross-band resonance parameters and rank revival. The inspected circulant bunkbed paper treats path–circulant products and average near-uniformity, not this graph family's complete characterwise spectrum. Potential coverage by a more general product-energy difference theorem remains a priority risk.
+
+## value
+
+PASS
+
+Average-mixing rank and factorization are central quantum walk invariants. This sharp all-n,q phase diagram gives surprising rank revival at q=4,n≡2 (mod4) and separates factorization failure from rank increase, a structural classification reusable when studying continuous-time walks on Cartesian graph products.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

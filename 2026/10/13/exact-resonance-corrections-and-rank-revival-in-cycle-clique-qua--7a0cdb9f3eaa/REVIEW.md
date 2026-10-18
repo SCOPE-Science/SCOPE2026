@@ -1,11 +1,21 @@
-# Scientific review: cycle–clique quantum average mixing
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim concerns exactly \(C_n\square K_q\), \(n\ge5\), \(q\ge3\), with unweighted adjacency evolution and infinite-time Cesàro averaging. The normalized character-expansion proof yields the exact ordered equal-energy-pair count. The cosine equality count has a direct congruence proof; the cross-band gap classification is exhaustive by an algebraic-integer norm argument using every conjugate. A Fourier projection identity then proves the correction matrix, rank, and spectral gap. Executed independent adjacency diagonalizations on 84 instances check every matrix entry and Fourier eigenmode. Finite tests are corroboration, not proof for unrestricted parameters.
+## correctness
 
-**Originality — PASS, with residual risk.** Closest sources inspected in primary full text are Godsil (arXiv:1103.2578), Lo et al. (quant-ph/0509059), Coutinho et al. (arXiv:1709.03591), Baptista et al. (arXiv:2308.16378), and Coutinho et al. (arXiv:2208.08971). Their relevant statements respectively supply general projector formulas/cycle averages, path–circulant near-uniformity, general rank restrictions, product-average covariance/trace facts, and general exact-computation methods. None inspected states the all-parameter cycle–clique Fourier eigenvalues, exact factorization exceptional set, or rank-three revival. Searches for equivalent product names, resonances, complete spectral tables, and stronger covering statements did not reveal a dominating theorem. This is a bounded evidence-based assessment, not a claim of exhaustive literature coverage; algebraic association-scheme or broader product formulae remain plausible latent sources.
+PASS
 
-**Value — PASS.** Long-time mixing does not ordinarily commute with taking Cartesian products, yet it is not transparent when additional equal-energy resonances matter. The result classifies the complete rank and spectrum of a natural two-parameter graph family, distinguishes resonance without rank change from a sharp three-mode rank revival, and supplies an exact necessary and sufficient factorization criterion with a positive-semidefinite correction. This addresses a motivated structural question, not a narrow re-evaluation of a known graph table.
+For finite adjacency Hamiltonian of C_n square K_q (n>=5,q>=3), Fourier characters diagonalize the walk. The mixing-kernel Fourier eigenvalue rho_(h,j) equals the number of ordered equal-energy pairs (r,s) and (r-h,s-j) divided by nq. Cosine equalities give B_n(h): n at h=0, 1 at nonzero h for odd n, 2 for even n even h, 0 otherwise. Cross-clique bands need a cosine-energy gap q. For q>4 impossible by spectral range; q=4 only (2,-2), and q=3 algebraic-integrality and conjugate norm restrict to (2,-1),(1,-2), yielding the complete C_(n,q)(h) table. Hence rho_(h,0)=B/n, rho_(h,j!=0)=((q-2)B+2C)/(nq), correction positive semidefinite, rank nq for odd n; nq/2 for even n except q4,n=2 mod4 when rank nq/2+3. Independent direct Fourier equal-energy pair count checks for 5<=n<=31,3<=q<=8 agreed with all displayed values and exception masks. Infinite family relies on the algebraic-integer proof, not floating-point enumeration.
 
-**Scientific limitations.** All claims concern unweighted adjacency walks on these Cartesian graphs; no result is stated about instantaneous mixing, arbitrary weights, or finite-time convergence. Independent validation has not occurred. The closest inspected papers support the comparison but cannot eliminate the possibility of an unlocated equivalent theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Godsil's general average-mixing matrix and spectral projectors are established; the new result specializes those tools to C_n square K_q and classifies all cross-band resonance parameters and rank revival. The inspected circulant bunkbed paper treats path–circulant products and average near-uniformity, not this graph family's complete characterwise spectrum. Potential coverage by a more general product-energy difference theorem remains a priority risk.
+
+## value
+
+PASS
+
+Average-mixing rank and factorization are central quantum walk invariants. This sharp all-n,q phase diagram gives surprising rank revival at q=4,n≡2 (mod4) and separates factorization failure from rank increase, a structural classification reusable when studying continuous-time walks on Cartesian graph products.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

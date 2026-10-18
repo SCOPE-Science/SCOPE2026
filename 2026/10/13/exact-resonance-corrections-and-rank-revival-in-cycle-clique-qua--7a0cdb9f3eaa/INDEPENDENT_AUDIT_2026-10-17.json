@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T18:16:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For finite adjacency Hamiltonian of C_n square K_q (n>=5,q>=3), Fourier characters diagonalize the walk. The mixing-kernel Fourier eigenvalue rho_(h,j) equals the number of ordered equal-energy pairs (r,s) and (r-h,s-j) divided by nq. Cosine equalities give B_n(h): n at h=0, 1 at nonzero h for odd n, 2 for even n even h, 0 otherwise. Cross-clique bands need a cosine-energy gap q. For q>4 impossible by spectral range; q=4 only (2,-2), and q=3 algebraic-integrality and conjugate norm restrict to (2,-1),(1,-2), yielding the complete C_(n,q)(h) table. Hence rho_(h,0)=B/n, rho_(h,j!=0)=((q-2)B+2C)/(nq), correction positive semidefinite, rank nq for odd n; nq/2 for even n except q4,n=2 mod4 when rank nq/2+3. Independent direct Fourier equal-energy pair count checks for 5<=n<=31,3<=q<=8 agreed with all displayed values and exception masks. Infinite family relies on the algebraic-integer proof, not floating-point enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Godsil arXiv:1103.2578 establishes average-mixing spectral projector framework for arbitrary graphs.",
+          "Baptista/Coutinho/Marques arXiv:2308.16378 addresses non-factorization phenomena in averages."
+        ],
+        "reasoning": "These frameworks are broad enough to allow a derivation after evaluating equal-energy pairs; their statements alone do not logically assert the specific q=3 or q=4 resonance table and exceptional rank.",
+        "searches": [
+          "Resultary semantic: cycle clique graph Cartesian product average mixing matrix resonance rank C_n K_q quantum walk",
+          "Resultary semantic: average mixing C_n square K_q rank n q / 2 + 3 resonance q=4 n=6",
+          "arXiv:1103.2578 spectral-projector formula",
+          "arXiv:quant-ph/0509059 circulant bunkbeds",
+          "arXiv:2308.16378 Unexpected Averages of Mixing Matrices"
+        ]
+      },
+      "checked_sources": [
+        "Assigned frozen Git tree daf30f8781a35b8b1f83d0015ca707ad41592f66: RESULT.md, AUDIT.json, METADATA.json, REVIEW.md, SLOGAN.txt, VERIFICATION.md, verify.py",
+        "Resultary semantic: cycle clique graph Cartesian product average mixing matrix resonance rank C_n K_q quantum walk",
+        "Resultary semantic: average mixing C_n square K_q rank n q / 2 + 3 resonance q=4 n=6",
+        "arXiv:1103.2578 spectral-projector formula",
+        "arXiv:quant-ph/0509059 circulant bunkbeds",
+        "arXiv:2308.16378 Unexpected Averages of Mixing Matrices"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known cycle and clique average mixing matrices yield the factorized baseline, but spectral degeneracies across graph product factors may add nonnegative correction.",
+          "Pair equal-energy classification derives exceptional q=3 when 3|n and q=4 when 2|n and rank revival only at q=4, n≡2 mod4."
+        ],
+        "reasoning": "Prior factor averages cannot be naively multiplied to obtain the product's average; the new cross-band resonance arithmetic is necessary and determines the result beyond general formalism.",
+        "searches": [
+          "Resultary semantic: cycle clique graph Cartesian product average mixing matrix resonance rank C_n K_q quantum walk",
+          "Resultary semantic: average mixing C_n square K_q rank n q / 2 + 3 resonance q=4 n=6",
+          "arXiv:1103.2578 spectral-projector formula",
+          "arXiv:quant-ph/0509059 circulant bunkbeds",
+          "arXiv:2308.16378 Unexpected Averages of Mixing Matrices"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "C_n square K_q adjacency walk is distinct from path×circulant and weighted/Laplacian product walks.",
+          "General projector formula Mhat=sum_E P_E∘P_E does not itself specify Fourier pair resonances without explicit energy-gap classification."
+        ],
+        "reasoning": "Fourier reindexings h↦-h and clique nonzero characters duplicate modes, already counted multiplicity-wise; no equivalent explicit all-parameter C_n×K_q result surfaced under product/bunkbed terminology.",
+        "searches": [
+          "Resultary semantic: cycle clique graph Cartesian product average mixing matrix resonance rank C_n K_q quantum walk",
+          "Resultary semantic: average mixing C_n square K_q rank n q / 2 + 3 resonance q=4 n=6",
+          "arXiv:1103.2578 spectral-projector formula",
+          "arXiv:quant-ph/0509059 circulant bunkbeds",
+          "arXiv:2308.16378 Unexpected Averages of Mixing Matrices"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact quantum-mixing search yielded paths, cycles, and unrelated C_n square K_m graph topological results, not this exact rank table.",
+          "Source computed sample C_6 square K_4 rank15/24 and C_10 square K_4 rank23/40; independent Fourier count confirms finite sample and n<=31."
+        ],
+        "reasoning": "No matching exact graph invariant database or published formula was identified, but search coverage is limited and older graph-spectral tables may include small-order values.",
+        "searches": [
+          "Resultary semantic: cycle clique graph Cartesian product average mixing matrix resonance rank C_n K_q quantum walk",
+          "Resultary semantic: average mixing C_n square K_q rank n q / 2 + 3 resonance q=4 n=6",
+          "arXiv:1103.2578 spectral-projector formula",
+          "arXiv:quant-ph/0509059 circulant bunkbeds",
+          "arXiv:2308.16378 Unexpected Averages of Mixing Matrices"
+        ]
+      },
+      "rationale": "Godsil's general average-mixing matrix and spectral projectors are established; the new result specializes those tools to C_n square K_q and classifies all cross-band resonance parameters and rank revival. The inspected circulant bunkbed paper treats path–circulant products and average near-uniformity, not this graph family's complete characterwise spectrum. Potential coverage by a more general product-energy difference theorem remains a priority risk.",
+      "residual_risks": [
+        "A general spectral-product theorem or unpublished quantum-walk appendices may imply the exact q=3/q=4 pair classification.",
+        "Numeric finite Fourier checks are not a proof that no other cyclotomic differences exist; the all-parameter proof rests on the algebraic-norm argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes the general framework and cycle baseline; no explicit all-n,q cycle–clique resonance table found in inspected material",
+          "evidence": "Mhat=sum_E P_E∘P_E is used, but characterwise q=3/4 cross-gap arithmetic is additional.",
+          "identifier_or_url": "arXiv:1103.2578",
+          "material_read": "Spectral projector formula and cycle average mixing results in relevant pages",
+          "method": "Primary arXiv PDF text and rendered pages",
+          "title": "Average Mixing of Continuous Quantum Walks",
+          "trigger": "Foundational primary source on cycle average mixing and spectral projector method"
+        },
+        {
+          "assessment": "Studies different graph product family and mixing properties, not these exact C_n×K_q Fourier/rank formulas in material read",
+          "evidence": "Path×circulant adjacency separation differs from cycle×clique exact degeneracy table.",
+          "identifier_or_url": "arXiv:quant-ph/0509059",
+          "material_read": "Sections on Cartesian path–circulant bunkbeds and near-uniform time averages in primary PDF",
+          "method": "Public arXiv PDF full relevant sections and page screenshots",
+          "title": "Mixing of Quantum Walk on Circulant Bunkbeds",
+          "trigger": "Potential direct prior on product circulant–clique mixing"
+        },
+        {
+          "assessment": "Covers existence/mechanisms of nonfactorization; no whole-document noncoverage assertion",
+          "evidence": "General non-factorization is already known; novelty limited to closed all-parameter spectrum, corrections, rank.",
+          "identifier_or_url": "arXiv:2308.16378",
+          "material_read": "Abstract and reported trace/covariance phenomenon from primary indexed source; complete PDF not independently inspected",
+          "method": "Public primary bibliographic abstract and source comparisons",
+          "title": "Unexpected Averages of Mixing Matrices",
+          "trigger": "General product nonfactorization that might dominate result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Average-mixing rank and factorization are central quantum walk invariants. This sharp all-n,q phase diagram gives surprising rank revival at q=4,n≡2 (mod4) and separates factorization failure from rank increase, a structural classification reusable when studying continuous-time walks on Cartesian graph products.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned frozen Git tree daf30f8781a35b8b1f83d0015ca707ad41592f66: RESULT.md, AUDIT.json, METADATA.json, REVIEW.md, SLOGAN.txt, VERIFICATION.md, verify.py",
+    "Resultary semantic: cycle clique graph Cartesian product average mixing matrix resonance rank C_n K_q quantum walk",
+    "Resultary semantic: average mixing C_n square K_q rank n q / 2 + 3 resonance q=4 n=6",
+    "arXiv:1103.2578 spectral-projector formula",
+    "arXiv:quant-ph/0509059 circulant bunkbeds",
+    "arXiv:2308.16378 Unexpected Averages of Mixing Matrices"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A general spectral-product theorem or unpublished quantum-walk appendices may imply the exact q=3/q=4 pair classification.",
+    "Numeric finite Fourier checks are not a proof that no other cyclotomic differences exist; the all-parameter proof rests on the algebraic-norm argument."
+  ],
+  "residual_risks": [
+    "A general spectral-product theorem or unpublished quantum-walk appendices may imply the exact q=3/q=4 pair classification.",
+    "Numeric finite Fourier checks are not a proof that no other cyclotomic differences exist; the all-parameter proof rests on the algebraic-norm argument."
+  ],
+  "schema_version": 1
+}
