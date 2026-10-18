@@ -1,19 +1,21 @@
-# Review of the seven-cell flat-band counterexamples
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each of the two explicit connected, simple, unweighted motifs, exact symbolic multiplication verifies that the displayed nonzero polynomial eigenvector satisfies the adjacency eigenvalue equation at every root of its asserted minimal polynomial. Direct scalar products with the nonzero binary intercell selectors vanish at those roots, so the single-cell eigenfunctions satisfy the full infinite-graph equations, including equations in adjacent cells. Both minimal polynomials are irreducible over the rationals, coprime, and have positive discriminants (\(17\) and \(316\)), giving five distinct real energies. The six-vertex obstruction uses the complete frozen \(156\)-isomorphism-class atlas of *all* six-vertex simple graphs, including disconnected motifs, and tests exact integer characteristic polynomials for divisibility by either irreducible factor. This is an exhaustive finite proof of the six-cell obstruction, not a sample over graphs or Floquet parameters. All identities and counts replay from `verify.py` and `atlas_n6.graph6`.
+PASS
 
-## Originality — PASS
+For two connected seven-vertex simple motifs the exact selectors δ₂=(0,0,1,1,0,0,0) and δ₃=(1,1,1,1,1,1,0) annihilate polynomial eigenvectors v₂(λ), v₃(λ) at every root of p₂=x²+x−4 and p₃=x³+x²−4x−2. Direct independent SymPy matrix calculations verified (A_H−xI)v≡0 modulo the irreducible minimal polynomial, δ·v≡0, nonzero v, and divisor in the motif characteristic polynomial; the periodic Floquet perturbation (z+z⁻¹)δδᵀ hence leaves a compact eigenfunction supported on one cell. Discriminants 17 and 316 and gcd=1 give five distinct real values. Every six-cell compact eigenfunction would require an eigenvalue of its induced simple six-vertex adjacency matrix. Independent exact charpoly enumeration of all 156 unlabeled simple six-vertex graphs (including disconnected) found zero divisible by p₂ or p₃, proving the finite minimality exclusion exhaustively.
 
-Sabri--Youssef (arXiv:2304.06465), Section 4, explicitly ask whether the even/odd equality seen in the four- and five-vertex case persists. Their Theorem 4.6 gives a construction criterion but does not exhibit these two seven-vertex witnesses or prove that their five energies cannot occur in any six-vertex motif; the small-graph lists in their Appendix A stop before the decisive case. The present statement disproves that suggested equality rather than merely restating its sufficient construction criterion. The exact new irreducible polynomials, the six-versus-seven separation, cell-selection aliases, and existing broader flat-band literature were searched. No covering prior statement was found. Faust--Liu (arXiv:2503.03632) and Faust--Kachkovskiy (arXiv:2509.01927) concern generic absence under varying parameters, not this exact unweighted cell-size spectral set. Both irreducible factors are already in the spectrum of the 24-vertex McGee graph (MathWorld). That existing graph-spectrum data alone does not yield a connected seven-cell periodic realization nor an exhaustive six-cell exclusion. The principal residual risk is an equivalent construction in weakly indexed graph-spectral or compact-localization literature.
+## originality
 
-## Value — PASS
+PASS
 
-The result answers a naturally posed open equality question at the first previously untested odd stage, providing five distinct real counterexamples, direct positive constructions in connected simple periodic graphs, and a complete obstruction for smaller cells. The finite exhaustion is specifically tied to cell-size minimality, not an arbitrary table or narrow numerical phenomenon. The finding does not claim that the five values exhaust the difference or that generic absence results are contradicted.
+The primary Sabri–Youssef paper asks whether the empirically observed even/odd single-cell spectral equality extends. Their selector construction does not produce the two specific seven-cell realizations together with a six-cell impossibility proof. Five exact spectral witnesses settle the first unresolved 7 versus 6 case and go beyond the general construction.
 
-## Scientific limits and closest literature
+## value
 
-The five-value lower bound for \(\mathcal F_7^s\setminus\mathcal F_6^s\) is exact as stated; the full difference remains unclassified. The 156-class atlas is exhaustive only for unweighted simple six-vertex motifs, precisely the domain needed. The 2023 source contains the earlier equality observations and selector construction; two 2025 genericity theorems are broader in parameter variation but neither contains the implication required to settle the displayed odd-even question. The remaining literature risk is weak indexing of an equivalent seven-vertex example.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact first failure of a specifically published odd/even spectral-set conjectural equality is a motivated mathematical counterexample and sharp finite obstruction. Two small connected periodic motifs plus a complete 156-class lower-size exclusion give five exact algebraic witnesses. The finite classification is substantive because it settles the complete six-cell boundary for those roots, not an arbitrary small census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

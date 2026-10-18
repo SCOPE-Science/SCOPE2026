@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification of the seven-cell flat-band counterexamples
+# Independent mathematical audit
 
-Run `python verify.py` beside the bundled `atlas_n6.graph6`, after installing the dependencies in `requirements.txt`. The independent mathematical identities to examine are the two explicit adjacency multiplication statements and the two selector orthogonality equations stated in `RESULT.md`. The exact checker asserts these equations as polynomial divisibilities for both nonconstant minimal polynomials, checks both motifs are connected and both selectors nonzero, verifies the discriminants \(17\) and \(316\), irreducibility and coprimality, then proves that neither minimal polynomial divides the characteristic polynomial of any of the \(156\) six-vertex simple graph atlas representatives.
+## correctness
 
-The bundled `atlas_n6.graph6` is a frozen complete Graph Atlas enumeration that includes disconnected graphs. The checker compares all its entries to `networkx.graph_atlas_g`, verifies they are pairwise distinct, and uses exact SymPy integer/rational arithmetic for each factor test. This finite census is exhaustive for the six-vertex obstruction, and no other finite check or floating-point plot is used as an infinite-graph proof: the intercell cancellation is a direct algebraic identity for every translate and every Bloch phase.
+PASS
 
-Expected successful output:
+For two connected seven-vertex simple motifs the exact selectors δ₂=(0,0,1,1,0,0,0) and δ₃=(1,1,1,1,1,1,0) annihilate polynomial eigenvectors v₂(λ), v₃(λ) at every root of p₂=x²+x−4 and p₃=x³+x²−4x−2. Direct independent SymPy matrix calculations verified (A_H−xI)v≡0 modulo the irreducible minimal polynomial, δ·v≡0, nonzero v, and divisor in the motif characteristic polynomial; the periodic Floquet perturbation (z+z⁻¹)δδᵀ hence leaves a compact eigenfunction supported on one cell. Discriminants 17 and 316 and gcd=1 give five distinct real values. Every six-cell compact eigenfunction would require an eigenvalue of its induced simple six-vertex adjacency matrix. Independent exact charpoly enumeration of all 156 unlabeled simple six-vertex graphs (including disconnected) found zero divisible by p₂ or p₃, proving the finite minimality exclusion exhaustively.
 
-```
-VERIFIED: two connected seven-cell witnesses; five distinct real flat-band values;
-VERIFIED: no six-vertex simple graph in all 156 classes has either minimal polynomial.
-```
+## originality
 
-Limitations: this verifier is for the stated two seven-cell graphs and every simple six-vertex adjacency motif, not arbitrary weighted or potential-bearing periodic operators. All published literature remains subject to a possible weakly indexed equivalent construction. Independent validation has not been performed.
+PASS
+
+The primary Sabri–Youssef paper asks whether the empirically observed even/odd single-cell spectral equality extends. Their selector construction does not produce the two specific seven-cell realizations together with a six-cell impossibility proof. Five exact spectral witnesses settle the first unresolved 7 versus 6 case and go beyond the general construction.
+
+## value
+
+PASS
+
+The exact first failure of a specifically published odd/even spectral-set conjectural equality is a motivated mathematical counterexample and sharp finite obstruction. Two small connected periodic motifs plus a complete 156-class lower-size exclusion give five exact algebraic witnesses. The finite classification is substantive because it settles the complete six-cell boundary for those roots, not an arbitrary small census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

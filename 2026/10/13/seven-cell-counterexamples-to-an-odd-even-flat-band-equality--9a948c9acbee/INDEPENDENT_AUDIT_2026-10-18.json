@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T15:58:55Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md Git blob 6e74c99c453d68b1c199a2dbc6b44796895e0574",
+        "pinned verify.py 05f03ae7898a24382a8164840f90c74a15a19e60 and frozen atlas_n6.graph6 80c18e2e1d13b35b1c5235cc0a32603497cee38e",
+        "independent SymPy/NetworkX exact replay: /mnt/data/audit_run_20261018T1543/scientific_independent_checks.py",
+        "Sabri–Youssef arXiv:2304.06465, Section 4 and Theorem 4.6"
+      ],
+      "rationale": "For two connected seven-vertex simple motifs the exact selectors δ₂=(0,0,1,1,0,0,0) and δ₃=(1,1,1,1,1,1,0) annihilate polynomial eigenvectors v₂(λ), v₃(λ) at every root of p₂=x²+x−4 and p₃=x³+x²−4x−2. Direct independent SymPy matrix calculations verified (A_H−xI)v≡0 modulo the irreducible minimal polynomial, δ·v≡0, nonzero v, and divisor in the motif characteristic polynomial; the periodic Floquet perturbation (z+z⁻¹)δδᵀ hence leaves a compact eigenfunction supported on one cell. Discriminants 17 and 316 and gcd=1 give five distinct real values. Every six-cell compact eigenfunction would require an eigenvalue of its induced simple six-vertex adjacency matrix. Independent exact charpoly enumeration of all 156 unlabeled simple six-vertex graphs (including disconnected) found zero divisible by p₂ or p₃, proving the finite minimality exclusion exhaustively.",
+      "residual_risks": [
+        "The 156-graph search is exhaustive only of finite simple unweighted six-vertex adjacency graphs, and is not an infinite periodic-graph census.",
+        "Claim concerns single-cell support, not all flat bands or all F7 energies."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sabri–Youssef give binary-selector sufficient conditions but pose the odd-even equality as a question.",
+          "2025 generic-absence theorems vary weights/potentials and do not classify exact unweighted six-cell spectra."
+        ],
+        "reasoning": "Prior general existence/genericity theorems do not imply strict F7≠F6 because excluding all six-vertex spectra is a separate exact step.",
+        "searches": [
+          "single cell flat bands periodic graphs 6 7 vertices spectral sets odd even equality counterexample",
+          "Sabri–Youssef arXiv:2304.06465 Theorem 4.6 Section 4",
+          "Faust–Liu arXiv:2503.03632 generic absence",
+          "Faust–Kachkovskiy arXiv:2509.01927"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2304.06465 primary PDF",
+        "Read–Wilson six-vertex atlas and independently computed charpolys",
+        "arXiv:2503.03632 public theorem summary",
+        "arXiv:2509.01927 public summary",
+        "Resultary searches: single cell flat bands periodic graphs 6 7 vertices spectral sets odd even equality counterexample; periodic graph flat band 7 cells 6 cells counterexample odd even equality"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original paper explicitly asks whether odd-even single-cell spectral equality persists beyond cases through five vertices.",
+          "Exact seven-cell constructed examples meet the selector criterion but the impossibility for every six-cell graph must be separately proven."
+        ],
+        "reasoning": "A prior constructive criterion does not supply the negative six-cell statement, while generic absence claims concern different parameter regimes. Thus the asserted first strict difference is not a previously implied corollary.",
+        "searches": [
+          "Sabri–Youssef 2023 Section 4 odd even equality question and Theorem 4.6",
+          "single cell flat bands periodic graphs 6 7 vertices spectral sets odd even equality counterexample",
+          "periodic graph flat band 7 cells 6 cells counterexample odd even equality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent formulation: five exact eigenvalues with selector-orthogonal seven-vertex eigenvectors but absent from every six-vertex simple adjacency spectrum.",
+          "Both p₂ and p₃ may occur in larger finite graph spectra, without implying six-cell absence or seven-cell one-period compact support."
+        ],
+        "reasoning": "Search included polynomial factors, compactly supported Floquet modes, odd-even cell spectral sets and minimal motif size.",
+        "searches": [
+          "single cell flat bands periodic graphs 6 7 vertices spectral sets odd even equality counterexample",
+          "periodic graph flat band 7 cells 6 cells counterexample odd even equality",
+          "F7 F6 single cell periodic flat band equality irreducible quadratic cubic graph spectrum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Read–Wilson/NetworkX atlas contains exactly 156 six-vertex simple graph types, all checked from exact integer adjacency charpolys.",
+          "The McGee graph may share factors p₂ and p₃ at order 24, but an unqualified spectral factor is not a seven-versus-six single-cell construction."
+        ],
+        "reasoning": "The atlas is a finite input data set, not a prior table of the claimed minimal-size result; independent complete enumeration confirms absence of both factors at six vertices.",
+        "searches": [
+          "periodic graph flat band 7 cells 6 cells counterexample odd even equality",
+          "Read–Wilson Atlas of Graphs six vertex graph atlas 156 adjacency spectra",
+          "McGee graph adjacency spectrum x^2+x-4 x^3+x^2-4x-2"
+        ]
+      },
+      "rationale": "The primary Sabri–Youssef paper asks whether the empirically observed even/odd single-cell spectral equality extends. Their selector construction does not produce the two specific seven-cell realizations together with a six-cell impossibility proof. Five exact spectral witnesses settle the first unresolved 7 versus 6 case and go beyond the general construction.",
+      "residual_risks": [
+        "Potential unindexed equivalent seven-cell witnesses, though no source checked supplies six-cell obstruction.",
+        "The claim does not determine all F7−F6 values or multi-cell support, and generic potentials are not covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original paper gives selector criterion and small-cell evidence but poses the general odd-even question.",
+          "evidence": "It supplies the mathematical motivation; the seven-versus-six obstruction was not stated in inspected text.",
+          "identifier_or_url": "arXiv:2304.06465; doi:10.1063/5.0156336",
+          "material_read": "Primary full text Section 4, Theorem 4.6, and odd/even equality question; PDF page inspected visually",
+          "method": "arXiv lawful PDF text and PDF page screenshot",
+          "title": "Flat bands of periodic graphs",
+          "trigger": "Same flat-band set and posed equality question"
+        },
+        {
+          "assessment": "All 156 simple unlabeled six-vertex graphs checked; neither minimal polynomial divides any chi.",
+          "evidence": "This is genuine exhaustive finite classification of a bounded input domain.",
+          "identifier_or_url": "Read and Wilson (1998); networkx.generators.atlas.graph_atlas_g",
+          "material_read": "Six-vertex graph catalogue via independent NetworkX enumeration and exact charpolys, not full printed atlas",
+          "method": "independent computational graph enumeration plus pinned frozen atlas source",
+          "title": "An Atlas of Graphs",
+          "trigger": "Need exact exhaustive six-cell classification"
+        },
+        {
+          "assessment": "Generic parameter results do not decide the fixed unweighted spectral difference.",
+          "evidence": "The parameter domain is generic perturbation, not strict F7−F6 comparison.",
+          "identifier_or_url": "arXiv:2503.03632",
+          "material_read": "Title, abstract and published theorem-level description; full primary text not independently inspected",
+          "method": "lawful indexed summary",
+          "title": "Rare Flat Bands for Periodic Graph Operators",
+          "trigger": "Potential stronger generic nonexistence theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Sabri–Youssef 2023 Section 4 equality problem",
+        "two exact 7-cell motif identities",
+        "independent complete six-vertex atlas exclusion"
+      ],
+      "rationale": "The exact first failure of a specifically published odd/even spectral-set conjectural equality is a motivated mathematical counterexample and sharp finite obstruction. Two small connected periodic motifs plus a complete 156-class lower-size exclusion give five exact algebraic witnesses. The finite classification is substantive because it settles the complete six-cell boundary for those roots, not an arbitrary small census.",
+      "residual_risks": [
+        "The witness set is a subset of F7−F6, not its full enumeration."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite enumeration is exhaustive for all simple six-vertex motifs and valid as finite negative certificate; not claimed to classify all periodic graphs.",
+    "Graph-tree identity taken from assignment; individual Git source blobs verified by pinned reads."
+  ],
+  "schema_version": 1
+}
