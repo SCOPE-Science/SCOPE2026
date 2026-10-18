@@ -1,15 +1,21 @@
-# Review of the two-sided divisor-sum density bracket
+# Independent mathematical audit
 
-## Correctness — PASS
-The local prime-power ratios are exact. For a fixed small-prime exponent cylinder, tail squarefreeness gives a disjoint positive-density subset for the lower estimate. The only boundary cases in which the small-prime ratio is exactly one and no larger prime divides the integer comprise finitely many integers. For the upper estimate, the tail logarithm never exceeds the sum of reciprocal primes dividing the integer, and positivity in a negative small-prime cylinder forces that sum to exceed \(1-R\). The conditional first moment is exactly the small-cylinder density times the convergent reciprocal-prime-square sum; CRT and a uniform summable remainder justify the limit. Markov's inequality then bounds the upper density. The finite prime sieve, \(5896800\) comparisons, rational ceilings, rational bounds on \(\pi^2\), and final threshold checks were rerun from `verify_density.py` and passed. The proof does not use finite sampling as an infinite-density argument.
+## correctness
 
-## Originality — PASS
-Trudgian's full paper formulates the comparison-density question, gives a squarefree lower bound, and records an empirical frequency near \(0.778307\); its comparison application and conclusion provide no nontrivial upper density bound. The closest published mathematical record, identifier `831dd476-bf82-4273-849f-84ab869fe344`, uses six-prime exponent cylinders to prove only a \(0.753659844\ldots\) lower bound. Its exact proof and limitations were read: enlarging its lower-bound census alone would be a routine refinement, and is not the central novelty claimed here. The current result controls the large-prime contribution *above* by a cylinder-specific Markov obstruction, turning previously unclassified negative-ratio cylinders into a certified upper-density estimate below \(0.8\). OEIS A322446 contains counts, not a covering theorem. Exact-claim and alias searches found no stronger or equivalent result. An unindexed prior upper bound remains a residual risk.
+PASS
 
-## Value — PASS
-The motivating 2013 proportion problem previously had an explicit one-sided lower certificate. An unconditional two-sided enclosure between \(0.77\) and \(0.8\) is materially more informative than further isolated examples or small changes to a finite census: it excludes over one-fifth of the integers from the target set asymptotically and places its possible density in a window under three percentage points wide. The upper bound uses a general analytic tail moment in a nontrivial, comparison-specific fashion, with a compact exact integer certificate. It remains far from a determination of the density and does not address equality infinitude.
+Local factors ρp(1)=1+1/p and ρp(a)<1 for a>=2. For the 5,896,800 small-prime valuation vectors the weight w/D is exact by independent CRT valuation densities. Positive vectors with squarefree tail contribute A/π², with exactly finite exceptions when R=1 and no tail primes. For negative R, log of every tail ratio <=1/q, so favorable membership forces T>−log R>=1−R; the exact cylinder-conditioned T first moment is μ=sum_{q>29}q^(−2), and ∑1/q² convergence justifies truncation and Markov. Independent exact integer enumeration recovered D=2655901350996199279464314052991681920000000, good weight 2060396086464126833643545810150335261409280, negative weight 593415378686113363806646633931531172741120, rounded moment weight 57538357810785019098554221682665403810192916480, and good_count=2096262 (six equality cases); exact A/π²≈0.7701853 and U≈0.79823158. μ<29/4000 and π²<987/100 lead to strict thresholds. Infinite part is Euler-product/CRT/first-moment argument, NOT finite sampling.
 
-## Closest literature and limitations
-T. Trudgian, *The sum of the unitary divisor function*, arXiv:1312.4615 (2013), full comparison application and conclusion; the subsequent published lower-bound record `831dd476-bf82-4273-849f-84ab869fe344`; OEIS A322446 (finite counts). The estimates depend on explicit capped small-prime valuations and are not optimized. No claim of independent verification, publication priority, or exact limiting density is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest same-comparison previously published Resultary theorem gives only an explicit 0.753659844… LOWER density bound using six-prime valuation cylinders. Trudgian formulates the proportion question, squarefree lower 6/π², and empirical ~0.7783. The new certified conditional large-prime-tail Markov obstruction gives an asymptotic UPPER bound <0.8 absent in both inspected texts; increasing a small-prime lower enumeration alone is not claimed as the contribution. OEIS A322446 is finite initial data not a two-sided covering statement.
+
+## value
+
+PASS
+
+The nontrivial new upper bound rules out more than 20% of integers asymptotically and makes the possible proportion lie between 0.77 and 0.80. Tail-conditioned first-moment control complements older positive cylinders and makes the result a meaningful two-sided progress on Trudgian’s motivating question, rather than routine tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
