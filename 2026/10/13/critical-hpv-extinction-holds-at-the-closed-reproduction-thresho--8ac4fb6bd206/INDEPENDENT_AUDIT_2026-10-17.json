@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T09:05:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For source six-class standard-incidence HPV ODE on positive-total-population feasible Ω and all rates strictly positive, infected core y=(E,I1,I2) obeys ydot=A0y−(1−S/N)Φ e1, where irreducible Metzler A0 has s(A0)≤0 at R0≤1 and Φ=β1E+β2I1+β3I2. Positive left Perron w gives Ldot=s(A0)L−w1(1−S/N)Φ<0 for y≠0 even at R0=1; LaSalle yields y→0, downstream stable linear A,R→0, S→Λ/d. Stability follows from L control on y, stable downstream filters, and z=Λ/d−S obeying zdot≤−dz+Φ on invariant Ω. Independently checked symbolic A0 determinant and w left-null construction using SymPy, with zero entries first and third identically and middle equal det A0; at R0=1 det=0. Domain N>0 is essential because λ=Φ/N is undefined at origin; solutions with Λ>0 enter N>0 immediately.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fall et al section 2 n-group SIS and section 3 differential susceptibility/staged progression with mass action; present HPV includes variable N standard incidence and recovered class with waning immunity. Shuai abstract offers general Perron construction, without a verified full-text implication under this exact model."
+        ],
+        "reasoning": "General Perron Lyapunov principles are acknowledged; no inspected theorem has been verified with hypotheses exactly embracing the present HPV system, so avoid claiming they decisively cover the model.",
+        "searches": [
+          "Fall–Iggidr–Sallet–Tewa DOI:10.1051/mmnp:2008011",
+          "Shuai–van den Driessche DOI:10.1137/120876642"
+        ]
+      },
+      "checked_sources": [
+        "Zhang et al DOI:10.3934/math.2020172 25-page full primary PDF",
+        "Fall et al DOI:10.1051/mmnp:2008011 full-text accessible mirror",
+        "Shuai van den Driessche DOI:10.1137/120876642 abstract, VPN block",
+        "Resultary other-model critical epidemic threshold findings",
+        "Git assigned RESULT.md sha b03fdc6faa1f6627f4c21a1f1241729d7b709d7e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hyperbolic strict R0<1 only yields s(A0)<0, which does not decide s(A0)=0. The critical proof exploits Φ>0 and S/N<1 whenever y≠0."
+        ],
+        "reasoning": "Additional strict dissipation at zero spectral gap is required; the initiating strict theorem does not imply the equality case alone.",
+        "searches": [
+          "Zhang 2020 Theorem 3 R0<1",
+          "Fall 2007 generic epidemic class and SIAM 2013 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equality R0=1 is a critical M-matrix/Perron spectral abscissa s(A0)=0; LaSalle weighted infected burden enforces strict nonlinear decay."
+        ],
+        "reasoning": "Classical Perron vector method is not claimed novel; model-specific equality case absent from source strict theorem.",
+        "searches": [
+          "Zhang et al 2020 PDF Theorem 3, forward bifurcation section",
+          "Fall et al 2007 §2–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returns closed thresholds for other models: SIXP leaf brown spot, heterogeneous vaccinated SAIRS, SARS-CoV-2 waning model, not same HPV system."
+        ],
+        "reasoning": "A prior closed threshold for different ODE is not a value or equation table for this exact six-class model.",
+        "searches": [
+          "Resultary semantic HPV six-class R0 equality",
+          "Zhang DOI:10.3934/math.2020172"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge for completing the strict stability theorem of this particular variable-population six-compartment HPV treatment model at the nonhyperbolic equality R0=1. Zhang et al 2020 Theorem 3 only establishes R0<1, with forward bifurcation at R0=1 addressed separately. General Perron-vector epidemic Lyapunov methods (Fall et al 2007; Shuai–van den Driessche 2013) make proof method classical, but their inspected mass-action/multigroup equations are not shown to subsume the present varying N, waning immunity and downstream classes with exactly the source constraints; exact direct coverage remains a priority risk. A SIAM primary full text retrieval via Oxford was blocked by disconnected VPN, and this inaccessibility is not itself a failure.",
+      "residual_risks": [
+        "Potential direct specialization of Shuai–van den Driessche 2013 matrix method not resolved because complete paper inaccessible after lawful attempts; do not claim exhaustive priority.",
+        "General mass-action epidemic theory is broader in some directions; whether one existing theorem directly covers this variable-population HPV equation needs future reading.",
+        "At N=0 the source standard incidence is undefined; mathematical domain requires N>0.",
+        "No claims about R0>1, limit cycles or optimal-control claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING equality R0=1",
+          "evidence": "Theorem 3 states R0<1; positive-rate standard incidence matches inspected RESULT.md.",
+          "identifier_or_url": "https://www.aimspress.com/fileOther/PDF/Math/math-05-03-172.pdf",
+          "material_read": "25-page open primary paper, model equations, next-generation matrix, Theorem 3 on DFE global stability, forward bifurcation section and parameter assumptions",
+          "method": "Open publisher full PDF and page-image verification of original equations and Theorem 3",
+          "title": "Sensitivity analysis and optimal treatment control for a mathematical model of Human Papillomavirus infection",
+          "trigger": "Identical six-state ODE and initiating strict R0 threshold theorem"
+        },
+        {
+          "assessment": "POTENTIALLY_RELEVANT but not a verified direct specialization",
+          "evidence": "Explicit eq (2.1) is D+B−diag(x)B for n-group SIS; section 3 mass-action class with multiple infection stages. HPV has standard incidence with variable total N.",
+          "identifier_or_url": "https://www.ripublication.com/mmnpv2/mmnpv2n1_4.pdf",
+          "material_read": "Open 19-page publicly available article, introduction, section 2 n-group SIS model and section 3 staged-progression mass action outline",
+          "method": "Public PDF full-text search and examination of sections 1–3",
+          "title": "Epidemiological Models and Lyapunov Functions",
+          "trigger": "Plausible older general Perron-vector R0≤1 theorem"
+        },
+        {
+          "assessment": "UNDETERMINED general-coverage priority risk",
+          "evidence": "Abstract describes matrix-theoretic Perron method for general infectious models; does not specify applicable exact full hypotheses.",
+          "identifier_or_url": "DOI:10.1137/120876642",
+          "material_read": "Abstract and bibliographic page only; full text inaccessible",
+          "method": "Open-access/preprint searches then authorized Oxford retrieval attempted, VPN disconnected",
+          "title": "Global Stability of Infectious Disease Models Using Lyapunov Functions",
+          "trigger": "Strong candidate prior general Perron theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Closing a biologically meaningful disease-extinction threshold with global Lyapunov stability at the nonhyperbolic boundary is a motivated model-specific sharp statement beyond strict-subcritical stability; the simple Perron identity has practical threshold significance. It does not purport a new general Lyapunov technique. General prior methods reduce standalone novelty strength and remain a residual value/priority risk.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Zhang et al DOI:10.3934/math.2020172 25-page full primary PDF",
+    "Fall et al DOI:10.1051/mmnp:2008011 full-text accessible mirror",
+    "Shuai van den Driessche DOI:10.1137/120876642 abstract, VPN block",
+    "Resultary other-model critical epidemic threshold findings",
+    "Git assigned RESULT.md sha b03fdc6faa1f6627f4c21a1f1241729d7b709d7e"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only the source positive-rate six-class system, compact Ω intersect N>0, and disease-free stability for R0≤1.",
+    "Potential direct specialization of Shuai–van den Driessche 2013 matrix method not resolved because complete paper inaccessible after lawful attempts; do not claim exhaustive priority.",
+    "General mass-action epidemic theory is broader in some directions; whether one existing theorem directly covers this variable-population HPV equation needs future reading.",
+    "At N=0 the source standard incidence is undefined; mathematical domain requires N>0.",
+    "No claims about R0>1, limit cycles or optimal-control claims.",
+    "Scientific acceptance is best-of-knowledge and does not imply external expert certification, exhaustive priority, or publication."
+  ],
+  "residual_risks": [
+    "Potential direct specialization of Shuai–van den Driessche 2013 matrix method not resolved because complete paper inaccessible after lawful attempts; do not claim exhaustive priority.",
+    "General mass-action epidemic theory is broader in some directions; whether one existing theorem directly covers this variable-population HPV equation needs future reading.",
+    "At N=0 the source standard incidence is undefined; mathematical domain requires N>0.",
+    "No claims about R0>1, limit cycles or optimal-control claims."
+  ],
+  "schema_version": 1
+}
