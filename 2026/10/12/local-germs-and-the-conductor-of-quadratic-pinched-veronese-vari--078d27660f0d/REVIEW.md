@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The monomial chart identifies the algebra \(A\) as \(S\oplus t(z_1,\ldots,z_{n-1})S\) inside the regular normalization \(S\oplus tS\). A normal-form reduction proves the explicit binomial presentation, not merely a set-theoretic model. The finite normalization map restricts over the conductor to a degree-two morphism of projective lines, giving the global exact sequence with quotient \(\mathcal O_D(-1)\). Formal splitting away from the two branch images yields the fiber-product germs. Both types give the same local Hilbert--Samuel series, and the depth lemma gives depth two for \(n\ge3\). The exact-integer checker verifies finite instances, not the quantifiers of the theorem.
+PASS
 
-## Originality: PASS, with literature risk
+On x0² chart the coordinate algebra A=C[t²,z_i,t z_i]⊂B=C[t,z_i], with S=C[t²,z], B=S⊕tS, A=S⊕t(z)S and B/A=tC[t²]. Annihilator conductor is (z_i,tz_i) in A and (z_i) in B. Double cover P¹→P¹ [a:b]↦[a²:b²] yields quotient sheaf O_D(-1). Binomial relations z_iw_j=z_jw_i and w_iw_j=yz_i z_j give distinct even/odd semigroup monomial normal forms, proving endpoint complete local presentation. At nonbranch y≠0 choose formal sqrt(y); a_i=w_i+sqrt(y)z_i, b_i=w_i−sqrt(y)z_i, giving a_i b_j=0. Local gr dimensions 2*binom(n+s-1,n-1)−1, depth2 via normalization cokernel curve of depth1 and depth lemma. Independent exact semigroup counts n=3 [1,5,11,19,29], n=4 [1,7,19,39,69].
 
-Fedorchuk--Smyth (arXiv:1302.4804, Lemma 3.5) already establishes the surface case \(n=2\), and that case is excluded from the new claim. Greco--Martino (arXiv:1709.10461) already studies the homogeneous Hilbert series and Cohen--Macaulay criteria; Maddox--Pandey (arXiv:2111.05810, Theorem 2.3, Corollary 2.19, Lemma 3.1) already settles normalization, semigroup cokernel and graded depth. These are acknowledged as known, and the assessed novelty is the higher-dimensional **pointwise complete local geometry**, local Hilbert--Samuel formula and reduced projective conductor geometry together. No equivalent assertion was identified in the consulted published mathematical records or primary-text checks. Failure to find a match is not proof of worldwide novelty. Schenzel's original 1978 article remains a specific inaccessible historical originality risk; its complete text was not claimed checked.
+## originality
 
-## Value: PASS
+PASS
 
-A natural infinite family has two different completed-local-ring types but one exact Hilbert--Samuel function all along its singular curve. The jump from a Cohen--Macaulay surface boundary to non-Cohen--Macaulay higher-dimensional projective germs, together with the trace line-bundle normalization defect, is a motivated geometric classification. It is not an arbitrary finite computation or merely a restatement of the homogeneous depth theorem.
+Maddox–Pandey (2022) already prove normalization, semigroup cokernel cyclicity and homogeneous depth and Fedorchuk–Smyth n=2 pinch case is known; these are excluded from novelty. Additional explicit completed local analytic germs for every n>=3, uniform Hilbert–Samuel filtration and global conductor-gluing were reconstructed; those exact pointwise outputs are not stated as such in inspected Maddox text, but may be mechanically obtainable from it—documented implication risk. Schenzel (1978) relevant historical source inaccessible.
 
-## Scientific limits
+## value
 
-The model applies only to a deleted mixed quadratic monomial over \(\mathbb C\), and does not provide a statement for other projection centers or characteristic \(2\). Historical equivalence in inaccessible 1978 work cannot be excluded; finite code checks do not certify all dimensions.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The explicit formal singularity types distinguish branched endpoints from transverse generic double-branches, and uniform depth/multiplicity characterize the full non-CM locus; these are natural reusable local invariants of a basic nonnormal projected Veronese family rather than an arbitrary finite calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
