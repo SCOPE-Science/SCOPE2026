@@ -1,0 +1,170 @@
+{
+  "correctness": {
+    "rationale": "Exact factorial-block bijection and Gaussian ranking normalization give the formal generating function for every p,q>=2 and integer t>=2. The bound sum_{s=1}^{m-1} 1/binom(m,s)<=4/m implies the factorial composition bound R_b(q)<=4^(b-1)(q-b+1)!; this shows every multi-large-side block contributes O(q^(-(t-1))) relative to the explicitly summed one-block family. Consequently both conditional concentration and Rényi entropy formula follow by exact normalization. Independent exact permutation/orientation enumeration agrees with block dynamic programming in 57 instances; 15 additional leading-bound scenarios pass. The proof makes no claim beyond fixed p,t asymptotics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Padrol–Pilaud–Poullot, arXiv:2111.12422: general graphical zonotope deformation and fan theory, no cone mass moments located in the read material.",
+        "Khera–Lundberg, arXiv:2408.12716: longest path of uniform random acyclic orientation; underlying probability law differs.",
+        "Published Löwner ellipsoid result: enclosing Euclidean ellipsoid and contact vertices; published circumsphere result: extremal Euclidean radii and farthest orientations."
+      ],
+      "reasoning": "Known general graphical-zonotope normal-fan/acyclic-orientation correspondence does not provide power-sum probabilities by itself. The existing ellipsoid and radius theorems concern metric extremes, not full solid-angle moment spectra. The longest-path distribution is under uniform orientations rather than the nonuniform Gaussian cone-volume law; neither result implies this theorem.",
+      "searches": [
+        "graphical zonotope random Gaussian direction normal cones collision probability acyclic orientations complete bipartite graph two permutations",
+        "complete bipartite graphical zonotope collision moments Gaussian normal cones linear extension spectrum fixed part size asymptotic",
+        "arXiv:2111.12422",
+        "arXiv:2408.12716",
+        "published-finding corpus: exact Löwner ellipsoid and contact vertices of complete-bipartite graphical zonotopes",
+        "published-finding corpus: complete multipartite graphical zonotopes have cubic-moment circumspheres"
+      ]
+    },
+    "checked_sources": [
+      "Padrol–Pilaud–Poullot, arXiv:2111.12422v1 (full parsed article)",
+      "Iriarte, arXiv:1405.4880 (full parsed article)",
+      "Ayyer–Hathcock–Tetali, arXiv:2010.11236 (parsed full article)",
+      "Khera–Lundberg, arXiv:2408.12716 (parsed full article)",
+      "Chapoton–Pilaud, arXiv:2201.06896 (article abstract/metadata; full-text access unsuccessful)",
+      "Exact Löwner ellipsoid and contact vertices of complete-bipartite graphical zonotopes (complete public RESULT.md)",
+      "Complete multipartite graphical zonotopes have cubic-moment circumspheres (complete public RESULT.md)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Iriarte establishes the input identity Pr(orientation)=linear_extensions/(p+q)!, but not an explicit complete-bipartite t-th moment generating function or condensation limit in inspected sections.",
+        "The read complete-bipartite ellipsoid RESULT.md computes Euclidean shape and contacts, not probability masses.",
+        "The read multipartite circumsphere RESULT.md computes cubic moments of part sizes, not moments of normal-cone probabilities."
+      ],
+      "reasoning": "The new statement implies a complete formula for all integer Renyi moments, fixed-side constants, and a collision-conditional concentration on 2^p orientation chambers. None follows merely from an ellipsoid contact set, a circumsphere radius, or the unweighted acyclic-orientation count. The previously established probabilistic normalization is credited and then used for a genuinely new weighted block enumeration.",
+      "searches": [
+        "For fixed p and q tending to infinity, complete bipartite graphical zonotope K_{p,q}, t independent random Gaussian objectives all expose same vertex, probability asymptotic p! sum_{r=0}^p (r!(p-r)!)^{t-1} q^{-pt}; condensation one large monochromatic block",
+        "graphic arrangement chambers solid angles powers of linear extensions complete bipartite graph",
+        "arXiv:1405.4880",
+        "published-finding corpus id 2026/10/11/SCOPE-exact-l-wner-ellipsoid-and-contact-vertices-of-complete-bipartit--3af21ae2f6c8",
+        "published-finding corpus id 2026/10/11/SCOPE-complete-multipartite-graphical-zonotopes-have-cubic-moment-circ--2fc427ff213b"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Iriarte, Graph Orientations and Linear Extensions, arXiv:1405.4880: orientation masses are linear-extension counts divided by factorial.",
+        "Chapoton and Pilaud, arXiv:2201.06896: bipartite graphical zonotopes and shuffles; the examined accessible abstract concerns combinatorial face descriptions."
+      ],
+      "reasoning": "An exactly equivalent statement would determine the entire t-power sum of linear-extension probabilities for all complete-bipartite orientations, or its large-part condensation law. The established rank-to-orientation normalization is only the first moment and does not imply the computed higher-power coefficient sequence or its fixed-side asymptotics without new enumeration. The Chapoton–Pilaud full paper was not fully readable here; residual bibliographic risk remains.",
+      "searches": [
+        "random permutations same acyclic orientation complete bipartite K_pq probability repeated independent rankings",
+        "graphical arrangements chamber solid angle Renyi entropy collision probability complete bipartite",
+        "acyclic orientations complete bipartite graph sum squares linear extensions collision probabilities uniformly random permutation",
+        "arXiv:1405.4880"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The bipartite orientation numbers in older combinatorial literature are unweighted totals (formally the t=0 case of orientation statistics), while the present t>=2 moments weight by powers of linear-extension sizes.",
+        "The checker reproduces actual small-parameter moment fractions from independent brute-force permutations; these are not relied on as novelty certificates."
+      ],
+      "reasoning": "A known vertex-count table cannot determine the distribution of cone probabilities or all their higher moments: unweighted orientation count treats every orientation equally, while Gaussian sampling weights it by its number of compatible permutations. No exact weighted moment table or known asymptotic was identified in the searched sources.",
+      "searches": [
+        "complete bipartite graphical zonotope collision moments Gaussian normal cones linear extension spectrum fixed part size asymptotic",
+        "For fixed p and q tending to infinity, complete bipartite graphical zonotope K_{p,q}, t independent random Gaussian objectives all expose same vertex, probability asymptotic p! sum_{r=0}^p (r!(p-r)!)^{t-1} q^{-pt}; condensation one large monochromatic block",
+        "Cameron Glass Rekvényi Schumacher acyclic orientations poly Bernoulli numbers",
+        "Chapoton Pilaud complete bipartite shuffle vertex count"
+      ]
+    },
+    "rationale": "Established normal-cone/linear-extension identification and graphical-zonotope construction are explicitly credited. The checked papers and closest published geometric findings do not provide the complete all-integer collision-moment series or vanishing-mass conditional condensation law. A possible disguised equivalent in weighted ordered-partition/linear-extension research remains a specified bibliographic risk; searched noncoverage is not asserted to be a proof of uniqueness.",
+    "residual_risks": [
+      "A weighted ordered-partition generating function or linear-extension collision moment could appear in an earlier paper under different terminology.",
+      "Full text of Chapoton–Pilaud shuffle article was not successfully obtained in this check; its abstract and published metadata alone cannot certify it as noncovering.",
+      "Independent mathematical validation of the proof has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes underlying polytope geometry, not the claimed t-direction cone-collision moment generating function or fixed-part condensation.",
+        "evidence": [
+          "Graphical-zonotope Minkowski segment representation and acyclic orientation normal-fan correspondence."
+        ],
+        "identifier_or_url": "arXiv:2111.12422v1; https://arxiv.org/abs/2111.12422",
+        "material_read": "Parsed full HTML paper and relevant results on graphical zonotopes, orientation vertices, and deformation cones.",
+        "method": "Public open-access article text, including mathematical definitions and results, not just abstract.",
+        "title": "Deformed graphical zonotopes",
+        "trigger": "Anchor paper on the graphical zonotope normal-fan and acyclic-orientation framework."
+      },
+      {
+        "assessment": "Covers normal-cone mass as normalized linear-extension count; does not state the explicit complete-bipartite all-power moment series or conditional one-block asymptotic in the inspected parts.",
+        "evidence": [
+          "Permutation/acyclic-orientation preimage law used as equation (6) in RESULT.md."
+        ],
+        "identifier_or_url": "arXiv:1405.4880; https://arxiv.org/abs/1405.4880",
+        "material_read": "Full parsed paper, including the correspondence of random permutations, graph acyclic orientations and linear-extension counts.",
+        "method": "Public preprint full text.",
+        "title": "Graph Orientations and Linear Extensions",
+        "trigger": "Most direct known probabilistic input for Gaussian cone volumes."
+      },
+      {
+        "assessment": "Different permutation statistics and counting questions; no cone-moment power sum or fixed-side concentration identified.",
+        "evidence": [
+          "Acyclic-orientation and permutation enumerative objects, not Gaussian cone-volume powers."
+        ],
+        "identifier_or_url": "arXiv:2010.11236; https://arxiv.org/abs/2010.11236",
+        "material_read": "Parsed public HTML paper covering the permutation and orientation counts and main results.",
+        "method": "Open-access full article text.",
+        "title": "Toppleable Permutations, Excedances and Acyclic Orientations",
+        "trigger": "Alternative acyclic-orientation counting and permutation correspondence."
+      },
+      {
+        "assessment": "Uniform random orientation versus Gaussian random ranking; studies path lengths, not t-moment cone-collision probability.",
+        "evidence": [
+          "Sampling law and longest directed path as primary quantity."
+        ],
+        "identifier_or_url": "arXiv:2408.12716; https://arxiv.org/abs/2408.12716",
+        "material_read": "Full public article in parsed text, emphasizing sampling law and path-length distribution.",
+        "method": "Open-access arXiv full text.",
+        "title": "The distribution of the length of the longest path in random acyclic orientations of a complete bipartite graph",
+        "trigger": "Same bipartite orientation family and a random-orientation law."
+      },
+      {
+        "assessment": "Combinatorial vertex/face and shuffle constructions were supported by available text, but full-document noncoverage is not claimed. Equivalent weighted moment theory in the full paper remains a bibliographic risk.",
+        "evidence": [
+          "Abstract explicitly identifies complete-bipartite graphical zonotope as shuffle building block and describes f-polynomial constructions."
+        ],
+        "identifier_or_url": "arXiv:2201.06896; https://arxiv.org/abs/2201.06896",
+        "material_read": "Published article metadata, abstract, references and accessible source descriptions; the entire primary paper text was not obtained (arXiv HTML and TeX endpoints unavailable).",
+        "method": "Journal webpage and arXiv abstract; bounded full-text attempt.",
+        "title": "Shuffles of deformed permutahedra, multiplihedra, constrainahedra, and biassociahedra",
+        "trigger": "Explicit complete-bipartite graphical zonotope construction and shuffle."
+      },
+      {
+        "assessment": "Studies Löwner ellipsoid with contact vertices, not Gaussian cone probability spectra or moment condensation.",
+        "evidence": [
+          "Exact ellipsoid shape and number of contact vertices; no normal-cone probability power sums."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-l-wner-ellipsoid-and-contact-vertices-of-complete-bipartit--3af21ae2f6c8",
+        "material_read": "Complete published RESULT.md, including theorem, proof, prior-work comparison, and limitations (11,475 characters).",
+        "method": "Public source text retrieved by GitHub repository read.",
+        "title": "Exact Löwner ellipsoid and contact vertices of complete-bipartite graphical zonotopes",
+        "trigger": "Same complete-bipartite graphical-zonotope family."
+      },
+      {
+        "assessment": "Determines Euclidean circumradius/diameter and farthest orientation count, which do not imply normal-cone collision moments.",
+        "evidence": [
+          "Cubic moment of part sizes and k! farthest vertices; no Gaussian cone moments."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-complete-multipartite-graphical-zonotopes-have-cubic-moment-circ--2fc427ff213b",
+        "material_read": "Complete published RESULT.md, including theorem, proof, relationships and limitations (8,697 characters).",
+        "method": "Public source text retrieved by GitHub repository read.",
+        "title": "Complete multipartite graphical zonotopes have cubic-moment circumspheres",
+        "trigger": "Strictly broader graph class and related extremal Euclidean geometry."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8a0ea3a5-2932-49f1-9a72-9e8b59544942",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For a canonical infinitely growing Euclidean polytope family, the theorem exposes a sharp separation between exponentially many geometric vertices and logarithmic order-t Renyi entropy. Although the 2^p condensed orientations carry O(q^-p) total Gaussian angular exposure, they asymptotically determine every fixed integer collision moment t>=2. The explicit conditional bias and all-moment formula characterize a geometric sampling phenomenon not determined by ordinary orientation counts or known radius/ellipsoid information.",
+    "status": "PASS"
+  }
+}
