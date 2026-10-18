@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-The included `artifacts/verify.py` reconstructs Shimada's six permutations on \(27\) line labels and verifies the full finite calculation.
 
-It checks:
-- \(|W(E_6)|=51840\);
-- stabilizer orders \(120,240,120,120\);
-- pointwise-kernel orders \(1,2,1,1\);
-- induced image order \(120\) in every marked arrangement;
-- the exceptional kernel generator is \(\sigma_6\);
-- \(\sigma_6\) is central in the \(S_2\) stabilizer;
-- the derived subgroup there has order \(60\);
-- an explicit involution yields a disjoint complement of order \(120\).
+# Independent mathematical audit
 
-The expected final line is `VERIFY_OK`. This is an exhaustive finite calculation in the published permutation representation. It does not verify or claim projective automorphism groups of individual cubic surfaces.
+## correctness
+
+PASS
+
+The six explicit W(E6) simple-reflection permutations in Shimada Eq.(2.5) generate a group of exact order 51840 on 27 marked lines. Independent SymPy Schreier–Sims enumeration exhausted all 51840 elements for S1={1,2,3,4,5}, S2={1,2,3,4,21}, T1={1,2,3,4,5,27}, T2={1,2,3,4,21,26}. Setwise stabilizer sizes are 120,240,120,120 and pointwise kernel sizes 1,2,1,1, consistent with orbit sizes 432,216,432,432. The marked image in each case is full S5. In S2 its kernel is the involution sigma6 from printed sixth generator, checked central; derived subgroup has order60 and adjoining explicit tau=(1 4)(7 13)(8 16)(10 19)(11 20)(22 25) gives an order120 complement intersecting kernel trivially, so group = C2×S5. Other groups faithful S5. Exact complete finite group calculation, not heuristic sampling; independent rerun was performed, not blind trust in VERIFY_OK.
+
+## originality
+
+PASS
+
+Shimada primary Zariski pairs on cubic surfaces fully identifies four orbit representatives and orbit cardinalities; these imply group stabilizer orders but not the kernel/image structure or the splitting C2×S5 vs a nonsplit central extension. The linked primary calculation data logs orbits, not this classification. Classical 27-line and Weyl groups may encode isomorphic subgroups, but targeted semantic searches yielded no four-case concrete hidden-kernel theorem. Best-of-knowledge PASS with classical subgroup literature risk.
+
+## value
+
+PASS
+
+For the two natural Zariski-pair arrangements, a complete finite monodromy-isotropy classification explains the factor-two difference between the five-line orbit sizes by an invisible central Weyl involution fixing all marked lines. This is an exact natural orbit invariant tied to deformation geometry; not claimed as projective automorphisms of a fixed cubic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
