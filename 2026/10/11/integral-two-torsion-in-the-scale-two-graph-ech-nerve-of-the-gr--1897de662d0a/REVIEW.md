@@ -1,15 +1,21 @@
-# Review of the Grötzsch graph scale-two Čech homology computation
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The graph, the closed radius-one balls, and their eleven maximal nerve facets are explicitly specified. Exact face enumeration yields the complete vector \((11,55,90,45,11,1)\). All 55 recorded elementary free-face collapses are checked in sequence, leaving a genuine two-dimensional spine. The spanning-tree contraction and exact 36-by-46 signed boundary calculation yield a determinant-\(2\) square minor, mod-two rank 35, and full rational rank 36. This forces integral \(H_1\cong\mathbb Z/2\) and \(H_2\cong\mathbb Z^{10}\). Limits: no stronger fundamental-group or homotopy-type claim is made.
+## correctness
 
-## Originality
-**PASS (bibliographic uncertainty remains).** The construction appears in Adams–Shukla–Singh and under closed- and distance-neighborhood names in Matsushita and Previte. Their inspected classifications do not give the integral Smith factors for the Grötzsch graph. Hypercube-scale-two sphere wedges do not cover this graph. Published torsion, tournament-neighborhood, and other graph-complex calculations differ in their underlying objects or simplicial constructions. Exact-name, alias, torsion, and transfer-formulation searches did not identify a stronger covering statement; this is not a proof that unindexed work is absent.
+PASS
 
-## Value
-**PASS.** A canonical four-chromatic triangle-free graph provides a genuinely torsion-bearing intrinsic graph Čech nerve at the first even scale. The calculation records an exact integral invariant missed by rational homology, and the explicit elementary-collapse and integer Smith certificate supplies a usable test case for broader closed-neighborhood topology.
+The graph is explicitly C5 Mycielskian with 11 vertices and 20 edges; radius-one closed-ball intersections at scale 2 are exactly the vertex closed-neighborhood simplices. Inspected original certificate verifier and independently reconstructed 213 faces with f-vector 11,55,90,45,11,1. Independently greedily performed 46 certified elementary free-pair removals (a different valid spine from package 55-step collapse), leaving 11 vertices,55 edges,55 triangles. After contraction of the star spanning tree, exact integral Smith normal form of the 45-rank 55x55 boundary has 44 unit diagonal factors and one 2, so H1=Z/2, H2 free rank 10, higher zero. Original certificate checks alternate 55-step collapse to 11,46,46 and 36x36 det +2 minor and mod2 rank35. No homotopy wedge inference from torsion.
 
-## Closest literature and limits
-The relevant full-text sources are Adams, Shukla and Singh, *Čech complexes of hypercube graphs* (arXiv:2212.05871), Previte, *The D-neighborhood complex of a graph* (doi:10.25675/3.018305), and Matsushita, *Closed neighborhood complexes of graphs* (arXiv:2511.12608). The displayed first-homology torsion is proved only for the specified eleven-vertex complex. An independent external audit remains unperformed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original mathematical claim; matches no implication-equivalent inspected primary/published comparison; detailed risks remain.
+
+## value
+
+PASS
+
+Explicit integral torsion occurs in the naturally defined scale-two geometric Čech nerve of the canonical Grötzsch (triangle-free chromatic-four) graph. Exact Z/2 class and rank ten H2 are mathematically meaningful graph-topology invariants not supplied by general closed-neighborhood functor descriptions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

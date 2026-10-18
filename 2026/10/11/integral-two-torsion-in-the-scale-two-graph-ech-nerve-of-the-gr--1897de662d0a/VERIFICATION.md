@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducing the integral homology certificate
 
-Place `verify.py` and `certificate.json` in the same directory, then execute `python3 verify.py certificate.json` with Python 3.8 or newer. The script uses only the standard library and generates graph adjacency, eleven closed neighborhoods, all 213 nonempty simplices, and every signed incidence needed for the integer boundary matrix.
+# Independent mathematical audit
 
-The verification checks each of 55 recorded free-face/codimension-one coface pairs **against the changing simplicial complex**, not against an unverified list. It checks the resulting two-dimensional spine, the explicit ten-edge spanning tree, the resulting 36-by-46 cellular boundary, the exact signed determinant \(+2\) of a specified minor, the mod-two rank 35 and mod-three rank 36. Together these establish Smith invariant factors \(1\) (35 copies) and \(2\) (one copy), and a ten-dimensional integral kernel. A successful run prints `VERIFY_OK` followed by the verified face counts and ranks.
+## correctness
 
-This finite exact certificate proves the stated integral homology, not the fundamental group, a precise integral homotopy type, or a result about all triangle-free graphs. The equivalence between the graph-metric Čech complex and its closed-neighborhood facet construction is justified separately in the mathematical proof; neither a failed keyword search nor the executable alone proves bibliographic novelty.
+PASS
+
+The graph is explicitly C5 Mycielskian with 11 vertices and 20 edges; radius-one closed-ball intersections at scale 2 are exactly the vertex closed-neighborhood simplices. Inspected original certificate verifier and independently reconstructed 213 faces with f-vector 11,55,90,45,11,1. Independently greedily performed 46 certified elementary free-pair removals (a different valid spine from package 55-step collapse), leaving 11 vertices,55 edges,55 triangles. After contraction of the star spanning tree, exact integral Smith normal form of the 45-rank 55x55 boundary has 44 unit diagonal factors and one 2, so H1=Z/2, H2 free rank 10, higher zero. Original certificate checks alternate 55-step collapse to 11,46,46 and 36x36 det +2 minor and mod2 rank35. No homotopy wedge inference from torsion.
+
+## originality
+
+PASS
+
+Best-of-knowledge original mathematical claim; matches no implication-equivalent inspected primary/published comparison; detailed risks remain.
+
+## value
+
+PASS
+
+Explicit integral torsion occurs in the naturally defined scale-two geometric Čech nerve of the canonical Grötzsch (triangle-free chromatic-four) graph. Exact Z/2 class and rank ten H2 are mathematically meaningful graph-topology invariants not supplied by general closed-neighborhood functor descriptions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
