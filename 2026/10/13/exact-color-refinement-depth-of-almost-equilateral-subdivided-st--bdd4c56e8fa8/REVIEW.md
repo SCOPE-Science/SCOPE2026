@@ -1,21 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof reduces round-\(r\) colors on a tree to rooted depth-\(r\) truncations, using the standard universal-cover characterization of color refinement. For the stated spider family, those truncations are captured exactly by clipped distances to the center and the leaf on the same arm. The two stabilization thresholds arise from two independent obstructions: the short and long leaves cannot split before round \(a+1\), and the long arm retains at least two indistinguishable internal positions until round \(\lceil c/2\rceil\). The converse checks that no other collisions survive beyond the maximum of those thresholds.
+PASS
 
-The standalone checker directly recomputed all refinement partitions on \(4860\) parameter triples and compared intermediate partitions with the claimed descriptor rule in \(10650\) round-level checks.
+For every d>=3 and 1<=a<=c, the center is the unique degree-d vertex and the first refinement separates center, internal degree-2 vertices and leaves; subsequent color at round r is exactly the truncated rooted neighborhood type, encoded for leaves by (leaf,min(L,r)) and for internal arm position x by (internal,min(x,r),min(L-x,r)). The arm-to-center and arm-to-leaf distances are distinguished by endpoint degree and potential differences beyond the center are too deep to break an asserted descriptor equality early. If c=a, each arm has unresolved internal middle interval r<=x<=a-r, size <=1 precisely for r>=ceil(a/2). If c>a, short and long leaf colors first separate at r=a+1, and the long internal middle ceases to collide by ceil(c/2); these two necessary conditions suffice for stable orbit classes, giving max(a+1,ceil(c/2)). Independent direct 1-WL implementation tested all d in {3,4,7}, 1<=a<=13, a<=c<=41 (1,365 parameters) without discrepancy, plus code inspection of pinned verifier; this corroborates infinite proof.
 
-## Originality
+## originality
 
-PASS with residual literature risk. The closest primary source inspected was Krebs--Verbitsky, arXiv:1407.3175, especially its definition of color refinement and Lemma 2.6 identifying colors with truncated universal covers. That source provides the general mechanism but not the almost-equilateral subdivided-star formula.
+PASS
 
-Targeted searches using “subdivided star,” “spider tree,” “color refinement,” “1-WL,” “Weisfeiler--Leman,” “equitable partition,” and “stabilization” did not locate a matching theorem. Semantic-database results on spider trees concerned unrelated invariants such as curvature distortion. Existing path results are not equivalent: the branching center is a persistent typed endpoint, and the exceptional-arm threshold \(a+1\) has no path analogue.
+The almost-equilateral spider family is a one-exception-arm tree subdivision, so general rooted-universal-cover equality specializes to an algorithm for its colors; the explicit a,c formula requires a separate family-specific derivation. General 1-WL local-universal-cover characterization determines colors abstractly but does not directly assert a stopping time max(a+1,ceil(c/2)) or ceil(a/2). From the prior universal-cover theorem one still must prove the typed clipping descriptors and exact first round in which no middle positions or different arm-length tips split. Primary text inspections and Resultary cross-checks found no exact or dominating theorem for the complete claim; this is a best-of-knowledge PASS with the listed explicit literature and accessibility risks, not proof of absolute novelty.
 
-Residual risk remains that a specialized graph-isomorphism or tree-canonization source states the same formula under different terminology.
+## value
 
-## Value
+PASS
 
-PASS. Subdivided stars are a canonical first branching family beyond paths, and color-refinement iteration count is a standard depth parameter in finite model theory and graph isomorphism. The formula isolates two distinct mechanisms—symmetry breaking at the exceptional branch and inward propagation along the longest arm—and exhibits a genuine discontinuity between the equilateral case and an arbitrarily small arm-length perturbation. The exact all-round descriptor is also reusable for related logical-depth calculations.
+This describes each color class at every round and the exact stopping time of a natural spider-tree subdivision with one exceptional arm; it isolates a sharp discontinuity between equal-length and almost-equal arms. Exact 1-WL iteration counts are relevant to the structure and worst-case behavior of refinement algorithms, rather than an arbitrary graph instance or mere computer output.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T07:11:22Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md Git blob bae695823397d519f41764ae7c937c16a9ddd5b1",
+        "pinned verify_spider_color_refinement.py Git blob f7b71fb26b9bf78aaeb8daaf5843d025f6289831",
+        "independent mathematical reconstruction and bounded code in /mnt/data/scope05_independent_checks.py"
+      ],
+      "rationale": "For every d>=3 and 1<=a<=c, the center is the unique degree-d vertex and the first refinement separates center, internal degree-2 vertices and leaves; subsequent color at round r is exactly the truncated rooted neighborhood type, encoded for leaves by (leaf,min(L,r)) and for internal arm position x by (internal,min(x,r),min(L-x,r)). The arm-to-center and arm-to-leaf distances are distinguished by endpoint degree and potential differences beyond the center are too deep to break an asserted descriptor equality early. If c=a, each arm has unresolved internal middle interval r<=x<=a-r, size <=1 precisely for r>=ceil(a/2). If c>a, short and long leaf colors first separate at r=a+1, and the long internal middle ceases to collide by ceil(c/2); these two necessary conditions suffice for stable orbit classes, giving max(a+1,ceil(c/2)). Independent direct 1-WL implementation tested all d in {3,4,7}, 1<=a<=13, a<=c<=41 (1,365 parameters) without discrepancy, plus code inspection of pinned verifier; this corroborates infinite proof.",
+      "residual_risks": [
+        "The scope permits d>=3, d-1 equal length a and at most one longer length c; no arbitrary multi-length spider theorem.",
+        "Only uncolored ordinary one-dimensional refinement; no higher-dimensional WL."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General 1-WL local-universal-cover characterization determines colors abstractly but does not directly assert a stopping time max(a+1,ceil(c/2)) or ceil(a/2).",
+          "Krebs–Verbitsky global lower/upper bounds on depth do not imply equality for the present restricted family."
+        ],
+        "reasoning": "Checked whether the strongest inspected existing theorem logically entails this result, including its exact domain and sharp conclusion. Established input background is explicitly credited.",
+        "searches": [
+          "Resultary semantic search: stabilization time color refinement subdivided star spider tree arm lengths Weisfeiler Leman",
+          "Resultary semantic search: 1-dimensional Weisfeiler-Leman stabilization subdivided spider stars S_d(a,c) with d-1 equal arm length and one longer",
+          "Primary-source comparison: Krebs and Verbitsky, Universal covers, color refinement, and two-variable counting logic: Lower bounds for the depth, arXiv:1407.3175 / LICS 2015"
+        ]
+      },
+      "checked_sources": [
+        "Krebs and Verbitsky, Universal covers, color refinement, and two-variable counting logic: Lower bounds for the depth, arXiv:1407.3175 / LICS 2015",
+        "Resultary: SCOPE-curvature-distortion-spider-trees--7ee8f1c6b217 (different invariant)",
+        "Resultary: SCOPE-depth-erasure-and-exact-normalized-ricci-flow-limits-on-subdivid--500d86e33c0e (different invariant)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From the prior universal-cover theorem one still must prove the typed clipping descriptors and exact first round in which no middle positions or different arm-length tips split.",
+          "A generic linear upper bound says nothing about the sharp discontinuous c=a versus c>a threshold."
+        ],
+        "reasoning": "Compared the conclusion itself with strongest relevant prior statements and specializations; documented nonimplications and acknowledged genuine overlap.",
+        "searches": [
+          "Resultary semantic search: stabilization time color refinement subdivided star spider tree arm lengths Weisfeiler Leman",
+          "Resultary semantic search: 1-dimensional Weisfeiler-Leman stabilization subdivided spider stars S_d(a,c) with d-1 equal arm length and one longer",
+          "Primary-source comparison: Krebs and Verbitsky, Universal covers, color refinement, and two-variable counting logic: Lower bounds for the depth, arXiv:1407.3175 / LICS 2015"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The almost-equilateral spider family is a one-exception-arm tree subdivision, so general rooted-universal-cover equality specializes to an algorithm for its colors; the explicit a,c formula requires a separate family-specific derivation.",
+          "Nearest Resultary spider records concern Lin–Lu–Yau curvature, not stabilization of 1-WL partitions."
+        ],
+        "reasoning": "Compared exact definitions, parameters, and translation to the named existing frameworks; topical overlap without a mathematical iff implication is not prior coverage.",
+        "searches": [
+          "Resultary semantic search: stabilization time color refinement subdivided star spider tree arm lengths Weisfeiler Leman",
+          "Resultary semantic search: 1-dimensional Weisfeiler-Leman stabilization subdivided spider stars S_d(a,c) with d-1 equal arm length and one longer",
+          "Primary-source comparison: Krebs and Verbitsky, Universal covers, color refinement, and two-variable counting logic: Lower bounds for the depth, arXiv:1407.3175 / LICS 2015"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite parameter checks up to c=41 could not establish all positive lengths; no inspected table or database listing the complete formula was found.",
+          "Spider-tree Resultary results compute unrelated invariants, not a catalog of exact refinement rounds."
+        ],
+        "reasoning": "A numerical entry is prior coverage only if it states the exact all-parameter assertion or genuinely exhausts the specified finite domain; finite observations alone cannot prove these universal claims.",
+        "searches": [
+          "Resultary semantic search: stabilization time color refinement subdivided star spider tree arm lengths Weisfeiler Leman",
+          "Resultary semantic search: 1-dimensional Weisfeiler-Leman stabilization subdivided spider stars S_d(a,c) with d-1 equal arm length and one longer",
+          "Primary-source comparison: Krebs and Verbitsky, Universal covers, color refinement, and two-variable counting logic: Lower bounds for the depth, arXiv:1407.3175 / LICS 2015"
+        ]
+      },
+      "rationale": "The almost-equilateral spider family is a one-exception-arm tree subdivision, so general rooted-universal-cover equality specializes to an algorithm for its colors; the explicit a,c formula requires a separate family-specific derivation. General 1-WL local-universal-cover characterization determines colors abstractly but does not directly assert a stopping time max(a+1,ceil(c/2)) or ceil(a/2). From the prior universal-cover theorem one still must prove the typed clipping descriptors and exact first round in which no middle positions or different arm-length tips split. Primary text inspections and Resultary cross-checks found no exact or dominating theorem for the complete claim; this is a best-of-knowledge PASS with the listed explicit literature and accessibility risks, not proof of absolute novelty.",
+      "residual_risks": [
+        "The scope permits d>=3, d-1 equal length a and at most one longer length c; no arbitrary multi-length spider theorem.",
+        "Possible unindexed equitable-partition or spider-tree 1-WL classification remains a literature risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides underlying equivalence of colors and truncated universal covers, but no closed stopping-time formula for S_d(a,c) found in material read.",
+          "evidence": "Krebs–Verbitsky 2015 introduction and local-cover characterization",
+          "identifier_or_url": "arXiv:1407.3175",
+          "material_read": "Public complete PDF, introduction, round-by-round universal-cover theorem and path/general worst-case examples",
+          "method": "Read full PDF available text and inspected relevant pages",
+          "title": "Universal covers, color refinement, and two-variable counting logic: Lower bounds for the depth",
+          "trigger": "Rooted-cover characterization of exact refinement depth; possible broad theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Krebs and Verbitsky, Universal covers, color refinement, and two-variable counting logic: Lower bounds for the depth, arXiv:1407.3175 / LICS 2015",
+        "actual reviewed 2026/10/13/exact-color-refinement-depth-of-almost-equilateral-subdivided-st--bdd4c56e8fa8/RESULT.md"
+      ],
+      "rationale": "This describes each color class at every round and the exact stopping time of a natural spider-tree subdivision with one exceptional arm; it isolates a sharp discontinuity between equal-length and almost-equal arms. Exact 1-WL iteration counts are relevant to the structure and worst-case behavior of refinement algorithms, rather than an arbitrary graph instance or mere computer output.",
+      "residual_risks": [
+        "Possible unindexed equitable-partition or spider-tree 1-WL classification remains a literature risk.",
+        "The value judgment concerns this exactly stated object/invariant and does not claim an unstated general theorem or priority beyond inspected sources."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The scope permits d>=3, d-1 equal length a and at most one longer length c; no arbitrary multi-length spider theorem.",
+    "Only uncolored ordinary one-dimensional refinement; no higher-dimensional WL.",
+    "Possible unindexed equitable-partition or spider-tree 1-WL classification remains a literature risk."
+  ]
+}
