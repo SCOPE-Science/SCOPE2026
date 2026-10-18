@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible checks and limits
+# Independent mathematical audit
 
-Run `python verify.py` from the extracted package directory with ordinary Python 3. It uses only the standard library. The deterministic `verification_output.txt` records the checked finite-field census and ends with `VERIFY_OK`.
+## correctness
 
-The script implements arithmetic in \(\mathbf F_4=\mathbf F_2[t]/(t^2+t+1)\), enumerates every projective vector after scaling its first nonzero coordinate to one, computes the first derivatives of \(e_3\) from \(x_i^2+s_1x_i+s_2\), and compares with the indicator-vector support prediction for \(n=5,7,8,9\). The \(n=6\) census is a deliberate excluded-congruence sanity test; it is not evidence for including that congruence class. The checker also computes exact binary ranks of the Hessian polar matrices, tests nonsingularity of the quadratic tangent cones on all \(\mathbf F_2\)-rational nonzero tangent vectors, and verifies the binomial support count and Bézout-degree balance at \(n=8,12,16,20\).
+PASS
 
-The finite-field and binary-vector tests cannot establish the theorem over every algebraically closed field, nor can they by themselves prove local Artin length or absence of positive-dimensional components. Those conclusions follow from the universal algebraic argument and complete-intersection length proof in `RESULT.md`. In characteristic two an odd-dimensional smooth quadratic form may have a polar radical, so smoothness is checked by evaluating the quadratic form on that radical, not by requiring an invertible Hessian in every case.
+For char2 and n>=5 with n mod4 not 2, each partial derivative of e3 equals xi²+s1 xi+s2. All coordinate values therefore lie among the roots of one quadratic. Comparing coordinate multiplicity parities excludes two different nonzero values, while single nonzero value has admissible support cardinality |S|=1 mod4. At each indicator p_S the quadratic tangent form splits into e2 on the r−1 active and n−r inactive coordinates. For odd n both polar blocks have even size and full rank. If 4 divides n, the outside block has odd size 3 mod4 and its unique polar radical evaluates to Q=1, so the projective tangent quadric is still smooth. Odd n Jacobian local tangent=0 thus reduced. If 4|n, ∑ partials=0, exactly n−1 quadrics generate height n−1 zero-dimensional complete intersection of degree 2^{n−1}; support has 2^{n−2} points and tangent dimension 1 each, forcing every local Artin length 2 and local ring K[epsilon]/epsilon². Independently enumerated every F4 projective point for n=5,7,8 and obtained precisely 6,28,64 points; the universal algebraic argument, not samples, proves every admissible n.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Ying Xie arXiv:2610.00259v1 studies general elementary-symmetric derivative/multiplicity schemes, dimensions and coordinate components and explicitly points to open global primary-decomposition/reducedness cases in Section 7. This theorem gives a complete geometric support and local multiplicity classification for the char2 cubic e3, including reduced/curvilinear-double dichotomy and smooth quadratic tangent cones. Orzel’s general derivative bounds and Cafure–Matera–Privitelli partition framework do not yield the exact projective local rings in the inspected statements. Semantic Resultary query returned unrelated singular-scheme records; absence alone not proof of novelty.
+
+## value
+
+PASS
+
+A full singular-scheme classification for a canonical symmetric cubic across an infinite characteristic-two family fills a recognized positive-characteristic gap. The distinction between ordinary quadratic tangent cone and nonreduced Jacobian local scheme is mathematically instructive and determines exact zero-dimensional lengths and local structure; not arbitrary tiny-case enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
