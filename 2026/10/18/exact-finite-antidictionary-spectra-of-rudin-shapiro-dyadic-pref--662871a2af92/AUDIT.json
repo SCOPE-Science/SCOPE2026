@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The candidate lemma derives all minimal absent words from empty/positive adjacent suffix-LCP cores by the exact simultaneous left/right extension test. Prefix-doubling suffix sorting and Kasai LCP are exact integer/string procedures; all ten finite m=7..16 were exhaustively run and checked against complete output digests and the stated length spectrum, and a distinct direct all-factor exhaustive enumerator agrees at m=7,8 and on 128 deterministic short random inputs. Decimation recursion independently regenerates input prefixes. Code is included, along with table and boundaries. No infinite-m theorem is claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Allouche–Bousquet-Mélou (1994), https://ftp.gwdg.de/pub/EMIS/journals/BBMS/Bulletin/bul942/ALLBOU.PDF: factor recurrence, sets and infinite-word complexity, including 8n-8 for sufficiently large n.",
+        "OEIS A005943: occurrence-factor complexity of infinite RS word rather than finite-prefix antidictionary."
+      ],
+      "reasoning": "A count of distinct occurring factors for the infinite word does not determine left/right extension pairing for finite prefixes, so these stronger-looking structural and asymptotic results do not imply ten exact finite-prefix antidictionary spectra. It remains possible an obscure full factor-language table implies the answer after independent computation.",
+      "searches": [
+        "Allouche and Bousquet-Mélou, Facteurs des suites de Rudin-Shapiro généralisées, 1994",
+        "published-finding corpus: Rudin Shapiro finite prefixes minimal absent factors exactly 8m-5",
+        "OEIS A005943 factor complexity"
+      ]
+    },
+    "checked_sources": [
+      "Allouche–Bousquet-Mélou 1994 original full article",
+      "Barton et al. 2014 full open-access article",
+      "OEIS A005943 sequence description",
+      "published-finding corpus SCOPE079 indexed summary, full text not read",
+      "Accessible previous ledger g000026 recovered finding claims, no overlapping Rudin–Shapiro finite antidictionary result"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Barton et al., https://arxiv.org/abs/1406.6341, give the general algorithm reducing minimal absent words to extension sets over LCP contexts.",
+        "Allouche–Bousquet-Mélou (1994) describe RS factor complexity rather than ten exact dyadic-prefix MAW spectra.",
+        "The computed ten complete digests and enumerations in SPECTRUM.tsv, verified by verify.py, supply specialized quantitative data not present in the general algorithm."
+      ],
+      "reasoning": "The generic suffix-array theorem combined with a specific input permits calculating any finite MAW set, but does not logically provide the displayed special RS-specific values without the new exhaustive computation. The infinite RS factor-complexity formula does not determine finite prefix boundary effects. Similarity of terminology is not covering implication.",
+      "searches": [
+        "Barton Heliou Mouchard Pissis 2014 minimal absent words suffix array",
+        "Allouche Bousquet-Melou 1994 Rudin-Shapiro factor complexity",
+        "published-finding corpus query: Rudin-Shapiro dyadic prefixes minimal absent factors 7 <= m <= 16 exactly 8m-5 5,6,7,8,9 length spectrum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Barton et al., arXiv:1406.6341, define minimal absent words using extension contexts; this is the same object as minimal absent contiguous factors and antidictionary.",
+        "published-finding corpus 2026/9/8/SCOPE079 concerns string attractors for dyadic RS prefixes, not missing factor extension contexts."
+      ],
+      "reasoning": "The alternative names minimal absent words, minimal forbidden factors, and antidictionary were considered. No matching exact spectrum appears among inspected sources or semantic search hits. String attractors are hitting sets of present factors and do not determine which length-specific factors are minimally absent.",
+      "searches": [
+        "published-finding corpus: Rudin Shapiro antidictionary 2^m minimal forbidden words",
+        "web: \"Rudin-Shapiro\" \"minimal absent\"",
+        "web: Rudin Shapiro forbidden factors"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A005943 documents number of occurring factors by length, not number or lengths of minimal absent factors.",
+        "published-finding corpus 2026/9/8/SCOPE079 has small Rudin–Shapiro attractor sizes and bounds but not an antidictionary table."
+      ],
+      "reasoning": "Searches for 123 minimal absent factors, length 16386, and dyadic MAW spectra did not reveal an exact database/table dominating the new finite table. This search nonhit does not establish that no such table exists.",
+      "searches": [
+        "OEIS A005943 Rudin Shapiro factor complexity",
+        "published-finding corpus: Rudin Shapiro 65536 minimal absent words 123 16386",
+        "published-finding corpus: Golay Rudin Shapiro dyadic antidictionary minimal forbidden factors length 2^j+2"
+      ]
+    },
+    "rationale": "Statement-level comparison of original finite antidictionary spectra with relevant full-text factor-complexity and generic minimal-absent-word literature found no explicit or implied 7<=m<=16 Rudin–Shapiro spectrum; semantic database and local historical-claim searches similarly found no matching result. The finite prefix boundary information and extension incidences are not specified by infinite-word factor counts. Negative searches are evidence of a bounded check, not proof of global novelty.",
+    "residual_risks": [
+      "A differently indexed older specialized finite-prefix antidictionary table may have escaped searches.",
+      "Some related indexed records were compared from summaries only, not complete primary text; no whole-document noncoverage claim is made for those records.",
+      "Proof depends on the correctness of the included exact finite enumeration and candidate lemma; independent external audit remains outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Studies infinite-word generalized RS factor languages and 8n-8 complexity, not this ten-row finite antidictionary length spectrum.",
+        "evidence": [
+          "Allouche and Bousquet-Mélou, 1994, complete journal article, https://ftp.gwdg.de/pub/EMIS/journals/BBMS/Bulletin/bul942/ALLBOU.PDF"
+        ],
+        "identifier_or_url": "https://ftp.gwdg.de/pub/EMIS/journals/BBMS/Bulletin/bul942/ALLBOU.PDF",
+        "material_read": "Original research article PDF, including introduction/definitions and factor-complexity and recurrence results; beginning and ending page images checked.",
+        "method": "Read open full-text PDF, compare stated objects and range with linear R_m minimal-absent-factor extension spectra.",
+        "title": "Facteurs des suites de Rudin-Shapiro généralisées",
+        "trigger": "Rudin–Shapiro structure and factor complexity could dominate any finite antidictionary calculation"
+      },
+      {
+        "assessment": "Generic minimal-absent-word enumeration, no exact RS dyadic-prefix table; foundational method, not covering the specialized computation.",
+        "evidence": [
+          "Barton, Heliou, Mouchard, Pissis 2014, arXiv:1406.6341, original version publicly posted 2014-06-24."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1406.6341",
+        "material_read": "Full publicly accessible article HTML, methods and correctness characterization and complexity statements.",
+        "method": "Examined algorithm and general mathematical theorem; compared any listed special words and quantitative outputs.",
+        "title": "Linear-time Computation of Minimal Absent Words Using Suffix Array",
+        "trigger": "The general suffix-array algorithm might subsume the method or pre-report exact special-family spectra"
+      },
+      {
+        "assessment": "Reports exact small string-attractor minima and bounds, a different invariant. Because full text was not read, residual hidden-table risk remains.",
+        "evidence": [
+          "published-finding corpus record 2026/9/8/SCOPE079, indexed title and summary."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/8/SCOPE079",
+        "material_read": "Search-index title and abstract/summary only; linked full text was not accessed.",
+        "method": "Statement-level search-summary comparison, not whole-document clearance.",
+        "title": "Exact minimal string attractors for Rudin-Shapiro and regular-paperfolding dyadic prefixes",
+        "trigger": "Same RS dyadic-prefix inputs, potentially overlapping computed invariant"
+      },
+      {
+        "assessment": "Table enumerates occurring factor counts, not minimal absent factor counts; no domination.",
+        "evidence": [
+          "OEIS A005943, factor complexity entries."
+        ],
+        "identifier_or_url": "https://oeis.org/A005943",
+        "material_read": "Sequence description and visible factor complexity entries.",
+        "method": "Compared what is counted and index normalization.",
+        "title": "OEIS A005943: Rudin–Shapiro factor complexity",
+        "trigger": "An exact numeric table may subsume the computed counts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "662871a2-af92-460c-b6c2-18513925f6f0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact finite antidictionary length spectra of ten natural and increasingly long prefixes of a classical 2-automatic sequence are meaningful concrete structural benchmarks. Each dyadic doubling adds precisely eight MAWs within the proved interval, while only one longest obstruction survives. The complete length distribution, rather than a single small-case total, isolates boundary-sensitive missing contexts relevant to substring indexing, antidictionary compression, and conjectures about infinite sequence families. No extrapolation beyond level 16 is claimed.",
+    "status": "PASS"
+  }
+}
