@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "For every k, the multinomial distribution of a prime exponent across k ordered factors gives d_k(n)=product binom(e+k-1,k-1). Taking valuations at 2,3,5,7,11,13 in d2 and d3 produces the displayed exact 12x12 integer matrix A. Fraction-free integer elimination on the actual matrix gives det(A)=+1, so the exponent multiplicity vector is uniquely recovered for any number of prime factors provided each exponent is <=12. The profiles {2,2,13} and {1,6,8} give exactly (126,3780), proving failure at 13. The supplied standard-library certificate rebuilds the matrix, independently computes the determinant, and checks the collision and 399 direct ordered-factorization sanity cases. No finite experiment replaces the universal invertibility argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Huxley–Lettington–Schmidt, arXiv:2610.13864v1, Sections 2–5: definitions, generating-polynomial identity, Dirichlet series, and squarefree specializations.",
+        "Lettington–Schmidt, arXiv:1910.02455v1 and Integers 20 (2020), A61: associated divisor functions and sum-system enumeration."
+      ],
+      "reasoning": "The earlier results supply general convolution and divisor-polynomial identities, but these neither assert full reconstruction from only two scalar values nor prove or disprove the exact exponent-thirteen boundary. A hypothetical full-profile theorem would be stronger, but was not found in inspected texts.",
+      "searches": [
+        "divisor function polynomials P(n,x) ordered nontrivial factorizations distinguish integers up to their prime exponent partitions; equality characterization P(n,x)=P(m,x) iff identical multiset exponents, reconstruction from roots of binomial transform",
+        "prime exponent partitions uniquely determined by number of ordered two-factor and three-factor decompositions bounded exponent",
+        "\"generalized divisor function\" \"collision\" \"exponents\""
+      ]
+    },
+    "checked_sources": [
+      "Huxley, Lettington, Schmidt 2026 arXiv:2610.13864v1 (complete HTML)",
+      "Lettington, Schmidt 2020 Integers 20 A61 (complete accessible PDF)",
+      "Semantic results-index searches for bounded exponent reconstruction and divisor-count collisions",
+      "Web searches of exact value pair (126,3780), alternate phrasings, and generalized divisor functions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Huxley–Lettington–Schmidt, arXiv:2610.13864v1, Sections 2–5: definitions, generating-polynomial identity, Dirichlet series, and squarefree specializations.",
+        "Lettington–Schmidt, arXiv:1910.02455v1 and Integers 20 (2020), A61: associated divisor functions and sum-system enumeration.",
+        "The determinant-one certificate forces universal bounded-exponent injectivity; the explicit distinct signatures establish failure at cutoff 13."
+      ],
+      "reasoning": "The cited papers imply the local divisor-function identities but not the unimodular 12-column recovery or the sharp first failure. Supplying the identities is weaker than establishing the proposed logical equivalence for every unrestricted number of prime factors.",
+      "searches": [
+        "the pair of divisor functions tau(n) and d_3(n) determines unordered prime exponents for maximum exponent twelve, collision at thirteen 126 3780",
+        "ordered two-fold three-fold multiplicative factorization counts 12x12 integer matrix determinant 1 exponent profiles 13",
+        "prime exponent partitions uniquely determined by number of ordered two-factor and three-factor decompositions bounded exponent"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Huxley–Lettington–Schmidt, arXiv:2610.13864v1, Sections 2–5: definitions, generating-polynomial identity, Dirichlet series, and squarefree specializations.",
+        "Lettington–Schmidt, arXiv:1910.02455v1 and Integers 20 (2020), A61: associated divisor functions and sum-system enumeration.",
+        "The exact invariant pair is equivalently the first two multiplicative factorization counts, and its prime-valuation image is the 12-dimensional linear map A."
+      ],
+      "reasoning": "Checked the reformulation in terms of exponent-count profiles, low-order divisor functions, and ordered-factorization statistics; no indexed equivalent sharp cutoff was located. Invertibility of the displayed valuation matrix is not a consequence of the earlier defining formulas alone.",
+      "searches": [
+        "the pair of divisor functions tau(n) and d_3(n) determines unordered prime exponents for maximum exponent twelve, collision at thirteen 126 3780",
+        "sharp injectivity threshold for two generalized divisor functions d_2(n), d_3(n): multiplicity profile of prime exponents at most 12, first collisions exponent 13",
+        "\"two divisor functions\" \"prime exponent\" \"determined\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact value-pair equality was computed from local factors and reproduced independently by the supplied certificate.",
+        "Searches for the numeric pair and exponent profiles did not identify a published table recording the claimed sharp global cutoff."
+      ],
+      "reasoning": "The pair (126,3780) alone could occur in unrelated integer tables, so novelty is attached to the universal exact cutoff and its prime-exponent interpretation, not to these two numbers in isolation. No exact preexisting signature table implying the theorem was located.",
+      "searches": [
+        "ordered two-fold three-fold multiplicative factorization counts 12x12 integer matrix determinant 1 exponent profiles 13",
+        "same divisor count tau(n) and ternary divisor count d_3(n) different exponent partitions example 126 3780",
+        "\"126\" \"3780\" \"divisor\" \"exponents\""
+      ]
+    },
+    "rationale": "The 2026 motivating source and the 2020 primary antecedent were read and compared by implication, not title. Their factorization identities do not state a sharp two-statistic signature-reconstruction cutoff. Published mathematical results were searched for alias forms, sharper coverage, the determinant criterion, and the explicit 126/3780 collision; no result implying the full statement was identified. An unindexed earlier exact divisor-count signature classification remains a real residual originality risk, and the absence of results is not a uniqueness proof.",
+    "residual_risks": [
+      "Earlier unindexed or unpublished divisor-count equality tables may imply the threshold.",
+      "Searches cannot certify global novelty; the surviving claim is the exact uniform exponent cutoff, not merely the example pair."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper supplies the factorization statistics and polynomial framework, but does not establish the precise two-count injectivity cutoff or exponent-13 counterexample.",
+        "evidence": [
+          "Huxley–Lettington–Schmidt, arXiv:2610.13864v1, Sections 2–5: definitions, generating-polynomial identity, Dirichlet series, and squarefree specializations."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.13864v1",
+        "material_read": "Full public HTML, introduction, Sections 2–5, including definitions 2.1 and 3.1, Theorems 2.2 and 3.3–3.5, squarefree section and references",
+        "method": "Full text with section and equation comparison, including checks for exponent bounds, collision classification, and inverse determination",
+        "title": "On Divisor Function Polynomials and Dirichlet Series",
+        "trigger": "Recent primary MSC 11A25 source defining ordered-factorization polynomials and generalized divisor functions"
+      },
+      {
+        "assessment": "The established convolution identities and sum-system formulas do not state the new sharp reconstruction/collision theorem.",
+        "evidence": [
+          "Lettington–Schmidt, arXiv:1910.02455v1 and Integers 20 (2020), A61: associated divisor functions and sum-system enumeration."
+        ],
+        "identifier_or_url": "https://orca.cardiff.ac.uk/id/eprint/133889/8/u61.pdf",
+        "material_read": "Accessible complete 2020 paper, definitions, Theorems 1–4 and proofs and references",
+        "method": "Full-text comparison of generalized divisor-function statements against exact 12-column valuation invertibility and first failure of signature injectivity",
+        "title": "Divisor Functions and the Number of Sum Systems",
+        "trigger": "Earlier primary source on the same generalized divisor functions and ordered factorizations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3fb220c5-c852-4403-a07d-f1b88fa44d97",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The question asks how much of an integer's entire prime-power exponent profile can be retained by only two low-order factorization statistics, a natural quantitative compression of recently studied full factorization polynomials. A determinant-one theorem gives a uniform, no-prime-support-bound reconstruction result, and an explicit first failing exponent 13 proves the cutoff is optimal. This is more than a value lookup or routine case count: the theorem locates an exact sharp structural identifiability boundary.",
+    "status": "PASS"
+  }
+}
