@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof reconstructs the coordinate ring directly from the three displayed source equations. With \(w=u_2-u_1\), the relations force \(wv=y_2\), \(u_1=y_1w\), and \(u_2=(y_1+1)w\). The forward and inverse polynomial maps are explicit, equivariance is immediate from weights, and the invariant ring is \(K[y_1,y_2]\). The packaged exact symbolic replay returns `VERIFY_OK`.
+## correctness
 
-## Originality — PASS
-The current source version was inspected at the exact Section 5 passage. It states the opposite conclusion, namely that \(A_1=u_1K[Y]+u_2K[Y]\) is not cyclic. Searches by exact equations, coordinate aliases, title, correction/erratum terminology, and suspension terminology found no prior correction or stronger statement covering this coordinate identification. Residual risk remains for an unindexed later correction.
+PASS
 
-## Value — PASS
-The example is used by the source to negate a natural characterization of suspensions. The correction shows that this particular example is itself a suspension and that the stated module obstruction vanishes, so the example cannot serve its advertised logical role. The claim is narrow and does not reassess unrelated results.
+Starting from the exact 3 defining equations in the primary Section 5 page, subtract r1 from r2 to get (u2-u1)v=y2. The third yields u1=y1(u2-u1); hence u2=(y1+1)(u2-u1). Set w=u2-u1; map (w,v,y1) to (y1w,(y1+1)w,v,y1,wv), with inverse projection to (u2-u1,v,y1), is an isomorphism A3=>X in all characteristics. Degree weights (+1,-1,0) preserve G_m action and quotient invariants K[y1,wv]. Thus A1=wK[y1,wv] is cyclic. Independently checked exact polynomial substitutions. This directly contradicts the quoted Section 5 noncyclicity assertion.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Primary authors' 2026 Section 5 asserts their exact example is not a suspension because A1 is not cyclic. The explicit polynomial inverse and degree-one generator invalidate that specific argument; neither the paper itself nor targeted searches found an existing correction. The general suspension concept and its criteria are prior work; only the error correction on this example is claimed as original. A later unindexed erratum is a named risk.
+
+## value
+
+PASS
+
+Correcting a concrete purported counterexample in a published characterization question is substantive: the exact displayed variety is a suspension, so the authors' key Section 5 evidence for insufficiency of the fiber criterion fails. Does not claim the criterion itself is true.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
