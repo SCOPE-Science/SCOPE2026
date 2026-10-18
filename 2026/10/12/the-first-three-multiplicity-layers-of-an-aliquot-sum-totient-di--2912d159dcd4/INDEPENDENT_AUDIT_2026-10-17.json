@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T20:41:06Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/475e612389968173d8ff1f5d87788e7b3684fd2d/2026/10/12/the-first-three-multiplicity-layers-of-an-aliquot-sum-totient-di--2912d159dcd4/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/475e612389968173d8ff1f5d87788e7b3684fd2d/2026/10/12/the-first-three-multiplicity-layers-of-an-aliquot-sum-totient-di--2912d159dcd4/VERIFICATION.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/475e612389968173d8ff1f5d87788e7b3684fd2d/2026/10/12/the-first-three-multiplicity-layers-of-an-aliquot-sum-totient-di--2912d159dcd4/verify.py"
+      ],
+      "rationale": "The exhaustive multiplicity-shape partition p,p²,pq,p³,p²q,pqr covers Omega=1,2,3. For pq, positivity yields (p-2)(q-2)<=4, leaving 2*3 and 2*5 after the odd candidate 3*5 fails. For p²q, p=2 reduces q-1|10 and gives q=3,11; p=3 is bounded and excluded directly; p>=5 is excluded by q(p²-2p-1)<=2p²+1 and congruence mod p. All-odd squarefree pqr fail because sigma(n)-n is odd while phi(n) is even; if n=2qr then (q-1)(r-1)|4q+4r+2 bounds q in {3,5,7}, whose direct divisibility tests fail. Explicit sigma and phi quotient checks give 2,6,10,12,44 and sigma(90)-90=144=6 phi(90). A separate SPF-based exact calculation enumerating every n<=160000 with Omega<=3 found exactly these five. That finite test is corroborative only; factorization-shape proof is unbounded.",
+      "residual_risks": [
+        "Independent numerical checks cover only a finite range; the exact unbounded conclusion depends on its full factorization or three-arc proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Iannucci Theorem 2 restricts potential positive quotient-one solutions, and Theorems 4–5 impose large odd-square prime support for that smaller subproblem; the present solutions 6,10,12,44 have quotients >1."
+        ],
+        "reasoning": "A theorem about the k=1 quotient does not logically imply the list for all k>=1. The OEIS infinite parametric sequence likewise does not preclude other low-Omega members.",
+        "searches": [
+          "https://cs.uwaterloo.ca/journals/JIS/VOL20/Iannucci/ian5.pdf",
+          "https://oeis.org/A066679",
+          "Resultary: sigma(n)-n divisible by Euler totient phi(n) solutions with Omega(n)<=3 aliquot sum prime factors"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/475e612389968173d8ff1f5d87788e7b3684fd2d/2026/10/12/the-first-three-multiplicity-layers-of-an-aliquot-sum-totient-di--2912d159dcd4/RESULT.md",
+        "https://oeis.org/A066679",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL20/Iannucci/ian5.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The paper assumes sigma(n)-n=phi(n), but the audited theorem covers multiples 2,3,4,6 as well; OEIS omits an unbounded exclusion by Omega."
+        ],
+        "reasoning": "Compared the inclusion A066679 versus its proper quotient-one subproblem, and identified the new necessary shape and congruence analysis for all low-Omega cases.",
+        "searches": [
+          "https://oeis.org/A066679",
+          "https://cs.uwaterloo.ca/journals/JIS/VOL20/Iannucci/ian5.pdf",
+          "https://github.com/SCOPE-Science/SCOPE2026/tree/475e612389968173d8ff1f5d87788e7b3684fd2d/2026/10/12/the-first-three-multiplicity-layers-of-an-aliquot-sum-totient-di--2912d159dcd4/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A066679 exactly equals {n: phi(n)|sigma(n)-n}. Distinguish total multiplicity Omega from number of distinct primes omega, and divisibility from the stronger equality sigma(n)=n+phi(n)."
+        ],
+        "reasoning": "Searched the exact congruence, aliquot-sum wording, semiprime/three-factor and quotient-one forms; only exact sequence identity, not a covered universal low-layer result, was found.",
+        "searches": [
+          "Resultary: sigma(n)-n divisible by Euler totient phi(n) solutions with Omega(n)<=3 aliquot sum prime factors",
+          "https://oeis.org/A066679",
+          "https://cs.uwaterloo.ca/journals/JIS/VOL20/Iannucci/ian5.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS initial terms visibly include 1,2,6,10,12,44,90,184; a comment gives large constructive family and finite database, not Omega-classification."
+        ],
+        "reasoning": "All five integer values were known; only the proved universal restriction and sharp minimum Omega for any later member are assessed as new.",
+        "searches": [
+          "https://oeis.org/A066679",
+          "OEIS A066679 initial numbers 2 6 10 12 44 90",
+          "https://cs.uwaterloo.ca/journals/JIS/VOL20/Iannucci/ian5.pdf"
+        ]
+      },
+      "rationale": "OEIS A066679 is exactly the full congruence sequence and already lists every claimed small integer, including subsequent 90,184,440,..., and a parametric large-term family. That listing alone does not prove every unlisted >44 solution has Omega>=4. Iannucci 2017, full 11-page primary text, addresses the strictly narrower quotient-one equation sigma(n)=n+phi(n), with necessary conditions including n odd square for hypothetical n>2; its hypotheses do not cover quotients 2,3,4,6 here. Resultary searches found no matching universal Omega<=3 theorem. The increment beyond known exact terms is only the unbounded multiplicity classification, not discovery of integer values or the sequence.",
+      "residual_risks": [
+        "The exact congruence has been public since 2002; a straightforward low-layer exclusion may exist as folklore or an unindexed problem note.",
+        "Scope is only Omega<=3, not a classification of all aliquot/totient divisibility solutions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING numeric initial terms only; not found a universal multiplicity theorem in the entry",
+          "evidence": "Entry explicitly lists 1,2,6,10,12,44,90,... and a constructed p=3*2^a-1 family.",
+          "identifier_or_url": "https://oeis.org/A066679",
+          "material_read": "Full accessible entry: definition, displayed terms, comments, constructive family, programs and references",
+          "method": "Direct OEIS page read",
+          "title": "OEIS A066679",
+          "trigger": "Exact database of the congruence"
+        },
+        {
+          "assessment": "COVERING the narrower equality, not full general divisibility; no whole-document assertion needed for implication check",
+          "evidence": "Theorem 2: potential quotient-one n>2 must be odd square; this does not constrain the audited cases with quotient >1.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL20/Iannucci/ian5.pdf",
+          "material_read": "Full downloadable 11-page primary PDF, introductory definition and main necessary-condition Theorems 1–5, including discussion of A066679",
+          "method": "Read primary PDF text and matched theorem statements",
+          "title": "On the Equation sigma(n)=n+phi(n)",
+          "trigger": "Same arithmetic functions and exact quotient-one special case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/475e612389968173d8ff1f5d87788e7b3684fd2d/2026/10/12/the-first-three-multiplicity-layers-of-an-aliquot-sum-totient-di--2912d159dcd4/RESULT.md",
+        "https://oeis.org/A066679",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL20/Iannucci/ian5.pdf"
+      ],
+      "rationale": "Prime-factor multiplicity Omega is an intrinsic measure of arithmetic complexity and the first three layers form a complete natural structural slice of the established congruence sequence. A universal boundary at Omega=4 with sharp witness 90 is potentially useful when excluding low-complexity solutions and is stronger than the previously published bounded list; not an arbitrary numerical interval.",
+      "residual_risks": [
+        "The exact congruence has been public since 2002; a straightforward low-layer exclusion may exist as folklore or an unindexed problem note.",
+        "Scope is only Omega<=3, not a classification of all aliquot/totient divisibility solutions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For n>1 with Omega(n)<=3, phi(n) divides sigma(n)-n if and only if n belongs to {2,6,10,12,44}. All larger solutions have Omega>=4, a sharp threshold witnessed by 90=2*3^2*5.",
+  "limitations": [
+    "The exact congruence has been public since 2002; a straightforward low-layer exclusion may exist as folklore or an unindexed problem note.",
+    "Scope is only Omega<=3, not a classification of all aliquot/totient divisibility solutions.",
+    "No repository write, official publication, automated external attestation or independent formal proof was performed. Original frozen source-publication privacy sanitation remains incomplete."
+  ],
+  "schema_version": 1
+}

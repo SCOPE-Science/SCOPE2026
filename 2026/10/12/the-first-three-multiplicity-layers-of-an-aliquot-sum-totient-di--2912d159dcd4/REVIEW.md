@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof exhausts all factorization shapes with \(\Omega(n)\le3\). The \(\Omega(n)=1\) and prime-power cases close by exact formulas and size. Squarefree semiprimes reduce to \((p-2)(q-2)\le4\), leaving only the checked odd case plus the two even solutions. The repeated-prime third layer is bounded by an exact inequality and then closed by divisibility modulo the repeated prime. The squarefree third layer is eliminated by parity when odd and by the divisor relation \((q-1)(r-1)\mid4q+4r+2\) when even. All five claimed solutions and the sharpness witness \(90\) are checked exactly.
+## correctness
 
-## Originality
-PASS. A066679 is the exact ambient database, but its inspected entry gives terms and a larger parametric family rather than a classification by \(\Omega(n)\). Iannucci's full paper explicitly discusses A066679 but studies only the quotient-one equality \(\sigma(n)=n+\varphi(n)\); its theorem statements do not imply the general low-multiplicity classification. Exact-equation, aliquot-sum, semiprime, prime-square, and three-factor searches found no equivalent or stronger statement.
+PASS
 
-## Value
-PASS. The result determines the complete first three multiplicative-complexity layers of a natural long-standing congruence sequence. It explains why the initial members stop at \(44\) before multiplicity \(4\), and identifies the exact sharp transition: every later member has \(\Omega(n)\ge4\), while \(90\) realizes equality. This is an unbounded structural classification rather than a bounded table observation.
+The exhaustive multiplicity-shape partition p,p²,pq,p³,p²q,pqr covers Omega=1,2,3. For pq, positivity yields (p-2)(q-2)<=4, leaving 2*3 and 2*5 after the odd candidate 3*5 fails. For p²q, p=2 reduces q-1|10 and gives q=3,11; p=3 is bounded and excluded directly; p>=5 is excluded by q(p²-2p-1)<=2p²+1 and congruence mod p. All-odd squarefree pqr fail because sigma(n)-n is odd while phi(n) is even; if n=2qr then (q-1)(r-1)|4q+4r+2 bounds q in {3,5,7}, whose direct divisibility tests fail. Explicit sigma and phi quotient checks give 2,6,10,12,44 and sigma(90)-90=144=6 phi(90). A separate SPF-based exact calculation enumerating every n<=160000 with Omega<=3 found exactly these five. That finite test is corroborative only; factorization-shape proof is unbounded.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+OEIS A066679 is exactly the full congruence sequence and already lists every claimed small integer, including subsequent 90,184,440,..., and a parametric large-term family. That listing alone does not prove every unlisted >44 solution has Omega>=4. Iannucci 2017, full 11-page primary text, addresses the strictly narrower quotient-one equation sigma(n)=n+phi(n), with necessary conditions including n odd square for hypothetical n>2; its hypotheses do not cover quotients 2,3,4,6 here. Resultary searches found no matching universal Omega<=3 theorem. The increment beyond known exact terms is only the unbounded multiplicity classification, not discovery of integer values or the sequence.
+
+## value
+
+PASS
+
+Prime-factor multiplicity Omega is an intrinsic measure of arithmetic complexity and the first three layers form a complete natural structural slice of the established congruence sequence. A universal boundary at Omega=4 with sharp witness 90 is potentially useful when excluding low-complexity solutions and is stronger than the previously published bounded list; not an arbitrary numerical interval.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
