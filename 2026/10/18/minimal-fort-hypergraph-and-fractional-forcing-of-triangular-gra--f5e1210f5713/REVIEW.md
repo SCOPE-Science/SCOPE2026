@@ -1,0 +1,9 @@
+# Self-review
+
+**Correctness: PASS.** The key identity for an outside base edge \(uv\), \(|N_{T(n)}(uv)\cap F|=d_F(u)+d_F(v)\), is exact. Separating spanning edge covers from nonspanning degree-at-least-two subgraphs gives both the exhaustive minimal-fort classification and its converse. The exponential-formula count follows from labeled star-center choices; fractionality follows by automorphism averaging and a constant feasible vector; the packing equality uses a standard Steiner triple system. An independent graph predicate enumerator exhausts the minimal forts at base orders four, five, six and confirms all proposed minimal forts at seven. Proof remains the basis for unbounded orders.
+
+**Originality: PASS, subject to residual risks.** The 2023 fort/fractional-forcing source establishes definitions and general principles, and the 2024 minimal-fort paper lists other graph families, but neither supplies the triangular graph classification or exact enumerator. The 2024 Johnson-graph failed-zero-forcing source does cover the minimum fort size, so that scalar is expressly treated as known. Published-record similarity searches for equivalent edge-cover and cycle formulations, broader Johnson graph coverage, and numerical databases returned no coverage of the complete fort family. The Afzali–Ghodrati–Maimani complete paper was not accessible for full-text review and remains a material bibliographic risk, not a proof of novelty.
+
+**Value: PASS.** Explicit facet-relevant fort hyperedges for an infinite strongly regular family supply more than a scalar extremum: a labeled exact enumerator, an exact fractional cover optimum, and an explicit design-theoretic packing equality. The classification also explains the divergence between ordinary zero forcing and the fort-cover relaxation.
+
+Self-review: passed. Independent audit: not yet performed.
