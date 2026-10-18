@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T17:50:16.442868Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: At coexistence, prey equation yields u<K=a/b; predator equation divides by v^m to eu^p=d v^(1-m)+qv^(r-m). For r>m, the RHS is strictly increasing from 0 to infinity, defining V_q(u)>0; for u∈[K/2,K], V_q(u)<= (eK^p/q)^(1/(r-m)) uniformly. The undivided prey residual is positive at K/2 and negative at K for large q, giving a root. Compactness and limit prey equation yield u->K and predator balance yields qv^(r-m)->eK^p. Jacobian at positive root satisfies F_u=-bu+c(1-p)u^(p-1)v^m ->-bK, F_v<0, G_u>0, G_v=-(1-m)d-(r-m)qv^(r-1)<0, forcing negative trace/positive determinant. For r=m<1, u(v)=((q+d v^(1-m))/e)^(1/p) crosses K iff q<eK^p; for m=r=1 fixed u=((d+q)/e)^(1/p) and prey residual crosses iff u<K. Independent numerical equilibrium root/trace/determinant for q=100,1000,10000 in the source Example 1 tracks scaled coefficient 37.462416, corroborating but not proving infinite-q asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Caraballo et al treat delayed nonlinear harvest with different interaction law; same source gives local Jacobian guideline but not global high-harvest existence or asymptotic rate."
+        ],
+        "reasoning": "Different dynamical model cannot dominate the exact qv^r vs v^m threshold; local linear stability criterion alone needs existence branch proof.",
+        "searches": [
+          "Caraballo Colucci Guerrini 2018 nonlinear harvesting delayed Holling predator prey",
+          "Antwi-Fordjour model local stability statements r>=m",
+          "Published Resultary semantic query: fear driven predator prey harvested high q stable coexistence equilibrium exponent r m finite threshold"
+        ]
+      },
+      "checked_sources": [
+        "Antwi-Fordjour et al AIMS Mathematics 8 (2023), DOI 10.3934/math.2023173; arXiv:2108.00546, full Sec 6",
+        "Caraballo Colucci Guerrini CPAA 17 (2018) DOI 10.3934/cpaa.2018128 abstract",
+        "Resultary semantic query high-harvest predator prey qv^r interference v^m"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published source uses positive equilibria and plotted large finite-q behavior but explicitly leaves harvest model full analysis for future; it does not show qv_q^(r-m)->eK^p or exact iff q<eK^p when r=m<1."
+        ],
+        "reasoning": "Source observations are suggestive, not logically strong enough to imply strict-threshold equivalence or all-large-q stability without nullcline monotonicity and Jacobian asymptotic argument.",
+        "searches": [
+          "Antwi-Fordjour et al arXiv:2108.00546 full Sec.6",
+          "Caraballo Colucci Guerrini DOI:10.3934/cpaa.2018128 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Antwi-Fordjour Sec.6 describes the exact model and numerical stable coexistence at high harvest, but no q-to-infinity theorem or iff thresholds across equal exponents."
+        ],
+        "reasoning": "The new theorem is a statement about all sufficiently large finite q and sharp exponent boundary; finite numerical persistence does not imply that conclusion.",
+        "searches": [
+          "Published Resultary semantic query: fear driven predator prey harvested high q stable coexistence equilibrium exponent r m finite threshold",
+          "Antwi-Fordjour et al arXiv:2108.00546 §§5–6 full text",
+          "\"fear\" \"harvesting\" q v^r v^m coexistence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest Resultary SCOPE rigorous finite-horizon fear threshold concerns changing k fear, not q harvest; no exact high-q balance found in indexed tables or snippets."
+        ],
+        "reasoning": "Analytic all-parameter phase boundary is not an invariant database lookup; missing match is only negative search evidence.",
+        "searches": [
+          "\"q\" \"r-m\" \"fear\" predator harvest asymptotic equilibrium",
+          "\"fear-driven\" \"high harvest\" coexistence critical exponent",
+          "Published Resultary semantic query: fear driven predator prey harvested high q stable coexistence equilibrium exponent r m finite threshold"
+        ]
+      },
+      "rationale": "PASS (best knowledge): The source Antwi-Fordjour et al introduced the same qv^r harvesting model, analytically discussed r>=m, and numerically suggested prey carrying-capacity recovery and predator near-extinction for large q. Its full paper does not give the exact coexistence iff thresholds at r=m, the power law q^(-1/(r-m)) nor general high-q Jacobian stability proof. The result converts a published heuristic into a sharp exponent-driven theorem, without claiming novelty for the ecology model itself.",
+      "residual_risks": [
+        "Mathematical coexistence at all large finite q does not imply global persistence from any initial point or ecological detectability.",
+        "No claim about 0<r<m regime or possible additional interior equilibria at intermediate q.",
+        "Source 2023 qualitatively anticipates prey near carrying capacity and predator near extinction, so only the sharp proved exponent dichotomy and local stability classified as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original model/prior numerics credited; no full r/m boundary theorem in read section",
+          "evidence": [
+            "Section 6 prints harvested system and states sufficiently high q may drive predator very near extinction while prey approaches carrying capacity; does not prove sharp iff exponent boundary."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2108.00546",
+          "material_read": "Full publicly available arXiv HTML/text, particularly Section 6 harvesting model, parameter constraints and numerical example; surrounding earlier sections",
+          "method": "Read original model and qualitative conjecture and compared each quantitative high-harvest assertion",
+          "title": "Fear-driven extinction and (de)stabilization in a predator-prey model incorporating prey herd behavior and mutual interference",
+          "trigger": "Same exact harvesting ODE, motivating high-q observations and conjecture"
+        },
+        {
+          "assessment": "Different delay-based model; cannot assert unread full text excludes all abstract analogues",
+          "evidence": [
+            "Distributed-delay Holling harvesting law rather than exact v^r-v^m exponent competition."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/cpaa.2018128",
+          "material_read": "Public publisher abstract and model synopsis; full text not inspected in this run",
+          "method": "Compared functional-response/delay and harvest terms",
+          "title": "On a predator prey model with nonlinear harvesting and distributed delay",
+          "trigger": "Older potentially broader nonlinear-harvesting coexistence theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Whether arbitrarily intense harvest eliminates coexistence or leaves an extremely dilute yet stable positive predator is a motivating model question. The exact r=m boundary, coefficient, and local stability distinguish presence from asymptotic detectability and give explicit analytic context for earlier numerical observations, not a trivial variable renaming.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "In the specific harvested fear-driven predator–prey ODE with a,b,c,d,e,k,q>0 and 0<p<=1,0<m<=r<=1, for r>m there is for all sufficiently large finite q a locally asymptotically stable coexistence equilibrium with u_q->a/b and v_q~(e(a/b)^p/q)^(1/(r-m)); at r=m<1 coexistence exists precisely q<e(a/b)^p; at r=m=1 precisely d+q<e(a/b)^p.",
+  "limitations": [
+    "Stability is local and asymptotic as q->infinity, not global basin or intermediate-q classification.",
+    "Numerical Example 1 cannot prove general all-parameter existence/stability."
+  ],
+  "schema_version": 1
+}

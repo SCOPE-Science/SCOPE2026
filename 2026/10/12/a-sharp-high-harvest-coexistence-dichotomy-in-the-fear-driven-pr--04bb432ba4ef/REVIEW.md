@@ -1,25 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof uses the exact positive-equilibrium equations of the harvested model. For \(r>m\), the predator nullcline defines a unique positive \(v=V_q(u)\), uniformly tends to zero on a fixed prey interval, and forces a prey-residual sign change between \(K/2\) and \(K\). This gives a positive high-\(q\) branch, its limit \(u_q\to K\), and the asymptotic law
-\[
-qv_q^{r-m}\to eK^p.
-\]
-The exact Jacobian signs then give negative trace and positive determinant for sufficiently large \(q\). For \(r=m\), the predator equilibrium equation gives both the necessary cutoff and a continuous sign-change proof of sufficiency.
+PASS
 
-## Originality
+PASS: At coexistence, prey equation yields u<K=a/b; predator equation divides by v^m to eu^p=d v^(1-m)+qv^(r-m). For r>m, the RHS is strictly increasing from 0 to infinity, defining V_q(u)>0; for u∈[K/2,K], V_q(u)<= (eK^p/q)^(1/(r-m)) uniformly. The undivided prey residual is positive at K/2 and negative at K for large q, giving a root. Compactness and limit prey equation yield u->K and predator balance yields qv^(r-m)->eK^p. Jacobian at positive root satisfies F_u=-bu+c(1-p)u^(p-1)v^m ->-bK, F_v<0, G_u>0, G_v=-(1-m)d-(r-m)qv^(r-1)<0, forcing negative trace/positive determinant. For r=m<1, u(v)=((q+d v^(1-m))/e)^(1/p) crosses K iff q<eK^p; for m=r=1 fixed u=((d+q)/e)^(1/p) and prey residual crosses iff u<K. Independent numerical equilibrium root/trace/determinant for q=100,1000,10000 in the source Example 1 tracks scaled coefficient 37.462416, corroborating but not proving infinite-q asymptotics.
 
-PASS. Nonlinear harvesting and equilibrium bifurcation theory are established prior art. The accepted result is restricted to the motivating model's exponent balance: the stable high-\(q\) branch and its power law for \(r>m\), together with the exact finite coexistence threshold at \(r=m\). The motivating source gives numerical high-harvest behavior and leaves a full analysis for future work. Source-specific, exponent-alias, correction, broader-harvesting, and published-finding searches did not locate the same theorem.
+## originality
 
-## Value
+PASS
 
-PASS. The source explicitly asks how harvesting changes finite-time extinction, conjectures harvesting-induced recovery, and discusses whether predators survive under very high effort. The result supplies a sharp structural answer at the equilibrium level: the exponent relation \(r-m\) determines whether stable coexistence persists to arbitrarily large finite harvesting or ends at a finite cutoff, with an explicit decay law in the persistent case.
+PASS (best knowledge): The source Antwi-Fordjour et al introduced the same qv^r harvesting model, analytically discussed r>=m, and numerically suggested prey carrying-capacity recovery and predator near-extinction for large q. Its full paper does not give the exact coexistence iff thresholds at r=m, the power law q^(-1/(r-m)) nor general high-q Jacobian stability proof. The result converts a published heuristic into a sharp exponent-driven theorem, without claiming novelty for the ecology model itself.
 
-## Closest literature and limitations
+## value
 
-A primary nonlinear-harvesting paper by Caraballo, Colucci, and Guerrini proves persistence and equilibrium bifurcation results for a different delayed Holling-type harvesting law. It establishes the general methodology as prior art but does not contain the target \(qv^r\) versus \(v^m\) exponent competition.
+PASS
 
-The theorem is local at the high-harvest coexistence branch and does not prove global persistence from every initial condition. It does not classify \(r<m\).
+PASS: Whether arbitrarily intense harvest eliminates coexistence or leaves an extremely dilute yet stable positive predator is a motivating model question. The exact r=m boundary, coefficient, and local stability distinguish presence from asymptotic detectability and give explicit analytic context for earlier numerical observations, not a trivial variable renaming.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
