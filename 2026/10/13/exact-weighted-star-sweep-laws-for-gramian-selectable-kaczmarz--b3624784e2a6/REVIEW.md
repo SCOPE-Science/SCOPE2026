@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The row construction has exactly a star nonorthogonality graph, and the published GSSRK update forces nonrepeating leaf draws between center resets. The episode probability follows from the conditional selection weights; its finite mean follows by renewal. A separately derived first-step recurrence reproduces both formulas with exact rational arithmetic for 54 parameter pairs, plus an explicit selectable-set-state check. For the IID comparison, exponential first-arrival order and the center-draw count identity prove the stated expression without numerical extrapolation. The full argument covers all integers \(m\ge2\) and real weights \(w>0\); numerical checks only supplement it.
+PASS
 
-## Originality — PASS, subject to residual priority uncertainty
+The star Gramian follows because distinct leaf rows e_i are orthogonal and each meets scaled center sqrt(w/m)1. Under exact Algorithm 3 update, selecting a leaf removes it and re-enables center; selecting center resets all leaves. From post-center S=all leaves, a successful episode selects all m leaves before center with p_G=prod_{r=1}^{m-1}r/(r+w). Renewal and episode-length tail probabilities give E T_G=C(m+w,m-1)+C(m+w-1,m-1)-1. IID ordinary RK draws center probability w/(m+w); success p_R=prod_{r=1}^m r/(r+w), with E center count 1/p_R-1; Wald yields E T_R=(m+w)/w(1/p_R-1). Gamma-ratio asymptotics yield ratio (w+1)/w for fixed w>0. A full leaf sweep without intervening center sets all leaf coordinates exactly because leaves are orthogonal; it is only a sufficient certificate, NOT the first actual solution hitting. Independent rational state recurrences agreed for 40 (m,w) pairs m2..9 and weights 1/4,2/3,1,3/2,4.
 
-The two most directly relevant freely accessible source papers were examined through their algorithm definitions, theory sections, and relevant appendices. Yaniv et al. give the GSSRK transition and bounds on expected-error contraction / selectable-set sizes, not the exact star sweep-certificate law; Nutini et al. give orthogonality-graph row selection, update implementation, and rate bounds, not the same renewal comparison. Searches for aliases and stronger coverage in published mathematical findings and accessible literature found no exact overlap. This is a priority assessment, not proof of uniqueness; a related dissertation was available only in abstract form and an unindexed prior treatment remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-A structural exact-solution certificate is useful when residual inspections are expensive, and it permits a transparent comparison of two legitimate sampling schemes at the same target condition. The formulas reveal a non-obvious \(m^{w+1}\) expected-certificate scale that changes with a single row's norm even though that row's projector and Gramian sparsity graph do not change. In particular, the conditional selectable-set rule removes a sharp constant factor \((w+1)/w\) versus fresh IID row sampling, with an additional harmonic gap as \(w\downarrow0\) at fixed \(m\). The result does not establish an equal improvement in expected numerical error, actual first-solution time, or computational runtime.
+The IID reset-coupon gamma baseline is already published in Resultary and must NOT be claimed novel. The distinct GSSRK star without replacement leaves has a state-dependent center hazard absent from that baseline or the Kaczmarz primary paper. Only the exact structural selectable-selector certificate, its w dependence and differential asymptotic remain original best of knowledge.
 
-## Closest literature and limitations
+## value
 
-The closest primary work is Yaniv et al., *Selectable Set Randomized Kaczmarz* (arXiv:2110.04703; Algorithm 3 and Section 4), following Nutini et al., *Convergence Rates for Greedy Kaczmarz Algorithms...* (arXiv:1612.07838; Appendix L). The common underlying coupon-collection reduction is classical, and the claim is carefully limited to the structural certificate on an explicit weighted star. A 2024 dissertation on Kaczmarz variants was not available in full text during this comparison; no wider priority guarantee is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Quantifies a meaningful structural bottleneck and sampling-rule speed effect for a natural analyzable Gramian star, including the ability to change row-selection probabilities by rescaling an algebraically redundant equation. Explicitly separates an exact sufficient sweep certificate from actual first hitting. The mathematical conclusion can guide algorithm comparison but does not assert general practical speed gains.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
