@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** Rogers's full-text Theorem 3.1 (Equation (3.4)) establishes the transformed generating function. Exact coefficient extraction gives a finite integer sum; Legendre's binary-digit identity gives every term's valuation. For all \(r\ge3\), the reindexed valuation has one and only one minimum \(3r\); the zero-index endpoint is strictly higher. The infinite result follows by a valuation argument. Independent direct-sum calculations and the packaged checker corroborate the premises and boundaries without replacing the proof.
+
+**Originality — PASS, subject to remaining literature risk.** Rogers (2007) and Chan–Zudilin (2010) supply transformations, not the Mersenne valuation. Malik–Straub (2015) proves general Lucas congruences and low-modulus behavior, neither of which fixes the exponent. Beluhov (2025), the most relevant broader source, proves a digit-sum lower bound and characterizes its equality at adjacent-one-free indices; for all-ones indices with \(r\ge3\), that lower bound is strictly weaker than the exact exponent established here. OEIS A002895 supplies finite values and representations, not a uniform sharp formula. Available mathematical research records and exact-phrase searches did not reveal equivalent coverage. General stronger valuation formulas elsewhere remain a residual risk.
+
+**Value — PASS.** Domb numbers are classical closed-walk counts and a sporadic Apéry-like sequence. Indices with binary expansion consisting entirely of ones are a distinguished extremal digital family. Exact valuation is a natural arithmetic invariant; the linear exponent \(3r\) gives the sharp divisibility threshold, beyond general lower bounds or fixed-modulus congruences. The distinctive unique-summand mechanism is structural. No general-index valuation classification is claimed.
+
+Self-review: passed. Independent audit: not yet performed.

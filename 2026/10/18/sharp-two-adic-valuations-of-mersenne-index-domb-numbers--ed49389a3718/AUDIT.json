@@ -1,0 +1,157 @@
+{
+  "correctness": {
+    "rationale": "Rogers arXiv:0704.2438 v4, Theorem 3.1 Eq. (3.4), supplies the exact generating series. Coefficient extraction is algebraically exact and was independently compared for 80 terms. Legendre gives valuation 2(n-2k)+4s2(k)+s2(n-2k)-s2(n+k). At n=2^r-1, reindex k=2^(r-1)-1-j. For 0<=j<=2^(r-1)-2 the valuation is 3r+4j-1-3s2(j)+s2(j+1). It equals 3r at j=0 and exceeds 3r by at least j-1+s2(j+1)>=1 at every j>=1. The k=0 endpoint has valuation 2^(r+1)-2>3r for r>=3. Unique minimum of nonnegative integer sum proves exact total valuation. Direct calculations confirm finite boundaries r=1 has 2, r=2 has 8, and r=3..9 have 3r; finite tests not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Beluhov arXiv:2506.12789 Theorem(c) establishes w4(n)>=3s2(n) with an equality condition, https://arxiv.org/pdf/2506.12789#page=3",
+        "Malik-Straub arXiv:1508.00297 §5 records (alpha) eventually 0 mod 4, https://arxiv.org/pdf/1508.00297#page=22",
+        "Rogers Eq.(3.4) transformed formula, https://arxiv.org/pdf/0704.2438#page=11"
+      ],
+      "reasoning": "Beluhov gives v2(D_n)>=2s2(n). For r>=3, all-ones n has adjacent ones and only strictness >2r is forced, not equality v2(D_n)=3r. Malik-Straub fixed-modulus/prime Lucas results cannot fix a valuation growing unbounded with r. The source of the transformed sum is credited rather than re-claimed.",
+      "searches": [
+        "web: Domb numbers congruences powers of two valuations binary digital sum",
+        "web: Domb numbers 2 adic valuations binomial sums p=2 2015 congruences",
+        "arXiv:2506.12789 Theorem and §7, full relevant pages",
+        "arXiv:1508.00297 Sections 3 and 5"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/0704.2438#page=11",
+      "https://mrc.sdu.edu.cn/ziliao/60.pdf",
+      "https://arxiv.org/pdf/1508.00297#page=22",
+      "https://arxiv.org/pdf/2506.12789#page=3",
+      "https://oeis.org/A002895/internal",
+      "https://arxiv.org/pdf/2102.11839"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Rogers Eq 3.4 controls generating functions but gives no explicit prime-power exponent, https://arxiv.org/pdf/0704.2438#page=11",
+        "Beluhov proof lemma14 derives minimal-bound and binary-adjacency equality, not exact all-ones exponent, https://arxiv.org/pdf/2506.12789#page=3",
+        "A separately indexed public mathematical result, Sharp p-adic hierarchy for shifted generalized Domb sums, addresses a different sum and scaling-congruence question"
+      ],
+      "reasoning": "Taking coefficients of Rogers and performing new binary-digit minimization proves the claim, but this derivation is not stated by the original identity. The strongest relevant lattice-walk bound supplies only a smaller exponent and therefore neither dominates nor entails the precise equality. The independently indexed shifted-generalized theorem has different summands and valuations of differences under prime-power scaling, not all-ones classical Domb indices.",
+      "searches": [
+        "Rogers arXiv:0704.2438 full Theorem 3.1 and proof",
+        "Chan-Zudilin 2010 New representations full relevant sections",
+        "Malik-Straub arXiv:1508.00297 Sections 3,5, end questions",
+        "Beluhov arXiv:2506.12789 introduction, Theorem, Section 7",
+        "Domb numbers D(2^r-1) 2-adic valuation exactly 3r Mersenne-index"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rogers, Theorem 3.1 Eq. (3.4), https://arxiv.org/pdf/0704.2438#page=11",
+        "OEIS A002895 https://oeis.org/A002895/internal",
+        "Beluhov, Theorem (c) and §7, https://arxiv.org/pdf/2506.12789#page=3"
+      ],
+      "reasoning": "Equivalent forms include 2^(3r) exactly dividing D_(2^r-1), its quotient being odd, and w4(2^r-1)=4r since w4(n)=s2(n)+v2(D_n). The cited Domb exact sums and lower-bound lattice theorem are not this evaluated all-r equality; no matching theorem appeared in actual searches.",
+      "searches": [
+        "For all r>=3 Domb number D_(2^r-1) has exact 2-adic valuation 3r using Rogers hypergeometric transformation",
+        "Domb numbers at all-ones binary indices 2^r-1 divisible by precisely 2^(3r), 2-adic odd quotient",
+        "Domb sequence Mersenne indices 2-adic valuation digit sums unique minimum summand",
+        "web: \"Domb numbers\" \"2^n-1\"",
+        "web: \"Domb numbers\" \"exact valuation\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A002895 lists initial terms, binomial formulas, and Domb-walk description; no entry text matching valuation or 2-adic was found, https://oeis.org/A002895/internal",
+        "Beluhov arXiv:2506.12789 Table 1 records w4(n) only n<=50, https://arxiv.org/pdf/2506.12789#page=3"
+      ],
+      "reasoning": "A finite data table contains cases r=1 through r=5 at most and cannot imply a uniform all-r identity. OEIS formula entries give algorithms but do not display the exact Mersenne valuation law. No exhaustive natural invariant table independently covering all exponents was found.",
+      "searches": [
+        "OEIS A002895 exact sequence and formula internal entry, https://oeis.org/A002895/internal",
+        "web: \"Domb numbers\" \"valuation\" \"2\"",
+        "web: \"Domb numbers\" \"exact valuation\""
+      ]
+    },
+    "rationale": "Full relevant primary sections were compared by mathematical implications. Rogers and Chan-Zudilin give transformed binomial sums, not Mersenne 2-adic exponent. Malik-Straub proves mod-2 Lucas and eventual mod-4 divisibility only. Beluhov proves w4(n)>=3s2(n), with sharpness iff no adjacent 1s, which converts to v2(D_n)>=2s2(n); its n=2^r-1 case has a strict lower bound but no equality formula. OEIS A002895 lists Domb values and formulas but no exact valuation at all Mersenne indices. Scientific-result searches identify a shifted generalized Domb sum supercongruence on other families; it does not imply the current claim. Unknown unpublished or unindexed stronger valuation theorem remains possible.",
+    "residual_risks": [
+      "An unindexed theorem or a stronger general congruence for the Domb sequence may imply the precise all-ones valuation; current searches do not eliminate this possibility.",
+      "A highly specialized derivation from Rogers or Chan-Zudilin might have appeared without explicit Mersenne terminology. The existing source formulas themselves are not asserted original.",
+      "Self-review is not an independent literature audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes exact generating-function identity, but does not state Mersenne-index valuation",
+        "evidence": [
+          "Rogers Theorem 3.1 Eq (3.4), https://arxiv.org/pdf/0704.2438#page=11"
+        ],
+        "identifier_or_url": "arXiv:0704.2438; https://arxiv.org/pdf/0704.2438#page=11",
+        "material_read": "Complete Theorem 3.1, Equation (3.4), its proof and surrounding Domb-series statements, pages 10-12 of PDF",
+        "method": "Full-text PDF inspected and page 11 visually checked",
+        "title": "New 5F4 hypergeometric transformations, three-variable Mahler measures, and formulas for 1/pi",
+        "trigger": "Direct source of the coefficient transform used in the proof"
+      },
+      {
+        "assessment": "Domb representations known; no Mersenne-index exact 2-adic exponent identified",
+        "evidence": [
+          "https://mrc.sdu.edu.cn/ziliao/60.pdf"
+        ],
+        "identifier_or_url": "https://mrc.sdu.edu.cn/ziliao/60.pdf",
+        "material_read": "Relevant full-text sections providing Domb transformations and discussion of associated sequences",
+        "method": "Primary full-text PDF inspection",
+        "title": "New representations for Apéry-like sequences",
+        "trigger": "Other most closely related binomial-sum representation"
+      },
+      {
+        "assessment": "Provides Lucas congruences and eventually mod-4 Domb behavior, not growing exact Mersenne valuations",
+        "evidence": [
+          "arXiv:1508.00297, Section 5, https://arxiv.org/pdf/1508.00297#page=22"
+        ],
+        "identifier_or_url": "arXiv:1508.00297; https://arxiv.org/pdf/1508.00297#page=22",
+        "material_read": "Introduction, sporadic sequence tables, Sections 3 and 5 including Corollaries 5.1-5.2 and period discussion, and final questions",
+        "method": "Full PDF text searched and pertinent pages read",
+        "title": "Divisibility properties of sporadic Apéry-like numbers",
+        "trigger": "Most relevant pre-2016 general congruence coverage"
+      },
+      {
+        "assessment": "Proves w4(n)>=3s2(n), with equality criterion, but no exact w4(2^r-1)=4r family statement; strict lower bound does not imply exact value",
+        "evidence": [
+          "Main Theorem(c) and Lemma 14 https://arxiv.org/pdf/2506.12789#page=3"
+        ],
+        "identifier_or_url": "arXiv:2506.12789; https://arxiv.org/pdf/2506.12789#page=3",
+        "material_read": "Introduction, statement of main theorem, table, Section 7 and Lemma 14 with proof and nearby discussion",
+        "method": "Full-text PDF and page-images (pages 3 and 17) inspected",
+        "title": "Powers of 2 in High-Dimensional Lattice Walks",
+        "trigger": "Highly relevant stronger-looking general theorem for four-dimensional walks including Domb numbers"
+      },
+      {
+        "assessment": "Documents sequence and small data, not uniform Mersenne valuation",
+        "evidence": [
+          "https://oeis.org/A002895/internal"
+        ],
+        "identifier_or_url": "https://oeis.org/A002895/internal",
+        "material_read": "Entry description, finite terms, comments, references, all displayed formula lines including hypergeometric representations",
+        "method": "Direct database text inspection and exact text searches for valuation/2-adic",
+        "title": "OEIS A002895, Domb numbers",
+        "trigger": "Exact database and sequence table coverage"
+      },
+      {
+        "assessment": "General representation and congruence bounds rather than sharp Mersenne Domb exponent",
+        "evidence": [
+          "https://arxiv.org/pdf/2102.11839"
+        ],
+        "identifier_or_url": "arXiv:2102.11839",
+        "material_read": "Introduction and Domb sequence classification, pertinent general congruence and valuation statements",
+        "method": "PDF full text and relevant indexed sections inspected",
+        "title": "New representations for all sporadic Apéry-like sequences, with applications to congruences",
+        "trigger": "General congruence/digit-bound theorem potentially covering Domb valuations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ed49389a-3718-45a8-9361-031ff09dc848",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Domb numbers count diamond-lattice closed polygons, and a sharp prime-power divisibility threshold of their terms is a natural arithmetic invariant. The binary all-ones indices are a distinguished infinite family used in studying digital carry patterns and lower-bound exceptions. Exact exponent 3r is not implied by the known fixed-modulus congruences or the general lower bound, reveals a simple linear growth law, and is established through an unexpectedly unique minimal Rogers summand. That structural explanation and exact natural-index classification are useful without requiring a general theorem for every n. It is not an arbitrary numeric slice or an experimental extrapolation.",
+    "status": "PASS"
+  }
+}
