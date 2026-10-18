@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source proof gives
-\[
-(1+\mu)E_q(I)^{1/2}\ge(1-\lambda)E_p(I)^{1/2},
-\]
-so the transfer factor is \((1-\lambda)/(1+\mu)\). The parametric model with \(r=(1-t)/(1+t)\) and \(\lambda=\mu=t\) satisfies the perturbation condition with equality and has a q-only weave of exact lower bound \(r^2\), contradicting the printed bound \(1\).
+## correctness
 
-## Originality
-PASS. The exact theorem, DOI, denominator aliases, correction searches, older full-text woven-\(K\)-frame perturbation work, and nearby published findings were compared. No checked indexed source supplies this theorem-specific correction together with the sharp one-parameter witness.
+PASS
 
-## Value
-PASS. The error changes the quantitative stability guarantee by an unbounded factor along the witness family. The corrected estimate is exactly what the published proof yields and is sharp on the model.
+Directly checked the actual source theorem, 2-inner-product quotient, and proof inequality. For any t in (0,1), r=(1-t)/(1+t), lambda=mu=t, p=(e1,0,...), q=(r e1,0,...), K=I, the source perturbation inequality reduces to 1-r=t(1+r) on the sole active index and vanishes on all other subsets. Its printed lower bound A_p min{1,((1-t)/(1-t))^2}=1 contradicts the q-only weave energy r^2. Triangle inequality instead gives (1+mu)sqrt(Eq)>= (1-lambda)sqrt(Ep), hence sharp corrected lower bound A_p min{1,((1-lambda)/(1+mu))^2}, attained by the family. No necessity or all-geometry optimality claim.
 
-## Limitations
-The correction gives a sufficient universal estimate under the source hypothesis; no necessity theorem is claimed. Particular frames with extra geometry can have stronger bounds.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The formula with 1+mu appears already as an inequality IN the source proof, so a corrected factor by itself is not newly proved here. The new scientifically distinct contribution is a source-specific parametric counterexample to the printed quantitative theorem and an exact optimality witness; no inspected independent correction or erratum establishes it. Closely related K-frame perturbation counterexamples use other source theorems and do not imply this example under the same hypotheses.
+
+## value
+
+PASS
+
+The printed statement promises a lower frame constant one, but the same perturbation hypotheses permit the q-only lower constant ((1-t)/(1+t))^2 tending to zero. Thus the unsupported stability claim can be arbitrarily inaccurate, and the corrected sharp universal quantitative guarantee resolves an explicit defect in published perturbation theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
