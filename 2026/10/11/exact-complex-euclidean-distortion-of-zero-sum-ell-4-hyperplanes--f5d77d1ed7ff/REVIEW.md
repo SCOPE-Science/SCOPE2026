@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The sharp real fourth-moment bound is reconstructed by a constrained-stationary-point proof, including the possible three-root branch and its second-order exclusion. Exact angular averages promote the inequality to arbitrary complex vectors; roots of unity and a real outlier attain the sharp opposing values. Permutation averaging among all positive Hermitian forms proves Banach--Mazur optimality. The separate verifier confirms coefficient identities and finite rational examples; the finite computations do not establish the universal theorem.
+## correctness
 
-**Originality — PASS, subject to bibliographic limitations.** Real standardized-sample-moment bounds and real symmetric-polynomial principles are potentially stronger coverage of the **real ingredient**, and no novelty is claimed for that ingredient. The inspected complete complex Banach--Mazur primary paper treats full complex sequence spaces, not the zero-sum hyperplanes. The new result is the all-dimension complex hyperplane distance and the phase-attainable inner radius; a general real statement does not imply it because complex equal-modulus, zero-sum configurations exist in every dimension. A historical exact complex hyperplane formula remains a bibliographic risk, not a mathematical proof gap.
+PASS
 
-**Value — PASS.** The coordinate-sum-zero hyperplane is a canonical family of codimension-one complex Banach spaces. The exact all-dimensional distance, its explicit maximizing and minimizing directions, and the scalar-field contrast settle a natural geometric invariant rather than a one-off example.
+With B=∑|zj|² and Q=∑|zj|⁴ on complex sum-zero Hn, lower Q/B²≥1/n by Cauchy and exact roots-of-unity witness. Real sum-zero upper Mn=(n²−3n+3)/(n(n−1)) follows Lagrange cubic stationarity, exclusion of repeated extremal roots in three-level case via positive second variation, and two-level multiplicity k optimization. Integrating the real inequality over phases Re(e^{iθ}z) yields Q≤Mn(2B²/3+|∑zj²|²/3)≤Mn B², with real one-outlier equality; independent exact rational outlier n2..10 checks corroborate. Symmetrizing arbitrary Hermitian comparison q over S_n preserves best constants, forcing scalar Euclidean q by uniqueness of invariant Hermitian form on the complex standard representation, so BM distance fourth power nMn. Checked n2 endpoint 1 and n3 3/2; no finite grid mistaken for universal proof.
 
-**Scope and risk.** Only exponent four, complex scalars and complex-linear equivalence are asserted. The full text of Dalén's historical sample-moment paper was unavailable; its abstract suffices only to mark the real antecedent as possibly known. No unverified external audit or independence is represented.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge exact complex-zero-sum-hyperplane Hilbert distortion and Hermitian optimality all n differ from full complex ell_p^n Banach–Mazur work. Sharp real standardized moment antecedent may be Dalén 1987 and is expressly NOT claimed new. Dalén full text inaccessible after lawful OA/arXiv search and Oxford VPN disconnect, but its mere inaccessibility is not an O failure; residual priority risk preserved.
+
+## value
+
+PASS
+
+A closed sharp complex-linear Banach–Mazur distance for a canonical codimension-one symmetric subspace in every dimension, with extremal vectors and optimal ellipsoid, is an exact natural Banach-geometry invariant potentially usable in finite-dimensional Hilbert embedding and section estimates, not merely a known real moment recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

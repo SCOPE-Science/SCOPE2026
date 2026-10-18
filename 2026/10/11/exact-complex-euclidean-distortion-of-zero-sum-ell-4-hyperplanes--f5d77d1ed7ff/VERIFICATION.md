@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-Mathematical verification comprises the self-contained real constrained-maximization argument, exact angular fourth-moment averages, a Cauchy--Schwarz equality family formed from the \(n\)-th roots of unity, and the permutation-invariant Hermitian form argument. The strict second-order signs at both exterior roots of the stationary cubic prevent a spurious three-level maximizer for \(n\ge4\). The case \(n=2,3\) is settled by explicit polynomial identities, so no dimension is left unchecked.
+## correctness
 
-The standalone program `verify.py` was executed with Python and exact rational or integer arithmetic and symbolic polynomial expansion. It printed `PHASE_AND_OUTLIER_EXACT_OK`, with exhaustive small integer lattice diagnostics in dimensions two through five. Finite sampling is not an infinite proof, and the program does not purport to certify all positive Hermitian forms; that last assertion follows from coordinate-permutation averaging.
+PASS
 
-Originality review inspected the full openly available texts of Riener's real symmetric-polynomial principle and Kobos--Varivoda's complex Banach--Mazur paper, plus Dalén's accessible abstract and public bibliographic metadata. The older sample-moment full text was not read; the real bound is treated as prior context, not as a separate original claim. An unindexed source with a direct formula for the complex zero-sum hyperplane remains possible. Independent mathematical audit was not conducted.
+With B=∑|zj|² and Q=∑|zj|⁴ on complex sum-zero Hn, lower Q/B²≥1/n by Cauchy and exact roots-of-unity witness. Real sum-zero upper Mn=(n²−3n+3)/(n(n−1)) follows Lagrange cubic stationarity, exclusion of repeated extremal roots in three-level case via positive second variation, and two-level multiplicity k optimization. Integrating the real inequality over phases Re(e^{iθ}z) yields Q≤Mn(2B²/3+|∑zj²|²/3)≤Mn B², with real one-outlier equality; independent exact rational outlier n2..10 checks corroborate. Symmetrizing arbitrary Hermitian comparison q over S_n preserves best constants, forcing scalar Euclidean q by uniqueness of invariant Hermitian form on the complex standard representation, so BM distance fourth power nMn. Checked n2 endpoint 1 and n3 3/2; no finite grid mistaken for universal proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge exact complex-zero-sum-hyperplane Hilbert distortion and Hermitian optimality all n differ from full complex ell_p^n Banach–Mazur work. Sharp real standardized moment antecedent may be Dalén 1987 and is expressly NOT claimed new. Dalén full text inaccessible after lawful OA/arXiv search and Oxford VPN disconnect, but its mere inaccessibility is not an O failure; residual priority risk preserved.
+
+## value
+
+PASS
+
+A closed sharp complex-linear Banach–Mazur distance for a canonical codimension-one symmetric subspace in every dimension, with extremal vectors and optimal ellipsoid, is an exact natural Banach-geometry invariant potentially usable in finite-dimensional Hilbert embedding and section estimates, not merely a known real moment recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
