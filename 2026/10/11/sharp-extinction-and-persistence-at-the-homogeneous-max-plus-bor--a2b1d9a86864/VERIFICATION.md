@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,13 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and limits
 
-## Exact tests performed
-`python3 check_exact.py` was run against the packaged standalone script, producing `EXACT_RATIONAL_REGRESSION_OK`. It uses `fractions.Fraction` rather than floating-point simulations for the tested trajectories. Under-damped parameter cases include \((T,D)=(0,1),(1,1),(1,2),(2,2),(2,3),(3,4),(3,3)\), with exhaustive small rational integer grids of initial coordinates and an explicit witness attaining the claimed least uniform index. Repeated-root checks use \(\lambda=1/2,1,2,3\). Distinct-root checks use rational pairs \((\lambda_+,\lambda_-)=(2,1),(3,2),(5,2),(8,2)\), and parameter distances chosen to make threshold crossings exact. The nonpositive initial half-plane was also checked on rational examples.
+# Independent mathematical audit
 
-## Proof checks not delegated to computation
-The exact two-step reset lemma, the sine-phase bound \(\lceil\pi/\theta\rceil\) for arbitrary real parameters, the all-initial-condition minimality argument, the sign of the repeated-root bracket, and the strictly monotone ratio in the distinct-root formula are proved analytically in `RESULT.md`. Finite computation does not certify universality, publication priority, or robustness under perturbations.
+## correctness
 
-## Reproduction
-Run `python3 check_exact.py` in the same directory as the file. Python 3 standard library suffices. There is no external download, random input, or nonstandard dependency. The self-contained script prints `EXACT_RATIONAL_REGRESSION_OK` if all specified assertions pass.
+PASS
+
+For x>0 the first coordinates satisfy x_{n+2}=T x_{n+1}-D x_n until first nonpositive x_k; the map then gives exactly two further steps to zero (including x_k=0). In the oscillatory region the roots sqrt(D)e^{±iθ} generate a sine sequence; every positive run exits by ceil(pi/θ) and an explicit initial phase realizes the last possible exit, yielding sharp uniform nilpotency. Repeated-root and distinct-positive-root solutions have monotonic affine or exponential brackets and yield exactly the claimed persistence cone and ceiling formulas. All initial points with x<=0 are handled by the reset branch. Independently checked exact rational iteration over representative grids, critical and overdamped thresholds and sharp witnesses; this does not prove the all-real-parameter statement.
+
+## originality
+
+PASS
+
+Ohmori–Yamazaki 2024 full primary treatment introduces the positive/negative branch matrices and marks B=0 as border-collision boundary, but analyzes nonzero-forcing dynamics and gives no global zero-input sharp nilpotence/persistence classification. The earlier T=0 four-step reset is known and acknowledged. Simpson 2024 studies a containing degenerate border-collision normal form but describes the forcing-zero parameter slice as outside its principal analysis; the full revised journal version was not separately compared. Published Resultary nearby fixed-initial-state reset oscillator concerns different forcing and thresholds, not an implication covering these exact all-initial extinction laws. Best-of-knowledge PASS with general border-collision alias/journal-version risk.
+
+## value
+
+PASS
+
+Zero input is the natural border-collision parameter for this max-plus dynamical system. An all-states sharp finite-time nilpotency cutoff, persistent cone, and critical algebraic versus overdamped logarithmic extinction delays provide a complete dynamical phase classification, not merely elementary eigenvalue labels.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

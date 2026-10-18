@@ -1,15 +1,21 @@
-# Review of sharp extinction and persistence at the homogeneous max-plus border collision
+# Independent mathematical audit
 
-## Correctness — PASS
-The stated theorem has one fully specified planar map, \(T\ge0\), \(D>0\), all real initial states, and exact first-hitting-time conventions. On \(x>0\), first-coordinate dynamics obey the second-order linear recurrence \(x_{n+2}=Tx_{n+1}-Dx_n\). The first nonpositive coordinate is followed by exactly two nonzero-or-zero reset steps; this boundary count is included in the theorem. Complex roots give a uniform angular bound and a matching family of initial conditions, proving the **minimal** nilpotency index. A repeated real root gives the exact linear-in-time bracket; distinct positive roots give a single monotone exponential-bracket crossing and the logarithmic formula. The case \(x\le0\) is directly exhausted. Exact-rational independent-of-floating-point regression examples passed. These finite checks supplement rather than replace the proof for all parameters.
+## correctness
 
-## Originality — PASS (residual historical priority risk)
-The earliest identified public introduction of the generalized two-parameter family is Yamazaki–Ohmori, arXiv:2312.13292v1, Eq. (11), dated 5 December 2023; that work announces further analysis rather than providing the unforced classification. Ohmori–Yamazaki, arXiv:2402.06230v1, Eq. (1), §§3–5, supplies the branch matrices, nonzero-forcing return dynamics, and the \(B=0\) bifurcation motivation. It does **not** establish an all-initial-condition zero-input nilpotency exponent, exact persistence wedge, or threshold-delay formulas. Their earlier negative-feedback paper arXiv:2305.05908v1 proves the familiar four-step reset on the restricted \(T=0,B<0\) slice; that restricted observation is expressly credited, not claimed as new. Simpson, arXiv:2408.04790v1, treats the containing zero-determinant normal form but specifically excludes the \(\mu=0\) dynamical classification in §4.1. Simpson also notes that Banerjee–Grebogi's 1999 classification concerns a nondegenerate determinant range. Search comparisons did not locate a published statement whose hypotheses and conclusions jointly subsume the theorem. Search failures alone cannot establish publication priority; an inaccessible revised journal text and possible equivalent treatments in the general border-collision literature remain residual risks.
+PASS
 
-## Value — PASS
-The zero-input slice is the natural switching boundary that the model's authors explicitly identify as a border-collision parameter, not an arbitrary parameter sample. The result distinguishes a surprisingly strong property—**globally uniform, finite-time annihilation**—from mere convergence near an attracting fixed point, supplies its exact sharp index on the full two-parameter oscillatory region, and completely classifies the opposite region's persistent cone and settling-time laws. The square-root divergence of the sharp uniform cutoff and the contrast between critical algebraic and overdamped logarithmic delays quantify a genuine structural transition. The elementary recurrence formulas are indispensable ingredients, but their combination with switching admissibility, sharp witnesses, and all-initial-condition boundaries is not just a renamed standard linear-system calculation.
+For x>0 the first coordinates satisfy x_{n+2}=T x_{n+1}-D x_n until first nonpositive x_k; the map then gives exactly two further steps to zero (including x_k=0). In the oscillatory region the roots sqrt(D)e^{±iθ} generate a sine sequence; every positive run exits by ceil(pi/θ) and an explicit initial phase realizes the last possible exit, yielding sharp uniform nilpotency. Repeated-root and distinct-positive-root solutions have monotonic affine or exponential brackets and yield exactly the claimed persistence cone and ceiling formulas. All initial points with x<=0 are handled by the reset branch. Independently checked exact rational iteration over representative grids, critical and overdamped thresholds and sharp witnesses; this does not prove the all-real-parameter statement.
 
-## Scope and outstanding risks
-No claim is made for nonzero forcing, \(D=0\), smoothing perturbations, or an independent proof review. The result is elementary in method and does not establish priority against all unpublished or inaccessible work. The two log-delay discussions in the predecessor literature and this theorem concern different dynamical quantities and parameter regimes.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Ohmori–Yamazaki 2024 full primary treatment introduces the positive/negative branch matrices and marks B=0 as border-collision boundary, but analyzes nonzero-forcing dynamics and gives no global zero-input sharp nilpotence/persistence classification. The earlier T=0 four-step reset is known and acknowledged. Simpson 2024 studies a containing degenerate border-collision normal form but describes the forcing-zero parameter slice as outside its principal analysis; the full revised journal version was not separately compared. Published Resultary nearby fixed-initial-state reset oscillator concerns different forcing and thresholds, not an implication covering these exact all-initial extinction laws. Best-of-knowledge PASS with general border-collision alias/journal-version risk.
+
+## value
+
+PASS
+
+Zero input is the natural border-collision parameter for this max-plus dynamical system. An all-states sharp finite-time nilpotency cutoff, persistent cone, and critical algebraic versus overdamped logarithmic extinction delays provide a complete dynamical phase classification, not merely elementary eigenvalue labels.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
