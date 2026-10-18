@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Eventual ordering reduces the problem to four ordered affine arguments. A fixed-proportion prime from the prime number theorem forces the two largest slopes to agree; after cancelling their common factorial square, a second prime-separation argument forces the two smallest slopes to agree. The residual fixed-length block product takes square values for every large integer parameter. The included finite-difference lemma proves that such a polynomial must itself be a polynomial square. Comparing its simple linear roots forces both block lengths to be one, and then the remaining two linear factors must differ by a rational square. Clearing that rational square yields exactly the coprime-square normal form in the finding. The converse is the displayed exact factorial identity.
+## correctness
 
-## Originality
-PASS with residual historical-search risk. Yudin's recent paper gives the four-factor paired-consecutive construction and a general bounded affine-family theorem for arbitrary powers, but no necessity theorem at four factors. The directly relevant 1976 Erdős--Graham pages give the same integer-square construction and other non-affine four-factor examples, not an affine classification. Bérczes--Dujella--Hajdu--Saradha--Tijdeman treat perfect-power factorial products without an affine-parametric classification, and the three-factor literature concerns a different cardinality. Targeted published-finding corpus and web searches for the normal form, rational-square scaling, and affine four-factor classification returned no covering statement.
+PASS
 
-## Value
-PASS. Four factors are the first natural square-family level highlighted by the recent paper's explicit identity, while Appendix A elevates fixed affine arguments to a general construction problem. Proving that every four-affine square family has exactly two consecutive pairs and one common affine core gives a complete structural answer at this first level, rather than another example or finite census. The rational-square normal form also identifies a larger exact family than the integer-square scaling used in the displayed recent construction.
+Eventually order four distinct positive-slope integral affine arguments a1>a2>a3>a4. If the top slopes differed, PNT supplies a prime p between max(a2,a1/2) and a1, giving odd valuation 1 in the top factorial only. Hence a1-a2=d>0 constant. After removing (a2!)^2, if slopes a3,a4 differed, PNT supplies more than d primes in (max(a4,a3/2),a3], each odd in a3! and absent a4!, with at most d capable of dividing the d fixed-block integers a2+j; contradiction. Hence a3-a4=e>0 constant. Removing (a4!)^2 leaves polynomial F=prod_{j=1}^d(a2+j)*prod_{j=1}^e(a4+j), whose large integer values are perfect squares. With y_n=sqrt(F(n)) in integers and k=floor(deg F/2)+1, the kth finite difference is integral and o(1), hence eventually zero: F equals a rational polynomial square. Both block root sets have simple roots, so equality of their two root multisets forces d=e, and if common length>=2 their equal-step arithmetic progressions force a2=a4, impossible. Thus d=e=1, a1*a3 is a polynomial square, so a1/a3=(r/s)^2 with coprime r>s>=1. Coefficient integrality gives a1=r^2 H, a3=s^2 H with integral affine H. Direct factorial algebra proves the converse. Independent integer checks of paired identities corroborate; proof uses PNT and polynomial identities, not finite extrapolation.
 
-## Closest literature and limitations
-The closest sources are Yudin's 2026 affine construction and the four-factor section of Erdős--Graham 1976. Both supply constructions but not the necessity statement proved here. The theorem requires the identity for every sufficiently large integer parameter and uses the prime number theorem, so it does not address sporadic or thin-subsequence parametrizations and supplies no effective starting value.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Yudin 2026 Appendix A gives existence of some bounded affine-factorial families for every exponent; the concrete four-factor paired-consecutive construction is known to Erdős–Graham. The reviewed result proves exhaustiveness and rational-square normal form for every four-factor affine square family. The fully accessible Bérczes–Dujella–Hajdu–Saradha–Tijdeman 2019 paper addresses fixed largest arguments, prime-power exponents, and existence, not every-integer affine parametrization. No inspected stronger result implies the necessity classification; residual risk of older factorial literature is explicit.
+
+## value
+
+PASS
+
+Four factorials are a naturally minimal nontrivial square construction in recent and classical work, and eventual affine families are explicitly singled out by Yudin Appendix A. The result is a complete unrestricted-in-parameter necessity classification with a rational-square scaling form rather than a new example or partial enumeration. The rigidity mechanism and exact converse answer a motivated algebraic-number-theoretic classification problem that cannot be read from the known sufficient identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

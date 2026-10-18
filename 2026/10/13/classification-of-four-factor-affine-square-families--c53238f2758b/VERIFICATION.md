@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The theorem is proved symbolically in `RESULT.md`; no finite experiment is used as evidence for an infinite statement.
+## correctness
 
-The critical checks are:
+PASS
 
-1. Unequal adjacent leading coefficients are impossible because the prime number theorem supplies a prime in a fixed proportional interval. In the first pair this prime occurs exactly once in the largest factorial and nowhere else. After the first factorial square is cancelled, the same argument applies to the lower pair; only a fixed number of linear block factors can interfere, while the proportional interval contains an unbounded number of primes.
-2. Once both slope pairs agree, cancellation reduces the problem to a polynomial \(F(t)\) that is a square integer for every sufficiently large integer \(t\). The finite-difference lemma in `RESULT.md` proves that \(F\) must be a polynomial square: for \(k=\lfloor\deg(F)/2\rfloor+1\), the \(k\)-th forward difference of \(\sqrt{F(n)}\) is an integer tending to zero, hence eventually vanishes.
-3. Each block polynomial has only simple linear roots. A polynomial square therefore forces equality of the two root sets. Any common block length at least two would make the two lower affine functions identical, contradicting distinctness, so both block lengths equal one.
-4. The remaining product of two linear polynomials is a square precisely when the factors differ by a rational square. Clearing the reduced ratio \(r/s\) forces the smaller affine function to be divisible coefficientwise by \(s^2\), giving the common integer affine core \(H\).
+Eventually order four distinct positive-slope integral affine arguments a1>a2>a3>a4. If the top slopes differed, PNT supplies a prime p between max(a2,a1/2) and a1, giving odd valuation 1 in the top factorial only. Hence a1-a2=d>0 constant. After removing (a2!)^2, if slopes a3,a4 differed, PNT supplies more than d primes in (max(a4,a3/2),a3], each odd in a3! and absent a4!, with at most d capable of dividing the d fixed-block integers a2+j; contradiction. Hence a3-a4=e>0 constant. Removing (a4!)^2 leaves polynomial F=prod_{j=1}^d(a2+j)*prod_{j=1}^e(a4+j), whose large integer values are perfect squares. With y_n=sqrt(F(n)) in integers and k=floor(deg F/2)+1, the kth finite difference is integral and o(1), hence eventually zero: F equals a rational polynomial square. Both block root sets have simple roots, so equality of their two root multisets forces d=e, and if common length>=2 their equal-step arithmetic progressions force a2=a4, impossible. Thus d=e=1, a1*a3 is a polynomial square, so a1/a3=(r/s)^2 with coprime r>s>=1. Coefficient integrality gives a1=r^2 H, a3=s^2 H with integral affine H. Direct factorial algebra proves the converse. Independent integer checks of paired identities corroborate; proof uses PNT and polynomial identities, not finite extrapolation.
 
-The converse is checked by exact algebra:
-\[
-(r^2H)!(r^2H-1)!(s^2H)!(s^2H-1)!
-=
-r^2s^2H^2\bigl((r^2H-1)!(s^2H-1)!\bigr)^2.
-\]
+## originality
 
-No computational cutoff, enumeration, or numerical approximation is part of the proof. The only non-elementary analytic input is the prime number theorem in fixed proportional intervals. No effective parameter threshold is claimed.
+PASS
+
+Yudin 2026 Appendix A gives existence of some bounded affine-factorial families for every exponent; the concrete four-factor paired-consecutive construction is known to Erdős–Graham. The reviewed result proves exhaustiveness and rational-square normal form for every four-factor affine square family. The fully accessible Bérczes–Dujella–Hajdu–Saradha–Tijdeman 2019 paper addresses fixed largest arguments, prime-power exponents, and existence, not every-integer affine parametrization. No inspected stronger result implies the necessity classification; residual risk of older factorial literature is explicit.
+
+## value
+
+PASS
+
+Four factorials are a naturally minimal nontrivial square construction in recent and classical work, and eventual affine families are explicitly singled out by Yudin Appendix A. The result is a complete unrestricted-in-parameter necessity classification with a rational-square scaling form rather than a new example or partial enumeration. The rigidity mechanism and exact converse answer a motivated algebraic-number-theoretic classification problem that cannot be read from the known sufficient identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T05:07:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Eventually order four distinct positive-slope integral affine arguments a1>a2>a3>a4. If the top slopes differed, PNT supplies a prime p between max(a2,a1/2) and a1, giving odd valuation 1 in the top factorial only. Hence a1-a2=d>0 constant. After removing (a2!)^2, if slopes a3,a4 differed, PNT supplies more than d primes in (max(a4,a3/2),a3], each odd in a3! and absent a4!, with at most d capable of dividing the d fixed-block integers a2+j; contradiction. Hence a3-a4=e>0 constant. Removing (a4!)^2 leaves polynomial F=prod_{j=1}^d(a2+j)*prod_{j=1}^e(a4+j), whose large integer values are perfect squares. With y_n=sqrt(F(n)) in integers and k=floor(deg F/2)+1, the kth finite difference is integral and o(1), hence eventually zero: F equals a rational polynomial square. Both block root sets have simple roots, so equality of their two root multisets forces d=e, and if common length>=2 their equal-step arithmetic progressions force a2=a4, impossible. Thus d=e=1, a1*a3 is a polynomial square, so a1/a3=(r/s)^2 with coprime r>s>=1. Coefficient integrality gives a1=r^2 H, a3=s^2 H with integral affine H. Direct factorial algebra proves the converse. Independent integer checks of paired identities corroborate; proof uses PNT and polynomial identities, not finite extrapolation.",
+      "risk": "Requires square for EVERY sufficiently large integer parameter; a thin subsequence is insufficient. PNT is used only for positive-width proportional prime intervals, no effective threshold.",
+      "sources": [
+        "Frozen RESULT.md at 5442353b299a19da23a793d230968c4a62fb402d",
+        "Yudin arXiv:2610.01899 Appendix A",
+        "Bérczes et al. DOI:10.4064/aa171008-16-10, Theorem 2.1 and Sections 3-4",
+        "independent_checks.py FOUR_FACTORIAL_*"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yudin proves bounded N affine existence for each m, not classification when N=4,m=2.",
+          "Bérczes et al. prove global existence/bounds for selected factorial products with N relative to exponent, not a uniqueness theorem for four affine arguments."
+        ],
+        "reasoning": "The stronger-looking paper scopes do not dominate an exact structural all-family necessity theorem under the separate eventual-affine hypothesis.",
+        "searches": [
+          "four distinct factorial affine functions square product paired consecutive classification",
+          "arXiv:2610.01899 Theorem A.1",
+          "DOI:10.4064/aa171008-16-10 Theorems 2.1, 3.1, 4.2"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.01899",
+        "https://www.impan.pl/shop/en/publication/transaction/download/product/113136",
+        "Erdős–Graham 1976 bibliographic secondary evidence",
+        "Resultary search four distinct factorial affine functions square product paired consecutive classification"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier explicit constructions establish sufficiency of paired consecutive factorials.",
+          "Necessity additionally uses two PNT slope-separation arguments, an integer-valued polynomial-square lemma and root-progression rigidity."
+        ],
+        "reasoning": "The published construction is a special case of the classified family but does not logically imply that no other eventual affine quadruples exist.",
+        "searches": [
+          "arXiv:2610.01899 Appendix A",
+          "DOI:10.4064/aa171008-16-10 Section 2",
+          "four distinct factorial affine functions square product paired consecutive classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The paired-consecutive identity n!(n-1)!u!(u-1)! is historically known when n/u is an integer square.",
+          "The new result allows all coprime rational-square scale r²/s² and proves these are the ONLY four-affine solutions."
+        ],
+        "reasoning": "Distinguishing fixed-parameter integer solutions, infinite sequences and polynomial-in-parameter identities prevents conflating related but nonequivalent formulations.",
+        "searches": [
+          "four distinct factorial affine functions square product paired consecutive classification",
+          "arXiv:2610.01899 Appendix A",
+          "DOI:10.4064/aa171008-16-10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2019 article tables examples and modular factor counts, not the rational-square normal form for four affine functions.",
+          "The 2026 Appendix prints constructions and bounds, not an exhaustive table."
+        ],
+        "reasoning": "Database/exact table coverage of the full infinite family was not observed; absence from indexing is not certified novelty.",
+        "searches": [
+          "four distinct factorial affine functions square product paired consecutive classification",
+          "arXiv:2610.01899 Theorem A.1",
+          "DOI:10.4064/aa171008-16-10"
+        ]
+      },
+      "rationale": "Yudin 2026 Appendix A gives existence of some bounded affine-factorial families for every exponent; the concrete four-factor paired-consecutive construction is known to Erdős–Graham. The reviewed result proves exhaustiveness and rational-square normal form for every four-factor affine square family. The fully accessible Bérczes–Dujella–Hajdu–Saradha–Tijdeman 2019 paper addresses fixed largest arguments, prime-power exponents, and existence, not every-integer affine parametrization. No inspected stronger result implies the necessity classification; residual risk of older factorial literature is explicit.",
+      "residual_risks": [
+        "Older Erdős–Graham and other unindexed factorial-product sources could contain an implicit affine classification.",
+        "No claim about sparse subsequence or isolated solutions; no effective PNT threshold."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Existence of bounded affine factorial products is prior; does not classify all N=4 square families",
+          "evidence": "Appendix A Theorem A.1: for every m exists N and affine a_i(t), without universal quantification over all such families.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.01899",
+          "material_read": "Full arXiv HTML mathematical text, especially Appendix A Theorem A.1, corollary, construction, main factorial discussion",
+          "method": "Read source sections and mathematical expressions; compared theorem quantifiers and fixed N",
+          "title": "Square products of factorials and a conjecture of Erdős and Graham",
+          "trigger": "Exact 2026 affine-parametric source"
+        },
+        {
+          "assessment": "Studies number of factors versus exponent and existence for a fixed starting factorial, not the eventual four-affine uniqueness statement",
+          "evidence": "Theorem 2.1 discusses N=ell exact two-term form and arbitrary solutions N>ell; Section 4 treats fixed n and distinct factors.",
+          "identifier_or_url": "https://www.impan.pl/shop/en/publication/transaction/download/product/113136",
+          "material_read": "Full lawful 12-page original journal PDF, particularly Theorem 2.1, Sections 3-4, proof and introduction with Erdős–Graham references",
+          "method": "Read extracted original PDF and inspect theorem pages visually",
+          "title": "Products of factorials which are powers",
+          "trigger": "Potential prior general factorial-product domination"
+        },
+        {
+          "assessment": "Classical four-factor examples are credited; full 1976 priority cannot be ruled out",
+          "evidence": "Bérczes Sec.2 cites Erdős–Graham factorial-square constructions; Yudin credits paired construction.",
+          "identifier_or_url": "Published 1976, Bull. Inst. Math. Academia Sinica 4,337-355",
+          "material_read": "Cited and described in full 2019 Bérczes article and 2026 Yudin; original full 1976 source not independently obtained in this check",
+          "method": "Secondary citation cross-comparison only, not full-text verification",
+          "title": "On products of factorials (1976), Erdős and Graham",
+          "trigger": "Classical origin of paired-consecutive constructions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Four factorials are a naturally minimal nontrivial square construction in recent and classical work, and eventual affine families are explicitly singled out by Yudin Appendix A. The result is a complete unrestricted-in-parameter necessity classification with a rational-square scaling form rather than a new example or partial enumeration. The rigidity mechanism and exact converse answer a motivated algebraic-number-theoretic classification problem that cannot be read from the known sufficient identity.",
+      "risk": "Only four distinct positive-slope integer affine arguments, exponent 2, and every sufficiently large integer parameter; value does not imply a classification of sporadic factorial products.",
+      "sources": [
+        "Yudin arXiv:2610.01899 Appendix A",
+        "Bérczes et al., DOI:10.4064/aa171008-16-10",
+        "Frozen RESULT.md"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Identity required for every sufficiently large integer t, not a subsequence.",
+    "Positive integer slopes and eventually distinct arguments; no higher perfect powers or five-factor classification.",
+    "Historical priority risk from older factorial literature remains.",
+    "No external attestation or formal verification is inferred from a verifier printout.",
+    "Public metadata confidentiality blocks publication: scientifically completed review is not an importable change-set."
+  ],
+  "schema_version": 1
+}
