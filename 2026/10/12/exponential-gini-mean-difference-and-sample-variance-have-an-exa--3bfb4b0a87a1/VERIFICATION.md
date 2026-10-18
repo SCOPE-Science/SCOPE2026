@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,36 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof uses the exact covariance formula for two normalized degree-two \(U\)-statistics, separating same-pair and one-index-overlap contributions.
+# Independent mathematical audit
 
-The standalone checker reconstructs the conditional projection moments for standard exponential sampling using exact rational evaluation of exponential-polynomial integrals. In particular, it verifies
-\[
-\mathbb Ea(X)=1,
-\qquad
-\mathbb Eb(X)=1,
-\qquad
-\mathbb E[a(X)^2]=\frac43,
-\qquad
-\mathbb E[b(X)^2]=3,
-\qquad
-\mathbb E[a(X)b(X)]=\frac74.
-\]
-These values imply the mixed first-projection covariance \(3/4\), the Gini first-projection variance \(1/3\), and the variance-kernel first-projection variance \(2\).
+## correctness
 
-The checker then validates the finite-\(n\) covariance and both marginal variances over a broad integer range using exact fractions.
+PASS
 
-A second route is independent of the conditional-projection calculation. It represents the ordered exponential sample by independent spacings, writes the Gini statistic as a linear form and the sample variance as a quadratic form, and evaluates their covariance from exact exponential moments. This spacing route agrees with
-\[
-\frac{3n-2}{n(n-1)}
-\]
-for every checked sample size in the unit-rate case.
+For iid Exp(lambda), n>=2, G_n and unbiased S_n^2 are normalized degree-two U-statistics with kernels h(x,y)=|x-y| and q=(x-y)^2/2. From index-overlap counts Cov= [2 c2 + 4(n-2)c1]/[n(n-1)]. Standard exp |X-Y|~Exp(1); same-pair c2=2. Independent SymPy integrations confirm conditional kernels a(x)=x-1+2e^-x and b(x)=x²/2-x+1 satisfy Ea=Eb=1, Eab=7/4 so c1=3/4, Var(a)=1/3, Var(b)=2. Same-pair kernel variances 1 and 5 yield exact Cov=(3n-2)/[n(n-1)lambda^3], Var(G)=2(2n-1)/[3n(n-1)lambda²], Var(S²)=2(4n-3)/[n(n-1)lambda^4]. Divide to obtain rho=sqrt(3)(3n-2)/(2sqrt((2n-1)(4n-3))), increasing because independent SymPy factorization rho²(n+1)-rho²(n)=3(6n²-4n-1)/[4(2n-1)(2n+1)(4n-3)(4n+1)]>0; limit 3sqrt6/8. Only unnormalized pairwise Gini mean difference, not mean-normalized Gini coefficient; ordinary iid sample, no general-law universality.
 
-The checker also verifies the exact positive difference of consecutive squared correlations and the limiting constant.
+## originality
 
-The finite computations are supplementary. The theorem for every integer \(n\ge2\) and every \(\lambda>0\) follows from the symbolic overlap calculation in `RESULT.md`.
+PASS
 
-Independent audit has not been performed.
+Čiginas–Pumputis 2014 full open HTML develops Gini mean difference and empirical variance as separate U-statistics and variance decompositions; inspecting relevant definitions, covariance notation and proof context did not show exponential SAME-SAMPLE cross-covariance or closed rho(n). Hoeffding overlap counting is classical and explicitly credited; evaluating mixed conditional projection 3/4 and exact exponential law is new claimed special-case invariant. Resultary hit nearby exponential sample range–variance harmonic covariance (different first statistic), not this Gini-versus-variance pair. Older specialised Gini/exponential-statistics sources may already contain cross-moment, residual risk.
 
-Deterministic replay result: `VERIFY_OK conditional_exact=5 ustat_cov_checks=199 ustat_var_checks=398 spacing_checks=39 monotonicity_checks=199 limit_rho=0.9185586535436917`.
+## value
+
+PASS
+
+Gini mean difference and sample variance are natural robust/order and quadratic scale statistics; their exact finite-sample correlation under a canonical skew exponential model quantitatively answers whether those competing estimators become redundant. Strict growth and nonunit asymptotic limit are precise reusable statistical comparisons beyond univariate marginal variances. Standard U-statistic overlap formula alone does not determine distribution-specific cross-projection.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

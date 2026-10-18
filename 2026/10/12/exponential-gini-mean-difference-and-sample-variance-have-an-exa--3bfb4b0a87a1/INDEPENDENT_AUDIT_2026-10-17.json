@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T02:54:21Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For iid Exp(lambda), n>=2, G_n and unbiased S_n^2 are normalized degree-two U-statistics with kernels h(x,y)=|x-y| and q=(x-y)^2/2. From index-overlap counts Cov= [2 c2 + 4(n-2)c1]/[n(n-1)]. Standard exp |X-Y|~Exp(1); same-pair c2=2. Independent SymPy integrations confirm conditional kernels a(x)=x-1+2e^-x and b(x)=x²/2-x+1 satisfy Ea=Eb=1, Eab=7/4 so c1=3/4, Var(a)=1/3, Var(b)=2. Same-pair kernel variances 1 and 5 yield exact Cov=(3n-2)/[n(n-1)lambda^3], Var(G)=2(2n-1)/[3n(n-1)lambda²], Var(S²)=2(4n-3)/[n(n-1)lambda^4]. Divide to obtain rho=sqrt(3)(3n-2)/(2sqrt((2n-1)(4n-3))), increasing because independent SymPy factorization rho²(n+1)-rho²(n)=3(6n²-4n-1)/[4(2n-1)(2n+1)(4n-3)(4n+1)]>0; limit 3sqrt6/8. Only unnormalized pairwise Gini mean difference, not mean-normalized Gini coefficient; ordinary iid sample, no general-law universality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General overlap identity Cov(U_h,U_q)=[2 c2+4(n-2)c1]/[n(n-1)] applies broadly, but requires distribution-specific mixed c1."
+        ],
+        "reasoning": "Generic theorem is explicitly used and not claimed new. It does not evaluate exponential c1=3/4 or exact correlation without further integration.",
+        "searches": [
+          "Hoeffding 1948 general U-statistic covariance",
+          "Čiginas–Pumputis 2014 scale statistics"
+        ]
+      },
+      "checked_sources": [
+        "Čiginas–Pumputis Gini’s mean difference and variance as measures of finite populations scales arxiv:1406.2275, full ar5iv HTML",
+        "Gail–Gastwirth 1978 JRSS B DOI:10.1111/j.2517-6161.1978.tb01048.x, summary only",
+        "Hoeffding 1948 Annals of Mathematical Statistics U-statistic foundations",
+        "Resultary: exponential sample Gini mean difference sample variance covariance correlation U statistic; nearest range–variance covariance different statistic"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The covariance depends on E[a(X)b(X)]=7/4, not determined from Ea,Eb,Var a,Var b alone."
+        ],
+        "reasoning": "Prior marginal theory does not logically imply mixed joint statistic; exact exponential integration adds a specific invariant and strictly increasing limit.",
+        "searches": [
+          "Čiginas–Pumputis separate variance formulas",
+          "Hoeffding kernel-overlap theory",
+          "Pinned RESULT.md mixed moment"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pairwise U-statistic h=|X-Y| is Gini mean difference, not mean-normalized Gini coefficient.",
+          "Unbiased empirical S² is U-statistic q=(X-Y)^2/2."
+        ],
+        "reasoning": "Checked kernel/normalization aliases and exponential model, avoiding confusion with Gini coefficient or independent samples.",
+        "searches": [
+          "Čiginas–Pumputis arxiv:1406.2275 Gini variance U-statistic",
+          "Resultary exponential sample Gini mean difference sample variance covariance correlation U statistic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest Resultary range–variance formula is harmonic, not Gini; closest scale comparison gives separate marginal results."
+        ],
+        "reasoning": "Inspected sources do not tabulate (3n-2)/(n(n-1)lambda^3), its induced rho or monotonicity; targeted search is not novelty proof.",
+        "searches": [
+          "Čiginas–Pumputis full open arxiv:1406.2275",
+          "Resultary exponential Gini vs sample variance covariance"
+        ]
+      },
+      "rationale": "Čiginas–Pumputis 2014 full open HTML develops Gini mean difference and empirical variance as separate U-statistics and variance decompositions; inspecting relevant definitions, covariance notation and proof context did not show exponential SAME-SAMPLE cross-covariance or closed rho(n). Hoeffding overlap counting is classical and explicitly credited; evaluating mixed conditional projection 3/4 and exact exponential law is new claimed special-case invariant. Resultary hit nearby exponential sample range–variance harmonic covariance (different first statistic), not this Gini-versus-variance pair. Older specialised Gini/exponential-statistics sources may already contain cross-moment, residual risk.",
+      "residual_risks": [
+        "Possible older exponential distribution exact mixed moment computation under Gini-type L-statistic notation was not ruled out.",
+        "Applies only iid exponential rate lambda>0, n>=2; no mean-normalization or independent G_n,S² asserted.",
+        "General U-statistic covariance formula is standard; asserted value is fixed distribution-specific mixed integral and finite-n dependence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides classical separate variance and comparison machinery but no matching exact exponential Gini-versus-sample-variance cross-correlation in inspected material",
+          "evidence": [
+            "Different setting finite-population/superpopulation and distinct variance calculations; the mixed projection E[a(X)b(X)]=7/4 not supplied."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1406.2275",
+          "material_read": "Full open ar5iv article text, sections on Gini mean difference, sample variance and U-statistic variance/finite-population comparisons",
+          "method": "Primary lawful accessible full article HTML, relevant statements/equations/sections materially read",
+          "title": "Gini’s mean difference and variance as measures of finite populations scales",
+          "trigger": "Closest prior article comparing precisely these scale statistics and U-statistic variances"
+        },
+        {
+          "assessment": "No NOT_COVERING inference from limited access; residual risk retained",
+          "evidence": [
+            "Gini-based exponential inference is relevant, but joint covariance with unbiased S² not checked from full article."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/j.2517-6161.1978.tb01048.x",
+          "material_read": "Bibliographic abstract/summary only; original 1978 full text not obtained",
+          "method": "Primary bibliographic abstract only",
+          "title": "A Scale-Free Goodness-Of-Fit Test for the Exponential Distribution Based on the Gini Statistic",
+          "trigger": "Canonical specialised exponential Gini work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Gini mean difference and sample variance are natural robust/order and quadratic scale statistics; their exact finite-sample correlation under a canonical skew exponential model quantitatively answers whether those competing estimators become redundant. Strict growth and nonunit asymptotic limit are precise reusable statistical comparisons beyond univariate marginal variances. Standard U-statistic overlap formula alone does not determine distribution-specific cross-projection.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Possible older exponential distribution exact mixed moment computation under Gini-type L-statistic notation was not ruled out.",
+    "Applies only iid exponential rate lambda>0, n>=2; no mean-normalization or independent G_n,S² asserted.",
+    "General U-statistic covariance formula is standard; asserted value is fixed distribution-specific mixed integral and finite-n dependence.",
+    "Public METADATA.json/AUDIT.json contain scope_run_id operational provenance. Publication not_ready pending actual guarded privacy-safe public file replacements. No GitHub changes, publications, external attestation, or formal verification claimed."
+  ],
+  "schema_version": 1
+}
