@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** The renewal identity is derived for a reset that consumes a full step. The interval two-boundary generating function leads to the Chebyshev quotient and exact mean formula. The crucial coefficient-comparison proof establishes that nonnegative initial derivative implies every coefficient of the global mean difference has the required sign. The equality boundary is covered strictly. Exact checks of Chebyshev expansions and fundamental matrices were executed from the supplied `verify.py`; finite tests are not substituted for the all-parameter argument.
+
+**Originality (PASS on inspected record; independent priority review absent).** Chen–Li–Huang (arXiv:2111.01330, Sec. IV–V) explicitly establish only the infinitesimal sufficient condition and warn that an intermediate rate may help when it fails for general networks. For their very same finite symmetric two-barrier family, the new all-rate converse rules out that possibility. Their algebraic threshold and exact first-passage matrix formulas are acknowledged prior art. Bonomo–Pal (arXiv:2102.00895) use a distinct immediate-rejump protocol; Méndez et al. (arXiv:2201.12043) use continuum diffusion; Radice et al. (arXiv:2410.05835) use a one-sided barrier and distinct restart convention. The remaining risk is unlocated earlier exact coefficient inequalities or other equivalent global-converse arguments.
+
+**Value (PASS).** A universal sufficient local test for restart efficacy is usually not necessary. Establishing its necessity in a canonical absorbing Markov chain distinguishes globally ineffective restart from nontrivial finite-rate acceleration without numerical rate optimization, including the exact finite-grid boundary where the first variation vanishes. This is a structural improvement over numerical phase plots and sufficient-condition statements, rather than a routine re-expression of the local test.
+
+**Scientific limitations.** Only symmetric non-lazy nearest-neighbor motion, two absorbing endpoints, same-site reset with one-step cost, and unconditional expected absorption time are addressed. No general stochastic-restart theorem or uniqueness of an optimal rate is claimed. Historical equivalence and external proof validation remain possible risks.
+
+Self-review: passed. Independent audit: not yet performed.
