@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. For \(n=2^\alpha p^\beta q^\gamma\), the unitary divisor sum factors exactly, and Das's inequality \(\sigma^\ast(n)\ge2n\) is used only as a necessary condition. Monotonicity of \(1+1/x\) eliminates every prime and exponent pattern except \(6q^c\), \(60\), \(70\), and \(90\). Each remaining shape is then proved sufficient by an explicit equal-sum partition, and each also has an explicit proper-unitary equal-sum partition. The packaged checker verifies the rational bounds exactly and performs direct subset enumeration on a regression grid.
+## correctness
 
-## Originality
-PASS. Das's 2024 paper leaves the even unitary Zumkeller to unitary half-Zumkeller implication as Conjecture 3.1 and does not classify the three-prime-support case. The current OEIS entries list examples but no support-three theorem. Targeted semantic, exact-form, database, and later-literature searches did not locate a covering result; later e-unitary and generalized variants use different notions or do not imply this claim. Residual risk remains for unindexed work.
+PASS
 
-## Value
-PASS. The finding completely classifies a natural infinite prime-support slice immediately beyond the source's two-prime result and proves the source conjecture on that entire slice. It explains the observed examples \(60\), \(70\), and \(90\) and exhibits the full infinite family \(6q^c\).
+PASS: For n=2^alpha p^beta q^gamma the exact unitary-divisor sum (2^alpha+1)(p^beta+1)(q^gamma+1) and Das's necessary sigma*(n)>=2n yield monotone rational restrictions p=3 or 5. The p=5 branch forces n=70; p=3 yields only 6q^c, 60, and 90. The converse is independently demonstrated by explicit equal-sum partitions of all unitary divisors, and of all proper unitary divisors, in every branch. Independent exact brute subset-partition checks agreed on 1,344 cases for odd p<q in {3,5,7,11,13,17,19} with exponents 1..4. The finite checks are regression tests; the symbolic bounds prove all primes/exponents. Boundary alpha=1 and c>=1 are covered.
 
-## Closest literature and limitations
-The closest source is Bhabesh Das, “On unitary Zumkeller numbers,” *Notes on Number Theory and Discrete Mathematics* 30 (2024), 436–442. The theorem does not address support size four or larger and does not enumerate all equal-sum partitions.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (qualified): The complete if-and-only-if three-prime-support classification and consequent exact slice of Das's conjecture are not stated in the materially inspected complete 2024 Das paper. Its existing coprime-multiplication Proposition 2.3 ALREADY implies the 6q^c sufficient family from 6, and the exceptions 60/70/90 appear as examples; these parts are NOT counted as new independently. Das Proposition 2.7 gives weaker necessary prime restrictions and does not force exact exponent classification. Novelty attaches to exhaustive necessity plus simultaneous half-Zumkeller conclusion, best-of-knowledge only.
+
+## value
+
+PASS
+
+PASS: A natural complete classification for exactly three prime supports closes a question specifically left open after the two-prime work and proves the conjectured implication on this entire arithmetically motivated infinite stratum. The exclusion of every other prime-power shape is substantive, rather than a generic table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
