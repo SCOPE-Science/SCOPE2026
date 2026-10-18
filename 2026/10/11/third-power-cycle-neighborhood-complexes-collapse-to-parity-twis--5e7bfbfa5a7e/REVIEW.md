@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness: PASS
-The ten explicit free-face/coface orbit families reduce the six-regular open-neighborhood complex to five tetrahedral orbits; every cancellation can be checked against the six-neighbor facets. Vertex links of the resulting complex are triangulated two-spheres. The integer-cover height has disk-shaped lower and upper links and a connected Euler-characteristic-two regular level, proving an \(S^2\)-bundle over a circle. Signed incidence orientations show that one index shift reverses fiber orientation, giving the parity distinction and integral homology by the Wang sequence. The local and finite checks are reproduced in `verify.py` and do not stand in place of the infinite proof.
+## correctness
 
-## Originality: PASS, with residual risk
-The nearest directly relevant published neighborhood-complex classification [2] restricts to four-regular circulants or graphs of maximum degree three, whereas these graph powers are six-regular for \(n\ge13\). The older fundamental-group framework [1] does not give the three-manifold model or two-torsion. Sphere-bundle triangulations exist independently in the literature [3]; no newness is claimed for sphere bundles or for the abstract surviving manifold. The graph-to-complex collapse and all-order twist classification are not implied by those inspected statements. An unknown equivalent result, perhaps expressed using Hom complexes or cyclic triangulation tables, remains possible.
+PASS
 
-## Value: PASS
-This determines the complete PL homotopy type and integral homology of a natural infinite family beyond the degree-four circulant classifications. The parity transition is a structural orientability phenomenon, producing exact \(2\)-torsion not detectable from mod-two Betti numbers, and the proof exhibits a uniform constructive collapse.
+From actual full six-neighborhood vertex facets, reconstructed all ten specified cyclic free-face/coface families. An independent set-based implementation verified every one of 10n elementary collapses, uniqueness of each coface at its step, exact remaining f=(n,6n,10n,5n) and five tetrahedral templates for n=13..26,30,36,45,60 (18 tested sizes). These are corroborative of the written finite-local-width proof for all n>=13, not an extrapolation. Each core link has icosahedral f=(12,30,20); in integer lift lower/upper links are five-triangle discs; the regular half-level connected surface f=(21,46,27) has Euler=2. Proper PL height has no critical vertices so identifies universal cover with S2xR. Signed tetrahedra (-1)^i(1,-1,1,1,1) establish -1 action per index shift; n-deck monodromy degree (-1)^n yields orientable S2xS1 even or nonorientable S2~xS1 odd. Wang sequence gives H2(Z/2) exactly for odd n; all cases n>=13, not smaller.
 
-## Scientific limits
-Orders below thirteen, other powers, and unrelated circulants are outside the claim. Previous sphere-bundle topology is acknowledged. Literature coverage cannot establish absolute novelty, and independent validation remains to be done.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Matsushita handles fundamental-group correspondence, not PL type; Shukla classifies graphs of maximum degree 3 and 4-regular circulants, not six-regular C_n(1,2,3); Bagchi–Datta provide already known abstract sphere-bundle triangulations, not a graph-neighborhood-complex identification/collapse. The abstract manifold type is NOT claimed new. Resultary comparison also inspected related distinct neighborhood complexes. No stronger same-graph theorem was identified, with risk for Hom(K2,G) aliases.
+
+## value
+
+PASS
+
+Uniform explicit simplicial collapse of a natural infinite circulant-graph family produces a complete parity-sensitive integral homotopy and torsion classification; topology differentiates even/odd orders beyond mod-two Betti numbers. This fills a structural degree-six family outside nearby published circulant classifications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
