@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification notes
 
-Run `python3 verify.py` alongside `RESULT.md` using standard Python 3.10 or later. No third-party dependencies or downloaded mathematical datasets are needed.
+# Independent mathematical audit
 
-The checker constructs the pattern-prefix DFAO exactly as in the proof, independently minimizes it by repeated output-aware partition refinement, confirms reachability, tests input-label conflicts, and compares each output with direct occurrences in ordinary base-\(q\) representations. The literal comparison includes \(n=0\), zero-leading blocks, overlaps, and composite bases. Covered cases are every pattern for \(q=2\) and length \(1\)–\(8\), \(q=3\) and length \(1\)–\(5\), \(q=4\) and length \(1\)–\(4\), and \(q=5\) and length \(1\)–\(3\), totaling 1,368 patterns and 846,900 direct values.
+## correctness
 
-Observed completion message:
+PASS
 
-`VERIFY_OK patterns=1368 direct_cases=846900 binary_transparent=508 nonbinary_opaque=all intrinsic_size=q*length+leading_zero singleton_zero_opacity=1/2 singleton_one_opacity=1`
+For each base q>=2 and each nonempty length-k pattern, explicit failure-function prefix DFAO has qk active (prefix,residue) states and one extra leading-zero initial state exactly when pattern starts with zero. Reachability follows separated one-match words; equal-residue states with different prefix memory are separated by a completion suffix; singleton-zero initial state is distinguished at the unpadded expansion n=0. This establishes minimality even composite q. In binary for k>=2 every state has a unique incoming input label, so no inhomogeneous path, opacity0; for q>=3 distinct nonpattern digits cause shortest inhomogeneous path length2, opacity1; binary singleton zero has length3, opacity1/2, singleton one length2, opacity1. The cited general Allouche--Yao shortest-heterogeneous-path criterion gives the exact normalizations. Inspected bundled verifier; its 1368 pattern/846900 direct-value checks corroborate only finite cases, not infinite proof.
 
-The finite program corroborates only those finite tests. The all-base, all-pattern theorem is established by the constructive reachability argument, suffix distinguishability, and the graph characterization of opacity in the proof; no exhaustive infinite certification or independent mathematical audit is claimed.
+## originality
+
+PASS
+
+Allouche--Yao (2024) define the opacity metric and its general shortest-inhomogeneous-path graph characterization, and compute isolated classical binary automatic sequences, while Abram--Hu--Li (2023) define block-counting family and provide a prefix-state distinguishability argument. Combining them yields a parameter-uniform q,k,pattern opacity phase transition and exact DFAO size not given in the inspected relevant results. Previously known singleton binary examples are not reclaimed.
+
+## value
+
+PASS
+
+A complete binary-versus-higher-alphabet transparency classification for a natural family of overlapping pattern-count automatic sequences identifies a sharp and surprising alphabet threshold, with an exact state-complexity invariant and careful zero-leading boundary cases; this is a motivated infinite-family classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

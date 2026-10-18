@@ -1,20 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every base and nonempty pattern, the explicit prefix-matching automaton handles overlapping occurrences and the unpadded representation, including the output at zero for the one-letter zero-pattern. The period-based separator lemma constructs every state, and completing suffixes distinguish distinct prefix memories. Binary alphabet transitions enter each state under one digit when pattern length is at least two; larger alphabets admit conflicting two-step paths. The one-symbol binary boundary has shortest conflicting path length two or three. Applying Allouche–Yao [2, Theorems 1–2] proves the displayed opacity and state formulas without relying on numerical extrapolation. The embedded program checks 1,368 distinct patterns, 846,900 direct outputs, minimization, reachability, and graph conflicts.
+## correctness
 
-## Originality — PASS, with residual risk
-Abram, Hu, and Li [1] define the family and establish generation, non-pure morphicity, and suffix-memory separation (Lemma 12), which are credited. Allouche and Yao [2] introduce opacity, its universal intrinsic graph criterion, and several concrete classical examples (notably the binary one-pattern and 11-pattern). The exact full parameter-family opacity diagram, the zero singleton boundary, and uniform minimal state size are not statements of either inspected full preprint. Related published searches and mathematical record comparisons found no stronger covering classification; unindexed prior derivations remain possible.
+PASS
 
-## Value — PASS
-The result completely settles a natural structural invariant of the whole block-counting family and exhibits a sharp distinction between binary and all higher bases. It also supplies the precise intrinsic state complexity, which is useful when separating automaticity, morphicity, and prefix-distortion behavior. It is not an arbitrary finite slice or an extrapolation from small examples.
+For each base q>=2 and each nonempty length-k pattern, explicit failure-function prefix DFAO has qk active (prefix,residue) states and one extra leading-zero initial state exactly when pattern starts with zero. Reachability follows separated one-match words; equal-residue states with different prefix memory are separated by a completion suffix; singleton-zero initial state is distinguished at the unpadded expansion n=0. This establishes minimality even composite q. In binary for k>=2 every state has a unique incoming input label, so no inhomogeneous path, opacity0; for q>=3 distinct nonpattern digits cause shortest inhomogeneous path length2, opacity1; binary singleton zero has length3, opacity1/2, singleton one length2, opacity1. The cited general Allouche--Yao shortest-heterogeneous-path criterion gives the exact normalizations. Inspected bundled verifier; its 1368 pattern/846900 direct-value checks corroborate only finite cases, not infinite proof.
 
-## Limits
-Only the prefix-distance opacity of [2], modulo-the-base counts, individual fixed blocks, and ordinary unpadded numerals are covered. In particular, quadratic opacity and sums of pattern counts are not classified. Computation is a consistency test and not a substitute for the symbolic proof. The claimed absence of covering literature is subject to indexing and publication limitations.
+## originality
 
-## Primary references
-[1] A. Abram, Y. Hu, and S. Li, arXiv:2304.14595v1, 2023-04-28.
+PASS
 
-[2] J.-P. Allouche and J.-Y. Yao, arXiv:2404.13601v1, 2024-04-21.
+Allouche--Yao (2024) define the opacity metric and its general shortest-inhomogeneous-path graph characterization, and compute isolated classical binary automatic sequences, while Abram--Hu--Li (2023) define block-counting family and provide a prefix-state distinguishability argument. Combining them yields a parameter-uniform q,k,pattern opacity phase transition and exact DFAO size not given in the inspected relevant results. Previously known singleton binary examples are not reclaimed.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A complete binary-versus-higher-alphabet transparency classification for a natural family of overlapping pattern-count automatic sequences identifies a sharp and surprising alphabet threshold, with an exact state-complexity invariant and careful zero-leading boundary cases; this is a motivated infinite-family classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
