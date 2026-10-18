@@ -1,11 +1,21 @@
-# Scientific assessment: two-city commuter reproduction threshold
+# Independent mathematical audit
 
-**Correctness — PASS.** The full proof computes the actual disease-free next-generation matrix of [1] under explicitly constant resident-exposure weight, conjugates it to a symmetric matrix, and gives a characteristic equation quadratic in commuter fraction. Positivity of \(Q_z\), negativity of \(Q_{pp}\) on the Perron branch, and \(L'(0)<0\) force at most one interior stationary point, necessarily a strict minimum. Substitution at the limiting commuting endpoint establishes the exact resident-weight boundary \(\alpha=2/3\); elimination and radical substitution verify the strict benchmark optimum and two invasion crossings. The standalone program verifies the critical identities and sample spectra. The endpoint is identified as a limit of the matrix only; no step infers an infinite theorem from finite sampling.
+## correctness
 
-**Originality — PASS with residual risks.** The full primary source [1], including Theorems 2.1–2.2 and Appendices A–C, gives threshold bounds, matrix reduction, and histograms rather than the proposed unimodality and exact phase boundary. Rapaport–Mimouni [2] already optimize another two-patch commuter threshold and establish the qualitative surprising benefit of commuting, so that broad theme is explicitly excluded from novelty. Their commuting-rate compartments and their transmission matrix do not dominate the precise day–night averaged two-by-two theorem here. Exact symbolic and synonym searches against related published findings found no covering statement. The 2023 dissertation precursor [3] was identified but its full text was not accessible; its unverified contents remain a specific originality risk, as does indexing incompleteness.
+PASS
 
-**Value — PASS.** The model's own Appendix C.1 asks how commuting and nighttime weight move the invasion threshold, and the benchmark gives a natural decision boundary distinguishing partially optimal movement from a limiting near-total mobility regime. The explicit two-crossing instance rigorously identifies a parameter interval in which transportation controls invasion without modifying transmission or recovery rates. The structural curvature argument is not a routine parameter substitution: it proves unimodality for all positive population ratios and transmission contrasts in the one-way model, then resolves a sharp policy phase boundary in a symmetric benchmark. No claims are made about epidemic burden or economic optimal control.
+The source-defined autonomous unvaccinated next-generation matrix for one-way mobility is similar to the 2x2 symmetric H(p) with entries a+q/(1+rp), q sqrt(r) p/(1+rp), b(1−qp)+qrp²/(1+rp), q=1−a, b=β2/β1∈(0,1),r=n2/n1>0. Independent symbolic determinant multiplication gave Q(z,p)=(z−1)(z−b)+p[r(z−a)(z−b)+bq(z−1)]−rq(1−b)(z−a)p². Since Q_z on λmax>0 and λmax>a, at every stationary λ=2rq(1−b)(λmax−a)/Q_z>0. Thus no local maxima and at most one stationary minimum; λ′(0)=−rq<0. At r=1,b=1/2 the endpoint formula Q_p(λ(1),1)=q(3a−2)/4 gives phase boundary a=2/3, with equality case endpoint curvature positive (left derivative negative). At a=0, symbolic resultant of Q,Q_p gives p^4−10p²+1, unique interior root sqrt(3)−sqrt(2), and threshold Q(10/11,p)=−(110p²−79p+9)/242 has exactly two p±=(79±sqrt(2281))/220 crossings. Lower eigenvalue <10/11 so roots belong to principal branch. Only linear invasion stability, not nonlinear or periodic. p=1 is a matrix limit, excluded physical domain.
 
-**Related literature and limits.** [1] arXiv:2402.00207v2; [2] arXiv:2211.16137v1; [3] Moschen dissertation, 2023 (abstract/bibliography only); Lipshtat et al., *Commuting in metapopulation epidemic modeling*, *Scientific Reports* (2021), a distinct algorithmic mobility framework. The central unaddressed risk is a potentially equivalent derivation in the inaccessible dissertation. The source's periodic day-night version is outside the proved scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Aronna–Moschen’s full arXiv paper derives next-generation matrix and metropolitan bounds and uses numerical mobility analyses, not the inspected exact one-way shape theorem, sharp a=2/3 boundary, or radical double crossing. Rapaport–Mimouni analyzes an explicitly commuting multi-population model with different state and switching structure: its commuting optimization does not imply this autonomous 2×2 threshold identity. The 2023 Moschen precursor thesis synopsis mentions related metropolitan setup, but its full text could not be accessed and remains a real O risk; no unsupported whole-document NOT_COVERING finding is made.
+
+## value
+
+PASS
+
+The theorem gives an exact global parameter-to-policy phase diagram for the source’s own metropolitan epidemic invasion threshold, separating decreasing and uniquely interior-optimal commuting and exhibiting two exact invasion crossings with a disease-free stable interval. The 2/3 day–night transition is structural and not a routine eigenvalue numerical example; finite sampling alone would miss uniqueness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
