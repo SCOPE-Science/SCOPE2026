@@ -1,14 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The published optimum \(n=5\) is independently reproduced by a complete finite search: all \(80730\) five-column subsets and all \(296010\) six-column subsets of \(\{0,1,2\}^3\) are checked from the separating definition. The verifier finds exactly \(54\) maxima and no six-column family, then independently checks the common singleton column, parity-block description, Hamming profile, full natural orbit, and stabilizer order. The proof makes no inference from sampling or timeout behavior.
+## correctness
 
-## Originality
-PASS. The closest exact source, Bazrafshan's dissertation, proves the sharp five-column bound and displays one optimal array, but the inspected section does not classify all equality cases, count labeled maxima, or compute the natural symmetry orbit. The general 2008 and 2013 separating-hash-family literature supplies definitions and bounds rather than this equality classification. published-finding corpus searches over the exact parameter, the uniqueness statement, the number \(54\), and the secure-frameproof alias returned no implication-equivalent result. Residual risk is limited to an obscure unindexed classification.
+PASS
 
-## Value
-PASS. This is a natural complete classification of the smallest ternary case for which the sharp \(\{2,2\}\)-separating bound is nontrivial. It upgrades a known optimum-size statement and one witness into a rigidity theorem: every optimum has a common singleton column and a parity-class core, so the canonical construction is forced up to the standard equivalence. The exact labeled count and stabilizer make the equality structure directly reusable in small-parameter constructions and comparisons.
+An SHF of type {2,2} forbids a four-column subset with some 2+2 partition whose symbol images overlap in all three rows. Independent combinatorial enumeration of every 4-subset of 27 ternary length-three words found 16,092 forbidden four-subsets, then exhaustively checked all C(27,5)=80,730 and C(27,6)=296,010 candidate families, obtaining exactly 54 valid 5-sets and 0 valid 6-sets. For each maximum, each coordinate has multiplicities (2,2,1) and the three unique-symbol positions coincide; deleting that word leaves a binary even/odd parity class of four 3-bit words. The canonical set {000,011,101,110,222} is separating; with three independent symbol permutations per row and row permutations the natural group has 6³×6=1296 elements. Its orbit has 54 sets, hence one orbit and stabilizer order 1296/54=24. The Hamming distance multiset is 6 pairs at distance2 and 4 at distance3. These computations enumerate every finite case, not samples or a claim about other parameters; the known n≤5 upper bound was checked against Bazrafshan 2011 Prop.5.2.3.
 
-The closest literature result is the sharp size theorem and example in Bazrafshan's 2011 dissertation. The classification is deliberately limited to the exact finite parameter and does not claim asymptotic consequences or a classification beyond the stated natural action.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bazrafshan 2011 Proposition 5.2.3 supplies n≤5 and Example 5.2.4 a five-column construction, so optimum and one witness are prior. The actual original dissertation Section 5.2 pp56–57 was read in full/page images and does not classify all equality cases. The exact 54 labeled maximizers, common singleton/parity structure and one-orbit/stabilizer classification are additional finite combinatorial statements not supplied by the parent upper bound or indexed related perfect-hash work.
+
+## value
+
+PASS
+
+The sharp equality classification of a natural smallest nontrivial secure-frameproof/separating hash family gives a canonical form, symmetry stabilizer and complete optimum multiplicity, useful for classifying or generating optimal codes. It resolves a structural question distinct from the known numerical optimum rather than a redundant table entry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

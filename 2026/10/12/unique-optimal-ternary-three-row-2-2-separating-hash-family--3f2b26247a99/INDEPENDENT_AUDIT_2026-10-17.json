@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T04:54:55Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An SHF of type {2,2} forbids a four-column subset with some 2+2 partition whose symbol images overlap in all three rows. Independent combinatorial enumeration of every 4-subset of 27 ternary length-three words found 16,092 forbidden four-subsets, then exhaustively checked all C(27,5)=80,730 and C(27,6)=296,010 candidate families, obtaining exactly 54 valid 5-sets and 0 valid 6-sets. For each maximum, each coordinate has multiplicities (2,2,1) and the three unique-symbol positions coincide; deleting that word leaves a binary even/odd parity class of four 3-bit words. The canonical set {000,011,101,110,222} is separating; with three independent symbol permutations per row and row permutations the natural group has 6³×6=1296 elements. Its orbit has 54 sets, hence one orbit and stabilizer order 1296/54=24. The Hamming distance multiset is 6 pairs at distance2 and 4 at distance3. These computations enumerate every finite case, not samples or a claim about other parameters; the known n≤5 upper bound was checked against Bazrafshan 2011 Prop.5.2.3.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Read original dissertation p56–57 explicitly proves n≤5 and exhibits only one optimal 3×5 matrix.",
+          "General bounds on n or asymptotic large-universe SHF constructions do not enumerate every equality case for the exact three-row ternary parameters."
+        ],
+        "reasoning": "A bound plus a witness does not imply all optima form one Hamming-isometry orbit or determine its 54 labeled members; current newer large-universe asymptotic paper has distinct parameters.",
+        "searches": [
+          "Bazrafshan 2011 dissertation Prop.5.2.3 Ex.5.2.4",
+          "Blackburn–Etzion–Stinson–Zaverucha 2008 DOI 10.1016/j.jcta.2008.01.009",
+          "Wei–Zhang–Ge 2025 DOI 10.1016/j.jcta.2025.106075"
+        ]
+      },
+      "checked_sources": [
+        "https://d-nb.info/1014711023/34",
+        "https://doi.org/10.1016/j.jcta.2025.106075",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-classification-of-three-row-ternary-perfect-hash-families--e1542e723907",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/7276e886ed6ed49439d05d36a501e9b2e0169de0/2026/10/12/unique-optimal-ternary-three-row-2-2-separating-hash-family--3f2b26247a99"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original theorem is α≤5 and the example attains α=5; no theorem restricting row profiles/common singleton positions or equivalence of all max families appears in §5.2.",
+          "The related perfect hash family resolves a different {1,1,1} condition, so its 36 sets are not the sought 54 SHF equality cases."
+        ],
+        "reasoning": "Neither parent optimal-size result nor the stronger alternative-type maximum logically yields the exact one-orbit census. This is a naturally motivated exact finite equality classification.",
+        "searches": [
+          "Bazrafshan thesis https://d-nb.info/1014711023/34, Proposition 5.2.3 and Example 5.2.4",
+          "Resultary SCOPE ternary three-row perfect hash families"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Type {2,2} may be expressed as a separating code / secure-frameproof family.",
+          "The nearest Resultary ternary three-row *perfect* hash family treats type {1,1,1}, six columns and 36 optima, a genuinely different separation condition."
+        ],
+        "reasoning": "Alias and direct parameter searches were compared at the logical type and objective level, not via similarity of title or alphabet size.",
+        "searches": [
+          "Resultary: separating hash families SHF(3;5,3,{2,2}) uniqueness five columns 54 isomorphism parity",
+          "web: separating hash family 3 5 3 2 2 unique equivalence 54",
+          "secure-frameproof 2,2 type length 3 ternary optimum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Dissertation directly records maximum five and a canonical construction, without a census of 54 or an orbit count in the examined equality-case pages.",
+          "No current database of precisely these labeled equality cases was located."
+        ],
+        "reasoning": "Exact-size tables do not constitute equality-case enumerators. The exhaustive 54-set census was freshly independently reconstructed, and the searched sources do not tabulate it.",
+        "searches": [
+          "Bazrafshan Separating Hash Families 2011 Section 5.2 small parameter table",
+          "Resultary: separating hash families SHF(3;5,3,{2,2}) uniqueness five columns 54 isomorphism parity"
+        ]
+      },
+      "rationale": "Bazrafshan 2011 Proposition 5.2.3 supplies n≤5 and Example 5.2.4 a five-column construction, so optimum and one witness are prior. The actual original dissertation Section 5.2 pp56–57 was read in full/page images and does not classify all equality cases. The exact 54 labeled maximizers, common singleton/parity structure and one-orbit/stabilizer classification are additional finite combinatorial statements not supplied by the parent upper bound or indexed related perfect-hash work.",
+      "residual_risks": [
+        "An unindexed older isomorphism classification may exist outside the inspected dissertation and indexes.",
+        "Finite census is complete only for 3 rows, alphabet 3 and type {2,2}; no broader alphabet or code-length conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_SIZE_NOT_EQUALITY_CLASSIFICATION",
+          "evidence": [
+            "Proposition 5.2.3 proves n≤5, Example 5.2.4 displays a five-column witness; subsequent text switches parameter conditions without an all-optima isomorphism census."
+          ],
+          "identifier_or_url": "https://d-nb.info/1014711023/34",
+          "material_read": "Full indexed PDF text and page-image inspection of Section 5.2 pp56–57 surrounding Proposition 5.2.3 and Example 5.2.4 plus definitions/context; 116-page PDF available and navigated.",
+          "method": "Actual primary PDF text and relevant original page image",
+          "title": "Separating Hash Families (doctoral dissertation)",
+          "trigger": "EXACT same three rows, alphabet three, type {2,2}"
+        },
+        {
+          "assessment": "DIFFERENT_ASYMPTOTIC_PROBLEM",
+          "evidence": [
+            "Results about asymptotically large universes for fixed strength t do not automatically imply finite n=5 equality orbit classification."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jcta.2025.106075",
+          "material_read": "Publisher article title/abstract/introduction describing q→∞ perfect hash strength parameter t, not its full text",
+          "method": "Publisher article abstract/metadata scientific comparison",
+          "title": "Separating hash families with large universe",
+          "trigger": "Later broader separating-family bounds"
+        },
+        {
+          "assessment": "DIFFERENT_SEPARATING_TYPE",
+          "evidence": [
+            "Exact cardinality six and 36 maxima for type {1,1,1}, not five / 54 for {2,2}."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-classification-of-three-row-ternary-perfect-hash-families--e1542e723907",
+          "material_read": "Published record title and summary; not its full source package",
+          "method": "Resultary summary only",
+          "title": "Exact classification of three-row ternary perfect hash families",
+          "trigger": "Semantic nearest published record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp equality classification of a natural smallest nontrivial secure-frameproof/separating hash family gives a canonical form, symmetry stabilizer and complete optimum multiplicity, useful for classifying or generating optimal codes. It resolves a structural question distinct from the known numerical optimum rather than a redundant table entry.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed older isomorphism classification may exist outside the inspected dissertation and indexes.",
+    "Finite census is complete only for 3 rows, alphabet 3 and type {2,2}; no broader alphabet or code-length conclusion.",
+    "Prior self-review PASS, verification scripts and printed logs were not treated as independently sufficient for correctness, originality or value.",
+    "Publication remains not_ready due operational-provenance privacy blockers, not a scientific verdict."
+  ],
+  "schema_version": 1
+}

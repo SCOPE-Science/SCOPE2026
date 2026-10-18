@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` with a standard Python 3 interpreter.
+# Independent mathematical audit
 
-The verifier builds all \(27\) words of \(\{0,1,2\}^3\) and derives the bad four-column configurations directly from the definition: for each four-set it tests all three partitions into two pairs and asks whether some coordinate gives disjoint symbol sets to the two pairs. It then exhausts all \(\binom{27}{5}=80730\) five-subsets and all \(\binom{27}{6}=296010\) six-subsets. The expected exact outcomes are \(54\) admissible five-sets and no admissible six-set.
+## correctness
 
-For every maximum, the verifier checks row multiplicities \((2,2,1)\), coincidence of the three singleton positions, the parity-class description after deleting that column, and the Hamming-distance profile \(2\) with multiplicity \(6\) and \(3\) with multiplicity \(4\). It then constructs all \(1296\) transformations in \((S_3)^3\rtimes S_3\), verifies that the canonical family has orbit size \(54\), that this orbit equals the complete maximum-family census, and that the stabilizer has order \(24\).
+PASS
 
-The computation is exact integer/set logic. No randomized step, numerical tolerance, external solver, network access, or unproved extrapolation is used. The verification proves only the finite parameter stated in the finding.
+An SHF of type {2,2} forbids a four-column subset with some 2+2 partition whose symbol images overlap in all three rows. Independent combinatorial enumeration of every 4-subset of 27 ternary length-three words found 16,092 forbidden four-subsets, then exhaustively checked all C(27,5)=80,730 and C(27,6)=296,010 candidate families, obtaining exactly 54 valid 5-sets and 0 valid 6-sets. For each maximum, each coordinate has multiplicities (2,2,1) and the three unique-symbol positions coincide; deleting that word leaves a binary even/odd parity class of four 3-bit words. The canonical set {000,011,101,110,222} is separating; with three independent symbol permutations per row and row permutations the natural group has 6³×6=1296 elements. Its orbit has 54 sets, hence one orbit and stabilizer order 1296/54=24. The Hamming distance multiset is 6 pairs at distance2 and 4 at distance3. These computations enumerate every finite case, not samples or a claim about other parameters; the known n≤5 upper bound was checked against Bazrafshan 2011 Prop.5.2.3.
+
+## originality
+
+PASS
+
+Bazrafshan 2011 Proposition 5.2.3 supplies n≤5 and Example 5.2.4 a five-column construction, so optimum and one witness are prior. The actual original dissertation Section 5.2 pp56–57 was read in full/page images and does not classify all equality cases. The exact 54 labeled maximizers, common singleton/parity structure and one-orbit/stabilizer classification are additional finite combinatorial statements not supplied by the parent upper bound or indexed related perfect-hash work.
+
+## value
+
+PASS
+
+The sharp equality classification of a natural smallest nontrivial secure-frameproof/separating hash family gives a canonical form, symmetry stabilizer and complete optimum multiplicity, useful for classifying or generating optimal codes. It resolves a structural question distinct from the known numerical optimum rather than a redundant table entry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
