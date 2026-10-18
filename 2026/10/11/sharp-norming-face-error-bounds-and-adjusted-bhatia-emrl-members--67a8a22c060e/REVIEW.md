@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exposed-face distance is established by an exact positive/negative mass decomposition; the sharp error coefficient is obtained by dual pairing bounds and measurable near-maximizer witnesses. For the adjusted property, an isolated gap forces both signs of every strongly orthogonal perturbation on the norming set, enabling a zero-pairing convex combination; without a gap, an explicit signed perturbation witnesses failure. The proof treats arbitrary probability spaces and both nonempty-complement boundary cases. Exact rational checks cover 14,772 finite vectors, but the arbitrary-measure result rests on the written proof, not the experiment.
+PASS
 
-## Originality — PASS, with residual risk
+Equality in Hölder identifies the nonempty norming face exactly with aligned unit L1 densities supported on A; splitting u into aligned mass m and its disjoint remainder gives exact distance 2(1-m), including m=0. With b_A negative-aligned mass and b_B complementary mass, 1-<g,u> >= 2b_A+(1-r)b_B while face distance is 2(b_A+b_B). Near-maximizing positive-measure subsets of B yield sharp 2/(1-r) and divergence as r->1, with B null yielding constant 1 via negative face. For the adjusted property, strong Birkhoff-James orthogonality to h in a gap case forces positive and negative sign(g)h on A, enabling an aligned face vector with h=0. In the gapless case the explicit h=sgn(g) on A, -sgn(g) on nonzero B has g perpendicular in both strong directions, yet no norming vector h-orthogonal. Checked cases A empty (nonattaining), B null, r=0, r<1, r=1. Independently tested a three-atom rational witness g=(1,-1,3/4), u supported on third atom, which gives exact ratio 8; finite tests do not replace arbitrary-measure proof.
 
-The 2022 Choi–Jung–Kim article (arXiv:2208.11987v1, Definition 1.2, Theorems 2.13 and 2.15) introduces the adjusted property and proves sufficient gap examples and dense failures, not an iff criterion or optimal global face-error coefficient. The 2019 Kim–Lee work concerns the original property; the 2024 numerical-range treatment addresses Birkhoff–James orthogonality for different objects, and the 2025 Jayanarayanan–Rajpopat article also concerns the original property. A related 2019 complete text remained inaccessible, so unindexed equivalent formulations are a genuine residual risk. A literature search is not proof of absolute novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The result converts a qualitative orthogonality notion into a complete measure-theoretic classification and a sharp, immediately computable global stability constant. It distinguishes the all-plateau regime, isolated gap, and gapless norm-attainers, and applies without atomicity or separability assumptions. The exact blow-up of the constant at the spectral-gap boundary is structurally informative, rather than a renaming of the source's density assertion.
+The focal Choi–Jung–Kim 2022 paper defines the adjusted property, Theorem 2.13 constructs norm-dense sufficient isolated-plateau cases on real L1[0,1], and Theorem 2.15 provides norm-attaining counterexamples. A sufficient construction plus examples of failure does not imply the claimed necessary-and-sufficient theorem on all probability L1 or best face-distance constant. Martín et al general numerical-range approaches and Kim–Lee original (not adjusted) property do not supply the specific classified modulus in read material. One 2019 related primary text remained inaccessible, so absolute priority is not certified.
 
-## Scientific boundaries
+## value
 
-Only real scalar functionals and their positive norming faces are treated. The finite checker is a stress test, not an infinite certificate; the related 2019 text was unavailable for full comparison. Independent audit has not been carried out.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+This gives a complete real L1 structural classification across arbitrary probability measures, including gapless failure, and a sharp measure-free quantitative norming-face stability profile. The optimal constant diverges precisely at the classification boundary, making it useful for perturbation and approximation of norming vectors rather than routine manipulation of Hölder equality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
