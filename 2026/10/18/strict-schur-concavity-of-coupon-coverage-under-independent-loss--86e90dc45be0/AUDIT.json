@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "For each draw word, the event that a given coupon is present depends only on survival from its last occurrence through observation; independence across coupon types makes conditional target coverage the product of last-visit retention factors. Conditioning on the unordered positions of a pair decouples its total drawing weight and yields iid Bernoulli(a) labels. The terminal run length K satisfies P(K>=k)=a^k+(1-a)^k. The exact telescoping expansion has nonnegative coefficients summing to f(1)>0, and every k>=2 power sum strictly increases as a leaves 1/2. This proves strict finite-horizon pairwise balancing on a positive-probability event whenever t>=|A| and weights are positive. The same argument with convergent infinite tails proves the stationary case 0<q<1; an independent stationary subset recurrence checks the formula. The actual standalone checker ran with 1,188 exact Fraction assertions comparing different full-state and word-level computations, including finite-state stationary linear systems. Finite checks alone do not establish the theorem; the conditional argument does. No claims for the first-hitting law, type-dependent losses or stationary q=1.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1504.03878 Theorems 1-3: no-loss coupon acquisition with uniform optimum; survival always 1, so does not address loss-dependent joint presence.",
+        "arxiv:2602.20705 analyzes a uniform-draw independent-loss Markov chain and completion-time phases."
+      ],
+      "reasoning": "The no-loss Schur theorem is recovered as the specialization q_t=1 and cannot by itself imply the present q_t<1 claim. Uniform-draw results cannot optimize the heterogeneous drawing vector. A hypothetical broad stochastic-occupancy theorem not located in the searches is residual risk.",
+      "searches": [
+        "Markovian coupon collector with independently lost stored coupons generalized drawing probabilities stationary distribution simultaneous presence majorization",
+        "discrete time coupon collector with independent losses Schur concavity complete occupancy probability majorization weight probabilities",
+        "arxiv:1504.03878",
+        "arxiv:2602.20705"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2602.20705",
+      "arxiv:1504.03878",
+      "arxiv:2605.14511",
+      "arxiv:2604.26298",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/17/SCOPE-balanced-nonuniform-reset-coupon-rates--7b9ca5a2ebed",
+      "Published mathematical research index: targeted semantic searches of relevant claims, aliases and parameters."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2605.14511 concerns stationary-entry flux, uniform-clumsy and careless hitting laws, with global-reset derivations.",
+        "arxiv:2604.26298 considers deterministic fixed-window expiration, not independent geometric per-type losses.",
+        "Full published-finding corpus reset collector RESULT.md establishes Schur-optimality of P(C_n<first catastrophic reset), a different functional than P(all types survive independent losses at t)."
+      ],
+      "reasoning": "A stronger prior theorem would need to optimize joint presence for independent type-wise deaths at each round, uniformly over fixed horizons, and for stationary constant survival. No inspected comparison has all those premises; complete-window and reset-free excursion results cannot be substituted without an unproved reduction.",
+      "searches": [
+        "careless coupon collector uniform sampling maximizes probability all coupons held simultaneously unequal arrival probabilities Schur concave",
+        "Strict Schur concavity coupon collector independent type-wise erasure after every draw uniform nonuniform weights probability all coupons present fixed horizon",
+        "arxiv:2605.14511",
+        "arxiv:2604.26298",
+        "2026/9/17/SCOPE-balanced-nonuniform-reset-coupon-rates--7b9ca5a2ebed"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Conditional last-arrival coverage with independent type-wise retention is the same dynamic-cache full-freshness event, whose proof requires last-appearance factors.",
+        "arxiv:2602.20705 analyzes this dynamic under uniform arrival only; the exact terminal-run transfer identity is not a consequence of uniform-arrival results."
+      ],
+      "reasoning": "The event can be rephrased as all target keys simultaneously fresh in a probabilistically expiring cache. Searches using this alias and last-arrival/power-sum terminology identified no theorem with Schur order for arbitrary common time-dependent retention. Equivalence searched, not ruled out categorically.",
+      "searches": [
+        "Strict Schur concavity coupon collector independent type-wise erasure after every draw uniform nonuniform weights probability all coupons present fixed horizon",
+        "terminal monochromatic run exact power sums a^k+(1-a)^k last appearances coupon erasures",
+        "stochastic caching uniform iid request law optimal full buffer freshness probability under independent time-dependent expiration",
+        "coupon collector with forgetting randomized deletions coverage probability optimized uniform sampling"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The full published research record at https://github.com/published-finding corpus/2026/tree/main/2026/9/17/SCOPE-balanced-nonuniform-reset-coupon-rates--7b9ca5a2ebed addresses single global reset and does not discuss per-type independent losses.",
+        "Comparisons with previously recorded results on coupon-collector coverage, stationary occupancy and related stochastic optimization found no logically stronger covering claim."
+      ],
+      "reasoning": "This is an infinite structural optimization theorem rather than a parameter table. The identified published database record concerns a different global-reset process, while relevant previously described mathematical statements do not subsume the independent-loss result. Database incompleteness and unpublished work remain residual risks.",
+      "searches": [
+        "Strict Schur concavity coupon collector independent type-wise erasure after every draw uniform nonuniform weights probability all coupons present fixed horizon",
+        "Markovian coupon collector with independently lost stored coupons generalized drawing probabilities stationary distribution simultaneous presence majorization",
+        "2026/9/17/SCOPE-balanced-nonuniform-reset-coupon-rates--7b9ca5a2ebed",
+        "2026 non-uniform coupon collector coverage stationary stochastic processes limit theorem"
+      ]
+    },
+    "rationale": "The main original claim is strict majorization optimality of prescribed-time and stationary simultaneous coverage with independent coupon-wise losses and unequal draw probabilities, including any common time-dependent survival schedule. Cruciani--Dudeja study the same loss mechanism but choose uniformly sampled types, with results on hitting times; Anceaume et al. prove Schur optimization for nonexpiring coupons. Long studies stationary entrance flux and deterministic expiration. A full inspected published published-finding corpus record proves majorization for all-at-once catastrophic resets, which has different dynamics and a different event. Neither these inspected statements nor the searched mathematical database subsumes the present independent-loss, time-dependent pair-run theorem. Earlier general dynamic-cache or dynamic-occupancy majorization results could still cover it; no claim of certified uniqueness is made.",
+    "residual_risks": [
+      "An older theorem on dynamic caching, exchangeable occupancy or last-occurrence processes may cover this statement under other terminology.",
+      "Semantic published-finding corpus search cannot exclude absent records or unpublished independent work.",
+      "ArXiv inspections of two less-proximate articles emphasized statement/model sections rather than every appendix."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_LOSS_MECHANISM_NOT_COVERING_HETEROGENEOUS_DRAW_OPTIMIZATION",
+        "evidence": "Draws are uniform by model definition; investigates completion times and metastability, not time-varying-loss Schur majorization.",
+        "identifier_or_url": "https://arxiv.org/abs/2602.20705",
+        "material_read": "ArXiv full-text model, introduction, result statements, and future research directions",
+        "method": "Primary arXiv HTML text inspection and targeted searches",
+        "title": "The Careless Coupon Collector's Problem",
+        "trigger": "Exact same post-draw independent per-type loss mechanism"
+      },
+      {
+        "assessment": "NO_LOSS_SPECIAL_CASE",
+        "evidence": "Optimizes obtaining distinct coupons without loss; the collected set is increasing, unlike the present model.",
+        "identifier_or_url": "https://arxiv.org/abs/1504.03878",
+        "material_read": "Primary open full paper including principal Theorems 1-3",
+        "method": "Primary full-text reading and theorem/assumption comparison",
+        "title": "Optimization results for a generalized coupon collector problem",
+        "trigger": "Closest classical Schur and majorization theorem"
+      },
+      {
+        "assessment": "DIFFERENT_OBJECTIVE_NOT_COVERING",
+        "evidence": "Treats stationary entry rates and hitting-time limits under uniform sampling; no all-horizon Schur comparison for nonuniform arrivals.",
+        "identifier_or_url": "https://arxiv.org/abs/2605.14511",
+        "material_read": "Primary arXiv introduction and main theorem sections",
+        "method": "ArXiv HTML examination of model, stationary flux, and headline results",
+        "title": "Clumsy and Careless: Stationary-Entry Flux in Non-monotone Coupon Collectors",
+        "trigger": "Same careless process but different objective"
+      },
+      {
+        "assessment": "DETERMINISTIC_WINDOW_EXPIRATION_NOT_COVERING_INDEPENDENT_LOSSES",
+        "evidence": "Expiration occurs at a fixed window length, unlike independent per-round survival; claims concern window coverage and new-entry flux.",
+        "identifier_or_url": "https://arxiv.org/abs/2604.26298",
+        "material_read": "Primary arXiv abstract, introduction and principal results",
+        "method": "ArXiv HTML inspection of expiration mechanism and optimization scope",
+        "title": "The Expiring Coupon Collector: Sliding-Window Surjection Flux and Rare-Entry Laws",
+        "trigger": "Prior general extremality for window coverage"
+      },
+      {
+        "assessment": "GLOBAL_CATASTROPHE_DIFFERENT_MARKOV_CHAIN",
+        "evidence": "Its Theorem 4 strictly Schur-optimizes the probability of finishing an ordinary coupon collection before a single total reset; no independent type-level losses or arbitrary q_t.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/17/SCOPE-balanced-nonuniform-reset-coupon-rates--7b9ca5a2ebed",
+        "material_read": "Entire published RESULT.md proof and references",
+        "method": "Full-text scientific inspection of published primary research record",
+        "title": "Balanced non-uniform reset coupon collectors: profile rates and heterogeneity penalties",
+        "trigger": "Nearest published published-finding corpus mathematical record and same Schur word"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "86e90dc4-5be0-4af5-8baf-53aa146b2364",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The probability that all specified items remain simultaneously available at a chosen time is a natural reliability and cache-freshness objective, and heterogeneity in sampling allocation is a controllable design variable. The theorem gives a unique optimal draw allocation for every target set and every sufficiently long finite horizon, surviving arbitrary time variation in a common independent loss schedule; it also solves the natural stationary version. The exact conditional terminal-run identity is a structural mechanism valid beyond a single parameter slice, and evaluating the full 2^n-state distribution is unnecessary. These conclusions are distinct from, and do not claim, a hitting-time ordering. This is not simply the permanent-collection theorem in new names: every type can disappear at every subsequent step.",
+    "status": "PASS"
+  }
+}

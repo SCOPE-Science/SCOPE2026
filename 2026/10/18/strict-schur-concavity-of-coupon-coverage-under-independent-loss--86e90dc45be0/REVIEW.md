@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness: PASS.** Conditional on the iid drawing word, latest-draw survival probabilities factor across types. Conditioning on the positions of two target types gives an exact terminal-run length with survival tails \(a^k+(1-a)^k\). A positive-coefficient telescoping expansion makes pairwise smoothing strictly improve conditional coverage whenever the other targets can appear; the same argument on a bi-infinite stationary word works because \(0<q<1\). Exact rational checks exercise two independent finite-time formulas and a separate stationary Markov-chain solution. Boundaries \(t<|A|\), zero target weights, stationary \(q=1\), and unequal type loss rates are correctly excluded from strictness.
+
+**Originality: PASS, with residual risk.** The classical Schur-optimal coupon collector has no losses (Anceaume et al., 2015/2016). Cruciani--Dudeja (2026) and Long (2026) analyze uniform-draw loss collectors; their statements do not optimize finite-time or stationary coverage over unequal draw probabilities. Related reset-button and deterministic-expiration models have different state dynamics and observables. No searched record established the claimed time-varying-loss pairwise balancing identity or its stationary consequence. A general dynamic-occupancy majorization theorem could subsume this result, and priority is not independently certified.
+
+**Value: PASS.** Simultaneous freshness of every monitored item is a natural reliability objective. The theorem supplies a unique exact optimal sampling policy for every target subset and every horizon with enough draws, without needing to calculate the exponentially large state distribution; it remains valid under arbitrary common time-varying erasure schedules. The distinction between this prescribed-time objective and first-hitting times is substantive.
+
+Self-review: passed. Independent audit: not yet performed.
