@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The classification is reduced to three intrinsic layers, using Wannenburg–Raftery Theorems 7.19/7.22 (shell and reflection) and Theorems 6.2/6.10 (positive skeletal fibers). The reflection interval \([\neg(f^2),f^2]\) and its Sugihara quotient recover the shell; the lower central half recovers the generalized Sugihara chain; the \(x^{**}\) skeleton recovers ordered fiber sizes. Hence distinct parameter tuples cannot represent the same chain. Stars-and-bars yields \(\binom{d-k-1}{k}\); summing gives the Fibonacci generating series, and rank idempotence follows from the reflection multiplication. The supplied executable checks actual operation tables and residual laws in small orders. The proof, not those finite checks, establishes the universal quantifiers.
+## correctness
 
-**Originality — PASS, qualified.** The 2022 preprint/2024 open-access published primary text already proves the much stronger *structural representation*. Accordingly the decomposition, fusion rules, category equivalences, and ordinary Fibonacci sequence are expressly excluded from the originality claim. The exact natural graded count by **algebra cardinality, number of non-idempotent elements, skeletal radius, and exterior shell thickness**, its compact rational series, and its explicit limiting shell law were not stated in the fully read primary sections or in the inspected related sources and records. In particular the full available arXiv text of Gil-Férez–Jipsen–Metcalfe (2020), Introduction and Theorems 3.2 and 5.6, explicitly counts \(2^{n-2}\) commutative idempotent chains and Catalan conservative lattices; neither is the rank-refined negative-generated De Morgan-chain spectrum. The count is an elementary but nontrivial enumerative synthesis of several structural results; an unindexed earlier derivation, or implicit derivation in earlier category-equivalence papers, remains the main originality risk. Search absence alone is not evidence of novelty.
+PASS
 
-**Mathematical value — PASS.** The object is the entire finite-chain part of a natural semilinear variety from relevance/substructural logic, not an artificial cutoff. The exact counts give a complete classification of which element-idempotence ranks exist and their multiplicities, refine the previously qualitative rigorous-extension representation by a skeletal parameter, and quantify the typical shell of a large uniformly sampled isomorphism type. These are useful concrete invariants for finite-model cataloging and for assessing the combinatorial complexity of the canonical structural decomposition. The value comes from the natural full-spectrum classification, not from rediscovery of the Fibonacci sequence.
+Use Wannenburg–Raftery uniqueness of the reflection interval R(D) within an even negatively generated chain, odd Sugihara rigorous-extension shell of 2s idempotent elements, and GSM fibers. For |D|=d, skeletal radius k requires k singleton positive fibers and k+1 nonempty negative/zero fibers, yielding binomial(d-k-1,k) types, 0<=k<=floor((d-1)/2). Sum over k has ordinary generating series x/(1-x-vx^2), and v=1 gives F_d. Even order 2t obeys d+s+1=t and has unique all-idempotent type, so H_{2t}(u)=1+sum_{d=1}^{t-1} F_d u^d, c_{2t}=F_{t+1}; odd orders have only their Sugihara type. Triple generating function z/(1-z)*(1+uz/(1-uz-u^2*v*z^2)), and shell law F_{t-j-1}/(F_{t+1}-1) -> phi^{-j-2}. Independently computed sum_k binomial(d-k-1,k)=F_d for d=1..14 and matched low-order examples; proof relies on original uniqueness/classification theorems rather than finite checks.
 
-**Limits and closest antecedents.** Wannenburg–Raftery (arXiv:2206.12461, published 2024) supplies all representation inputs; Gil-Férez–Jipsen–Metcalfe (2020) and Galatos–Raftery (2015) are important antecedents to the fiber theory; Moraschini–Raftery–Wannenburg (2019) studies broader De Morgan monoids. The general background could implicitly contain the stated enumeration. The original 2015 category-equivalence article was only inspected through accessible bibliographic/abstract material, not line-by-line full text. The 2020 Gil-Férez–Jipsen–Metcalfe preprint was subsequently inspected in lawful full arXiv PDF (abstract, full introduction, and the count in Section 3); its count is a different invariant on the idempotent class. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The primary 2024 Wannenburg–Raftery paper supplies structural decomposition and uniqueness, but in inspected full accessible sections did not state the finite cardinality/idempotence/skeletal-radius enumerator nor the outer-shell asymptotic law. Earlier enumerations for all idempotent residuated chains concern different objects. The counted invariant is intrinsic; source categories yield it via a nontrivial composition convolution. A hidden earlier corollary/count in algebra literature remains a risk.
+
+## value
+
+PASS
+
+An exact, all-order and multigraded isomorphism spectrum for a natural locally finite algebra variety quantifies which non-idempotent and skeleton configurations occur and yields a limiting shell distribution. Enumeration is useful beyond restatement of structural representation even if its building-block Fibonacci identity is classical.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
