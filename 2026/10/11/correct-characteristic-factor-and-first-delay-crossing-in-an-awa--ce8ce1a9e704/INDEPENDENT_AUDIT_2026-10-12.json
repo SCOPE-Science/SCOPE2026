@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T08:23:48.847443Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. For the printed 2022 delayed SEQIJR model, incidence β exp(-m I(t-τ)) S(t) I(t) has current derivatives u s(t)+v i(t) and delayed derivative -m v I_* i(t-τ), where u=βexp(-m I_*)I_* and v=βexp(-m I_*)S_*. The source incorrectly combines both i contributions in delay matrix. Directly expanding 4×4 det(ξI-A-e^{-ξτ}B) and using cpγv=CGL yields F=(ξ+C)(ξ+G)(ξ+L)(ξ+μ+u)+CGL(ξ+μ)(mI_*exp(-ξτ)-1); removed compartment contributes stable ξ+d2+μ. Independent symbolic determinant was verified. With printed parameters equilibrium I*=13.646976755..., S*=3271.592615..., zero-delay quartic satisfies strict Routh-Hurwitz. Frequency modulus polynomial has coefficient signs +,+,+,-,-, hence one strictly positive root; its phase first τ*=18.59248621759530, frequency θ*=0.06652293610984329, crossing derivative Re(dξ/dτ)=0.001262757946...>0. Continuity of retarded characteristic roots and no zero root then prove first local linear stability loss, not nonlinear Hopf orbit behavior.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original SEQIJR theory addresses itself but with wrong characteristic factor.",
+          "2018 awareness-delay paper studies different SIS model and incidence network."
+        ],
+        "reasoning": "A general delay-crossing method does not supply this specific correct determinant and numerical first crossing; no valid dominating theorem found in compared full-text model material.",
+        "searches": [
+          "DOI:10.3934/math.2022672",
+          "DOI:10.1016/j.amc.2018.05.042"
+        ]
+      },
+      "checked_sources": [
+        "Maji et al, AIMS Math 7 (2022), DOI:10.3934/math.2022672, model/Jacobian/bifurcation",
+        "Basir–Ray–Venturino, DOI:10.1016/j.amc.2018.05.042",
+        "Actual assigned RESULT.md/verify.py at frozen source tree",
+        "Independent SymPy determinant identity; published parameter root and transversality in inspected package"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Current infectious derivative is v, delayed derivative is -mvI_*; source incorrectly evaluates current v at delay.",
+          "Correct determinant and Descartes/Routh crossing analysis do not follow from source displayed wrong matrix; first exact local spectral threshold is a distinct correction."
+        ],
+        "reasoning": "Existing generic Hopf-delay routines apply only after correct linearization and do not imply the correction automatically.",
+        "searches": [
+          "Maji et al 2022 printed matrices and characteristic formula",
+          "Basir et al 2018 model"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original incidence explicitly contains I(t) times delayed awareness exponential, with separate derivatives.",
+          "Source delayed matrix places both infectious components in delayed term."
+        ],
+        "reasoning": "Compared exact printed nonlinear state equations and instantaneous/delayed Jacobians, not merely disease or title; derived characteristic correction not equivalent to published one for τ>0.",
+        "searches": [
+          "Resultary: corrected delayed SEQIJR characteristic first stability crossing Maji; search_internal_error (not completed)",
+          "DOI:10.3934/math.2022672 model, linearization, bifurcation",
+          "DOI:10.1016/j.amc.2018.05.042"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original paper numerical graph suggests transition between delay 18 and 19 but lacks correct analytic factor/precise 18.592486 value."
+        ],
+        "reasoning": "The figure is prior qualitative computational information; new mathematically justified value and correcting current/delayed derivatives are not a known table recomputation.",
+        "searches": [
+          "Resultary: corrected delayed SEQIJR characteristic first stability crossing Maji; search_internal_error (not completed)",
+          "AIMS Mathematics 7 (2022), bifurcation figure and tables"
+        ]
+      },
+      "rationale": "PASS on material full-text primary comparison. Maji et al AIMS Mathematics 2022 directly displays current/delay matrices merging the current I(t) term into delayed term; this is not valid for τ>0 and their printed characteristic factor differs. Source numeric transition around 18–19 agrees qualitatively but does not contain the corrected factor/threshold derivation. Related Basir–Ray–Venturino 2018 SIS-type awareness/media-delay system is mathematically different, not a stronger SEQIJR coverage. Specific prior erratum could exist but was not found in identified material; failed Resultary is not evidence of absence.",
+      "residual_risks": [
+        "Literature search cannot rule out a previously circulated correction or erratum.",
+        "First local linear stability loss is proved; not Hopf direction, periodic orbit, or global dynamics.",
+        "Some numerics sourced from package checker were independently cross-checked structurally but finite floating tolerance alone does not certify all real-parameter claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prints incidence with current infectious and delayed awareness, but linearization puts both I contributions into delay matrix; analytic factor invalid for τ>0.",
+          "evidence": [
+            "AIMS Mathematics 7 (2022), 12091–12105, model/Jacobian/characteristic/delay sections"
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/math.2022672",
+          "material_read": "Full original paper PDF materially inspected, including system equation (model), matrices, characteristic equation, parameter list, delay-crossing computation and numerical figure (pages roughly 3,5,7–8).",
+          "method": "Primary publisher PDF and rendered-page inspection",
+          "title": "COVID-19 propagation and the usefulness of awareness-based control measures: A mathematical model with delay",
+          "trigger": "Exact source mathematical formula to correct"
+        },
+        {
+          "assessment": "Different infection chain and awareness/media delay placement, so cannot imply current exact SEQIJR factor.",
+          "evidence": [
+            "Applied Mathematics and Computation 337 (2018), 372–385"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.amc.2018.05.042",
+          "material_read": "Model description and stability setup from related literature inspected; no entire paper exclusion claimed.",
+          "method": "Related-primary model comparison",
+          "title": "Role of media coverage and delay in controlling infectious diseases: A mathematical model",
+          "trigger": "Possible prior delay correction and awareness instability theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The source publishes a characteristic equation and local stability threshold for a concrete delayed epidemic model based on a wrong current/delayed Jacobian allocation. A corrected exact characteristic factor and reproducible first crossing are a scientifically motivated correction that directly changes the analytic conclusions for a studied model, even though a nonlinear Hopf theorem is not claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Maji et al, AIMS Math 7 (2022), DOI:10.3934/math.2022672, model/Jacobian/bifurcation",
+    "Basir–Ray–Venturino, DOI:10.1016/j.amc.2018.05.042",
+    "Actual assigned RESULT.md/verify.py at frozen source tree",
+    "Independent SymPy determinant identity; published parameter root and transversality in inspected package"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only the given positive endemic equilibrium and published parameter set for numerical τ*; symbolic factor has general positive-parameter scope.",
+    "No assertion of stability/instability at every larger delay."
+  ],
+  "residual_risks": [
+    "Literature search cannot rule out a previously circulated correction or erratum.",
+    "First local linear stability loss is proved; not Hopf direction, periodic orbit, or global dynamics.",
+    "Some numerics sourced from package checker were independently cross-checked structurally but finite floating tolerance alone does not certify all real-parameter claims."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Prints incidence with current infectious and delayed awareness, but linearization puts both I contributions into delay matrix; analytic factor invalid for τ>0.",
+      "evidence": [
+        "AIMS Mathematics 7 (2022), 12091–12105, model/Jacobian/characteristic/delay sections"
+      ],
+      "identifier_or_url": "https://doi.org/10.3934/math.2022672",
+      "material_read": "Full original paper PDF materially inspected, including system equation (model), matrices, characteristic equation, parameter list, delay-crossing computation and numerical figure (pages roughly 3,5,7–8).",
+      "method": "Primary publisher PDF and rendered-page inspection",
+      "title": "COVID-19 propagation and the usefulness of awareness-based control measures: A mathematical model with delay",
+      "trigger": "Exact source mathematical formula to correct"
+    },
+    {
+      "assessment": "Different infection chain and awareness/media delay placement, so cannot imply current exact SEQIJR factor.",
+      "evidence": [
+        "Applied Mathematics and Computation 337 (2018), 372–385"
+      ],
+      "identifier_or_url": "https://doi.org/10.1016/j.amc.2018.05.042",
+      "material_read": "Model description and stability setup from related literature inspected; no entire paper exclusion claimed.",
+      "method": "Related-primary model comparison",
+      "title": "Role of media coverage and delay in controlling infectious diseases: A mathematical model",
+      "trigger": "Possible prior delay correction and awareness instability theory"
+    }
+  ]
+}

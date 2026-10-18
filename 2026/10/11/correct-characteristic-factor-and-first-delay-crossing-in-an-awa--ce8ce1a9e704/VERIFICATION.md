@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The printed incidence \(\beta e^{-mI(t-\tau)}S(t)I(t)\) was differentiated independently with respect to \(S(t)\), \(I(t)\), and \(I(t-\tau)\). The resulting current/delayed matrices were expanded to the characteristic determinant and simplified using the endemic balance \(cp\gamma v=CGL\).
+# Independent mathematical audit
 
-For the published parameter set, the reconstructed equilibrium is
-\[
-(S_*,E_*,Q_*,I_*,J_*)=(3271.592615677488\ldots,11.94110466102479\ldots,238.8220932204958\ldots,13.64697675545690\ldots,12.40634250496082\ldots).
-\]
-The standalone checker verifies the equilibrium equations, characteristic coefficients, zero-delay Routh--Hurwitz determinants, the sign pattern \(+,+,+,-,-\) of the frequency polynomial, the positive root \(z_*=0.004425301028674292\ldots\), the phase equations, and the direct residual at \((i\theta_*,\tau_*)\). It also checks that the real crossing derivative is positive.
+## correctness
 
-The unique positive frequency proves that no other imaginary-axis frequency can yield an earlier crossing. The result does not certify nonlinear Hopf direction, periodic-orbit stability, or global dynamics, and it does not claim stability or instability for every delay beyond the first crossing.
+PASS
+
+PASS. For the printed 2022 delayed SEQIJR model, incidence β exp(-m I(t-τ)) S(t) I(t) has current derivatives u s(t)+v i(t) and delayed derivative -m v I_* i(t-τ), where u=βexp(-m I_*)I_* and v=βexp(-m I_*)S_*. The source incorrectly combines both i contributions in delay matrix. Directly expanding 4×4 det(ξI-A-e^{-ξτ}B) and using cpγv=CGL yields F=(ξ+C)(ξ+G)(ξ+L)(ξ+μ+u)+CGL(ξ+μ)(mI_*exp(-ξτ)-1); removed compartment contributes stable ξ+d2+μ. Independent symbolic determinant was verified. With printed parameters equilibrium I*=13.646976755..., S*=3271.592615..., zero-delay quartic satisfies strict Routh-Hurwitz. Frequency modulus polynomial has coefficient signs +,+,+,-,-, hence one strictly positive root; its phase first τ*=18.59248621759530, frequency θ*=0.06652293610984329, crossing derivative Re(dξ/dτ)=0.001262757946...>0. Continuity of retarded characteristic roots and no zero root then prove first local linear stability loss, not nonlinear Hopf orbit behavior.
+
+## originality
+
+PASS
+
+PASS on material full-text primary comparison. Maji et al AIMS Mathematics 2022 directly displays current/delay matrices merging the current I(t) term into delayed term; this is not valid for τ>0 and their printed characteristic factor differs. Source numeric transition around 18–19 agrees qualitatively but does not contain the corrected factor/threshold derivation. Related Basir–Ray–Venturino 2018 SIS-type awareness/media-delay system is mathematically different, not a stronger SEQIJR coverage. Specific prior erratum could exist but was not found in identified material; failed Resultary is not evidence of absence.
+
+## value
+
+PASS
+
+PASS. The source publishes a characteristic equation and local stability threshold for a concrete delayed epidemic model based on a wrong current/delayed Jacobian allocation. A corrected exact characteristic factor and reproducible first crossing are a scientifically motivated correction that directly changes the analytic conclusions for a studied model, even though a nonlinear Hopf theorem is not claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
