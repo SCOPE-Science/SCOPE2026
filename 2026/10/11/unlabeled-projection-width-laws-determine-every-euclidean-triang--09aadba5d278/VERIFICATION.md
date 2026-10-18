@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and boundaries
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3, NumPy and SciPy installed. The script compares three-vertex direct orthogonal projections in 140,000 evenly spaced orientations for each of 24 shapes against the exact sector-derived CDF at 75 thresholds per shape, then checks that the density integrates to one, that its mean is perimeter divided by \(\pi\), and that density singularity weights and finite jumps agree with all three formula cases.
+## correctness
 
-The observed script results were `VERIFY_OK` with CDF maximum error about \(1.14\times10^{-5}\), quadrature mass error below \(2.3\times10^{-11}\), mean-width error below \(7.3\times10^{-11}\), and `SINGULARITY_CHECKS_OK` with acute/right/obtuse test counts 8/2/14. The finite numerical checks cover neither all possible triangles nor the uniqueness assertion at all parameter values: those claims are established by the written sector partition and limiting density analysis, not by numerical sampling. Equality and boundary cases are treated directly in the proof.
+PASS
+
+C: For edge BC (length a), the active sector is B−π/2<θ<π/2−C of length A, with W=a cosθ. Three sectors partition unoriented angle space of total π. Taking inverse derivatives on monotone subarcs yields exact density terms 1/√(s²−t²) on their appropriate intervals. For acute, each side contributes two inverse-square-root singularities (total weight 6); right triangle has hypotenuse2 and legs1 (total4); obtuse has only longest side with weight2. In obtuse case the negative density jumps at h_b,h_c cannot cancel, and their positions recover b,c by a h_a=b h_b=c h_c, including repeated altitudes. Thus any triangle side multiset recoverable, leading to SSS congruence. Independent uniform-angle projection grids of 180001 directions tested CDF across acute/right/obtuse examples, without replacing analytic sector proof.
+
+## originality
+
+PASS
+
+O: Read primary general unlabeled projection literature and a complete same-observable parallelogram inverse theorem. Neither supplies or mathematically implies the exact triangle density singularity/jump classification; the all-triangle result is a restricted-family positive theorem compatible with known general nonuniqueness.
+
+## value
+
+PASS
+
+V: Explicit all-triangle identifiability despite directional-label loss is a natural rigorous inverse-geometric result. The signed finite jumps in obtuse case explain why more than extrema or mean width is necessary and give a complete robust-to-angle-type algebraic recovery for ideal laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

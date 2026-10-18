@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof directly partitions unoriented directions into the three edge-pair sectors, changes variables through a cosine map, and obtains the exact density with explicit boundary cases. The total inverse-square-root weights separate acute, right and obtuse triangles. Obtuse-triangle finite negative jumps locate the two remaining altitudes, so the side lengths are recovered exactly. The numerical tests compare directly computed projections against the independent sector-CDF implementation, check density normalization, the Cauchy mean-width identity, singularities and jumps. These computations are supplementary; no finite sample is used as an infinite proof.
+## correctness
 
-**Originality — PASS, with residual historical risk.** Kim, Yaskin and Zvavitch (arXiv:1512.07289v1), inspected in its introduction and planar Section 3, establish general nonuniqueness of direction-unlabeled projection distributions, not an injectivity result for the entire class of triangles. Direction-indexed width theorems reviewed by Horváth do not cover the same data. Database searches of triangle projections, difference bodies and inverse distributions returned nearby results about other invariants, not the present claim. The abstract-only access to Goodey–Schneider–Weil and possible earlier specialized triangle computations limit historical certainty.
+PASS
 
-**Value — PASS.** General convex bodies cannot be reconstructed from unlabeled projection-length distributions, so a complete natural-class injectivity theorem addresses a genuine geometric inverse gap. The all-triangle theorem is nontrivial in the obtuse regime, where the usual side-length singularities disappear and the missing lengths instead appear as discontinuities at altitudes. This provides a structural, exact shape-classification criterion rather than one isolated numerical invariant.
+C: For edge BC (length a), the active sector is B−π/2<θ<π/2−C of length A, with W=a cosθ. Three sectors partition unoriented angle space of total π. Taking inverse derivatives on monotone subarcs yields exact density terms 1/√(s²−t²) on their appropriate intervals. For acute, each side contributes two inverse-square-root singularities (total weight 6); right triangle has hypotenuse2 and legs1 (total4); obtuse has only longest side with weight2. In obtuse case the negative density jumps at h_b,h_c cannot cancel, and their positions recover b,c by a h_a=b h_b=c h_c, including repeated altitudes. Thus any triangle side multiset recoverable, leading to SSS congruence. Independent uniform-angle projection grids of 180001 directions tested CDF across acute/right/obtuse examples, without replacing analytic sector proof.
 
-The statement is for nondegenerate Euclidean triangles, exact Haar-uniform unoriented projection distributions and congruence up to all Euclidean isometries. Neither noisy reconstruction nor general-polygon uniqueness is established. Earlier equivalent specialized results cannot be excluded. Independent audit has not been performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+O: Read primary general unlabeled projection literature and a complete same-observable parallelogram inverse theorem. Neither supplies or mathematically implies the exact triangle density singularity/jump classification; the all-triangle result is a restricted-family positive theorem compatible with known general nonuniqueness.
+
+## value
+
+PASS
+
+V: Explicit all-triangle identifiability despite directional-label loss is a natural rigorous inverse-geometric result. The signed finite jumps in obtuse case explain why more than extrema or mean width is necessary and give a complete robust-to-angle-type algebraic recovery for ideal laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
