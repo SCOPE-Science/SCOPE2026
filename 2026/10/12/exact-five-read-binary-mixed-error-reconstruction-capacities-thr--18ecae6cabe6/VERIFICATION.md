@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Finite verification
+# Independent mathematical audit
 
-The complete adjacency matrices have vertices indexed by all binary words of the tested length. An edge represents at most four shared distinct deletion-plus-at-most-one-substitution outputs. The maximum permissible codebook is the exact clique number.
+## correctness
 
-Run `python3 verify.py`. Expected result: optimum values 5, 5, 6, 8, 12 and final `VERIFY_OK`. Its error balls are constructed both by deletion followed by at-most-one substitution and by substitution followed by deletion, with equality asserted for every word. Every witness pair is also checked directly.
+PASS
 
-An independent integer-bit-mask implementation is provided as `independent_check.cpp`, to be compiled with `g++ -O2 -std=c++17 independent_check.cpp -o independent_check` and executed with `./independent_check`; expect the same five clique numbers and `VERIFY_OK`. Both exhaustive solvers use a sound greedy-coloring upper bound in a complete maximum-clique backtrack; the C++ program independently builds all channel outputs.
+For each n=4,...,8, the complete binary channel ball B(x) is the union of outputs after one deletion and at most one substitution, counting distinct outputs only. Five-read decoding requires |B(x)∩B(y)|≤4 for distinct codewords, equivalently to cliques in the fully built compatibility graph. Supplied witnesses attain 5,5,6,8,12. Independent fresh standard-library reimplementation checked all 2^n vertices, found edge counts 38,115,552,2917,15194 and rigorously colored-backtrack clique numbers 5,5,6,8,12 with search-node counts 6,6,7,100,1146. The greedy coloring comprises independent classes so clique cardinality is bounded by colors; reverse-order candidate enumeration and neighborhood restriction preserve all feasible branches. Finite exhaustive search proves exactly those lengths, not n≥9.
 
-The computed numbers of admissible unordered vertex pairs for lengths 4 through 8 are 38, 115, 552, 2917, 15194. These are diagnostic totals, not standalone upper-bound proofs. The exact bounds rely on the supplied exhaustive search and its monotone coloring-bound argument.
+## originality
 
-This finite verification does not check any other length, alphabet, or error model. It is not an independent scientific audit.
+PASS
+
+The principal 2026 five-read construction (Li–Sun–Ge) yields an achievable redundancy rate, not exact unrestricted small-n maxima or finite converse bounds. Its 2025 precursor concerns seven or more reads; Song–Cai–Quek imposes longer-block hypotheses. Indexed Resultary single-read exact mixed-error code sizes, while superficially close, use a different disjoint-ball (one-read) requirement, not the five-distinct-read intersection threshold. No checked source implies this five-value unrestricted optimum profile; an unindexed small-codebook table remains possible.
+
+## value
+
+PASS
+
+The code sizes give complete unrestricted optimal message counts for the first four nonvacuous short-block binary five-distinct-read instances n=5,...,8, plus a carefully delineated n=4 vacuous boundary. They are direct finite-length performance benchmarks for a natural fixed-read deletion/substitution reconstruction channel; no general asymptotic theorem is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

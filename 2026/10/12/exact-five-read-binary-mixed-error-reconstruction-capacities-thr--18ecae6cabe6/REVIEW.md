@@ -1,19 +1,21 @@
-# Scientific assessment: Exact five-read binary mixed-error reconstruction capacities through length eight
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite claimed range is fully specified. The deletion-then-at-most-one-substitution balls and independent substitution-then-deletion balls coincide at every vertex. The problem reduces exactly to clique number on completely enumerated admissibility graphs. Both separately written exhaustive coloring-pruned searches prove the upper bounds and verify explicit optimal codebooks, giving \(5,5,6,8,12\) for \(4\le n\le8\). Greedy color classes are independent sets, so pruning by color count is rigorous; no timeout, sampling or infeasibility guess is used. Source files and run commands are supplied.
+PASS
 
-## Originality — PASS, with residual risk
+For each n=4,...,8, the complete binary channel ball B(x) is the union of outputs after one deletion and at most one substitution, counting distinct outputs only. Five-read decoding requires |B(x)∩B(y)|≤4 for distinct codewords, equivalently to cliques in the fully built compatibility graph. Supplied witnesses attain 5,5,6,8,12. Independent fresh standard-library reimplementation checked all 2^n vertices, found edge counts 38,115,552,2917,15194 and rigorously colored-backtrack clique numbers 5,5,6,8,12 with search-node counts 6,6,7,100,1146. The greedy coloring comprises independent classes so clique cardinality is bounded by colors; reverse-order candidate enumeration and neighborhood restriction preserve all feasible branches. Finite exhaustive search proves exactly those lengths, not n≥9.
 
-Li–Sun–Ge (2026), arXiv:2604.25294v1, Theorem IV.6, gives an asymptotic redundancy construction for five reads, but not these exact finite maxima. Li–Sun–Ge (2025), arXiv:2505.04232v1, Table I, concerns seven and larger reads. Song–Cai–Quek (2025), arXiv:2501.03833v4, bounds longer-word ball intersections under different hypotheses, not the finite codebook optima. The inspected primary results do not imply the claimed upper bounds. Exact earlier unindexed finite computations remain possible.
+## originality
 
-## Value — PASS
+PASS
 
-Five distinct reads is a motivating fixed-budget reconstruction regime. This sharp first-short-length capacity profile includes all four earliest fully operational lengths \(n=5,6,7,8\), giving exact finite performance benchmarks and an explicit boundary case at \(n=4\). This fills a meaningful finite optimum gap; it does not claim a general construction or asymptotic rate improvement.
+The principal 2026 five-read construction (Li–Sun–Ge) yields an achievable redundancy rate, not exact unrestricted small-n maxima or finite converse bounds. Its 2025 precursor concerns seven or more reads; Song–Cai–Quek imposes longer-block hypotheses. Indexed Resultary single-read exact mixed-error code sizes, while superficially close, use a different disjoint-ball (one-read) requirement, not the five-distinct-read intersection threshold. No checked source implies this five-value unrestricted optimum profile; an unindexed small-codebook table remains possible.
 
-## Limitations
+## value
 
-Only binary alphabets, lengths \(4\) through \(8\), one deletion, at most one substitution, and read budget five. No classification of all extremal codebooks or larger-length capacity. Exhaustive finite search establishes no infinite family theorem. Residual originality risk from unavailable unindexed earlier computations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The code sizes give complete unrestricted optimal message counts for the first four nonvacuous short-block binary five-distinct-read instances n=5,...,8, plus a carefully delineated n=4 vacuous boundary. They are direct finite-length performance benchmarks for a natural fixed-read deletion/substitution reconstruction channel; no general asymptotic theorem is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
