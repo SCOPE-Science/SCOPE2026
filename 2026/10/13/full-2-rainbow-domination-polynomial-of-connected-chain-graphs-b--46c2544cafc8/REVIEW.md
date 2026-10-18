@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof partitions all four-label functions by their unique first empty \(A\)-vertex and last empty \(B\)-vertex, using sentinels when a side has no empties. Nested neighborhoods reduce each side's entire empty-vertex feasibility to one opposite-side two-color coverage test, and ordinary two-color inclusion–exclusion counts exactly the allowed labels at fixed indices. The converse is explicit, including stars and one-sided-empty boundary cases. A separately implemented adjacency-level census compares all \(3{,}843{,}216\) assignments across 111 profiles, with 1,651 exact coefficient comparisons. These finite tests corroborate but do not establish the infinite statement; the proof does.
+## correctness
 
-## Originality — PASS, subject to residual risks
-The 2020 Roman \(\{2\}\) chain-graph treatment gives an optimization theorem for three numeric labels, not four-label all-function 2-rainbow enumeration. The 2023 paper concerns **total** 2-rainbow optimization, imposing an additional condition. The full available published-finding corpus proof for complete multipartite two-rainbow functions already includes the complete-bipartite subclass and is expressly not claimed new; the noncomplete chain graph \(P_4\) has a different polynomial from the same-order \(K_{2,2}\). The inspected Roman and ordinary domination polynomials of chain graphs count different objects. Repeated relevant published-finding corpus and ordinary web searches found no dominating all-shape chain-graph two-color weight enumerator. Residual risks: older Ferrers terminology and the unavailable full text of the directly related 2023 total paper; the searches do not prove exhaustive novelty.
+PASS
 
-## Value — PASS
-The result enumerates every weight of a natural four-label domination invariant on the unrestricted class of connected chain graphs, strengthening a literature thread concerned with minimum rainbow and Roman values. The nontrivial structural reduction yields a uniform closed sum with at most quadratically many explicit product terms, supplying concrete computability and reproducible coefficients for all Ferrers shapes. It is not a name change for the known ordinary or Roman domination polynomial, nor an arbitrary finite parameter slice.
+For every connected Ferrers/chain graph with 1≤d1≤…≤dp=q, a labelling has a unique first empty A index i∈{1,…,p+1} and unique last empty B index j∈{0,…,q}. Their local type words E/P/F characterize exactly which vertices must be empty/nonempty/free. Nested neighbourhoods collapse ALL empty A constraints to the earliest A-empty vertex, and ALL empty B constraints to the latest B-empty vertex. The two opposing colour-cover conditions are independent once (i,j) is fixed; inclusion-exclusion over missing colours gives Φ, and disjoint summation over (i,j) proves the full polynomial for all finite connected chain graphs. Independently implemented polynomial and literal adjacency union checks agree for 19 complete small Ferrers degree profiles p,q≤3, giving P4 coefficients 12,48,52,28,8,1 (weights3..8) and C4 coefficients 4,24,62,56,28,8,1 (weights2..8). The general proof is combinatorial, not extrapolated from enumeration.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Closest published full 2-rainbow enumeration is on complete multipartite graphs, which intersects the claim only at complete bipartite chain graphs. Other published connected-chain full polynomials count ordinary domination subsets or three-label Roman functions, and the total-2-rainbow algorithm counts optima under different constraints. They do not imply all four-label ordinary rainbow weight coefficients for arbitrary noncomplete Ferrers patterns such as P4. Best-of-knowledge originality PASS, allowing for historical unindexed chain/Ferrers formulations.
+
+## value
+
+PASS
+
+The full weight enumerator is a natural graph-polynomial invariant for every connected chain graph, not merely its minimum. Its extremal-empty formula gives an explicit polynomial-arithmetic evaluation and distinctions among nonisomorphic Ferrers shapes; exact coefficients can be required by counting, randomized labeling, and generating-function research. It genuinely extends the complete-bipartite known case to the whole nested-neighbourhood class.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
