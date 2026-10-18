@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T22:52:17Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Subtracting phase updates gives the exact coordinates u+=u+h sin(u)(cos(u)-cos(v)), v+=v-3h cos(u)sin(v) at P=(pi,pi). For 0<h<2/3, |1-3h|<1 gives stable v contraction and positive near-unity u multiplier; geometric |v_n/u_n| decay and center negativity force u_n→0 off u=0, while u=0 contracts exponentially. Independent Taylor expansion at v=0 gives (u+/u)=1-hu²/2+hu⁴/8+O(u^6); hence for Y=u^-2 the drift is h+h(3h-1)/(4Y)+O(Y^-2+rho^n). Summing the absolutely summable corrected increments proves Y_n=hn+(3h-1)log n/4+C+o(1). For h<1/3 the weighted graph Laplacian norm <=3 yields a strict gradient descent map with invertible derivative, global torus diffeomorphism, exactly four critical phase classes and vanishing-area stable manifolds of the source/two saddles. The remaining nonhyperbolic equilibrium is locally attractive; hence almost every orbit reaches it. Invariant u=0 circle is the complete exponential basin away from the source. Independent rational Taylor and finite oscillator iterations (h=0.13,.2,1/3,.48,.6) reproduced the coefficient and convergence of the renormalization; the proof, not those tests, establishes globality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General gradient descent gives convergence under small steps for finite critical sets, but Morse-hyperbolic results exclude the unit-multiplier parabolic mode.",
+          "Gade–Gupta uses N globally coupled oscillators with frequency distribution and phase-lag parameter."
+        ],
+        "reasoning": "Broader network results establish structural background but do not dominate the concrete marginal-weight slow/log coefficient and exceptional-circle classification.",
+        "searches": [
+          "repulsive discrete Euler Kuramoto three oscillator weighted triangle half edge parabolic equilibrium inverse square logarithmic relaxation invariant circle",
+          "arXiv:2610.10993 general discrete gradient-network theorem",
+          "Shim 2020 attractive homogeneous discrete Kuramoto",
+          "Gade–Gupta arXiv:2609.22715 full model"
+        ]
+      },
+      "checked_sources": [
+        "assigned source-tree ff374e4904d5a85a74b257ec0a046e2acc7b0c8b, RESULT.md 62eb38c8b7ef2483b6542fdae9477384205c8bff, verify.py d5e91d643f1ba4899ba5da3e5c8858ba8f36b152",
+        "arXiv:2407.11314 Lemma 1 and Proposition 1",
+        "arXiv:2609.22715 Section II",
+        "DOI:10.3934/krm.2020034"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Continuous-time linear stability of the same geometric graph does not imply the Euler discretization's h-dependent second order term.",
+          "Distributed-frequency global model is a different vector field and regime."
+        ],
+        "reasoning": "No inspected primary theorem directly yields both the global Haar-typical basin and exact slow vs strong-stable rates. Generic normal-form machinery is a technique, not an already evaluated claim about this triad.",
+        "searches": [
+          "repulsive discrete Euler Kuramoto three oscillator weighted triangle half edge parabolic equilibrium inverse square logarithmic relaxation invariant circle",
+          "Zhao–Zhou arXiv:2407.11314 Proposition 1",
+          "Gade–Gupta arXiv:2609.22715 Section II",
+          "Resultary same/different triad semantic hits"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The discrete phase map is explicit Euler of the repulsive weighted sine gradient system but has a nontrivial h-dependent log correction.",
+          "The continuous-time isosceles triangle has comparable stationary configurations, not equivalent orbit asymptotics."
+        ],
+        "reasoning": "Continuous fixed-point lists are acknowledged as prior; no known equivalence between their ODE stability and the all-step discrete logarithmic law.",
+        "searches": [
+          "repulsive discrete Euler Kuramoto three oscillator weighted triangle half edge parabolic equilibrium inverse square logarithmic relaxation invariant circle",
+          "arXiv:2407.11314 critical isosceles triangle",
+          "arXiv:2609.22715 discrete phase-lag global model"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed nearby results calculate n^-1/2 laws for other even all-to-all networks, not a weighted three-node isosceles triangle.",
+          "Zhao–Zhou tabulate equilibria but only for continuous time."
+        ],
+        "reasoning": "No exact database record with coefficient (3h-1)/4 for this map was located. Unsuccessful indexing alone is not a priority proof.",
+        "searches": [
+          "repulsive discrete Euler Kuramoto three oscillator weighted triangle half edge parabolic equilibrium inverse square logarithmic relaxation invariant circle",
+          "Resultary repulsive discrete Euler Kuramoto weighted triangle logarithmic relaxation query",
+          "2026/10/11/SCOPE-odd-even-relaxation-dichotomy-for-discrete-repulsive-all-to-all--d8909b4a83b3"
+        ]
+      },
+      "rationale": "Zhao–Zhou classify steady states and linear stability for the continuous isosceles three-oscillator graph, not exact discrete degenerate relaxation. Gade–Gupta study globally coupled frequency-distributed infinite-N discrete Kuramoto with phase lag, not this weighted triad; complete accessible article model and claims were inspected. Shim treats an attractive homogeneous regime with exponential decay. Generic parabolic and gradient-descent theory do not supply the specific h-dependent logarithmic constant, exact invariant exponential circle or global almost-everywhere basin.",
+      "residual_risks": [
+        "An unindexed special-weight Kuramoto trimer normal-form calculation could contain the same coefficient.",
+        "The 2026 general discrete-gradient paper may have additional degenerate special examples not fully inspected here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Continuous-time equilibrium results are credited but do not state discrete Euler h-dependent asymptotic or invariant-circle basin.",
+          "evidence": "Zhao–Zhou (2024), Lemma 1 and Proposition 1.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.11314",
+          "material_read": "Complete accessible primary article with Lemma 1 stationary classification, Proposition 1 eigenvalue classification, and isosceles bifurcation discussion.",
+          "method": "Read accessible primary full text and compared exact theorem/equations",
+          "title": "Critical Points, Stability, and Basins of Attraction of Three Kuramoto Oscillators with Isosceles Triangle Network",
+          "trigger": "Same triangle geometry and weight boundary"
+        },
+        {
+          "assessment": "Uses globally coupled N-node model with phase lag/frequency spread rather than three specified unequal repulsive edge weights.",
+          "evidence": "Gade and Gupta (2026), Section II model and abstract.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.22715",
+          "material_read": "Full accessible primary text; Section II equations (1)-(3) and principal stability analysis of globally coupled distributed-frequency oscillators.",
+          "method": "Read accessible primary full text and compared exact theorem/equations",
+          "title": "Discrete-time Kuramoto model with phase lag: Linear stability analysis and onset of synchronization",
+          "trigger": "Closest time-discrete Kuramoto paper"
+        },
+        {
+          "assessment": "Applies to the attractive homogeneous regime, not the degenerate repulsive weighted trimer; a generic method cannot supply this coefficient.",
+          "evidence": "Shim (2020), title, abstract and reported results.",
+          "identifier_or_url": "DOI:10.3934/krm.2020034",
+          "material_read": "Publisher-accessible statement, assumptions and reported attractive homogeneous synchronization results; full proof not re-read here.",
+          "method": "Publisher bibliographic article record and available mathematical statement, not a new full-text reading",
+          "title": "On the generic complete synchronization of the discrete Kuramoto model",
+          "trigger": "Potential general discrete synchronization result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Three repulsive oscillators on an isosceles triangle form the smallest geometrically frustrated phase network, with natural critical edge-weight 1/2. Linearization has a unit multiplier and cannot resolve convergence. The exact slow typical relaxation, step-sensitive subleading log cancellation at h=1/3, and exceptional geometric stable curve together give a complete motivated boundary classification in the stated small-step regime.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed repulsive triangle weights and identical oscillators only; local h in (0,2/3), global h in (0,1/3).",
+    "No claim for large-step global dynamics or noise/phase lag/frequency heterogeneity.",
+    "An unindexed special-weight Kuramoto trimer normal-form calculation could contain the same coefficient.",
+    "The 2026 general discrete-gradient paper may have additional degenerate special examples not fully inspected here."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review: critical discrete repulsive triangle
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact two-dimensional phase map follows by subtraction of the three node equations. The four fixed configurations are obtained by solving the two sine equations, and the stated eigenvalues follow from their displayed Jacobians. The critical fixed configuration has one center multiplier \(1\) and one contracting multiplier \(1-3h\). Exact invariant center and transverse coordinates permit a local comparison proving geometric transverse separation, algebraic center decay, and a convergent logarithmic renormalization. For \(0<h<1/3\), the weighted Laplacian eigenvalues \(0,2,3\) establish global gradient descent and global invertibility. Two saddles have null stable sets, and the sole source is exceptional; a local parabolic-attraction argument supplies the remaining nonhyperbolic case. The precise strong-stable circle is checked by an exact scalar restriction. Replaying `verify.py` yields 279 finite coordinate, fixed-state and finite-time asymptotic checks and 12 rational Taylor equalities. None is treated as a proof of the infinite statements.
+PASS
 
-## Originality — PASS, subject to the stated risks
+Subtracting phase updates gives the exact coordinates u+=u+h sin(u)(cos(u)-cos(v)), v+=v-3h cos(u)sin(v) at P=(pi,pi). For 0<h<2/3, |1-3h|<1 gives stable v contraction and positive near-unity u multiplier; geometric |v_n/u_n| decay and center negativity force u_n→0 off u=0, while u=0 contracts exponentially. Independent Taylor expansion at v=0 gives (u+/u)=1-hu²/2+hu⁴/8+O(u^6); hence for Y=u^-2 the drift is h+h(3h-1)/(4Y)+O(Y^-2+rho^n). Summing the absolutely summable corrected increments proves Y_n=hn+(3h-1)log n/4+C+o(1). For h<1/3 the weighted graph Laplacian norm <=3 yields a strict gradient descent map with invertible derivative, global torus diffeomorphism, exactly four critical phase classes and vanishing-area stable manifolds of the source/two saddles. The remaining nonhyperbolic equilibrium is locally attractive; hence almost every orbit reaches it. Invariant u=0 circle is the complete exponential basin away from the source. Independent rational Taylor and finite oscillator iterations (h=0.13,.2,1/3,.48,.6) reproduced the coefficient and convergence of the renormalization; the proof, not those tests, establishes globality.
 
-Zhao–Zhou (arXiv:2407.11314) gives the continuous-time weighted-isosceles equilibrium and linear stability classifications; these are prior results and not claimed here. Shim (2020) derives an exact exponential rate for the attractive homogeneous discrete model, a noncritical regime. Gade–Gupta (arXiv:2609.22715) studies global/distributed-frequency discrete synchronization and motivates examination of discrete corrections, but its full text could not be retrieved in this review. General small-step gradient-descent results and generic parabolic expansion techniques are acknowledged as standard. The claim adds a system-specific, globally almost-sure critical basin/exceptional-circle classification and a sharp coefficient that changes sign with the numerical step. Searches of the published mathematical records for the same graph, degeneracy, inverse-square asymptotic, parameter normalization and stronger general statements did not identify an equivalent complete theorem. Absence of a search hit is not certification of priority; possible older equivalent calculations remain a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The oscillator triangle is a minimal frustrated interaction network with a natural edge-weight boundary separating equilibrium arrangements. Linear stability alone cannot decide the relaxation of its marginal mode. The theorem quantifies the divergent critical relaxation time, identifies exactly which initial phases instead have geometric convergence, proves that the slow regime is Haar-typical in the small-step dynamics, and isolates a step-induced subleading effect absent from continuous-time linearization. This is a motivated dynamical classification, not an arbitrary coefficient extraction. The scope is only this fixed weighted triangle and its stated step ranges.
+Zhao–Zhou classify steady states and linear stability for the continuous isosceles three-oscillator graph, not exact discrete degenerate relaxation. Gade–Gupta study globally coupled frequency-distributed infinite-N discrete Kuramoto with phase lag, not this weighted triad; complete accessible article model and claims were inspected. Shim treats an attractive homogeneous regime with exponential decay. Generic parabolic and gradient-descent theory do not supply the specific h-dependent logarithmic constant, exact invariant exponential circle or global almost-everywhere basin.
 
-## Closest literature and limitations
+## value
 
-The nearest source is the full six-page 2024 Zhao–Zhou paper, which already establishes the corresponding continuous-time equilibria. The 2020 Shim paper covers noncritical attractive maps. The qualifying September 2026 Gade–Gupta preprint was retrievable as an abstract but not as a full paper, leaving a limited priority uncertainty. A later October 2026 general discrete-network paper supplies relevant descent context but is not an eligible source for the anchored literature window and its Morse-hyperbolic conclusions do not directly settle this degenerate three-node configuration. No uniqueness of any invariant probability measure, statistical-noise robustness, or global theorem beyond the stated step range is claimed.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Three repulsive oscillators on an isosceles triangle form the smallest geometrically frustrated phase network, with natural critical edge-weight 1/2. Linearization has a unit multiplier and cannot resolve convergence. The exact slow typical relaxation, step-sensitive subleading log cancellation at h=1/3, and exceptional geometric stable curve together give a complete motivated boundary classification in the stated small-step regime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
