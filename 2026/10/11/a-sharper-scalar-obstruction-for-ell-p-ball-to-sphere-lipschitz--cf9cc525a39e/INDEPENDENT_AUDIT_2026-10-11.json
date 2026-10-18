@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-11",
+  "audited_at_utc": "2026-10-11T17:11:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The focal primary paper proves existence of radii \\(r_\\varepsilon\\) for which \\(r_\\varepsilon\\ge\\eta_\\varepsilon/K\\) and \\(\\eta_\\varepsilon/K\\le F_{p,K}(r_\\varepsilon)\\). Compactness along \\(\\varepsilon\\to0\\) gives \\(r\\ge a=2^{1/p}/K\\) and \\(a\\le F(r)\\). Direct differentiation of \\(F=u-K^{-1}v\\) gives \\(F\\prime=-A+K^{-1}B\\), where \\(B/A\\le1+((1-r)/r)^{p-1}\\). For \\(r\\ge a\\), \\(t=K/2^{1/p}-1\\), hence \\((1-r)/r\\le t\\). If \\(t\\le1\\) then \\(1+t^{p-1}\\le2\\le K\\); otherwise \\(1+t^{p-1}\\le1+t=K/2^{1/p}<K\\) since \\(p-1\\le1\\). This proves \\(F\\prime\\le0\\) and hence the new endpoint condition. Strict pointwise improvement over the focal source follows from \\((1-a)^p>0\\). Independently evaluated the new scalar boundary versus the source simplification: at \\(p=1.1\\), approximately 4.64478 versus 4.09924, and at \\(p=1.5\\), approximately 3.40210 versus 3.13728. Values are illustrations; analytic monotonicity is the proof.",
+      "risk": "The argument relies on the focal source's intermediate radius estimates; it does not independently rederive its topological witness. The threshold is nontrivially stronger only on a subrange of 1<p<=2, not claimed optimal.",
+      "sources": [
+        "Mahesh arXiv:2609.13342v1 page 3",
+        "Assigned RESULT.md at Git blob 6e1bd10ac9ddfeb57051c9cbd632416e376d60df",
+        "Goebel 2003 general retraction bound"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mahesh specializes to the same ℓ_p spaces but drops the term needed for the stronger bound.",
+          "The general inequality \\(K\\ge3\\) is strictly weaker when \\(p\\) is sufficiently near 1."
+        ],
+        "reasoning": "No checked classical statement gives the retained expression with its endpoint monotonicity; the exact same-source proof stage alone does not establish the endpoint claim.",
+        "searches": [
+          "Mahesh arXiv:2609.13342v1 Section 2",
+          "Goebel DOI:10.1155/S1085337503204103",
+          "Benyamini--Sternfeld DOI:10.1090/S0002-9939-1983-0699410-7"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.13342v1 full primary text",
+        "DOI:10.1155/S1085337503204103 theorem-level",
+        "Assigned RESULT.md",
+        "Resultary queried but temporarily unavailable"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mahesh obtains \\(a\\le F(r)\\) only at an uncontrolled \\(r\\ge a\\), then simplifies; this does not directly imply \\(a\\le F(a)\\) without a monotonicity theorem.",
+          "The derivative comparison \\(B/A\\le K\\) proves the missing implication for \\(1<p\\le2\\)."
+        ],
+        "reasoning": "The retained endpoint obstruction is a proper strengthening, though it uses the focal paper as an explicit premise.",
+        "searches": [
+          "Mahesh arXiv:2609.13342v1 page 3, inequality marked (*)",
+          "Independent derivative estimate on the forced interval [a,1)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The relevant equivalent is retaining the exact second radical through the endpoint radius; Mahesh explicitly abandons it.",
+          "Source threshold computed from the coarser final scalar inequality, not the new one."
+        ],
+        "reasoning": "Minimal-displacement and ball-sphere retraction aliases target the same constant; the new monotonicity is not a renamed published endpoint condition.",
+        "searches": [
+          "arXiv:2609.13342v1 full PDF, Theorem 2.2 and its proof",
+          "Fresh semantic query: Lipschitz retraction ball sphere ell_p p<=2 scalar lower bound Mahesh monotonicity refined obstruction (Resultary unavailable)",
+          "Web search for p-specific Lipschitz ball-to-sphere retraction bounds"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mahesh gives a stronger-than-three bound only for p below approximately 1.6055 under its simplified inequality.",
+          "At p=1.5 the retained-radical threshold is about 3.40210, strictly above the source final threshold about 3.13728."
+        ],
+        "reasoning": "The numerical evaluation is a cross-check, not a database lookup or proof that the functional inequality was unknown.",
+        "searches": [
+          "Mahesh 2026 printed p-threshold and final scalar inequality",
+          "Independent numerical root checks at p=1.1,1.25,1.5,1.6,1.8,2.0"
+        ]
+      },
+      "rationale": "The focal source has the exact two-radical intermediate inequality but explicitly replaces the second bracket with a simpler upper bound for p>1. The additional monotonicity over the forced radial interval is not stated there and produces a stricter necessary endpoint obstruction; quantitative improvement is nonzero for p near 1. Goebel establishes the universal lower bound 3, whereas Benyamini--Sternfeld is an existence theorem, so neither gives the same refined scalar condition. Resultary was temporarily unavailable; potential older minimal-displacement reformulations remain a risk.",
+      "residual_risks": [
+        "An older equivalent refinement may exist under minimal-displacement or Lipschitz contraction terminology not yet located.",
+        "Resultary could not complete semantic published-record comparison in this turn.",
+        "The focal source intermediate inequality is accepted as a published premise; only the monotonic endpoint step was reconstructed here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONG_INTERMEDIATE_PREMISE_BUT_NO_MONOTONIC_ENDPOINT",
+          "evidence": "The proof prints an exact intermediate bracket and expressly says it does not simplify nicely for p>1, replacing it by a coarser bound before deriving the final scalar inequality.",
+          "identifier_or_url": "arXiv:2609.13342v1 / https://arxiv.org/pdf/2609.13342",
+          "material_read": "Full ten-page open PDF was accessed and the proof of the ℓ_p lower bound read, especially rendered page 3 containing the two-radical formula and its subsequent simplification.",
+          "method": "Lawful arXiv full PDF, extracted mathematics and visual page check.",
+          "title": "Improved Bounds For The Lipschitz Retraction Constant In Classical Banach Spaces",
+          "trigger": "Exact same retraction constant and intermediate expression."
+        },
+        {
+          "assessment": "GENERAL_THREE_BOUND_PRECURSOR",
+          "evidence": "The bound three is a common premise; the new quantitative inequality can force K>3 for p near one.",
+          "identifier_or_url": "DOI:10.1155/S1085337503204103",
+          "material_read": "Open bibliographic and theorem-level information on the universal K>=3 bound, not the full source article in this turn.",
+          "method": "Theorem-level literature reference; whole-document noncoverage NOT claimed.",
+          "title": "On the problem of retracting balls onto their boundary",
+          "trigger": "Classical general bound for the same Lipschitz retraction constant."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The improved scalar necessary condition addresses a genuine quantitative Banach-space constant and yields a substantial nontrivial numerical gain for p near 1 (for example at p=1.5). Its nonstandard elementary monotonicity lemma recovers information deliberately discarded in the focal proof rather than merely repackaging a displayed theorem.",
+      "risk": "Near p=2 this method may yield no improvement over the universal K>=3, and the bound is not known optimal.",
+      "sources": [
+        "Mahesh arXiv:2609.13342v1",
+        "Goebel DOI:10.1155/S1085337503204103"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For real \\(\\ell_p\\), \\(1<p\\le2\\), any Lipschitz retraction from its closed unit ball to the unit sphere with Lipschitz constant \\(K\\ge3\\) satisfies \\(a\\le(1-a^p)^{1/p}-K^{-1}(1-a^p+(1-a)^p)^{1/p}\\) with \\(a=2^{1/p}/K\\); this sharpens the focal source's discarded-radical necessary condition on the range where the threshold improves.",
+  "limitations": [
+    "Real ℓ_p for 1<p<=2 only.",
+    "Necessary scalar lower-bound condition, not the exact best Lipschitz retraction constant.",
+    "Only relative to the source's last scalar bound; the source already contains the stronger intermediate formula."
+  ],
+  "schema_version": 1
+}
