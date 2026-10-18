@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The argument was checked at three levels.
+# Independent mathematical audit
 
-1. **Published quotient.** The exact right-hand side of Exner--Spitzkopf equation (3.6) was read from the open full text and transcribed before taking the scaling \(L=x/\tan(\beta/2)\). The source also states \(\epsilon_{\mu_\perp,\rho_\beta}\to\epsilon_{\mu_\perp,\rho}\) and \(\eta_{\rho_\beta}\to\eta_\rho>0\).
+## correctness
 
-2. **Analytic optimization.** After \(y=\eta_\rho^2x\), maximizing the coefficient is equivalent to maximizing \(g(y)=y^2(\Delta-a y)/(1+y)\) on \((0,\Delta/a)\). Its derivative has the sign of \(2\Delta+(\Delta-3a)y-2ay^2\), which has one positive root and one negative root. The positive root is the displayed \(y_\star\), and both endpoint values are zero.
+PASS
 
-3. **Delta profile.** For two attractive delta interactions at \(\pm\rho\), the even bound state gives \(2\kappa=\alpha(1+e^{-2\kappa\rho})\). Direct integration of its squared norm with central amplitude one gives \(\rho+(e^{2\kappa\rho}+1)/(2\kappa)=\rho+(2\kappa-\alpha)^{-1}\).
+From Exner--Spitzkopf equation (3.6) directly reconstruct R_beta(L)=[nu-e_{rho_beta}+nu eta_{rho_beta}^2 L tan(beta/2)]/[1+eta_{rho_beta}^2 L tan(beta/2)]. With L=x/tan(beta/2), nu<0, Delta=nu-e_rho>0, a=-nu>0, the quotient tends to (Delta-a eta_rho^2 x)/(1+eta_rho^2 x), positive for 0<x<Delta/(a eta^2). Dirichlet eigenmode counting in this positive window and min--max imply liminf beta N_beta(nu)>=2x sqrt(R0(x))/pi. Independent symbolic differentiation confirmed g(y)=y^2(Delta-a y)/(1+y) has derivative y[2Delta+(Delta-3a)y-2ay^2]/(1+y)^2 with exactly one interior positive root ystar=(q-3+sqrt((q+1)(q+9)))/4. Endpoint vanishing makes it the unique global maximum in the trial family. For mu=alpha delta0, checked symmetric double-delta matching equation 2k=alpha(1+exp(-2k rho)) and normalization eta^2=[rho+(2k-alpha)^(-1)]^(-1). Thus the claimed formula is correct as a one-sided spectral lower coefficient; no Weyl law.
 
-The bundled `verify.py` numerically checks the optimizer identity and the delta normalization algebra over representative positive parameters. Numerical checks are not used to infer the infinite-dimensional spectral limit.
+## originality
+
+PASS
+
+The source full text (eq. 3.6) already gives the exact variational quotient and an unspecified positive coefficient C_nu in Theorem 3.1; it does not optimize the beta-dependent longitudinal scaling to identify the explicit limiting constant. Prior bound-state existence papers cover other regimes. Originality is the optimized explicit coefficient within that specific trial family, not the variational inequality itself.
+
+## value
+
+PASS
+
+The explicit coefficient converts a nonquantitative inverse-angle eigenvalue accumulation lower bound into a computable asymptotic guarantee using physical transverse parameters; the delta specialization gives a concrete threshold estimate. Such quantitative information is useful for comparison of soft-waveguide geometries, even absent a matching upper bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

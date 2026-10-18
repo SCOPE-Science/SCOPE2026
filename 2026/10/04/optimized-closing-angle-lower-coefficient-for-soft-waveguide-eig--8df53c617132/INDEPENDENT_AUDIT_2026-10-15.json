@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T23:49:49.476471Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From Exner--Spitzkopf equation (3.6) directly reconstruct R_beta(L)=[nu-e_{rho_beta}+nu eta_{rho_beta}^2 L tan(beta/2)]/[1+eta_{rho_beta}^2 L tan(beta/2)]. With L=x/tan(beta/2), nu<0, Delta=nu-e_rho>0, a=-nu>0, the quotient tends to (Delta-a eta_rho^2 x)/(1+eta_rho^2 x), positive for 0<x<Delta/(a eta^2). Dirichlet eigenmode counting in this positive window and min--max imply liminf beta N_beta(nu)>=2x sqrt(R0(x))/pi. Independent symbolic differentiation confirmed g(y)=y^2(Delta-a y)/(1+y) has derivative y[2Delta+(Delta-3a)y-2ay^2]/(1+y)^2 with exactly one interior positive root ystar=(q-3+sqrt((q+1)(q+9)))/4. Endpoint vanishing makes it the unique global maximum in the trial family. For mu=alpha delta0, checked symmetric double-delta matching equation 2k=alpha(1+exp(-2k rho)) and normalization eta^2=[rho+(2k-alpha)^(-1)]^(-1). Thus the claimed formula is correct as a one-sided spectral lower coefficient; no Weyl law.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary source establishes inverse-angle order of growth with unspecified C_nu.",
+          "Related sources study qualitative bound-state existence or other waveguide geometries."
+        ],
+        "reasoning": "Existence or order estimates do not dominate the sharp coefficient for the identified scaled trial family.",
+        "searches": [
+          "Exner--Spitzkopf arXiv:2307.01536",
+          "Kondej--Krejčiřík--Kříž arXiv:2007.10946",
+          "Exner--Vugalter arXiv:2304.14776"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2307.01536 Theorem 3.1 eqs. (3.1)--(3.6)",
+        "arXiv:2007.10946 qualitative bent-waveguide comparison, title/abstract",
+        "arXiv:2304.14776 qualitative existence comparison, title/abstract",
+        "Assigned frozen Git RESULT.md and verify.py",
+        "Resultary semantic soft-waveguide coefficient query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3.1 leaves C_nu unspecified.",
+          "Exact optimizer exists only in 0<eta^2 x<Delta/a and gives a stated explicit Cstar."
+        ],
+        "reasoning": "Old existence of some C_nu>0 does not imply its value or the parameter-optimal trial-family coefficient, although (3.6) contains the ingredients to derive it.",
+        "searches": [
+          "Exner--Spitzkopf Theorem 3.1 and (3.6)",
+          "Independent symbolic g derivative and double-delta normalization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 3.1 gives N~at least unspecified C_nu / beta.",
+          "Equation (3.6) has the exact R_beta(L) that can be optimized after L tan(beta/2)->x."
+        ],
+        "reasoning": "Equivalent full asymptotic coefficient was not stated in the inspected source; the source variational inequality by itself is not an already optimized numerical constant.",
+        "searches": [
+          "Resultary: soft waveguide closing book eigenvalue accumulation closing angle lower coefficient Exner Spitzkopf trial optimal variational quotient",
+          "Exner--Spitzkopf arXiv:2307.01536 Theorem 3.1 and (3.6)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A variational quotient is printed, but no exact coefficient database/table was found for these parameters."
+        ],
+        "reasoning": "There is no finite-table analogue; the relevant potentially covering object is the explicit analytic source formula, which lacks the maximization.",
+        "searches": [
+          "arXiv:2307.01536 equations (3.1)--(3.6)",
+          "Resultary search for optimized closing coefficient"
+        ]
+      },
+      "rationale": "The source full text (eq. 3.6) already gives the exact variational quotient and an unspecified positive coefficient C_nu in Theorem 3.1; it does not optimize the beta-dependent longitudinal scaling to identify the explicit limiting constant. Prior bound-state existence papers cover other regimes. Originality is the optimized explicit coefficient within that specific trial family, not the variational inequality itself.",
+      "residual_risks": [
+        "Coefficient is optimal only for the source trial family under L tan(beta/2)->finite x, not among all trial functions or a matching full spectral asymptotic.",
+        "The stated source geometric hypotheses (a),(b),(e) and transverse limits are external theorem premises, not independently reproved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Published result proves inverse-angle lower order and contains the exact quotient but does not supply the optimized explicit coefficient.",
+          "evidence": [
+            "Equation (3.6) gives normalized shifted form threshold [nu-e_beta+nu eta_beta^2 L tan(beta/2)]/[1+eta_beta^2 L tan(beta/2)].",
+            "Theorem 3.1 only claims a positive C_nu in eigenvalue-count growth."
+          ],
+          "identifier_or_url": "arXiv:2307.01536; https://arxiv.org/pdf/2307.01536",
+          "material_read": "Read original arXiv 17-page PDF at the geometry hypotheses, Proposition 2.1, Theorem 3.1, pages 6--8, equations (3.1)--(3.6) including the displayed variational quotient; no claim all 17 pages inspected exhaustively.",
+          "method": "Read PDF source and visually inspected pertinent page images where formulas are needed.",
+          "title": "Tunneling in soft waveguides: closing a book",
+          "trigger": "Exact same Hamiltonian, closing-angle regime, and target spectral count."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The explicit coefficient converts a nonquantitative inverse-angle eigenvalue accumulation lower bound into a computable asymptotic guarantee using physical transverse parameters; the delta specialization gives a concrete threshold estimate. Such quantitative information is useful for comparison of soft-waveguide geometries, even absent a matching upper bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only liminf beta N_beta(nu), nu in (e_rho,e); not exact N_beta asymptotics.",
+    "The spectral projection counts all eigenvalues below nu, not solely an interval above e_rho."
+  ],
+  "schema_version": 1
+}
