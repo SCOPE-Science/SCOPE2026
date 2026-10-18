@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. On the face \(w_3=0\), diagonalizing each two-by-two Gram block yields the same internal binary entropy \(h(\theta_t)\). The Gibbs variational inequality then bounds the face objective by
-\[
-\Phi_t(r)=\log\frac{1+4N_t r+3N_t r^2}{(1+r)^4}.
-\]
-The unique positive stationary point solves
-\[
-r(1+r)=\frac{2(N_t-1)}{3N_t},
-\]
-and the Gibbs weights at this point satisfy the exact mean-degree self-consistency relation, proving attainability rather than merely an upper bound.
+# Independent mathematical audit
 
-The packaged script `artifacts/verify.py` checks the closed form, stationary equation, self-consistency, entropy equality, and strict positivity for several values of \(t\); it also compares against a dense grid of face weights and checks convergence of \(\log\widehat B_t/h(\theta_t)^2\) toward \(4/3\).
+## correctness
 
-The finite grid and numerical asymptotic checks are not used as proofs. They are regression tests for the symbolic derivation. The checker does not assess the full four-weight maximization and does not establish that \(\widehat B_t=B_t\).
+PASS
+
+The primary weighted-Gram spectrum on the face w3=0 reduces entropy to H(w0,w1,w2)+w1 log(4N)+w2 log(3N), with m=w1+2w2 and N=exp(h(t²/(1+t²))). Gibbs variational inequality at r=m/(4-m) bounds the objective by log[(1+4Nr+3Nr²)/(1+r)^4]. Its derivative has sign 4(N-1)-6Nr-6Nr², with unique r>0 solving r(1+r)=2(N-1)/(3N), and Gibbs weights at that r satisfy m=4r/(1+r); equality is feasible and unique. Independent symbolic expansion of log Bhat at s=log N found 4s²/3−56s³/27+O(s⁴), yielding 16/3*t^4 log²(1/t); numerical check t=1 Bhat≈1.382955. The exact face implies only Bfull≥Bhat and exponent lower bound by the source theorem; it does NOT show global optimum.
+
+## originality
+
+PASS
+
+Wei–Wu–Liu–Liu arXiv:2610.02172 states the full implicit variational exponent, qualitative 1<B_t≤N_t, and a smaller one-dimensional witness. Actual relevant full text supplies no closed optimized w3=0 face, unique Gibbs weights, or coefficient 4/3 for its near-Gaussian collapse. Cudby–Strelchuk earlier Gaussian-rank work treats different finite-copy/simulation invariants. Targeted published Resultary semantic search found no equivalent same-object theorem.
+
+## value
+
+PASS
+
+Turns an implicit optimization and qualitative exponential growth into a fully explicit parameter-dependent lower exponent and sharp small-nonGaussianity collapse law, with a structurally natural identifiable Gram face. Researchers can use this exact certificate without solving the full three-variable entropy program; carefully limited to lower bound rather than equality with full base.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

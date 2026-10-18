@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T11:52:57.201868Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The primary weighted-Gram spectrum on the face w3=0 reduces entropy to H(w0,w1,w2)+w1 log(4N)+w2 log(3N), with m=w1+2w2 and N=exp(h(t²/(1+t²))). Gibbs variational inequality at r=m/(4-m) bounds the objective by log[(1+4Nr+3Nr²)/(1+r)^4]. Its derivative has sign 4(N-1)-6Nr-6Nr², with unique r>0 solving r(1+r)=2(N-1)/(3N), and Gibbs weights at that r satisfy m=4r/(1+r); equality is feasible and unique. Independent symbolic expansion of log Bhat at s=log N found 4s²/3−56s³/27+O(s⁴), yielding 16/3*t^4 log²(1/t); numerical check t=1 Bhat≈1.382955. The exact face implies only Bfull≥Bhat and exponent lower bound by the source theorem; it does NOT show global optimum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary theorem 1<B_t≤N_t and existence of exponential tensor rank base",
+          "Earlier Gaussian rank paper discusses finite-copy rank and Gaussian extent"
+        ],
+        "reasoning": "These results cover qualitative positivity and context, but do not imply closed face optimum or its unique argmax and small-t coefficient without new optimization.",
+        "searches": [
+          "Wei Wu Liu Liu 2610.02172 Theorem20 B_t",
+          "Cudby Strelchuk 2307.12654 Gaussian rank"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.02172v1",
+        "arXiv:2307.12654v4",
+        "arXiv:2501.17071v1",
+        "actual source RESULT.md and artifacts/verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source proves positivity via only line (1-u,u,0,0)",
+          "Exact w3=0 face has an additional degree-two block and yields new optimizer"
+        ],
+        "reasoning": "The full max formulation by itself gives only a variational definition; the new exact restricted-maximum evaluation is an additional non-implied quantitative theorem. Earlier simulation results do not fix this Gram spectrum.",
+        "searches": [
+          "arXiv:2610.02172 Appendix B.2.3 and Theorem20",
+          "arXiv:2307.12654v4",
+          "arXiv:2501.17071"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source describes B_t as full simplex entropy maximum and proves positivity on (1-u,u,0,0)",
+          "Submitted face objective yields explicit 1+4Nr+3Nr² optimizer"
+        ],
+        "reasoning": "Equivalent entropy-face, closed lower-base and asymptotic exponent phrasing not found in source or closest published records; no claim made of full optimum.",
+        "searches": [
+          "arXiv:2610.02172 weighted Gram w3=0 face optimum",
+          "Resultary semantic four mode fermionic Gaussian rank weighted Gram entropy lower exponent face optimization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No known finite table or formula supplies Bhat(t) for all 0<t≤1",
+          "t=1 published full B_1=343/243 is different from face Bhat≈1.382955"
+        ],
+        "reasoning": "This is a nontrivial analytic continuum optimization; not a known-table recomputation. Absence of indexed match is not a novelty certificate.",
+        "searches": [
+          "fermionic M_t w3 zero face N_t r_t formula",
+          "Resultary semantic near gaussian fermionic rank exponent"
+        ]
+      },
+      "rationale": "Wei–Wu–Liu–Liu arXiv:2610.02172 states the full implicit variational exponent, qualitative 1<B_t≤N_t, and a smaller one-dimensional witness. Actual relevant full text supplies no closed optimized w3=0 face, unique Gibbs weights, or coefficient 4/3 for its near-Gaussian collapse. Cudby–Strelchuk earlier Gaussian-rank work treats different finite-copy/simulation invariants. Targeted published Resultary semantic search found no equivalent same-object theorem.",
+      "residual_risks": [
+        "The source preprint is recent; simultaneous calculation of the same natural restricted optimization may appear outside indexed records.",
+        "Bfull can be greater than face Bhat; claim establishes quantitative certified lower bound only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_FACE_OPTIMUM",
+          "evidence": "B_t source full max given implicitly, positivity checked on one line; no w3=0 exact optimized base or 4/3 asymptotic coefficient.",
+          "identifier_or_url": "arXiv:2610.02172v1",
+          "material_read": "Relevant primary arXiv PDF portions: four-mode rank theorem and Appendix B.2.3, weighted Gram spectrum, Eq. (172), Theorem 20; relevant pages visually inspected",
+          "method": "Primary lawful arXiv full-text PDF and page screenshots",
+          "title": "Robust exponential lower bounds for fermionic and bosonic Gaussian ranks",
+          "trigger": "Anchor with identical four-mode state, weighted Gram and entropy objective"
+        },
+        {
+          "assessment": "RELATED_NOT_COVERING",
+          "evidence": "Finite-copy Gaussian-rank and extent statements have neither this four-mode weighted-Gram face nor resulting tensor-power lower exponent.",
+          "identifier_or_url": "arXiv:2307.12654v4",
+          "material_read": "Relevant abstract, Gaussian-rank definitions and stated finite-copy results inspected",
+          "method": "Lawful public arXiv primary text",
+          "title": "Gaussian decomposition of magic states for matchgate computations",
+          "trigger": "Earlier Gaussian rank/extent research potentially dominating source result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Turns an implicit optimization and qualitative exponential growth into a fully explicit parameter-dependent lower exponent and sharp small-nonGaussianity collapse law, with a structurally natural identifiable Gram face. Researchers can use this exact certificate without solving the full three-variable entropy program; carefully limited to lower bound rather than equality with full base.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2610.02172v1",
+    "arXiv:2307.12654v4",
+    "arXiv:2501.17071v1",
+    "actual source RESULT.md and artifacts/verify.py"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "The source preprint is recent; simultaneous calculation of the same natural restricted optimization may appear outside indexed records.",
+    "Bfull can be greater than face Bhat; claim establishes quantitative certified lower bound only.",
+    "Public metadata sanitization not prepared; no public import approved."
+  ],
+  "schema_version": 1
+}
