@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The printed Example 4.1 has no current-state linear term at the coexistence equilibrium; direct differentiation yields a single delayed matrix. Factoring its characteristic determinant with \(z=s^q e^{s\tau}\) gives the stated quadratic exactly. On \(-1<k\le0\) the quadratic has one conjugate pair, so modulus and phase determine the complete imaginary-axis crossing ladders. The upper branch has the earliest positive phase; the lower branch and all later phase turns occur strictly later. At \(k=-1/2\) the exact formula reproduces the published frequency \(0.9085\) but gives \(\tau_*=1.147739992150082\ldots\). Direct substitution into the original quasipolynomial has negligible numerical residual, and implicit differentiation gives a strictly positive real crossing speed.
+## correctness
 
-## Originality
-PASS. The motivating paper was inspected in full at the model, characteristic equation, phase equations, theorem, numerical example, and figures. Its equation (3.3) supplies the quasipolynomial, but neither the exact common-delay quadratic reduction nor the corrected phase thresholds are stated; the published numerical threshold is different. Exact DOI/title/correction searches and source-specific database searches found no checked correction or equivalent statement. The closest inspected predecessor studies feedback control in a different fractional predator--prey model, and the closest open full-text three-species paper has a different dimension and delayed matrix. Residual risk remains because searches cannot exclude obscure or unindexed commentary.
+PASS
 
-## Value
-PASS. The reduction replaces a fragile trigonometric calculation by an exact spectral normal form for the whole displayed gain range \(-1<k\le0\), yields every imaginary-axis crossing ladder, corrects the source's principal numerical benchmark, and explains why the source's stable trajectory at \(\tau=0.93\) and oscillatory trajectory at \(\tau=1.16\) are mutually consistent. This is a structural correction to the bifurcation boundary, not a rounding adjustment.
+Directly differentiated the printed nonlinear two-species delayed field at (2/3,1/3): B=[[k-2/3,-2/3],[2/3,-1/3]]. Multiplying det(s^q I−e^(−sτ)B)=0 by e^(2sτ) gives z²+(1−k)z+(2−k)/3=0 for z=s^q e^(sτ); its discriminant is (3k−5)(k+1)/3<0. Upper-root argument θ=π−atan(sqrt((5−3k)(k+1)/3)/(1−k)); modulus fixes ω=((2−k)/3)^(10/19). Since θ∈(qπ/2,π), first positive phase is (θ−qπ/2)/ω, earlier than the conjugate branch (2π−θ−qπ/2)/ω; later solutions add 2π/ω. Independent Python complex determinant gave ω=0.908501523595597, τ=1.1477399921500826 and residual 2.25e−16, with positive transversality speed 0.3940683275792385. These are spectral, not a nonlinear Hopf theorem.
 
-## Closest literature and limitations
-The primary article is the decisive comparison because it contains exactly the same model and characteristic equation. Huang et al. (2018) and Li et al. (2019) address related fractional delayed predator--prey feedback systems but do not state or imply this Example 4.1 quadratic and threshold. The result is limited to the printed linearized spectrum; nonlinear Hopf direction and periodic-orbit stability are not established.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge source-specific correction rather than discovery of generic delay spectral theory. The motivating full primary paper states the same characteristic equation but lists an incompatible first delay. Earlier fractional feedback-model papers have different dimensions/characteristics, and no other checked work corrects this exact example.
+
+## value
+
+PASS
+
+The exact common-delay quadratic replaces numerically delicate coupled phase equations and corrects a prominent source-specific feedback bifurcation benchmark by about 0.125, reconciling the source’s stable and oscillatory examples. Whole gain interval and crossing ladders provide reusable structure; not merely rounding of a printed number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

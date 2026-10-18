@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T12:44:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md and its exact B(k) matrix",
+        "Li–Zhang–Huang–Zhou, AIMS Mathematics 2021, doi:10.3934/math.2021040, Example 4.1 and characteristic (3.3)",
+        "independent complex determinant / phase calculation"
+      ],
+      "rationale": "Directly differentiated the printed nonlinear two-species delayed field at (2/3,1/3): B=[[k-2/3,-2/3],[2/3,-1/3]]. Multiplying det(s^q I−e^(−sτ)B)=0 by e^(2sτ) gives z²+(1−k)z+(2−k)/3=0 for z=s^q e^(sτ); its discriminant is (3k−5)(k+1)/3<0. Upper-root argument θ=π−atan(sqrt((5−3k)(k+1)/3)/(1−k)); modulus fixes ω=((2−k)/3)^(10/19). Since θ∈(qπ/2,π), first positive phase is (θ−qπ/2)/ω, earlier than the conjugate branch (2π−θ−qπ/2)/ω; later solutions add 2π/ω. Independent Python complex determinant gave ω=0.908501523595597, τ=1.1477399921500826 and residual 2.25e−16, with positive transversality speed 0.3940683275792385. These are spectral, not a nonlinear Hopf theorem.",
+      "residual_risks": [
+        "Complex powers use the principal branch; nonlinear cycle existence, direction and numerical integrator accuracy are outside the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "doi:10.1142/S0218127418501171 concerns a different controlled fractional predator–prey delay model",
+          "doi:10.1155/2019/9673070 concerns a three-state two-prey/one-predator model"
+        ],
+        "reasoning": "No compared stronger model theorem specializes to exactly this 2x2 single-delay Jacobian with the disputed example threshold.",
+        "searches": [
+          "delayed fractional predator prey feedback phase threshold Huang Song Fang Xiao Cao",
+          "Bifurcation Based-Delay Feedback Control Strategy for a Fractional-Order Two-Prey One-Predator System"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3934/math.2021040",
+        "doi:10.1142/S0218127418501171",
+        "doi:10.1155/2019/9673070",
+        "Resultary same-title search 2026-10-15"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The publication supplies the characteristic equation and numerical approximation but not this exact root sorting; its Figure 1 stable tau=.93 and Figure 3 oscillatory tau=1.16 bracket 1.14774."
+        ],
+        "reasoning": "The source equation algebraically enables the correction, but its stated conclusion differs; source inference is not prior publication of the corrected quantitative result.",
+        "searches": [
+          "\"Bifurcation for a fractional-order Lotka-Volterra predator-prey model with delay feedback control\"",
+          "doi:10.3934/math.2021040 first imaginary root"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "AIMS 2021 (3.3) is the same quasipolynomial; (4.1)/Example 4.1 states tau_0=1.0229, while reduction gives 1.14773999215",
+          "Similarity result matching the candidate itself is self-indexing, not an independent earlier correction."
+        ],
+        "reasoning": "The paper gives an implicit trigonometric condition, not an equivalent correct phase-ladder/evaluated first crossing. Its different printed number disproves claim of equivalent reported result.",
+        "searches": [
+          "\"10.3934/math.2021040\" \"1.1477\"",
+          "fractional delay Lotka Volterra common-delay phase equation k=-0.5",
+          "Resultary: fractional Lotka Volterra predator prey feedback delay Li Zhang Huang Zhou q 0.95 k=-0.5 first crossing tau 1.14774 1.0229 exact phase"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The printed table/example gives 1.0229, other gains 0.9825, 1.185, 1.324, whereas exact calculation gives 1.14773999 at k=−1/2",
+          "No retrieved erratum supplied the corrected phase value."
+        ],
+        "reasoning": "This is a source-specific numerical boundary comparison, not a catalogued arithmetic constant; source table records the conflicting values.",
+        "searches": [
+          "\"10.3934/math.2021040\" erratum correction delay",
+          "\"1.0229\" \"0.9085\" corrected threshold"
+        ]
+      },
+      "rationale": "Best-of-knowledge source-specific correction rather than discovery of generic delay spectral theory. The motivating full primary paper states the same characteristic equation but lists an incompatible first delay. Earlier fractional feedback-model papers have different dimensions/characteristics, and no other checked work corrects this exact example.",
+      "residual_risks": [
+        "Search does not rule out obscure/unindexed correction.",
+        "Full nonlinear fractional delay Hopf hypotheses not checked; claim restricted to spectral crossings."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_CORRECTION",
+          "evidence": "Same omega but reported tau=1.0229, inconsistent with theta reduction; figure label stable at .93, oscillatory at 1.16.",
+          "identifier_or_url": "doi:10.3934/math.2021040",
+          "material_read": "Full official AIMS open-access PDF, including equations (1.2), (3.3), (3.6)–(3.8), Example 4.1, theorem and figures 1–8",
+          "method": "Read PDF text and rendered numerical-example pages; reconstructed determinant and phase",
+          "title": "Bifurcation for a fractional-order Lotka-Volterra predator-prey model with delay feedback control",
+          "trigger": "Identical printed model, disputed frequency and delay"
+        },
+        {
+          "assessment": "DIFFERENT_MODEL",
+          "evidence": "Not the printed Li–Zhang–Huang–Zhou delayed matrix.",
+          "identifier_or_url": "doi:10.1142/S0218127418501171",
+          "material_read": "Accessible bibliographic abstract/topic and control architecture; no claim of whole-paper reading",
+          "method": "Compared model and statement scope",
+          "title": "Modeling, Analysis and Bifurcation Control of a Delayed Fractional-Order Predator–Prey Model",
+          "trigger": "Earlier closest fractional delayed feedback model"
+        },
+        {
+          "assessment": "DIFFERENT_MODEL",
+          "evidence": "Three species, different delay architecture.",
+          "identifier_or_url": "doi:10.1155/2019/9673070",
+          "material_read": "Accessible full web text of introduction, model and numerical examples",
+          "method": "Compared state dimension/parametrization/results",
+          "title": "Bifurcation Based-Delay Feedback Control Strategy for a Fractional-Order Two-Prey One-Predator System",
+          "trigger": "Earlier feedback control comparator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "AIMS 2021 Example 4.1 and figures 1–8",
+        "reconstructed parameter-uniform eigenvalue and crossing formulas"
+      ],
+      "rationale": "The exact common-delay quadratic replaces numerically delicate coupled phase equations and corrects a prominent source-specific feedback bifurcation benchmark by about 0.125, reconciling the source’s stable and oscillatory examples. Whole gain interval and crossing ladders provide reusable structure; not merely rounding of a printed number.",
+      "residual_risks": [
+        "A nonlinear bifurcation theorem is not supplied or implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "At q=19/20 and -1<k<=0 the printed fractional Lotka–Volterra delayed equilibrium has an exact common-delay quadratic spectral reduction; at k=-1/2 its first positive imaginary crossing is tau=1.147739992150082..., not the quoted 1.0229; further source-gain thresholds follow exactly.",
+  "limitations": [
+    "Only the printed model, principal-branch characteristic spectrum for q=19/20 and -1<k<=0; no nonlinear Hopf normal form or trajectory validation.",
+    "Source first-public date reported 2020-10-26 in OpenAlex, while publisher labels 2020-10-27."
+  ],
+  "schema_version": 1
+}
