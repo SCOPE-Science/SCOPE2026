@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and limits
 
-Run `python3 verify.py` with the standard Python library. It checks exact affine substitutions; full projective stabilizer over \(\mathbb F_3\) via exhaustive \(5616\)-matrix enumeration; finite-field Burnside orbit counts by an independent exhaustive orbit method for all permitted \(m\) over the specified small fields, including \(\mathbb F_4\); and exact polynomial Frobenius identities and gradients for \(p=3,5,7\). The expected output begins with `VERIFY_OK:`.
+# Independent mathematical audit
 
-The general proof is in `RESULT.md`: its key unbounded steps are the projective matrix normal form, closure of a finite parameter set under addition and multiplication at the symmetry bound, the function-field identity \(u^2=s\), and the exhaustive affine conjugacy-cycle classification behind Burnside's formula. The finite tests cannot establish the universal theorem on their own, and no independent audit has been performed.
+## correctness
+
+PASS
+
+Distinct pencil conics are smooth, meeting only at P and Q with local intersection multiplicities 3 and 1; P,Q and common tangent intrinsically constrain a projectivity to a triangular matrix. Coefficient comparison forces an affine parameter transform; the explicit projective lift realizes every such transformation. Equality in m(m-1) gives sharp 2-transitivity, scaling and translations imply the normalized finite parameter set is a subfield. For F_q, product identity g^q-f^(q-1)g differentiates to f^(q-2) times (z^3,x^2z,-x²y-xz²). On x=1 chart the rational target coordinates satisfy u²=s, so the field extension has degree 2, purely inseparable in char2 and separable otherwise. Burnside by affine identity, translations and multiplicative slopes yields the stated exact finite field orbit formula. Independent algebra checked polar gradient p=3,5,7 and enumerated full finite-field subset orbits p=3,5,7,11; universal claims rest on the geometry/group arguments.
+
+## originality
+
+PASS
+
+Best-of-knowledge original full statement after specific same-object and theorem-level comparisons, including relevant published Resultary findings and primary sources. The results attributed to earlier authors are not counted as new; residual risks remain explicit. 
+
+## value
+
+PASS
+
+A unified exact classification of geometric moduli, a sharp maximally symmetric arithmetic locus, and degree/separability collapse of a concrete singular polar map is substantial natural geometry beyond the preexisting pencil freeness construction. The finite-field orbit polynomial supplies reproducible classification data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

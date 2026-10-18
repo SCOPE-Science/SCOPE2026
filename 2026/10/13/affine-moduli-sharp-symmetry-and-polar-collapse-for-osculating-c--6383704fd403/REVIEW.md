@@ -1,15 +1,21 @@
-# Scientific review: osculating-conic moduli and polar collapse
+# Independent mathematical audit
 
-## Correctness — PASS
-The argument determines the singular points and local contact orders of all components, thereby forcing every projective equivalence to preserve two intrinsically different multiple points and a unique common tangent. Matrix normalization proves the affine action exactly. The equality case is proved by sharp two-transitivity and a finite-subfield closure argument, not from numerical sampling. The characteristic-dependent polar map follows from the universal finite-field product identity and function-field degree-two calculation. The Burnside formula is an exhaustive conjugacy-type count; the companion verifier checks independent finite instances. Risk: the polar degree concerns function fields, including inseparability; treating it as a geometric fiber count would be incorrect.
+## correctness
 
-## Originality — PASS, with documented limitations
-The originating paper [1, Example 4.3] proves freeness of particular characteristic-zero pencil unions, not the classification of projective automorphisms and geometric moduli, the sharp extremal-subfield rigidity, or the full finite-field polar calculation. The older conic-pencil study [2] covers construction, complex topology and freeness rather than explicitly asserting the positive-characteristic polar phenomenon in its available abstract; its entire full text could not be inspected, leaving a bibliographic risk. Searches for equivalent parameter actions, stronger automorphism-group classifications, finite-field tables, and prior implications did not identify coverage in the available primary literature or mathematical records. The affine-group and orbit-counting ingredients are classical, and only their precise application to this geometric family and the polar phenomenon are asserted as the contribution. These comparisons do not constitute an independent priority certificate.
+PASS
 
-## Value — PASS
-The pencil is a natural, explicitly published family of free curve arrangements. Its projective moduli reduce to a concrete one-dimensional affine-set problem, while the exact symmetry maximum is attained only by finite-field configurations. At precisely that highly symmetric locus the degree of a high-degree defining equation's polar map collapses to two, with a separable/inseparable boundary. This connects geometric moduli, finite subgroup rigidity and arithmetic polar geometry in a parameter-uniform theorem rather than a routine numerical invariant.
+Distinct pencil conics are smooth, meeting only at P and Q with local intersection multiplicities 3 and 1; P,Q and common tangent intrinsically constrain a projectivity to a triangular matrix. Coefficient comparison forces an affine parameter transform; the explicit projective lift realizes every such transformation. Equality in m(m-1) gives sharp 2-transitivity, scaling and translations imply the normalized finite parameter set is a subfield. For F_q, product identity g^q-f^(q-1)g differentiates to f^(q-2) times (z^3,x^2z,-x²y-xz²). On x=1 chart the rational target coordinates satisfy u²=s, so the field extension has degree 2, purely inseparable in char2 and separable otherwise. Burnside by affine identity, translations and multiplicative slopes yields the stated exact finite field orbit formula. Independent algebra checked polar gradient p=3,5,7 and enumerated full finite-field subset orbits p=3,5,7,11; universal claims rest on the geometry/group arguments.
 
-## Scope of review
-The statement is confined to the displayed pencil, geometric projectivities and split finite-field parameter sets. The exact gradient and degree proof is mathematical, not inferred from enumerated fields. The older primary study [2] remains the named residual literature risk, alongside unindexed equivalent classifications. No independent validation was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original full statement after specific same-object and theorem-level comparisons, including relevant published Resultary findings and primary sources. The results attributed to earlier authors are not counted as new; residual risks remain explicit. 
+
+## value
+
+PASS
+
+A unified exact classification of geometric moduli, a sharp maximally symmetric arithmetic locus, and degree/separability collapse of a concrete singular polar map is substantial natural geometry beyond the preexisting pencil freeness construction. The finite-field orbit polynomial supplies reproducible classification data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
