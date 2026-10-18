@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source's exact rational recurrence was reconstructed from Eq. (36). Exact factorization reduces its only interior physical fixed point to the unique \(z_*>2\) solving \(z^3+z^2-2z-16=0\). Strict monotonicity of the cubic on \([2,\infty)\), together with the reciprocal substitution, proves uniqueness. The sign of the same factorization proves strict decrease below the threshold and strict increase above it. Invariance of \([0,1/2]\), continuity, and the complete fixed-point classification prove the limiting basins. The packaged symbolic replay returned `VERIFY_OK`.
+PASS
 
-Risk: the theorem is restricted to the source's twirled independent-noise one-dimensional recurrence.
+Frozen RESULT.md e480171b22c1a702b3a73e910f49a3c79dc98d39 reproduces Bravyi--Kitaev Eq(36) rational recurrence with r=1−2ε. Independently sympy-expanded f−ε = r(1−r²)Q(r²)/(2(1+15r^8)) and reciprocal identity Q(y)/y³=q(y+1/y), q(z)=z³+z²−2z−16, yielding exactly one positive physical root z*=2.459120158... since q(2)<0, q(3)>0 and q′>0 for z≥2. Direction of Q signs proves f<ε below ε*, f>ε above it; AM≥GM establishes f≥0, while f≤1/2 is immediate. Continuous monotone bounded iteration converges to fixed points; endpoints included separately. This is restricted to conditional, ideal postselected protocol; no fidelity claim for non-postselected stochastic rounds.
 
-## Originality
+## originality
 
-PASS. The anchor reports only a numerical H-type threshold \(\epsilon_0\approx0.141\), although its separate T-type protocol is treated exactly. A later primary comparison still quotes \(0.141\) for the 15-to-1 H-state routine and distinguishes broader H-state protocols. Focused published-finding and literature searches for source identifiers, Reed–Muller/15-to-1 aliases, the high-precision value, the reciprocal polynomial/cubic, and basin terminology found no implication-equivalent statement.
+PASS
 
-Residual risk: an unindexed note, thesis, or software derivation may contain the same algebraic reduction.
+The original Bravyi--Kitaev paper derives exactly this rational map and prints only ε0≈0.141 numerically; independent exact polynomial/cubic closed form and global basin sign proof are not stated there. Later magic distillation improvements modify protocols rather than imply the identical 15-to-1 map root algebra or monotone global attraction.
 
-## Value
+## value
 
-PASS. The 15-to-1 routine is a canonical benchmark in magic-state distillation. A low-degree exact threshold is a natural protocol invariant, and the factorization simultaneously supplies the complete global one-dimensional dynamics rather than only a decimal crossing estimate. The result cleanly separates failure of this routine above threshold from nondistillability by all routines.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The H-state 15-to-1 recurrence is a canonical quantum error-distillation map. Knowing a unique exact algebraic threshold and full basin characterizes its deterministic conditional iteration without relying on numerical root selection, and gives precise boundary behavior for calibration. This is motivated exact dynamics of a standard protocol, not an arbitrary algebraic root.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

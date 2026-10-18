@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T11:49:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Frozen RESULT.md e480171b22c1a702b3a73e910f49a3c79dc98d39 reproduces Bravyi--Kitaev Eq(36) rational recurrence with r=1−2ε. Independently sympy-expanded f−ε = r(1−r²)Q(r²)/(2(1+15r^8)) and reciprocal identity Q(y)/y³=q(y+1/y), q(z)=z³+z²−2z−16, yielding exactly one positive physical root z*=2.459120158... since q(2)<0, q(3)>0 and q′>0 for z≥2. Direction of Q signs proves f<ε below ε*, f>ε above it; AM≥GM establishes f≥0, while f≤1/2 is immediate. Continuous monotone bounded iteration converges to fixed points; endpoints included separately. This is restricted to conditional, ideal postselected protocol; no fidelity claim for non-postselected stochastic rounds.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reichardt and Meier--Eastin--Knill enlarge achievable H-state distillation thresholds with different protocols",
+          "Specific BK map f has recurrence independent of later routines"
+        ],
+        "reasoning": "Improved physical distillation domain for an alternative map does not dominate an exact algebraic characterization of the original BK 15-to-1 recurrence.",
+        "searches": [
+          "arXiv:quant-ph/0608085, quantum universality by state distillation",
+          "arXiv:1204.4221, four-qubit code magic state distillation"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:quant-ph/0403025, Eq.34–38",
+        "arXiv:quant-ph/0608085, alternative H-state protocols",
+        "arXiv:1204.4221, H-type threshold comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original source already provides every coefficient of the rational function, so an algebraic deduction is possible",
+          "No original sign factorization or all-initial-noise basin partition given in inspected original pages"
+        ],
+        "reasoning": "The exact threshold follows algebraically from known recurrence with a nontrivial reciprocal substitution and monotonicity argument. It is a refinement of a known map rather than a new protocol.",
+        "searches": [
+          "arXiv:quant-ph/0403025 Eq(36)–(38)",
+          "arXiv:1204.4221 discussion of H15-to-1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bravyi and Kitaev formula f(ε) and reported ε0≈0.141",
+          "Q(y) reciprocal polynomial and cubic z³+z²−2z−16 from independent symbolic reduction"
+        ],
+        "reasoning": "The numerical threshold approximates the same fixed point but is not an exact minimal polynomial or global basin theorem. The original recurrence is prior and is not presented as novel.",
+        "searches": [
+          "Bravyi Kitaev H state 15 to 1 exact threshold algebraic fixed point basin",
+          "arXiv:quant-ph/0403025, Eq(36) and Eq(37)",
+          "0.141480292656 H distillation fixed point polynomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "MaRDI publication record covers Bravyi--Kitaev protocol background",
+          "BK literature tabulates approximately 0.141, not a complete cubic minimal root and basin proof"
+        ],
+        "reasoning": "This is an exact natural fixed-point invariant, not an arbitrary finite parameter table. Numerical threshold tables do not logically imply the cubic expression as an established theorem; priority risk remains.",
+        "searches": [
+          "Bravyi Kitaev H state 15 to 1 exact threshold algebraic fixed point basin",
+          "exact 0.141480292656 fixed point numerical priority searches"
+        ]
+      },
+      "rationale": "The original Bravyi--Kitaev paper derives exactly this rational map and prints only ε0≈0.141 numerically; independent exact polynomial/cubic closed form and global basin sign proof are not stated there. Later magic distillation improvements modify protocols rather than imply the identical 15-to-1 map root algebra or monotone global attraction.",
+      "residual_risks": [
+        "The cubic is algorithmically easy to derive from the published rational recurrence; older unindexed notes or software may give it",
+        "The deterministic conditional map ignores finite probability of round acceptance, noisy Clifford gates and correlated inputs"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_MAP_NUMERIC_THRESHOLD_NOT_EXACT_BASIN",
+          "evidence": "Eq.(36) is the rational input-output error recurrence; Eq.(37) gives epsilon0≈0.141 as numerical fixed point; no cubic expression or basin classification in those pages.",
+          "identifier_or_url": "https://arxiv.org/pdf/quant-ph/0403025",
+          "material_read": "Full primary PDF, pp. 12–13, Eq.(34)–(38), numeric threshold discussion and distinction between H and T protocols",
+          "method": "open-access primary PDF and page images",
+          "title": "Universal quantum computation with ideal Clifford gates and noisy ancillas",
+          "trigger": "Exact same original H-type 15-to-1 recurrence"
+        },
+        {
+          "assessment": "DIFFERENT_DISTILLATION_PROTOCOL",
+          "evidence": "Contrasts 7-to-1 ~0.146 and BK 15-to-1 ~0.141; does not supply exact BK cubic/root.",
+          "identifier_or_url": "https://arxiv.org/pdf/1204.4221",
+          "material_read": "Abstract, introduction and H-type protocol comparison; inspected available public material",
+          "method": "arXiv PDF public reading",
+          "title": "Magic-state distillation with the four-qubit code",
+          "trigger": "Later improved protocols might dominate threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The H-state 15-to-1 recurrence is a canonical quantum error-distillation map. Knowing a unique exact algebraic threshold and full basin characterizes its deterministic conditional iteration without relying on numerical root selection, and gives precise boundary behavior for calibration. This is motivated exact dynamics of a standard protocol, not an arbitrary algebraic root.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the ideal independent twirled H-input 15-to-1 distillation map, only fixed points in [0,1/2] are 0, epsilon*=0.141480292656167..., 1/2; epsilon* has the displayed unique cubic-root expression and all iterates below/above it converge monotonically to 0/1/2 respectively.",
+  "limitations": [
+    "No claim of globally optimal distillability threshold across protocols",
+    "No empirical success-probability or noisy-operations guarantee."
+  ],
+  "schema_version": 1
+}
