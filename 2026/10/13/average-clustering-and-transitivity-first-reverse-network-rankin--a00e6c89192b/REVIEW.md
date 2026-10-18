@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Transitivity is the connected-triple-weighted average of local clustering, while the average clustering coefficient gives equal weight to eligible vertices. Complete isomorphism-reduced enumeration gives \(1,2,6,21\) connected graph types through order \(5\). The six four-vertex types produce only the monotone metric pairs \((0,0)\), \((3/5,7/9)\), \((3/4,5/6)\), and \((1,1)\), excluding strict reversal through order \(4\). At order \(5\), exact comparison gives \(13\) reversing pairs under the principal convention. The displayed witness is independently reconstructed from one triangle and exact wedge/local-coefficient counts. The packaged verifier returns `VERIFY_OK`.
+## correctness
 
-Risk: the five-vertex pair count changes under the alternative treatment of leaves, although the sharp threshold and witness remain valid.
+PASS
 
-## Originality
-**PASS.** Schank and Wagner explicitly establish that average clustering and transitivity differ in general, identify the four-vertex smallest pointwise counterexample to equality, and express transitivity as a triple-weighted clustering coefficient. That result does not imply a strict reversal between two network rankings. Targeted semantic and literature searches did not locate the stronger five-vertex ordering boundary, its \(13\)-pair census, or the matched equal-edge/equal-triangle witness.
+Source proof gives transitivity as the wedge-weighted average of local coefficients; direct independent exact Fraction enumeration with graph atlas reproduces connected graph counts 1,2,6,21 at n=2..5, strict reversal counts 0,0,0,13, and n=4 possible (T,C) pairs (0,0),(3/5,7/9),(3/4,5/6),(1,1). A triangle with two leaves on one triangle vertex has T=3/8,C=13/18, whereas splitting the leaves gives T=3/7,C=5/9. Under the zero-for-degree<2 alternative, the first threshold remains n5, count 12. At n=2 the degree≥2 vertex set is empty and the literal C formula is undefined; statements about distinct pairwise comparisons are vacuous at n2 (and n1 is outside enumerated values).
 
-Risk: because the statistics are classical and small graphs are easy to enumerate, an unindexed exercise or software test could contain the same pair. Failed search is not a proof of bibliographic uniqueness.
+## originality
 
-## Value
-**PASS.** Average local clustering and transitivity are both standard graph-level summaries used to compare empirical networks, yet they aggregate vertex clustering with different weights. The theorem identifies the first size at which this choice changes an actual network ranking, not merely a numerical value. The witness controls order, edge count, and triangle count, isolating the weighting mechanism in a compact benchmark suitable for interpretation and implementation testing.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+No equivalent statement or dominating theorem was found in the materially inspected same-object prior literature and Resultary results; the exact comparison is specified in the four checks. This is bounded best-of-knowledge, not proof of novelty.
+
+## value
+
+PASS
+
+The sharp separation of first numerical disagreement at four vertices from first opposite network ranking at five, plus a completely checked reversal-pair census, is a motivated exact finite structural benchmark for interpreting two standard network summaries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

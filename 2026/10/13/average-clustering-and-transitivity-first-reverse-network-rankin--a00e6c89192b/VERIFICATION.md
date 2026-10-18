@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,49 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_clustering_transitivity_minimal_reversal.py` performs a complete exact finite replay.
 
-For each order from \(2\) through \(5\), it enumerates every labeled simple graph, retains exactly the connected graphs, and canonically quotients them under all vertex permutations. It recovers
-\[
-1,\ 2,\ 6,\ 21
-\]
-connected unlabeled graph types.
+# Independent mathematical audit
 
-All statistics are computed with exact `Fraction` arithmetic from:
-- triangle counts;
-- centered connected-triple counts;
-- local neighbor-edge counts.
+## correctness
 
-Under averaging over degree-at-least-\(2\) vertices, the strict reversal counts are
-\[
-0,\ 0,\ 0,\ 13.
-\]
+PASS
 
-Under the alternative convention assigning local clustering \(0\) below degree \(2\), the counts are
-\[
-0,\ 0,\ 0,\ 12.
-\]
+Source proof gives transitivity as the wedge-weighted average of local coefficients; direct independent exact Fraction enumeration with graph atlas reproduces connected graph counts 1,2,6,21 at n=2..5, strict reversal counts 0,0,0,13, and n=4 possible (T,C) pairs (0,0),(3/5,7/9),(3/4,5/6),(1,1). A triangle with two leaves on one triangle vertex has T=3/8,C=13/18, whereas splitting the leaves gives T=3/7,C=5/9. Under the zero-for-degree<2 alternative, the first threshold remains n5, count 12. At n=2 the degree≥2 vertex set is empty and the literal C formula is undefined; statements about distinct pairwise comparisons are vacuous at n2 (and n1 is outside enumerated values).
 
-The displayed witness is also checked from independent hand-count identities:
-\[
-\tau(A)=8,\qquad
-\tau(B)=7,
-\]
-with one triangle in each graph, and local-clustering lists
-\[
-\left(\frac16,1,1\right)
-\]
-and
-\[
-\left(\frac13,\frac13,1\right).
-\]
+## originality
 
-Run:
+PASS
 
-`python3 verify_clustering_transitivity_minimal_reversal.py`
+No equivalent statement or dominating theorem was found in the materially inspected same-object prior literature and Resultary results; the exact comparison is specified in the four checks. This is bounded best-of-knowledge, not proof of novelty.
 
-The first output line must be:
+## value
 
-`VERIFY_OK`
+PASS
 
-The finite enumeration is exhaustive because every labeled simple graph on the relevant vertex set is generated and isomorphism is tested against every vertex permutation.
+The sharp separation of first numerical disagreement at four vertices from first opposite network ranking at five, plus a completely checked reversal-pair census, is a motivated exact finite structural benchmark for interpreting two standard network summaries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
