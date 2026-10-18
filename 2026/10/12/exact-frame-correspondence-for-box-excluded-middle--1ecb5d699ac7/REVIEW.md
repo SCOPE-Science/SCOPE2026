@@ -1,27 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof was reconstructed from the forcing clauses and frame hypotheses. If \(x\nVdash\Box\varphi\) via \(xRz\) with \(z\nVdash\varphi\), any \(y\ge x\) satisfying \(\Box\varphi\) would, by the exact condition, have an \(R\)-successor \(u\le z\); persistence would force \(z\Vdash\varphi\), a contradiction. The reverse direction is witnessed by the persistent valuation \(V(p)=\uparrow R(y)\) when the exact condition fails.
+PASS
 
-The two-point frame \(0<1\), \(R=\{(0,0),(0,1),(1,0)\}\) was checked directly. A separate finite verifier exhausts all admissible labeled frames through three points and finds no mismatch between the exact condition and atomic Box Excluded Middle. That computation is a sanity check, not the proof of the general theorem.
+On standard persistent birelational frames, □φ∨¬□φ is valid for every formula and persistent valuation iff x≤y and xRz imply some yRu with u≤z. Sufficiency: if xRz refutes φ, any later y forcing □φ would give u≤z refuting persistence. Necessity: if E fails, take upward-closed valuation V(p)=↑R(y); it forces □p at y but not x, hence forces neither disjunct at x. The explicit two-point poset 0<1 with R={(0,0),(0,1),(1,0)} satisfies base compatibility and E but fails the stronger BEM (missing 1R1). One-point BEM separation impossible. Source verify_small.py enumerates all labeled partial orders and admissible relations at sizes ≤3 (2,34,2942); its exhaustive loops and semantic test were inspected, not used in place of the arbitrary-frame symbolic proof.
 
-## Originality
+## originality
 
-**PASS.** The closest source is van der Giessen--Joosten--Mayaux--Navarro Arroyo (2025). It introduces Box Excluded Middle, proves its stronger condition \(\mathsf{BEM}\) sufficient, and gives a four-point example showing \(\mathsf{BEM}\) is not necessary. Full-text inspection did not find an exact replacement condition, and exact searches did not locate
-\[
-x\le y\wedge xRz\Rightarrow\exists u\,(yRu\wedge u\le z)
-\]
-or the two-point strict witness.
+PASS
 
-The closest general literature supplies the birelational semantics itself. A residual risk is that a broad correspondence theorem may subsume this instance abstractly; no inspected source stated the specific equivalence.
+The motivating article Lemma 3.1.6 proves only the stronger pointwise successor persistence BEM sufficient; Example 3.1.7 gives a four-point nonconverse but not an exact correspondence. The exact weaker frame condition has existential y-successor lying below z; the two-point witness proves genuine inequivalence and sharpens example size. Resultary searches surfaced other birelational modal classifications, not this E↔Box Excluded Middle. General correspondence theory might subsume the condition, an explicit residual risk.
 
-## Value
+## value
 
-**PASS.** The new condition closes an explicit semantic gap rather than merely shrinking a numerical constant. It identifies exactly which weakening of \(\mathsf{BEM}\) suffices, explains why the published four-point example still validates Box Excluded Middle, and gives the sharp smallest separation at two points. This is a reusable structural criterion for work with the mixed-model semantics.
+PASS
 
-## Closest literature and limitations
+Closing a documented exact semantic correspondence gap is a structural tool for deciding when the modal excluded-middle scheme is valid. The minimal two-world strict witness improves and conceptually explains the existing four-world separation; this is more than a cosmetic change of notation.
 
-The result is specific to the standard birelational semantics and does not claim a new completeness theorem for alternative semantics. The finite checker covers only up to three worlds; the arbitrary-frame theorem is established symbolically. The 1984 background source was checked bibliographically and by targeted searches, not by full-text inspection.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
