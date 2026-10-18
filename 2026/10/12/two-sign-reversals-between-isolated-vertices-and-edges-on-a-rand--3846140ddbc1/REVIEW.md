@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite covariance follows from conditioning a labelled vertex to be isolated. The forbidden arc has length \(2r\); the remaining \(n-1\) points are independent uniform points on its complementary arc. Pair distances cannot connect across the removed arc, so the conditional edge probability is exactly \(1-((L-r)_+/L)^2\). Expanding the exchangeable indicator–edge covariance gives the two polynomial branches. The quadratic's roots and the second branch's linear zero prove the sharp \(n=6\) onset and both sign reversals; the sparse scaling follows by an elementary exponential limit. An exact-rational checker evaluated 15,252 identities, and direct-coordinate Monte Carlo provided five independent numerical checks. The proof is analytic; the computer experiments are not an infinite certificate.
+PASS
 
-## Originality — PASS, with risk
+Under fixed-n iid uniform points on the periodic unit circle, conditioning on the isolation of one designated vertex leaves n−1 independent uniforms on the single complement arc of length L=1−2r. A pair in that arc is an edge exactly when linear separation ≤r, giving q=1−max(1−r/L,0)^2. Thus Cov(I,E)=n L^(n−1)[C(n−1,2)q−C(n,2)2r], identical to formula (1). Direct algebra yields a quadratic factor P_n(r)=−4+(3n+10)r−8nr² up to r=1/3 and a linear factor for larger r; both are continuous and give negative n≤5, the n=6 two zeros r=1/4,1/3, and for n≥7 the stated one root in (0,1/3) and one root in (1/3,1/2). For r=c/n, dividing the exact formula by n gives e^(−2c)(3c²/2−2c). Independently recomputed 4,851 rational (n,r) pairs against conditional and piecewise formulas and sign ranges; experimental checks are corroboration, the conditioning plus sign algebra prove all n and radii. n=1 and r=0 or ≥1/2 deterministic and zero.
 
-The nearest inspected works are Penrose and Peres (2010), Penrose (2015), Doku-Amponsah (2016), and Wilsher–Dettmann–Ganesh (2022). They discuss isolated vertices and edges separately, joint large deviations of aggregate empirical measures, or isolation counts in a Poisson soft geometric circle. Inspection of their relevant full-text theorem statements and proofs did not reveal the two sign thresholds or a finite hard-circle isolated-count/edge-count covariance that directly yields them. The known general conditioning and Palm techniques remain plausible routes to a shorter derivation; an exhaustive priority assertion is not justified. The broad Penrose (2003) monograph was not inspected in full, leaving residual indirect-coverage risk.
+## originality
 
-## Value — PASS
+PASS
 
-Isolated vertices and edge count are central, jointly observed descriptors of geometric networks. In a graph with independent edges they are always negatively covariant, but geometric conditioning creates a competing density effect. The exact result establishes that a positive interval first becomes possible for six vertices, locates both endpoints for every larger sample, and identifies a distinct sign boundary \(c=4/3\) when \(r=c/n\). The existence of two reversals and a sharp minimal sample size is not a routine reparametrization or arbitrary slice.
+The specific finite covariance together with a sharp two-reversal phase diagram and n=6 onset is not implied by the inspected large-deviation or marginal approximation statements. The conditioning device is standard, but the interval-dependent conditional pair geometry and complete sign determination are additional exact results. Checked equivalences and direct implications, not name matching.
 
-## Limits
+## value
 
-Fixed \(n\), periodic unit circle, iid uniform positions, deterministic cutoff edges. The result is about unnormalized covariance, not Pearson correlation. Historical uniqueness remains subject to possible general mixed-moment identities in sources not fully available.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Counts of isolated vertices and edges are natural joint observables of random geometric graphs. A sharp positive-covariance window, two sign reversals, first possible sample size and sparse-limit critical c=4/3 distinguish periodic geometric dependence from Erdős–Rényi graph dependence, and give useful finite-size information not provided by marginal limit laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
