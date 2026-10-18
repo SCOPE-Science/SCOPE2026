@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the exact no-isolate NODF expectation
 
-The code file `verify_fixed_row_nodf.py` uses only the Python standard library and exact `fractions.Fraction` arithmetic. Run from the directory containing this document with `python verify_fixed_row_nodf.py`. Expected output:
+# Independent mathematical audit
 
-```
-VERIFY_OK distinct_profiles 305 covered_matrices 145503 sample_profile (1, 2, 3) sample_mean 7/15 sample_count 60
-```
+## correctness
 
-The test enumerates labeled binary incidence matrices independently of the coefficient formula for 305 feasible sorted row-degree profiles across fifteen shapes, amounting to 145,503 covered matrices, then compares rational means. It also checks that the two-marked-column counts are nonnegative and that the positive-column coefficients sum to the inclusion–exclusion cardinality. Direct matrices are enumerated by row-subset Cartesian products; the formula is implemented as independent alternating integer sums plus dynamic polynomial coefficient updates.
+PASS
 
-The proof's all-dimensional claims follow from inclusion–exclusion and coefficient extraction, not from the finite test. The check does not prove originality, rule out source coverage, or evaluate the exact variance, full distribution, fixed-fixed ensembles or weighted NODF. Independent audit has not been performed.
+Directly reconstructed the labeled row-subset ensemble and Z=Σ_j(-1)^j C(n,j)∏_i C(n−j,r_i), positive when Σ r_i≥n. A marked column shared by rows i,k gives n H_ik; a two-marked-column polynomial with factors C(n−2−j,r_i)+C(n−2−j,r_i−1)(u+v)+C(n−2−j,r_i−2)uvw counts both degrees and overlap. Restrict a,b≥1 and a≠b, divide c by min(a,b), add normalized row terms and divide by K Z. Ties correctly contribute zero. The O(m^3) coefficient states updated over m factors and n exclusions justify O(nm^4) exact arithmetic, not bit time. An independent 3×4 (1,2,3) full enumeration gives 60 covered matrices and mean 7/15. The finite checker is only corroboration; inclusion-exclusion is the all-parameter proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge original closed expectation for the *row-only hard-constrained, all-columns-positive* ensemble and degree-sorted NODF with tied degrees. The nearest ecological papers treat metric definition, randomized simulations, independent-edge soft degrees or fully fixed row-and-column degrees. These distinct probability laws cannot be specialized by matching expected margins. A generic coefficient-algorithm counterpart remains an honest residual risk.
+
+## value
+
+PASS
+
+The conditional row-hard null is motivated by ecological bipartite-network baselines with observed row abundances and no empty guild members; exact tied-column-degree handling removes simulation error for a statistically meaningful expectation. Arbitrary heterogeneous row sums and polynomial exact coefficients add reusable analytic value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
