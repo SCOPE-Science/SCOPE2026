@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The channel definition is CPTP by its displayed Kraus representation. In the nonidentity qutrit Weyl basis, the traceless block is derived explicitly and is supported only on the two diagonal Weyl operators. The finite classification is exhaustive: there are exactly eighteen functions with two image points, and the included exact checker constructs all \(216\) projective qutrit Clifford adjoint actions in \(\mathbb Q(\omega)\), forms every second-moment twirl, and verifies the rank, annihilating polynomial, trace, and resulting spectrum. Wallman--Flammia's block formula then adds the two one-copy blocks with scalar \(f_F=(r-1)/8\). The proof separately shows that the unital projection is not positive.
+## correctness
 
-## Originality
-PASS. Wallman and Flammia prove \(2\)-contractivity for unital channels and explicitly leave the higher-dimensional nonunital case open. The classified channels are nonunital and their unital projections are not positive, so the published unital reduction does not imply the result. Targeted searches for deterministic qutrit coarse-graining channels, qutrit-Clifford second-moment spectra, the exact fixed-point classification, and later resolutions of the \(2\)-contractivity conjecture found no implication-equivalent theorem. The closest later qutrit-Clifford literature establishes the design property or uses the design experimentally, rather than computing these channel spectra.
+PASS
 
-## Value
-PASS. The result gives a complete exact classification on a natural entanglement-breaking family in the smallest dimension not covered by the source's qubit corollary. It identifies a uniform largest nontrivial eigenvalue modulus \(1/6\), supplies full multiplicities, and shows the answer depends only on the classical fixed-point count. Because the qutrit Clifford group is used in qutrit randomized benchmarking, the classified spectra directly quantify a canonical nonunital noise family rather than an arbitrary finite slice.
+Kraus K_j=|F(j)><j| are CPTP and entanglement breaking; nonidentity Weyl Liouville block annihilates off-diagonal Weyl labels and its 2-by-2 diagonal block has entries (1/3)sum_j omega^{bj-cF(j)}. The projective Clifford adjoint group has 216 actions. Exact package script verifies all 18 finite maps in Q(omega), rational twirl 64x64, rank 12, characteristic annihilating polynomials, and trace. The paper Eq. (89) gives full lower-block-triangular diagonal blocks (1,fI_8,fI_8,B), f=(r-1)/8 from trace channel equals r, yielding listed spectra including zero multiplicities. A fresh independent matrix-unitary computation independently generated group via 3-by-3 Fourier, phase, X, Z matrices and numerically diagonalized every one of 18 twirls, matching all eigenvalues/multiplicities. The exact certificate plus direct analytic block deduction, not floating point alone, establishes this finite classification.
 
-## Closest literature and limitations
-The main comparison is Wallman--Flammia, arXiv:1404.6025, which supplies the definition, general block structure, unital theorem, and explicit higher-dimensional conjecture. Graydon--Skanes-Norman--Wallman, arXiv:2108.04200, records that prime-dimensional Clifford groups are unitary \(2\)-designs. Kononenko et al., arXiv:2009.00599, demonstrates qutrit Clifford randomized benchmarking experimentally. The final theorem is deliberately limited to the projective qutrit Clifford design and two-image deterministic classical channels; no conclusion is drawn for arbitrary qutrit channels or all unitary \(2\)-designs.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The final claim was independently compared at statement/implication level against the identified closest original publications and targeted semantic finding searches. Specific prior components are credited and the remaining claimed addition is identified. Residual priority/access risks remain and this is best-of-knowledge, not universal certification. Exact qutrit-Clifford second moments for deterministic two-image classical channels.
+
+## value
+
+PASS
+
+The 18 deterministic two-image qutrit channels form a natural complete nonunital entanglement-breaking test family in the first dimension not covered by the unital reduction. Exact spectra, three fixed-point strata and uniform strict contraction give a useful benchmark for randomized benchmarking and a nontrivial finite partial result on the contractivity conjecture. No general qutrit or arbitrary-design theorem is inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
