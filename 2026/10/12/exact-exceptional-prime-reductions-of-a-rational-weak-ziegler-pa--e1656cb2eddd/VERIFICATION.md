@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` (Python 3.9+; standard library only). The verifier reads no external files. It derives all twelve conic-line intersection pairs from the supplied line coefficient triples, computes eleven rational singular points per arrangement, reconstructs exact component incidences, and computes the supports of all cross-product contents for point/line collisions. Its exact prime support outputs are \(\{2,3,5,7,11\}\), \(\{2,3,5\}\) for the two point sets and \(\{2,3,7\}\), \(\{2,3\}\) for their line sets.
+## correctness
 
-For \(p=7\) the script enumerates the full finite projective plane, identifies the two coinciding pairs of lines, and verifies the reduced arrangement's five singular points of branch multiplicities \((2,2,1)\) in orders double, triple, quadruple. For \(p=11\) it checks six separate lines, ten singular points of branch-count profile \((5,3,2)\), and gradient proportionality proving conic-line tangency at \([1:2:8]\). It independently verifies regular profiles for the second arrangement at \(p=7,11\) and both arrangements at \(p=13,17,19,23,29\).
+PASS
 
-The infinity of primes is covered mathematically by the complete rational intersection census and the exact cross-product prime-support identity, not by sampling. The finite-field counts suffice geometrically because the complete line-line and conic-line intersections are rational after reduction. Nothing in these checks establishes positive-characteristic Jacobian syzygies, near-freeness, or model-independent minimal bad reduction. Independent audit has not been performed.
+Using the twelve pinned line coefficient triples and conic X^2+Y^2=25Z^2, reconstructed rational line-line and line-conic intersections with [5(1-t^2):10t:1+t^2]. Every conic-line discriminant is a nonzero rational square in characteristic zero. Across the eleven rational singular points per arrangement, exact cross-product-content gcd supports are {2,3,5,7,11} (A1) and {2,3,5} (A2); line-coincidence supports {2,3,7} and {2,3}. Thus no unlisted bad p>=7 can occur, rather than inferring infinity from spot-checks. At p=7, A1 reduced support has four distinct lines with five singularities (double2, triple2, quadruple1). At p=11, A1 has six lines and ten singular points (double5, triple3, quadruple2 branch counts) and a conic-line tangency on line5 at [1:2:8]; A2 remains ordinary at both. Independently reconstructed supports and finite-field profiles with exact integer/rational arithmetic. The statement correctly restricts to fixed integral presentation, reduced support at 7, and branch counts at 11.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Lampa-Baczyńska and Wójcik constructed the same rational weak Ziegler pair and char-zero combinatorics, but the inspected article does not derive exact prime-by-prime reduction behavior for these fixed integral models. Classical good-reduction principles give finiteness, not precise exceptional set and singular profiles at p=7,11; Resultary comparisons did not positively identify equivalent arithmetic reductions.
+
+## value
+
+PASS
+
+PASS: The exact classification of exceptional characteristics for a standard explicit rational conic-line configuration, including coalescing components versus tangent branches, is a complete natural arithmetic-geometric invariant of fixed integral models. Exact all-prime control and special-fiber geometry are nontrivial beyond a finite test list, and clarify which complex incidence statements survive reduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
