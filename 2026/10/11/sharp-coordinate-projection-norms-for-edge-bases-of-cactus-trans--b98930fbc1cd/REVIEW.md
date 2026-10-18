@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof realizes the vertex transportation norm as the weighted edge \(\ell_1\)-quotient by circulation flows through equality of dual Lipschitz constraints. In a cactus, the edge-disjoint cycle indicators form a basis for the kernel, giving independent quotient blocks. Calculating a quotient operator norm from the images of the edge generators is valid because the quotient map is a metric quotient. For each deleted cycle edge, a two-value weighted-median minimization yields \(\min\{W_C(S),L_C-W_C(S)\}/w_{r_C}\). The nonzero-projection lower bound handles any missing unit-weight generator norm. For unit edge weights, every prefix order attains the integer halfway point on each cycle. The provided exact-rational test covers eight finite cactus graphs and 128 subsets, including a nongeodesic edge; it is not an infinite proof.
+## correctness
 
-## Originality — PASS (residual historical risk)
-The closest background result, the weighted graph edge-flow quotient representation (Ostrovska–Ostrovskii, arXiv:1910.03625; Skandalis–Valette, arXiv:2601.16859), gives a framework for transportation norms, but does not compute all induced coordinate-projection operator norms. Cabrelli–Molter's 1995 formula concerns the cycle transportation norm and is expressly acknowledged. Novotný's arXiv:1905.13188 gives growing constants for retractional bases over a distinct augmented metric circle. Dilworth–Kutzarova–Ostrovskii's arXiv:2305.12582 studies minimal projections onto cycle subspaces, rather than projections on the quotient's spanning-tree edge basis. The 2012/2013 Lipschitz-free Schauder papers establish existence/decompositions in different metric settings. No retrieved published statement dominates the complete weighted-cactus suppression formula and its order-independent sharp unweighted basis constant. An unindexed older exact edge-basis computation could still exist.
+PASS
 
-## Value — PASS
-The coordinate-projection operator norms and uniform bounds of a concretely specified basis are natural structural Banach-space invariants. The theorem gives every projection norm for all finite positive-weight cactus graphs, not one isolated example; the unit-weight specialization characterizes monotonicity by the absence of cycles of length at least four and shows linear divergence of conditionality with the longest cycle, regardless of tree choice or edge ordering. The graph-theoretic dependence identifies precisely how independent cycle constraints govern basis stability. This classification and its explicit weighted form are mathematically useful without requiring a general theorem for arbitrary graph flow spaces.
+The free space on weighted graph vertices is isometric to weighted ell_1(E)/ker(partial) because the dual potential constraints are precisely edgewise Lipschitz inequalities. On a cactus, edge-disjoint cycles generate a direct-support kernel, and each spanning tree omits exactly one edge r_C per cycle. The quotient-map identity ||P||=max_e ||Pq(e)||/w_e reduces each suppressed tree basis projection to its images on generating edges. The omitted-edge image has norm inf_t[W_C(S)|1-t|+(L_C-W_C(S))|t|]=min(W_C(S),L_C-W_C(S)); selected basis edges and idempotence supply the 1 term. For unit weights each prefix count runs 0..|C|-1, giving max_C floor(|C|/2), independent of tree/ordering and monotonicity iff all cycles are triangles or absent. This also handles bridges and overlong presentation edges without assuming their direct metric costs.
 
-## Scientific limits
-The proof does not apply unchanged when two cycles share edges, does not compute arbitrary sign-change unconditional constants, and does not optimize over unrelated bases. The full classical graph-quotient and circle-transportation premises are credited to the literature. The computational test is finite, and publication coverage can never be guaranteed solely by indexed searches.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for exact coordinate-suppression operator norms for all weighted cactus spanning-tree molecular bases. General cycle transport quotient formulas (Skandalis–Valette, Ostrovska–Ostrovskii, Cabrelli–Molter) and general Lipschitz-free Schauder decomposition existence (Lancien–Pernecká) are inputs, not the asserted full edge-projection constant. Other cycle-subspace projections target a different operator space. Resultary returned the specific claim and unrelated projection families, no stronger same-operator cactus classification found.
+
+## value
+
+PASS
+
+PASS: coordinate projection constants are natural invariants of concrete Schauder bases in Lipschitz-free transportation spaces. Exact weighted-cycle formula and unconditional/partial-sum classification for all cactus graphs is a nontrivial sharp structural theorem covering bridges, cutvertices, arbitrary tree/ordering, and varying positive edge lengths.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

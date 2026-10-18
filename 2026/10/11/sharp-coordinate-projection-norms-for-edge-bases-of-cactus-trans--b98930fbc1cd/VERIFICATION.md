@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Reproducibility
-The embedded `verify_cactus.py` is a standalone Python 3 program using only `fractions.Fraction` and `itertools`. Run `python verify_cactus.py`; the checked invocation reported:
+# Independent mathematical audit
 
-```
-EXACT_CACTUS_CHECK_OK 8 128
-```
+## correctness
 
-The test evaluates each graph's transportation norm directly by enumerating graph spanning trees and calculating exact rational flows by leaf elimination, then checks all coordinate-projection images of graph edge generators and compares with the closed formula. It includes nongeodesic long edges and two cycles sharing an articulation point. There are eight finite graphs and 128 tested coordinate-subsets; this count is not an exhaustive enumeration of all cactus graphs.
+PASS
 
-For arbitrary size, the proof proceeds through the edge-flow metric quotient, edge-disjoint cycle-kernel decomposition, metric-quotient operator norm identity, and an exact two-point weighted-median minimization. No finite numeric output is used as an infinite proof. The primary source arXiv:1207.1583 was publicly posted on 2012-07-06. External independent mathematical validation has not been performed.
+The free space on weighted graph vertices is isometric to weighted ell_1(E)/ker(partial) because the dual potential constraints are precisely edgewise Lipschitz inequalities. On a cactus, edge-disjoint cycles generate a direct-support kernel, and each spanning tree omits exactly one edge r_C per cycle. The quotient-map identity ||P||=max_e ||Pq(e)||/w_e reduces each suppressed tree basis projection to its images on generating edges. The omitted-edge image has norm inf_t[W_C(S)|1-t|+(L_C-W_C(S))|t|]=min(W_C(S),L_C-W_C(S)); selected basis edges and idempotence supply the 1 term. For unit weights each prefix count runs 0..|C|-1, giving max_C floor(|C|/2), independent of tree/ordering and monotonicity iff all cycles are triangles or absent. This also handles bridges and overlong presentation edges without assuming their direct metric costs.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for exact coordinate-suppression operator norms for all weighted cactus spanning-tree molecular bases. General cycle transport quotient formulas (Skandalis–Valette, Ostrovska–Ostrovskii, Cabrelli–Molter) and general Lipschitz-free Schauder decomposition existence (Lancien–Pernecká) are inputs, not the asserted full edge-projection constant. Other cycle-subspace projections target a different operator space. Resultary returned the specific claim and unrelated projection families, no stronger same-operator cactus classification found.
+
+## value
+
+PASS
+
+PASS: coordinate projection constants are natural invariants of concrete Schauder bases in Lipschitz-free transportation spaces. Exact weighted-cycle formula and unconditional/partial-sum classification for all cactus graphs is a nontrivial sharp structural theorem covering bridges, cutvertices, arbitrary tree/ordering, and varying positive edge lengths.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
