@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T23:14:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Rebuilt the exact DEAM Algorithm 1 scalar branch at theta=pi: beta=2*pi/[10(2+pi)], a=1-beta, x0=1, y0=-1, x_n=a*x_(n-1)-beta=2a^n-1, y_n=-(1/2)y_(n-1)-x_n as long as x_(n-1)>0. Since x1..x5>0 and x6<0, all five y1..y5 use precisely this branch; fresh independent recurrence gave y1=-0.2555938119, y4=-0.1143728760 and y5=+0.0148684705. Thus exactly four early increments are stale, versus exactly five for no-backtrack increments -x1..-x6. Enclosed beta between values from 3.14159<pi<3.14160; polynomially continuous formulas retain strict margins. No inference about adaptive beta after x6 or convergence on endogenous gradients. The source file verify.py is read, and the separate fresh_math_checks.py recomputation independently replayed the needed transition.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Source algorithm and §3.2 explain a single backtrack toward last midpoint, not the n-step affine impulse/step response"
+        ],
+        "reasoning": "An older bound for all stochastic optimizer trajectories would dominate, but the inspected convergence/empirical statements do not imply exact fixed-gradient reversal latency.",
+        "searches": [
+          "DEAM optimizer backtracking full reversal gradient stale updates directional conflict iteration count angle adaptive momentum",
+          "arXiv:1907.11307v2, Bai–Ren–Zhang, DEAM: Adaptive Momentum with Discriminative Weight for Stochastic Optimization, Algorithm 1 and §3.2",
+          "doi:10.1002/int.22854, DEAM journal version (metadata/abstract; not full-text verified)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1907.11307v2, Bai–Ren–Zhang, DEAM: Adaptive Momentum with Discriminative Weight for Stochastic Optimization, Algorithm 1 and §3.2",
+        "doi:10.1002/int.22854, DEAM journal version (metadata/abstract; not full-text verified)",
+        "Resultary optimizer query DEAM optimizer backtracking full reversal gradient stale updates directional conflict iteration count angle adaptive momentum"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Algorithm 1 implies the recurrence, but four versus five steps require repeated affine iteration plus sign thresholds"
+        ],
+        "reasoning": "The original recurrence entails the result after a new finite exact step-response calculation; the source does not explicitly establish it, and a formula present without the studied consequence is not automatically a prior theorem covering that consequence.",
+        "searches": [
+          "arXiv:1907.11307v2, Bai–Ren–Zhang, DEAM: Adaptive Momentum with Discriminative Weight for Stochastic Optimization, Algorithm 1 and §3.2",
+          "DEAM optimizer backtracking full reversal gradient stale updates directional conflict iteration count angle adaptive momentum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bai et al. Algorithm 1 sets beta=1/K at theta=pi and d=-1/2; stationary reversal input and quantified update counts are absent in studied sections"
+        ],
+        "reasoning": "Alternating-gradient, momentum attenuation, and backtrack direction have distinct input regimes. Searching those aliases did not identify the same permanent step-input response theorem.",
+        "searches": [
+          "DEAM optimizer backtracking full reversal gradient stale updates directional conflict iteration count angle adaptive momentum",
+          "arXiv:1907.11307v2, Bai–Ren–Zhang, DEAM: Adaptive Momentum with Discriminative Weight for Stochastic Optimization, Algorithm 1 and §3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary AdaMomentum result concerns alternating-gradient frequency cancellation, not DEAM's theta=pi persistent reversal and d=-1/2"
+        ],
+        "reasoning": "No standard numeric table is an appropriate exact response classification; indexed related optimizer records are not matching parameter tables.",
+        "searches": [
+          "DEAM optimizer backtracking full reversal gradient stale updates directional conflict iteration count angle adaptive momentum",
+          "Resultary 2026/10/4 SCOPE-adamomentum-cancels-momentum-attenuation-at-the-alternating-grad--31659e74d0c4"
+        ]
+      },
+      "rationale": "The original DEAM papers specify geometric backtrack and momentum weights; the independently derived exact four-versus-five persistent-reversal latency is not given by those equations as a stated result and does not follow merely from the single-step midpoint geometric illustration. Best-of-knowledge, conditional on source journal-full-text limitation.",
+      "residual_risks": [
+        "The longer revised journal article was not read end-to-end; an exact correction-latency formula in it could change priority.",
+        "Only externally imposed stationary scalar equal-magnitude reversal, not neural-network training or arbitrary adaptive learning rates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING exact four-versus-five persistent step response in material inspected",
+          "evidence": [
+            "Algorithm 1 lines: beta=1/K when theta>=pi/2; d=min(.5cos(theta),0); Delta=d*Delta_prev-eta*m/sqrt(vhat). §3.2 backtracks a single step toward midpoint."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1907.11307",
+          "material_read": "8-page source preprint, especially Algorithm 1 on PDF p2, §3.2 backtrack mechanism/p4 and theoretical/empirical scope; inspected defining formulas and proposed midpoint interpretation",
+          "method": "read PDF text and inspected numerical recursion against displayed Algorithm 1",
+          "title": "DEAM: Adaptive Momentum with Discriminative Weight for Stochastic Optimization",
+          "trigger": "Same algorithm, beta=1/K and d=-1/2 full directional conflict"
+        },
+        {
+          "assessment": "UNRESOLVED whole-paper source revision but not by itself a scientific failure",
+          "evidence": [
+            "Journal publication is same algorithm family; no complete source assertion justified without full text."
+          ],
+          "identifier_or_url": "doi:10.1002/int.22854",
+          "material_read": "Bibliography and abstract/description; entire journal text not confirmed read",
+          "method": "metadata comparison",
+          "title": "Journal DEAM version",
+          "trigger": "Potential revised source with exact latency"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The measured outcome answers a natural specific mechanistic question raised by the algorithm itself: how fast a maximum-conflict detector actually reverses the parameter motion. An exact one-update improvement is narrow but meaningful because backtracking was introduced specifically to correct stale updates; it also exhibits that a full 180-degree warning fails to fix the first stale step. The invariant (integer response latency) is not an arbitrary sliced statistic.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1907.11307v2, Bai–Ren–Zhang, DEAM: Adaptive Momentum with Discriminative Weight for Stochastic Optimization, Algorithm 1 and §3.2",
+    "doi:10.1002/int.22854, DEAM journal version (metadata/abstract; not full-text verified)",
+    "Resultary optimizer query DEAM optimizer backtracking full reversal gradient stale updates directional conflict iteration count angle adaptive momentum"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The longer revised journal article was not read end-to-end; an exact correction-latency formula in it could change priority.",
+    "Only externally imposed stationary scalar equal-magnitude reversal, not neural-network training or arbitrary adaptive learning rates.",
+    "Audit axes are best-of-knowledge scientific assessments; do not imply formal proof, external attestation, or publication readiness."
+  ],
+  "schema_version": 1
+}

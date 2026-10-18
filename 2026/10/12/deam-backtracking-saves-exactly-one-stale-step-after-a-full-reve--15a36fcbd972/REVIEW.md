@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Under a permanent equal-magnitude reversal, the full-conflict branch fixes DEAM's momentum coefficient and backtrack coefficient until the stored momentum changes sign. The second-moment maximum stays constant, so both the momentum and parameter increments satisfy exact scalar recurrences. Their closed forms and interval-certified signs give four stale parameter steps, a fifth-step update reversal, and a sixth-step momentum reversal.
+PASS
 
-Risk: the gradient sequence is externally prescribed and scalar.
+Rebuilt the exact DEAM Algorithm 1 scalar branch at theta=pi: beta=2*pi/[10(2+pi)], a=1-beta, x0=1, y0=-1, x_n=a*x_(n-1)-beta=2a^n-1, y_n=-(1/2)y_(n-1)-x_n as long as x_(n-1)>0. Since x1..x5>0 and x6<0, all five y1..y5 use precisely this branch; fresh independent recurrence gave y1=-0.2555938119, y4=-0.1143728760 and y5=+0.0148684705. Thus exactly four early increments are stale, versus exactly five for no-backtrack increments -x1..-x6. Enclosed beta between values from 3.14159<pi<3.14160; polynomially continuous formulas retain strict margins. No inference about adaptive beta after x6 or convergence on endogenous gradients. The source file verify.py is read, and the separate fresh_math_checks.py recomputation independently replayed the needed transition.
 
-## Originality
+## originality
 
-PASS. The defining paper gives the full-conflict constants and a qualitative midpoint-backtrack explanation, but not the repeated-reversal response. The later journal account retains the qualitative anticipatory-update interpretation. Focused published-record and owned-ledger searches did not locate the exact four-versus-five stale-step law.
+PASS
 
-Residual risk: the recurrence is compact enough that an equivalent calculation may exist in unindexed notes.
+The original DEAM papers specify geometric backtrack and momentum weights; the independently derived exact four-versus-five persistent-reversal latency is not given by those equations as a stated result and does not follow merely from the single-step midpoint geometric illustration. Best-of-knowledge, conditional on source journal-full-text limitation.
 
-## Value
+## value
 
-PASS. The backtrack is one of DEAM's defining mechanisms and is explicitly intended to correct erroneous momentum-driven motion. The strongest directional regime change gives a sharp diagnostic: the backtrack advances sign correction by exactly one step while still leaving four stale updates. This directly quantifies the source mechanism rather than introducing an arbitrary test sequence.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The measured outcome answers a natural specific mechanistic question raised by the algorithm itself: how fast a maximum-conflict detector actually reverses the parameter motion. An exact one-update improvement is narrow but meaningful because backtracking was introduced specifically to correct stale updates; it also exhibits that a full 180-degree warning fails to fix the first stale step. The invariant (integer response latency) is not an arbitrary sliced statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
