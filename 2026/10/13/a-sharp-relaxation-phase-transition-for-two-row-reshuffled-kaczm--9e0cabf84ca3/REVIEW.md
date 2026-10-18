@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact matrix multiplication gives the averaged epoch Gram matrix and the closed-form two-direction envelope. The derivatives show that one direction rises monotonically while the other has one interior minimum; the unique balance-to-stationarity switch follows from the monotone critical cubic. Outside the relaxation interval \((0,2)\), neither update can decrease any vector's norm. The standalone verifier replays symbolic identities, rational matrix checks, and numerical boundary tests. These tests support the explicit algebra; they do not replace the proof.
+## correctness
 
-**Originality — PASS, subject to residual priority uncertainty.** Full-text comparison with Han and Xie, arXiv:2410.01140, identifies fixed ordinary projections and a worst-permutation convergence bound, not the optimal mean-square common-relaxation interval and its parameter-dependent minimax phase. Marshall and Mickelin, arXiv:2202.12224, examine scheduled learning rates with independent noisy sampling; Oswald and Zhou, arXiv:1510.04727, study different reordered SOR bounds. A targeted published-results search returned related order-averaging, delayed Gauss–Seidel, and projection results without an implication covering this exact optimization problem. A detailed equivalent computation in less-indexed older literature remains possible.
+PASS
 
-**Value — PASS.** It resolves a concrete parameter-choice problem for random-reshuffling projection solvers: contrary to the default unrelaxed projection, the sharp worst-case conditional mean-square guarantee is always improved by overrelaxation. The change between directional equilibration and stationary optimization supplies a nontrivial analytic decision boundary, relevant as a benchmark for parameter-selection algorithms. The result is deliberately limited to a single epoch of two planar equations, not an unproved optimal long-run convergence rate.
+Using bisector unit normals (sqrt((1+c)/2), ±sqrt((1-c)/2)), form U=I-omega aa^T, V=I-omega bb^T. Independent symbolic multiplication gives Q=[(VU)^T(VU)+(UV)^T(UV)]/2 diagonal, with trace S_c=c^2 omega^2(2-omega)^2+2(omega-1)^2 and diagonal difference D_c=c omega(omega-2)(c^2 omega^2-2omega+2); hence the largest eigenvalue is (S_c+|D_c|)/2. For omega outside (0,2) each relaxed projection has least singular value >=1. On [1,2], first Q diagonal entry is strictly increasing, while the other decreases then increases and has a unique stationary minimum F_c=0. The cross-over c^2 omega^2-2omega+2=0 occurs only for c<1/sqrt2. Substituting omega=1+t^2/2,c=t/(1+t^2/2) into F_c yields t(t^3+3t^2/2-1); its unique root defines c0=0.55111240553326. Direct symbolic Q and numerical local scans on both sides independently verify the claimed piecewise unique minimizer; analytic monotonicity proves all c,omega, not the finite scans.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS best of knowledge. Han–Xie arxiv:2410.01140 analyzes ordinary unrelaxed uniform reshuffling and a worst-permutation contraction bound; the new objective is the sharp expected-square supremum for a shared variable relaxation over two orderings. Oswald–Zhou studies reshuffled SOR/Kaczmarz under generic spectral bounds and Marshall–Mickelin optimized independently sampled noisy steps, not the exact two-direction envelope or crossover between minimax mechanisms.
+
+## value
+
+PASS
+
+The familiar omega=1 projection is never the sharp one-epoch expected-square best choice for two nonparallel rows; over-relaxation strictly improves it. The explicit switch between eigen-direction equalization and interior stationarity is a nontrivial parameter-selection theorem for a canonical minimum-size randomized reshuffling system, beyond a routine textbook one-step optimization. It does not claim asymptotic many-epoch optimality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

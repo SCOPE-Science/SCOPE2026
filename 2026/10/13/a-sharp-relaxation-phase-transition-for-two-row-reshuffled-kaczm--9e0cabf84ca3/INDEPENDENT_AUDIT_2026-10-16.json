@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T19:12:39.380080Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Using bisector unit normals (sqrt((1+c)/2), ±sqrt((1-c)/2)), form U=I-omega aa^T, V=I-omega bb^T. Independent symbolic multiplication gives Q=[(VU)^T(VU)+(UV)^T(UV)]/2 diagonal, with trace S_c=c^2 omega^2(2-omega)^2+2(omega-1)^2 and diagonal difference D_c=c omega(omega-2)(c^2 omega^2-2omega+2); hence the largest eigenvalue is (S_c+|D_c|)/2. For omega outside (0,2) each relaxed projection has least singular value >=1. On [1,2], first Q diagonal entry is strictly increasing, while the other decreases then increases and has a unique stationary minimum F_c=0. The cross-over c^2 omega^2-2omega+2=0 occurs only for c<1/sqrt2. Substituting omega=1+t^2/2,c=t/(1+t^2/2) into F_c yields t(t^3+3t^2/2-1); its unique root defines c0=0.55111240553326. Direct symbolic Q and numerical local scans on both sides independently verify the claimed piecewise unique minimizer; analytic monotonicity proves all c,omega, not the finite scans.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Oswald–Zhou Theorem 1 bounds relaxed iteration in terms of spectral/condition data; Marshall–Mickelin treats independent noisy row sampling."
+        ],
+        "reasoning": "A general convergence bound or optimal scheduled learning rate for a different sampling scheme is not a dominating theorem for the present exact two-row one-epoch expectation frontier.",
+        "searches": [
+          "arxiv:1510.04727 random reordering SOR type relaxation",
+          "arxiv:2202.12224 optimal scheduled learning rate randomized Kaczmarz"
+        ]
+      },
+      "checked_sources": [
+        "Han–Xie arxiv:2410.01140 full HTML",
+        "Oswald–Zhou arxiv:1510.04727 PDF",
+        "Marshall–Mickelin arxiv:2202.12224 PDF intro",
+        "Resultary and targeted two-row relaxation search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Han–Xie controls every permutation under omega=1; Oswald–Zhou gives relaxation-dependent upper bounds, not exact worst-e initial-error mean square for two equally likely permutations."
+        ],
+        "reasoning": "Taking n=2 in general inequalities does not certify tightness, an equality-branch switch or the unique optimal omega; the latter requires the explicit 2x2 Gram calculation.",
+        "searches": [
+          "arxiv:2410.01140 §§2–3 convergence for all permutations",
+          "arxiv:1510.04727 Theorem 1 SOR general omega"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Han–Xie 2024 uses unrelaxed projection and worst-permutation metric; Oswald–Zhou 2015/2016 uses SOR/Kaczmarz algebra with omega but gives broad ordering-dependent bounds."
+        ],
+        "reasoning": "Even under the SOR equivalence, neither compared statement gives exact eigenvalues of the two-order averaged error Gram or optimizes its largest eigenvalue over a common relaxation at fixed row correlation.",
+        "searches": [
+          "two row randomized reshuffling Kaczmarz optimal common relaxation expected squared epoch contraction phase transition",
+          "\"randomized reshuffling Kaczmarz\" \"relaxation\" two equations optimal"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The searched published records have convergence inequalities, not a table of sharp c0 and piecewise optimal omega for every c."
+        ],
+        "reasoning": "The transition involves solving a nontrivial cubic sign change; it is not a known fixed numerical table or unmotivated two-point evaluation; lack of matches alone does not prove originality.",
+        "searches": [
+          "two row randomized reshuffling Kaczmarz optimal common relaxation expected squared epoch contraction phase transition",
+          "reshuffled Kaczmarz two-row exact expected norm relaxation table"
+        ]
+      },
+      "rationale": "PASS best of knowledge. Han–Xie arxiv:2410.01140 analyzes ordinary unrelaxed uniform reshuffling and a worst-permutation contraction bound; the new objective is the sharp expected-square supremum for a shared variable relaxation over two orderings. Oswald–Zhou studies reshuffled SOR/Kaczmarz under generic spectral bounds and Marshall–Mickelin optimized independently sampled noisy steps, not the exact two-direction envelope or crossover between minimax mechanisms.",
+      "residual_risks": [
+        "An exact n=2 specialization hidden in old shuffled-SOR papers or other algebraic optimizer literature may duplicate the branch formula.",
+        "No claim of the exact long-run Lyapunov-optimal relaxation; system is two planar independent unit rows only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fixed ordinary projections and worst-permutation guarantees; no claimed relaxation phase formula",
+          "evidence": "Definition of randomized order and mean-square/worst-permutation bound §§2–3",
+          "identifier_or_url": "https://arxiv.org/html/2410.01140",
+          "material_read": "Full accessible primary HTML, algorithm description in §2 and main convergence estimates in §§2–3",
+          "method": "arXiv HTML full document text/section reading",
+          "title": "A simple linear convergence analysis of the randomized reshuffling Kaczmarz method",
+          "trigger": "primary 2024 exact random reshuffling model"
+        },
+        {
+          "assessment": "Contains relaxation omega and shuffled SOR, but bounds via triangular truncation; no equivalent c-dependent exact minimizer identified in inspected material",
+          "evidence": "Theorem 1 Eq.(2), general relaxed convergence and order discussion",
+          "identifier_or_url": "https://arxiv.org/pdf/1510.04727",
+          "material_read": "12-page primary PDF, introduction and Sections 1–2, Theorem 1 and convergence bounds",
+          "method": "arXiv PDF primary text reading",
+          "title": "Random Reordering in SOR-Type Methods",
+          "trigger": "older relaxed Kaczmarz/SOR equivalence and related optimal parameters"
+        },
+        {
+          "assessment": "Independent row sampling, noise and scheduled rates; incomplete whole-document priority comparison",
+          "evidence": "arxiv:2202.12224, introductory problem statement",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.12224",
+          "material_read": "Primary 19-page preprint, introduction and Theorem 1.1 hypotheses and rate schedule; not the whole document",
+          "method": "arXiv PDF abstract/introduction reading",
+          "title": "An optimal scheduled learning rate for a randomized Kaczmarz algorithm",
+          "trigger": "potential stronger optimized-rate comparator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The familiar omega=1 projection is never the sharp one-epoch expected-square best choice for two nonparallel rows; over-relaxation strictly improves it. The explicit switch between eigen-direction equalization and interior stationarity is a nontrivial parameter-selection theorem for a canonical minimum-size randomized reshuffling system, beyond a routine textbook one-step optimization. It does not claim asymptotic many-epoch optimality.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Han–Xie arxiv:2410.01140 full HTML",
+    "Oswald–Zhou arxiv:1510.04727 PDF",
+    "Marshall–Mickelin arxiv:2202.12224 PDF intro",
+    "Resultary and targeted two-row relaxation search"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "An exact n=2 specialization hidden in old shuffled-SOR papers or other algebraic optimizer literature may duplicate the branch formula.",
+    "No claim of the exact long-run Lyapunov-optimal relaxation; system is two planar independent unit rows only."
+  ],
+  "schema_version": 1
+}
