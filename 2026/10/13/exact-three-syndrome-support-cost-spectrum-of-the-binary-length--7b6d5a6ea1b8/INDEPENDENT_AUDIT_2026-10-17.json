@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T19:20:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In F16=F2[t]/(t^4+t+1), alpha=t has order 15; fifteen binary check columns (alpha^i,alpha^-i) define the 8-dimensional syndrome image of this code. Every binary 3-space has a unique echelon basis; the Gaussian coefficient [8 choose 3]_2=97155. For each space its support cost is the smallest cardinality of a subset of check columns with a containing F2 span; containment of all eight syndrome vectors is equivalent to W being contained. An independent C++ exhaustive enumerator constructs all coordinate spans of sizes 3..7 and all 97155 distinct RREF three-spaces. It reproduces the exact histogram (330,6510,39885,49230,1200) at costs 3..7 and checks no missing cases. The result is finite-only and does not establish an infinite family.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Xiong arXiv:2608.29906 and Luo et al. DOI 10.1109/TIT.2026.3733076 discuss generalized Melas radii; published Ideosphere 2026 analysis establishes maximum three-syndrome cost 7 for this code."
+        ],
+        "reasoning": "Radius 7 establishes polynomial degree and the existence of nonzero z^7 coefficient, but does not imply the histogram or the 1200 maximizers. No inspected statement supplies a dominating full cost distribution.",
+        "searches": [
+          "Resultary semantic: binary Melas code length fifteen three-dimensional syndrome subspaces minimum coordinate support size distribution covering radius 7 1200",
+          "https://ideosphere.ai/papers/melas-covrad",
+          "arXiv:2608.29906"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/exact-three-syndrome-support-cost-spectrum-of-the-binary-length--7b6d5a6ea1b8/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/exact-three-syndrome-support-cost-spectrum-of-the-binary-length--7b6d5a6ea1b8/VERIFICATION.md",
+        "Resultary semantic: binary Melas code length fifteen three-dimensional syndrome subspaces minimum coordinate support size distribution covering radius 7 1200",
+        "https://ideosphere.ai/papers/melas-covrad",
+        "arXiv:2608.29906"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier exact radius 7 is compatible with infinitely many different five-level spectra; the independent complete RREF count provides coefficients 330/6510/39885/49230/1200."
+        ],
+        "reasoning": "The candidate strictly refines prior maximum-only information; established bounds cannot determine multiplicities without additional enumeration or structural work.",
+        "searches": [
+          "Resultary semantic: binary Melas code length fifteen three-dimensional syndrome subspaces minimum coordinate support size distribution covering radius 7 1200",
+          "https://ideosphere.ai/papers/melas-covrad",
+          "arXiv:2608.29906"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "minimum simultaneous syndrome support = minimal column-spanning subset = generalized coset support cost; ordered bases would count each 3-space 168 times"
+        ],
+        "reasoning": "The quantity is the Gaussian-normalized entire polynomial over W<=F2^8, not just the generalized covering radius. A change to ordered triples multiplies each coefficient by |GL(3,2)|=168, without supplying unknown coefficients.",
+        "searches": [
+          "Resultary semantic: binary Melas code length fifteen three-dimensional syndrome subspaces minimum coordinate support size distribution covering radius 7 1200",
+          "https://ideosphere.ai/papers/melas-covrad",
+          "arXiv:2608.29906"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Melas generalized-covering analyses and Resultary semantic searches for Melas syndrome subspace support-cost distribution returned no exact five-level table matching the 97155-space normalization."
+        ],
+        "reasoning": "The finite field polynomial, column normalization, and full space count distinguish this census from coset-leader weight tables and generalized Hamming weights; an unindexed table remains possible.",
+        "searches": [
+          "Resultary semantic: binary Melas code length fifteen three-dimensional syndrome subspaces minimum coordinate support size distribution covering radius 7 1200",
+          "https://ideosphere.ai/papers/melas-covrad",
+          "arXiv:2608.29906"
+        ]
+      },
+      "rationale": "On inspected evidence this exact final claim is not a mere restatement or implication of a known stronger theorem; all four formal comparisons below and material primary-source inspections distinguish what is already known. Originality is best-of-knowledge, not independence or certification.",
+      "residual_risks": [
+        "The relevant IEEE and arXiv manuscripts were not inspected in entirety; an appendix or unindexed coset-support enumerator could imply this exact spectrum.",
+        "The proof is an exhaustive certificate only for m=4, length=15; no asymptotic classification claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MAXIMUM_RADIUS_PRIOR; no observed 3-space cost histogram",
+          "evidence": [
+            "Published maximum 7, not a statement of each of 97155 subspaces by cost"
+          ],
+          "identifier_or_url": "https://ideosphere.ai/papers/melas-covrad",
+          "material_read": "Published HTML theorem/intro and proof discussion for m=4, t=3, including exact radius 7",
+          "method": "opened full HTML page and read theorem/results and supporting text",
+          "title": "The generalized covering radii of Melas codes at t>=3: exact values and finite geometric structure",
+          "trigger": "Same code and radius"
+        },
+        {
+          "assessment": "ABSTRACT_ONLY_RISK; no whole-document noncoverage assertion",
+          "evidence": [
+            "Source uses binary Melas check columns and studies generalized radii"
+          ],
+          "identifier_or_url": "arXiv:2608.29906",
+          "material_read": "Accessible abstract and bibliographic citation, not complete primary manuscript",
+          "method": "web abstract and frozen RESULT.md citation",
+          "title": "The generalized covering radii of Melas codes",
+          "trigger": "Same object and code construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the complete distribution of a natural generalized-covering invariant of the fixed binary length-15 Melas code, a useful code-theoretic object. Knowing only generalized covering radius 7 gives neither number of radius-maximizing three-syndrome subspaces (1200) nor intermediate support costs; a practitioner studying simultaneous error patterns may need each coefficient. It is a motivated complete finite classification, not a replacement for the published maximum radius.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/exact-three-syndrome-support-cost-spectrum-of-the-binary-length--7b6d5a6ea1b8/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/exact-three-syndrome-support-cost-spectrum-of-the-binary-length--7b6d5a6ea1b8/VERIFICATION.md",
+    "Resultary semantic: binary Melas code length fifteen three-dimensional syndrome subspaces minimum coordinate support size distribution covering radius 7 1200",
+    "https://ideosphere.ai/papers/melas-covrad",
+    "arXiv:2608.29906",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/exact-three-syndrome-support-cost-spectrum-of-the-binary-length--7b6d5a6ea1b8/METADATA.json"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The relevant IEEE and arXiv manuscripts were not inspected in entirety; an appendix or unindexed coset-support enumerator could imply this exact spectrum.",
+    "The proof is an exhaustive certificate only for m=4, length=15; no asymptotic classification claimed."
+  ],
+  "residual_risks": [
+    "The relevant IEEE and arXiv manuscripts were not inspected in entirety; an appendix or unindexed coset-support enumerator could imply this exact spectrum.",
+    "The proof is an exhaustive certificate only for m=4, length=15; no asymptotic classification claimed."
+  ],
+  "schema_version": 1
+}

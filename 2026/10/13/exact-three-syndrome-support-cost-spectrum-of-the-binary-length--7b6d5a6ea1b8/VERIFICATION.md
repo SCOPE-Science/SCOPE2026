@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Compile `verify.cpp` with a C++17 compiler, for example `g++ -O2 -std=c++17 verify.cpp -o verify`, and invoke `./verify`. No external mathematical libraries or input datasets are needed.
+## correctness
 
-The deterministic run enumerates the multiplicative cyclic group of the sixteen-element field, constructs all fifteen check columns, the XOR-closed syndrome spans of each coordinate subset of size three through seven, and all unique echelon bases of dimension-three subspaces of the eight-dimensional binary syndrome space. An exact four-word 256-bit containment test determines the least feasible subset size for each space.
+PASS
 
-Observed complete output:
+In F16=F2[t]/(t^4+t+1), alpha=t has order 15; fifteen binary check columns (alpha^i,alpha^-i) define the 8-dimensional syndrome image of this code. Every binary 3-space has a unique echelon basis; the Gaussian coefficient [8 choose 3]_2=97155. For each space its support cost is the smallest cardinality of a subset of check columns with a containing F2 span; containment of all eight syndrome vectors is equivalent to W being contained. An independent C++ exhaustive enumerator constructs all coordinate spans of sizes 3..7 and all 97155 distinct RREF three-spaces. It reproduces the exact histogram (330,6510,39885,49230,1200) at costs 3..7 and checks no missing cases. The result is finite-only and does not establish an infinite family.
 
-```
-COUNT 97155
-HIST 3:330 4:6510 5:39885 6:49230 7:1200
-WITNESS 81,2,4
-VERIFY_OK
-```
+## originality
 
-A separately written subset-first enumeration produced the same histogram. The checksum and packaging check applies to the embedded code text; the verifier certificate concerns exact finite enumeration, not an infinite family or independent scientific audit. The already published generalized covering radius seven is not being claimed anew.
+PASS
+
+On inspected evidence this exact final claim is not a mere restatement or implication of a known stronger theorem; all four formal comparisons below and material primary-source inspections distinguish what is already known. Originality is best-of-knowledge, not independence or certification.
+
+## value
+
+PASS
+
+This is the complete distribution of a natural generalized-covering invariant of the fixed binary length-15 Melas code, a useful code-theoretic object. Knowing only generalized covering radius 7 gives neither number of radius-maximizing three-syndrome subspaces (1200) nor intermediate support costs; a practitioner studying simultaneous error patterns may need each coefficient. It is a motivated complete finite classification, not a replacement for the published maximum radius.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
