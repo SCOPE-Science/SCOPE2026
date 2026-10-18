@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T03:50:09Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all four positive real weights and common p in (0,1), normalize/order weights. Every subset-sum collision is a dot product with one of 40 normals in {-1,0,1}^4 modulo sign. Intersections of up to three normals and ordered-simplex boundary planes yield 12 distinct exact-rational vertices and exactly 23 attainable positive collision coefficient patterns. Independently executed classify4.py and verified 40 normals, 12 vertices, 3327 subspaces, 23 patterns, all with representatives <=8. Every resulting probability q_s(p) is a four-term Bernstein polynomial; H″=-Σ_s (q″log q+(q′)^2/q). For 0<p<=1e-4, q_s>=p^4, Σ|q″|<=192, and Fisher-information lower bound 4(1-p)^2/p imply strict negative curvature. On [1e-4,1/2] the supplied complete outward-rounded mpmath.iv interval checker rigorously encloses H″ for each pattern, bisecting undecided boxes until strict negative upper bounds; independently ran full code with mpmath 1.3.0 and reproduced 1,129 visited interval nodes across 23 patterns, maximum depth five. Symmetry H(p)=H(1-p) gives (1/2,1), endpoint continuity strict concavity on [0,1]. Computational continuum certificates are substantive proof ingredients, not finite sample extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lead conjecture all n remains open; four-weight case is the first unknown stage after three-weight proofs in the discussion.",
+          "Standard entropy concavity for unit weights cannot identify arbitrary subset-sum collision grouping."
+        ],
+        "reasoning": "The all-n conjecture dominates this case only as an *unproved conjecture*, not an existing theorem. No established broadly covering weighted result was found in inspected materials.",
+        "searches": [
+          "arXiv:2609.05546 Conjecture 3.1",
+          "MathOverflow 514729 answer by Amir",
+          "Shepp–Olkin theorem Bernoulli 2017"
+        ]
+      },
+      "checked_sources": [
+        "Tree 4fdf8c5bcee2796f2e6fa576ad93bb9c09669164, RESULT blob 080d309081ccf654228406e26c60d94bad6bf338",
+        "Git scripts classify4.py sha 3a4c85ea5b82e985cd67b72102ad6353afafd09f and curvature4.py sha 093624ddba1f4034cf4a20a165d39340a8d27d39 inspected, full independent invocation succeeded",
+        "Primary arXiv html plus MathOverflow discussion plus Resultary semantic hits"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Conjectured four-summand strict concavity does not count as a prior proof.",
+          "Seven individual analytic cases plus numerical tests of remaining cases are not universal certification over real p.",
+          "Interval enclosure covers every p in a compact continuum for each of the 23 equality patterns."
+        ],
+        "reasoning": "Proof of C depends on actual runnable exhaustive classification and interval enclosures; known partial cases and numerical plots cannot imply strict curvature for all p.",
+        "searches": [
+          "Neunhäuserer arXiv:2609.05546 Conjecture 3.1 and cases",
+          "MathOverflow 514729 answer last revised 2026-09-15",
+          "Hillion–Johnson Shepp–Olkin proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "MathOverflow recognizes 23 collision patterns, seven proved analytically and remaining tested numerically as of revision; this covers the pattern census, not uniform rigorous curvature.",
+          "Shepp–Olkin concerns unit-weight sum of Bernoulli trials, not arbitrary four real positive weights."
+        ],
+        "reasoning": "A rigorously proven four-weight case is stronger than earlier pattern enumeration and unproved numerical tests. Avoid crediting the known 23 count as novel.",
+        "searches": [
+          "Resultary semantic: four weighted Bernoulli equal probability parameter Shannon entropy concavity 23 collision patterns",
+          "Neunhäuserer arXiv:2609.05546 full HTML",
+          "MathOverflow question 514729 2026-09-15 answer",
+          "Hillion–Johnson Shepp–Olkin 2017"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published/forum pattern count of 23 is explicitly known prior; therefore the count itself is not claimed novel.",
+          "No exact rigorously certified 23-pattern curvature table/proof was available in inspected discussion at dated update."
+        ],
+        "reasoning": "This work upgrades known finite exploratory pattern data to an exhaustive continuum interval certificate; distinguish known patterns from new sign proof.",
+        "searches": [
+          "MathOverflow 514729 23 patterns and numerical tests",
+          "Resultary searches for four weighted Bernoulli entropy strict concavity"
+        ]
+      },
+      "rationale": "The 2026 Neunhäuserer preprint states the full positive-weight Bernoulli concavity conjecture and proves certain extremal weight regimes; MathOverflow answer updated September 15 counts the same 23 four-weight collision patterns but proves only seven analytically and numerically tests the rest. The current work supplies reproducible rigorous interval certifications of all 23, strengthening prior numerical experiments. Shepp–Olkin equal-weight result does not imply arbitrary unequal weights with collisions. Best-of-knowledge risk: subsequently updated preprints or unindexed discussions may supply proof.",
+      "residual_risks": [
+        "The compact-interval sign proof relies on correct operation of mpmath.iv 1.3.0 as an outward-rounded enclosure, not a formal proof assistant.",
+        "A newer preprint revision or forum proof after 2026-09-15 could affect priority.",
+        "No n>=5 nor distinct-parameter concavity claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR conjecture and selected cases; no all-four-weight proof in inspected version",
+          "evidence": "General n conjecture supplies motivation, not proof; note potential revision risk.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.05546",
+          "material_read": "Full lawful arXiv HTML: conjecture statement, proved extremal regimes and parameter interpretation",
+          "method": "arXiv full HTML",
+          "title": "Recursive overlap Bernoulli distributions and an entropy concavity conjecture",
+          "trigger": "Same weighted Bernoulli conjecture and possible updated theorem"
+        },
+        {
+          "assessment": "PRIOR 23-pattern classification and partial proof; no full interval proof as of read revision",
+          "evidence": "Do not claim novelty for 23-pattern count; rigorous all-case certification is the contribution.",
+          "identifier_or_url": "https://mathoverflow.net/questions/514729/",
+          "material_read": "Complete public question and substantive answer updated 2026-09-15: 23 patterns, 7 analytically proven and other cases numerically tested",
+          "method": "Public MathOverflow full page reading",
+          "title": "A recursive overlap construction of finite Bernoulli-sum laws and an entropy-concavity conjecture",
+          "trigger": "Exact pattern list / forum progress toward four-case proof"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A concrete open conjecture stage (four weights), naturally motivated collision-pattern boundary, rigorously resolves all positive weights with uniform strictness. The 23-pattern exact combinatorial exhaustiveness and outward-rounded interval certificate are nontrivial; not merely numerical sampling or classical unweighted entropy concavity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Tree 4fdf8c5bcee2796f2e6fa576ad93bb9c09669164, RESULT blob 080d309081ccf654228406e26c60d94bad6bf338",
+    "Git scripts classify4.py sha 3a4c85ea5b82e985cd67b72102ad6353afafd09f and curvature4.py sha 093624ddba1f4034cf4a20a165d39340a8d27d39 inspected, full independent invocation succeeded",
+    "Primary arXiv html plus MathOverflow discussion plus Resultary semantic hits"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "The compact-interval sign proof relies on correct operation of mpmath.iv 1.3.0 as an outward-rounded enclosure, not a formal proof assistant.",
+    "A newer preprint revision or forum proof after 2026-09-15 could affect priority.",
+    "No n>=5 nor distinct-parameter concavity claimed."
+  ],
+  "schema_version": 1
+}

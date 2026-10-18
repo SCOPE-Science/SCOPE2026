@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is quantified over every quadruple of strictly positive real weights and every common Bernoulli parameter. The probability coefficients are exact subset-count integers. Classification is exhaustive because every collision lies on one of 40 homogeneous hyperplanes; the ordered weight simplex and their intersections give 23 exact patterns. The small-parameter proof bounds the entropy-curvature log term and the Fisher-information term independently. For the remaining compact interval, outward-rounded interval boxes establish strict negative upper bounds for all 23 patterns, including collision endpoints; 1,129 nodes were visited, and the results replayed from the actual source files. Reflection and continuity complete the proof. The computational component certifies continuum inequalities, not samples.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The 2026 lead preprint poses the entropy-concavity problem. The author's MathOverflow question and its publicly revised answer explicitly report full numerical evidence for the 23 four-weight patterns but analytic proofs for only seven. The new complete certified inequality goes strictly beyond these results, and beyond the unit-weight Shepp–Olkin theorem. The full lead preprint was not obtainable, so overlapping detailed results or an unindexed equivalent remain possible. Semantic searches of published mathematical records and the prior local claim ledger located no implication covering the four-weight theorem.
+PASS
 
-## Value — PASS
-This proves the first complete previously unresolved summand count after the three-weight solution, with arbitrary real positive weights, not an arbitrary isolated example or a known special case. The ordered-cone enumeration also supplies a reusable exact finite classification mechanism for colliding subset sums. The result does not settle the unbounded-number-of-summands conjecture.
+For all four positive real weights and common p in (0,1), normalize/order weights. Every subset-sum collision is a dot product with one of 40 normals in {-1,0,1}^4 modulo sign. Intersections of up to three normals and ordered-simplex boundary planes yield 12 distinct exact-rational vertices and exactly 23 attainable positive collision coefficient patterns. Independently executed classify4.py and verified 40 normals, 12 vertices, 3327 subspaces, 23 patterns, all with representatives <=8. Every resulting probability q_s(p) is a four-term Bernstein polynomial; H″=-Σ_s (q″log q+(q′)^2/q). For 0<p<=1e-4, q_s>=p^4, Σ|q″|<=192, and Fisher-information lower bound 4(1-p)^2/p imply strict negative curvature. On [1e-4,1/2] the supplied complete outward-rounded mpmath.iv interval checker rigorously encloses H″ for each pattern, bisecting undecided boxes until strict negative upper bounds; independently ran full code with mpmath 1.3.0 and reproduced 1,129 visited interval nodes across 23 patterns, maximum depth five. Symmetry H(p)=H(1-p) gives (1/2,1), endpoint continuity strict concavity on [0,1]. Computational continuum certificates are substantive proof ingredients, not finite sample extrapolation.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The 2026 Neunhäuserer preprint states the full positive-weight Bernoulli concavity conjecture and proves certain extremal weight regimes; MathOverflow answer updated September 15 counts the same 23 four-weight collision patterns but proves only seven analytically and numerically tests the rest. The current work supplies reproducible rigorous interval certifications of all 23, strengthening prior numerical experiments. Shepp–Olkin equal-weight result does not imply arbitrary unequal weights with collisions. Best-of-knowledge risk: subsequently updated preprints or unindexed discussions may supply proof.
+
+## value
+
+PASS
+
+A concrete open conjecture stage (four weights), naturally motivated collision-pattern boundary, rigorously resolves all positive weights with uniform strictness. The 23-pattern exact combinatorial exhaustiveness and outward-rounded interval certificate are nontrivial; not merely numerical sampling or classical unweighted entropy concavity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
