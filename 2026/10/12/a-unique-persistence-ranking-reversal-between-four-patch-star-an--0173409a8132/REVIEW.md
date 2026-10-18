@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite CTMC backward equations have a uniquely solvable transient block for every positive colonization rate. The four claimed rational solutions are reconstructed by exact elimination at 24 distinct positive integer rates; Cramer's-rule degree bounds turn this into an all-real-rate polynomial-identity certificate. Six differences are checked coefficientwise. All but one relevant comparison factor into polynomials with positive coefficients, and the sole varying sign is controlled by an eighth-degree polynomial with exactly one Descartes sign change and opposite exact values at 5 and 6. The claim does not depend on floating-point experimentation. The checker is a Python 3 standard-library script.
+PASS
 
-## Originality — PASS, with residual risk
+The continuous-time 4-site contact process with death rate 1 and birth rate lambda times infected neighbors has 15 transient states and exact backward matrix (|U|+lambda b(U))t_U-sum_deaths t_{U-v}-lambda sum_births counts*t_{U+w}=1. Independent Fraction Gaussian elimination at 24 distinct rates lambda=1,...,24 on both star and path confirmed each displayed rational Sc, Sl, Pi, Pe. Cramer's polynomial degree <=23 for each candidate cross-multiplied identity and 24 distinct roots establishes the rational formulas for ALL real lambda>0, not just sample interpolation. Difference signs are algebraic; Sl-Pi=lambda*Q(lambda)/(6*A*C) with Q(z)=108z^8+309z^7-1592z^6-9631z^5-21648z^4-26628z^3-19080z^2-7560z-1296; Q(5)<0,Q(6)>0 and one sign change implies unique positive zero rho~5.1709113956. Sc always top and Pe always bottom, with Pi>Sl for lambda<rho and reverse above; finite extinction mean follows transient finite CTMC absorption. No global conclusion for other sizes, rate heterogeneity or alternate dynamics.
 
-Mountford et al. (arXiv:1203.2972) establish asymptotic contact-process extinction theory, not the finite four-patch single-site ordering. Barbillon et al. (arXiv:1404.4287), inspected in its full open-access text, use discrete-generation extinction-then-colonization and mainly fully occupied starts, rather than these continuous-time four-site single-source comparisons. Van de Bovenkamp and Van Mieghem (DOI:10.1103/PhysRevE.92.032806) provide general exact finite-state methodology and announced formulas for complete graphs and stars; that article's full text remained inaccessible. Its star result may anticipate a subset of our formulas, while its abstract does not supply the path comparison or unique switching polynomial. Previously unindexed exact small-network calculations remain possible; this review does not claim that failed searches prove novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The initial introduction site is a genuine ecological decision variable, often distinct from background-network connectivity. The theorem classifies the complete fixed-size, fixed-edge comparison at the first tree order admitting two topologies and gives a qualitative colonization-dependent switch: weak colonization favors an internal source on a path over a peripheral star source; strong colonization reverses that conclusion. These are precise structural boundary conditions for rescue/reintroduction models, rather than an arbitrary isolated computed number. The result does not claim practical superiority outside the specified homogeneous four-patch model.
+Previously published SIS survival time on complete graphs and stars can overlap the star component, and general finite-state backward methods are classical. Mountford et al. study full-occupancy large-tree extinction and Barbillon et al. use a distinct discrete-generation model. Their statements do not provide the whole four-source joint star-versus-path order and unique crossover. The van de Bovenkamp–Van Mieghem full article remains inaccessible; acknowledge potential formula overlap without declaring whole-document noncoverage.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Order four is the first connected tree order having distinct star and path topologies. At that minimal meaningful boundary, single-patch introduction site is a natural controllable ecological variable. A unique rate-dependent exchange between star-leaf and path-internal sources gives a complete nontrivial qualitative phase diagram, beyond merely computing 4 rational expectations; claim is limited to the homogenous contact-process formulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

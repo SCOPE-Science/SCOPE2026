@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T22:07:26.939936Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/12/a-unique-persistence-ranking-reversal-between-four-patch-star-an--0173409a8132/RESULT.md",
+        "2026/10/12/a-unique-persistence-ranking-reversal-between-four-patch-star-an--0173409a8132/VERIFICATION.md",
+        "scope_worker_08_1283_checks.py"
+      ],
+      "rationale": "The continuous-time 4-site contact process with death rate 1 and birth rate lambda times infected neighbors has 15 transient states and exact backward matrix (|U|+lambda b(U))t_U-sum_deaths t_{U-v}-lambda sum_births counts*t_{U+w}=1. Independent Fraction Gaussian elimination at 24 distinct rates lambda=1,...,24 on both star and path confirmed each displayed rational Sc, Sl, Pi, Pe. Cramer's polynomial degree <=23 for each candidate cross-multiplied identity and 24 distinct roots establishes the rational formulas for ALL real lambda>0, not just sample interpolation. Difference signs are algebraic; Sl-Pi=lambda*Q(lambda)/(6*A*C) with Q(z)=108z^8+309z^7-1592z^6-9631z^5-21648z^4-26628z^3-19080z^2-7560z-1296; Q(5)<0,Q(6)>0 and one sign change implies unique positive zero rho~5.1709113956. Sc always top and Pe always bottom, with Pi>Sl for lambda<rho and reverse above; finite extinction mean follows transient finite CTMC absorption. No global conclusion for other sizes, rate heterogeneity or alternate dynamics.",
+      "residual_risks": [
+        "The source model is homogeneous, with exactly one initially occupied vertex and finite 4-vertex trees; no empirical habitat recommendation follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mountford et al. asymptotic extinction results from full occupancy on growing bounded-degree trees.",
+          "2015 PRE article abstract specifically announces exact mean survival for complete/star networks; no path/source-sensitive comparison is stated in abstract.",
+          "Barbillon and collaborators study a discrete-generation seed-exchange dynamics, not this generator."
+        ],
+        "reasoning": "These published frameworks are relevant but do not, on examined material, dominate the joint four-node comparison; inaccessible PRE full text remains a named residual risk.",
+        "searches": [
+          "Mountford et al. arXiv:1203.2972 / SPA 126 (2016)",
+          "van de Bovenkamp & Van Mieghem Phys Rev E 92 032806 (2015)",
+          "Barbillon et al. arXiv:1404.4287"
+        ]
+      },
+      "checked_sources": [
+        "assigned Git tree 4a848137ea73b440aa3c5c1772574f209c6f6c01 and source files",
+        "van de Bovenkamp/Van Mieghem 2015 abstract DOI 10.1103/PhysRevE.92.032806",
+        "Mountford et al. 2016 DOI 10.1016/j.spa.2016.01.001",
+        "Barbillon et al. arXiv:1404.4287",
+        "Resultary semantic 18-hit search for four-node star/path contact process"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known exact star survival formula could yield Sc and Sl, not Pi or Pe absent additional path specialization.",
+          "Full-occupancy or discrete-time results cannot directly imply the four-source order for the different generator."
+        ],
+        "reasoning": "The combined four-rational-function plus one-switch conclusion is not a corollary of identified prior statements; some individual formulas are possibly previously known.",
+        "searches": [
+          "DOI:10.1103/PhysRevE.92.032806",
+          "arXiv:1203.2972",
+          "arXiv:1404.4287"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The transient-contact-process backward generator is the standard SIS embedded-chain hitting-time formula.",
+          "Independent 24-point rational certificate reproduces full four-source comparison in the exact continuous-time model."
+        ],
+        "reasoning": "Aliases SIS/contact process/habitat occupancy use same Markov generator up to time scale. Comparison was against same initial infection source rather than all-infected initial condition; no complete equivalent switching theorem located.",
+        "searches": [
+          "Resultary semantic search: continuous time SIS contact process single initially infected node four node path star extinction time ranking crossover",
+          "SIS contact process vs infection survival hitting time vs patch colonization extinction mean"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A rational 15-state calculation can be fully reproduced from generator, and crossover is the unique positive root of an explicit degree-eight polynomial."
+        ],
+        "reasoning": "No table was located reporting both source-site rankings and this unique crossover. The polynomial sign proof, rather than its decimal root, is the assessed claim.",
+        "searches": [
+          "Resultary semantic search: continuous time SIS contact process single initially infected node four node path star extinction time ranking crossover",
+          "small graph SIS mean extinction exact values star path threshold"
+        ]
+      },
+      "rationale": "Previously published SIS survival time on complete graphs and stars can overlap the star component, and general finite-state backward methods are classical. Mountford et al. study full-occupancy large-tree extinction and Barbillon et al. use a distinct discrete-generation model. Their statements do not provide the whole four-source joint star-versus-path order and unique crossover. The van de Bovenkamp–Van Mieghem full article remains inaccessible; acknowledge potential formula overlap without declaring whole-document noncoverage.",
+      "residual_risks": [
+        "2015 exact-star-survival article full paper unavailable; could cover subset of star results; accessible abstract does not decide path crossover.",
+        "The source model is homogeneous, with exactly one initially occupied vertex and finite 4-vertex trees; no empirical habitat recommendation follows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "POTENTIALLY_OVERLAPPING_STAR_ONLY_UNRESOLVED_FULL_TEXT",
+          "evidence": "Abstract announces exact average survival for K_N and K_{1,N-1}, not four-node path/source crossover.",
+          "identifier_or_url": "DOI:10.1103/PhysRevE.92.032806",
+          "material_read": "Published Phys Rev E abstract describing complete and star graphs, not full article; institutional retrieval blocked",
+          "method": "journal abstract, authorized full-text attempt",
+          "title": "Survival time of the susceptible-infected-susceptible infection process on a graph",
+          "trigger": "Same continuous-time SIS survival on star network"
+        },
+        {
+          "assessment": "DIFFERENT_SCOPE",
+          "evidence": "Full occupancy, larger finite trees, critical-rate asymptotics rather than four-site one-infected ranks.",
+          "identifier_or_url": "arXiv:1203.2972; DOI:10.1016/j.spa.2016.01.001",
+          "material_read": "Publisher full abstract and assumptions; original asymptotic problem statement",
+          "method": "publisher full abstract",
+          "title": "Exponential extinction time of the contact process on finite graphs",
+          "trigger": "Extinction-time theorem possibly stronger"
+        },
+        {
+          "assessment": "DIFFERENT_DYNAMICS",
+          "evidence": "Extinction and colonization occur in discrete generations rather than continuous-time independent transition hazards.",
+          "identifier_or_url": "arXiv:1404.4287; DOI:10.1016/j.jtbi.2014.10.032",
+          "material_read": "Original paper model description and distinct update protocol; complete-text noncoverage not asserted where full not read",
+          "method": "publisher/preprint descriptions",
+          "title": "Network impact on persistence in a finite population dynamic diffusion model",
+          "trigger": "Patch-colonization topological persistence question"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/12/a-unique-persistence-ranking-reversal-between-four-patch-star-an--0173409a8132/RESULT.md",
+        "Resultary semantic 18-hit search for four-node star/path contact process"
+      ],
+      "rationale": "Order four is the first connected tree order having distinct star and path topologies. At that minimal meaningful boundary, single-patch introduction site is a natural controllable ecological variable. A unique rate-dependent exchange between star-leaf and path-internal sources gives a complete nontrivial qualitative phase diagram, beyond merely computing 4 rational expectations; claim is limited to the homogenous contact-process formulation.",
+      "residual_risks": [
+        "2015 exact-star-survival article full paper unavailable; could cover subset of star results; accessible abstract does not decide path crossover.",
+        "The source model is homogeneous, with exactly one initially occupied vertex and finite 4-vertex trees; no empirical habitat recommendation follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "2015 exact-star-survival article full paper unavailable; could cover subset of star results; accessible abstract does not decide path crossover.",
+    "The source model is homogeneous, with exactly one initially occupied vertex and finite 4-vertex trees; no empirical habitat recommendation follows."
+  ],
+  "schema_version": 1
+}
