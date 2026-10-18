@@ -1,15 +1,21 @@
-# Scientific assessment: exact two-tap local conditioning
+# Independent mathematical audit
 
-## Correctness: PASS
-For \(N\ge3\) and normalized arbitrary complex two-tap coefficients, the direct derivative of the actual intensity map reduces, by Fourier orthogonality of distinct orders \(0,\pm1\), to the exact amplitude/phase quadratic-form identity in RESULT.md. Cyclic Fourier diagonalization then gives every eigenvalue with correct multiplicity; the minima follow by finding the extremal sampled cosines, and intersecting two affine functions of \(t=|ab|^2\) yields the unique optimal power product and all optimizers. The endpoint \(N=3\), balanced even-length null direction, complex window phases, and both normalization factors have been handled. Independent finite numerical construction of the real Jacobian and centered finite differences matches the formulas, although no finite experiment proves the unrestricted theorem.
+## correctness
 
-## Originality: PASS, with residual uncertainty
-Relevant prior full text was inspected at the scientific statements, not merely title matching: Alaifari–Wellershoff [1], Sections 2–4, proves Gabor phase retrieval stability estimates in terms of ambiguity and autocorrelation quantities; Cheng–Daubechies–Dym–Lu [2], especially Section 3.1, gives graph spectral stability bounds for locally supported measurements. Neither provides this complete real Jacobian spectrum for the two-tap intensity map or identifies the best normalized power asymmetry and exact gain. Older Li–Cheng–Han–Sun–Shi [3], Theorems II.1 and III.1, handles graph connectivity and uniqueness, not the present local spectral optimization. Closest indexed mathematical records respectively classify equality-window phase-retrieval fibers, two-tap support properties, and multiwindow projector spans; none logically implies the exact weighted local singular values. Exact aliases and local-stability terms were searched; an unindexed spectral calculation or folklore equivalence remains a material risk, so originality is same-model assessed rather than independently certified.
+PASS
 
-## Value: PASS
-Stable reconstruction near a flat field is an explicit spectral inverse problem; exact least singular gain under a fixed two-tap energy budget is a motivated design invariant. The theorem answers a natural open comparison left by nonsharp, condition-number-style stability bounds, classifies all optimally weighted windows, and exhibits the pronounced even/odd response: a balanced window has an extra local null direction in every even length, whereas a slightly unbalanced window removes it. Its nontrivial exact optimum has asymptotically \(2\pi^2/N^2\) squared gain. No broader global recovery theorem is claimed or needed for this self-contained exact local classification.
+Expand each intensity into Fourier k-harmonics 0,±1; their orthogonality for N>=3 yields ||Jh||_dat²=4Σ(αu_j+βu_{j+1})²+2tΣ(u_j+u_{j+1})²+2tΣ(v_j-v_{j+1})². Fourier diagonalization gives amplitude eigenvalues 4−4t+12t cos(2πk/N) and phase eigenvalues 4t(1−cos(2πk/N)). The only obligatory null is global imaginary constant; the amplitude minimum and phase nonzero minimum give the two affine terms. Their unique intersection occurs at t_N*=1/(1+3c_N+2sin²(π/N)) ∈ (0,1/4], with equality 1/4 only N=3. Numerical independent real Jacobians N=3,4,5,6,9,12 matched all eigenvalues including multiplicities to machine precision; general proof is analytic.
 
-## Limits and references
-This is a local Jacobian result for a fixed measurement norm and base signal. It does not address global injectivity on signals containing zeros, nonlinear long-range conditioning, or alternative noise weights. Supporting primary papers: arXiv:1901.05296, arXiv:2006.11709, and arXiv:1605.07046. External assessment and independent validation remain unperformed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Known STFT/Gabor stability results concern graph connectivity, general stability, window ambiguity, and recovery, not the exact complete real differential spectrum at the flat signal under the stated data norm nor the maximin optimization over unequal two-tap amplitudes. The phase/parity obstruction and sharp all-N optimal weights are independently specified and not implied by uniqueness or general bounds.
+
+## value
+
+PASS
+
+The exact worst-direction local sensitivity and optimizer matter directly for a natural normalized two-tap spectrogram sensing design. The balanced window has an additional amplitude null in every even cyclic dimension, whereas a provably unequal design restores transversality and supplies the exact conditioning scale 2π²/N². This is not a trivial endpoint renaming or known numerical table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

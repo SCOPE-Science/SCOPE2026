@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T05:54:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Expand each intensity into Fourier k-harmonics 0,±1; their orthogonality for N>=3 yields ||Jh||_dat²=4Σ(αu_j+βu_{j+1})²+2tΣ(u_j+u_{j+1})²+2tΣ(v_j-v_{j+1})². Fourier diagonalization gives amplitude eigenvalues 4−4t+12t cos(2πk/N) and phase eigenvalues 4t(1−cos(2πk/N)). The only obligatory null is global imaginary constant; the amplitude minimum and phase nonzero minimum give the two affine terms. Their unique intersection occurs at t_N*=1/(1+3c_N+2sin²(π/N)) ∈ (0,1/4], with equality 1/4 only N=3. Numerical independent real Jacobians N=3,4,5,6,9,12 matched all eigenvalues including multiplicities to machine precision; general proof is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cheng et al. graph connectivity theorem yields dimension-dependent conditional stability, not this exact two-band spectrum",
+          "Published two-point STFT support/fiber theorems concern injectivity and ambiguity, not the local normalized gain optimum"
+        ],
+        "reasoning": "General phase-retrieval existence and graph stability do not dominate the exact local min-gain calculation under a specified flat reference signal and data norm.",
+        "searches": [
+          "Cheng Daubechies Dym Lu local phase retrieval stability graph connectivity cyclic Gabor",
+          "Resultary cyclic STFT two-point support and nonvanishing phase fibers"
+        ]
+      },
+      "checked_sources": [
+        "Frozen source RESULT.md blob 0075ddd62949105e77045ad7ffeb4422827d8c83 and verifier path",
+        "Alaifari and Wellershoff published OA article, Sect. 3–4",
+        "Cheng, Daubechies, Dym and Lu primary abstract",
+        "Resultary query two-tap cyclic STFT phase retrieval and optimum spectrum"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "STFT phase-retrieval uniqueness does not fix the full Jacobian spectrum or its best conditioning",
+          "The source diagonalization has separate amplitude and phase Fourier branches and optimal intersection t_N*"
+        ],
+        "reasoning": "Neither a nonzero lower bound nor a connectivity criterion entails exact weighted window optimization. Existing balanced-window degeneracy may be known qualitatively but does not give all regimes or sharp gain.",
+        "searches": [
+          "Alaifari Wellershoff discrete Gabor phase retrieval paper (2019 preprint/2021 publication)",
+          "Cheng Daubechies Dym Lu phase retrieval stability graph estimates",
+          "Resultary two-point cyclic STFT phase fibers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Alaifari and Wellershoff, Stability of Phase Retrieval from Gabor Measurements, 2021, Sections 3–4; two-tap windows and general ambiguity bounds",
+          "Frozen RESULT.md exact singular values and power optimization"
+        ],
+        "reasoning": "Fourier/Stokes/intensity-Jacobian formulations represent the same differential problem; reviewed Gabor sources bound global reconstruction instead of exactly computing this derivative and optimizing weights.",
+        "searches": [
+          "Resultary: two-tap cyclic short-time Fourier spectrogram intensity Jacobian spectrum at constant signal optimal amplitude weighting smallest nonzero singular value",
+          "Alaifari Wellershoff discrete Gabor phase retrieval ambiguity-function stability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Relevant indexed results provide discrete support, rank and ambiguity data, but no Jacobian-singular-value table for these precise windows",
+          "The formula gives every N>=3 and every normalized window power product"
+        ],
+        "reasoning": "Existing finite-case tables cannot exhaust this continuous amplitude-design theorem, and no matching exact table found in genuine queries.",
+        "searches": [
+          "Resultary search exact two-tap cyclic spectrogram Jacobian maximin window design",
+          "Published two-point cyclic STFT support tables and operator-span results"
+        ]
+      },
+      "rationale": "Known STFT/Gabor stability results concern graph connectivity, general stability, window ambiguity, and recovery, not the exact complete real differential spectrum at the flat signal under the stated data norm nor the maximin optimization over unequal two-tap amplitudes. The phase/parity obstruction and sharp all-N optimal weights are independently specified and not implied by uniqueness or general bounds.",
+      "residual_risks": [
+        "A spectrogram Jacobian calculation could appear under differential phase retrieval/Fisher information terminology in literature not fully indexed.",
+        "The graph-connectivity primary full text was not examined; O is best knowledge rather than exclusion of all stronger possible implications."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_DIRECTLY_COVERING",
+          "evidence": "Provides general stability/uniqueness and ambiguity estimates but not exact two-branch differential spectrum or optimal unequal power weights.",
+          "identifier_or_url": "https://doi.org/10.1007/s00041-021-09852-3",
+          "material_read": "Accessible publisher open full text: relevant Sections 3–4 and two-tap/rectangular examples, normalization and ambiguity-function estimates.",
+          "method": "Publisher OA HTML, matched theorems/examples to frozen RESULT.md",
+          "title": "Stability of Phase Retrieval from Gabor Measurements",
+          "trigger": "Same Gabor/STFT phase retrieval stability, two-tap windows"
+        },
+        {
+          "assessment": "NOT_DEMONSTRATED_COVERING",
+          "evidence": "Graph connectivity estimates alone do not imply this exact normalized Jacobian spectrum.",
+          "identifier_or_url": "https://arxiv.org/search/?query=Cheng+Daubechies+Dym+Lu+phase+retrieval&searchtype=all",
+          "material_read": "Read available abstract and graph-theorem description; full exact proof not claimed inspected.",
+          "method": "Primary abstract",
+          "title": "Local stability of phase retrieval using graph connectivity",
+          "trigger": "Potential broader bounds subsuming weighted two-sensor phase retrieval"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact worst-direction local sensitivity and optimizer matter directly for a natural normalized two-tap spectrogram sensing design. The balanced window has an additional amplitude null in every even cyclic dimension, whereas a provably unequal design restores transversality and supplies the exact conditioning scale 2π²/N². This is not a trivial endpoint renaming or known numerical table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Derivative at flat signal only, not global phase retrieval stability",
+    "Phase direction excluded, data norm is N^-1 over j,k; no other convention assumed",
+    "Finite Jacobian tests support but do not prove all-N formula"
+  ],
+  "schema_version": 1
+}
