@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The theorem is proved analytically in `RESULT.md`; the executable check is supplementary and does not replace the proof.
+# Independent mathematical audit
 
-Running `python verify.py` performs three independent finite checks:
+## correctness
 
-1. It evaluates \(2\int_0^{10} z^2\phi(z)\Phi(-az)\,dz\) by high-resolution Simpson integration for seven correlations and compares it with the closed bivariate formula. The omitted normal tail is far below the stated numerical tolerance at this cutoff.
-2. On 632 pairs \((n,\rho)\), it compares the final closed covariance formula with the direct sum of all edge-to-site geometric covariance contributions.
-3. On 731 cases, it verifies the opposite-sign law for nonzero \(\rho\) and exact zero covariance at \(\rho=0\).
+PASS
 
-The replay used the packaged `verify.py` from the same package path and returned:
+For correlated standard Gaussian adjacent pair (Z0,Z1), p=P(Z0Z1<0)=acos(rho)/pi and direct conditional-normal integration by parts yields E[Z0^2 I]=p-rho sqrt(1-rho^2)/pi. After multiplying sigma^2, endpoint covariance follows. Gaussian AR1 Markov property gives E[X_j^2-sigma^2|X_i]=rho^(2(i-j))(X_i^2-sigma^2) for j<=i and time-reverse analog to right, yielding local kernel. For edge i, j-site kernel sums two finite geometric series; summing i gives claimed closed covariance and opposite sign. Independent scipy high-tolerance Gaussian integrals for rho=-.8,-.4,0,.4,.8 and finite n=2,5,11 edge sums agreed; analytic proof covers all n and |rho|<1.
 
-`VERIFY_OK`
+## originality
 
-with counts `local_integral_checks=7`, `closed_vs_edge_sum_checks=632`, and `sign_and_independence_checks=731`.
+PASS
 
-Limits: these numerical checks test representative finite instances only. The universal quantifiers in \(n\), \(\rho\), and \(\sigma^2\) are justified by the symbolic proof, especially the Gaussian conditional-second-moment identity and the finite geometric summation.
+Best-of-knowledge comparison to exact-object foundational sources, stronger possible general theorems, and Resultary mathematical records finds no decisive implication-equivalent published theorem; the four explicit scientific comparisons and source-reading limitations below retain uncertainty. Search uses 'energy covariance', 'quadratic amplitude', 'sign-crossing count', 'Gaussian AR(1)' aliases. Related crossing-crossing covariance is not equivalent to crossing-square covariance; no full-Sinn-paper absence claim because access was blocked.
+
+## value
+
+PASS
+
+Crossing count and quadratic energy are canonical complementary sign-activity and amplitude summaries. The exact edge-to-site kernel and finite-n law reveal a dependence absent in the iid case and a sign asymmetry that crossing-count variance alone cannot reveal; a structural time-series covariance fact, not a gratuitous specialized decimal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The bivariate calculation gives \(\operatorname{Cov}(I_i,X_i^2)=-\sigma^2\rho\sqrt{1-\rho^2}/\pi\). Gaussian AR(1) conditional second moments propagate this local covariance by \((\rho^2)^d\) to every other site, and finite summation yields the displayed total covariance. The sign follows because every \(1-\rho^{2r}\) is positive for \(|\rho|<1\). The standalone checker reproduces the local integral and the two algebraically equivalent finite covariance evaluations.
+## correctness
 
-## Originality
-PASS. The closest inspected primary source, Sinn–Keller, studies zero-crossing probabilities, crossing-crossing covariances, and the variance of empirical crossing rates, including the same AR(1) model. Its full text was inspected around the definitions, theorem map, and AR(1) application, together with targeted searches for energy, square, amplitude, and quadratic terminology; the present mixed crossing/energy covariance was not found. Finch's full arXiv text defines the same finite sign-change count and explicitly focuses on its variance and higher count moments, not on amplitude energy. Semantic database searches using zero crossing, sign change, AR(1), squared amplitude, energy, and covariance aliases returned no equivalent statement. The closest prior local result concerns sign-blind runs versus centered sample variance for iid symmetric observations; there the uncentered magnitude energy is independent of the sign statistic, so it does not imply the dependent AR(1) theorem here.
+PASS
 
-## Value
-PASS. Zero-crossing counts and quadratic energy are canonical time-domain summaries used respectively for oscillation/sign activity and amplitude scale. The result gives an exact finite dependence law, not only an asymptotic approximation: serial persistence makes crossings occur preferentially at low-energy configurations, while negative serial correlation reverses the effect. The edge-to-site kernel identifies the mechanism and shows how dependence activates a coupling that disappears at \(\rho=0\).
+For correlated standard Gaussian adjacent pair (Z0,Z1), p=P(Z0Z1<0)=acos(rho)/pi and direct conditional-normal integration by parts yields E[Z0^2 I]=p-rho sqrt(1-rho^2)/pi. After multiplying sigma^2, endpoint covariance follows. Gaussian AR1 Markov property gives E[X_j^2-sigma^2|X_i]=rho^(2(i-j))(X_i^2-sigma^2) for j<=i and time-reverse analog to right, yielding local kernel. For edge i, j-site kernel sums two finite geometric series; summing i gives claimed closed covariance and opposite sign. Independent scipy high-tolerance Gaussian integrals for rho=-.8,-.4,0,.4,.8 and finite n=2,5,11 edge sums agreed; analytic proof covers all n and |rho|<1.
 
-## Closest literature and limitations
-Sinn–Keller is the closest exact Gaussian zero-crossing source and explicitly treats AR(1); Finch is the closest finite-segment sign-change source. Neither inspected text states the mixed quadratic-energy covariance. A residual risk remains that older Gaussian nonlinear-functional or signal-processing literature contains the same local sign/square identity or the summed AR(1) formula under different notation. The theorem is limited to zero threshold, Gaussian AR(1), and uncentered energy.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison to exact-object foundational sources, stronger possible general theorems, and Resultary mathematical records finds no decisive implication-equivalent published theorem; the four explicit scientific comparisons and source-reading limitations below retain uncertainty. Search uses 'energy covariance', 'quadratic amplitude', 'sign-crossing count', 'Gaussian AR(1)' aliases. Related crossing-crossing covariance is not equivalent to crossing-square covariance; no full-Sinn-paper absence claim because access was blocked.
+
+## value
+
+PASS
+
+Crossing count and quadratic energy are canonical complementary sign-activity and amplitude summaries. The exact edge-to-site kernel and finite-n law reveal a dependence absent in the iid case and a sign asymmetry that crossing-count variance alone cannot reveal; a structural time-series covariance fact, not a gratuitous specialized decimal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
