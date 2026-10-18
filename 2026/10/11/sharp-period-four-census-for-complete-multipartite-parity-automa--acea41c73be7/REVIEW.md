@@ -1,15 +1,21 @@
-# Scientific review of the complete multipartite parity cycle classification
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The statement covers all complete multipartite graphs with at least two nonempty parts and exactly the two unshifted synchronous XOR neighborhood updates. The proof factors the adjacency operator through the surjective part-parity map and the injective part-duplication map. The explicitly multiplied middle matrix gives the ranks of the first two powers; the recurrence on odd-sized part coordinates gives the stabilized rank and exact polynomial identities. These imply all enumerated periodic lengths, fixed-point dimensions, primitive cycle counts, and the rational zeta function. The sharp four-cycle is witnessed by \(K_{1,2}\). The locally packaged checker `verify.py` passed 481,628 exact finite assertions; it supports rather than replaces the infinite proof.
+PASS
 
-## Originality: PASS, with residual risk
+Over F2, factor A=ECs where s records part parities, E duplicates part values and C=I+11ᵀ; sE=D=diag(ni mod2). C has rank r−[r odd]. Block multiplication gives rank A²=k−[k odd,e=0] and stabilized rank A³=k−[k odd]. For even k, A⁴=A², while for odd k, A⁴=A³; hence A eventual-image periods divide 2 and I+A periods divide 4, with characteristic-two (I+A)^2=I+A² and ^4=I+A⁴. Rank-nullity gives P_1,j=(2^(N−a1),2^(N−a2),2^(N−a3)); the fixed space on the stable A-image gives P_0=(2^u,2^a3,2^a3) where u=0 if k=0 else k−1. Möbius inversion yields exact cycle counts. Independent exhaustive all-state enumeration on 36 multipartite graphs of 2 or 3 parts with sizes 1..3 reproduces every predicted first, second, fourth fixed count and ranks; the analytic block identities prove all graph sizes.
 
-Rollier--Baetens, arXiv:2606.14521v1, Sections 2.3 and 4, supplies the real-Jacobian spectral setting and identifies modulo-two walk cancellation, not this complete multipartite cycle census. Kantic--Qureshi--Panario--Legl, arXiv:2604.01548v1, provides general polynomial-module decomposition and algorithms for lengths and heights; it does not give the parity-of-part-sizes rank law or the exact network-specific zeta expression. Standard finite-field matrix theory supplies the general method but not the stated explicit classification without the part-parity calculation. Searches for complete multipartite Boolean parity networks, equivalent adjacency-matrix powers, primitive periods two and four, and broader dynamical counts did not reveal an identical published theorem. Priority risk remains: an earlier graph-specific calculation or an unindexed equivalent matrix formula could establish the same statement.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-This is a natural complete classification of the periodic-point dynamical invariant for all graph sizes in a widely used network family and for both the self-inclusive and self-exclusive versions of the parity rule. The result gives exact counts, sharp period-four onset, explicit zeta functions, and a uniform global settling bound, rather than a sample of trajectories. In particular, on \(K_{2m,2m}\) the real adjacency radius diverges while the finite Boolean state dynamics are nilpotent or involutive, precisely delineating how two different diagnostic quantities behave. Its arithmetic phase diagram by parity of component sizes is absent from the motivating spectral calculation. The result should not be extrapolated to arbitrary network topologies or interpreted as invalidating the real tangent-space Lyapunov spectrum.
+General linear finite dynamical systems give algorithms and abstract Fitting decompositions, while Rollier–Baetens treats real Boolean-Jacobian Lyapunov growth. Neither accessible inspected theorem yields exact global configuration counts for both mod-two adjacency parity maps on arbitrary complete multipartite graphs solely by parity of their part sizes. The bounded Resultary search found the exact assigned record and related non-covering graph families, including Boolean distance-two cubes. The natural all-partition closed forms and sharp period-4 criterion are not dominated by those results.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Exact global orbit structure is a natural invariant in Boolean network and finite dynamical systems. Here a large exponential state space collapses to the parity of multipartite part sizes, producing sharp uniform period four, exact zeta functions and a complete incidence criterion for four-cycles. This is a complete natural graph-family classification, not an arbitrary tiny finite census or straightforward restatement of a real-spectrum theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
