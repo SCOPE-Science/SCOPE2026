@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (C): PASS.** The four equal-length Markov cells give complete twofold expanding coverage along every permitted arrow. The exact matrix identity \(M^n\mathbf1=(n+1,1,1,n+1)^{\mathsf T}\) reconstructs every survival cylinder and proves the survival-length formula without relying on experiments. Subtraction gives the full size-biased geometric first-entrance law. Counting the two initial phases and unique moment of transition into an absorbing recurrent cell proves the conditioned uniform time profile. The geometric comparison phase has a separate direct full-covering argument. The exact-rational checker examines both the transfer matrix and independently pulled-back intervals.
+
+**Originality (O): PASS, with residual risk.** Ding–Steiner–Sun, arXiv:2610.03327v1 (first public 2 October 2026), analyzes negative-doubling survivor sets, topological entropy and dimension plateaux, not Lebesgue finite-time survival. The closest published exact same-hole classification gives periodic points and a zeta function, not survivor-length sums or entrance-time distributions. A second published same-map result treats widths of symbolic parameter plateaux, not statistical escape. Those published RESULT.md documents were read in full. A general Markov transfer-matrix method is classical and expressly not claimed as new; literature might contain an equivalent worked example that was not located.
+
+**Mathematical value (V): PASS.** The parameter \(a=2/5\) is structurally selected by the period-four threshold. The result exposes a Jordan double-pole escape law and asymptotically uniform switching time within a known zero-entropy phase, quantifying transient survival that periodic points alone do not capture. The small-hole geometric regime provides an exact, naturally motivated contrast.
+
+**Limitations.** No claim for intermediate holes \(1/3<a<2/5\), no general quasi-stationary measure theorem, and no independent literature-priority certification. The finite verifier is diagnostic and cannot substitute for the all-\(n\) proof. A technical check of every work ever written on finite Markov holes is impossible.
+
+Self-review: passed. Independent audit: not yet performed.
