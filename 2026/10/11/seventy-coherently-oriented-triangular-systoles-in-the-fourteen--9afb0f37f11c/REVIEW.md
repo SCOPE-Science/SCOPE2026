@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The package independently reconstructs the \(70\)-facet complex, proves \(H_1\cong\mathbb Z\) by integral unimodular reduction, checks a primitive integral cocycle on all \(210\) facial relations, and exhausts every graph triangle. All \(70\) nonfacial triangles evaluate to the same primitive generator in the stated orientation. The cyclic and reflection permutations are checked on the complete facet set, and their carrier orbits and homology actions are computed exactly.
+## correctness
 
-## Originality
-PASS. The full exact-object census and public data establish the manifold, face vector, homology context, and symmetry but not the primitive triangular carrier shell. Focused searches under the original model notation, sphere-bundle aliases, shortest-loop language, empty-triangle language, primitive-generator language, and the numerical fingerprint \(70\) did not locate a covering statement. Current and prior owned ledgers contain related but different sphere-bundle results whose statements do not imply this claim. Full-body access to the originating 1996 paper was unavailable, and that is retained as a residual risk rather than converted into a novelty assertion.
+PASS
 
-## Value
-PASS. The theorem classifies the entire absolute-minimum simple-cycle layer of a classical vertex-transitive five-manifold triangulation and adds a symmetry-compatible orientation theorem: cyclic symmetry fixes the generator while reflection reverses it. This is structural information about the permuted-difference-cycle model, not a routine recomputation of the known homology group.
+PASS: At the frozen Git RESULT.md blob c36009f..., the claim is for one labelled ^5 14^3_8 simplicial S^4×S^1 and simple edge cycles, not arbitrary metrics. Read the complete Git verify.py facet table and unimodular reduction: the 84-edge graph has 13 spanning-tree edges and a rank-71 graph-cycle lattice; 210 facial triangle relations reduce by integer unit pivots to an identity block rank 70 plus zero column, hence H1(Z)=Z without torsion. Explicit integral 1-cocycle annihilates all facial relations and takes +1 on each of the 70 nonfacial oriented 3-cycles. All graph cliques enumerated as 280 with 210 facial, so no shorter graph cycles (girth of a simple cycle >=3), and exactly 70 primitive integral systolic 3-cycles. Shift/reflection checked on full facet set, with 5 translation orbits of 14 and dihedral carrier orbits 14,28,14,14; transported generator action +1/-1. Independently reproduced with a separate finite combinatorial calculation from seven missing antipodal edges and the sparse cocycle: 280 graph triangles with cocycle value 0 for 210 and +1 for 70, and the stated 5/4 orbit sizes. The finite combinatorial census is exhaustive for THIS 14-vertex complex, but no claim of an all-triangulations proof is made. The supplied verification script was inspected rather than executed end-to-end; integer rank computation is reasoned from its explicit unit operations, not accepted from VERIFY_OK alone.
 
-## Closest literature and limitations
-The closest sources are the 1996 Kühnel--Lassmann sphere-bundle construction, the full Köhler--Lutz vertex-transitive census, and the exact public five-manifold facet table. The result is specific to this labelled triangulation and edge-count length. The original 1996 article was bibliographically verified but not available in full text during this check.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: This is not merely the known H1, f-vector or D14 symmetry of the Kühnel–Lassmann / Köhler–Lutz triangulation. It gives integral primitivity of all 70 missing triangles, coherent orientation and exact two symmetry orbit partitions, none supplied by the inspected primary classification table. Resultary returns the same target and distinct low-dimensional triangulations; no stronger implication to the stated exact signed systole census. The originating 1996 article could not be read fully, a material risk recorded without claiming failed searches prove originality.
+
+## value
+
+PASS
+
+PASS: Shortest nonzero integral homology cycles form a natural discrete systolic invariant of an explicitly documented, highly symmetric, minimal-size classic S^4×S^1 triangulation. Exact carrier count, primitive homology classes and oriented C14/D14 decomposition are nontrivial integral/combinatorial invariants a topological-combinatorics researcher could reuse; they are not the table f-vector by renaming, and the cocycle and integral rank are substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

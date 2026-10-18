@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,26 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` embeds all \(70\) five-simplices and uses only the Python standard library.
+# Independent mathematical audit
 
-It reconstructs
-\[
-f=(14,84,210,280,210,70).
-\]
-Contracting a spanning tree leaves \(71\) graph-cycle generators. Unimodular integral reduction of the \(210\) facial triangle relations gives \(70\) unit pivots and one zero column, hence
-\[
-H_1(K;\mathbb Z)\cong\mathbb Z.
-\]
+## correctness
 
-The explicit primitive cocycle annihilates every facial relation. Exhaustion of all three-vertex cliques finds \(280\) graph triangles, of which \(210\) are faces and \(70\) are nonfaces. Every nonface, oriented by increasing labels, evaluates to \(1\).
+PASS
 
-The natural cyclic shift preserves the complete facet set, acts by \(+1\) on \(H_1\), and splits the \(70\) carriers into five orbits of size \(14\). The natural reflection also preserves the facet set, acts by \(-1\) on \(H_1\), and combines the carriers into four dihedral orbits of sizes
-\[
-14,\quad28,\quad14,\quad14.
-\]
+PASS: At the frozen Git RESULT.md blob c36009f..., the claim is for one labelled ^5 14^3_8 simplicial S^4×S^1 and simple edge cycles, not arbitrary metrics. Read the complete Git verify.py facet table and unimodular reduction: the 84-edge graph has 13 spanning-tree edges and a rank-71 graph-cycle lattice; 210 facial triangle relations reduce by integer unit pivots to an identity block rank 70 plus zero column, hence H1(Z)=Z without torsion. Explicit integral 1-cocycle annihilates all facial relations and takes +1 on each of the 70 nonfacial oriented 3-cycles. All graph cliques enumerated as 280 with 210 facial, so no shorter graph cycles (girth of a simple cycle >=3), and exactly 70 primitive integral systolic 3-cycles. Shift/reflection checked on full facet set, with 5 translation orbits of 14 and dihedral carrier orbits 14,28,14,14; transported generator action +1/-1. Independently reproduced with a separate finite combinatorial calculation from seven missing antipodal edges and the sparse cocycle: 280 graph triangles with cocycle value 0 for 210 and +1 for 70, and the stated 5/4 orbit sizes. The finite combinatorial census is exhaustive for THIS 14-vertex complex, but no claim of an all-triangulations proof is made. The supplied verification script was inspected rather than executed end-to-end; integer rank computation is reasoned from its explicit unit operations, not accepted from VERIFY_OK alone.
 
-Exact successful output:
+## originality
 
-`VERIFY_OK f=14,84,210,280,210,70 H1_Z=Z graph_triangles=280 facial3=210 empty3=70 all_empty3_primitive_same_oriented_generator=yes simple_integral_1_systole=3 minimizers=70 C14_orbits=14x5 D14_orbits=14,28,14,14 shift_action_H1=+1 reflection_action_H1=-1 missing_graph_edges=7_antipodal smith=1^70,0`
+PASS
+
+PASS best-of-knowledge: This is not merely the known H1, f-vector or D14 symmetry of the Kühnel–Lassmann / Köhler–Lutz triangulation. It gives integral primitivity of all 70 missing triangles, coherent orientation and exact two symmetry orbit partitions, none supplied by the inspected primary classification table. Resultary returns the same target and distinct low-dimensional triangulations; no stronger implication to the stated exact signed systole census. The originating 1996 article could not be read fully, a material risk recorded without claiming failed searches prove originality.
+
+## value
+
+PASS
+
+PASS: Shortest nonzero integral homology cycles form a natural discrete systolic invariant of an explicitly documented, highly symmetric, minimal-size classic S^4×S^1 triangulation. Exact carrier count, primitive homology classes and oriented C14/D14 decomposition are nontrivial integral/combinatorial invariants a topological-combinatorics researcher could reuse; they are not the table f-vector by renaming, and the cocycle and integral rank are substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
