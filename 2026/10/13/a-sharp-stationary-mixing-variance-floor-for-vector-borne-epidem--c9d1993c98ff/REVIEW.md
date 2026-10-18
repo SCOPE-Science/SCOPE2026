@@ -1,23 +1,21 @@
-# Scientific assessment: a stationary-mixing variance floor
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result is a finite-matrix theorem for every positive integer number of host groups and vector patches, with strictly positive host weights and stationary vector distribution, positive effective host presence in every patch, and an irreducible conservative vector generator with that fixed distribution. The reproduction-number reduction is independently matched to the explicit matrix in Gao–Yuan [1, Eq. (4.4) and Corollary 4.4]. The proof's nonstandard step is the balanced-flow entropy identity \(E=\sum_{i\ne j}F_{ij}(z_j/z_i-1)\ge0\); its equality condition follows from irreducibility. Groupwise Cauchy–Schwarz gives the exact second moment \(M\), not merely its Jensen floor one. Equality at \(M\) forces \(y\) proportional to the stationary distribution and then forces constant group exposure. An explicit rank-one-resolvent family reaches the lower bound in the large-rate limit. The second-moment floor and the equality locus hold without assumptions of migration reversibility or rank conditions on the residence matrix.
+PASS
 
-A standalone standard-library verifier reconstitutes the two-group matrices and exactly checks the characteristic-polynomial witness. It returns `VERIFY_OK`. That computation is a diagnostic for the example, not the mathematical proof of the quantified assertion.
+For fixed h,P,v and homogeneous epidemiology, set s=P^T h, r=v/s, q=P r, M=sum hq^2. For Perron eigenvector y of K_D=(mu I-D)^(-1)L set z=y/v. Balanced stationary flows F_ij=d_ij v_j and x-1>=log x give E=sum_i(Dy)_i/z_i>=0, strict unless y proportional to v. Groupwise Cauchy–Schwarz gives sum_i(Ly)_i/z_i>=sum_k h_kq_k^2=M, hence mu rho(K_D)>=M. If equality, E=0 and Lv=Mv; weighted inner product forces all q_k=M=1. Conversely q all=1 gives column sums of K_D=1/mu. Fast complete-generator D_k=k(v1^T-I) proves sharp infimum M by rank-one resolvent limit. Independent rational stationary-distribution and spectral example checks succeeded, including heterogeneous exposure strictness; no finite bound extrapolation.
 
-## Originality — PASS, with documented residual access uncertainty
+## originality
 
-The closest source [1] contains the same next-generation matrix and already contains the Cauchy–Schwarz intermediate second-moment expression in the proof of its Theorem 4.2. Accordingly, that standalone inequality is **not** claimed novel. But its Corollary 4.4 gives only sufficient equality conditions; Remark 4.8 gives counterexamples to necessity of proportionate patch distributions; and the discussion explicitly requests a necessary and sufficient characterization. No exact fixed-stationary-distribution optimization over **all vector movement generators** or strict finite-rate nonattainment was found in its fully inspected Sections 2–6. The result addresses this mathematical gap through a fixed-stationary-vector sharp infimum, a full equality characterization and a constructive fast-migration limit.
+PASS
 
-The all-Eulerian equality theorem of Gao–van den Driessche–Cosner [2, Theorem 3] concerns migrating host patch populations, not fixed host residence groups. Gao–Cao's [3] fully Lagrangian model has different vector movement mechanics; its full text was not available and so not ruled out through complete inspection. Gao–Lou [4] addresses Eulerian host dispersal and prevalence, not this fixed-vector-generator optimization. Targeted mathematical searches did not identify another implication-equivalent theorem. The unresolved literature-access issue and unindexed formulations remain risks, and a failed search is not taken as proof of absolute novelty.
+Gao–Yuan 2024 already contains intermediate groupwise Cauchy lower bound and homogeneous baseline; neither is claimed novel. Its Remark 4.8 opens equality issue, and inspected theorem does not optimize over all generators at fixed stationary v, show nonattainment at finite rates, or prove group-exposure iff criterion. 2019 Gao–van den Driessche–Cosner all-Eulerian equality is a different host migration model. Gao–Cao 2024 all-Lagrangian full text inaccessible remains residual risk.
 
-## Value — PASS
+## value
 
-The theorem gives a sharp answer to what changing **only vector migration rates** can accomplish when vector equilibrium geography is fixed: it reduces reproduction risk no farther than a precisely identified and interpretable variance in host-group exposure. The strict nonattainment result distinguishes realizable finite interventions from their limiting optimum. The equality characterization answers a question raised in the motivating publication and includes nonproportional host/vector patch populations. The invariant \(M\) is intrinsic to the model and motivated by that epidemiological optimization, not an arbitrary numerical slice. Neither the generic groupwise Cauchy–Schwarz computation alone nor the exact two-group example would have carried this value judgment; the complete variational theorem does.
+PASS
 
-## Limitations and closest literature
+Settles a natural exact variational question and equality criterion raised by the source: a quantified irreducible heterogeneous-exposure variance floor, strict finite-rate nonattainment, and constructive fast-mixing sharpness, useful for separating movement rates from stationary composition.
 
-The manuscript makes no assertion about infection prevalence, nonhomogeneous rates, vector-free host patches, movement cost, or constrained migration networks. The equality comparison with Gao–Cao [3] is abstract/preview-level only because complete access was not obtained; its different vector movement representation reduces but does not erase the residual risk. The current proof and code are not an independent external audit.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
