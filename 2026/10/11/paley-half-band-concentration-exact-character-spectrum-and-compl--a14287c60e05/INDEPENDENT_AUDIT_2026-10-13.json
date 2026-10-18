@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T01:45:54.490439Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Source RESULT.md 58df1d90be2848c683b55737b854aff14256c1e4; independent eigengram reconstruction primes 3,7,11,19,23,31,43,47 (8 cases)",
+        "Renes 2005 arXiv:math/0408287v2, Theorem 1 and Gauss Lemma 3; Tao arXiv:math/0308286v6 Theorem 1.1"
+      ],
+      "rationale": "Reconstructed the quadratic Gauss period for p≡3 mod4 including the zero-difference case, yielding K=I/2−11ᵀ/(2p)+iE/(2sqrt(p)) on H. Multiplicative dilation diagonalizes E with J_chi; inversion makes E skew and forces conjugate-paired pure-imaginary Jacobi eigenvalues and zero constant row sum. The nontrivial character Parseval identity gives Σ|J_chi|²=m(m−1), while Aᵀ=A and A*A=conj(K) identify input optimizer spaces without mistakenly equating left and right eigenvectors. The constant mode is (p+1)/(4p)<1/2, so the largest nonconstant pair controls the sharp norm. Tao’s support-sum theorem excludes Gram endpoints 0 and 1 for all primes and a primitive mth cyclotomic polynomial excludes J_chi=0 when m prime. At p=3 the one-by-one matrix has eigenvalue 1/3. An independent NumPy reconstruction checked Gram and second moment for eight eligible primes; this is finite corroboration, not a proof of all p.",
+      "risks": [
+        "Norm exact as a finite-character-sum maximum, not a radical closed form; strict endpoints use the published Tao theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tao Thm 1.1 gives |supp f|+|supp Uf|≥p+1, so no endpoint eigenvalues of the H compression; no intermediate spectrum.",
+          "Renes gives Paley ETF tightness; four-column Paley-frame spectra address small selected column sets, not H of growing size."
+        ],
+        "reasoning": "The known stronger support uncertainty and ETF results imply a subset of endpoints/Gram ingredients, not the simultaneous restricted character eigendecomposition or exact concentration for arbitrary p.",
+        "searches": [
+          "Paley quadratic residue half-band Fourier submatrix multiplicative character restricted Jacobi sum exact spectrum complementary eigenvalues",
+          "arXiv:math/0308286v6",
+          "arXiv:math/0408287v2",
+          "Resultary: 2026/10/11/SCOPE-four-column-spectral-census-and-sharp-distortion-of-paley-harmon--318c7b91876e"
+        ]
+      },
+      "checked_sources": [
+        "Renes arXiv:math/0408287v2; theorem and construction text",
+        "Tao arXiv:math/0308286v6; theorem/support proof",
+        "Resultary: 2026/10/11/SCOPE-paley-half-band-concentration-exact-character-spectrum-and-compl--a14287c60e05 (self, exclude)",
+        "Resultary related cyclic half-mask / Paley frame records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Renes ambient matrix and Tao prime-minor theorem provide explicit preexisting proof ingredients and are credited.",
+          "Paley fourth moments constrain ℓ⁴ extremizers; they cannot alone determine the full ℓ² Gram spectrum."
+        ],
+        "reasoning": "The new combined statement cannot be inferred as an immediate consequence of these prior claims without the nontrivial H-character spectral computation and center-gap argument.",
+        "searches": [
+          "Paley quadratic residue half-band Fourier submatrix multiplicative character restricted Jacobi sum exact spectrum complementary eigenvalues",
+          "arXiv:math/0408287v2",
+          "arXiv:math/0308286v6",
+          "Resultary: 2026/10/11/SCOPE-sharp-paley-fourth-moments-and-the-phase-rigidity-threshold--e3652915658c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Renes Theorem 1: ambient Paley ETF Gram; present Fourier block restricts both rows and columns to H.",
+          "Half-cycle pairing theorem is about an even cyclic group, whereas the present ambient Fourier group has odd prime order."
+        ],
+        "reasoning": "Multiplicative H-circulant / skew induced-Paley-subtournament spectra are equivalent descriptions and were compared. Ambient Paley pairing and an even-cycle half-mask theorem do not state the H-restricted Jacobi eigenvalues and safe-prime exclusion.",
+        "searches": [
+          "Paley quadratic residue half-band Fourier submatrix multiplicative character restricted Jacobi sum exact spectrum complementary eigenvalues",
+          "arXiv:math/0408287v2",
+          "Resultary: 2026/10/11/SCOPE-half-cycle-spectral-rigidity-and-gap-products-for-arbitrary-cycl--53822f99a1ce"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The half-density Fourier-algebra statement evaluates an ℓ¹ Fourier norm and a difference-set criterion, not ℓ² concentration singular values.",
+          "Renes states no table of H-by-H restricted character eigenvalues in its explicit Gram/ETF theorems."
+        ],
+        "reasoning": "An all-prime algebraic formula is not a finite table recomputation; checked closely related exact Fourier results concern distinct invariant norms.",
+        "searches": [
+          "Paley quadratic residue half-band Fourier submatrix multiplicative character restricted Jacobi sum exact spectrum complementary eigenvalues",
+          "Resultary: 2026/10/11/SCOPE-exact-half-density-fourier-algebra-deficit-and-difference-set-st--c366350c5366",
+          "arXiv:math/0408287v2"
+        ]
+      },
+      "rationale": "The target object is a multiplicative quadratic-residue principal Fourier compression, whereas Renes computes the ambient Paley tournament frame Gram and Tao only the support obstruction. The full character-by-character restricted Jacobi spectrum, centered trace variance, optimizer space and safe-prime resonance exclusion were not implied by the inspected primary theorem statements or the directly relevant Resultary records. Earlier cyclotomic induced-tournament tables could encode equivalent character values; that residual priority risk is not dismissed by negative search.",
+      "residual_risks": [
+        "Older induced Paley subtournament or cyclotomic Jacobi-sum spectra could provide a mathematically equivalent formula without the same terminology.",
+        "The sharp norm is given by a finite maximum, not an explicit elementary evaluation across all primes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SUPPLIES_KNOWN_PALEY_GRAM_NOT_RESTRICTED_SPECTRUM",
+          "evidence": [
+            "Full Paley tournament adjacency and ETF frame construction, no character-specific spectrum of H-indexed Fourier principal compression."
+          ],
+          "identifier_or_url": "arXiv:math/0408287v2; https://arxiv.org/pdf/math/0408287",
+          "material_read": "Sections 2–3 and Theorems 1–3, including Gram formulas (5)–(6), Gauss Lemma 3 and quadratic-residue matrix construction",
+          "method": "Author arXiv preprint PDF text and checked page image",
+          "title": "Equiangular Tight Frames From Paley Tournaments",
+          "trigger": "Same Paley skew Gram and quadratic-residue harmonic frame"
+        },
+        {
+          "assessment": "KNOWN_STRICT_ENDPOINT_LEMMA",
+          "evidence": [
+            "Support-sum at least p+1 implies both H×H compression injectivity and norm<1 for 2m=p−1; it does not supply non-extreme eigenvalues."
+          ],
+          "identifier_or_url": "arXiv:math/0308286v6; https://arxiv.org/pdf/math/0308286",
+          "material_read": "Theorem 1.1, support-sum proof and prime Fourier minor statement",
+          "method": "Primary arXiv PDF text and image",
+          "title": "An uncertainty principle for cyclic groups of prime order",
+          "trigger": "Strict 0,1 Fourier concentration spectral endpoints"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Quadratic-residue Fourier sampling is a canonical infinite arithmetic family. An exact complete concentration spectrum, sharp norm with all maximizers, its centered second moment and safe-prime resonance exclusion answer naturally motivated and mathematically distinct spectral questions, beyond merely reprinting the known Paley Gram identity or checking finite primes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every prime p≡3(mod 4), the quadratic-residue-by-quadratic-residue p-point unitary Fourier block has one constant Gram eigenvalue (p+1)/(4p), with each other multiplicative H-character carrying 1/2+i J_chi/(2sqrt(p)); the nonconstant levels pair around 1/2, have centered second moment m(m−1)/(4p), determine the sharp input concentration and all optimizers, and exclude the center when m=(p−1)/2 is prime (with the p=3 exception treated separately).",
+  "limitations": [
+    "Primes p≡3 mod 4 only; no claim at higher prime powers or p≡1 mod4.",
+    "Priority remains at risk from older Jacobi/cyclotomic induced-subtournament tables; no absolute certification."
+  ],
+  "schema_version": 1
+}
