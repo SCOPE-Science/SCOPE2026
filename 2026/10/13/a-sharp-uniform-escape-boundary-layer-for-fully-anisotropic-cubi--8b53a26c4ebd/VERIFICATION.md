@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The accompanying `verify.py` was executed on the package's actual source file and reported 77 passed finite exact and numerical assertions. The exact arithmetic section independently constructs returns by multinomial counting and transition propagation, and confirms a first-return renewal decomposition. The optional SciPy section evaluates Laplace–Bessel representations of the finite Green and shape integrals and tests the stated nonasymptotic inequality on a parameter grid.
+# Independent mathematical audit
 
-The general result is proved by the explicit integral comparison, a uniform logarithmic singular integral estimate, a normalized concentration argument, and elliptic-polar localization. Finite computation cannot certify an arbitrary parameter continuum, the optimality limit, or originality. Full texts of some potentially relevant historical studies were unavailable. No independent audit has been performed.
+## correctness
+
+PASS
+
+PASS: Fourier inversion and renewal give q=1/G; integrating the dominant coordinate yields G=K(c)/sqrt(epsilon) times an expectation of (1-epsilon+epsilon*delta/2)^(-1/2). Since 0<delta<2 almost everywhere, its reciprocal proves the strict sharp sqrt(1-epsilon) <= qK/sqrt(epsilon) <=1. The logarithmic small-c cusp comes from integrating the quadratic transverse singularity and is uniform in epsilon because of this sandwich. ν_c concentrates at delta=0 for c->0, proving optimal lower factor. Symmetric convexity of K, and the 2D face coefficient via elliptical polar integration, are checked with their stated fixed-parameter limitations.
+
+## originality
+
+PASS
+
+PASS best of knowledge: Delves–Joyce published an exact fully anisotropic cubic Green function, credited rather than rebranded; Hsiau–Tsai–Yao 2026 gives a majorization order for first returns, not the displayed joint singular scaling. No inspected work stated the sharp uniform multiplicative bound and arbitrary-rate two-parameter escape asymptotic. Older exact elliptic formulas might encode the result through nontrivial asymptotic analysis; inaccessible primary full texts are explicit risks, not proof of novelty.
+
+## value
+
+PASS
+
+PASS: The crossover from three-dimensional transience to recurrent coordinate faces is natural, with an optimal uniform error factor and no restriction on relative vanishing rates. It is more than a lookup of a known Green integral: the theorem supplies a global error envelope and a singular cusp coefficient useful for near-degenerate lattice walks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

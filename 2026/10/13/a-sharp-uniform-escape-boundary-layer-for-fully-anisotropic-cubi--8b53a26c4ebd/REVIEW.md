@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Fourier inversion and renewal theory identify the Green integral and nonreturn probability. Exact integration of one coordinate produces a normalized singular weight and the strict sharp uniform bounds. A logarithmic marginal-integral estimate plus concentration of the normalized weight proves the claimed all-rate crossover. The separate planar-face constant follows by quadratic localization. The attached checker passed 77 finite rational and numerical assertions; the universal claim is supported by the analytical proof.
+## correctness
 
-**Originality — PASS, with risk.** Earlier Delves–Joyce results already exactly evaluate anisotropic lattice Green functions; no exact Green evaluation is claimed new. The recent Hsiau–Tsai–Yao work supplies first-return stochastic ordering. The finding addresses a sharp uniform error bound under unrestricted transverse imbalance and a simultaneous singular joint limit. Targeted prior-result comparisons uncovered no direct covering theorem. Relevant older full texts were not accessible, so priority requires independent review.
+PASS
 
-**Value — PASS.** The theorem gives usable nonasymptotic control and a dimensional crossover with no relative-rate assumption, resolving a natural singular-degeneration question not answered by qualitative stochastic ordering. The restriction to three-dimensional, translation-invariant signed-symmetric nearest-neighbor walks is essential.
+PASS: Fourier inversion and renewal give q=1/G; integrating the dominant coordinate yields G=K(c)/sqrt(epsilon) times an expectation of (1-epsilon+epsilon*delta/2)^(-1/2). Since 0<delta<2 almost everywhere, its reciprocal proves the strict sharp sqrt(1-epsilon) <= qK/sqrt(epsilon) <=1. The logarithmic small-c cusp comes from integrating the quadratic transverse singularity and is uniform in epsilon because of this sandwich. ν_c concentrates at delta=0 for c->0, proving optimal lower factor. Symmetric convexity of K, and the 2D face coefficient via elliptical polar integration, are checked with their stated fixed-parameter limitations.
 
-Closest earlier literature: Delves and Joyce (2001), Guttmann (2010) and Hsiau–Tsai–Yao (2026). Known exact Green representations and the renewal inversion are not presented as new. Independent scientific audit has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: Delves–Joyce published an exact fully anisotropic cubic Green function, credited rather than rebranded; Hsiau–Tsai–Yao 2026 gives a majorization order for first returns, not the displayed joint singular scaling. No inspected work stated the sharp uniform multiplicative bound and arbitrary-rate two-parameter escape asymptotic. Older exact elliptic formulas might encode the result through nontrivial asymptotic analysis; inaccessible primary full texts are explicit risks, not proof of novelty.
+
+## value
+
+PASS
+
+PASS: The crossover from three-dimensional transience to recurrent coordinate faces is natural, with an optimal uniform error factor and no restriction on relative vanishing rates. It is more than a lookup of a known Green integral: the theorem supplies a global error envelope and a singular cusp coefficient useful for near-degenerate lattice walks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
