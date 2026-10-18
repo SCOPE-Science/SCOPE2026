@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T05:38:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Every B_r is bipartite and of diameter three. In any bipartite graph, distances from a third vertex to adjacent endpoints differ by exactly one, so an edge plus a third selected vertex violates the geodesic general-position condition. Conversely, independence forces any path via another selected vertex to have length at least 4, impossible for a geodesic in B_r. Split independent sets into neither spine vertex and exactly x or y: I(B_r;t)=(1+2t)^r+2t(1+t)^r; restore all 3r+1 missing adjacent pairs, because every 2-set is in general position. The coefficient q_k=2^k*C(r,k)+2*C(r,k-1) has an explicit strictly positive normalized q_k²-q_(k-1)q_(k+1) polynomial in k,n=r-k from the pinned proof; independently reconstructed this polynomial identity in exact sympy and checked inequalities r=2..49. Raising q_2 only requires separate k=1,2,3 inequalities, all given positive factorizations, with r=2 endpoint handled. This proves strict log-concavity for all r analytically. The highest degree is r+1 with coefficient 2, establishing exact maxima. The original enumeration script was inspected; its r=2..8 exhaustive outputs support but do not prove the parameter-unbounded theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The foundational 2024 polynomial paper gives general operations and path Cartesian products; no general theorem for all star×K2 cartesian products.",
+          "The 2018 bipartite diameter-three result identifies gp with independence number, not every GP-set count or coefficient strictness.",
+          "The 2026 continuation handles complete multipartite graphs and coronas, with distinct log-concavity examples."
+        ],
+        "reasoning": "The stronger numerical GP-number theorem does not determine a counting polynomial, nor imply strict log-concavity of its coefficients.",
+        "searches": [
+          "general position polynomial square page book graph K1,r Cartesian K2 strict log concavity",
+          "https://arxiv.org/pdf/2401.05696",
+          "https://arxiv.org/pdf/2603.06930",
+          "https://arxiv.org/abs/1812.08460"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2401.05696",
+        "https://arxiv.org/pdf/2603.06930",
+        "https://arxiv.org/abs/1812.08460",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-dual-general-position-sets-of-book-graphs--73254a416359/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dual GP sets are a strict subset of ordinary GP sets with an added convex-complement requirement; the dual classification does not imply the much larger ordinary enumeration.",
+          "Cartesian product formulas for path×path and graph joins do not apply by simple substitution to a star×K2 in inspected theorems."
+        ],
+        "reasoning": "The final theorem requires a separate all-size equivalence between GP and independence plus a nontrivial coefficientwise positivity proof; no inspected prior theorem has a stronger directly dominating statement.",
+        "searches": [
+          "general position polynomial square page book graph K1,r Cartesian K2 strict log concavity",
+          "https://arxiv.org/pdf/2401.05696",
+          "https://arxiv.org/pdf/2603.06930",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-dual-general-position-sets-of-book-graphs--73254a416359/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "B_r is simultaneously a square-page book, generalized theta Theta(1,3,...,3), and Cartesian product K_(1,r) box K2.",
+          "The Resultary dual-GP theorem uses exactly this graph but imposes complement convexity, giving only r dual two-sets."
+        ],
+        "reasoning": "Graph renaming is fully recognized; different dual GP counts do not imply the ordinary GP generating polynomial.",
+        "searches": [
+          "general position polynomial square page book graph K1,r Cartesian K2 strict log concavity",
+          "https://arxiv.org/pdf/2401.05696",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-dual-general-position-sets-of-book-graphs--73254a416359/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-graph Resultary RESULT.md gives dual gp=2 and exactly r maximum dual sets; it does not tabulate ordinary GP polynomials.",
+          "Iršič et al. full-text searches for book/theta and a direct review of product §§3–4 found no formula for B_r."
+        ],
+        "reasoning": "Known dual count is an exact natural table of a different invariant; computing all ordinary GP sets and strict coefficient inequalities is not a known-table recomputation.",
+        "searches": [
+          "general position polynomial square page book graph K1,r Cartesian K2 strict log concavity",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-dual-general-position-sets-of-book-graphs--73254a416359/RESULT.md",
+          "https://arxiv.org/pdf/2401.05696"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: Iršič–Klavžar–Rus–Tuite define the general-position polynomial and give Cartesian-product/path, corona and other formulas, but inspected full PDF does not contain the square-page book or the star×K2 polynomial. Rather 2026 develops other families and unimodality/log-concavity but likewise not the book enumeration. Crucially, a published Resultary record on *the identical B_r graph* was materially read: it classifies dual general position sets, defined by general position AND convexity of the complement, hence its r internal page pairs do not supply the ordinary GP polynomial or all-set count. A structural bipartite diameter-three theorem gives only the GP number, not this strict log-concavity. A differently named theta/product enumeration remains a priority risk.",
+      "residual_risks": [
+        "The graph is also a generalized theta and Cartesian product; an equivalent formula in older product-counting literature may be unindexed.",
+        "Strict log-concavity for the entire sequence relies on the supplied positive polynomial identity and edge-case factorization, independently reconstructed symbolically.",
+        "No theorem for longer-cycle books or arbitrary Cartesian products is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No B_r or Theta(1,3,...,3) counting formula or strict log-concavity theorem in reviewed full text.",
+          "evidence": "§3 Proposition 3.3 and Cartesian product discussion; §5 problems on unimodality.",
+          "identifier_or_url": "https://arxiv.org/pdf/2401.05696",
+          "material_read": "Full 15-page primary arXiv PDF accessible; read definitions, Section 3 propositions about disjoint union, join and Cartesian products, Section 4 examples and conclusion/open unimodality problems. Inspected printed p.6 product page.",
+          "method": "primary PDF text and screenshot",
+          "title": "General Position Polynomials",
+          "trigger": "Foundational definition, operations, and product identities for same invariant"
+        },
+        {
+          "assessment": "Distinct graph families; does not give B_r polynomial or universal star×K2 strict log-concavity.",
+          "evidence": "§7 C6 corona counterexample and §8 conclusion on open structural classification.",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.06930",
+          "material_read": "Full 32-page primary PDF accessible; inspected family theorem headings, terms book/Cartesian, Section 7 examples of corona log-concavity failure and §8 conclusion.",
+          "method": "primary PDF text, full-text term search and printed page 29",
+          "title": "Explicit Formulas and Unimodality Phenomena for General Position Polynomials",
+          "trigger": "Same polynomial invariant, possible strict log-concavity of all graph families"
+        },
+        {
+          "assessment": "Proves r dual-GP internal page pairs and dual gp=2, not the ordinary GP polynomial for all cardinalities.",
+          "evidence": "Definition dual requires convex G-X; theorem only classifies two-element dual position sets.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-dual-general-position-sets-of-book-graphs--73254a416359/RESULT.md",
+          "material_read": "Full RESULT.md text fetched from published record; compared definitions, proof and exact counts.",
+          "method": "direct GitHub public research manuscript source reading",
+          "title": "Dual general position sets of book graphs",
+          "trigger": "Identical graph B_r and relevant previously published SCOPE finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Square-page book graphs form a standard named infinite family and a natural bipartite Cartesian product. Its exact all-size general-position set generating function, the all-large-set independence equivalence and coefficientwise strict log-concavity answer a motivated polynomial unimodality question considerably beyond the previously known scalar gp or dual GP number. This is not a relabelled enumeration of a previously published polynomial.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every r>=2, the square-page book B_r formed by r C4 cycles sharing edge xy has general position polynomial psi(B_r;t)=(1+2t)^r+2t(1+t)^r+(3r+1)t². All general position sets of cardinality >=3 are exactly the independent sets. Its positive coefficients are strictly log-concave; the maximal size is r+1 and exactly the two bipartition classes achieve it.",
+  "limitations": [
+    "r>=2 only, not triangular or longer-cycle books, nor arbitrary theta graphs or K_(1,r) box H.",
+    "Independent symbolic identities and finite r checks corroborate, whereas the proof of positivity covers every r.",
+    "Full general-position polynomial and dual-general-position polynomial are distinct invariants."
+  ],
+  "schema_version": 1
+}

@@ -1,12 +1,21 @@
-# Review of Strict log-concavity of general position polynomials of square-page book graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. A general position set of size at least three cannot contain an edge: in a bipartite graph, the distances from a third vertex to adjacent endpoints differ by one, forcing one endpoint onto a geodesic. Conversely, in \(B_r\), an independent triple cannot place one selected vertex internally on a selected-pair geodesic because all selected-to-selected distances are at most three while independence forces each leg through a selected internal vertex to have length at least two. This makes all size-at-least-three general position sets exactly the independent sets. The three disjoint spine-selection cases give the independence polynomial, and restoring the \(3r+1\) adjacent pairs yields the stated general position polynomial. The strict log-concavity proof is an explicit positive algebraic certificate, with the only altered inequalities checked separately. Exhaustive checks for \(2\le r\le8\) agree with the complete classification, polynomial, maximum-set count, and strict inequalities.
+## correctness
 
-## Originality
-PASS. The 2018 structural paper gives the bipartite diameter-three maximum-number result but does not enumerate all general position sets or give a book polynomial. The 2024 paper introducing general position polynomials treats standard families, joins, disjoint unions, path Cartesian products, Kneser graphs, and a labeled multipartite family, but its full text has no book or theta occurrence. A 2026 continuation develops complete-multipartite and corona formulas and log-concavity phenomena, again with no book or theta occurrence. Targeted semantic and exact-phrase searches under book, square-page book, generalized theta, and \(K_{1,r}\square K_2\) formulations found no equivalent polynomial or strict log-concavity theorem.
+PASS
 
-## Value
-PASS. The 2024 polynomial paper explicitly treats unimodality as a central structural question and exhibits both positive and negative families; the 2026 continuation further emphasizes log-concavity. Square-page books are a standard named generalized-theta family and also a natural Cartesian product \(K_{1,r}\square K_2\). The result supplies a closed all-set polynomial and the stronger strict log-concavity property for an infinite family not covered by the existing product formulas. The contribution is therefore not merely the known scalar general position number.
+PASS: Every B_r is bipartite and of diameter three. In any bipartite graph, distances from a third vertex to adjacent endpoints differ by exactly one, so an edge plus a third selected vertex violates the geodesic general-position condition. Conversely, independence forces any path via another selected vertex to have length at least 4, impossible for a geodesic in B_r. Split independent sets into neither spine vertex and exactly x or y: I(B_r;t)=(1+2t)^r+2t(1+t)^r; restore all 3r+1 missing adjacent pairs, because every 2-set is in general position. The coefficient q_k=2^k*C(r,k)+2*C(r,k-1) has an explicit strictly positive normalized q_k²-q_(k-1)q_(k+1) polynomial in k,n=r-k from the pinned proof; independently reconstructed this polynomial identity in exact sympy and checked inequalities r=2..49. Raising q_2 only requires separate k=1,2,3 inequalities, all given positive factorizations, with r=2 endpoint handled. This proves strict log-concavity for all r analytically. The highest degree is r+1 with coefficient 2, establishing exact maxima. The original enumeration script was inspected; its r=2..8 exhaustive outputs support but do not prove the parameter-unbounded theorem.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS: Iršič–Klavžar–Rus–Tuite define the general-position polynomial and give Cartesian-product/path, corona and other formulas, but inspected full PDF does not contain the square-page book or the star×K2 polynomial. Rather 2026 develops other families and unimodality/log-concavity but likewise not the book enumeration. Crucially, a published Resultary record on *the identical B_r graph* was materially read: it classifies dual general position sets, defined by general position AND convexity of the complement, hence its r internal page pairs do not supply the ordinary GP polynomial or all-set count. A structural bipartite diameter-three theorem gives only the GP number, not this strict log-concavity. A differently named theta/product enumeration remains a priority risk.
+
+## value
+
+PASS
+
+PASS: Square-page book graphs form a standard named infinite family and a natural bipartite Cartesian product. Its exact all-size general-position set generating function, the all-large-set independence equivalence and coefficientwise strict log-concavity answer a motivated polynomial unimodality question considerably beyond the previously known scalar gp or dual GP number. This is not a relabelled enumeration of a previously published polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
