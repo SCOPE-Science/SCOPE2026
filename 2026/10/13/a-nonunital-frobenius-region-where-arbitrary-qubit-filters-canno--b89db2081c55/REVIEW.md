@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For an arbitrary CPTP filter \(\Psi=(N,d)\), direct composition gives \(A=MNM\) and \(b=MNc+Md+c\). Schatten Hölder gives \(\|A\|_1\le\|MN\|_{\mathrm F}\|M\|_{\mathrm F}\). Lemma 7 of arXiv:1411.2517, applied to the filter with auxiliary matrix \(M\), gives \(\|Md\|_2+\|MN\|_{\mathrm F}\le\|M\|_{\mathrm F}\). Combining these inequalities yields the published sufficient criterion \(\|A\|_1+\|b\|_2\le1\), so Proposition 5 makes every \(\Phi\Psi\Phi\) entanglement breaking. The index equalities then follow from the definitions and stability of entanglement breaking under unitary composition. The generalized amplitude-damping witness is nonunital, lies strictly inside the norm region, and is non-entanglement-breaking by the source's exact PPT criterion.
+## correctness
 
-## Originality
-**PASS.** The defining paper states the qubit equality as Conjecture 1 and proves the index-two implication only for unital channels. Its full relevant section was inspected, including Proposition 5, Lemma 7, Theorem 8, and the generalized amplitude-damping example. A later full-text optical paper treats selected intermediate unitaries for rotated damping channels, while the cut-and-paste paper treats reordering distinct channel pieces. Searches using filtered-index notation, arbitrary/nonunitary filter language, Bloch-affine and Frobenius-norm aliases, the source identifier, and the explicit damping family did not locate a theorem implying this nonunital region. The residual risk is a later result stated in substantially different terminology or outside indexed sources.
+PASS
 
-## Value
-**PASS.** The result advances an explicit open qubit-filtering conjecture on a continuum of nonunital channels rather than a single example. It shows that a simple, rotation-invariant affine norm condition is enough to defeat **every** intermediate CPTP correction at the second use, and it supplies a concrete finite-temperature amplitude-damping point where the source's unital theorem does not apply. The conclusion is operationally meaningful because it compares the strongest one-system filtering class considered in the conjecture with unitary filtering.
+Let Psi=(N,d), a=||MN||F, s=||M||F,r=||c||2. The composed data are A=MNM,b=MNc+Md+c. Schatten Holder gives ||A||_1 <= a s, and ||b||2 <= ar+||Md||2+r. The exact source Lemma 7, applied to this qubit positive TP Psi and auxiliary M, yields ||Md||2+a<=s. Sum <=s+r+a(s+r-1)<=1 when s+r<=1; source Proposition 5 then makes the composite EB. Since Phi is not already EB, filtered index equals two; the ideal property under all left/right unitaries forces n(U Phi)=2 for each U. For GAD p=1/5,gamma=3/5, s=sqrt(11)/5, r=4/25, s+r<1 because 275<441, while p=125/625>gamma(1-gamma)(1-p)^2=96/625 so it is not EB. The critical external lemmas were inspected in Lami-Giovannetti primary full text; independent exact fractional checks reproduce the witness, without treating them as proof of the general claim.
 
-## Closest literature and limitations
-The closest result is Theorem 8 of arXiv:1411.2517, which proves \(N_U(\Phi)=2\Rightarrow N(\Phi)=2\) for **unital** qubit channels. The present sufficient condition covers nonunital channels but does not prove the converse condition, characterize the entire index-two region, or resolve the conjecture for larger indices. The 2017 amendment experiment and the 2016 cut-and-paste construction concern different intervention classes and do not dominate the claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original Lami–Giovannetti paper defines the full filtered indices, its Prop 5 and Lemma 7 yield the tools, and its Theorem 8 asserts an index-two relationship for unital qubit channels, not this nonunital sufficient norm region. The new implication is a controlled extension using the translation norm and an actual nonunital non-EB witness. Later optical channel-amendability results concern selected unitary reordering and do not imply arbitrary CPTP-filter impossibility on this rotation-invariant region. No stronger same-region theorem appeared in targeted semantic search.
+
+## value
+
+PASS
+
+Conjecture 1 in the source concerns whether arbitrary CPTP filters outperform unitary filters for qubits. A certified, genuinely nonunital parameter region for which all arbitrary filters are impossible at two uses advances that mathematical boundary beyond the unital theorem, even though it does not settle the whole conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
