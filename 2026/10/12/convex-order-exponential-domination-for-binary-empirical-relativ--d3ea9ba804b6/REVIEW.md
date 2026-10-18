@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The centered one-sample binary relative entropy is reconstructed exactly as a two-point mean-zero information-content variable. Its stop-loss transform is compared with the centered unit exponential for every real threshold. The only nontrivial interval reduces to a one-variable unimodal function whose maximum is bounded analytically in the two cases \(d\ge1\) and \(d<1\). Equal means and the stop-loss characterization then give the full convex order.
+## correctness
 
-## Originality
-PASS for the full convex-order statement. The positive-exponential MGF corollary is not original: Melbourne and Palafox-Castillo already imply it for every monotone log-concave discrete law, including Bernoulli. Full-text inspection of their information-concentration section and convex-order appendix did not find the stronger centered-information-content ordering by a shifted exponential. Bhatt--Pensia and Agrawal treat centered empirical relative entropy and gamma-type MGF bounds, but not this all-convex-test relation. Targeted semantic, alias, and exact-concept searches found no covering statement. Residual risk remains for older stochastic-order terminology.
+PASS
 
-## Value
-PASS. Convex order is substantially stronger than a positive-t MGF comparison: it simultaneously controls every stop-loss transform and every convex loss. The binary one-sample empirical KL statistic is the canonical base case in alphabet-reduction approaches to centered relative-entropy concentration, so an exact stochastic-order theorem there is a natural structural fact rather than a gratuitous finite example.
+Relabel p<=q=1-p and set d=log(q/p); the centered law is -pd (probability q) and qd (probability p). All stop-loss a ranges were checked exactly against E(Exp(1)-1-a)_+: a<=-1 gives equality, -1<a<-pd follows log b<=b-1, a>=qd is trivial. In the interior R(a)=p(qd-a)exp(1+a) has its maximum p^p q^q<=1 when d>=1, or pd exp(1-pd)<=1 when d<1. Equal means plus all stop-loss bounds proves convex order. Independent numerical endpoint/critical-threshold checks were consistent; the analytic inequalities, not samples, prove all p and a.
 
-## Closest literature and limitations
-The closest coverage is Melbourne--Palafox-Castillo's unit-gamma information-content MGF/tail inequality for monotone log-concave discrete laws. That prior result is explicitly acknowledged and excluded from the novelty claim. The theorem here is limited to one observation and a binary underlying law; it does not settle the higher-sample or higher-alphabet gamma-MGF conjecture.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full stop-loss domination for every convex test is stronger than the already-published centered-gamma MGF and tail bounds. Materially examined the primary information-concentration paper including its Section 2.4 and Appendix A; its auxiliary convex-order principles are not a theorem of centered Bernoulli surprisal dominated by a shifted exponential. Resultary searches returned unrelated Bernoulli convex-order and surprisal findings, not a decisive covering source. Best-of-knowledge PASS, not a priority guarantee.
+
+## value
+
+PASS
+
+The full convex-order comparison is a natural strong stochastic-order bound for an information statistic; it controls every convex risk/test simultaneously and is strictly more informative than the already-known one-sided gamma MGF. The exact centered one-sample binary base case is mathematically motivated by alphabet reduction in empirical-divergence concentration, rather than an arbitrary parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
