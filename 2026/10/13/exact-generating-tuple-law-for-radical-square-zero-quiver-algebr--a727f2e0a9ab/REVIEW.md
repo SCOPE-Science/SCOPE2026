@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Pairwise separation of vertex label vectors is equivalent to generation modulo the square-zero radical, by finite-field polynomial interpolation. In each arrow block, generation is equivalent to surjectivity of a linear map restricted to the hyperplane perpendicular to the corresponding label difference: necessity uses a commutative quotient obstruction, while sufficiency isolates full arrow blocks with interpolated vertex lifts. Independent elementary matrix counts give the formula. An exhaustive word-span closure verifier confirms eleven concrete examples over three finite fields, including a nonprime field. It does not replace the proof of the general assertion.
+## correctness
 
-**Originality — PASS, subject to residual bibliographic risk.** Kravchenko–Mazur–Petrenko (arXiv:1001.2873v1) study generating probabilities for semisimple and matrix-algebra families. Iovanov–Sistko (arXiv:1705.00762, Theorem 4.1 and Proposition 4.2) provide the strongest related structural coverage: maximal subalgebras of pointed algebras are controlled by vertex merges and arrow-space hyperplanes. Their result supplies a related framework but not the stated exact all-arity tuple count or generator-probability product. Sercombe–Shalev (DOI:10.1112/jlms.12827) give general probability bounds and generator estimates, not this quiver-family enumerator. Literature searches did not identify an equivalent complete formula. The possibility of an overlooked alternative formulation remains.
+PASS
 
-**Value — PASS.** The random-generation probability of a finite algebra and its minimum generator number are intrinsic, naturally motivated invariants. The exact all-arity formula simultaneously handles arbitrary parallel-arrow multiplicities, orientations, cycles, disconnections, and field characteristics. It exposes two independent obstructions (vertex-label collisions and insufficient arrow-direction rank), gives sharp finite thresholds, and solves an entire natural family rather than an ad hoc numerical instance.
+Each input has a vertex scalar label vector a_u and arrow components b_i,uw. Modulo radical J, finite-field polynomial interpolation yields the whole k^V exactly when all a_u are pairwise distinct. For u!=w with delta=a_u-a_w nonzero, commutator components are images of ker(delta), dimension r-1. Necessity: if that image misses an arrow direction, quotient by its bimodule spans makes all input images commute but leaves a noncommuting algebra since an arrow has nonzero bracket with a vertex idempotent. Sufficiency: lift all vertex idempotents by polynomials, sandwich commutators, and obtain J_{uw} individually; quotient generation plus J generation gives A. Each restriction of a random r-to-m linear map to fixed hyperplane is onto in product_j(q^{r-1}-q^j) possibilities, and complementary direction gives q^m; blocks are independent. The count, probability, and generator-rank cutoff follow. Loopless hypothesis essential and singleton field v=1 no arrows has generator rank 0. Independently enumerated GF(2) word-span closure for parallel arrows, opposite arrows and disconnected diagrams; finite samples not proof.
 
-**Limits.** Loopless quivers and square-zero radicals only; counting literal unital tuples rather than automorphism classes. Exhaustive examples are finite corroboration, not a general certificate. A semantically equivalent prior enumerator cannot be excluded with certainty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Iovanov–Sistko already classify maximal subalgebras of finite-dimensional quiver algebras via vertex merges and arrow hyperplanes. That could conceptually be used to derive generator obstructions but the inspected Theorem 4.1/Proposition 4.2 do not give a literal ordered r-tuple product over all arrow blocks. Sercombe–Shalev and Kravchenko–Mazur–Petrenko study more general random algebra generation, mostly bounds or semisimple cases; their named theorems do not tabulate these radical-square-zero quiver tuples. Residual risk is implicit enumeration from maximal-subalgebra theory or weakly indexed papers.
+
+## value
+
+PASS
+
+Uniform finite-field generator counts, probabilities and minimal generator ranks are natural invariants of finite basic algebras. The exact formula handles every loopless directed multiquiver (including disconnected, parallel, reverse and cycles) and cleanly separates vertex-label collision from insufficient arrow-space rank. This general family classification is substantially broader than isolated hand computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
