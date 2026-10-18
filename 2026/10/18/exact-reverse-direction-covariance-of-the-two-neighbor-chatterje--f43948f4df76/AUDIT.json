@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For n >= 4 under independent atomless margins the rank vector is uniform. Equation (2.4) of arxiv:2108.06828 reduces exactly to S(pi)=the two path-power edge weights min(pi_i,pi_j) plus pi_{n-1}+2pi_n. The three orthogonal permutation modules of edge arrays (constants, centered vertex sums, and zero-vertex sums) are irreducible because the edge-pair commutant has dimension three. Real matrix-coefficient orthogonality gives direct and inverse random quadratic-assignment moments. Explicit edge and vertex sums yield E S=(n+1)(4n+3)/6, Var S=(n+1)(4n^2+14n+35)/180, Cov(S,S_inverse)=(4n^4+n^3+11n^2-127n+147)/(18n(n-1)). The ratio, positive decomposition, and the n=5 unique maximum follow from exact rational algebra; the difference polynomial has a positive-coefficient expansion at n=5. The embedded standard-library checker executed 5915 exact assertions: brute-force all permutations n=4..8, independent projection construction n=4..40, and rational inequalities to n=500. Enumeration supports but does not replace the all-n analytical derivation. No bivariate limit law is asserted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2406.16859 Theorem 1 and Theorem 2 study unboosted original xi with Spearman, Kendall or quadrant rank correlations.",
+        "arxiv:2108.06828 Theorem 3.1 states the marginal variance asymptotics when M tends to infinity and M/n tends to zero; neither condition gives a two-direction M=2 joint covariance.",
+        "arxiv:2205.01769 Lemma 1 and Theorem 1 give M=1 inverse moments and joint CLT and exclude M=2 from their scope."
+      ],
+      "reasoning": "The extension M=2 changes the scored edge set and boundary terms, so M=1 formulas do not dominate it. Marginal M-general results likewise lack the cross statistic and are insufficient to derive its inverse covariance by implication alone. No joint CLT is claimed here.",
+      "searches": [
+        "Rank dependence symmetrized two-neighbor Chatterjee Lin Han Zhang 2022 conditional joint CLT",
+        "\"joint\" \"xi_{n,M}\" \"xi_{n,M}\" reverse",
+        "arxiv:2406.16859 Sections 2.1 and 2.2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2108.06828 (first posted 2021-08-15)",
+      "arxiv:2205.01769 (first posted 2022-05-03)",
+      "arxiv:2406.16859 (first posted 2024-06-24)",
+      "Exact covariance and precision for permutation inversion indicators (published mathematical result)",
+      "Directional predictability for Marshall–Olkin copulas (published mathematical result)",
+      "Lower support bound for Lin–Han two-right-neighbor coefficient (prior mathematical finding)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2108.06828 Eq.(2.4): general statistic definition; Theorem 3.1: one-statistic mean and marginal asymptotics, and section 3.2 treats sign-flipped Y rather than variable swapping.",
+        "arxiv:2205.01769 Section 4: M>=2 joint distribution and symmetric tests are identified as not resolved there.",
+        "arxiv:2406.16859 Section 2: only unboosted Chatterjee xi and other rank correlations."
+      ],
+      "reasoning": "The M=2 reverse covariance requires dependence across forward rank permutation and its inverse. Independent marginals, both one-way variances, and even a one-neighbor reverse covariance do not determine this value. The claim computes that missing joint quantity and a finite sample maximum, but does not complete the deferred full joint distribution.",
+      "searches": [
+        "arxiv:2108.06828 Eq.(2.4) Thm.3.1 Appendix",
+        "arxiv:2205.01769 Lemma 1 Section 4",
+        "arxiv:2406.16859 Theorem 1 Theorem 2",
+        "\"Chatterjee\" \"nearest neighbors\" \"covariance\" \"symmetrized\" M=2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2205.01769 Section 4 explicitly identifies the M>=2 joint reverse-direction problem as future work.",
+        "arxiv:2108.06828 equation (2.4) is the exact same M=2 statistic, but Section 3 and its variance proof concern one-direction null moments.",
+        "A published result on inversion-indicator covariance and precision concerns edge comparison signs, not the min-score and inverse min-score pair."
+      ],
+      "reasoning": "Equivalently, the result is the finite-sample correlation of S(pi) and S(pi^{-1}) for the explicit weighted path-square quadratic assignment plus terminal linear score. Neither the M=1 inverse covariance nor inversion-indicator precision matrices imply its M=2 exact joint moment. A general quadratic-assignment theorem might provide a route to deriving it, but the inspected records do not state the evaluated instance.",
+      "searches": [
+        "Lin Han revised Chatterjee xi n M=2 two right nearest neighbors forward inverse reverse correlation exact covariance under independence and 10/n",
+        "Symmetrized generalized Chatterjee rank correlation nearest neighbours M=2 finite-sample covariance nonzero inverse random permutation",
+        "Permutation quadratic assignment statistic min(r_i,r_{i+1}) min(r_i,r_{i+2}) and inverse permutation covariance",
+        "arxiv:2205.01769 Section 4 reverse direction M>=2",
+        "arxiv:2108.06828 equation (2.4) and Appendix"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A prior finding on the same coefficient gives a lower support-bound refinement, not the covariance of forward and inverse rank statistics.",
+        "The closest related published subjects were Chatterjee predictability in the Marshall–Olkin family and covariance of permutation inversion indicators; neither specifies the two-right-neighbor inverse-statistic moment."
+      ],
+      "reasoning": "A permutation score support endpoint has no information determining covariance with inverse permutations. The record searches did not yield an identical formula, tabulation or strictly stronger theorem; absence of search hits is not treated as a mathematical priority proof.",
+      "searches": [
+        "Lin Han revised Chatterjee xi n M=2 two right nearest neighbors forward inverse reverse correlation exact covariance under independence and 10/n",
+        "Chatterjee two-neighbor rank correlation reverse direction finite sample null variance covariance asymptotic",
+        "Permutation quadratic assignment statistic min(r_i,r_{i+1}) min(r_i,r_{i+2}) and inverse permutation covariance"
+      ]
+    },
+    "rationale": "The nearest full-text papers introduce M-neighbor xi and calculate its marginal behavior (arxiv:2108.06828), or determine the reverse-direction joint law only for the original Chatterjee statistic and explicitly defer M>=2 (arxiv:2205.01769, Sec. 4). A later Chatterjee-Spearman paper (arxiv:2406.16859, Sections 2.1-2.2) still treats the original one-neighbor xi. Thus the inspected statements do not imply the M=2 reverse-direction exact covariance/correlation, unique n=5 maximum, or 10/n leading correlation. A previous lower-range bound for exactly the same M=2 score does not imply joint moments. Searches of published mathematical findings, exact phrases, and inverse-permutation aliases surfaced only related but nonimplicative records. Classical Johnson-decomposition theory and marginal moments are not represented as new; historical literature may contain an implicit equivalent and remains a documented risk.",
+    "residual_risks": [
+      "An older general quadratic-assignment or permutation-inverse moment identity may imply the explicit evaluation without being indexed under a Chatterjee-statistic title.",
+      "Historical-priority checking is bounded to the identified full texts and available record searches; independent literature audit is not performed.",
+      "Second-order decorrelation does not by itself establish asymptotic joint normality or validity of a symmetrized test distribution."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the score and treats one-direction null moments; also treats the different transformation Y to -Y, not X/Y swapping. No stated M=2 opposite-direction covariance found in inspected material.",
+        "evidence": [
+          "Equation (2.4) defines xi_{n,M} including self-replacing boundary; Theorem 3.1 addresses marginal null variance; Section 3.2 defines xi_{n,M}^{-} by negating Y."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2108.06828v1",
+        "material_read": "HTML Sections 1, 2.2, 3.1–3.2; Theorem 3.1, the right-neighbor boundary convention, and appendix proof areas for null moment calculations",
+        "method": "Full-text mathematical comparison of normalization, the two-neighbor boundary terms, random permutation moments, and whether variable-swapping covariance is treated",
+        "title": "On boosting the power of Chatterjee’s rank correlation",
+        "trigger": "Original definition of the M=2 statistic and potential general M-dependent covariance coverage"
+      },
+      {
+        "assessment": "Establishes exact reverse covariance for original Chatterjee coefficient, which is distinct from the Lin–Han M=2 min-neighbor statistic; explicitly marks M>=2 joint analysis as future research.",
+        "evidence": [
+          "Lemma 1 provides original xi_n reverse covariance; Section 4 states multineighbor M>=2 joint work may require substantial derivations and is deferred."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2205.01769v3",
+        "material_read": "HTML Sections 1–4, Lemmas 1–3, Theorem 1, Appendix A.1 technical derivation and Discussion on the generalized statistic",
+        "method": "Compared definition of xi_n with Lin-Han xi_{n,M}, finite covariance formula, joint normality scope and explicit unsolved M>=2 passage",
+        "title": "On the asymptotic distribution of the symmetrized Chatterjee’s correlation coefficient",
+        "trigger": "Most plausible stronger prior work on reverse-direction covariance"
+      },
+      {
+        "assessment": "The symmetry results still concern original xi_n (with Spearman, Kendall or quadrant ranks); they do not provide the Lin–Han M=2 inverse covariance.",
+        "evidence": [
+          "Section 2.1 Theorem 1 and Section 2.2 Theorem 2 involve xi_n as originally defined by adjacent absolute rank differences."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2406.16859v1",
+        "material_read": "HTML Introduction, Section 2.1 symmetric test, Section 2.2 rank-correlation combinations, Theorems 1–2 and accompanying definitions",
+        "method": "Checked whether generalized two-right-neighbor xi_{n,2} replaces the original xi_n in reverse-direction covariance or test calibration",
+        "title": "On the extensions of the Chatterjee-Spearman test",
+        "trigger": "Later work on symmetrized rank tests could cover the proposed M=2 result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f43948f4-df76-4e73-9c9d-d4b0d5d7f73a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The inspected symmetrization study arxiv:2205.01769 explicitly raises joint analysis for multi-neighbor Lin-Han coefficients; two right neighbors are its first genuinely extended case. The exact finite-n covariance and 10/n correlation decay control the degree to which two seemingly distinct directional rank statistics carry redundant information under an independence null. The sharp n=5 correlation peak makes the finite-sample dependence quantitatively important; computing inverse covariance cannot be inferred from the mean or marginal variance. The theorem is an intrinsically motivated exact joint-moment answer, not merely a routine tabulation. It does not purport to settle the more ambitious joint-CLT and test-calibration problems.",
+    "status": "PASS"
+  }
+}
