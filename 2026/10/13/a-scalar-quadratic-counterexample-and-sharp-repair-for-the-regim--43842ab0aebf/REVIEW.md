@@ -1,31 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Direct substitution into Definition 2.1 gives the exact witness
-\[
-\mathcal K_0(1;1,1/2)=\frac{1}{2\sqrt3}.
-\]
-The source assumptions permit
-\[
-\xi=4,\qquad \Lambda_1=4,\qquad L=\frac1{100},
-\]
-for \(f(x)=2x^2\) on \([-1,1]\), while Lemma 4.2 claims the strictly larger lower bound
-\[
-\frac5{\sqrt{78}}.
-\]
-The repair follows from an operator-norm Hessian estimate before squaring the gradient difference. The scalar closed form independently confirms that the corrected \(B^2\) scaling is sharp.
+PASS
 
-## Originality
+Direct substitution gives g=4, x_new=-1, Δf=0, D=32, K0=(1/2)/sqrt(3)=1/(2√3), while source RHS with ξ=4, Λ1=4, L=1/100 is 5/√78; squares 1/12<25/78. Constant Hessian admits arbitrarily small positive Lipschitz constant. Derive A=Δf+Δτ D/8, with trapezoid remainder O(L Δτ³||g||³); correcting a sign typo in the package intermediate display, the identity is Δτ D/8 + (1/2)(g+g_new)^T(x_new-x)=Δτ||g_new-g||²/8, since x_new-x=-Δτ g. The gradient-difference norm is at most B Δτ||g|| and leads to A<=(ξL/2+B²/8) Δτ³||g||², giving K0>=2/sqrt(12ξL+3B²) whenever K0 is real/nonzero gradient. On f=λx²/2, z=λΔτ, direct K0=√[(z-2)²+4]/(λ√3), minimized at z=2; independent symbolic and exact rational checks verified the main inequality, witness and sharpness. The displayed sign typo is not a defect in the final claimed inequality but merits correction.
 
-PASS. The primary full text was inspected at the exact definition, assumptions, disputed lemma and proof, adaptive algorithm, and displayed global-convergence proof. Targeted source-identifier, lemma-number, formula, alias, and repair searches did not locate a published correction or equivalent scalar witness.
+## originality
 
-The main residual risk is a correction outside the indexed sources searched, or an undocumented intended meaning of \(\Lambda_1\) stronger than its displayed definition.
+PASS
 
-## Value
+The initiating arXiv manuscript states the mistaken term linear in Λ1 under a Rayleigh upper bound. Its Regime-1 quadratic/BB equivalence is not Regime-0. No direct correction was located by source identifier, lemma and squared-curvature searches; originality best-of-knowledge. The proof display sign typo is transparently noted without claiming the package source was modified.
 
-PASS. The result identifies the exact scale error in a stated lower bound for the safeguard used by the adaptive KGD framework and provides a dimensionally and algebraically correct replacement. The sharp scalar quadratic shows that the square on the Hessian norm cannot be removed.
+## value
 
-The finding is intentionally limited to Lemma 4.2. It does not claim that the paper's convergence theorems fail.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A concrete low-dimensional counterexample to a published uniform step-size safeguard is mathematically consequential for correctly interpreting its curvature assumptions; a sharp repaired operator-norm-square dependence identifies the exact missing hypothesis rather than only detecting numeric failure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
