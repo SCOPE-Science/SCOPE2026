@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the link-blind integral Betti polynomial
 
-The calculation is a uniform proof, not an inference from finite examples. For \(s\ge0\) added punctures, the compact Alexander-duality set in \(S^3\) is the disjoint union of the \(n\) link circles and \(s+1\) points, including infinity. Its reduced homology in degrees \(1\) and \(0\) is \(\mathbb Z^n\) and \(\mathbb Z^{n+s}\), respectively. Consequently the punctured Euclidean complement has free cohomology ranks \(1,n,n+s\) in degrees \(0,1,2\), and zero elsewhere.
+# Independent mathematical audit
 
-Excision at the removed \(s\) ordinary points gives local relative degree-three cohomology \(\mathbb Z^s\). Since the unpunctured link complement has no degree-three cohomology, this yields a short exact split sequence of degree-two groups. A Gauss class built from the difference of two configuration coordinates restricts with degree \(+1\) on the sphere about the corresponding puncture and degree \(0\) around every other puncture. Along with the last-coordinate pullbacks of degree-one and degree-two link-complement classes, these yield an integral fiberwise basis. Leray–Hirsch therefore multiplies the cohomology Poincaré polynomial by \(1+nt+(n+k-1)t^2\) when the \(k\)-th point is added.
+## correctness
 
-The base case \(k=1\) is \(1+nt+nt^2\). The product formula follows by induction for every integer \(k\ge1\), independently of link embedding. In the homotopy distinction, all pairwise diagonals in the ambient Cartesian power have codimension \(3\), so deleting them does not change \(\pi_1\). The trefoil knot group has nonabelian \(S_3\) as a quotient, whereas the unknot knot group is cyclic; their configuration spaces cannot be homotopy equivalent.
+PASS
 
-As elementary checks, for \(n=1,k=2\) the product expands to \(1+2t+4t^2+3t^3+2t^4\), and in general the degree-one and degree-two ranks are \(nk\) and \(nk+(n^2+1)\binom{k}{2}\). Such expansions are internal consistency checks, not certificates for infinitely many parameter values. There is no independent audit or assertion about cup-product rings, configuration quotients, or moving-link total spaces.
+For L with n smooth circle components and s extra finite point punctures, Alexander duality in S^3 removes L, Q and infinity, so cohomology is Z in degree zero, Z^n degree one, Z^(n+s) degree two, zero above. Excision and local orientation at s punctures split old H^2 classes from s small-sphere generators. In the Fadell–Neuwirth fibration forgetting the kth point, last-coordinate pullbacks of integral H^1/H^2(M_L) and global Gauss maps g_ik to S^2 produce fiberwise integral additive bases, since each g_ik has degree +1 on one puncture sphere and zero on the others. Integral Leray–Hirsch multiplies the Poincare polynomial by 1+nt+(n+k-1)t^2 for each k, proving torsion-freeness for every smooth link/k. For n=1,k=2 it expands to 1+2t+4t^2+3t^3+2t^4. Removing codimension-three diagonals preserves pi1, so unknot complement has abelian Z^k and trefoil complement has nonabelian direct-power group (surjects to S3); same additive cohomology does not force homotopy equivalence.
+
+## originality
+
+PASS
+
+Best-of-knowledge the uniform INTEGRAL ORDERED link-complement product is not stated by the inspected mixed-configuration, unordered knot-complement, or unordered rational configuration results. Classical Fadell–Neuwirth/Leray–Hirsch make proof natural but do not by themselves provide an indexed previously published exact formula. Remaining risk: forgotten ordered-configuration theorem in classical topology.
+
+## value
+
+PASS
+
+Natural mixed-configuration fiber has all integral additive cohomology ranks classified uniformly across number of particles and arbitrary smooth links, and a clean knot-independent-cohomology versus knot-dependent fundamental-group distinction; this precise invariant can be reused in configuration-topology research.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
