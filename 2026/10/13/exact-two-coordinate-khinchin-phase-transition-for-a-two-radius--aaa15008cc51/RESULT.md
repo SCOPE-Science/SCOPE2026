@@ -76,7 +76,7 @@ K_d(1)=\frac{1+d/2}{\sqrt{{2(1+d^2)}}}.
 \]
 Their squared comparison is exact:
 \[
-8(1+d^2)\bigl(K_d(1)^2-K_d(c)^2\bigr)
+8(1+d^2)^2\bigl(K_d(1)^2-K_d(c)^2\bigr)
 =d\bigl(d^3+4d^2+d-4\bigr).
 \]
 For \(d>0\), the cubic \(q(d)=d^3+4d^2+d-4\) is strictly increasing on \([0,1]\), because

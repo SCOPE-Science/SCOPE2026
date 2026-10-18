@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T04:57:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned source RESULT.md actual Git blob 0d1ec702e6ee695852c22dc7260a23a6a504efb6",
+        "Source tree 62138e98d08fc7e5cf7afdf03d586cff6d2ed9df",
+        "https://link.springer.com/article/10.1007/s00208-023-02669-9; arXiv:2301.09380",
+        "arXiv:1912.13345"
+      ],
+      "rationale": "The original package contains an incorrect endpoint-difference equality: it uses 8(1+d²) where algebra requires 8(1+d²)². Using full revised RESULT.md and VERIFICATION.md the exact identity is 8(1+d²)²[K_d(1)²−K_d(c)²]=d(d³+4d²+d−4). Independent SymPy factorization confirmed both the corrected equality and the original residual division by (1+d²). The max-of-two-signs reduction has two branches; the first decreases and the second has a unique interior maximum, so global minima occur at t=c or t=1; cubic is strictly increasing on [0,1]. This proves the FINAL REPAIRED claim for d∈[0,1), including the endpoint d=0 and tie.",
+      "residual_risks": [
+        "Original false equation is expressly replaced; source REVIEW and AUDIT descriptions remain true but may need editorial reconciliation on publication. Final proof checked symbolically, not externally certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 restricted to n≥3 and |a|∞≤1/√2; discrete uniform laws are structurally different."
+        ],
+        "reasoning": "No inspected theorem compares imbalanced 2-vector coefficients for precisely X_d.",
+        "searches": [
+          "Eskenazis Nayar Tkocz Theorem 1 2024",
+          "Havrilla Tkocz arXiv:1912.13345 discrete uniform Khinchin"
+        ]
+      },
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s00208-023-02669-9; arXiv:2301.09380",
+        "arXiv:1912.13345",
+        "Resultary semantic math search: Sharp Khintchine two independent coordinates symmetric four point Rademacher magnitudes 1±d minimizer equal versus imbalanced phase transition"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At d=0 the Rademacher optimum is known; the restricted theorem has no imbalanced 2D competitors."
+        ],
+        "reasoning": "Neither known endpoint nor coefficient restriction implies optimizer transition for d>0.",
+        "searches": [
+          "Szarek sharp Khinchin d=0 classical",
+          "distributional stability of Szarek and Ball inequalities remark complementary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No matching nonzero four-atom two-coordinate minimizer polynomial found in Resultary searches."
+        ],
+        "reasoning": "Aliases include Khintchine/Khinchin, two-radius perturbation, coefficient ratio and first absolute moment.",
+        "searches": [
+          "Sharp Khintchine two independent coordinates symmetric four point Rademacher magnitudes 1±d minimizer equal versus imbalanced phase transition",
+          "symmetric 4 atom Khintchine optimizer crossover"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching polynomial/transition values located; algebraic root is not a table recomputation."
+        ],
+        "reasoning": "Exact threshold follows analytic endpoint comparison, not numerical fit.",
+        "searches": [
+          "d^3+4d^2+d-4 Khinchin 0.813606502648331",
+          "four-point Rademacher two-radius sharp constant table"
+        ]
+      },
+      "rationale": "Theorem 1 of Eskenazis–Nayar–Tkocz restricts coefficient maximum to 1/√2 for n≥3. The corresponding two-dimensional admissible set consists only of equal weights and does not determine the nontrivial minimizer switch. The nonzero two-radius four-point family is different from earlier atom-zero/discrete-uniform laws. No corresponding complete cubic phase transition was located; mathematical O is retained after the small algebraic repair.",
+      "residual_risks": [
+        "Resultary semantic search does not establish exhaustive world literature; no certification of novelty.",
+        "Havrilla–Tkocz not fully read line by line."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_TWO_COORDINATE_COMPLEMENT",
+          "evidence": "Theorem 1 assumes n≥3 and max coefficient ≤1/√2; in 2 dimensions only equal weights lie in that restriction, so no imbalanced minimizer transition is implied",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00208-023-02669-9; arXiv:2301.09380",
+          "material_read": "full open-access HTML with Theorem 1, introduction, coefficient restrictions and remarks",
+          "method": "Springer full article HTML",
+          "title": "Distributional stability of the Szarek and Ball inequalities",
+          "trigger": "same Khinchin first absolute moment, Rademacher-near measures"
+        },
+        {
+          "assessment": "RELATED_DISTRIBUTION_NOT_THE_TWO_RADIUS_FAMILY",
+          "evidence": "discrete-uniform and atom-zero examples are not same nonzero two-radius law; full-text overlap remains residual risk",
+          "identifier_or_url": "arXiv:1912.13345",
+          "material_read": "abstract and source-specific discussion in pinned paper, not complete full text",
+          "method": "bibliographic/abstract comparison",
+          "title": "Sharp Khinchin-type inequalities for symmetric discrete uniform random variables",
+          "trigger": "related non-Rademacher sharp Khinchin optimizers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md",
+        "https://link.springer.com/article/10.1007/s00208-023-02669-9; arXiv:2301.09380",
+        "arXiv:1912.13345"
+      ],
+      "rationale": "A fully solved two-coordinate benchmark quantifies precisely when a natural nonzero two-radius perturbation breaks equal-weight Rademacher optimality, with exact transition and unique coefficient ratio; it addresses the complementary coefficient regime named in the underlying stability problem. Repaired multiplier restores correctness without changing substantive content.",
+      "residual_risks": [
+        "Only two coordinates and a specially selected distribution; no all-dimensional Khinchin optimum."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "limitations": [
+    "Original false equation is expressly replaced; source REVIEW and AUDIT descriptions remain true but may need editorial reconciliation on publication. Final proof checked symbolically, not externally certified.",
+    "Resultary semantic search does not establish exhaustive world literature; no certification of novelty.",
+    "Havrilla–Tkocz not fully read line by line."
+  ],
+  "schema_version": 1
+}

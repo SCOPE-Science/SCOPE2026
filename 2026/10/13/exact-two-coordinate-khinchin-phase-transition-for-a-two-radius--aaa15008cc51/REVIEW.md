@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof is exact. Symmetry reduces the unit coefficient circle to one ratio \(t\in[0,1]\); sign averaging gives a maximum of two positive magnitudes; and the resulting expectation has two elementary branches. The first branch is strictly decreasing, while the second has one interior critical point and it is a maximum. The global minimization therefore reduces to two endpoints, whose exact comparison factors through \(d(d^3+4d^2+d-4)\). The cubic is strictly increasing on \([0,1]\), yielding a unique transition and all equality cases.
+## correctness
 
-Risk: none of the numerical evaluations is used to prove the universal statement. The decimal threshold only reports the unique algebraic root.
+PASS
 
-## Originality — PASS
-The closest motivating source, Eskenazis–Nayar–Tkocz, proves distributional stability only under \(\|a\|_\infty\le1/\sqrt2\) and explicitly states that the complementary coefficient regime is not covered. In two coordinates that restricted region consists only of equal weights, so it cannot imply the present comparison against imbalanced coefficients. The cited changed-extremizer example from Havrilla–Tkocz is an atom-at-zero/discrete-uniform setting, whereas the present law has two positive radii for \(0<d<1\).
+The original package contains an incorrect endpoint-difference equality: it uses 8(1+d²) where algebra requires 8(1+d²)². Using full revised RESULT.md and VERIFICATION.md the exact identity is 8(1+d²)²[K_d(1)²−K_d(c)²]=d(d³+4d²+d−4). Independent SymPy factorization confirmed both the corrected equality and the original residual division by (1+d²). The max-of-two-signs reduction has two branches; the first decreases and the second has a unique interior maximum, so global minima occur at t=c or t=1; cubic is strictly increasing on [0,1]. This proves the FINAL REPAIRED claim for d∈[0,1), including the endpoint d=0 and tie.
 
-Targeted indexed-database searches covered Khinchin/Khintchine terminology, two-radius and two-amplitude Rademacher perturbations, symmetric four-point laws, coefficient-ratio minimizers, and the complementary Szarek regime. No retrieved result supplied the same exact phase diagram. The main residual risk is an equivalent elementary calculation hidden in older random-series terminology; inspection of Havrilla–Tkocz was not whole-document line-by-line.
+## originality
 
-## Value — PASS
-The result addresses a natural family singled out by the stability problem rather than an arbitrary parameter slice. It gives the complete two-coordinate benchmark in the coefficient regime that the motivating source explicitly separates from its method: exact optimizer, exact transition equation, and exact equality structure. The sharp breakdown threshold shows concretely how far a simple variance-normalized four-point perturbation can move before the Rademacher equal-weight extremizer ceases to win.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Theorem 1 of Eskenazis–Nayar–Tkocz restricts coefficient maximum to 1/√2 for n≥3. The corresponding two-dimensional admissible set consists only of equal weights and does not determine the nontrivial minimizer switch. The nonzero two-radius four-point family is different from earlier atom-zero/discrete-uniform laws. No corresponding complete cubic phase transition was located; mathematical O is retained after the small algebraic repair.
+
+## value
+
+PASS
+
+A fully solved two-coordinate benchmark quantifies precisely when a natural nonzero two-radius perturbation breaks equal-weight Rademacher optimality, with exact transition and unique coefficient ratio; it addresses the complementary coefficient regime named in the underlying stability problem. Repaired multiplier restores correctness without changing substantive content.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

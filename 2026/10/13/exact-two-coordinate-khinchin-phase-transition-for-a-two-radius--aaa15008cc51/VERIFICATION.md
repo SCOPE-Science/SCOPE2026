@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -23,7 +26,7 @@ On the second branch, differentiating \((A+Bt)/\sqrt{1+t^2}\) leaves the sign fa
 
 The endpoint comparison simplifies exactly to
 \[
-8(1+d^2)\bigl(K_d(1)^2-K_d(c)^2\bigr)
+8(1+d^2)^2\bigl(K_d(1)^2-K_d(c)^2\bigr)
 =d(d^3+4d^2+d-4).
 \]
 The cubic has derivative \(3d^2+8d+1>0\) on \([0,1]\), and changes sign between \(0\) and \(1\), establishing one and only one transition. A symbolic algebra replay independently reproduced both the derivative factor and the endpoint factorization, and numerically located the positive root at \(0.813606502648331\ldots\).
