@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Unrestricted affine tetrahedron optimization reduces exactly to four original polytope vertices, because absolute oriented volume is separately convex in each argument. The independently executable integer-polynomial program exhaustively enumerates all 495 unordered quadruples, proves the ten symbolic absolute-determinant forms and counts, and an explicit witness realizes the unique largest form. Positive polynomial gaps prove the strict interior maximum; removed homothetic corner volumes give 1-4t^3. Differentiation gives a quartic numerator strictly increasing on [0,1/2], proving a single sharp global minimum. Rational tests verify boundary and special values; finite checks are not substituted for the universal reduction.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1406.3512, Theorem 1 and §§2–3, concerns approximate extremal determinants and complexity, not an exact family-specific bound.",
+        "arXiv:1107.2300, §2, optimization of packing density for regular truncated tetrahedral particles."
+      ],
+      "reasoning": "A general MVS algorithm applies to the input but does not logically imply an explicit polynomial optimum or a quartic depth minimizer without further calculation. A packing theorem for one regular truncation fraction cannot cover the continuous best-contained-simplex profile.",
+      "searches": [
+        "maximum volume simplex inscribed uniformly truncated tetrahedron truncation parameter",
+        "maximum volume inscribed tetrahedron regular truncated tetrahedron 6/23; arbitrary uniform truncation affine simplex",
+        "\"uniformly truncated tetrahedron\" largest tetrahedron"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1107.2300",
+      "https://arxiv.org/pdf/1107.2300",
+      "https://arxiv.org/abs/1406.3512",
+      "https://arxiv.org/pdf/1406.3512",
+      "https://arxiv.org/abs/2412.07952",
+      "https://oeis.org/A394173"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1107.2300, abstract, Fig. 1, Eq. (7): periodic packing density 207/208 at regular truncation, not occupancy by a single tetrahedron.",
+        "arXiv:1406.3512, definition of MVS and Theorem 1: approximation ratio and hardness, without the exact twelve-point parametric minors.",
+        "arXiv:2412.07952, abstract: expected random-simplex volume moments; complete text was not accessible."
+      ],
+      "reasoning": "The new theorem determines an attained maximum M(P_t) and the unique global minimum of M(P_t)/vol(P_t). The listed prior conclusions neither evaluate M(P_t) nor bound it sharply over t. Full-text inaccessibility for Beck remains a stated risk; it is not construed as proof of noncoverage.",
+      "searches": [
+        "truncated tetrahedron largest inscribed tetrahedron one parameter sharp volume",
+        "Exact largest inscribed tetrahedron volume for all equal four vertex truncations of a tetrahedron: (1-t)(1-3t+3t^2); sharp tetrahedral volume occupation (1-t)(1-3t+3t^2)/(1-4t^3) unique minimum t=0.4320302936",
+        "maximum volume inscribed tetrahedron regular truncated tetrahedron 6/23; arbitrary uniform truncation affine simplex"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1406.3512, pp. 1–3: maximum-volume simplex defined as subdeterminant, generic algorithmic formulation, not one-depth equal truncation.",
+        "arXiv:1107.2300, pp. 1–6: truncated tetrahedron as packing particle and periodic crystal packing fractions."
+      ],
+      "reasoning": "The geometric quantity can be formulated as the largest homogeneous 4-by-4 minor among the twelve truncation vertices, or as the best inscribed tetrahedron fraction. The generic determinant algorithms do not supply the exact maximum for the one-parameter twelve-point family. Packing optimizes translational non-overlap of multiple truncated bodies, not the simplex inside a single one.",
+      "searches": [
+        "maximum volume simplex inscribed uniformly truncated tetrahedron truncation parameter",
+        "Exact largest inscribed tetrahedron volume for all equal four vertex truncations of a tetrahedron: (1-t)(1-3t+3t^2); sharp tetrahedral volume occupation (1-t)(1-3t+3t^2)/(1-4t^3) unique minimum t=0.4320302936",
+        "\"truncated simplex\" \"maximum volume simplex\" polytope"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A394173 indexes the mean volume of a randomly placed tetrahedron in a unit-volume truncated tetrahedron, supported by arXiv:2412.07952; this is an expectation, not a maximum.",
+        "The reproduced exact histogram for all 495 vertex quadruples gives a symbolic determinant classification with ten classes."
+      ],
+      "reasoning": "Neither an integral moment table of a random simplex nor a standard volume formula for the Archimedean solid determines the extreme four-vertex determinant across varying truncation depth. The symbolic census has a different statistic and parameter domain.",
+      "searches": [
+        "truncated tetrahedron maximal volume inscribed tetrahedron sharp volume ratio 6/23 0.22121",
+        "\"truncated tetrahedron\" \"largest inscribed tetrahedron\" volume",
+        "\"tetrahedron\" \"0.221219566\" truncation"
+      ]
+    },
+    "rationale": "Full-text comparison of Jiao–Torquato (regular truncated-tetrahedron packing) and Di Summa et al. (general MVS approximation and hardness) finds neither a sharp maximum tetrahedral occupancy formula for equal-depth truncations nor its exact quartic minimizer. Beck discusses expected random simplex volume and is not a directly covering claimed maximum; full text was not obtained. Mathematical equivalences and stronger generic results were assessed rather than relying on title differences. Historical priority remains uncertain.",
+    "residual_risks": [
+      "Possible unlocated preexisting affine-truncation extremal simplex formula in historical geometry literature.",
+      "The full text of Beck arXiv:2412.07952 was inaccessible; its abstract concerns expectation, but absence of a maximum theorem cannot be certified from that abstract.",
+      "Published semantic search and inspected sources do not imply an absolute priority or uniqueness certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Optimizes density of periodic packings of multiple polyhedra; does not calculate an inscribed maximum-volume tetrahedron, nor vary truncation depth across [0,1/2].",
+        "evidence": [
+          "Abstract pp. 1–2: packing density 207/208.",
+          "Fig. 1 and Eq. (7) pp. 4–7: Archimedean t=1/3 solid and packing-hole volume.",
+          "Conclusion pp. 8–9: structural packing principle."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1107.2300",
+        "material_read": "Complete open-access PDF retrieved; abstract, §§1–3 packing construction and density calculations, simulation discussion, conclusion and reference material read in relevant portions",
+        "method": "Open-access arXiv full PDF, section/page and figure inspection",
+        "title": "A Packing of Truncated Tetrahedra that Nearly Fills All of Space (original arXiv v1 title: Analytical Construction of A Dense Packing of Truncated Tetrahedra)",
+        "trigger": "Identical truncated-tetrahedral body at regular depth t=1/3"
+      },
+      {
+        "assessment": "Establishes algorithms and approximability/hardness of MVS, not exact depth-dependent extremum in a tetrahedral truncation family.",
+        "evidence": [
+          "pp. 1–2 define Maximum Volume Simplex and reduction to subdeterminants.",
+          "Theorem 1 and §2 provide approximation ratio.",
+          "§3 gives hardness, with no truncated-tetrahedron parameter statement."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1406.3512",
+        "material_read": "Complete open-access PDF retrieved; abstract/introduction, §2 theorem and algorithm statements, §3 hardness and reduction, reference material read in relevant portions",
+        "method": "Open-access arXiv full PDF, headings, theorem statements, PDF text search for truncation",
+        "title": "On largest volume simplices and sub-determinants",
+        "trigger": "General optimization problem is mathematically equivalent to max-volume simplex in vertex polytope"
+      },
+      {
+        "assessment": "Abstract addresses moments of random simplex volume, not directly maximum deterministic volume; no whole-document noncoverage judgment is made.",
+        "evidence": [
+          "Abstract explicitly says expected random simplex moments.",
+          "OEIS A394173 describes mean tetrahedron volume for the truncated tetrahedron."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2412.07952",
+        "material_read": "ArXiv abstract and metadata only; full PDF unavailable in attempted retrieval",
+        "method": "Open-access abstract; PDF and HTML retrieval attempts did not succeed",
+        "title": "On Random Simplex Picking Beyond the Blashke Problem",
+        "trigger": "Mean tetrahedron volume for the regular truncated tetrahedron indexed in OEIS A394173"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1c755146-65ce-48af-aadb-cab94fce309a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Best-contained-simplex fraction is a canonical affine-invariant measure of how faithfully a body is approximated by a tetrahedron. Equal-depth vertex truncation is the natural path linking a tetrahedron, its regular truncated Archimedean solid, and an octahedron. The complete sharp parametric law and its previously non-obvious interior strict minimum quantify an actual geometric phase of worst tetrahedral occupancy, rather than a numerically isolated table entry. The 495-case exact certificate and explicit sharp constructions make the invariant reusable.",
+    "status": "PASS"
+  }
+}
