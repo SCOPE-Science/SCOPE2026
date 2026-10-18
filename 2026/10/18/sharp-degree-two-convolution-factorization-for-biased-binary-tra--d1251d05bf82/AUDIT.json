@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For every n>=2, p in (0,1), an explicit transfer matrix yields the exact continuant representation. A pure imaginary root would force consecutive continuants at the same strictly positive parameter to vanish, impossible because f0=f1=1. The positive constant coefficient excludes zero. Degree n-1 is constant, and the fair-coin base point has all roots -1, so all roots remain strictly left of the imaginary axis. Real/conjugate factor grouping gives PGFs on support size at most three. Exact adjacent-transition covariance and the sharp Cauchy variance bound for n-1 Bernoulli factors prove index two is minimal for n>=3 and p!=1/2; n=2 and p=1/2 are explicitly Bernoulli/binomial. Exact-arithmetic diagnostic replay passed 594 coefficient, 396 Hurwitz-minor, and 132 moment comparisons; finite checks are not used to infer the universal claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:cond-mat/0307010, Section II equation (4), has the periodic chain partition trace expressed as sums of powers of transfer eigenvalues.",
+        "Shuldiner–Oldford arxiv:2110.02363 derives general sums-of-dependent-indicators moments and generating identities; the inspected text contains no theorem on zeros of this transition count."
+      ],
+      "reasoning": "A formula for an arbitrary dependent Bernoulli sum does not imply stable zeros. A periodic partition function is a transfer trace, whereas this open-chain polynomial uses specific endpoint vectors and has different zero sets. No inspected result provides the stated all-n, all-bias open-chain location or bounded-factor index.",
+      "searches": [
+        "i.i.d. biased Bernoulli binary word number of transitions switch count probability generating polynomial all zeros left half-plane Hurwitz stable independent summands of support at most two",
+        "one dimensional Ising open chain partition function Fisher zeros in left half plane edge disagreement fugacity",
+        "\"open boundary\" \"Fisher zeros\" Ising partition polynomial",
+        "\"number of runs\" \"left half-plane\" zeros"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2110.02363",
+      "Kim–Park 2019, Theorem 2, https://www.researchgate.net/publication/334637316_An_Asymptotic_Conditional_Test_of_Independence_in_Bernoulli_Sequences_Using_the_Number_of_Runs_Given_the_Number_of_Successes",
+      "arxiv:cond-mat/0307010",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kim–Park 2019, Theorem 2: only \\(\\sum X_i(1-X_{i-1})\\) conditional on total successes, not the unconditional \\(\\sum\\mathbf1\\{X_i\\ne X_{i+1}\\}\\).",
+        "Shuldiner–Oldford 2021 abstract and Section 3: general moment identities for indicator sums, no stable-zero assertion.",
+        "Kim 2003 Section II Eq. (4): periodic-boundary Potts partition function, not open-chain Bernoulli change-count polynomial."
+      ],
+      "reasoning": "None of the inspected theorem conclusions contains, reduces to, or dominates the open-chain strict half-plane location and exact bounded-summand threshold for every bias and length. The unbiased case alone is standard and excluded from novelty; the new component is the biased universal stable-zero theorem and sharp index two.",
+      "searches": [
+        "Bernoulli runs test number of runs sequence biased coin total count representable as sum independent random variables 0 1 2",
+        "one dimensional Ising open chain partition function Fisher zeros in left half plane edge disagreement fugacity",
+        "alternation count Bernoulli bit sequence switch count pgf strict Hurwitz roots minimal factorization index two",
+        "\"number of runs\" \"sum of independent\" Bernoulli distributions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kim–Park 2019 Theorem 2 concerns only success runs conditional on the fixed number of successes; its output is independent-Bernoulli under that conditioning.",
+        "The exact all-direction-change polynomial is a two-endpoint transfer-matrix product with strictly positive adjacent transition covariance for biased iid bits."
+      ],
+      "reasoning": "Conditional success-run counts and unconditional two-direction transition counts differ. The conditional real-rootedness statement cannot imply unconditional left-half-plane stability simply by mixing, since mixtures of real-rooted polynomials need not even be stable. For biased length at least three, the unconditional transition law violates the maximum Poisson-binomial variance, so it cannot coincide with the published independent-Bernoulli conditional representation.",
+      "searches": [
+        "distribution number of changes sign transitions in iid Bernoulli sequence log concavity run count sharp parameter threshold",
+        "Bernoulli sequence count switches adjacent unequal indicators probability generating function log concavity threshold",
+        "number of runs heads tails i.i.d. Bernoulli words real rooted log concave distribution",
+        "\"number of runs\" \"stable\" \"generating polynomial\" Bernoulli",
+        "\"number of runs\" \"Hurwitz\" probabilistic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest searchable result on fixed-composition run transitions concerns adjacent/disjoint indicator covariance signs after conditioning, not probability-polynomial factor degrees.",
+        "A related published binary-subsequence universality law counts a different statistic."
+      ],
+      "reasoning": "The claim is a continuum-in-bias, unbounded-in-length classification with an analytic root-location conclusion; it is not an exact coefficient table or a finite integer census. The closest retrieved records have different objects and their stated consequences do not determine the roots or convolution index here.",
+      "searches": [
+        "Bernoulli sequence count switches adjacent unequal indicators probability generating function log concavity threshold",
+        "Bernoulli runs test number of runs sequence biased coin total count representable as sum independent random variables 0 1 2",
+        "binary random word transitions distribution real-zero property Poisson-binomial obstruction variance adjacent transitions",
+        "\"distribution of runs\" \"factorization\" \"quadratic\""
+      ]
+    },
+    "rationale": "The candidate concerns iid binary two-direction changes and proves open-chain Hurwitz stability and a sharp max-two independent-summand index. Primary full-text comparisons distinguish it from conditional success-run real-rootedness, general indicator moments and periodic Potts zeros. Actual semantic searches of published mathematical records revealed no equivalent or dominating statement. Classical zero-location results could still exist, so originality is best-knowledge, not absolute uniqueness.",
+    "residual_risks": [
+      "Classical one-dimensional open-boundary Ising chain partition-function zero results may encode equivalent Hurwitz stability without using probability or run-count terminology.",
+      "Search coverage is incomplete, and the absence of a returned match does not establish mathematical novelty.",
+      "The 2019 conditional-run theorem was inspected from accessible extracted article text rather than an author-hosted archival source."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General moments are covered, not the specific root-location and sharp convolution index.",
+        "evidence": [
+          "arxiv:2110.02363v2 abstract and Section 3.4; v1 submission Oct 5, 2021."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2110.02363v2",
+        "material_read": "Public arXiv abstract, introduction, contents, preliminaries and Sections 2–4 discussing moments and generating functions; searched full extracted text for run, root and Hurwitz terminology.",
+        "method": "Sequential arXiv HTML reading and text search",
+        "title": "Bernoulli Sums: The only random variables that count",
+        "trigger": "General generating-function theory for locally dependent Bernoulli counts"
+      },
+      {
+        "assessment": "Theorem 2 is conditional on number of successes and counts success runs, a different statistic. It cannot imply biased unconditioned total changes are Poisson-binomial (variance obstruction).",
+        "evidence": [
+          "2019 article, Theorem 2 and Lemma 2; Section 2.1."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/334637316_An_Asymptotic_Conditional_Test_of_Independence_in_Bernoulli_Sequences_Using_the_Number_of_Runs_Given_the_Number_of_Successes",
+        "material_read": "Extracted full article content, Section 2 and 2.1: definition of success runs, Theorem 1 conditional hypergeometric law, Theorem 2 conditional Bernoulli decomposition and proof, Theorem 3 normal approximation.",
+        "method": "Read accessible article text, not solely search-result snippets",
+        "title": "An Asymptotic Conditional Test of Independence in Bernoulli Sequences Using the Number of Runs Given the Number of Successes",
+        "trigger": "Theorem asserting an independent-Bernoulli decomposition for a runs count"
+      },
+      {
+        "assessment": "The partition function in Section II Eq. (4) uses periodic trace powers, not the free-endpoint weighted binary-word transition polynomial; its zeros statement does not imply this one.",
+        "evidence": [
+          "arxiv:cond-mat/0307010, Section II, equation (4)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/cond-mat/0307010v1",
+        "material_read": "ArXiv full HTML introduction and Section II (partition function and transfer eigenvalues), Section III (Fisher zero statements and boundary setup), abstract and conclusion context.",
+        "method": "Sequential HTML examination and equation-level boundary comparison",
+        "title": "Fisher zeros and Potts zeros of the Q-state Potts model for nonzero external magnetic field",
+        "trigger": "Potential more general one-dimensional spin-chain transfer-matrix zero-location result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d1251d05-bf82-4b56-9610-84564a937215",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A central runs-test statistic has locally dependent indicator representation even for iid observations. The universal left-half-plane zero property supplies a complete independent-factor decomposition with bounded support and the exact factorization index. The strict biased-versus-fair boundary is intrinsic: biased samples of length >=3 are never Poisson-binomial although they always factor into degree-at-most-two PGFs. This is a naturally motivated structural classification across every length and bias, not a computed isolated example.",
+    "status": "PASS"
+  }
+}
