@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,32 +18,25 @@
   "schema_version": 1
 }
 ---
-For \(x\in S_{c_0(I)}\), fix \(k\) with \(|x_k|=1\) and set \(s=s_2(x)\). Given arbitrary \(y\in S_{c_0(I)}\), choose a sign \(\sigma\) with
-\[
-|x_k+\sigma y_k|\le1.
-\]
-Then
-\[
-\|x+\sigma y\|_\infty\le1+s,
-\qquad
-\|x-\sigma y\|_\infty\le2.
-\]
-Coordinatewise monotonicity of \(M_t\) therefore proves the upper bound for every parameter in the defining scale.
 
-For \(s>0\), choose \(l\ne k\) with \(|x_l|=s\) and take the two-coordinate witness
-\[
-y_k=\operatorname{sgn}(x_k),
-\qquad
-y_l=-\operatorname{sgn}(x_l).
-\]
-For \(s=0\), use any \(l\ne k\) with \(y_l=1\). In both cases,
-\[
-\|x+y\|_\infty=2,
-\qquad
-\|x-y\|_\infty=1+s
-\]
-after the harmless choice of the displayed signs.
+# Independent mathematical audit
 
-The bundled checker tests the upper bound on a deterministic rational finite-support grid and checks the equality witness for negative, zero, and positive parameters. These checks are supplemental; the displayed coordinate argument proves the full infinite-dimensional theorem.
+## correctness
 
-No independent audit or independent validation has been performed.
+PASS
+
+On real c0(I), I infinite, every sphere vector has a largest and second-largest coordinate modulus. Choose k with |x_k|=1, s=s2(x). For any y of sup norm 1, select sign sigma making |x_k+sigma y_k|<=1; for j!=k the same vector has |x_j+sigma y_j|<=s+1; opposite shifted norm<=2. Thus M_t(chords)<=M_t(2,1+s) for every -infinity<=t<infinity. A finitely supported y at k and a second-largest-coordinate l realizes both chord norms, with a separate explicit l when s=0. Any s∈[0,1] realized by x=e_k+s e_l. Gives exact full range/equality cases independent of dimension finite tests.
+
+## originality
+
+PASS
+
+For all real infinite-dimensional c0(I), including arbitrary index sets and every t in [-infinity,infinity), an exact second-largest coordinate profile and full range follows without the 2023 finite-dimensional t>=1 reduction. No matching theorem found in material actually read.
+
+## value
+
+PASS
+
+Determines the complete pointwise James-type spectrum for a canonical nonreflexive infinite-dimensional Banach space across the full generalized-mean parameter range; the second-largest-coordinate rule and all equality loci are natural geometric data not supplied by the finite-dimensional t>=1 reduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
