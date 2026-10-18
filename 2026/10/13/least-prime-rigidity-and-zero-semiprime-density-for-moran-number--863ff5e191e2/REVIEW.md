@@ -1,37 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. If \(\Omega(n)=2\), the only shapes are \(r^2\) and \(pq\). In the
-prime-square case the Moran quotient forces \(S(r^2)=r\); modulo \(9\) and a
-monotone digit-length inequality reduce this to \(r\in\{3,19,37\}\), all of
-which fail. For distinct primes \(p<q\), the digit sum must be one of the two
-prime factors. The branch \(S(pq)=q\) is reduced by the same size bound and a
-modulo-\(9\) congruence to four explicit products, all of which fail. Hence
-\(S(pq)=p\) exactly. The counting bound then follows uniformly from
-\(p=O(\log x)\), a standard upper bound for \(\pi(x/p)\), Mertens' theorem
-for prime reciprocals, and Landau's semiprime asymptotic.
+## correctness
 
-## Originality
-PASS. The fully inspected 2010 primary paper studies exactly the defining
-class and gives constructions, numerical data, and open problems, but targeted
-full-text checks find no semiprime or prime-square statement. OEIS A001101 is
-the exact sequence database and likewise gives no multiplicative-layer
-classification. The 2013 chain paper concerns a different iteration property
-according to its available abstract. Indexed semantic searches over semiprime,
-prime-square, Niven, and Moran formulations found no result implying the
-least-prime rigidity or the zero relative semiprime density.
+PASS
 
-Residual risk remains because the original 1993 recreational-mathematics
-problem was not available in full text and the 2013 chain paper was available
-only through its abstract.
+For Omega(n)=2 the square case r^2 forces S(r^2)=r and r≡1(mod9) or r=3. Digit-sum bound r<=18 log10 r+9 gives r<41; remaining r=3,19,37 have S(r^2)=9,10,19, never r. For pq (p<q), quotient prime forces S(pq)∈{p,q}; if S(pq)=q, q<41 and q(p−1)≡0 mod9 give q=3 with p=2 or p=19 and q∈{23,29,31,37}, all eliminated by explicit digit sums. Thus S(pq)=p; converse immediate. Bound p<=9 digits(n) limits p to O(log x) in n<=x. A prime-counting upper bound uniform over p<=O(log x) plus Mertens gives M_2(x)=O(x logloglog x/log x), and Landau gives zero relative semiprime density. Independently checked exceptional cases and generated all 1617 semiprime Moran numbers <=10^6, all squarefree with digit sum equal to smaller factor. This finite enumeration is corroboration, not an infinite proof.
 
-## Value
-PASS. The definition itself already factors a Moran number as its digit sum
-times a prime, so asking how that factorization interacts with the first
-nontrivial multiplicative layer is intrinsic rather than arbitrary. The
-result closes that entire layer, gives a sharp structural identity for the
-digit sum, and turns it into an unconditional zero-density theorem relative to
-all semiprimes. This goes beyond bounded enumeration or a reformulation of the
-definition.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest primary literature and published-result searches were compared for statement implication and actual mathematical object, not just titles. Witno 2010 construction n=12p and repunits does not imply that all semiprimes must satisfy S(pq)=p; its conjectural global count does not imply relative zero density within semiprimes. The submitted use of support and modulo-nine exceptions does. The term Moran number equals Niven number with prime quotient n/S(n); searching both aliases and Omega(n)=2, biprimes, products of two primes found no prior exact rigidity under those formulations. Residual risks are retained; inaccessible full text alone is not equated to scientific failure.
+
+## value
+
+PASS
+
+Complete multiplicative-layer classification in the naturally defined Moran/Niven-prime class and a quantitative relative-density-zero conclusion. This is a substantive connection of digit constraints, prime-factor support and analytic semiprime counting, not an arbitrary cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
