@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "All hypotheses and quantifiers are explicit. Conditional edge counting yields the exact exponential-potential drift; geometric series prove nonnegativity for all positive fitnesses and strict positivity for a mixed group of size at least three. Connectivity supplies finite absorption and a positive-probability route to such a group from every mixed state. Optional stopping proves both inequality directions and the occupation identity; the neutral count martingale gives equality at r=1. A separately run exact rational Markov-chain solver reproduces 330 finite comparisons and 294 edge-defect instances. The finite tests are not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liu–Masuda 2023: complete/cyclic/star three-uniform examples and empirical-network simulations, not arbitrary balanced weight/rank.",
+        "Wang et al. 2024, PDF pp. 1–6: five payoff/weak-selection strategy-update rules replace or compare individual states; their theory addresses public-goods cooperation thresholds, not whole-edge constant-fitness broadcasts."
+      ],
+      "reasoning": "A general theorem for every hypergraph would cover this result, but none was found. The broad title of Wang et al. does not provide coverage because its microdynamics are different. The claim explicitly does not extend to arbitrary unequal-incidence-weight structures.",
+      "searches": [
+        "birth death evolutionary dynamics hypergraph vertex regular suppressor selection theorem proof regular hypergraph",
+        "hypergraph evolutionary dynamics isothermal theorem suppression group replacement arbitrary hyperedges regular degree",
+        "Wang Yi Hong Chen Yan Evolutionary game on any hypergraph arXiv:2404.03305"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2301.05343v2, sections 2–5",
+      "doi:10.1137/23M1620144, sections 3–4",
+      "arXiv:2404.03305v1, PDF pp. 1–6",
+      "Literature discovery queries on regular-hypergraph fixation and complete/cyclic triple systems"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Liu–Masuda 2024, Theorem 4.5, uses a submartingale with distinct cross-layer fitness and updates to one graph neighbor; group sizes are always two for each event.",
+        "Liu–Masuda 2023, model 1 changes every member of a selected edge; Section 5 presents systematic suppression as a question supported by evidence, without the general balanced-weight theorem."
+      ],
+      "reasoning": "A group-broadcast transition changes the mutant count by arbitrary edge-dependent magnitudes and is not a special case of the one-recipient multilayer transition. The exact edge defect combines both parent types on each hyperedge and remains positive for all mixed group sizes greater than two, a premise not supplied by the cited multilayer theorem.",
+      "searches": [
+        "Liu Masuda Fixation Dynamics on Multilayer Networks Theorem 4.5 potential r^{-X_t}",
+        "Liu Masuda Fixation dynamics on hypergraphs 2023 model 1 discussion general proof",
+        "hypergraph Moran selection suppressor supermartingale fixation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Liu–Masuda 2023, Section 2, defines simultaneous all-edge replacement; Section 3.1 obtains selected symmetric-hypergraph examples by numerical and small-size linear-system calculations.",
+        "Liu–Masuda 2024, Section 4.2, proves a submartingale comparison in a two-layer process with single-recipient updating."
+      ],
+      "reasoning": "The searched equivalent formulation is the fixation probability against the Moran benchmark for arbitrary deterministic initial mutant sets, expressed either as a bounded exponential potential or a group-broadcast drift. Neither inspected prior result implies the complete balanced weighted-hypergraph comparison. The 2024 method is acknowledged as prior, not presented as a novel potential.",
+      "searches": [
+        "hypergraphs fixation probability evolutionary suppressor of natural selection group replacement mutant residents regular 3-uniform",
+        "exact supermartingale fixation theorem Y_t = r^{-X_t} group-broadcast Moran process complete 3-uniform cyclic hypergraphs equal weighted incidence regular",
+        "arXiv:2301.05343 Section 2 and 3.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2023 primary text reports exact small-system formulas for its highly symmetric families and numerical computations for larger systems; no table for arbitrary balanced mixed-rank weighted hypergraphs is present.",
+        "The new theorem contains all positive fitness ratios, every finite vertex count and deterministic initial mutant set, not a fixed database cell."
+      ],
+      "reasoning": "Known exact small-size computations fall inside the structural result as strict-suppression corollaries, but do not imply its all-hypergraph quantification. The claim is not an uncited recomputation of the original N=4/5 entries.",
+      "searches": [
+        "Fixation dynamics on hypergraphs exact N=4 N=5 equations 20 21 35 36 Liu Masuda",
+        "Moran fixation complete cyclic star 3-uniform suppressors table",
+        "connected regular hypergraph finite-size fixation table"
+      ]
+    },
+    "rationale": "The theorem supplies a structural all-initial-state, all-fitness strict suppressor classification for connected incident-weight-balanced hypergraphs, with arbitrary positive edge weights and edge sizes. Primary text 2023 shows the update model and selected examples without this theorem; 2024 multilayer submartingale and arbitrary-hypergraph public-goods rules differ in microdynamics. Prior use of exponential martingales is openly acknowledged. Remaining priority risk is specialist uncatalogued equivalent work.",
+    "residual_risks": [
+      "Undiscovered or non-indexed prior work may derive the identical balanced-group comparison.",
+      "The martingale technique itself was used previously for distinct evolutionary update rules."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same model, but no universal incident-weight-balanced all-size/all-initialization theorem or drift identity.",
+        "evidence": [
+          "Section 2 model 1: all other nodes of selected hyperedge copy parent.",
+          "Section 3.1 equations (20), (21) and cyclic analogous results, larger graphs treated numerically.",
+          "Section 5 general suppressor questions deferred."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2301.05343v2",
+        "material_read": "Full HTML sections 2, 3.1 (complete, cyclic, star), 3.1.4, 4, 5 and supporting-text description",
+        "method": "Read primary preprint full-text HTML, including update rules, equations and discussion",
+        "title": "Fixation dynamics on hypergraphs",
+        "trigger": "Exactly matching constant-fitness parent/edge/broadcast model and reported suppression examples"
+      },
+      {
+        "assessment": "Establishes a methodologically related submartingale but for two-layer single-replica replacement, not edge broadcast; it does not imply the present theorem.",
+        "evidence": [
+          "Section 3: a single graph neighbor is replaced per step.",
+          "Lemma 4.3 and Theorem 4.5: submartingale of r^{-X_t} for a complete-graph layer with cross-layer fitness."
+        ],
+        "identifier_or_url": "https://epubs.siam.org/doi/full/10.1137/23M1620144",
+        "material_read": "Full-text introduction, model definitions Section 3, theoretical results Section 4.1–4.4, notably Lemma 4.3 and Theorem 4.5",
+        "method": "Read primary publisher full-text HTML and compare state, update and potential",
+        "title": "Fixation Dynamics on Multilayer Networks",
+        "trigger": "Strongest plausible covering use of exponential submartingale by the same authors"
+      },
+      {
+        "assessment": "Uses public-goods payoffs and weak selection with individual state updates; no coverage of the fixed-fitness whole-edge broadcast comparison.",
+        "evidence": [
+          "PDF pp. 2–3: payoff-dependent fitness 1+delta times payoff and five update rules.",
+          "PDF pp. 3–5: theory on critical enhancement factors, not the Moran fixation comparison under one-parent full-group overwrite."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2404.03305",
+        "material_read": "Full-text PDF pp. 1–6: model, five updating mechanisms, results, conclusion; checked other sections for simultaneous broadcast wording",
+        "method": "Read primary arXiv PDF text with page-image inspection of page 3",
+        "title": "Evolutionary game on any hypergraph",
+        "trigger": "Broad title and evolving cooperation on arbitrary weighted hypergraphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6de892a2-9bbd-4235-a87a-05a7454f454d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The claim proves, rather than recomputes, a phenomenon highlighted numerically in the 2023 motivating paper. Its all-size weighted and mixed-rank generality isolates incident-weight balance and whole-group replacement as a structural suppressor mechanism. The exact nonnegative occupation-defect identity explains strictness and the sharp pairwise-only equality boundary, making the theorem useful for comparing group-update population models.",
+    "status": "PASS"
+  }
+}
