@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "Reflection decomposition gives a dark Hamiltonian and a strictly stable bright amplitude matrix. The projected dephasing form has real part <= -1/2, with equality only for the dark identity after imposing the Hamiltonian-frequency condition, so the simple real leading eigenbranch has first coefficient -1/2. A stable Lyapunov equation determines the second coefficient; the manuscript writes an explicit Hermitian matrix and verifies its boundary and interior entries symbolically, giving c=L/(4*kappa)+kappa*(L+1)*(L+2)/(192*g*g). Dissipativity excludes any Re(eigenvalue)=0 for every gamma>0. Direct dense finite-spectra and Lyapunov-solver comparisons corroborate 32+36 instances but are not the general proof. Hypotheses, normalization and non-uniform remainder scope are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Caruso Appendix A explicitly solves fully connected networks of arbitrary order using reduced collective variables, not arbitrary path adjacency matrices.",
+        "Le et al. develop graph-theoretic existence of dark states and describe the effect of dephasing, but the published sections do not derive this exact Lyapunov solution.",
+        "Marais et al. analyze fully connected spin-bath networks rather than the independent projector Lindblad central path."
+      ],
+      "reasoning": "General Markovian and degenerate perturbation theorems can organize the calculation but do not themselves evaluate the topology-specific second coefficient. No located stronger all-topology spectral formula subsumes this statement without additional nontrivial evaluation. Residual risk of an unlocated broader theorem is recorded.",
+      "searches": [
+        "quantum network dephasing lifting dark states first-order spectral perturbation parity reflection graph",
+        "site dephasing quantum network dark-state leakage perturbation Liouvillian resolvent second order Lyapunov",
+        "\"quantum transport\" \"dephasing\" \"dark states\" \"weak\" \"path\" sink spectral gap",
+        "arxiv:0901.4454 Appendix A",
+        "arxiv:1707.07482 Section III C",
+        "doi:10.1088/1367-2630/15/1/013038"
+      ]
+    },
+    "checked_sources": [
+      {
+        "id": "arxiv:0901.4454",
+        "scope": "full-manuscript relevant sections and appendix; complete-graph source"
+      },
+      {
+        "id": "arxiv:1707.07482",
+        "scope": "nine-page full manuscript, path-symmetry and noise sections"
+      },
+      {
+        "id": "doi:10.1088/1367-2630/15/1/013038",
+        "scope": "lawful full PDF manuscript, journal publication date confirmed"
+      },
+      {
+        "id": "arxiv:1308.3042",
+        "scope": "lawful full converted text, correlated chain dynamics"
+      },
+      {
+        "id": "https://doi.org/10.1103/PRXQuantum.3.020354",
+        "scope": "2022 abstract and open-access article synopsis only; different long-range excitonic chains, not used to claim full-text exclusion"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Caruso establishes that local dephasing permits eventual transfer and dark-state lifetime is of inverse-noise order in its fully connected model; this does not imply the exact coefficient 1/2, the uniqueness of the leading path decay mode, or either explicit quadratic term.",
+        "Le establishes that path eigenvectors vanish at mirror symmetry nodes, and local dephasing can remove those dark states; it does not determine spectral abscissa asymptotics.",
+        "Jeske studies correlated-noise transfer fidelity in chains; Marais treats spin-bath dynamics on fully connected networks."
+      ],
+      "reasoning": "The new claim implies a precise refined weak-dephasing leakage law for an odd central-sink path. Qualitative prior propositions assert the existence of leakage and an inverse-noise time scale only. Their algebraic statements cannot recover the displayed second derivative of the spectral abscissa without an additional computation, supplied here. Higher-order paper priority remains uncertain.",
+      "searches": [
+        "arxiv:0901.4454 Section II C and Appendix A",
+        "arxiv:1707.07482 pages 2–4 and Section III C",
+        "arxiv:1308.3042",
+        "doi:10.1088/1367-2630/15/1/013038"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Le et al. path sine eigenvector zeros create reflection dark spaces, and site noise suppresses trapping but no weak-gamma spectral coefficient is given.",
+        "Caruso et al. complete-graph excitation trapping time scales inversely with dephasing but this is not the central-path exact coefficient or quadratic term."
+      ],
+      "reasoning": "Equivalence was tested against alternative language: dark-sector leakage, inverse trapping lifetime, Liouvillian leading eigenvalue, and first-passage absorption. A qualitative inverse-rate lifetime is strictly weaker than the explicit coefficient and next term; no equivalent complete claim was identified in the inspected relevant work.",
+      "searches": [
+        "quantum walk absorbing site path central detector dephasing dark states first-order weak noise leakage",
+        "mirror reflection-symmetric quantum path with sink at central vertex: universal weak site dephasing absorption exponent gamma/2, antisymmetric dark subspace",
+        "central trap odd chain dephasing weak Gamma half universal second order absorption spectral gap L/(4 kappa)",
+        "\"dephasing\" \"dark\" \"path\" \"second order\" \"sink\"",
+        "arxiv:1707.07482",
+        "arxiv:0901.4454"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published mathematical-record index searches returned no identified table of central-path Liouvillian spectral gaps or these second-order coefficients.",
+        "The Caruso complete-graph appendix contains analytical dynamics rather than central-path spectral tables."
+      ],
+      "reasoning": "The result concerns an all-integer-L asymptotic formula with variable real g and kappa, not a finite value already listed in the inspected numerical graphs/tables. Negative database searches alone are not evidence of priority.",
+      "searches": [
+        "central trap odd chain dephasing weak Gamma half universal second order absorption spectral gap L/(4 kappa)",
+        "quantum walk with local dephasing center sink antisymmetric state population lifetime weak dephasing universal",
+        "\"path\" \"sink\" \"dephasing\" \"relaxation\" \"first order\" quantum"
+      ]
+    },
+    "rationale": "The closest exact physical precedents establish sink-plus-local-dephasing dynamics, reflection/path symmetry zeros, dephasing-induced loss of dark populations and a qualitative inverse-gamma trapping scale. They do not state or imply the particular all-length spectral-abscissa expansion with a universal slope and the explicit two-mechanism quadratic correction. A closed-entry bright Lyapunov inverse and a strict first-order spectral dominance proof supply the contribution. Existing general perturbation and dissipative spectral theory are used but not passed off as original. Full-text priority risk from unlocated general formulas remains.",
+    "residual_risks": [
+      "An unidentified stronger general perturbative theorem for absorbing site-dephased graphs, possibly expressed via effective Liouvillian/Drazin inverses, could imply this specific exact spectral coefficient.",
+      "The source literature uses more than one dephasing- and capture-rate normalization; direct numerical coefficient comparisons across papers require explicit rate conversion.",
+      "Mathematical-record semantic search does not establish global publication uniqueness; independent specialist bibliographic review has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper establishes general noise-induced removal of destructive-interference dark populations, complete-graph solvability, and a qualitative trapping time of order 1/gamma. Its exact solved topology is an all-to-all network, not an odd uniform path with an absorber at its central vertex, and it does not give the exact path-specific small-dephasing spectral abscissa or second-order term.",
+        "evidence": [
+          "PDF section I presents sink and dephasing Lindblad rates; section II C and Fig.4 discuss dark population and inverse-noise trapping time.",
+          "Appendix A solves the fully-connected network, not the central-path bright-block Lyapunov equation.",
+          "The source model uses alternative factors in rate parameters; a literal gamma/2 slope comparison without mapping conventions would be invalid."
+        ],
+        "identifier_or_url": "arxiv:0901.4454; https://arxiv.org/pdf/0901.4454",
+        "material_read": "Open manuscript PDF, introduction and model pp.1–3, fully connected network dephasing arguments pp.3–6, discussion of weak trapping pp.5–6, and Appendix A master-equation methods beginning p.11; text-index inspections for path, perturbation, and spectral terminology.",
+        "method": "Manuscript full-text read of relevant main sections and analytic appendix, with PDF page visual checks and theorem/parameter comparison.",
+        "title": "Highly efficient energy excitation transfer in light-harvesting complexes: The fundamental role of noise-assisted transport",
+        "trigger": "Same sink-plus-local-dephasing Markovian transport model; explicit analytic results and lengthy master-equation appendix."
+      },
+      {
+        "assessment": "Identifies dark states on paths with traps placed at symmetry zeros and explains their noise-induced suppression; network examples quantify transfer efficiencies qualitatively/numerically, without specifying the all-length path Liouvillian weak-gamma spectral expansion and its quadratic coefficient.",
+        "evidence": [
+          "Page 3 path section gives sine eigenvectors and zeros at symmetry points.",
+          "Section III C says local dephasing can remove dark subspaces, but compares transfer efficiency and finite-time curves on fully-connected graphs and cylinders, rather than analytically extracting central-path quadratic survival exponent."
+        ],
+        "identifier_or_url": "arxiv:1707.07482; https://arxiv.org/pdf/1707.07482",
+        "material_read": "Nine-page arXiv manuscript, particularly equations (3)–(7) for the sink/dephasing dynamics; page 3 path zero-eigenvector symmetry analysis; section III C noise-assisted transfer, figures 2 and 5, and graph-theorem sections.",
+        "method": "Primary full-text PDF section-by-section comparison, keyword search, and visual inspection of path and dephasing pages.",
+        "title": "How to Suppress Dark States in Quantum Networks and Bio-Engineered Structures",
+        "trigger": "Path symmetry-point dark states and the same physical mechanism of local dephasing overcoming absorption protection."
+      },
+      {
+        "assessment": "Studies environmental-spin coupled dimers, fully-connected quantum networks, and FMO transfer probability. Not an independent-projector Lindblad central-path sink spectral-gap expansion.",
+        "evidence": [
+          "Abstract and section 3 specify homogeneous fully-connected rather than nearest-neighbor path.",
+          "Section 2 derives effective spin-bath Hamiltonian and energy shifts, not the uniform Lindblad projector dephasing operator used here."
+        ],
+        "identifier_or_url": "doi:10.1088/1367-2630/15/1/013038; https://arxiv.org/pdf/1401.6660",
+        "material_read": "Lawful 19-page full manuscript, intro and formal model, dimer, fully connected transfer calculations, physical conclusions and FMO discussion; original publisher identifies first online publication as 2013-01-17.",
+        "method": "Full manuscript PDF relevant-section assessment, and original online publication page examination.",
+        "title": "Decoherence-assisted transport in quantum networks",
+        "trigger": "Analytical decoherence-assisted quantum transport, symmetry and network-dependent dark states."
+      },
+      {
+        "assessment": "Spin-chain state-transfer fidelity in correlated noise, rather than a central irreversible absorber or the zero-noise reflected dark-sector leakage exponent.",
+        "evidence": [
+          "Correlated noise and transfer fidelity are primary observables; no central sink or absorption-rate expansion was identified in the inspected manuscript."
+        ],
+        "identifier_or_url": "arxiv:1308.3042; https://ar5iv.labs.arxiv.org/html/1308.3042",
+        "material_read": "Lawful converted full manuscript text, including the modeling of correlated baths and spin chains, results and conclusions; searched for absorption/trapping terminology.",
+        "method": "Converted HTML full-text inspection, search within manuscript, comparison of physical operator and measured rate.",
+        "title": "Excitation- and state-transfer through spin chains in the presence of spatially correlated noise",
+        "trigger": "One-dimensional spin chains and local-versus-correlated noise effects."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "620cb02f-2c14-44d3-969b-b331b728431c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Weak dephasing of interference-protected transport is a natural challenge in sink-coupled quantum networks; an exact escape exponent determines metastable survival rather than only ultimate absorption. The universal gamma/2 slope and fully explicit second-order size/capture/hopping dependence distinguish competing processes and give a reusable path-wide analytic benchmark. The exact bright Lyapunov inversion is substantive structure beyond generic perturbation formalism and beyond already known inverse-gamma order-of-magnitude estimates. This is not a finite table recomputation or a routine substitution.",
+    "status": "PASS"
+  }
+}
