@@ -1,0 +1,11 @@
+# Scientific review: odd Fourier uncertainty on the fifteen-cycle
+
+**Correctness — PASS.** Oddness reduces the fifteen-point Fourier transform to the seven-by-seven sine matrix; the proof handles singleton positive supports and all 21 possible double-positive supports. Reduction from the cyclotomic integers to the finite fields of orders 31 and 61 is one-way: any vanished complex minor necessarily vanishes in each reduction. Exhaustive projective-row enumeration thus gives rigorous exclusion bounds, and the explicit five-character geometric sums provide the complex witnesses and identify both exceptional one-dimensional kernels. Fourier inversion classifies the other two equality classes. The package's standalone verifier reproduces the exact enumeration and has no numerical tolerance.
+
+**Originality — PASS under the literature inspected, subject to residual bibliographic risk.** Garcia–Karaali–Katz's prime-order discrete sine all-minors theorem establishes the framework but not this composite-order class census. Bonami–Ghobber's unrestricted Meshulam equality classes concern pairs \((4,5)\) and \((6,3)\) at these time sizes, not the inversion-odd pairs \((4,6)\) and \((6,4)\). The verified published-result searches did not locate an equivalent four-projective-ray classification. An older enumeration of the seven-by-seven sine matrix's proportional-row pattern could still contain the result; absence in search is not treated as proof of universal novelty.
+
+**Mathematical value — PASS.** Fifteen is the smallest odd cyclic group with two different prime divisors, so this is the first non-prime-power squarefree composite test of symmetry-constrained Fourier uncertainty. A sharp inequality alone would have modest value; the complete set of four equality classes and the exceptional four-point support dichotomy give the structural content and precisely classify optimal sine-transform sparsity. The result neither claims general composite-order behavior nor a stability theorem.
+
+**Principal limitations.** The proof is finite and computer-assisted, although fully reproducible using short exact modular code and an independent complex construction. The broadest residual risk is an unlocated exact enumeration in older discrete-sine or semiprime Fourier tables.
+
+Self-review: passed. Independent audit: not yet performed.
