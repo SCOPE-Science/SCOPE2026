@@ -1,0 +1,15 @@
+# Review: unit–involution fibres and symmetrized Peirce reconstruction
+
+## Correctness — PASS
+The proof fixes the finite-dimensional algebra, nilpotent Jacobson radical, field-product quotient and odd characteristic. The idempotent lifting step produces orthogonal lifts; the explicit element \(g=pp_0+(1-p)(1-p_0)\) conjugates any idempotent lift to the chosen one. Orbit–stabilizer in \(1+J\) then counts involutions with each fixed semisimple sign. Unit detection in the quotient gives the exact fibre law, with no dependence on unproved general-position assumptions. Singleton/doubleton cut identities give the inverse formula. In characteristic two the identity element blocks decomposition. Exact finite enumerations test five matrix-unit algebras, including nonzero radical square. Risk: a computational checker tests only finite examples, so it is supplemental to the proof.
+
+## Originality — PASS (self-review, not proof of uniqueness)
+Ansari–Hakami, DOI 10.1080/16583655.2026.2705030, deals with Hasse–Schmidt derivations and coefficient-normalization on incidence algebras, not involution-unit counts. Kirova, arXiv:2610.04709v1, proves existence decompositions in generalized matrix rings and gives triangular involution conditions but not fixed-element fibre multiplicities or reconstruction of radical Peirce data; the preprint acknowledges a 2019 Russian antecedent. Gargate–Gargate, arXiv:1907.06805v1, already enumerates involutions on finite incidence algebras, including fixed-diagonal calculations; that known mechanism is credited and the present result claims neither its rediscovery nor the mere sum of involution counts. The new statement concerns the unit-constrained fibre law for all finite-dimensional field-product-quotient algebras and recovery of the symmetrized radical Peirce graph from those fibres, together with its nonreconstruction boundary. The published premises are not represented as new. Residual risk: a broader idempotent-lifting or quiver-invariant formula in older, incompletely indexed literature might imply the result.
+
+## Value — PASS
+The exact multiplicity profile refines the binary existence property into a computable invariant for all such algebras. The reconstruction identity shows precisely what this invariant can recover in an inverse algebra problem: each weighted radical Peirce edge, including contributions from higher radical layers, while the explicit path/fork example proves that orientation is invisible. The incidence-algebra specialization is a natural comparability-graph cut partition function and allows direct computation for arbitrary finite posets. This provides a structural theorem, not an unmotivated finite census.
+
+## Boundaries
+No claim about noncommutative simple quotient factors, independent certification, or algebra reconstruction beyond the symmetrized radical graph. Fixed-diagonal involution counts for incidence algebras and general idempotent-lifting theory are antecedents, not new assertions.
+
+Self-review: passed. Independent audit: not yet performed.
