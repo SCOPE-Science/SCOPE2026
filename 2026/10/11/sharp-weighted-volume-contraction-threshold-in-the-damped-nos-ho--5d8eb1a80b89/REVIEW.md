@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The polynomial coboundary is obtained by differentiating the explicit quadratic potential; its exact residual is independently checked symbolically. Weighting by its negative exponential removes the indefinite-height term and leaves \(1/b-b-(y-bx)^2/(ab)\), so material weighted-volume contraction follows on each existing flow segment. Liouville's formula proves the stated finite-time Jacobian and compact-invariant-set bounds. Invariance of compactly supported probabilities eliminates the coboundary, and equality forces an orbit entirely within \(y=bx\); the only compact complete orbits there are the two displayed equilibria. Oseledets theory supplies the ergodic Lyapunov sum. The boundary is sharp because the equilibria attain the exponent for all \(a,b>0\). No claim assumes arbitrary solutions are globally bounded.
+## correctness
 
-## Originality — PASS, with residual literature risk
-The closest primary source is Sprott (2014), Eq. (6), introducing exactly the model. Munmuangsaen et al. (2015), Sec. 2, study its parameter plane and numerical Lyapunov exponents, writing down the Euclidean divergence \(z-b\) but not a global definite-sign weighted-divergence identity or a classification of all equality-attaining compact invariant measures. Mehrabbeik et al. (2022) analyze different placements of linear damping. Related published cohomological-volume claims concern a trigonometric thermostat or entirely different flows and do not imply the target formula. Title and formula searches are not proof of novelty; unindexed material or an unpublished equivalent calculation remains possible. The three most relevant open full texts were examined and their claims compared by implication.
+PASS
 
-## Mathematical value — PASS
-The two-parameter oscillator was explicitly introduced for linked attractors and adjustable Lyapunov dimension. A sharp global rate controlled by the same physical damping parameter is meaningful because the unweighted divergence \(z-b\) is not sign-definite anywhere uniformly over state space. The new exact weighted metric gives a whole-phase-space contraction/nonexpansion frontier, optimal finite-time exponent on compact invariant sets, and an equality-rigid Lyapunov-sum envelope for every compact stationary regime, independent of the attractor type. This is stronger than a routine local equilibrium trace or a numerical Lyapunov calculation.
+For a,b>0, direct independent symbolic differentiation of Psi=(-x²+y²+z²)/(2a)-z/(ab) along F=(y-bx,yz-x,a-y²) gives L_F Psi=z-1/b+(y-bx)²/(ab); ordinary divergence is z-b, so div_{e^-Psi} F=1/b-b-(y-bx)²/(ab). Weighted Jacobian transport thus yields nonexpansion at b=1 and exponential rate b-1/b for b>1 along any existing local flow segment. At E_±=(±sqrt(a)/b,±sqrt(a),1/b) the square vanishes and rate is attained; for b<1 weighted divergence is positive there. For every compactly supported invariant probability, integral L_F Psi=0; equality in integrated defect forces y-bx=0 on almost every full orbit via invariance, then x,y constant and z=1/b, except the x=y=0 orbit z(t)=z(0)+at which cannot stay compact; hence precisely mixtures of E_±. Oseledets + Liouville on compact ergodic supports identify the Lyapunov sum. Euclidean Jacobian carries an endpoint Psi coboundary and is not claimed to contract pointwise outside compact sets. SymPy algebraic premises independently checked, and analytic flow/invariant-measure arguments reconstructed beyond script output.
 
-## Scientific limits
-The weight has no asserted finite total mass on \(\mathbb R^3\); existence of compact attractors is not proved; global solutions outside invariant compact sets are not assumed. The source comparisons have the residual possibility of uncatalogued equivalent work; no independent assessment has been carried out.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: exact quadratic weighted cohomology, global sharp b=1 sign frontier and equality classification for every compact invariant probability go beyond published numerical Lyapunov plots and divergence z-b. Similar Nosé–Hoover coboundaries for a different field do not imply this system without conjugacy.
+
+## value
+
+PASS
+
+This identifies an explicit globally positive integrating weight, a sharp physically meaningful damping threshold across all phase points, and a classification of stationary measures saturating the Lyapunov-sum bound. It improves qualitative/numerical chaos evidence into rigorous invariant constraints without presuming attractor existence, a substantive dynamical statement rather than mere divergence sign arithmetic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
