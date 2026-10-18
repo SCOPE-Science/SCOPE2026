@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Use Python 3.8 or newer. From this directory run:
+## correctness
 
-`python3 verify.py`
+PASS
 
-The program uses only the standard library and prints a `VERIFY_OK` line after completing all checks. It constructs the binary-carry local-transition tables directly from pattern counts, enumerates all 64 start phases with every admissible odd-part residue, and checks the exact rational run-start densities, the initial 145 symbols, and independently generated sequence prefixes through length \(2^{17}\). The decisive finite enumeration is exhaustive *after* the symbolic proof has reduced the infinite problem to these finitely many carry configurations. The direct long-prefix tests alone do not prove any unbounded claim.
+Reconstructed binary carry q*2^t=n+1 and the shared prefix replacement P0 1^t versus P1 0^t; for mixed length-three patterns all internal constant-suffix triples are absent, so the change indicator depends on odd q mod 8 and truncated v2(n+1) (with sparse q=1,3 exceptions). The bundled verify.py explicitly generates local transition table from occurrence parity rather than hardcoding it, checks q equivalences and exceptional stable suffix, enumerates 64 phase classes with at most one divisible-by-16 position in 14 consecutive transitions, enumerates all permitted odd residues and exact rational density weights, then checks first 145 symbols. The finite reduction is mathematically justified by carry locality and 2-adic residue densities; a prefix alone would not prove exhaustion. Independently recomputed 131072 symbols for each of the six words, recovered full spectra and rational frequency agreement. Origin-only runs and density 0 are handled separately. The length-weighted densities equal 1.
 
-For completeness, the only boundary cases not described by the common-prefix identity are odd parts \(1\) and \(3\), whose jump behavior becomes constant once the \(2\)-adic valuation reaches \(6\). The checker includes their exceptional jump bits among the possible local windows; they contribute zero to the limiting densities. The rational table verifies \(\sum_{\ell}\ell\delta_w(\ell)=1\) for each pattern. The proof requires ordinary binary expansions with no leading zeros and overlapping occurrences. No independently conducted audit or validation is reported.
+## originality
+
+PASS
+
+All six length-three mixed-pattern words and the full rational run-start spectra are not equivalent to the earlier morphic/non-purely-morphic, orthogonality or all-one-run results inspected. The three origin anomalies and explicit frequencies go beyond known general block-counting context; best-of-knowledge with unindexed-automata risk.
+
+## value
+
+PASS
+
+Complete natural six-case classification at first nontrivial mixed pattern length, with exact exceptional boundary runs and positive limiting frequencies; answers local combinatorics of automatic pattern-parity sequences beyond finite sampling and provides precise repeatable benchmark invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

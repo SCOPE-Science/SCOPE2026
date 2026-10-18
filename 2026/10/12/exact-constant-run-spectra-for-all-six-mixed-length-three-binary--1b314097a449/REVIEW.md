@@ -1,15 +1,21 @@
-# Scientific review: mixed length-three block-counting constant runs
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact change indicator is obtained by writing the two neighboring binary integers as a common prefix followed by `0` and trailing ones, versus `1` and trailing zeros. Because all six tested patterns have length three and both symbols, the indicator depends only on two prefix bits, the last at most four suffix bits, and two explicitly handled exceptional short odd parts. A 64-phase exhaustive exact-rational residue case split checks all possible separations of successive change indicators for all sufficiently large positions; a finite boundary check covers the remaining starts. The same residue cases and the elementary equidistribution of odd residues at each fixed \(2\)-adic valuation prove every asserted rational density. The attached standard-library verifier independently replays all cases. It does not infer an infinite theorem from finite samples: a symbolic carry-locality reduction makes the complete case check finite.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest same-object source is Abram–Hu–Li (arXiv:2304.14595), which studies morphic generation and algebraicity of the block-counting sequences, not maximal constant-run spectra or density distributions. Hendel (arXiv:2505.20547) investigates maximal runs for the structurally different all-one pattern family; Li (arXiv:2406.16411) studies orthogonality and partial sums; Konieczny (arXiv:1905.03283) studies correlation classification. None of the inspected source results implies the six mixed-pattern tables. Targeted claim and parameter searches in publicly available mathematical records found no equivalent result. Absence of a search hit is not a uniqueness proof; unindexed earlier computations remain a genuine possibility.
+PASS
 
-## Value — PASS
-The theorem completely resolves a natural elementary invariant, maximal constant-run length, in the first nontrivial family of six genuinely mixed digit patterns and goes beyond occurrence classification to exact rational frequencies for every attainable ordinary length. The complement pairs unexpectedly have identical asymptotic distributions despite distinct origin-only anomalies. This is a natural complete classification of a motivated family rather than a picked interval or a routine restatement of existing automaticity theorems.
+Reconstructed binary carry q*2^t=n+1 and the shared prefix replacement P0 1^t versus P1 0^t; for mixed length-three patterns all internal constant-suffix triples are absent, so the change indicator depends on odd q mod 8 and truncated v2(n+1) (with sparse q=1,3 exceptions). The bundled verify.py explicitly generates local transition table from occurrence parity rather than hardcoding it, checks q equivalences and exceptional stable suffix, enumerates 64 phase classes with at most one divisible-by-16 position in 14 consecutive transitions, enumerates all permitted odd residues and exact rational density weights, then checks first 145 symbols. The finite reduction is mathematically justified by carry locality and 2-adic residue densities; a prefix alone would not prove exhaustion. Independently recomputed 131072 symbols for each of the six words, recovered full spectra and rational frequency agreement. Origin-only runs and density 0 are handled separately. The length-weighted densities equal 1.
 
-## Scope and limitations
-The definition explicitly excludes padded leading zeros and uses overlapping occurrences; alternative conventions can change short boundary runs. The proof gives exact limiting run-start densities, not distributions conditional on output symbol, and only covers mixed length-three patterns. Independent validation and an independent originality audit are not asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+All six length-three mixed-pattern words and the full rational run-start spectra are not equivalent to the earlier morphic/non-purely-morphic, orthogonality or all-one-run results inspected. The three origin anomalies and explicit frequencies go beyond known general block-counting context; best-of-knowledge with unindexed-automata risk.
+
+## value
+
+PASS
+
+Complete natural six-case classification at first nontrivial mixed pattern length, with exact exceptional boundary runs and positive limiting frequencies; answers local combinatorics of automatic pattern-parity sequences beyond finite sampling and provides precise repeatable benchmark invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
