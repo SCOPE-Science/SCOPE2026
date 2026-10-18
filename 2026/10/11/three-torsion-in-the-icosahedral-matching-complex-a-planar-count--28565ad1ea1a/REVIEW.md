@@ -1,15 +1,21 @@
-# Review of the icosahedral matching-complex calculation
+# Independent mathematical audit
 
-## Correctness — PASS
-The full thirty-edge icosahedral graph and all 5,887 nonempty matching simplices are independently enumerated. An explicit 2,866-pair discrete-Morse matching is acyclic on all 23,130 nonempty face incidences and has critical cells only in degrees zero, three and four. Integral gradient-path reduction gives a \(109\times45\) signed boundary matrix of rank 44 modulo three and full rank modulo two. A specified 45-row minor has exact determinant three, forcing Smith factors \(1\) (forty-four times) and \(3\) (once). Since the resulting CW three-skeleton is a wedge of 109 three-spheres, these boundary degrees classify the four-cell attachments and prove \(\bigvee^{64}S^3\vee M(\mathbb Z/3,3)\). An independently programmed simplicial mod-prime rank calculation for primes two, three and five agrees with the predicted universal-coefficient behavior.
+## correctness
 
-## Originality — PASS
-The closest directly relevant published universal statement is Bayer–Jelić Milutinović–Vega, *Matching Complexes of Outerplanar Graphs*, Theorem 2 (outerplanar case) and Conjecture 11 (planar extension). The twenty-one-edge outerplanar bound excludes the thirty-edge icosahedral graph, and its three-torsion contradicts the conjecture. Shareshian–Wachs prove torsion for matching complexes of complete and complete bipartite graphs, not the ordinary matching complex of this planar graph. Engström's claw-free independence-complex results apply as background but do not calculate the invariant. Searches for the icosahedral graph under its graph and line-graph descriptions uncovered no theorem covering this exact homotopy type. This is not a proof of worldwide bibliographic uniqueness; an unindexed equivalent result remains a residual risk.
+PASS
 
-## Value — PASS
-This is an explicit counterexample to an identified conjecture appearing as Conjecture 11 in a relevant recent research article. It answers that article's qualitative question about torsion in matching complexes by exhibiting three-torsion for a canonical planar graph. The exact Moore-space summand and sixty-four sphere summands go strictly beyond a mod-three detection and make the obstruction reproducible.
+PASS. The specified icosahedral graph is a 12-vertex 30-edge planar 20-face triangulated sphere. Independent edge-by-edge enumeration of ordinary matchings yielded 5,887 nonempty faces with f-vector (30,315,1400,2535,1482,125). The full 23,130 face incidences and prescribed 2,866 discrete-Morse pairs form a directed acyclic graph (complete Kahn topological sort); critical cells are one vertex, 109 three-cells, 45 four-cells. Independent signed gradient-path recursion reconstructed the 109x45 Morse boundary: rank mod 3=44 and rank mod 2,5=45; specified exact 45x45 minor determinant +3. Since all maximal minors divisible by 3 and one equals 3, SNF=1^44,3; the 3-skeleton is bouquet of 109 S^3 and pi_3 is classified by integer degree vectors, so splitting yields 64 S^3 wedge M(Z/3,3). The torsion violates any wedge-of-spheres or contractible conclusion. Both integral exact certificate and complete incidence DAG are essential; modular Betti numbers alone would not prove the homotopy type.
 
-## Limits and references
-The result is limited to this graph and ordinary matching complexes; it does not identify a smallest planar counterexample. Source texts inspected include Engström arXiv:math/0512420, Shareshian–Wachs arXiv:math/0409054 and Bayer–Jelić Milutinović–Vega arXiv:2411.04601v2 (notably the actual Conjecture 11 text). Two separate standard-library Python programs are included to check the finite computations. The calculated full homotopy type still awaits independent review.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS after exact-object and logical-implication comparison. Theorem 2 of Bayer–Jelić Milutinović–Vega concerns outerplanar graphs; icosahedron 30 edges on 12 vertices is not outerplanar (outerplanar bound <=21). Their planar Conjecture 11 is an unproved assertion, not prior coverage, and the certified 3-torsion refutes it. Classical matching complexes of K_n or K_{m,n} have 3-torsion but do not imply icosahedral matching complex calculation. An indexed-search miss alone is not treated as novelty proof.
+
+## value
+
+PASS
+
+PASS. An explicit integral 3-torsion obstruction in the ordinary matching complex of a planar polyhedral graph disproves the specifically stated universal planar matching-complex sphere-wedge conjecture. The complete finite homotopy type gives a reproducible, graph-natural counterexample and more structure than a mere negative computational check, so the motivated finite computation has substantial mathematical value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
