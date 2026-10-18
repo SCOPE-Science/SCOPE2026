@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary unstructured symmetric kernels, compression trace gives \\(\\mu\\ge1-T/m\\) and the contrast Rayleigh quotient gives \\(\\mu\\ge\\lvert1-T(1/k+1/m)\\rvert\\). Their sharp scalar minimax fixes total cross mass. Saturation of positive-semidefinite upper/lower bounds gives eigenvector equalities forcing uniform cross-edge weights in each optimizer. Orthogonal decomposition into constant, leaf-zero-sum, contrast and core-zero-sum spaces gives exact necessary-and-sufficient core Laplacian spectral interval; canonical complete-core and zero-core witnesses prove sharp transition regimes. Boundaries \\(m=k\\) and \\(m=2k\\) included. Standalone exact rational checks and LP tests passed 3343 assertions; finite tests are not infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The clique-lift theorem applies to arbitrary base graphs, thus subsumes the numerical optimum for split graphs.",
+        "The multipartite SDP covers the split graph K_{m,1,...,1} but focuses on symmetry-invariant representatives."
+      ],
+      "reasoning": "The general clique-lift theorem is acknowledged as stronger on the minimum value and existence of a solution. It does not, as stated, dominate the complete characterization of every optimizer on one lifted graph. Neither checked theorem implies necessity of uniform cross edges for all optima or the full core-face eigenvalue bounds without additional analysis.",
+      "searches": [
+        "Fastest mixing Markov chain on complete multipartite graphs and split graphs explicit optimal transition probabilities",
+        "Exact fastest mixing semidefinite program on complete split graph K_k join m isolated vertices, optimal SLEM m/(m+2k) and core clique edge activation thresholds m=k, m=2k",
+        "Jafarizadeh clique lift general graph Theorem 1 full text",
+        "Boyd et al complete multipartite graph Section 5.4.2 full text"
+      ]
+    },
+    "checked_sources": [
+      "Boyd, Diaconis, Xiao (2004), https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+      "Boyd, Diaconis, Parrilo, Xiao (2007 preprint, 2009 journal), https://arxiv.org/abs/0709.0955",
+      "Jafarizadeh, Clique Lifted Graphs and Subgraphs (2025 arXiv version), https://arxiv.org/abs/2501.02421",
+      "Indexed research comparison: complete multipartite fractional edge dimension (distinct optimization invariant), https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-feasible-polytope-and-all-optimizers-for-fractional-edge-dimensi--7877372a9b3d",
+      "Indexed research comparison: fastest mixing of tetrahedral orbit polytopes (different graph family), https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-sharp-quadratic-spectral-stability-for-tetrahedral-orbit-polytop--74134514ccfe"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2025 clique lift formula gives one lifted optimal weight assignment; it is not an if-and-only-if condition on all weights.",
+        "The 2009 symmetry averaging theorem guarantees existence of an invariant optimal kernel but does not imply that all kernels are invariant or a description of asymmetric optimal kernels.",
+        "A non-invariant optimum exists at \\(k=3,m=4\\) with only one positive clique edge of weight 1/10, so the full optimizer face genuinely contains chains excluded by a canonical symmetric representative."
+      ],
+      "reasoning": "Prior construction ⇒ optimal value plus at least one optimum; present equality analysis ⇒ every optimum and exact phase classification. The implication in the reverse direction is strict at \\(k=3,m=4\\). The proof uses extra equality-structure arguments, not a restatement of an SDP objective.",
+      "searches": [
+        "Clique lift of star graph all optimal transition kernels not only one optimum zero core weight phase transition m=k m=2k",
+        "Exact fastest mixing semidefinite program on complete split graph K_k join m isolated vertices, optimal SLEM m/(m+2k) and core clique edge activation thresholds m=k, m=2k",
+        "arxiv:2501.02421 Theorem 1 (8a)-(8b) and Section VI-E (52)-(55)",
+        "arxiv:0709.0955 Section 5.4.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jafarizadeh (arxiv:2501.02421), Theorem 1 constructs a clique-lift optimum from a base star and Section VI-E gives the star SLEM; the source does not present all lifted optimal transition matrices.",
+        "Boyd et al. (arxiv:0709.0955), Section 5.4.2 gives a symmetry-reduced multipartite SDP, not unrestricted equality conditions."
+      ],
+      "reasoning": "The underlying fastest-mixing value is equivalent to the known clique-lift solution and is expressly excluded from the originality claim. The set-valued optimizer classification is a logically stronger different statement: existence of one canonical optimizer does not imply which non-invariant kernels also attain the optimum.",
+      "searches": [
+        "Complete split graph K_k joined to m independent leaves all fastest mixing optimal stochastic matrices core edge Laplacian feasible spectral band uniqueness",
+        "Clique lift of star graph all optimal transition kernels not only one optimum zero core weight phase transition m=k m=2k",
+        "fastest mixing Markov chain split graph clique independent set all optimal transition matrices",
+        "arxiv:2501.02421 Theorem 1, Section VI-E; arxiv:0709.0955 Section 5.4.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed complete-multipartite records concern other graph invariants, e.g. fractional edge dimension and domination rather than SLEM optimizer sets.",
+        "Boyd et al. 2009 explicitly parameterize the relevant complete multipartite family but do not tabulate unrestricted optimal faces."
+      ],
+      "reasoning": "No exact SLEM optimizer-face table or classification matching all (k,m) was encountered. This is bounded search evidence rather than a mathematical guarantee of global novelty.",
+      "searches": [
+        "Complete split graph K_k joined to m independent leaves all fastest mixing optimal stochastic matrices core edge Laplacian feasible spectral band uniqueness",
+        "Fastest mixing Markov chain on complete multipartite graphs and split graphs explicit optimal transition probabilities",
+        "Published-index semantic searches for complete split fastest-mixing chain core Laplacian feasible spectral band and optimizer uniqueness"
+      ]
+    },
+    "rationale": "The 2007/2009 complete-multipartite SDP and 2025 clique-lift theorem closely cover the same graph and the latter covers the optimal SLEM plus one canonical optimum. They do not state a classification of every unrestricted asymmetric optimum, the spectral core-face conditions, necessity of connected core support at \\(m<k\\), optional core edges at \\(k\\le m<2k\\), or unique optimum at \\(m\\ge2k\\). The full optimizer face and equality-based rigidity, not the optimal value, are the assessed contribution. Other, unindexed formulations remain a substantive risk.",
+    "residual_risks": [
+      "Jafarizadeh’s broad clique-lift theorem may have consequences for all optimizers not explicitly presented as such; the originality claim is limited to direct full-face classification and edge-support phase transitions.",
+      "A specialized paper on SDP optimal faces, equi-optimal network weights, or split graphs could contain equivalent equality conditions under different terminology.",
+      "Semantic indexing is incomplete; absence of a retrieved result is not novelty proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes general objective/convex optimization, not this complete split graph optimizer face",
+        "evidence": "Definition of symmetric edge probabilities, uniform stationary distribution and SLEM SDP.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "Main formulation and general SDP/duality and examples",
+        "method": "Full open-access PDF text and page inspection",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Foundational SLEM semidefinite optimization and duality"
+      },
+      {
+        "assessment": "Relevant SDP formulation and invariant representative; no description of all potentially non-invariant optimizers",
+        "evidence": "Graph symmetry reduction and complete multipartite graph block diagonalization.",
+        "identifier_or_url": "arxiv:0709.0955v1",
+        "material_read": "Full primary PDF relevant graph-symmetry results; Section 5.4.2, pp. 812–813, and symmetry-averaging methodology",
+        "method": "Open-access full PDF text and page-image inspection",
+        "title": "Fastest mixing Markov chain on graphs with symmetries",
+        "trigger": "General complete multipartite family contains complete split graphs"
+      },
+      {
+        "assessment": "Decisively covers optimal SLEM and construction of canonical lift for this split graph; does not characterize the entire unrestricted optimizer face. Optimal-value novelty explicitly relinquished.",
+        "evidence": "Theorem 1 states clique-lift preservation of optimum; VI-E gives two star mass regimes matching \\(\\mu_*\\). The formulas construct weights but are not if-and-only-if over lifted weights.",
+        "identifier_or_url": "https://arxiv.org/abs/2501.02421",
+        "material_read": "Full accessible primary text around Theorem 1, equations (8a)-(8b), its proof and Section VI-E Star topology (52)-(55), plus introductory and concluding scope",
+        "method": "Author-accessible full text with targeted section inspection",
+        "title": "Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs and Subgraphs",
+        "trigger": "A general lifting theorem potentially dominating the candidate"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4ba71fb4-7af4-4932-bdb2-e629e47d9968",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact family-wide optimizer-face classification for the natural symmetric stochastic mixing problem, with two sharp parameter thresholds that decide whether internal core communication is obligatory, optional or impossible at the optimal mixing rate. It yields a connectedness constraint and uniqueness boundary for unrestricted edge allocations and can guide secondary cost or robustness selection without degrading asymptotic convergence. This information is not implied by reporting one optimal transition matrix.",
+    "status": "PASS"
+  }
+}
