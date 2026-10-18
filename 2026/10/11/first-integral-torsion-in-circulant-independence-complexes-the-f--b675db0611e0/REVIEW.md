@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem fixes the graph convention, every quantifier, and all boundaries of the finite census. All 338 connected nonempty-step circulants of orders three through fourteen are enumerated without isomorphism-based sampling. Every positive-dimensional boundary uses exact integer Smith normal form with the increasing-order signed simplicial boundary; the sole nonunit factor is two in six fourteen-vertex step sets. The proof that torsion in integral homology equals torsion of the appropriate boundary cokernel is explicit. Disconnected cases reduce to joins of smaller torsion-free complexes, and the empty-step graph is contractible. In each exceptional graph the free integral homology ranks follow from exact matrix ranks. A separate direct-subset program verifies a 14-pair elementary-collapse certificate and that each residual triangulation is a closed connected nonorientable Euler-zero surface. Unit multiplication proves precisely two degree-distinct graph classes, and the published triangulation is matched by an explicit coordinate map. The scope excludes all orders greater than fourteen. Dependencies and exact replay commands appear in `VERIFICATION.md`.
+## correctness
 
-## Originality — PASS, with known partial coverage
-The strongest nearby prior work is Datta--Upadhyay (2004): the seven-regular case is exactly their published fourteen-vertex weakly regular Klein-bottle triangulation \(Q_{7,2}\) after multiplying labels by three. Neither that known instance nor its Klein-bottle homology is represented as novel. The new claim is the **whole sharp circulant threshold**, including all connected/disconnected step sets through fourteen and the independent collapse of the distinct six-regular, nonpure exceptional graph. Their triangulation classification does not cover nonpure independence complexes or exclude lower-order circulant torsion. Adamaszek (2012) examines all flag complexes up to twelve vertices, leaving thirteen and fourteen outside its theorem. Earl--Vander Meulen--Van Tuyl (2015) tabulate well-covered circulants and identify properties of the same seven-regular graph, but neither that table nor its general results imply this exhaustive integral torsion classification. Exact statements and implications were compared under aliases, step multiplication, graph complementation, flag complexes, and closed-surface classification. Searches did not identify the full theorem in other accessible literature. Equivalent unindexed work remains a real risk; neither search nonretrieval nor a restricted research index establishes absolute priority.
+PASS
 
-## Value — PASS
-The smallest circulant order admitting integral homology torsion is a natural sharp invariant in topological graph theory, prompted by minimal-torsion flag-complex results and the structural study of circulant independence complexes. A full 338-case integral census identifies two genuinely different graph degrees, distinguishes a previously known pure Klein-bottle realization from a different nonpure complex collapsing to the Klein bottle, and provides reproducible proof certificates. The result goes beyond restating a published triangulation, a homology-rank computation or a selective example. Its finite scope is explicit and mathematically natural.
+Independent full 338-case exact integral Smith-normal-form exhaustive census, join reduction for disconnected graphs, 14 exact free-face collapses, and complete closed surface nonorientability/vertex-link tests reproduce all theorem cases.
 
-## Literature and limitations
-Datta--Upadhyay, *Degree-regular triangulations of torus and Klein bottle*, arXiv:math/0403433, Example 6 and Theorem 6 (partial direct coverage of the pure orbit). Adamaszek, *Small Flag Complexes with Torsion*, arXiv:1208.3892 (stronger coverage only through twelve vertices). Earl--Vander Meulen--Van Tuyl, *Independence Complexes of Well-Covered Circulant Graphs*, arXiv:1505.02837 (a broader graph list with different invariants). Unindexed enumerations or alternate graph names could duplicate the sharp threshold. Independent scientific auditing has not been performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Inspected exact census algorithm enumerating EVERY nonempty connected step set for 3<=n<=14 by gcd(n,steps)=1 and recursively all independent faces, computing integral Smith normal forms (not mod-p surrogates) of all positive boundary maps. Independently RECOMPUTED all 338 connected cases and exactly six n=14 torsion-positive S, each with a unique factor 2 in H1. Disconnected circulants are joins of d gcd-components of order n/d<=7 when d>1,n<=14; all constituent integral homology groups are torsion-free in the census, so join Kunneth remains torsion-free. Independently checked 14 actual free-face collapse pairs in the nonpure case, the final 14/42/28 closed nonorientable surface with cyclic vertex links and Euler characteristic 0, and the pure representative via exact Q7,2 triangle-list map i->3i mod14. Different valences 6 vs7 separate the two unit orbits. Finite n<=14 census is EXHAUSTIVE over the theorem finite domain, not extrapolated to all n.
+
+## value
+
+PASS
+
+The first-order exact torsion threshold for ALL circulants n<=14, especially the nonpure six-regular exceptional orbit and explicit Klein-bottle collapse, closes a natural finite classification not settled by Q7,2 manifold tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

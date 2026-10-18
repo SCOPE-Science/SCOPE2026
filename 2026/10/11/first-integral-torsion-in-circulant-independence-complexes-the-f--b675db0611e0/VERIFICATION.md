@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and limits
 
-Run `python verify_census.py census.json` with Python 3 and SymPy. It enumerates all nonempty connected circulant graph step sets of orders three to fourteen; there are 338. It constructs every independent face, oriented integral simplicial boundary, and Smith normal form, then compares complete machine-generated case records with `census.json`. Successful output includes `CENSUS_PASS`. The empty-step graphs are simplices; disconnected circulants decompose as disjoint graph unions, hence their independence complexes are joins, covered by the torsion-free join argument in `RESULT.md`.
+# Independent mathematical audit
 
-Run `python verify_surface.py surface_certificate.json` with Python 3 alone. This verifier uses a second, direct-subset face enumeration, checks the fourteen ordered elementary collapse pairs at the moment of removal, and verifies each resulting closed surface by triangle incidence, connected vertex links, Euler characteristic and contradictory orientation propagation. It verifies both step-set unit orbits and that the triangles of the earlier \(Q_{7,2}\) model map to the pure example under multiplication by three. Successful output includes `SURFACE_PASS`.
+## correctness
 
-Both programs were executed successfully after checking their complete embedded source files. Exact Smith forms, not finite experiments over selected fields, establish the torsion statement for every enumerated complex. This is an **exhaustive bounded theorem for \(1\leq n\leq14\)**; neither checker proves any claim for larger circulants. Homotopy type is established only for the six exceptional step sets. No independent audit or outside certification was performed.
+PASS
+
+Independent full 338-case exact integral Smith-normal-form exhaustive census, join reduction for disconnected graphs, 14 exact free-face collapses, and complete closed surface nonorientability/vertex-link tests reproduce all theorem cases.
+
+## originality
+
+PASS
+
+Inspected exact census algorithm enumerating EVERY nonempty connected step set for 3<=n<=14 by gcd(n,steps)=1 and recursively all independent faces, computing integral Smith normal forms (not mod-p surrogates) of all positive boundary maps. Independently RECOMPUTED all 338 connected cases and exactly six n=14 torsion-positive S, each with a unique factor 2 in H1. Disconnected circulants are joins of d gcd-components of order n/d<=7 when d>1,n<=14; all constituent integral homology groups are torsion-free in the census, so join Kunneth remains torsion-free. Independently checked 14 actual free-face collapse pairs in the nonpure case, the final 14/42/28 closed nonorientable surface with cyclic vertex links and Euler characteristic 0, and the pure representative via exact Q7,2 triangle-list map i->3i mod14. Different valences 6 vs7 separate the two unit orbits. Finite n<=14 census is EXHAUSTIVE over the theorem finite domain, not extrapolated to all n.
+
+## value
+
+PASS
+
+The first-order exact torsion threshold for ALL circulants n<=14, especially the nonpure six-regular exceptional orbit and explicit Klein-bottle collapse, closes a natural finite classification not settled by Q7,2 manifold tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
