@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The theorem concerns finite (possibly disconnected) trivially perfect graphs with uniform initial colours. The proof reconstructs the two-round component-size signal and inducts on the maximum component order. Removing all universal vertices of components at the induction level leaves a smaller trivially perfect graph, and restricting a stable equitable partition to that induced subgraph preserves equitability. The induction hypothesis implies the restricted partition refines that subgraph's orbit partition. Stable colours of the removed universal cliques then recover residual component-type multiplicities; stable colours of remaining vertices select corresponding pointed residual components, permitting an automorphism. The converse is equivariance of refinement. No infinite conclusion is inferred from enumeration. Separate graph-atlas and rooted-forest checks passed through orders seven and eleven, respectively.
+
+## Originality — PASS, subject to priority risk
+The full accessible text of Arvind et al. (arXiv:1502.01255, especially Section 8) defines refinability and its relation to amenability, compactness and Tinhofer properties, but does not establish the claimed trivially perfect subclass result in the material inspected. Rubio-Montiel (DOI:10.5614/ejgta.2015.3.1.3, full five-page paper) studies pseudo-Grundy and perfect-colouring characterizations, not iterative counting refinement. The earlier Tinhofer theorem concerns strong tree-cographs rather than all trivially perfect graphs; the publisher full text could not be inspected, and its possible indirect implications remain a risk. Searches for the equivalent all-order theorem or a dominating class theorem found no confirmed coverage. Absence of search results is not itself a novelty proof; no independent publication-priority certificate is asserted.
+
+## Value — PASS
+Orbit-refinement exactness for all finite trivially perfect graphs is a structural all-order theorem in a natural hereditary graph family characterized both by forbidden induced subgraphs and rooted-forest closures. It is stronger than the observed finite census and qualitatively different from amenability: the graph \(2K_3\) and the graph \(C_6\) are indistinguishable by uniform refinement across graphs, but orbit recovery holds for the former. This gives a meaningful boundary between graph identification and internal symmetry recovery. The result neither supplies a stabilization-depth formula nor applies to arbitrary cographs.
+
+## Closest literature and limitations
+Arvind–Köbler–Rattan–Verbitsky, arXiv:1502.01255 (2015); Rubio-Montiel, DOI:10.5614/ejgta.2015.3.1.3 (2015); Tinhofer, *Strong tree-cographs are Birkhoff graphs* (1989), full text inaccessible; Information System on Graph Classes entry for strong tree-cographs. Specialized earlier coverage and indirect implications of the inaccessible older paper remain possible. Computational checks are finite only.
+
+Self-review: passed. Independent audit: not yet performed.
