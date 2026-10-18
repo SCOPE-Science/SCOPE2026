@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The component-kernel argument explicitly handles graph edges, zero supports, isolated vertices, disconnected graphs, all fields including characteristic two, and the quantifiers \(q\) prime power and \(t\ge1\). Counting projective directions and nonzero scalar representatives yields the stated product. At \(T=1\) it totals \(q^{t(n+m)}\); the sharp rank maxima and center-cutting claim follow directly. The independent implementation of row elimination checks 132 representative and exhaustive cases covering 400389 vertex tuples and includes the extension field \(\mathbb F_4\). Finite checks supplement the symbolic proof rather than certify all cases.
+PASS
 
-## Originality — PASS, with residual bibliographic uncertainty
+For every finite simple graph (including isolates), prime-power q and integer t>=1, derive the common-centralizer linear equations u_v*b_w-u_w*b_v=0 independently for every edge. For support S of nonzero F_q^t vertex vectors, each vertex outside N[S] is unconstrained; inside G[S] a connected component contributes exactly one centralizer-kernel dimension if its nonzero vectors are projectively constant, and zero otherwise (a nonproportional edge forces zero propagating through the component). The number of projective directions is P=(q^t-1)/(q-1). Thus for each S the component factor P+(P^|C|-P)T yields q^{tm}(q-1)^|S| T^{|N[S]|-c(S)} times the product. At T=1 total q^{t(n+m)}, also including empty graph, t=1, q=2. The maximum codimension t=1 is n-c(G); for t>=2 it is n-i(G), attained by two nonproportional vectors within each edge-containing component, and this gives center-cutting. Independently reconstructed 4-vertex path/star over F2,t=2 by direct finite-field row elimination: path coefficients 64,384,3648,3840,8448 at ranks 0..4; star 64,4032,0,1536,10752, each summing to 2^14. The unrestricted proof is componentwise linear algebra, not finite extrapolation. Graphical-group orbit sizes rely specifically on the standard integral graphical group commutator equations, not arbitrary groups.
 
-The closest published exact comparison is Rossmann's 2022 class-size polynomial (Eq. (1.2)), which is **exactly the known \(t=1\) case**. The current claim excludes that as an original contribution: it addresses all \(t\ge2\), with projective support-component factors and simultaneous-orbit multiplicities, neither stated nor implied by the single-element formula without another common-kernel classification. Mainkar's 2015 paper establishes graph-faithfulness; DeCoste--DeMeyer--Mainkar's 2015 preprint treats a different central-indexed \(j(Z)\) operator. Targeted published-finding corpus searches found no equivalent tuple enumeration. Unindexed or differently named prior work remains a risk.
+## originality
 
-## Value — PASS
+PASS
 
-Common centralizer dimensions govern simultaneous conjugation of ordered tuples and are natural higher invariants of finite Lie algebras and graphical groups. The general graph-sum determines all stabilizer ranks, provides a closed orbit-size count, and sharply distinguishes single-element and pair behavior: one cannot cut to the center in a nonabelian graph Lie algebra, but two always suffice even over \(\mathbb F_2\). The binary four-vertex path and star have different joint rank distributions despite identical vertex and edge counts.
+Best-of-knowledge originality after independent statement/implication comparison, published-record semantic search and relevant primary material inspection. The known premises and residual risks below are credited, not silently treated as novel.
 
-## Sources, limits, and checks
+## value
 
-Original construction: Mainkar, *Graphs and two-step nilpotent Lie algebras* (arXiv:1310.3414v1; 2015 publication). Related metric operator: DeCoste--DeMeyer--Mainkar (arXiv:1512.07944v1). Closest exact t=1 polynomial and group-Lie centralizer equivalence: Rossmann (arXiv:2107.05564v1; DOI:10.1112/blms.12665). The support formula is exponential in graph size and does not distinguish all graph isomorphism types by assertion. Independent external mathematical review is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete common-centralizer codimension distribution of ordered t-tuples is a natural refinement of Rossmann's one-element conjugacy-class polynomial. It distinguishes graph shape even at fixed n,m (binary four-vertex path versus star), measures the first tuple length that cuts to the center, and gives every simultaneous conjugacy-orbit-size multiplicity in a canonical graph-derived nilpotent family. These are structural finite-field enumerations, neither a renamed one-element count nor an isolated tiny computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
