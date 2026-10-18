@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Expanding the exact LGF survival series after factoring \(y^{-\lambda}\) produces a geometrically dominated series whose coefficients are \(\operatorname{Li}_{\lambda+j}(\eta)\). The leading and first correction coefficients are therefore exact. Logarithmic differentiation gives the hazard expansion, and direct asymptotic inversion gives the quantile correction. The embedded checker independently evaluates the exact series and confirms all limiting constants.
+## correctness
 
-## Originality
-PASS. The target full text was inspected at the exact survival series, tail statement, and extreme-quantile proposition. It leaves the positive tail constant unspecified and gives no second-order hazard or quantile term. Focused published-finding corpus and public searches covered the exact DOI, logarithmic-gamma frailty, logarithmic Lomax mixtures, polylogarithm aliases, tail constants, hazard correction, extreme-quantile correction, and correction notices. The closest related same-author Lomax-mixture papers do not contain this polylogarithmic specialization or its next-order term.
+PASS
 
-Residual risk remains that an unindexed note or a sufficiently general infinite-mixture asymptotic theorem could contain an equivalent statement under different notation.
+Factor each published summand as (λ/(θ y))^λ n^(−λ)(1+λ/(nθ y))^(−λ); the binomial Taylor remainder, uniformly bounded for n≥1 and y large, is summable by geometric η^n, including differentiated terms. Coefficients are polylog moments Li_{λ+1}, Li_{λ+2}, both positive. Logarithmic differentiation yields hazard correction with the correct sign. Setting y0=(A/q)^(1/λ), q=1−p and solving the survival expansion for y=y0+δ gives δ=−B/λ and remainder O(y0^(−1)). The η↓0 Lomax boundary gives A→(λ/θ)^λ, B→λ²/θ, agreeing with exact quantile.
 
-## Value
-PASS. The source's own Proposition 9 depends on the unnamed tail constant, so the leading extreme-quantile approximation is not directly evaluable from the printed statement. The finding supplies that coefficient explicitly and adds a first correction that remains nonzero even in the Lomax boundary. The result also sharpens the hazard tail beyond the published equivalence.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for the explicit symbolic LGF tail constant and first nonzero hazard/quantile corrections; the original first-order source gave only an unspecified C and leading quantile equivalence. These follow by a standard method from the printed series but are not already stated as formulas in the primary source sections.
+
+## value
+
+PASS
+
+Though algebraically elementary, supplying a missing exact tail coefficient and additive extreme-quantile bias for a newly specified heavy-tail risk distribution has a direct mathematical/statistical use: it makes risk tail and quantile calculations parameter-explicit rather than relying on an unknown C. Scope is narrow but natural, not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

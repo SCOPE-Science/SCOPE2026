@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T09:57:44Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e7970a86eb52a25c6e66d1138bd9c53e740fadc0/2026/10/12/exact-polylogarithmic-tail-constants-and-quantile-correction-for--da67f56116ae",
+        "Git blob RESULT.md abdd2cb63ddcc4f0ded010f2facabb03d90e80f5",
+        "https://www.researchgate.net/publication/403392327_A_logarithmic-gamma_frailty_model_for_first-failure_times_with_heavy-tailed_risk"
+      ],
+      "rationale": "Factor each published summand as (λ/(θ y))^λ n^(−λ)(1+λ/(nθ y))^(−λ); the binomial Taylor remainder, uniformly bounded for n≥1 and y large, is summable by geometric η^n, including differentiated terms. Coefficients are polylog moments Li_{λ+1}, Li_{λ+2}, both positive. Logarithmic differentiation yields hazard correction with the correct sign. Setting y0=(A/q)^(1/λ), q=1−p and solving the survival expansion for y=y0+δ gives δ=−B/λ and remainder O(y0^(−1)). The η↓0 Lomax boundary gives A→(λ/θ)^λ, B→λ²/θ, agreeing with exact quantile.",
+      "residual_risks": [
+        "No uniform finite-y error bound, numerical accuracy guarantee, or new family-wide inference theory."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rahmouni Section 3.3 S(y)∼C y^{-λ}; Section 3.4 Q(p)∼(C/(1−p))^{1/λ}."
+        ],
+        "reasoning": "A first-order regular-variation statement does not imply the second-order B/y term or the additive quantile correction; the primary series supplies the data from which they are newly evaluated.",
+        "searches": [
+          "Resultary: logarithmic gamma frailty LGF survival asymptotic polylogarithm tail constant second-order extreme quantile Rahmouni",
+          "https://doi.org/10.3934/math.2026369"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e7970a86eb52a25c6e66d1138bd9c53e740fadc0/2026/10/12/exact-polylogarithmic-tail-constants-and-quantile-correction-for--da67f56116ae",
+        "https://www.researchgate.net/publication/403392327_A_logarithmic-gamma_frailty_model_for_first-failure_times_with_heavy-tailed_risk",
+        "Resultary: logarithmic gamma frailty LGF survival asymptotic polylogarithm tail constant second-order extreme quantile Rahmouni"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published survival series has weights η^n/n and Lomax factors (λ/(λ+nθy))^λ."
+        ],
+        "reasoning": "Dominated Taylor expansion yields A=(λ/θ)^λ Li_{λ+1}(η)/[-log(1−η)] and B=(λ²/θ)Li_{λ+2}(η)/Li_{λ+1}(η). Their derivation is elementary but the numerical quantile coefficient and correction were not expressly stated; they refine rather than contradict the original asymptotics.",
+        "searches": [
+          "Resultary: logarithmic gamma frailty LGF survival asymptotic polylogarithm tail constant second-order extreme quantile Rahmouni",
+          "https://doi.org/10.3934/math.2026369"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rahmouni (2026) LGF survival series, equation (3.3), Proposition 9."
+        ],
+        "reasoning": "The leading coefficient is an explicit weighted Mellin moment E[N^{-λ}] of logarithmic N, equal Li_{λ+1}(η)/[-log(1−η)]. This equivalent expression was not given in the source’s tail statement.",
+        "searches": [
+          "Resultary: logarithmic gamma frailty LGF survival asymptotic polylogarithm tail constant second-order extreme quantile Rahmouni",
+          "https://doi.org/10.3934/math.2026369"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published LGF polylog A and B table located by targeted Resultary and web searches; comparison is symbolic coefficients rather than numeric table lookup."
+        ],
+        "reasoning": "The exact coefficients for every admissible λ,θ,η are symbolic functional invariants of the model, not a recomputation of a known tabulated scalar.",
+        "searches": [
+          "Resultary: logarithmic gamma frailty LGF survival asymptotic polylogarithm tail constant second-order extreme quantile Rahmouni",
+          "https://doi.org/10.3934/math.2026369"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge for the explicit symbolic LGF tail constant and first nonzero hazard/quantile corrections; the original first-order source gave only an unspecified C and leading quantile equivalence. These follow by a standard method from the printed series but are not already stated as formulas in the primary source sections.",
+      "residual_risks": [
+        "The coefficient can be derived by elementary dominated expansion; an unindexed alternative source may already have written it explicitly.",
+        "The practical finite-tail benefit of the additive correction depends on parameters and is not claimed uniformly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full primary text’s relevant tail/quantile sections give unspecified C(η,λ) and only leading equivalences; no Li_{λ+1}, Li_{λ+2} or additive −B/λ correction in those inspected sections",
+          "evidence": "AIMS Mathematics 11(4):8945–8965, 2026, Section 3.3 C(η,λ)>0 unspecified, Proposition 9 Q(p)∼(C/(1−p))^{1/λ}.",
+          "identifier_or_url": "https://doi.org/10.3934/math.2026369",
+          "material_read": "Open licensed full text accessible as searchable HTML transcription of the 21-page primary article: Section 3.3 asymptotic constant statement, Section 3.4 equation (3.3) and Proposition 9 plus density series and parameter domains",
+          "method": "Compared model’s logarithmic weights, gamma-shape/rate and exact series against the proposed polylog A,B and quantile correction",
+          "title": "A logarithmic–gamma frailty model for first-failure times with heavy-tailed risk (Rahmouni)",
+          "trigger": "Identical LGF model and survival-series formula with an unspecified heavy-tail constant and leading upper-quantile asymptotic"
+        },
+        {
+          "assessment": "Different distribution and mixing law; its general existence of mixture tail constants does not supply the LGF polylogarithmic coefficients.",
+          "evidence": "AIMS Mathematics 11(3):6329–6349 (2026) describes finite logistic mixture and first-order tail properties.",
+          "identifier_or_url": "https://doi.org/10.3934/math.2026261",
+          "material_read": "Publisher article abstract and model description",
+          "method": "Compared finite covariate-weighted logistic Lomax mixture with logarithmically infinite LGF component-count model",
+          "title": "Frailty-Augmented Logistic-Weighted Lomax Mixture regression for survival analysis (Rahmouni)",
+          "trigger": "Same author, related Lomax frailty mixture with tail calculations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e7970a86eb52a25c6e66d1138bd9c53e740fadc0/2026/10/12/exact-polylogarithmic-tail-constants-and-quantile-correction-for--da67f56116ae",
+        "https://www.researchgate.net/publication/403392327_A_logarithmic-gamma_frailty_model_for_first-failure_times_with_heavy-tailed_risk"
+      ],
+      "rationale": "Though algebraically elementary, supplying a missing exact tail coefficient and additive extreme-quantile bias for a newly specified heavy-tail risk distribution has a direct mathematical/statistical use: it makes risk tail and quantile calculations parameter-explicit rather than relying on an unknown C. Scope is narrow but natural, not an arbitrary parameter slice.",
+      "residual_risks": [
+        "The coefficient can be derived by elementary dominated expansion; an unindexed alternative source may already have written it explicitly."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/e7970a86eb52a25c6e66d1138bd9c53e740fadc0/2026/10/12/exact-polylogarithmic-tail-constants-and-quantile-correction-for--da67f56116ae",
+    "https://www.researchgate.net/publication/403392327_A_logarithmic-gamma_frailty_model_for_first-failure_times_with_heavy-tailed_risk",
+    "Resultary: logarithmic gamma frailty LGF survival asymptotic polylogarithm tail constant second-order extreme quantile Rahmouni"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "No uniform finite-y error bound, numerical accuracy guarantee, or new family-wide inference theory.",
+    "Finite numeric checks of the asymptotic coefficients are corroboration only.",
+    "Expansion is elementary once the model’s survival series is known; novelty is a concrete missing model invariant, not a general theorem."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "Full primary text’s relevant tail/quantile sections give unspecified C(η,λ) and only leading equivalences; no Li_{λ+1}, Li_{λ+2} or additive −B/λ correction in those inspected sections",
+      "evidence": "AIMS Mathematics 11(4):8945–8965, 2026, Section 3.3 C(η,λ)>0 unspecified, Proposition 9 Q(p)∼(C/(1−p))^{1/λ}.",
+      "identifier_or_url": "https://doi.org/10.3934/math.2026369",
+      "material_read": "Open licensed full text accessible as searchable HTML transcription of the 21-page primary article: Section 3.3 asymptotic constant statement, Section 3.4 equation (3.3) and Proposition 9 plus density series and parameter domains",
+      "method": "Compared model’s logarithmic weights, gamma-shape/rate and exact series against the proposed polylog A,B and quantile correction",
+      "title": "A logarithmic–gamma frailty model for first-failure times with heavy-tailed risk (Rahmouni)",
+      "trigger": "Identical LGF model and survival-series formula with an unspecified heavy-tail constant and leading upper-quantile asymptotic"
+    },
+    {
+      "assessment": "Different distribution and mixing law; its general existence of mixture tail constants does not supply the LGF polylogarithmic coefficients.",
+      "evidence": "AIMS Mathematics 11(3):6329–6349 (2026) describes finite logistic mixture and first-order tail properties.",
+      "identifier_or_url": "https://doi.org/10.3934/math.2026261",
+      "material_read": "Publisher article abstract and model description",
+      "method": "Compared finite covariate-weighted logistic Lomax mixture with logarithmically infinite LGF component-count model",
+      "title": "Frailty-Augmented Logistic-Weighted Lomax Mixture regression for survival analysis (Rahmouni)",
+      "trigger": "Same author, related Lomax frailty mixture with tail calculations"
+    }
+  ]
+}
