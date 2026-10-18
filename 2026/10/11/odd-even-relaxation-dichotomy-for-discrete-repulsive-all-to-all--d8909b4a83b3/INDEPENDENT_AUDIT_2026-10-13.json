@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T07:13:04Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/odd-even-relaxation-dichotomy-for-discrete-repulsive-all-to-all--d8909b4a83b3/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/odd-even-relaxation-dichotomy-for-discrete-repulsive-all-to-all--d8909b4a83b3/verify.py",
+        "https://arxiv.org/html/2503.13230v1"
+      ],
+      "rationale": "For z=(Re Z,Im Z), Jacobian J has unit columns (−sinθ_i,cosθ_i) and θ+=θ−hJᵀz; G=JJᵀ has eigenvalues in [0,N]. Odd N: for any unit direction approximate cos φ_i by s_i=sign cos φ_i; |∑s_i|≥1 and ∑(1−|cosφ_i|)≤∑sin²φ_i, so λ_min(G)≥1−|Z|. Complex-exponential remainder gives z+=(I−hG)z+R, |R|≤Nh²|Z|²/2, implying |Z+|≤(1−h/4)|Z| throughout |Z|≤1/2, h<1/N, and summable phase increments yield the ≤4|Z_n| tail. For even N=2m, θ=(u,−u,0^(m−2),π^m) is exactly invariant; Z=2(cos u−1) and u+=u−2h sin u(1−cos u) ∈(0,u). Taylor: u+=u−hu³+(h/4)u⁵+O_h(u⁷) hence y=u^-2 satisfies y+−y=2h+(3h²−h/2)/y+O(y^-2). As y~2hn, remainder after subtracting 2hn+(3h/2−1/4)log n is summable (O(log n/n²)), giving finite constant +o(1). Direct independent symbolic coefficient check and numerics at N=4,h=.2 gave stabilized corrected residual about 2.666 at n=10k,25k,50k; bounded simulations not infinity proof. h=1/6 admissible only N=4, matching exact cancellation.",
+      "residual_risks": [
+        "The odd estimate is local |Z|≤1/2 and does not claim every orbit; even slow rate is on one invariant family.",
+        "Admissible steps strictly h<1/N; endpoint excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Buescu–Oliveira fully inspected article concerns N=3 Morse–Smale sinks and perturbations, no even N≥4.",
+          "Kalmár-Nagy–Horváth–Vincze 2025 publisher preview describes small systems (2,3 oscillators); full 27-page article not obtained, so no whole-document coverage denial is made."
+        ],
+        "reasoning": "No inspected theorem dominates all odd and all even sizes. Inaccessible publisher full text remains a bibliographic risk, not a negative claim about unseen sections.",
+        "searches": [
+          "discrete repulsive all to all Kuramoto odd even algebraic relaxation logarithmic correction",
+          "Synchronization in Small Fully Coupled Systems of Discrete Time Kuramoto Oscillators 2025 DOI 10.1142/S0218127425300320",
+          "https://arxiv.org/html/2503.13230v1"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/odd-even-relaxation-dichotomy-for-discrete-repulsive-all-to-all--d8909b4a83b3/RESULT.md",
+        "https://arxiv.org/html/2503.13230v1",
+        "https://arxiv.org/abs/2207.08182",
+        "https://doi.org/10.1142/S0218127425300320"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "N=3 hyperbolic stable clocks imply no even-family quartic slowing or log coefficient; regular-vs-singular geometry does not by itself give discrete finite-step rate.",
+          "The even invariant arc and exact scalar expansion produce the step-dependent log term in the original clock, not just continuous-time leading inverse-square behavior."
+        ],
+        "reasoning": "Neither inspected earlier result logically yields the new finite-step quantitative claims across all N and h.",
+        "searches": [
+          "discrete repulsive all to all Kuramoto odd even algebraic relaxation logarithmic correction",
+          "arxiv:2503.13230v1 Section 2.1 equation 4",
+          "arxiv:2207.08182 balanced equilibria and singular states",
+          "DOI 10.1142/S0218127425300320"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The phase update is exact Euler descent for V=|Z|²/2; Buescu–Oliveira three-clock reduced map has same repulsive sign.",
+          "Sclosa analyzes collinear singularities vs regular balanced configurations in continuous-time Kuramoto networks."
+        ],
+        "reasoning": "Existing continuous geometry is an input, not the claimed quantitative discrete-step convergence and log-corrected nonhyperbolic recurrence.",
+        "searches": [
+          "discrete repulsive all to all Kuramoto odd even algebraic relaxation logarithmic correction",
+          "discrete Huygens repulsive all-to-all clocks Buescu Oliveira arxiv 2503.13230",
+          "balanced Kuramoto singular equilibrium parity Sclosa arxiv 2207.08182"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned logarithmic relaxation records for distinct low-dimensional discrete and continuous models, but no table of this exact complete-graph all-size recurrence."
+        ],
+        "reasoning": "The result is an all-parameter qualitative and asymptotic theorem, not a preexisting numerical table. Search failure alone does not prove novelty.",
+        "searches": [
+          "discrete repulsive all to all Kuramoto odd even algebraic relaxation logarithmic correction",
+          "even four clock discrete repulsive Kuramoto inverse square relaxation logarithm h=1/6",
+          "Resultary discrete repulsive oscillator critical logarithm"
+        ]
+      },
+      "rationale": "The earlier explicit same-map Buescu–Oliveira (2025) studies exactly three clocks and Morse–Smale sinks. Sclosa (2022) covers prior geometry of odd/even balanced states, explicitly credited; neither gives an all-size finite-step exponential contraction with uniform |Z|≤1/2 domain and a separate even exact slow manifold carrying (3h/2−1/4) logarithmic correction. A closely named 2025 discrete Kuramoto article could only be assessed at abstract/preview level; this is substantial priority residual risk but not independent evidence of coverage or scientific failure.",
+      "residual_risks": [
+        "Complete 2025 publisher paper could cover a related special case or broader theorem unseen here; cannot classify whole source as not covering.",
+        "Earlier unindexed discrete Kuramoto normal-form literature may provide the logarithmic coefficient.",
+        "No generic algebraic relaxation statement is made for all even initial states."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MODEL_N3_ONLY",
+          "evidence": [
+            "Three-clock 2D Morse–Smale phase difference map is compatible with N=3 case; no theorem for all even N or explicit logarithmic slowing."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2503.13230v1",
+          "material_read": "Full accessible HTML read: introduction, Section 2.1 equation(4), main 3-clock statements, proofs/phase portrait discussion, Section 4 conclusion and bibliography.",
+          "method": "Direct complete relevant primary scientific argument comparison",
+          "title": "Lyapunov functions for Morse-Smale synchronisation diffeomorphisms",
+          "trigger": "Closest accessible preprint with exactly the three-clock sine map."
+        },
+        {
+          "assessment": "BACKGROUND_BALANCED_GEOMETRY",
+          "evidence": [
+            "Known singular even balanced configurations, but no discrete Euler rate and 3h/2−1/4 correction."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2207.08182",
+          "material_read": "Accessible arXiv scientific abstract, Section 3 balanced configurations and singularity discussion from full material identified; current run did not read every appendix.",
+          "method": "Geometric theorem/domain comparison",
+          "title": "Kuramoto Networks with Infinitely Many Stable Equilibria",
+          "trigger": "Preexisting balanced-set parity geometry."
+        },
+        {
+          "assessment": "PLAUSIBLE_INACCESSIBLE_RISK",
+          "evidence": [
+            "Publisher synopsis focuses on two and three oscillators; full-text priority comparison unresolved."
+          ],
+          "identifier_or_url": "https://doi.org/10.1142/S0218127425300320",
+          "material_read": "Accessible publisher abstract and article preview, not the complete 27-page paper.",
+          "method": "Published abstract and preview; previous open-access attempts inconclusive. No claim about invisible full sections.",
+          "title": "Synchronization in Small, Fully Coupled Systems of Discrete-Time Kuramoto Oscillators",
+          "trigger": "2025 directly related small discrete all-to-all phase networks; possible coverage."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/odd-even-relaxation-dichotomy-for-discrete-repulsive-all-to-all--d8909b4a83b3/RESULT.md",
+        "https://arxiv.org/html/2503.13230v1"
+      ],
+      "rationale": "A quantitatively sharp geometric odd/even dynamical dichotomy for a natural complete graph coupled map, including a proved common odd-size attraction domain, exact invariant even slow orbit and logarithmic correction/cancellation, is substantive. It is not merely renaming the known continuous-time equilibrium parity observation.",
+      "residual_risks": [
+        "Only a specified even invariant arc is analyzed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Discrete h strictly <1/N; odd attraction local; even algebraic along explicit family, not generic.",
+    "Closely related 2025 27-page publisher article could not be read in full."
+  ],
+  "schema_version": 1
+}

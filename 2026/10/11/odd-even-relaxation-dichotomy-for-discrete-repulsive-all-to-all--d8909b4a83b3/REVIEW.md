@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete phase update is a gradient step for the squared order parameter. The odd parity Gram inequality \(\lambda_{\min}(JJ^\top)\ge1-|Z|\) has a direct sign argument valid for arbitrary odd size. A second-order exponential remainder establishes the closed \(|Z|\le1/2\) sublevel set and uniform contraction, while summability of increments proves convergence of individual phases. The even invariant family is checked by substitution, and its scalar inverse-square recurrence gives a convergent renormalized remainder. Finite tests run independently against the full map. Risks: scope is the stated step interval; finite calculations do not prove the asymptotic.
+## correctness
 
-## Originality — PASS
-The directly matching 2025 full-text Huygens paper (arXiv:2503.13230v1) proves three-clock Morse–Smale sink behavior, not an arbitrary-size parity theorem. Known geometric smooth/singular distinctions for balanced Kuramoto configurations are explicitly acknowledged from Sclosa and earlier work. The new assertions are quantitative all-size discrete contraction, the exact invariant even-size slow orbit and its logarithmic correction. Searches of published research records and direct literature terms produced no prior statement implying the combined theorem. Risk: the complete 2025 Kalmár-Nagy–Horváth–Vincze article was not available; its abstract suggests small-system rather than full parity classification but cannot eliminate priority risk.
+PASS
 
-## Mathematical value — PASS
-The motivation is not a curiosity of a chosen orbit: it is the fundamental loss of normal contraction at collinear balanced configurations of even complete networks, contrasted with uniform contraction for odd networks. The theorem supplies an explicit neighborhood, quantitative rates and a sharp mechanism proving a global-to-parity transition in relaxation; the logarithmic coefficient isolates a discrete-step effect beyond the leading algebraic law. The invariant family is natural at the singular balanced configuration rather than an arbitrary finite parameter slice.
+For z=(Re Z,Im Z), Jacobian J has unit columns (−sinθ_i,cosθ_i) and θ+=θ−hJᵀz; G=JJᵀ has eigenvalues in [0,N]. Odd N: for any unit direction approximate cos φ_i by s_i=sign cos φ_i; |∑s_i|≥1 and ∑(1−|cosφ_i|)≤∑sin²φ_i, so λ_min(G)≥1−|Z|. Complex-exponential remainder gives z+=(I−hG)z+R, |R|≤Nh²|Z|²/2, implying |Z+|≤(1−h/4)|Z| throughout |Z|≤1/2, h<1/N, and summable phase increments yield the ≤4|Z_n| tail. For even N=2m, θ=(u,−u,0^(m−2),π^m) is exactly invariant; Z=2(cos u−1) and u+=u−2h sin u(1−cos u) ∈(0,u). Taylor: u+=u−hu³+(h/4)u⁵+O_h(u⁷) hence y=u^-2 satisfies y+−y=2h+(3h²−h/2)/y+O(y^-2). As y~2hn, remainder after subtracting 2hn+(3h/2−1/4)log n is summable (O(log n/n²)), giving finite constant +o(1). Direct independent symbolic coefficient check and numerics at N=4,h=.2 gave stabilized corrected residual about 2.666 at n=10k,25k,50k; bounded simulations not infinity proof. h=1/6 admissible only N=4, matching exact cancellation.
 
-## Closest literature and limits
-Buescu–Oliveira (2025, arXiv:2503.13230v1) develops the exact three-clock sine map and its sinks. Sclosa (2022, arXiv:2207.08182) supplies the relevant previously known balanced-set geometry. Kalmár-Nagy et al. (2025, DOI:10.1142/S0218127425300320) is a plausible partial comparison with uninspected complete text. No claim is made of priority certification or independent verification.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The earlier explicit same-map Buescu–Oliveira (2025) studies exactly three clocks and Morse–Smale sinks. Sclosa (2022) covers prior geometry of odd/even balanced states, explicitly credited; neither gives an all-size finite-step exponential contraction with uniform |Z|≤1/2 domain and a separate even exact slow manifold carrying (3h/2−1/4) logarithmic correction. A closely named 2025 discrete Kuramoto article could only be assessed at abstract/preview level; this is substantial priority residual risk but not independent evidence of coverage or scientific failure.
+
+## value
+
+PASS
+
+A quantitatively sharp geometric odd/even dynamical dichotomy for a natural complete graph coupled map, including a proved common odd-size attraction domain, exact invariant even slow orbit and logarithmic correction/cancellation, is substantive. It is not merely renaming the known continuous-time equilibrium parity observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
