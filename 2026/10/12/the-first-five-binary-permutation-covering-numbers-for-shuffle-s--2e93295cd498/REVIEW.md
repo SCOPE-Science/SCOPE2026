@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The definition of shuffle \(\pi\)-square is implemented by exhaustive complementary ordered position partitions and exact coordinate reordering. At each order the explicit cyclic-permutation set covers every even binary word. The lower-bound checks quantify over all \(n!\) permutations rather than just cyclic candidates. In particular, the nine even twelve-symbol obstruction words admit no cover by any three permutations, as certified by exact exhaustive signatures and superset propagation. The integer-only checker executed successfully. The conclusion is limited to \(2\le n\le6\); no unverified extrapolation is made.
+## correctness
 
-## Originality — PASS, with residual risk
-Section 2.4 of arXiv:2308.13882 introduces this covering number, gives the general cyclic upper bound, and states only the binary exact base value at \(n=2\). The presently proved exact values at \(n=3,4,5,6\) require new lower certificates not implied by that upper bound. Inspection of the related full arXiv:2503.22043v2 identifies an investigation of ordinary shuffle squares and nest-free graphs, not the generalized permutation-family covering invariant. Targeted bibliographic and research-index searches did not identify covering statements. Unindexed equivalent computations remain a realistic priority risk; this is not a claim of globally proven uniqueness.
+PASS
 
-## Value — PASS
-The source literature explicitly identifies exact covering-set sizes as a difficult natural invariant. The five-order classification establishes sharpness of its cyclic upper bound in the first four orders beyond the trivial single-letter case. The nine-word certificate isolates a small obstruction that forces the fourth permutation at order six, even against all noncyclic alternatives. Such examples inform how future structural lower bounds must work; they do not settle arbitrary orders.
+Under the precise definition of even binary length-2n words and complementary ordered length-n subsequences U,V with V=πU, for n=2..6 cyclic shifts k=0..floor(n/2) cover ALL 2^(2n-1) even words, proved by a finite exhaustive upper certificate. For lower bounds, exhausting every permutation and subsequence partition yields best one-permutation covers 6/8,28/32 at n=2,3 and best two-permutation unions 126/128,496/512 at n=4,5. At n=6 the given nine-word obstruction generates 73 distinct coverage signatures from all 720 permutations and all 924 partitions; a complete 9-bit superset DP rules out every triple of signatures. Thus m2(2..6)=(2,2,3,3,4), with no assumption that lower-bound competitors are cyclic. Independent fresh exhaustive enumeration regenerated signatures, rotation coverage for 8,32,128,512,2048 words and nine-word obstruction; a subset witness is sufficient for the lower bound, not a mistaken all-word enumeration.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge original narrow result after comparing actual mathematical implications with primary source and adjacent literature: Theorem 2 upper construction and Proposition 2 m2(2)=2 are prior; new n3..n6 lower certificates concern free choice of permutations. Papers on ordinary shuffle squares are not equivalent to minimum covering across π.
+
+## value
+
+PASS
+
+The precise m_k(n) family is introduced as a natural minimal-permutation covering invariant in the original shuffle-square paper. Closing the first five binary values with explicit finite optimality certificates and locating the first order requiring four shifts is a motivated finite cutoff rather than a gratuitous small computation. It does not purport to settle all n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

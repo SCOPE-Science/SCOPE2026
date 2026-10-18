@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Exact finite verification
+# Independent mathematical audit
 
-Execute `python3 verify.py` using Python 3.10 or later with assertions enabled. The checker builds every binary even word at the five specified orders, constructs every permutation, and enumerates every complementary split of its positions. An explicit cyclic family is checked against every word for each upper bound.
+## correctness
 
-For lower bounds through order five, a second representation builds pair-compatibility masks and exhaustively unions every candidate permutation coverage vector. The maximum numbers of words covered by one permutation at orders two and three are \(6\) and \(28\); at orders four and five, the maximum numbers covered by two permutations are \(126\) and \(496\). For order six, the checker uses nine explicitly displayed even words; across all \(720\) permutations their neighborhoods produce \(73\) signatures, none of whose three-fold unions contains all nine word-indices. The superset table contains exactly \(512\) entries and exhausts all possible third permutations.
+PASS
 
-The checker was executed from its package path and returned:
+Under the precise definition of even binary length-2n words and complementary ordered length-n subsequences U,V with V=πU, for n=2..6 cyclic shifts k=0..floor(n/2) cover ALL 2^(2n-1) even words, proved by a finite exhaustive upper certificate. For lower bounds, exhausting every permutation and subsequence partition yields best one-permutation covers 6/8,28/32 at n=2,3 and best two-permutation unions 126/128,496/512 at n=4,5. At n=6 the given nine-word obstruction generates 73 distinct coverage signatures from all 720 permutations and all 924 partitions; a complete 9-bit superset DP rules out every triple of signatures. Thus m2(2..6)=(2,2,3,3,4), with no assumption that lower-bound competitors are cyclic. Independent fresh exhaustive enumeration regenerated signatures, rotation coverage for 8,32,128,512,2048 words and nine-word obstruction; a subset witness is sufficient for the lower bound, not a mistaken all-word enumeration.
 
-```
-VERIFY_OK m2(2..6)=2,2,3,3,4 upper-even=8,32,128,512,2048 n6_obstructions=9 n6_signatures=73 max_pair_n4=126 max_pair_n5=496
-```
+## originality
 
-All arithmetic and comparisons are exact finite integer/string operations. The finite classification is proved by exhaustive enumeration and does not imply values at higher orders. No independent external audit has been performed.
+PASS
+
+Best-of-knowledge original narrow result after comparing actual mathematical implications with primary source and adjacent literature: Theorem 2 upper construction and Proposition 2 m2(2)=2 are prior; new n3..n6 lower certificates concern free choice of permutations. Papers on ordinary shuffle squares are not equivalent to minimum covering across π.
+
+## value
+
+PASS
+
+The precise m_k(n) family is introduced as a natural minimal-permutation covering invariant in the original shuffle-square paper. Closing the first five binary values with explicit finite optimality certificates and locating the first order requiring four shifts is a motivated finite cutoff rather than a gratuitous small computation. It does not purport to settle all n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
