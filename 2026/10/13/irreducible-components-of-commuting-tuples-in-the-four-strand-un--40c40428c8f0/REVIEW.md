@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact pairwise commutation conditions reduce to three exterior equations. An irreducible vector-bundle chart constructs one component, a Grassmann-incidence quadric constructs another, and a linear family provides the third. Explicit degenerations establish the special \(r=2\) containment; distinctness tests give the complete list for all \(r\geq3\). All statements are about reduced varieties over algebraically closed fields of arbitrary characteristic. An independent finite checker validates the equations and selected exact counts, not the infinite proof.
+## correctness
 
-**Originality — PASS, with residual risk.** The source most directly about this group (Majeed–Ramkumar, arXiv:2608.09235) concerns a commuting graph over prime fields; its full text was inaccessible, although its abstract and a secondary analysis of its scope were examined. Li's arXiv:2403.13953 studies complete intersections of commuting-pair schemes, not component counts for all tuple lengths; relevant sections of the primary PDF were inspected. Kaur–Sharma–Singh's arXiv:2006.01493v1 yields finite-field tuple counts in odd characteristic, which the claim expressly does not present as new. Levy–Ngo–Šivic study the full nilpotent cone, not a specified unitriangular subgroup. Published record and mathematical search results revealed no equivalent all-length component statement. Historical equivalence remains a risk; absence in a search is not a novelty proof.
+PASS
 
-**Value — PASS.** The result gives an exact natural classification of the irreducible branches of an infinite sequence of representation varieties of the free abelian group into a fixed noncommutative unipotent group. The jump from two to three components, and the dimension crossover after three generators, are structural and cannot be recovered merely from finite-field commuting probabilities or the commuting graph.
+For the actual package coordinates (a,d,f,b,e,c), multiply upper-unitriangular matrices: all pair commutators vanish exactly for a∧d=0, d∧f=0, a∧e+b∧f=0, with free central c. On d≠0,a or f≠0 the rank-(r−1) linear relation gives irreducible B dimension 3r+3. On d=0 equality of decomposable bivectors forces a,b,e,f into a common plane; incidence over Gr(2,r) with irreducible seven-dimensional quadric fiber projects generically one-to-one, yielding irreducible D dim 3r+3 even in char 2. A is linear dimension 4r, and noncontainment for r>=3 follows from independent vectors; for r=2 all A points degenerate into B. This is a reduced-variety classification, not a primary decomposition. Independent small-field pair-commutator and tuple-count checks corroborated defining equations, not geometric proof.
 
-**Limits.** No nonreduced scheme structure, multiplicity, or singularity stratification is claimed. Full text of the closest 2026 graph preprint remained unavailable; this raises a finite residual overlap risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the uniform r>=3 and characteristic-free component classification, *not* for the r=2 pair case: Goodwin–Röhrle already find two components for type A3 in characteristic zero. Comparisons with upper triangular and full nilpotent cone varieties do not imply an all-r fixed U4 nilradical decomposition; an inaccessible recent same-group preprint remains a priority risk.
+
+## value
+
+PASS
+
+A uniform, explicit decomposition of a natural commuting r-tuple algebraic variety identifies the equidimensional triple case r=3, dimension transition for r>=4, and characteristic-independent component geometry; such geometry is usable beyond finite counting and the already known r=2 pair result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

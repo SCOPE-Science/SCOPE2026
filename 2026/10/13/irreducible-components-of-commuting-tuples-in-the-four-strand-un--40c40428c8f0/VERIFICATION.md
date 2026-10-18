@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.8 or later; no third-party dependencies. The checker independently constructs all vectors in the selected finite fields, computes wedge products from coordinates, and exhaustively compares all noncentral patterns of pairwise-commuting matrices. The checked cases are field size \(2\), tuple lengths \(1,2,3,4\), and field size \(3\), tuple length \(2\). Expected full counts: \(64\), \(1024\), \(12160\), \(138496\), and \(41553\). The checker also compares explicit off-diagonal matrix products for all \(1024\) ordered noncentral matrix-pair patterns over \(\mathbb F_2\).
+## correctness
 
-This is a bounded exact finite-field test. The classification of irreducible components for arbitrary length and characteristic depends on the proof in RESULT.md, especially irreducibility of the incidence quadric, properness of Grassmannian projection, and the exceptional two-tuple degeneration. The test does not certify algebraic-geometric irreducibility or historical uniqueness. Independent audit has not been performed.
+PASS
+
+For the actual package coordinates (a,d,f,b,e,c), multiply upper-unitriangular matrices: all pair commutators vanish exactly for a∧d=0, d∧f=0, a∧e+b∧f=0, with free central c. On d≠0,a or f≠0 the rank-(r−1) linear relation gives irreducible B dimension 3r+3. On d=0 equality of decomposable bivectors forces a,b,e,f into a common plane; incidence over Gr(2,r) with irreducible seven-dimensional quadric fiber projects generically one-to-one, yielding irreducible D dim 3r+3 even in char 2. A is linear dimension 4r, and noncontainment for r>=3 follows from independent vectors; for r=2 all A points degenerate into B. This is a reduced-variety classification, not a primary decomposition. Independent small-field pair-commutator and tuple-count checks corroborated defining equations, not geometric proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the uniform r>=3 and characteristic-free component classification, *not* for the r=2 pair case: Goodwin–Röhrle already find two components for type A3 in characteristic zero. Comparisons with upper triangular and full nilpotent cone varieties do not imply an all-r fixed U4 nilradical decomposition; an inaccessible recent same-group preprint remains a priority risk.
+
+## value
+
+PASS
+
+A uniform, explicit decomposition of a natural commuting r-tuple algebraic variety identifies the equidimensional triple case r=3, dimension transition for r>=4, and characteristic-independent component geometry; such geometry is usable beyond finite counting and the already known r=2 pair result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
