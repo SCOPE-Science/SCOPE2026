@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T16:50:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The externally proved three-branch James profile in Mizuguchi (2020) Theorem4.1 was checked against the full source. Differentiation independently gives F1’=(2b²−1)/(2b²)<0 up to r, F2’=−(b²+4b−3)/(b²−b+1)² with exactly one interior maximum on [r,2/3], F3’=−2b(b−1)/(b²+2b−1)²>0 on [2/3,1). Values at junctions are F1(r)=F2(r)=(3sqrt5−1)/4 and F2(2/3)=F3(2/3)=10/7, latter strictly larger. At k=(1−r)/r=r the six consecutive decagon vertices satisfy v_(j+1)=(1/r)v_j−v_(j−1), with 1/r=2cos(pi/5); the central opposites complete an invertible image of a regular decagon. SymPy independently reproduced all rational derivative formulas and the exact endpoint comparison; the proof depends on the cited full published source profile, not a finite parameter scan.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem3.2 of Mizuguchi gives J(X)≤3/2 for arbitrary Radon planes, with equality affine regular hexagons.",
+          "Theorem4.1 lists each decagonal value, without an extremal comparison."
+        ],
+        "reasoning": "General upper-bound Theorem3.2 does not determine a minimum, but the complete all-parameter Theorem4.1 itself is a dominating result: elementary differentiation obtains the minimum and uniqueness with no independent gap.",
+        "searches": [
+          "Mizuguchi Radon planes James constant 3/2 upper bound",
+          "James constant Radon plane least minimum decagon golden ratio"
+        ]
+      },
+      "checked_sources": [
+        "Mizuguchi, Aequationes Mathematicae 94 (2020), 201–217, DOI 10.1007/s00010-020-00698-2, full text",
+        "SCOPE published Banach–Mazur decagon record 2026/10/4/...762b51c74443 (summary only)",
+        "Git frozen RESULT.md and exact verify.py: tree ceba5dba04b73c6f96db610fca30733de767ed84"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Full primary text pp201–217 gives three branches and concludes “Thus we have finished the calculation ... decagonal unit spheres,” without global minimum or affine-regular extremizer.",
+          "Independent derivative-and-endpoint argument is new relative to the stated theorem; separate Banach–Mazur record’s publicly visible claim concerns a different distance."
+        ],
+        "reasoning": "Theorem 4.1 is a strictly stronger complete profile and mechanically implies the proposed minimum and uniqueness by one-variable calculus. Express noncoverage based on missing written argmin would violate implication-level originality: the proposed statement is mathematically covered despite not being explicitly printed.",
+        "searches": [
+          "Mizuguchi The James constant in Radon planes theorem 4.1 optimization",
+          "Banach Mazur regular decagon James constant comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mizuguchi p208 supplies both beta and k_beta=(1-beta)/beta versions of J, with shared golden-ratio breakpoint.",
+          "Affine regularity at the minimizing k=r follows from v_(j+1)=φv_j−v_(j−1), φ=2cos(pi/5)."
+        ],
+        "reasoning": "Checked equivalent parametrizations, geometric aliases (regular/affine-regular decagon), same value, and optimization; source does not state minimum.",
+        "searches": [
+          "James constant Mizuguchi decagonal Radon plane k_beta parameter minimum",
+          "James constant Mizuguchi decagonal Radon planes golden ratio affine regular decagon minimizer",
+          "\"James constant\" \"regular decagon\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published separate SCOPE record evaluates Banach–Mazur distance between parallelogram and affine-regular decagon as (3sqrt5−1)/4.",
+          "Mizuguchi Theorem4.1 yields the same numerical value of James constant after specializing beta=r; its printed table is J(beta), not the global extremal parameter."
+        ],
+        "reasoning": "An identical number attached to a different affine invariant is not automatically coverage; no checked theorem equates the invariants or transfers the B–M calculation to J minimization.",
+        "searches": [
+          "\"(3 sqrt5 - 1)/4\" \"James constant\" \"decagon\"",
+          "2026/10/4/SCOPE-banach-mazur-distance-from-the-parallelogram-to-the-regular-deca--762b51c74443"
+        ]
+      },
+      "rationale": "Decisive stronger-coverage comparison: Mizuguchi’s fully inspected Theorem 4.1 already gives EXACT J(X_beta) at EVERY beta in [1/2,1], including both golden-ratio and two-thirds boundaries. The proposed unique minimum and numerical value follow by routine differentiation and evaluating these known branches, and the regular-decagon identification follows from the explicitly known family vertices and the same golden-ratio relation. The claim is a direct elementary corollary of the fully published all-parameter formula, not an original mathematical assertion even though the paper does not spell out the argmin. The separate Banach–Mazur record shares an exact value but does not affect this stronger prior-implication verdict.",
+      "residual_risks": [
+        "The exact extremal fact is a concise calculus consequence of the existing published full family formula; value rests specifically on its geometric uniqueness and motivation.",
+        "The comparison SCOPE Banach–Mazur record was accessible only through a scientific summary, not its complete proof.",
+        "Other terminology could already describe golden-ratio/affine-regular minimization; web and failed Resultary searches cannot prove priority.",
+        "The minimizer is unique only within the specified one-parameter family; no claim across all Radon planes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DOMINATING_COVERAGE: exact all-parameter J(beta) Theorem4.1 determines the entire argmin, min value and uniqueness after routine calculus; the decagon norm and vertex family explicitly defined in same paper give the simple affine-regular geometry consequence",
+          "evidence": "Theorem4.1 p208 lists all three branches; p216 final statement says it has calculated the values for decagonal Radon planes.",
+          "identifier_or_url": "doi:10.1007/s00010-020-00698-2",
+          "material_read": "Complete 17-page published article, pages 201–217: definitions, Radon inequality, decagonal construction, Theorem4.1 p208, proof lemmas pp209–216 and concluding paragraph",
+          "method": "Authorized full-text page-by-page reading (two page ranges)",
+          "title": "The James constant in Radon planes",
+          "trigger": "Exact same family and strongest dominating parameter theorem"
+        },
+        {
+          "assessment": "INDETERMINATE_DETAILS; documented equal numeric value but different invariant",
+          "evidence": "The indexed claim is δ_BM(P4,P10)=(3sqrt5−1)/4; no general J=δ_BM identity was supplied by the public summary.",
+          "identifier_or_url": "2026/10/4/SCOPE-banach-mazur-distance-from-the-parallelogram-to-the-regular-deca--762b51c74443",
+          "material_read": "Public scientific summary only, not full proof or complete article",
+          "method": "Indexed research record comparison",
+          "title": "Banach–Mazur distance from the parallelogram to the regular decagon",
+          "trigger": "Same exact algebraic number and geometrical decagon"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The source computes an entire natural 1-parameter *complete* decagonal Radon family without identifying its optimal member. Picking out the unique affine-regular decagon by globally minimizing a classical geometric constant is a motivated extremal/rigidity result, rather than evaluating an arbitrary slice or repeating a tabulated number. Its significance is bounded to this family and does not require paper-sized generalization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For Mizuguchi’s entire decagonal Radon-plane family X_beta (1/2≤beta≤1) the James constant has the unique global minimum at beta=(sqrt(5)−1)/2, value (3sqrt(5)−1)/4, and this parameter’s unit decagon is affinely regular.",
+  "limitations": [
+    "The exact extremal fact is a concise calculus consequence of the existing published full family formula; value rests specifically on its geometric uniqueness and motivation.",
+    "The comparison SCOPE Banach–Mazur record was accessible only through a scientific summary, not its complete proof.",
+    "Other terminology could already describe golden-ratio/affine-regular minimization; web and failed Resultary searches cannot prove priority.",
+    "The minimizer is unique only within the specified one-parameter family; no claim across all Radon planes."
+  ],
+  "schema_version": 1
+}
