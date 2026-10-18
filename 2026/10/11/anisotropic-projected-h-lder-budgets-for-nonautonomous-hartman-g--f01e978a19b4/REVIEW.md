@@ -1,18 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The fixed-point operator has separate stable and unstable Green integrals. Applying the assumed projected min-bounds branchwise gives the exact contraction constant
-\[
-q=D\left(\frac{\varepsilon_s}{\delta_s}+\frac{\varepsilon_u}{\delta_u}\right).
-\]
-The source's strong-dichotomy estimates then reproduce the claimed \(K_\alpha\) term by term. The invariant Hölder-ball argument is valid whenever \(K_\alpha<1\). For the inverse, \(P+Q=I\) gives the full bound \(\varepsilon_s+\varepsilon_u\), after which the source's Gronwall calculation and separate inverse Green integrals give the stated \(\beta\)-range and constant. The symmetric specialization is exact algebra.
+## correctness
 
-## Originality
-**PASS.** The closest source, arXiv:2609.40039v1, contains two neighboring ingredients but not their anisotropic Hölder combination: Theorem 4.17 uses a single perturbation constant for Hölder regularity, while Remark 5.9 permits projected perturbations only in the topological theorem and still imposes a common bound on both branches. Searches for projected, componentwise, anisotropic, stable/unstable, and Hölder variants did not locate a statement implying the unequal-budget theorem. The 2007 and 2011 Barreira–Valls records establish Hölder linearization in related hyperbolic settings but the accessible material does not state this branchwise criterion.
+PASS
 
-Residual risk remains because the full 2011 Barreira–Valls article was not lawfully available in the bounded search and an equivalent estimate could appear there or elsewhere under different notation.
+The Green operator splits into integrals with invariant P and Q, and only P f and Q f enter their corresponding branches. Their sup-norm Lipschitz constants are D epsilon_s/delta_s and D epsilon_u/delta_u, yielding q. Applying stable/unstable strong dichotomy exponentials to Hölder differences independently gives precisely the displayed K_alpha, and an invariant Hölder ball radius K_alpha/(1-K_alpha). For the inverse, the two projected inequalities add to a full epsilon_s+epsilon_u perturbation bound, producing the 2D^2 sum correction to nonlinear growth by Gronwall, while final Green integrals retain separate coefficients. The symmetric algebra reduces to K_alpha=2 epsilon_s/(lambda(1-alpha^2)), and hence factor 2(1+alpha) against lambda(1-alpha)/4. Missing proof detail in original arXiv paper is an explicit verification limitation; conclusions are scoped to the standard classical hypotheses.
 
-## Value
-**PASS.** The result closes a natural gap explicitly exposed by the motivating paper: its topological proof already notices projection-localized perturbations, while its Hölder theorem reverts to a common budget. Preserving the two budgets yields a usable structural theorem and a quantitatively substantial gain. In the natural symmetric one-sided case the admissible sufficient size is multiplied by \(2(1+\alpha)\), between two and four times the source's displayed bound.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The source theorem quoted in the assigned package uses one common perturbation size in Hölder estimates and mentions projected bounds for the topological case only. A one-sided perturbation epsilon_u=0 creates parameter regimes satisfying the new sufficient inequality but violating the common-budget bound. General Barreira–Valls Hölder linearization could conceivably encode a stronger componentwise condition; only abstracts were inspected and the full source is explicitly noted as residual risk.
+
+## value
+
+PASS
+
+A quantitative gain in the admissible perturbation size, reaching factor three at alpha=1/2, addresses a natural asymmetry of stable versus unstable nonlinear terms in nonautonomous hyperbolic dynamics. It yields practically usable componentwise criteria and exponent bounds, not just rewriting a theorem title.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
