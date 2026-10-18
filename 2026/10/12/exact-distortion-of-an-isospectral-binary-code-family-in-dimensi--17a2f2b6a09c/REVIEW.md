@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The formula is proved for all integers \(t\ge0\): direct column-incidence weights give the two spectra; the dependent/independent discrepancy of the minimum-message triples forces both reciprocal distortion extremes; identity-on-messages attains them. The supporting exact-arithmetic checker enumerates all \(168\) elements of \(\mathrm{GL}_3(\mathbb F_2)\) at selected parameters and returned `VERIFY_OK`. The infinite parameter claim does not rely on extrapolation from these tests.
+## correctness
 
-## Originality — PASS, with residual risk
-Bennett–Fox–Morrell (arXiv:2607.26261, full APPROX/RANDOM 2026 article, DOI 10.4230/LIPIcs.APPROX/RANDOM.2026.24) define the invariant and present a general exact search algorithm, but the inspected manuscript does not give this isospectral family or its all-integer optimal formula. Older examples of distinct codes with the same weight enumerator are acknowledged and not presented as the contribution. Relevant mathematical record searches did not locate this particular formula. A separately cited 2026 master's thesis could not be read in full, and unindexed earlier work may overlap; these remain explicit risks rather than assumed noncoverage.
+PASS
 
-## Mathematical value — PASS
-The exact family furnishes a compact stability test for quantitative code equivalence: indistinguishable weight enumerators coexist with provable nonisometry and optimally controlled distortion approaching \(1\). The Fano-dependency obstruction explains the optimum for an infinite series, beyond merely computing one small case. No global extremality among all equal-spectrum pairs is asserted.
+PASS. For t>=0 both displayed 7-column-multiplicity patterns span F_2^3, yielding rank-three length 6+7t codes with identical weight multiset {4t+2 three times, 4t+4 three times, 4t+6 once}. The first code's three minimum-message vectors {3,5,6} have XOR zero; the second's {5,6,7} have XOR nonzero. An invertible linear message relabeling cannot send one full triple to the other and hence must have both a min-to-heavier and heavier-to-min ratio, bounding linear distortion below by r², r=(4t+4)/(4t+2). Identity relabeling has ratios r and 1/r, attaining D=((2t+2)/(2t+1))². At t=0 neither code degenerates. Independently enumerated all 168 GL3(F2) maps over six t values, confirming the bound, but analytic dependency argument proves all t.
 
-## Scope and verification limits
-Binary dimension-three codes; lengths \(6+7t\); invertible **linear** maps only. Seven finite parameter tests and the \(168\)-map census are corroborative; the dependency proof supplies the unrestricted conclusion. Independent scientific validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS with explicit best-of-knowledge limits. The full primary Bennett–Fox–Morrell Code Distortion Problem develops the invariant, algorithms, structural and complexity results, but the inspected definition, example and targeted full-text term searches do not give the particular two isospectral Fano configurations or this exact all-t optimum. Inequivalent codes with identical Hamming enumerators are older, and that general phenomenon is not claimed. The new claim is a specific infinite isospectral pair with an exact optimal linear distortion tending to one. A related thesis and unindexed older constructions could affect priority and are recorded as residual risks.
+
+## value
+
+PASS
+
+PASS. Ordinary Hamming enumerators fail to capture the linear geometry of a code. This explicit infinite family quantifies how close nonisometric, enumerator-identical codes can approach linear isometry under an intrinsic distortion optimization, with a simple projective/Fano-dependence obstruction controlling the optimum. The natural invariant and all-parameter sharp formula are motivated before the computation, unlike an arbitrary finite search slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T06:14:14.077658Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. For t>=0 both displayed 7-column-multiplicity patterns span F_2^3, yielding rank-three length 6+7t codes with identical weight multiset {4t+2 three times, 4t+4 three times, 4t+6 once}. The first code's three minimum-message vectors {3,5,6} have XOR zero; the second's {5,6,7} have XOR nonzero. An invertible linear message relabeling cannot send one full triple to the other and hence must have both a min-to-heavier and heavier-to-min ratio, bounding linear distortion below by r², r=(4t+4)/(4t+2). Identity relabeling has ratios r and 1/r, attaining D=((2t+2)/(2t+1))². At t=0 neither code degenerates. Independently enumerated all 168 GL3(F2) maps over six t values, confirming the bound, but analytic dependency argument proves all t.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bennett–Fox–Morrell provide general search/complexity frameworks; computing this case requires the specific weight-vector and Fano dependency calculation.",
+          "The general algorithm can in principle enumerate any fixed 3D case but does not algebraically imply the all-t minimum or its asymptotic exact formula as a stated theorem."
+        ],
+        "reasoning": "Existence of a generic exponential algorithm is not a previously evaluated parameterized family; no stronger explicit theorem covering this family was found.",
+        "searches": [
+          "arXiv:2607.26261 Code Distortion Problem approximation algorithms exact distortion two codes",
+          "binary linear codes same weight enumerator inequivalent exact code distortion low dimensional GL3 Fano plane"
+        ]
+      },
+      "checked_sources": [
+        "Bennett–Fox–Morrell, The Code Distortion Problem, arXiv:2607.26261, APPROX/RANDOM 2026, DOI:10.4230/LIPIcs.APPROX/RANDOM.2026.24",
+        "Reviewed actual binary code source and verified GL3 representation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary paper defines distortion and its algorithmic challenge; exact family is not stated in checked portions.",
+          "Fano minimum-message dependence proves an obstruction even with equal ordinary spectra, but that implication needs the present column patterns."
+        ],
+        "reasoning": "A general framework and historical same-weight-enumerator counterexamples do not logically force this pairwise optimum and its t->infinity gap.",
+        "searches": [
+          "Bennett Fox Morrell APPROX/RANDOM 2026 code distortion primary full text",
+          "binary linear codes same weight enumerator inequivalent exact code distortion low dimensional GL3 Fano plane"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source optimizes maximal-to-minimal weight ratios over all invertible linear maps; its common invariant definition agrees with the audited one.",
+          "For these explicit matrices the distinguishable light-vector dependence types force a quantitative optimum not found in the primary paper material inspected."
+        ],
+        "reasoning": "Compared permutation equivalence, linear isomorphism, weight-enumerator identity and distortion definitions separately; an old same-enumerator example need not determine this ratio.",
+        "searches": [
+          "binary linear codes same weight enumerator inequivalent exact code distortion low dimensional GL3 Fano plane",
+          "Bennett Fox Morrell 2026 exact Code Distortion Problem Fano plane equal weight enumerator"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No consulted coding table yields the minimum linear distortion between these particular message geometries.",
+          "The t=0 base matrices are explicit, but the theorem is an unbounded family rather than a database reconstruction."
+        ],
+        "reasoning": "The mathematical statement is an exact optimization over GL3 across infinitely many parameter values, not a known tabulated classification.",
+        "searches": [
+          "binary linear codes same weight enumerator inequivalent exact code distortion low dimensional GL3 Fano plane",
+          "binary [6,3] codes same weight enumerator distortion ((2t+2)/(2t+1))^2"
+        ]
+      },
+      "rationale": "PASS with explicit best-of-knowledge limits. The full primary Bennett–Fox–Morrell Code Distortion Problem develops the invariant, algorithms, structural and complexity results, but the inspected definition, example and targeted full-text term searches do not give the particular two isospectral Fano configurations or this exact all-t optimum. Inequivalent codes with identical Hamming enumerators are older, and that general phenomenon is not claimed. The new claim is a specific infinite isospectral pair with an exact optimal linear distortion tending to one. A related thesis and unindexed older constructions could affect priority and are recorded as residual risks.",
+      "residual_risks": [
+        "An older thesis or unindexed same-weight-enumerator distortion study may give the exact family.",
+        "Binary dimension three and invertible linear maps are essential; the result is not a global extremal theorem among all lengths or nonlinear mappings."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_FOUND_IN_INSPECTED_MATERIAL",
+          "evidence": "The paper establishes code-distortion problem and algorithmic tools, not the enumerator-identical seven-column family and formula.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.APPROX/RANDOM.2026.24",
+          "material_read": "Accessible full PDF with abstract, distortion definition, motivating examples and relevant sections inspected; targeted full-PDF term checks for weight enumerator, Fano and dimension three",
+          "method": "Read PDF in browser and searched indexed document for exact aliases",
+          "title": "The Code Distortion Problem",
+          "trigger": "Primary introducing the invariant and cited as closest source"
+        },
+        {
+          "assessment": "MATHEMATICAL_SOURCE",
+          "evidence": "Weight vectors, XOR dependency patterns, and attaining identity map reconstruct the proof; no external originality is inferred from source self-review.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/475e612389968173d8ff1f5d87788e7b3684fd2d/2026/10/12/exact-distortion-of-an-isospectral-binary-code-family-in-dimensi--17a2f2b6a09c",
+          "material_read": "Complete RESULT.md and scientific metadata, verification code and source tree, all at frozen commit",
+          "method": "Checked codeword weights and GL3 bijections independently",
+          "title": "Exact distortion of an isospectral binary code family in dimension three (audited submitted package)",
+          "trigger": "Identical actual mathematical claim under review"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Ordinary Hamming enumerators fail to capture the linear geometry of a code. This explicit infinite family quantifies how close nonisometric, enumerator-identical codes can approach linear isometry under an intrinsic distortion optimization, with a simple projective/Fano-dependence obstruction controlling the optimum. The natural invariant and all-parameter sharp formula are motivated before the computation, unlike an arbitrary finite search slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Every integer t>=0, only these two explicitly defined binary dimension-three codes and invertible linear isomorphisms.",
+    "Finite 168-element group computations independently verify selected t; general t proof is analytic.",
+    "An older thesis or unindexed same-weight-enumerator distortion study may give the exact family.",
+    "Binary dimension three and invertible linear maps are essential; the result is not a global extremal theorem among all lengths or nonlinear mappings.",
+    "Publication remains not_ready because potentially public metadata contains operational provenance; no sanitization bypass, GitHub write or publication is authorized."
+  ],
+  "schema_version": 1
+}
