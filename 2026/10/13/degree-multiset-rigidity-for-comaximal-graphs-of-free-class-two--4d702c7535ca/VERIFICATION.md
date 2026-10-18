@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and mathematical boundaries
+# Independent mathematical audit
 
-Run `python3 verify.py` in a directory containing this file and the standalone verifier. The program requires Python 3 only and uses no external data.
+## correctness
 
-It enumerates all reduced-row-echelon subspaces of each tested ambient vector space, retaining those closed under the specified exterior-square bracket, then tests adjacency by taking the linear span of both bases together with all cross-brackets. This latter check does not assume the proved quotient-spanning equivalence. It compares the full degree histogram with the closed formula.
+PASS
 
-Observed exact exhaustive cases: \((n,q)=(2,2)\): \(10\) vertices, degree histogram \((0:1,6:9)\); \((2,3)\): \(17\) vertices, \((0:1,12:16)\); \((3,2)\): \(575\) vertices, \((0:15,116:357,378:203)\). Formula-only evaluations (not exhaustive subspace checks) include \((n,q)=(3,3)\): \((0:27,1062:2392,3072:1534)\), and several parameter checks for degree-stratum strictness. On success the script prints `VERIFY_OK`.
+Write V=F_q^n and Z=Λ²V of dimension N=n(n−1)/2. A subalgebra projecting to W≤V with dim W=k<n is uniquely specified by T=S∩Z containing Λ²W and a linear lift W→Z/T; choosing T and lift yields F_k(q)=Σ_{j=0}^{N−C(k,2)}[N−C(k,2) choose j]_q q^{k(N−C(k,2)−j)}. Proper subalgebras cannot project onto V because brackets of a full V basis span Z. Two subalgebras Lie-generate L iff quotient projection subspaces W+U=V; intersection dimension k+ℓ−n and complements count [k choose k+ℓ−n]_q q^{(n−k)(n−ℓ)}, yielding every D_k. Nested W_k<W_(k+1) strictly increase neighbor sets by a complement of W_(k+1), so 0<D1<...<D_(n−1). Degree classes count n, and least positive degree D1=q^{n−1}F_(n−1)(q) strictly increases in q (Gaussian polys have nonnegative coefficients); this reconstructs n and q. Every field, including characteristic 2, is covered. Independent exact Gaussian formula evaluation reproduced n3 q2 histogram 0:15,116:357,378:203; n3 q3 histogram 0:27,1062:2392,3072:1534; n4 q2 additional. The full theorem is proved by counting subspaces, not those small checks.
 
-These finite-field tests are not a proof for arbitrary \(q\) or \(n\); the combinatorial proof in RESULT.md establishes the theorem. The conclusion concerns only the free class-two family and is not an unconditional graph-to-algebra classification.
+## originality
+
+PASS
+
+The known general Frattini-quotient graph blow-up, especially Towers–Zuleta–Gutierrez arXiv:2608.16575 Theorem 6.1, substantially subsumes the abstract adjacency reduction and must receive credit. The distinct proposed all-rank free-exterior-square fiber factors F_k, full degree multiset, and intrinsic q/n reconstruction were not found in the actual published-record query or accessible abstracts. However, the highly relevant August 2026 primary full text was not accessible via arXiv/OA routes, and the authorized institutional route returned VPN disconnected; snippets cannot certify NOT_COVERING. This is best-of-knowledge PASS with **material overlap risk** not an absolute priority claim. Absence of full text alone does not mathematically refute the explicit formulas nor automatically fail O.
+
+## value
+
+PASS
+
+The graph invariant is an exact all-rank finite-field classification for a natural and unbounded nilpotent Lie family, including substantial rank-3 graph of 575 vertices over F2. Recovering free rank and field size from an unlabelled graph degree multiset is a natural inverse problem not contained in a generic quotient-adjacency statement; the explicit counting formulas can be reused without graph enumeration. This is materially more than a small table or parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

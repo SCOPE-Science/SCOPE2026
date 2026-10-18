@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof specifies free class-two bracket, includes even characteristic, and shows all proper subalgebras have quotient dimension below \(n\). Fibers over a quotient \(k\)-space are completely counted by choosing the central intersection and a linear graph lift; the generating relation is equivalent to spanning in the quotient. Gaussian intersection/complement counts give every degree. The strict-degree argument uses a quotient complement to distinguish neighboring projection dimensions, while the minimum positive degree varies strictly with \(q\) at fixed \(n\). Direct exhaustive full-subspace computations in `verify.py` agree for \((n,q)=(2,2),(2,3),(3,2)\); the arbitrary-field case rests on the proof. No extrapolation from finite checks is used.
+PASS
 
-## Originality — PASS, with risk
+Write V=F_q^n and Z=Λ²V of dimension N=n(n−1)/2. A subalgebra projecting to W≤V with dim W=k<n is uniquely specified by T=S∩Z containing Λ²W and a linear lift W→Z/T; choosing T and lift yields F_k(q)=Σ_{j=0}^{N−C(k,2)}[N−C(k,2) choose j]_q q^{k(N−C(k,2)−j)}. Proper subalgebras cannot project onto V because brackets of a full V basis span Z. Two subalgebras Lie-generate L iff quotient projection subspaces W+U=V; intersection dimension k+ℓ−n and complements count [k choose k+ℓ−n]_q q^{(n−k)(n−ℓ)}, yielding every D_k. Nested W_k<W_(k+1) strictly increase neighbor sets by a complement of W_(k+1), so 0<D1<...<D_(n−1). Degree classes count n, and least positive degree D1=q^{n−1}F_(n−1)(q) strictly increases in q (Gaussian polys have nonnegative coefficients); this reconstructs n and q. Every field, including characteristic 2, is covered. Independent exact Gaussian formula evaluation reproduced n3 q2 histogram 0:15,116:357,378:203; n3 q3 histogram 0:27,1062:2392,3072:1534; n4 q2 additional. The full theorem is proved by counting subspaces, not those small checks.
 
-Towers–Zuleta–Gutierrez introduced the graph (arXiv:2605.09583) and subsequently proved a **general quotient blow-up theorem** (arXiv:2608.16575, Theorem 6.1). The latter covers the adjacency reduction, which is fully attributed and is not claimed as new. Their inspected full texts treat dimension at most four and a Heisenberg quotient-fiber example; they do not state the all-rank fiber polynomial for the free class-two exterior-square family, the ensuing complete degree multiset for \(n\geq3\), or its precise rank-and-field reconstruction. Published-result record searches with free-class-two, comaximal, Gaussian fiber, and rigidity aliases did not identify an implication-equivalent published finding. A previously known weighted-Grassmannian enumeration that could imply the formulas remains a residual risk; unsuccessful searches cannot certify absolute novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The first free rank-three case has dimension six and a nontrivial three-stratum degree spectrum; arbitrary higher ranks yield an infinite series of full graph invariants not exhausted by low-dimensional Lie classifications. The complete degree multiset also recovers both free rank and finite-field size, an intrinsic inverse result that is stronger than enumerating subalgebra totals. This is a natural family-specific classification rather than an arbitrary slice or a single small numerical gain.
+The known general Frattini-quotient graph blow-up, especially Towers–Zuleta–Gutierrez arXiv:2608.16575 Theorem 6.1, substantially subsumes the abstract adjacency reduction and must receive credit. The distinct proposed all-rank free-exterior-square fiber factors F_k, full degree multiset, and intrinsic q/n reconstruction were not found in the actual published-record query or accessible abstracts. However, the highly relevant August 2026 primary full text was not accessible via arXiv/OA routes, and the authorized institutional route returned VPN disconnected; snippets cannot certify NOT_COVERING. This is best-of-knowledge PASS with **material overlap risk** not an absolute priority claim. Absence of full text alone does not mathematically refute the explicit formulas nor automatically fail O.
 
-## Closest literature and scope
+## value
 
-The key known general structural reduction is arXiv:2608.16575, Theorem 6.1, with its selected three-dimensional Heisenberg example in Example 6.5. The first comaximal-graph paper is arXiv:2605.09583. Low-rank free class-two \(n=2\) is the three-dimensional Heisenberg case and is only used for sanity checks; the stated finding begins at \(n\geq3\). The exact formula and rigidity could still be implicit in earlier enumerative literature.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The graph invariant is an exact all-rank finite-field classification for a natural and unbounded nilpotent Lie family, including substantial rank-3 graph of 575 vertices over F2. Recovering free rank and field size from an unlabelled graph degree multiset is a natural inverse problem not contained in a generic quotient-adjacency statement; the explicit counting formulas can be reused without graph enumeration. This is materially more than a small table or parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
