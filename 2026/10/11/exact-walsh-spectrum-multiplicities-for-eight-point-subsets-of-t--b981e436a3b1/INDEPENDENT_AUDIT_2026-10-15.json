@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T03:51:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 8-point E in F2^4, t absent from E+E iff E+t=E^c. If E is nonhyperplane, |T(E)|<=2, so its difference set has at least 13 nonzero elements. Balanced sign s=2 1_A-1 is a Walsh polynomial with at least four nonzero Fourier modes unless A is affine hyperplane; hence A has at most 11 nonzero Fourier zeros. Orthogonality forces every nonhyperplane spectrum B to be an affine hyperplane, precisely when its annihilator t complements A. Hyperplane supports yield 2^8 transversals. Exact incidence counts 15*2^8=3840 and 15*14*2^4=3360 imply profile 10080,1920,840,30 and total 14880. Independently enumerated all 12,870 eight-sets and all t using Python integer bit masks; T histogram {0:10080,1:1920,2:840,8:30}. This separate finite check corroborates but does not replace the structural proof.",
+      "risks": [
+        "Only |A|=8 in F2^4 and distinct Walsh frequency subsets; no broader character group or non-Walsh orthonormal bases.",
+        "Huckle--Kravvaritis same-matrix paper not inspected in full due institutional VPN disconnected; cannot rule out unseen coinciding count."
+      ],
+      "sources": [
+        "2026/10/11/exact-walsh-spectrum-multiplicities-for-eight-point-subsets-of-t--b981e436a3b1/RESULT.md",
+        "2026/10/11/exact-walsh-spectrum-multiplicities-for-eight-point-subsets-of-t--b981e436a3b1/VERIFICATION.md",
+        "2026/10/11/exact-walsh-spectrum-multiplicities-for-eight-point-subsets-of-t--b981e436a3b1/checker.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kiss et al. 2022 primary Lemma 1.3 reduces character orthogonality to Fourier-zero conditions, and their weak-tiling results concern existence, not all exact spectra.",
+          "Herr--Wiegand 2019 studies cyclic Fourier matrices; H16 is the character matrix of noncyclic (Z_2)^4."
+        ],
+        "reasoning": "Even a stronger general spectral-to-tiling theorem does not give the number of orthogonal frequency transversals for each support; cyclic primitive-set theorems have different character groups.",
+        "searches": [
+          "8x8 Sylvester Hadamard submatrix 16x16 Walsh spectrum count 14880 256",
+          "Walsh spectral sets F2^4 cardinality eight complements translations 2790 12870",
+          "\"14880\" \"Hadamard\" \"Sylvester\" 16 8",
+          "source_id:doi:10.1080/03081087.2016.1250863"
+        ]
+      },
+      "checked_sources": [
+        "Kiss--Matolcsi--Matolcsi--Somlai arXiv:2212.05513",
+        "Herr--Wiegand arXiv:1909.13145",
+        "Huckle--Kravvaritis DOI:10.1080/03081087.2016.1250863 publisher/TUM abstracts",
+        "Resultary relevant Walsh and Hadamard submatrix searches 2026-10-15"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kiss et al. provide the orthogonality zero-set predicate but no theorem forcing all B for |A|=8 to be affine hyperplanes or yielding n0,n1,n2 counts.",
+          "The Huckle publisher abstract claims a method for eigenvalues of submatrices, not a count of Hadamard row/column selections; whole document remained unread."
+        ],
+        "reasoning": "The new proof needs the 13-versus-11 difference/Fourier-zero contradiction plus antiperiod incidence double counts, none of which follows just from general orthogonality equivalence. No categorical exclusion of unseen Huckle article is asserted.",
+        "searches": [
+          "8x8 Sylvester Hadamard submatrix 16x16 Walsh spectrum count 14880 256",
+          "Walsh spectral sets F2^4 cardinality eight complements translations 2790 12870",
+          "\"14880\" \"Hadamard\" \"Sylvester\" 16 8",
+          "source_id:doi:10.1080/03081087.2016.1250863"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Selecting eight row and eight column indices of H_16 so H[A,B] H[A,B]^T=8I is precisely selecting an eight-point spectral pair in F2^4.",
+          "Huckle--Kravvaritis 2017 DOI:10.1080/03081087.2016.1250863 discusses Sylvester submatrices but abstract describes their eigenvalue spectra and leading principal submatrices, not full arbitrary incidence counts."
+        ],
+        "reasoning": "Every permutation/row/column representation was checked as the same incidence problem; no accessible equivalent fixed-matrix count found, and the most plausible inaccessible full text is left as a risk.",
+        "searches": [
+          "8x8 Sylvester Hadamard submatrix 16x16 Walsh spectrum count 14880 256",
+          "Walsh spectral sets F2^4 cardinality eight complements translations 2790 12870",
+          "\"14880\" \"Hadamard\" \"Sylvester\" 16 8",
+          "source_id:doi:10.1080/03081087.2016.1250863"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest exact Walsh records concern other support sizes and Walsh frame Gram matrices; no matching preexisting incidence census was found.",
+          "Published catalogs of Hadamard matrices up to equivalence classify whole matrices, not arbitrary embedded orthogonal 8x8 submatrices of H16."
+        ],
+        "reasoning": "An exact finite number is mathematically substantive because it is the full ordered incidence count with per-support multiplicities, and is not found in the compared whole-matrix catalogs.",
+        "searches": [
+          "8x8 Sylvester Hadamard submatrix 16x16 Walsh spectrum count 14880 256",
+          "Walsh spectral sets F2^4 cardinality eight complements translations 2790 12870",
+          "\"14880\" \"Hadamard\" \"Sylvester\" 16 8",
+          "source_id:doi:10.1080/03081087.2016.1250863"
+        ]
+      },
+      "rationale": "Best-of-knowledge complete finite incidence census and structural all-spectra theorem for the fixed Sylvester-16 character matrix. Spectral implies tile theorems do not count all frequency bases; the primary Huckle--Kravvaritis paper is a plausible same-matrix comparator but its accessible abstract targets eigenvalues and leading principal submatrices, not unordered arbitrary 8x8 Hadamard incidences. Its full text was unavailable and this is explicitly retained as a bibliographic risk, not automatically scored as failure.",
+      "residual_risks": [
+        "Most directly named prior Huckle--Kravvaritis full text could not be obtained; Oxford authorized source status vpn_disconnected. Its unseen body could contain an equivalent enumeration; no claim of whole-document noncoverage.",
+        "The ordinal finite census is exhaustive in dimension four only; it is not a global spectral/tiling classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_QUANTIFIER",
+          "evidence": "Gives necessary Fourier-zero/weak tiling, not complete per-support spectral-partner multiplicities in F2^4.",
+          "identifier_or_url": "https://arxiv.org/pdf/2212.05513",
+          "material_read": "Open primary PDF theorem and Lemma 1.3, spectral/tiling framework and early proof sections",
+          "method": "Web PDF extracted and screenshot of page containing lemma",
+          "title": "Tiling and weak tiling in (Z_p)^d",
+          "trigger": "Primary covering candidate for binary spectral sets and Fourier orthogonality"
+        },
+        {
+          "assessment": "DIFFERENT_CYCLIC_GROUP",
+          "evidence": "Cyclic DFT character matrices are not the Sylvester table for (Z_2)^4; cannot infer the arbitrary binary 8x8 census.",
+          "identifier_or_url": "https://arxiv.org/abs/1909.13145",
+          "material_read": "Open primary abstract and reported Theorems 2.1, 2.4, 3.1/scope from accessible source descriptions; full paper not independently read in this audit",
+          "method": "Public arXiv abstract/theorem metadata and source comparison",
+          "title": "Identifying Complex Hadamard Submatrices of the Fourier Matrices via Primitive Sets",
+          "trigger": "Potential equivalent Hadamard-minor classification"
+        },
+        {
+          "assessment": "FULL_TEXT_INACCESSIBLE_PLAUSIBLE",
+          "evidence": "Abstract states eigenvalues/leading principal spectra; no assertion about unseen theorems or absence of 8x8 minors census.",
+          "identifier_or_url": "https://doi.org/10.1080/03081087.2016.1250863",
+          "material_read": "Complete publisher abstract, TUM institutional publication record, scope and keyword fields only; full 14-page paper unavailable",
+          "method": "Public OA/arXiv discovery, publisher and TUM abstract reading; authorized Oxford attempt stopped at VPN disconnected",
+          "title": "Properties of submatrices of Sylvester Hadamard matrices",
+          "trigger": "Same Sylvester matrix family, plausible hidden general table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The entire natural half-size class of the smallest nontrivial 16-point Boolean Sylvester character matrix is classified, not a selected example. The spectral-partner counts distinguish an extremal 256-valued affine stratum from nonaffine 0/2/4 strata and explain the sharp incidence count by translation/Fourier structure. Such per-support exact Walsh bases could be reused in finite harmonic analysis and Hadamard submatrix classification; an exact self-contained finite census qualifies without a general-dimensional theorem.",
+      "risks": [
+        "Most directly named prior Huckle--Kravvaritis full text could not be obtained; Oxford authorized source status vpn_disconnected. Its unseen body could contain an equivalent enumeration; no claim of whole-document noncoverage.",
+        "The ordinal finite census is exhaustive in dimension four only; it is not a global spectral/tiling classification."
+      ],
+      "sources": [
+        "Kiss--Matolcsi--Matolcsi--Somlai arXiv:2212.05513",
+        "Herr--Wiegand arXiv:1909.13145",
+        "Huckle--Kravvaritis DOI:10.1080/03081087.2016.1250863 publisher/TUM abstracts"
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Kiss--Matolcsi--Matolcsi--Somlai arXiv:2212.05513",
+    "Herr--Wiegand arXiv:1909.13145",
+    "Huckle--Kravvaritis DOI:10.1080/03081087.2016.1250863 publisher/TUM abstracts",
+    "Resultary relevant Walsh and Hadamard submatrix searches 2026-10-15"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only |A|=8 in F2^4 and distinct Walsh frequency subsets; no broader character group or non-Walsh orthonormal bases.",
+    "Huckle--Kravvaritis same-matrix paper not inspected in full due institutional VPN disconnected; cannot rule out unseen coinciding count."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "DIFFERENT_QUANTIFIER",
+      "evidence": "Gives necessary Fourier-zero/weak tiling, not complete per-support spectral-partner multiplicities in F2^4.",
+      "identifier_or_url": "https://arxiv.org/pdf/2212.05513",
+      "material_read": "Open primary PDF theorem and Lemma 1.3, spectral/tiling framework and early proof sections",
+      "method": "Web PDF extracted and screenshot of page containing lemma",
+      "title": "Tiling and weak tiling in (Z_p)^d",
+      "trigger": "Primary covering candidate for binary spectral sets and Fourier orthogonality"
+    },
+    {
+      "assessment": "DIFFERENT_CYCLIC_GROUP",
+      "evidence": "Cyclic DFT character matrices are not the Sylvester table for (Z_2)^4; cannot infer the arbitrary binary 8x8 census.",
+      "identifier_or_url": "https://arxiv.org/abs/1909.13145",
+      "material_read": "Open primary abstract and reported Theorems 2.1, 2.4, 3.1/scope from accessible source descriptions; full paper not independently read in this audit",
+      "method": "Public arXiv abstract/theorem metadata and source comparison",
+      "title": "Identifying Complex Hadamard Submatrices of the Fourier Matrices via Primitive Sets",
+      "trigger": "Potential equivalent Hadamard-minor classification"
+    },
+    {
+      "assessment": "FULL_TEXT_INACCESSIBLE_PLAUSIBLE",
+      "evidence": "Abstract states eigenvalues/leading principal spectra; no assertion about unseen theorems or absence of 8x8 minors census.",
+      "identifier_or_url": "https://doi.org/10.1080/03081087.2016.1250863",
+      "material_read": "Complete publisher abstract, TUM institutional publication record, scope and keyword fields only; full 14-page paper unavailable",
+      "method": "Public OA/arXiv discovery, publisher and TUM abstract reading; authorized Oxford attempt stopped at VPN disconnected",
+      "title": "Properties of submatrices of Sylvester Hadamard matrices",
+      "trigger": "Same Sylvester matrix family, plausible hidden general table"
+    }
+  ]
+}

@@ -1,11 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-**Correctness — PASS.** Walsh orthogonality is precisely the Fourier-zero constraint on pairwise frequency differences. The proof establishes a \(13\)-difference lower bound for a non-hyperplane half-set and an \(11\)-zero upper bound for its Fourier transform; hence each spectrum of a non-hyperplane support must be an affine hyperplane. A Fourier inversion argument makes its annihilator a complementing translation. The stabilizer-coset lemma restricts possible antiperiod counts, and two exact double counts yield the full census. The standalone integer checker separately reproduces all \(12870\) spectral multiplicities, including a direct Walsh-orthogonality test. There is no extrapolation beyond the stated four-dimensional space.
+## correctness
 
-**Originality — PASS, with residual risk.** The closest inspected finite-group literature relates spectral sets to tilings and develops complementary Fourier constraints, but does not derive exact half-set multiplicities. The inspected cyclic-Fourier Hadamard classification applies to \(\mathbb Z_m\), which is not the Walsh group \(\mathbb F_2^4\). The closest Sylvester-submatrix article was accessible only by its abstract; its focus on eigenvalues of submatrices prevents a decisive whole-document comparison. Equivalent older specialized tabulation remains possible. The new claim is the full spectral-partner description and incidence distribution, not spectral-to-tiling existence alone.
+PASS
 
-**Value — PASS.** Half of the character domain is a canonical support size; the sixteen-point Boolean four-cube has both affine and nonaffine half-sets and admits a complete structural incidence census. The classification gives all partner sets, a surprising multiplicity gap between \(4\) and \(256\), and the exact \(14880\) Hadamard-submatrix incidence count. These are natural structural invariants rather than arbitrary isolated computations; the proof is a reusable antiperiod/Fourier-sparsity method.
+For 8-point E in F2^4, t absent from E+E iff E+t=E^c. If E is nonhyperplane, |T(E)|<=2, so its difference set has at least 13 nonzero elements. Balanced sign s=2 1_A-1 is a Walsh polynomial with at least four nonzero Fourier modes unless A is affine hyperplane; hence A has at most 11 nonzero Fourier zeros. Orthogonality forces every nonhyperplane spectrum B to be an affine hyperplane, precisely when its annihilator t complements A. Hyperplane supports yield 2^8 transversals. Exact incidence counts 15*2^8=3840 and 15*14*2^4=3360 imply profile 10080,1920,840,30 and total 14880. Independently enumerated all 12,870 eight-sets and all t using Python integer bit masks; T histogram {0:10080,1:1920,2:840,8:30}. This separate finite check corroborates but does not replace the structural proof.
 
-**Scope and residual risks.** The conclusion concerns only distinct eight-frequency sets on \(\mathbb F_2^4\). Exhaustive integer enumeration corroborates but is not the logical basis of the proof. Older Sylvester-Hadamard catalogs not available in full could contain an equivalent census. No independent mathematical audit has been carried out.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge complete finite incidence census and structural all-spectra theorem for the fixed Sylvester-16 character matrix. Spectral implies tile theorems do not count all frequency bases; the primary Huckle--Kravvaritis paper is a plausible same-matrix comparator but its accessible abstract targets eigenvalues and leading principal submatrices, not unordered arbitrary 8x8 Hadamard incidences. Its full text was unavailable and this is explicitly retained as a bibliographic risk, not automatically scored as failure.
+
+## value
+
+PASS
+
+The entire natural half-size class of the smallest nontrivial 16-point Boolean Sylvester character matrix is classified, not a selected example. The spectral-partner counts distinguish an extremal 256-valued affine stratum from nonaffine 0/2/4 strata and explain the sharp incidence count by translation/Fourier structure. Such per-support exact Walsh bases could be reused in finite harmonic analysis and Hadamard submatrix classification; an exact self-contained finite census qualifies without a general-dimensional theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
