@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T16:05:56.180088Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/exponent-one-endpoint-monotonicity-for-arithmetic-progression-an--89e3f2dc69a5/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/exponent-one-endpoint-monotonicity-for-arithmetic-progression-an--89e3f2dc69a5/verify.py"
+      ],
+      "rationale": "PASS: With a_i=si+t and gcd(s,t)=1, a_i^k≡t^k mod s. Set h0=r+s−1. Every representation with residue h0 t^k must have number of distinct summands h≡h0 (mod s); h0−s=r−1<r, so at least h0 terms. Positivity and strict growth make M_k=sum_{i=n}^{n+h0−1}a_i^k the smallest such sum, hence M_k−s is bad if positive, yielding N(k)≥M_k−s+1. If M_k−s≤0 the bound is vacuous. Fuller–Nichols Theorem 8 gives N(1)=M_1−s+1 and a_i^k≥a_i; thus endpoint inequality whenever N(k) exists. The argument also works for s=1, t=0 (unit residue ring trivial), and an independent checker validated 9072 parameter tuples; proof is modular, not based on those tests.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original arithmetic-progression theorem proves exact k=1 threshold; the later natural-number tail existence theorem addresses different input family."
+        ],
+        "reasoning": "Broader consecutive-power conjecture remains open in cited literature; the claimed endpoint is already mechanically forced by source modular counting and positive powers, not a substantive partial result.",
+        "searches": [
+          "anti Waring numbers arithmetic progression k powers threshold exponent one N 1 n r progression lower bound residue",
+          "JIS 18 (2015) Article 15.10.5",
+          "Looper–Saritzky JCMCC 99 (2016) 237–240"
+        ]
+      },
+      "checked_sources": [
+        "Fuller–Nichols JIS 18 (2015) 15.10.5",
+        "Looper–Saritzky JCMCC 99 (2016) 237–240",
+        "Resultary anti-Waring semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known: h0=r+s−1 is least summand count in the selected congruence class. Immediate substitution: all a_i^k≡t^k (mod s), and M_k≥M_1."
+        ],
+        "reasoning": "This is decisive routine prior implication for O and V, even though the endpoint inequality itself is technically a different quantified sentence. Future Work asks adjacent k, not this formal k=1 consequence.",
+        "searches": [
+          "anti Waring numbers arithmetic progression k powers threshold exponent one N 1 n r progression lower bound residue",
+          "Fuller–Nichols Theorem 8 proof",
+          "original article Future Work adjacent monotonicity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The authors count summands modulo s to isolate h0=r+s−1 exactly as in the present proof; k-power terms remain in one invertible residue class t^k."
+        ],
+        "reasoning": "Equivalent formulations include Frobenius/coin-problem threshold lower bounds, least nonrepresentable integer in a residue class, and first allowed number of distinct summands. The source proof becomes the claim after elementary substitution.",
+        "searches": [
+          "anti Waring numbers arithmetic progression k powers threshold exponent one N 1 n r progression lower bound residue",
+          "Fuller–Nichols JIS 18 (2015) Article 15.10.5, Theorem 8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No dedicated new table is needed: the quantified formula is a symbolic residue obstruction derivable for every k."
+        ],
+        "reasoning": "Not a numerical entry; an absence of exact text in a search index does not remove the original proof’s direct implication.",
+        "searches": [
+          "anti Waring numbers arithmetic progression k powers threshold exponent one N 1 n r progression lower bound residue",
+          "Resultary semantic query: anti Waring numbers arithmetic progression k powers threshold exponent one N 1 n r progression lower bound residue",
+          "JIS article theorem and proof"
+        ]
+      },
+      "rationale": "FAIL: Fuller–Nichols 2015 Theorem 8 and its proof already use the exact same fixed-residue summand-count obstruction h0=r+s−1 to obtain M_1−s+1. The proposed k-th-power lower bound is the immediate reuse of that argument with a_i replaced by a_i^k while preserving a_i^k≡t^k and monotonicity. No new obstruction, classification or unrelated phenomenon is added. The authors ask stronger adjacent-exponent monotonicity, which this does not approach beyond trivial comparison to k=1. It is a direct routine prior-method implication even if the formula is not printed for all k.",
+      "residual_risks": [
+        "This rejection is about novelty and substantive value, not mathematical error.",
+        "Published source’s modular proof is an elementary implication, even if not separately stated for all k.",
+        "Unindexed repetitions are irrelevant once decisive prior method is identified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original proof already supplies the sole structural obstruction; the extension is routine substitution, not the adjacent-exponent conjecture",
+          "evidence": "Theorem 8 states N(1)=1−s+Σ_{i=n}^{n+r+s−2}a_i; its proof uses exactly h≡r+s−1 mod s.",
+          "identifier_or_url": "C. Fuller and R. H. Nichols Jr., Journal of Integer Sequences 18 (2015), Article 15.10.5",
+          "material_read": "Accessible original article sections including Theorem 8, modular summand-count proof and Future Work conjecture (page/section text)",
+          "method": "Lawful public HTML/article full-text section and theorem-proof inspection",
+          "title": "Generalized Anti-Waring Numbers",
+          "trigger": "Identical N(k,n,r,A) notation, arithmetic progression and quoted Theorem 8"
+        },
+        {
+          "assessment": "No basis for whole-document exclusion; not needed for decisive O failure",
+          "evidence": "Exponential threshold existence for natural numbers is distinct from the fixed-progressions modular obstruction.",
+          "identifier_or_url": "N. Looper and N. Saritzky, JCMCC 99 (2016), 237–240",
+          "material_read": "Article abstract and known statement in current source references, no complete new full-text read",
+          "method": "Bibliographic/theorem-level comparison",
+          "title": "An Anti-Waring Theorem",
+          "trigger": "Possible dominating existence result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Fuller–Nichols JIS 18 (2015) 15.10.5",
+        "Looper–Saritzky JCMCC 99 (2016) 237–240",
+        "Resultary anti-Waring semantic search"
+      ],
+      "rationale": "FAIL: The natural anti-Waring monotonicity question is meaningful, but this endpoint is a one-paragraph consequence of prior Theorem 8 residue counting and positivity of powers of positive integers. It does not provide the nontrivial k→k+1 step, new threshold existence, or a substantive invariant; its marginal additional inequality has no independent mathematical depth under the shared bar.",
+      "residual_risks": [
+        "This rejection is about novelty and substantive value, not mathematical error.",
+        "Published source’s modular proof is an elementary implication, even if not separately stated for all k.",
+        "Unindexed repetitions are irrelevant once decisive prior method is identified."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "N(k) must exist for k>1; neither existence nor adjacent monotonicity for k≥2 is proved.",
+    "The powers are applied to a single positive coprime arithmetic progression.",
+    "This rejection is about novelty and substantive value, not mathematical error.",
+    "Published source’s modular proof is an elementary implication, even if not separately stated for all k.",
+    "Unindexed repetitions are irrelevant once decisive prior method is identified."
+  ],
+  "schema_version": 1
+}
