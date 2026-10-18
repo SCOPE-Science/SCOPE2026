@@ -1,15 +1,21 @@
-# Same-model mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The scalar identity \((|u+v|+|u-v|)/2=\max(|u|,|v|)\) gives a universal lower bound for the two-sided norms. Weak convergence annihilates atomic mass by the Schur property of the atomic \(\ell_1\) summand. Rademacher-type functions on the nonatomic part give weakly null equalizers for every nonnegative prescribed perturbation norm, including the zero-diffuse-mass vector case. The formulas for the attainable spectrum, tolerance radius, and distance follow with no extrapolation from finite computations. The proof uses only finite total measure and a nonzero nonatomic part.
+## correctness
 
-## Originality — PASS, with residual search risk
-The closest primary paper, Rodríguez--Rueda Zoca, arXiv:2301.07943, proves WASQ for purely nonatomic \(L^1\) and Rademacher-type weak nullity; these are the diffuse endpoint and construction used here, not an exact pointwise formula in the presence of atoms. Hardtke's arXiv:1705.06610 and Abrahamsen--Langemets--Lima's arXiv:1402.0818 concern whole-space inheritance and examples. Ciaci's arXiv:2210.13306 discusses positive LASQ Banach lattices. The source statements inspected do not imply the exact profile \(\Lambda_x(t)=\max(1,a+t)\), full attainable interval, or distance \(2a\) without additional arguments. Relevant semantic database and literature searches found no matching or stronger covering statement. This is evidence of distinction, not a uniqueness certificate: equivalent unindexed pointwise formulations remain a residual risk.
+PASS
 
-## Mathematical value — PASS
-This is a natural complete pointwise classification for a classical geometric property, rather than a selected artificial slice or example. It quantifies exactly how much atomless mass can participate in weakly null almost-square perturbations, identifies the sharp additive loss caused by atomic mass at every scale, and computes an intrinsic metric distance to the square-point locus. The formula resolves both zero and nonzero diffuse support and all tolerance values without imposing separability. It is meaningful even though its final proof is short once the Schur/Rademacher dichotomy is recognized.
+For real scalars, (|u+v|+|u-v|)/2=max(|u|,|v|) identically. Schur of atomic l1 forces the weak-null sequence atomic norm to zero; on diffuse support, max integral forces a+max(b,t). Dyadic nonatomic Rademacher signs weakly converge after multiplication by any L1 density, and y_n=(t/b)x_diff r_n attains the bound when b>0, with separate disjoint diffuse witness at b=0. The set of exactly norm-one perturbation sizes is [0,b], tolerances give b+epsilon, and minimizing L1 distance to the unit diffuse sphere yields 2a. Purely atomic measure with no diffuse part is explicitly excluded for t>0.
 
-## Limits and provenance
-Independent mathematical inspection remains necessary. The cited nonatomic construction is not claimed as new; new content is the complete mixed-measure profile and consequences. General finite measure and scalar real assumptions are essential to this proof.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Rodríguez–Rueda Zoca 2023 Lemma 2.1 and Theorem 1.1 already prove weak nullity of Rademacher products and pure-diffuse qualitative WASQ; these steps are prior covered, not claimed new. Hardtke 2018 full article treats whole-space WASQ stability under absolute sums, not per-vector t-dependent profiles, tolerance radius or distance. Abrahamsen–Langemets–Lima 2014 introduces LASQ/WASQ qualitatively; Ciaci 2022 investigates positive LASQ for Banach lattices. No inspected full source computes max(1,a+t) for mixed real L1, and no stronger result was found through Resultary; unindexed pointwise Banach lattice classifications remain risk.
+
+## value
+
+PASS
+
+The exact local weak-almost-square spectrum, additive tolerance cost and metric distance to square-point locus quantify a classical geometric property in the canonical mixed atomic/diffuse L1 family. This complete natural classification and sharp stability are more than a routine restatement of global WASQ or a numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
