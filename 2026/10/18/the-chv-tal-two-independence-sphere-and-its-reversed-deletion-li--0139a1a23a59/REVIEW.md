@@ -1,0 +1,19 @@
+# Self-review
+
+## Correctness — PASS
+
+The face condition is explicitly induced maximum degree at most one, equivalent to connected components of size at most two. A complete count of 424 nonempty faces agrees between two separately encoded input models. The first exact certificate constructs a matching of 211 pairs on all 424 faces and verifies all 1,428 Hasse incidences by a directed topological sort that visits every face. It leaves one critical vertex and one critical dimension-three cell, so the finite Morse CW model is an integral three-sphere, not just mod-two homology of a sphere. Four exact deletion/link computations for representative vertices and all eight enumerated automorphisms prove the orbit statements. For two collapsible subcomplexes, the verifier constructs full 60-step and 152-step legal elementary simplicial collapse orders independently of critical-cell counting. The second script independently checks reduced mod-two homology in all five complexes and computes the exact integral signed fixed-face orientation character across eight automorphisms. Risks: the algorithmic certificate and independent check use distinct face enumeration approaches but the same finite graph, as they must; neither alone is an external independent audit.
+
+## Originality — PASS with residual risks
+
+The mathematically nearest publicly recorded Chvátal results concern its *ordinary* independence complex and its open-neighborhood complex, not the higher-independence complex. Their complete public result statements were read. Their ordinary independence complex is a two-sphere; its four-vertex orbit has a collapsible deletion and circular link, whereas its eight-vertex orbit has a two-sphere deletion and collapsible link. The new two-independence three-sphere has the *opposite* orbit roles, with a dihedral degree-three orientation character which differs from the previously computed degree-two character on reflections. The old statements do not imply these results: adding all isolated-edge-admitting faces does not preserve ordinary independence homotopy or relative deletions. The tree, complete-multipartite and cycle classification papers read do not cover this graph. Relevant alternate definitions and targeted semantic mathematical-record searches returned no equal or stronger assertion. The exact database comparisons and inspection details are in `AUDIT.json`. Unindexed work and broader unexamined structural theorems remain novelty risks.
+
+## Mathematical value — PASS
+
+The Chvátal graph is a canonical extremal twelve-vertex, four-regular, triangle-free, four-chromatic graph with a nontransitive dihedral action. Its second-independence topology asks whether the natural relaxation from forbidding edges to forbidding three-vertex paths preserves the previous ordinary sphere or produces a different homotopy structure. The new result proves a shift from a two-sphere to a three-sphere, a complete reversal of both automorphism-orbit deletion/link profiles, and a changed homology orientation character. The canonical relative inclusion and full group action make this more than an isolated Betti-number computation and supply a reproducible topological benchmark for higher-independence and path-free complexes. Its finite scope limits generality but does not erase the structural meaning of the complete classification.
+
+## Source comparison and limitations
+
+Closest public same-graph statements: *The Chvátal graph independence complex and its vertex-deletion dichotomy* and *An equivariant collapse connecting the Chvátal independence and neighborhood complexes*. Foundational context: Deshpande–Singh (2021), Sawant (May 2026), Deshpande–Goyal–Sawant (July 2026). The Chvátal graph lies outside their families. This review is a self-review; no independent validation was conducted. Originality is necessarily subject to residual unindexed overlap.
+
+Self-review: passed. Independent audit: not yet performed.
