@@ -1,35 +1,21 @@
-# Review of Sharp uniform-convexity radius for the quadratic Ma–Minda endpoint
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The uniformly convex criterion reduces the problem to containment of the quadratic target image inside the standard parabolic domain. Schwarz's lemma turns the class-wide radius problem into a geometric problem for
-\[
-\phi(\mathbb D_r).
-\]
-On \(|w|=r\), the parabolic defect is the explicit quartic \(F(r,x)\) in \(x=\cos\theta\).
+PASS
 
-The two endpoint values of that quartic are positive for every \(r<1\). Any first interior zero must also be critical in \(x\), and exact elimination produces the single factor
-\[
-r^6-4r^4+23r^2-9.
-\]
-That factor is strictly increasing on \((0,1)\), so its unique root is the first possible contact. The subresultant gives an interior contact cosine, and the canonical function with
-\[
-1+zf_0''/f_0'=\phi(z)
-\]
-attains equality there. This proves both the universal lower radius and sharpness.
+Schwarz lemma reduces universal UCV of dilates to φ(D_r) lying inside the convex parabola Re q>|q−1|, and explicit canonical f0 establishes converse. For w=s e^{iθ}, x=cosθ, the package computes the quartic defect F(s,x)=s⁴x⁴−s⁴x²+2s³x³−2s³x+3s²x²−2s²+2sx+1. Since Re φ(w)>0 for |w|<1 (seen independently from its boundary quadratic), F>0 is equivalent to the parabolic inclusion on this image. F(s,±1)=(1±s)²; any first interior zero solves F=F_x=0. Independent exact Sympy elimination reconstructed Res_x(F,F_x/(2s))=−s^16Q(s) with Q=s^6−4s^4+23s²−9, Q strictly increasing on (0,1), and rho=0.646983632244827. Independent numerical substitution in the exact subresultant cosine x=−0.4910049966330048 gives F=F_x=0. Positivity for all s<rho, convexity of the parabola, and f0′=exp(z+z²/4) prove sharpness. The packaged checker was read but not blindly treated as an authority.
 
-## Originality
+## originality
 
-PASS. The 2026 primary source introduces the exact quadratic Ma–Minda target and studies sharp Hankel determinants; a full-text search of that paper finds no uniform-convexity discussion. Searches for the source identifier together with uniformly convex radius, the exact target \(1+z+z^2/2\), the parabolic containment formulation, and the algebraic contact polynomial returned no equivalent published result.
+PASS
 
-The closest published material concerns general uniform-convexity radius methods, Kaplan-type classes, special functions, or different Ma–Minda target domains. A recent indexed result for an exponential Ma–Minda target has the same broad kind of geometric question but a different target and a different threshold equation, so it does not imply this result.
+The full original quadratic-target source supplies only the class and Hankel results; indexed exact-target/radius and broader-parabolic queries did not reveal a stronger covering radius theorem. The precise nonreal contact and extremal distinguish a substantive exact new invariant, subject to broader theorem risks.
 
-Residual risk remains that a general target-domain radius theorem not surfaced by the searches could specialize to the same endpoint after additional calculation.
+## value
 
-## Value
+PASS
 
-PASS. The endpoint \(t=1/2\) is not an arbitrary parameter slice: it is the maximal quadratic deformation for which the source target remains univalent, so its geometric radius is a natural invariant of the newly introduced family.
+The endpoint t=1/2 is the maximal starlike/univalent quadratic parameter of the motivating class and is a natural invariant, not a gratuitous rational parameter slice. Its sharp UCV obstruction occurs at nonreal angle; the explicit algebraic root/contact and extremal provide a useful exact benchmark beyond classical real-axis or generic parabolic radius criteria.
 
-The result is structurally informative. The obstruction is not the negative real boundary point, which would give a much simpler quadratic threshold; instead the first failure occurs by a nonreal tangency to the uniform-convexity parabola. The exact algebraic radius and explicit extremal provide a reusable benchmark for extending the analysis to the full parameter family or to stronger conic convexity classes.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
