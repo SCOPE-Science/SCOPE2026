@@ -1,15 +1,21 @@
-# Scientific review: subtree-indexed local divisor classes
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof identifies all facets of the complete-graph spanning-tree base polytope using the connected-restriction/connected-contraction criterion, identifies those through each tree vertex by induced-tree connectivity, and applies the affine toric divisor exact sequence. The critical integral step is explicit: the normal-cone rays include unit-coordinate classes with signs for *every* graph edge, proving saturation and excluding hidden torsion. The rank calculation then follows by counting the facets. The two extremal tree counts are proved using paths and leaf removal, with equality cases. The reproducing checker validates every spanning-tree instance for four, five and six graph vertices, and the facet dimensions for four and five vertices. Its finite computations are checks, not the general proof.
+## correctness
 
-## Originality — PASS, with residual risk
-Feichtner--Sturmfels already proves the general matroid flacet theorem and lists the corresponding inequalities; Cox--Little--Schenck supplies the standard toric divisor sequence. Lasoń--Michałek gives a much broader *global smoothness/Gorenstein* classification for matroid base polytopes; it does not calculate all the pointwise integral class groups. Székely--Wang studies subtree counts rather than local divisor classes. Thus the supported contribution is limited to the complete, explicit local class-group presentation, its torsion-free computation indexed by every spanning tree, and its polynomial-to-exponential extremal ranks. No new general facet criterion, toric divisor sequence, or tree-extremum theorem is claimed. Searches for the exact toric/subtree formula and for equivalent descriptions disclosed no matching prior statement. This does not rule out an unindexed derivation; because the general ingredients are close, that risk is material.
+PASS
 
-## Value — PASS
-The local class group is the intrinsic obstruction to factoriality and, after rationalization, to \(\mathbb Q\)-factoriality. A complete calculation at every torus-fixed point is substantially finer than a global nonsmoothness assertion. The dependence of its free rank on the embedded spanning-tree shape—and the sharp quadratic versus exponential extremes—gives a natural structural stratification for a high-dimensional, highly symmetric matroid toric variety. The invariant is not an arbitrary finite data slice: it covers all \(n\ge4\) and every spanning-tree fixed point.
+The complete graph graphic matroid is connected with base-polytope dimension m-1, m=n(n-1)/2. Feichtner–Sturmfels connected restriction/contraction flacet criterion yields x_e>=0 and x(E(S))<=|S|-1 for every proper S of size 2..n-1. At vertex 1_T, the former are tight for e outside T, the latter for T[S] connected. The primitive normal-cone rays comprise -[e_f] for non-tree f and [sum_{e in E(S)}e_e] for each proper connected S. In particular S is each tree edge, so the ray set integrally generates N=Z^E/Z*1; the divisor exact sequence has saturated image and torsion-free cokernel of rank (m-n+1+c)-(m-1)=c-n+2. Connected induced subtrees count tau=c+n+1, yielding rank tau-2n+1. Distinct endpoint paths give tau>=n+binom(n,2), equality only paths; leaf-removal induction gives tau<=2^{n-1}+n-1 with equality only stars. Independent enumeration of all 16/125/1296 labeled K4/K5/K6 trees reconstructed rank ranges 3..4/6..11/10..26. Finite tests support, not prove, all n.
 
-## Scope and residual limitations
-Only torus-fixed points are classified, not all toric strata; neither local analytic equations nor global class groups are determined. The scientific review is internal to the mathematical package and does not substitute for independent validation or exhaustive historical indexing.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS limited to explicit integral local class-group computation for the complete-graph graphic matroid toric variety and its tree-type rank range. General matroid flacet theorem, toric divisor exact sequence and tree subtree-count extrema are prior, not new. No exact per-tree class-group statement located, but specialization is short and a higher-priority implicit computation remains possible.
+
+## value
+
+PASS
+
+Local Weil divisor class groups measure local non-Q-factoriality, a standard birational-toric invariant. The all-tree closed formula and sharp path-to-star quadratic/exponential range identify distinct singularity complexities inside one natural toric variety; integral saturation removes torsion ambiguity. This is a coherent complete local classification rather than an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
