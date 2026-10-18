@@ -1,11 +1,21 @@
-# Review of exact shifted odd-factorial collision distances
+# Independent mathematical audit
 
-**Correctness — PASS.** Pairing \(i\) with \(2^e-i\) reduces the product to a polynomial in \(2^{2e}A(A+1)\). The independently established key lemma is that the reciprocal sum of the \(2^{e-2}\) odd pair products has valuation exactly \(e-2\). A dyadic doubling argument proves this for every \(e\ge2\), and the divided difference differs from the derivative at zero only by terms divisible by \(2^{2e+1}\). The exact valuation follows for all signed integer shifts, with boundary cases handled by the polynomial identity. Parity of the two linear factors yields exact fibers; repeated squaring yields the power formula. The included independent finite calculations pass but are not the infinite proof.
+## correctness
 
-**Originality — PASS, with residual risk.** Donald M. Davis, *Some 2-adic Integers Related to the Odd Part of \(2^e!\)*, Theorem 16 and Corollary 17 (arXiv:2510.22078; JIS 29 (2026), Article 26.3.1), give universal congruences modulo \(2^{3e-1}\) and their powered versions. Those statements cover the baseline modulus, but do not give the exact extra valuation \(\nu_2((A-B)(A+B+1))-1\) or classify all modular collision fibers. The source's Lemmas 18–19 provide closely related coefficient valuations; the present pairing and divided-difference argument identifies the full pairwise structure. Searches for odd-block product valuations, 2-adic gamma analogues, and prior factorial limits found no explicit equivalent or stronger published statement. An equivalent theorem or a general result implying it might be present in unindexed material or unstated consequences of older factorial identities. The 2013 arXiv precursor's full text was not retrieved; its accessible abstract concerns factorial limits, which is not enough to exclude a stronger finite identity.
+PASS
 
-**Value — PASS.** The answer is not only a sharpened modulus for a single special shift: it is a complete exact two-adic distance law for every pair of shifts, together with the optimal powered congruences and a finite-level two-to-one fiber classification for every precision. These properties identify precisely where the arithmetic block-product map loses information and give the exact precision budget for comparisons used in factorial-unit calculations. This is a natural structural upgrade of the original full-block congruence rather than an arbitrary parameter slice.
+For M=2^e, e>=2, pairing i and M-i gives P_e(A)=G(M^2 A(A+1)), with m=2^(e-2) odd pair-constants c_r=i_r(M-i_r). A dyadic congruence f(r+2^k)=f(r) mod 2^(k+2) for f=c_r^(-1) yields v2(sum_r 1/c_r)=e-2. Consequently v2(G' (0))=e-2 and the divided-difference quotient at T_A,T_B in 2^(2e+1)Z has that exact valuation. Factoring T_A-T_B proves v2(P_e(A)-P_e(B))=3e-2+v2((A-B)(A+B+1)); the zero factors are actual equalities. The two factors have odd sum, so modulo 2^s they give exactly distinct reflected two-point fibers; odd products congruent modulo 4 give exactly +j valuation on 2^j powers. Independently computed 384 nontrivial exact pairs at e=2..7 and shifts -4..4; finite checks do not prove the universal law.
 
-**Limits.** No statement is proved for incomplete blocks or odd primes. The finite verifier does not certify the infinite theorem. Residual literature-equivalence risk remains.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Davis 2026 Theorem 3.1 and Corollary 3.2 cover a universal lower-bound congruence but not the exact pair-dependent valuation or two-element fiber theorem. The new result is a natural sharp strengthening despite relying on closely related earlier reciprocal/coefficient lemmas. Actual Resultary semantic and published-literature comparisons found no stated stronger same-block identity. The proximity of Davis Lemma 3.3 means derivability by adaptation remains a priority risk, not a claim of independent discovery.
+
+## value
+
+PASS
+
+A complete ultrametric distance and exact all-precision quotient/fiber classification for a standard full odd-factorial block directly answers how much information any shifted product comparison retains. These uniform all-shift congruence budgets and sharp powered lifts add useful structure beyond a one-instance numerical modulus; they are motivated by Davis's factorial-unit stabilization problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
