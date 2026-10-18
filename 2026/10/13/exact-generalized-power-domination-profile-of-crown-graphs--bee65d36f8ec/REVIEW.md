@@ -1,15 +1,21 @@
-# Review of Exact generalized power-domination profile of crown graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof handles all set types. Mixed sets leave at most one unobserved vertex on each side after domination, so \(k\ge1\) completes propagation. For a one-sided set of size \(t\ge2\), all opposite-side vertices are immediately observed and the remaining count \(r=n-t\) propagates exactly when \(r\le k+1\). Singletons are checked separately and work exactly when \(k\ge n-2\). These cases are exhaustive and symmetric. The enumerator is a disjoint count of mixed and one-sided sets. The packaged exhaustive checker agrees for every subset for \(3\le n\le8\) and \(1\le k\le n\).
+## correctness
 
-## Originality
-PASS with a disclosed access risk. The closest same-object publication is Chandrasekaran–Sulthana (2019). Its indexed publisher text states \(\gamma_{P,k}\ge n-k\) for \(n\ge k+2\) and an algorithm output \(\gamma_{P,k}=n-k\); this is contradicted by the proved mixed-pair construction, for example \(\{a_1,b_2\}\) in \(\operatorname{Cr}_5\) for \(k=1\). The general regular-graph result of Dorbec et al. implies only an upper bound in the slice \(k=n-3\), not the classifier. The full searchable Brimkov et al. power-domination-polynomial paper has no crown occurrence, and the inspected 2025 full-text power-domination-polynomial treatment also has no crown occurrence. Semantic database searches for the same object, parameter, aliases, polynomial, and exact classification returned no stronger or equivalent claim. The complete 2019 publisher PDF could not be locally retrieved because of interactive verification, so the possibility of additional inconsistent statements elsewhere in that three-page article remains a residual source-access risk.
+PASS
 
-## Value
-PASS. The result resolves a natural exact invariant on a canonical highly symmetric bipartite family, gives every generalized power-dominating set rather than only a minimum value, derives all minimum-set counts and the full cardinality enumerator, and corrects a published same-object scalar formula under the standard definition. The phase transition at \(k=n-3\) and \(k=n-2\) is structural rather than an arbitrary finite slice.
+The initial closed-neighborhood observation of a mixed set leaves at most one missing vertex on either bipartition, each then forced by an observed vertex having one unseen neighbor (n>=3). A one-sided t>=2 set observes the whole opposite side, with r=n-t remaining same-side vertices. If r>=k+2 every observed opposite vertex has >=k+1 unseen neighbors, so the process cannot advance; if r<=k+1 a matched-nonedge observed vertex forces all but one, then another forces the last. A singleton has n-2 unseen neighbors from each observed opposite vertex and succeeds exactly for k>=n-2. These cases are exhaustive and justify the polynomial and minima. Independently implemented set-closure enumeration checked all 145600 subsets/parameter instances for 3<=n<=7, distinct from the bundled n<=8 check; finite computation not infinite proof.
 
-## Closest literature and limitations
-The principal comparison is the 2019 crown-graph article, whose stated \(n-k\) value is not compatible with the standard propagation process. Generalized power domination was introduced by Chang et al.; Dorbec et al. give regular-graph bounds. Brimkov et al. introduce the power-domination polynomial. The finite checker is corroborative only. The exact contradiction is stated only under the standard generalized propagation convention.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The canonical 2019 crown-paper indexed theorem reports n-k as the minimum, contradicted by a mixed pair at n=5,k=1 under the explicitly stated standard generalized propagation convention. General 2012 introduction and 2013 regular-graph bound supply terminology and upper bounds, but not complete all-set profiles. Brimkov et al. develop ordinary power-domination polynomials without the generalized crown-family enumerator. Published Resultary crown results use restrained or Roman domination, while a chain-graph k-power-domination result concerns graphs with nested neighborhoods (not crowns for n>=3). Full 2019 publisher PDF remains inaccessible due to verification layer, so no whole-document absence is asserted.
+
+## value
+
+PASS
+
+An all-k phase diagram and cardinality enumerator for a standard symmetric graph family, including exact extremal counts, is a natural complete classification. It also supplies a concrete counterexample correcting a published same-graph minimum under the standard propagation definition; this is substantive rather than a tiny isolated computational correction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
