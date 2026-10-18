@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Parity of beta on prime powers forces odd exponents even for every even n. Exact monotone lower-product bounds 1062347/2654208>2/5 and 30808063/59719680>1/2 restrict integer quotient to odd 1 or 3, then modular 3 and the second product eliminate 3; beta(n)<n-1 for n>4 eliminates 1. All quantifiers and arithmetic, including even power-of-two exponents, checked; verifier independently tests certificates and finite samples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tóth 2013 full paper pp.93-107 introduces beta, its average/structural properties and poses Problem 4; the paper reports an n<=10^6 search, no unbounded even prime-factor theorem.",
+        "Ordinary phi-Lehmer lower bounds apply to squarefree candidates; beta(p^{2e}) != phi(p^{2e}), and the even beta candidate must have square odd part."
+      ],
+      "reasoning": "A stronger published all-candidate theorem could dominate this result; the closest fully inspected beta paper poses the existence question and does not establish such an exclusion. Classical phi-Lehmer bounds are not stronger coverage: distinct functions on nonsquarefree even candidates.",
+      "searches": [
+        "web: Toth alternating sum of divisors beta n divides n minus 1 Lehmer composite 4 2013",
+        "published-finding corpus: Complete exclusion of at most three prime factors for alternating divisor sum beta(n) dividing n-1",
+        "web: \"alternating sum-of-divisors\" \"at most\" \"prime factors\" \"divides\" \"n-1\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1111.4842v1 (full primary)",
+      "DOI:10.2478/ausm-2014-0007 (full primary)",
+      "OEIS:A206369",
+      "Caragiu–Swieringa 2024 open full text (different function)",
+      "published-finding corpus semantic searches: beta(n), square-totient, even prime-factor obstruction, alternating sum, Lehmer analog",
+      "targeted web literature searches for ten-prime beta divisibility"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Tóth Problem 4 asks whether a composite n≠4 with beta(n)|n−1 exists; that conjectural nonexistence, if proven, would imply the conditional lower bound vacuously, but the paper does not prove it.",
+        "The 2013 preprint/journal has parity and multiplicative identities, but no eight-prime rational thresholds or quotient-3 congruence argument.",
+        "2024 Caragiu–Swieringa studies nonmultiplicative chi, distinguishes chi(6)=4 from beta(6)=2."
+      ],
+      "reasoning": "We distinguish shared problem and elementary premises from the quantitative conclusion. Known identities alone require the new explicit eight-prime extremal comparisons and case split to establish the ten-prime barrier; the classical open conjecture is not an available theorem.",
+      "searches": [
+        "arXiv:1111.4842v1 Problem 4",
+        "DOI:10.2478/ausm-2014-0007 section 7 pp.102-103",
+        "published-finding corpus: square-totient beta(n) multiplicative divisor count Lehmer problem even n = 2^a times odd square"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tóth, arXiv:1111.4842 (2011), equation (1), and Problem 4 in 2013 paper p.102: identical beta and divibility question, no stated ten-prime bound.",
+        "OEIS:A206369 identifies the same multiplicative function.",
+        "published-finding corpus ranked records concern chi-minus-totient fibers, sigma and other functions, not ten-prime even beta candidates."
+      ],
+      "reasoning": "Aliases considered include square-totient, alternating divisor sum, Liouville convolution, beta(n), and Lehmer analogue. The asserted condition is an exclusion of every even n>4 with at most eight odd prime supports; function identities and the open problem alone do not state or imply that exclusion without additional product/congruence estimates.",
+      "searches": [
+        "published-finding corpus: Alternating sum-of-divisors beta(n) divides n-1 composite n must have many prime factors, even solutions Lehmer analogue 10 primes",
+        "published-finding corpus: Lehmer-type problem square totient beta(n) divisibility n minus one omega bound even composite",
+        "web: \"beta(n)\" \"divides\" \"n-1\" \"even\" Toth",
+        "web: \"β(n)\" \"n−1\" \"composite\" \"Lehmer\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A206369 lists beta values and links Tóth, not a universal prime-support classification.",
+        "published-finding corpus closest IDs 5f607fcab7e7 (alternating-divisor totient gap) and 25be8c179689 (Deaconescu numbers) concern distinct invariants."
+      ],
+      "reasoning": "Finite OEIS sequences and earlier million-range experiments cannot imply an all-size ten-prime bound. Ranked similarity results involving other divisor functions are not matching exact tables for beta divisibility.",
+      "searches": [
+        "OEIS:A206369 alternating divisor sum beta(n)",
+        "published-finding corpus: beta prime support nine odd prime factors exclusion 2011",
+        "web: \"alternating sum-of-divisors function\" \"10\" \"prime factors\""
+      ]
+    },
+    "rationale": "Tóth 2011/2013 poses exactly the beta(n)|n-1 problem but does not give a quantitative unbounded ten-distinct-prime obstruction for even candidates. Comparison of equivalent names, classic Lehmer phi problem, OEIS table, closest published-finding corpus records and a similarly named 2024 different function found no stronger implication. Searches do not establish absolute uniqueness.",
+    "residual_risks": [
+      "An unindexed or differently formulated proof of this conditional exclusion may exist.",
+      "One later targeted published-finding corpus batch returned transient internal errors; earlier multiple published-finding corpus searches completed and supplied comparison candidates.",
+      "The argument does not resolve existence of even solutions with more prime factors or any odd solutions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING; identical function and motivating open problem, no unbounded ten-prime obstruction.",
+        "evidence": [
+          "arXiv first public date 2011-11-21",
+          "beta(p^a) formula, Problem 4, n-1 divisibility"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1111.4842v1",
+        "material_read": "Initial definitions, arithmetic identities, parity/square properties, open problems and proof sections including Problem 4.",
+        "method": "Read accessible arXiv PDF preprint and compare the stated divisibility question against prime-support theorem.",
+        "title": "A survey of the alternating sum-of-divisors function",
+        "trigger": "Direct original public source for beta and the Lehmer-analogue problem"
+      },
+      {
+        "assessment": "NOT_COVERING; finite n<=10^6 evidence, not universal even-support lower bound.",
+        "evidence": [
+          "p.93 definition and MSC 11A25",
+          "p.102 Problem 4 explicitly n != 4",
+          "p.103 computational Maple procedure"
+        ],
+        "identifier_or_url": "https://acta.sapientia.ro/content/docs/10415--Volume5_Issue_1_07_paper.pdf",
+        "material_read": "Journal PDF pp.93–107 including introductions, unitary analog, Section 7 Problem 4 p.102 and proof section; inspected source page image.",
+        "method": "Full source text sections and page-image cross-check; matched exact beta formula and Problem 4.",
+        "title": "A survey of the alternating sum-of-divisors function",
+        "trigger": "Published full treatment of identical problem; potential stronger implications"
+      },
+      {
+        "assessment": "NOT_COVERING; studies different nonmultiplicative chi instead of beta.",
+        "evidence": [
+          "chi(6)=4 versus beta(6)=2 as discussed by authors"
+        ],
+        "identifier_or_url": "https://pphmjopenaccess.com/jpjana/article/download/1408/1025/5044",
+        "material_read": "Introduction, definitions and principal theorem from accessible 2024 PDF, including comparison with beta at 6.",
+        "method": "Full-text term and definition comparison.",
+        "title": "On the alternating sum-of-divisors",
+        "trigger": "Similar title and possible equivalent function"
+      },
+      {
+        "assessment": "NOT_COVERING; values and references only.",
+        "evidence": [
+          "beta multiplicative and alternate gcd-square counting identity"
+        ],
+        "identifier_or_url": "https://oeis.org/A206369",
+        "material_read": "Definition, formula, values and bibliographic notes.",
+        "method": "Viewed OEIS entry and compared values/identity; no theorem or ten-prime table.",
+        "title": "OEIS A206369: alternating sum-of-divisors function",
+        "trigger": "Exact-value database and prior bibliography"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "246c5374-889d-4d2b-94f7-367ce0ee6b3f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This unconditional infinite structural restriction concerns a named published open problem and rules out every even candidate with at most nine distinct total prime factors, yielding a concrete >2e19 size bound. It is motivated by a sharp natural eight-prime product threshold and a modulo-three obstruction rather than an arbitrary small census.",
+    "status": "PASS"
+  }
+}
