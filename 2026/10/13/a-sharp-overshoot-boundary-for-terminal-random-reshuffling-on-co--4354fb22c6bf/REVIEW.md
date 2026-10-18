@@ -1,19 +1,21 @@
-# Scientific review of terminal reshuffling phase classification
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Every component is a positive quadratic with the same Hessian. Its projection on an eigenvector evolves by an affine recursion with scalar multiplier \(q=1-\eta\lambda\). The RR and IID epoch noises are centered and independent between epochs; their second moments differ by precisely the finite-population cross-covariance \(-v/(n-1)\). The proof reconstructs both models' complete epoch-end second moments and cancels the identical deterministic initial-error contribution. The exact geometric factorization of \(A_n(q)^2-B_n(q)\) has sign \(q\) for every \(-1<q<1\). Pure-eigenmode center choices certify both directions of both data-uniform iff statements. The independent checker exhaustively enumerated 123 exact-rational cases, including negative multipliers and repeated epochs. Numerical or finite checks are not substituted for the symbolic argument.
+PASS
 
-## Originality
+At each shared-Hessian eigenmode the component update is e+=q e+t c_i. A complete epoch gives e_{k+1}=q^n e_k+t Z_k. Independent epoch resampling makes its exact second moment a geometric sum in q^{2n}; IID weighted variance is v B_n(q), while permutation off-diagonal covariance -v/(n-1) yields v[n B_n(q)-A_n(q)^2]/(n-1). Their difference, with Hessian eigenvalue weights, proves equation (1) at every n>=2, K>=1, dimension d>=1. Direct algebra gives A_n(q)^2-B_n(q)=2q(1-q^n)(1-q^{n-1})/[(1-q)^2(1+q)]; all non-q factors are positive for -1<q<1. Concentrating centered data on any single eigenvector proves both uniform-data iff conditions and mixed regimes. Exact n=2, eta=3/2, centers +/-1 yields terminal squared errors RR=81/16, IID=45/16, while eta=1/2 reverses the sign. An independently written rational permutation/IID checker checked signed q for n=2..8; it supplements the unrestricted proof.
 
-**PASS, subject to residual access and indexing risks.** Liu (2026, Theorem 1, Algorithm 1) compares a weighted average of within-epoch iterates through rate upper bounds, not the pointwise expected final objective on identical data. Ying (2018, Chapter 3, Lemma 3.1) explicitly obtains the covariance polynomial for **nonnegative** weights; this known identity is fully credited and is not offered as original. Its nonnegative-multiplier statement cannot establish the reversed ordering when \(-1<q<0\). The novelty assessed here is the exact finite-horizon signed spectral comparison, the sharp \(\eta\lambda=1\) transition, and the iff/mixed ordering classification. De Sa (2020, Section 2) establishes a different high-dimensional noncommuting matrix-product failure, not the present common-Hessian classification. Dewasurendra (Sections 1 and 5) studies an average and a small-step minimax bound, not terminal reversal. An equivalent unpublished or unindexed signed-weight argument remains a live risk, and no claim of global literature uniqueness or independent external validation is made.
+## originality
 
-## Value
+PASS
 
-**PASS.** The 2026 averaged-output superiority statement is susceptible to overgeneralization into terminal-iterate superiority. A sharp explicit two-sample counterexample and a complete spectrum-dependent phase classification show exactly why output selection and overshooting each curvature matter. The theorem supplies actionable, fully quantified guidance for terminal checkpoints of stochastic component descent: the scalar reciprocal-curvature threshold is independent of horizon and sample count, while mixed spectra forbid a universal winner without center-variance information. This is a motivated boundary, not a numerical micro-improvement or arbitrary parameter slice.
+Best-of-knowledge new all-horizon signed contraction/overshoot phase classification for terminal RR versus IID on common-Hessian quadratics; known finite-population covariance and averaged-output literature are explicitly separated.
 
-## Closest literature and scientific limits
+## value
 
-The central precursors are Liu (arXiv:2606.32005; extended September 2026 full text), Ying (2018 dissertation, weighted covariance lemma), De Sa (NeurIPS 2020 counterexample), and Dewasurendra (all-inner average minimax analysis). The result assumes a shared positive Hessian, independent new permutations, uniform sampling, constant stable step, and complete epoch terminal outputs. The proof does not generalize to nonlinear components, varying Hessians, nonuniform sampling, or pathwise ordering. The 2018 nonnegative-weight covariance expression largely overlaps the elementary variance computation; the scientific distinction resides in the signed regime and the exact sample-uniform iff statement.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact reciprocal-curvature boundary identifies when replacing sample-with-replacement noise by permutation anticorrelation helps or hurts the terminal optimization objective, including a strong strictly reversed example at stable overshooting steps. It gives a necessary-and-sufficient, all-horizon spectral criterion rather than a routine rate-bound restatement, and distinguishes operationally important output metrics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

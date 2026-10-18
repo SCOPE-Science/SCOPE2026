@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T18:09:14Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Immutable assigned RESULT.md blob d56330c2ff06d5d3a346fe788dff708583f49168",
+        "Ying 2018 thesis Lemma 3.1, finite-population sampling covariance",
+        "Independent_checks.py: RESHUFFLING_SIGNED_GEOMETRIC_COVARIANCE_EXACT_OK"
+      ],
+      "rationale": "At each shared-Hessian eigenmode the component update is e+=q e+t c_i. A complete epoch gives e_{k+1}=q^n e_k+t Z_k. Independent epoch resampling makes its exact second moment a geometric sum in q^{2n}; IID weighted variance is v B_n(q), while permutation off-diagonal covariance -v/(n-1) yields v[n B_n(q)-A_n(q)^2]/(n-1). Their difference, with Hessian eigenvalue weights, proves equation (1) at every n>=2, K>=1, dimension d>=1. Direct algebra gives A_n(q)^2-B_n(q)=2q(1-q^n)(1-q^{n-1})/[(1-q)^2(1+q)]; all non-q factors are positive for -1<q<1. Concentrating centered data on any single eigenvector proves both uniform-data iff conditions and mixed regimes. Exact n=2, eta=3/2, centers +/-1 yields terminal squared errors RR=81/16, IID=45/16, while eta=1/2 reverses the sign. An independently written rational permutation/IID checker checked signed q for n=2..8; it supplements the unrestricted proof.",
+      "residual_risks": [
+        "Only shared SPD Hessian, stable eta in (0,2/L), complete epoch-terminal objectives; not within-epoch averages or pathwise order.",
+        "Ying finite-population covariance precursor is acknowledged as known; novelty is signed/overshoot terminal phase."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liu 2026 treats a specially weighted average over inner iterates, not x_{nK}.",
+          "De Sa 2020 has noncommuting multiplicative Hessian effects, whereas this model has fixed commuting Hessian and stochastic centered finite-sum noise.",
+          "Dewasurendra all-inner averaged-output risk under small eta<=1/(6L) does not address eta lambda>1."
+        ],
+        "reasoning": "Published averaged-output dominance and noncommuting counterexamples are neither equivalent nor stronger coverage of the signed common-Hessian terminal comparison.",
+        "searches": [
+          "Zijian Liu 2026 arXiv:2606.32005v1 random reshuffling dominates SGD",
+          "Pahan Dewasurendra The Missing Horizon in Random Reshuffling Section 5",
+          "De Sa Random Reshuffling Is Not Always Better NeurIPS 2020"
+        ]
+      },
+      "checked_sources": [
+        "Ying dissertation 2018 Ch3 Lemma3.1",
+        "Liu arXiv:2606.32005v1",
+        "De Sa NeurIPS 2020",
+        "Dewasurendra The Missing Horizon manuscript Section 5 comparison",
+        "Resultary semantic search for signed RR terminal spectrum"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known finite-population cross-covariance -v/(n-1) supplies the ingredient but not a theorem comparing RR terminal error to IID after K independent epochs in the overshoot regime.",
+          "Theorem about the expected risk of a weighted average does not imply sign of difference of expected risks at x_{nK}."
+        ],
+        "reasoning": "The iff eigenvalue thresholds require evaluating the signed weight identity together with the IID variance and individual eigenmode witnesses; neither the averaged-output inequality nor the noncommuting example logically entails the claimed exact formula.",
+        "searches": [
+          "Ying 2018 Lemma 3.1 signed versus nonnegative weights",
+          "Liu 2026 Theorem 1 weighted all-inner output",
+          "De Sa 2020 Theorem 1 noncommuting counterexamples"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ying 2018 Lemma 3.1 states a weighted without-replacement covariance result under nonnegative geometric/scalar weight, rather than a negative q signed phase.",
+          "The candidate compares two different sampling schemes on the same terminal iterate, with iff threshold eta lambda=1 and all horizons; this is stronger than stating a known covariance precursor."
+        ],
+        "reasoning": "A signed-weight substitution into a general finite-population identity is algebraically possible, but no inspected published statement derives the resulting reverse RR/IID last-iterate phase or spectral data-uniform iff classification. An equivalent older signed calculation remains a risk.",
+        "searches": [
+          "Resultary: random reshuffling terminal iterate overshoot better iid negative q spectral threshold",
+          "Ying 2018 dissertation Chapter 3 Lemma 3.1 nonnegative beta",
+          "Search: random reshuffling signed geometric weights negative contraction common Hessian terminal expected error"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned adjacent stochastic-method spectral findings, including the infinite SARAH residual-floor record 2026/10/4/SCOPE-exact-random-residual-floor-for-a-single-infinite-sarah-inner-lo--3a03442a77b1, not a common-Hessian RR-v-IID table.",
+          "The example (RR,IID)=(81/16,45/16) is deduced by direct rational enumeration and an unrestricted exact identity, not imported from a table."
+        ],
+        "reasoning": "No directly applicable indexed exact table was found. An absence of search hits alone is not evidence of originality.",
+        "searches": [
+          "Resultary semantic search: stochastic gradient random reshuffling terminal overshoot negative contraction threshold",
+          "Search: finite sample RR versus IID comparison last iterate quadratic stable negative iteration eigenvalue"
+        ]
+      },
+      "rationale": "Best-of-knowledge new all-horizon signed contraction/overshoot phase classification for terminal RR versus IID on common-Hessian quadratics; known finite-population covariance and averaged-output literature are explicitly separated.",
+      "residual_risks": [
+        "An equivalent signed finite-population covariance/terminal RR comparison might be in unindexed literature; precursor algebra is classical.",
+        "Some extended average-iterate and historical manuscripts were not reread completely."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRECURSOR, not statement-level covering of negative-contraction RR/IID terminal iff classification",
+          "evidence": "Lemma 3.1 weighted finite-population covariance formula; nonnegative scalar beta hypothesis",
+          "identifier_or_url": "https://escholarship.org/content/qt76r7c14r/qt76r7c14r.pdf",
+          "material_read": "Dissertation Chapter 3 Lemma 3.1 around page 48 of chapter / PDF page 67 and Theorem 3.2; verified nonnegative weight restriction and variance expression.",
+          "method": "Public full-text PDF inspection including rendered lemma page",
+          "title": "Learning Under Random Reshuffling and Distributed Features",
+          "trigger": "Same reshuffling weighted covariance, candidate explicitly cites Lemma 3.1"
+        },
+        {
+          "assessment": "Different estimator/output: weighted average of inner iterates, not complete-epoch terminal iterate",
+          "evidence": "Theorem 1 concerns weighted all-inner output, so no implication of terminal phase",
+          "identifier_or_url": "arXiv:2606.32005v1",
+          "material_read": "arXiv abstract and described theorem/output metric; extended manuscript comparison informed by accessible model description, full extended PDF not re-read here",
+          "method": "Public arXiv and indexed result",
+          "title": "Random Reshuffling Dominates Stochastic Gradient Descent",
+          "trigger": "Potentially stronger RR superiority theorem"
+        },
+        {
+          "assessment": "Different mechanism (noncommuting component Hessians), no threshold for shared H",
+          "evidence": "NeurIPS 2020, random reshuffling non-dominance in a distinct setting",
+          "identifier_or_url": "https://proceedings.neurips.cc/paper_files/paper/2020/file/42299f06ee419aa5d9d07798b56779e2-Paper.pdf",
+          "material_read": "Principal theorem/model description concerning noncommuting matrix-product counterexample; full detailed proof not inspected in this run",
+          "method": "Primary publisher paper record/full-text portions",
+          "title": "Random Reshuffling Is Not Always Better",
+          "trigger": "Related negative RR dominance result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Full RESULT.md analytic phase identity and center-variance eigenmode witnesses",
+        "Liu 2026 output-metric contrast",
+        "De Sa 2020 different failure mechanism"
+      ],
+      "rationale": "The exact reciprocal-curvature boundary identifies when replacing sample-with-replacement noise by permutation anticorrelation helps or hurts the terminal optimization objective, including a strong strictly reversed example at stable overshooting steps. It gives a necessary-and-sufficient, all-horizon spectral criterion rather than a routine rate-bound restatement, and distinguishes operationally important output metrics.",
+      "residual_risks": [
+        "The conclusion is specific to a shared Hessian and complete epochs; large-step extrapolation to general RR is not claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge originality is not an exhaustive historical-priority certification.",
+    "Finite checker tests only stated sampled cases; unrestricted C relies on reconstructed analytic proof.",
+    "Public transport not ready because privacy sanitization/complete recursive Git-tree validation remains missing.",
+    "An equivalent signed finite-population covariance/terminal RR comparison might be in unindexed literature; precursor algebra is classical.",
+    "Some extended average-iterate and historical manuscripts were not reread completely."
+  ],
+  "schema_version": 1
+}
