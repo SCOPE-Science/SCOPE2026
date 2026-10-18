@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T10:53:48.410054Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For W_n=K_n corona K1 (n>=2), classify each core-leaf pair as empty, core-only, leaf-only or both. With >=2 empty pairs the two uncolored cores permanently block any blue core, even after all available leaf forces. With exactly one empty pair and no initial blue leaf every black core has two white neighbors (missing core and own leaf), so stalled. With one empty and a blue leaf, all leaf-only pairs first activate their core, a core whose leaf is already blue forces the unique missing core, and the new core forces its pendant; remaining whites are forced. With no empty pairs all initial leaf-only states activate cores, which force all remaining white leaves. This complete case split gives polynomial (2x+x²)^n+n((2x+x²)^(n-1)-x^(n-1)), Z=n-1, minimum-set count n(2^(n-1)-1) and total (n+3)3^(n-1)-n. The actual artifacts/verify.py Git blob was read; a separately implemented brute zero forcing simulation exactly matched polynomial coefficients for n=2,3,4,5. Infinite theorem follows from structural four-state proof, not finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Javaid et al. 2016 Lemma 2.2 and Theorem 2.3 require attached H of order >=2; special K1 result concerns certain trees, not K_n for n>=3.",
+          "AIM 2008 shows zero forcing number bounds and special penta-sun example, not general all-set polynomial of whiskered cliques.",
+          "Boyer 2018 polynomial paper, inspected sections on graph families, did not cover this corona case in the relevant text."
+        ],
+        "reasoning": "No stronger all-ordinary-ZFS theorem among inspected results directly specializes to the iff empty-pair characterization. The different general-position theorem cannot imply it.",
+        "searches": [
+          "arxiv:1607.04071",
+          "https://arxiv.org/abs/1801.08910",
+          "doi:10.1016/j.laa.2007.10.009",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-strict-log-concavity-for-complete-graph-coronas--cc76f1cb7642"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1607.04071",
+        "doi:10.1016/j.laa.2007.10.009",
+        "https://arxiv.org/abs/1801.08910",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-strict-log-concavity-for-complete-graph-coronas--cc76f1cb7642"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Older corona bounds control Z(G corona H) under H order >=2 or exceptional tree assumptions; they do not yield counts z(W_n;k).",
+          "The prior same-graph general-position polynomial measures geodesic noncollinearity rather than iterative coloring; it cannot determine ordinary forcing coefficients.",
+          "Actual result requires a four-state per-pair forcing criterion and independent counting of two successful regimes."
+        ],
+        "reasoning": "Published scalar Z and a different graph polynomial do not mathematically imply the complete ordinary zero forcing enumerator.",
+        "searches": [
+          "arxiv:1607.04071",
+          "https://arxiv.org/abs/1801.08910",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-strict-log-concavity-for-complete-graph-coronas--cc76f1cb7642"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fully whiskered clique, complete-graph corona and K_n ⊙ K1 are identical graph families. Resultary exact ψ(H_n;x)=(1+2x)^n+n x² concerns general-position vertex sets, not zero forcing.",
+          "Javaid et al. distinguish a singleton attached K1 and treat only special bases in that regime."
+        ],
+        "reasoning": "Same object via corona/whiskered terminology searched; distinguish general-position enumerator and zero forcing enumerator, which count mathematically different subsets.",
+        "searches": [
+          "zero forcing polynomial whiskered clique K_n corona K1 full sets",
+          "zero forcing polynomial fully whiskered complete graph corona clique n",
+          "arxiv:1607.04071",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-strict-log-concavity-for-complete-graph-coronas--cc76f1cb7642"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published same-graph entry computes general-position ψ, not Z; polynomial formulas are different already for n=2.",
+          "Independent graph-level 2^(2n) enumeration for n=2..5 agrees with the claimed full polynomial."
+        ],
+        "reasoning": "No same-invariant full zero forcing polynomial table discovered in targeted searches. Indexing under sun, corona or whiskered clique still creates potential priority risk.",
+        "searches": [
+          "Resultary_Search: zero forcing polynomial whiskered clique K_n corona K1 full sets",
+          "web: zero forcing polynomial fully whiskered complete graph corona clique n",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-strict-log-concavity-for-complete-graph-coronas--cc76f1cb7642"
+        ]
+      },
+      "rationale": "AIM and Javaid et al. have general/special zero forcing corona numbers, with main Javaid assumptions attached graph order at least two, or specific tree bases for attached singleton. None of the inspected relevant statements determines all ordinary zero forcing sets of K_n corona K1. Resultary full publication on the identical graph uses the general-position polynomial, which is a different combinatorial invariant.",
+      "residual_risks": [
+        "The same graph appears under corona, sun, fully whiskered clique and leaf-corona aliases; poorly indexed older full-polynomial work may exist.",
+        "The case n=1 is excluded, and the all-set polynomial does not extend automatically to arbitrary corona bases."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXCLUDES general K_n corona K1 from main covered hypotheses; only special tree case for K1",
+          "evidence": "Lemma 2.2/Thm 2.3 attached graph order >=2; Thm 2.12 tree base.",
+          "identifier_or_url": "https://arxiv.org/abs/1607.04071",
+          "material_read": "Lawful OA PDF, section 2 corona lemmas and theorems (including singleton attachment discussion), relevant pages with screenshots",
+          "method": "arXiv primary PDF, section2 read",
+          "title": "On the zero forcing number of corona and lexicographic product of graphs, Javaid–Irshad–Batool–Raza",
+          "trigger": "Exact attached-leaf operation and possible broader corona theorem"
+        },
+        {
+          "assessment": "DIFFERENT GENERAL-POSITION INVARIANT, not ordinary zero forcing",
+          "evidence": "Its definition counts vertex sets with no geodesically between-selected vertex, not forcing dynamics.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-strict-log-concavity-for-complete-graph-coronas--cc76f1cb7642",
+          "material_read": "Entire published RESULT.md and proof with ψ(H_n;x)=(1+2x)^n+n x²",
+          "method": "GitHub read of published RESULT.md",
+          "title": "Strict log-concavity for complete-graph coronas",
+          "trigger": "Identical graph family, possible polynomial result"
+        },
+        {
+          "assessment": "No full whiskered clique all-set formula in inspected material",
+          "evidence": "Zero forcing polynomial introduced, computed for other graph families.",
+          "identifier_or_url": "https://arxiv.org/abs/1801.08910",
+          "material_read": "Primary arXiv PDF relevant graph families, definitions and extremal coefficient sections",
+          "method": "Open-access primary paper relevant sections",
+          "title": "Boyer et al., The zero forcing polynomial of a graph, arXiv:1801.08910 (2018/2019)",
+          "trigger": "Potential general zero-forcing-polynomial family and definitions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The iff classification identifies every ordinary zero forcing set in a canonical infinite family and yields exact coefficients, number of minimum bases and total. This goes beyond the known scalar zero forcing numbers and permits analysis of random forcing seeds and polynomial shape for a natural extremal chordal family. The formula is a concise but nontrivial complete finite-state count.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:1607.04071",
+    "doi:10.1016/j.laa.2007.10.009",
+    "https://arxiv.org/abs/1801.08910",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-strict-log-concavity-for-complete-graph-coronas--cc76f1cb7642"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "The same graph appears under corona, sun, fully whiskered clique and leaf-corona aliases; poorly indexed older full-polynomial work may exist.",
+    "The case n=1 is excluded, and the all-set polynomial does not extend automatically to arbitrary corona bases."
+  ],
+  "schema_version": 1
+}
