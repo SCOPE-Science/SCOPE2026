@@ -1,0 +1,43 @@
+# Fifty-five induced sphere carriers generate integral Paley-tournament homology
+
+## Finding
+Let \(T\) be the quadratic-residue tournament on \(\mathbb F_{11}\), with \(u\to v\) precisely when \(v-u\in\{1,3,4,5,9\}\pmod {11}\), and let \(K=\operatorname{dFl}(T)\) be its directed flag complex. The simplices of \(K\) are transitively oriented subsets in their unique source-to-sink order. Then:
+
+1. Exactly **55** five-vertex induced subcomplexes have nonzero integral second homology. They are the sets \(a\{0,1,2,3,7\}+b\), where \(a\) runs over the five nonzero squares of \(\mathbb F_{11}\) and \(b\in\mathbb F_{11}\). They form a free orbit under the order-55 affine tournament automorphism group. Every one is homotopy equivalent to \(S^2\vee S^1\), with a distinguished six-triangle embedded two-sphere. No induced subcomplex supported on at most four vertices has nonzero second homology.
+2. The images of the 55 oriented sphere fundamental classes **generate the entire integral homology group**, including its order-two torsion:
+\[
+\sum_{|W|=5}\operatorname{im}\big(H_2(K[W];\mathbb Z)\longrightarrow H_2(K;\mathbb Z)\big)
+=H_2(K;\mathbb Z)\cong\mathbb Z^{10}\oplus\mathbb Z/2\mathbb Z.
+\]
+3. There is a canonical affine-invariant integral representative of the nonzero order-two class. Write \(\tau\) for each of the 55 transitive four-vertex simplices with its unique directed order, and put
+\[
+ z=\tfrac12\partial_3\Big(\sum_{\tau}\tau\Big).
+\]
+Every oriented triangle occurs in the displayed boundary with coefficient \(+2\) or \(-2\), so \(z\) is integral and has 110 nonzero coefficients, each \(\pm1\). It is a cycle, \(2[z]=0\), and \([z]\ne0\).
+
+The previously published abstract homotopy type \(K\simeq M(\mathbb Z/2\mathbb Z,2)\vee\bigvee^{10}S^2\) is **not** claimed as new. The contribution here is the sharp induced support classification, integral generation by tiny spherical carriers, and canonical torsion representative.
+
+## Assumptions and scope
+All complexes are finite abstract ordered simplicial complexes, with integer coefficients unless stated otherwise. In a tournament a subset has at most one transitive ordering, so each underlying vertex set indexes at most one oriented simplex. The induced subcomplex \(K[W]\) contains all ordered simplices supported on \(W\). "Generate" means generation of the full abelian group, not merely its rationalization. The affine group used is \(G=\{u\mapsto au+b:a\in\{1,3,4,5,9\},\ b\in\mathbb F_{11}\}\).
+
+## Proof
+**Chain model and ranks.** Enumerating all subsets of the eleven vertices and retaining those with a transitive tournament orientation gives \((f_0,f_1,f_2,f_3)=(11,55,110,55)\). Let \(\partial_k\) be the signed deletion boundary, with rows and columns ordered lexicographically by vertex supports. Exact integral Smith reduction shows that \(\partial_3\), a \(110\)-by-\(55\) matrix, has nonzero invariant factors \(1\) with multiplicity 54 and \(2\) with multiplicity one. The rational rank of \(\partial_2\) is \(45\), and the rank of \(\partial_1\) is \(10\). Hence \(\ker\partial_2\) is a primitive rank-65 sublattice of \(C_2(K;\mathbb Z)\), and \(H_2(K;\mathbb Z)=\mathbb Z^{10}\oplus\mathbb Z/2\mathbb Z\). The rank of \(\partial_3\) is 55, so \(H_3(K;\mathbb Z)=0\).
+
+**Exactly 55 minimal carriers.** There are \(\binom{11}{5}=462\) five-vertex subsets. For each one, the standalone verifier forms the induced signed boundaries and calculates its second mod-two Betti number by exact binary elimination. The number is one for precisely 55 subsets and zero for the other 407. The 55 are exactly the affine orbit of \(W_0=\{0,1,2,3,7\}\), which has trivial stabilizer, so there are no unexamined five-vertex cases. For \(W_0\), the six transitive triangles have vertex supports \(\{0,1,3\},\{0,1,7\},\{0,2,3\},\{0,2,7\},\{1,3,7\},\{2,3,7\}\). Each of the nine edges they use lies in exactly two triangles: these are the six faces of the triangular-bipyramid two-sphere. The remaining edge \(\{1,2\}\) is attached between two sphere vertices, giving \(K[W_0]\simeq S^2\vee S^1\). The affine action transfers this structure to all 55 orbit members. Other five-vertex subsets have no second homology: the binary calculation excludes integral free homology and two-torsion, and the published classification of all tournament directed flag complexes on at most ten vertices as wedges of spheres excludes any other torsion. For at most four vertices, a two-cycle would require all four triangular faces; in a tournament this forces transitivity and hence a filling tetrahedron. Thus four vertices never suffice.
+
+**Integral generation, not merely rational spanning.** Orient the six triangular faces of each carrier compatibly. This produces an integral two-cycle \(c_W\) supported on six triangles. Consider the \(110\)-by-\(110\) integer matrix formed by adjoining these 55 cycles as columns to the 55 columns of \(\partial_3\). Its exact Smith normal form has precisely 65 nonzero diagonal factors and **all 65 equal to one**. Consequently the sublattice generated by boundaries and the \(c_W\) is a primitive rank-65 sublattice of \(C_2(K;\mathbb Z)\). As it lies in \(\ker\partial_2\), also a primitive rank-65 sublattice, the two lattices are equal: the quotient between them is simultaneously finite and torsion-free. Therefore the 55 classes generate all of \(H_2(K;\mathbb Z)\). In particular, they generate the two-torsion and are not just a rational spanning collection.
+
+**Explicit two-torsion.** Signed boundary accumulation over all 55 coherently ordered tetrahedra gives coefficient \(\pm2\) at every one of the 110 oriented triangles, with 55 positive and 55 negative. Thus \(z\) above has integral \(\pm1\) coefficients, \(\partial_2z=0\), and \(2z\in\operatorname{im}\partial_3\). If \(z=\partial_3q\) for some integral three-chain \(q\), then rational injectivity of \(\partial_3\) forces \(2q=\sum_\tau\tau\), impossible because the latter chain has odd coefficients. So \([z]\) is a nonzero order-two class. An affine automorphism permutes directed transitive tetrahedra without changing their canonical source-to-sink orientation, and therefore fixes \(z\).
+
+## Verification
+Run `python verify.py` with SymPy installed. The verifier independently constructs all 462 five-vertex induced complexes, confirms the 55-case orbit, builds each six-triangle integral cycle, checks the entire signed chain complex, computes both stated Smith forms exactly over \(\mathbb Z\), and checks the canonical torsion-chain coefficients and all 55 affine transformations. Its successful output begins `VERIFY_OK 11_VERTICES 55_SPHERE_CARRIERS 55_AFFINE_ORBIT` and reports `SMITH_D3 54_ONES_AND_2; SMITH_D3_PLUS_SPHERES 65_ONES`. No floating-point, numerical optimization, or extrapolation is used. All finite enumerations are exhaustive on the specified 11-vertex object.
+
+## Relationship to prior work
+Masulli and Villa (2015 preprint, 2016 publication) define the directed clique topology underlying this construction. Govc (2020), Proposition 3.4, determines the abstract homotopy type of the unique order-eleven doubly regular tournament directed flag complex, including its two-torsion. The current calculation does **not** rebrand that earlier torsion or Moore-space classification as new: it resolves the separate geometric and integral-lattice question of whether the smallest induced sphere cycles span all the existing homology, and exhibits an invariant full-support representative. Published investigations of other Paley tournaments and of general tournament homotopy do not provide these 55 concrete induced carriers or the unimodular spanning certificate. Equivalent specialized descriptions outside the inspected sources remain a bibliographic risk.
+
+## Limitations
+The classification is limited to exactly five-vertex induced supports of this one tournament and does not classify all larger supports or all representative chains for a given homology class. The 55 selected orientations are not canonical individually; only their orbit and the group-invariant torsion chain are canonical. The proof is computer-assisted but entirely integer-exact and reproducible. Priority beyond the inspected literature and accessible research records is not certified, and no independent mathematical audit has occurred.
+
+## References
+- P. Masulli and A. E. P. Villa, *The topology of the directed clique complex as a network invariant*, arXiv:1510.00660v1 (2 October 2015); SpringerPlus **5** (2016), article 388. https://arxiv.org/abs/1510.00660
+- D. Govc, *Computing Homotopy Types of Directed Flag Complexes*, arXiv:2006.05333v1 (9 June 2020), particularly Theorem 3.2 and Propositions 3.4–3.5. https://arxiv.org/abs/2006.05333
