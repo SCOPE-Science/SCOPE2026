@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof computes the exact multiset partition representation from the number of partition blocks wholly contained in a graph part and whether the vertex's own block is pure or mixed. This gives at most two types per graph part. Under the hypothesis of a resolving partition, every graph part must have size at most two; each such part then necessarily contributes a vertex with representation \(\{0,1,\ldots,1\}\), so two graph parts collide. Exhaustive finite checks through order \(7\) independently reproduce the formula and find no resolving partition.
+## correctness
 
-## Originality
-PASS. The initiating paper arXiv:2607.07407v1 proves the complete-graph case and several unrelated infinite families, but its inspected full text contains no complete-bipartite or complete-multipartite result. Semantic-index searches for the invariant, its standard resolving-partition phrasing, and the relevant graph-family aliases found no covering claim. The complete-graph theorem is treated as prior work and excluded from the novelty-bearing statement.
+PASS
 
-## Value
-PASS. Multiset partition dimension is a newly introduced invariant, and complete multipartite graphs are a canonical structural test family. The theorem gives a full nonexistence classification for all noncomplete complete multipartite graphs, including every star and biclique, and identifies the exact pure/mixed-block mechanism that forces failure.
+For every partition Π into k blocks and vertex v in class A_i, every distance from v to a block is 0 for its own block, 2 for an OTHER block entirely in A_i, otherwise 1. Let c_i count pure blocks. Then the number of 2 entries is c_i−1 or c_i according as the own block is pure or mixed, so only two codes can occur per class. If the partition resolved all vertices each part size is at most 2. Each part of size 2 then needs one pure singleton (code q=0) and one mixed-block vertex (code q=1). Every singleton class likewise has q=0. With at least two classes, two vertices across classes have the identical sorted code {0,1^(k−1)}, contradiction. Independent full graph-distance enumeration tested every set partition of all 31 noncomplete connected multipartite profiles through order 7 (13,538 partitions); no resolving partition. This is corroboration, not proof for unbounded class size.
 
-## Closest literature and limitations
-The closest source is A. Albejani, Y. Lin, J. Ryan, and K. A. Sugeng, *Multiset Partition Dimension of Graphs*, arXiv:2607.07407v1 (2026), especially its definition, Lemma 2.1, and Section 4. It proves \(\operatorname{mpd}(K_n)=\infty\) but not the noncomplete complete-multipartite extension. The finite verifier is a stress test only; arbitrary order is covered by the analytic proof. A residual risk is an unindexed equivalent statement under different terminology.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 introducing paper proves the complete graph obstruction and additional wheel/friendship/fan classes, not noncomplete complete multipartite graphs. Unlike ordinary or local multiset metric dimensions, mpd discards block-coordinate order, so their results do not dominate this all-profile nonexistence theorem.
+
+## value
+
+PASS
+
+This is a natural complete classification for the newly introduced multiset partition invariant on the entire canonical complete multipartite graph family. Its genuinely multiset-specific pure/mixed block collision argument resolves all sizes and subsumes all stars and complete bipartite graphs beyond the original K_n obstruction. The fact is an exact structural obstruction useful when deciding which families admit any resolving multiset partition; not a gratuitous parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

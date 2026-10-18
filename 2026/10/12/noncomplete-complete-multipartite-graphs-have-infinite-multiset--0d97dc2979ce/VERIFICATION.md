@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The arbitrary-order proof is analytic. For a vertex in a partite class, every partition block has distance exactly \(0\), \(1\), or \(2\), and the number of \(2\)-entries is determined by the number of blocks lying wholly in that partite class and by whether the vertex's own block is pure. This yields at most two representation types per graph part and forces the cross-part collision described in `RESULT.md`.
+# Independent mathematical audit
 
-The standalone script `verify.py` independently enumerates every complete multipartite part-size profile of total order \(2\) through \(7\), every set partition of the vertex set, and every multiset partition representation directly from graph distances. It also checks the closed representation formula for every vertex. The expected replay summary is:
+## correctness
 
-`ALL CHECKS PASSED; graph_profiles=37; set_partitions=14692; vertex_formula_checks=99960; order_range=2..7`
+PASS
 
-This finite computation is not the proof for arbitrary order. No independent audit has been performed.
+For every partition Π into k blocks and vertex v in class A_i, every distance from v to a block is 0 for its own block, 2 for an OTHER block entirely in A_i, otherwise 1. Let c_i count pure blocks. Then the number of 2 entries is c_i−1 or c_i according as the own block is pure or mixed, so only two codes can occur per class. If the partition resolved all vertices each part size is at most 2. Each part of size 2 then needs one pure singleton (code q=0) and one mixed-block vertex (code q=1). Every singleton class likewise has q=0. With at least two classes, two vertices across classes have the identical sorted code {0,1^(k−1)}, contradiction. Independent full graph-distance enumeration tested every set partition of all 31 noncomplete connected multipartite profiles through order 7 (13,538 partitions); no resolving partition. This is corroboration, not proof for unbounded class size.
+
+## originality
+
+PASS
+
+The 2026 introducing paper proves the complete graph obstruction and additional wheel/friendship/fan classes, not noncomplete complete multipartite graphs. Unlike ordinary or local multiset metric dimensions, mpd discards block-coordinate order, so their results do not dominate this all-profile nonexistence theorem.
+
+## value
+
+PASS
+
+This is a natural complete classification for the newly introduced multiset partition invariant on the entire canonical complete multipartite graph family. Its genuinely multiset-specific pure/mixed block collision argument resolves all sizes and subsumes all stars and complete bipartite graphs beyond the original K_n obstruction. The fact is an exact structural obstruction useful when deciding which families admit any resolving multiset partition; not a gratuitous parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

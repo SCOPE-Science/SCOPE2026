@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T00:03:33.303368Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3483f65fb030cf34348a8a03e667158c1d8993dd/2026/10/12/noncomplete-complete-multipartite-graphs-have-infinite-multiset--0d97dc2979ce/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3483f65fb030cf34348a8a03e667158c1d8993dd/2026/10/12/noncomplete-complete-multipartite-graphs-have-infinite-multiset--0d97dc2979ce/VERIFICATION.md",
+        "independent_math_checks.py"
+      ],
+      "rationale": "For every partition Π into k blocks and vertex v in class A_i, every distance from v to a block is 0 for its own block, 2 for an OTHER block entirely in A_i, otherwise 1. Let c_i count pure blocks. Then the number of 2 entries is c_i−1 or c_i according as the own block is pure or mixed, so only two codes can occur per class. If the partition resolved all vertices each part size is at most 2. Each part of size 2 then needs one pure singleton (code q=0) and one mixed-block vertex (code q=1). Every singleton class likewise has q=0. With at least two classes, two vertices across classes have the identical sorted code {0,1^(k−1)}, contradiction. Independent full graph-distance enumeration tested every set partition of all 31 noncomplete connected multipartite profiles through order 7 (13,538 partitions); no resolving partition. This is corroboration, not proof for unbounded class size.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original complete graph K_n is all-singleton K_(1,...,1), explicitly excluded; original friendship and wheel graph classes do not cover arbitrary K_(n1,...,nr).",
+          "The known all-diameter-2 obstruction concerns a DIFFERENT invariant md(G) of unpartitioned vertex resolving sets, not mpd(G)."
+        ],
+        "reasoning": "No broad prior mpd theorem in the inspected primary paper covers all connected complete multipartite graphs. The implication md(G)=∞ therefore mpd(G)=∞ is not justified; mpd can differ radically and must be treated separately.",
+        "searches": [
+          "Resultary semantic query: multiset partition dimension infinite complete bipartite complete multipartite complete graphs resolving multiset partition",
+          "arXiv:2607.07407 Theorems 2.1,4.1–4.5",
+          "arXiv:2607.08128 survey",
+          "Resultary complete multipartite outer and local variants"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query: multiset partition dimension infinite complete bipartite complete multipartite complete graphs resolving multiset partition",
+        "arXiv:2607.07407",
+        "arXiv:2607.08128",
+        "Resultary 2026/10/4/SCOPE-local-multiset-dimension-of-complete-multipartite-graphs--3b2921f6d0af",
+        "Resultary outer multiset complete multipartite records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 4.1 proves mpd(K_n)=∞ by identical {0,1,...,1} codes; our statement excludes that already-known complete case and forces the same collision only after ruling out larger or mixed partite blocks."
+        ],
+        "reasoning": "The familiar complete-graph proof is a special trivial case, not a dominating theorem for genuine noncomplete complete multipartite graphs with distance-2 within parts. The explicit c_i-pure/mixed analysis is the necessary extension.",
+        "searches": [
+          "arXiv:2607.07407 Theorem 4.1",
+          "Resultary semantic query: multiset partition dimension infinite complete bipartite complete multipartite complete graphs resolving multiset partition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Albejani Theorem 4.1 treats K_n; Theorems 4.2–4.5 cover wheels, friendship, fan and multi-hub wheels, not connected noncomplete multipartite graphs.",
+          "The Resultary local multiset result concerns vertex-set local resolving signatures, not vertex-to-partition-block multiset signatures."
+        ],
+        "reasoning": "The natural alias multiset-resolving partition must be distinguished from multiset dimension md(G), local multiset dimension, and ordinary ordered partition dimension. None of the inspected same-parameter statements states this complete multipartite obstruction.",
+        "searches": [
+          "Resultary semantic query: multiset partition dimension infinite complete bipartite complete multipartite complete graphs resolving multiset partition",
+          "Albejani et al. arXiv:2607.07407 §2, §4",
+          "Resultary 2026/10/4/SCOPE-local-multiset-dimension-of-complete-multipartite-graphs--3b2921f6d0af"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Document-wide searches of the introducing arXiv manuscript find no complete bipartite or complete multipartite theorem; Resultary hits address local, outer and local-outer set-based invariants."
+        ],
+        "reasoning": "The value ∞ for each part profile is not a known table entry for multiset partition dimension based on the checked original paper. This absence of a match alone is not proof of priority.",
+        "searches": [
+          "Resultary semantic query: multiset partition dimension infinite complete bipartite complete multipartite complete graphs resolving multiset partition",
+          "arXiv:2607.07407 full text search “complete bipartite”, “complete multipartite”",
+          "Resultary named complete multipartite multiset records"
+        ]
+      },
+      "rationale": "The 2026 introducing paper proves the complete graph obstruction and additional wheel/friendship/fan classes, not noncomplete complete multipartite graphs. Unlike ordinary or local multiset metric dimensions, mpd discards block-coordinate order, so their results do not dominate this all-profile nonexistence theorem.",
+      "residual_risks": [
+        "Unindexed earlier work on multiset resolving partitions, perhaps under different terminology, could imply the result.",
+        "The 2026 survey was read at public metadata/abstract level; not every survey entry has been verified against full text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_SPECIAL_CASE_NOT_DOMINATING",
+          "evidence": "Theorem 4.1 mpd(K_n)=∞; Theorems 4.2–4.5 concern wheel/friendship/fan; no complete multipartite theorem.",
+          "identifier_or_url": "arXiv:2607.07407; https://www.researchgate.net/publication/408622860_Multiset_Partition_Dimension_of_Graphs",
+          "material_read": "Full accessible article text, §2 definition/lemmas and §4 Theorems 4.1–4.5; also document searches for bipartite/multipartite",
+          "method": "Primary full-text ResearchGate rendering and section comparison",
+          "title": "Multiset Partition Dimension of Graphs",
+          "trigger": "Same exactly defined mpd parameter and potentially dominating nonexistence theorem"
+        },
+        {
+          "assessment": "ACCESS_LIMITED_DIFFERENT_VARIANTS",
+          "evidence": "Lists ordinary/local/outer/edge multiset dimensions, which are not the multiset partition dimension mpd studied here.",
+          "identifier_or_url": "arXiv:2607.08128; https://iapress.org/index.php/soic/article/view/4062",
+          "material_read": "Public abstract and definitions/categories; full survey text not independently read",
+          "method": "Public publisher and arXiv abstract comparison",
+          "title": "A Survey on Multiset Dimension and Its Variations",
+          "trigger": "Could unify several multiset metric parameters"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3483f65fb030cf34348a8a03e667158c1d8993dd/2026/10/12/noncomplete-complete-multipartite-graphs-have-infinite-multiset--0d97dc2979ce/RESULT.md",
+        "arXiv:2607.07407"
+      ],
+      "rationale": "This is a natural complete classification for the newly introduced multiset partition invariant on the entire canonical complete multipartite graph family. Its genuinely multiset-specific pure/mixed block collision argument resolves all sizes and subsumes all stars and complete bipartite graphs beyond the original K_n obstruction. The fact is an exact structural obstruction useful when deciding which families admit any resolving multiset partition; not a gratuitous parameter slice.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only connected complete multipartite graphs with at least two parts, excluding the known all-singleton complete graphs.",
+    "The distinct invariant md(G) is not used as a shortcut to mpd(G)."
+  ],
+  "schema_version": 1
+}
