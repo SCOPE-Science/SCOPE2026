@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-11.md",
+      "INDEPENDENT_AUDIT_2026-10-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,113 +19,24 @@
 }
 ---
 
-For a boundary zero \(q\) of multiplicity \(\ell\), write
-\[
-f(z)=(z-q)^\ell g(z),
-\qquad
-g(q)\ne0,
-\]
-choose
-\[
-h=g^{1/\ell},
-\]
-and set
-\[
-\psi(z)=(z-q)h(z).
-\]
-Then
-\[
-f=\psi^\ell.
-\]
+# Independent mathematical audit
 
-The conformal-image curvature at the origin is
-\[
-\kappa
-=
-\frac{
-1+\operatorname{Re}\!\left(q\psi''(q)/\psi'(q)\right)
-}{
-|\psi'(q)|
-}.
-\]
-Using
-\[
-\psi'(q)=h(q),
-\qquad
-\psi''(q)=2h'(q),
-\qquad
-h'/h=(1/\ell)g'/g,
-\]
-gives exactly
-\[
-\kappa=\kappa_f(q).
-\]
+## correctness
 
-A real-analytic boundary germ of signed curvature \(\kappa\) occupies angular measure
-\[
-\pi-\kappa\rho+O(\rho^2)
-\]
-inside the radius-\(\rho\) circle. This follows by writing the rotated boundary as
-\[
-y=(\kappa/2)x^2+O(x^3)
-\]
-and solving for its two intersection angles with the circle.
+PASS
 
-On
-\[
-|w|=\rho,
-\qquad
-w=\psi(z),
-\]
-the level element satisfies the exact identity
-\[
-|f'(z)|\,ds_z
-=
-\ell\rho^{\ell-1}ds_w.
-\]
-For area,
-\[
-|f'(z)|^2\,dA_z
-=
-\ell^2|w|^{2\ell-2}dA_w.
-\]
-Thus the claimed level coefficient follows by multiplying the circular length
-\[
-\pi\rho-\kappa\rho^2+O(\rho^3),
-\]
-and the energy coefficient follows by integrating
-\[
-\ell^2t^{2\ell-1}
-\left(
-\pi-\kappa t+O(t^2)
-\right)
-\]
-from \(0\) to
-\[
-\rho=\epsilon^{1/\ell}.
-\]
+At a boundary zero q factor f=(z-q)^ell g and choose a nonzero holomorphic ell-th root h of g; psi=(z-q)h gives exactly f=psi^ell and a local analytic Jordan boundary. Computing image-boundary signed curvature yields |g(q)|^(-1/ell)*(1+2 Re(qgprime(q)/g(q))/ell). Expanding the boundary graph in tangent-normal coordinates gives the occupied circular angular measure pi-kappa*rho+O(rho^2). Exact conformal Jacobian cancellation yields level element ell*rho^(ell-1) ds_w and area ell^2*|w|^(2ell-2) dA_w. Direct polar integration gives both claimed coefficients and remainder orders. The independently checked model f(z)=z-1 has circle-intersection arc angle 2 arccos(epsilon/2)=pi-epsilon+O(epsilon^3), validating sign and level coefficient and, by radial integration, the energy correction -epsilon^3/3. Interior-zero contributions are exactly the full-angle terms; compactness of the complement of zero neighborhoods controls the global sum.
 
-The sign is independently checked by
-\[
-f(z)=z-1.
-\]
-The relevant arc inside the unit disk has angular measure
-\[
-\pi-\epsilon+O(\epsilon^3),
-\]
-so the first corrections are
-\[
--\epsilon^2
-\]
-for the level integral and
-\[
--\epsilon^3/3
-\]
-for the sublevel energy, exactly as the formulas predict with
-\[
-\ell=1
-\quad\text{and}\quad
-\kappa_f(1)=1.
-\]
+## originality
 
-The proof establishes the continuum statement analytically. No finite sampling or numerical extrapolation is used.
+PASS
+
+The inspected current abstract of Chen--Shao--Wu--Xia states the leading multiplicity asymptotics, while the submitted second coefficient follows from a further curvature-order calculation. Its full preprint could not be retrieved through accessible routes and authorized institutional access reported VPN disconnected; thus there is a material risk that the primary proof or appendix already works out more than the abstract. The best-of-knowledge comparison supports a qualified PASS, not a conclusion that the inaccessible whole paper lacks the term.
+
+## value
+
+PASS
+
+The question is directly motivated by a newly published leading asymptotic for weighted holomorphic energies and asks for the first geometric term beyond topological zero multiplicity. The signed curvature normalization and two precise exponents/coefficient formulas provide reusable local analytic information; the exact f(z)=z-1 sign test shows the coefficient is nontrivial rather than a renamed leading term.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,50 +1,21 @@
-# Review of Boundary curvature is the first nonuniversal coefficient in holomorphic energy asymptotics
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof reduces every boundary zero of multiplicity \(\ell\) to
-\[
-f=\psi^\ell
-\]
-in a biholomorphic coordinate. The exact Jacobian cancellations convert both weighted integrals into polar integrals over the image domain. A real-analytic boundary with signed curvature \(\kappa\) occupies angular measure
-\[
-\pi-\kappa\rho+O(\rho^2)
-\]
-on a circle of radius \(\rho\), giving the two claimed coefficients after substituting
-\[
-\rho=\epsilon^{1/\ell}.
-\]
+PASS
 
-The conformal curvature formula is reconstructed from the counterclockwise unit-circle tangent and yields
-\[
-\kappa_f(q)
-=
-|g(q)|^{-1/\ell}
-\left(
-1+\frac{2}{\ell}\operatorname{Re}\frac{qg'(q)}{g(q)}
-\right).
-\]
-The model \(f(z)=z-1\) independently fixes the sign and coefficients.
+At a boundary zero q factor f=(z-q)^ell g and choose a nonzero holomorphic ell-th root h of g; psi=(z-q)h gives exactly f=psi^ell and a local analytic Jordan boundary. Computing image-boundary signed curvature yields |g(q)|^(-1/ell)*(1+2 Re(qgprime(q)/g(q))/ell). Expanding the boundary graph in tangent-normal coordinates gives the occupied circular angular measure pi-kappa*rho+O(rho^2). Exact conformal Jacobian cancellation yields level element ell*rho^(ell-1) ds_w and area ell^2*|w|^(2ell-2) dA_w. Direct polar integration gives both claimed coefficients and remainder orders. The independently checked model f(z)=z-1 has circle-intersection arc angle 2 arccos(epsilon/2)=pi-epsilon+O(epsilon^3), validating sign and level coefficient and, by radial integration, the energy correction -epsilon^3/3. Interior-zero contributions are exactly the full-angle terms; compactness of the complement of zero neighborhoods controls the global sum.
 
-## Originality
+## originality
 
-PASS with residual terminology risk. The primary 2026 paper proves the universal leading terms and, at a boundary zero, uses only the asymptotic half-plane geometry in the normalized coordinate. It does not state the curvature coefficient in the theorem or in the inspected boundary-zero calculation.
+PASS
 
-Searches for boundary-zero curvature corrections, sublevel energy expansions, and the simple-zero conformal curvature expression did not locate an implication-equivalent weighted-energy statement. Classical level-curve curvature papers concern geometric curvature bounds or extremal behavior of harmonic level curves rather than the next coefficient of these two weighted energy functionals.
+The inspected current abstract of Chen--Shao--Wu--Xia states the leading multiplicity asymptotics, while the submitted second coefficient follows from a further curvature-order calculation. Its full preprint could not be retrieved through accessible routes and authorized institutional access reported VPN disconnected; thus there is a material risk that the primary proof or appendix already works out more than the abstract. The best-of-knowledge comparison supports a qualified PASS, not a conclusion that the inaccessible whole paper lacks the term.
 
-A residual risk remains that an older local conformal-geometry source contains an equivalent arc-measure expansion under different terminology. That generic geometric ingredient would not by itself include the holomorphic multiplicity weighting and the two energy coefficients proved here.
+## value
 
-## Value
+PASS
 
-PASS. The source theorem's leading coefficient depends only on zero multiplicity and records a boundary zero as exactly half an interior zero. The new term is the first order at which the actual boundary germ matters.
+The question is directly motivated by a newly published leading asymptotic for weighted holomorphic energies and asks for the first geometric term beyond topological zero multiplicity. The signed curvature normalization and two precise exponents/coefficient formulas provide reusable local analytic information; the exact f(z)=z-1 sign test shows the coefficient is nontrivial rather than a renamed leading term.
 
-This identifies a natural analytic invariant that distinguishes functions with the same zero divisor and the same leading asymptotics. For simple zeros it reduces to the familiar boundary-curvature expression
-\[
-\frac{1}{|f'(q)|}
-\left(
-1+\operatorname{Re}\frac{qf''(q)}{f'(q)}
-\right),
-\]
-so the refinement has a direct geometric interpretation and supplies a quantitative finite-\(\epsilon\) correction to the central asymptotic theorem.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
