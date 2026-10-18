@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The state counts partition all available edges without overlap; the rational recurrence has explicit base cases. The potential drift identity and second-factorial-moment bound are proved symbolically for arbitrary valid states, yielding 0<=2/(n+1)-q_n<=4exp(pi^2/3)(H_{n+1}-H_2)/[n(n-1)]. Independent labeled-state enumeration, small full edge-order enumeration and rational drift identities reproduce the claim. Numerics are auxiliary; the proof applies to every n>=2.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Krivelevich et al. (doi:10.1002/rsa.21200), accessible full-text HTML, state general local-limit theorems for greedy independent sets and identify greedy matching with greedy independent sets of line graphs. Their listed applications are paths, trees, sparse random graphs, planar graphs, and locally tree-like/high-girth models.",
+        "McGregor, arXiv:2608.11163, accessible abstract: a different matching approximation algorithm derived from random greedy independent sets, reporting a constant approximation without a crown-specific failure law."
+      ],
+      "reasoning": "The crown sequence has degree growing with n and its exact rare-event probability is not implied by asymptotic independent-set density results in bounded-/locally-tree-like settings or generic matching approximation guarantees. The lack of full 1991 and 2026 text is explicitly retained as residual risk.",
+      "searches": [
+        "2026 \"random greedy\" matching \"crown graph\" probability perfect",
+        "\"Randomized greedy matching\" Dyer Frieze 1991 crown",
+        "2026 arxiv \"random greedy\" \"matching\" graph exact distribution"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.11163",
+      "doi:10.1002/rsa.3240020104",
+      "doi:10.1002/rsa.21200",
+      "arXiv:1805.06944",
+      "Published mathematical records on chain-graph greedy independent sets and cyclic-graph maximal matching averages; different graph or output parameter"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Dyer–Frieze 1991 abstract gives arbitrary-graph worst-case behavior and sharp forest ratio, neither of which determines P(failure) on crown graphs.",
+        "The full-text 2024 local-limit theorem estimates densities of greedy independent sets under appropriate local convergence hypotheses. It does not state the exact finite crown recurrence and sharp rare-defect constant.",
+        "Accessible prior description of a radius-two-tree random matching law concerns forests, not crown graphs, which contain induced cycles for n>=3. The published chain-graph greedy MIS result addresses bipartite nested neighborhoods, while the crown graph has an induced 2K2 for n>=3 and is not a chain graph."
+      ],
+      "reasoning": "None of these results has assumptions that specialize to, or conclusions strong enough to entail, an exact 2/n rare failure law for the complete-bipartite-minus-factor family. An exact matching/derangement enumeration counts matchings without weighting the random edge-order acceptance process and likewise cannot establish this claim by substitution.",
+      "searches": [
+        "\"Greedy maximal independent sets via local limits\" matching crown",
+        "\"Randomized greedy matching\" \"Dyer\" \"Frieze\" 1991 full text",
+        "Exact distribution random greedy maximal matching in almost complete bipartite graphs with forbidden perfect matching, rank collision"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The crown graph is the one-factor-deleted complete bipartite graph, so these are equivalent names for the same object. The 1991 Dyer–Frieze abstract describes the same uniform-currently-available-edge algorithm but only general performance and forest results; DOI:10.1002/rsa.3240020104.",
+        "Search results about random bipartite perfect-matching appearance study an edge-addition process, not irrevocable greedy matching; arXiv:1805.06944."
+      ],
+      "reasoning": "The comparison covers both line-graph random greedy independent-set language and random sequential dimer language, rather than requiring the word crown. Neither the retrieved records nor inspected general-paper results provide the exact finite-state probabilities or asymptotic failure constant.",
+      "searches": [
+        "\"crown graph\" \"random greedy\" \"matching\" probability",
+        "\"random sequential adsorption\" \"crown graph\" dimers",
+        "\"complete bipartite graph minus a perfect matching\" random greedy maximal matching probability",
+        "random sequential matching dense bipartite graphs complete minus one factor unmatched probability 2 n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published mathematical-record search returned adjacent statements on random greedy independent sets of chain graphs and matching averages in graphs with cycles, not the crown-graph edge-greedy failure distribution.",
+        "The independent exact recurrence yields q_3=1/3 and q_4=q_5=4/21 as checks; no located published table or source identifies them with the proved asymptotic q_n~2/n."
+      ],
+      "reasoning": "One must compare identical graph, randomness protocol, and failure event. Neighboring maximal-matching counts and random MIS laws are not automatically the random probability law for edge-order greedy matching.",
+      "searches": [
+        "\"random greedy matching\" \"crown graph\" \"perfect\" success probability",
+        "\"matching\" \"K_{n,n}\" \"diagonal\" \"random greedy\" probability",
+        "Probability of perfect matching in random greedy sequential edge matching on crown graph K_{n,n} minus diagonal perfect matching, asymptotic failure 2/n, two-parameter overlap chain"
+      ]
+    },
+    "rationale": "The exact law for random available-edge greedy matching on crown graphs and its sharp failure asymptotic were compared by implication with published general matching work, the accessible 2024 full-text treatment of greedy maximal independent sets, targeted keyword/equivalence searches, published mathematical records, and accessible prior scientific descriptions. No located statement covers the all-order recurrence together with limit n*q_n=2. This is not proof of global novelty: 1991 and 2026 full-text access remained incomplete.",
+    "residual_risks": [
+      "Full-text comparison for Dyer and Frieze (1991) could not be completed; an unquoted crown-specific result cannot be excluded.",
+      "Full body of McGregor (2026) was inaccessible; accessible summary describes a different algorithm, but overlap risk remains.",
+      "Unindexed papers, theses, and databases might contain an equivalent exact crown-graph calculation despite targeted searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No explicit crown graph or dense one-factor-deleted bipartite rare-failure law; tree/local-limit results do not imply the all-order probability.",
+        "evidence": "Introduction §1.1, applications §1.1.2 and references 25/26 discuss matching; tree/local-limit statements and examples differ in graph class.",
+        "identifier_or_url": "https://doi.org/10.1002/rsa.21200",
+        "material_read": "Open-access HTML introduction, main theorem statements, applications, comparison to previous work, selected proof sections and references; searched for crown and complete bipartite.",
+        "method": "Publisher full-text HTML inspection and phrase searches",
+        "title": "Greedy maximal independent sets via local limits",
+        "trigger": "Directly treats the random greedy MIS process, identifies greedy matching on line graphs, and might dominate a matching application"
+      },
+      {
+        "assessment": "General fixed-graph performance results and forests appear in abstract; exact crown analysis not located, but cannot exclude uninspected body.",
+        "evidence": "Dyer and Frieze (1991) explicitly define choosing a random edge among remaining edges and report arbitrary graphs and sparse-graph results.",
+        "identifier_or_url": "https://doi.org/10.1002/rsa.3240020104",
+        "material_read": "Publisher bibliographic record and full abstract; body unavailable from attempted open-access routes.",
+        "method": "Publisher abstract and bibliographic search; authorized full-text access attempt did not complete",
+        "title": "Randomized greedy matching",
+        "trigger": "Original work on the same uniform currently available-edge process"
+      },
+      {
+        "assessment": "Focuses on a distinct extension of a greedy independent-set algorithm and a constant approximation; no claim of an exact edge-order crown rare-failure law in accessible material.",
+        "evidence": "First public source dated 2026-08-11; abstract describes simplifying an Assadi-et-al. algorithm.",
+        "identifier_or_url": "https://arxiv.org/abs/2608.11163",
+        "material_read": "Public arXiv bibliographic metadata and author abstract via indexed mirrors; arXiv full body unavailable in accessible routes.",
+        "method": "ArXiv metadata and accessible indexed abstract search",
+        "title": "Matchings via Random Greedy Independent Set: A Simpler Algorithm and Analysis",
+        "trigger": "Recent initiating mathematical literature on greedy matching approximations"
+      },
+      {
+        "assessment": "Studies the random edge-addition hitting time for existence of a perfect matching, not maximal matching obtained by greedy edge acceptance.",
+        "evidence": "Glebov–Luria–Simkin state a threshold at disappearance of the last isolated vertex for random subgraphs.",
+        "identifier_or_url": "https://arxiv.org/abs/1805.06944",
+        "material_read": "Public abstract and result summary, not full manuscript.",
+        "method": "ArXiv indexed record inspection",
+        "title": "Perfect Matchings in Random Subgraphs of Regular Bipartite Graphs",
+        "trigger": "Potential ambiguity between greedy selection and adding random edges to a bipartite graph"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cdb778a6-4b37-46aa-99f1-12f5bc9ae8f8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Uniform random edge selection on the one-factor-deleted dense bipartite graph is a natural greedy-matching benchmark. All maximal matchings have either optimal size n or one-edge deficiency, so the exact deficiency probability is an intrinsic, meaningful performance statistic. Its computable all-order law and proved sharp coefficient 2/n distinguish it from generic approximation ratios or raw counts of perfect matchings; this is an infinite-family rare-event analysis, not a small computation.",
+    "status": "PASS"
+  }
+}
