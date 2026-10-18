@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` beside `certificate.json`; Python's standard library is sufficient.
+# Independent mathematical audit
 
-The finite exact factor enumerator closes the four-letter substitution under two-letter factors, constructs all possible factors of a prescribed length from pairs of legal supertiles, and retains the starting-position parity. At length eight it produces exactly \(24\) even-start and \(32\) odd-start factors, with empty intersection. The complete sets are in `certificate.json` and are independently recomputed.
+## correctness
 
-A second check reconstructs the first \(65536\) Rudin–Shapiro bits directly from the parity of adjacent \(11\) binary digit pairs, compares them to the morphic coding, and checks complete factor sets for lengths through \(24\). Exhaustive factor-set tests verify Lie complexity for every length through \(128\). The cyclic witness argument is checked for all four substitution letters and doubling levels \(1\) through \(9\).
+PASS
 
-The infinite theorem does not follow from finite enumeration. Its correctness uses the proven exact phase lemma, injective two-bit desubstitution, four-letter parity desubstitution, and explicit legal-boundary witnesses described in `RESULT.md`. The checker is a reproducible regression and critical-lemma certificate, not a substitute for those symbolic arguments.
+Independently reconstructed standard substitution σ(a)=ab, σ(b)=ac, σ(c)=db, σ(d)=dc and binary τ(a,b)=0,τ(c,d)=1; verified all eight legal bigrams and 65536 coded bits against parity of adjacent binary 11 pairs. Exact supertile factor set gives even-start length8 count24, odd-start count32, intersection empty; exhaustive exact Lie counts n1..40 agree. For n>=9, cyclic 8-windows alternate forced parity, requiring even n; aligned inverse of bijective two-bit block code maps to 4-letter factors. Four-letter factors alternate letter types, forcing repeated even desubstitution and therefore dyadic support; explicit τσ^k letter blocks have all rotations as factors via legal boundaries, and cyclic classes remain distinct. Short n=1..8 exhaustively checked. Finite runs corroborate critical finite lemma; infinite conclusion uses stated logical desubstitution.
+
+## originality
+
+PASS
+
+The known eight-factor Rudin–Shapiro recognizability lemma is credited to Allouche–Shallit; novel content is the exact all-length Lie spectrum, cyclic desubstitution obstruction and four explicit surviving dyadic conjugacy classes. Complete Bell–Shallit source inspected: its Section7 has no Rudin–Shapiro example and general automaticity is not an exact formula.
+
+## value
+
+PASS
+
+Lie complexity is a canonical invariant of combinatorics on words. The complete sparse dyadic formula and four explicit rotation classes for classical Rudin–Shapiro go beyond previously established automaticity and known eight-factor coding lemma. Structural double desubstitution provides nonroutine infinite reasoning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

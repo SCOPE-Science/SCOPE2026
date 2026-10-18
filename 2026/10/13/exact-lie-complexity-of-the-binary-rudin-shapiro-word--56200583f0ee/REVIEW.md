@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The four-letter substitution with coding gives the standard binary Rudin–Shapiro sequence. Its eight legal adjacent-letter pairs provide an exhaustive finite supertile enumeration, showing that the sets of length-eight factors at even and odd starting positions are disjoint. For any qualifying circular binary word of length at least nine, its cyclic eight-windows must therefore alternate start parity, and every qualifying length is even. Inverting the injective aligned two-bit coding maps qualifying binary conjugacy classes to qualifying classes of the four-letter fixed point. The latter has alternating letter types, so its qualifying lengths are dyadic by repeated even, injective substitution decoding. Four explicit block words at each dyadic length admit all rotations through legal adjoining source bigrams, and their classes are distinct by repeated parity-preserving desubstitution. The exhaustive small-length calculation establishes the exceptional values. The actual packaged checker reconstructs all finite premises and regression-checks the resulting formula through length \(128\).
+## correctness
 
-## Originality
-PASS for the **complete Lie spectrum**, not for the length-eight recognizability lemma. The classical Allouche–Shallit 1993 paper proves that length-eight binary Rudin–Shapiro factors have unique four-letter preimages, a stronger premise that already implies the phase obstruction. This is credited explicitly. Bell–Shallit introduced Lie complexity and showed automaticity for automatic words, but their inspected examples do not cover Rudin–Shapiro. De Luca–Fici give exact formulas for Sturmian words; Cassaigne et al. count conjugacy classes having at least one occurring rotation, a weaker condition. Focused searches found no source providing the all-rotations formula or its explicit four dyadic classes. An unindexed short derivation remains the main risk.
+PASS
 
-## Value
-PASS. The theorem is a complete classification of a natural invariant for a canonical automatic sequence, with exact sparse support and actual surviving conjugacy classes, beyond the earlier general automaticity result. The double circular desubstitution provides structural content; the result is not justified by finite enumeration alone.
+Independently reconstructed standard substitution σ(a)=ab, σ(b)=ac, σ(c)=db, σ(d)=dc and binary τ(a,b)=0,τ(c,d)=1; verified all eight legal bigrams and 65536 coded bits against parity of adjacent binary 11 pairs. Exact supertile factor set gives even-start length8 count24, odd-start count32, intersection empty; exhaustive exact Lie counts n1..40 agree. For n>=9, cyclic 8-windows alternate forced parity, requiring even n; aligned inverse of bijective two-bit block code maps to 4-letter factors. Four-letter factors alternate letter types, forcing repeated even desubstitution and therefore dyadic support; explicit τσ^k letter blocks have all rotations as factors via legal boundaries, and cyclic classes remain distinct. Short n=1..8 exhaustively checked. Finite runs corroborate critical finite lemma; infinite conclusion uses stated logical desubstitution.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The known eight-factor Rudin–Shapiro recognizability lemma is credited to Allouche–Shallit; novel content is the exact all-length Lie spectrum, cyclic desubstitution obstruction and four explicit surviving dyadic conjugacy classes. Complete Bell–Shallit source inspected: its Section7 has no Rudin–Shapiro example and general automaticity is not an exact formula.
+
+## value
+
+PASS
+
+Lie complexity is a canonical invariant of combinatorics on words. The complete sparse dyadic formula and four explicit rotation classes for classical Rudin–Shapiro go beyond previously established automaticity and known eight-factor coding lemma. Structural double desubstitution provides nonroutine infinite reasoning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
