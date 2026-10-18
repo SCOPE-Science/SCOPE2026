@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T06:48:32.347564Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Git blob 94bd2f634403b3c025eed740722a52f5016f0050",
+        "verify.py Git blob e68917938ba106672c225382e97dc5344d74e776",
+        "Independent elimination, field-intersection and ideal containment reconstruction"
+      ],
+      "rationale": "Normalize any weight-three BCH polynomial by shift/scalar to 1+a x^i+b x^j. Its two zero checks eliminate the second locator and force a(a+b)X^2+2aX+(b+1)=0. Since m odd, an element of degree at most two in F_(p^m) lies in F_p, even if quadratic degenerates; the same holds for the second locator. Thus h divides both i,j; the associated P(x^h) must vanish at beta and beta^2 and be divisible by g=(x^h-beta)(x^h-beta^2). Conversely g expands to three nonzero coefficients because beta has order p-1>=4; its checks at alpha,alpha^2 vanish, so all cyclic shifts lie among weight-three codewords and generate <g>. The code has dimension n-2m from distinct size-m cyclotomic classes of 1 and 2, giving p^[2(h-m)] cosets. Boundary p>=5, odd m>=3 are essential; independent symbolic field/divisibility proof, not finite experiment alone. Inspected F_125 verifier is a limited n=124 anchor.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2604.26397v1, Rajput--Rajan--Freij-Hollanti--Hollanti, Existence and Constructions of Strict Function-Correcting Codes with Data Protection, Section VI Theorem 6 gives <S3> subset D with defining zeros p^r+1; Mogilnykh--Soloveva (2020), On Bases of BCH Codes with Designed Distance 3 and Their Extensions, DOI:10.1134/S003294602004002X establishes a weaker containing subcode."
+        ],
+        "reasoning": "Neither cited containing BCH code is proved equal to the span; extra zeros are necessary, but only the three-term generator establishes sharpness and complete cyclic span.",
+        "searches": [
+          "weight three codewords span BCH C_{1,2} odd extension p ary strict function correcting code connectivity exact",
+          "arXiv:2604.26397v1, Rajput--Rajan--Freij-Hollanti--Hollanti, Existence and Constructions of Strict Function-Correcting Codes with Data Protection, Section VI Theorem 6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.26397v1, Rajput--Rajan--Freij-Hollanti--Hollanti, Existence and Constructions of Strict Function-Correcting Codes with Data Protection, Section VI Theorem 6",
+        "Mogilnykh--Soloveva (2020), On Bases of BCH Codes with Designed Distance 3 and Their Extensions, DOI:10.1134/S003294602004002X",
+        "Resultary:weight three codewords span BCH C_{1,2} odd extension p ary strict function correcting code connectivity exact"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:2604.26397v1, Rajput--Rajan--Freij-Hollanti--Hollanti, Existence and Constructions of Strict Function-Correcting Codes with Data Protection, Section VI Theorem 6 Section VI Theorem 6 conclusion <S3> subset D, described only as a lower bound on graph components.",
+          "An explicit generator g is a weight-three codeword and supplies reverse containment absent from cited theorems."
+        ],
+        "reasoning": "Knowing only <S3> subset D implies at least |C/D| components, not exactly p^[2(h-m)] components. The new equality requires the cyclic generator and full common-root characterization.",
+        "searches": [
+          "weight three codewords span BCH C_{1,2} odd extension p ary strict function correcting code connectivity exact",
+          "arXiv:2604.26397v1, Rajput--Rajan--Freij-Hollanti--Hollanti, Existence and Constructions of Strict Function-Correcting Codes with Data Protection, Section VI Theorem 6",
+          "Mogilnykh--Soloveva (2020), On Bases of BCH Codes with Designed Distance 3 and Their Extensions, DOI:10.1134/S003294602004002X"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published p-ary primitive narrow-sense designed-distance-three code is the same C_{1,2} with defining roots alpha and alpha^2."
+        ],
+        "reasoning": "Aliases minimum-weight-generated ideal, weight-three span and distance-three graph connectivity were compared. A subcode inclusion is not an equality of minimum-word span.",
+        "searches": [
+          "weight three codewords span BCH C_{1,2} odd extension p ary strict function correcting code connectivity exact",
+          "arXiv:2604.26397v1, Rajput--Rajan--Freij-Hollanti--Hollanti, Existence and Constructions of Strict Function-Correcting Codes with Data Protection, Section VI Theorem 6",
+          "Mogilnykh--Soloveva (2020), On Bases of BCH Codes with Designed Distance 3 and Their Extensions, DOI:10.1134/S003294602004002X"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned related binary/ternary BCH examples and finite weight enumerators, not a p-ary odd-m exact generated-ideal family."
+        ],
+        "reasoning": "A single small p=5,m=3 component count cannot cover a symbolic all-prime, all-odd-extension classification. No matching table/entry was identified; non-detection is not novelty proof.",
+        "searches": [
+          "weight three codewords span BCH C_{1,2} odd extension p ary strict function correcting code connectivity exact",
+          "arXiv:2604.26397v1, Rajput--Rajan--Freij-Hollanti--Hollanti, Existence and Constructions of Strict Function-Correcting Codes with Data Protection, Section VI Theorem 6"
+        ]
+      },
+      "rationale": "The nearest SAME-CODE primary source Rajput et al Theorem 6 establishes containment in a BCH subcode and a LOWER bound on connected components. Earlier Mogilnykh--Soloveva proves weaker containment and non-generation. Neither inspected theorem gives the sharp reverse inclusion generated by the explicit three-term g, exact span, or exact component count. Resultary semantic search found neighboring BCH code weight examples, not this general odd-degree family. Mathematical priority still has an unindexed-source risk.",
+      "residual_risks": [
+        "An unindexed older theorem could identify the exact generated BCH subcode by a different polynomial-generator notation.",
+        "Full text of the 2020 Mogilnykh--Soloveva primary article not retrieved in this run."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_AS_STATED",
+          "evidence": "Theorem 6: necessary defining roots and span containment; graph components lower-bound only, without generator g proving equality.",
+          "identifier_or_url": "arXiv:2604.26397v1, Rajput--Rajan--Freij-Hollanti--Hollanti, Existence and Constructions of Strict Function-Correcting Codes with Data Protection, Section VI Theorem 6",
+          "material_read": "Public full-text preprint Section VI, Theorem 6 and proof, neighboring Theorem 7 and component-bound discussion.",
+          "method": "ArXiv full text targeted reading of the exact same-object theorem and consequences.",
+          "title": "Existence and Constructions of Strict Function-Correcting Codes with Data Protection",
+          "trigger": "Same C_{1,2}, p odd and m odd, minimum-weight-span connectivity."
+        },
+        {
+          "assessment": "PRIMARY_FULL_TEXT_UNAVAILABLE",
+          "evidence": "Reports non-generation/proper containing subcode, not an independently inspected full exact classification; risk retained.",
+          "identifier_or_url": "Mogilnykh--Soloveva (2020), On Bases of BCH Codes with Designed Distance 3 and Their Extensions, DOI:10.1134/S003294602004002X",
+          "material_read": "Bibliographic/abstract and theorem statements quoted in later fully accessible primary paper; earlier full article not independently accessed.",
+          "method": "Publisher metadata plus cross-check in Rajput et al citations.",
+          "title": "On Bases of BCH Codes with Designed Distance 3 and Their Extensions",
+          "trigger": "Earlier result on generation by weight-three words for same family."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2604.26397v1, Rajput--Rajan--Freij-Hollanti--Hollanti, Existence and Constructions of Strict Function-Correcting Codes with Data Protection, Section VI Theorem 6",
+        "Mogilnykh--Soloveva (2020), On Bases of BCH Codes with Designed Distance 3 and Their Extensions, DOI:10.1134/S003294602004002X",
+        "Resultary:weight three codewords span BCH C_{1,2} odd extension p ary strict function correcting code connectivity exact"
+      ],
+      "rationale": "The minimum-weight-generated subcode is the natural Cayley-graph connectivity subgroup in the motivating strict function-correcting-code application. Exact symbolic description and component count for every p>=5 and odd m>=3 replace prior necessary containment/bounds with a complete structural determination.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every prime p>=5, every odd m>=3, primitive C_{1,2} BCH code of length n=p^m-1, h=n/(p-1), beta=alpha^h, the span of its weight-three words is precisely <(x^h-beta)(x^h-beta^2)> of dimension n-2h, and its weight-three Cayley graph has exactly p^[2(h-m)] connected components.",
+  "limitations": [
+    "Does not cover p=3, even extension degree, or base field F_(p^e) for e>1.",
+    "The finite p=5,m=3 field check does not prove the universal result."
+  ],
+  "schema_version": 1
+}
