@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The explicit feasible star has a positive eigenpair with eigenvalue Lambda. Fixed symmetric row sums imply the exact Rayleigh difference as a positive sum of within-peripheral diagonal/off-diagonal entries weighted by (Lambda-L_i). The strict inequalities Lambda>L_i follow from m>=2, L_i>0, Lambda^2=h Lambda+Q and Q> L_i^2. Rayleigh-Ritz gives the quantitative global bound and unique equality case; the threshold follows from the positive quadratic root. A standalone symbolic-exact rational verifier checks 495 instances but does not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bizzotto–Ball–Britton, arXiv:2602.23885v2, Theorem 3.2, gives a general bound that the authors state is not sharp in general.",
+        "Ibid., Appendix 8.1, gives an exact general-dimensional semidefinite optimization problem, not a formula for its solution in the dominant-row regime.",
+        "Xing–Zhou, arXiv:1309.5604v1, §2, provides entry-sensitive inequalities rather than an optimum over the constrained class."
+      ],
+      "reasoning": "A generic semidefinite formulation does not logically state or prove the closed-form optimizer and its strict quantitative defect. The broad Perron inequalities do not optimize all reciprocal arrangements at once. No inspected broad theorem had a stated corollary yielding the present claim without solving a new optimization.",
+      "searches": [
+        "Sharp minimum Perron eigenvalue of symmetric nonnegative contact matrix with fixed row sums and one dominant hub row at least sum peripheral row totals, star optimizer spectral radius quadratic",
+        "minimum spectral radius symmetric nonnegative matrices prescribed row sums star matrix extremizer"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2602.23885v1 (public date evidence); arXiv:2602.23885v2 §§2, 3, 5 and Appendix 8.1",
+      "arXiv:1312.2782v1 §§1,3, Theorem 3.7",
+      "arXiv:1309.5604v1 §§1,2 and Theorem 2.1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bizzotto–Ball–Britton, Theorem 3.2 and its statement that only upper bounds are necessarily sharp; §3.2 Theorem 3.6 explicit two-type formula; §8.1 general convex procedure.",
+        "Engel–Schneider–Sergeev, arXiv:1312.2782, Theorem 3.7, addresses possible Perron roots with fixed support pattern rather than symmetrical contact-matrix optimization."
+      ],
+      "reasoning": "The same row-sum problem and detailed-balance constraints occur in the motivating paper, but its explicit results do not entail the multi-type star formula or its quantitative strictness as stated. They furnish background and an abstract optimization problem, not the claimed solved instance. A stronger older spectral characterization specialized to symmetric row-constrained matrices remains a residual risk.",
+      "searches": [
+        "arXiv 2602.23885 Bizzotto Ball Britton sharp lower R0 detailed balance k types dominant row sum closed form",
+        "Detailed balance epidemic next generation matrix known row sums multiple types hub spoke lower reproduction number explicit formula"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Engel–Schneider–Sergeev, arXiv:1312.2782v1, Introduction and §3.2, studies prescribed sums and graph but does not impose symmetry.",
+        "Bizzotto–Ball–Britton, arXiv:2602.23885v2, §2.3, defines detailed balance; Theorem 3.6 treats two groups."
+      ],
+      "reasoning": "The exact same claim would be an explicit fixed-row-sum, nonnegative, symmetric minimum with a unique star optimizer for any number of strictly positive leaves. The unrestricted-matrix eigenvalue-range setting does not imply the sharper symmetric optimizer; the two-type formula does not state the heterogeneous multi-leaf result.",
+      "searches": [
+        "minimum spectral radius prescribed row sums symmetric nonnegative matrix star optimal highest row sum dominates others",
+        "symmetric nonnegative matrices fixed weighted degrees spectral radius minimum star row sums"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Bizzotto–Ball–Britton, arXiv:2602.23885v2, Figure 2 and §4, illustrate general bounds and two-type computations; Appendix 8.1 specifies optimization.",
+        "No identical explicit matrix family or theorem was located by the cited search strings."
+      ],
+      "reasoning": "A numerical recipe can calculate any fixed finite instance, but does not tabulate or certify the all-parameter formula, uniqueness, and peripheral-mass stability inequality. An unindexed table or unpublished computational analysis cannot be ruled out.",
+      "searches": [
+        "Bizzotto Ball Britton 2602.23885 sharp lower R0 detailed balance k types dominant row sum closed form",
+        "Minimum epidemic reproduction number when next-generation matrix symmetric, known row sums dominant one group hub star"
+      ]
+    },
+    "rationale": "The source arXiv:2602.23885v2 gives a nonsharp general reciprocal lower bound, an explicit two-type solution and an SDP construction for arbitrary type counts; it does not supply the exact heterogeneous multi-leaf formula, unique star minimizer and strict stability margin of this theorem. General matrix eigenvalue range literature omits the symmetry constraint. All close-source comparisons remain confined to the stated all-size dominant-row subfamily.",
+    "residual_risks": [
+      "An older or unindexed theorem for symmetric weighted graphs with prescribed row sums may already imply this formula and uniqueness.",
+      "The general semidefinite-program formulation in the motivating manuscript solves finite instances abstractly; scientific significance here is the explicit dimension-free optimizer and strict defect, not a newly invented optimization problem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides generic nonsharp detailed-balance lower bound and exact general SDP; derives explicit two-type lower bound. Does not state or prove the closed-form dominant-row optimizer for three or more groups, its unique minimizer or quantitative deviation penalty.",
+        "evidence": [
+          "arXiv:2602.23885v2, lines 95–159, 251–282, 390–413, 1311–1373."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2602.23885v2",
+        "material_read": "Abstract; §§1–3, especially Theorems 3.1, 3.2, 3.6; §§4–5 including the R0 proof; Appendix 8.1 including row-sum SDP.",
+        "method": "Read openly accessible arXiv HTML manuscript and inspected statements, proofs and appendices.",
+        "title": "Bounds on R0 and final epidemic size when the next-generation matrix M is only partially known",
+        "trigger": "Same objects, same row-sum data and reciprocal/detailed-balance constraint in the motivating epidemic model."
+      },
+      {
+        "assessment": "General nonnegative row-constrained matrices with directed support pattern. Symmetry/detailed balance is not preserved by that admissible class, so results do not establish this restricted sharp minimum.",
+        "evidence": [
+          "arXiv:1312.2782v1, §§1.1, 3.2 and Theorem 3.7."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1312.2782v1",
+        "material_read": "Abstract, §1, §3 and Theorem 3.7, including proof and graph support assumptions.",
+        "method": "Read openly accessible arXiv HTML manuscript, particularly Perron range statements and their admissible classes.",
+        "title": "On sets of eigenvalues of matrices with prescribed row sums and prescribed graph",
+        "trigger": "Plausibly stronger coverage via extremal Perron roots under row-sum constraints."
+      },
+      {
+        "assessment": "Provides matrix-specific spectral inequalities using two-row sums and entry maxima, not minimization over all nonnegative symmetric matrices with given row sums and not unique hub-star optimality.",
+        "evidence": [
+          "arXiv:1309.5604v1, §2 and Theorem 2.1."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1309.5604v1",
+        "material_read": "Abstract, §1 and §2 including Lemma 2.2 and Theorem 2.1, applications overview.",
+        "method": "Read openly accessible arXiv HTML manuscript and compared quantifiers and parameter dependence.",
+        "title": "Bounds for the spectral radius of nonnegative matrices",
+        "trigger": "Potential general spectral lower or upper bound encompassing the claimed optimizer."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4b9e4531-3336-4f0f-8802-788c3e15fa1d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp lower epidemic reproduction number under reciprocal mixing with only marginal contact totals is a stated model uncertainty problem. The theorem explicitly solves an arbitrarily high-dimensional dominant-contact regime, admits heterogeneous leaf totals, proves uniqueness, measures the spectral cost of any within-peripheral contacts and characterizes exact reachability of the subcritical threshold. This is a natural structural classification and an actionable mathematical limit, not an arbitrary finite table or parameter substitution.",
+    "status": "PASS"
+  }
+}
