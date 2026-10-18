@@ -1,0 +1,15 @@
+# Scientific review: kayak-paddle line-graph inertia
+
+## Correctness — PASS
+The scope fixes two vertex-disjoint simple cycles joined by a path and defines adjacency inertia without omitting zero eigenvalues. The incidence identity transfers the calculation to the shifted signless Laplacian with exactly one additional negative index. The four-internal-vertex path block and two-internal-vertex bridge block have exact invertible Schur complements; their signs and terminal responses were verified algebraically. The reduction leaves twenty base cases, all decided using an explicit exact rational congruence algorithm, with an independently assembled direct line-graph matrix as a second base calculation. The complete table gives the nonzero indices by dimension and signature. Singular and parity boundaries are included. No infinite assertion rests on extrapolating a finite parameter scan.
+
+## Originality — PASS, subject to bibliographic risk
+Akbari et al. (2025, §4.4) gave individual kayak-paddle examples at the signature-one boundary. Francis–Uptain (2026) refuted the universal connected-line-graph signature-one conjecture by more complex cacti. Paone–Paone (August 2026, §9, Remark 9.2) explicitly excludes vertex-disjoint cycles joined by a path from their exact rose/theta classifications; their general path-block congruence machinery is acknowledged as an antecedent. Their July 2026 work establishes fixed-cycle-rank bounds and pendant-response results, not an exact kayak-paddle classification. The present result gives the previously unlocated **all-parameter inertia and nullity table** and necessary and sufficient equality conditions. No equivalent exact profile appeared in focused research-record and literature searches. An earlier equivalent specialization in spectral-characterization literature, or a hitherto unnoticed consequence of a more general matrix theorem, remains possible.
+
+## Value — PASS
+The full formula closes a natural missing bicyclic two-core family left outside the recently established rose/theta formulas. The result settles every nonsingular and singular parameter regime, identifies the maximal three-dimensional adjacency kernel, and characterizes exactly which kayak paddles meet the sharp signature-one threshold, including but going beyond two isolated previously published instances. This is a complete classification motivated by a genuine structural gap rather than an arbitrary finite slice. It does not settle the conjectured cyclomatic-number bound for arbitrary bicyclic graphs with pendants.
+
+## Closest work and limitations
+See the four source records and their access qualifications in `AUDIT.json`, together with the references and reproducibility protocol in `RESULT.md`. The 2016 Laplacian spectral-characterization paper on dumbbell graphs addresses spectral uniqueness rather than adjacency inertia of their line graphs; only its official abstract was inspected. The general path-block reduction of Paone–Paone is substantially relevant, and priority of the explicit twenty-case evaluation is not independently certified.
+
+Self-review: passed. Independent audit: not yet performed.
