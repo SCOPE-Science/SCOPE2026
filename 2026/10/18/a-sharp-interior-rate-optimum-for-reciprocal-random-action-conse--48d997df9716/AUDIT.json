@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The exact independent Bernoulli update gives the closed nonnegative 2×2 moment recursion. Its Perron eigenvalue is strictly between zero and one and dominates every nonabsorbed initial state. A bounded martingale plus summable disagreement establishes binary consensus, and conditional expectation gives the exact terminal mean-square error identity. Exact derivative analysis excludes an extraneous algebraic critical point and proves the unique optimizer. Symbolic and rational branch-enumeration tests passed; they supplement, not replace, the infinite-time proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Leshem–Scaglione, https://www.eng.biu.ac.il/leshema/files/2018/01/TSIPN1_final-with-bios.pdf , Sections I and III: qualitative herding and numerical late-stage per-realization factor 1−α, explicitly separate from the start time of rapid descent.",
+        "Abrahamsson–Danev–Larsson, https://www.diva-portal.org/smash/get/diva2:1846986/FULLTEXT01.pdf , Sections II–V and appendix: convergence almost surely and in moments, with martingale methods, not sharp uniform α optimization.",
+        "A related thesis (https://doi.org/10.3384/9789180755993) was identified and only a chapter-4 search excerpt was available; full-text noncoverage is not asserted."
+      ],
+      "reasoning": "Almost-sure convergence and convergence in every fixed moment do not imply the exact exponential rate of expected squared error to the random terminal state, nor its unique minimizer. The 2018 source’s single-run final-stage factor does not control expectations that include rare delayed herding. No inspected broader theorem supplies the computed spectrum.",
+      "searches": [
+        "Web literature: \"Strong Convergence of a Random Actions Model\" \"time\" \"rate\" \"variance\"",
+        "Web literature: \"The Impact of Random Actions on Opinion Dynamics\" Leshem Scaglione 2018 pdf full",
+        "Web literature: \"On Aggregation and Dynamics of Opinions in Complex Networks\" \"convergence rate\" random actions"
+      ]
+    },
+    "checked_sources": [
+      "Leshem and Scaglione (2017 arXiv preprint and 2018 IEEE article), DOI 10.1109/TSIPN.2018.2797800, full author manuscript model and rate discussion",
+      "Abrahamsson, Danev and Larsson (2024), DOI 10.1109/TSIPN.2024.3361373, relevant postprint sections and references",
+      "Abrahamsson 2024 thesis, DOI 10.3384/9789180755993, metadata and chapter excerpt only",
+      "Relevant semantic-index hits on deterministic fading-memory consensus gain and bounded-confidence switching, with distinct dynamics"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2018 source gives a trajectory-final-descent heuristic proportional to 1−α independent of network topology but explicitly leaves the random onset of that regime unanalyzed.",
+        "2024 source proves strong consensus under α in (0,1) using martingales; it does not present E[||X(t)−Z1||²]=2U_t+4V_t or the nonmonotone Perron eigenvalue.",
+        "The present exact recursion has nonzero off-diagonal coupling of action uncertainty and population disagreement; the Perron root exceeds 1−α throughout (0,1)."
+      ],
+      "reasoning": "The older general convergence result implies that a terminal Z exists, but not the sharp rate and unique optimizing influence parameter. The earlier final-stage heuristic cannot dominate expectations at all t, and does not imply the optimizer. A standard special-case evaluation of known qualitative conclusions thus would not produce this theorem without the independent conditional second-moment calculation.",
+      "searches": [
+        "Literature primary full text: 2018 Leshem–Scaglione model, theorem and Section III herding-rate discussion",
+        "Literature primary full text: 2024 Abrahamsson–Danev–Larsson sections II–IV, V, VII, appendix",
+        "Web literature: \"random actions\" \"optimal\" \"learning rate\" \"opinion dynamics\" two agent"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2018 model equation in Leshem–Scaglione, author manuscript Section I, is X(t+1)=(1−α)X(t)+αWA(t), with independent conditional Bernoulli actions; the two-agent reciprocal graph is a special case.",
+        "The 2024 Abrahamsson–Danev–Larsson postprint Sections III–IV covers convergence for that model, rather than an exact terminal squared-error spectrum.",
+        "Nearest indexed finding 2026/10/11/SCOPE-exact-logarithmic-switching-lifetime-near-a-nonfreezing-seven-ag--3aa033f36f32 addresses deterministic switching of a bounded-confidence network, not this random-actions system."
+      ],
+      "reasoning": "A reciprocal two-node voter chain at unit influence can rotate a discordant binary pair, while the present theorem concerns continuous conditional Bernoulli probabilities with fixed 0<α<1 and annealed squared error to a random binary terminal limit. Deterministic opinion switching and ordinary voter absorption have different state laws. No inspected result supplied an equivalent formula or an implication from a stronger synonymous formulation.",
+      "searches": [
+        "Published mathematical findings: synchronous voter model on two connected agents Bernoulli action averaging lazy stochastic consensus mean-square rate 17 a squared",
+        "Published mathematical findings: random actions opinion dynamics synchronous Bernoulli learning two-node flip network optimal gain counterintuitive near unit α slow convergence periodic trap",
+        "Web literature: \"random actions model\" \"two-agent\" \"rate\" \"consensus\"",
+        "Web literature: \"stochastic opinion dynamics\" \"Bernoulli\" \"step size\" \"optimal\" consensus convergence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic-result closest hit 2026/10/11/SCOPE-sharp-gain-optimization-for-consensus-with-exponential-fading-me--a3cf7ff47956 optimizes instantaneous gain in a deterministic fading-memory consensus equation, not Bernoulli random-action moment contraction.",
+        "Semantic-result closest hit 2026/10/4/SCOPE-exact-sign-aware-graph-specific-tuning-for-homogeneous-distribut--4bef30512fd6 concerns gradient tracking, not an opinion model.",
+        "The 2018 source provides simulations for α between 0.025 and 0.4 (Section III), rather than a table or exact entry for the interior optimum at approximately 0.776."
+      ],
+      "reasoning": "No retrieved exact database entry or table of the two-agent terminal quadratic rate or the surd optimum was located. Numeric table absence is not itself a proof of novelty; the comparison rests on statements and model mechanisms.",
+      "searches": [
+        "Published mathematical findings: two-agent reciprocal Bernoulli random-actions opinion model exact second-moment transition matrix sharp exponential convergence rate optimal mixing coefficient (47+sqrt(33))/68",
+        "Published mathematical findings: two node random action social herding alpha optimal second moment spectral radius sqrt33 learning coefficient",
+        "Published mathematical findings: Leshem Scaglione 2017 2018 The impact of random actions on opinion dynamics reciprocal two agents exact herding rate",
+        "Web literature: \"Bernoulli actions\" \"reciprocal\" \"convergence rate\" \"consensus\" stochastic"
+      ]
+    },
+    "rationale": "Two directly relevant primary research papers were read in their model, theorem, convergence and rate sections, and relevant source/preprint date checked. Their statements do not imply the exact annealed terminal-loss spectrum or its unique interior optimum. Eight semantic-index queries and focused literature searches found no covering proposition, but the index search is not a uniqueness certificate and the related 2024 thesis was not fully retrievable.",
+    "residual_risks": [
+      "An equivalent exact second-moment rate for the two-agent random-actions specialization may appear in older stochastic-consensus or parallel voter literature under different terminology.",
+      "The full related 2024 thesis and its appendices were not accessible during this run; no claim of whole-document noncoverage is made.",
+      "Semantic-index nonmatching and literature searches do not establish uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DOES_NOT_IMPLY_EXACT_CLAIM",
+        "evidence": [
+          "Defines random-actions model and strong-herding qualitative framework; its formula 1−α is conditional final-phase path behavior, while expected terminal squared loss has the distinct rate λ_+(α).",
+          "Section III expressly calls the random entrance time to the rapid phase an interesting statistical research question."
+        ],
+        "identifier_or_url": "https://www.eng.biu.ac.il/leshema/files/2018/01/TSIPN1_final-with-bios.pdf",
+        "material_read": "Model equation and Bernoulli assumptions in Section I (PDF pp. 2–4); numerical and qualitative rapid-descent rate discussion in Section III (PDF pp. 7–8); theorem statement.",
+        "method": "Read accessible full-paper parsed text and examined the PDF page of model derivation.",
+        "title": "The Impact of Random Actions on Opinion Dynamics",
+        "trigger": "The founding model and apparently similar exponential-rate discussion."
+      },
+      {
+        "assessment": "DOES_NOT_IMPLY_EXACT_RATE_OR_OPTIMUM",
+        "evidence": [
+          "The general result states almost-sure and rth-mean consensus, not a sharp exponential eigenvalue or unique optimal relaxation gain.",
+          "The martingale of the stationary-weighted opinion yields the terminal law but does not alone specify the 2×2 uncertainty/disagreement covariance recursion."
+        ],
+        "identifier_or_url": "https://www.diva-portal.org/smash/get/diva2:1846986/FULLTEXT01.pdf",
+        "material_read": "Contributions (PDF pp. 2–3), model and theorem discussion (pp. 3–7), critique (pp. 9–10), conclusions (p. 11), martingale appendix (pp. 11–12), references.",
+        "method": "Read institution-hosted self-archived complete postprint via parsed PDF text; attempted rendered inspection, unavailable.",
+        "title": "Strong Convergence of a Random Actions Model in Opinion Dynamics",
+        "trigger": "General 2024 strong and moment convergence theorem for the identical stochastic update."
+      },
+      {
+        "assessment": "UNRESOLVED_LITERATURE_RISK",
+        "evidence": [
+          "Available excerpt reproduces the familiar random-actions model and describes qualitative convergence; full thesis, appendices, and any further results were not inspected."
+        ],
+        "identifier_or_url": "https://doi.org/10.3384/9789180755993",
+        "material_read": "Indexed search excerpt on chapter 4.3.2 and the update equation only; full PDF retrieval failed.",
+        "method": "Bounded direct full-text retrieval attempts followed by indexed excerpt review.",
+        "title": "On Aggregation and Dynamics of Opinions in Complex Networks",
+        "trigger": "A 2024 thesis by an author of the general convergence paper, with potentially related details."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "48d997df-9716-45f0-b3cc-57fce0a75e0f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The precise annealed rate and its sharp nonmonotone optimization distinguish a natural quantitative behavior from both qualitative convergence and conditional rapid descent in the motivating 2018 and 2024 papers. The minimal two-agent strongly connected reciprocal network is the first natural case where near-unit updating can preserve alternating action patterns; an exact practical gain tradeoff and complete finite-population benchmark are mathematically motivated, not an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
