@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Use Python 3 standard library and any C++17 compiler. From the directory containing the accompanying standalone source files, run `python3 verify.py` and `c++ -O3 -std=c++17 verify_independent.cpp -o verify_independent && ./verify_independent`. Both implementations construct the incidence graph directly, without external inputs.
+## correctness
 
-The Python verifier checks all 900 pairwise graph distances by an independent breadth-first search, builds exactly 210 same-side vertex-pair separation masks, exhausts 142,506 size-five and 593,775 size-six subsets, verifies 32,460 successful size-six subsets and the full nine-entry bipartition/induced-edge profile. It verifies the 720 symmetric-group actions and a side-exchanging duality against the actual 45 graph incidences, generating 1,440 automorphisms, and partitions all 32,460 successful masks into 34 exact orbits of sizes 180 once, 240 once, 360 once, 720 eighteen times and 1,440 thirteen times. See the elementary upper bound on automorphisms given in `RESULT.md`.
+PASS
 
-The separate C++ implementation uses independently built incidence lists and breadth-first-search distance vectors and directly checks that all 30 vertex distance signatures are distinct, for every candidate subset at cardinalities five and six. Its exact answer agrees with the Python enumerator for the complete candidate set (the exact component cardinalities are 142,506 and 593,775).
+Construct the 15 K6 edges and 15 perfect matchings and link incidence. BFS verifies diameter 4; opposite bipartition pair distances have opposite parity for any landmark, so only 2*C(15,2)=210 same-class separation constraints matter. Independent C++ direct distance-signature exhaustive enumeration of all C(30,5)=142,506 and C(30,6)=593,775 subsets gives zero resolving five-sets and exactly 32,460 resolving six-sets. Monotonicity rules out smaller. Independent full S6 action plus incidence-checked duality generates 1,440 pairwise distinct automorphisms, while line-graph star rigidity bounds the entire group by 1,440; independent full orbit partition gives exactly 34 with sizes (180,240,360,720*18,1440*13). Independently checked full 3x3 profile: a=2 row (4230,2880,360), a=3 row (3840,7920,5760), a=4 row (4230,2880,360). Exhaustive finite reasoning applies to exactly this 30-vertex graph.
 
-The 34 rows of `orbits.csv` provide representative vertex lists, bitmasks, orbit sizes and stabilizer orders in the labeling documented in `RESULT.md`. Checks are exact and finite, not extrapolation from samples. They do not establish a general theorem for larger generalized quadrangles, literature novelty outside inspected sources, or independent mathematical verification.
+## originality
+
+PASS
+
+Bailey already states the metric dimension is six, and no originality is claimed for that. The 32,460 multiplicity, precise bipartition/induced-edge counts and 34 full-symmetry orbits are additional exact invariants not implied by Bailey’s dimension alone or general incidence graph bounds.
+
+## value
+
+PASS
+
+The Tutte-Coxeter graph is a canonical smallest cubic girth-eight cage and distance-regular graph, and resolving sets are natural metric-identification objects. Classifying all optimal sets, their automorphism classes and bipartition statistics gives usable complete representatives and stabilizer information not mechanically implied by the known minimum size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

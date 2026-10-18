@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T14:49:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md blob b7bf5589c823a9ee76c882a958722603a94c9f6a",
+        "complete verify.py and verify_independent.cpp source inspected, C++ separately authored direct-signature enumeration",
+        "independent_orbits.py full 1,440 action",
+        "orbits.csv 34 representatives"
+      ],
+      "rationale": "Construct the 15 K6 edges and 15 perfect matchings and link incidence. BFS verifies diameter 4; opposite bipartition pair distances have opposite parity for any landmark, so only 2*C(15,2)=210 same-class separation constraints matter. Independent C++ direct distance-signature exhaustive enumeration of all C(30,5)=142,506 and C(30,6)=593,775 subsets gives zero resolving five-sets and exactly 32,460 resolving six-sets. Monotonicity rules out smaller. Independent full S6 action plus incidence-checked duality generates 1,440 pairwise distinct automorphisms, while line-graph star rigidity bounds the entire group by 1,440; independent full orbit partition gives exactly 34 with sizes (180,240,360,720*18,1440*13). Independently checked full 3x3 profile: a=2 row (4230,2880,360), a=3 row (3840,7920,5760), a=4 row (4230,2880,360). Exhaustive finite reasoning applies to exactly this 30-vertex graph.",
+      "residual_risks": [
+        "Numerical census specific to one fixed graph; no theorem for arbitrary generalized quadrangles.",
+        "Computational exhaustiveness depends on the completely enumerated finite candidate and action sets; tested explicitly, not only a log claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generalized quadrangle and incidence graph metric-dimension literature concerns bounds on minimum resolving sizes and different graph families."
+        ],
+        "reasoning": "Bounds for a broader family do not determine the full multiplicity and stabilizer orbit partition for this graph.",
+        "searches": [
+          "Tutte Coxeter graph eight cage 32460 metric bases resolving sets 34 automorphism orbits",
+          "Bartoli Héger Kiss Takáts arXiv:1706.06583"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1312.4973 full PDF Table 2",
+        "arXiv:1312.4971",
+        "arXiv:1706.06583",
+        "Tutte Coxeter graph eight cage 32460 metric bases resolving sets 34 automorphism orbits",
+        "Resultary Tutte-Coxeter related records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bailey proves or tabulates the known lower cardinality six; listed table has no solution-set multiplicities."
+        ],
+        "reasoning": "The asserted 32,460 exact solutions and orbit data are not a straightforward corollary of knowing only the optimization objective value.",
+        "searches": [
+          "Tutte Coxeter graph eight cage 32460 metric bases resolving sets 34 automorphism orbits",
+          "Bailey arXiv:1312.4973 Table 2",
+          "Bartoli et al arXiv:1706.06583"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bailey lists Tutte 8-cage order 30 valency 3 diameter 4 metric dimension 6; no number or orbit census in inspected relevant original."
+        ],
+        "reasoning": "A metric dimension says only minimal subset cardinality, not how many such subsets or how they split under all automorphisms.",
+        "searches": [
+          "Tutte Coxeter graph eight cage 32460 metric bases resolving sets 34 automorphism orbits",
+          "Bailey arXiv:1312.4973 metric dimension table"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Thematic index returned Tutte-Coxeter independence complex homotopy type, not 34 resolving-set orbits."
+        ],
+        "reasoning": "The result is a finite graph invariant; checked sources lack the exact enumerated database/table and orbit representatives. An older unindexed census remains possible.",
+        "searches": [
+          "Tutte Coxeter graph eight cage 32460 metric bases resolving sets 34 automorphism orbits",
+          "published Resultary Tutte-Coxeter search"
+        ]
+      },
+      "rationale": "Bailey already states the metric dimension is six, and no originality is claimed for that. The 32,460 multiplicity, precise bipartition/induced-edge counts and 34 full-symmetry orbits are additional exact invariants not implied by Bailey’s dimension alone or general incidence graph bounds.",
+      "residual_risks": [
+        "Earlier unpublished or unindexed computational solving-set tables could already list the 32,460 bases or their full orbits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Previously establishes six only; inspected table does not enumerate the complete bases or their symmetry classes.",
+          "evidence": "Table 2 row Tutte 8-cage on PDF page 7",
+          "identifier_or_url": "arXiv:1312.4973",
+          "material_read": "Original open full PDF; Table 2 explicitly includes Tutte 8-cage (30,3,diameter 4,metric dimension 6) and surrounding small-graph classification",
+          "method": "arXiv PDF including direct page-image verification",
+          "title": "The metric dimension of small distance-regular and strongly regular graphs",
+          "trigger": "Same Tutte eight-cage and metric dimension parameter"
+        },
+        {
+          "assessment": "No demonstrated domination of the complete 30-vertex solution-orbit census.",
+          "evidence": "Main subject and incidence geometry bounds",
+          "identifier_or_url": "arXiv:1706.06583",
+          "material_read": "Accessible abstract and relevant statements for generalized quadrangles and incidence metric dimension",
+          "method": "open preprint lookup",
+          "title": "On the metric dimension of affine planes, biaffine planes and generalized quadrangles",
+          "trigger": "Broader incidence geometry candidate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Bailey arXiv:1312.4973",
+        "34 orbit representatives in frozen orbits.csv",
+        "direct exhaustive exact counts"
+      ],
+      "rationale": "The Tutte-Coxeter graph is a canonical smallest cubic girth-eight cage and distance-regular graph, and resolving sets are natural metric-identification objects. Classifying all optimal sets, their automorphism classes and bipartition statistics gives usable complete representatives and stabilizer information not mechanically implied by the known minimum size.",
+      "residual_risks": [
+        "The result is an exact finite graph classification, not a new general metric-dimension bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The Tutte-Coxeter 30-vertex K6 edge-vs-perfect-matching incidence graph has metric dimension 6 and exactly 32,460 metric bases; under its full automorphism group of order 1,440 those form 34 orbits (one each of sizes 180,240,360; 18 of size 720; 13 of size 1,440) and have the specified nine-coefficient bipartition/induced-edge profile.",
+  "limitations": [
+    "Explicit full finite computational enumeration only for Tutte-Coxeter graph",
+    "Previously known minimum metric dimension 6 is credited to Bailey",
+    "Earlier unindexed optimal-set tables remain priority risk."
+  ],
+  "schema_version": 1
+}
