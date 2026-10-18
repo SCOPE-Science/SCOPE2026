@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** For the smooth projective curve \(y^3-y=x^5+x^4+x^2\) over \(\mathbb F_3\), the one-pole genus/\(3\)-rank calculation and the source's geometric automorphism argument are checked explicitly. An executable exhaustive finite-field certificate obtains \(7,19,28,91\) rational points in the first four extensions, with independent trace and direct-pair counts. Newton identities, Weil reciprocity and coefficient valuations establish the claimed zeta numerator and pure Newton slope \(1/2\). The source's numerical classification and the genus-zero automorphism fact establish sharp genus minimality.
+
+**Originality — PASS.** Tafazolian–Kazemifard (arXiv:2610.13279v1) already print the model and prove its automorphism group; those facts are acknowledged, not claimed as new. They explicitly ask whether the Newton polygon can be prescribed when the geometric group is minimal. Duque-Rosero et al. (arXiv:2401.08843v2) give the exact standard-form family and reconstructing invariants, not this zeta/NP. Dragutinović (arXiv:2405.01282) gives dimension estimates for supersingular genus-four Artin–Schreier loci but not explicit prime-field minimal-deck-group realization. Prior explicit supersingular families considered in arXiv:0809.0104 and arXiv:1410.7031 do not imply this characteristic-three degree-five case. No matching exact zeta entry was found. Residual risk: an unindexed finite-field curve table or equivalent prior calculation.
+
+**Value — PASS.** The exact supersingular conclusion solves the characteristic-three least-genus instance of a newly posed Newton-polygon refinement problem, with a sharp genus boundary inherited from a structural automorphism classification. A finite-field zeta polynomial and verifiable certificate can be used in arithmetic/moduli comparisons; the contribution is not merely a restatement of its known genus or automorphism group.
+
+**Scientific limitations.** The result concerns one isomorphism class and characteristic \(3\), not every Newton polygon, every Artin–Schreier curve, the stronger superspecial property, or other characteristics. All external verification remains unperformed. The finite computations are exhaustive only for four extension fields; infinite conclusions use the Weil theorem and mathematical proof.
+
+Self-review: passed. Independent audit: not yet performed.
