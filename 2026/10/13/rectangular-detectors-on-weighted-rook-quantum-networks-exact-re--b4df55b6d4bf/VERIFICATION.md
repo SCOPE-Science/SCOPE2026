@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction of mathematical checks
+# Independent mathematical audit
 
-The analytic derivation is in `RESULT.md`, not inferred from numerical tests. To replay the finite checks, install dependencies in `requirements.txt` and run `python3 verify.py`. The executable independently constructs real symmetric weighted Cartesian adjacency matrices and their numerical eigenspaces (rather than reusing the four analytic tensor projectors), projects all detector coordinate vectors into grouped eigenspaces, computes orthonormal bases of their spans, and checks bright-space ranks and sitewise projector diagonals against the theorem. It exhausts all nonempty rectangular detector cardinalities for \(2\le m,n\le6\) at one positive nonresonant hopping pair and one exactly resonant positive pair (800 comparisons). A second check exponentiates the actual non-Hermitian Hamiltonian with differing positive detector rates and compares 12 late-time losses with predicted absorption. Run output:
+## correctness
 
-```text
-VERIFY_OK spectral_rank_and_sitewise_cases=800 direct_loss_cases=12
-```
+PASS
 
-Numerical thresholds are \(10^{-8}\) for spectral grouping and numerical rank, \(2\cdot10^{-10}\) for individual spectral-diagonal errors, and \(4\cdot10^{-5}\) for late-time survival discrepancies. Long-time tests use \(t=1000\), so they are checks, not claims of uniform finite-time convergence. The proof handles every size, all positive rates and exact resonances analytically. No independent audit or infinite-size machine certification was performed.
+Contractivity gives bright space span of spectral projected detector coordinates; four product eigenspaces collide only when am=bn. Proper detector rectangle yields middle-eigenspace row/column sum constraint of codimension one. Explicit D=h_R⊗1-1⊗h_T normalized by mn(r/(m-r)+s/(n-s)) gives rank-one projector subtraction and correct sitewise capture. Independent numpy full-matrix spectral verification m3,n4 resonant/nonresonant passed.
+
+## originality
+
+PASS
+
+General bright subspace and single-site capture are prior; exact all-rectangle sitewise formulas, resonance criterion and one dark direction are not covered in inspected primary case studies.
+
+## value
+
+PASS
+
+The all-size exact bright rank, one-dimensional resonance obstruction, arbitrary-rate robustness, sitewise capture and sharp minimal fully absorbing detector rectangle form a natural complete network classification not present in one-trap literature.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
