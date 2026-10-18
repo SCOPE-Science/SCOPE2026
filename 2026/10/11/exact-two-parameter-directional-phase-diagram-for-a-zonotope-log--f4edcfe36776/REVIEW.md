@@ -1,11 +1,21 @@
-# Review of the directional log-submodularity phase diagram
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof fixes all generators and quantifiers explicitly and uses the standard zonotope-volume formula. Every determinant containing the varying generator appears with a signed multiplicity in a four-row table; the fixed-part determinant sums are separately given. Taking absolute values in the nonnegative parameter quadrant gives four exact volume functions. Their product difference is independently rederived and splits into exhaustive, boundary-consistent chambers. The square-root transition constants are exact roots of monotone quadratics. The packaged verifier enumerates all four-minors with exact rational arithmetic and checked 144 independent parameter pairs; those tests corroborate but do not replace the universal symbolic proof. Restrictions to this generator family and the product lift are explicit.
+## correctness
 
-**Originality — PASS, with an identifiable residual risk.** Skorupinski's full accessible preprint yields one specific generator and its volumes; the closest published scale-profile note determines \(s(e_1-e_2-e_3)\) and \(4s(2-s)\). Neither provides the two independently varying negative coordinates at fixed first coordinate, the distinct radical thresholds, or the asymmetry boundary. Averkov--von Dichter--Soprunov study a global but different zonoid inequality and generator-count obstruction, rather than a sign portrait for this family. Fradelizi et al. establish a Rayleigh-property equivalence at the general level; only their abstract was accessible and full-text overlap has not been excluded. Equivalent uncatalogued special computations remain a residual risk. A general method of summing determinants does not by itself state the chamber classification.
+PASS
 
-**Value — PASS.** This is a complete geometric stability portrait for two independent perturbations of a recently introduced sharp counterexample, not a small numerical improvement or a parameter-renaming of its previously published scalar ray. It identifies where anisotropy preserves or destroys the failure, two different exact thresholds, and a genuinely curved transition boundary. These measurements are natural because the projectively normalized sign cone of the exceptional generator has two independent directional coordinates. The conclusion is deliberately restricted to this mathematically motivated family; no universal classification of zonoids is suggested.
+The 4D zonotope volume identity reduces every full-dimensional generator list to the sum of absolute maximal 4-minors. Reconstructed all four generator sets, rechecked the signed multiplicity groups and symbolic determinant expression: volumes 8+3q, 17+6q+X+Z, 16+5q, 35+9q+X+3Z. Expanding products yields defect 8−4q−3q²−(8+2q)X+(8+4q)Z. The quadrant partition a,b≤1 with q≤/≥1, a,b≥1 and mixed chambers is exhaustive; substitution yields all four formulas including shared boundary agreement and positive roots. Product lift with [0,1]^{d-4} preserves every volume. Finite 144-point exact verifier was inspected and is supplementary, not an infinite proof.
 
-**Literature limits.** Compared sources include R. Skorupinski, arXiv:2608.07702v1 (full accessible text, especially Section 3); *Exact scale phase diagram for a four-dimensional zonotope log-submodularity defect* (complete published RESULT.md, identifier 75844497-da3f-49e5-89b5-90bfcd3f3d1f); G. Averkov et al., arXiv:2608.14909v1 (material theorem and reduction sections); M. Fradelizi et al., arXiv:2608.12681v1 (abstract-level only). Searches and precise implication comparisons are recorded in the structured assessment. A fully independent assessment remains outstanding.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality PASS after comparison of statements/implications in inspected primary literature, accounting for explicit known subcases and broader baseline results. The unsuccessful Resultary lookup is NOT positive novelty evidence; its outage and any uninspected papers remain disclosed risks.
+
+## value
+
+PASS
+
+Log-submodularity for Minkowski sums is a natural convex-geometric question with a recently identified dimension-four counterexample. The full two-dimensional sign/transition portrait for two independent directional coordinates is a meaningful, exact phase boundary including two radical levels and a curved imbalance frontier; it is neither scalar parameter substitution nor a known table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
