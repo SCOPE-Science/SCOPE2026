@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T18:51:17Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all integers q>=3, n>=2 and 1<=d<=min(k,n-k), the contrast/activity tensor decomposition is valid for the cyclic alphabet without a finite-field assumption. Restricting a fixed s-contrast sector reduces its Gramian to biased Bernoulli weight-(k-s) restriction; harmonic coefficient degree j has dimension C(n-s,j)-C(n-s,j-1), and the raising-incidence identity yields the stated normalization. The generating-function identity restricts every lifted F_{a,h} to kappa_{s,j,a} H_h, a rank-one block in radial lifting degree. Summing positive multiplicities gives rank C(n,d)(q-1)^d; activity equation L=(sum 1_{xi !=0}-k) multiplies H_{<=d-1} injectively under the interior bound, hence its image has exactly the remaining nullity. Independently formed complex Fourier Gram matrices on full G and shells at (q,n,k,d)=(3,4,2,2),(4,4,2,2),(3,5,2,2),(3,4,1,1). Their positive ranks 24,54,40,8 and zero multiplicities 9,13,11,1 agree with all formula eigenvalues, max numerical error below 1.2e-15; finite tests corroborate, not prove, the quantified harmonic argument. Inspected actual frozen RESULT.md and artifacts/verify.py, not just VERIFY_OK.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Levstein-Maldonado-Penazzi give a general Terwilliger algebra of Hamming schemes; Vasil'eva 1412.3622 studies recovery of individual eigenfunctions on spheres, not all mixed-band eigenvalues."
+        ],
+        "reasoning": "These are broader representation-theoretic/individual-eigenspace frameworks, but no inspected theorem gives the exact all-degree mixed Fourier restriction eigenvalue and kernel formula as a corollary without nontrivial calculation.",
+        "searches": [
+          "RESULTARY: Full singular values of restriction compressed Fourier degree d to q ary Hamming sphere all eigenvalues Johnson scheme Krawtchouk label contrast kernel rank",
+          "doi:10.1016/j.ejc.2004.08.005",
+          "arXiv:1412.3622"
+        ]
+      },
+      "checked_sources": [
+        "Orthogonal basis for functions over a slice of the Boolean hypercube — arXiv:1406.0142",
+        "Six-level Fourier concentration spectrum on q-ary Hamming shells — https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-six-level-fourier-concentration-spectrum-on-q-ary-hamming-shells--a7e1f413b856",
+        "Reconstruction of Eigenfunctions of q-ary n-dimensional Hypercube — arXiv:1412.3622"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A degree-2-only formula cannot determine the degree-3 blocks s+j<=3; the new coefficient family Lambda_{s,j} is parameterized by unbounded d."
+        ],
+        "reasoning": "Prior d<=2 claim follows from the present theorem upon specialization; converse fails because added harmonic branches and general nullspace injectivity are unaddressed. Shared normalization and roots are deliberately distinguished.",
+        "searches": [
+          "RESULTARY: Full singular values of restriction compressed Fourier degree d to q ary Hamming sphere all eigenvalues Johnson scheme Krawtchouk label contrast kernel rank",
+          "arXiv:1406.0142",
+          "Resultary 2026/10/11/SCOPE-six-level-fourier-concentration-spectrum-on-q-ary-hamming-shells--a7e1f413b856"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Filmus 1406.0142 constructs a harmonic basis for Boolean slices; independent degree2 Resultary RESULT.md is q-ary but explicitly d<=2."
+        ],
+        "reasoning": "Fourier interaction degree on (Z/qZ)^n splits into one activity mode plus q-2 label contrasts per coordinate. Boolean slice modules alone cannot supply all labeled-sector multiplicities. The d<=2 concrete spectrum is subsumed, not equivalent to the all-d result.",
+        "searches": [
+          "RESULTARY: Full singular values of restriction compressed Fourier degree d to q ary Hamming sphere all eigenvalues Johnson scheme Krawtchouk label contrast kernel rank",
+          "arXiv:1406.0142",
+          "arXiv:1507.02713"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published six-level theorem fixes d=2, rank C(n,2)(q-1)^2 and nullity 1+n(q-1); the first-band theorem fixes d=1, rank n(q-1) and nullity 1."
+        ],
+        "reasoning": "Both earlier exact tables are special cases; neither can list eigenvalues for d=3 and greater, so the whole positive spectrum is not already in an exact database/table.",
+        "searches": [
+          "RESULTARY: Full singular values of restriction compressed Fourier degree d to q ary Hamming sphere all eigenvalues Johnson scheme Krawtchouk label contrast kernel rank",
+          "Resultary 2026/10/11/SCOPE-six-level-fourier-concentration-spectrum-on-q-ary-hamming-shells--a7e1f413b856",
+          "Resultary 2026/10/11/SCOPE-exact-q-ary-hamming-shell-fourier-concentration-and-the-arithmet--89a15e26e594"
+        ]
+      },
+      "rationale": "The explicit rational ALL-degree spectrum including positive multiplicities and one-equation full kernel is a broader statement than previously published d=1 and d=2 formulas and than classical binary Johnson harmonic bases. The cited general association-scheme representations do not by themselves explicitly give this q-ary Fourier-band compression spectrum; best-of-knowledge PASS with risk of implicit historical Terwilliger reductions.",
+      "residual_risks": [
+        "Earlier equivalent all-degree formula within full Terwilliger/Johnson/Krawtchouk algebra treatments may exist, despite direct Resultary and primary-source checks.",
+        "Finite test suite probes d<=2 independently; higher d relies on analytic proof and inspected separate numerical verifier."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant binary Young orthogonality, not full q-ary all-degree shell concentration",
+          "evidence": "Lemma 2.1 and Introduction: dim harmonic pure degree j=C(m,j)-C(m,j-1); Sections 3-4 establish basis/norm framework.",
+          "identifier_or_url": "arXiv:1406.0142",
+          "material_read": "Introduction and Sections 2-4 on Young basis, degree dimensions and harmonic slice lifting",
+          "method": "full primary PDF text and page-1 screenshot",
+          "title": "Orthogonal basis for functions over a slice of the Boolean hypercube",
+          "trigger": "Core harmonic irreducible dimension/norm and overlap risk"
+        },
+        {
+          "assessment": "Covers only d=2 and its six branches; not all d",
+          "evidence": "Finding explicitly H_{<=2}, n>=4, k interior; all six sector computations are fixed degree-two.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-six-level-fourier-concentration-spectrum-on-q-ary-hamming-shells--a7e1f413b856",
+          "material_read": "Complete published RESULT.md: assumptions, six eigenvalues, proof, scope",
+          "method": "GitHub frozen published RESULT.md read through connector",
+          "title": "Six-level Fourier concentration spectrum on q-ary Hamming shells",
+          "trigger": "Same exact compression operator with plausible generalization"
+        },
+        {
+          "assessment": "Partial access/linguistic risk: concerned reconstruction of individual eigenfunctions, not identified all-band spectral formula",
+          "evidence": "Abstract describes values of an eigenfunction on spheres of prescribed radii and recovery criteria.",
+          "identifier_or_url": "arXiv:1412.3622",
+          "material_read": "Primary Russian-language PDF front/abstract and scope inspected; complete Russian derivation not analyzed",
+          "method": "arXiv primary PDF and first-page screenshot",
+          "title": "Reconstruction of Eigenfunctions of q-ary n-dimensional Hypercube",
+          "trigger": "q-ary spherical spectral recovery potential equivalence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural complete spectral classification of an unsymmetrized, degree-truncated Fourier sampling operator. The rank, exact kernel and quotient singular values quantify recoverable bandlimited data for every interior shell and arbitrary degree; the d>=3 regime is genuine new higher-harmonic structure rather than merely recomputing a low-degree table. No asymptotic condition-number theorem is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Quantifiers require 1<=d<=min(k,n-k); no boundary regime, arbitrary-degree asymptotic frame bound, or other subsampling sets established.",
+    "The finite independent Gram comparisons do not prove arbitrary q,n,d; mathematical proof relies on the cited harmonic norm and lowering/raising decomposition.",
+    "Potential algebraically equivalent formulation in less accessible historical Terwilliger/association-scheme literature remains."
+  ],
+  "schema_version": 1
+}

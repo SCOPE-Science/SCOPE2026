@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof distinguishes the uniform group measure from the conditional shell measure, identifies orthogonal activity and label-contrast sectors, and reduces each sector to a biased Boolean slice. Harmonic raising-norm identities and a generating-function restriction calculation give every positive eigenvalue and multiplicity. A separate injectivity argument proves that the shell equation generates every vanishing low-degree function. Exact rational characteristic polynomials for three finite instances and an independent numerical diagonalization in the first cubic-degree instance check the normalization, multiplicities, and boundary conventions. The finite checks are corroboration, not an infinite-parameter proof.
+## correctness
 
-**Originality — PASS, with residual priority risk.** The compared Boolean slice harmonic results of Filmus (arXiv:1406.0142) and Filmus–Mossel (arXiv:1507.02713) supply harmonic decomposition but not the full nonbinary, mixed-Fourier-band spectral formula. Vasil'eva (arXiv:1412.3622) addresses reconstruction in individual q-ary Hamming eigenspaces rather than an all-degree compressed shell operator. The new claimed object is the complete family of strictly positive eigenvalues, with multiplicities and exact kernel, for all allowed interaction degrees; lower-degree evaluations do not cover the general statement. Equivalent historical results in association-scheme or Terwilliger-algebra formulations remain possible, especially because structural diagonalization is classical.
+PASS
 
-**Mathematical value — PASS.** Fixed-weight restrictions are natural information-loss operators for harmonic signals. The result answers the full singular-spectrum, rank, and interpolation-kernel questions simultaneously at arbitrary interior Fourier interaction degree and all alphabet sizes, with an explicit rational formula suitable for exact conditioning calculations. It moves beyond previously treated low degrees without relying on arbitrary parameter slices or numerical conjectures. There is no claim of a new general-purpose condition-number bound or of absolute priority.
+For all integers q>=3, n>=2 and 1<=d<=min(k,n-k), the contrast/activity tensor decomposition is valid for the cyclic alphabet without a finite-field assumption. Restricting a fixed s-contrast sector reduces its Gramian to biased Bernoulli weight-(k-s) restriction; harmonic coefficient degree j has dimension C(n-s,j)-C(n-s,j-1), and the raising-incidence identity yields the stated normalization. The generating-function identity restricts every lifted F_{a,h} to kappa_{s,j,a} H_h, a rank-one block in radial lifting degree. Summing positive multiplicities gives rank C(n,d)(q-1)^d; activity equation L=(sum 1_{xi !=0}-k) multiplies H_{<=d-1} injectively under the interior bound, hence its image has exactly the remaining nullity. Independently formed complex Fourier Gram matrices on full G and shells at (q,n,k,d)=(3,4,2,2),(4,4,2,2),(3,5,2,2),(3,4,1,1). Their positive ranks 24,54,40,8 and zero multiplicities 9,13,11,1 agree with all formula eigenvalues, max numerical error below 1.2e-15; finite tests corroborate, not prove, the quantified harmonic argument. Inspected actual frozen RESULT.md and artifacts/verify.py, not just VERIFY_OK.
 
-**Scope of checks and risks.** The exact symbolic checks cover degree two; a degree-three case is checked numerically. The published comparison includes the full relevant portions of the main Boolean papers and the mathematical formulas available for the q-ary reconstruction paper; the translated Russian text was not available in fully readable form. Further independent priority and proof review are warranted.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The explicit rational ALL-degree spectrum including positive multiplicities and one-equation full kernel is a broader statement than previously published d=1 and d=2 formulas and than classical binary Johnson harmonic bases. The cited general association-scheme representations do not by themselves explicitly give this q-ary Fourier-band compression spectrum; best-of-knowledge PASS with risk of implicit historical Terwilliger reductions.
+
+## value
+
+PASS
+
+A natural complete spectral classification of an unsymmetrized, degree-truncated Fourier sampling operator. The rank, exact kernel and quotient singular values quantify recoverable bandlimited data for every interior shell and arbitrary degree; the d>=3 regime is genuine new higher-harmonic structure rather than merely recomputing a low-degree table. No asymptotic condition-number theorem is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
