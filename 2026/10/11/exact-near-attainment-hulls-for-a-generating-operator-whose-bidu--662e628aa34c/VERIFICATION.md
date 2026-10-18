@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and limits
 
-The complete proof is analytic and works in infinite dimensions over both scalar fields; no numerical enumeration or executable certificate is needed for correctness. The following steps were reconstructed directly from the definitions:
+# Independent mathematical audit
 
-1. \(a_n=\varphi(e_n)\) is absolutely summable for every \(\varphi\in\ell_\infty^*\); finite-coordinate modifications leave the singular functional invariant and prove \(\|\varphi\|=\|a\|_1+\|\varphi_s\|\).
-2. \(J^{**}\varphi=(a_n)\) follows from the canonical dual basis; its norm is the supremum absolute coordinate.
-3. The upper hull bound is preserved by norm-closed convexification. The lower hull bound holds by convexifying explicit unit near-attainers \(\varphi_s+(1-\|\varphi_s\|)\theta e_n\); singular mass exactly \(\delta\) is treated by norm approximation.
-4. Contractivity of the singular projection gives the distance lower bound; scaling the singular component gives the identical upper bound.
-5. Hahn–Banach applied to the norm-one class of the constant sequence in \(\ell_\infty/c_0\) supplies a nonzero norm-one singular functional. Its positive-radius multiples lie outside the near-attainment hull for suitable \(\delta\).
+## correctness
 
-The statement relies on **norm** closure; a change to weak-star closure changes the question. The positive-radius failure has not been claimed for every generating operator, and no independent audit or external proof certification has occurred.
+PASS
+
+Checked quantifiers K=R,C and 0<δ<1; decomposition a_n=φ(e_n)∈ℓ1 by coordinate phase test and s=φ−φ_a annihilates c0. Finite-support coordinate perturbations prove ‖φ‖=‖a‖1+‖s‖; hence J**φ=(a_n) and ‖J**φ‖∞=‖a‖∞. For unit near-attainers ‖s‖<δ. Conversely for any σ=‖s‖<δ, all s+(1−σ)θe_n are sphere near-attainers; their norm-closed convex hull contains s+(1−σ)Bℓ1. Approximate σ=δ by (1−1/k)s. This proves exact Cδ and distance by contracting the singular component; a singular norm-one functional exists by Hahn–Banach on ℓ∞/c0, giving failure of all r-generating radii. No finite check substituted for an infinite argument.
+
+## originality
+
+PASS
+
+Best-of-knowledge new sharp norm-closed bidual near-attainment hull and explicit counterexample to converse; distinguishes prior generating inclusion from newly computed J**.
+
+## value
+
+PASS
+
+The sharp norm-hull formula answers a natural open converse question for generating operators and controls the entire quantitative r-generation obstruction. It is not merely a normalization or a numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
