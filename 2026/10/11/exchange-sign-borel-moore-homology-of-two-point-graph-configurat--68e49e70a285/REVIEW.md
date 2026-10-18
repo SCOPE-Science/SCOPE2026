@@ -1,9 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite relative-pair model with the exchange-sign coefficient is justified by an equivariant triangulation off the diagonal. The explicit rose-chain calculation has degree-one rank \(b\), degree-two rank \(\binom{b+1}{2}\), and zero differential; graph homotopy equivalences preserve the diagonal pair. Signed transfer identifies degree two integrally with the flip-invariant lattice, not just rationally with ordinary symmetric powers. Degree-one transfer is multiplication by two onto the corresponding subgroup, so normalizing by two yields the graph cycle lattice. The script `verify.py` independently checks 109 finite cellular models in characteristic zero and two. Finite checks alone do not establish the integral naturality theorem.
+## correctness
 
-**Originality — PASS, with stated residual risk.** Khan, arXiv:2608.18143v1, §3 and Theorem 3.4, computes *untwisted* Borel–Moore groups \(\mathbb Z^{\binom b2}\) and \((\mathbb Z/2)^b\), not the sign-system modules \(D_2(V)\) and \(V\). Blanchet–Palmer–Shaukat (2025) treat a different space (surface configurations) and other local coefficients, not this graph computation. Barnett–Farber and Farber–Hanbury concern ordinary graph-configuration homology; their precise full-text relation is a residual risk because only metadata/abstracts were retrieved for those two papers. Actual published-finding corpus and broader-language searches did not find a dominating published graph sign-local-system theorem, but indexing gaps remain possible.
+PASS
 
-**Value — PASS.** Unlike the untwisted calculation, the canonical exchange-sign coefficient system recovers the *entire integral* first cycle lattice; its second group is the integral divided square, preserving graph symmetry and the crucial factor-of-two distinction from ordinary symmetric coinvariants. It therefore gives a structural, graph-automorphism-equivariant response to a natural local-coefficient question, not an arbitrary finite parameter count. It does not claim a result for higher particle counts or unrelated coefficient systems.
+For compact pair (G×G, diagonal), Borel–Moore chains of the complement with exchange sign are signed C2-coinvariants of relative chains. Simultaneous homotopies preserve diagonal pairs, allowing collapse to a rose. In the rose signed cell model the rectangular and half-square 2-cells have zero signed differential; ranks H_1=b, H_2=b(b+1)/2. Swap of oriented product 2-cells contributes a minus sign, canceled by the sign local system, so transfer lands in the flip-invariant integral tensor lattice D_2(H_1(G)); this is NOT the integral symmetric coinvariant quotient. Degree-one signed transfer is twice a natural generator of (V⊕V)/diagonal, so half-transfer identifies V. Symmetric-square character is (tr(g)^2+tr(g^2))/2. Separately reconstructed signed/untwisted cellular d1,d2 over rationals for interval, triangle cycle, K4: (b,H1,H2) were (0,0,0),(1,1,1),(3,3,6) for sign and untwisted rational groups (0,0),(0,0),(0,3), with d1*d2=0. These finite models corroborate but do not prove naturality for all graphs.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Khan computes the UNTWISTED unordered two-point Borel–Moore groups. Twisting by exchange sign changes the integral H1 torsion into free V, adds diagonal tensor degree-two classes, and supplies natural graph-automorphism characters. Surface Heisenberg local systems concern different spaces. No decisive general source for this sign-graph module theorem was found, but the primary Khan full text was not accessible and priority remains best-of-knowledge.
+
+## value
+
+PASS
+
+An integral local-system calculation and functorial automorphism module refine the standard graph configuration invariants, with a canonical divided-square lattice and character formula useful for symmetry calculations. This is not a renaming of ordinary ranks or a tiny-instance computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
