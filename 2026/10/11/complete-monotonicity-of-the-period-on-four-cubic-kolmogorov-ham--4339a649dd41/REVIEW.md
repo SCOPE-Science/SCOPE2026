@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Direct Hamiltonian differentiation and positive linear scaling give the exact physical-time system. On each quadrant disk, strict concavity of the logarithm of the positive energy density proves that the energy curves are nested smooth ovals. The polar radial equation and its two traversals give the exact quadrature; a nonsingular substitution gives the modulus-convention complete elliptic integral. Every energy derivative is a strictly positive integral multiplied by its alternating sign; no numerical inference is used for these universal quantifiers. The center limit follows by dominated convergence and the separatrix constant by the complementary-modulus asymptotic. The standard-library standalone checker cross-compares a numerical quadrature and an arithmetic–geometric-mean computation.
+## correctness
 
-**Originality — PASS, subject to publication-priority limits.** He–Liu–Xiao (arXiv:2303.14403) provide phase-portrait and four-center classification for cubic Hamiltonian Kolmogorov systems, without the proposed period identity. The inspected 2019/2020 full text by Villadelprat–Zhang addresses general separable Hamiltonian monotonicity and critical-period criteria: its specific examples do not contain this elliptic four-center period law or the all-order signs. Nascimento's 2026 first-derivative monotonicity criterion is broader in object class but weaker in conclusion. The general theory may subsume the absence-of-critical-periods corollary; novelty is in the exact law, strict complete monotonicity and its sharp boundary constant together, not in the standard definition of complete elliptic integrals.
+PASS
 
-**Value — PASS.** The four-center problem has a natural, topologically classified Hamiltonian model. The full sequence of strict period-energy derivative signs supplies a global period-annulus rigidity statement stronger than the no-critical-period criterion and useful for twist/nondegeneracy questions. The exact physical-time and energy normalization makes the separatrix asymptotic quantitatively comparable across axis-aligned elliptic representatives. The result does not assert analogous rigidity for cross-term quadratic factors.
+Direct Hamiltonian differentiation and scaling (X,Y)=(sqrt(a/C)x,sqrt(b/C)y), tau=C t_physical establish H=xy(ax²+by²−C), four nondegenerate quadrant centers, and normalized energy e=h sqrt(ab)/C² in (0,1/8). The radial variable z=X²+Y² has turning points (1±sqrt(1−t))/2, t=8e. The exact minimal physical period is T=4/C ∫_0^{π/2}[cos²φ+t(1+sin²φ)]^(−1/2)dφ =4/(C sqrt(1+t))K(sqrt((1−t)/(1+t))). Positive-integral differentiation on compact interior energy intervals yields (−1)^n T^(n)>0 for every n≥0. At t→1 its value tends to sqrt(2)π/C; the K(k) logarithmic asymptotic yields (2/C)log(C²/(h sqrt(ab)))+o(1) as h→0. Coordinate reflection reverses phase at most, not physical time. The inspected verify_period.py performs finite quadrature/AGM sample comparisons only; the analytic integral is the infinite proof.
 
-**Closest comparisons and risk.** General results on separable Hamiltonians provide monotonicity criteria but not this particular completely monotone elliptic formula; standard elliptic-integral asymptotics themselves are not claimed to be new. Search coverage cannot rule out earlier implicit equivalent parametrizations of the same quartic Hamiltonian, and unpublished claims outside accessible records remain unknown.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+He–Liu–Xiao classify center configurations of cubic Hamiltonian Kolmogorov fields but do not state this original-time complete elliptic period and its strict all-order derivative signs. Villadelprat–Zhang study separable H=F(x)+G(y) and first-derivative monotonicity; the present xy(ax²+by²−C) Hamiltonian is not of that separable form, and their general criteria do not directly supply all derivative signs. The exact quadrature may be elementary from the Hamiltonian, but the complete-monotonicity classification with boundary constants is not the same as generic monotonicity. Search and primary reading support best-of-knowledge novelty; unindexed integrable-system calculations remain possible.
+
+## value
+
+PASS
+
+For a natural three-parameter four-center cubic Hamiltonian family, absence of all critical periods is meaningful dynamical information and the stronger all-order sign pattern yields strict convexity and higher derivative constraints. The precise physical-time normalization and separatrix constant distinguish the result from mere orbit topology or an arbitrary unmotivated parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
