@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T05:53:41.208579Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With four exact uniform pairwise-independent p-values, the five bin probabilities are α/4 for each of the first four bins and 1−α for the fifth. Simes rejection is exactly N1≥1 or N1+N2≥2 or N1+N2+N3≥3 or N5=0. The explicit quadratic polynomial B(N) in RESULT.md majorizes this indicator on all 70 weak five-part compositions of four. Pairwise moments E[Nj(Nj−1)]=12pj² and E[NjNk]=12pjpk yield E[B]=α+13α²/16. All 13 support-state weights of the explicit exchangeable extremizer are nonnegative for 0≤α≤2/5, sum to 1, and match all five first moments and all fifteen same/different bin factorial moments. On each support state B=indicator; independent exact symbolic reimplementation verified every inequality, polynomial moment, normalization, and objective, including 333/6400 at α=1/20. Uniform conditional sampling inside bins makes all P_i exactly continuous Uniform[0,1] and every coordinate pair independent. It does not establish behavior for α>2/5.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ramachandra–Natarajan Theorem 2.3 optimizes a union of binary events; Hommel controls arbitrarily dependent overall tests with a harmonic penalty; Chen et al. study arbitrary dependence merging properties rather than exact K=4 pairwise uniform moment constraints."
+        ],
+        "reasoning": "General probability LP methodology and arbitrary dependence bounds do not numerically determine this nested threshold probability under all pairwise-independent continuous uniforms.",
+        "searches": [
+          "Ramachandra–Natarajan arXiv:2006.00516 Theorem 2.3",
+          "Chen–Liu–Tan–Wang arXiv:2007.12366 Simes/p-merging",
+          "Hommel DOI:10.1002/bimj.19830250502 full paper"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1002/bimj.19830250502",
+        "https://arxiv.org/pdf/2006.00516",
+        "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-sharp-simes-size-under-pairwise-independence--9fdb218c11c0",
+        "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-pairwise-independent-occupancy-one-moment-reduction--0c331de546b4",
+        "https://arxiv.org/pdf/2007.12366"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hommel rejection thresholds use an adjusted harmonic factor H_n for arbitrary dependence; Simes independence gives exactly α but pairwise independence may exceed it; n=3 pairwise coefficient 4/9 does not determine n=4."
+        ],
+        "reasoning": "None logically implies the n=4 coefficient 13/16 or supplies a feasible distribution saturating the 70-state dual certificate; the submitted constructive duality is additional content.",
+        "searches": [
+          "Hommel 1983 method 3.3 pp. 426–430 full text",
+          "Simes 1986 independent-case exact test",
+          "three-var Resultary full RESULT.md",
+          "Ramachandra–Natarajan union-tail Theorem 2.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Three-variable sharp formula α+4α²/9 (to α≤3/5) explicitly limits n=3; for n=4 the region has 70 occupancy states and a distinct α+13α²/16 coefficient."
+        ],
+        "reasoning": "Global-null BH any rejection equals Simes event and shares this exact size; neither alternate label appears with the specific four-test pairwise formula in prior searched results.",
+        "searches": [
+          "Resultary query: Simes global null test four pairwise independent uniform p values sharp Type I error alpha 13/16 alpha squared small levels",
+          "Resultary:2026/9/20/SCOPE-sharp-simes-size-under-pairwise-independence--9fdb218c11c0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier one-moment occupancy reduction requires invariance under COMMON permutation of bin labels with equal category probabilities; the Simes five-bin test has four unequal threshold roles and the tail bin has mass 1−α, so the theorem does not apply."
+        ],
+        "reasoning": "A search of exact-probability database/corpus results located the three-test result, not this K=4 numerical coefficient; an exact table under arbitrary nonuniform-bin moment constraints was not found.",
+        "searches": [
+          "Resultary query: Simes four pairwise independent p-values exact 13/16 coefficient",
+          "Resultary:2026/9/20/SCOPE-pairwise-independent-occupancy-one-moment-reduction--0c331de546b4"
+        ]
+      },
+      "rationale": "The previously published three-variable pairwise-independent Simes envelope has leading α+4α²/9, but its 20-state moment problem does not imply the four-variable 70-state extremum. The original pairwise-independent probability-bound literature treats union and sum-tail events, not this nested 1-of-4/2-of-4/3-of-4/4-of-4 Simes region. Hommel 1983 full eight-page primary text, retrieved through authorized access after unsuccessful OA/preprint search, concerns sharp arbitrary-dependence bounds for adjusted overall tests; it does not impose pairwise independent uniform marginals or yield coefficient 13/16. No stronger prior coverage found.",
+      "residual_risks": [
+        "The 1983 Hommel full text was independently read via authorized access; the exact 1979 dissertation referenced for sharpness was not obtained. An older finite moment LP under different terminology could still contain the numerical 13/16 coefficient.",
+        "The 13-state extremizer weights become negative beyond α=2/5; sharpness or formula above that boundary is not asserted.",
+        "Formal proof is exact symbolic moment verification plus pointwise 70-state inequality; no exhaustive search of all historical joint-law optimization papers was possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ARBITRARY_DEPENDENCE_DIFFERENT_THRESHOLD",
+          "evidence": "Method 3.3 uses adjusted thresholds kγ/(n H_n), not the unadjusted Simes kα/n and no pairwise-independence marginal conditions; the arbitrary-dependence sharp bound does not determine four-test pairwise size.",
+          "identifier_or_url": "https://doi.org/10.1002/bimj.19830250502",
+          "material_read": "All eight pages of 1983 full text: §3 methods 3.1–3.3, harmonic penalty, §6 discussion and Appendix sharpness proof",
+          "method": "Oxford authorized publisher PDF text; arXiv and lawful OA versions sought first and not found",
+          "title": "Tests of the Overall Hypothesis for Arbitrary Dependence Structures",
+          "trigger": "historically plausible sharp Simes-like global-test dominance"
+        },
+        {
+          "assessment": "MOMENT_TOOL_ONLY",
+          "evidence": "Optimizes union/tail events of Bernoulli variables, not the five-bin nested Simes rejection polytope.",
+          "identifier_or_url": "https://arxiv.org/pdf/2006.00516",
+          "material_read": "42-page arXiv PDF, primary definitions and Section 2 Theorem 2.3 union-event result, comparison discussion around pp. 12–14",
+          "method": "lawful arXiv full PDF targeted theorems",
+          "title": "Tight Probability Bounds with Pairwise Independence",
+          "trigger": "generic moment bounds might dominate test event"
+        },
+        {
+          "assessment": "CLOSE_PRIOR_DIFFERENT_DIMENSION",
+          "evidence": "Three uniform p-values have α+4α²/9 at small α; source explicitly excludes the n≥4 envelope.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-sharp-simes-size-under-pairwise-independence--9fdb218c11c0",
+          "material_read": "Complete published RESULT.md, including 20-state certificates and piecewise formula for exactly three tests",
+          "method": "published Resultary primary finding full result text",
+          "title": "Sharp Simes size under pairwise independence for three uniform p-values",
+          "trigger": "direct strongest published preceding family result"
+        },
+        {
+          "assessment": "DIFFERENT_LABEL_SYMMETRY",
+          "evidence": "Requires common alphabet-label permutation invariance and uniform q-bin marginal weights, violated by ordered unequal Simes threshold bins.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-pairwise-independent-occupancy-one-moment-reduction--0c331de546b4",
+          "material_read": "Complete published RESULT.md theorem/proof and invariance assumptions",
+          "method": "published Resultary finding full result text",
+          "title": "One-moment reduction for symmetric occupancy statistics under pairwise-independent uniforms",
+          "trigger": "possible broader multi-parameter moment theorem"
+        },
+        {
+          "assessment": "NO_PAIRWISE_FOUR_COEFFICIENT",
+          "evidence": "Arbitrary dependence validity and efficiency framework, not exact four-test pairwise-independent coefficient.",
+          "identifier_or_url": "https://arxiv.org/pdf/2007.12366",
+          "material_read": "ArXiv full PDF relevant theorem and Simes/merging sections inspected, not entire article",
+          "method": "lawful arXiv PDF relevant sections",
+          "title": "Trade-off between validity and efficiency of merging p-values under arbitrary dependence",
+          "trigger": "Simes p-merging prior theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact four-test global-null calibration loss at small α is a natural finite-dimensional probability invariant with direct interpretation for Simes/BH under pairwise (but not joint) independence. Unlike a mere negative warning, it gives an attained sharp parameter interval, rational upper certificate, constructive continuous extremizer, and the exact practical 5% discrepancy.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The 1983 Hommel full text was independently read via authorized access; the exact 1979 dissertation referenced for sharpness was not obtained. An older finite moment LP under different terminology could still contain the numerical 13/16 coefficient.",
+    "The 13-state extremizer weights become negative beyond α=2/5; sharpness or formula above that boundary is not asserted.",
+    "Formal proof is exact symbolic moment verification plus pointwise 70-state inequality; no exhaustive search of all historical joint-law optimization papers was possible."
+  ],
+  "schema_version": 1
+}

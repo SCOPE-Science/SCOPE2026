@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim is reduced to a finite five-cell count problem. Pairwise independence fixes the required first and second factorial moments. The displayed quadratic function majorizes the Simes rejection indicator on every count vector, and its expectation is exactly \(\alpha+13\alpha^2/16\). The explicit count distribution satisfies the required moments, is nonnegative on \([0,2/5]\), and is supported on equality cells of the quadratic certificate. Uniform random labeling plus independent within-cell sampling gives exact uniform marginals and pairwise independence. Exact-rational replay verifies the complete finite certificate.
+## correctness
 
-## Originality
-**PASS, with stated residual risk.** Direct semantic searches for the four-p-value formula, its \(13/16\) coefficient, pairwise-independent Simes, and global-null BH wording found a closely related three-p-value published-finding corpus theorem but no four-p-value implication. Ramachandra--Natarajan supply general pairwise-moment probability-bound methodology but address union and Bernoulli sum-tail events rather than this nested Simes event. Chen--Liu--Tan--Wang cover arbitrary/structured dependence for p-merging, and Chi--Ramdas--Wang cover notions of negative dependence; the inspected material does not state the exact four-p-value pairwise-independent extremum. Residual risk remains that older finite-moment or Bonferroni extremal literature contains an equivalent result under different terminology.
+PASS
 
-## Value
-**PASS.** Pairwise independence is a natural limited-dependence condition, and Simes/BH global-null validity is a basic multiple-testing question. The result is the exact next finite case beyond the closely related three-p-value theorem, gives a sharp explicit inflation at conventional levels, and supplies an extremal construction and reusable dual certificate rather than a numerical bound alone.
+With four exact uniform pairwise-independent p-values, the five bin probabilities are α/4 for each of the first four bins and 1−α for the fifth. Simes rejection is exactly N1≥1 or N1+N2≥2 or N1+N2+N3≥3 or N5=0. The explicit quadratic polynomial B(N) in RESULT.md majorizes this indicator on all 70 weak five-part compositions of four. Pairwise moments E[Nj(Nj−1)]=12pj² and E[NjNk]=12pjpk yield E[B]=α+13α²/16. All 13 support-state weights of the explicit exchangeable extremizer are nonnegative for 0≤α≤2/5, sum to 1, and match all five first moments and all fifteen same/different bin factorial moments. On each support state B=indicator; independent exact symbolic reimplementation verified every inequality, polynomial moment, normalization, and objective, including 333/6400 at α=1/20. Uniform conditional sampling inside bins makes all P_i exactly continuous Uniform[0,1] and every coordinate pair independent. It does not establish behavior for α>2/5.
 
-## Closest literature and limitations
-The closest direct record is the three-p-value pairwise-independence Simes theorem in published-finding corpus. The closest methodological source is Ramachandra--Natarajan's pairwise-independence moment/LP framework. The exact formula here is restricted to \(0\leq\alpha\leq2/5\); no claim is made above that range or for false-discovery-rate behavior under alternatives.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The previously published three-variable pairwise-independent Simes envelope has leading α+4α²/9, but its 20-state moment problem does not imply the four-variable 70-state extremum. The original pairwise-independent probability-bound literature treats union and sum-tail events, not this nested 1-of-4/2-of-4/3-of-4/4-of-4 Simes region. Hommel 1983 full eight-page primary text, retrieved through authorized access after unsuccessful OA/preprint search, concerns sharp arbitrary-dependence bounds for adjusted overall tests; it does not impose pairwise independent uniform marginals or yield coefficient 13/16. No stronger prior coverage found.
+
+## value
+
+PASS
+
+The exact four-test global-null calibration loss at small α is a natural finite-dimensional probability invariant with direct interpretation for Simes/BH under pairwise (but not joint) independence. Unlike a mere negative warning, it gives an attained sharp parameter interval, rational upper certificate, constructive continuous extremizer, and the exact practical 5% discrepancy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
