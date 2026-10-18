@@ -1,0 +1,13 @@
+# Self-review
+
+**Correctness — PASS.** On one fixed complete S5 frame, each diamond of a complete Boolean type states that the type occurs. The formula is false exactly when the support is graph-independent. Counts by image size give the Stirling transform; its diagonal is factorial and hence invertible. The graph-padding Turing reduction preserves polynomial input/output bit bounds, and explicit path/triangle-isolate calculations verify the first collision. The included standalone verifier independently checks direct semantics, inverse counts, and minimal graph order on stated finite instances. Exhaustion of small cases is not substituted for an infinite proof.
+
+**Originality — PASS, with residual bibliographic risk.** Inspected primary sources address S5 satisfiability solvers, diamond-conflict graphs for syntactic clauses, and known modal zero-one phenomena. The graph-polynomial collision and classical independent-set complexity are expressly credited as established inputs. The assessed result is the *complete and invertible model-count spectrum correspondence* for a narrowly specified modal fragment, its restricted counting completeness under polynomial-time Turing reductions, and the induced logical nonidentifiability with a smallest witness. Searches found no statement subsuming that combined result; a prior result under unfamiliar model-counting terminology remains possible.
+
+**Mathematical value — PASS.** Exact counting of labelled valuations on finite epistemic frames is a natural quantitative logical task. The theorem identifies precisely what all possible frame-size measurements recover, shows that they cannot identify formulas even up to a permutation of propositional types, and proves persistent counting hardness in a shallow restricted fragment. The object and counting measure are motivated before the four-vertex witness, which is a minimal structural obstruction rather than an arbitrarily selected small case. It does not assert a new graph-polynomial collision or a new general zero-one law.
+
+Closest literature: Alviano–Batsakis–Baryannis (arXiv:2108.04194, complete S5 semantics and SAT encoding); Huang et al. (IJCAI 2019, syntactic diamond-conflict graphs); Verbrugge (arXiv:2102.05947, modal zero-one background); MathWorld's independence polynomial collision catalog; Provan–Ball (1983, established counting hardness).
+
+Scope risks: Only a single complete S5 accessibility component and labelled uniform valuations are counted; \(\#\mathrm P\)-hardness is under Turing reductions; alternate earlier quantitative modal-model-count terminology may cover some or all of the same transform. The verifier does not independently certify literature priority.
+
+Self-review: passed. Independent audit: not yet performed.
