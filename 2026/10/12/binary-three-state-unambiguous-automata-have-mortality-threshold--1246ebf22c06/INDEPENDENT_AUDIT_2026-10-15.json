@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T21:48:38Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 3-state automata, 512 possible 0-1 matrices per letter produce exactly 262,144 labeled ordered pairs. Ordinary integer matrix products count labeled paths, so a generator pair is strongly unambiguous iff all word products remain 0-1. BFS on finite 512-state product graph from identity both detects the first zero product and visits every reachable product; rejecting any invalid product tests unambiguity exhaustively. Independently implemented C++ pair/product BFS (not the source C++), compiled and evaluated all 262,144 pairs: exactly 12,502 unambiguous, 7,699 mortal, length histogram 271,3552,3192,540,132,12, exactly 12 length-six maxima, and direct product for abaaba is zero; a separately generated symmetry orbit of (10,98) contains exactly all 12 maxima by invariance and cardinality. The submitted C++ explicitly canonicalizes the 12 pairs under all six state permutations and both letter orders, yielding only (10,98); an independent Python symmetry orbit of representative (10,98) has size exactly 12, matching the total exhaustive count and proving there can be no other class; source independent Boolean composition corroborates every valid product. Exhaustion of all finite cases, not timeout or sample, establishes the finite universal result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior theories provide polynomial/general upper bounds for arbitrary n and, in Ryzhikov, broader nondeterministic models."
+        ],
+        "reasoning": "A general coarse polynomial n bound and general-NFA mortality are not an equality theorem with all 3-state two-letter unambiguous pairs and do not logically force histogram or extremizer orbit classification.",
+        "searches": [
+          "three state two letter unambiguous finite automata shortest killing mortal uncompletable word extremal 6 census",
+          "Kiefer–Mascle arXiv:1808.00940 Theorem 1",
+          "Boccuto–Carpi 2019 abstract",
+          "Ryzhikov arXiv:2405.19622"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1808.00940",
+        "DOI:10.1051/ita/2019002",
+        "arXiv:2405.19622",
+        "Resultary query: three state two letter unambiguous finite automata shortest killing mortal uncompletable word extremal 6 census"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior works establish polynomial bounds for exactly related killing/uncompletable words; the finite-domain 262144-pair BFS computes the exact 6 threshold."
+        ],
+        "reasoning": "Those broad upper bounds do not entail the tight three-state binary threshold or complete equality orbit; the complete 2019 paper was not read and is retained as priority risk.",
+        "searches": [
+          "three state two letter unambiguous finite automata shortest killing mortal uncompletable word extremal 6 census",
+          "Kiefer–Mascle arXiv:1808.00940 main upper-bound theorem",
+          "Boccuto–Carpi DOI:10.1051/ita/2019002 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Killing words, mortal nonnegative matrices and uncompletable words all refer to zero products in this strong unambiguous matrix model."
+        ],
+        "reasoning": "Terminology differs but both are exact overlapping problems; the question is whether earlier work proves the exact 3-state binary value 6 and equality class, not whether words match.",
+        "searches": [
+          "three state two letter unambiguous finite automata shortest killing mortal uncompletable word extremal 6 census",
+          "Kiefer–Mascle arXiv:1808.00940",
+          "Boccuto–Carpi DOI:10.1051/ita/2019002"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source census enumerates 262144 transition pairs and exact histogram; Numdam abstract concerns relatively maximal rows and polynomial bounds, not a published 3-state table."
+        ],
+        "reasoning": "Exact table/histogram search found no prior coverage; a hidden computational appendix could still cover numbers, so no claim of exhaustive bibliographic proof.",
+        "searches": [
+          "three state two letter unambiguous finite automata shortest killing mortal uncompletable word extremal 6 census",
+          "Boccuto–Carpi 2019 source and citations",
+          "Resultary automata census entries"
+        ]
+      },
+      "rationale": "Best-of-knowledge non-coverage after primary statement and implication comparisons. The claim is not made new merely because a text query lacked an identical title.",
+      "residual_risks": [
+        "An unindexed computational small-automaton census or full Boccuto–Carpi appendix could already contain the same threshold or histogram; this was not exhaustively excluded.",
+        "All-pairs strong unambiguity, binary alphabet and three states are essential; weaker nondeterministic models have different extremal function."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives n-dependent polynomial bound, does not supply the 3-state binary exact histogram in relevant inspected text",
+          "evidence": "Theorem1 bound and matrix-unambiguous model",
+          "identifier_or_url": "arXiv:1808.00940 (Kiefer–Mascle 2018)",
+          "material_read": "Full preprint PDF previously inspected in relevant theorem, definitions and proof discussion; same exact model",
+          "method": "Open-access arXiv text, primary theorem comparison",
+          "title": "On Nonnegative Integer Matrices and Short Killing Words",
+          "trigger": "Core unambiguous matrix-mortality problem and general upper bounds"
+        },
+        {
+          "assessment": "Discusses rows/structural polynomial upper bounds; whole-document noncoverage not asserted",
+          "evidence": "Numdam summary, pp115–123, 2019",
+          "identifier_or_url": "DOI:10.1051/ita/2019002 (Boccuto–Carpi 2019)",
+          "material_read": "Numdam open-access bibliography, complete abstract and listed theorem descriptions; full paper PDF not obtained/read; authorized DOI request returned vpn_disconnected",
+          "method": "Publisher-linked bibliographic abstract inspection",
+          "title": "On the length of uncompletable words in unambiguous automata",
+          "trigger": "Potential exact small-state UFA threshold source"
+        },
+        {
+          "assessment": "Broader NFA setting not identical strong-unambiguous binary three-state census",
+          "evidence": "Source result introduction, as cited in package",
+          "identifier_or_url": "arXiv:2405.19622 (Ryzhikov 2024)",
+          "material_read": "Abstract/cited overview and terminology, not complete proof text",
+          "method": "Open-access abstract and comparison to submitted model",
+          "title": "On shortest products for nonnegative matrix mortality",
+          "trigger": "Mortality thresholds in more general nondeterministic setting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp threshold and the entire equality-class census for the smallest meaningful strongly unambiguous binary automata give a natural finite base case in the active uncompletable-word/matrix-mortality problem. The exact all-pair enumeration and symmetry classification are independently useful despite not extending to arbitrary state counts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Among all ordered pairs (A,B) of binary 3x3 transition relations, exactly 12,502 define strongly unambiguous automata; 7,699 of these admit a zero-product (killing) word. The precise distribution of shortest killing length 1..6 is (271,3552,3192,540,132,12), hence sharp maximum 6; the 12 labeled extremizers form one state-permutation/letter-swap class with canonical matrices row-major (10,98) and killing word abaaba.",
+  "limitations": [
+    "General n and larger alphabets not covered.",
+    "Full Boccuto–Carpi 2019 article not accessed because the authorized institutional DOI request returned vpn_disconnected; abstract alone cannot rule out undisplayed tables, retained as priority risk."
+  ],
+  "schema_version": 1
+}
