@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Squared-error risk is an exact strictly convex quadratic in the constant shift \(b\). Its minimizer is the bias \(E[X_{(2)}-\theta_{(2)}]\), which is the positive-part mean of a \(N(-\Delta,2)\) variable after standardization. The standard truncated-normal formula gives \(b_\Delta=\sigma h(\Delta)\), and completing the square yields the exact regret identity. Differentiating \(h\) gives a strictly negative derivative, which proves the one-to-one oracle map and the uniqueness of the risk crossover. The numerical script only checks these analytic identities.
+## correctness
 
-## Originality
-PASS. The direct source defines the same constant-shift class and an abstract pointwise optimizer, then gives the Gaussian boundary shift and a simulation-based qualitative risk reversal. It does not state the explicit oracle map, regret identity, or crossover value in the inspected full text. Candidate-specific exact-formula and semantic searches found no covering statement. A 1968 paper on the identical larger-normal-mean problem could not be inspected in full and remains an explicit residual risk.
+PASS
 
-## Value
-PASS. The result completes a central class in the motivating paper by replacing an abstract optimizer with a closed formula for every standardized separation. It also converts the source's simulation-level “small/moderate versus large” comparison into a unique exact phase boundary. This is a natural structural completion, even though a nonconstant Brewster–Zidek estimator dominates the boundary constant shift.
+The frozen proof correctly expands RΔ(b)=RΔ(0)-2b E[max(Xi)-max(θi)]+b² and identifies its unique minimizer. With ordered means, the bias is E[(X1-X2)_+], X1-X2∼N(-σΔ,2σ²), so the normal positive-part identity gives σh(Δ). Direct differentiation yields h′(Δ)=-Φ(-Δ/√2)<0. Hence the boundary-versus-usual risk gap σ²[1/π-2h(Δ)/√π] crosses zero exactly once. Independent local bisection yields Δ=0.69945480190502 and the exact h(0)=1/√π; numerical root is corroborative, uniqueness is analytic.
 
-## Closest literature and limitations
-The closest fully inspected source is Garg, Patra, and Misra, arXiv:2309.13878v1. Blumenthal and Cohen (1968), DOI 10.2307/2283879, is a highly relevant unresolved older source because full text was unavailable in the checked routes. The theorem applies only to the two-normal, common-known-variance, squared-error setting and only characterizes the constant-shift class.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The direct modern source gives an abstract pointwise bθ and identifies the boundary constant shift in its normal example; its simulation-level qualitative comparison lacks the inspected explicit bΔ formula and unique numerical crossover. A highly relevant 1968 article concerns the exact same statistical problem: its full text was not obtained through open access and authorized institutional access was disconnected; historical equivalence remains a material risk and is not treated as confirmed noncoverage. Best-of-knowledge O passes with this explicit priority uncertainty.
+
+## value
+
+PASS
+
+This determines the full oracle bias and risk-regret geometry for the natural constant-shift estimator class singled out in the contemporary paper, and identifies an exact boundary that had been presented qualitatively in simulation. A mathematically motivated full one-parameter characterization, despite domination by estimators outside this class.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
