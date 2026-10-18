@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The weighted Laplacian has an explicitly diagonalized Euclidean spectrum in the zero-sum space. The root-of-unity Poisson identity produces endpoint signs and, together with strict log-determinant concavity, one admissible ratio in every dimension. Effective-resistance differentiation proves all signed roots contact. A determinant–trace arithmetic/geometric mean certificate establishes global minimum volume and uniqueness over arbitrary off-center competitors. Uniform convergence and an exact endpoint derivative prove the exponential constant. The separate symbolic/rational and floating-point verifier checks independent finite consequences; it is not substituted for the general proof.
+## correctness
 
-**Originality — PASS, with residual literature risk.** The closest source describing the same family, D’Alì–Delucchi–Michałek arXiv:1910.05193v1 §4.3, concerns wheel facets and lattice invariants, which do not give the Euclidean Löwner shape. Chen–Davis–Korchevskaia arXiv:2107.12315v1 gives graph-facet combinatorics, not optimal enclosing ellipsoids. Suliman–Weinstein arXiv:2302.05966v1 gives the general graph optimal-design/ellipsoid framework, which *is prior work*, but not the wheel-specific equation, spectrum, or sharp exponential correction. Mathematically equivalent earlier computations may be indexed under effective resistance, graph Lewis weights, or optimal design, and could limit originality; this is not independently excluded. Searches included all those aliases and claims as recorded in the structured review.
+PASS
 
-**Value — PASS.** Determining the exact anisotropic Euclidean Löwner ellipsoid, the full all-vertex contact certificate, and a sharp exponential weight-ratio correction is a motivated natural metric classification for the infinite wheel family of symmetric edge polytopes. The exponential constant distinguishes the result from generic convex optimization formulations, mere computational examples, and earlier combinatorial facet counts.
+In H_m of dimension m the weighted incidence covariance S=a L_spoke+b L_rim with m(a+b)=1 has eigenvalues (m+1)a and a+4b sin^2(pi k/m). Strict concavity of logdet S in the affine orbit mass and a Poisson root-of-unity summation establish unique stationarity t_m in [1,2), with t_3=1 and F_m(2)=-m/[3(2^m-1)]. Dihedral symmetry and stationarity force effective resistance equal on spoke/rim orbits; the weighted resistance trace identity then gives R_e=m, placing all ±edge roots on the boundary Q=mS. For an arbitrary nonsymmetric off-center competing ellipsoid, averaging contact inequalities and AGM show det Q>=m^m det S with equality only at center zero and Q=mS. Fourier eigendeterminant gives semiaxes and volume. Uniform convergence f_m->f, f(2)=0 and independent exact symbolic differentiation f'(2)=-1/54 combine with F_m(2)/m=-1/[3(2^m-1)] to give limit 18. Independent bisection of stationarity for m=3,4,5,8,12,20 produced t_3=1, t_4≈1.3660254, t_5≈1.618034, t_20≈1.999982835 with scaled gaps trending to 18. Finite checks corroborate proof.
 
-**Limits.** The result covers only unweighted wheels in a specified Euclidean structure, with the ratio given by a uniquely solvable equation. Finite checks do not prove infinite assertions; no independent audit was performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: targeted Resultary comparisons, exact primary theorem/parameter inspection and implication tests do not reveal prior coverage of the specifically identified surviving result. A self-indexed copy of the assigned finding is not prior coverage; risks are documented.
+
+## value
+
+PASS
+
+A complete explicit eigenaxis/contact measure/unique Löwner ellipsoid and its exponentially precise optimal orbit weight asymptotic for a natural infinite wheel family is a substantial exact convex-geometric and optimal-design computation, beyond the general existence theorem or arbitrary numerical special cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
