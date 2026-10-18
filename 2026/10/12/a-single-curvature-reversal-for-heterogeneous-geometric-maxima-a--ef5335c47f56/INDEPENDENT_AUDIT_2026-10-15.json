@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T09:20:56.728301Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The finite-difference exponential-pair identity applied to p_k=(1−r)r^k+(1−s)s^k−(1−rs)(rs)^k yields Δ_k=(rs)^{k−1}H(k), with a strictly decreasing H and H(1)=rs(1−r)^2(1−s)^2(r+s+2)>0, H(∞)=−(1−r)(1−s)(r−s)^2<0 if r≠s. Thus exactly one real sign crossover; r=s is strictly log-concave. For positive log-concave parents with common support {0,1,2}, c1²−c0c2≥uw(u+w+2)>0. For common {0,1,2,3}, truncated geometric parents r=1/10,s=1/5 produce exact negative curvature −3/50000 before positive normalization. Independently re-expanded H(1) and four-point witness in exact SymPy arithmetic. This proves sharp minimum common support size four, not a classification of arbitrary supports.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2023 theorem concerns iid samples and sharp closure for identical parents.",
+          "2015 and 2018 available abstracts concern discrete order-statistic strong unimodality; entire full papers not obtained."
+        ],
+        "reasoning": "Potential extension of older theorems to heterogeneous geometrical parents is a residual risk, not declared absent from inaccessible material.",
+        "searches": [
+          "Ultra log-concavity of discrete order statistics 2023 full text",
+          "Discrete strong unimodality of order statistics 2015",
+          "Strong unimodality of discrete order statistics 2018"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1016/j.spl.2023.109900",
+        "https://ddd.uab.cat/pub/artpub/2023/283158/StaProLet_a2023v201n109900.pdf",
+        "https://doi.org/10.1016/j.spl.2015.04.019",
+        "https://doi.org/10.1016/j.spl.2018.04.018",
+        "RESULT.md and checker.py record #3 snapshot"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Setting r=s falls within the known same-parent closure result; taking r≠s violates its common-distribution hypothesis."
+        ],
+        "reasoning": "Prior iid preservation implies only the diagonal subcase; cannot imply opposite sign for distinct geometric r,s or the minimal common-support obstruction without extra arguments.",
+        "searches": [
+          "doi:10.1016/j.spl.2023.109900 theorem iid order statistics",
+          "doi:10.1016/j.spl.2015.04.019",
+          "doi:10.1016/j.spl.2018.04.018"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Maximum of two independent variables is the second order statistic of a non-identically distributed sample.",
+          "Same-parent order-statistic preservation theorems do not apply when r≠s."
+        ],
+        "reasoning": "Compared non-iid maxima with discrete order-statistic log-concavity and strong unimodality; the exact one-crossing property is a stronger sign-pattern statement than eventual log-convexity.",
+        "searches": [
+          "heterogeneous geometric random variables maximum log concavity curvature sign change",
+          "doi:10.1016/j.spl.2023.109900"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact negative rational curvature −3/50000 independently reconstructed; no matching four-point failure table in checked Resultary hits."
+        ],
+        "reasoning": "Finite witness is explicit; no finite empirical table substitutes for universal three-point inequality, which is proved symbolically.",
+        "searches": [
+          "Resultary search heterogeneous geometric maxima curvature log-concavity",
+          "r 1/10 s 1/5 maximum truncated geometric four point curvature"
+        ]
+      },
+      "rationale": "Badiella–del Castillo–Puig prove log-concavity preservation for order statistics formed from identically distributed discrete samples; this result distinguishes heterogeneity r≠s and obtains a single strict log-curvature reversal and sharp n=3 vs n=4 support boundary. The older Alimohammadi and Kim order-statistic papers may contain more general conditions; their full texts were unavailable, so no blanket claim about absence of special cases is made.",
+      "residual_risks": [
+        "Full 2015 and 2018 order-statistic papers were not inspected, so a prior theorem under unequal parent distributions remains possible.",
+        "Only same-consecutive-support smallest obstruction, not arbitrary nonidentical support positions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DOES_NOT_COVER_HETEROGENEOUS_MAXIMUM",
+          "evidence": [
+            "Main preservation theorem assumes identical distribution for all sample observations."
+          ],
+          "identifier_or_url": "https://ddd.uab.cat/pub/artpub/2023/283158/StaProLet_a2023v201n109900.pdf",
+          "material_read": "Open full-text availability and theorem description covering samples of identically distributed discrete random variables; comparison of sample assumptions and preservation conclusion",
+          "method": "lawful open-access manuscript/publication indexed text",
+          "title": "Ultra log-concavity of discrete order statistics",
+          "trigger": "Strong order-statistic theorem might dominate the claim"
+        },
+        {
+          "assessment": "ACCESS_LIMITED_POSSIBLE_PRIOR",
+          "evidence": [
+            "Abstract discusses log-concavity/strong unimodality of discrete order statistics; exact hetero-parameter scope unresolved."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.spl.2015.04.019",
+          "material_read": "Bibliographic record and accessible abstract, not complete article",
+          "method": "publisher-index abstract",
+          "title": "Discrete strong unimodality of order statistics",
+          "trigger": "Plausible broader 2015 prior for geometric order statistics"
+        },
+        {
+          "assessment": "ACCESS_LIMITED_POSSIBLE_PRIOR",
+          "evidence": [
+            "Could have stronger closure conditions; not asserted NOT_COVERING as a whole paper."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.spl.2018.04.018",
+          "material_read": "Bibliographic record/abstract only; full primary article not obtained",
+          "method": "publisher-index abstract",
+          "title": "Strong unimodality of discrete order statistics",
+          "trigger": "Plausible 2018 generalization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact boundary for closure of log-concavity under maxima of nonidentical independent parents is structural and motivated; it identifies precisely the first finite support where closure fails and determines the entire sign pattern of a natural geometric model. The four-point counterexample is not an arbitrary slice but the minimal universal obstruction.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1016/j.spl.2023.109900",
+    "https://ddd.uab.cat/pub/artpub/2023/283158/StaProLet_a2023v201n109900.pdf",
+    "https://doi.org/10.1016/j.spl.2015.04.019",
+    "https://doi.org/10.1016/j.spl.2018.04.018",
+    "RESULT.md and checker.py record #3 snapshot"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Full 2015 and 2018 order-statistic papers were not inspected, so a prior theorem under unequal parent distributions remains possible.",
+    "Only same-consecutive-support smallest obstruction, not arbitrary nonidentical support positions."
+  ],
+  "schema_version": 1
+}

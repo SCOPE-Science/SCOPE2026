@@ -1,11 +1,21 @@
-# Scientific review: geometric maximum curvature
+# Independent mathematical audit
 
-**Correctness: PASS.** The distributional formula follows by differencing independent geometric CDFs; a pairwise exponential-sum identity gives the exact curvature. Its positive-term-normalized expression is strictly decreasing and crosses zero once for unequal parameters; the equal case has an explicit strictly positive formula. The three-point proof uses monotonicity in terminal weights, and the four-point counterexample has exact negative curvature \(-3/50000\) before normalization. The supplied symbolic checker executed successfully. Infinite-index conclusions rest on calculus and exact algebra, not sampling.
+## correctness
 
-**Originality: PASS, subject to independent priority review.** The complete four-page 2023 Badiella–del Castillo–Puig article is a positive preservation theorem for *identically distributed* discrete order statistics. Its assumptions and conclusions do not imply an unequal-parent geometric crossover or the minimal four-point counterexample. The 2015 Alimohammadi–Alamatsaz–Cramer and 2018 Kim–Kim–Lee abstracts also describe one-parent order-statistic closure; their complete texts were unavailable after searches for lawful full text. Meaning/alias searches found no direct statement of the single transition or support threshold. This is not a guarantee against earlier equivalent formulations. A different result on heterogeneous Poisson maxima addresses **ultra**-log-concavity, not the ordinary log-concavity of geometric maxima, and neither statement subsumes the other.
+PASS
 
-**Value: PASS.** The common-parent hypothesis is structurally essential: its failure gives an exact global loss of log-concavity, not merely a numerical counterexample. The entire two-parameter geometric family has a unique curvature transition, and the finite-support theorem identifies the least possible common contiguous support size of any log-concave counterexample. This informs use of strong-unimodality and log-concavity closure arguments for heterogeneous count observations.
+The finite-difference exponential-pair identity applied to p_k=(1−r)r^k+(1−s)s^k−(1−rs)(rs)^k yields Δ_k=(rs)^{k−1}H(k), with a strictly decreasing H and H(1)=rs(1−r)^2(1−s)^2(r+s+2)>0, H(∞)=−(1−r)(1−s)(r−s)^2<0 if r≠s. Thus exactly one real sign crossover; r=s is strictly log-concave. For positive log-concave parents with common support {0,1,2}, c1²−c0c2≥uw(u+w+2)>0. For common {0,1,2,3}, truncated geometric parents r=1/10,s=1/5 produce exact negative curvature −3/50000 before positive normalization. Independently re-expanded H(1) and four-point witness in exact SymPy arithmetic. This proves sharp minimum common support size four, not a classification of arbitrary supports.
 
-**Remaining risks and scope.** No closed elementary expression for the crossover parameter is claimed; the theorem treats two independent geometric variables and the finite-support threshold, not arbitrary heterogeneous order statistics. Two directly related historical papers remain incompletely inspected; equivalent unpublished or earlier results could exist. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Badiella–del Castillo–Puig prove log-concavity preservation for order statistics formed from identically distributed discrete samples; this result distinguishes heterogeneity r≠s and obtains a single strict log-curvature reversal and sharp n=3 vs n=4 support boundary. The older Alimohammadi and Kim order-statistic papers may contain more general conditions; their full texts were unavailable, so no blanket claim about absence of special cases is made.
+
+## value
+
+PASS
+
+An exact boundary for closure of log-concavity under maxima of nonidentical independent parents is structural and motivated; it identifies precisely the first finite support where closure fails and determines the entire sign pattern of a natural geometric model. The four-point counterexample is not an arbitrary slice but the minimal universal obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
