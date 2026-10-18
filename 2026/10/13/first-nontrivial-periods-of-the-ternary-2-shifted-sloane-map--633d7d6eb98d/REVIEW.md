@@ -1,23 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The cycles are checked directly from their ternary expansions. The minimality statements are finite and exhausted exactly: every positive start below \(4096\) is iterated until repetition, yielding only
-\[
-36,\ 64,\ 72,\ 144,\ 288,\ 1152
-\]
-as periodic starts. The first four except \(64,72\) are fixed, \(64\leftrightarrow72\), and the distinct values
-\[
-4096,\ 10368,\ 4608
-\]
-form a 3-cycle.
+## correctness
 
-## Originality
-PASS. The focal 2020 paper explicitly asks for cycles and fixed points and says its precise classification applies to shift \(t=1\); its \(t=2\), base-\(3\) theorem is only a conditional stabilization result. Targeted statement, alias, exact-value, broader-coverage, and database searches did not locate these two least-period thresholds.
+PASS
 
-## Value
-PASS. The least non-fixed periodic point and the least point of period at least \(3\) are natural extremal invariants of the first shifted ternary case for which the focal paper does not classify cycles. The exact finite census provides a concrete unconditional boundary for a dynamics otherwise treated conditionally.
+The map is f(n)=product over base-3 digits of (d+2) for n>0. A separate independent exact-int enumerator followed all 4095 initial integers 1<=n<4096 until repetition, filtering a start only when on its eventual cycle. Exactly {36,64,72,144,288,1152} are periodic; 64<->72 and 4096->10368->4608->4096 checked by separate digit expansions. Maximum intermediate value 41472, maximum eight distinct orbit values before repeat. Hence least nonfixed periodic start 64 and least period>=3 start 4096. Bounded theorem only, not a global dynamics statement.
 
-## Closest literature and limitations
-The closest source is Bonuccelli--Colucci--de Faria, arXiv:2009.01114 / JIS Article 20.10.7. It defines the map, formulates the cycle question, completely handles \(t=1\), and conditionally proves stabilization for \(S_{2,3}\), but does not identify these periodic minima. The present finding does not claim the full periodic set or unconditional stabilization of all orbits.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bonuccelli–Colucci–de Faria set up this shifted-digit map; full-text comparison shows unconditional exact cycle classification for shift 1, with t=2 ternary stabilization conditional. Its results do not enumerate the first t=2, b=3 cycle minima. A targeted Resultary search and public exact-value searches found no stronger coverage; no claim of a full all-orbit classification.
+
+## value
+
+PASS
+
+The smallest nonfixed and first period-three points are canonical dynamically defined extremes in the first nontrivial shifted ternary case posed by primary work as unresolved. A complete no-smaller-period finite census gives two reproducible exact boundary facts rather than arbitrary selected orbits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
