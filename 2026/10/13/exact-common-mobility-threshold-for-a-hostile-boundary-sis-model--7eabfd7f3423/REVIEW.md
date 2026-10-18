@@ -1,23 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. On the common-mobility ray, the disease-free profile is exactly \(\Psi/d\), so the source reproduction quotient is
-\[
-C_\phi/(d^2A_\phi+dB_\phi).
-\]
-For every test function the threshold is the unique positive root of \(A_\phi d^2+B_\phi d=C_\phi\). Taking the supremum of those roots yields the exact global threshold, including equality via a maximizing sequence. Poincaré and coefficient bounds prove finiteness. The source's equal-diffusion theorem then gives the stated globally attractive equilibrium on each side and at the boundary.
+PASS
 
-## Originality
+PASS: The DFE solves -d Delta S=Lambda, so S=Psi/d; inserting in the source Rayleigh quotient indeed produces C/(d^2 A+d B). A>0 for nonzero H_0^1 tests, B,C>0. Each quotient is >1 iff d is smaller than the positive quadratic root r_phi. For d>sup r_phi, pointwise C<=d_c^2 A+d_c B <= (d_c/d)(d^2 A+d B), so the supremum is strictly <1. At d=d_c, maximizing roots r_phi_j ->d_c give a lower bound (r_phi_j/d_c)^2 ->1, so equality holds without assuming attainment. Poincare and bounded coefficients give a finite positive d_c and the min-gamma/eigenvalue bound. Denominators increase at least by d2/d1, giving monotonicity. Global attractivity is inherited exactly from the primary source equal-diffusion theorem, not strengthened. Four rational A,B,C triples were rechecked with exact rational root brackets; those tests only corroborate algebra.
 
-PASS. Movement-dependent reproduction numbers and hostile-boundary SIS threshold dynamics are established prior art. The source itself proves equal-diffusion global attractivity conditional on \(\mathcal R_0\) and qualitative large-diffusion extinction. The accepted claim is narrower and new relative to the inspected material: an exact common-mobility critical value, its test-function root formula, strict monotonicity estimate, and the resulting complete one-parameter global phase diagram. Targeted source-specific and equivalent-formulation searches found no dominating statement.
+## originality
 
-## Value
+PASS
 
-PASS. The formula turns “large mobility eliminates disease” into a sharp control quantity that can be bounded from above by the first Dirichlet eigenvalue and from below by any trial function. It also identifies why tying the two mobilities together produces a stronger quadratic dispersal penalty and exactly one eradication transition.
+PASS: This is the sharp scalar common-mobility phase boundary and its variational root formula for the particular mass-action hostile-boundary source model, not a new general spectral theorem. The parent paper already proves threshold dynamics conditional on R0, including the equal-diffusion restriction, and qualitative large-d extinction. The root envelope and global one-parameter intervention classification are obtained by the extra DFE scaling of susceptible density and the resulting d^2 term. No source-specific equivalent or dominating statement was identified from the relevant primary and indexed comparisons. The source Theorem 3.2 text itself was not independently accessible in full here; that access limitation is explicitly retained.
 
-## Closest literature and limitations
+## value
 
-Earlier Dirichlet SIS work establishes reproduction-number thresholds and diffusion asymptotics, so neither the general spectral method nor movement-based control is claimed as new. The result is restricted to \(d_S=d_I\), generally remains variational rather than elementary, and does not give a critical convergence rate.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The paper poses mobility as disease control yet only gives qualitative sufficiently large movement. This exact, positive, finite and readily bracketable critical common mobility answers the natural quantitative eradication question and distinguishes the two coupled movement effects. The exact monotone crossing and equality case are meaningful beyond merely restating R0<=1, though the underlying Rayleigh manipulation is elementary and generic spectral tools are prior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
