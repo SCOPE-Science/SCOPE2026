@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed object is the full edge-open-packing polynomial for labeled sunlets \(S_n\) with \(n\ge3\), including the empty set. The direct distinct-third-edge definition agrees with the two cyclic implications in the proof; the small triangular boundary is explicitly included. The four-state flags are uniquely recovered from the two preceding masks, so the trace counts each labeled edge subset exactly once. Symbolic expansion establishes the four-by-four characteristic polynomial, and Newton identities give the recurrence. Comparing leading terms establishes the degree and exact maximum multiplicities without extrapolating from data. A separate direct edge-pair verifier exhaustively checks 349,504 subsets, and two symbolic transfer formulations agree. Risk: an error in a mathematical derivation not detected by these finite checks remains possible; no external certification is claimed.
+## correctness
 
-## Originality — PASS, with residual bibliographic uncertainty
-The closest inspected published work is Chelladurai–Kalimuthu–Soundararajan (2022), which establishes basic edge-open packing and the maximum for bare cycles, and Brešar–Samadi (2024), which supplies algorithms and bounds including trees. Pandey–Santra (2025) gives conditions for a prescribed scalar maximum, while Cardoso–Cerdeira–Cruz–Dominic develops the injective-edge-coloring connection. Gayathri–Venkataraman (2026) considers bounds for unicyclic graphs, but its relevant full text could not be accessed; this is an explicit unresolved overlap risk for the scalar corollary, not positive evidence of all-cardinality coverage. None of the materially examined sources provides all sunlet coefficients, a quartic transfer or the extremal multiplicity formulas. The generic conflict-graph independence-polynomial equivalence is acknowledged rather than treated as novel. Searches under edge-open-packing, injective-edge-coloring and sunlet/corona aliases did not locate a dominating prior formula. Risk: a preexisting equivalent calculation under periodic conflict-graph or independence-polynomial terminology may have escaped indexing; absence from search results is not a proof of priority.
+PASS
 
-## Mathematical value — PASS
-Edge-open packings are injective edge-color-class candidates, and exact distributions—not just one optimum—describe every feasible cardinality for a natural infinite cyclic graph family. An explicit four-state transfer, fixed-order recurrence, sharp optimum and exact counts of optimum sets are structural information not supplied by scalar optimization bounds. The boundary between cyclic and tree structures motivates this case; it is not an arbitrary finite table or a renamed general reduction.
+For n>=3 under the distinct-third-edge conflict definition, the only positive-site constraints are a pendant choice forcing site i+1 empty and a cycle choice forcing site i+2 empty. The two Boolean flags before each site have unique cyclic reconstruction; summing four mask weights gives the displayed 4x4 W, and closed length-n trajectories biject to labeled packings. Its exact characteristic polynomial gives the quartic recurrence with formal n=0,1,2 traces. Nonnegative leading terms and the n modulo 4 induction give degree floor(3n/4) and the four exact leading-coefficient formulas. I independently enumerated conflicting-edge subsets directly (not via the local rule) for n=3..8 and compared all coefficients, with leading terms also checked through n=19. This finite corroboration is separate from the unrestricted proof.
 
-## Limitations and comparisons
-The result applies to a single cycle with one private leaf per vertex, not all coronas or arbitrary unicyclic graphs. Earlier work's general conflict-graph construction could in principle be specialized to derive this polynomial, but no inspected source performs or implies this exact specialized computation without further analysis. Published and preprint text was assessed, but one 2026 unicyclic-bounds article was available only by abstract; no claim is made that every possible independent or unindexed derivation has been found.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No inspected prior statement or mathematical implication supplied the entire exact all-size sunlet packing polynomial, four-state transfer, or sharp maximum-set multiplicity. Published edge-open packing results emphasize cycles, trees, scalar extremal sizes and unicyclic scalar bounds. The generic packing/independence-polynomial correspondence is credited, and inaccessible primary text remains a genuine residual risk.
+
+## value
+
+PASS
+
+Sunlets are a canonical unicyclic family beyond tree algorithms. The complete enumerator determines every packing size, its unbounded recurrence, the exact maximum and nontrivial residue-dependent multiplicities—substantive precise invariants not implied by existing scalar bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-The complete proof is in `RESULT.md`; the executable `verify_eop.py` and captured output `verify_output.txt` are included in this package. Run `python verify_eop.py` with Python 3 and SymPy installed.
+## correctness
 
-The direct reference enumerator builds the sunlet as an edge list, declares two chosen edges incompatible only if a third distinct graph edge connects their endpoints, and checks all edge subsets. The reference does **not** use the four-state mask classification or the quartic recurrence. Its 349,504 candidate-subset checks cover every edge subset for \(3\le n\le9\) and compare every coefficient with the recurrence. Symbolic exact-arithmetic checks independently construct the four-state matrix and a 16-state sliding-window matrix and establish the claimed characteristic identities. The sharp degree and maximum-coefficient formulas are checked for all integer \(n\) from 3 through 32.
+PASS
 
-The proof, rather than these finite tests, establishes the result for all \(n\ge3\). No formal proof-assistant certification, independent assessment, or claim about more general graph classes is made.
+For n>=3 under the distinct-third-edge conflict definition, the only positive-site constraints are a pendant choice forcing site i+1 empty and a cycle choice forcing site i+2 empty. The two Boolean flags before each site have unique cyclic reconstruction; summing four mask weights gives the displayed 4x4 W, and closed length-n trajectories biject to labeled packings. Its exact characteristic polynomial gives the quartic recurrence with formal n=0,1,2 traces. Nonnegative leading terms and the n modulo 4 induction give degree floor(3n/4) and the four exact leading-coefficient formulas. I independently enumerated conflicting-edge subsets directly (not via the local rule) for n=3..8 and compared all coefficients, with leading terms also checked through n=19. This finite corroboration is separate from the unrestricted proof.
+
+## originality
+
+PASS
+
+No inspected prior statement or mathematical implication supplied the entire exact all-size sunlet packing polynomial, four-state transfer, or sharp maximum-set multiplicity. Published edge-open packing results emphasize cycles, trees, scalar extremal sizes and unicyclic scalar bounds. The generic packing/independence-polynomial correspondence is credited, and inaccessible primary text remains a genuine residual risk.
+
+## value
+
+PASS
+
+Sunlets are a canonical unicyclic family beyond tree algorithms. The complete enumerator determines every packing size, its unbounded recurrence, the exact maximum and nontrivial residue-dependent multiplicities—substantive precise invariants not implied by existing scalar bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
