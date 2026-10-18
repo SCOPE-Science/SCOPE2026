@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "For each maximal clique, an unselected vertex cannot have two selected clique neighbors, so its selected intersection is empty, singleton, or full. The vertex/block incidence graph is a tree. The exact boundary states selected, unselected-with-zero-descendant-neighbors and unselected-with-one-descendant-neighbor form an exhaustive disjoint partition. The algebraic block transitions and vertex convolution handle uniquely all selected-neighbor contributions; induction yields the full multivariate enumerator. There are O(n) block incidences and constant-gate updates per incidence; the standard block decomposition costs O(n+m). Direct brute-force subset enumeration agrees coefficientwise for all 1816 generated instances of order up to 12 in verify.py, including singleton/complete graphs and different clique articulation arrangements. Finiteness of the experiment is stated and does not replace the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dourado et al., arXiv:2603.04706v1, Theorem 3 proves a linear-time count for trees, and Theorem 14 for threshold graphs; their Sections 4.1-4.3 analyze general exact exponential algorithms.",
+        "Dourado et al., same paper, Section 4.3.1 assumes a fixed number of disjoint clique parts, not an arbitrary incidence tree of overlapping clique blocks.",
+        "Block graphs have unbounded maximal clique size and unbounded treewidth, so fixed-treewidth counting results do not alone establish the unrestricted circuit."
+      ],
+      "reasoning": "The new theorem covers all connected block graphs, including graphs with triangles, arbitrarily many overlapping clique blocks and unbounded clique number. Neither the tree-domain theorem nor the threshold-domain theorem nor generic exponential algorithms logically entail the claimed linear-size weighted circuit. A generic junction-tree approach might supply an equivalent result elsewhere; that is retained as residual risk.",
+      "searches": [
+        "Counting P3-convex sets graph line graphs of trees, block graph, line graph, edge subsets, exact polynomial, algorithm",
+        "counting P3 convex sets chordal graphs",
+        "Counting P3-convex sets in graphs Section 4 general exponential algorithms",
+        "block graph P3 convex linear time counting all weights"
+      ]
+    },
+    "checked_sources": [
+      "Dourado, Grippo, Lin, Protti: Counting P3-convex sets in graphs, arXiv:2603.04706v1 (full relevant primary text).",
+      "Published mathematical record on Lovasz neighborhood complexes of block graphs (different homotopy invariant; semantic comparison).",
+      "Older P3-convexity Carathéodory and hull papers identified through journal and bibliographic abstracts (different invariants; no full-text noncoverage inference).",
+      "Targeted general-web and semantic mathematical-record searches for P3-convex set enumeration on clique trees and block graphs."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Dourado et al., arXiv:2603.04706v1, Theorems 3 and 14 and Section 4.3.1, read as precise statements.",
+        "One-subdivisions of simple graphs are bipartite, whereas the present family contains clique blocks of every size; a one-subdivision counting identity therefore lacks the full new domain.",
+        "A separate published study of Lovasz neighbourhood complexes of block graphs concerns homotopy types, not P3-convex-set counts."
+      ],
+      "reasoning": "The elementary clique selection pattern is covered and is credited. What is not implied by the inspected stronger statements is how to combine those local patterns across arbitrarily many shared articulation vertices using exactly three boundary states, with a linear arithmetic circuit for multivariate weights. The difference is one of mathematical consequences, not wording.",
+      "searches": [
+        "Counting P3-convex sets in graphs arxiv 2603.04706 full text Theorem 3 Theorem 14 block",
+        "P3 convex sets of graph subdivisions exact matching expansion",
+        "blockwise spheres in neighborhood complexes of block graphs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dourado et al., arXiv:2603.04706v1, Section 1 defines P3-convex sets by the same exterior-neighbour condition used here.",
+        "Targeted literature and semantic-record results include convexity Carathéodory/hull problems and neighbourhood complexes, which count or classify different objects."
+      ],
+      "reasoning": "The two-neighbour bootstrap-closure wording and the exterior-neighbour condition are mathematically equivalent, so titles alone are insufficient. Searches using both formulations found no linear weighted enumeration theorem for arbitrary clique-block trees. Non-retrieval is not a uniqueness proof.",
+      "searches": [
+        "P3 convexity of block graphs count convex vertex subsets",
+        "P_3 convex sets on chordal block graphs: graph vertex subset with each exterior vertex having at most one chosen neighbor; all sizes generating polynomial",
+        "P3-convex sets of line graphs of forests strong P3-convexity counting"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected 2026 paper tabulates path and star scalar counts (Section 2.2), not the full arbitrary-block weighted polynomial.",
+        "Finite vectors in the verification file were obtained independently by direct enumeration and are not presented as novel database entries."
+      ],
+      "reasoning": "The theorem is an all-instance symbolic recurrence, not a new individual numerical table entry. Existing path/star tables and the separately established one-subdivision formula cannot furnish the general clique-block multivariate recurrence. The negative search is only supporting context, not proof of nonexistence.",
+      "searches": [
+        "P3-convex set polynomial friendship graph hub and triangles 1+2kz+z(1+z^2)^k",
+        "number of P3 convex sets block graph",
+        "weighted P3 convex set enumerator for block graphs, clique tree dynamic programming"
+      ]
+    },
+    "rationale": "In the inspected 2026 primary research study of exactly this P3-convex-set counting problem, the proved linear algorithms address trees (Theorem 3) and threshold graphs (Theorem 14); the general method remains exponential. Its Section 4.3.1 already identifies the none/one/all clique restriction, so this elementary local observation is credited. It does not give the arbitrary-block-clique incidence-tree recursion or the linear-size multivariate circuit. Other compared research records concern different invariants or graph domains. No covering exact weighted block-graph theorem was recovered in targeted searches; this is best-knowledge originality, subject to residual bibliographic risk.",
+    "residual_risks": [
+      "An unindexed paper or theorem from graphical models/acyclic factor hypergraphs could encode an equivalent three-state circuit.",
+      "The full text of every older convexity paper was not inspected; abstract-only comparisons are not proof of noncoverage.",
+      "Negative database searches do not establish priority, and independent mathematical review has not been carried out."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest primary work, partial ingredients explicitly credited; does not state the unrestricted block-graph weighted circuit or a linear algorithm for arbitrarily many shared clique blocks.",
+        "evidence": [
+          "Theorem 3: linear-time scalar counting on trees.",
+          "Theorem 14: linear-time scalar counting on threshold graphs.",
+          "Section 4.3.1: any clique has zero, one or all vertices selected, but only a fixed-number clique-side enumeration is developed.",
+          "Sections 4.1-4.3: general exact exponential algorithms."
+        ],
+        "identifier_or_url": "arxiv:2603.04706v1; https://arxiv.org/abs/2603.04706",
+        "material_read": "Accessible full-paper rendered text: introduction and definitions, Section 2 tree recurrence and extremal results, Section 3 split hardness and threshold counting, and Sections 4.1 through 4.3.1 generic algorithms and the clique-choice restriction.",
+        "method": "Read arXiv-rendered full scientific text and compared stated theorems, hypotheses, proof constructions and clique conditions with the new three-state recurrence.",
+        "title": "Counting P3-convex sets in graphs",
+        "trigger": "Directly studies counting the identical P3-convex vertex subsets, including clique restrictions and tractable graph families."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "473be4ff-33e8-49ef-8d36-309be1ab46fc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating 2026 paper proves #P-hardness already on split graphs and supplies tractable tree/threshold cases, so a substantial additional tractable family is a natural structural counting target. Connected block graphs admit unbounded clique sizes and arbitrary clique-block incidence trees, and the theorem handles every weighted vertex subset simultaneously in a compact arithmetic circuit. The incidence arrangement affects actual coefficients (e.g. three triangles in a chain vs three sharing a vertex), showing the theorem is more than a routine block-size product. The result is mathematically motivated, structurally exact and algorithmically useful without invoking an unproved downstream conjecture.",
+    "status": "PASS"
+  }
+}
