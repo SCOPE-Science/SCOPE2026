@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The complete sign-pattern maximum is proved by counting sign transitions and comparing explicit positive factorizations. The entropy minimizer follows from equality in the exponential variational inequality; the sharp asymptotic follows from a maximal-span lattice local central limit theorem after tilting, with all remaining sign patterns exponentially suppressed. The endpoint support classification and cardinality are proved combinatorially. The standalone checker passed 83,722 finite tests. The proof, not the finite experiments, establishes the infinite assertions.
+
+**Originality — PASS, with a documented access risk.** Targeted research-record queries for multinomial neighboring-bin total variation, alternating histogram contrast, and fixed-bin sharp large deviations did not surface an equivalent statement. The nearest first-moment article, arXiv:2610.13366v1, addresses expectations, while the earlier *Comb Test*, arXiv:2606.01465v1, reports exact-null dynamic programming in its accessible abstract; neither accessible source supplied the all-bin entropy-minimizer classification or a lattice-sensitive large-deviation coefficient. The full *Comb Test* article could not be inspected, so a potentially implicit equivalent treatment there remains a residual priority risk. General Sanov and Bahadur–Rao principles are not claimed as new.
+
+**Mathematical value — PASS.** The statistic is specifically designed to detect neighboring-bin alternation; calibrating its extreme-tail false-positive probability is a natural missing quantitative question. An explicit sharp exponent plus prefactor, parity-dependent most-likely rare histograms, and the exact maximum-threshold regime provide interpretable noncentral calibration rather than a routine re-expression of a known expectation. The alternating-maximizer lemma is structural and applies uniformly over all fixed bin counts.
+
+Limits: fixed bin dimension and fixed threshold in the strong asymptotic; no full simultaneous high-dimensional regime or finite-sample exact null distribution claimed. Primary prior full-text access is incomplete for the earlier *Comb Test*; full-text review of arXiv:2610.13366v1 did not find this specific upper-tail statement.
+
+Self-review: passed. Independent audit: not yet performed.
