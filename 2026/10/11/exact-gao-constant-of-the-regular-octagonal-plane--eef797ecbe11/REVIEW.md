@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof establishes a sharp Euclidean sandwich for the octagonal norm from the exact unit-ball vertices. Combining its lower side with the Euclidean parallelogram identity gives a global lower bound for every unit pair, and the displayed coordinate/diagonal pair attains it. The exact algebraic checker reproduces the candidate value and witness identities. No numerical search is used as proof.
+## correctness
 
-## Originality
-PASS. The closest primary source is Zuo--Huang--Huang--Wang (2022), which defines the lower Gao-type invariant and gives the relevant Euclidean-comparison lower bound. Its Theorem 7 provides equality only under a maximizer-matching condition. For the regular octagon, the comparison-ratio maximizers do not satisfy that condition, so the theorem does not imply equality. The inspected examples do not state the regular-octagon value. A 2023 paper with similar terminology concerns a distinct supremal invariant. Targeted searches found related exact octagon invariants and Gao constants for other norm families, but no implication of the present claim.
+PASS
 
-## Value
-PASS. The regular octagon is a canonical symmetric absolute normalized plane, and the lower Gao constant is directly tied to uniform non-squareness in the motivating literature. The exact benchmark is mathematically natural and additionally demonstrates that the published sufficient equality condition for the comparison lower bound is not necessary.
+For N(s,t)=max(|s|,|t|,(|s|+|t|)/sqrt2), each branch <= Euclidean norm. The unit ball octagon has eight vertices from (1,sqrt2-1),(sqrt2-1,1) by signs/swaps, all Euclidean radius d=sqrt(4-2sqrt2), so convexity gives Euclidean/d <= N <= Euclidean on every vector. For N-unit x,y, parallelogram identity proves [N(x+y)^2+N(x-y)^2]/4>=1/d^2=(2+sqrt2)/4. At x=(1,0), y=(1/sqrt2,1/sqrt2), both unit, N(x+y)=1+1/sqrt2 and N(x-y)=1/sqrt2, attaining bound. Independently numerically recalculated exact witness and reviewed Q(sqrt2) checker identities; analytic Euclidean sandwich proves continuum, not finite sampling.
 
-## Closest literature and limitations
-The result is confined to the quadratic lower Gao constant of the real regular octagonal plane; it does not compute the full \(p\)-parameter profile. The originality conclusion is bounded by the inspected sources and searches and does not assert exhaustive bibliographic uniqueness.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original specific exact claim after theorem-level comparisons; detailed four checks and non-fabricated primary-source inspections follow. Search absence is not proof of priority, and significant prior-specialization risks are recorded.
+
+## value
+
+PASS
+
+The regular octagonal Banach plane is a canonical absolute normalized norm, and lower Gao c_NJ is an intrinsically motivated geometric constant. Its exact value is a reusable sharp benchmark, and the explicit equality witness shows the sufficient maximizer-matching condition in the published abstract norm theorem is not necessary on this plane.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

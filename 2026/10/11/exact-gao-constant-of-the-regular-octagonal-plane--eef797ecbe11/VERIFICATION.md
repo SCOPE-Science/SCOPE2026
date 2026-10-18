@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,31 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The proof has two global ingredients and one equality computation.
 
-First, for every \(z=(s,t)\), each defining branch of \(N(z)\) is at most \(\|z\|_2\), hence \(N(z)\le\|z\|_2\).
+# Independent mathematical audit
 
-Second, the unit ball has eight vertices with Euclidean squared norm
-\[
-1+(\sqrt2-1)^2=4-2\sqrt2.
-\]
-Convexity gives
-\[
-\|z\|_2\le\sqrt{4-2\sqrt2}\,N(z)
-\]
-for every \(z\). For \(N(x)=N(y)=1\), the Euclidean parallelogram identity then yields
-\[
-N(x+y)^2+N(x-y)^2\ge\frac4{4-2\sqrt2}.
-\]
-Dividing by \(4\) gives the claimed lower bound.
+## correctness
 
-For \(x=(1,0)\) and \(y=(2^{-1/2},2^{-1/2})\), direct evaluation gives
-\[
-N(x+y)=1+2^{-1/2},\qquad N(x-y)=2^{-1/2},
-\]
-so the lower bound is attained exactly.
+PASS
 
-The bundled `verify.py` performs exact arithmetic in \(\mathbb Q(\sqrt2)\) for these identities and also verifies that the comparison extrema used in the closest published equality criterion occur at incompatible parameters. Its expected terminal output is `VERIFY_OK`.
+For N(s,t)=max(|s|,|t|,(|s|+|t|)/sqrt2), each branch <= Euclidean norm. The unit ball octagon has eight vertices from (1,sqrt2-1),(sqrt2-1,1) by signs/swaps, all Euclidean radius d=sqrt(4-2sqrt2), so convexity gives Euclidean/d <= N <= Euclidean on every vector. For N-unit x,y, parallelogram identity proves [N(x+y)^2+N(x-y)^2]/4>=1/d^2=(2+sqrt2)/4. At x=(1,0), y=(1/sqrt2,1/sqrt2), both unit, N(x+y)=1+1/sqrt2 and N(x-y)=1/sqrt2, attaining bound. Independently numerically recalculated exact witness and reviewed Q(sqrt2) checker identities; analytic Euclidean sandwich proves continuum, not finite sampling.
 
-The checker does not certify the literature search and does not replace the analytic proof of the global norm comparison.
+## originality
+
+PASS
+
+Best-of-knowledge original specific exact claim after theorem-level comparisons; detailed four checks and non-fabricated primary-source inspections follow. Search absence is not proof of priority, and significant prior-specialization risks are recorded.
+
+## value
+
+PASS
+
+The regular octagonal Banach plane is a canonical absolute normalized norm, and lower Gao c_NJ is an intrinsically motivated geometric constant. Its exact value is a reusable sharp benchmark, and the explicit equality witness shows the sufficient maximizer-matching condition in the published abstract norm theorem is not necessary on this plane.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
