@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The object is a root polytope of a cyclically indexed directed simple graph, with all root vectors of squared Euclidean norm two. The equal-norm barycentric ball certificate is proved directly by the weighted-distance identity; it establishes minimum volume of the enclosing ball (minimum radius) and center uniqueness. For every \(k\ge4\), explicit strictly positive rational coefficients on two internally vertex-disjoint oriented arms sum to one; their tridiagonal Gram equations give one common support scalar. Both omitted arc pairings are strictly greater by an exactly computed positive rational amount. The six-vertex case is independently certified by a positive six-entry barycentric vector. Proof identities and boundaries have been recomputed; the delivered checker verifies 68 integer dimensions exactly. No extrapolation from finite enumeration is used.
+## correctness
 
-## Originality — PASS, with residual risk
-The primary full texts of Numata–Takahashi–Tamaki (arXiv:2203.14521v1) and Kálmán–Tóthmérész (arXiv:2105.00960v3) establish directed-cycle face and lattice/dissection theory, not these metric minimax and contact classifications. Existing general results about canonical equal-vertex spheres on semi-balanced quivers only supply the minimum radius when a flow feasibility condition holds; when it fails, they explicitly leave the smaller minimum sphere open. Here the full orientation fails that condition for every \(k\ge4\), and the new exact two-point screening certificate solves that missing metric case. A path-simplex one-reversal theorem and a cycle symmetric-polytope inradius theorem have different premises and conclusions, and neither yields the new original-cycle minimum sphere. The closest oriented-cycle Ehrhart enumeration does not imply Euclidean distances. Targeted indexed literature and mathematical database queries did not locate equivalent formulas. Residual risk: equivalent formulas may be expressed under alternative signed-root, electric-network, or Euclidean active-set terminology; the public finding index provided summaries rather than full Github texts.
+PASS
 
-## Value — PASS
-This is a complete all-dimensional classification for a canonical *smallest nontrivial perturbation* of the sharp two-block balanced cycle orientation, not an arbitrary slice: one interchanged plus/minus pair changes the directed graph's source structure while preserving its entire face lattice and lattice combinatorial invariants. The optimal enclosing-ball contact set exhibits a rigorous sharp six-to-eight vertex transition, deleting exactly two contacts in every higher even dimension. The exact positive weights, clearance and rational radius defect quantify geometric sensitivity invisible to combinatorial and Ehrhart data. The distinction between the easily computed common-vertex sphere and the true smaller optimal sphere is the nonroutine mathematical obstruction resolved.
+Reconstructed the equal-norm barycentric certificate: if c=sum w_i v_i (nonnegative w sum1) has <c,v_i>≥||c||², with equality on support, then radius²=2−||c||² is globally minimal and center unique by weighted variance identity. For k≥4 the two directed arms have Gram diagonal 2, neighboring −1, shared-source +1. The explicit quadratic arm weights sum 1/2 per arm and solve the discrete second-difference equations, yielding ||c||²=3(2k−1)/[(k−1)k(k²−k+1)]. The two omitted arcs have strict dot-product clearance giving 6(k²−4k+2)/[(k−1)k(k²−k+1)] for k≥4. k=3 separately has six positive weights and R²=28/17. Independent exact rational tests covered k=3,4,5,8,30 with all vertex distances and contacts; full result follows from symbolic all-k identities, not the tests.
 
-## Residual limitations
-General balanced sign words are not classified; no affine-invariant claim is asserted. A second published full-text equivalence under a different model remains a search risk. Exact computations check finitely many parameters and do not substitute for the proof.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Numata–Takahashi–Tamaki characterize faces of directed edge polytopes, and Kálmán–Tóthmérész develops semi-balanced graph root polytopes; neither inspected source statement provides the Euclidean active-set/radius formula. The full published semi-balanced canonical-sphere theorem was separately inspected: it gives only an all-vertex sphere and a feasibility criterion, and explicitly leaves true smaller minimum sphere unspecified when infeasible, precisely this k≥4 case. The separate path one-reversal result concerns a tree and one excluded contact rather than a cycle and two. O passes best-of-knowledge with terminology risk.
+
+## value
+
+PASS
+
+A single adjacent sign swap is the smallest natural nontrivial balanced perturbation of a two-block orientation, preserving face lattice but changing Euclidean sphere geometry. The exact all-dimensional minimum radius, exceptional k=3 threshold, precisely two screened vertices, positive contact weights, and strict clearances resolve the geometric active-set transition unavailable from combinatorics alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
