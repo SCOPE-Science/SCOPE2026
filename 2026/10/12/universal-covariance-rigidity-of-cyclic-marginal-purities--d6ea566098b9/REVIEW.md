@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The full-support condition transfers almost-sure constant linear combinations to universal continuous identities. Product states set their constant values; translated two-site maximally entangled probes turn the question into the common kernel of circulant cut-incidence matrices. At Fourier frequency \(z\), the adjacent-pair response is proportional to \(1+z^k\). If \(2k<n\) and this is zero, the separation-\(k+1\) response equals a nonzero factor \(2\). At balance only antisymmetric half-shift modes remain, exactly matching complementary Schmidt equalities. This proves the all-size rank, and exact finite incidence/Haar permutation checks corroborate boundary cases.
+## correctness
 
-## Originality — PASS, with access risk
-The closest published source, Mirsohi (arXiv:2608.28914v1), supplies the entire cyclic *Haar* covariance kernel and a scalar average-purity variance. The new claim is an ensemble-independent classification of the universal affine hull and of all full-support covariance nullspaces, with explicit finite product/Bell-pair witnesses. The older planar-uniformity constructions concern existence of states with prescribed maximally mixed marginals, not universal affine dependencies. Targeted bibliographic and semantic searches found no directly equivalent classification. The principal preprint was inspected at the abstract and secondary section-summary level but its primary complete text could not be read; possible explicit prior statements there remain a substantial residual risk rather than a claimed negative full-text comparison.
+PASS
 
-## Value — PASS
-The natural invariant is the number of genuinely distinct cyclic marginal-purity coordinates, fundamental to the planar-uniformity benchmark: outside the balanced cut there is no hidden exact linear redundancy, while at balance there is precisely the obvious complementary redundancy. The result applies to non-Haar full-support ensembles and gives a finite constructive probe family. This distinguishes exact dependence from mere pairwise correlations; it asserts neither good numerical conditioning nor sample-efficiency rates.
+For full-support pure-state probability laws, a continuous linear combination of purities has zero variance iff it is constant on every pure state. Product probes fix its constant; a Bell pair on sites j,j+h produces the cut indicator B_h(j,s). The translated h=1 matrix has Fourier multiplier z^(j-k+1)(1+z^k); for 2k<n the h=k+1 multiplier is z^(j-k+1)(1+z^(k+1))*sum(r=0..k-1)z^r. If the first vanishes then z^k=-1, z≠1, the second equals 2z^(j-k+1)≠0. The stacked cut incidence rank is therefore n. If n=2k the only Fourier kernel is the k-dimensional half-shift antisymmetry, equivalent to Schmidt equality P_(s+k)=P_s. Bell probes attain each affine dimension. Independent exact rational SymPy matrix ranks for all n=3..14 and admissible k agree; finite tests cannot replace the all-n Fourier proof.
 
-## Limitations and closest literature
-Prior Haar formulas already determine every numerical second moment for the Haar law; those formulas are not claimed as new. The proof needs pure global states and full support for the stochastic conclusion. The nearest full manuscript was inaccessible; originality could change following its complete inspection. Other compared works: Doroudiani–Karimipour (Phys. Rev. A 102, 012427, 2020), Wang (arXiv:2106.12209), and Paraskevopoulos et al. (PRX Quantum 6, 020307, 2025). Exactness is an analytic theorem, not an experimental assertion.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct mathematical statement relative to the compared accessible primary results, with explicit access and broad-priority risks.
+
+## value
+
+PASS
+
+Exact affine dimension and ensemble-uniform covariance nullspaces are natural structural invariants for cyclic marginal-purity coordinate measurements and planar-uniform state constraints. The theorem rules out all hidden exact linear redundancies outside balanced complements using a constructive finite set of pure probes. It neither claims independence of random variables nor numerical conditioning or sample-size lower eigenvalue bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

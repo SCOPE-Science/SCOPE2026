@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` with a standard-library Python 3 interpreter. Its local run returned:
+# Independent mathematical audit
 
-`VERIFY_OK incidence_cases=99 four_replica_cases=116 covariance_cases=38`
+## correctness
 
-The incidence computations cover all admissible length parameters up to 20 sites, and check the ranks of the translated Bell-pair cut matrices exactly modulo a large prime. The independent 24-permutation calculation reconstructs exact rational Haar second moments at all checked size/overlap pairs and verifies the claimed balanced/unbalanced covariance ranks, with the small balanced-qubit variance compared to its published numerical value. These bounded computations do not prove the statement for arbitrary sizes or for arbitrary full-support ensembles; the proof in RESULT.md does so via Fourier factors and continuity. Finite modular rank agreement is not a replacement for the analytic rank proof. No external or independent audit was conducted.
+PASS
+
+For full-support pure-state probability laws, a continuous linear combination of purities has zero variance iff it is constant on every pure state. Product probes fix its constant; a Bell pair on sites j,j+h produces the cut indicator B_h(j,s). The translated h=1 matrix has Fourier multiplier z^(j-k+1)(1+z^k); for 2k<n the h=k+1 multiplier is z^(j-k+1)(1+z^(k+1))*sum(r=0..k-1)z^r. If the first vanishes then z^k=-1, z≠1, the second equals 2z^(j-k+1)≠0. The stacked cut incidence rank is therefore n. If n=2k the only Fourier kernel is the k-dimensional half-shift antisymmetry, equivalent to Schmidt equality P_(s+k)=P_s. Bell probes attain each affine dimension. Independent exact rational SymPy matrix ranks for all n=3..14 and admissible k agree; finite tests cannot replace the all-n Fourier proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge distinct mathematical statement relative to the compared accessible primary results, with explicit access and broad-priority risks.
+
+## value
+
+PASS
+
+Exact affine dimension and ensemble-uniform covariance nullspaces are natural structural invariants for cyclic marginal-purity coordinate measurements and planar-uniform state constraints. The theorem rules out all hidden exact linear redundancies outside balanced complements using a constructive finite set of pure probes. It neither claims independence of random variables nor numerical conditioning or sample-size lower eigenvalue bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
