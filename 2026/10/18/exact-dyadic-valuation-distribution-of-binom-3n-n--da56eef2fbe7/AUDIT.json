@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "Kummer carries plus explicit four-state matrix including the terminal carry give a bijection between all k-bit padded indices and correctly weighted paths. Formal resolvent algebra proves the rational bivariate identity for all k. Derivative coefficient extractions give exact mean and factorial moment; finite integer regression with separate Legendre factorial valuations agreed for 8191 input checks through length 12, and symbolic recurrence/moment checks through length 30. Infinite correctness depends on the explicit matrix proof, not those tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Drmota–Krattenthaler Theorem 1 gives the limiting multivariate normal distribution and covariance, specializing to 11/12; Rowland gives exact row counts a_{p^a}(N) for fixed N."
+      ],
+      "reasoning": "The general CLT covers the limiting normality and leading covariance, so they are not claimed new. It does not determine exact finite distributions. Rowland varies the lower binomial index over a fixed row, rather than selecting lower n from upper 3n; its theorem does not directly imply these polynomials.",
+      "searches": [
+        "v2(binomial(3n,n)) distribution number of carries n+2n binary exact generating function central moments variance",
+        "p-adic valuation binomial(3n,n) normal distribution carry automaton",
+        "Exact bivariate generating function for counts of 2-adic valuations of binomial(3n,n) for 0<=n<2^k; rational cubic denominator; valuation 1 gap; mean k/2-2/3",
+        "arXiv:1803.02178v2",
+        "arXiv:1001.1783v3"
+      ]
+    },
+    "checked_sources": [
+      "OEIS:A003714",
+      "OEIS:A036556",
+      "OEIS:A029907",
+      "arXiv:1001.1783v3",
+      "arXiv:0802.2654v1",
+      "arXiv:1803.02178v2",
+      "published-finding corpus semantic search: exact bivariate generating function binomial(3n,n)",
+      "published-finding corpus semantic search: p-adic valuations binomial(3n,n)",
+      "published-finding corpus nearby 2026/9/17/SCOPE-exact-tenth-power-thue-morse-valuations--2cde9accbbd3",
+      "published-finding corpus nearby 2026/10/4/SCOPE-prime-power-towers-for-the-prime-base-binomial-congruence--a71ec1d0fa28"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Four-state exact rational resolvent computes all coefficients in z and k; 2018 digit-sum joint CLT gives only scaling-limit information; 2008 parity-triangle study concerns different coefficients."
+      ],
+      "reasoning": "The exact rational generating function implies every valuation-count stratum and all its finite moments. Previously recorded individual layers and a Gaussian asymptotic do not logically determine that full rational function. The generic possibility of constructing a finite weighted automaton is a method, not a published statement of this specific evaluated identity.",
+      "searches": [
+        "Exact bivariate generating function for counts of 2-adic valuations of binomial(3n,n) for 0<=n<2^k; rational cubic denominator; valuation 1 gap; mean k/2-2/3",
+        "Commonly 2-adic valuations of binomial(3n,n), no valuation equal to one, Markov carry automaton",
+        "arXiv:0802.2654v1",
+        "arXiv:1803.02178v2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A003714 odd layer; OEIS A036556 parity valuation; Rowland arXiv:1001.1783 Theorem 1 counts different varying index."
+      ],
+      "reasoning": "The zero layer is equivalent to the known carry-free Fibbinary property, but knowing zero/odd valuation does not determine all coefficients of P_k(z). None of the inspected equivalence statements provides the full bivariate generating function.",
+      "searches": [
+        "arithmetic digit sums of consecutive binomial coefficients p-adic valuation carry transitions; exact distribution of numbers n with p dividing binomial(3n,n) automatic languages",
+        "odd binomial 3n n binary Fibonacci adjacent ones distribution",
+        "Exact bivariate generating function for counts of 2-adic valuations of binomial(3n,n) for 0<=n<2^k; rational cubic denominator; valuation 1 gap; mean k/2-2/3",
+        "OEIS:A003714",
+        "OEIS:A036556"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A029907 g.f. x(1-x^2)/(1-x-x^2)^2, identical after one shift to the derived z^2 fiber; OEIS A003714 supplies the z^0 fiber."
+      ],
+      "reasoning": "The zero layer and numerical second layer are already tabulated, acknowledged without isolated novelty. No cataloged full P_k(z) table or two-variable rational expression was found; an unindexed equivalent remains a risk.",
+      "searches": [
+        "Binomial (3n choose n) valuation 2 distribution Fibonacci A029907 rational generating polynomial length statistic",
+        "OEIS:A029907",
+        "OEIS:A003714",
+        "OEIS:A036556"
+      ]
+    },
+    "rationale": "The novelty claim is restricted to the exact rational bivariate distribution over every length/valuation. Kummer and Fibbinary zero layer, OEIS A036556 valuation parity, OEIS A029907 numerical two-layer and Drmota–Krattenthaler leading 11/12 variance/CLT are explicitly treated as covered rather than novel. Full primary texts for the most relevant binomial and digit-sum directions were inspected; no exact corresponding all-layer rational generating identity was located. Earlier implicit finite-state derivations remain possible.",
+    "residual_risks": [
+      "A direct unindexed exact all-layer formula may already exist, including as an application of digit automata.",
+      "OEIS A029907 provides exactly the numeric sequence for the valuation-two count, so its univariate values are covered.",
+      "The leading variance and central limit theorem already follow from published general results and are not new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS parity and Fibonacci count but not nonzero valuation spectrum or complete length-polynomial generating function",
+        "evidence": [
+          "OEIS A003714: comment by Benoit Cloitre, 2003-03-08, identifies odd binomial(3m,m) with no adjacent binary ones."
+        ],
+        "identifier_or_url": "https://oeis.org/A003714",
+        "material_read": "Definition, 2003-03-08 binomial comment, examples and sequence formula",
+        "method": "Full OEIS entry text",
+        "title": "Fibbinary numbers",
+        "trigger": "known zero-valuation (odd binomial) layer"
+      },
+      {
+        "assessment": "COVERS valuation parity characterization as digit-weight parity but not exact-valued finite-length distribution",
+        "evidence": [
+          "OEIS A036556 2004-06-06: odd valuation iff binary digit sum of 3n is odd."
+        ],
+        "identifier_or_url": "https://oeis.org/A036556",
+        "material_read": "Definition, 2004-06-06 comment, formula and linked entries",
+        "method": "OEIS entry text",
+        "title": "Integers for which valuation of binomial(3n,n) is odd",
+        "trigger": "parity of target valuation"
+      },
+      {
+        "assessment": "COVERS numerical two-valuation stratum after shift; no interpretation as the valuation stratum is recorded and no complete bivariate law",
+        "evidence": [
+          "OEIS A029907: x(1-x^2)/(1-x-x^2)^2 with terms 0,1,2,4,8,15,28,...; this equals x^{-1} times the derived valuation-two length generating function."
+        ],
+        "identifier_or_url": "https://oeis.org/A029907",
+        "material_read": "Sequence, generating function, formulas, comments and references",
+        "method": "OEIS entry text",
+        "title": "Sequence A029907",
+        "trigger": "closest numerical count of the valuation-two stratum"
+      },
+      {
+        "assessment": "Counts all entries in a fixed row of Pascal triangle modulo prime powers; no derived dyadic distribution along binomial(3n,n) with all valuations",
+        "evidence": [
+          "Rowland arXiv:1001.1783v3, Theorem 1: a_{p^alpha}(n) counts entries as m varies from 0 to n; section 3 gives formulas using subword statistics."
+        ],
+        "identifier_or_url": "arXiv:1001.1783v3",
+        "material_read": "Introduction, Theorem 1 and proof, section 3 formulas and examples through end",
+        "method": "arXiv lawful full HTML text",
+        "title": "The number of nonzero binomial coefficients modulo prime powers",
+        "trigger": "primary binomial digit/carry enumeration literature"
+      },
+      {
+        "assessment": "Counts odd coefficients in trinomial and other polynomial coefficient arrays, not exact all-valuation distribution of binomial(3n,n)",
+        "evidence": [
+          "Finch–Sebah–Bai arXiv:0802.2654v1, introduction and 0.1–0.12 focus odd coefficients and random matrix growth."
+        ],
+        "identifier_or_url": "arXiv:0802.2654v1",
+        "material_read": "Introduction, full main trinomial sections and concluding sections on variance and conjecture",
+        "method": "arXiv lawful full HTML text",
+        "title": "Odd Entries in Pascal’s Trinomial Triangle",
+        "trigger": "OEIS A036555 direct related reference and matrix method"
+      },
+      {
+        "assessment": "COVERS limiting Gaussian and leading 11/12 variance by specialization but not the exact full-length bivariate rational distribution or finite moments",
+        "evidence": [
+          "Drmota–Krattenthaler Theorem 1 covariance (q=2, A=(1,3)), applied to coefficients (2,-1), yields 11/12; previously known Schmidt/Schmid binary case is also cited there."
+        ],
+        "identifier_or_url": "arXiv:1803.02178v2",
+        "material_read": "Introduction and Theorem 1 covariance, plus Section 3 applications/lemmas",
+        "method": "arXiv lawful full HTML text",
+        "title": "A Joint Central Limit Theorem for the Sum-of-Digits Function, and Asymptotic Divisibility of Catalan-like Sequences",
+        "trigger": "stronger potential coverage of mean/variance/CLT"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "da56eef2-fbe7-42db-bb1e-f0b7d2692ff7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact distribution for the canonical binomial diagonal across every dyadic cutoff is a natural completion of the heavily studied Fibbinary odd layer. Unlike a single finite census, one rational identity classifies all prime-two valuations at every cutoff, exhibits a structural forbidden valuation, supplies adjacent-layer relations and exact first and second moments. These finite-length data are not implied by the published limiting normality or isolated OEIS sequences. No unrelated grand conjecture is claimed.",
+    "status": "PASS"
+  }
+}

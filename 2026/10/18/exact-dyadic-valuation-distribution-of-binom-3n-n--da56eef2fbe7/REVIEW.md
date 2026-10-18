@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+Kummer's theorem identifies the valuation with carries in the addition of \(n\) and \(2n\). Every padded binary word corresponds bijectively to a path in an explicitly given four-state weighted transition matrix, with the final carry included in its terminal vector. Matrix-geometric summation yields the full rational generating function; exact differentiation and coefficient extraction establish the fiber and moment formulas. Integer dynamic programming to length 30, direct Legendre valuations for 8191 dyadic inputs, and exact rational-recurrence and moment checks corroborated the proof. No finite experiment is used to establish the infinite identity.
+
+## Originality — PASS, with stated residual risk
+The well-known odd layer is OEIS A003714, and the parity of the valuation is OEIS A036556. The numerical two-valuation-layer sequence and its shifted single-variable generating function appear as OEIS A029907, so those isolated facts are explicitly excluded from the novelty claim. Rowland's work treats counts across each fixed Pascal row; Finch–Sebah–Bai treats parity of multinomial triangle entries. Drmota–Krattenthaler (including antecedents of Schmidt and Schmid) already covers the Gaussian limiting law and the leading variance constant. The distinctive, exact rational bivariate distribution across all dyadic lengths and **all** valuation layers, together with exact lower-order finite-length moments, was not found in the inspected material or the published-result searches. This is a self-review, not external originality certification. General finite automaton theory makes an earlier implicit calculation possible.
+
+## Mathematical value — PASS
+The family \(\binom{3n}{n}\) is a canonical noncentral binomial subsequence with a cataloged carry-free/Fibbinary zero layer. Describing the entire valuation distribution rather than its support or one selected congruence is a mathematically natural completion: each rational coefficient directly answers exact divisibility counts for every \(2^a\) and every dyadic length. The zero-to-two valuation gap, neighboring layer relation, and explicit second-order moment corrections are transparent consequences. Existing asymptotic normality does not determine these exact finite distributions. This is a self-contained exact arithmetic classification, with no claim of an optimality theorem for unrelated families.
+
+## Closest literature and limitations
+OEIS A003714 and A029907 substantially cover individual layers, while the joint digit-sum central limit theorem of Drmota–Krattenthaler substantially covers the asymptotic leading variance. They are acknowledged as such in the result. The exact two-variable identity is derived specifically here; a pre-existing implicit carry-automaton computation or unindexed equivalent remains the main novelty risk. Only \(0\le n<2^k\) and the prime two are covered. Independent external validation has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
