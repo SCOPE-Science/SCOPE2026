@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T15:00:34Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For X=sum_{j=1}^k jN_j, independent N_j~Pois(lambda), conditional on total count N~Pois(k lambda) the jumps are iid uniform 1..k; hence each positive mass ≤(1−exp(−k lambda))/k, establishing s_k≥log(k+1)/k. At lambda=(1+eps)log(k)/k, Chebyshev localizes ≥3/4 positive mass among O(k sqrt(log k)) integer sites while zero has mass k^(−1−eps), so s_k~log(k)/k. For x=k, unnormalized coefficient Q_k(lambda)=sum_{m=1}^k binom(k−1,m−1)lambda^m/m! rises strictly from zero and has unique positive root r_k with Q_k(r_k)=1; Q_(k+1)>Q_k implies r_(k+1)<r_k. Writing u=k lambda, F(u)=sqrt(u) I_1(2sqrt(u)), the exact nonnegative product-loss bound 0≤F(u)−kQ_k(u/k)≤(u/(2k))F(u) yields asymptotics from fixed-order Bessel I_1. Thus 2sqrt(k r_k)=log k−(1/2)loglog k+log(2sqrt(2pi))+o(1), r_k~(log k)^2/(4k), ratio r_k/s_k→∞. At lambda strictly between s_k,r_k, any positive winning x exceeds k by coefficient monotonicity for x≤k. Exact independent Fraction coefficients for k=15 and lambda=501/2000 show h15(15)<1<h15(25); finite diagnostics are not asymptotic proofs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2013/2014 works provide mode-location bounds and lambda thresholds of smaller order, not asymptotic equivalents.",
+          "Mane’s finite datasets and sufficient inequalities do not imply log(k)/k zero-mode loss nor r_k second-order expansion."
+        ],
+        "reasoning": "Known bounds and numeric fits are weaker, whereas here two asymptotic equivalents and the separation are proved using uniform lower-atom and Bessel comparison arguments.",
+        "searches": [
+          "Georghiou–Philippou–Saghafi 2013 mode bounds",
+          "Philippou 2014 zero-mode sufficient range",
+          "Mane arXiv:2309.05190, 2309.09278, 2310.00827"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2309.05190",
+        "https://arxiv.org/pdf/2309.09278",
+        "https://doi.org/10.3390/e25040699",
+        "https://arxiv.org/abs/2310.00827",
+        "https://dlmf.nist.gov/10.40.E1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kwon and Philippou do not prove r_k/s_k→∞.",
+          "The Bessel expansion applies to F(u) but does not by itself show kQ_k(u/k) uniformly approximates F(u) at u=O(log²k)."
+        ],
+        "reasoning": "The uniform product-loss bound is a needed new bridge to Poisson-order coefficients, and the Chebyshev atom lower bound independently identifies the earlier zero-mode threshold; earlier facts alone do not logically imply the asserted separation.",
+        "searches": [
+          "Kwon–Philippou Entropy 25 (2023) 699 discussion of r_k",
+          "Mane arXiv:2309.05190 numerical conjectural exponent",
+          "NIST DLMF §10.40.1 Bessel asymptotic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kwon–Philippou 2023 treat orders 3 and 4 and introduce the r_k crossing, not a growing-k logarithmic asymptotic.",
+          "Mane 2023 numerically fits a k-power law for s_k and discusses first non-k mode, without proving s_k~log k/k."
+        ],
+        "reasoning": "The claim has aliases compound Poisson with uniform jumps, modal threshold, zero-mass crossover, and Bessel coefficient inversion. No indexed equivalent logarithmic two-scale result was found; priority uncertainty is retained.",
+        "searches": [
+          "Resultary semantic: Poisson distribution of order k zero mode threshold log k / k crossover Bessel r_k",
+          "web: order k Poisson zero mode log k over k Bessel asymptotic first double mode"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mane’s k=15 non-k transition is explicitly credited prior numerical coverage.",
+          "Fresh exact rational test at lambda=501/2000 is a reproducibility illustration, not asserted original."
+        ],
+        "reasoning": "Finite tabulated k values do not establish the asymptotic rates as k→∞; this claim derives uniform inequalities valid for unbounded k.",
+        "searches": [
+          "arXiv:2309.05190 numerical tables for order-k zero-mode intensity",
+          "arXiv:2309.09278 first non-k double mode k=15"
+        ]
+      },
+      "rationale": "The mode literature provides fixed-order cases, bounds and conjectural numeric power fits, not the two sharp logarithmic asymptotic scales or second-order Bessel correction. Kwon–Philippou explicitly study r_k and ask related mode-crossing questions; Mane finds finite-order non-k transitions and numerical scaling conjectures. Neither those results nor standard Bessel asymptotic alone yields the uniform product comparison and s_k pigeonhole bound used here.",
+      "residual_risks": [
+        "Later work may prove the same asymptotics under uniform-compound-Poisson terminology.",
+        "Full 2310.00827 paper was not inspected end-to-end; abstract alone cannot establish noncoverage.",
+        "The bounds show eventual mode winner exceeds k, not the precise finite-k first modal index."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Numerical scaling conjecture rather than proved logarithmic equivalent",
+          "evidence": "Reports finite k estimates and proposed power law, not rigorous s_k~log k/k.",
+          "identifier_or_url": "https://arxiv.org/pdf/2309.05190",
+          "material_read": "Complete available open-access PDF, especially page 11 data fits and conjectured scaling read and inspected visually",
+          "method": "Open-access PDF and page screenshot",
+          "title": "Asymptotic results for the Poisson distribution of order k",
+          "trigger": "Closest growing-order modal threshold numerical work"
+        },
+        {
+          "assessment": "Covers known finite example and behavior; not the two asymptotic equivalents",
+          "evidence": "Already observes first non-k transition at k=15; no proved s_k/r_k asymptotic ratio.",
+          "identifier_or_url": "https://arxiv.org/pdf/2309.09278",
+          "material_read": "Complete available open-access PDF, especially the first non-k double-mode discussion and page 10 inspected visually",
+          "method": "Open-access PDF and page screenshot",
+          "title": "First double mode of the Poisson distribution of order k",
+          "trigger": "Same k-crossover and non-k first modes"
+        },
+        {
+          "assessment": "Foundational fixed-order source; not general growing-k proof",
+          "evidence": "Finite order 3 and 4 and r_k comparisons, not large-k logarithmic scalings.",
+          "identifier_or_url": "https://doi.org/10.3390/e25040699",
+          "material_read": "Accessible publisher HTML full text including order-3/4 sections and modal-crossing discussion",
+          "method": "Publisher scholarly HTML",
+          "title": "The Modes of the Poisson Distribution of Order 3 and 4",
+          "trigger": "Precise prior r_k definition and questions"
+        },
+        {
+          "assessment": "Relevant open question context; unresolved full-text comparison risk",
+          "evidence": "Conditional/nonzero-mode inequalities noted, no exact all-k asymptotics in material read.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.00827",
+          "material_read": "ArXiv abstract and accessible description of conditional bounds, not full primary PDF verified",
+          "method": "Open-access abstract/metadata",
+          "title": "Analytical proofs for the properties of the probability mass function of the Poisson distribution of order k",
+          "trigger": "Possible general theorem covering mode thresholds"
+        },
+        {
+          "assessment": "Supports analytic ingredient, not complete compound-Poisson result",
+          "evidence": "I_1(t)~e^t/sqrt(2pi t) for positive large t.",
+          "identifier_or_url": "https://dlmf.nist.gov/10.40.E1",
+          "material_read": "Equation 10.40.1 and surrounding fixed-order expansion read",
+          "method": "NIST reference page",
+          "title": "DLMF §10.40 large-argument Bessel I_nu expansion",
+          "trigger": "Needed standard Bessel expansion and constants"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The asymptotic separation resolves a structural misconception about the first departure of the zero mode: the x=k crossover is much later than the true first mode loss, by a diverging log(k)/4 factor. A second-order term and global strict r_k monotonicity give quantitative information relevant to order-k compound Poisson mode theory beyond finite illustrations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Later work may prove the same asymptotics under uniform-compound-Poisson terminology.",
+    "Full 2310.00827 paper was not inspected end-to-end; abstract alone cannot establish noncoverage.",
+    "The bounds show eventual mode winner exceeds k, not the precise finite-k first modal index."
+  ],
+  "schema_version": 1
+}
