@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proposed closure is admissible: the displayed \(3\times3\) block is exactly orthogonal with determinant one, so \(U_\alpha\) is unitary for every \(|\alpha|=1\), and its outgoing column is exactly \(\alpha|\mathrm{in}\rangle\). Exact determinant computation gives \(C(z,\alpha)=z^2(z-r)^2-\alpha(1-rz)^2\) with \(r=-1/\sqrt6\). At \(\alpha=0\), the nullities of \(U_0-rI\) and \((U_0-rI)^2\) are one and two, confirming a genuine double Jordan resonance. Expanding the exact rational scattering function gives the stated impulse response, and the general derivative-residue formula follows from the standard residue formula for a pole of order \(m\). The finite symbolic checker is supplementary to these identities.
+## correctness
 
-## Originality
-PASS with stated residual risk. The primary source was inspected at the denominator factorization, the discussion of possible higher-degree roots, the contour formula, and Theorem 2.10. The source allows off-unit-circle degeneracy but the displayed Theorem 2.10 coefficient divides by root differences and does not state a simple-root hypothesis. Focused searches for the paper title together with “repeated root,” “repeated resonance,” “Theorem 2.10,” and “impulse response” did not locate a source-specific correction. General repeated-pole signal theory already gives polynomially weighted exponentials and is treated as prior, not as the finding. General metric-graph scattering literature concerns a different continuous model. The residual risk is an unindexed erratum or downstream source-specific note.
+PASS
 
-## Value
-PASS. The issue affects an all-graphs impulse-response theorem, not an arbitrary parameter slice. The paper's own framework admits the needed degeneracy, and the explicit four-state unitary closure proves that the omitted case is physically admissible within that framework. The correction restores the theorem by replacing a singular distinct-root coefficient formula with the standard higher-order residue formula, yielding the correct polynomial-times-exponential response at repeated resonances.
+The submitted 4×4 U_α is unitary for |α|=1 because its 3×3 active block is real orthogonal, with outgoing mapped to α incoming. Exact characteristic polynomial is z²(z−r)²−α(1−rz)² for r=−1/√6. U_0 has a nonzero double resonance with a size-two Jordan chain. The source's S=−g/f then has a genuine order-two pole at r; its w=z^{-1} Laurent series gives h[n]=6δ_{n2}+(5(5n−17)/36)r^{n−4} for n≥2 and zero earlier. Independently checked unitarity, Jordan dimensions and 12 coefficients with symbolic algebra. The general residue derivative for multiplicity m is standard contour calculus and yields polynomial×exponential terms, demonstrating failure of the source's unqualified pure-exponential formula.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Cottrell Theorem 2.10 uses denominators η_j−η_k with no distinct-root hypothesis and asserts a pure exponential sum. The same paper discusses higher-degree eigenvalue roots for nonunit closures in Theorem 2.5 but does not implement their higher-order impulse residues. Standard DSP repeated-pole formulas do not supply the explicit permissible graph closure matrix or source-specific correction.
+
+## value
+
+PASS
+
+A mathematically admissible explicit double-resonance counterexample identifies a missing simplicity hypothesis in a published quantum-graph impulse-response theorem, and supplies the correct finite-dimensional replacement. The generic repeated-pole rule is routine, but demonstrating its necessity in this specific physical closure model is a substantively motivated correction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
