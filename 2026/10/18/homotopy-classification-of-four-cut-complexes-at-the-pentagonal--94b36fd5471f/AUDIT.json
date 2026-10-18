@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "Every face of the Alexander dual has size at most five: below size four vacuous; size four induced P4/claw; size five exactly C5; size six impossible by incompatible degree-two constraints on each deleted five-cycle. A P4 belongs to at most one C5, and its single-edge-plus-isolated triangle is in at most the two neighboring P4 tetrahedra of that pentagon; a claw has a unique independent-leaf triangle. Collapsing each C5 four-simplex with one private tetrahedron and then collapsing remaining P4 and claw tetrahedra along demonstrably free triangles eliminates all cells above dimension two. The original dual was simply connected as it has full two-skeleton, so the residue is a wedge of B(G) 2-spheres. Exact simplex Euler counting gives B=binom(n-1,3)-c4+p5 and c4 equals the degree formula. Integral Alexander duality gives original homology only in degree n-5; original cut complex contains full (n-7)-skeleton and is simply connected for n>=9. Inductive Hurewicz and Whitehead give the integral wedge homotopy type. The standard-library sample checker independently tests face counts, mod-two ranks and legal collapses; finite checks do not replace this uniform proof. No assertion for n<=8.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The high-girth theorem requires girth at least k+2, so for k=4 excludes five-cycles",
+        "The square-correction theorem concerns k=3 and requires pairwise edge-disjoint four-cycles",
+        "The Bayer papers cover forests, cycles, grid graphs and the Euler correction but not this general homotopy theorem"
+      ],
+      "reasoning": "Previous general k=4 homotopy coverage holds at girth >= 6. Cycle and forest cases and Petersen are known special cases, but neither they nor the k=3 square result imply the arbitrary girth-five k=4 homotopy statement, especially where pentagons share edges.",
+      "searches": [
+        "high girth k cut complex wedge homotopy all graphs private faces",
+        "published-finding corpus:ec8bbe3d352b full RESULT.md",
+        "published-finding corpus:8ca830284420 full RESULT.md",
+        "arxiv:2304.13675 Section 7 forests cycles",
+        "arxiv:2407.08158 Section 2.2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2304.13675, original full-text sections cited above",
+      "arXiv:2407.08158, Proposition 2.18 and relevant sections",
+      "published-finding corpus public record ec8bbe3d352b, full RESULT.md",
+      "published-finding corpus public record 8ca830284420, full RESULT.md",
+      "Previously established cases: girth-six four-cut classification, Petersen four-cut, and icosahedral four-cut"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 2.18 implies the already-known B(G) as an Euler number under girth >=5 but does not imply nonexistence of lower homology or a wedge decomposition",
+        "The high-girth k-cut theorem implies only the five-cycle-free restriction of this theorem",
+        "The k=3 theorem does not entail an assertion about four-subsets and pentagons",
+        "The cycle and forest known special cases do not cover graphs with interlaced five-cycles"
+      ],
+      "reasoning": "The final claim is strictly a homotopy strengthening of an already-published Euler formula. A numerical rank calculation alone would be covered. Here elementary collapses of the four-dimensional dual cells prove that the corrected Euler characteristic is the actual unique integral Betti rank; Alexander duality and Hurewicz/Whitehead then give the original wedge homotopy type.",
+      "searches": [
+        "arxiv:2407.08158 Proposition 2.18",
+        "published-finding corpus:ec8bbe3d352b exact read",
+        "published-finding corpus:8ca830284420 exact read",
+        "arxiv:2304.13675 Proposition 6.2 and Proposition 7.13"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2407.08158 Proposition 2.18 determines face lattice and Euler correction, not a wedge homotopy theorem",
+        "published-finding corpus record ec8bbe3d352b contains a full proof under girth >= 6",
+        "published-finding corpus record 8ca830284420 is the cut-size-three edge-disjoint-square case"
+      ],
+      "reasoning": "Alexander duality and the explicit Euler correction alone do not exclude a lower-degree homology group or torsion and do not supply a wedge equivalence. Their five-cycle correction is credited as prior. The free-face elimination and simple-connectivity arguments are additional and not a restatement of the published Euler characteristic.",
+      "searches": [
+        "For every graph of girth five or greater ordinary four-cut complex has homotopy type wedge spheres rank binomial n-1 choose 3 minus induced four-vertex trees plus induced five-cycles; Alexander dual collapses to 2-skeleton",
+        "ordinary 4-cut complex graphs with girth at least 5 Betti binomial degree formula cycles of length five",
+        "Bayer et al 2024 Proposition 2.18, arXiv:2407.08158, pp.6-7",
+        "four-cut complex girth five pentagon correction induced five cycles wedge spheres simplicial Alexander duality",
+        "The ordinary four-cut complex of every finite simple graph with at least nine vertices and girth at least five is homotopy equivalent to a wedge of spheres of dimension n minus five, with multiplicity binomial(n-1,3) minus connected four-sets plus count of pentagons; integral homotopy including overlapping pentagons, not just Euler characteristic."
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus top match ec8bbe3d352b is restricted to girth >=6 for k=4",
+        "Previously established Petersen case establishes rank 26 and its character as special case",
+        "published-finding corpus record 8ca830284420 gives a distinct k=3 statement",
+        "arXiv:2407.08158 Proposition 2.18 already gives the numerical Euler correction",
+        "Final exact published-finding corpus search returned no all-girth-five four-cut homotopy theorem among 20 ranked results; nearest indexed record requires girth six or instead treats three-cuts."
+      ],
+      "reasoning": "The exact sphere-wedge statement for all graphs of girth >=5 was not in the accessible indexed matches or read primary papers. Existing Petersen value and Euler formula are explicitly excluded from novelty. Search failure for some queries is recorded as residual uncertainty, not as proof of absence.",
+      "searches": [
+        "published-finding corpus: ordinary four-cut complexes of girth-five graphs: wedge spheres, 5-cycle correction, Alexander dual",
+        "published-finding corpus: For every graph of girth five or greater ordinary four-cut complex has homotopy type wedge spheres rank binomial n-1 choose 3 minus induced four-vertex trees plus induced five-cycles; Alexander dual collapses to 2-skeleton",
+        "known prior mathematical claims: four-cuts for graphs without cycles of length at most five; the Petersen four-cut complex; icosahedral four-cuts",
+        "web: \"4-cut complex\" \"girth\" \"5-cycles\" topology",
+        "web: \"cut complex\" \"dodecahedral graph\" homotopy",
+        "The ordinary four-cut complex of every finite simple graph with at least nine vertices and girth at least five is homotopy equivalent to a wedge of spheres of dimension n minus five, with multiplicity binomial(n-1,3) minus connected four-sets plus count of pentagons; integral homotopy including overlapping pentagons, not just Euler characteristic."
+      ]
+    },
+    "rationale": "The already established girth-five Euler formula (Bayer et al. 2024, Proposition 2.18) is expressly not claimed novel. The new stronger theorem proves a complete integral homotopy classification for every graph of girth at least five and n >= 9, by a dual free-face collapse tolerating pentagons with shared graph edges. Inspected nearest general wedge result assumes girth >= 6 at cut size four, and the four-cycle correction theorem treats cut size three. Exact older Petersen/cycle/forest cases are subsumed as acknowledged prior special cases. Residual possibility: uncatalogued equivalent homotopy classification.",
+    "residual_risks": [
+      "An unindexed or independently published theorem could already upgrade the pentagon-correction Euler formula to a full integral homotopy classification.",
+      "Database coverage is finite, and additional unpublished or unindexed mathematical work could be overlooked.",
+      "The known Euler correction and Petersen numerical/homotopy special case are not original components."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant definitions and stronger-skeleton cutoff, no universal girth-five four-cut wedge theorem in inspected results",
+        "evidence": [
+          "Proposition 6.2 assumes no cycle of length at most k+1",
+          "Proposition 7.13 classifies ordinary cuts of cycles",
+          "Sections 6.1-6.2 give Euler and face-lattice statements"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2304.13675",
+        "material_read": "Introduction and result table; section 6, Theorem 6.1 and Proposition 6.2; Proposition 7.13 for cycle special cases",
+        "method": "Primary arXiv PDF displayed, page text and section-specific search",
+        "title": "Topology of Cut Complexes of Graphs",
+        "trigger": "Introduces object, skeleton results and special graph family classifications"
+      },
+      {
+        "assessment": "Proposition 2.18 covers the Euler correction and face lattice at girth five for k=4; it does not give a general full homotopy equivalence",
+        "evidence": [
+          "Proposition 2.18, pages 7-8, assumes girth >=k+1 and establishes face lattice plus reduced Euler characteristic",
+          "Section 5 concerns grid graph families"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2407.08158",
+        "material_read": "Introduction; section 2.2 including Theorem 2.16 and Propositions 2.17-2.18, proofs; sections 3-6 overview",
+        "method": "Primary arXiv PDF displayed, text of the relevant numbered propositions examined",
+        "title": "Topology of Cut Complexes II",
+        "trigger": "Closest published numerical pentagon correction and potential dominating theorem"
+      },
+      {
+        "assessment": "Its condition girth >= k+2 demands girth >=6 for four-cuts, leaving the pentagonal case open",
+        "evidence": [
+          "Statement gives girth >=k+2",
+          "Its private codimension-one faces cease to be private when five-cycles occur"
+        ],
+        "identifier_or_url": "published-finding corpus:ec8bbe3d352b",
+        "material_read": "Full theorem, assumptions, full proof, relationship to prior work and limitations in RESULT.md",
+        "method": "Examined the full publicly available RESULT.md source text",
+        "title": "High-girth cut complexes are wedges of top-dimensional spheres",
+        "trigger": "Nearest potentially dominating general graph homotopy theorem"
+      },
+      {
+        "assessment": "This is a distinct k=3 theorem with an edge-disjoint-square condition; not a dominating four-cut theorem",
+        "evidence": [
+          "It counts induced two-edge paths and square tetrahedra",
+          "Its conclusion is for ordinary three-cut complexes only"
+        ],
+        "identifier_or_url": "published-finding corpus:8ca830284420",
+        "material_read": "Full statement, hypotheses, proof, limitations and relationship to prior work in RESULT.md",
+        "method": "Examined the full publicly available RESULT.md source text",
+        "title": "Three-cut complexes of triangle-free graphs with edge-disjoint squares",
+        "trigger": "Closest analogous cycle-correction and collapse method"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "94b36fd5-471f-42c5-89a6-c01b0eff3b6f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The girth-five threshold is a mathematically natural boundary: it introduces pentagonal four-simplices in the Alexander dual and invalidates the simpler girth-six private-face argument. Proposition 2.18 of the primary sequel already provides Euler correction but not the homotopy type. The new uniform free-face mechanism deals with overlapping pentagons without requiring edge disjointness, upgrades a numerical invariant to a complete integral homotopy theorem for arbitrary graphs of girth >=5, and provides an explicit dodecahedral instance. This is a motivated structural theorem, not a routine numerical increment or a mere recomputation of the Euler characteristic.",
+    "status": "PASS"
+  }
+}
