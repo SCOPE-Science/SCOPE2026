@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-10-11",
+  "audited_at_utc": "2026-10-11T22:15:56.030154Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob b9deab7223504f6b2d746eafaf8e387854acbbc8",
+        "assigned verify_book_matching.py blob 2230ea9476ac84f7508be4dc2bd163d8a19d8579",
+        "Donovan--Scoville NYJM 29 (2023) Proposition 2.5",
+        "independent finite matching enumeration n=1..5"
+      ],
+      "rationale": "The q_i edges are pairwise disjoint so Q={q_1,...,q_n} is a simplex of the matching complex, which is flag. The standard star-cluster lemma (Donovan--Scoville Proposition 2.5) says the union C of closed stars of vertices of any simplex in a flag complex is simplicially collapsible. For any matching, if common c is present all q_i are compatible. Otherwise at most one page p_i meets u and at most one r_j meets v, and q_k conflicts exactly with p_k or r_k; at most two indices are blocked. Thus n≥3 entails every matching face belongs to C, proving actual simplicial collapsibility. At n=2 the two edges {p_1,r_2} and {p_2,r_1} are precisely the missing cells, attached by their endpoints to collapsible C; collapsing C gives two independent loops, hence S¹∨S¹. At n=1 the matching complex is the disjoint pair of edges {c,q_1} and {p_1,r_1}, hence S⁰. Independent direct all-matching enumeration n=1..5 matches face vectors and star-cluster outside faces, while the uniform blocked-index proof supplies arbitrary n.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Polygonal line tilings assume no three polygons share vertices; all n≥3 quadrilateral books share the whole common edge.",
+          "For n≥3, three internally disjoint u-v paths through pages yield a subdivision of K_(2,3), so the graph is not outerplanar."
+        ],
+        "reasoning": "The general star-cluster theorem is a proof tool but does not identify the specific book matching complex with its star cluster; the cited tiling and outerplanar classifications do not subsume n≥3.",
+        "searches": [
+          "https://arxiv.org/pdf/2211.12559",
+          "https://arxiv.org/pdf/2411.04601",
+          "Donovan--Scoville 2023 Proposition 2.5"
+        ]
+      },
+      "checked_sources": [
+        "https://www.maths.tcd.ie/EMIS/journals/NYJM/NYJM/j/2023/29-54v.pdf",
+        "https://arxiv.org/pdf/2211.12559",
+        "https://arxiv.org/pdf/2411.04601",
+        "assigned verify_book_matching.py blob 2230ea9476ac84f7508be4dc2bd163d8a19d8579"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source star-cluster theorem proves collapsibility of C for any simplex Q in a flag complex, but does not imply C equals the matching complex of every graph.",
+          "The blocked-index argument specific to shared-edge quadrilateral pages proves equality exactly when n≥3; the n=2 defect gives precisely two extra edges and loops."
+        ],
+        "reasoning": "The classification follows from a nontrivial graph-specific covering property plus the known star-cluster lemma, not directly from the cited broader results.",
+        "searches": [
+          "https://www.maths.tcd.ie/EMIS/journals/NYJM/NYJM/j/2023/29-54v.pdf",
+          "https://arxiv.org/pdf/2211.12559",
+          "https://arxiv.org/pdf/2411.04601"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The common-edge C4 book is distinct from the Dutch windmill: that standard family identifies only a single vertex across cycles.",
+          "The star-cluster inclusion condition is equivalent to at most two q-indices blocked by a matching, giving n=3 as natural sharp threshold."
+        ],
+        "reasoning": "Compared edge-amalgamated cycles, triangular book aliases, Dutch windmills, flag star-cluster and page-count cutoff formulations.",
+        "searches": [
+          "matching complex n square book graph C4 cycles common shared edge star clusters collapsible n pages 3 threshold",
+          "https://www.maths.tcd.ie/EMIS/journals/NYJM/NYJM/j/2023/29-54v.pdf",
+          "https://arxiv.org/pdf/2211.12559"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The theorem is a complete all-n homotopy/collapsibility classification, not an isolated Betti table value.",
+          "Resultary search for this exact query returned temporarily_unavailable/search_internal_error with search_completed=false. This is NOT a successful negative search and is not evidence of originality."
+        ],
+        "reasoning": "Exact small n values are independently reproduced, but the n≥3 conclusion uses a uniform star cover argument not a finite table.",
+        "searches": [
+          "matching complex n square book graph C4 cycles common shared edge star clusters collapsible n pages 3 threshold",
+          "Bayer et al polygonal-line tilings sample graph classifications",
+          "matching complex finite n=1..5 independent check"
+        ]
+      },
+      "rationale": "Donovan--Scoville develop the star-cluster tool and compute Dutch windmills sharing a vertex, not edge-sharing C4 books. Bayer--Jelić Milutinović--Vega polygonal line tilings allow successive shared edges but forbid three polygons meeting; the entire n≥3 book violates that condition. Their outerplanar framework likewise does not cover n≥3 because the book contains a subdivided K_(2,3). The sharp transition at three pages and explicit homotopy types are not statements of those inspected theorems. The finite n=1,2 boundary is still accounted for, and novelty is best knowledge with the Resultary outage and terminology risks.",
+      "residual_risks": [
+        "An unindexed edge-amalgamated-square book or simplicial-cluster note may independently contain the exact classification.",
+        "Resultary query failed operationally and provides no evidence of noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STAR_CLUSTER_THEOREM_NOT_BOOK_CLASSIFICATION",
+          "evidence": "The collapsible star-cluster theorem applies, but family-specific page coverage is additional; windmills share a vertex.",
+          "identifier_or_url": "https://www.maths.tcd.ie/EMIS/journals/NYJM/NYJM/j/2023/29-54v.pdf",
+          "material_read": "Full New York Journal of Mathematics primary PDF including Proposition 2.5 and later Dutch-windmill section",
+          "method": "Lawful full open PDF read with page inspection",
+          "title": "Star clusters in the matching, Morse, and generalized complex of discrete Morse functions",
+          "trigger": "Direct proof tool and closest matching-complex family"
+        },
+        {
+          "assessment": "NO_TRIPLE_SHARED_POLYGON_ASSUMPTION",
+          "evidence": "The n≥3 common-edge book lies outside the tiling hypothesis.",
+          "identifier_or_url": "https://arxiv.org/pdf/2211.12559",
+          "material_read": "Open complete primary arXiv PDF defining polygonal line tilings and prohibiting three polygons meeting",
+          "method": "Lawful full arXiv PDF read with page inspection",
+          "title": "General polygonal line tilings and their matching complexes",
+          "trigger": "Potentially broader polygon-sharing classification"
+        },
+        {
+          "assessment": "GRAPH_OUTSIDE_OUTERPLANAR_CLASS",
+          "evidence": "A K_(2,3) subdivision prevents the family n≥3 from being outerplanar.",
+          "identifier_or_url": "https://arxiv.org/pdf/2411.04601",
+          "material_read": "Open primary arXiv PDF including the family restriction to outerplanar graphs",
+          "method": "Lawful full arXiv PDF read with page inspection",
+          "title": "Matching Complexes of Outerplanar Graphs",
+          "trigger": "Possible general graph matching-complex classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://www.maths.tcd.ie/EMIS/journals/NYJM/NYJM/j/2023/29-54v.pdf",
+        "https://arxiv.org/pdf/2211.12559",
+        "https://arxiv.org/pdf/2411.04601"
+      ],
+      "rationale": "The simple but natural page-count threshold distinguishes disconnected S⁰, a wedge of two loops, and actual simplicial collapsibility for every larger quadrilateral book. It supplies a complete family result for graph matching complexes outside common polygonal-tiling and outerplanar hypotheses, so the page cutoff and collapse have reusable mathematical meaning beyond a tiny-instance check.",
+      "residual_risks": [
+        "Does not characterize longer-cycle or triangular-book variants."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.maths.tcd.ie/EMIS/journals/NYJM/NYJM/j/2023/29-54v.pdf",
+    "https://arxiv.org/pdf/2211.12559",
+    "https://arxiv.org/pdf/2411.04601",
+    "assigned verify_book_matching.py blob 2230ea9476ac84f7508be4dc2bd163d8a19d8579"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Ordinary matching complexes of simple C4 books with all pages sharing a common edge, n≥1 only.",
+    "The finite enumerator checks n≤7 in source and n≤5 independently; the infinite family rests on the star-cluster proof."
+  ],
+  "residual_risks": [
+    "An unindexed edge-amalgamated-square book or simplicial-cluster note may independently contain the exact classification.",
+    "Resultary query failed operationally and provides no evidence of noncoverage."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "STAR_CLUSTER_THEOREM_NOT_BOOK_CLASSIFICATION",
+      "evidence": "The collapsible star-cluster theorem applies, but family-specific page coverage is additional; windmills share a vertex.",
+      "identifier_or_url": "https://www.maths.tcd.ie/EMIS/journals/NYJM/NYJM/j/2023/29-54v.pdf",
+      "material_read": "Full New York Journal of Mathematics primary PDF including Proposition 2.5 and later Dutch-windmill section",
+      "method": "Lawful full open PDF read with page inspection",
+      "title": "Star clusters in the matching, Morse, and generalized complex of discrete Morse functions",
+      "trigger": "Direct proof tool and closest matching-complex family"
+    },
+    {
+      "assessment": "NO_TRIPLE_SHARED_POLYGON_ASSUMPTION",
+      "evidence": "The n≥3 common-edge book lies outside the tiling hypothesis.",
+      "identifier_or_url": "https://arxiv.org/pdf/2211.12559",
+      "material_read": "Open complete primary arXiv PDF defining polygonal line tilings and prohibiting three polygons meeting",
+      "method": "Lawful full arXiv PDF read with page inspection",
+      "title": "General polygonal line tilings and their matching complexes",
+      "trigger": "Potentially broader polygon-sharing classification"
+    },
+    {
+      "assessment": "GRAPH_OUTSIDE_OUTERPLANAR_CLASS",
+      "evidence": "A K_(2,3) subdivision prevents the family n≥3 from being outerplanar.",
+      "identifier_or_url": "https://arxiv.org/pdf/2411.04601",
+      "material_read": "Open primary arXiv PDF including the family restriction to outerplanar graphs",
+      "method": "Lawful full arXiv PDF read with page inspection",
+      "title": "Matching Complexes of Outerplanar Graphs",
+      "trigger": "Possible general graph matching-complex classification"
+    }
+  ]
+}

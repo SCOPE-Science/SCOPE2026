@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof fixes an explicit labeling of every edge. The middle edges \(q_i\) form a simplex. A matching containing the common edge blocks no \(q_i\); otherwise it contains at most one \(p_i\) and at most one \(r_j\), so at most two middle-edge indices are blocked. For \(n\ge 3\), an unblocked \(q_k\) places the matching in the corresponding star. Hence the whole matching complex equals the star cluster of the simplex \(Q\), which is collapsible because matching complexes are flag. The \(n=1\) and \(n=2\) boundary cases are handled separately and agree with exact enumeration through seven pages.
+## correctness
 
-## Originality
-**PASS, with recorded residual terminology risk.** The closest inspected source, Donovan–Scoville, treats Dutch windmills where cycles share a vertex, not quadrilateral books where cycles share an edge. The polygonal-line-tiling paper excludes the three-page-and-higher family through its no-three-polygons-intersect hypothesis. The later outerplanar theorem excludes the same range because a three-page quadrilateral book already contains a subdivision of \(K_{2,3}\). Searches for quadrilateral books, book graphs, line-graph independence complexes, edge-shared windmills, and matching-complex homotopy found no statement implying the all-page classification. Small boundary cases may be covered by broader known families and are not the originality basis.
+PASS
 
-## Value
-**PASS.** The result gives a natural infinite-family topology transition with a sharp threshold: the first two books carry nontrivial homotopy, while adding a third page forces an explicit simplicial collapse for every larger member. The proof isolates a reusable blocked-index/star-cluster mechanism and supplies infinitely many nonouterplanar examples with collapsible matching complex.
+The q_i edges are pairwise disjoint so Q={q_1,...,q_n} is a simplex of the matching complex, which is flag. The standard star-cluster lemma (Donovan--Scoville Proposition 2.5) says the union C of closed stars of vertices of any simplex in a flag complex is simplicially collapsible. For any matching, if common c is present all q_i are compatible. Otherwise at most one page p_i meets u and at most one r_j meets v, and q_k conflicts exactly with p_k or r_k; at most two indices are blocked. Thus n≥3 entails every matching face belongs to C, proving actual simplicial collapsibility. At n=2 the two edges {p_1,r_2} and {p_2,r_1} are precisely the missing cells, attached by their endpoints to collapsible C; collapsing C gives two independent loops, hence S¹∨S¹. At n=1 the matching complex is the disjoint pair of edges {c,q_1} and {p_1,r_1}, hence S⁰. Independent direct all-matching enumeration n=1..5 matches face vectors and star-cluster outside faces, while the uniform blocked-index proof supplies arbitrary n.
 
-## Closest literature and limitations
-The strongest comparison is with the star-cluster method for Dutch windmills and with polygonal line tilings. The theorem does not address longer-cycle books, generalized matching complexes, or every convention for the phrase “book graph.” A residual possibility remains that the same collapse has appeared under edge-amalgamated-cycle terminology not reached by the searches.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Donovan--Scoville develop the star-cluster tool and compute Dutch windmills sharing a vertex, not edge-sharing C4 books. Bayer--Jelić Milutinović--Vega polygonal line tilings allow successive shared edges but forbid three polygons meeting; the entire n≥3 book violates that condition. Their outerplanar framework likewise does not cover n≥3 because the book contains a subdivided K_(2,3). The sharp transition at three pages and explicit homotopy types are not statements of those inspected theorems. The finite n=1,2 boundary is still accounted for, and novelty is best knowledge with the Resultary outage and terminology risks.
+
+## value
+
+PASS
+
+The simple but natural page-count threshold distinguishes disconnected S⁰, a wedge of two loops, and actual simplicial collapsibility for every larger quadrilateral book. It supplies a complete family result for graph matching complexes outside common polygonal-tiling and outerplanar hypotheses, so the page cutoff and collapse have reusable mathematical meaning beyond a tiny-instance check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
