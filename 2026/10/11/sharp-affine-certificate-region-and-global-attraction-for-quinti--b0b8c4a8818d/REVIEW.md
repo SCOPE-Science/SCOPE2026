@@ -1,11 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness — PASS.** Direct polynomial expansion verifies the two-square certificate. The opposite-sign roots of a quadratic establish necessity for all affine coefficients, including the equality boundary. An exact state-space derivative excludes periodic solutions (with the zero-parameter case treated separately). A proper coercive function has negative derivative outside a compact set, proving global existence and boundedness; Poincaré–Bendixson and the hyperbolic-sink linearization then give global asymptotic stability. The checker supplies finite exact arithmetic spot tests, not an infinite proof.
+## correctness
 
-**Originality — PASS, with residual risk.** The motivating Gasull–Giacomini result already establishes the no-cycle implication **conditional on** an admissible affine coefficient, and already gives narrower discriminant inequalities for this quintic. It does not give the optimized if-and-only-if feasibility threshold, the explicit two-square optimum across the complete real coefficient family, or the global-attraction statement. The example with negative \(a_3\) lies outside its Corollary 7.6. Other polynomial Liénard papers checked address cyclicity, bounds, or perturbations rather than this exact optimized certificate region. Priority risk persists for a differently formulated classical quartic nonnegativity elimination.
+PASS
 
-**Value — PASS.** The natural parameter-completion problem left by the published quintic certificate is solved exactly, rather than by another sufficient discriminant slice. It yields a large and coefficient-uniform global-attraction region for nonlinear damping, including examples where the standard energy derivative has the wrong sign on open subsets. The sharp boundary is explicitly limited to certificate feasibility, not interpreted as a physical bifurcation boundary.
+PASS: The frozen proof fixes a1>0, real coefficients and α ranging over all reals; no claim of global dynamical sharpness outside its affine certificate. Let s=sqrt(a1)>0, b=a4/2, β=a3-a4²/4+2s and γ=a2+α/2+a4s. Exact polynomial identity (α x+2H)/2=(x²+bx-s)²+βx²+γx holds for all real x. If β≥0 choose γ=0 (α0=-2a2-2a4s) for global nonnegativity. If β<0 evaluate at the positive and negative roots of x²+bx-s to obtain contradictory sign bounds for γ; necessity is for ALL α. For no cycles, d/dt [(2-2αy-α²x²)e^{αy}]=α²x²e^{αy}(αx+2H) for α≠0; finite polynomial x-zero lines cannot support a nontrivial periodic orbit. For α=0, E_dot=-x²H≤0 excludes cycles similarly. Proper W=(x²+y²)/2-yφ(x), φ′=(1+x²)^−3, satisfies Wdot≤ -xF+xφ+.5φ′F²−.5φ′y²<0 outside compact by negative x^6 dominance and fixed-x negative y². Bounded complete forward orbits and unique equilibrium hyperbolic sink (λ²+a1λ+1) plus Poincare–Bendixson imply global convergence. Exact sign-changing example (1,5,-1,0) has β=1>0, H(-1/2)=−27/16, proving energy monotonicity need not hold. Finite check.py read but not treated as quantified proof.
 
-The closest relevant primary work is Gasull–Giacomini Proposition 7.3 and Corollary 7.6. No independent priority or formal proof certification is claimed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Direct full-text relevant sections of Gasull–Giacomini show the no-periodic-orbits implication from a certificate and stronger Cor7.6 sufficient region, not the necessary-and-sufficient sharp α-existence threshold or all-parameter global-attraction consequence. Resultary identified target and non-covering variants. Neither the classic Poincare–Bendixson principle nor generic dissipativity claims establish the optimized coefficient locus. Earlier algebraic reformulations not indexed remain possible.
+
+## value
+
+PASS
+
+PASS: Feasibility of the actual affine invariant-curve certificate is a motivated sharp coefficient-space question in quintic Lienard cycle theory, not an arbitrary slice. The exact closed inequality (and explicit optimal α) enlarges formerly sufficient parameter regions while permitting sign-changing damping, and the proper Lyapunov construction upgrades this sharp certificate region to a global attractor statement. Does not claim actual absence of cycles outside that region.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

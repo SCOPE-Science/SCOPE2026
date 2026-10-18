@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T11:12:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The frozen proof fixes a1>0, real coefficients and α ranging over all reals; no claim of global dynamical sharpness outside its affine certificate. Let s=sqrt(a1)>0, b=a4/2, β=a3-a4²/4+2s and γ=a2+α/2+a4s. Exact polynomial identity (α x+2H)/2=(x²+bx-s)²+βx²+γx holds for all real x. If β≥0 choose γ=0 (α0=-2a2-2a4s) for global nonnegativity. If β<0 evaluate at the positive and negative roots of x²+bx-s to obtain contradictory sign bounds for γ; necessity is for ALL α. For no cycles, d/dt [(2-2αy-α²x²)e^{αy}]=α²x²e^{αy}(αx+2H) for α≠0; finite polynomial x-zero lines cannot support a nontrivial periodic orbit. For α=0, E_dot=-x²H≤0 excludes cycles similarly. Proper W=(x²+y²)/2-yφ(x), φ′=(1+x²)^−3, satisfies Wdot≤ -xF+xφ+.5φ′F²−.5φ′y²<0 outside compact by negative x^6 dominance and fixed-x negative y². Bounded complete forward orbits and unique equilibrium hyperbolic sink (λ²+a1λ+1) plus Poincare–Bendixson imply global convergence. Exact sign-changing example (1,5,-1,0) has β=1>0, H(-1/2)=−27/16, proving energy monotonicity need not hold. Finite check.py read but not treated as quantified proof.",
+      "risks": [
+        "Sharp only for existence of α x+2F(x)/x >=0, not complete limit-cycle bifurcation classification.",
+        "a1>0 needed for local hyperbolic sink; a1=0 not covered.",
+        "Standard polynomial growth proof provides trapping but not optimal convergence rates."
+      ],
+      "sources": [
+        "Git Lienard RESULT.md blob faaf05ca734d837ed27fb47e4ac37184ff5a0079",
+        "Git Lienard VERIFICATION.md blob 9e5c7482949ed8576ee92a0fefad9578d0da026d",
+        "Gasull and Giacomini, Number of limit cycles for planar systems with invariant algebraic curves, arXiv:2210.15803v1; Proposition 7.3 and Corollary 7.6; DOI:10.1007/s12346-023-00746-7",
+        "Roussarie, Putting a boundary to the space of Lienard equations, DCDS 17 (2007)",
+        "Resultary query: quintic Lienard affine certificate alpha x+2 F(x)/x nonnegative all real x sharp coefficient region global attraction Gasull Giacomini"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Liénard dissipativity/uniqueness results need separate hypotheses; the explicit optimized affine cone permits sign-changing xF and arbitrary a2.",
+          "Source certificate itself ensures no periodic orbit but not necessarily boundedness/global attraction without coercive argument."
+        ],
+        "reasoning": "The older general no-cycle criterion plus a standard stability mechanism does not trivially give exact global attraction for the newly characterized semialgebraic region; the provided proper trapping function completes that step.",
+        "searches": [
+          "quintic Lienard affine certificate alpha x+2 F(x)/x nonnegative all real x sharp coefficient region global attraction Gasull Giacomini",
+          "quintic Lienard global stability if a3>=a4 squared/4-2 sqrt(a1)"
+        ]
+      },
+      "checked_sources": [
+        "Git Lienard RESULT.md blob faaf05ca734d837ed27fb47e4ac37184ff5a0079",
+        "Git Lienard VERIFICATION.md blob 9e5c7482949ed8576ee92a0fefad9578d0da026d",
+        "Gasull and Giacomini, Number of limit cycles for planar systems with invariant algebraic curves, arXiv:2210.15803v1; Proposition 7.3 and Corollary 7.6; DOI:10.1007/s12346-023-00746-7",
+        "Roussarie, Putting a boundary to the space of Lienard equations, DCDS 17 (2007)",
+        "Resultary query: quintic Lienard affine certificate alpha x+2 F(x)/x nonnegative all real x sharp coefficient region global attraction Gasull Giacomini"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prop7.3 implies no cycles conditional on existence of α, not the β≥0 equivalence. Cor7.6 has different stronger inequalities.",
+          "Simple construction α0 and opposite-sign quadratic roots supplies necessity absent from prior sufficient criterion."
+        ],
+        "reasoning": "Prior implication holds for no-cycle once α is found; independent content is elimination of existential α plus valid global boundedness/stability throughout precise region. No novelty attributed to Poincare–Bendixson or original Dulac mechanism.",
+        "searches": [
+          "quintic Lienard affine certificate alpha x+2 F(x)/x nonnegative all real x sharp coefficient region global attraction Gasull Giacomini",
+          "arXiv:2210.15803 Prop 7.3 Cor 7.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primary Gasull–Giacomini §7.2 Prop7.3 supplies sufficient no-cycle criterion for some α and Cor7.6 discriminant-based coefficient restrictions; the audit derives if-and-only-if existence over all α."
+        ],
+        "reasoning": "Same polynomial family and affine certificate identified exactly; not misrepresenting Prop7.3 as new. The optimized α and threshold are stronger precise coefficient-space content.",
+        "searches": [
+          "quintic Lienard affine certificate alpha x+2 F(x)/x nonnegative all real x sharp coefficient region global attraction Gasull Giacomini",
+          "Gasull Giacomini Proposition 7.3 Corollary 7.6 quintic affine certificate"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Corollary 7.6 has stronger sufficient discriminant restrictions, excluding concrete (a1,a2,a3,a4)=(1,5,-1,0) that the optimized certificate admits.",
+          "No existing exact algebraic certificate-feasibility table for arbitrary a2 surfaced."
+        ],
+        "reasoning": "The exact threshold in all coefficient dimensions and its sharpness concern a natural semialgebraic feasibility question, not merely recomputation of a known table row.",
+        "searches": [
+          "quintic Lienard affine certificate alpha x+2 F(x)/x nonnegative all real x sharp coefficient region global attraction Gasull Giacomini",
+          "Roussarie quintic Lienard coefficient tables affine α inequality",
+          "Gasull Giacomini Corollary 7.6"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Direct full-text relevant sections of Gasull–Giacomini show the no-periodic-orbits implication from a certificate and stronger Cor7.6 sufficient region, not the necessary-and-sufficient sharp α-existence threshold or all-parameter global-attraction consequence. Resultary identified target and non-covering variants. Neither the classic Poincare–Bendixson principle nor generic dissipativity claims establish the optimized coefficient locus. Earlier algebraic reformulations not indexed remain possible.",
+      "residual_risks": [
+        "Potential unindexed older equivalent coefficient optimization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_SUFFICIENT_METHOD_AND_STRONGER_RESTRICTIONS_NOT_EXACT_OPTIMUM",
+          "evidence": [
+            "Prop7.3 affine sign criterion; Cor7.6 provides explicit sufficient but nonoptimal constraints."
+          ],
+          "identifier_or_url": "arXiv:2210.15803v1, DOI:10.1007/s12346-023-00746-7",
+          "material_read": "complete relevant §7.2 in arXiv primary PDF, including Proposition 7.3, Corollary 7.6, displayed quintic coefficients and proof method",
+          "method": "read primary article full relevant sections and equations via web PDF page text/screenshot",
+          "searches": [
+            "quintic Lienard affine certificate alpha x+2 F(x)/x nonnegative all real x sharp coefficient region global attraction Gasull Giacomini",
+            "arXiv:2210.15803v1",
+            "DOI:10.1007/s12346-023-00746-7"
+          ],
+          "title": "Number of limit cycles for planar systems with invariant algebraic curves",
+          "trigger": "same quintic Lienard family and optimizing affine parameter"
+        },
+        {
+          "assessment": "BACKGROUND_NOT_EXHAUSTIVELY_RULED_OUT",
+          "evidence": [
+            "Alternative older equivalent optimization may be unindexed; no full-document negative claim."
+          ],
+          "identifier_or_url": "DOI:10.3934/dcds.2007.17.441",
+          "material_read": "bibliographic/abstract context only; no specific matching optimized α theorem established",
+          "method": "bibliographic and targeted search",
+          "searches": [
+            "quintic Lienard affine certificate alpha x+2 F(x)/x nonnegative all real x sharp coefficient region global attraction Gasull Giacomini",
+            "arXiv:2210.15803v1",
+            "DOI:10.3934/dcds.2007.17.441"
+          ],
+          "title": "Putting a boundary to the space of Lienard equations",
+          "trigger": "general parameter-space cycle theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Feasibility of the actual affine invariant-curve certificate is a motivated sharp coefficient-space question in quintic Lienard cycle theory, not an arbitrary slice. The exact closed inequality (and explicit optimal α) enlarges formerly sufficient parameter regions while permitting sign-changing damping, and the proper Lyapunov construction upgrades this sharp certificate region to a global attractor statement. Does not claim actual absence of cycles outside that region.",
+      "risks": [
+        "Sharp only for existence of α x+2F(x)/x >=0, not complete limit-cycle bifurcation classification.",
+        "a1>0 needed for local hyperbolic sink; a1=0 not covered.",
+        "Standard polynomial growth proof provides trapping but not optimal convergence rates."
+      ],
+      "sources": [
+        "Git Lienard RESULT.md blob faaf05ca734d837ed27fb47e4ac37184ff5a0079",
+        "Git Lienard VERIFICATION.md blob 9e5c7482949ed8576ee92a0fefad9578d0da026d",
+        "Gasull and Giacomini, Number of limit cycles for planar systems with invariant algebraic curves, arXiv:2210.15803v1; Proposition 7.3 and Corollary 7.6; DOI:10.1007/s12346-023-00746-7",
+        "Roussarie, Putting a boundary to the space of Lienard equations, DCDS 17 (2007)",
+        "Resultary query: quintic Lienard affine certificate alpha x+2 F(x)/x nonnegative all real x sharp coefficient region global attraction Gasull Giacomini"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Sharp only for existence of α x+2F(x)/x >=0, not complete limit-cycle bifurcation classification.",
+    "a1>0 needed for local hyperbolic sink; a1=0 not covered.",
+    "Standard polynomial growth proof provides trapping but not optimal convergence rates."
+  ]
+}

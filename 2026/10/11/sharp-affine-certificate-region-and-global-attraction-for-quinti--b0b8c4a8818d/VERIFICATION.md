@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-# Verification
-The exact identity uses \(s=\sqrt{a_1}\), \(b=a_4/2\), \(\beta=a_3-a_4^2/4+2s\), and the optimized \(\alpha=-2a_2-2a_4s\). The cancellation of all cubic and linear terms reduces nonnegativity to one squared quadratic plus \(\beta x^2\). At \(\beta<0\) the quadratic has one positive and one negative real root, so no affine adjustment can make both evaluations nonnegative.
+# Independent mathematical audit
 
-For the dynamics, differentiate \((2-2\alpha y-\alpha^2x^2)e^{\alpha y}\) directly; its exact time derivative is \(\alpha^2x^2e^{\alpha y}(\alpha x+2H)\). The \(\alpha=0\) case uses the quadratic energy directly, not a limiting version of the certificate derivative.
+## correctness
 
-For boundedness, \(\phi'(x)=(1+x^2)^{-3}\) and \(\phi\) is bounded. The upper bound on \(\dot W\) is of order \(-x^6+O(x^5)+O(x^4)-\tfrac12\phi'(x)y^2\), which is negative outside some compact set. A hyperbolic local sink and the exclusion of periodic or connecting invariant graphs force omega-limit convergence.
+PASS
 
-Run `python3 check.py` to reproduce exact rational evaluations for a sample, a boundary configuration, and a below-threshold obstruction. The checker is not a universal finite certificate, and no independent audit has been performed.
+PASS: The frozen proof fixes a1>0, real coefficients and α ranging over all reals; no claim of global dynamical sharpness outside its affine certificate. Let s=sqrt(a1)>0, b=a4/2, β=a3-a4²/4+2s and γ=a2+α/2+a4s. Exact polynomial identity (α x+2H)/2=(x²+bx-s)²+βx²+γx holds for all real x. If β≥0 choose γ=0 (α0=-2a2-2a4s) for global nonnegativity. If β<0 evaluate at the positive and negative roots of x²+bx-s to obtain contradictory sign bounds for γ; necessity is for ALL α. For no cycles, d/dt [(2-2αy-α²x²)e^{αy}]=α²x²e^{αy}(αx+2H) for α≠0; finite polynomial x-zero lines cannot support a nontrivial periodic orbit. For α=0, E_dot=-x²H≤0 excludes cycles similarly. Proper W=(x²+y²)/2-yφ(x), φ′=(1+x²)^−3, satisfies Wdot≤ -xF+xφ+.5φ′F²−.5φ′y²<0 outside compact by negative x^6 dominance and fixed-x negative y². Bounded complete forward orbits and unique equilibrium hyperbolic sink (λ²+a1λ+1) plus Poincare–Bendixson imply global convergence. Exact sign-changing example (1,5,-1,0) has β=1>0, H(-1/2)=−27/16, proving energy monotonicity need not hold. Finite check.py read but not treated as quantified proof.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Direct full-text relevant sections of Gasull–Giacomini show the no-periodic-orbits implication from a certificate and stronger Cor7.6 sufficient region, not the necessary-and-sufficient sharp α-existence threshold or all-parameter global-attraction consequence. Resultary identified target and non-covering variants. Neither the classic Poincare–Bendixson principle nor generic dissipativity claims establish the optimized coefficient locus. Earlier algebraic reformulations not indexed remain possible.
+
+## value
+
+PASS
+
+PASS: Feasibility of the actual affine invariant-curve certificate is a motivated sharp coefficient-space question in quintic Lienard cycle theory, not an arbitrary slice. The exact closed inequality (and explicit optimal α) enlarges formerly sufficient parameter regions while permitting sign-changing damping, and the proper Lyapunov construction upgrades this sharp certificate region to a global attractor statement. Does not claim actual absence of cycles outside that region.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
