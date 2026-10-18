@@ -1,15 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The construction specifies a normalized compactly supported smooth bump, two uniformly permuted baseline configurations, and a strictly positive smooth exponential mixture. Independent-copy sign comparisons give exact rational Kendall values \(-5/18\) and \(-1/2\) before smoothing; replacing whole sample triples with probability \(1/100\) changes their difference by at most \(4(2\eta-\eta^2)\), leaving the certified gap \(3209/22500\). The dimension-two pointwise rearrangement lemma is established for all real inputs and ties. The exact-rational script independently reconstructs the finite category calculations. Boundaries and quantifiers were checked; the finite diagnostic is not used as an infinite proof.
+PASS
 
-## Originality — PASS, with residual risk
+The specified exchangeable triple Z has baseline group A=(one 0,two 10s), group B=(one 1,two 2s), uniformly random location of its low coordinate, with independent C-infinity jitter on (0,1/10). In the Kendall two-copy sign kernel, each within-group parent pair contributes -2/9, cross-group -1/3, giving tau(Z1,Z2)=-5/18. Within-group first/second order statistics are independent (disjoint noise coordinates) so contribute 0, while cross-group order-statistic signs are opposite, giving tau(Z_(1),Z_(2))=-1/2 and gap 2/9. Mixing 1% independent exponential triples yields C-infinity strictly positive density f>=0.01 exp(-sum x) on all positive triples. The kernel difference lies [-2,2], so total perturbation at most 4(2eta-eta²), which at eta=1/100 yields exact gap lower bound 3209/22500>0. Universal sorted-endpoint sign inequality establishes Kendall tau(min,max)>=tau(original pair) for all laws on two variables including ties, proving dimension-three minimality. Independently recalculated all fractions and 81 integer-quadruple n2 comparisons; analytic rearrangement proof is the infinite scope.
 
-The September 2023 preprint and October 2023 full journal text of Kochar–Spizzichino explicitly establish the *positive* comparison for time-transformed exponential models and ask whether it extends to other exchangeable models. The present negative example is outside their hypothesis and answers that wider question. Direct inspection of two related publicly available research records (pairwise-independent labelled rank ordering; iid three-atom minimum-maximum Pearson correlation) showed neither contains this exchangeable triple Kendall claim; searches for equivalent terms, dominating extensions, and previous parameterizations found no covering result. The Fuchs–Schmidt article was bibliographically verified but its full text could not be accessed after open-source attempts; the exact dimension-two statement is independently proved, yet a priority risk remains. A negative search result is not independent novelty certification.
+## originality
 
-## Value — PASS
+PASS
 
-The motivating paper explicitly invites extension beyond a strong exchangeable subclass. A minimal-dimensional, robust counterexample with smooth everywhere positive lifetime density prevents accidental interpretation of its comparison as a universal exchangeability theorem. An analytic quantitative gap protects against perturbation, while the sharp two-dimensional boundary gives a structural reason that three observations are necessary. The result does not characterize exchangeable models that do preserve concordance, nor optimize the reversal.
+Kochar–Spizzichino 2023 prove stronger order-statistic dependence only in the restrictive time-transformed exponential class and explicitly invite extension. This smooth strictly positive exchangeable law need not be conditionally iid or in that class, so the reversed Kendall ordering refutes the unrestricted extrapolation without contradicting their theorem. The Fuchs–Schmidt 2021 paper on order statistics and Kendall tau is highly relevant and full text remained inaccessible; abstract cannot decide global priority. Best-of-knowledge passing retains that material overlap risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Gives a sharp dimension boundary for a natural reliability/concordance monotonicity conjecture: no reversal for two variables, but explicit smooth full-support three-lifetime exchangeable law with strictly quantified reversal. This is a motivated counterexample beyond a disconnected finite distribution and delineates the necessity of model assumptions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
