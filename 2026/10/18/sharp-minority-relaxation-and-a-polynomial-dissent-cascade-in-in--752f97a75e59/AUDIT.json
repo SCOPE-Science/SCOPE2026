@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary integer k>=1 the exact source equation (2.1) is rewritten in deficit coordinates. Symbolic expansion identifies one simple stable eigenvalue -(2k-1)/(2k) and 2k-1 eigenvalues -1. An explicit positive left eigenvector c_1=1, c_d=2k c_(d-1)+d makes H positive and H'=-aH+O(delta^2). Local exponential stability implies integrable delta, hence the logarithm of e^(a t)H has an absolutely integrable derivative, giving a strictly positive finite limit C. For k>=2, e^t v||b|| is integrable and exact integrating-factor identities prove a finite strictly positive far-tail coefficient B and all successive t-power/factorial limits; all higher deficits are o(e^-at). For k=1, e^t b_2 is asymptotic to (C^2/2)t by the exact source term. Reflection covers the other consensus. Executed packaged SymPy assertions (k=1..5) and SciPy trajectory diagnostics (k=1..3) passed, and analytic infinite-time steps do not rely on sampled trajectories.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "doi:10.1137/24M1700661 studies an iterative persuasion–polarization rule allowing repulsion, unlike this one-step unbiased-between-boundaries nearest-neighbor rate",
+        "doi:10.1137/24M1682269 studies continuous-valued opinions with fractal equilibrium supports, not the finite-path birth-death chain",
+        "The motivating source proves convergence in selected basins and a weak decay bound, but leaves general k quantitative decay unresolved."
+      ],
+      "reasoning": "Standard stable-manifold/hyperbolic theory explains generic exponential convergence but does not give the parameter-exact positive slow projection and all remote-state factorial polynomial limits without checking this nonlinear triangular coupling. Identified adjacent publications use different generators and do not imply this specific hierarchy.",
+      "searches": [
+        "multistate opinion model birth-death nonlinear Markov chain consensus eigenvalue 1-1/(2k) dominant penultimate opinion mass",
+        "multi opinion extremist intermediate states near consensus triangular Jordan chain polynomial prefactor asymptotics",
+        "\"Fractal opinions among interacting agents\" Cao Cortez opinion update fractal"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2605.28984v1 (primary full-text relevant sections)",
+      "doi:10.1137/24M1700661 (publisher abstract)",
+      "doi:10.1137/24M1682269 (publisher abstract)",
+      "ams-msc2020:91D30 (official classification)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cao-Gong Proposition 3.2 identifies the three-state attracting consensus, Theorem 2 proves only Delta(t)<=C exp(-t/8).",
+        "Cao-Gong Theorem 3: initial mean M(0)>2k-1 or M(0)<1 ensures the respective extreme consensus, without a rate for k>=2.",
+        "Cao-Gong Section 4 explicitly asks for quantitative convergence for general k>=2.",
+        "A distinct historical mean-field model concerns exploration-regularized dynamics, and a separate original-model analysis concerns instability of the uniform equilibrium; neither states a stable-extreme minority cascade."
+      ],
+      "reasoning": "The current assertion is conditional on attraction, so it credits rather than reproves prior basin statements. Neither qualitative convergence nor an e^(-t/8) upper bound implies a nonzero sharp asymptotic amplitude, especially not the t^j e^-t hierarchy. Uniform-equilibrium instability and a regularized process address logically different states/models.",
+      "searches": [
+        "The incremental voter model: mean-field analysis and convergence to equilibrium Cao Gong 2026 Section 3 Theorem 2 Theorem 3 Section 4",
+        "incremental voter model Cao Gong 2605.28984 sharp asymptotic convergence rate opinion penultimate state exponential far minority polynomial cascade",
+        "The Iterative Persuasion-Polarization Opinion Dynamics and Its Mean-Field Analysis Cao Reed 2025"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2605.28984, equations (2.1) and Section 3; Section 4 explicitly discusses missing general-radius quantitative convergence",
+        "Searches for penultimate opinion, exponential mode, remote opposite opinion, nonlinear resonance yielded no exact-model theorem stating the full limit hierarchy."
+      ],
+      "reasoning": "A time-rescaled convergence bound, a generic stable eigenvalue, or a bound for a different voter rule is not equivalent to the explicit positive constants and every coordinate tail exponent. The source bound e^(-t/8) for k=1 gives neither exponent 1/2 nor the nonlinear resonant coefficient.",
+      "searches": [
+        "incremental voter model Cao Gong 2605.28984 sharp asymptotic convergence rate opinion penultimate state exponential far minority polynomial cascade",
+        "incremental voter opinion stepwise persuasion asymptotic dissent hierarchy t power exponential rare opposite extremists",
+        "\"incremental voter model\" \"sharp\" exponential convergence \"k\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The all-integer exact constants are not finite database entries and were not identified in indexed model-specific literature.",
+        "The exact published MSC2020 term 91D30 is Social networks; opinion dynamics."
+      ],
+      "reasoning": "The result is a uniform analytic limit theorem for every integer opinion radius and every nontrivial attracted trajectory, not a finite numerical table or previously tabulated scalar. No database or table with these exact model-dependent amplitudes was located.",
+      "searches": [
+        "incremental opinion dynamics extreme consensus penultimate state e^{-(2k-1)t/(2k)} remote states t^j e^{-t}",
+        "incremental voter model Fei Cao Xiaoqian Gong 2026 citation sharp rate alternative paper",
+        "\"incremental voter model\" \"asymptotic\" \"penultimate\" \"Cao\""
+      ]
+    },
+    "rationale": "The directly relevant primary Cao-Gong article first establishes consensus selection and a nonsharp three-state bound e^(-t/8), explicitly setting general-radius quantitative rates as a further research question; it does not provide the exact decay a_k, positive amplitudes, polynomial-dissent hierarchy, or k=1 resonance. The record comparisons found no implication-equivalent result. Preexisting general hyperbolic linearization can recover a local eigenvalue but does not by itself establish positive coefficient and all-coordinate polynomial asymptotics. Earlier adjacent opinion models have different microscopic rules. Historical priority cannot be guaranteed without independent review.",
+    "residual_risks": [
+      "Independent priority confirmation has not been performed.",
+      "A specialized general theorem for nonlinear triangular Markov flows could subsume the asymptotic expansion under a different name.",
+      "The full texts of the two adjacent but different earlier opinion models were not checked; their accessible model descriptions distinguish their generators."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_FULL_CLAIM",
+        "evidence": [
+          "Source equations give upward rate (k+m)/(2k), downward (k-m)/(2k).",
+          "Source Theorem 2 establishes nonsharp 3-state e^(-t/8) bound.",
+          "Source Section 4 describes general-radius quantitative convergence as open."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.28984",
+        "material_read": "Primary full-text equations (1.1), (2.1), Section 3 including Proposition 3.2, Theorems 2 and 3, discussion in Section 4 and reference list",
+        "method": "Accessible primary manuscript full-text inspection with explicit equation-by-equation comparison",
+        "title": "The incremental voter model: mean-field analysis and convergence to equilibrium",
+        "trigger": "Identical exact nonlinear nearest-neighbor opinion model and the explicit rates question"
+      },
+      {
+        "assessment": "RELATED_DIFFERENT_GENERATOR; full-text priority risk remains",
+        "evidence": [
+          "The model explicitly incorporates persuasion and repulsion with tunable probability, unlike the exact monotone nearest-neighbor model studied here."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/24M1700661",
+        "material_read": "Publisher abstract, model description, bibliographic context; full text was not inspected",
+        "method": "Publisher bibliographic and model-mechanism comparison",
+        "title": "The Iterative Persuasion-Polarization Opinion Dynamics and Its Mean-Field Analysis",
+        "trigger": "Earlier publication with same author and mean-field persuasion terminology"
+      },
+      {
+        "assessment": "RELATED_DIFFERENT_STATE_SPACE; full-text priority risk remains",
+        "evidence": [
+          "The model has continuous opinions in [-1,1] and possible fractal supports, unlike the finite 2k+1-state incremental voter ODE."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/24M1682269",
+        "material_read": "Publisher abstract, key model description and scientific scope; full text was not inspected",
+        "method": "Publisher bibliographic and model-mechanism comparison",
+        "title": "Fractal Opinions among Interacting Agents",
+        "trigger": "Earlier same-author interacting-agent opinion model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "752f97a7-5e59-405f-871b-558172cddeec",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating article explicitly asks for quantitative decay for the multi-opinion system. This resolves the exact leading exponent for every k in any known extreme-consensus basin, establishes nonzero amplitudes rather than upper bounds, and identifies a striking full-spectrum disparity: near-consensus dissent is the slow mode while more distant minorities die by a factorially ordered polynomial-exponential cascade. At k=1 an exact resonant coefficient replaces the generic k>=2 result. Opinion-class tail populations and the final approach to consensus are natural observables motivated directly by this model, not arbitrary slices. This does not solve the separate all-initial-data basin problem.",
+    "status": "PASS"
+  }
+}
