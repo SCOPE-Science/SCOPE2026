@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The image of a weight-zero Rota–Baxter operator is a subalgebra. Any nonzero finite-dimensional commutative reduced subalgebra contains a nonzero idempotent after unitization and Artinian decomposition. A single Rota–Baxter application rules out such an idempotent in characteristic two; two applications rule it out in every other characteristic. The semisimple and group-algebra corollaries then follow. The packaged checker verifies representative split reduced algebras and a nonreduced boundary example.
+PASS
 
-## Originality
+For repaired main claim, image B=imR is a reduced finite-dimensional commutative subalgebra, so nonzero image contains a nonzero idempotent. For e=R(x), e=R(2ex); in char2 contradiction, otherwise R(ex)=e/2 and RB(ex,ex) yields e/4=e/2, also contradiction. Boundary is now correctly restricted to unital algebra or eA!=0. Counterexample to old assertion: nonzero zero-product nonunital algebra has square-zero e but L_e=0.
 
-PASS. The strongest inspected middle-cohort theorem gives nilpotence in characteristic zero, not vanishing, and the same source contains nonzero weight-zero examples. The older semigroup-algebra classification explicitly leaves prime cyclic group algebras as a question. Focused semantic and literature searches did not locate the reduced-commutative vanishing theorem. Older commutative Rota–Baxter literature under different terminology remains a residual risk.
+## originality
 
-## Value
+PASS
 
-PASS. The result is a broad structural obstruction with a sharp nonreduced boundary. It strengthens nilpotence to exact vanishing, removes the characteristic-zero restriction on the reduced commutative subclass, and settles the finite cyclic prime question as part of a stronger finite-abelian group-algebra theorem.
+Only corrected characteristic-independent, nonsplit/nonunital reduced-algebra theorem assessed as potentially new; Gubarev prior exact split char0 vanishing and its cyclic-prime consequence explicitly credited. No independent exact char-free image-idempotent theorem identified.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Characteristic-free exact rigidity for nonunital finite reduced commutative algebras is a natural structural obstruction and extends old split characteristic-zero result to positive characteristic and nonsplit/nonunital cases. Corrected unital square-zero boundary separates reduced and nonreduced examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

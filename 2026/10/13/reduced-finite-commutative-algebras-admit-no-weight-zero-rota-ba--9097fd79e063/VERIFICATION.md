@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,25 +18,25 @@
   "schema_version": 1
 }
 ---
-The proof is symbolic.
 
-The packaged checker `artifacts/verify.py` exhaustively enumerates all linear maps on the split reduced algebras
-\[
-\mathbf F_2^n\quad(n=1,2,3)
-\]
-and
-\[
-\mathbf F_3^n\quad(n=1,2),
-\]
-with coordinatewise multiplication. In every case, it confirms that the zero map is the unique weight-zero Rota–Baxter operator.
+# Independent mathematical audit
 
-It also checks the sharp boundary example on
-\[
-\mathbf F_q[\varepsilon]/(\varepsilon^2),
-\qquad q\in\{2,3,5\},
-\]
-where left multiplication by \(\varepsilon\) is a nonzero weight-zero Rota–Baxter operator.
+## correctness
 
-The checker returns `VERIFY_OK`.
+PASS
 
-Finite enumeration is not used to prove the theorem.
+For repaired main claim, image B=imR is a reduced finite-dimensional commutative subalgebra, so nonzero image contains a nonzero idempotent. For e=R(x), e=R(2ex); in char2 contradiction, otherwise R(ex)=e/2 and RB(ex,ex) yields e/4=e/2, also contradiction. Boundary is now correctly restricted to unital algebra or eA!=0. Counterexample to old assertion: nonzero zero-product nonunital algebra has square-zero e but L_e=0.
+
+## originality
+
+PASS
+
+Only corrected characteristic-independent, nonsplit/nonunital reduced-algebra theorem assessed as potentially new; Gubarev prior exact split char0 vanishing and its cyclic-prime consequence explicitly credited. No independent exact char-free image-idempotent theorem identified.
+
+## value
+
+PASS
+
+Characteristic-free exact rigidity for nonunital finite reduced commutative algebras is a natural structural obstruction and extends old split characteristic-zero result to positive characteristic and nonsplit/nonunital cases. Corrected unital square-zero boundary separates reduced and nonreduced examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
