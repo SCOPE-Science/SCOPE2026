@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+For every \(t\in\overline{\mathbf F}_{13}\setminus\{0,1\}\), the polynomial \(x(x^3-1)(x^3-t)\) is squarefree and defines a smooth genus-three hyperelliptic curve. The classical coefficient formula \(H_{ij}=[x^{13i-j}]f^6\) and the residue condition modulo \(3\) make the matrix diagonal. Its three exact entries are \(2t^4A(t)\), \(B(t)D(t)E(t)\), and \(2A(t)\). Sparse direct multiplication verifies these identities; each of the four named quadratics has a nonsquare discriminant in characteristic \(13\), and they are pairwise different. Their root sets are therefore pairwise disjoint and have two elements each. For diagonal semilinear Cartier action, stable rank equals ordinary rank, so the rank/\(a\)-number table follows on the entire algebraic closure. The extracted verifier confirms all coefficient identities and all parameters over \(\mathbf F_{13^2}\); this finite enumeration is supporting evidence, not the proof over the algebraic closure.
+
+## Originality — PASS (qualified)
+The closest inspected source is Cavalieri–Pries, *Mass formula for non-ordinary curves in one dimensional families*, arXiv:2308.14891, §8: the even-order cyclic-cover family is exactly the family here after an explicit birational change of variables. Its weighted nonordinary mass result does not specify the parameter-by-parameter \(13\)-rank and \(a\)-number strata, and the paper explicitly acknowledges a missing general \(a\)-number determination. Borges–Gonçalves, arXiv:2212.03987, treats different Fermat-type curves and does not give an equivalent classification of this four-branch variable pencil. Searches of research records for the exact model, characteristic, quadratics, Cartier zeros, aliases, and genus-three invariants found no result implying this theorem; the most similar retrieved entries concern unrelated families or invariants. A non-indexed earlier equivalent explicit computation cannot be ruled out.
+
+## Value — PASS
+The source supplies a natural geometrically connected one-dimensional genus-three family but does not identify exact nonordinary points or their \(a\)-numbers. The theorem gives the complete geometric \(13\)-rank stratification, including the two rank-one points and six rank-two points, their precise field of definition, and exclusion of rank zero. This is a natural finite-field arithmetic refinement of the weighted-mass result, not a cosmetic parameter substitution or a numerically isolated unmotivated table.
+
+## Scope, nearby literature and remaining risks
+The theorem applies only to characteristic \(13\) and the stated smooth parameter domain; no Newton-polygon or full geometric-isomorphism classification is claimed. The literature comparison is best-knowledge rather than a formal proof of priority; equivalent Hasse-polynomial computations may exist outside the searched records. The four inversion orbits do not purport to be all isomorphism classes.
+
+Self-review: passed. Independent audit: not yet performed.
