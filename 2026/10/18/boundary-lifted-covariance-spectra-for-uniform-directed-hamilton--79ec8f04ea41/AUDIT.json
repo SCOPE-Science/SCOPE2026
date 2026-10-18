@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Edge contractions give exact one- and two-edge probabilities for every n≥3. The five mutually orthogonal edge subspaces span all n(n−1) coordinates and each is an explicit eigenmode for both covariance operators. The Rayleigh bounds and equality classifications follow from exact smallest/largest path eigenvalues. The Python 3 verifier independently enumerated n=3..7 with 47,656 exact rational checks; all-size validity rests on the analytic counting and decomposition.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sutcliffe–Solomon–Edwards (2012), DOI:10.1007/s10589-012-9472-0: abstract describes symmetric cyclic TSP tour variance, not open directed paths.",
+        "Graves–Whinston (1970), DOI:10.1287/mnsc.16.7.453: quadratic-assignment context, abstract inspected; no full theorem inspected."
+      ],
+      "reasoning": "General quadratic-assignment identities might imply portions of entrywise covariance; this residual risk is not used as affirmative noncoverage. The inspected TSP source is symmetric cyclic rather than all directed open-path arcs and does not state the sharp variance extremal eigenspaces.",
+      "searches": [
+        "\"variance\" \"travelling salesman\" \"symmetric\" tours covariance 2012 Sutcliffe Solomon Edwards",
+        "quadratic assignment permutation costs variance Graves Whinston 1970",
+        "random Hamiltonian path weighted arc covariance variance all weights"
+      ]
+    },
+    "checked_sources": [
+      "https://statistics.berkeley.edu/sites/default/files/tech-reports/unseparated_pairs.pdf",
+      "https://doi.org/10.1007/s00440-003-0321-z",
+      "https://doi.org/10.1007/s10589-012-9472-0",
+      "https://doi.org/10.1287/mnsc.16.7.453"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Diaconis–Evans–Graham (2013), full text sections 1, 2, 5: counting adjacent prescribed originally consecutive labels; general subset probabilities.",
+        "Alhakim (2004), DOI:10.1007/s00440-003-0321-z: IID overlapping-letter Markov chain spectrum with repeated symbols allowed.",
+        "Sutcliffe et al. (2012), DOI:10.1007/s10589-012-9472-0: symmetric cyclic tour-cost variance in abstract."
+      ],
+      "reasoning": "Prescribed-edge contraction gives the covariance entries; deriving the full decomposition, boundary null-space transition and sharp equality characterization requires additional all-edge linear algebra. Overlapping IID letters and symmetric cyclic tour costs are different random objects. No material inspected provides a stronger statement implying the entire result; abstract-only and general-QAP sources leave a residual implicit-priority risk.",
+      "searches": [
+        "Diaconis Evans Graham Unseparated pairs and fixed points random permutations adjacency",
+        "Alhakim On the eigenvalues and eigenvectors of an overlapping Markov chain 2004",
+        "Sutcliffe Solomon Edwards 2012 Computing variance of tour costs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Diaconis–Evans–Graham (2013), introduction, Sections 2 and 5: specific original-neighbor events and unseparated-pair/fixed-point correspondence, https://statistics.berkeley.edu/sites/default/files/tech-reports/unseparated_pairs.pdf"
+      ],
+      "reasoning": "The proposed operator acts on all directed ordered label-pair indicators, and its eigenvectors split into five edge-flow types. Known unseparated-neighbor statistics project onto selected coordinates; their stated set-law equivalence does not directly imply the complete operator spectral classification or weighted-extremizer equalities.",
+      "searches": [
+        "\"covariance spectrum\" \"random Hamiltonian path\" directed edge",
+        "\"random permutation\" \"successor indicators\" covariance eigenspaces",
+        "Diaconis Evans Graham 2013 unseparated pairs fixed points Sections 2 and 5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The present exact multiplicity tables consist of four eigenvalues in the path model and three in the cycle model for all n≥3; no equivalent tables appeared in the inspected primary material."
+      ],
+      "reasoning": "The classification is an all-n invariant, not a lookup of isolated numerical cases. Search nonappearance alone does not prove priority; the material inspection and explicit object/implication comparison supply the substantive evidence.",
+      "searches": [
+        "complete exact covariance eigenvalues directed Hamiltonian path random permutation",
+        "random Hamiltonian cycle covariance all arc indicators complete eigenspace multiplicities",
+        "uniform random permutation predecessor successor edge indicator matrix eigenvalues"
+      ]
+    },
+    "rationale": "Inspected Diaconis–Evans–Graham 2013 introduction/Sections 2,5: adjacency events and set matching, but not full directed-edge covariance eigenspaces nor extremizing path-weight variances. The symmetric cyclic TSP variance literature and general QAP second-moment literature present acknowledged possible implicit-coverage risks; those were not misrepresented as fully read. Result concerns operator spectrum, open-to-cyclic rank change and sharp equality classes rather than isolated adjacency inclusion probabilities.",
+    "residual_risks": [
+      "General quadratic-assignment moment identities may implicitly produce covariance entries; the full five-block spectral decomposition/equality characterization was not located in inspected material.",
+      "Sutcliffe–Solomon–Edwards (2012) full text not accessible; only scope-level abstract comparison.",
+      "No external independent historical-priority assessment has been made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The stated paper addresses selected unseparated-pair counts and fixed-point relations, not all-edge covariance operators and extremal eigenspaces",
+        "evidence": "Diaconis, Evans and Graham (2013), Berkeley technical report 822, pp. 1–4 and Section 5",
+        "identifier_or_url": "https://statistics.berkeley.edu/sites/default/files/tech-reports/unseparated_pairs.pdf",
+        "material_read": "Introduction and Sections 2 and 5, including contraction for specific adjacencies and circular counterpart",
+        "method": "Full-text mathematical comparison of model, observables, and stated theorems",
+        "title": "Unseparated pairs and fixed points in random permutations",
+        "trigger": "Same base random-permutation adjacency events; plausible direct coverage"
+      },
+      {
+        "assessment": "Observations are iid finite-alphabet blocks with replacement, unlike permutations over n distinct labels. No direct implication for the directed-path boundary modes established",
+        "evidence": "Alhakim (2004), probability model and application discussion",
+        "identifier_or_url": "https://doi.org/10.1007/s00440-003-0321-z",
+        "material_read": "Accessible author-shared full text, methodological sections and application discussion",
+        "method": "Probability space and transition structure comparison",
+        "title": "On the eigenvalues and eigenvectors of an overlapping Markov chain",
+        "trigger": "Candidate covariance-spectral result for overlapping discrete observations"
+      },
+      {
+        "assessment": "Symmetric traveling-salesperson tours versus oriented open Hamiltonian paths; indirect coverage cannot be excluded without full text",
+        "evidence": "Sutcliffe, Solomon and Edwards (2012), published abstract",
+        "identifier_or_url": "https://doi.org/10.1007/s10589-012-9472-0",
+        "material_read": "Abstract only; full text not inspected",
+        "method": "Abstract-level scope comparison only",
+        "title": "Computing the variance of tour costs over the solution space of the TSP in polynomial time",
+        "trigger": "Possibly broader arbitrary edge-weight variance formulas"
+      },
+      {
+        "assessment": "General QAP framework is an implicit-coverage risk, not evidence of an exact covering theorem",
+        "evidence": "Graves and Whinston (1970), bibliographic abstract",
+        "identifier_or_url": "https://doi.org/10.1287/mnsc.16.7.453",
+        "material_read": "Bibliographic abstract only",
+        "method": "Scope-risk identification, no whole-paper noncoverage claim",
+        "title": "An algorithm for the quadratic assignment problem",
+        "trigger": "General random-permutation quadratic assignment cost theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "79ec8f04-ea41-4db0-8a7e-4f93463d71c2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The entire covariance geometry of all n(n−1) random directed adjacencies controls arbitrary weighted Hamiltonian-path costs. The boundary closure removes exactly 2(n−1) degrees of randomness, and the sharp n+1 variance ratio distinguishes additive vertex potentials from divergence-free circulations. This is a natural complete classification and optimal variance problem, not a numerical special case or restatement of single-adjacency probabilities.",
+    "status": "PASS"
+  }
+}
