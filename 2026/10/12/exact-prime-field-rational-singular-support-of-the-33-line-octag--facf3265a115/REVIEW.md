@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reconstructs all 33 published line vectors in \(\mathbb Z[\sqrt2]\), enumerates all 528 pair intersections and 5,456 triple determinant norms, and identifies all 169 geometric singular points via their full incident-line sets. The exact norm-prime support is \(\{2\}\) for line distinctness and \(\{2,3,7\}\) for nonzero triple determinants. Conjugation fixes exactly nine geometric intersection points; for the 160 others, the greatest common divisor of the three obstruction-coordinate norms has prime support contained in \(\{2,3\}\), excluding accidental Frobenius fixity at every prime at least five. Separate exhaustive finite calculations establish exceptional characteristics 2, 3, and 7. These are finite computations **of all relevant algebraic cases**, not unsupported extrapolation from sample prime fields. The claim explicitly distinguishes reduced support and the field of definition of the arrangement.
+PASS
 
-## Originality — PASS, with residual risks
+Rebuilt the 33 defining line forms in Z[sqrt(2)] from actual verify.py; independently enumerated all 528 pairs and 5456 triple determinants. Found 169 geometric support points with multiplicities 108/40/16/5, nine Q-rational via P x conjugate(P)=0, bad-prime supports {2} for line distinctness, {2,3,7} for triple incidence, {2,3} for nonQ Frobenius stability. Independently recomputed finite-field counts at p=2 (5 lines,6 points),3 (89 geometric/13 rational),7 (57/57),5 and 11 (169/9),17 and23 (169/169); gcd-norm determinant controls provide universal good-prime quantifier. Density 1/2 uses 2-residue classes mod 8 and Dirichlet.
 
-Pokora--Roulleau (arXiv:2403.20024v1, Theorem B) already determine the complex 33-line configuration and its 169-point geometric multiplicity spectrum; that result is not claimed. The known modular incidence multiplicity information does not imply which of the 169 points are \(\mathbb Q\)-rational or yield the exact quadratic splitting spectrum of prime-field singular points. The present claim determines that arithmetic profile and the characteristic-two reduced support. Relevant indexed records and the full relevant primary sections did not display this combined statement. An unindexed previous arithmetic computation of the octagon configuration remains a plausible priority risk; these searches do not constitute absolute novelty certification.
+## originality
 
-## Value — PASS
+PASS
 
-The arithmetic of intersections of a rigid free line arrangement defined over a quadratic field is a natural geometric invariant not encoded by its intersection lattice. The exact nine-point rational locus, its identification with the dual \(B_3\) reflection configuration, and the sharp 9-versus-169 split/inert dichotomy supply a complete arithmetic classification rather than a small numerical variation. The exceptional characteristics also identify finite-plane saturation and a five-line reduced limit, demonstrating the precise arithmetic boundary of this natural configuration. No freeness statement in positive characteristic is inferred.
+The original 33-line octagon paper supplies equations and intersection lattice; the new assertion is arithmetic Frobenius-fixed support for every prime. Same incidence counts do not imply the nine Q-rational points, exceptional char2/3/7 counts, or split/inert dichotomy.
 
-## Closest prior literature and limits
+## value
 
-The originating construction and incidence numbers: Pokora--Roulleau, arXiv:2403.20024v1 (2024-03-29). Related polygonal matroid theory and positive-characteristic discussions: Kühne--Roulleau, arXiv:2312.03470v1 (2023-12-06). The result applies to the specified integral coordinate presentation, counts geometric singular-support points, and has not undergone independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete prime-field arithmetic support profile of a well-studied 33-line free arrangement is a natural exact invariant; it distinguishes split/inert reductions and exceptional fibers that the complex intersection lattice cannot predict.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

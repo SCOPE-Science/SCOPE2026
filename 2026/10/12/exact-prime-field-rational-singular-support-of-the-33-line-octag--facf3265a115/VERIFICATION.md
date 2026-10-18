@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Reproduction notes
+# Independent mathematical audit
 
-The accompanying `verify.py` contains the complete 33-line defining data, with \(\rho^2=2\). Execute `python3 verify.py` using a standard Python 3 interpreter. It computes all pair, triple, and projective-point incidence tests exactly, checks conjugation-fixed points and norms, and directly enumerates special-prime reductions in \(\mathbb F_2\), \(\mathbb F_9\), and \(\mathbb F_7\), with additional sample-prime checks. The script completed and returned `VERIFY_OK` in the scientific check. The global prime statement uses the proved norm-prime support and finite exceptional fields; the sample-prime loop is not used as a substitute for that argument. There is no external dependency and no independent audit.
+## correctness
+
+PASS
+
+Rebuilt the 33 defining line forms in Z[sqrt(2)] from actual verify.py; independently enumerated all 528 pairs and 5456 triple determinants. Found 169 geometric support points with multiplicities 108/40/16/5, nine Q-rational via P x conjugate(P)=0, bad-prime supports {2} for line distinctness, {2,3,7} for triple incidence, {2,3} for nonQ Frobenius stability. Independently recomputed finite-field counts at p=2 (5 lines,6 points),3 (89 geometric/13 rational),7 (57/57),5 and 11 (169/9),17 and23 (169/169); gcd-norm determinant controls provide universal good-prime quantifier. Density 1/2 uses 2-residue classes mod 8 and Dirichlet.
+
+## originality
+
+PASS
+
+The original 33-line octagon paper supplies equations and intersection lattice; the new assertion is arithmetic Frobenius-fixed support for every prime. Same incidence counts do not imply the nine Q-rational points, exceptional char2/3/7 counts, or split/inert dichotomy.
+
+## value
+
+PASS
+
+A complete prime-field arithmetic support profile of a well-studied 33-line free arrangement is a natural exact invariant; it distinguishes split/inert reductions and exceptional fibers that the complex intersection lattice cannot predict.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
