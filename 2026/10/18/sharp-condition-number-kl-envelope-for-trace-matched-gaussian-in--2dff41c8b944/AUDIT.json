@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed the Gaussian KL determinant/tracial formula; proved strict coordinate convexity using arithmetic≥harmonic and k≥2; compact cube maximization forces endpoint eigenvalues and quantizes the multiplicities. Verified that the scalar derivative has a unique root, derived uniform weak/strong condition-number expansions and exhibited an SPD nonzero-boundary-coupling Lanczos block matrix attaining the Gaussian KL bound. A standalone standard-library verification program passed 4,032 finite supplemental tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fifen et al., Theorem 13(iii): per-coordinate directed KL ≤ (K−1)^2/2; no exact finite k envelope, equality spectrum or linear-in-K sharp rate.",
+        "Maze–Wagner, Theorems 1.1–1.2: sharp constraints on one of harmonic, geometric, arithmetic means after fixing two others; does not optimize ah−1−log h−ell over a spectral interval.",
+        "Zhang et al., 2021/2023 Theorems 1–3: extremize one directed Gaussian KL with another directed KL constraint and compare KL triangles, not fixed precision condition number and enforced trace-matched isotropization."
+      ],
+      "reasoning": "The motivating published bound covers the same objective but is strictly weaker for K>1 and does not imply endpoint-only equality or discrete multiplicity selection. General bounds among means and between arbitrary Gaussian KLs do not impose the full fixed spectral ratio and trace-matching functional needed to derive this exact result without new optimization.",
+      "searches": [
+        "Lanczos computational uncertainty isotropic Krylov complement posterior Gaussian KL trace matching optimal condition number two endpoint eigenvalues",
+        "sharp Gaussian KL divergence bound for matching trace scalar covariance relative covariance under bounded condition number",
+        "arithmetic harmonic logarithmic mean sharp extremum logdet trace inverse spectral interval",
+        "best upper bound KL isotropic Gaussian covariance condition number trace matching spectral endpoints",
+        "sharp upper bound arithmetic harmonic geometric means product log condition number KL trace matched isotropic matrix",
+        "arxiv:2609.10080v1 §4 Theorem 13",
+        "arxiv:0910.0948 Theorems 1.1,1.2",
+        "arxiv:2102.05485 Theorems 1-3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.10080v1; arXiv HTML §4.1–4.3 and Thm 13",
+      "arxiv:2102.05485; PDF §§1–3, Gaussian KL and Theorems 1–3",
+      "arxiv:0910.0948; PDF Theorems 1.1–1.2, relevant means discussion"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Motivating Theorem 13 provides sufficient O((K−1)^2) per-coordinate KL; new theorem gives the exact smaller envelope and O(K) sharp high-contrast behavior with all equality spectra.",
+        "Kantorovich-type arithmetic-harmonic product inequalities cannot alone determine the maximizer of the additional negative logarithmic terms; for K=4, the continuous maximizing fraction is approximately 0.4409578 rather than 0.5.",
+        "The new nonzero Lanczos-coupling block example realizes every sharp spectrum and separates this result from purely decoupled model claims."
+      ],
+      "reasoning": "Exact computation plus coordinate strict convexity and a one-dimensional unique root are necessary to reach the present sharp equality classification. The prior sufficient inequalities and differently constrained Gaussian optimization results do not imply it in their stated forms. Residual undiscovered stronger inequalities remain possible.",
+      "searches": [
+        "sharp Gaussian KL divergence bound for matching trace scalar covariance relative covariance under bounded condition number",
+        "Fifen Karambal Hennig 2609.10080 isotropic complement KL error sharp envelope condition number exact two-valued spectra",
+        "sharp maximum KL divergence between Gaussian covariance and trace isotropic covariance fixed condition number spectrum two point extremal",
+        "arxiv:2609.10080v1 Theorem 13",
+        "arxiv:0910.0948 Theorems 1.1–1.2",
+        "arxiv:2102.05485 Theorem 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fifen et al. arXiv:2609.10080v1, Theorem 13, proves a sufficient KL condition bound for isotropization, not the dimension-sensitive exact optimum and endpoint multiplicities."
+      ],
+      "reasoning": "Orthogonal similarity and scale invariance reduce the new claim to eigenvalues of SPD bulk precision. Search for isotropic, trace-matched and inverse-precision aliases returned no direct equivalent. Database search absence alone is not a proof of global uniqueness.",
+      "searches": [
+        "sharp maximum Kullback Leibler divergence between isotropic trace matched Gaussian covariance and anisotropic SPD covariance with condition number kappa; endpoint spectra two point multiplicity optimal proportion",
+        "Fifen Karambal Hennig 2609.10080 isotropic complement KL error sharp envelope condition number exact two-valued spectra",
+        "trace matched covariance Gaussian KL max fixed spectral condition number eigenvalues endpoints discrete dimension",
+        "sharp maximum KL divergence between Gaussian covariance and trace isotropic covariance fixed condition number spectrum two point extremal",
+        "maximum Kullback Leibler divergence isotropic approximation arithmetic mean eigenvalues condition number two point"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The claim is a continuous condition-number extremal theorem rather than a database lookup; finite k involves the fresh maximization of an analytic one-variable function.",
+        "Direct query comparisons of isotropic covariance KL and endpoint-spectral extrema identified no exact published dimension-specific tabulation in the inspected sources."
+      ],
+      "reasoning": "No database or enumerated table can be relied on for uniqueness; the proof gives an explicit universal exact formula. The statement is not a recomputation of a known table identified by searches.",
+      "searches": [
+        "sharp maximum Kullback Leibler divergence between isotropic trace matched Gaussian covariance and anisotropic SPD covariance with condition number kappa; endpoint spectra two point multiplicity optimal proportion",
+        "trace matched covariance Gaussian KL max fixed spectral condition number eigenvalues endpoints discrete dimension",
+        "2026 2609.10080 stochastic Lanczos quadrature numerical uncertainty"
+      ]
+    },
+    "rationale": "Motivating preprint Theorem 13 establishes only a nonsharp general Gaussian KL upper bound and the isotropic bulk construction; the new work supplies the exact dimension-dependent envelope, all endpoint equality spectra, an optimal multiplicity root and sharp O(K) law. Inspected Gaussian KL comparison and harmonic/geometric/arithmetic mean results have different constraints. Database search cannot guarantee uniqueness; unindexed equivalent inequality remains possible.",
+    "residual_risks": [
+      "Unindexed operator mean or information-geometric spectral extremal inequalities could state a mathematically equivalent sharp bound under different notation.",
+      "No mathematical result in the inspected sources was shown to dominate this exact finite-dimensional endpoint classification; global bibliographic completeness is not asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Nonsharp upper bound and estimator construction preexist; no endpoint-only sharp finite-k KL envelope in inspected theorem or surrounding discussion",
+        "evidence": "Theorem 13(iii) supplies D_KL/k ≤ (K−1)^2/2; §4.2 defines omega from the trace of the Schur-complement inverse with one exact coupling direction.",
+        "identifier_or_url": "https://arxiv.org/html/2609.10080",
+        "material_read": "ArXiv HTML abstract and introduction, selected §4.1–4.3 formulas and proof passages, Lemma 7, Proposition 10, Corollary 12 and Theorem 13 including proof",
+        "method": "Read accessible arXiv HTML selected text and inspected exact formulas and proof context",
+        "title": "Stochastic Lanczos Quadrature for Computational Uncertainty in Linear Algebra",
+        "trigger": "Same trace-matched isotropic inverse-covariance bulk and condition-number KL theorem"
+      },
+      {
+        "assessment": "Studies KL-vs-reversed-KL and triangle bounds; no fixed-condition-number trace-isotropization optimization",
+        "evidence": "Introduction lists three optimizations concerning reverse directed KL at a given forward KL level and triangle-like relations; Theorem 1 reduces to a sum of x−log x constrained by KL.",
+        "identifier_or_url": "https://arxiv.org/pdf/2102.05485",
+        "material_read": "Abstract, introduction, Gaussian KL formula, main Theorem 1–3 statements and associated optimization constraints",
+        "method": "Opened 24-page arXiv PDF, inspected PDF text, main theorem and page image",
+        "title": "On the Properties of Kullback-Leibler Divergence Between Multivariate Gaussian Distributions",
+        "trigger": "Potential broader Gaussian KL extremal optimization"
+      },
+      {
+        "assessment": "Sharp bounds with two prescribed means, but no fixed spectral interval or KL joint functional analyzed",
+        "evidence": "Theorem 1.1 bounds harmonic mean given arithmetic and geometric; Theorem 1.2 bounds geometric given harmonic and arithmetic.",
+        "identifier_or_url": "https://arxiv.org/pdf/0910.0948",
+        "material_read": "Abstract, introduction, Theorems 1.1–1.2, Corollary 2.2 and relation to Kantorovich inequalities",
+        "method": "Opened 9-page arXiv PDF, examined PDF text and displayed main-theorem page",
+        "title": "A Note on the Weighted Harmonic-Geometric-Arithmetic Means Inequalities",
+        "trigger": "Potential stronger mean-inequality coverage for trace/log determinant objective"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2dff41c8-b944-4c98-831e-f6aa3c925de2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Trace-matched isotropic covariance is the precise high-dimensional complement approximation used by the motivating stochastic Lanczos analysis. Exact normalized Gaussian KL is a natural numerical-fidelity invariant, and resolving its worst case over a known spectral condition-number range gives a complete finite-dimensional extremal classification. Sharp O(K) high-contrast growth substantially improves the available O(K^2) sufficient bound; an explicit nonzero-Lanczos-coupling realization validates relevance to the numerical construction. No end-to-end runtime or posterior-calibration claim is made.",
+    "status": "PASS"
+  }
+}
