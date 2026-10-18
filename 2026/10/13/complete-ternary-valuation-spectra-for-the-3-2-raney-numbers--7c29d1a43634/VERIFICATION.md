@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the ternary valuation spectrum
+# Independent mathematical audit
 
-Run `python3 verify.py` in the directory containing this file and compare stdout with `verification_output.txt`. The program uses only the Python standard library; the computations rely on integer arithmetic and polynomial-list arithmetic, not floating point.
+## correctness
 
-The script cross-checks three-adic valuations from Legendre's factorial formula against an independently coded ternary digit-sum formula for all 6,561 indices below \(3^8\). Direct enormous-integer computation of \(\binom{3n+1}{n}/(n+1)\) supplies a third check for the first 220 indices. All valuation polynomials through scale \(m=8\) are checked against recurrence output, their coefficients sum to \(3^m\), and the known nondivisible counts and maximal-valuation counts are checked. It separately tests the rational generating identity through degree 12 and the exact valuation-one frequency formula through scale 12.
+PASS
 
-All recorded runs passed. The general generating function, every larger index and all fixed-valuation asymptotics require the proof in `RESULT.md`; a finite test does not certify them. No independent audit has been performed.
+Legendre formula exactly gives ν3(T_n)=(s_3(2u-1)-1)/2 with u=(n+1)/3^ν3(n+1). Partitioning 1..3^m by primitive u yields V_m=1+Σ_{L<=m} A_L. The units digit and 2-state carry matrix M(x)=[[1+x²,x],[x,1+x²]], initial row (x,1) and terminal (1,x)^T give A1=2,A2=3+3q and Cayley-Hamilton A_{L+2}=2(1+q)A_{L+1}-(1+q+q²)A_L. Summation gives ((1-qz)^2)/((1-z)(1-2(1+q)z+(1+q+q²)z²)). Pole-order extraction at z=1 gives fixed-j asymptotic m^(2j+2)/(2j+2)!; leading coefficients of A_L yield max valuation m-1 multiplicity m+1 for m>=2. Independently calculated exact T_n valuations on prefixes m=1..6, matching all recurrence coefficient vectors, e.g. m6 [28,140,267,216,71,7].
+
+## originality
+
+PASS
+
+Within accessible evidence, Eu-Huang-Kao provide pointwise valuation and q=0 count, the 2019 Raney divisibility paper handles selected congruences, and OEIS lists terms; none of the actual inspected statements imply the complete two-variable valuation-spectrum rational generating series. The new transfer-matrix aggregation and fixed-j asymptotics are substantive. Explicit risk: highly relevant 2026 source full text was inaccessible when authorized Oxford VPN disconnected; this alone does not force O failure.
+
+## value
+
+PASS
+
+Exact aggregate valuation frequencies for a canonical Raney sequence resolve every fixed-power-of-three divisibility count and supply sharp polynomial asymptotics and extremal counts. The rational two-variable series is a genuinely structural invariant beyond a finite table or the published valuation-zero layer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T03:10:12Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned Git full RESULT.md and verify.py blob 15f9556d2433a9c1c8e8ee85b588ea9b01d71dbf",
+        "Independent exact binomial-computation histogram and recurrence comparison m=1..6"
+      ],
+      "rationale": "Legendre formula exactly gives ν3(T_n)=(s_3(2u-1)-1)/2 with u=(n+1)/3^ν3(n+1). Partitioning 1..3^m by primitive u yields V_m=1+Σ_{L<=m} A_L. The units digit and 2-state carry matrix M(x)=[[1+x²,x],[x,1+x²]], initial row (x,1) and terminal (1,x)^T give A1=2,A2=3+3q and Cayley-Hamilton A_{L+2}=2(1+q)A_{L+1}-(1+q+q²)A_L. Summation gives ((1-qz)^2)/((1-z)(1-2(1+q)z+(1+q+q²)z²)). Pole-order extraction at z=1 gives fixed-j asymptotic m^(2j+2)/(2j+2)!; leading coefficients of A_L yield max valuation m-1 multiplicity m+1 for m>=2. Independently calculated exact T_n valuations on prefixes m=1..6, matching all recurrence coefficient vectors, e.g. m6 [28,140,267,216,71,7].",
+      "residual_risks": [
+        "The finite histogram checks do not prove the formal generating series, only the reconstructed carry-identity and algebra do.",
+        "Asymptotics hold with fixed valuation threshold; no growing-r uniformity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eu-Huang-Kao abstract and cited Lemma4.1/Theorem6.1 concern mod-3 zero runs and valuation-zero counts",
+          "Krattenthaler-Müller addresses broad recursive sequence mod-p^k methods, but a specific full valuation-spectrum theorem was not visible in inspected material"
+        ],
+        "reasoning": "General p-adic congruence methodology is not by itself a statement of the exact two-variable valuation distribution of this Raney sequence. Potential broader implications in inaccessible full texts remain a documented priority risk.",
+        "searches": [
+          "arXiv:2609.25742",
+          "Krattenthaler-Müller doi:10.1007/s00010-025-01195-0",
+          "Resultary semantic query: (3,2) Raney numbers 3-adic valuation generating functions digit carries distribution"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.25742",
+        "https://scholars.iwu.edu/ws/portalfiles/portal/39724414/144%20divisibility%20of%20generalized%202019.pdf",
+        "https://doi.org/10.1007/s00010-025-01195-0",
+        "https://oeis.org/A006013"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source 2019 focuses divisibility results for selected Raney/Catalan parameters, not this all-valuation frequency generating function in the passages examined",
+          "New proof uses explicit carry-transfer M(x) and Cayley-Hamilton recurrence producing exact rational series and asymptotics"
+        ],
+        "reasoning": "The known valuation-zero theorem follows from the submitted series, not conversely. Prime-power divisibility examples do not imply an all-prefix exact histogram. Best-of-knowledge novelty accepted subject to full-literature access limits.",
+        "searches": [
+          "arXiv:2609.25742",
+          "https://scholars.iwu.edu/ws/portalfiles/portal/39724414/144%20divisibility%20of%20generalized%202019.pdf",
+          "Resultary semantic query: (3,2) Raney numbers 3-adic valuation generating functions digit carries distribution"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eu-Huang-Kao pointwise ternary valuation/carry criterion and exact valuation-zero counts are explicitly prior components",
+          "The submitted claim is an exact rational bivariate generating function over ALL valuation strata for prefixes 3^m"
+        ],
+        "reasoning": "A pointwise valuation identity gives a sequence definition, not automatically the closed all-m polynomial frequency law; the 2-state transfer derivation yields the new aggregate. Full 2026 primary paper could not be accessed, so no whole-paper not-covering assertion is made.",
+        "searches": [
+          "Resultary semantic query: (3,2) Raney numbers 3-adic valuation generating functions digit carries distribution",
+          "Web query: Raney 3 2 valuation distribution Eu Huang Kao generating polynomial 3 adic",
+          "arXiv:2609.25742"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A006013 enumerates underlying R_(3,2) integer values, not a symbolic all-m ternary valuation polynomial",
+          "Published Eu-Huang-Kao prime-zero count binom(m+2,2) is the q=0 specialization"
+        ],
+        "reasoning": "A sequence listing and isolated zero-valuation frequency cannot determine all higher q coefficients and the rational bivariate generating function, although the inaccessible full 2026 source is an explicit residual uncertainty.",
+        "searches": [
+          "https://oeis.org/A006013",
+          "Resultary semantic query: (3,2) Raney numbers 3-adic valuation generating functions digit carries distribution",
+          "Web query: Raney 3 2 valuation distribution Eu Huang Kao generating polynomial 3 adic"
+        ]
+      },
+      "rationale": "Within accessible evidence, Eu-Huang-Kao provide pointwise valuation and q=0 count, the 2019 Raney divisibility paper handles selected congruences, and OEIS lists terms; none of the actual inspected statements imply the complete two-variable valuation-spectrum rational generating series. The new transfer-matrix aggregation and fixed-j asymptotics are substantive. Explicit risk: highly relevant 2026 source full text was inaccessible when authorized Oxford VPN disconnected; this alone does not force O failure.",
+      "residual_risks": [
+        "The full Eu-Huang-Kao 2026 primary paper was not read due to inaccessible arXiv/OA full text and disconnected authorized Oxford VPN, so possible additional relevant results remain unchecked.",
+        "Potential generic p-adic automaton/carry method could yield equivalent spectrum implicitly; best-of-knowledge judgment only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Pointwise valuations and mod-3 zero-run / zero-count results are known; cannot exclude an unstated full valuation distribution from inaccessible complete text",
+          "evidence": "Abstract scope; cited Lemma 4.1 and Thm 6.1 acknowledged in record. Oxford reported vpn_disconnected; no retry or bypass.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.25742",
+          "material_read": "Accessible abstract and cited result statements from inspected pinned package; full 2026 original PDF NOT obtained",
+          "method": "Attempted open arXiv and other lawful OA variants without full text; separately requested authorized Oxford access, which returned vpn_disconnected",
+          "title": "Zero-Run Spectra of the (3,2) Raney Numbers Modulo Primes",
+          "trigger": "Same exact integer sequence and possibly dominating full valuation theorem"
+        },
+        {
+          "assessment": "Examined results treat selected congruence/divisibility families rather than the full (3,2) ternary prefix frequency generating series",
+          "evidence": "Theorem 3.4 and surrounding section are congruence/divisibility assertions, no explicit bivariate valuation distribution in inspected theorem.",
+          "identifier_or_url": "https://scholars.iwu.edu/ws/portalfiles/portal/39724414/144%20divisibility%20of%20generalized%202019.pdf",
+          "material_read": "Twelve-page lawful primary PDF text, including definitions, divisibility theorem section, and rendered pp. 2 and 9",
+          "method": "Full-text PDF reading and page screenshot comparison",
+          "title": "Divisibility of Generalized Catalan Numbers and Raney Numbers",
+          "trigger": "Prior Raney number divisibility and possible all-valuation theory"
+        },
+        {
+          "assessment": "Could in principle imply aggregate via additional work; not claimed NOT_COVERING in full",
+          "evidence": "General mod-p^k recursive sequence method, not a demonstrated matching Raney identity.",
+          "identifier_or_url": "https://doi.org/10.1007/s00010-025-01195-0",
+          "material_read": "Bibliographic abstract and theorem-scope descriptions only; full primary text not obtained in this execution",
+          "method": "Targeted literature screening",
+          "title": "A method for determining the mod-p^k behaviour of recursive sequences",
+          "trigger": "Possible more general prime-power methodology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.25742",
+        "https://scholars.iwu.edu/ws/portalfiles/portal/39724414/144%20divisibility%20of%20generalized%202019.pdf",
+        "https://doi.org/10.1007/s00010-025-01195-0",
+        "https://oeis.org/A006013"
+      ],
+      "rationale": "Exact aggregate valuation frequencies for a canonical Raney sequence resolve every fixed-power-of-three divisibility count and supply sharp polynomial asymptotics and extremal counts. The rational two-variable series is a genuinely structural invariant beyond a finite table or the published valuation-zero layer.",
+      "residual_risks": [
+        "No distribution of exact nonzero residues modulo higher powers; full original 2026 paper access remains a bibliographic risk."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only ν3 of (3,2) Raney; no general p, no residue distribution or growing-j uniform asymptotics.",
+    "2026 closest primary arXiv PDF full text inaccessible; authorized Oxford VPN disconnected; possible implicit results remain priority risk."
+  ]
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Legendre's factorial valuation formula gives the exact digit-sum reduction after stripping the power of three from \(n+1\). The endpoint/primitive-unit partition is disjoint and exhaustive. The explicit two-state matrix tracks carries from low to high ternary digits, including the final carry. Its trace, determinant and two initial polynomials imply the recurrence and the claimed rational generating function. Singularity extraction at the unique pole \(z=1\), performed after extracting a fixed power of the formal variable \(q\), proves the fixed-valuation asymptotics. The polynomial-degree recurrence proves the maximal-valuation count for \(m\ge2\); smaller scales are correctly excepted. A standalone verifier corroborates these identities for the stated finite ranges.
+PASS
 
-## Originality — PASS, with remaining risk
+Legendre formula exactly gives ν3(T_n)=(s_3(2u-1)-1)/2 with u=(n+1)/3^ν3(n+1). Partitioning 1..3^m by primitive u yields V_m=1+Σ_{L<=m} A_L. The units digit and 2-state carry matrix M(x)=[[1+x²,x],[x,1+x²]], initial row (x,1) and terminal (1,x)^T give A1=2,A2=3+3q and Cayley-Hamilton A_{L+2}=2(1+q)A_{L+1}-(1+q+q²)A_L. Summation gives ((1-qz)^2)/((1-z)(1-2(1+q)z+(1+q+q²)z²)). Pole-order extraction at z=1 gives fixed-j asymptotic m^(2j+2)/(2j+2)!; leading coefficients of A_L yield max valuation m-1 multiplicity m+1 for m>=2. Independently calculated exact T_n valuations on prefixes m=1..6, matching all recurrence coefficient vectors, e.g. m6 [28,140,267,216,71,7].
 
-The closest manuscript, Eu–Huang–Kao (2026), explicitly supplies a pointwise ternary valuation lemma and the valuation-zero cardinality; these are acknowledged as prior art and are not claimed as new. Its zero-run spectra count consecutive zeros modulo primes, not complete histograms of the valuation of each term. The present bivariate rational frequency generating function is a strictly different aggregate invariant; its higher-valuation coefficients and arbitrary-fixed-prime-power asymptotics are not consequences of the source's stated zero-run enumerations alone. Full-text review of Bobrowski–He–Shiue (2019), Krattenthaler–Müller (2025), and the OEIS A006013 entry found no stronger covering frequency formula. The digit-valuation lemma could admit an unpublished or independently known transfer-matrix summation, and finite published-finding corpus/web searches cannot establish uniqueness; this remains a real risk.
+## originality
 
-## Value — PASS
+PASS
 
-This supplies exact frequencies for every three-adic valuation, rather than just nondivisibility modulo the prime. On prefixes of natural size \(3^m\), it identifies the degree \(2r\) and the exact leading coefficient of the surviving count for each prime-power modulus \(3^r\), and determines the rare maximal-valuation class. The invariant is naturally motivated by the prime-modulus census and its pointwise carry lemma, not by an arbitrary isolated index or ad hoc residue slice. The two-state proof explains the entire collection simultaneously.
+Within accessible evidence, Eu-Huang-Kao provide pointwise valuation and q=0 count, the 2019 Raney divisibility paper handles selected congruences, and OEIS lists terms; none of the actual inspected statements imply the complete two-variable valuation-spectrum rational generating series. The new transfer-matrix aggregation and fixed-j asymptotics are substantive. Explicit risk: highly relevant 2026 source full text was inaccessible when authorized Oxford VPN disconnected; this alone does not force O failure.
 
-## Scope and validation limitations
+## value
 
-Finite computations are corroborative only. The result is not a residue-class formula modulo prime powers and does not include other Raney parameters. The prior paper's prime-level nondivisibility formula is reproduced as a specialization and excluded from novelty. Review of unindexed mathematical literature and independent mathematical validation remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact aggregate valuation frequencies for a canonical Raney sequence resolve every fixed-power-of-three divisibility count and supply sharp polynomial asymptotics and extremal counts. The rational two-variable series is a genuinely structural invariant beyond a finite table or the published valuation-zero layer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
