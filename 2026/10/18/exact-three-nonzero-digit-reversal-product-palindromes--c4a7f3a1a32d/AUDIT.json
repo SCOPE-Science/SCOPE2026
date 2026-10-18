@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For every d>=2 and 1<=j<d, reduction to g=min(j,d-j) and h=d-2g is exact. Symmetric raw coefficients have center S and are bounded by S; expected-length palindromes force zero carries by outer-in induction. A carry bound of 27 excludes long palindromes for g>=3 and g=2,h>=1 through the impossible 2-digit palindrome ac. For g=1,h>=3 the nonoverlapping three blocks have only two edge candidates, both rejected by the central digits. The four remaining (g,h) are checked exhaustively for 4*9^3=2916 possibilities; the 729-entry edge census is also exhaustive. The provided standalone program passed and its independently constructed coefficient multiplication agrees across 40824 grid cases. No unproved extrapolation of finite experiments is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ezerman–Meyer–Solé JIS 18 (2015), Conjecture 11 asks for a broad converse; Proposition 14 establishes only its expected-length part.",
+        "No inspected theorem in the paper treats all possible 2d+2-digit reverse products from three nonzero digits."
+      ],
+      "reasoning": "A proved unrestricted converse would imply the candidate, but the inspected published result does not prove one. The weaker expected-length theorem cannot rule out the longer-palindrome case; the new proof handles that case explicitly.",
+      "searches": [
+        "Palindromic reverse multiplication A times A-reversal for decimal A with exactly three nonzero digits; only when digit square sum at most 9, Ezerman Meyer Solé conjecture 11 2012",
+        "number A for which A times reverse A palindrome with three nonzero decimal digits unrestricted zero gaps",
+        "Ezerman Meyer Solé polynomial pairs of integers conjecture 11 solved digit reversal palindrome",
+        "\"polynomial pairs\" \"three nonzero\" palindrome multiplication conjecture"
+      ]
+    },
+    "checked_sources": [
+      "https://cs.uwaterloo.ca/journals/JIS/VOL18/Ezerman/eze3.pdf",
+      "https://arxiv.org/abs/1210.7593",
+      "https://oeis.org/A062936",
+      "public published-finding corpus research records: 2026/10/4/SCOPE-kreher-stinson-conjecture-e-verified-through-n-10-6--2ad0d6201bd9 (different ternary power-palindrome object)",
+      "public published-finding corpus research records: 2026/10/4/SCOPE-exact-3-2-3-binary-weight-product-classification--28456ef398f9 (different binary multiplication object)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "JIS (2015) Proposition 10 characterizes the carry-free multiplication, and Proposition 14 settles palindromic products with exactly 2d+1 digits.",
+        "For any three-nonzero-digit reversal product the only other possible length is 2d+2. The present six-step proof rules it out using a 2-digit edge obstruction and exact 729- and 2916-case finite certificates."
+      ],
+      "reasoning": "The logical difference is not an alternative parametrization of the same theorem: a length-2d+2 palindromic product is outside the antecedent of the earlier Proposition 14. Existing sufficient conditions and expected-length necessity do not imply the sparse-family iff classification.",
+      "searches": [
+        "Palindromic reverse multiplication A times A-reversal for decimal A with exactly three nonzero digits; only when digit square sum at most 9, Ezerman Meyer Solé conjecture 11 2012",
+        "polynomial pair integers reversal multiplication three sparse digits palindrome carry free 2015 Ezerman Meyer Sole",
+        "number A for which A times reverse A palindrome with three nonzero decimal digits unrestricted zero gaps",
+        "Ezerman Meyer Solé polynomial pairs of integers conjecture 11 solved digit reversal palindrome",
+        "\"polynomial pairs\" \"three nonzero\" palindrome multiplication conjecture"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The new statement is also equivalent to absence of a 2d+2-digit palindrome for three-nonzero-digit reverse products, combined with the expected-length carry criterion.",
+        "The full-text JIS paper Conjecture 11 gives a more general palindromic-versus-polynomial converse without this sparse specialization."
+      ],
+      "reasoning": "Comparisons checked equivalence of the full product-palindrome statement, the zero-carry converse, the digit-square restriction, and the overflow-length obstruction rather than title matching. The previously published full statement is conjectural; Proposition 14 covers only length 2d+1.",
+      "searches": [
+        "Palindromic reverse multiplication A times A-reversal for decimal A with exactly three nonzero digits; only when digit square sum at most 9, Ezerman Meyer Solé conjecture 11 2012",
+        "polynomial pair integers reversal multiplication three sparse digits palindrome carry free 2015 Ezerman Meyer Sole",
+        "\"three nonzero digits\" \"reverse\" \"palindrome\" product conjecture Ezerman",
+        "reversal product palindrome 3 nonzero digits classification"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A062936 identifies reverse-product palindrome numbers and the digit-square sufficient family, with early 2001 public record.",
+        "The examined sequence page does not claim an all-positions three-nonzero-digit iff classification."
+      ],
+      "reasoning": "A list of instances and a sufficient low-square-sum criterion do not imply the absence of exceptional products for arbitrary zero gaps. The new theorem is an infinite converse, not a recomputed table.",
+      "searches": [
+        "OEIS:A062936",
+        "number A for which A times reverse A palindrome with three nonzero decimal digits unrestricted zero gaps",
+        "reversal product palindrome 3 nonzero digits classification"
+      ]
+    },
+    "rationale": "OEIS A062936 supplies an explicit sufficient digit-square construction, not the converse for every three-nonzero-digit integer. Ezerman–Meyer–Solé (arXiv:1210.7593, JIS 18, Article 15.3.5) prove the expected-length no-carry case (Proposition 14), but the new claim also excludes all longer length 2d+2 palindromes in this sparse family. That exclusion needs the gap-specific carry and finite outer-block arguments, and is not implied by Proposition 14. Search comparisons did not locate an equivalent classification. An unindexed or later special-case theorem remains a risk.",
+    "residual_risks": [
+      "A later or unindexed paper may have already proved a three-sparse specialization by an equivalent digit-carry argument.",
+      "Only the cited primary text and discoverable public sources were inspected; mathematical database search cannot prove uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers no-carry sufficiency and expected-length necessity; longer-length sparse case not covered",
+        "evidence": [
+          "Conjecture 11, Proposition 14, Journal of Integer Sequences 18 (2015), Article 15.3.5"
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL18/Ezerman/eze3.pdf",
+        "material_read": "Full journal text, particularly Proposition 10, Conjecture 11, Proposition 14 and proofs",
+        "method": "Primary paper text and PDF page inspection",
+        "title": "On Polynomial Pairs of Integers",
+        "trigger": "Same object and closest direct theorem/conjecture"
+      },
+      {
+        "assessment": "Original public preprint posted 2012-10-29; consistent with later journal theorem limits",
+        "evidence": [
+          "arXiv:1210.7593"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1210.7593",
+        "material_read": "Abstract and arXiv version text relevant to palindromic/polynomial pair conjecture",
+        "method": "arXiv public full text",
+        "title": "On Polynomial Pairs of Integers",
+        "trigger": "First public preprint of closest paper"
+      },
+      {
+        "assessment": "Provides earlier data and sufficient digit-square construction but no observed covering converse",
+        "evidence": [
+          "OEIS:A062936; early public sequence record 2001"
+        ],
+        "identifier_or_url": "https://oeis.org/A062936",
+        "material_read": "Sequence definition, comments, dates and bibliographic links",
+        "method": "Public sequence database page inspection",
+        "title": "OEIS A062936",
+        "trigger": "Earlier exact reverse-product sequence and sufficient construction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c4a7f3a1-a32d-407e-af46-2a5d1725092b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact iff classification covers all positions of the middle nonzero digit and arbitrary decimal zero gaps, a complete infinite three-sparse subfamily of a published reversal-product converse conjecture. It resolves the distinctive one-digit-overflow obstruction left by the known expected-length theorem, whereas a small empirical range or the low-digit-square construction alone would not answer the structural question.",
+    "status": "PASS"
+  }
+}
