@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The structural classification follows from two exact facts. Every vertex loses at most one cross-edge, so a balanced set with at least two selected vertices on each shore dominates; its induced bipartite graph meets Hall's condition because one selected vertex has at least one neighbor, and any group of at least two sees the whole opposite selected shore. A balanced two-set works exactly when both chosen endpoints were untouched by the removed matching. The coefficient polynomial is then direct counting, and the pairing-weighted polynomial is rigorous inclusion-exclusion over disjoint forbidden edges. The verifier independently builds each graph, tests domination and induced perfect matchings, and checks all coefficients on every parameter triple through side order six.
+PASS
 
-## Originality
+If selected set D admits an induced perfect matching in a bipartite graph, it has s vertices on each shore. For s>=2, every omitted vertex sees at least s-1 selected opposite vertices because deleted edges form a matching; Hall holds on D since a singleton has at least s-1 neighbors and any >=2 selected vertices jointly see all s opposite selected vertices. Thus every balanced D with s>=2 is paired dominating. For s=1, domination and a matching are simultaneous exactly when both chosen endpoints are untouched by deletion. Counting gives (m-t)(n-t)x^2+sum_{s>=2}C(m,s)C(n,s)x^(2s), total C(m+n,m)-1-t(m+n-t), and gamma 2 or 4 at the stated t boundary. Pairing-weighted coefficients for s>=2 count s-edge matchings avoiding t disjoint forbidden edges; inclusion-exclusion yields sum_j(-1)^j C(t,j)C(m-j,s-j)C(n-j,s-j)(s-j)!, with s=1 restricted to untouched endpoints. Direct independent subset and induced-perfect-matching enumeration for every 2<=m,n<=4 and each 0<=t<=min(m,n) verified all polynomial and weighted coefficients, including disconnected K_2,2-M_2.
 
-**PASS, with documented access risk.** The published complete-multipartite paired-domination polynomial includes the undeleted biclique, which is credited as the \(t=0\) boundary; it does not imply what happens after the graph ceases to be complete multipartite. Two original crown-focused papers already give the scalar minimum of four, which is also explicitly credited. An original 2016 conference abstract introduces the generic paired-domination polynomial but gives no family formulas in its available one-page text, leaving a residual risk of an earlier special case. Targeted searches for crown, matching-deleted and almost-complete bicliques, all-set polynomials, and pairing multiplicities did not find the all-parameter resilience theorem. The related chain-graph polynomial cannot cover the graphs after deletion of two matching edges.
+## originality
 
-## Value
+PASS
 
-**PASS.** This is a sharp robustness theorem under edge failures, with a full feasible-set polynomial and an independent matching-witness polynomial. The latter shows that unchanged set feasibility need not mean unchanged backup pairing choice. The one-coefficient response to every matching deletion is stronger than a minimum-number statement and valid for every rectangular bipartite order and every fault count.
+Prior published complete-multipartite formula covers only t=0, the complete biclique. For t>=1 the missing edge means the graph is not complete multipartite; the published chain-graph theorem is also inapplicable for t>=2 because deleting two disjoint cross edges creates induced 2K2 (chain graphs are 2K2-free). The 2016 conference abstract is too sparse to infer noncoverage, but no checked full text proves all-t resilience and matching-witness polynomial. Best-of-knowledge original outside known t=0 and known crown minimum 4.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The all-set coefficient invariance despite deleting any matching is a sharp fault-tolerance fact: pair feasibility changes only in two-vertex coefficient while the pairing-weighted enumerator still changes at higher degrees. This distinguishes preserved robust placements from lost backup pairings and fully classifies a natural entire edge-fault family, beyond scalar domination numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

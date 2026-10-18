@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T04:14:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "If selected set D admits an induced perfect matching in a bipartite graph, it has s vertices on each shore. For s>=2, every omitted vertex sees at least s-1 selected opposite vertices because deleted edges form a matching; Hall holds on D since a singleton has at least s-1 neighbors and any >=2 selected vertices jointly see all s opposite selected vertices. Thus every balanced D with s>=2 is paired dominating. For s=1, domination and a matching are simultaneous exactly when both chosen endpoints are untouched by deletion. Counting gives (m-t)(n-t)x^2+sum_{s>=2}C(m,s)C(n,s)x^(2s), total C(m+n,m)-1-t(m+n-t), and gamma 2 or 4 at the stated t boundary. Pairing-weighted coefficients for s>=2 count s-edge matchings avoiding t disjoint forbidden edges; inclusion-exclusion yields sum_j(-1)^j C(t,j)C(m-j,s-j)C(n-j,s-j)(s-j)!, with s=1 restricted to untouched endpoints. Direct independent subset and induced-perfect-matching enumeration for every 2<=m,n<=4 and each 0<=t<=min(m,n) verified all polynomial and weighted coefficients, including disconnected K_2,2-M_2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary complete multipartite full RESULT.md proves balanced selections for K_{m,n} at t=0.",
+          "Resultary chain graph RESULT.md assumes nested neighborhoods; K_{m,n}-M_t has induced 2K2 whenever t>=2, ruling out chain-graph membership."
+        ],
+        "reasoning": "The t=0 specialization is covered and explicitly credited. Neither known broader family can cover arbitrary t; the t=1 possible chain special case does not imply all t or pairing multiplicities.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-paired-domination-polynomial-of-complete-multipartite-graphs--ea2bc935cbba/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-paired-domination-polynomial-of-chain-graphs--38091feaa528/RESULT.md",
+          "paired-domination polynomial complete bipartite graph deleting a matching paired dominating sets rook inclusion exclusion matching enumerator"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-paired-domination-polynomial-of-complete-multipartite-graphs--ea2bc935cbba/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-paired-domination-polynomial-of-chain-graphs--38091feaa528/RESULT.md",
+        "https://publications.waset.org/abstracts/52964.pdf",
+        "https://arxiv.org/abs/2505.17672",
+        "https://arxiv.org/abs/2609.30152"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Complete bipartite polynomial sum C(m,s)C(n,s)x^(2s) equals the present t=0 boundary.",
+          "Published chain-graph dynamic program assumes 2K2-free nesting, violated by >=2 deleted matching edges."
+        ],
+        "reasoning": "Foundational definition and the complete-biclique boundary are prior facts; new claimed extension is deletion-resilience and separate rook inclusion-exclusion weighting.",
+        "searches": [
+          "Resultary full complete multipartite RESULT.md",
+          "Resultary full chain graph RESULT.md",
+          "Haynes Slater 1998 paired-domination definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent count uses vertex-set domination plus Hall matching, and the pairing-weighted count equals the matching enumerator with t forbidden diagonal edges for s>=2.",
+          "Resultary complete multipartite and chain graph records formulate paired-domination polynomial but on different graph classes."
+        ],
+        "reasoning": "Aliases including almost-complete biclique, forbidden matching rook polynomial and paired-dominating-set count were compared; no checked result gives both whole-family vertex sets and backup matchings.",
+        "searches": [
+          "paired-domination polynomial complete bipartite graph deleting a matching paired dominating sets rook inclusion exclusion matching enumerator",
+          "\"paired domination\" \"crown graph\" \"matching deleted\"",
+          "\"pairing-weighted\" \"paired domination\" polynomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2016 conference record provides only one-page abstract with generic polynomial advertisement and no list of computed families.",
+          "Scalar gamma_pr(Cr_n)=4 is already known, but not an all-set or weighted matching table."
+        ],
+        "reasoning": "A potential special-case table remains unresolved access risk, not evidence of a complete all-t implication. No matched full family coefficient source observed.",
+        "searches": [
+          "paired-domination polynomial complete bipartite graph deleting a matching paired dominating sets rook inclusion exclusion matching enumerator",
+          "paired domination polynomial of crown graph 2016 Puttaswamy Alwardi Nayaka"
+        ]
+      },
+      "rationale": "Prior published complete-multipartite formula covers only t=0, the complete biclique. For t>=1 the missing edge means the graph is not complete multipartite; the published chain-graph theorem is also inapplicable for t>=2 because deleting two disjoint cross edges creates induced 2K2 (chain graphs are 2K2-free). The 2016 conference abstract is too sparse to infer noncoverage, but no checked full text proves all-t resilience and matching-witness polynomial. Best-of-knowledge original outside known t=0 and known crown minimum 4.",
+      "residual_risks": [
+        "The underlying paper/presentation behind the one-page 2016 paired-domination-polynomial abstract was not read and may tabulate small special cases.",
+        "Known crown graph paired domination minimum 4 and complete-bipartite t=0 polynomial are not originality-bearing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_T0_ONLY",
+          "evidence": "For K_mn complete multipartite, d_{pr}(2s)=C(m,s)C(n,s); deleting t>=1 disqualifies family.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-paired-domination-polynomial-of-complete-multipartite-graphs--ea2bc935cbba/RESULT.md",
+          "material_read": "Entire source RESULT.md, proof of balanced-set condition and t=0 biclique coefficient specialization",
+          "method": "GitHub Resultary repository full file",
+          "title": "Paired-domination polynomial of complete multipartite graphs",
+          "trigger": "Closest published same-invariant all-set polynomial, includes bicliques"
+        },
+        {
+          "assessment": "INAPPLICABLE_FOR_T_GE2",
+          "evidence": "Two deleted disjoint matching edges create induced 2K2, incompatible with connected chain-graph hypothesis.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-paired-domination-polynomial-of-chain-graphs--38091feaa528/RESULT.md",
+          "material_read": "Entire source RESULT.md including nested-neighborhood Hall condition, polynomial and assumptions",
+          "method": "GitHub Resultary repository full file",
+          "title": "Paired-domination polynomial of chain graphs",
+          "trigger": "Potential stronger bipartite family characterization"
+        },
+        {
+          "assessment": "INCONCLUSIVE_ACCESS_RISK",
+          "evidence": "Cannot assert it lacks a matching-deleted graph special case.",
+          "identifier_or_url": "https://publications.waset.org/abstracts/52964.pdf",
+          "material_read": "One-page conference abstract only; its underlying presentation/full family lists were not accessible",
+          "method": "Public abstract viewed in search/PDF context",
+          "title": "Introduction to Paired Domination Polynomial of a Graph",
+          "trigger": "Plausible earlier family-level formulas in 2016"
+        },
+        {
+          "assessment": "DEFINITION_ONLY",
+          "evidence": "Introduces paired domination, not evidence of all-t count noncoverage.",
+          "identifier_or_url": "https://doi.org/10.1002/(SICI)1097-0037(199810)32:3%3C199::AID-NET4%3E3.0.CO;2-F",
+          "material_read": "Bibliographic abstract/definition, not complete journal paper",
+          "method": "Abstract/bibliographic material",
+          "title": "Paired-domination in graphs",
+          "trigger": "Foundational definition of paired domination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The all-set coefficient invariance despite deleting any matching is a sharp fault-tolerance fact: pair feasibility changes only in two-vertex coefficient while the pairing-weighted enumerator still changes at higher degrees. This distinguishes preserved robust placements from lost backup pairings and fully classifies a natural entire edge-fault family, beyond scalar domination numbers.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-paired-domination-polynomial-of-complete-multipartite-graphs--ea2bc935cbba/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-paired-domination-polynomial-of-chain-graphs--38091feaa528/RESULT.md",
+    "https://publications.waset.org/abstracts/52964.pdf",
+    "https://arxiv.org/abs/2505.17672",
+    "https://arxiv.org/abs/2609.30152"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The underlying paper/presentation behind the one-page 2016 paired-domination-polynomial abstract was not read and may tabulate small special cases.",
+    "Known crown graph paired domination minimum 4 and complete-bipartite t=0 polynomial are not originality-bearing."
+  ],
+  "schema_version": 1
+}
