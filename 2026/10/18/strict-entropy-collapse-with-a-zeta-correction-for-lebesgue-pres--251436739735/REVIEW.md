@@ -1,0 +1,15 @@
+# Scientific review: exact metric-entropy collapse in an intermittent-map family
+
+## Correctness — PASS
+The map is specified on all four intervals, with the invariant probability normalized as half Lebesgue length. For every regular output there are exactly two inverse images, whose inverse Jacobians are \(z/(1+z)\) and \(1/(1+z)\). Thus stationarity is exact, not inferred from numerical histograms. The monotone-branch partition is generating because a nondegenerate cylinder would expand indefinitely in a bounded interval. Its conditional entropy is the stated integral. Strict monotonicity follows from the positive parameter derivative of the fixed-\(z\) output coordinate. Both endpoint expansions follow from integrable log-moment Taylor expansions. The independent integral expressions and rational Jacobian identities were checked in `verify.py`, which returned `VERIFY_OK`; numerical testing does not replace the universal proof.
+
+## Originality — PASS (best-knowledge, residual priority risk)
+Shinkai and Aizawa (arXiv:1401.6746v1) define this exact family and study residence tails, correlation exponents, and numerical histogram equipartition entropy, but do not present the strict Kolmogorov–Sinai entropy law or its two endpoint expansions. Their arXiv:1401.6377 model has a different intermittency function and the inspected part treats other asymptotic statistics. A 2007 paper by Miyaguchi and Aizawa treats a piecewise-linear precursor; only its public abstract was accessible, so no claim of exhaustive noncoverage is made for it. Search comparisons did not identify an earlier equivalent quantitative entropy theorem. The general entropy/branch-Jacobian identity is standard and is not independently claimed as new. Unindexed specializations and priority remain possible.
+
+## Mathematical value — PASS
+The complete entropy profile addresses a physically motivated question that is not answered by uniform invariant density or polynomial residence-time exponents: how information production changes as neutral intermittency strengthens. It proves strict collapse despite an invariant measure that stays fixed, detects a quadratic onset at the Bernoulli endpoint, and extracts exact \(\pi^2\)- and \(\zeta(3)\)-dependent asymptotic coefficients at extreme intermittency. This is a natural whole-family invariant rather than an arbitrary finite slice or solely a computation. It does not assert an entropy large-deviation principle, a central/stable limit theorem, or quantitative mixing.
+
+## Closest literature and residual limitations
+The closest inspected source is Shinkai–Aizawa 2014, arXiv:1401.6746v1 (Sections II.3 and IV.1). Its spatial equipartition histogram statistic should not be confused with Kolmogorov–Sinai entropy. Other sources considered are arXiv:1401.6377 and the 2007 Miyaguchi–Aizawa precursor. Related broad entropy identities already imply the representation as an inverse-branch average, but no identified source supplies strict monotonicity and both exact endpoint coefficients for this family. Priority cannot be established from searches alone.
+
+Self-review: passed. Independent audit: not yet performed.
