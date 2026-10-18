@@ -1,0 +1,15 @@
+# Scientific review: cyclic clique strong edge geodetic bounds
+
+## Correctness — PASS
+
+The exact Cartesian-distance formula implies at most one clique edge per shortest path. For every pair of clique layers the \(n\) edges enforce \(a_pa_q\ge n\); multiplying and applying AM–GM gives \(m\sqrt n\). For the construction, equally spaced floor-anchors satisfy the full cyclic interval-count lemma by lifting intervals to the real line. Every clique edge has at least \(k(k+1)\ge n\) distinct endpoint pairs whose shortest cycle arc passes through it; a greedy injection selects one for each of the \(n\) edges. Every chosen path remains a geodesic after its single layer change. Boundary cases are handled with the full vertex set; consecutive-anchor arcs cover all rim edges. A separate explicit square-order construction maps the ordered anchor pair indexed by \((i,d)\) to a cycle rung of the same gap offset \(d\), and the images of all \(k^2\) pairs are exactly the \(k^2\) rungs. Short cyclic arcs through the indicated rungs are geodesics; for \(k\ge3\) the \(k\) same-layer rim-covering arcs use different unordered endpoint pairs. This establishes \(mk\) vertices at square order, matching the lower bound. The extracted finite verifier reconstructed 260 general-product graphs plus 54 square-order witnesses and reproduced the captured output. No finite check is substituted for the general proof.
+
+## Originality — PASS, with residual risk
+
+The accessible original papers treat strong edge geodetic sets in general graphs (Manuel et al. 2017), broad product estimates (Xavier et al. 2020), small-width path grids (Zmazek 2021), and the *exact* path–clique product \(P_n\square K_m\) (Klavžar–Zmazek 2023/2024). In particular, the last theorem does not imply a geodesic covering of \(C_n\square K_m\), since closing a path into a cycle can invalidate its shortest paths; the matching square-order numerical optimum requires its own explicit cycle-geodesic construction. None of the examined relevant statements gives the uniform constructive \(O(m\sqrt n)\) cycle–clique estimate. Published-record similarity checks also exposed no equivalent formula. An unindexed equivalent statement or an applicable unexamined general theorem remains possible; absence of a search hit does not prove uniqueness.
+
+## Value — PASS
+
+The problem is a natural edge-covering counterpart to the extensively studied path–clique and grid products, in which cyclic routing destroys the unique-path structure exploited by earlier proofs. The result settles the joint parameter order \(\Theta(m\sqrt n)\) and attains the capacity lower bound exactly on every square cycle \(C_{k^2}\) with \(k\ge3\), rather than offering a single-graph computation or trivial rephrasing, and yields an explicit all-parameter algorithm using balanced cyclic placement and greedy injection. The approximation guarantee tends to two independently of the number of clique layers. Exact nonsquare values and the optimal general leading constant remain unresolved.
+
+Self-review: passed. Independent audit: not yet performed.
