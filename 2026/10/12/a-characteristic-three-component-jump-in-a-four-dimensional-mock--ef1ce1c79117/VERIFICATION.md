@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-The standalone program `artifacts/verify.py` uses SymPy to reconstruct the complete multiplication and the tensor polynomial
-\[
-[[r,r]]=r_{12}\bullet r_{13}+r_{13}\bullet r_{23}-r_{12}\bullet r_{23}.
-\]
-It derives all \(64\) tensor-coordinate polynomials and compares them to the independently reconstructed coadjoint \(\mathcal O\)-operator criterion. It then checks the symbolic component equations, rank-four Pfaffian, and coboundary matrix formulas.
 
-It exhaustively enumerates **every skew tensor** over \(\mathbf F_3\), \(\mathbf F_5\), and \(\mathbf F_7\) and compares the original tensor identities to the closed equations. The respectively observed tuples (total solutions, rank-four solutions, distinct coboundary maps) are
-\[
-(63,18,21),\quad(145,20,29),\quad(385,42,55).
-\]
-A further finite-extension check uses an explicit model of \(\mathbf F_9\) and obtains exactly \(2025\) solutions, of which \(648\) are nondegenerate, after eliminating the provably zero coefficient \(b\).
+# Independent mathematical audit
 
-Run `python3 artifacts/verify.py` after installing the dependency specified in `artifacts/requirements.txt`. The output saved in `artifacts/verify_output.txt` ends with `VERIFY_OK`.
+## correctness
 
-These finite checks do not establish the field-uniform result: the exact coefficient calculation, field-by-field algebraic case division, and stated counting arguments supply the proof. No independent external validation has been performed.
+PASS
+
+Writing a,b,c,d,e,f for six skew entries and directly expanding 64 tensor coefficients yields b=0, 3a^2=0, a(c-d)=0, 2af+c^2-2cd=0, 3cf=0 over any field with 2≠0. Independently reconstructed eleven distinct nonzero coefficient polynomials, and independently enumerated all 3^6, 5^6 and 7^6 matrices, recovering (solution count, rank4)=(63,18),(145,20),(385,42). For char≠3 the field locus is {a=b=c=0} union {a=b=f=0,c=2d}. For char3 the c/d case split gives two A3 components and {b=0,c=d,af+c²=0}, an irreducible 3-dimensional quadric cylinder, pairwise intersection A2. Inclusion-exclusion gives N_q=q³+q²−q or 3q³−2q²; Pfaffian af-be+cd yields rank4 q(q−1) or q²(q−1). The two coboundary maps recover a,c,d,f while e is free, giving q-to-one fibers and counts q²+q−1 or 3q²−2q. Finite experiments corroborate a symbolic arbitrary-field proof, not replace it.
+
+## originality
+
+PASS
+
+The Benali–Chtioui–Hajjaji–Mabrouk full original paper provides exactly this multiplication (Example 2.1) and the general Yang–Baxter tensor equation (4.9) under characteristic-zero background. The checked example/identities do not classify its skew field-valued solution locus or exceptional char3 geometry, finite-field cardinalities and fibers. Related Jacobi–Jordan/Yang–Baxter paper Assiry is plausible and a meeting abstract remains incompletely inspected. Resultary semantic search found no stronger same-object formula; bounded best-of-knowledge PASS.
+
+## value
+
+PASS
+
+Exact solution-locus decomposition of the founding four-dimensional example is a natural algebraic geometry/classification problem. Exceptional jump by an entire component in characteristic three, with rank and coboundary changes, is substantive and informative beyond plugging a few values into the equation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
