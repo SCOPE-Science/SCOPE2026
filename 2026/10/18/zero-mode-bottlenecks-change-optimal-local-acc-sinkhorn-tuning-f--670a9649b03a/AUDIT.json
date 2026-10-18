@@ -1,0 +1,163 @@
+{
+  "correctness": {
+    "rationale": "The fixed-parameter map is taken exactly from Xu–Chen Algorithm 1. On the gauge quotient its Sinkhorn derivative is the positive-plan weighted Gram matrix. Rank-nullity forces zero eigenmodes, and the two-state Jacobian gives an exact quadratic modal characteristic polynomial verified by hand and exact Fraction arithmetic. Strict Schur positivity proves local attraction. An affine disk-root criterion proves endpoint dominance for the whole spectrum, avoiding unsupported mode monotonicity. Lower bounds from root product and the zero-mode eigenvalue and strict quadratic arguments establish a unique minimizer in both parameter regimes. A 2x4 strictly positive family attains every admissible L; the standalone verification program passed 27,178 deterministic checks, including source-form finite differences.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gao et al. introduce OSMS and PAGD, distinct from Xu–Chen Algorithm 1, and provide local SK rates.",
+        "Lehmann and Thibault use power-relaxed alternating row/column scaling and analyze a different SOR-type Jacobian."
+      ],
+      "reasoning": "Different SK accelerators share a spectral theme but have different state polynomials; their convergence bounds cannot imply the exact minimax over the Xu–Chen two-state matrix with obligatory zero modes. No stronger general result in the inspected primary papers covers this exact update.",
+      "searches": [
+        "accelerated Sinkhorn 2026 Hessian Nesterov exact optimal parameter damping 1/4 spectral radius two-step derivative eigenvalues",
+        "overcomplete column potentials Acc-Sinkhorn eigenvalue zero bottleneck spectral radius best mu critical damping and eigenmodes",
+        "arxiv:2608.11760v1 Sections 4.4–4.5",
+        "arxiv:2012.12562 Sections 1–3",
+        "arxiv:1711.01851v2 Sections 3–4"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2605.30267v1 (full HTML)",
+      "arxiv:2608.11760v1 (full HTML)",
+      "arxiv:2012.12562 (HTML)",
+      "arxiv:1711.01851v2 (full HTML)",
+      "own claim e038ddd6-5b39-4dea-ad43-68455bd41cbc",
+      "own claim fa8e1e84-c052-43c6-b2f9-81815068498b",
+      "published-finding corpus semantic query set for Acc-Sinkhorn and rank-nullity"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior two-atom optimizer alpha_C holds on a one-mode quotient and its one-quarter transition was already derived.",
+        "On positive 2x4 plan with L=0.04, alpha_B=0.766190379 and spectral rate=0.113238076, whereas alpha_C=0.855755077 gives rate=0.170761146.",
+        "In rectangular n>=m+2, zero is necessarily a nongauge eigenvalue; prior two-atom result lacks it."
+      ],
+      "reasoning": "Our theorem is not a restatement of the two-atom result: it supplies full rectangular modal coverage, the forced-zero-mode endpoint lemma, and a different unique minimizer on a nonempty natural parameter regime. It explicitly excludes the old single-mode formula and quarter crossover from its originality claim.",
+      "searches": [
+        "arxiv:2605.30267v1 Section 4 Algorithm 1",
+        "arxiv:2608.11760v1 Section 4.5 PAGD",
+        "prior two-atom claim e038ddd6-5b39-4dea-ad43-68455bd41cbc",
+        "Xu Chen Acc Sinkhorn two-state general non gauge spectrum positive zero eigenvalue minimax parameter distinction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Xu–Chen Algorithm 1 gives the two-state update but not its complete rectangular sharp optimizer.",
+        "The earlier two-atom claim assumes a two-by-two strictly positive balanced kernel and only one nongauge eigenmode.",
+        "The rectangular theorem uses an unavoidable nongauge zero mode, present by rank-nullity for n>=m+2 but not in the earlier two-atom family."
+      ],
+      "reasoning": "The two-atom single-mode critical damping formula coincides with our high-L branch, and the prior one-quarter slowdown crossover is covered. The distinct new low-L branch balances the zero eigenvalue with the leading complex pair; it is strictly smaller than the two-atom parameter, which is therefore not rate-optimal for rectangular input. Equivalent naming would not rescue covered portions; only this rank-dependent extension is assessed as original.",
+      "searches": [
+        "Acc-Sinkhorn Xu Chen 2026 local linear stability parameter alpha linearization spectral Jacobian slow and zero modes phase transition quarter",
+        "\"Acc-Sinkhorn\" \"Xu\" \"Chen\" spectral radius local convergence threshold 1/4 momentum stability",
+        "rectangular Acc-Sinkhorn rank deficient zero eigenvalues balancing fast zero modes versus slow mode optimal parameter",
+        "arxiv:2605.30267v1 (Algorithm 1, Sections 3–4)",
+        "own historical id e038ddd6-5b39-4dea-ad43-68455bd41cbc"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus results returned unrelated PDHG/FRB spectral-tuning records, not the rectangular Acc-Sinkhorn statement.",
+        "Accessible own ledgers contain prior two-atom Acc-Sinkhorn local tuning e038ddd6-5b39-4dea-ad43-68455bd41cbc and BDRS Sinkhorn recurrence fa8e1e84-c052-43c6-b2f9-81815068498b; neither covers forced-zero-mode Acc-Sinkhorn minimax."
+      ],
+      "reasoning": "No exact table or record for the rectangular rank-nullity formula was found in the checked sources. Search nonappearance alone does not establish novelty; the claim-level implication comparison with the closest prior two-atom result does.",
+      "searches": [
+        "Sinkhorn two by two matrix exact iteration convergence sharp rate cross ratio optimal transport",
+        "\"Acc-Sinkhorn\" \"Xu\" \"Chen\" spectral radius local convergence threshold 1/4 momentum stability",
+        "rectangular Acc-Sinkhorn rank deficient zero eigenvalues balancing fast zero modes versus slow mode optimal parameter",
+        "own current-week and previous-week claims inspected for sinkhorn, entropy-regularized transport, matrix scaling"
+      ]
+    },
+    "rationale": "The prior two-atom Acc-Sinkhorn result already establishes the critical-damping optimizer and the quarter crossover for a single nongauge mode; these are expressly excluded from claimed novelty. The rank-nullity-induced zero-mode bottleneck for n>=m+2 produces a different and uniquely optimal balancing parameter for 0<L<1/4, proven with a full-spectrum endpoint lemma; no inspected primary source or available prior claim implies that result. Risk remains from equivalent unindexed linear-iteration work.",
+    "residual_risks": [
+      "A mathematically equivalent rectangular two-state analysis may exist in unindexed optimization or numerical-linear-algebra literature.",
+      "Local spectral rate is not a global iteration rate; finite-horizon prefactors can be large near repeated roots.",
+      "Historical checked claims are deduplication evidence only; their prior acceptance is not independently recertified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Target recurrence established; only global homotopy and objective bounds under conditions, not sharp rectangular fixed-parameter spectral minimax.",
+        "evidence": [
+          "Algorithm 1 lines 157–171: exact x,w formulas.",
+          "Eq. (16) normalization lines 145–148.",
+          "Theorem 1 and limitations lines 195–211 and 65–67."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.30267",
+        "material_read": "Complete HTML structure and sections 1–4, Algorithm 1, normalized Sinkhorn Eq. (16), convergence theorem and Appendix A.3; direct comparison of updates and derivative.",
+        "method": "Full-text HTML inspection and direct algebraic differentiation.",
+        "title": "Accelerating Sinkhorn for Entropy-Regularized Optimal Transport",
+        "trigger": "Defines exact target algorithm and nominal alpha parameter."
+      },
+      {
+        "assessment": "Has local classic SK analysis and distinct PAGD/OSMS schemes; cites Xu–Chen but does not analyze this two-state scheme's rank-deficient spectral tuning.",
+        "evidence": [
+          "Section 4.5 names PAGD, separate Algorithm 3; lines 296–315.",
+          "Reference [40] explicitly cites Xu–Chen; line 379."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.11760",
+        "material_read": "Full-text HTML Sections 1, 2 and 4 including 4.5, Section 5 and references.",
+        "method": "Full-text HTML comparison of PAGD/OSMS updates, spectral objective, and cited Xu–Chen paper.",
+        "title": "Tight Nonasymptotic Local Convergence of Sinkhorn-Knopp",
+        "trigger": "Recent local SK rate and accelerated matrix-scaling algorithms with potentially stronger coverage."
+      },
+      {
+        "assessment": "Applies to power-relaxed alternating scaling, not Xu–Chen two-state Acc-Sinkhorn.",
+        "evidence": [
+          "Equation (2) is relaxed alternating row/column scaling.",
+          "Theorem 1 gives optimal omega for that distinct method; lines 16–40."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2012.12562",
+        "material_read": "Full-text HTML Sections 1–2, main local spectral theorem and comparison with SK.",
+        "method": "Inspected modal formula and the relaxed row/column update.",
+        "title": "A note on overrelaxation in the Sinkhorn algorithm",
+        "trigger": "Classic sharp local rate and parameter tuning for Sinkhorn variants."
+      },
+      {
+        "assessment": "Algorithms concern mixing or overrelaxed projections, not the exact Xu–Chen HNAG-style two-state update.",
+        "evidence": [
+          "Full HTML Sections 1.1–1.2, 3, 4, and Section 4.4 local-rate contents."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1711.01851v2",
+        "material_read": "Full-text HTML Sections 1–4, especially Section 3 regularized nonlinear acceleration and Section 4 overrelaxed projections.",
+        "method": "Compared update constructions and scope of local spectral analysis.",
+        "title": "Overrelaxed Sinkhorn–Knopp Algorithm for Regularized Optimal Transport",
+        "trigger": "Earlier acceleration and local spectral analysis of entropic transport."
+      },
+      {
+        "assessment": "Covers the one-positive-mode optimizer and threshold but not the separate forced-zero-mode rectangular optimizer.",
+        "evidence": [
+          "Earlier claim assumes balanced 2x2 kernel with one nongauge spectral mode.",
+          "New rectangular condition n>=m+2 forces a zero mode besides leading positive mode."
+        ],
+        "identifier_or_url": "e038ddd6-5b39-4dea-ad43-68455bd41cbc",
+        "material_read": "Recoverable claim and identifying source records only (historical deduplication; no reevaluation of prior proofs).",
+        "method": "Direct comparison of mathematical hypotheses and implications.",
+        "title": "Prior two-atom Acc-Sinkhorn local-rate claim",
+        "trigger": "Same paper, algorithm, and quarter-boundary formula in accessible claim ledger."
+      },
+      {
+        "assessment": "Second-order BDRS has polynomial z²-2lambda z+lambda, distinct from Acc-Sinkhorn polynomial depending on alpha.",
+        "evidence": [
+          "Earlier claim explicitly identifies different BDRS projective recurrence and local modal roots."
+        ],
+        "identifier_or_url": "fa8e1e84-c052-43c6-b2f9-81815068498b",
+        "material_read": "Recoverable claim only for deduplication.",
+        "method": "Compared iteration formulas and modal characteristic polynomials.",
+        "title": "Prior Bregman Douglas–Rachford matrix scaling local-rate claim",
+        "trigger": "Related accelerated Sinkhorn recurrence in accessible claim ledger."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "670a9649-b03a-4d28-ab2f-b4542ebdc9cb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The extra zero modes are forced by a common practical rectangular transport geometry, not an arbitrarily chosen slice. The source method has a natural fixed parameter that must control every dual state mode. On L=0.04 a 2x4 entropic transport example changes the sharp local factor from approximately 0.170761 under the earlier two-atom critical parameter to approximately 0.113238 under the derived rectangular optimum. The result rigorously selects a parameter across all positive plans of the stated dimensions, proves strict uniqueness, and supplies realizable sharp examples; no general downstream theorem is required for this independent optimization-landscape benchmark.",
+    "status": "PASS"
+  }
+}
