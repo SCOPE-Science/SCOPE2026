@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T14:45:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read the full RESULT.md and verify.py at the assigned tree. Distinct duads are graph-distance 2 exactly if disjoint and 4 otherwise; distinct synthemes distance 2 iff they share a duad and 4 otherwise; every duad-syntheme pair has distance 1 or 3. Hence threshold3 graph has all 225 cross edges and the two internal factor graphs, giving an ACTUAL simplicial join, not a homology-only assertion. Independently enumerated all 15 duads and all 15 perfect matchings on six elements. Each factor has 15 vertices,45 edges,15 triangles, no 4-cliques, is connected, and every edge belongs to a unique triangle. Elementary collapse of one edge per triangle leaves 15v30e connected graph and hence wedge^16 S1; join-smash yields wedge^(16*16) S3. The supplied verifier additionally checks full 30-vertex threshold3 f-vector (30,315,1380,2475,1350,225) and GF2 Betti 256, but mod2 rank alone would be weaker than the structural homotopy proof. Integer-distance constancy justifies the entire interval 3<=r<4.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "McCabe Lemma 3.5 requires girth at least 3j+1; g=8 fails for j=3, while its generalized-quadrangle application addresses approximation lower bounds.",
+          "Saleh--Titz Mite--Witzel computes VR for Platonic-solid vertices; building examples are not classified there."
+        ],
+        "reasoning": "Neither broader theorem covers this graph and threshold; McCabe's stability cannot be applied at the claimed scale without violating its hypothesis.",
+        "searches": [
+          "arXiv:2607.06524 McCabe Lemma 3.5 and Theorem 3.6",
+          "arXiv:2302.14388 Saleh/Titz Mite/Witzel",
+          "generalized quadrangle Vietoris Rips homotopy"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.06524",
+        "arXiv:2302.14388",
+        "Resultary semantic Tutte--Coxeter VR scale3 search",
+        "assigned:RESULT.md,verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The GQ incidence graph has girth 8, whereas j3 requires girth>=10 in McCabe.",
+          "The other primary source lacks a theorem about GQ(2,2) or its graph-power homotopy."
+        ],
+        "reasoning": "The candidate's explicit join and double free-edge collapses are additional mathematical work not supplied by the prior assumptions/conclusions; no accidental parameter-special-case coverage.",
+        "searches": [
+          "McCabe arXiv:2607.06524 Section 3.1 girth theorem",
+          "Saleh et al arXiv:2302.14388 Platonic Rips",
+          "assigned RESULT.md exact join decomposition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Duad-syntheme model and GQ(2,2) incidence graph are the same 30-vertex Tutte 8-cage in the proof.",
+          "Semantic hits covered same graph for independence complex and Cech nerve but not VR at this scale."
+        ],
+        "reasoning": "Aliases and graph-power descriptions all refer to the same actual object and metric. Nearby independence/Čech results concern non-equivalent complexes; no exact prior scale3 VR computation was identified.",
+        "searches": [
+          "Resultary: Tutte Coxeter graph 8 cage Vietoris Rips scale 3 wedge 256 spheres duad syntheme",
+          "Cremona Richmond GQ(2,2) graph power 3 clique homotopy",
+          "Tutte 8-cage duad syntheme matching K6 join"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits distinguish the Tutte--Coxeter independence complex wedge^9 S8 and a scale4 Čech complex wedge^144 S2; neither is VR at scale3.",
+          "No checked published exact Rips table contains a 256 S3 row for this object."
+        ],
+        "reasoning": "Exact-object data under different complexes or scales cannot imply this invariant merely by sharing graph name; no exact same graph/scale VR table was found.",
+        "searches": [
+          "Resultary: Tutte Coxeter GQ(2,2) scale 3 VR 256 spheres",
+          "Resultary: Tutte Coxeter Cech/independence complex",
+          "duad syntheme matching complex 16 sphere join"
+        ]
+      },
+      "rationale": "Searches with Tutte--Coxeter, Tutte 8-cage, Cremona--Richmond, GQ(2,2), duad--syntheme, generalized quadrangle and 256-sphere Rips aliases found no independent published coverage. The closest primary McCabe 2026 generalized-polygon paper proves girth-stability of graph-power clique complexes only for g>=3j+1: at g=8 and j=3 it is inapplicable. The Platonic-solid Rips paper concerns different metric sets and points toward buildings only as future direction. The structural join factorization is not implied by either theorem, though unindexed classical graph-power calculations remain a residual risk.",
+      "residual_risks": [
+        "Older graph-power clique-complex literature may contain the identical small generalized-quadrangle invariant under different terminology.",
+        "Finite factor enumeration was verified independently; the global homotopy conclusion depends on the exact join and free-edge-collapse argument, not just GF2 Betti numbers.",
+        "No claim for arbitrary generalized quadrangles or scale4, and no general VR persistence barcode."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_FAMILY_INAPPLICABLE_AT_SCALE3",
+          "evidence": "The girth8 Tutte incidence graph does not satisfy the stability criterion for j3; approximation lower bounds do not give its VR wedge multiplicity.",
+          "identifier_or_url": "arXiv:2607.06524",
+          "material_read": "Primary PDF Section 3.1, Proposition 3.4, Lemma 3.5, Figure 3 and Theorem 3.6, including the girth >=3j+1 hypothesis.",
+          "method": "ArXiv PDF text and rendered-page primary inspection",
+          "title": "Lower Bounds for Approximating the Vietoris-Rips Filtration",
+          "trigger": "Highly relevant exact graph-family/girth source"
+        },
+        {
+          "assessment": "DIFFERENT_GEOMETRY",
+          "evidence": "It studies Platonic vertex metrics; the GQ(2,2) incidence graph is not among the computed cases.",
+          "identifier_or_url": "arXiv:2302.14388",
+          "material_read": "Primary PDF abstract, introduction, stated Platonic-solid calculation and explicit future-building discussion.",
+          "method": "ArXiv PDF text and rendered-page primary inspection",
+          "title": "Vietoris-Rips complexes of Platonic solids",
+          "trigger": "Closest structural Vietoris-Rips topological result and buildings motivation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Tutte--Coxeter graph is the canonical smallest thick GQ(2,2) rank-two building incidence graph, and scale3 is the first beyond the available girth8 stability range. The natural exact invariant 256 independent three-spheres follows from explicit two-sided geometry, not a numerical log or an arbitrary parameter slice. The result is a complete natural finite-object homotopy classification useful in VR/genus and generalized-polygon comparisons; no general theorem is required.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For Tutte--Coxeter 30-vertex duad--syntheme incidence graph T with shortest-path metric, VR_<=r(T) is homotopy equivalent to a wedge of 256 S3 for 3<=r<4, via the join of two 15-vertex factors each collapsing to wedge^16 S1.",
+  "limitations": [
+    "Exact ordinary homotopy for interval 3<=r<4 only.",
+    "Literature assessment best of current checked sources; no absolute novelty guarantee."
+  ],
+  "schema_version": 1
+}
