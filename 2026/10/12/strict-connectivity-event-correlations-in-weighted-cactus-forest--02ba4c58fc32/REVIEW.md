@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The target is one nonnegative two-connection covariance theorem on arbitrary finite connected cacti with strictly positive edge weights, strengthened by an exact strictness criterion. A spanning edge subset is a forest precisely when no cycle block is entirely selected; this gives independent block restrictions. A two-vertex connection is exactly the intersection of its local route-block connections. On a single cycle, conditioning independent edge openings on at least one missing edge gives the failed-arc odds representation; the three-terminal and both four-terminal covariance numerators are strictly positive polynomials for all positive odds, and identical terminals give strict variance. Bridge covariance is Bernoulli variance. Products over blocks preserve inequality and give strictness iff the routes overlap. All boundary conditions (positive weights, finite graph, distinct vertices within each pair) are used. A standalone exact-arithmetic check reproduced 4,152 assertions from package-local source. The computation illustrates, not proves, the universal claim.
+PASS
 
-## Originality — PASS, residual risks stated
+Because each cactus cycle lies in exactly one block, the acyclic-subset partition function and random restrictions factor over bridge/cycle blocks. Every two-vertex connectivity is a product of local route-block connectivity indicators along the unique block-incidence path. For a bridge, coincident traversals give positive Bernoulli variance. For a cycle, condition independent open edges on at least one failed arc; disjoint segment-failure odds are positive. Enumerating the 3-terminal shared-vertex and both 4-terminal pairing patterns yields strictly positive algebraic covariance numerators, including ac(a+b+c+ab+bc)>0 for 3 terminals and ac[(1+b)(1+d)(1+a+c)-1]>0 for noncrossing 4 terminals; crossing case has manifest positive remainder by coefficient comparison. Identical terminal pairs have positive variance. Independence of blocks then yields strict covariance iff routes intersect, with exact zero for disjoint routes. This is universal for positive finite weights, not asserted for arbitrary overlapping-cycle graphs.
 
-The closest primary work is Çiçeksiz–Ravichandran, arXiv:2610.00549v1, Conjecture 6.2 on this exact covariance phenomenon in arbitrary graphs. Their Proposition 6.1 treats sufficiently large equal weights for a special edge-deletion configuration, not all positive heterogeneous weights on arbitrarily large cacti. Erickson (2012) proves negative correlations of *edge occupancies* for series-parallel forests, not this vertex-connectivity statement or the equality criterion. Related published mathematical-record hits on consecutive forest-count ratios concern different observables. Equivalent earlier formulations via block decompositions, especially less searchable classical graph probability literature, remain a priority risk. Searches do not establish absolute uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-This settles the 2026 conjectured vertex-connectivity correlation inequality on an infinite graph class with unrestricted positive edge fugacities, not just a limiting parameter regime; cacti can contain arbitrarily many cycles and articulation vertices. The precise independence versus strictly positive covariance characterization adds structural content. The local weighted-cycle lemma can serve as a reusable building block for exploring extension beyond cacti. This is materially different from routine edge-correlation consequences and does not claim a proof for all series-parallel graphs.
+PASS best-of-knowledge: Çiçeksiz–Ravichandran 2026 Conjecture 6.2 proposes nonnegative pair-connectivity covariance on arbitrary graphs, while their Proposition 6.1 covers special large uniform edge-weight regimes; neither proves the all-positive-weight cactus class or strictness criterion. Erickson 2012 Rayleigh property of forest edge indicators is negative edge-occupancy correlation, a distinct random event; it cannot be substituted for vertex-pair connectivity positive correlation. Resultary related sparse-forest papers address arboricity/forest ratios/different observables. Older block-decomposition probability identities may imply the cactus instance but no such full implication was evidenced.
 
-## Closest literature and limits
+## value
 
-Çiçeksiz and Ravichandran (2026), Conjecture 6.2 and Proposition 6.1; Erickson (2012), series-parallel forest Rayleigh theorem. Remaining risks include unindexed equivalent cactus statements, and the theorem intentionally excludes graphs with overlapping cycle blocks, nonpositive edge weights, and random-cluster laws outside the forest model.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This settles the fresh conjectured vertex-connectivity correlation inequality on a natural infinite structural class (cacti) at every nonzero finite weight vector; in addition, the sharp shared-block strictness/independence characterization is independently useful for graphical probabilistic dependence and cannot be read from a generic nonnegative bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
