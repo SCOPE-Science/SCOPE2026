@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The quadratic norm identity and flat/arc partition are exact. A radical witness satisfying a simple quadratic equation has both outputs on corner rays. A feasible signed dual weighting of the two max branches yields a global lower bound whose excess over the witness is a sum of two nonnegative squares. Positivity follows from exact certificate stationarity and the parameter constraints. The known sharp saturation theorem supplies the upper branch, and the endpoints join continuously. Standard-library checker passed 2000 witness/certificate tests; all infinite claims rest on proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Published saturated branch proved for all lambda, but it only applies for r≥r_c",
+        "Endpoint theorem gives a derivative but no all-r formula",
+        "Xu–Liu published full manuscript Example 3.5 uses r≥sqrt(1−lambda^-2)"
+      ],
+      "reasoning": "A theorem with arbitrary clipping lambda would cover this special lambda only if it determined the strict infimum, not merely whether a lower envelope is met. The compared more general domain results expressly do not determine it.",
+      "searches": [
+        "published-finding corpus: complete exact entire skew Schaffer quadratic Banaś–Frączek norm at λ=sqrt(2) all tau intermediate below saturation",
+        "published-finding corpus: exact saturation threshold for quadratic skew Schäffer constants on the Banaś–Frączek plane",
+        "published-finding corpus: full skew Schaffer Banach clipped disk plane lambda sqrt2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.03050v1 (full HTML)",
+      "2026/10/11/SCOPE-exact-saturation-threshold-for-quadratic-skew-sch-ffer-constants--c3c39dc819be (full RESULT.md)",
+      "2026/10/11/SCOPE-a-sharp-small-skew-phase-transition-in-the-bana-fr-czek-plane--4c730d387d65 (full RESULT.md)",
+      "Accessible mathematical claim ledger: 56 prior claims checked for topic and implication overlap",
+      "published-finding corpus semantic literature record query results"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Xu–Liu arxiv:2610.03050v1 Example 3.5 computes only a sufficient saturation range",
+        "2026/10/11/SCOPE-exact-saturation-threshold-for-quadratic-skew-sch-ffer-constants--c3c39dc819be RESULT.md states explicitly that the strict regime was not evaluated",
+        "2026/10/11/SCOPE-a-sharp-small-skew-phase-transition-in-the-bana-fr-czek-plane--4c730d387d65 RESULT.md proves only right derivative at zero"
+      ],
+      "reasoning": "The strict-interval value depends on U_r solving a quadratic and is certified by a two-variable global minimax inequality. A transition point and a derivative allow infinitely many possible interiors; the new identity does not follow from the prior implications.",
+      "searches": [
+        "published-finding corpus: complete exact entire skew Schaffer quadratic Banaś–Frączek norm at lambda sqrt(2) all tau intermediate below saturation",
+        "published-finding corpus: skew Schaffer Banach clipped disk plane lambda sqrt2 exact intermediate phase S_2 tau (1+tau^4)",
+        "published-finding corpus:2026/10/11/SCOPE-exact-saturation-threshold-for-quadratic-skew-sch-ffer-constants--c3c39dc819be",
+        "published-finding corpus:2026/10/11/SCOPE-a-sharp-small-skew-phase-transition-in-the-bana-fr-czek-plane--4c730d387d65"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Xu–Liu arxiv:2610.03050v1 Example 3.5 computes only a sufficient saturation range",
+        "2026/10/11/SCOPE-exact-saturation-threshold-for-quadratic-skew-sch-ffer-constants--c3c39dc819be RESULT.md states explicitly that the strict regime was not evaluated",
+        "2026/10/11/SCOPE-a-sharp-small-skew-phase-transition-in-the-bana-fr-czek-plane--4c730d387d65 RESULT.md proves only right derivative at zero"
+      ],
+      "reasoning": "Compared the exact infimum on the real clipped-disk plane under the names quadratic skew Schäffer, Banaś–Frączek constant, and skew-transformed unit-sphere minimax; closely matching full documents stop at saturation or first-order data.",
+      "searches": [
+        "published-finding corpus: complete exact entire skew Schaffer quadratic Banaś–Frączek norm at lambda sqrt(2) all tau intermediate below saturation",
+        "published-finding corpus: skew Schaffer Banach clipped disk plane lambda sqrt2 exact intermediate phase S_2 tau (1+tau^4)",
+        "published-finding corpus:2026/10/11/SCOPE-exact-saturation-threshold-for-quadratic-skew-sch-ffer-constants--c3c39dc819be",
+        "published-finding corpus:2026/10/11/SCOPE-a-sharp-small-skew-phase-transition-in-the-bana-fr-czek-plane--4c730d387d65"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search returned the prior exact saturation and derivative records but no tabulation of interior values",
+        "Numerical interior samples were derived from the new symbolic formula, not adopted as evidence of originality"
+      ],
+      "reasoning": "No exact database or mathematical table was identified containing the radical strict-interval curve; negative search is not a proof of uniqueness.",
+      "searches": [
+        "published-finding corpus: skew Schaffer Banach clipped disk plane lambda sqrt2 exact intermediate phase S_2 tau (1+tau^4)",
+        "published-finding corpus: Banaś–Frączek quadratic skew Schaffer exact all-tau profile square root tau quartic"
+      ]
+    },
+    "rationale": "The previously published saturation-threshold formula does not give values in the strict regime, as explicitly acknowledged in its full RESULT.md; the published endpoint-derivative result only gives the first-order germ. The source preprint also only treats the saturated range. The full radical curve and dual-certificate implication are stronger and not implied by those published results.",
+    "residual_risks": [
+      "An unindexed older equivalent Banach-plane minimax formula might imply the radical values",
+      "Other parameterizations of the same exact objective may be absent from searchable records",
+      "Independent mathematical and publication-priority review has not been performed"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING strict values",
+        "evidence": "Example 3.5 explicitly restricts equality formula to r≥sqrt(1−lambda^-2), and the paper gives only general estimates elsewhere.",
+        "identifier_or_url": "https://arxiv.org/html/2610.03050v1",
+        "material_read": "Definition (2); parameter structure; Theorem 3.2; Example 3.5 and surrounding proof",
+        "method": "full HTML mathematical statements and formula comparison",
+        "title": "Skew Schäffer Type Constants",
+        "trigger": "same definition and identical Banaś–Frączek plane"
+      },
+      {
+        "assessment": "NOT_COVERING strict values",
+        "evidence": "It states the equality threshold and explicitly says the strict regime values are not computed.",
+        "identifier_or_url": "2026/10/11/SCOPE-exact-saturation-threshold-for-quadratic-skew-sch-ffer-constants--c3c39dc819be",
+        "material_read": "complete published RESULT.md, including Finding, four proof steps, Relationship, Limitations",
+        "method": "GitHub public repository full file read",
+        "title": "Exact saturation threshold for quadratic skew Schäffer constants on the Banaś–Frączek plane",
+        "trigger": "same infimum, exact clipping family, nearest sharp transition"
+      },
+      {
+        "assessment": "NOT_COVERING exact positive-r curve",
+        "evidence": "Only the one-sided derivative at zero is claimed; full positive-parameter profile explicitly excluded.",
+        "identifier_or_url": "2026/10/11/SCOPE-a-sharp-small-skew-phase-transition-in-the-bana-fr-czek-plane--4c730d387d65",
+        "material_read": "complete published RESULT.md including proof, relationships and limitations",
+        "method": "GitHub public repository full file read",
+        "title": "A sharp small-skew phase transition in the Banaś–Frączek plane",
+        "trigger": "same infimum and the subcritical origin"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0f26312c-1155-4c67-b687-20d7fce4c9c2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The new invariant was introduced in 2026; its natural strict interval at the symmetric clipped-disk geometry remained uncomputed in the source and both nearest exact published follow-ups. The result is a complete natural one-parameter profile, not a routine numerical test or a renaming: it requires a nontrivial exact feasible dual certificate excluding every mixed unit-sphere configuration and explains why corner-ray outputs govern the minimizers.",
+    "status": "PASS"
+  }
+}
