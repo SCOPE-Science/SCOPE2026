@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,48 +18,25 @@
   "schema_version": 1
 }
 ---
-The analytic proof reduces every Birkhoff-orthogonal unit pair, up to the dihedral symmetries of the regular decagon, sign, and symmetry of the objective, to
-\[
-x=(1,t),
-\qquad
--\tan\frac{\pi}{10}\le t\le\tan\frac{\pi}{10},
-\qquad
-y=\left(0,\sec\frac{\pi}{10}\right).
-\]
 
-For this family, the directions of \(x+y\) and \(x-y\) stay in the adjacent facet sectors, so
-\[
-\|x+y\|
-=
-\cos\frac{\pi}{5}
-+
-\sin\frac{\pi}{5}
-\left(
-\sec\frac{\pi}{10}+t
-\right),
-\]
-\[
-\|x-y\|
-=
-\cos\frac{\pi}{5}
-+
-\sin\frac{\pi}{5}
-\left(
-\sec\frac{\pi}{10}-t
-\right).
-\]
-Thus the defining \(C_B\) objective is a positive constant times \(t\), and the maximum occurs at \(t=\tan(\pi/10)\).
+# Independent mathematical audit
 
-`verify.py` symbolically checks the sector endpoints, the ten facet/vertex incidences, the equality-pair norms, and the simplification
-\[
-\frac14
-\left[
-\left(\frac{1+\sqrt5}{2}\right)^2
--
-(\sqrt5-1)^2
-\right]
-=
-\frac{5\sqrt5-9}{8}.
-\]
+## correctness
 
-No finite sampling is used to prove the continuum maximum. No independent audit or independent validation has been performed.
+PASS
+
+Use regular decagon circumscribed about radius-one disk, normals n_j=(cos(jπ/5),sin(jπ/5)), and facet x=(1,t), |t|≤tan(π/10). For each facet-interior Birkhoff pair, the support functional forces y=±(0,sec(π/10)). A vertex-first pair swaps to facet-first owing to the regular 4m+2 Radon incidence and symmetry of F(x,y). On this entire facet segment the upper supports for x+y and x−y are n_1 and n_9, respectively, so F=(cos(π/5)+sin(π/5)sec(π/10))sin(π/5)t; the slope is positive. I separately evaluated all ten support linear forms at t=−tanα,0,tanα and verified the asserted active supports (linearity makes endpoints sufficient for whole segment). The endpoint norms are (1+√5)/2 and √5−1, so F=(5√5−9)/8. This is an exact continuum reduction; finite endpoint checks verify linear support dominance, not a substitute for global reasoning.
+
+## originality
+
+PASS
+
+Full primary Du–Li C_B paper pp.1–12, including Sec.3 (pp.4–8), provides exact definition, general bounds, and the Radon-plane hexagon equality case, but the decagon is an intermediate geometric value neither tabulated nor derived there. The Mizuguchi A_2 estimate and D(X) relation are different-quotient bounds not equality formulas for this case.
+
+## value
+
+PASS
+
+The Du–Li invariant measures Birkhoff-versus-isosceles orthogonality, and the regular decagon is the next nonhexagonal symmetric Radon polygon after the extremal hexagon. Its exact intermediate value supplies a natural benchmark and shows sharp finite-polygon behavior beyond universal inequalities. The facet/vertex reduction and affine one-parameter formula can inform analogous polygon constants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

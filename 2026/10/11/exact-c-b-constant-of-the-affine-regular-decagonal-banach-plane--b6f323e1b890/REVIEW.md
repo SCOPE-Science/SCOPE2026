@@ -1,25 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The support-functional characterization of Birkhoff orthogonality exhausts polygonal Birkhoff pairs. On a decagonal facet, the orthogonal unit direction is the perpendicular vertex; at a vertex, the norming-functional segment sweeps the corresponding perpendicular facet, so symmetry of the objective reduces the entire admissible set to one facet--vertex family. On that family the active facets for \(x+y\) and \(x-y\) stay fixed, making the objective exactly affine in the edge parameter. Its endpoint gives
-\[
-\|x+y\|=\frac{1+\sqrt5}{2},
-\qquad
-\|x-y\|=\sqrt5-1,
-\]
-and hence
-\[
-C_B(X_{10})=\frac{5\sqrt5-9}{8}.
-\]
-The bundled checker validates the facet incidence, active-facet endpoint inequalities, and radical simplification.
+## correctness
 
-## Originality
-PASS. The defining Du--Li full text was inspected through the \(C_B\) definition, its general bounds and comparison theorems, and the Radon-plane extremal characterization. It contains no decagonal computation. The full Mizuguchi Radon-plane paper was also inspected; it bounds \(A_2\) and the von Neumann--Jordan constant but predates \(C_B\) and does not imply this nonextremal value. Searches covered the \(C_B\) symbol, cosine-of-\(i\)-angle alias, Radon/decagon terminology, the exact radical, and the related \(D(X)\) formulation.
+PASS
 
-## Value
-PASS. The affine-regular decagon is the next canonical regular Radon polygon after the affine-regular hexagon singled out by Du--Li's extremal theorem. Its exact \(C_B\) value is therefore a natural benchmark for the newly introduced orthogonality-discrepancy invariant. The proof also identifies the complete Birkhoff-pair reduction rather than relying on finite sampling.
+Use regular decagon circumscribed about radius-one disk, normals n_j=(cos(jπ/5),sin(jπ/5)), and facet x=(1,t), |t|≤tan(π/10). For each facet-interior Birkhoff pair, the support functional forces y=±(0,sec(π/10)). A vertex-first pair swaps to facet-first owing to the regular 4m+2 Radon incidence and symmetry of F(x,y). On this entire facet segment the upper supports for x+y and x−y are n_1 and n_9, respectively, so F=(cos(π/5)+sin(π/5)sec(π/10))sin(π/5)t; the slope is positive. I separately evaluated all ten support linear forms at t=−tanα,0,tanα and verified the asserted active supports (linearity makes endpoints sufficient for whole segment). The endpoint norms are (1+√5)/2 and √5−1, so F=(5√5−9)/8. This is an exact continuum reduction; finite endpoint checks verify linear support dominance, not a substitute for global reasoning.
 
-## Closest literature and limitations
-Du and Li published the defining \(C_B\) article online on 14 June 2024 and classify it under 46B20. Their Radon theorem characterizes only the upper endpoint \(3/4\), attained by the affine-regular hexagon. Mizuguchi's 2021 Radon-plane paper gives sharp bounds for \(A_2\) and \(C_{\mathrm{NJ}}\), again with affine-regular-hexagon equality, but does not determine \(C_B\) on the decagon. The present result does not classify all regular Radon polygons or all maximizing pairs.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Full primary Du–Li C_B paper pp.1–12, including Sec.3 (pp.4–8), provides exact definition, general bounds, and the Radon-plane hexagon equality case, but the decagon is an intermediate geometric value neither tabulated nor derived there. The Mizuguchi A_2 estimate and D(X) relation are different-quotient bounds not equality formulas for this case.
+
+## value
+
+PASS
+
+The Du–Li invariant measures Birkhoff-versus-isosceles orthogonality, and the regular decagon is the next nonhexagonal symmetric Radon polygon after the extremal hexagon. Its exact intermediate value supplies a natural benchmark and shows sharp finite-polygon behavior beyond universal inequalities. The facet/vertex reduction and affine one-parameter formula can inform analogous polygon constants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

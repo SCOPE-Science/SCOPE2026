@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T02:09:23.823403Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md source blob 27b86d0921ecf7448ca8f19f0cfc7cfde6dc6213",
+        "verify.py source blob f7c6d1d68a4dcf4c92c27e2a5a6ddd4e88561bbf",
+        "independent_math_checks.py decagonal endpoint and support calculations",
+        "Du and Li 2024 DOI:10.1007/s10013-024-00696-w definition Sec.3"
+      ],
+      "rationale": "Use regular decagon circumscribed about radius-one disk, normals n_j=(cos(jπ/5),sin(jπ/5)), and facet x=(1,t), |t|≤tan(π/10). For each facet-interior Birkhoff pair, the support functional forces y=±(0,sec(π/10)). A vertex-first pair swaps to facet-first owing to the regular 4m+2 Radon incidence and symmetry of F(x,y). On this entire facet segment the upper supports for x+y and x−y are n_1 and n_9, respectively, so F=(cos(π/5)+sin(π/5)sec(π/10))sin(π/5)t; the slope is positive. I separately evaluated all ten support linear forms at t=−tanα,0,tanα and verified the asserted active supports (linearity makes endpoints sufficient for whole segment). The endpoint norms are (1+√5)/2 and √5−1, so F=(5√5−9)/8. This is an exact continuum reduction; finite endpoint checks verify linear support dominance, not a substitute for global reasoning.",
+      "residual_risks": [
+        "The proof uses special vertex/facet symmetry for regular decagon, not arbitrary 10-gon.",
+        "The endpoint norm assertions depend on the support region; full region verified by convex linear inequalities."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Universal 0≤C_B≤3/4 and 3/4 iff affine regular hexagon in Radon planes.",
+          "A_2≤3/2 with equality iff affine-regular hexagon; regular decagon strictly misses the equality shape."
+        ],
+        "reasoning": "These broader bounds characterize the maximum but leave every nonhexagonal numerical value open; they do not dominate the decagon equality calculation.",
+        "searches": [
+          "Du–Li 2024 Proposition 3.5/Theorem 3.12",
+          "Mizuguchi 2021 DOI:10.1007/s00605-021-01540-w"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1007/s10013-024-00696-w pp.1–12 primary",
+        "DOI:10.1007/s00605-021-01540-w theorem as quoted by Du–Li",
+        "RESULT.md and independent endpoint calculation",
+        "Resultary search incomplete"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mizuguchi characterization of equality in A_2 applies to hexagon only.",
+          "Du–Li bounds and equivalences give no equality condition yielding the decagon intermediate C_B."
+        ],
+        "reasoning": "No inspected general closed formula specialized at ten sides was identified, so this requires extra facet-wise sharp optimization rather than immediate substitution.",
+        "searches": [
+          "Du–Li DOI:10.1007/s10013-024-00696-w",
+          "Mizuguchi DOI:10.1007/s00605-021-01540-w"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Du–Li p.2 defines C_B as the maximal cosine of i-angle on Birkhoff-orthogonal unit pairs; same normalization here.",
+          "The D(X) and A_2 quantities are related by inequalities, not an equality giving exact C_B for a decagon."
+        ],
+        "reasoning": "Identifies exact same quantity under cosine-of-i-angle notation; no alternative equivalence established that already supplies the value.",
+        "searches": [
+          "Du–Li 2024 DOI:10.1007/s10013-024-00696-w",
+          "Du–Li C_B cosine-of-i-angle and D(X) relations",
+          "Du Li cosine Birkhoff orthogonality constant C_B affine regular decagon Radon plane [temporarily unavailable]"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Du–Li primary full Sec.3 has examples for ℓ∞ and a six-vertex Radon norm but no ten-vertex table.",
+          "No verified searchable decagon C_B database entry or exact counterpart; Resultary returned no completed results."
+        ],
+        "reasoning": "An affine-invariant polygonal geometric constant is natural, but nearby Banach–Mazur and von-Neumann-Jordan tables concern other invariants.",
+        "searches": [
+          "exact (5sqrt5-9)/8",
+          "C_B Radon polygon 10 sides",
+          "regular decagon Birkhoff cosine table"
+        ]
+      },
+      "rationale": "Full primary Du–Li C_B paper pp.1–12, including Sec.3 (pp.4–8), provides exact definition, general bounds, and the Radon-plane hexagon equality case, but the decagon is an intermediate geometric value neither tabulated nor derived there. The Mizuguchi A_2 estimate and D(X) relation are different-quotient bounds not equality formulas for this case.",
+      "residual_risks": [
+        "The title/normalization C_B may occur in other polygonal tables not indexed by this search.",
+        "Mizuguchi paper not obtained separately in full; implication checked only through explicit cited theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definition exactly matches; establishes universal and hexagon results, not a decagon evaluation in C_B section.",
+          "evidence": [
+            "p.2 definition; pp.4–5 bounds and comparisons; pp.7–8 Radon hexagon Theorem 3.12."
+          ],
+          "identifier_or_url": "DOI:10.1007/s10013-024-00696-w",
+          "material_read": "Authorized 17-page complete download, pp.1–12 materially read; all C_B Sec.3 pp.4–8 reviewed including Propositions 3.1–3.5 and Theorem 3.12",
+          "method": "authorized institutional full-text extraction with section-level inspection",
+          "title": "Some Geometric Constants Related to the Sine Function and Cosine Function in Banach Spaces",
+          "trigger": "defining article for same constant; potential general Radon-plane evaluation"
+        },
+        {
+          "assessment": "A_2 hexagon equality theorem does not itself evaluate decagonal C_B.",
+          "evidence": [
+            "Du–Li p.7 explicitly quotes Mizuguchi Theorems 3.1 and 5.1."
+          ],
+          "identifier_or_url": "DOI:10.1007/s00605-021-01540-w",
+          "material_read": "Bibliographic record and statements quoted as Theorems 3.1 and 5.1 in Du–Li pp.7–8; original full paper not independently obtained.",
+          "method": "primary citing article and bibliographic metadata",
+          "title": "The von Neumann–Jordan and another constants in Radon planes",
+          "trigger": "potential dominating Radon-plane geometric constant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Du–Li 2024 Sections 3.1–3.3",
+        "RESULT.md exact facet and vertex reduction",
+        "regular-decagon geometry"
+      ],
+      "rationale": "The Du–Li invariant measures Birkhoff-versus-isosceles orthogonality, and the regular decagon is the next nonhexagonal symmetric Radon polygon after the extremal hexagon. Its exact intermediate value supplies a natural benchmark and shows sharp finite-polygon behavior beyond universal inequalities. The facet/vertex reduction and affine one-parameter formula can inform analogous polygon constants.",
+      "residual_risks": [
+        "One specific affine class is classified, not all regular 4m+2 polygons."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the real affine-regular decagonal Banach plane, the Du–Li Birkhoff-cosine constant C_B equals (5√5−9)/8, attained by the specified perpendicular decagonal vertices x=(1,tan(π/10)) and y=(0,sec(π/10)).",
+  "limitations": [
+    "The proof uses special vertex/facet symmetry for regular decagon, not arbitrary 10-gon.",
+    "The endpoint norm assertions depend on the support region; full region verified by convex linear inequalities.",
+    "The title/normalization C_B may occur in other polygonal tables not indexed by this search.",
+    "Mizuguchi paper not obtained separately in full; implication checked only through explicit cited theorem.",
+    "One specific affine class is classified, not all regular 4m+2 polygons.",
+    "All five Resultary queries returned temporarily_unavailable/search_completed=false; no negative inference from this failure.",
+    "Fixed commit scientific blobs read, but recursive source tree hash was only assignment-reported and not independently recomputed; publication not_ready."
+  ],
+  "schema_version": 1
+}
