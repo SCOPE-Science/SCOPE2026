@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The residual contracts geometrically along every sample path because both scalar factors have absolute value below one in the exact assumed stepsize range. The absolutely convergent nullspace random series has a verified affine fixed-point equation; its first two moments follow by conditional independence and yield the stated exact Euclidean risk. Exact symbolic differentiation identifies a quadratic numerator with one positive root and establishes the sharp interior-to-boundary transition. Complete fair-bit expansion proves the uniform limiting law and deterministic bound. The standalone checker symbolically reconstructs independent moment equations and reproduces exact finite-prefix identities and direct updates; infinite assertions rely on the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jin–Liu (2024), Theorem 2.4 gives weak convergence to some random feasible limit; this does not determine its nullspace risk or minimize it.",
+        "Qu–Richtárik (arXiv:1412.8060), accessible abstract focuses on arbitrary-sampling complexity rates, not terminal selection error.",
+        "Xie–Yang (arXiv:2610.04685v1), introduction assumes full column rank; the present one-by-two system has a one-dimensional nullspace."
+      ],
+      "reasoning": "Even a general complexity theorem for stochastic coordinate descent need not entail the distribution of the limit within a non-singleton solution manifold. The full-column-rank theory has unique solutions and thus cannot imply the selection-risk phase transition here.",
+      "searches": [
+        "randomized coordinate descent least squares overparameterized random limit distribution sampling probabilities",
+        "Randomized block coordinate descent (RBCD) on rank-one underdetermined inverse problem random limiting solution nullspace variance sampling probability exact optimal importance sampling",
+        "Underparameterized randomized Gauss Seidel limit random solutions Bernoulli convolution underdetermined least squares minimum norm selection"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2405.13340v1 (full relevant HTML sections)",
+      "arxiv:2610.04685v1 (intro and assumptions)",
+      "arxiv:1412.8060 (abstract/overview)",
+      "arxiv:1506.03296 (abstract/overview)",
+      "arxiv:1902.04794 (abstract/context)",
+      "2015 and 2017 randomized-coordinate linear-solver publication abstracts"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source Remark 2.5 asserts that uniform boundedness yields almost-sure minimum-norm selection; the fair-binary-digit model has a deterministic bound \\(\\|x_k\\|\\le1\\) but a non-atomic uniform terminal law.",
+        "The 2019 Rabanser–Neumann–Haltmeier earlier block-method record describes cyclic, tensor-structured problems; it does not supply the iid two-column terminal-risk classification in the accessible abstract.",
+        "Gower–Richtárik and related sketch-and-project methods select a solution under a separate update/projection geometry; their reported expected convergence rates do not algebraically imply the stated iid rank-deficient risk optimum."
+      ],
+      "reasoning": "The original asserted implication is contradicted by an exact special case of the original algorithm, while its a.s. convergence-to-a-solution theorem is consistent with the counterexample. Further, the unique minimizing sampler follows from a separate rational second-moment law and cannot be inferred solely from convergence of a residual. The closest known coordinate-rate optima target a different loss and often full-rank systems.",
+      "searches": [
+        "2024 Jin Liu arXiv 2405.13340 Remark 2.5 random minimum norm uniform bounded counterexample coordinate descent",
+        "Jin Liu 2024 RBCD Remark 2.5 uniformly bounded converges minimum norm solution counterexample two identical coordinates binary digit uniform limit",
+        "randomized coordinate descent nullspace random limit minimum norm interpolation sampling probabilities"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jin–Liu (arXiv:2405.13340v1), Algorithm 1 and Remark 2.5, introduce the exact block-coordinate iteration and assert a different boundedness-to-selection conclusion.",
+        "Classical independent fair binary digits give a uniform distribution; this identity is not presented as a novel probability theorem.",
+        "Gower–Richtárik (arXiv:1506.03296), abstract, discusses sketch-and-project iteration and expected rates but no located formula for the terminal nullspace-risk optimizer."
+      ],
+      "reasoning": "The risk is a second moment of the random terminal nullspace coordinate, not residual contraction, an expected iterate, or an ordinary Bernoulli-convolution novelty claim. The fixed-point series is a standard kind of affine random series; the exact terminal-risk minimizer and sharp sampling transition were not located in inspected accessible material. An equivalent old formulation remains a residual risk.",
+      "searches": [
+        "randomized coordinate descent nonunique minimizers selection minimum norm probability distribution",
+        "Bernoulli convolution coordinate descent two identical columns random solution Cantor distribution stochastic coordinate selection",
+        "randomized coordinate descent underdetermined linear system limiting solution implicit bias random nullspace minimum norm"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The original 2024 article has no exact \\(p\\)-dependent two-column terminal-risk table or critical \\(4/(3\\alpha+\\beta)\\) transition in the inspected algorithm, convergence, and numerical sections.",
+        "Related published numerical iteration results concern positive-definite rate-optimal coordinate selection, not an underdetermined nullspace risk."
+      ],
+      "reasoning": "The claimed object is not a standard singular-value lookup, previously tabulated exact numerical constant, or reproduction of a known Gaussian sketch table. The sample values are derived from a complete algebraic family, not a table search; no exact covering item was identified.",
+      "searches": [
+        "two coordinate gradient descent underdetermined least squares nullspace selection variance sampling probabilities",
+        "randomized coordinate gradient descent rank one two columns exact terminal nullspace selection risk variance bias optimal probability sharp stepsize transition 4 over 3a squared plus b squared",
+        "4/(3a^2+b^2) coordinate gradient sampling minimum norm"
+      ]
+    },
+    "rationale": "The complete 2024 source formulation, relevant main theorem and Remark 2.5 were inspected. Its general uniform-boundedness implication conflicts with the proved fair-digit counterexample; the source does not provide a sharp iid unequal-column terminal-risk optimizer. Related full-column-rank and expected-rate literature does not imply the exact nullspace phase transition. Targeted semantic mathematical records and direct literature searches found no encompassing statement. This remains a best-knowledge self-review; several older articles were available only by abstract.",
+    "residual_risks": [
+      "An older affine iterated-function-system or random implicit-bias treatment may already derive equivalent two-column formulas.",
+      "The complete technical texts of several broad coordinate-sampling works were not fully read; abstract-level noncoverage is not asserted.",
+      "The counterexample limits the scope of Remark 2.5 only; special tensor hypotheses in later original theorems may restore its conclusions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Algorithm matches the modeled coordinate update. The explicit iid fair-digit example violates the general implication in Remark 2.5 under its own boundedness condition, without disputing all special-case theorems.",
+        "evidence": "arXiv:2405.13340v1 lines 31–46, 113–128, 272–327, 514–525.",
+        "identifier_or_url": "https://arxiv.org/html/2405.13340v1",
+        "material_read": "Full-text HTML: introduction and MSC, Algorithm 1, sections 2.1–2.2, Theorem 2.4, Remark 2.5 including proof, section 2.4 and conclusions relevant to the claim.",
+        "method": "Line-level HTML inspection and independent reconstruction of the algorithm.",
+        "title": "Randomized block coordinate descent method for linear ill-posed problems",
+        "trigger": "The exact motivating algorithm; claimed boundedness-to-minimum-norm implication and random-limit theorem."
+      },
+      {
+        "assessment": "Its stated full-column-rank matrix hypothesis excludes the rank-one underdetermined selection problem; its results do not cover the claim as stated.",
+        "evidence": "arXiv:2610.04685v1, introductory equation (1.1) and accompanying full-column-rank assumption.",
+        "identifier_or_url": "https://arxiv.org/html/2610.04685v1",
+        "material_read": "HTML introduction, problem assumptions, and algorithm discussion.",
+        "method": "Full-text HTML sections and search for full-column-rank restriction.",
+        "title": "On randomized batch-sampling coordinate descent methods for solving linear least-squares problems",
+        "trigger": "Close recent coordinate sampling and least-squares analysis."
+      },
+      {
+        "assessment": "Reported claims concern algorithmic complexity; cannot assert that the full text lacks a related implicit-bias computation.",
+        "evidence": "arXiv:1412.8060 abstract on arbitrary sampling and convergence complexity.",
+        "identifier_or_url": "https://arxiv.org/abs/1412.8060",
+        "material_read": "Accessible abstract and overview, not complete technical proofs.",
+        "method": "Abstract and institutional bibliographic summary.",
+        "title": "Coordinate Descent with Arbitrary Sampling I: Algorithms and Complexity",
+        "trigger": "Potential stronger arbitrary-probability coordinate-descent theorem."
+      },
+      {
+        "assessment": "Known expected solution-error rates and sampling do not alone imply this terminal nullspace-risk optimum. Full-document exclusion is not claimed.",
+        "evidence": "arXiv:1506.03296 abstract and the 2015 SIAM journal abstract.",
+        "identifier_or_url": "https://arxiv.org/abs/1506.03296",
+        "material_read": "Accessible abstract and publication overview, not full technical article.",
+        "method": "Bibliographic abstract and documented geometry/results.",
+        "title": "Randomized Iterative Methods for Linear Systems",
+        "trigger": "Older general sketch-and-project/coordinate descent framework possibly dominating the result."
+      },
+      {
+        "assessment": "Its cyclic/tensor formulation is different from iid two-column terminal selection; the technical paper was not exhaustively checked.",
+        "evidence": "arXiv:1902.04794 abstract; arXiv:2405.13340v1 introduction and Remark 2.10.",
+        "identifier_or_url": "https://arxiv.org/abs/1902.04794",
+        "material_read": "Accessible abstract and motivating 2024 paper discussion of its cyclic, tensor-structured setting.",
+        "method": "Abstract and 2024 paper contextual comparison.",
+        "title": "Analysis of the Block Coordinate Descent Method for Linear Ill-Posed Problems",
+        "trigger": "Preceding literature directly treating ill-posed block descent."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "444116b5-44af-4132-95e5-4c7c083cb30c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Selection of the minimum-norm feasible solution is a concrete mathematical issue in rank-deficient numerical inverse problems. The source explicitly presents a general uniform-boundedness criterion for that selection, and the rigorous bounded counterexample shows it does not hold as stated. The exact iid sampling-risk law and its sharp interior-to-deterministic transition provide a quantitative way to tune the solution-selection bias, improving the terminal error by about 26% over uniform in a natural unequal-column example. The claim is a motivated full two-column classification, not merely a recomputation of a table, small parameter gain, or an unsupported extrapolation.",
+    "status": "PASS"
+  }
+}
