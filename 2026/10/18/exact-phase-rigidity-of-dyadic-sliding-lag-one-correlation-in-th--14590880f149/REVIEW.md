@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness: PASS.** The binary-digit recurrence yields \(s_{2t}=(-1)^t\) and \(s_{2t+1}=(-1)^t s_t\) without approximation. Pairing sums and moving endpoints proves the exact two-step transfer for *all* nonnegative starts; induction terminates at a signed length-two sum. A separate pair decomposition proves the exact dyadic frequency law. The independently written checker reproduces two generators and directly enumerates over one million sliding windows; its finite results are not used to extend the induction.
+
+**Originality: PASS against accessible comparisons, with residual risk.** The closest primary correlation paper, Marcovici–Stoll–Tahay (arXiv:2006.13162), treats asymptotic frequencies for prefix sums and arbitrary fixed lags; its main correlation bounds do not imply a uniform exact \(\{-2,0,2\}\) formula for every sliding dyadic window, nor the starting-index phase factor. Parreau–Rigo–Rowland–Vandomme (arXiv:1405.3532) treat \(\ell\)-abelian complexity, with worked examples Thue–Morse and period-doubling rather than an all-starts Rudin–Shapiro correlation law. Katz–van der Linden (arXiv:2108.07318) treat extrema of finite-sequence shift correlations. Mathematical-record searches and accessible own research claims were compared by implication, not just title. These comparisons do not rule out an overlooked exact recursion in older automatic-sequence literature.
+
+**Value: PASS.** A uniform discrepancy bound independent of the dyadic window size *and starting position*, a half-window rigidity law, an exact histogram and an adjacent-transition corollary provide a complete, intrinsically motivated structural description of a classical automatic sequence. The statement strengthens ordinary average cancellation and distinguishes local finite-scale behavior from asymptotic pair correlations. It is not merely a computed numerical table or a renaming of a standard recurrence.
+
+**Scope and risks.** The conclusion concerns only lag one and lengths that are powers of two. Its proof is elementary but the phase rigidity is an additional structural consequence. Priority may depend on older formulations of Rudin–Shapiro block recurrences that were not searchable. Only accessible literature and claims were compared.
+
+Self-review: passed. Independent audit: not yet performed.
