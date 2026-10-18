@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The two energy integrals yield equal interface values, opposite interface velocities and an explicit unique positive solution domain. Scaling gives exact local variational solutions \\(X'\\) and \\(X-3tX'/4\\); matrix multiplication gives determinant 1, the rational trace and nonzero entry \\(M_{21}\\). The exact reductions in the attached runnable checker passed, as did representative high-precision ODE integrations. No endpoint solution or nonlinear stability is inferred.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cagnetta, arXiv:2610.06068v1, available abstract dated 2026-10-05: complete existence and uniqueness classification for two-step indefinite p-Laplacian equations including p=2, exponent -1/2.",
+        "Boscaggin–Feltrin–Zanolin, arXiv:2009.00854v1, Theorem 1.1 and Proposition 4.2: uniqueness theorem excludes (-1,0) and this regime has a sufficient existence criterion; no published Floquet discriminant in reviewed material."
+      ],
+      "reasoning": "A general existence/uniqueness theorem subsumes the existence portion of this special case; that portion is not asserted novel. It does not imply the derivative matrix, its trace polynomial, or a sharp spectral type change. The inaccessible 2026 complete text could contain additional unadvertised stability information and is explicitly a residual risk.",
+      "searches": [
+        "Positive periodic solutions of singular scalar equation x^p x'' = f(t) with periodic sign-changing forcing, sharp threshold for two-step piecewise constant forcing at exponent p=1/2",
+        "Sharp existence and uniqueness condition for periodic ODE x'' = a x^{-1/2} on half-period and x'' = -b x^{-1/2} on other half; critical b/a=(3+sqrt(17))/2",
+        "\"A uniqueness result for two-step indefinite p-Laplacian equations\" stability Floquet monodromy Cagnetta",
+        "\"Cagnetta\" \"Floquet\" \"two-step\" indefinite"
+      ]
+    },
+    "checked_sources": [
+      "Godoy–Zamora (2017), arXiv:1707.04513v1, Corollary 1/Example 1 and relevant step-weight proof sections.",
+      "Boscaggin–Feltrin–Zanolin (2020), arXiv:2009.00854v1, Theorem 1.1/§4.1/Proposition 4.2.",
+      "Cagnetta (2026), arXiv:2610.06068v1, public abstract and metadata only (full text unavailable).",
+      "Targeted semantic records corresponding to explicit singular-potential, Floquet discriminant, resonance, and other synonymous query forms; no implication-dominating match identified."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1707.04513v1, Corollary 1 and Example 1: one explicit sufficient existence condition, with no Floquet or monodromy discussion in the inspected paper.",
+        "arXiv:2009.00854v1, §4.1, Proposition 4.2 and p.20: admits positive solutions for an interval of two-step weights and discusses unknown uniqueness in weak negative powers; it does not calculate their linearization.",
+        "arXiv:2610.06068v1 abstract: asserts a complete existence/uniqueness classification across powers and p-Laplacians, not a Floquet trace."
+      ],
+      "reasoning": "Existence/uniqueness of positive fixed points gives no trace of the derivative of the time-T map; distinct systems may have identical solution counts and different stability. The new sharp beta=sqrt(2) occurs strictly below the existence cutoff (3+sqrt(17))/2, so it cannot be read off the orbit-existence phase transition.",
+      "searches": [
+        "Floquet multiplier stability periodic positive solution two-step indefinite singular equation u''+a(t)u^gamma stability",
+        "\"Cagnetta\" \"Floquet\" \"two-step\" indefinite",
+        "Find arXiv:1707.04513 full text: 'Floquet', 'monodromy', 'stability'",
+        "Find arXiv:2009.00854 full text: 'Floquet', 'monodromy', 'stability'"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Godoy–Zamora arXiv:1707.04513v1, §§1,6: a two-step equation with exactly the same inverse-square-root force; its explicit result is sufficient periodic-solution existence.",
+        "Boscaggin–Feltrin–Zanolin arXiv:2009.00854v1, §4.1: equivalent negative-power equation with opposite step-order convention, but the discussed quantity is existence/uniqueness via a time-map ratio, not a return derivative.",
+        "Matched closest mathematical works concern Floquet multipliers of different Abel, Duffing, and affine oscillators; their state equations do not reduce to the present sign-changing inverse-square-root equation."
+      ],
+      "reasoning": "The objects were matched after interchanging the positive/negative step convention and setting exponent gamma=-1/2. The new invariant is trace of the two-dimensional linearized forcing-period map, unlike existence counts or time-map monotonicity. No semiconjugacy or coordinate conversion from these sources supplies the rational spectral trace.",
+      "searches": [
+        "Floquet discriminant and monodromy trace for unique positive periodic solution of two-step singular equation u''=h(t) / sqrt(u), elliptic hyperbolic transition at forcing magnitude ratio sqrt(2)",
+        "Singular differential equation piecewise constant indefinite forcing two-step gamma -1/2 positive periodic solutions elliptic linear stability resonance inverse-square-root force",
+        "Stability of two-step indefinite weak-singularity positive periodic orbits, Floquet multipliers and negative reciprocal hyperbolicity",
+        "Two-step weak singular periodic solution inverse square root Floquet trace beta sqrt2 elliptic hyperbolic Jordan monodromy"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "An exact expression for the trace was computed from the explicit step fundamental matrices, independently checked symbolically by verification/check.py.",
+        "Search results included unrelated monodromy and resonance computations for distinct Hamiltonian, recurrence, and piecewise map models, but no exact matching inverse-square-root step oscillator or coefficient polynomial."
+      ],
+      "reasoning": "Neither symbolic coefficients nor parameter coincidence is taken as uniqueness proof. Searches and actual mathematical model comparisons found no existing exact trace table for this oscillator, while indexing incompleteness remains possible.",
+      "searches": [
+        "Monodromy trace = -2(17 beta^4-38 beta^2+17)/(beta^2+1)^2 of a switched singular oscillator, flip resonance beta sqrt2",
+        "\"17\" \"38\" \"Floquet\" \"singular\" \"two-step\"",
+        "\"b/a\" \"sqrt(2)\" \"singular\" \"periodic\" \"Floquet\" two-step",
+        "Sharp Floquet transition for positive periodic inverse-square-root oscillator x''=a/sqrt(x) then x''=-b/sqrt(x): trace=-2(17beta^4-38beta^2+17)/(beta^2+1)^2, beta=sqrt2 defective minus-one multiplier"
+      ]
+    },
+    "rationale": "The exact prescribed-time monodromy trace and the nonsemisimple transition at forcing ratio \\(\\sqrt2\\) are mathematically different from, and not logically forced by, the compared published existence/uniqueness classifications. Two directly relevant primary full texts give no Floquet calculation; the most recent broad classification was accessible only in abstract, recorded as an unresolved access risk rather than as proof of noncoverage. Four focused spectral searches returned no stronger or equivalent trace.",
+    "residual_risks": [
+      "The accessible 2026 Cagnetta paper abstract overlaps the equation and power exponent; the unavailable full text may contain unadvertised linearized spectral computations. No whole-paper noncoverage assertion is made.",
+      "Search and indexed records are not a uniqueness proof for novelty; related work with different terms or missing indexing could contain an equivalent trace formula.",
+      "The exact result concerns prescribed-time linear Floquet spectra only; nonlinear response stability and period doubling at the defective -1 resonance are not proved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The explicit sufficient ratio and the extremum-time argument are covered, not the linearized return trace or its threshold.",
+        "evidence": [
+          "arXiv:1707.04513v1, PDF p.3, Corollary 1 and Example 1; two-step forcing and inverse-square-root sufficient existence bound 1/36.",
+          "The reviewed source presents a topological existence argument; text searches for Floquet, stability, monodromy returned no matching source passage."
+        ],
+        "identifier_or_url": "arXiv:1707.04513v1 | https://arxiv.org/pdf/1707.04513",
+        "material_read": "Public full-text PDF: title/abstract, Introduction/Corollary 1/Example 1 (PDF pages 1–3), and later piecewise-step extension and estimates (pages 14–16); full-document text search for Floquet, stability, monodromy.",
+        "method": "Read PDF extracted text and rendered relevant page images; compared actual equation, forcing sign convention, and the existence inequality.",
+        "title": "Periodic solutions for indefinite singular equations with applications to the weak case",
+        "trigger": "Precisely the two-step weakly singular positive periodic equation with exponent 1/2."
+      },
+      {
+        "assessment": "Proposition 4.2 proves existence under a condition and explicitly leaves uniqueness at weak negative exponent unresolved at the time; no exact spectral classification was encountered.",
+        "evidence": [
+          "arXiv:2009.00854v1, Theorem 1.1: only gamma<=-3 or gamma>1 for that theorem.",
+          "§4.1, Proposition 4.2 and following p.20: existence for gamma in (-1,0), and explicit statement that general uniqueness in this range was not then known."
+        ],
+        "identifier_or_url": "arXiv:2009.00854v1 | https://arxiv.org/pdf/2009.00854",
+        "material_read": "Public full-text PDF: introduction and general theorem (PDF pages 2–3), argument on weak negative-power exponents, final remarks §4.1 pp.18–20, bibliography, text search for Floquet, monodromy and stability.",
+        "method": "Read the full-text-derived lines, inspect the rendered §4.1 page, check hypotheses gamma=-1/2 against the excluded uniqueness range, compare conditional existence and uniqueness statements.",
+        "title": "Uniqueness of positive solutions for boundary value problems associated with indefinite phi-Laplacian type equations",
+        "trigger": "Stronger power-exponent/weight coverage for the exact same two-step periodic boundary problem."
+      },
+      {
+        "assessment": "Strong coverage of the existence and uniqueness aspect, which is therefore treated strictly as context. No monodromy theorem appears in the accessible abstract; full-text coverage of stability is unknown and remains a material risk.",
+        "evidence": [
+          "arXiv:2610.06068v1 accessible abstract: a complete positive solution existence/uniqueness classification across two-step powers.",
+          "Full text not material-read: no claim of whole-document NOT_COVERING is made."
+        ],
+        "identifier_or_url": "arXiv:2610.06068v1 | https://arxiv.org/abs/2610.06068",
+        "material_read": "Accessible abstract and public metadata: first public date 2026-10-05, 22-page paper, the stated all-exponents existence and uniqueness result; full primary text unavailable.",
+        "method": "Compared the exact claims made in the abstract with spectral trace/multiplier classification; attempted public PDF and alternate public full-text access without success.",
+        "title": "A uniqueness result for two-step indefinite p-Laplacian equations",
+        "trigger": "Most closely matching later theorem, now covering uniqueness and sharp existence for all exponents of the two-step model."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "442a602e-3c82-4446-887d-9699d4cfdf60",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The new exact Floquet discriminant identifies a sharp internal spectral transition at \\(\\beta=\\sqrt2\\) within the positive periodic solution interval \\(1<\\beta<(3+\\sqrt{17})/2\\). Distinct unit-modulus, defective minus-one, and negative hyperbolic spectra quantify perturbation dynamics even though all three phases have the same unique positive forcing-period state. The explicit defective Jordan proof is nontrivial and independent of the known existence/uniqueness result; not a mere renaming, parameter substitution or insignificant numerical refinement.",
+    "status": "PASS"
+  }
+}
