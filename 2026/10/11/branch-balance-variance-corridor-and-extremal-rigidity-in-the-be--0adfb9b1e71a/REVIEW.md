@@ -1,15 +1,21 @@
-# Review: Branch-balance variance corridor and extremal rigidity in the Belykh map
+# Independent mathematical audit
 
-## Correctness
-PASS. Centering the two affine branch equations gives exact stationary covariance identities. Cauchy--Schwarz factors into the stated lower and upper variance bounds. Equality in the upper bounds forces branch persistence and then vanishing of the remaining coordinate defect by stationarity under a strict multiplier. Equality in either lower bound forces branch alternation, zero branch mean, and the explicit two-cycle; direct substitution gives the branch-admissibility condition \(d+kc>0\). The bundled exact symbolic checker reproduces these algebraic steps.
+## correctness
 
-## Originality
-PASS. The same-object Persson source was materially inspected at the map definition and result sections, and the Belykh Scholarpedia treatment was compared at statement level. published-finding corpus queries for Belykh invariant measures, branch occupation, stationary variance, and two-cycle extremizers returned no same-object statement implying the claimed corridor. Closest records concern other maps or flows. The 2021 corrigendum was also inspected and is scientifically relevant because it prevents relying on Persson's absolute-continuity theorem; this finding does not rely on it.
+PASS
 
-## Value
-PASS. The branch partition is intrinsic to the Belykh map, and the claim turns its symbolic occupation imbalance into exact coordinate means and sharp geometric fluctuation constraints. Classifying both corridor boundaries distinguishes two natural extremal invariant mechanisms--persistent fixed branches and perfect branch alternation--and supplies exact consistency tests for invariant-state computations without assuming a particular physical measure.
+The actual RESULT.md at blob 4c4f232f gives X′=λX+(1−λ)S and Y′=γY−(γ−1)S. Stationarity gives E X=E Y=E S=m, and Var(S)=1−m². Centered covariance identities and Cauchy–Schwarz give sqrt(Var X/(1−m²))∈[c,1], c=(1−λ)/(1+λ), and sqrt(Var Y/(1−m²))∈[d,1], d=(γ−1)/(γ+1), for |m|<1. Upper equality yields X=S or Y=S and, from stationarity of the opposite defect under multiplier λ or γ, support on the two fixed corners. Lower equality yields S′=−S and m=0, then X=−cS,Y=dS, with the branch admissibility precisely d+kc>0. |m|=1 forces corner Diracs by stationarity. The inspected verify.py symbolically factors the scalar inequalities and checks orbit/branch identities, but analytic stationarity supplies the proof.
 
-## Closest literature and limitations
-Persson's article supplies the identical normalized map and focuses on invariant-measure existence/regularity and correlation questions; its later corrigendum leaves the main absolute-continuity proof incomplete. Scholarpedia reviews the classical map, hyperbolicity, and invariant-measure context. Neither checked source states the present branch-imbalance variance corridor. The search remains a bounded originality assessment, and differently phrased equivalent results may exist.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Persson 2005 specifies the same Belykh normalization and parameter range, but its measure theory concerns existence/regularity rather than these exact all-invariant-law branch-moment corridors and their rigid equality classification. The later correction limits an unrelated absolute-continuity argument. The Resultary returned Belykh record is the identical claim, not evidence of earlier independent coverage; other stationary moment results concerned different maps. Under bounded primary comparisons, no covering theorem was identified; this is best-of-knowledge, not priority certification.
+
+## value
+
+PASS
+
+This is an all-invariant-measure, parameter-sharp pair of statistical constraints on a canonical discontinuous hyperbolic map, with equality measures classified dynamically rather than merely numerical orbit evidence. It distinguishes corner invariant mixtures and branch-alternating two-cycles and provides a natural check on invariant-measure computations; this is structural dynamical information, not a trivial parameter renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

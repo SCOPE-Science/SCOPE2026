@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-14",
+  "audited_at_utc": "2026-10-14T22:39:32Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Git blob 4c4f232ffdd99c716e2ee7c5103b3434f7c601ab",
+        "verify.py Git blob ad74d8c1143d2004042c3615c8d20b43b6391779",
+        "Persson arXiv:math/0510673"
+      ],
+      "rationale": "The actual RESULT.md at blob 4c4f232f gives X′=λX+(1−λ)S and Y′=γY−(γ−1)S. Stationarity gives E X=E Y=E S=m, and Var(S)=1−m². Centered covariance identities and Cauchy–Schwarz give sqrt(Var X/(1−m²))∈[c,1], c=(1−λ)/(1+λ), and sqrt(Var Y/(1−m²))∈[d,1], d=(γ−1)/(γ+1), for |m|<1. Upper equality yields X=S or Y=S and, from stationarity of the opposite defect under multiplier λ or γ, support on the two fixed corners. Lower equality yields S′=−S and m=0, then X=−cS,Y=dS, with the branch admissibility precisely d+kc>0. |m|=1 forces corner Diracs by stationarity. The inspected verify.py symbolically factors the scalar inequalities and checks orbit/branch identities, but analytic stationarity supplies the proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Persson studies invariant densities/decay for piecewise hyperbolic affine maps; its 2021 corrigendum identifies an incomplete absolute-continuity proof.",
+          "Other Resultary hits about Bogdanov, Tinkerbell, and Rulkov maps give different covariance laws for different maps."
+        ],
+        "reasoning": "These broader invariant-measure investigations do not entail this sharp stationary Belykh sign/variance/equality classification; no claim of existence or AC density is needed here.",
+        "searches": [
+          "Resultary search: Belykh map stationary invariant measure branch imbalance coordinate mean variance covariance extremal 2 cycle",
+          "Persson arXiv:math/0510673",
+          "Scholarpedia DOI:10.4249/scholarpedia.5545"
+        ]
+      },
+      "checked_sources": [
+        "Persson arXiv:math/0510673",
+        "Scholarpedia DOI:10.4249/scholarpedia.5545",
+        "Resultary semantic search Belykh map stationary invariant measure branch imbalance coordinate mean variance covariance extremal 2 cycle"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The conclusion uses stationarity of both coordinates, Cauchy–Schwarz for the same branch signal, and dynamical rigidity in equality, not an absolute-continuity existence result."
+        ],
+        "reasoning": "The prior map description provides the dynamical formulas but does not directly imply the full stated variance/equality classification without additional proof; alternative aliases remain a bounded-search risk.",
+        "searches": [
+          "Persson 2005, arXiv:math/0510673, piecewise affine definition and invariant measures",
+          "Resultary search: Belykh map stationary invariant measure branch imbalance coordinate mean variance covariance extremal 2 cycle"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The affine branches use one sign S and opposite x/y gain factors; covariance conditions have the characteristic branch-signal coupling, unlike generic affine random processes."
+        ],
+        "reasoning": "Changing from K=[−1,1]² to unit-square affine coordinates preserves this moment statement after normalization, but the checked source normalization does not state a variance corridor or equality-rigidity theorem.",
+        "searches": [
+          "Resultary search: Belykh map stationary invariant measure branch imbalance coordinate mean variance covariance extremal 2 cycle",
+          "Persson arXiv:math/0510673, Belykh map normalization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary Belykh definition and fixed-point geometry are described, but no complete table of arbitrary invariant-probability variance/equality configurations was found in inspected sources."
+        ],
+        "reasoning": "A catalogue of finite periodic orbits could not itself prove the all-measure stationary corridor. No exact database covering this all-parameter analytic result was located.",
+        "searches": [
+          "Resultary search: Belykh map stationary invariant measure branch imbalance coordinate mean variance covariance extremal 2 cycle",
+          "Scholarpedia Belykh map 2011"
+        ]
+      },
+      "rationale": "Persson 2005 specifies the same Belykh normalization and parameter range, but its measure theory concerns existence/regularity rather than these exact all-invariant-law branch-moment corridors and their rigid equality classification. The later correction limits an unrelated absolute-continuity argument. The Resultary returned Belykh record is the identical claim, not evidence of earlier independent coverage; other stationary moment results concerned different maps. Under bounded primary comparisons, no covering theorem was identified; this is best-of-knowledge, not priority certification.",
+      "residual_risks": [
+        "A differently named pre-existing covariance equality theorem for this exact piecewise affine map could be unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BACKGROUND_MAP_NO_COVERING_VARIANCE_STATEMENT",
+          "evidence": "Branch formulas agree with X′=λX±(1−λ), Y′=γY∓(γ−1); discussion addresses invariant density/decay.",
+          "identifier_or_url": "arXiv:math/0510673",
+          "material_read": "Primary PDF material including introduction and the Belykh branch formulas and parameter regime, with page-image confirmation of the map definition.",
+          "method": "Open arXiv primary PDF, formula reading and image inspection",
+          "title": "Absolutely continuous invariant measures for some piecewise hyperbolic affine maps",
+          "trigger": "Same Belykh map and normalized branch definition"
+        },
+        {
+          "assessment": "NOT_NEEDED_FOR_STATIONARY_PROOF",
+          "evidence": "No appeal to the incomplete proof is used in the audited stationary identities.",
+          "identifier_or_url": "DOI:10.1017/etds.2021.77",
+          "material_read": "Online corrigendum statement that an earlier absolute-continuity proof is incomplete.",
+          "method": "Publisher public text",
+          "title": "Absolutely continuous invariant measures for some piecewise hyperbolic affine maps — Corrigendum",
+          "trigger": "Potential dependency on existing invariant-measure theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Belykh primary map definition",
+        "Resultary comparable stationary covariance laws in other maps"
+      ],
+      "rationale": "This is an all-invariant-measure, parameter-sharp pair of statistical constraints on a canonical discontinuous hyperbolic map, with equality measures classified dynamically rather than merely numerical orbit evidence. It distinguishes corner invariant mixtures and branch-alternating two-cycles and provides a natural check on invariant-measure computations; this is structural dynamical information, not a trivial parameter renaming.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For all invariant Borel probability measures of the specified piecewise affine Belykh map avoiding y=kx, mean coordinates equal the branch sign mean m; the two sharp variance corridors have only the fixed-corner mixtures or admissible alternating 2-cycle as equality cases.",
+  "limitations": [
+    "Avoids the undefined line y=kx and assumes invariance; proves no non-atomic invariant measure existence, uniqueness, ergodicity or regularity.",
+    "Lower equality only attainable when d+kc>0; the boundary case d+kc=0 lies on the excluded line.",
+    "Originality is bounded to inspected source formulas and searches."
+  ],
+  "schema_version": 1
+}
