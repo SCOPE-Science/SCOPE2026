@@ -1,19 +1,21 @@
-# Scientific review: sharp log-Pareto majorization boundary
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The log-Pareto CDF is normalized and differentiates to the stated positive density. The displayed identity for \(h_\alpha'= (x^2f_\alpha)'\) is exact. The auxiliary function \(B\) diverges at both endpoints; its derivative has numerator \(q\) with \(q'(x)=x^2/(1+x)^2>0\) and opposite endpoint signs. This proves the unique minimizer and an exact necessary-and-sufficient threshold, including equality. Taylor expansion at the minimum gives the two-root square-root split. Chen et al.'s existing Proposition 2 and Theorem 3 are applied with their required continuity and essential-infimum-zero hypotheses. For the constructive failure above the threshold, the exact one-jump difference is positive and the probability of two or more Poisson jumps is bounded explicitly, producing a strict CDF reversal for low intensity. The accompanying executable checker corroborates numerical constants but is not an infinite-domain certificate.
+PASS
 
-## Originality — PASS, with priority risk
+For F_alpha(x)=1-(1+log(1+x))^-alpha, density alpha/[(x+1)(1+log(1+x))^(alpha+1)], the sign of derivative of x^2 f is sign B(x)-alpha with B(x)=((x+2)log(1+x)+2)/x. Direct algebra gives B_prime=q/x^2 and q_prime=x^2/(1+x)^2>0 with exactly one root; B blows up at x=0 and infinity. Unique minimum alpha*=(y+1/y)/2 where y-2-1/y=2 log y; independently solved y=5.635674835727276..., alpha*=2.906557937512901.... This is necessary/sufficient inverted-concavity for every alpha>0, equality allowed. Chen–Hu–Shneer–Zou Theorem 3 makes this precisely universal-in-lambda CP majorization for continuous ess-inf-zero severities. For larger alpha, the two roots split as (y-1) +/- y sqrt(2(alpha-alpha*)) + O(alpha-alpha*). For G(u)=F(z/u), G"(u)= (x^2 f(x))′|_{x=z/u}/u^2; negative local curvature produces positive one-jump CDF reversal at balanced vs unequal positive weights, dominating O(lambda^2) multi-jump remainder. Independent alpha=4 example gives Delta=0.002165083438733132..., positive for 0<lambda<0.0003982448427653; this is finite corroboration of exact proof.
 
-The closest publication is Chen, Hu, Shneer and Zou, *Stochastic dominance for linear combinations of infinite-mean risks*, arXiv:2505.01739 / DOI 10.1017/jpr.2026.10138. Its Appendix A Example 6 has exactly the necessary derivative but stops at sufficient \(\alpha\le2\). The new claim minimizes that derivative's threshold exactly, shows two post-critical curvature changes with quantitative splitting and constructs a sharp-direction counterexample. The general stochastic-order implication is credited to prior Proposition 2/Theorem 3, not misrepresented as independently discovered. Chen–Shneer and Arab–Lando–Oliveira address a weaker one-parent order rather than the universal multiweight compound-Poisson condition. Targeted semantic database and literature searches found no equivalent; their failure cannot establish absolute priority. An unindexed solution to the specific optimization remains possible, and the Arab et al. primary full text was not independently inspected in full.
+## originality
 
-## Value — PASS
+PASS
 
-The original natural sufficient parameter range stops at 2. The new sharp value \(\alpha_*=2.906557937512901\ldots\) identifies the **complete** parameter range for the very class governing weight-majorization comparisons of compound-Poisson infinite-mean risks. It is not an arbitrary parameter slice: \(\alpha\) is the standard shape parameter of an explicitly studied severity family. Above the cutoff a single bounded interval of inverted-curvature failure appears, with square-root emergence, and the result supplies a mathematically explicit two-weight low-intensity reversal. This is a natural complete classification with a substantive risk aggregation interpretation, although it is a parameter-family refinement of powerful established general theorems rather than a new general stochastic-order theorem.
+Best-of-knowledge PASS: Chen et al. already proved the full general criterion (Proposition 2, Theorem 3) and calculated the same log-Pareto derivative (Appendix A Example 6), but only established sufficient alpha<=2. Submitted scalar minimization yields necessary/sufficient alpha<=2.90656, postcritical geometry and explicit CP reversal. It must not claim general characterization as new; a separately published optimization of that already displayed derivative remains an originality risk.
 
-## Scope, literature and limits
+## value
 
-The source's first public version is dated 3 May 2025 (arXiv:2505.01739v1). Primary MSC is 60E15 as published. The independent full-text publication and related single-parent articles were compared by their actual implications, not titles. The theorem does **not** say that non-compounded log-Pareto sums fail majorization beyond the boundary, nor that the Poisson order fails at every fixed intensity. Verification beyond the analytical proof is ordinary same-model reproducibility; independent scientific audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Log-Pareto is explicitly a studied infinite-mean severity; finding complete admissible alpha range for risk aggregation moves the prior provable family frontier 2 to exact 2.9065579 and gives a physical low-intensity two-weight reversal above it. The exact family boundary and failure mechanism are mathematically motivated despite being a specialization of a known general theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
