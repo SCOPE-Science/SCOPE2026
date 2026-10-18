@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof covers every real \(s\) and every \(n\ge1\). The prime-support condition on \(q\) makes \(qn+r\) coprime to \(uv\), so multiplicativity factors both divisor sums exactly. Both proposed divisibility conclusions are equivalent to \(u\mid v\), which is excluded. The positive, negative, and zero cases are exhaustive. The bundled exact-arithmetic verifier successfully replayed the explicit examples.
+## correctness
 
-## Originality
-PASS. The focal paper states this converse as Problem 2 after Example 2.2. The checked follow-up papers address sign-change or cumulative comparison questions, not the proportional-vector converse. Targeted searches for the exact problem, the displayed counterexamples, and the common-factor mechanism found no implication-equivalent result. The closest owned prior finding from the same source concerns parity-resolved even-versus-odd divisor sums and does not imply this claim.
+PASS
 
-## Value
-PASS. The result completely answers a named open problem for every real parameter \(s\), rules out both suggested converse conclusions, and gives a structural mechanism rather than an isolated numerical counterexample.
+Given u,v,q,r with prime support of uv dividing q, gcd(r,uv)=1, u∤v, and σ_s(u)<σ_s(v), gcd(qn+r,uv)=1 for all n≥1; multiplicativity factors the two divisor sums as σ_s(u)σ_s(qn+r) and σ_s(v)σ_s(qn+r). Both divisibility conclusions are equivalent to u|v. For s>0 use (u,v,q,r)=(2,3,6,1); s<0 swap u,v; s=0 use (2,9,18,1), as τ(2)=2<3=τ(9). These cover all real s; independent exact rational enumeration tested each of s=-2,-1,0,1,2 through n=120, supporting but not replacing the symbolic proof.
 
-## Closest literature and limitations
-Pongsriiam gives the forward sufficient construction; Ding–Pan–Sun and Wang solve separate questions from the same paper. The new result does not classify all permanent inequalities with \(ad=bc\), and its explicit quadruple varies with the sign of \(s\). An unindexed elementary observation remains a residual originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The counterexample settles the explicitly formulated converse in Problem 2 of Pongsriiam's own paper. Its affirmative examples require a|c; the shared-coprime-factor construction refutes that necessary-condition conjecture. The mechanism is elementary but not merely a restatement of an established counterexample in inspected sources.
+
+## value
+
+PASS
+
+Explicit solution of a named open converse for every real divisor-sum exponent is mathematically motivated and reusable. Although each example is simple, the prime-support multiplicative construction explains the obstruction structurally and knocks out both the strong and weak conjectures.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
