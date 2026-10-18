@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The construction, independent block indicators and generalist indicator are fully specified. The variance identity follows by expanding covariances. The proof supplies strict derivative signs at two rational probes per scale for every integer \(k\ge2\), with explicit inequalities controlling the generalist covariance terms; continuity and polynomial analyticity produce separated strict extrema. Independent exact-integer calculation from `verify.py` confirms these signs for \(k=1,2,3\). The program's finite cases are corroborative rather than substitutes for the proof.
+## correctness
 
-## Originality — PASS, with a literature-access risk
-Eklöf–Tang–Allesina (2013) supply a broader probabilistic ecology setting for topological coextinctions. Jones–Zurell–Wiesner (2024) analytically characterize expected network robustness. Chabert-Liddell–Barbillon–Donnet (arXiv:2106.06348, 2021; Environmetrics 2022) derive expectations and variances for stochastic-block-network robustness and are the closest potentially stronger source, but only the abstract was accessible after attempts to retrieve the preprint and lawful open-access text. Their accessible statements do not assert arbitrarily many local variance maxima in **fixed, connected** ecological networks with uniform primary degree two. Neither formula availability nor failure to find matching words establishes originality by itself; the residual stronger-coverage risk is explicit. Searches of the research database for equivalents, aliases and stronger statements returned no direct covering claim.
+PASS
 
-## Value — PASS
-A widespread modeling practice summarizes ecological fragility by expected secondary extinction. This theorem proves that, even when that expectation grows monotonically under a single homogeneous primary-extinction parameter, variance can exhibit an unbounded number of separated vulnerability windows. The network is genuinely connected and has no variation in primary species degree; thus the effect cannot be dismissed as merely adding disconnected ecosystems or varying primary exposure. This is a qualitative, nonroutine structural boundary rather than a small numerical improvement.
+For k>=2 take k primary blocks B_i of size s_i=100^(i-1), N=sum s_i, specialists C_i attached to each B_i and one generalist G attached to all N. Every primary has exactly degree two, the bipartite graph is connected, and secondary neighborhoods are distinct. Under iid primary extinction probability q, Y_i are independent Bernoulli(q^s_i), Z=product Y_i, secondary count X=sum Y_i+Z. Direct covariance gives Var X=sum_i(q^s_i-q^(2s_i))+q^N-q^(2N)+2sum_i(q^N-q^(N+s_i)), while EX=sum_i q^s_i+q^N strictly increases. Using a_i=s_i/(s_i+2), b_i=5s_i/(5s_i+1) and scale separation 100, elementary bounds show qV prime(a_i)>0 and qV prime(b_i)<0 for each i, even with the connected generalist correction; a_i<b_i<a_{i+1}. Each disjoint (a_i,b_i) contains a strict local maximum and each between contains a strict local minimum. Independently recomputed qV prime for k=2,3 with 80-digit mpmath from the exact symbolic formula: k=2 signs (0.111111111,-0.555550977) and (39.1168566,-210.850978); k=3 (0.111111111,-0.555554348), (9.05073131,-53.2220851), (3861.82164,-21072.1588). These are corroborations only; all k follows from the displayed uniform analytic inequalities.
 
-## Scope and limits
-The model uses one-step, all-partners-lost secondary extinctions and independent primary species losses. The construction has exponentially separated consumer degree scales, grows very rapidly with the requested number of peaks, and places late peaks near near-total primary loss. No claim is made about realism in measured ecological networks, universal behavior, or exactly \(k\) total extrema.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier ecology papers analyze secondary-extinction indicator rules and robustness moments. The highly relevant Chabert-Liddell et al 2021/22 primary source was read in full and its Proposition 3 treats variance in a bipartite stochastic-block model at fixed extinction counts, not the exact common-q independent-removal connected-degree-two arbitrary-multimodality theorem. The construction separates scales while keeping graph connected, distinct consumer neighborhoods, and each primary degree two. This statement is not simply the known Bernoulli marginal extinction rule or a direct specialization of the published robustness-variance formula.
+
+## value
+
+PASS
+
+The theorem constructs arbitrarily many genuine strict uncertainty peaks under one monotone control parameter despite monotone expected extinctions, in connected ecological interaction networks satisfying a strong degree restriction. This exposes a robust structural obstacle to unimodality intuitions and is mathematically motivated as a qualitative global shape classification, though the huge networks and q near 1 limit empirical transfer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

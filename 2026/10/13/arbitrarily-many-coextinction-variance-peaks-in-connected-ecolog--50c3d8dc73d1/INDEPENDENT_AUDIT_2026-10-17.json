@@ -1,0 +1,66 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T04:58:51.157790Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For k>=2 take k primary blocks B_i of size s_i=100^(i-1), N=sum s_i, specialists C_i attached to each B_i and one generalist G attached to all N. Every primary has exactly degree two, the bipartite graph is connected, and secondary neighborhoods are distinct. Under iid primary extinction probability q, Y_i are independent Bernoulli(q^s_i), Z=product Y_i, secondary count X=sum Y_i+Z. Direct covariance gives Var X=sum_i(q^s_i-q^(2s_i))+q^N-q^(2N)+2sum_i(q^N-q^(N+s_i)), while EX=sum_i q^s_i+q^N strictly increases. Using a_i=s_i/(s_i+2), b_i=5s_i/(5s_i+1) and scale separation 100, elementary bounds show qV prime(a_i)>0 and qV prime(b_i)<0 for each i, even with the connected generalist correction; a_i<b_i<a_{i+1}. Each disjoint (a_i,b_i) contains a strict local maximum and each between contains a strict local minimum. Independently recomputed qV prime for k=2,3 with 80-digit mpmath from the exact symbolic formula: k=2 signs (0.111111111,-0.555550977) and (39.1168566,-210.850978); k=3 (0.111111111,-0.555554348), (9.05073131,-53.2220851), (3861.82164,-21072.1588). These are corroborations only; all k follows from the displayed uniform analytic inequalities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "checked_sources": [
+        {
+          "identifier_or_url": "https://arxiv.org/abs/2106.06348",
+          "material_read": "Complete available arXiv PDF, including model definitions, variance formula, Proposition 3 on page 11, and associated assumptions",
+          "title": "Impact of the mesoscale structure of a bipartite ecological interaction network on its robustness through a probabilistic modeling"
+        },
+        {
+          "identifier_or_url": "https://doi.org/10.1111/2041-210X.12062",
+          "material_read": "Abstract and publication information used for model background; full text not independently inspected in this audit",
+          "title": "Secondary extinctions in food webs: a Bayesian network approach"
+        },
+        {
+          "identifier_or_url": "https://doi.org/10.1002/ecm.1601",
+          "material_read": "Abstract and available descriptive material, not complete proof/appendices",
+          "title": "Novel analytic methods for predicting extinctions in ecological networks"
+        }
+      ],
+      "rationale": "Earlier ecology papers analyze secondary-extinction indicator rules and robustness moments. The highly relevant Chabert-Liddell et al 2021/22 primary source was read in full and its Proposition 3 treats variance in a bipartite stochastic-block model at fixed extinction counts, not the exact common-q independent-removal connected-degree-two arbitrary-multimodality theorem. The construction separates scales while keeping graph connected, distinct consumer neighborhoods, and each primary degree two. This statement is not simply the known Bernoulli marginal extinction rule or a direct specialization of the published robustness-variance formula.",
+      "residual_risks": [
+        "The 2013 and 2024 primary ecology articles were not completely inspected; broader robustness variance calculations may hide equivalent constructions despite differing advertised aims.",
+        "The networks have exponentially growing consumer neighborhood sizes and late peaks near q=1; no claim of empirical prevalence or exactly k extrema."
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem constructs arbitrarily many genuine strict uncertainty peaks under one monotone control parameter despite monotone expected extinctions, in connected ecological interaction networks satisfying a strong degree restriction. This exposes a robust structural obstacle to unimodality intuitions and is mathematically motivated as a qualitative global shape classification, though the huge networks and q near 1 limit empirical transfer.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    {
+      "identifier_or_url": "https://arxiv.org/abs/2106.06348",
+      "material_read": "Complete available arXiv PDF, including model definitions, variance formula, Proposition 3 on page 11, and associated assumptions",
+      "title": "Impact of the mesoscale structure of a bipartite ecological interaction network on its robustness through a probabilistic modeling"
+    },
+    {
+      "identifier_or_url": "https://doi.org/10.1111/2041-210X.12062",
+      "material_read": "Abstract and publication information used for model background; full text not independently inspected in this audit",
+      "title": "Secondary extinctions in food webs: a Bayesian network approach"
+    },
+    {
+      "identifier_or_url": "https://doi.org/10.1002/ecm.1601",
+      "material_read": "Abstract and available descriptive material, not complete proof/appendices",
+      "title": "Novel analytic methods for predicting extinctions in ecological networks"
+    }
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The 2013 and 2024 primary ecology articles were not completely inspected; broader robustness variance calculations may hide equivalent constructions despite differing advertised aims.",
+    "The networks have exponentially growing consumer neighborhood sizes and late peaks near q=1; no claim of empirical prevalence or exactly k extrema."
+  ],
+  "residual_risks": [
+    "The 2013 and 2024 primary ecology articles were not completely inspected; broader robustness variance calculations may hide equivalent constructions despite differing advertised aims.",
+    "The networks have exponentially growing consumer neighborhood sizes and late peaks near q=1; no claim of empirical prevalence or exactly k extrema."
+  ],
+  "schema_version": 1
+}

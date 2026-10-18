@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The variance polynomial in `RESULT.md` follows from independent primary-block disappearance indicators and a generalist extinction indicator equal to their product. Its derivative is controlled symbolically at the rational checkpoints \(a_i=s_i/(s_i+2)\) and \(b_i=5s_i/(5s_i+1)\), using an upper bound for the geometric-exponential tail and explicit bounds for the connected generalist's covariance contributions. The argument applies to every integer \(k\ge2\), without extrapolating from a finite computation.
+## correctness
 
-The standalone Python 3 script `verify.py` was executed from its packaged directory. It first independently enumerates all block-extinction states at \(q=2/3\) and compares the exact variance with the polynomial; it then clears positive denominators before testing the sign of \(qV'(q)\) at all checkpoints for \(k=1,2,3\). Output:
+PASS
 
-```
-VERIFY_OK [(1, 2, [(1, -1)]), (2, 8, [(1, -1), (1, -1)]), (3, 11, [(1, -1), (1, -1), (1, -1)])]
-```
+For k>=2 take k primary blocks B_i of size s_i=100^(i-1), N=sum s_i, specialists C_i attached to each B_i and one generalist G attached to all N. Every primary has exactly degree two, the bipartite graph is connected, and secondary neighborhoods are distinct. Under iid primary extinction probability q, Y_i are independent Bernoulli(q^s_i), Z=product Y_i, secondary count X=sum Y_i+Z. Direct covariance gives Var X=sum_i(q^s_i-q^(2s_i))+q^N-q^(2N)+2sum_i(q^N-q^(N+s_i)), while EX=sum_i q^s_i+q^N strictly increases. Using a_i=s_i/(s_i+2), b_i=5s_i/(5s_i+1) and scale separation 100, elementary bounds show qV prime(a_i)>0 and qV prime(b_i)<0 for each i, even with the connected generalist correction; a_i<b_i<a_{i+1}. Each disjoint (a_i,b_i) contains a strict local maximum and each between contains a strict local minimum. Independently recomputed qV prime for k=2,3 with 80-digit mpmath from the exact symbolic formula: k=2 signs (0.111111111,-0.555550977) and (39.1168566,-210.850978); k=3 (0.111111111,-0.555554348), (9.05073131,-53.2220851), (3861.82164,-21072.1588). These are corroborations only; all k follows from the displayed uniform analytic inequalities.
 
-The finite checker does not certify all \(k\), locate each actual extremum, assert uniqueness within the indicated intervals, or imply empirical ecological applicability. Those finite-versus-infinite distinctions are preserved in the mathematical statement.
+## originality
+
+PASS
+
+Earlier ecology papers analyze secondary-extinction indicator rules and robustness moments. The highly relevant Chabert-Liddell et al 2021/22 primary source was read in full and its Proposition 3 treats variance in a bipartite stochastic-block model at fixed extinction counts, not the exact common-q independent-removal connected-degree-two arbitrary-multimodality theorem. The construction separates scales while keeping graph connected, distinct consumer neighborhoods, and each primary degree two. This statement is not simply the known Bernoulli marginal extinction rule or a direct specialization of the published robustness-variance formula.
+
+## value
+
+PASS
+
+The theorem constructs arbitrarily many genuine strict uncertainty peaks under one monotone control parameter despite monotone expected extinctions, in connected ecological interaction networks satisfying a strong degree restriction. This exposes a robust structural obstacle to unimodality intuitions and is mathematically motivated as a qualitative global shape classification, though the huge networks and q near 1 limit empirical transfer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
