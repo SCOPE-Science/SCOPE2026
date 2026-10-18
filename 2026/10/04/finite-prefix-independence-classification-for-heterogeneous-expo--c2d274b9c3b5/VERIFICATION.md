@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-14.md",
+      "INDEPENDENT_AUDIT_2026-10-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The claim is proved analytically in `RESULT.md`; no numerical experiment or finite search is used as a substitute for proof.
+## correctness
 
-The critical local step is the likelihood-ratio comparison. With an equal-scale history and the normalized rate ratio \(x=\lambda/\lambda_k\), differentiation gives
-\[
-T_x'(u)=\frac{1-x+xu-u^x}{u^x(1-u)^2}.
-\]
-For \(x>1\), convexity of \(u^x\) on \((0,1)\) makes the numerator strictly negative; for \(0<x<1\), concavity makes it strictly positive. After the decreasing change of variable \(u=e^{-t}\), this reverses the stochastic ordering of the running maximum conditional on the current observation being a record. Applying the strictly decreasing test function \(e^{-zt}\) gives the exact covariance sign. At \(x=1\), the likelihood ratio is constant and the covariance is zero.
+PASS
 
-An independent algebraic check is supplied by the exact Laplace transform
-\[
-L_q(s)=\prod_{j=1}^{q}\frac{j}{s+j},
-\]
-which yields the three displayed event-probability formulas in `RESULT.md`. Substitution at \(x=1\) gives zero covariance exactly. The formulas also have the correct limits as \(z\downarrow0\) and \(z\to\infty\).
+For q=k-1 iid Exp(rate 1) prefix observations, M=max(X_1,...,X_q), Y=Exp(x), Z=Exp(z), the likelihood ratio density f_{max(M,Y)|Y>M}/f_{max(M,Y)} is proportional to [1+(q/x)T_x(e^{-t})]^{-1} with T_x(u)=(u^{1-x}-u)/(1-u). Differentiation gives (1-x+xu-u^x)/(u^x(1-u)^2), with strict sign from convexity/concavity and the decreasing change u=e^{-t}. This gives sign Cov(I_k,I_{k+1})=sign(x-1)=sign(lambda-lambda_k) for all z>0. Pairwise independence inductively forces lambda_1=...=lambda_{n-1}. Conversely, when the first n-1 are iid, earlier record indicators depend on ranks, independent of prefix maximum; the arbitrary independent terminal X_n tests only that maximum. n=2 is vacuous; x=1 exactly zero. L_q(s)=prod_{j=1}^q j/(s+j) reproduces joint/marginal formula algebraically. Finite testing was not used as a universal proof.
 
-The global classification then requires no additional computation: equal scales through the penultimate observation imply independence by rank/order-statistic separation, while mutual independence plus the local zero-covariance condition forces the scales to agree successively.
+## originality
 
-Limits not proved here: no sign classification is asserted for a fully heterogeneous history, and no extension to nonexponential or dependent observations is inferred.
+PASS
+
+The potentially original result is the all-n finite-prefix iff condition with unconstrained last scale and a signed adjacent-covariance law, not the classical iid independence or the infinite-sequence equal-law corollary. Direct primary comparisons and Resultary semantic search identify only low-index heterogeneous-exponential formulas and a nonexponential counterexample, neither dominating the stated theorem.
+
+## value
+
+PASS
+
+The independence classification is an exact structural boundary for a standard heterogeneous exponential record model. It identifies a one-observation detection delay and determines the direction of induced covariance independently of the next scale, refining the qualitative prior observation that heterogeneous indicators generally depend. It is a motivated, complete finite-prefix classification rather than an arbitrary small example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

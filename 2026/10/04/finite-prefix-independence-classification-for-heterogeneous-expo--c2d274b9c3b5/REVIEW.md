@@ -1,18 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The final claim was reconstructed from the definitions for all finite \(n\ge2\). Sufficiency uses two classical facts for an iid continuous prefix: the rank permutation is independent of the order statistics, and the record indicators determined by the rank permutation are mutually independent. This makes the arbitrary terminal observation independent of the preceding record vector through the prefix maximum.
+## correctness
 
-Necessity is not inferred from examples. Under an equal-scale history, the conditional-to-unconditional density ratio of the running maximum is shown to be monotone. Its derivative reduces to the sign of \(1-x+xu-u^x\), controlled exactly by convexity or concavity of \(u^x\). This yields the strict sign law for \(\operatorname{Cov}(I_k,I_{k+1})\), and induction forces equality of the first \(n-1\) scales. Exact Laplace-transform formulas provide an independent algebraic cross-check. Boundary cases \(n=2\) and equal scale are handled explicitly.
+PASS
 
-## Originality
-**PASS.** Focused database searches for finite-prefix exponential record independence, equal-scale prefixes, terminal-scale freedom, adjacent covariance signs, and one-step latency found no matching result. The closest published research finding is the nonidentical-record counterexample `2026/9/21/SCOPE-nonidentical-record-indicator-independence-counterexample--638a911adad4`, which uses a three-observation uniform-scale family and does not imply this theorem.
+For q=k-1 iid Exp(rate 1) prefix observations, M=max(X_1,...,X_q), Y=Exp(x), Z=Exp(z), the likelihood ratio density f_{max(M,Y)|Y>M}/f_{max(M,Y)} is proportional to [1+(q/x)T_x(e^{-t})]^{-1} with T_x(u)=(u^{1-x}-u)/(1-u). Differentiation gives (1-x+xu-u^x)/(u^x(1-u)^2), with strict sign from convexity/concavity and the decreasing change u=e^{-t}. This gives sign Cov(I_k,I_{k+1})=sign(x-1)=sign(lambda-lambda_k) for all z>0. Pairwise independence inductively forces lambda_1=...=lambda_{n-1}. Conversely, when the first n-1 are iid, earlier record indicators depend on ranks, independent of prefix maximum; the arbitrary independent terminal X_n tests only that maximum. n=2 is vacuous; x=1 exactly zero. L_q(s)=prod_{j=1}^q j/(s+j) reproduces joint/marginal formula algebraically. Finite testing was not used as a universal proof.
 
-The 2017 Ahsanullah–Nevzorov paper was inspected in full. It supplies low-index formulas for heterogeneous exponentials and states that record-indicator independence is not preserved in general, but it does not state the finite all-\(n\) equivalence, terminal-scale freedom, or the equal-prefix covariance sign law. The 2015 \(F^\alpha\)-scheme literature gives an infinite-sequence structural converse; that does not determine finite-prefix behavior because the terminal distribution is not tested by any later record indicator. The 2026 motivating preprint claims a broader non-iid independence statement but does not contain the present classification.
+## originality
 
-Residual risk: an equivalent finite-prefix theorem may appear in older monographs or papers under a different parameterization. The infinite-sequence equal-scale consequence is therefore treated only as context, not as the novel core.
+PASS
 
-## Value
-**PASS.** The claim is a natural complete classification inside a canonical heterogeneous exponential model, rather than another isolated counterexample. It identifies the exact finite-sample boundary between surviving and broken record-indicator independence and explains the otherwise easy-to-miss freedom of the terminal scale. The covariance sign law adds a directional diagnostic: after an equal-scale history, a smaller current scale creates positive adjacent record dependence and a larger current scale creates negative dependence, regardless of the next scale. This is mathematically useful for interpreting record-based change and trend diagnostics and sharpens the qualitative “dependence in general” statement in the earlier exponential-record literature.
+The potentially original result is the all-n finite-prefix iff condition with unconstrained last scale and a signed adjacent-covariance law, not the classical iid independence or the infinite-sequence equal-law corollary. Direct primary comparisons and Resultary semantic search identify only low-index heterogeneous-exponential formulas and a nonexponential counterexample, neither dominating the stated theorem.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The independence classification is an exact structural boundary for a standard heterogeneous exponential record model. It identifies a one-observation detection delay and determines the direction of induced covariance independently of the next scale, refining the qualitative prior observation that heterogeneous indicators generally depend. It is a motivated, complete finite-prefix classification rather than an arbitrary small example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
