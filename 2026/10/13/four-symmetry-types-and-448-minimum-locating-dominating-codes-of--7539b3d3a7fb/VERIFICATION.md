@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Verification of the exact Heawood code census
-The finite proof uses the point–line incidence model \(p_i\sim\ell_j\) exactly when the binary dot product of \(i+1\) and \(j+1\) is zero. `verify.py` requires only the Python standard library and is executable with `python3 verify.py` in the same directory as this file.
+# Independent mathematical audit
 
-Two implementations independently enumerate the \(\binom{14}{6}=3{,}003\) six-subsets, using respectively Python sets and fourteen-bit integer masks. Both accept exactly \(448\); every subset of smaller cardinality is rejected. The checker separately validates the canonical local incidence lists of sizes \(4,4,9\), constructs all \(168\) elements of \(\mathrm{GL}(3,2)\), checks the \(336\) induced graph automorphisms entrywise, and certifies the four orbit sizes \(28,84,168,168\). The Fano axiom that distinct points or lines meet uniquely is also checked.
+## correctness
 
-The argument is finite and exhaustive for the fourteen-vertex graph, not a heuristic, sampling experiment, or result about arbitrary cubic graphs. No independent external audit has been performed.
+PASS
+
+The Heawood graph is the incidence graph of the seven nonzero F_2^3 vectors and their seven orthogonal lines. Every outside point has a trace only in selected lines and vice versa; nonempty injectivity forces p+q>=6 and p in {2,3,4} at size six. Independently traversing all 3003 six-subsets, and all smaller subsets, gives exactly 448 valid six-codes. Fano collinearity types yield 28+84+168+84+84 and direct enumeration of 168 collineations plus duality partitions codes into 28,84,168,168 orbits; this is exhaustive for 14 vertices.
+
+## originality
+
+PASS
+
+The 2015 Heawood-specific source proves the minimum cardinality six but supplies no classification of all minimum detector subsets in its inspected Proposition 24. The new count 448 and four exact automorphism orbit sizes are logically stronger, and targeted Fano-incidence/Heawood code and Resultary searches disclosed no covering census. Best-of-knowledge PASS, with priority uncertainty under test-cover aliases.
+
+## value
+
+PASS
+
+The Heawood incidence graph is the canonical smallest 3-regular girth-six graph, a published location-domination benchmark. The exact optimizer census and four symmetry types distinguish every minimum detector configuration and are an independently useful natural finite classification beyond the known minimum number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

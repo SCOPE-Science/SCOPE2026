@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof reduces location-domination to two separate nonempty-injective trace constraints in the Fano incidence bipartition. The necessary signature bounds exclude all sets of at most five vertices; the complete seven-line table yields \(84+28+252+84=448\) six-vertex codes, and the explicitly constructed incidence automorphisms partition them into four classes. Independent set and bitmask enumerators agree on every six-subset. The assertion is confined to the finite Heawood graph, so exhaustive enumeration is an appropriate complete verification rather than an extrapolation.
+## correctness
 
-## Originality — PASS with residual priority risk
-Balbuena–Foucaud–Hansberg (2015), Proposition 24, proves the minimum size \(6\) and shows a witness but does not count or classify all minimum solutions. Source and alias searches for Heawood/Fano locating-dominating or test-cover codes, optimal-set multiplicities, and symmetry orbits did not identify the \(448\) count or the four-orbit theorem. The proof supplies a genuinely stronger, exact classification; searches alone cannot exclude an earlier equivalent enumeration under other terminology.
+PASS
 
-## Value — PASS
-The Heawood graph is the canonical cubic girth-six cage and the incidence graph of the Fano plane. Its minimum location-domination number is a published extremal benchmark. An exact count and a four-orbit description classify all minimum detector configurations, differentiating structurally inequivalent optima rather than merely repeating the minimum. This is a natural complete classification for that fixed benchmark; no broader theorem is claimed.
+The Heawood graph is the incidence graph of the seven nonzero F_2^3 vectors and their seven orthogonal lines. Every outside point has a trace only in selected lines and vice versa; nonempty injectivity forces p+q>=6 and p in {2,3,4} at size six. Independently traversing all 3003 six-subsets, and all smaller subsets, gives exactly 448 valid six-codes. Fano collinearity types yield 28+84+168+84+84 and direct enumeration of 168 collineations plus duality partitions codes into 28,84,168,168 orbits; this is exhaustive for 14 vertices.
 
-## Boundaries and closest literature
-The already-known minimum-cardinality result remains credited. This review does not certify novelty against unpublished research or provide an independent mathematical audit. The exhaustive certificate covers all specified six-subsets and all smaller vertex subsets, not the complete polynomial of larger locating-dominating sets.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2015 Heawood-specific source proves the minimum cardinality six but supplies no classification of all minimum detector subsets in its inspected Proposition 24. The new count 448 and four exact automorphism orbit sizes are logically stronger, and targeted Fano-incidence/Heawood code and Resultary searches disclosed no covering census. Best-of-knowledge PASS, with priority uncertainty under test-cover aliases.
+
+## value
+
+PASS
+
+The Heawood incidence graph is the canonical smallest 3-regular girth-six graph, a published location-domination benchmark. The exact optimizer census and four symmetry types distinguish every minimum detector configuration and are an independently useful natural finite classification beyond the known minimum number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
