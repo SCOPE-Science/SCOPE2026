@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,55 +18,25 @@
   "schema_version": 1
 }
 ---
-The packaged checker `artifacts/verify.py` reconstructs the ternary bracket from
-\[
-[e_1,e_2]=e_2
-\]
-using
-\[
-[x,y,z]=[[x,y],z].
-\]
 
-For a general matrix
-\[
-R=
-\begin{pmatrix}
-a&b\\
-c&d
-\end{pmatrix},
-\]
-it expands the weight-zero Rota–Baxter defect on all eight ordered basis triples and verifies the four defining polynomial equations.
+# Independent mathematical audit
 
-It independently reconstructs the affine Lie algebra's binary Rota–Baxter equations and checks that those operators form exactly the two pieces \(\mathcal B\cup\mathcal C\).
+## correctness
 
-The checker derives the automorphism conditions and verifies conjugation preservation.
+PASS
 
-It then exhaustively tests every \(2\times2\) matrix over
-\[
-\mathbf F_3,\quad
-\mathbf F_5,\quad
-\mathbf F_7
-\]
-directly against the ternary identity.
+For [e1,e2]=e2, the ternary bracket is [x,y,z]=-(x1*y2-x2*y1)z1e2. Expanding the Rota–Baxter defect on eight basis triples produces the four polynomial constraints b(a^2+2ad-bc)=0, b(bc+d^2)=0, b^2(a+d)=0, abc+2ad^2-bcd=0. Independent symbolic Groebner reduction confirms equivalence. If b=0, 2ad^2=0 yields planes A:a=b=0 and B:b=d=0; if b!=0 then d=-a,c=-a^2/b. Inclusion/exclusion counts 3q^2-2q; all determinants vanish. The automorphism group has matrices [[epsilon,0],[r,s]], epsilon=±1,s!=0. For b=0, (a,d) invariant gives zero orbit, nonzero common line, and q-sized plane orbits; b!=0 is one orbit q(q-1); total 2q+1. The inducing binary Lie algebra has only B∪C, so A\B genuinely ternary. Point counts over q^m yield the zeta rational function. Independent exhaustive solutions over F3 and F5 matched 21 and 65.
 
-The total counts are
-\[
-21,\quad65,\quad133,
-\]
-the rank profiles are
-\[
-(1,20,0),\quad
-(1,64,0),\quad
-(1,132,0),
-\]
-and the automorphism-class counts are
-\[
-7,\quad11,\quad15.
-\]
+## originality
 
-The checker also verifies the exact orbit-size distribution:
-one singleton, one orbit of size \(q-1\), \(2(q-1)\) orbits of size \(q\), and one orbit of size \(q(q-1)\).
+PASS
 
-The checker returns `VERIFY_OK`.
+Chen–Lou–Sun (2023) investigates Rota–Baxter Lie triple cohomology/extension theory; publisher abstract and a detailed Zentralblatt review describe no specific affine two-dimensional classification, but FULL ORIGINAL TEXT could not be read (authorized Oxford institutional retrieval returned vpn_disconnected). Mu–Guo (2026) works with Reynolds triple systems and a different explicit ternary bracket. Resultary matching field-operator hits involve a four-dimensional F2 exterior algebra rather than this induced affine Lie triple. Thus best-of-knowledge O PASS for the explicit full moduli, orbit and ternary-only classification, with substantial unresolved bibliographic coverage risk rather than a fabricated NOT_COVERING verdict for the inaccessible paper.
 
-Finite enumeration is a replay check. The arbitrary odd-prime-power result is proved symbolically in `RESULT.md`.
+## value
+
+PASS
+
+The operator variety and conjugacy quotient are complete natural classifications on the smallest nontrivial nonabelian Lie-induced triple; the additional plane of operators separates ternary and binary Rota–Baxter structures. Exact orbit sizes and zeta function give coherent finite-field moduli invariants rather than arbitrary small enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
