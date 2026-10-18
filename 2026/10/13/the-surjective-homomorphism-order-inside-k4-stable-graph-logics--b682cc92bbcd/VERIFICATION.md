@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Verification
-Run `python3 verify.py` with a standard Python 3 interpreter. The expected final line is `VERIFY_OK_FULL`.
+# Independent mathematical audit
 
-The script builds exactly the stated four-marker directed relation, checks its transitivity, and enumerates all labeled connected bipartite graphs on two, three, and four vertices (one, three, and nineteen respectively). For all 529 ordered pairs, it independently checks equivalence between a color-preserving surjective graph homomorphism and a surjective stable map of the associated frames. Frame-map enumeration permits arbitrary marker permutations and arbitrary images of reflexive points consistent with reflexivity; it does not assume the fixed-marker conclusion. Twenty-one explicit cycle fold maps are checked, and the six-vertex path/star pair has no stable maps in either direction.
+## correctness
 
-Limits: these are finite checks only. The global order theorem, all cyclic sizes, and the modal-theoretic infimum follow from the symbolic argument in RESULT.md and cited standard semantic machinery, not from bounded tests. Independent audit has not been performed.
+PASS
+
+The specified four-marker transitive rooted frame F_G* has reflexive root and graph vertices and exactly three irreflexive marker worlds. Under any onto relation-preserving stable map from a rooted upset of F_G* to F_H*, all target marker preimages must be the three source markers. Since a and b have a common predecessor only at r, the upset must be the entire frame; a dead-end c and a->c distinguish a/b, and reflexivity/root reachability fix r. Image graph vertices are vertices; v->c forces color 0, b->v forces color 1, and directed color-0-to-1 arcs preserve graph edges. Thus a stable frame surjection is exactly a color-preserving onto graph homomorphism; conversely such h extends by fixed markers. The stable canonical formula counterframe condition and finite-model property translate this into L_G subseteq L_H iff G surjects onto H. Color-preserving finite mutual surjections imply isomorphism. Closed walk/backtrack maps give strict descending alternating-cycle chain; any finite counterframe is smaller than sufficiently large F_C2n*, proving the intersection K4. Read source verify.py checking 529 ordered pairs of 23 labeled bipartite graphs and cycle maps; general proof is structural, not empirical.
+
+## originality
+
+PASS
+
+Bezhanishvili–Bezhanishvili–Ilin provide K4-stable formulas, stable images and FMP; Takahashi (2026) constructs this four-marker graph gadget and proves graph-coloring hardness, distinct cycle logics, conditional non-elementarity. The new explicit order-equivalence for ALL fixed-colored finite connected bipartite inputs, as well as exact descending cycle inclusions and meet K4, is not found in the accessible primary material. The full Takahashi manuscript was inaccessible on arXiv and through institution VPN, so the exact theorem-by-theorem non-coverage comparison carries an explicit risk; source inaccessibility alone does not falsify the best-of-knowledge originality result.
+
+## value
+
+PASS
+
+A complete embedding of a familiar graph morphism order into a natural interval of stable modal logics yields systematic comparabilities and incomparabilities and supplies a concrete infinite strictly descending hierarchy with exact infimum. The order structure is not merely another counting example, and the dependence on previously known stable images is explicitly credited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

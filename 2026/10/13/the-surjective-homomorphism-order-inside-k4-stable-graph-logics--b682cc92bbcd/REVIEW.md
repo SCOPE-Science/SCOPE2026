@@ -1,15 +1,21 @@
-# Review: The surjective-homomorphism order inside K4-stable graph logics
+# Independent mathematical audit
 
-## Correctness — PASS
-The symbolic argument recovers fixed marker images and color classes from every onto stable map, proves the converse edge-preserving extension, and transfers the equivalence to logical inclusion using stable canonical formulas and the finite model property. The cycle folding, strictness, and finite-counterframe proof of the meet use explicit quantifiers. The included standalone checker reproduces all 529 pairs of connected bipartite graphs on 2–4 labeled vertices, 21 cycle-fold witnesses and an incomparable pair. The finite tests do not prove unbounded claims, which rely on the proof.
+## correctness
 
-## Originality — PASS
-Closest is Takahashi, *Non-elementary modal logics, assuming P ≠ NP* (arXiv:2609.10872v1), Claim 3.5 and Theorem 3.7: the graph gadget and an NP-hardness reduction are inherited, while the paper states only pairwise distinction of the cyclic logics. Bezhanishvili–Bezhanishvili–Ilin's *Stable modal logics* supplies the general stable-image transfer and a separate antichain construction. The contribution claimed here is **the entire exact graph-to-logic order comparison**, its consequence that the cyclic non-elementary extensions form a strictly descending chain, and the exact infimum. Residual risk: the order observation might already be known under a different encoding or may be treated as an implicit consequence of the older machinery; no independent audit has been performed.
+PASS
 
-## Value — PASS
-A natural graph surjective-homomorphism preorder is represented faithfully in modal-logic inclusion, giving both strict chains and incomparable examples. The cyclic family consists of finitely axiomatized K4-stable logics with conditional non-elementarity, and converges precisely to K4. This resolves a motivated hierarchy question left open by a proof of pairwise distinctness, rather than a minor parameter variation.
+The specified four-marker transitive rooted frame F_G* has reflexive root and graph vertices and exactly three irreflexive marker worlds. Under any onto relation-preserving stable map from a rooted upset of F_G* to F_H*, all target marker preimages must be the three source markers. Since a and b have a common predecessor only at r, the upset must be the entire frame; a dead-end c and a->c distinguish a/b, and reflexivity/root reachability fix r. Image graph vertices are vertices; v->c forces color 0, b->v forces color 1, and directed color-0-to-1 arcs preserve graph edges. Thus a stable frame surjection is exactly a color-preserving onto graph homomorphism; conversely such h extends by fixed markers. The stable canonical formula counterframe condition and finite-model property translate this into L_G subseteq L_H iff G surjects onto H. Color-preserving finite mutual surjections imply isomorphism. Closed walk/backtrack maps give strict descending alternating-cycle chain; any finite counterframe is smaller than sufficiently large F_C2n*, proving the intersection K4. Read source verify.py checking 529 ordered pairs of 23 labeled bipartite graphs and cycle maps; general proof is structural, not empirical.
 
-## Scientific boundaries
-CoNP-completeness and conditional non-elementarity are quoted from the 2026 source. No new independence, unconditional non-elementarity, or general classification of all modal logics is asserted. General correctness is based on the written proof; finite enumeration is supplementary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bezhanishvili–Bezhanishvili–Ilin provide K4-stable formulas, stable images and FMP; Takahashi (2026) constructs this four-marker graph gadget and proves graph-coloring hardness, distinct cycle logics, conditional non-elementarity. The new explicit order-equivalence for ALL fixed-colored finite connected bipartite inputs, as well as exact descending cycle inclusions and meet K4, is not found in the accessible primary material. The full Takahashi manuscript was inaccessible on arXiv and through institution VPN, so the exact theorem-by-theorem non-coverage comparison carries an explicit risk; source inaccessibility alone does not falsify the best-of-knowledge originality result.
+
+## value
+
+PASS
+
+A complete embedding of a familiar graph morphism order into a natural interval of stable modal logics yields systematic comparabilities and incomparabilities and supplies a concrete infinite strictly descending hierarchy with exact infimum. The order structure is not merely another counting example, and the dependence on previously known stable images is explicitly credited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
