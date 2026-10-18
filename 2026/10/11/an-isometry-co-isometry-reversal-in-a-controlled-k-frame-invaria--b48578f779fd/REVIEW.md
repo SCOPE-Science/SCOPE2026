@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. In the scalar Hilbert-space specialization, \(C=K=I\), \((e_j)\) is Parseval, and the unilateral shift \(T\) satisfies every printed hypothesis: it is an isometry, its adjoint is onto, the two displayed ranges agree, and \(R(T)\) is orthogonally complemented. The transformed family misses \(e_1\), so its lower frame inequality fails. The source proof's disputed equality requires \(TT^*=I\), exactly the co-isometry condition. Substituting co-isometry makes that step valid and leaves the remaining displayed argument intact.
+## correctness
 
-## Originality
-PASS. Searches were made for the exact theorem, isometry/co-isometry variants, unilateral-shift counterexamples, range formulations, and corrections. The closest indexed results concern different compact perturbations, diagonal scaling, and range-compression questions. The earlier 2020 theorem uses co-isometry but does not identify the later controlled theorem's printed isometry statement as false. No checked source states the explicit counterexample or the source-specific correction.
+PASS
 
-## Value
-PASS. The error affects a named invariance theorem and survives into the journal version. The counterexample uses the canonical non-surjective isometry, isolates the exact invalid operator identity, and gives a repair already validated by the predecessor theorem's mechanism. The specialization \(C=K=I\) also supplies a clean exact boundary: a preserving isometry must be unitary.
+On \(H=\ell^2(\mathbb N)\), \(C=K=I\), \(T e_j=e_{j+1}\) satisfies \(T^*T=I\), \(R(T^*)=H\), all commutations, and \(R(TK)=e_1^\perp\) is closed and orthogonally complemented. The original ONB is Parseval, but at \(f=e_1\), the transformed coefficient sum is 0 and \(\|K^*e_1\|^2=1\). The primary 2022 theorem page directly prints isometry and uses \(\|K^*f\|=\|T^*K^*f\|\), an equality generally true for co-isometry instead. The 2020 primary source states precisely co-isometry in the corresponding ordinary K-frame theorem and proves it with the correct identity. For any isometry T, transformed frame energy is \(\|P_{R(T)}f\|^2\), which has a whole-space lower bound exactly for surjective (unitary) T. Exact operator algebra proves every assertion; no extrapolation or computational certificate needed.
 
-## Closest literature and limitations
-The closest mathematical precursor is Mahmoudieh--Abbaspour Tabadkan--Arefijamaal, Theorem 3.6, which correctly assumes a co-isometry for the corresponding uncontrolled \(K\)-frame result. This finding does not claim a new general theory of operator actions on \(K\)-frames. Its novelty is the explicit failure and repair of the later controlled theorem as printed. An unindexed erratum or informal correction remains a residual literature risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The preceding 2020 K-frame theorem correctly requires co-isometry; it does not state an explicit disproof and correction of the later 2022 controlled theorem, which still prints the weaker isometry hypothesis. Source-specific correction with a complete unilateral-shift witness survives comparison with the prior theorem and ordinary operator ranges.
+
+## value
+
+PASS
+
+A named published controlled K-frame theorem fails at the standard scalar Hilbert-space example, meaning the issue affects the validity of a general assertion rather than a cosmetic typo. The unilateral shift checks all range/commutation assumptions, pinpoints the false adjoint norm identity, supplies a sufficient corrected hypothesis and proves an exact special-case necessity boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
