@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. At \(x_k=0\), the published Jacobian is exactly \([0,e^{t_k}]\). Solving the published reduced LM system gives a direction with zero \(x\)-component and negative slack component \(-s_k\), so \(x_k=0\) is invariant. The exact stopping residual is \(e^{t_k}>0\) at every finite iterate. If \(t_k\) were bounded below, then both the residual scale and \(s_k\) would lie in compact positive ranges; a source-compatible line-search estimate would then give a uniform positive lower bound on accepted steps, forcing a fixed decrease of \(t_k\) at every iteration and contradicting boundedness. Hence \(t_k\to-\infty\).
+## correctness
 
-## Originality
-PASS. The primary full text was inspected at the exponential-slack reformulation, Algorithm I-LMM, the well-definedness remark, and Theorem 3.1. The paper notes only that a transformed root implies an inequality solution and that any finite accumulation point is strictly feasible; it does not state the boundary-only invariant trajectory or slack-divergence theorem. A close open smoothing predecessor preserves non-strict boundary solutions but uses a different reformulation and does not imply the I-LMM dynamics. Targeted semantic searches for the source, exponential slack, boundary feasibility, nontermination, and the scalar witness returned no implication-equivalent result.
+PASS
 
-## Value
-PASS. The distinction between non-strict feasibility and the strict image of an exponential slack is central to the mathematical scope of an inequality solver, not an arbitrary parameter slice. The example starts at the unique exact solution of the original system, yet the exact transformed solver cannot certify it and instead sends an auxiliary variable to \(-\infty\). This gives a concrete boundary condition for interpreting convergence and exact-solution claims.
+At x=0, Phi=(r), Jacobian=(0,r), mu=theta r^delta, so step d=(0,−s), s=r^(2−delta)/(r^(2−delta)+theta) in (0,1). Hence x stays zero. The specialized exact line search follows from source (2.3). If t were bounded below, r and s lie in positive compact intervals, every sufficiently small geometric lambda is accepted and min accepted lambda>0, forcing t to decrease uniformly: contradiction. Finite exact stop impossible because r>0. The bound lambda≤min(1,smin/(2 gamma rmax)) secures lambda s≤1; no finite replay is a proof.
 
-## Closest literature and limitations
-The closest source is Ren--Tang (2026), DOI:10.3934/jimo.2026116. A relevant earlier boundary-preserving approach is Che (2012), DOI:10.1186/1029-242X-2012-214. The result is limited to the exact theoretical stopping rule and a scalar boundary-only system; positive stopping tolerances and strictly feasible systems are outside the claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Source equations are known and strict feasibility is obvious from exp(t)>0, but the exact all-iteration invariant and forced unbounded auxiliary-coordinate escape under geometric line search were not identified as a prior result. The counterexample addresses the published method, not all optimization algorithms.
+
+## value
+
+PASS
+
+A genuine boundary-only feasible system exposes a concrete limitation of the published equality transformation and exact stopping rule: the algorithm converges in residual while its slack diverges and original variable is feasible from the start. This trajectory property and exact line-search argument are mathematically motivated, beyond trivial exp(t)>0, though narrow.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

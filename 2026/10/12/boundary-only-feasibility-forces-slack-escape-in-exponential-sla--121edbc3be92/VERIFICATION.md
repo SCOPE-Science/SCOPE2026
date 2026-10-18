@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,21 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. On the witness \(F(x)=x^2\) with \(x_0=0\), substitution into the published I-LMM reduced system gives
-\[
-d_k=
-\left(0,-\frac{e^{(2-\delta)t_k}}{e^{(2-\delta)t_k}+\theta}\right).
-\]
-Therefore the original coordinate remains exactly zero and the transformed residual is always positive at finite slack.
+# Independent mathematical audit
 
-For the line search, division by \(e^{t_k}>0\) gives
-\[
-e^{-\lambda s_k}\le1+\zeta_k-\gamma\lambda^2e^{t_k}.
-\]
-If the slack sequence were bounded below, then \(e^{t_k}\) and \(s_k\) would remain in compact positive ranges. The elementary bound \(e^{-u}\le1-u/2\) for \(0\le u\le1\) then yields a uniform positive geometric step that must be accepted. This would force a uniform negative decrement of \(t_k\), a contradiction. Hence \(t_k\to-\infty\).
+## correctness
 
-The bundled replay checks representative admissible parameter choices and confirms the specialized update and accepted line-search steps. It is a finite consistency test only; the all-iteration result comes from the proof above.
+PASS
 
-The source theorem that every finite accumulation point is a transformed root is compatible with this result because the slack coordinate diverges. No claim is made about tolerance-based termination or systems with strict feasible points.
+At x=0, Phi=(r), Jacobian=(0,r), mu=theta r^delta, so step d=(0,−s), s=r^(2−delta)/(r^(2−delta)+theta) in (0,1). Hence x stays zero. The specialized exact line search follows from source (2.3). If t were bounded below, r and s lie in positive compact intervals, every sufficiently small geometric lambda is accepted and min accepted lambda>0, forcing t to decrease uniformly: contradiction. Finite exact stop impossible because r>0. The bound lambda≤min(1,smin/(2 gamma rmax)) secures lambda s≤1; no finite replay is a proof.
+
+## originality
+
+PASS
+
+Source equations are known and strict feasibility is obvious from exp(t)>0, but the exact all-iteration invariant and forced unbounded auxiliary-coordinate escape under geometric line search were not identified as a prior result. The counterexample addresses the published method, not all optimization algorithms.
+
+## value
+
+PASS
+
+A genuine boundary-only feasible system exposes a concrete limitation of the published equality transformation and exact stopping rule: the algorithm converges in residual while its slack diverges and original variable is feasible from the start. This trajectory property and exact line-search argument are mathematically motivated, beyond trivial exp(t)>0, though narrow.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
