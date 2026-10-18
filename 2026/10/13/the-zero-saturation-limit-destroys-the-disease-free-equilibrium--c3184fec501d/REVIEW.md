@@ -1,33 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For \(a>0\), the printed treatment
-\[
-T_b(I)=\frac{aI}{b+I}
-\]
-has a singular \(b\downarrow0\) endpoint: \(T_b(0)=0\) for every \(b>0\), but \(T_b(I)\to a\) for each fixed \(I>0\). At the nominal disease-free susceptible level and \(B=0\), the positive-\(I\) vector field tends exactly to
-\[
-(a,-a,0).
-\]
-The source's own equation (3.9) independently gives infected derivative \((-a,0)\) at the same state. Hence a continuous extension cannot retain the stated disease-free equilibrium, while the extension that forces treatment to zero at \(I=0\) is discontinuous. The bundled symbolic checker verifies the limits and reproduction-number collapse exactly.
+PASS
 
-## Originality
+At fixed a>0 the source treatment T_b(I)=aI/(b+I) has T_b(0)=0 and derivative a/b for b>0, but its b=0 positive-I branch equals a and the rational expression is undefined at (b,I)=(0,0). At S=S0=A/(mu1+gamma+delta), B=0, I approaching 0 positively, the b=0 full vector field approaches (a,-a,0), so no continuous extension can make the proposed DFE stationary. Defining T_0(0)=0 would instead give a discontinuous vector field; ordinary smooth Jacobian/LaSalle reasoning is unavailable. Independently, source Eq.(3.9) has M(S0,0,0)=(a,0), hence I'=-a at its printed equilibrium. R0 formula collapses to zero at b=0, not a legitimate smooth invasion threshold. Fixed b>0 is not criticized.
 
-PASS. Smooth saturated-treatment laws and their role in backward bifurcation are established prior art. The accepted contribution is the exact source-specific endpoint contradiction in the 2023 COVID-19 model. Searches by DOI, title, treatment formula, \(b=0\), reproduction-number collapse, Theorem 3.4, and correction terminology found no published source-specific repair.
+## originality
 
-## Value
+PASS
 
-PASS. The \(b=0\) theorem underpins the paper's principal control interpretation that removing treatment saturation eliminates backward bifurcation and guarantees eradication below threshold. The endpoint calculation shows that the theorem is not a classical stability theorem for the printed ODE at all: the disease-free state is incompatible with the continuous positive-infection dynamics. This changes the interpretation of a central analytical conclusion.
+This is a source-specific contradiction in Theorem 3.4 of Thirthar et al., not the classical elementary fact about rational limits. The smooth treatment form rI/(1+sigma I) in prior epidemic models takes a different, regular parameter limit. Resultary returned unrelated COVID/CKD DFE defects and vaccination thresholds, not this exact b=0 model. Accessible primary Eq.(2.1), Eq.(3.9), and Theorem 3.4 are directly checked. No full-text claim that all literature lacks such a correction.
 
-## Closest literature and limitations
+## value
 
-Open prior literature uses the regular treatment form
-\[
-rI/(1+\sigma I),
-\]
-which is continuous and differentiable at the disease-free state and has a regular linear limit when \(\sigma=0\). The motivating source's \(aI/(b+I)\) is a different parameterization whose fixed-\(a\), \(b=0\) endpoint is singular.
+PASS
 
-A hybrid or nonsmooth capacity-limited model could be defined separately, but it would require a different mathematical framework. The full 2008 primary treatment paper was not available in the inspected open sources and is used only for provenance.
+The source asserts global asymptotic stability of a purported disease-free equilibrium exactly at a parameter where its vector field is undefined or noncontinuous. Correctly delimiting when a treatment law, DFE, reproduction number and LaSalle hypothesis exist is mathematically substantive for that model, not an unsupported type complaint.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

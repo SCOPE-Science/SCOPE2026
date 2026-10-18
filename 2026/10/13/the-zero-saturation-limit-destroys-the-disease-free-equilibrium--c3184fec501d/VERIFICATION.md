@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,40 +18,25 @@
   "schema_version": 1
 }
 ---
-The bundled symbolic checker verifies the endpoint algebra without numerical approximation.
 
-For
-\[
-T_b(I)=\frac{aI}{b+I},
-\]
-it checks
-\[
-\lim_{I\downarrow0}T_b(I)=0
-\]
-for fixed \(b>0\), while after setting \(b=0\) on the positive-\(I\) branch,
-\[
-\lim_{I\downarrow0}T_0(I)=a.
-\]
+# Independent mathematical audit
 
-At
-\[
-S_0=\frac{A}{\mu_1+\gamma+\delta},
-\qquad
-B=0,
-\]
-it substitutes the source's vector field and verifies
-\[
-\lim_{I\downarrow0}(S',I',B')=(a,-a,0).
-\]
+## correctness
 
-It also substitutes \(b=0\) into the source's reproduction-number expression and obtains zero for \(a>0\).
+PASS
 
-Finally, it checks the regular reparameterized limit
-\[
-\lim_{b\to\infty}
-\frac{rbI}{b+I}
-=
-rI.
-\]
+At fixed a>0 the source treatment T_b(I)=aI/(b+I) has T_b(0)=0 and derivative a/b for b>0, but its b=0 positive-I branch equals a and the rational expression is undefined at (b,I)=(0,0). At S=S0=A/(mu1+gamma+delta), B=0, I approaching 0 positively, the b=0 full vector field approaches (a,-a,0), so no continuous extension can make the proposed DFE stationary. Defining T_0(0)=0 would instead give a discontinuous vector field; ordinary smooth Jacobian/LaSalle reasoning is unavailable. Independently, source Eq.(3.9) has M(S0,0,0)=(a,0), hence I'=-a at its printed equilibrium. R0 formula collapses to zero at b=0, not a legitimate smooth invasion threshold. Fixed b>0 is not criticized.
 
-These exact identities are the complete computational content of the finding; no simulation is used.
+## originality
+
+PASS
+
+This is a source-specific contradiction in Theorem 3.4 of Thirthar et al., not the classical elementary fact about rational limits. The smooth treatment form rI/(1+sigma I) in prior epidemic models takes a different, regular parameter limit. Resultary returned unrelated COVID/CKD DFE defects and vaccination thresholds, not this exact b=0 model. Accessible primary Eq.(2.1), Eq.(3.9), and Theorem 3.4 are directly checked. No full-text claim that all literature lacks such a correction.
+
+## value
+
+PASS
+
+The source asserts global asymptotic stability of a purported disease-free equilibrium exactly at a parameter where its vector field is undefined or noncontinuous. Correctly delimiting when a treatment law, DFE, reproduction number and LaSalle hypothesis exist is mathematically substantive for that model, not an unsupported type complaint.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
