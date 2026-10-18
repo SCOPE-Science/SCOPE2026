@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Each closed neighborhood in a rook graph is one entire row together with one entire column. Until the last move, maximum-length legality therefore forces exactly one newly represented row or column per move after the first; this yields a growing bipartite tree, and the last move produces precisely one of three forest patterns. The converse constructs a legal sequence from every such forest. The weighted matrix-tree cofactor establishes the required bipartite degree enumerator; its positive-exponent specialization gives the Stirling-number counts. Exhaustive finite tests agree in nine boards, including the exceptional \(2\times2\) case. Proof applies for every \(m,n\ge2\).
+
+**Originality — PASS (subject to residual historical risk).** The 2016 primary paper gives a construction of a sequence of length \(m+n-2\), and that known construction is not claimed as new. The 2023 primary paper concerns bipartite/co-bipartite complexity and chain graphs, not rook-graph maximum-support enumeration. Mertens's 2024 paper counts every rook dominating set, without identifying which supports admit a maximum-length legal ordering. The complete forest classification and exact new Stirling-number count are not implications of those theorems. Targeted indexed searches found no equivalent coverage; negative search evidence is not proof of priority. Published and unindexed equivalent work remains possible.
+
+**Value — PASS.** The claim gives the entire labeled optimizer set census for a canonical infinite two-parameter Cartesian-product family. It distinguishes three structural types and an exceptional double-counting boundary, and refines the ordinary domination polynomial by a sequential optimality constraint. This is a complete classification, not a routine recomputation of the already known lower bound.
+
+**Limitations and comparisons.** The result counts unordered maximum supports rather than their possible orderings; originality against unindexed work is unresolved. The most closely overlapping inspected primary source is the 2016 Cartesian-product paper for the known construction and Mertens (2024) for all rook dominating sets.
+
+Self-review: passed. Independent audit: not yet performed.

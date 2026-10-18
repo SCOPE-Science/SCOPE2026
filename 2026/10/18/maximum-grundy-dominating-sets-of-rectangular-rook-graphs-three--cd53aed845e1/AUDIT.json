@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "Every legal prefix is controlled by the row/column support. An extremal sequence has its penultimate support of exactly m-1 rows and n-1 columns, and every nonfinal edge beyond the first attaches exactly one new bipartite vertex, forming a tree. The last edge gives precisely A/B/C; converses are constructive by growing the tree with the appropriate terminal edge withheld. Bipartite spanning-tree degree enumerator is proved via weighted matrix-tree cofactor and Schur complement; requiring a leaf gives a Stirling surjection subtraction. The detached-edge representation is two-to-one only for 2x2. A standalone exact checker independently enumerates every size-(m+n-2) subset for nine boards, tests closed-neighborhood legality, and compares membership and counts with the formula. Finite checks alone do not prove arbitrary m,n.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brešar et al. (2016), arXiv:1607.00248v1, Proposition 3.1 and immediately following example give a Cartesian-product lower bound and one rook sequence, but Theorem 3.2 treats products of paths/cycles.",
+        "Brešar, Pandey, Sharma (2023), arXiv:2310.10566v1, Sections 3--5 prove complexity and a chain-graph algorithm, without a rook maximum-set count.",
+        "Brešar and Dravec, arXiv:2103.10172 (2021/2025), study uniqueness up to automorphism in general graph classes rather than a complete labeled rook count."
+      ],
+      "reasoning": "A general optimizer-set enumeration for all Cartesian products would subsume the rook result, but none was located or found in the inspected relevant text. The related complete-multipartite published-finding corpus result applies to a different graph family, not an encompassing Cartesian-product class.",
+      "searches": [
+        "Grundy dominating sequence rook graph Cartesian product complete graphs exact number",
+        "maximum-length closed-neighborhood sequences Cartesian product of cliques optimizer classification",
+        "web: \"Grundy dominating sets\" \"Cartesian\" \"complete\" \"count\"",
+        "web: Grundy domination Cartesian product complete graphs number of maximum sets spanning trees Stirling"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1607.00248v1 (PDF)",
+      "arxiv:2310.10566v1 (PDF)",
+      "arxiv:2401.00716v2 (PDF)",
+      "arxiv:2103.10172v1 and 2026 OA HTML (partial full-text review)",
+      "published-finding corpus semantic published-finding queries on rook Grundy/line-graph/tree/Stirling aliases",
+      "indexed web searches on rook Grundy maximum supports and Cartesian complete-graph products"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior 2016 lower construction directly implies only gamma>=m+n-2; elementary row-column observation completes the value gamma=m+n-2 (not asserted as the chief novelty).",
+        "Mertens 2024 formula counts dominating sets of every cardinality, but not whether a given set permits a maximum-length legal closed-neighborhood sequence.",
+        "The three-forest characterization yields the exact counts A_{m,n}, B_{m,n}, C_{m,n}, including the 2x2 correction."
+      ],
+      "reasoning": "The new theorem is strictly stronger as a structural statement about a selected proper subfamily of dominating sets. Prior ordinary domination polynomial, 2016 one-sequence existence, and 2023 chain graph algorithm do not imply it without the new legality-to-tree theorem.",
+      "searches": [
+        "Grundy domination rectangular rook graph m+n-2 optimal set enumeration",
+        "web: enumeration of Grundy dominating sets in rook graphs",
+        "web: Domination Polynomial of the Rook Graph 2024 arxiv full text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rook graph R_{m,n} is line graph L(K_{m,n}); every rook placement corresponds to a bipartite edge set (Mertens, arXiv:2401.00716v2, Section 3).",
+        "2016 arXiv:1607.00248v1, Sec. 3 exhibits only one sequence of the maximal candidate length; it does not enumerate supports.",
+        "published-finding corpus closest semantic item 2026/10/4/SCOPE-maximum-grundy-dominating-sequences-of-complete-multipartite-gra--036eea4e58d1 treats complete multipartite graphs, not rook graphs."
+      ],
+      "reasoning": "The line-graph and edge-selection formulations are equivalent, and bipartite spanning-tree characterizations would be covering results even without the phrase Grundy. The cited papers provide the translation and a known extremal construction but no theorem covering the three forest types or the labeled Stirling-number count.",
+      "searches": [
+        "Grundy domination maximal sequences line graphs complete bipartite graphs",
+        "Grundy sequence sets line graph complete bipartite graph trees leaf Stirling numbers",
+        "web: \"Grundy dominating\" \"line graphs of complete bipartite\"",
+        "web: \"Grundy domination\" \"rook graph\" \"spanning trees\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Mertens (2024), arXiv:2401.00716v2, Table 1: coefficient of size four on R_{3,3} is 117; the new optimal-support count is 108.",
+        "Exhaustive checker verifies 108 of 126 four-sets are maximum Grundy supports on 3x3, rather than the 117 arbitrary dominating four-sets."
+      ],
+      "reasoning": "The existing database/polynomial enumerates ordinary dominating sets and does not flag legal maximum-sequence supports. The new count is a proper subset of the ordinary coefficient; simple subtraction is not uniform because it depends on acyclic support and leaf constraints.",
+      "searches": [
+        "maximum Grundy dominating sets of rook graphs K_m square K_n counted by bipartite spanning trees",
+        "web: \"Grundy\" \"rook\" \"dominating sequences\"",
+        "web: \"maximum Grundy dominating sets\" rook",
+        "OEIS: rook domination counts A368831 and A287274, as referenced by Mertens"
+      ]
+    },
+    "rationale": "The 2016 Cartesian-product paper already constructs length m+n-2 and is explicitly credited; that numerical lower bound is not claimed new. The principal new claim is the complete three-forest classification of all maximum unordered supports plus their closed Stirling-number census. The 2023 chain-graph primary article and 2024 full rook domination polynomial do not imply the sequential optimization predicate. published-finding corpus searches returned the closest result about complete multipartite graphs, a different family, and no matching rook theorem. Distinct sets counted: 108 on the 3x3 rook graph whereas the published ordinary domination polynomial has 117 dominating four-sets. Residual risk is unindexed equivalent historical work, not erased by failed searches.",
+    "residual_risks": [
+      "Unindexed or preprint-only equivalence under bipartite-forest or line-graph covering-sequence terminology cannot be ruled out.",
+      "No general exhaustive catalog of all post-2024 literature was accessible, and absence of search hits is not certification.",
+      "The 2021 arXiv version of uniqueness paper could not be fetched; the OA HTML overview was available and searched."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ONE matching length-(m+n-2) sequence stated, no exact enumeration/classification of its possible unordered supports",
+        "evidence": [
+          "Section 3, lines 195--202 explicit rook lower-bound construction",
+          "Theorem 3.2 lines 203 onward treats paths/cycles; paper highlights values for other graph products"
+        ],
+        "identifier_or_url": "arxiv:1607.00248v1 / https://arxiv.org/pdf/1607.00248",
+        "material_read": "Full introduction, Sections 2--3 with Proposition 3.1, Cartesian-complete-graph example, Theorem 3.2 and references; paper structure surveyed",
+        "method": "Read original public PDF text and inspected rendered title page",
+        "title": "Dominating sequences in grid-like and toroidal graphs",
+        "trigger": "Direct same invariant and Cartesian products of complete graphs"
+      },
+      {
+        "assessment": "Not covering: bipartite/co-bipartite NP-completeness and chain-graph algorithm; not rook set enumeration",
+        "evidence": [
+          "Abstract lines 11--24",
+          "Algorithm/Theorems and conclusion, lines 796--973"
+        ],
+        "identifier_or_url": "arxiv:2310.10566v1 / https://arxiv.org/pdf/2310.10566",
+        "material_read": "Full abstract/introduction, Section 4 chain-graph proofs and algorithm, conclusion and references",
+        "method": "Read original public 18-page PDF text and inspected rendered title page",
+        "title": "Computation of Grundy dominating sequences in (co-)bipartite graphs",
+        "trigger": "Recent foundational computational and structural paper for Grundy domination; primary dated motivating source"
+      },
+      {
+        "assessment": "Counts all dominating sets, a strictly larger family than maximal-length Grundy support sets; no order-legality or spanning-forest characterization",
+        "evidence": [
+          "Pages 3--7, edge encoding and full domination polynomial",
+          "Table 1 coefficient 117 of degree 4 for 3x3 compared with new 108"
+        ],
+        "identifier_or_url": "arxiv:2401.00716v2 / https://arxiv.org/pdf/2401.00716",
+        "material_read": "Original 10-page PDF including graph encoding, recursion, formula and data tables, results and references",
+        "method": "Read public PDF text, inspected rendered Section 3 page",
+        "title": "Domination Polynomial of the Rook Graph",
+        "trigger": "Same graphs, exact labeled dominating-set counts and bipartite-edge encoding"
+      },
+      {
+        "assessment": "Discusses uniqueness and orbit-uniqueness, primarily forests; does not appear to provide rook counts. Not relied on to exclude any unseen equivalent theorem.",
+        "evidence": [
+          "Abstract and introduction on unique maximum Grundy dominating sets",
+          "No occurrence of rook or Cartesian in full accessible HTML page"
+        ],
+        "identifier_or_url": "arxiv:2103.10172 / https://link.springer.com/article/10.1007/s40314-026-03835-w",
+        "material_read": "Open full HTML introduction and abstract; searched for Cartesian and rook terminology",
+        "method": "Published OA HTML page and full-text search, not a PDF page-by-page inspection",
+        "title": "Graphs with unique Grundy dominating sets",
+        "trigger": "Potential general theorem characterizing maximum Grundy supports and their uniqueness"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cd53aed8-45e1-4ba3-9d1f-5bbcfb392607",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Rook graphs are canonical line graphs of complete bipartite graphs, and counting all maximum supports is a natural structural strengthening of the previously known one-sequence example. The three-case forest theorem and Stirling-number factors classify an infinite two-parameter extremal family, refining the independently motivated 2024 domination polynomial by the nontrivial sequential legality constraint. The 2x2 boundary prevents double counting. This is neither an arbitrary finite slice nor the routine old lower-bound construction.",
+    "status": "PASS"
+  }
+}
