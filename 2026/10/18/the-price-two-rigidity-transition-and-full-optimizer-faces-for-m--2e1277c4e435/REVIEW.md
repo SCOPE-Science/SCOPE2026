@@ -1,0 +1,11 @@
+# Review
+
+**Correctness — PASS.** The proof first uses group averaging only for the optimal value, then separately establishes unrestricted uniqueness when the matched-edge price is below two. Above or at two, an orthonormal antisymmetric Rayleigh trace bounds the gap by the budget per pair. Equality forces pairwise block-constant cross edges and yields necessary and sufficient spectral and degree conditions; explicit interior witnesses give the optimizer-face dimensions. Direct symbolic identities and numerical checks in `verify_matching.py` passed (203 assertions). None of these finite tests is treated as a universal proof.
+
+**Originality — PASS (best-knowledge comparison).** The closest literature is Sun–Boyd–Xiao–Diaconis (2006), doi:10.1137/S0036144504443821, on arbitrary-graph continuous-time fastest mixing and its SDP dual, and Boyd–Diaconis–Parrilo–Xiao (2007/2009), arXiv:0709.0955, on symmetry-reduced discrete-time fastest mixing. The former provides a stronger *general optimization framework* but does not itself explicitly give the priced matched-complete graph's phase transition or full unrestricted optimizer faces. The latter contains a complete-multipartite block decomposition, relevant when expensive matching edges vanish, but considers a distinct discrete-time stochastic objective. The checked closest items in mathematical-results search concerned matching polytopes, geometric invariants, and spectra rather than this exact cost-constrained diffusion theorem. Literature equivalence outside these searches remains possible.
+
+**Value — PASS.** This solves the complete priced perfect-matching network design, not an arbitrary graph slice: the critical cost is universal (independent of graph size), and the answer transitions from unique uniform conductances to a high-dimensional family of unequal optimal cross-pair allocations. The full-face characterization distinguishes a symmetric averaging witness from the genuinely asymmetric solutions permitted by optimization. This is useful for interpreting degeneracy and robustness in distributed diffusion design.
+
+**Residual limitations.** The scope is continuous-time and unnormalized. The pair-quotient spectral condition is retained in exact form. Independent evaluation of originality and the proof has not occurred.
+
+Self-review: passed. Independent audit: not yet performed.
