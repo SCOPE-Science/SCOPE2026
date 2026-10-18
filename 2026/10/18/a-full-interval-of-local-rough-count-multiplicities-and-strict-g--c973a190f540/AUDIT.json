@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The CRT class has residues 1 or 2 at each prime below h. Prime endpoint P=h+1 protects all residue-1 coordinates; exclusion of primes dividing h+2 protects all residue-2 coordinates. Every composite or small-prime interior m=i+1 is killed by an untouched prime <=\\(h/2\\); every large prime in T survives since other selected primes >\\(h/2\\) cannot divide the even number m+1<=h. Nonselected large primes are killed at their own coordinate. Distinct T yield distinct classes. PNT makes |U_h| unbounded, giving each atom positive mass and hence \\(c_{r+1}-c_r>0\\). Standard-library checker independently verified 4,042 CRT patterns and five exhaustive histograms; checks are not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Uğurdoğan (2026), Theorems 1.4 and 1.5: asymptotics for c_r and conditional N_r, not strict adjacent differences.",
+        "Gafni--Tao (2025), Theorem 1.1 and Section 4 of full 20-page primary paper: zero-rough-number threshold and first constant only."
+      ],
+      "reasoning": "The broader rough-number counting theorems establish growth/positivity of individual cumulative constants, not positivity at each exact-count atom. The source main asymptotic error is much larger than the scale of single threshold differences, so its bounds do not imply strictness.",
+      "searches": [
+        "Multiplicity constants c_r for rough numbers between consecutive primes; strict monotonicity c_(r+1)>c_r; every exact rough count in sieve admissible residues",
+        "\"prime gap\" \"rough numbers\" \"exactly k\" \"Hardy Littlewood\"",
+        "\"rough numbers\" \"prime gaps\" \"every k\" conditional frequency",
+        "Bahar Ugurdogan rho h rough numbers between consecutive primes positive c r+1 - c r"
+      ]
+    },
+    "checked_sources": [
+      "Uğurdoğan, arXiv:2610.10582v1, full accessible HTML",
+      "Gafni and Tao, arXiv:2508.06463v1, complete accessible 20-page PDF",
+      "2026/9/8/SCOPE082, public index summary",
+      "2026/9/18/SCOPE-sharper-sparsity-prime-gap-distinct-products--019c9cd2e5c7, public index summary"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Uğurdoğan (2026), Definition 1.1: c_r is a cumulative nonnegative sum.",
+        "Uğurdoğan (2026), proof of Proposition 3.4: singular-series normalization for each endpoint-admissible class."
+      ],
+      "reasoning": "The new binomial class count implies positive local atom mass and therefore the strict global inequality. Conversely, existing asymptotics and positivity of cumulative c_r do not imply all atoms are positive. The source conditional prime-gap asymptotic supplies the interpretation, not the new positivity.",
+      "searches": [
+        "Positive frequency exactly r rough numbers in prime gap singular series c_(r+1)-c_r and distribution of residue rough counts",
+        "\"rough numbers\" \"prime gaps\" \"every k\" conditional frequency"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Uğurdoğan (2026), Definition 1.1 and Lemma 1.2, give the exact residue sieve rho_h and its prime-gap interpretation.",
+        "Uğurdoğan (2026), Proposition 3.4, relates the model to conditional fixed-gap counts; no exact all-k support lemma is stated."
+      ],
+      "reasoning": "The equivalent description as positive masses at all integer atoms of the endpoint-conditioned sieve has been compared with the source local model. A positive c_r by itself does not prove c_(r+1)>c_r; strictness requires an actual rho_h=r class. The constructed CRT residue does exactly that.",
+      "searches": [
+        "Prime gaps rough number local sieve rho_h(b)=#{1<=i<h: gcd(b+i,prod_{p<h}p)=1}; full support CRT large primes h=p-1",
+        "\"rho_h\" \"A_h\" \"prime\" \"rough\" multiplicity",
+        "Positive frequency exactly r rough numbers in prime gap singular series c_(r+1)-c_r and distribution of residue rough counts",
+        "rough prime gaps multiplicity constants strict monotonicity CRT residue support"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Uğurdoğan (2026), Table 1 enumerates rho_h=0 for even h up to 36; Table 2 reports sampled cumulative constants at thresholds through 50, not exact atom support for every r.",
+        "Closest indexed records include a finite consecutive-prime residue-pair census, 2026/9/8/SCOPE082, which concerns small-modulus prime-pair residues, not anchored rough-count atoms."
+      ],
+      "reasoning": "Finite computations or numeric tables cannot dominate an infinite support and strict-positivity statement. No exact tabulation establishing the theorem was found in the examined sources.",
+      "searches": [
+        "\"c_r\" \"c_{r+1}\" \"rough\" prime gaps",
+        "Prime gaps rough number local sieve rho_h(b)=#{1<=i<h: gcd(b+i,prod_{p<h}p)=1}; full support CRT large primes h=p-1",
+        "finite sieve interval exactly k reduced residues primorial prime predecessor h=p-1 Chinese remainder"
+      ]
+    },
+    "rationale": "The complete motivating 2026 paper was compared at identical \\(\\rho_h\\), \\(A_h\\), \\(c_r\\), \\(\\Sigma(h)\\), and N_r definitions. Its theorems treat cumulative constants and asymptotics, and its tables cover only finite/sampled cases; neither supplies the CRT full-support family or the strict adjacent constant inequalities. Gafni--Tao 2025 concerns the first threshold. Three tailored semantic-record searches plus web queries found no covering result. Residual risk of an unindexed equivalent elementary construction is acknowledged; both original primary manuscripts were inspected in full.",
+    "residual_risks": [
+      "An unindexed equivalent CRT toggle construction could exist.",
+      "The semantic index is not an exhaustive search of all manuscripts or unpublished work."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the objects and studies asymptotics; no statement giving the entire exact-count support interval or proving every adjacent c_r difference positive.",
+        "evidence": [
+          "Definition 1.1 and Remark 1.3, §1.1; main statements §1.2; Proposition 3.4 §3.4; Table 1 and Table 2 §4."
+        ],
+        "identifier_or_url": "arXiv:2610.10582v1; https://arxiv.org/html/2610.10582v1",
+        "material_read": "Complete accessible HTML, especially Introduction/Definition 1.1, Lemma 1.2, Theorems 1.4 and 1.5, Lemmas 2.3–2.5, Proposition 3.4 and its proof, numerical Sections 4.1 and 4.2 and references.",
+        "method": "Full-text scholarly HTML inspection and exact keyword checks of strictness, support, comparison, and tables",
+        "title": "Multiplicity constants for rough numbers in prime gaps",
+        "trigger": "Exact same local objects and constants; potentially covering primary paper"
+      },
+      {
+        "assessment": "The 2025 manuscript proves an estimate and conditional leading coefficient only for prime gaps with zero rough numbers, with no definitions or theorem for all exact counts or strict cumulative multiplicity constants.",
+        "evidence": [
+          "arXiv:2508.06463v1 Theorem 1.1, Section 4 (4.2), Table 1 and Remark 4.1, pages 3, 17–19."
+        ],
+        "identifier_or_url": "arXiv:2508.06463v1; https://arxiv.org/abs/2508.06463",
+        "material_read": "Complete publicly accessible 20-page arXiv PDF, particularly Introduction, Theorem 1.1, Section 4 (fixed-gap constants), Table 1, and Remark 4.1, including original pages 17–19.",
+        "method": "Full-text primary-source PDF inspection (extracted section text and page images) plus exact search for higher-multiplicity claims.",
+        "title": "Rough numbers between consecutive primes",
+        "trigger": "Foundational first-threshold result cited by the motivating paper"
+      },
+      {
+        "assessment": "Finite residue-pair census for primes in fixed small moduli is not a theorem on the distribution of endpoint-conditioned rough-count atoms.",
+        "evidence": [
+          "Index title and summary explicitly describe T_10 and T_3 consecutive prime residue matrices."
+        ],
+        "identifier_or_url": "2026/9/8/SCOPE082",
+        "material_read": "Public index title and summary only.",
+        "method": "Semantic literature index result; no claim of inspecting full work",
+        "title": "Exact consecutive-prime residue-pair census to 5e7 with quantified Lemke Oliver-Soundararajan comparison",
+        "trigger": "Closest semantically indexed published result on consecutive prime residue statistics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c973a190-f540-4526-8606-ecaad2ba398a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The recently introduced constants \\(c_r\\) are cumulative multiplicity weights for rough integers in a prime gap. Whether any exact multiplicity is forbidden matters: positivity of \\(c_r\\) and even \\(c_r\\) asymptotics allow flat adjacent constants. The binomial full-support result provides a structural mechanism at a natural infinite family of prime-predecessor gap lengths, ruling out every missing exact-multiplicity layer. It yields positivity of the conditional exact-count leading coefficient for every fixed r, not just isolated numerical evidence.",
+    "status": "PASS"
+  }
+}
