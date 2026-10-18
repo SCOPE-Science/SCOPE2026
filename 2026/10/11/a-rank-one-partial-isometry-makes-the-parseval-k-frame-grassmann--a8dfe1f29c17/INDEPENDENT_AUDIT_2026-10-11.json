@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-11",
+  "audited_at_utc": "2026-10-11T16:09:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Take \\(K=2^{-1/2}\\begin{pmatrix}1&0\\\\1&0\\end{pmatrix}\\), \\(a=(e_1+e_2)/\\sqrt2\\), \\(P=P_{e_1}\\), the real Hadamard unitary \\(U=2^{-1/2}\\begin{pmatrix}1&1\\\\1&-1\\end{pmatrix}\\), \\(Q=\\mathrm{diag}(1,-1)\\), and \\(V=QU\\). Direct fresh symbolic multiplication confirms \\(K^*K=P\\), \\(K^\\dagger=K^*\\), \\(KQ=K\\), and \\(KPU=KPV\\), whose identical columns are \\(a/\\sqrt2\\). The frame identity is \\(\\sum_j|\\langle x,f_j\\rangle|^2=|\\langle x,a\\rangle|^2=\\|K^*x\\|^2\\) for every complex \\(x\\). Yet \\(U^*R(K)=\\operatorname{span}(e_1)\\) while \\(V^*R(K)=\\operatorname{span}(e_2)\\). The frame is literally identical, not merely equivalent. The identity \\(T_F^*=U^*PK^*=U^*K^*\\) proves the claimed canonical range statement, without proving a substitute bijection.",
+      "risk": "The canonical invariant is only claimed choice-independent; no full Grassmannian bijection is established.",
+      "sources": [
+        "Sadri--Rahimlou, arXiv:2104.11656, Theorem 3.3",
+        "Sadri--Rahimlou, DOI:10.1186/s13660-022-02862-5",
+        "RESULT.md at frozen commit",
+        "Fresh exact symbolic 2-by-2 reconstruction"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published Theorem 3.3 repeats the unitary-dependent definition and asserts well-definedness.",
+          "The precursor concerns ordinary equal-norm tight frames, not the unitarily nonunique general closed-range \\(K\\) map."
+        ],
+        "reasoning": "The earlier ordinary-frame result does not imply that a nonnormal operator factorization has an invariant image.",
+        "searches": [
+          "DOI:10.1186/s13660-022-02862-5 published full theorem",
+          "Casazza--Kovačević 2003 equal-norm tight-frame correspondence"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2104.11656",
+        "DOI:10.1186/s13660-022-02862-5",
+        "Casazza--Kovačević, Adv. Comput. Math. 18 (2003), 387--430 (bibliographic scope)",
+        "Targeted indexed searches (mathematical-record index unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The factorization result gives \\(KPU_F\\) but does not determine \\(U_F^*R(K)\\).",
+          "The source explicitly claims the contrary, and the fixed-frame witness refutes it."
+        ],
+        "reasoning": "The claim is a counterexample to, not a corollary of, the published assertion.",
+        "searches": [
+          "Sadri--Rahimlou Theorems 3.2 and 3.3, arXiv:2104.11656",
+          "Published 2022 theorem and construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original source defines \\(\\Phi(F)=U_F^*R(K)\\) after choosing a factorization \\(T_F=KPU_F\\).",
+          "The same \\(T_F\\) admits two admissible unitaries in the counterexample."
+        ],
+        "reasoning": "Tested synthesis-factorization, nonnormal partial-isometry, adjoint-range, and Grassmannian-image aliases, not just titles.",
+        "searches": [
+          "Sadri Rahimlou Theorem 3.3 unitary Parseval K frame Grassmannian choice dependence",
+          "arXiv:2104.11656, Theorems 3.2--3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact counterexample was located in accessible title/theorem searches; the mathematical-record index did not return completed results."
+        ],
+        "reasoning": "There is no numerical table; exact-source errata and constructive matrix examples are the relevant duplicate targets. Search unavailability is not novelty proof.",
+        "searches": [
+          "Targeted exact Theorem 3.3 Sadri Rahimlou counterexample Grassmannian searches",
+          "Public mathematical-record semantic query for unitary choice dependence (index temporarily unavailable)"
+        ]
+      },
+      "rationale": "Best-of-knowledge source-specific correction. The original preprint and its published counterpart both explicitly define the line using an auxiliary unitary and claim it is well-defined. Their preceding representation theorem guarantees existence but not uniqueness of that unitary. Ordinary tight-frame Grassmannian correspondences do not settle this nonnormal rank-one operator case; available targeted searches found no stated correction, though a poorly indexed erratum remains possible.",
+      "residual_risks": [
+        "A nonindexed erratum or thesis may have recorded the same unitary choice defect.",
+        "Semantic mathematical-record service was temporarily unavailable; its error was not interpreted as a negative hit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PUBLISHED_MAP_USES_A_NONUNIQUE_AUXILIARY_UNITARY",
+          "evidence": "The source defines the target point through a chosen unitary and declares the construction well-defined without a uniqueness lemma.",
+          "identifier_or_url": "arXiv:2104.11656; DOI:10.1186/s13660-022-02862-5",
+          "material_read": "Open preprint Theorems 3.2--3.3 and surrounding proof, including visual inspection of original PDF pages; published open full-text Theorem 3.3 and factorization passage.",
+          "method": "Lawful open full-text reading and frozen repository result inspection.",
+          "title": "Equal-norm Parseval K-frames in Hilbert Spaces",
+          "trigger": "Exact theorem, hypotheses and choice-dependent unitary formula."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The witness invalidates the well-definedness step in a published general \\(K\\)-frame correspondence even with a fixed ordered Parseval frame, while identifying the invariant range that the frame does canonically determine. This is a motivated, exact correction rather than a generic frame-theory restatement.",
+      "risk": "The result diagnoses the published construction but does not classify all possible repaired correspondences.",
+      "sources": [
+        "arXiv:2104.11656, Theorem 3.3",
+        "DOI:10.1186/s13660-022-02862-5"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The Grassmannian map constructed in Sadri--Rahimlou Theorem 3.3 is not well-defined for general closed-range \\(K\\): one fixed Parseval \\(K\\)-frame on \\(\\mathbb C^2\\) admits two permitted unitary factorizations giving different lines. The subspace \\(R(T_F^*)\\), by contrast, is invariant under the choice of unitary.",
+  "limitations": [
+    "Complex dimension two gives one decisive counterexample to the full generality.",
+    "No proof that the alternative canonical subspace produces a one-to-one correspondence."
+  ],
+  "schema_version": 1
+}

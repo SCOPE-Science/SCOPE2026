@@ -1,17 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The counterexample is exact in \(\mathbb C^2\). The chosen \(K\) is a rank-one partial isometry with \(K^\dagger=K^*\) and \(P=P_{e_1}\). Two explicitly unitary matrices \(U\) and \(V\) satisfy \(KPU=KPV\), so they represent the same ordered two-vector Parseval \(K\)-frame, while \(U^*R(K)\) and \(V^*R(K)\) are distinct orthogonal lines. The canonical identity \(R(T_F^*)=U_F^*R(K^*)\) is derived directly from the synthesis factorization.
+## correctness
 
-## Originality
-PASS for the source-specific claim. Exact-title, arXiv-ID, theorem-number, Grassmannian, nonnormal-\(K\), synthesis-range, and choice-dependence searches were compared with the current/prior ledger and indexed research records. The closest records concern different Grassmannian-dual, \(K\)-frame reconstruction, and diagonal-scaling statements and do not imply this correction.
+PASS
 
-The primary arXiv theorem and the published theorem were materially inspected. The ordinary-frame precursor cited by the authors is treated as prior literature rather than as support for novelty. A later continuous-\(K\)-frame paper was checked at the publisher-visible abstract level only and is not used for a whole-document negative conclusion.
+Take \(K=2^{-1/2}\begin{pmatrix}1&0\\1&0\end{pmatrix}\), \(a=(e_1+e_2)/\sqrt2\), \(P=P_{e_1}\), the real Hadamard unitary \(U=2^{-1/2}\begin{pmatrix}1&1\\1&-1\end{pmatrix}\), \(Q=\mathrm{diag}(1,-1)\), and \(V=QU\). Direct fresh symbolic multiplication confirms \(K^*K=P\), \(K^\dagger=K^*\), \(KQ=K\), and \(KPU=KPV\), whose identical columns are \(a/\sqrt2\). The frame identity is \(\sum_j|\langle x,f_j\rangle|^2=|\langle x,a\rangle|^2=\|K^*x\|^2\) for every complex \(x\). Yet \(U^*R(K)=\operatorname{span}(e_1)\) while \(V^*R(K)=\operatorname{span}(e_2)\). The frame is literally identical, not merely equivalent. The identity \(T_F^*=U^*PK^*=U^*K^*\) proves the claimed canonical range statement, without proving a substitute bijection.
 
-## Value
-PASS. The proposed map is the mechanism of the paper's claimed natural one-to-one correspondence. A single fixed Parseval \(K\)-frame can receive two different target subspaces, so the result fails at the basic well-definedness stage, not merely in an optimal constant or edge case. The counterexample is minimal-dimensional and uses nonzero frame vectors.
+## originality
 
-## Limitations
-The result does not claim that every possible Parseval \(K\)-frame/subspace correspondence fails, nor that the canonical analysis-range invariant alone yields a bijection. Additional structural hypotheses on \(K\) may restore a correspondence. An unindexed correction remains a residual literature risk.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Best-of-knowledge source-specific correction. The original preprint and its published counterpart both explicitly define the line using an auxiliary unitary and claim it is well-defined. Their preceding representation theorem guarantees existence but not uniqueness of that unitary. Ordinary tight-frame Grassmannian correspondences do not settle this nonnormal rank-one operator case; available targeted searches found no stated correction, though a poorly indexed erratum remains possible.
+
+## value
+
+PASS
+
+The witness invalidates the well-definedness step in a published general \(K\)-frame correspondence even with a fixed ordered Parseval frame, while identifying the invariant range that the frame does canonically determine. This is a motivated, exact correction rather than a generic frame-theory restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
