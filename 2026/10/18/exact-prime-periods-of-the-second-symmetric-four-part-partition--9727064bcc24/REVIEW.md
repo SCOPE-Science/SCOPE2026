@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** A unique difference-variable parametrization expresses the statistic as a quadratic form in four nonnegative or positive integers. Exact geometric-power series give a rational generating function. The reduced denominator in each finite characteristic determines the *least* period, not merely an eventual period; the argument treats all nonnegative indices and every prime. The standalone polynomial verifier establishes the exact rational identity and validates the exceptional gcds, as well as independent finite checks. The infinite prime assertion is proved symbolically by cyclotomic reduction and multiplicities rather than inferred from the tested primes.
+
+**Originality — PASS within inspected evidence.** Reference [1] studies the identical weighted four-part statistic, lists conjectural periods at selected moduli, and proves three periodicities but no all-prime least-period theorem. Reference [2] studies a distinct multiplicity-of-images statistic; unweighted restricted-partition results cited by [1] concern another sequence. Searches of relevant published mathematical records, primary texts and 93 accessible prior claims found no theorem implying the all-prime conclusion. An unknown derivation from general weighted restricted-partition theory or unindexed earlier work remains possible, so independent publication priority is not asserted.
+
+**Mathematical value — PASS.** The complete prime classification settles an explicitly recorded gap: a finite conjectural table for a natural arithmetic statistic becomes an exact theorem for infinitely many moduli, with exceptional small-prime periods explained structurally. The degree-22 rational denominator is not merely a computational pattern: factor multiplicities prove optimal periods uniformly for all primes.
+
+**Closest literature and limitations.** Ballantine–Beck–Merca [1, Theorem 2 and preceding table] covers periodicity modulo 2, 3 and 4, with the first two periods appearing in a conjectural minimality table. Theorem here additionally proves minimality there and exact least periods for every other prime. It does not address arbitrary composite moduli. Independent mathematical review has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
