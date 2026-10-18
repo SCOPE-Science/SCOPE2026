@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,106 +19,24 @@
 }
 ---
 
-The explicit constants are
-\[
-a_0=\frac{100}{81},
-\qquad
-b_0=1,
-\qquad
-q=\frac9{10},
-\qquad
-t_0=\frac{17}{10},
-\]
-\[
-u=(1-q)t_0=\frac{17}{100},
-\qquad
-v=\frac{a_0}{t_0}-\frac1{q t_0}
-=
-\frac{100}{1377}.
-\]
-The two source radii at the contact point are
-\[
-t_0=\frac{17}{10},
-\qquad
-q t_0=\frac{153}{100},
-\]
-both in the interior of
-\[
-[3/2,2].
-\]
+# Independent mathematical audit
 
-For the graph difference
-\[
-F(x,y)
-=
-\frac1{\sqrt{(x-u)^2+y^2}}+v
--
-\frac{a_0}{\sqrt{x^2+y^2}},
-\]
-direct substitution gives
-\[
-F(t_0,0)=0
-\]
-and
-\[
-\nabla F(t_0,0)=0.
-\]
-The Hessian is
-\[
-D^2F(t_0,0)
-=
-\begin{pmatrix}
-2\lambda&0\\
-0&-\lambda
-\end{pmatrix},
-\qquad
-\lambda
-=
-\frac{1-q}{q^3t_0^3}>0.
-\]
-Thus the critical point is a nondegenerate saddle.
+## correctness
 
-The Morse lemma gives a local product normal form. In a fixed square,
-\[
-\left|
-\{|UV|\le\delta\}
-\right|
-=
-4\delta
-\left(1+\log\frac{\rho^2}{\delta}\right),
-\]
-so the planar base set on which the graph separation is at most \(\delta\) has area at least a constant multiple of
-\[
-\delta\log(1/\delta).
-\]
-The vertical \(\delta\)-slabs contained in the two Euclidean surface neighborhoods overlap by length at least \(\delta\) on that base set. Hence the intersection volume is at least a constant multiple of
-\[
-\delta^2\log(1/\delta).
-\]
+PASS
 
-The source's Theorem 1.5(b), with
-\[
-|a_0-b_0|=19/81,
-\]
-gives the matching upper order.
+Reconstructed source coordinates P0=(17/10,0), translated base radius 153/100=(9/10)(17/10), and exact equality of heights and first derivatives using a0=(9/10)^(-2) and v=100/1377. For F=psi-phi the independently calculated Hessian at P0 is diag(200000/3581577, -100000/3581577), a nondegenerate saddle; Morse local coordinates with bounded Jacobian reduce the two-graph difference to UV. Exact area {|UV|<=delta, |U|,|V|<rho}=4delta(1+log(rho²/delta)) supplies planar delta log, while overlapping vertical delta-tubes have height at least delta, proving a delta² log lower bound in the interior of the radial truncation. The cited hyperbolic Theorem1.5(b), as transcribed in the frozen result, yields the matching upper bound for fixed parameter gap 19/81. Verified derivatives and compact-parameter invertibility of (a,t)->(g_t,g_tt) and hyperbolicity determinant sign for g=a/t. The primary full paper was not independently available, so the exact global theorem hypotheses/quoted upper bound are retained as a material reliance, rather than represented as freshly verified full text.
 
-For the source hypotheses,
-\[
-g_t=-a/t^2,
-\qquad
-g_{tt}=2a/t^3.
-\]
-The derivative-pair map has a smooth inverse on its compact image, so the cinematic-curvature constant is positive. The hyperbolic sign follows from
-\[
-D
-=
-\frac{2\bar a(a-\bar a)(\bar t-t)}{\bar t^3t^3},
-\]
-which makes the product in Definition 1.4 strictly negative whenever
-\[
-\bar a\ne a,
-\qquad
-\bar t>t.
-\]
+## originality
 
-No finite numerical experiment is used in the proof. The only qualitative local theorem invoked is the Morse lemma for a nondegenerate critical point.
+PASS
+
+The primary BRK paper publicly advertises an upper volume estimate and sharp family bounds; the accessible abstract does not decide whether the specific saddle-pair sharpness construction appears in its full 2026 manuscript. The companion level-set paper explains why saddle logarithms arise but its accessible abstract does not instantiate two admissible BRK surfaces with exact translation. Best-of-knowledge approval is bounded by this source-access limitation; no whole-document noncoverage claim is made for either inaccessible paper.
+
+## value
+
+PASS
+
+Theorem-level question is whether the hyperbolic logarithm is merely an artifact or geometrically forced. An exact admissible pair with a nondegenerate saddle and fixed positive parameter gap answers that natural sharpness question at the correct scale; the rational coordinate construction connects a local Morse singularity to a global surface-intersection estimate. The observation is not presented as a new generic Morse lemma or a maximal-operator theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

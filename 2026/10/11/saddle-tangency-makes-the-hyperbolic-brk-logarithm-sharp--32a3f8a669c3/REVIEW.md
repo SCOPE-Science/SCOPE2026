@@ -1,33 +1,21 @@
-# Review of Saddle tangency makes the hyperbolic BRK logarithm sharp
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The selected surfaces belong to the source family and the two source radii at the tangency point lie strictly inside the truncated radial interval. The vertical and horizontal translation parameters satisfy the height and gradient matching equations exactly.
+PASS
 
-For the graph difference \(F\), direct differentiation gives a Hessian with eigenvalues
-\[
-2\lambda
-\quad\text{and}\quad
--\lambda,
-\qquad
-\lambda>0.
-\]
-Thus the contact is a nondegenerate saddle. The Morse lemma converts the local difference to a product normal form, whose \(\delta\)-sublevel area is of order \(\delta\log(1/\delta)\). Vertical slices of the two Euclidean neighborhoods then overlap in length at least \(\delta\), giving the required three-dimensional lower bound. The source theorem supplies the matching upper bound because the parameter gap is fixed.
+Reconstructed source coordinates P0=(17/10,0), translated base radius 153/100=(9/10)(17/10), and exact equality of heights and first derivatives using a0=(9/10)^(-2) and v=100/1377. For F=psi-phi the independently calculated Hessian at P0 is diag(200000/3581577, -100000/3581577), a nondegenerate saddle; Morse local coordinates with bounded Jacobian reduce the two-graph difference to UV. Exact area {|UV|<=delta, |U|,|V|<rho}=4delta(1+log(rho²/delta)) supplies planar delta log, while overlapping vertical delta-tubes have height at least delta, proving a delta² log lower bound in the interior of the radial truncation. The cited hyperbolic Theorem1.5(b), as transcribed in the frozen result, yields the matching upper bound for fixed parameter gap 19/81. Verified derivatives and compact-parameter invertibility of (a,t)->(g_t,g_tt) and hyperbolicity determinant sign for g=a/t. The primary full paper was not independently available, so the exact global theorem hypotheses/quoted upper bound are retained as a material reliance, rather than represented as freshly verified full text.
 
-The source hypotheses were also checked directly: the derivative pair has a smooth inverse on the compact parameter image, giving cinematic nondegeneracy, and the sign formula for the determinant verifies the hyperbolic condition on the whole rectangle.
+## originality
 
-## Originality
+PASS
 
-PASS with a modest residual risk from the general saddle-level-set literature. The fresh source proves the hyperbolic upper intersection bound with one logarithm but does not state a matching lower example for Theorem 1.5(b). Its later sharp maximal-operator theorem explicitly invokes the elliptic part instead.
+The primary BRK paper publicly advertises an upper volume estimate and sharp family bounds; the accessible abstract does not decide whether the specific saddle-pair sharpness construction appears in its full 2026 manuscript. The companion level-set paper explains why saddle logarithms arise but its accessible abstract does not instantiate two admissible BRK surfaces with exact translation. Best-of-knowledge approval is bounded by this source-access limitation; no whole-document noncoverage claim is made for either inaccessible paper.
 
-A companion paper by the same authors treats level-set estimates for hyperbolic functions, and the BRK paper quotes that theorem in its appendix. This supplies the general analytic mechanism behind a logarithmic saddle sublevel set, but it does not identify the explicit admissible translated surface pair or prove saturation of the BRK neighborhood-intersection estimate.
+## value
 
-Searches under the exact source identifier, hyperbolic cinematic-curvature terminology, logarithmic intersection sharpness, saddle tangency, and the power model found no implication-equivalent published statement.
+PASS
 
-## Value
+Theorem-level question is whether the hyperbolic logarithm is merely an artifact or geometrically forced. An exact admissible pair with a nondegenerate saddle and fixed positive parameter gap answers that natural sharpness question at the correct scale; the rational coordinate construction connects a local Morse singularity to a global surface-intersection estimate. The observation is not presented as a new generic Morse lemma or a maximal-operator theorem.
 
-PASS. The extra logarithm is the principal quantitative distinction between the elliptic and hyperbolic cases of the source's three-dimensional anti-compression theorem. Showing that it is attained by a natural power model resolves whether that loss is merely technical.
-
-The example also isolates the geometric reason for the distinction: elliptic tangency produces a definite quadratic form, whereas the hyperbolic family can produce a saddle whose two-dimensional sublevel geometry contributes exactly one logarithm. This is a structural boundary statement for the new theorem, not a routine parameter substitution.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
