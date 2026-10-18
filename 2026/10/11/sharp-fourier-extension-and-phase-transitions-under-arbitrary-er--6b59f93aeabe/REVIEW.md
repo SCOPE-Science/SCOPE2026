@@ -1,19 +1,21 @@
-# Review of arbitrary conic-erasure extension theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The nonzero unordered two-sum uniqueness is proved by polarization and one-dimensional quadratic-space geometry, including the isotropic and diagonal cases. The zero fiber is explicitly enumerated and gives an exact fourth-moment convolution formula. The case \(p\le1\) follows from Cauchy–Schwarz; when \(p\ge2\), pair-mass bounds and their equality conditions produce the exact sharp constant and all optimizers, without extrapolation from finite checks. The prescribed field order and feasible-mask ranges are proved using the norm-one group. The standalone checker gives an exact finite diagnostic across all \(6,810\) masks in five field sizes, including one extension field.
+PASS
 
-## Originality — PASS, with a residual literature risk
+Reconstructed polarization Q(s+d)=Q(s-d)=4 and B(s,d)=0 on norm-one conic: for s!=0 the prescribed difference d has at most two opposite solutions, including isotropic s where Q(d)=0 contradicts 4. Character orthogonality gives exact T(f)=2S²-Σw_u²+8ReΣ_{i<j}z_i conjugate(z_j); p<=1 yields 2-1/m and arbitrary phases. For p>=2, AM-GM and pair mass Cauchy yield T≤2S²+(1-3/(2p))P²-R²/(m-2p), with maximum only at P=S: unpaired points vanish, all intact pairs equal amplitudes and aligned products. Counting split/nonsplit norm-one groups gives h=(q-1)/2 or (q+1)/2 and feasible p range max(0,m-h)..floor(m/2). Independently enumerated ALL 396 nonempty masks in split and nonsplit q=5,7 cases and confirmed all extremal witnesses by direct convolution. This finite check corroborates but does not replace proof for all odd prime powers.
 
-The closest finite-field sharp-extension paper treats paraboloids and higher-dimensional cone surfaces, not arbitrary retained subsets of these planar conics. The plane-curve restriction paper gives exponent-range bounds rather than exact mask-dependent constants. Published work on phase classifications for small three-dimensional spheres concerns different surfaces. Earlier single-deletion results do not logically imply the full attainable fixed-size spectrum, the split family, or the complete equality classification over arbitrary deletion masks. Search did not identify an encompassing theorem; this is not proof of uniqueness. An unindexed abstract Sidon-type theorem might cover the convolution optimization.
+## originality
 
-## Value — PASS
+PASS
 
-Complete retention-mask spectra are natural robustness invariants for discrete Fourier sampling. The result treats exponentially many masks by only two geometric statistics, identifies the exact worst/best mask behavior at every cardinality, and isolates the threshold at two intact antipodal pairs with forced extinction of unmatched samples. This is more than a recomputation of a single previously treated deletion mask.
+The complete arbitrary-mask, split/nonsplit conic spectrum and two-intact-pair extremizer transition is stronger than the earlier specific whole-conic and one-deletion claims. Direct reading of the published one-deletion primary theorem shows q=3 gives p=1, m=3, 5/3; q>=5 gives p=(q-1)/2, m=q, 3-3/(q-1), all exact consequences here, not conversely. Full-text 2405.16647 examines paraboloids, a hyperbolic paraboloid and higher-dimensional cones, not all planar masked norm-one conics. Residual risk remains an unpublished/general uniquely-represented-nonzero-two-sums optimization.
 
-## Scope and scientific limits
+## value
 
-The statement concerns norm-one conics over odd prime-power fields and exact fourth moments, with no claim for other conics or even characteristic. The checker is corroborative, not an infinite proof. Literature-indexing incompleteness remains a residual originality risk; independent review remains outstanding.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Every sample deletion/mask of an algebraic conic is a natural finite-field Fourier aperture; the attainable exact sharp constants and a qualitative optimizer support jump at the second intact antipodal pair are new, non-implied information needed to select measurements under arbitrary erasures. An all-mask classification is not a routine parameter substitution of one-puncture case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
