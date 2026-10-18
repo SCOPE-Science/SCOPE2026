@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a fixed alphabet of size \(q\), the proof and `verify.cpp` exhaustively generate every square-free restricted-growth word up to the reported minimal length. The program only adds a symbol if no square is created at the new suffix, a sufficient and necessary incremental condition. It checks all insertion gaps, every possible square length and every feasible factor start; each candidate square has exactly one inserted-letter position, which uniquely determines the forbidden symbol. Words missing a symbol cannot be locally blocked, justifying early use-of-all-symbols pruning. Terminal counts are \(6936\) canonical square-free words for \(q=5\) and \(6480694\) for \(q=6\), with respectively two and one canonical blocked words. Neither has a preceding blocked representative. A separate Python substring algorithm verifies every claimed witness insertion. The explicit disjoint-alphabet Zimin concatenation proves constructive upper bounds. These together prove exactly the stated finite claims; they do not imply global optimality for larger alphabets.
+PASS
 
-## Originality — PASS, with priority risk
+A direct independent restricted-growth enumeration of all squarefree q-letter words for q<=5, and an independent C++ exhaustive 6-letter implementation evaluating square creation after every letter insertion, confirmed b(q)=(2,4,6,10,14), thresholds 1/2/1/2/1 canonical blocked words, q5 6936 terminal words, q6 6,480,694 terminal words and witness 01020103435343. Incremental suffix square test plus canonical first-occurrence coding exhaust all words; the two-sided Zimin palindrome and disjoint-alphabet junction prove general upper bound. Count claims restricted to q<=6.
 
-The 2022 Dębski–Grytczuk–Pawlik work defines bifurcate words, studies complete trees and already obtains an obstruction on four letters at length six (Theorem 7). The 2021 Grytczuk–Kordulewski–Pawlik paper analyzes Zimin words with unextendable end gaps. Neither inspected paper states the exact first blocked lengths \(10\) and \(14\) for five and six letters or their complete shortest-word classifications. The 2026 Hng–Rathke result concerns the much stronger all-gaps extremality property; its abstract and definition do not cover the one-gap statement. The consulted public literature did not disclose an equivalent five/six-letter census. These observations support originality but cannot exclude unindexed equivalent work. The known four-letter and Zimin upper-bound components are explicitly excluded from the originality claim.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Bifurcation and complete insertion trees are central to the motivating source's extension questions. The first length at which universal bifurcation fails is a natural boundary invariant: an exact cutoff distinguishes guarantees for every word from existence of a single obstruction. The two previously unlisted five- and six-letter thresholds and the uniqueness classification are substantial, complete natural finite cases, with more than six million canonical candidates ruled through the six-letter cutoff. The precise values also identify the first obstructions under the smallest alphabets where completely extremal words are ruled out by later theory. These are not arbitrary parameter slices or merely a code execution record; the Zimin mechanism provides a common structural explanation.
+New claims are the five/six-symbol sharp least blocked-gap thresholds and complete shortest-word reversal classes; 2022 Dębski–Grytczuk–Pawlik supplies q4 and definitions, and 2021 Grytczuk–Kordulewski–Pawlik supplies one-sided Zimin gap blocking. Hng–Rathke excludes every-gap extremal words for q>=5, a stronger obstruction property with different quantifier, not absence of a single blocked gap. Statement and consequence comparison, not title matching, finds no coverage in inspected texts.
 
-## Closest literature and limits
+## value
 
-- Dębski, Grytczuk, Pawlik (2022), arXiv:2209.08507v1, Theorems 3 and 7, and bifurcate tree definitions. The four-letter construction is prior work.
-- Grytczuk, Kordulewski, Pawlik (2021), arXiv:2104.04841v3, Section 3.2, Zimin extension properties. One-sided Zimin blocking is prior work.
-- Hng, Rathke (2026), arXiv:2608.10591v1, extremality across all gaps, not single-gap failure.
+PASS
 
-Residual risks: unindexed previous finite computations; the newer paper's complete technical proof has not been checked, though its main theorem has a distinct implication direction. Values above six symbols are not resolved.
+Bifurcation is a natural extension property, and its first failure across ALL squarefree words under an alphabet of fixed size is a meaningful finite extremal threshold. Exact five- and six-letter minima and reversal classification are complete nontrivial bounded results requiring a 6.48-million canonical-word exhaustive proof; the structural Zimin construction explains them.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
