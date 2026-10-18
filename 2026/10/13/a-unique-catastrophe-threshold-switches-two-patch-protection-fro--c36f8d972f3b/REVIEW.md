@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The continuous-time first-step equations for the three transient occupancy states determine a positive rational mean extinction time. Two symbolic quotient derivatives reduce exactly to a factored mixed sensitivity with quartic \(P\). For positive local extinction and recolonization rates, every nonconstant coefficient of \(P\) is positive; this proves monotonicity and excludes multiple catastrophe thresholds. At \(P(0)=0\), the boundary behavior is handled separately. The packaged dependency-free checker confirms the formal polynomial identity and 54 exact first-step instances; unrestricted proof relies on the displayed identities, not empirical enumeration. Risk: model applicability outside its idealized Markov assumptions is unproved.
+## correctness
 
-## Originality — PASS, with documented residual risk
-Relevant accessible literature studies stochastic metapopulation extinction/colonization management, correlated disturbances, and optimal reserve allocations. The closest available complete primary article, Haight and Travis (DOI `10.1007/s10666-007-9088-4`), uses an individual-based simulation for reserve-size optimization and gives no corresponding exact catastrophe-driven mixed-rate phase classification in the inspected introduction, methods, discussion, or appendix. Ross and Pollett address broad policy sensitivity rather than the proved mixed curvature. Etienne and Heesterbeek (DOI `10.1086/321986`) is closest in stochastic occupancy motivation; only its abstract was accessible, so a prior mixed-sensitivity implication in that source cannot be definitively excluded. Johst and Drechsler (DOI `10.1034/j.1600-0706.2003.12770.x`) is closest in catastrophe motivation but its full text was not accessible. Exact backward equations and the rational mean-time formula are classical and are not claimed as novel. The claim is the complete sharp sign-change classification, not the rational formula or a generic conservation benefit.
+PASS
 
-## Mathematical value — PASS
-A conservation-policy question about combining two independent local protection interventions has a mathematically sharp, counterintuitive answer: the interaction changes sign once with synchronous regional-catastrophe risk, and an explicit inequality gives the complete parameter regime. This turns qualitative knowledge of dispersal rescue and common shocks into an exact decision-relevant local sensitivity boundary. The quartic factorization is structural and applies on an unrestricted positive-parameter domain, rather than an arbitrary one-off numerical slice. It should not be read as a global policy prescription for large interventions or natural populations.
+PASS: Derived transient first-step equations from states 11,10,01,00: (c+x+r)T10=1+cT, (c+y+r)T01=1+cT, (x+y+r)T=1+yT10+xT01. Solved N=(c+r+x+y)^2-xy and D=r(c+r+x+y)^2+xy(x+y+2c+r)>0. Independently differentiated sympy rational N/D, confirmed exact mixed derivative -2(c+r+x)(c+r+y)P(r)/D^3 as zero polynomial identity with P quartic from RESULT.md. P nonconstant coefficients strictly positive for x,y,c>0 and constant xy[xy-c(x+y)-2c²], forcing exactly one positive root in complementary case, none otherwise. Checked x=y=c=1 root 0.1833841130792549 and finite reductions give opposite signs at r=0 vs r=1. This establishes local h,k->0 complementarity/substitutability, not all finite interventions or general metapopulations.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS best-of-knowledge: The standard extinction-time backward equations and conservation reasoning are prior. Etienne–Heesterbeek (2001) and Ross–Pollett (2010) study metapopulation management; Johst–Drechsler (2003) study correlated disturbances. The inspected abstracts/review sections do not supply this model's complete exact mixed local-extinction sensitivity or unique catastrophe-rate threshold. The closest 2001 and 2003 primary full texts were inaccessible through authorized channel; absence of exact claim there cannot be asserted. This uncertainty remains explicit, not a fail solely from lack of access.
+
+## value
+
+PASS
+
+PASS: A structural finite-state exact perturbation theorem proves a single switch from complementary to substitutable local habitat protection as catastrophe intensity increases; criterion xy<c(x+y)+2c² is sharp over an unrestricted positive-parameter region, including a boundary equality case. Motivated conservation-sensitivity question and analytic phase classification go beyond a textbook mean-time formula, although the result does not validate field or global-budget decisions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
