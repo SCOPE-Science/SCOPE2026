@@ -1,14 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The verifier exhaustively enumerates every two-matching face of the explicitly defined Heawood graph, obtaining \(447859\) nonempty faces and the stated face vector. The repeated edge-toggle matching has \(223925\) disjoint pairs and, by the standard repeated-element-matching theorem, is acyclic. Exactly one critical \(9\)-cell and seven critical \(10\)-cells remain above the single critical vertex. Signed algebraic Morse elimination gives boundary vector \((1,1,0,0,0,-1,1)\), whose entries have greatest common divisor \(1\). Because \(\pi_9(S^9)\cong\mathbb Z\), that primitive vector is equivalent under a unimodular basis change to a single degree-one attaching map, yielding \(\bigvee^6 S^{10}\). The reduced Euler characteristic is independently \(6\).
+## correctness
 
-## Originality
-PASS. Targeted indexed searches for the exact Heawood two-matching claim and its bounded-degree aliases returned only ordinary matching, other graph complexes, or different graphs. Vega's primary two-matching paper treats clawed graphs, wheel graphs, and perfect caterpillars; its full text contains no Heawood occurrence. Singh's higher-matching paper states the known exact families and proves complete-graph and complete-bipartite formulas; its full text contains no Heawood occurrence, and the Heawood graph is not complete bipartite. The closest indexed result is the ordinary Heawood matching complex, which does not determine the topology of \(M_2(H)\).
+PASS
 
-## Value
-PASS. The Heawood graph is the smallest cubic graph of girth \(6\) and a canonical highly symmetric incidence graph. Higher matching complexes are known exactly for comparatively few graph classes, so an exact homotopy type for this natural cubic non-complete-bipartite example is a substantive benchmark rather than an arbitrary slice. The primitive two-level Morse model also exhibits a nontrivial cancellation phenomenon not visible from face counts alone.
+PASS: For the exact degree<=2 edge-subset complex on the 21-edge Heawood graph, independent full 2^21-mask enumeration yields 447859 nonempty faces and the stated 14-entry face vector. Successive edge-toggle matching yields 223925 pairs with exactly one critical vertex, one 9-cell and seven 10-cells; standard patchwork makes it acyclic. Independent signed algebraic Morse elimination calculates the complete row (1,1,0,0,0,-1,1), primitive over Z; cellular cancellation converts the unique 9-cell plus one 10-cell to contractible pair and leaves six S10. Euler characteristic 7 is consistent. This is an exhaustive fixed graph certificate, not an infinite family proof.
 
-Closest literature and limitations: arXiv:1909.10406v1 and arXiv:2006.13632v1 provide the invariant, methods, and closest exact-family results but do not cover this graph. The claim remains a single-graph computation, and a differently indexed unpublished or obscure table could still duplicate it.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Vega arXiv:1909.10406 develops 2-matching complexes and computes special graph families (clawed, wheel, perfect caterpillars), while Singh arXiv:2006.13632 handles complete graphs and complete bipartite; the Fano incidence Heawood graph is neither a listed family nor complete bipartite. Published ordinary matching complex of Heawood, 3-cut complexes and perfect matching complexes have DIFFERENT face definitions, cannot imply M2(H). Genuine Resultary semantic search yielded the same subject only in assigned record; an unindexed higher-matching table remains risk.
+
+## value
+
+PASS
+
+PASS: Higher-matching topological invariants for canonical highly symmetric cubic incidence graphs are naturally motivated by sparse exact classifications. The full integral homotopy type M2(Heawood)=vee six S10 is nontrivial and a primitive two-rank Morse boundary calculation distinguishes it from face counts or ordinary matchings. A single natural graph/invariant can support substantive exact finite classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
