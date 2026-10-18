@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-10-11",
+  "audited_at_utc": "2026-10-11T20:14:40.712522Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md Git blob c4c0eb55e6cf51034946db999c6398f75fdb1035",
+        "assigned verify.py Git blob c8f033a7f6db16ae4e5b7d73557ffeba955ace72",
+        "Adams--Shukla--Singh, Čech complexes of hypercube graphs, arXiv:2212.05871, Lemmas 2.2 and 2.3",
+        "Goyal--Shukla--Singh, Topology of Clique Complexes of Line Graphs, arXiv:2009.12130, Corollary 3.3",
+        "Matsushita, Closed neighborhood complexes of graphs, arXiv:2511.12608, Theorems 1.2 and 1.5"
+      ],
+      "rationale": "The scale-two graph Čech complex is the union of full closed-neighborhood simplices Δ(S_u∪S_v) indexed by original edges e=uv. In a triangle-free H the line-graph clique complex is Y=∪_v Δ(S_v). Any face of K outside Y contains two disjoint original edges, and girth≥5 ensures precisely one connecting original edge e that could generate a containing closed neighborhood; two connectors would make a triangle or four-cycle. Pair every lower exterior face σ not containing e with σ∪{e}, and remove pairs in descending cardinality of lower faces; any other exterior coface has an already-removed larger lower partner, so each is a genuine free-face collapse. Thus K collapses simplicially to Y. The star-simplex nerve equals H because pairwise intersections are singleton original edges and triple intersections are empty, giving homotopy wedge of |E|-|V|+1 circles. The H1 map from L(H) is onto; its kernel consists of independent clique-cycle lattices per original vertex, rank Σ_v binom(deg(v)-1,2). The C3/C4 examples demonstrate both exclusion hypotheses are necessary for an unrestricted statement. The inspected finite verifier checks face partitions and explicit freeness on several graphs, but the general proof is combinatorial.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adams Lemma 2.3 is a girth-based criterion on the input graph, whereas L(H) can contain triangles when a vertex of H has degree three or more.",
+          "Matsushita’s closed-neighborhood homotopy/fundamental-group results are general but have different conclusions."
+        ],
+        "reasoning": "General closed-neighborhood results do not directly imply the explicit elementary matching and integral degree-one persistence kernel.",
+        "searches": [
+          "Adams--Shukla--Singh, Čech complexes of hypercube graphs, arXiv:2212.05871, Lemmas 2.2 and 2.3",
+          "Goyal--Shukla--Singh, Topology of Clique Complexes of Line Graphs, arXiv:2009.12130, Corollary 3.3",
+          "Matsushita, Closed neighborhood complexes of graphs, arXiv:2511.12608, Theorems 1.2 and 1.5"
+        ]
+      },
+      "checked_sources": [
+        "Adams--Shukla--Singh, Čech complexes of hypercube graphs, arXiv:2212.05871, Lemmas 2.2 and 2.3",
+        "Goyal--Shukla--Singh, Topology of Clique Complexes of Line Graphs, arXiv:2009.12130, Corollary 3.3",
+        "Matsushita, Closed neighborhood complexes of graphs, arXiv:2511.12608, Theorems 1.2 and 1.5",
+        "Resultary attempt: search_internal_error",
+        "SCOPE2026 indexed code search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known Y≃H is a statement about the subcomplex Y, not the larger K.",
+          "The rank formula for the kernel requires the new K↘Y collapse and disjoint local star-edge supports."
+        ],
+        "reasoning": "The final collapse and inclusion-induced homology map are not direct corollaries of the inspected theorems.",
+        "searches": [
+          "Goyal--Shukla--Singh, Topology of Clique Complexes of Line Graphs, arXiv:2009.12130, Corollary 3.3",
+          "Adams--Shukla--Singh, Čech complexes of hypercube graphs, arXiv:2212.05871, Lemmas 2.2 and 2.3",
+          "Matsushita, Closed neighborhood complexes of graphs, arXiv:2511.12608, Theorems 1.2 and 1.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Adams et al. supply the scale-two ball/closed-neighborhood representation.",
+          "Goyal et al. Corollary 3.3 supplies Y≃H but not K↘Y."
+        ],
+        "reasoning": "Čech scale-two and closed-neighborhood-complex aliases were compared; the collapse to a line-graph flag spine is strictly stronger than the prior flag homotopy result.",
+        "searches": [
+          "scale 2 Cech complex line graph girth five elementary collapse closed neighborhoods unique generator persistence kernel [Resultary: unavailable]",
+          "Adams--Shukla--Singh, Čech complexes of hypercube graphs, arXiv:2212.05871, Lemmas 2.2 and 2.3",
+          "Goyal--Shukla--Singh, Topology of Clique Complexes of Line Graphs, arXiv:2009.12130, Corollary 3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact previously published table or general line-graph collapse theorem was verified."
+        ],
+        "reasoning": "An infinite combinatorial collapse theorem is not a finite database result; no failed search is construed as proof of absence.",
+        "searches": [
+          "SCOPE2026 GitHub code search: Cech line graph [no matching indexed file]",
+          "scale 2 Cech complex line graph girth five elementary collapse closed neighborhoods unique generator persistence kernel [Resultary: unavailable]"
+        ]
+      },
+      "rationale": "The source graph Čech closed-neighborhood description and the flag-line-graph homotopy type are known. Neither gives the stronger simple-homotopy collapse of the larger scale-two complex or the explicit integral inclusion-kernel decomposition when L(H) itself contains high-degree-induced triangles. The unique-connector matching is the nonstandard new step. The broader closed-neighborhood literature inspected does not state this exact specialization. Originality is best-of-knowledge subject to the unavailable Resultary search.",
+      "residual_risks": [
+        "Resultary semantic lookup was attempted with the specified query but the service returned temporarily_unavailable/search_internal_error (search_completed=false); this is not an empty-result search or originality evidence.",
+        "Unindexed specialized discrete-Morse/collapse results could cover this natural line-graph case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BACKGROUND_FOR_CECH",
+          "evidence": "The source supplies K as closed-neighborhood nerve but does not establish the line-graph collapse.",
+          "identifier_or_url": "arXiv:2212.05871",
+          "material_read": "Open primary arXiv HTML, definitions and Lemma 2.2 (even-scale neighborhood complexes) and Lemma 2.3 (girth restriction).",
+          "method": "Lawful open full-text section inspection",
+          "title": "Čech complexes of hypercube graphs",
+          "trigger": "Intrinsic graph Čech scale convention and general recovery criterion"
+        },
+        {
+          "assessment": "PRIOR_FLAG_HOMOTOPY_ONLY",
+          "evidence": "The relevant source statement is Corollary 3.3, not the Theorem 3.7 identifier misquoted in the audited RESULT.md.",
+          "identifier_or_url": "arXiv:2009.12130",
+          "material_read": "Open primary PDF at the line-graph clique description and Corollary 3.3, including a visually checked page.",
+          "method": "Lawful open full-text section inspection",
+          "title": "Topology of Clique Complexes of Line Graphs",
+          "trigger": "Exact line-graph flag homotopy comparison"
+        },
+        {
+          "assessment": "BROADER_HOMOTOPY_NOT_EXPLICIT_COLLAPSE",
+          "evidence": "The inspected statements do not identify the unique-connector collapses or rank of the scale-one inclusion kernel.",
+          "identifier_or_url": "arXiv:2511.12608",
+          "material_read": "Open primary PDF at the definition and Theorems 1.2 and 1.5.",
+          "method": "Lawful open full-text section inspection",
+          "title": "Closed neighborhood complexes of graphs",
+          "trigger": "Closest broader neighborhood-complex coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Adams--Shukla--Singh, Čech complexes of hypercube graphs, arXiv:2212.05871, Lemmas 2.2 and 2.3",
+        "Goyal--Shukla--Singh, Topology of Clique Complexes of Line Graphs, arXiv:2009.12130, Corollary 3.3",
+        "Matsushita, Closed neighborhood complexes of graphs, arXiv:2511.12608, Theorems 1.2 and 1.5"
+      ],
+      "rationale": "An explicit simple-homotopy collapse computes the entire scale-two Čech nerve of a wide natural graph family even though its line graphs have many triangles, and the exact integral kernel describes what persistence destroys at the first scale change. This is structural, not a routine homotopy renaming or small computation.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Adams--Shukla--Singh, Čech complexes of hypercube graphs, arXiv:2212.05871, Lemmas 2.2 and 2.3",
+    "Goyal--Shukla--Singh, Topology of Clique Complexes of Line Graphs, arXiv:2009.12130, Corollary 3.3",
+    "Matsushita, Closed neighborhood complexes of graphs, arXiv:2511.12608, Theorems 1.2 and 1.5",
+    "Resultary attempt: search_internal_error",
+    "SCOPE2026 indexed code search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Finite connected simple H with at least one edge and girth at least five; conclusions concern graph Čech scales one and two.",
+    "The finite verifier illustrates the general proof but is not an exhaustive graph enumeration.",
+    "RESULT.md misidentifies the known line-graph equivalence as Goyal et al. Theorem 3.7; the directly inspected corresponding statement is Corollary 3.3. A scientifically nonessential bibliographic correction is advised before publication."
+  ],
+  "residual_risks": [
+    "Resultary semantic lookup was attempted with the specified query but the service returned temporarily_unavailable/search_internal_error (search_completed=false); this is not an empty-result search or originality evidence.",
+    "Unindexed specialized discrete-Morse/collapse results could cover this natural line-graph case."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "BACKGROUND_FOR_CECH",
+      "evidence": "The source supplies K as closed-neighborhood nerve but does not establish the line-graph collapse.",
+      "identifier_or_url": "arXiv:2212.05871",
+      "material_read": "Open primary arXiv HTML, definitions and Lemma 2.2 (even-scale neighborhood complexes) and Lemma 2.3 (girth restriction).",
+      "method": "Lawful open full-text section inspection",
+      "title": "Čech complexes of hypercube graphs",
+      "trigger": "Intrinsic graph Čech scale convention and general recovery criterion"
+    },
+    {
+      "assessment": "PRIOR_FLAG_HOMOTOPY_ONLY",
+      "evidence": "The relevant source statement is Corollary 3.3, not the Theorem 3.7 identifier misquoted in the audited RESULT.md.",
+      "identifier_or_url": "arXiv:2009.12130",
+      "material_read": "Open primary PDF at the line-graph clique description and Corollary 3.3, including a visually checked page.",
+      "method": "Lawful open full-text section inspection",
+      "title": "Topology of Clique Complexes of Line Graphs",
+      "trigger": "Exact line-graph flag homotopy comparison"
+    },
+    {
+      "assessment": "BROADER_HOMOTOPY_NOT_EXPLICIT_COLLAPSE",
+      "evidence": "The inspected statements do not identify the unique-connector collapses or rank of the scale-one inclusion kernel.",
+      "identifier_or_url": "arXiv:2511.12608",
+      "material_read": "Open primary PDF at the definition and Theorems 1.2 and 1.5.",
+      "method": "Lawful open full-text section inspection",
+      "title": "Closed neighborhood complexes of graphs",
+      "trigger": "Closest broader neighborhood-complex coverage"
+    }
+  ]
+}

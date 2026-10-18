@@ -1,25 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-Theorem proof is valid for finite connected simple graphs with at least one edge and without cycles of length three or four. The decisive lemma proves that every face outside the flag complex contains disjoint original edges and hence has exactly one original edge joining their endpoint sets, because any two connecting edges would create a forbidden triangle or quadrilateral. This proves a complete generator-toggle matching. Descending-size removal of its lower faces is an **actual elementary simplicial collapse**: every other possible coface has already been removed. The remaining clique complex is covered by the original edge stars, whose nerve is the original graph. The first-homology kernel is the direct sum of edge-disjoint local clique cycle lattices, each generated integrally by triangles. The proof covers arbitrary finite degree, leaves, bridges and arbitrary cycle rank, and explicitly exhibits failure on triangles and quadrilaterals. Finite certificate replay supports rather than substitutes for the universal proof.
+PASS
 
-## Originality: PASS
+The scale-two graph Čech complex is the union of full closed-neighborhood simplices Δ(S_u∪S_v) indexed by original edges e=uv. In a triangle-free H the line-graph clique complex is Y=∪_v Δ(S_v). Any face of K outside Y contains two disjoint original edges, and girth≥5 ensures precisely one connecting original edge e that could generate a containing closed neighborhood; two connectors would make a triangle or four-cycle. Pair every lower exterior face σ not containing e with σ∪{e}, and remove pairs in descending cardinality of lower faces; any other exterior coface has an already-removed larger lower partner, so each is a genuine free-face collapse. Thus K collapses simplicially to Y. The star-simplex nerve equals H because pairwise intersections are singleton original edges and triple intersections are empty, giving homotopy wedge of |E|-|V|+1 circles. The H1 map from L(H) is onto; its kernel consists of independent clique-cycle lattices per original vertex, rank Σ_v binom(deg(v)-1,2). The C3/C4 examples demonstrate both exclusion hypotheses are necessary for an unrestricted statement. The inspected finite verifier checks face partitions and explicit freeness on several graphs, but the general proof is combinatorial.
 
-The existing general Čech construction [1] establishes the even-scale formula but not the line-graph collapse. The known line-graph clique-complex theorem [2] establishes the **target** homotopy type but does not imply the new inclusion collapse. The more general closed-neighborhood paper [3] provides a suspension relationship and fundamental-group descriptions, neither of which implies an elementary collapse or the integral inclusion kernel. Searches for line-graph/closed-neighborhood aliases, girth restrictions, recoverability, and integral persistence kernels did not reveal a covering primary result. The closest published summaries for other neighborhood, Rips, and graph-complex constructions are not equivalent. Residual risk: unindexed equivalent prior work or a stronger theorem not recognized from its terminology.
+## originality
 
-## Value: PASS
+PASS
 
-This theorem gives a **whole natural infinite family** of intrinsic metric-graph Čech filtrations with an explicit simple-homotopy reduction at the first thickening scale. It applies even when the line graph has girth three due to original vertices of degree at least three, where a generic girth-based recovery criterion cannot establish the conclusion. The precise integral first-homology kernel identifies all local triangle relations killed at that scale, while preserving all original graph cycles. The excluded short cycles are shown by sharp natural counterexamples. This is a structural recovery and persistence result, not a finite table lookup.
+The source graph Čech closed-neighborhood description and the flag-line-graph homotopy type are known. Neither gives the stronger simple-homotopy collapse of the larger scale-two complex or the explicit integral inclusion-kernel decomposition when L(H) itself contains high-degree-induced triangles. The unique-connector matching is the nonstandard new step. The broader closed-neighborhood literature inspected does not state this exact specialization. Originality is best-of-knowledge subject to the unavailable Resultary search.
 
-## Closest literature and limitations
+## value
 
-[1] Adams–Shukla–Singh, *Čech complexes of hypercube graphs*, arXiv:2212.05871, Lemmas 2.2–2.3.
+PASS
 
-[2] Goyal–Shukla–Singh, *Topology of Clique Complexes of Line Graphs*, arXiv:2009.12130, Theorem 3.7.
+An explicit simple-homotopy collapse computes the entire scale-two Čech nerve of a wide natural graph family even though its line graphs have many triangles, and the exact integral kernel describes what persistence destroys at the first scale change. This is structural, not a routine homotopy renaming or small computation.
 
-[3] Matsushita, *Closed neighborhood complexes of graphs*, arXiv:2511.12608, Definition 1.1, Theorems 1.2 and 1.5.
-
-Restriction to scale two and to graphs excluding triangles and quadrilaterals is essential to the statement proved. The computation checks only specified examples; no exhaustive finite census is claimed. Independent external scrutiny and unindexed-literature comparisons remain outstanding.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
