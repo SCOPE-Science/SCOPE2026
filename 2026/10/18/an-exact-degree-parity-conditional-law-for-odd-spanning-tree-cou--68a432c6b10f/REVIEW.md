@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness
+PASS. The claimed event is the determinant of a reduced Laplacian over \(\mathbb F_2\). Conditioning on the entire degree-parity vector leaves the edges not incident to one chosen vertex independent and fair, forcing a uniformly random symmetric cofactor with a prescribed diagonal. Binary congruence identifies all nonzero diagonal fibres. Alternating-form elimination and the rank-one-update argument supply the exact invertibility probabilities; the proof treats both parities of the order and the \(n=2\) boundary. Independent exhaustive checks cover every graph on two through six labeled vertices and every prescribed diagonal in symmetric matrices of sizes one through five. Enumeration is not used as the infinite proof.
+
+## Originality
+PASS on inspected primary literature. Balister--Powierski--Scott--Tan's 2021 preprint (section 5, Theorem 16 and Corollary 17 in the journal version) analyzes random symmetric matrix ranks in parity-constrained partition counting, but supplies neither the fixed-diagonal cofactor equivalence nor the law conditional on the *complete labeled degree-parity vector*. Eppstein's 1996 theorem implies the even-order all-even obstruction, not the positive values or odd-order independence. Wood's 2014 work gives the unconditioned asymptotic odd-tree-count probability and random sandpile-group distribution, not the finite conditional law. MacWilliams' earlier count of all symmetric matrices and classical alternating-form counts are genuine reusable ingredients; the present new contribution is the graph-level conditional classification, not a claim of independently inventing matrix enumeration. A full historical-priority guarantee is not possible: an equivalent conditional parity formula might occur under random critical-group or binary-form terminology.
+
+## Value
+PASS. Conditioning a dense random graph on all \(n\) vertex-degree parities is a natural strongly correlated random-graph ensemble. The exact theorem identifies an unexpected all-order independence when the graph order is odd, and a single exceptional parity fibre when it is even. This is a structural all-parameter probability law that is not recovered from the known unconditioned limit and is relevant to parity-constrained random graphs and two-torsion of graph critical groups. Its scope is restricted to the fair-edge model and oddness of the spanning-tree count; it does not determine full sandpile groups.
+
+## Primary literature and limitations
+The most consequential published comparisons are MacWilliams' symmetric-rank count as quoted in Balister et al., Wood's Corollary 9.4 and limiting odd-tree probability, and Eppstein's Eulerian-cut criterion. None of those *stated* results is an exact classification conditioned on each possible degree-parity vector. Nevertheless the derivation uses standard linear-algebraic ingredients, and older work on conditional binary Laplacians may contain equivalent content. No external independent audit has been conducted.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Over F2, Kirchhoff cofactor determinant is tree-count parity. The degree-parity constraints explicitly leave the m choose 2 internal edges independent fair and force a uniform symmetric m-square cofactor with fixed diagonal. Congruence collapses all nonzero diagonals, and an alternating-form rank-one analysis yields the exact probabilities for both m parities, including n=2. Exhaustive exact-rational graph checks n=2..6 and matrix checks m=1..5 independently match the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wood (arXiv:1402.5149), introduction Theorem 1.1 and Corollary 9.4 (unconditional limiting sandpile mod-2 ranks; odd spanning tree probability tends to approximately 0.4194).",
+        "Balister et al. (arXiv:2105.12612; 2021-05-26), full published open-access text, Section 5 Theorem 16 and Corollary 17 (uniform symmetric and row-sum-zero binary rank distributions)."
+      ],
+      "reasoning": "Wood treats all fixed edge densities asymptotically and all p-primary Sylow distributions, which is broader in other parameters, but its theorems do not give the finite-n law conditional on the full vertex-degree-parity vector. Balister et al. cover q-ary residue-constrained partitions and unconditional binary matrix ranks, not tree-number parity conditional on d. These do not subsume the exact event-level claim.",
+      "searches": [
+        "distribution of p=2 torsion of random graph sandpile critical group conditioned on all vertex degree parity bits",
+        "binary random graph conditioned all vertex degrees even parity of number spanning trees",
+        "web: Erdos Renyi sandpile group Sylow 2 trivial probability odd spanning trees"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2105.12612 / DOI:10.1002/rsa.21115; Section 5 full text",
+      "arXiv:1402.5149; intro and Section 9 plus Laplacian method",
+      "Eppstein 1996 TR 96-14 primary PDF",
+      "MacWilliams (1969), count reproduced and cited in Balister et al. Theorem 16",
+      "Published mathematical claims: searched six exact mathematical meaning and alias queries; compared closest records",
+      "Published mathematical records compared for exact claim overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Eppstein (Technical Report 96-14), original PDF abstract, Theorem and Corollary on Eulerian cuts and even number of spanning trees for Eulerian even-order graphs.",
+        "Wood (arXiv:1402.5149), introduction Theorem 1.1 and Corollary 9.4 (unconditional limiting sandpile mod-2 ranks; odd spanning tree probability tends to approximately 0.4194).",
+        "Balister et al. (arXiv:2105.12612; 2021-05-26), full published open-access text, Section 5 Theorem 16 and Corollary 17 (uniform symmetric and row-sum-zero binary rank distributions)."
+      ],
+      "reasoning": "Eppstein directly implies the d=0,n even case; Wood directly implies the common large-n unconditional limit. Neither implies the remaining finite conditional cases. MacWilliams general rank formula and classical alternating-form enumeration can serve as ingredients, but alone do not state a fixed-diagonal law or the graph conditioning fibre. The additional equivalence and congruence proof establish the stronger joint statistical relation. Residual possibility of equivalent prior derivation explicitly retained.",
+      "searches": [
+        "conditional probability odd number of spanning trees in G(n,1/2) given full mod 2 vertex degree parity vector, independence when n odd and Eulerian obstruction when n even",
+        "nondegenerate random symmetric matrix over F2 conditioned on fixed diagonal vector, zero versus nonzero diagonal invertible rank probability",
+        "web: random graph spanning trees odd number conditioned on degree parity uniform random G n 1/2 probability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Balister et al. (arXiv:2105.12612; 2021-05-26), full published open-access text, Section 5 Theorem 16 and Corollary 17 (uniform symmetric and row-sum-zero binary rank distributions).",
+        "Wood (arXiv:1402.5149), introduction Theorem 1.1 and Corollary 9.4 (unconditional limiting sandpile mod-2 ranks; odd spanning tree probability tends to approximately 0.4194).",
+        "No indexed published result stating an equivalent full degree-parity-vector conditional law; nearest ID 2026/10/11/SCOPE-exact-spanning-tree-complexity-and-a-two-binomial-degree-law-for--9236b8494fff concerns a fixed family of polytope graphs, not Erdos-Renyi degree-conditioned tree parity."
+      ],
+      "reasoning": "The event is equivalently full rank of a random reduced Laplacian over F2, or trivial 2-primary part of a graph critical group. Searches under all three terms found prior unconditional distributions and a deterministic Eulerian obstruction, not the exact conditional two-class law.",
+      "searches": [
+        "conditional probability odd number of spanning trees in G(n,1/2) given full mod 2 vertex degree parity vector, independence when n odd and Eulerian obstruction when n even",
+        "nondegenerate random symmetric matrix over F2 conditioned on fixed diagonal vector, zero versus nonzero diagonal invertible rank probability",
+        "distribution of p=2 torsion of random graph sandpile critical group conditioned on all vertex degree parity bits",
+        "web: random graph spanning trees odd number conditioned on degree parity uniform random G n 1/2 probability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Balister et al. (arXiv:2105.12612; 2021-05-26), full published open-access text, Section 5 Theorem 16 and Corollary 17 (uniform symmetric and row-sum-zero binary rank distributions).",
+        "Nearest unrelated indexed matrix-rank ID 2026/9/7/SCOPE003; no matched conditional random-Laplacian table."
+      ],
+      "reasoning": "MacWilliams 1969 tabulates all symmetric matrices by rank, and known alternating-form counts give the product. These are genuinely used, not reinvented. Neither table directly records joint frequencies of spanning-tree parity and the n-bit vertex-degree parity vector; the latter requires an additional exact mapping and diagonal-class argument.",
+      "searches": [
+        "nondegenerate random symmetric matrix over F2 conditioned on fixed diagonal vector, zero versus nonzero diagonal invertible rank probability",
+        "uniform labeled Eulerian random graph with all even vertex degrees probability odd number of spanning trees determinant over GF2 alternating matrices product",
+        "rank distribution random alternating matrix over F2 under degree parity constraints Eulerian graph"
+      ]
+    },
+    "rationale": "The new statement is an all-finite-order, entire-degree-parity-vector-conditioned random-graph law; neither the unconditional random symmetric-matrix rank tables, the unconditioned asymptotic sandpile-group distribution, nor the deterministic Eulerian obstruction states or entails the complete conditional law without an additional fibre bijection, fixed-diagonal congruence classification, and rank-one analysis. The probability can be computed with classical ingredients, and this makes historical-priority risk real, but the graph-level invariance is a distinct nontrivial structured consequence.",
+    "residual_risks": [
+      "Older fixed-diagonal binary-matrix and critical-group literature could already state the conditional random-graph formulation despite negative targeted searches.",
+      "MacWilliams rank counts and alternating-form enumeration make the calculation derivable once the degree-conditioned cofactor equivalence is observed; novelty depends on this structural graph-level conditioning and should receive independent historical review.",
+      "No independent audit or numerical certification of the infinite product decimal is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Strong methodological antecedent but no conditional spanning-tree parity law on entire degree vector.",
+        "evidence": "Balister et al. (arXiv:2105.12612; 2021-05-26), full published open-access text, Section 5 Theorem 16 and Corollary 17 (uniform symmetric and row-sum-zero binary rank distributions).",
+        "identifier_or_url": "https://arxiv.org/abs/2105.12612 ; https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.21115",
+        "material_read": "Accessible complete online article, with close reading of introduction and Section 5 including Theorem 16, Corollary 17, and later proofs.",
+        "method": "Open-access full HTML read and targeted statement-to-claim comparison.",
+        "title": "Counting partitions of G(n,1/2) with degree congruence conditions",
+        "trigger": "Same uniform random graph with prescribed mod-2 degree conditions; published symmetric matrix rank count."
+      },
+      {
+        "assessment": "Provides asymptotic unconditioned probability and general sandpile distributions; does not determine degree-vector-conditional finite law.",
+        "evidence": "Wood (arXiv:1402.5149), introduction Theorem 1.1 and Corollary 9.4 (unconditional limiting sandpile mod-2 ranks; odd spanning tree probability tends to approximately 0.4194).",
+        "identifier_or_url": "https://arxiv.org/pdf/1402.5149",
+        "material_read": "Accessible original preprint, introduction, methods regarding Laplacian diagonal dependence, and Section 9, notably Corollary 9.4.",
+        "method": "Full-text primary PDF indexed section analysis and theorem/parameter comparison.",
+        "title": "The distribution of sandpile groups of random graphs",
+        "trigger": "Exact same tree parity variable as trivial 2-Sylow event; plausible stronger distribution theorem."
+      },
+      {
+        "assessment": "Exactly covers deterministic all-even parity obstruction for n even, not positive probabilities elsewhere or odd-n independence.",
+        "evidence": "Eppstein (Technical Report 96-14), original PDF abstract, Theorem and Corollary on Eulerian cuts and even number of spanning trees for Eulerian even-order graphs.",
+        "identifier_or_url": "https://www.ics.uci.edu/~eppstein/pubs/Epp-TR-96-14.pdf",
+        "material_read": "Eight-page accessible primary PDF, including abstract, Eulerian-cut criterion, corollary on even-order Eulerian graphs and proof context.",
+        "method": "Primary PDF text and page-image inspection.",
+        "title": "On the Parity of Graph Spanning Tree Numbers",
+        "trigger": "Directly about parity of spanning tree counts and Eulerian graphs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "68a432c6-b10f-4446-a201-f0a9aa56c188",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The law conditions on an entire natural n-bit statistic in G(n,1/2), not an arbitrary numerical slice, and shows exact independence when n is odd with a sharp all-even obstruction when n is even. The conditional random-graph invariance adds finite sample content not contained in the known unconditional sandpile limit, relevant to conditional random graph modelling and mod-2 critical-group structure.",
+    "status": "PASS"
+  }
+}
