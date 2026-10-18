@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T09:17:54.162998Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The source Theorem 3.9 generator is [I_n | G_D], D={x∈F_3^n:x1∈{0,1}}\\{0}, n>=3, length n+2*3^(n-1)-1. For r-message subspace U, annihilator W=U^perp of dimension h=n-r, the zero coordinates equal |D∩W|+s(W), with s the number of standard axes in W. If W lies in A={x1=0}, |D∩W|=3^h-1; otherwise a nonzero first-coordinate map has fibers each 3^(h-1), so |D∩W|=2*3^(h-1)-1. Inclusion-exclusion over coordinate axes gives E_{m,h}(s)=C(m,s)Σ_j(-1)^j C(m-s,j)[m-s-j choose h-s-j]_3; contained W count E_{n-1,h}(s), noncontained difference E_{n,h}(s)-E_{n-1,h}(s). The former regime dominates minimum-support minimization, giving d_r=r+2*3^(n-1)-3^(n-r), exactly C(n-1,r-1) minimizers, even h=0 boundary. Independently enumerated ALL subspaces via a separate reduced-row-echelon generator for n=3,4 and matched every support histogram, including n=3 (10:1,13:2,14:6,15:4) at r=1. The all-n proof uses geometry and exact Gaussian-binomial inclusion-exclusion, not a finite inference.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pan et al. full subcode spectra concern Griesmer, modified Solomon–Stiffler, and simplex-complement codes; Li et al. cryptographic function defining-set codes; neither inspected explicit family is the audited two-slice systematic generator."
+        ],
+        "reasoning": "Broad general support formulas require nontrivial specialization to the exact two-regime hyperplane geometry; no prior result was found that already evaluates the parameters and multiplicities.",
+        "searches": [
+          "Resultary_Search semantic query: Mondal Lee ternary LCD half space F2 complete generalized Hamming weights subcode support distributions",
+          "arXiv:2408.10005",
+          "DOI:10.3934/amc.2022081"
+        ]
+      },
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s00200-026-00756-3",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-higher-support-spectra-for-the-new-systematic-simplex-lcd--c2fa52e0ba08",
+        "https://arxiv.org/html/2408.10005v1",
+        "Resultary_Search semantic query: Mondal Lee ternary LCD half space F2 complete generalized Hamming weights subcode support distributions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source Theorem 3.9 only treats ordinary weight distribution; different full-simplex theorem gives different d_r; Pan et al. finite families do not specialize by stated hypotheses."
+        ],
+        "reasoning": "The original weight enumerator constrains r=1 only and cannot force r>=2 subcode-support counts, which the annihilator method calculates.",
+        "searches": [
+          "DOI:10.1007/s00200-026-00756-3",
+          "Resultary/2026 October 4 systematic simplex theorem",
+          "arXiv:2408.10005"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mondal–Lee Theorem 3.9 has D={x1=0 or1} minus0 and code length n+2*3^(n-1)-1. Resultary full-simplex code Theorem 3.7 uses all 3^n-1 nonzero columns and length n+3^n-1."
+        ],
+        "reasoning": "The differing normalization and defining set invalidate equivalence; a common GHW technique alone does not imply the half-space distribution.",
+        "searches": [
+          "Resultary_Search semantic query: Mondal Lee ternary LCD half space F2 complete generalized Hamming weights subcode support distributions",
+          "DOI:10.1007/s00200-026-00756-3",
+          "Resultary/2026 complete simplex LCD spectrum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source n=3 ordinary weight enumerator 1+2z^10+4z^13+12z^14+8z^15 matches audited r1 subcode counts after division by 2; independently verified r2 17:2,18:3,19:8 and all r for n=4."
+        ],
+        "reasoning": "Prior r=1 table is covered and credited, but no exact all-r histogram/two-regime table in the sources; it is not determined from ordinary weights alone.",
+        "searches": [
+          "Resultary_Search semantic query: Mondal Lee ternary LCD half space F2 complete generalized Hamming weights subcode support distributions",
+          "Mondal–Lee Example 3.10",
+          "Resultary/2026 systematic simplex"
+        ]
+      },
+      "rationale": "Mondal–Lee Theorem 3.9 and Example 3.10 give code parameters and ordinary codeword weight distribution but not all r-subcode-support spectra. A separately published Resultary theorem on systematic full-simplex ternary code instead covers Mondal–Lee Theorem 3.7, whose generator includes every nonzero column, not two x1-slices. Its d_r=3^n-3^(n-r)+r differs from audited half-space d_r=r+2*3^(n-1)-3^(n-r). Pan–Chen–Liu–Liu and Li–Chen–Qu discuss GHW or subcode supports for other defining sets, and their general intersection technology does not evaluate this exact two-regime construction plus identity columns. Residual risk is a disguised equivalent affine family.",
+      "residual_risks": [
+        "A monomially equivalent half-space generator hidden in a broader coding construction might yield the same support law; no such equivalence found.",
+        "The theorem is restricted to Mondal–Lee Theorem3.9, not the source other binary/ternary LCD families."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Ordinary weights/source generator established, all-dimensional subcode-support distribution not included in inspected theorem statements.",
+          "evidence": "Theorem 3.7 full-simplex differs from Theorem 3.9 two-slice polynomial F^(2).",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00200-026-00756-3",
+          "material_read": "Open-access full article HTML, especially Theorems 3.7 and 3.9, Example 3.10 and generator/weight statements",
+          "method": "full publisher open-access text",
+          "title": "Infinite families of LCD codes and their weight distributions",
+          "trigger": "exact source defining audited half-space family"
+        },
+        {
+          "assessment": "Full-simplex Theorem3.7 only; explicitly warns other non-simplex Mondal–Lee families are outside scope.",
+          "evidence": "d_r=3^m-3^(m-r)+r differs from audited n+2*3^(n-1) half-space family.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-higher-support-spectra-for-the-new-systematic-simplex-lcd--c2fa52e0ba08",
+          "material_read": "Complete RESULT.md including proof, full formula and precise source family",
+          "method": "read-only primary repository snapshot",
+          "title": "Exact higher-support spectra for the new systematic simplex LCD families",
+          "trigger": "highest same-author closest mathematical overlap"
+        },
+        {
+          "assessment": "No identified theorem directly covers this two-slice [I|G_D] half-space code.",
+          "evidence": "The paper derives support distributions for other projective/simplex-complement constructions.",
+          "identifier_or_url": "https://arxiv.org/html/2408.10005v1",
+          "material_read": "Full open-access HTML with main construction statements and support distribution theorems for modified Solomon–Stiffler and Griesmer families",
+          "method": "arXiv full text",
+          "title": "Optimal Few-GHW Linear Codes and Their Subcode Support Weight Distributions",
+          "trigger": "relevant stronger subcode-support theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Subcode support-size distributions refine ordinary weight enumerators and generalized distances, naturally answering a structural question about a recently introduced LCD code family at ALL dimensions, not a tiny arbitrary instance. The precise two-slice geometry creates two annihilator regimes and exact multiplicities; the generalized Hamming hierarchy and minimizer counts are consequences. Such spectra are independently useful for higher-weight and reliability studies.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://link.springer.com/article/10.1007/s00200-026-00756-3",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-higher-support-spectra-for-the-new-systematic-simplex-lcd--c2fa52e0ba08",
+    "https://arxiv.org/html/2408.10005v1",
+    "Resultary_Search semantic query: Mondal Lee ternary LCD half space F2 complete generalized Hamming weights subcode support distributions"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A monomially equivalent half-space generator hidden in a broader coding construction might yield the same support law; no such equivalence found.",
+    "The theorem is restricted to Mondal–Lee Theorem3.9, not the source other binary/ternary LCD families."
+  ],
+  "schema_version": 1
+}
