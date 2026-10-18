@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Reproducibility and mathematical limits
+# Independent mathematical audit
 
-Run `python3 verify_polydependence.py` with Python 3.10 or later. The checker has no third-party dependencies and computes all pairs of binary relations over up to three key/value labels, the complete violation histogram, and the independent per-key convolution predicted by the theorem. It also evaluates the endpoint-valid exact zero-event expression at 56 Bernoulli parameter combinations and compares PGFs at three large sizes against the two limiting distributions.
+## correctness
 
-Successful execution produces:
+PASS
 
-```
-EXHAUSTIVE 1 pair_relations 4 satisfying 4 support 1
-EXHAUSTIVE 2 pair_relations 256 satisfying 81 support 5
-EXHAUSTIVE 3 pair_relations 262144 satisfying 5832 support 18
-BERNOULLI_EXACT_OK 56
-LIMIT_CHECK 500 compound_abs_error 0.000474 poisson_abs_error 0.010679
-LIMIT_CHECK 2000 compound_abs_error 0.000119 poisson_abs_error 0.005242
-LIMIT_CHECK 8000 compound_abs_error 3e-05 poisson_abs_error 0.002595
-VERIFY_OK
-```
+For each key a, conditional on m=|X_a|, every Y-value in X_a creates m-1 mismatches and every Y-value outside creates m; independent Bernoulli Y facts give (1-r+rt^{m-1})^m(1-r+rt^m)^{q-m}. Binomial averaging and independence of all q keys give exactly the stated PGF G_q(t)^q, with m=0 interpreted as one. W=0 per key iff X_a empty, Y_a empty or X_a=Y_a an identical singleton; inclusion/exclusion gives the exact probability. In balanced sparsity each key has one mismatching pair with probability ab/q+o(1/q) and multiple pair mass o(1/q), yielding Poisson(ab). In asymmetric sparsity the rare Y singleton occurs with probability b/q+o(1/q) and the number of mismatches converges from Bin(q-1,p_q) to Poisson(a); the PGF limit exp{b(exp(a(t-1))-1)} is compound Poisson with jump distribution Poisson(a). The expectation q²(q-1)pr -> ab and compound variance ab(1+a) check role and normalization. Independently enumerated all relation pairs for q=1,2,3 (4,256,262144 cases), exact zero counts (4,81,5832), and the first moments; that finite enumeration is regression evidence only.
 
-This is full finite enumeration only for the stated small sizes, plus numerical examples for the limit; it is not an exhaustive test over every alphabet size or a substitute for the proof's probability estimates. The Poisson limits were established analytically using independent fibers and convergence of probability generating functions. No independently conducted audit is claimed.
+## originality
+
+PASS
+
+Polyteam Semantics defines the cross-team poly-dependence atom but does not analyze independent tuple sampling. The 1998 single-table random functional-dependency model gives an exponential rare-violation law for a different sampling scheme, and Amarilli–Kimelfeld investigates complexity of query reliability, not this full PGF or asymmetric compound-Poisson limit. No directly covering result was retrieved through Resultary/web queries in cross-team relation sampling and random database integrity. Related general rare-subgraph/join Poisson approximation could subsume one or both limits; the originality conclusion is best-of-knowledge subject to this concrete residual risk.
+
+## value
+
+PASS
+
+A natural database integrity atom leads to an explicit finite satisfaction polynomial and two sharp sparse laws at the same limiting mean but inequivalent clustering and violation-free probabilities. This exposes the distributional effect of sharing one rare tuple with multiple matches, a mechanism that the expected count cannot distinguish; useful for calibrating random database reliability beyond generic model-counting complexity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T01:58:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each key a, conditional on m=|X_a|, every Y-value in X_a creates m-1 mismatches and every Y-value outside creates m; independent Bernoulli Y facts give (1-r+rt^{m-1})^m(1-r+rt^m)^{q-m}. Binomial averaging and independence of all q keys give exactly the stated PGF G_q(t)^q, with m=0 interpreted as one. W=0 per key iff X_a empty, Y_a empty or X_a=Y_a an identical singleton; inclusion/exclusion gives the exact probability. In balanced sparsity each key has one mismatching pair with probability ab/q+o(1/q) and multiple pair mass o(1/q), yielding Poisson(ab). In asymmetric sparsity the rare Y singleton occurs with probability b/q+o(1/q) and the number of mismatches converges from Bin(q-1,p_q) to Poisson(a); the PGF limit exp{b(exp(a(t-1))-1)} is compound Poisson with jump distribution Poisson(a). The expectation q²(q-1)pr -> ab and compound variance ab(1+a) check role and normalization. Independently enumerated all relation pairs for q=1,2,3 (4,256,262144 cases), exact zero counts (4,81,5832), and the first moments; that finite enumeration is regression evidence only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:1908.07093 studies query reliability complexity for tuple-independent probabilistic databases",
+          "Demetrovics et al TCS 190 (1998) single-table random functional dependencies"
+        ],
+        "reasoning": "General reliability expressibility/complexity does not automatically yield a closed PGF and two critical laws; 1998 model is not two independent set-valued relations with a shared key. General compound Poisson witness-count theorems remain a risk.",
+        "searches": [
+          "random cross-team poly-dependence relation Bernoulli violation Poisson and compound Poisson limiting probabilities",
+          "Amarilli Kimelfeld Uniform Reliability Self-Join-Free Conjunctive Queries 2022",
+          "Demetrovics Katona Miklos Seleznjev Thalheim 1998 random functional dependencies"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1704.02158",
+        "https://arxiv.org/abs/1908.07093",
+        "https://www.renyi.hu/~ohkatona/paper_87.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Polyteam Semantics: definition, axioms, expressive power",
+          "Uniform Reliability: complexity under tuple independence; no derivation of clustered mismatch PGF in inspected sections"
+        ],
+        "reasoning": "Logical definability plus a probabilistic database framework only sets up the event. Derivation of two limiting laws requires independent per-key fiber calculations not implied by the stated earlier theorem.",
+        "searches": [
+          "arXiv:1704.02158",
+          "arXiv:1908.07093",
+          "random cross-team poly-dependence relation Bernoulli violation Poisson and compound Poisson limiting probabilities"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hannula–Kontinen–Virtema 2017 §2.2 defines the poly-dependence condition",
+          "Violation event is a 3-variable join with inequality b≠c, and W counts all such witnesses"
+        ],
+        "reasoning": "Rephrased as an integrity-constraint/inequality-join witness count, rather than relying on specialized polyteam terminology; identical event and sampling distribution compared.",
+        "searches": [
+          "random cross-team poly-dependence relation Bernoulli violation Poisson and compound Poisson limiting probabilities",
+          "random database cross-table denial constraints tuple-independent Poisson compound Poisson"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Current finite zero count for fair sampling is (2^{q+1}-1+q)^q",
+          "Resultary top hits address pairwise-independent Bernoulli sums and unrelated laws, not the exact cross-team satisfaction count"
+        ],
+        "reasoning": "Searched for a precomputed database/table identity and found no one matching this full generating function; distinction rests primarily on sampling and proof comparison, not absence of search hits.",
+        "searches": [
+          "random cross-team poly-dependence relation Bernoulli violation Poisson and compound Poisson limiting probabilities",
+          "Resultary semantic rare Bernoulli violations"
+        ]
+      },
+      "rationale": "Polyteam Semantics defines the cross-team poly-dependence atom but does not analyze independent tuple sampling. The 1998 single-table random functional-dependency model gives an exponential rare-violation law for a different sampling scheme, and Amarilli–Kimelfeld investigates complexity of query reliability, not this full PGF or asymmetric compound-Poisson limit. No directly covering result was retrieved through Resultary/web queries in cross-team relation sampling and random database integrity. Related general rare-subgraph/join Poisson approximation could subsume one or both limits; the originality conclusion is best-of-knowledge subject to this concrete residual risk.",
+      "residual_risks": [
+        "Generic Poisson-clumping theorems for random joins/subgraphs may contain this specific regime as an unstated corollary.",
+        "1998 functional-dependency paper full text was not successfully read throughout; noncoverage was not inferred from snippets.",
+        "Poisson and compound Poisson limits cover only two prescribed critical scalings."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINES_ATOM_NOT_RANDOM_LAW",
+          "evidence": [
+            "Cross-team equality of second coordinates at shared first coordinate; focus is logical entailment and semantics."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1704.02158",
+          "material_read": "Full primary arXiv text, §2.2 atom semantics, logical relationships and theorem scope",
+          "method": "PDF full-text inspection including page image",
+          "title": "Polyteam Semantics",
+          "trigger": "Original definition of cross-team poly-dependence"
+        },
+        {
+          "assessment": "FRAMEWORK_ONLY",
+          "evidence": [
+            "Addresses computational complexity of query reliability; does not state the explicit mismatch-count generating function or asymptotic laws."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1908.07093",
+          "material_read": "Primary paper full-text sections on tuple independence and complexity dichotomy",
+          "method": "full PDF read and term search",
+          "title": "Uniform Reliability of Self-Join-Free Conjunctive Queries",
+          "trigger": "General model-counting/reliability framework"
+        },
+        {
+          "assessment": "POTENTIAL_COMPARISON_RISK",
+          "evidence": [
+            "Single-table random tuple sampling highlighted in abstract/selected source descriptions. No whole-document noncoverage inferred."
+          ],
+          "identifier_or_url": "https://www.renyi.hu/~ohkatona/paper_87.pdf",
+          "material_read": "Bibliographic identification, search excerpts and limited PDF content; full-page extraction was incomplete",
+          "method": "limited primary PDF access; NOT a whole-document negative reading",
+          "title": "Asymptotic Properties of Keys and Functional Dependencies in Random Databases",
+          "trigger": "Random-database rare violation prior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural database integrity atom leads to an explicit finite satisfaction polynomial and two sharp sparse laws at the same limiting mean but inequivalent clustering and violation-free probabilities. This exposes the distributional effect of sharing one rare tuple with multiple matches, a mechanism that the expected count cannot distinguish; useful for calibrating random database reliability beyond generic model-counting complexity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Generic Poisson-clumping theorems for random joins/subgraphs may contain this specific regime as an unstated corollary.",
+    "1998 functional-dependency paper full text was not successfully read throughout; noncoverage was not inferred from snippets.",
+    "Poisson and compound Poisson limits cover only two prescribed critical scalings.",
+    "Frozen public METADATA.json retains operational scope_run_id and is not safe for unchanged publication."
+  ],
+  "schema_version": 1
+}

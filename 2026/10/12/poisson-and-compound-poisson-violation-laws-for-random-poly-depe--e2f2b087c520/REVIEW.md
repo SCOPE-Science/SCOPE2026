@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain consists of two independently Bernoulli-sampled relations over a common finite key and value alphabet. Given a key and the cardinality of its first relation's fiber, an overlapping value contributes one fewer mismatch than a nonoverlapping value; this proves the full finite PGF directly, including empty fibers. The zero-event is exhausted by the two empty-fiber cases and the common singleton case. In the balanced regime, simultaneous nonempty fibers occur with probability \(ab/q+o(1/q)\) and multiple violations are negligible per key. In the imbalanced regime, the rare fiber is singleton with probability \(b/q+o(1/q)\), creating a nearly Poisson number of repeated mismatches. The respective limiting generating functions establish both laws, and exact linearity gives the same limiting expectation. Exhaustive finite tests were replayed; they support but do not substitute for proof. No inference about unstudied regimes is made.
+PASS
 
-## Originality — PASS, with residual risk
+For each key a, conditional on m=|X_a|, every Y-value in X_a creates m-1 mismatches and every Y-value outside creates m; independent Bernoulli Y facts give (1-r+rt^{m-1})^m(1-r+rt^m)^{q-m}. Binomial averaging and independence of all q keys give exactly the stated PGF G_q(t)^q, with m=0 interpreted as one. W=0 per key iff X_a empty, Y_a empty or X_a=Y_a an identical singleton; inclusion/exclusion gives the exact probability. In balanced sparsity each key has one mismatching pair with probability ab/q+o(1/q) and multiple pair mass o(1/q), yielding Poisson(ab). In asymmetric sparsity the rare Y singleton occurs with probability b/q+o(1/q) and the number of mismatches converges from Bin(q-1,p_q) to Poisson(a); the PGF limit exp{b(exp(a(t-1))-1)} is compound Poisson with jump distribution Poisson(a). The expectation q²(q-1)pr -> ab and compound variance ab(1+a) check role and normalization. Independently enumerated all relation pairs for q=1,2,3 (4,256,262144 cases), exact zero counts (4,81,5832), and the first moments; that finite enumeration is regression evidence only.
 
-Hannula–Kontinen–Virtema (arXiv:1704.02158), §§2.2–3 and 5, define poly-dependence and explore logical axiomatization and expressive power; these do not give its Bernoulli reliability law. Demetrovics et al. (*TCS* 190 (1998), §2 and Theorem 1) give classical one-relation random-tuple functional-dependency probabilities with an \(e^{-\lambda}\) limit; their sampling hypotheses do not cover independent two-table asymmetric regimes or force the present compound-Poisson law. Amarilli–Kimelfeld (arXiv:1908.07093, abstract and introductory results) establish model-counting and reliability complexity classifications, not this parameterized two-table PGF and cross-scaling distribution comparison. Searches for polyteam random sampling, aliases such as cross-table functional dependencies, reliability, and compound-Poisson violations found no stronger coverage among inspected results. Generic rare-event cluster laws, or uninspected relational probabilistic-query literature, might encode an equivalent special case; this remains a genuine residual risk, not a uniqueness claim.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The truth value of poly-dependence is an integrity test across distinct database teams. An explicit exact probability and the full violation-generating function supply natural reliability and defect-severity invariants. The substantive boundary is that two distributions with **the same limiting mean** exhibit strictly different rates of logical validity: \(e^{-ab}\) versus \(e^{-b(1-e^{-a})}\). The latter overdispersion reveals a coherent violation-clustering mechanism, so the distinction cannot be recovered by a naive Poisson approximation based only on expected mismatches. This is a motivated classification of two naturally different sparsity designs, rather than an arbitrary small-parameter table.
+Polyteam Semantics defines the cross-team poly-dependence atom but does not analyze independent tuple sampling. The 1998 single-table random functional-dependency model gives an exponential rare-violation law for a different sampling scheme, and Amarilli–Kimelfeld investigates complexity of query reliability, not this full PGF or asymmetric compound-Poisson limit. No directly covering result was retrieved through Resultary/web queries in cross-team relation sampling and random database integrity. Related general rare-subgraph/join Poisson approximation could subsume one or both limits; the originality conclusion is best-of-knowledge subject to this concrete residual risk.
 
-## Scope and risk
+## value
 
-Only two Bernoulli-independent relations with uniform per-relation probabilities, and the balanced and asymmetric critical limits, are proved. Exact formulas cover all finite alphabet sizes; no arbitrary-parameter phase diagram, general dependent sampling, or unique novelty guarantee is claimed. Independent mathematical and literature audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural database integrity atom leads to an explicit finite satisfaction polynomial and two sharp sparse laws at the same limiting mean but inequivalent clustering and violation-free probabilities. This exposes the distributional effect of sharing one rare tuple with multiple matches, a mechanism that the expected count cannot distinguish; useful for calibrating random database reliability beyond generic model-counting complexity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
