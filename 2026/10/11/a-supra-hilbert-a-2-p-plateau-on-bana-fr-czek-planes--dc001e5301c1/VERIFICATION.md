@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-11.md",
+      "INDEPENDENT_AUDIT_2026-10-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,78 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Let
-\[
-a=\lambda^{-1},
-\qquad
-b=\sqrt{1-\lambda^{-2}},
-\qquad
-\kappa=1-2\lambda^{-2}.
-\]
-For \(\lambda\ge\sqrt2\), \(\kappa\ge0\).
+# Independent mathematical audit
 
-The exact mixed-branch support maximum is
-\[
-1+\tau+
-\sqrt{a^2(1-\tau)^2+b^2(1+\tau)^2}
-=
-1+\tau+\sqrt{1+2\kappa\tau+\tau^2}.
-\]
-The support condition is global because
-\[
-(\lambda^2-1)(\lambda-t)^2-(1-t^2)
-=
-\lambda^2-2+(-\lambda^2+\lambda t+1)^2\ge0
-\]
-for every \(t\in[-1,1]\), and the opposite sign follows by replacing \(t\) with \(-t\).
+## correctness
 
-The same-branch bounds are
-\[
-2\sqrt{1+\tau^2}
-\]
-for the Euclidean branch and \(2\) for the strip branch. Since
-\[
-\sqrt{1+2\kappa\tau+\tau^2}\ge\sqrt{1+\tau^2}
-\]
-and
-\[
-1+\tau\ge\sqrt{1+\tau^2},
-\]
-the mixed branch dominates.
+PASS
 
-With
-\[
-G_\lambda(\tau)=
-\frac{1+\tau+\sqrt{1+2\kappa\tau+\tau^2}}2,
-\]
-the \(p=2\) logarithmic derivative satisfies
-\[
-\left(
-\frac{G_\lambda'}{G_\lambda}
--\frac{\tau}{1+\tau^2}
-\right)
-G_\lambda\sqrt{1+2\kappa\tau+\tau^2}(1+\tau^2)
-=
-\frac{(1-\tau)\left(\kappa(1+\tau)+\sqrt{1+2\kappa\tau+\tau^2}\right)}2
-\ge0.
-\]
-For every finite \(p\ge2\),
-\[
-\frac{\tau^{p-1}}{1+\tau^p}
-\le
-\frac{\tau}{1+\tau^2},
-\]
-so the normalized generalized-Baronti profile is nondecreasing. At \(\tau=1\),
-\[
-G_\lambda(1)=1+\sqrt{1-\lambda^{-2}}.
-\]
+On the exact real Banaś--Frączek unit ball B={u²+v²≤1, |u|≤1/λ}, the Euclidean/strip active-branch split is exhaustive. The same-Euclidean branch is bounded by 2√(1+τ²), the same-strip branch by 2, and the mixed branch by support functions. The identity (λ²−1)(λ−t)²−(1−t²)=λ²−2+(−λ²+λt+1)²≥0 for λ≥√2 guarantees the two shifted directions expose the cut circular vertices. Maximizing their sum gives G(τ)=(1+τ+√(1+2κτ+τ²))/2 for κ=1−2/λ²; x=(1/λ,√(1−1/λ²)), y=(−1/λ,√(1−1/λ²)) attains equality for all 0≤τ≤1, with correctly identified active branches. The Baronti--Papini unit-sphere reduction converts this to 2^(1/p)G(τ)/(1+τ^p)^(1/p). Explicit p=2 logarithmic differentiation is nonnegative, and τ^(p−1)/(1+τ^p)≤τ/(1+τ²) for p≥2 transfers the result; G itself increases for p=∞. Thus the maximum at τ=1 equals 1+√(1−λ^(−2)), including λ=√2 and both p endpoints. These are analytic uniform proofs, not finite data.
 
-The pair
-\[
-x=(a,b),
-\qquad
-y=(-a,b)
-\]
-has \(N_\lambda(x)=N_\lambda(y)=1\) and attains every displayed mixed-branch profile value. No numerical search or finite enumeration establishes the result.
+## originality
+
+PASS
+
+The founding Banaś--Frączek paper defines the exact norm and studies deformation moduli; Baronti--Papini define and reduce the generalized Baronti family but calculate other example spaces and the linear Day-modulus class; Yang--Yang compute James/von Neumann--Jordan constants in this same family. The inspected statements do not cover the exact nonlinear G-profile or the common p≥2 plateau. Resultary was queried and failed operationally; the judgment is best-of-knowledge under that limitation, not a claim of exhaustive novelty.
+
+## value
+
+PASS
+
+A complete exact two-parameter plateau and all-direction Day-modulus profile on a classical explicitly defined Banach plane resolves a natural uncomputed case of a published family of geometric invariants. The λ≥√2 regime is geometrically motivated by the support transition, and the p-independence is not a name change or trivial substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
