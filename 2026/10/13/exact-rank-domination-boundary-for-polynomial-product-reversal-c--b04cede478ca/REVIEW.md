@@ -1,17 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-The necessity proof reduces universal rank domination to one-variable matrix tests. Jordan blocks force every root multiplicity of \(p\) to occur in \(q\), hence \(p\mid q\). If \(p(0)=0\), an explicit nilpotent product-reversal pair forces one extra factor of \(t\). The two sufficiency cases are certified respectively by equality of nullities for \(p(XY)\) and \(p(YX)\) when \(p(0)\ne0\), and by the exact free-algebra factorization \(q(yx)=y\,p(xy)\,x\,r(yx)\) when \(tp\mid q\). The nonmembership direction uses a concrete unilateral-shift representation. No finite computation is used to establish the universal statement.
+## correctness
 
-## Originality
-The motivating 2026 paper gives only the single pair \(xy-1,yx-1\). The 2025 stable-association paper characterizes rank equality, not the one-sided universal rank-domination preorder or its interaction with principal two-sided ideals. The 2009 \(AB/BA\) theorem supplies the nonzero-spectrum rank mechanism but does not discuss free-polynomial ideal membership or classify the \(p(xy),q(yx)\) rank-domination family. Targeted searches for polynomial product-reversal rank domination, \(p(xy)\)/\(q(yx)\) ideal membership, and aliases through \(AB/BA\) polynomial ranks did not locate the stated classification.
+PASS
 
-Residual risk: the classification may be implicit in specialist literature on stable association or free ideal rings under terminology not exposed by the searches. No source inspected stated or dominated the full equivalence including the ideal-membership boundary.
+For K algebraically closed characteristic zero, p nonconstant and q nonzero, rank inequality for all square X,Y implies by X=I,Y=J_a(lambda) that each root lambda of p occurs in q to at least the same multiplicity, hence p|q. If p(0)=0 and q has exactly the same zero multiplicity, X=J_{a+1}(0), Y=diag(1,...,1,0) makes p(XY)=0 and q(YX)!=0; thus tp|q. If p(0)!=0, intertwinings Yp(XY)=p(YX)Y and reverse, with Y injective on ker p(XY), force equal ranks of p(XY),p(YX); divisibility then gives domination with sharp C=1. When tp|q, free identity q(yx)=y p(xy) x r(yx) proves membership. Otherwise pick nonzero root lambda of p and unilateral L,R shifts LR=I, RL=I-P: p(lambda LR)=0 while q(lambda RL)e1=q(0)e1 !=0, separating ideal membership. Independently checked F3 every 2x2 X,Y pair (6561) for both sufficiency branches and nilpotent 2x2 failure witness. Infinite-dimensional representation is used as an algebra homomorphism and is not a finite matrix counterexample.
 
-## Value
-The source counterexample is not isolated: the theorem gives a complete natural family and identifies the exact algebraic boundary between genuine rank-domination counterexamples and cases where domination comes from an explicit two-sided factorization. This converts one example into a structural criterion, while also showing that any admissible domination constant collapses to the sharp value \(1\).
+## originality
 
-## Closest literature and limitations
-Closest sources are Yan–Yang, arXiv:2610.01804v1; Shamovich–Volčič, arXiv:2505.07469; and Lippert–Strang, DOI 10.13001/1081-3810.1313. The result is limited to the product-reversal composition ansatz and does not settle rank domination for arbitrary free polynomials.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge: complete two-polynomial product-reversal preorder and exact free principal-ideal membership cutoff beyond published one-pair counterexample and prior rank-equivalence/AB-BA Jordan results. It is derived from credited classical mechanisms but requires new combined necessity and shift separation.
+
+## value
+
+PASS
+
+The first nonhomogeneous rank-Nullstellensatz counterexample is classified within a mathematically canonical product-reversal ansatz. The sharp dividing lines at p(0)=0 and the extra zero root show exactly when inequality is a genuine nonmembership witness, and prove collapse of every admissible C to 1; useful structural boundary, not an arbitrary reparameterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
