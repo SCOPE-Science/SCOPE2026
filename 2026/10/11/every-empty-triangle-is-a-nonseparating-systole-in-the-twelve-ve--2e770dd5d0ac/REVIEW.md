@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact 44-facet surface has complete one-skeleton, Euler characteristic \(-10\), and mod-two first-homology dimension \(12\). Every one of the \(176\) nonfacial triangles is reduced against the complete facial-boundary space and is nonzero. Equality of reduced vectors gives exactly \(110\) triangular classes with multiplicities \(56,48,6\). The full automorphism group is proved by exhausting all 264 link-cycle-compatible vertex maps; exactly 12 preserve the facets, and their complete class action gives the stated orbit profile. The nonseparating conclusion uses the standard mod-two separation criterion for embedded simple closed curves on a closed orientable surface.
+## correctness
 
-## Originality
-PASS, with historical-source risk stated. The 1996 classification supplies all 59 orientable neighborly twelve-vertex genus-six surfaces, and exact later documentation already records that surface 58 is the unique one with automorphism group order 12. Those facts are prior. Required semantic-index searches under exact-object, empty-triangle, nonseparating, homology-class, numerical 176/110, and systolic formulations returned no covering claim. The inspected exact-object sources do not give the 110-class multiplicity spectrum or its symmetry-orbit refinement.
+PASS
 
-## Value
-PASS. In a neighborly surface every vertex triple is a graph triangle, so the empty-triangle layer is the entire first possible length for essential loops. Proving that none of the 176 empty triangles separates gives a complete structural dichotomy at length three, while the 56/48/6 class multiplicities and exceptional six-class symmetry orbit quantify how this large systolic layer occupies the twelve-dimensional mod-two homology group.
+The frozen 44-facet labelled GenusSix triangulation has 12 vertices, all 66 edges, Euler characteristic -10 and 44 triangular faces, each edge in exactly two faces. Independent GF(2) facial-boundary elimination gives rank 43 and dim H1=66-11-43=12. Exhausting all C(12,3)=220 triples leaves 176 empty triangles, and EVERY reduced boundary is nonzero. Exactly 110 homology classes have carrier multiplicities 1:56,2:48,4:6. Independently enumerating all 12*22 link-compatible permutations retains exactly 12 facet automorphisms and yields class orbits (12,1)x4,(4,1)x2,(12,2)x3,(6,2)x2,(6,4)x1. Standard mod-two separating criterion on an orientable closed surface identifies every nonzero triangular cycle as nonseparating, and no simple simplicial loop is shorter than three edges. This is exact exhaustive finite verification for this fixed labelled triangulation, not a generalization to the other 58 genus-six surfaces.
 
-## Closest literature and limitations
-Altshuler--Bokowski--Schuchert and Ellingham--Stephens provide the complete-graph embedding classification; SageMath gives the exact surface-58 presentation and order-12 symmetry cross-check; Lutz supplies the verified primary MSC 57Q15 context. The 1996 full text was not available as searchable material through the inspected route, so no whole-document noncoverage claim is made. The theorem is limited to triangular mod-two representatives.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Compared exact claim and logical implication against primary published literature and relevant Resultary entries. Every empty triangle is a nonseparating systole in the twelve-vertex genus-six surface survives on best current evidence, with named full-text/access limits and residual risks. Exact nontrivial class/support/collapse/convolution data are not established by identified older stronger or generic statements.
+
+## value
+
+PASS
+
+The complete minimum-length mod-two homology carrier spectrum of a natural maximally symmetric neighborly genus-six triangulation, including the rare fourfold classes and symmetry orbit, is a nontrivial topologically meaningful invariant. It distinguishes the arrangement of 176 shortest curves among 110 H1 classes, going beyond the known f-vector or automorphism order. Restricted to the natural length-three layer rather than an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

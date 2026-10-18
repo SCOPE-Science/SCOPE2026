@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` embeds the complete 44-facet presentation of the twelve-vertex genus-six surface and uses only the Python standard library.
+# Independent mathematical audit
 
-It verifies that the one-skeleton is the complete graph \(K_{12}\), every edge has degree two, and the Euler characteristic is \(-10\). Exact bit-vector reduction of the 44 facial triangle boundaries has rank \(43\), giving \(\dim H_1(K;\mathbf F_2)=12\).
+## correctness
 
-All \(220\) vertex triples are enumerated. The \(44\) faces are null boundaries; all \(176\) nonfacial triangles reduce to nonzero classes. Equality of reduced vectors gives \(110\) classes with triangular multiplicities \(1^{\times56},2^{\times48},4^{\times6}\).
+PASS
 
-For symmetry, every automorphism is determined by the image of vertex \(0\) and an isomorphism of its eleven-cycle link with the target link. The verifier exhausts all \(264\) such maps, obtaining exactly \(12\) facet-preserving automorphisms, then computes every support orbit and class orbit.
+The frozen 44-facet labelled GenusSix triangulation has 12 vertices, all 66 edges, Euler characteristic -10 and 44 triangular faces, each edge in exactly two faces. Independent GF(2) facial-boundary elimination gives rank 43 and dim H1=66-11-43=12. Exhausting all C(12,3)=220 triples leaves 176 empty triangles, and EVERY reduced boundary is nonzero. Exactly 110 homology classes have carrier multiplicities 1:56,2:48,4:6. Independently enumerating all 12*22 link-compatible permutations retains exactly 12 facet automorphisms and yields class orbits (12,1)x4,(4,1)x2,(12,2)x3,(6,2)x2,(6,4)x1. Standard mod-two separating criterion on an orientable closed surface identifies every nonzero triangular cycle as nonseparating, and no simple simplicial loop is shorter than three edges. This is exact exhaustive finite verification for this fixed labelled triangulation, not a generalization to the other 58 genus-six surfaces.
 
-Exact successful output:
+## originality
 
-`VERIFY_OK f=12,66,44 chi=-10 genus=6 H1_F2_dim=12 missing3=176 all_missing3_nonzero=yes triangular_classes=110 multiplicities=1:56,2:48,4:6 aut=12 support_orbits=4,4,12,12,12,12,12,12,12,12,12,12,12,12,12,12 class_orbits=(12,1)x4,(4,1)x2,(12,2)x3,(6,2)x2,(6,4)x1 quadruple_classes_one_orbit=yes`
+PASS
 
-The program proves the finite combinatorial and homological assertions. The final word “nonseparating” additionally uses the standard theorem that a simple closed curve in a closed orientable surface separates exactly when its mod-two homology class is zero.
+Compared exact claim and logical implication against primary published literature and relevant Resultary entries. Every empty triangle is a nonseparating systole in the twelve-vertex genus-six surface survives on best current evidence, with named full-text/access limits and residual risks. Exact nontrivial class/support/collapse/convolution data are not established by identified older stronger or generic statements.
+
+## value
+
+PASS
+
+The complete minimum-length mod-two homology carrier spectrum of a natural maximally symmetric neighborly genus-six triangulation, including the rare fourfold classes and symmetry orbit, is a nontrivial topologically meaningful invariant. It distinguishes the arrangement of 176 shortest curves among 110 H1 classes, going beyond the known f-vector or automorphism order. Restricted to the natural length-three layer rather than an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
