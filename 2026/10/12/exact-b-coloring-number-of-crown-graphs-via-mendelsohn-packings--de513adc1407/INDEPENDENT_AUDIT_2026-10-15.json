@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T11:59:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e7970a86eb52a25c6e66d1138bd9c53e740fadc0/2026/10/12/exact-b-coloring-number-of-crown-graphs-via-mendelsohn-packings--de513adc1407/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e7970a86eb52a25c6e66d1138bd9c53e740fadc0/2026/10/12/exact-b-coloring-number-of-crown-graphs-via-mendelsohn-packings--de513adc1407/METADATA.json",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e7970a86eb52a25c6e66d1138bd9c53e740fadc0/2026/10/12/exact-b-coloring-number-of-crown-graphs-via-mendelsohn-packings--de513adc1407/verify.py"
+      ],
+      "rationale": "The parameter B-coloring is proper EDGE-coloring such that each 4-cycle is rainbow (distinct from the unrelated vertex b-chromatic number). In crown Cr_n, edge a_i b_j corresponds to arc i→j with i≠j. Distinct edges i→j and k→ℓ may share a color only if their tails and heads are distinct (properness) AND one opposite cross edge of the potential 4-cycle is missing, namely j=k or ℓ=i. Each color class is therefore a pair of composable directed arcs, or, if triple, precisely the three arcs of an oriented directed 3-cycle; no class of size four. Lower bound is ceil(n(n−1)/3). Gardner's classical complete-directed-graph packing theorem, inspected in its original full 1997 primary text, decomposes all arcs into directed 3-cycles for n≡0,1 mod3 except n=6, and for n≡2 mod3 leaves a directed 2-cycle that forms one legal same-color pair. Order 6 has no Mendelsohn triple system, giving ≥11; eight explicitly displayed directed triangles plus three two-arc classes form exactly 11 legal colors covering all 30 arcs. Independent re-enumeration checked 8/20/40 legal 3-arc classes in n=4/5/6 and verified all 11 six-vertex blocks partition the arcs and meet each pairwise 4-cycle constraint. This proves all n≥4 using the full classical existence theorem rather than extrapolating finitely. Upper bound q_B=ceil(n(n−1)/3) except q_B(Cr_6)=11.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gardner gives decomposition existence for complete digraphs and n6 impossibility, but does not assert q_B(Cr_n); Lu–Ying–Song gives n² for K_nn, a different graph."
+        ],
+        "reasoning": "The design theorem is the upper-bound construction input and a strong potential cover; to imply the edge coloring number it requires the new reduction showing all allowed 3-edge color classes are exactly directed 3-cycles and the leave pair is legal. No inspected prior paper states that graph-theoretic reduction.",
+        "searches": [
+          "Gardner 1997 Congressus Numerantium 127:161–170 Theorem 2.2",
+          "arXiv:2609.39716",
+          "Resultary: rainbow 4 cycle edge coloring crown graph B-coloring Mendelsohn"
+        ]
+      },
+      "checked_sources": [
+        "Gardner 1997 Congressus Numerantium 127:161–170 (full primary PDF)",
+        "arXiv:2609.39716 (relevant full text)",
+        "Resultary: rainbow 4 cycle edge coloring crown graph B-coloring Mendelsohn",
+        "Resultary: exact B-coloring number of cactus graphs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact q_B(Cr_n) uses Gardner only after the 4-cycle missing-cross-edge compatibility lemma, which changes the leading count from q_B(K_nn)=n² to roughly n²/3."
+        ],
+        "reasoning": "No direct corollary from Gardner alone applies without deriving graph edge-coloring equivalence; the classical design theorem is appropriately acknowledged, and its exact n6 exception is inherited, not falsely attributed as new.",
+        "searches": [
+          "Gardner 1997 Theorem 2.2",
+          "arXiv:2609.39716 q_B(K_nn)",
+          "Resultary: rainbow 4 cycle edge coloring crown graph B-coloring Mendelsohn"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A legal same-color class corresponds precisely to composable arcs, with 3-edge colors equal oriented Mendelsohn blocks."
+        ],
+        "reasoning": "Compared aliases B-edge-coloring, proper rainbow C4 edge coloring, matching-deleted biclique and oriented-triangle Mendelsohn packings; did not confuse B-coloring with vertex b-chromatic number or sequence b-coloring.",
+        "searches": [
+          "Gardner 1997 Optimal Packings and Coverings of the Complete Directed Graph with 3-Circuits and with Transitive Triples",
+          "arXiv:2609.39716 B-coloring bipartite exclusions",
+          "Resultary: rainbow 4 cycle edge coloring crown graph B-coloring Mendelsohn"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "n=6 has an explicit 11-color 30-arc exact partition; all-order formula follows from the documented Gardner packing existence theorem, not a finite table."
+        ],
+        "reasoning": "Gardner decompositions provide design-theoretic optimal packings and exceptional n6, not a precomputed crown B-coloring table; finite n4..8 witnesses corroborate but are not universal proof.",
+        "searches": [
+          "Gardner 1997 complete digraph Mendelsohn packing tables",
+          "Resultary: rainbow 4 cycle edge coloring crown graph B-coloring Mendelsohn",
+          "arXiv:2609.39716"
+        ]
+      },
+      "rationale": "Gardner's 1997 complete digraph 3-circuit theorem indeed gives all necessary packings and exact order-six exception; that prior design theorem alone is not a statement about B-edge-coloring of crown graphs and requires proving legal-color-class equivalence. Lu–Ying–Song's accessible full 2026 B-coloring paper gives q_B(K_{Δ,Δ})=Δ² and bipartite-exclusion bounds but no crown matching-deleted formula found in inspected relevant pages and full-text search. Search of published SCOPE/Resultary found B-coloring of cacti and vertex colorings of crowns, which are different graph classes/parameters. Best-of-knowledge O PASS, subject to older rainbow-C4 edge-coloring aliases.",
+      "residual_risks": [
+        "Differently named older rainbow-C4 / strong edge-coloring-of-biclique paper could establish same crown exact formula; not found in targeted search.",
+        "The proof depends on the classical Gardner full theorem as an input, not an independent new design-existence theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms complete directed-3-circuit packing and 2-cycle leaves with six-vertex exception, but the inspected result is a digraph design theorem not a graph B-coloring theorem.",
+          "evidence": "Original theorem specifies complete directed digraph 3-circuit packings, 2-cycle leave for n≡2 (mod3), and nonexistence of decomposition for n=6.",
+          "identifier_or_url": "Gardner, Congressus Numerantium 127 (1997), 161–170",
+          "material_read": "Full original ten-page primary PDF obtained and read for definitions and 3-circuit packing theorems, including page images for existence conditions and Theorem 2.2",
+          "method": "Primary lawful full-text PDF and screenshots",
+          "title": "Optimal Packings and Coverings of the Complete Directed Graph with 3-Circuits and with Transitive Triples",
+          "trigger": "Exact n≡2 mod3 leave pair and exceptional n6 fundamental all-order existence input"
+        },
+        {
+          "assessment": "Relevant inspected full text gives bipartite exclusion bounds and complete-biclique identity, not crown exact number; no matching-deleted-biclique formula found.",
+          "evidence": "q_B(K_{n,n})=n² differs asymptotically from crown graph result.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.39716",
+          "material_read": "Open full arXiv PDF, definitions, bipartite-exclusion theorems, q_B(K_{Δ,Δ})=Δ² statement, and text search for crown and Mendelsohn",
+          "method": "Open-access full-text PDF and inspected theorem pages",
+          "title": "(2,F)-Avoiding Coloring and B-Coloring under Bipartite Exclusions",
+          "trigger": "Contemporary directly named B-edge-coloring parameter, possible crown result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Gardner 1997 Congressus Numerantium 127:161–170 (full primary PDF)",
+        "arXiv:2609.39716 (relevant full text)",
+        "Resultary: rainbow 4 cycle edge coloring crown graph B-coloring Mendelsohn",
+        "Resultary: exact B-coloring number of cactus graphs"
+      ],
+      "rationale": "This is the exact B-edge-coloring number of the natural matching-deleted biclique, with the concrete exceptional order six. The structural reduction to Mendelsohn 3-circuit packings explains an initially striking discontinuity: K_{n,n} needs n² colors while Cr_n after deleting n matched edges needs n(n−1)/3+O(1). The graph/design translation and sharp exception are useful for 4-cycle-rainbow edge colorings and cannot be read off from a generic chromatic bound; the classical Mendelsohn packing theorem is acknowledged as a non-new ingredient.",
+      "residual_risks": [
+        "Differently named older rainbow-C4 / strong edge-coloring-of-biclique paper could establish same crown exact formula; not found in targeted search.",
+        "The proof depends on the classical Gardner full theorem as an input, not an independent new design-existence theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only crown Cr_n with n≥4 and B=proper edge-coloring making each 4-cycle rainbow.",
+    "Mendelsohn design packing theorem is prior work; result does not classify all optimal edge colorings or arbitrary matching-deleted bipartite graphs."
+  ],
+  "schema_version": 1
+}
