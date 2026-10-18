@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "Each host edge is uniquely an arrow u->v. Two selected arrows are compatible exactly when tails are distinct and not used as other arrow heads, giving a unique function from tail set to complement. Inclusion-maximality is proved equivalent to onto, yielding full coefficient formulas and minimal cardinality. At even n, minimum maps are oriented perfect matchings; fixed m-1 arrows force the last underlying pair, giving hypercube components. At odd n, minimum maps form one centered triple and m-1 oriented pairs; all valid replacements are proved to be one pair flip or moving one triple leaf to a pair center, giving degree 3(m-1). Four explicit small reconfiguration paths prove connectivity on five labels, lifted to arbitrary odd order by five-label local moves and generation by transpositions. An independently constructed graph-level checker matches all coefficients and swap components for orders 2 through 9. The finite computation does not prove the infinite result; the displayed proof does.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kurita et al. 2017: general C4-free enumeration algorithm and FPT counting for restricted classes.",
+        "Basavaraju et al. 2013: universal triangle-free bound on maximal induced matchings.",
+        "Yuan et al. 2024: extremal maximum number over connected graphs."
+      ],
+      "reasoning": "Generic enumeration algorithms, FPT statements and graph-order extremal upper bounds do not imply exact coefficients, fiber/partition types or allowed optimal edge replacements on S(K_n). The new parity classification is not a corollary of the cited broad bounds.",
+      "searches": [
+        "One-subdivision of clique, maximal induced matchings, induced matching saturation number, edge domination, independent domination in line graph square",
+        "minimum size maximal induced matching subdivided complete graphs ceil(n/2), number maximal matchings Stirling set partitions stars",
+        "Minimum inclusion-maximal induced matchings of complete graph subdivisions: one-edge token-jumping reconfiguration graph connected for odd n at least five, while even n gives a disjoint union of hypercubes indexed by perfect matchings.",
+        "\"minimum maximal induced matching\" \"subdivided clique\"",
+        "arXiv:1707.02740",
+        "arXiv:1312.5180",
+        "arXiv:2410.11288"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1707.02740, full HTML, Sections 1, 3, 4",
+      "arXiv:1312.5180, full HTML, theorem and Sections 2–4",
+      "arXiv:2004.09885, full HTML, entire theorem framework",
+      "arXiv:2410.11288, full HTML, connected-graph extremal theorem",
+      "Public exact-phrase searches on induced matching reconfiguration and one-subdivision of complete graphs"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2017 C4-free work proves a general enumeration algorithm; it supplies no special bijection or reconfiguration spectrum.",
+        "The 2013 triangle-free theorem only bounds maximal induced matching counts from above.",
+        "The 2020 maximal induced subgraph solution-map theorem concerns induced vertex subsets.",
+        "The 2024 connected-graph extremal bound concerns class-wide maxima rather than the family S(K_n)."
+      ],
+      "reasoning": "One can algorithmically generate all solutions with older tools, but obtaining the new exact Stirling polynomials and every minimum reconfiguration component requires the explicitly proved family structure. The selected prior statements do not entail the new infinite-family equalities and parity-connectivity formula.",
+      "searches": [
+        "Subdivided complete graph S(K_n), inclusion-maximal induced matchings, surjective functions, Stirling numbers, cardinality generating polynomial, minimum maximal induced matching",
+        "Minimum inclusion-maximal induced matchings of complete graph subdivisions: one-edge token-jumping reconfiguration graph connected for odd n at least five, while even n gives a disjoint union of hypercubes indexed by perfect matchings.",
+        "\"maximal induced matching reconfiguration\" \"token jumping\"",
+        "arXiv:1707.02740",
+        "arXiv:1312.5180",
+        "arXiv:2004.09885",
+        "arXiv:2410.11288"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "An induced matching of G is an independent set of L(G)^2 (Basavaraju et al. 2013, introduction).",
+        "The new structural encoding is an onto map U -> [n]\\U; this corresponds to maximal independent sets in L(S(K_n))^2, but the cited paper gives no specialized classification."
+      ],
+      "reasoning": "Compared induced matching, strong matching, induced edge domination, square-line-graph independence, set-surjection counting, and one-token replacement on minimum maximal solutions. The equivalence to independent domination in the squared line graph changes terminology but does not itself supply the parity component theorem.",
+      "searches": [
+        "Subdivided complete graph S(K_n), inclusion-maximal induced matchings, surjective functions, Stirling numbers, cardinality generating polynomial, minimum maximal induced matching",
+        "One-subdivision of clique, maximal induced matchings, induced matching saturation number, edge domination, independent domination in line graph square",
+        "Minimum inclusion-maximal induced matchings of complete graph subdivisions: one-edge token-jumping reconfiguration graph connected for odd n at least five, while even n gives a disjoint union of hypercubes indexed by perfect matchings.",
+        "\"induced matching reconfiguration\" \"subdivision\" \"complete\"",
+        "\"induced matching\" \"subdivision\" \"surjections\" \"Stirling\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public searches for specific closed formulas and surjective-map interpretation did not yield a covering tabulation.",
+        "A direct graph-level enumeration for n=2..9 agrees with coefficients and component counts, but is not a literature-priority certificate."
+      ],
+      "reasoning": "No exact indexed table containing these S(K_n) maximal-match cardinality coefficients and optimal-swap components was identified. Exhaustive checks at small orders verify the proposed values but cannot establish database uniqueness.",
+      "searches": [
+        "All inclusion-maximal induced matchings of complete-graph one-subdivisions correspond to surjections from tails to roots and have polynomial sum binomial(n,k) (n-k)! Stirling(k,n-k)",
+        "Induced matching enumerator of clique subdivision S(K_n), binomial(n,k)(n-k)^k, exponential generating function exp(t exp(z t))",
+        "Minimum inclusion-maximal induced matchings of complete graph subdivisions: one-edge token-jumping reconfiguration graph connected for odd n at least five, while even n gives a disjoint union of hypercubes indexed by perfect matchings.",
+        "\"maximal induced matching\" \"subdivision\" \"complete graph\"",
+        "\"minimum maximal induced matching\" \"one-subdivision\""
+      ]
+    },
+    "rationale": "A direct full-text comparison with general maximal-induced-matching extremal theorems, C4-free enumeration, and maximal induced-subgraph solution maps did not identify a theorem implying the exact S(K_n) surjection-counting polynomial together with its sharp parity-disconnected/connected minimum-swap graph. Distinct formulations, stronger theorems, and public mathematical record searches were checked. Residual risk remains for unindexed equivalent results, especially maximal independent sets of the square of a line graph.",
+    "residual_risks": [
+      "Specialized minimum-maximal induced matching counts or exchange components might appear under the terminology strong edge domination or maximal independent sets of squared line graphs in unindexed literature.",
+      "Search failure does not prove global novelty; independent bibliographic priority and scientific reviews have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides an induced-matching listing algorithm on every C4-free graph, not the surjection bijection, cardinality polynomials, or single-replacement reconfiguration of minimum inclusion-maximal solutions.",
+        "evidence": [
+          "arXiv:1707.02740, sections 1, 3, 4; full HTML text."
+        ],
+        "identifier_or_url": "arXiv:1707.02740 / https://arxiv.org/html/1707.02740v1",
+        "material_read": "Full publicly available HTML article: introduction, C4-free branching/enumeration theorem and counting section, including theorem statements and related work.",
+        "method": "Read mathematical claims and compare general algorithm to closed specialized formulas and optimal reconfiguration graph.",
+        "title": "Efficient Enumeration of Induced Matchings in a Graph without Cycles with Length Four",
+        "trigger": "C4-free graph enumeration includes the one-subdivision of a clique."
+      },
+      {
+        "assessment": "Proves a universal exponential upper bound and an enumeration algorithm, not the family-specific exact Stirling coefficients nor parity of optimal swaps.",
+        "evidence": [
+          "arXiv:1312.5180, Theorem 1.1 and Sections 2–4."
+        ],
+        "identifier_or_url": "arXiv:1312.5180 / https://arxiv.org/html/1312.5180v1",
+        "material_read": "Full HTML preprint, including Theorem 1.1, proof, characterization arguments and references.",
+        "method": "Checked whether triangle-free extremal upper bound implies exact family counts, minimal maximal sizes, or component structure.",
+        "title": "Maximal induced matchings in triangle-free graphs",
+        "trigger": "General maximal induced matching enumeration for triangle-free graphs includes subdivided cliques."
+      },
+      {
+        "assessment": "The maximality is over induced vertex subgraphs, not induced edge-matchings; connectivity of an enumeration solution map does not imply connectivity of the explicitly constrained optimal matching reconfiguration.",
+        "evidence": [
+          "arXiv:2004.09885, introduction and solution-map theorem framework."
+        ],
+        "identifier_or_url": "arXiv:2004.09885 / https://arxiv.org/html/2004.09885v1",
+        "material_read": "Full HTML article: problem definitions, solution-map techniques, graph-family applications and theorem statements.",
+        "method": "Compared maximal induced vertex subgraph solution maps with induced edge-matching exchange between optimal maximal matchings.",
+        "title": "Enumerating Maximal Induced Subgraphs",
+        "trigger": "Uses reconfiguration-inspired solution maps in maximal solution enumeration."
+      },
+      {
+        "assessment": "Global maxima and extremizers do not determine the complete per-size distribution for S(K_n) or its minimum maximal-matching swap components.",
+        "evidence": [
+          "arXiv:2410.11288, main extremal theorem and supporting sections."
+        ],
+        "identifier_or_url": "arXiv:2410.11288 / https://arxiv.org/html/2410.11288v1",
+        "material_read": "Full HTML article, main global extremal theorems, extremal constructions and proof sections.",
+        "method": "Compared all-connected-graph maximum number of maximal and maximum induced matchings with exact distribution and reconfiguration on a particular connected family.",
+        "title": "Maximal and maximum induced matchings in connected graphs",
+        "trigger": "Potential later broader bound covering connected subdivided cliques."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "91acc585-aff0-4f46-9924-1fc6859edc2a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The objects are natural optimal inclusion-maximal induced matchings, a graph-theoretic obstruction to extending a strong matching. The full cardinality enumerator counts all solutions, while the optimal swap graph measures ability to navigate between locally irredundant optimal solutions. The strong parity transition, from exponentially many isolated hypercube components at even order to a connected regular graph at odd order, is a mathematically motivated structural classification, not a routine scalar substitution or arbitrary low-order slice.",
+    "status": "PASS"
+  }
+}
