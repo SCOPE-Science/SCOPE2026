@@ -1,21 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Substituting the positive scalar operator into the source's constant-reflection update gives a two-step real recurrence whose characteristic polynomial is explicit. The necessary-and-sufficient Jury inequalities collapse to one nontrivial upper bound. The boundary mode, the source-initialization noncancellation, and the behavior above the boundary were checked algebraically. The exact dominant-root formula has two branches separated by the sign change of the current-iterate coefficient; differentiating those branches proves the unique fastest step.
+PASS
 
-The bundled exact-rational/numerical checker reproduces the recurrence, Jury identities, boundary factorization, and representative rate comparisons. It is supporting evidence only; the quantified proof is algebraic.
+Substituting g=0 and F(x)=ax, a>0, in the two-step constant-reflection scheme gives A=1-(1+alpha)t and B=alpha*t with t=a*tau>0, x[k+1]=A x[k]+B x[k-1]. The monic polynomial z^2-Az-B has one positive and one negative real root; Jury inequalities 1-A-B=t>0, 1+A-B=2-(1+2alpha)t>0 and 1+B>0 give exact Schur stability 0<t<2/(1+2alpha). For x[-1]=x[0]!=0, x1/x0=1-t cannot equal a root since p(1-t)=-alpha*t^2!=0, so the unstable boundary mode cannot cancel. The spectral factor is (sqrt(A^2+4B)+|A|)/2. For A>=0 the dominant root derivative has sign alpha-(1+alpha)q, negative because its root is strictly greater than alpha/(1+alpha) (evaluate polynomial there). For A<=0 derivative is positive. Thus the unique minimizer is t*=1/(1+alpha), q*=sqrt(alpha/(1+alpha)); the scalar stability ceiling decreases and the optimal factor increases with alpha. Independent numerical checks for alpha=0.501,0.7,1,2,4 and boundary/near-optimal steps corroborate the algebra; no finite test proves all alpha.
 
-## Originality
+## originality
 
-PASS. The primary full text was inspected through the constant-reflection theorem, its skew sharpness example, and the numerical section. It introduces the reflection parameter and proves the admissible range \(\alpha>1/2\), but does not state the positive-scalar phase diagram or the rate-optimal step.
+PASS
 
-The closest same-parameter database result is a split-skew obstruction with a different characteristic polynomial and robust reflection optimum. A separate strongly monotone reflected-gradient result fixes the classical coefficient and therefore covers only the \(\alpha=1\) scalar slice. The closely named generalized-FRB preprint was inspected in full; its identity-operator examples use a different three-step recurrence and specially aligned initial data.
+The alpha=1 scalar FRB case and ordinary Schur/Jury tests are prior elementary calculations. The claimed remainder is the exact alpha-variable scalar phase diagram and optimal rate contrasting the general monotone/skew-motivated reflection choice. Resultary returned split-skew robust tuning (different operator), fixed-reflection affine reflected gradient (only alpha=1), and averaged proximal reflected gradient (different scheme). The originating September 2026 source abstract confirms the variable alpha and alpha>1/2 boundary; its full primary PDF was inaccessible in this run, so an equivalent modal calculation therein remains a specific priority risk, not automatically a failure.
 
-The standard \(\alpha=1\) identity calculation is explicitly treated as prior. Residual risk remains that an older optimistic-gradient calculation under different notation contains the variable-coefficient scalar formula.
+## value
 
-## Value
+PASS
 
-PASS. A positive scalar operator is the canonical coercive mode, and the reflection coefficient is the central new degree of freedom in the source method. The exact phase diagram shows that coercive geometry reverses the parameter preference suggested by the source's generic monotone safety analysis: lower admissible reflection simultaneously enlarges the stability ceiling and improves the fastest modal rate. This is directly useful for interpreting reflection tuning and for designing spectral or geometry-aware variants.
+Positive scalar aI is the canonical pure coercive mode, and alpha is the central adjustable parameter of the generalized method. An exact all-alpha stability/rate frontier quantifies a meaningful geometry-dependent reversal relative to robust monotone/skew tuning. It does not claim to improve the general convergence guarantee.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

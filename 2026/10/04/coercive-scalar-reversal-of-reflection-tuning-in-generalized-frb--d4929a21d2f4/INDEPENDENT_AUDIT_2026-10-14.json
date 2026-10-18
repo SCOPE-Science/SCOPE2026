@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-14",
+  "audited_at_utc": "2026-10-14T23:49:18Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Substituting g=0 and F(x)=ax, a>0, in the two-step constant-reflection scheme gives A=1-(1+alpha)t and B=alpha*t with t=a*tau>0, x[k+1]=A x[k]+B x[k-1]. The monic polynomial z^2-Az-B has one positive and one negative real root; Jury inequalities 1-A-B=t>0, 1+A-B=2-(1+2alpha)t>0 and 1+B>0 give exact Schur stability 0<t<2/(1+2alpha). For x[-1]=x[0]!=0, x1/x0=1-t cannot equal a root since p(1-t)=-alpha*t^2!=0, so the unstable boundary mode cannot cancel. The spectral factor is (sqrt(A^2+4B)+|A|)/2. For A>=0 the dominant root derivative has sign alpha-(1+alpha)q, negative because its root is strictly greater than alpha/(1+alpha) (evaluate polynomial there). For A<=0 derivative is positive. Thus the unique minimizer is t*=1/(1+alpha), q*=sqrt(alpha/(1+alpha)); the scalar stability ceiling decreases and the optimal factor increases with alpha. Independent numerical checks for alpha=0.501,0.7,1,2,4 and boundary/near-optimal steps corroborate the algebra; no finite test proves all alpha.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ou--Themelis--Latafat treat broad monotone operators with an admissible alpha range; no scalar optimal-rate formula is visible in accessed abstract.",
+          "Soe--Vetrivel--Yao GFRB has an older operator value and a third-order recurrence."
+        ],
+        "reasoning": "Broad convergence guarantees do not automatically determine an exact scalar spectral radius. Full Ou text could contain a stronger comparison, so its unavailability remains an explicit limitation.",
+        "searches": [
+          "arXiv:2609.15936 abstract and method description",
+          "arXiv:2509.02005v2 Introduction and Section 4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.15936v1 abstract; full text inaccessible",
+        "arXiv:2509.02005v2 full relevant sections",
+        "DOI:10.1137/18M1207260",
+        "Resultary:generalized forward reflected backward alpha positive scalar strongly monotone operator exact Schur stability spectral radius alpha tune",
+        "Resultary:47dbba32618f",
+        "Resultary:63a985cd76f4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Alpha>1/2 is a general admissibility condition and not an optimal-step formula.",
+          "Different 3-step scheme introduces B(x[k-2]); it is not termwise the present two-step recurrence."
+        ],
+        "reasoning": "The step ceiling and spectral factor need the actual scalar characteristic polynomial and minimax root calculation; neither follows as an immediate special case of the cited skew or three-step statements.",
+        "searches": [
+          "arXiv:2609.15936 (admissible range)",
+          "arXiv:2509.02005v2 Eq. (5)",
+          "Resultary:2026/9/20/SCOPE-optimal-reflection-tuning-split-skew-frb--47dbba32618f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The split-skew result optimizes a skew-resolvent max-min threshold at a different alpha; the affine reflected-gradient result fixes alpha=1.",
+          "The assigned positive scalar recurrence has a positive coefficient B unlike the split-skew characteristic equation."
+        ],
+        "reasoning": "The known tests are other geometries or fixed coefficients and do not give the two-parameter positive scalar optimization.",
+        "searches": [
+          "generalized forward reflected backward alpha positive scalar strongly monotone operator exact Schur stability spectral radius alpha tune",
+          "Resultary:2026/9/20/SCOPE-optimal-reflection-tuning-split-skew-frb--47dbba32618f",
+          "Resultary:2026/9/18/SCOPE-strongly-monotone-prg-sharp-threshold--63a985cd76f4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest published scalar splitting table uses averaged proximal reflected gradient with a second parameter mu, not this alpha-scheme."
+        ],
+        "reasoning": "No separately indexed matching all-alpha scalar table surfaced; the direct record hit is excluded as self evidence.",
+        "searches": [
+          "generalized forward reflected backward alpha positive scalar strongly monotone operator exact Schur stability spectral radius alpha tune",
+          "Resultary:2026/10/4/SCOPE-sharp-scalar-stability-and-rate-optimal-splitting-for-averaged-p--ce9ba88ec900"
+        ]
+      },
+      "rationale": "The alpha=1 scalar FRB case and ordinary Schur/Jury tests are prior elementary calculations. The claimed remainder is the exact alpha-variable scalar phase diagram and optimal rate contrasting the general monotone/skew-motivated reflection choice. Resultary returned split-skew robust tuning (different operator), fixed-reflection affine reflected gradient (only alpha=1), and averaged proximal reflected gradient (different scheme). The originating September 2026 source abstract confirms the variable alpha and alpha>1/2 boundary; its full primary PDF was inaccessible in this run, so an equivalent modal calculation therein remains a specific priority risk, not automatically a failure.",
+      "residual_risks": [
+        "Highly relevant originating source arXiv:2609.15936 full text was not readable; an appendix may contain this scalar phase diagram. Best-of-knowledge comparison is based on what could actually be read.",
+        "Older optimistic-gradient parameterized scalar spectral radii may have equivalent notation.",
+        "Difference between generic Lyapunov coefficient optimum and scalar optimum is claimed as a scoped comparison, not a contradiction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines variable constant-reflection range alpha>1/2; unable to rule out an equivalent positive-scalar calculation in unretrieved full text",
+          "evidence": "Abstract describes tight admissible constant reflection coefficients >1/2 and generic Lyapunov/adaptive analysis.",
+          "identifier_or_url": "arXiv:2609.15936v1",
+          "material_read": "ArXiv abstract and bibliographic/method synopsis only; PDF/HTML retrieval disabled, so full theorem, examples and appendix NOT read",
+          "method": "arXiv abstract and alternate abstract record; both full-text routes attempted",
+          "title": "An Adaptive Linesearch-free Method for Monotone Variational Inequalities under Local Lipschitz Continuity",
+          "trigger": "Exact originating constant-reflection family"
+        },
+        {
+          "assessment": "Its GFRB has B(x[k-2]) and inertial terms, hence not the exact alpha-variable two-step law",
+          "evidence": "Introduction Eq.(5) and example sections.",
+          "identifier_or_url": "arXiv:2509.02005v2",
+          "material_read": "Full arXiv PDF retrieved; read introduction recurrence (5), operator B=I example discussion and related sections",
+          "method": "ArXiv PDF full text parsed, relevant displayed recurrences independently compared",
+          "title": "On Generalized Forward-Reflected-Backward Method for Monotone Inclusion Problems",
+          "trigger": "Near-identical algorithm name and identity/scalar mode"
+        },
+        {
+          "assessment": "Classical alpha=1 special case is acknowledged prior",
+          "evidence": "Standard FRB x[k+1]=J(x[k]-2lambda B(x[k])+lambda B(x[k-1])).",
+          "identifier_or_url": "DOI:10.1137/18M1207260",
+          "material_read": "Abstract/source references and the classical recurrence as reproduced in 2509.02005",
+          "method": "Primary DOI/context comparison; full original paper not completely read this execution",
+          "title": "A Forward-Backward Splitting Method for Monotone Inclusions Without Cocoercivity",
+          "trigger": "Classical standard alpha=1 FRB baseline"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Positive scalar aI is the canonical pure coercive mode, and alpha is the central adjustable parameter of the generalized method. An exact all-alpha stability/rate frontier quantifies a meaningful geometry-dependent reversal relative to robust monotone/skew tuning. It does not claim to improve the general convergence guarantee.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Highly relevant originating source arXiv:2609.15936 full text was not readable; an appendix may contain this scalar phase diagram. Best-of-knowledge comparison is based on what could actually be read.",
+    "Older optimistic-gradient parameterized scalar spectral radii may have equivalent notation.",
+    "Difference between generic Lyapunov coefficient optimum and scalar optimum is claimed as a scoped comparison, not a contradiction.",
+    "Publication confidentiality is not verified: the frozen original public METADATA.json contains 'scope_run_id' and review/process fields, and original AUDIT.json/REVIEW.md discuss internal assessment method. No complete semantically sanitized, blob-guarded replacements for ALL affected public files were prepared. Withhold import/publication; this is an operational not_ready blocker, not a negative mathematical axis. Source metadata blob SHA: 36245cd621317904380b0587573ca973d30dcfb6."
+  ],
+  "schema_version": 1
+}
