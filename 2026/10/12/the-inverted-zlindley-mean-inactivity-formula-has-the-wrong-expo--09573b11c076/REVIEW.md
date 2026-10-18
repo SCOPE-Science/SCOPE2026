@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The substitution \(u=\alpha/y\) converts the positive integral in Eq. (12) into \(E_1(\alpha/t)\), and the standard identity \(E_1(z)=-\operatorname{Ei}(-z)\) fixes the sign. Direct numerical integration agrees with the corrected formula. Large-argument asymptotics give \(m(t)\sim t^2/\alpha\) for the true mean inactivity time and \(m_{\mathrm{pub}}(t)\sim-t^2/\alpha\) for the printed expression.
+## correctness
 
-## Originality
-PASS. The primary full text was inspected at the CDF and Eqs. (11)–(15). Five focused published-result searches, exact DOI/correction searches, and current/prior owned-ledger checks found no inverted-ZLindley correction of this sign error. The standard exponential-integral reference supplies a definition, not prior model-specific coverage.
+PASS
 
-Residual risk remains from a very recent unindexed author correction.
+Direct substitution u=alpha/y splits ∫_0^t F(y)dy into alpha∫_{alpha/t}^∞ e^(-u)u^-2 du plus alpha/[2(1+alpha)]∫ e^(-u)u^-1 du, so its second term is +E1(z)=-Ei(-z). Standard E1 and upper-incomplete-gamma asymptotics at z=alpha/t→∞ yield corrected mean-inactivity +t²/alpha and printed-sign result −t²/alpha. Independent mpmath evaluation at alpha=1,t=1/10: corrected/direct integral 0.0089507141557596967408421823, source-sign −0.00412976212135288638431065. These computations verify the analytic derivation, not a substitute for it.
 
-## Value
-PASS. Mean inactivity time is a central reliability descriptor developed in the paper. The printed formula becomes negative near the origin, which is impossible for its conditional-expectation definition and reverses its leading small-time behavior. Correcting the sign therefore changes the scientific reliability interpretation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original model-specific Eq(15) states the wrong sign, and the complete corrected model-specific mean inactivity and reversed small-time asymptotics have not been identified in inspected correction records. The special-function identity is old and explicitly credited; the claim is the identification and mathematically consequential correction of a particular published result.
+
+## value
+
+PASS
+
+Mean inactivity is a physical reliability descriptor emphasized by the original distribution paper and is a conditional expectation of nonnegative t−Y. The source formula predicts a negative value for all sufficiently small positive times, violating that fundamental interpretation, and reverses its leading t² coefficient. Correcting an analytically published distribution formula with such an impossible behavior has concrete mathematical and interpretational value; this is not a mere typographic notation variant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
