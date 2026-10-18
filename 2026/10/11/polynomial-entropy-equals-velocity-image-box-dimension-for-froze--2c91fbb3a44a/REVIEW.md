@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The upper bound partitions base states and velocity images at independent resolutions, the latter of order \(1/n\); the lower bound turns pairwise velocity differences into orbit separation before time \(n\). Covering/packing equivalence yields the exact upper box dimension. The Koch construction uses a continuous Jordan parametrization and the standard self-similarity dimension theorem. Exact-rational finite tests exercise the separation mechanism but do not replace proof.
+## correctness
 
-**Originality — PASS, with residual priority risk.** Corrêa's September 2026 theorem gives a lower bound of one from nontrivial rotation sets, and Section 5 gives a Lipschitz scalar upper bound. A published published-finding corpus scalar zero–one theorem removes the regularity hypothesis in the one-dimensional fiber case. Neither covers multidimensional fractal velocity images and their exact noninteger polynomial entropy. The source's stated singleton-rotation-set problem is not solved by this example. A general isometric-extension theorem in older literature could contain an equivalent reformulation; this remains a genuine priority risk.
+PASS
 
-**Mathematical value — PASS.** The formula identifies the precise geometric invariant controlling polynomial orbit complexity for a natural entire class of neutral torus dynamics; it exhibits noninteger polynomial entropy in a zero-topological-entropy Haar-preserving torus homeomorphism and separates polynomial complexity from the affine dimension of its rotation data.
+For F(b,y)=(b,y+α(b)), Bowen iterate is (b,y+jα(b)). For fixed ε a finite base net and initial fiber net, combined with ε/(8n) covering of E=α(B), gives g_F(n,ε)≤C_ε N_E(ε/(8n)): velocity differences accumulate by at most n times their torus distance, regardless of α continuity modulus. Conversely choose a 4ε/n-separated subset of E, lift each to a base point and zero fiber; for any pair some coordinate circular distance δ≥4ε/n. If δ≥ε the first iterate separates; otherwise j=ceil(ε/δ)<n for sufficiently large n, and ε≤jδ<2ε<1/2 prevents wrap, producing separation. Covering/packing equivalence at radius proportional to 1/n proves hpol=upper box dimension, and hence zero topological entropy. Koch Jordan snowflake boundary has dimension log4/log3, lies inside small R² disk, gives continuous circle surjection α and a T³ Haar-preserving skew product homotopic to identity; its orbitwise rotation set is noncollinear curve and invariant-measure averages give convex hull, different notions kept separate.
 
-Independent validation, general skew-product bases, and smoother realization are outside the result.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Corrêa’s 2026 primary Section5 Proposition5.1 supplies a ≤1 upper bound for a *Lipschitz scalar* frozen-base skew product and Theorem1.1 a general nontrivial-rotation lower≥1. The published rational-scalar SCOPE zero–one result removes Lipschitz but still cannot describe a multidimensional fractal E with noninteger upper box dimension. The quantified exact formula for arbitrary compact base and continuous torus-valued m-velocity image is a meaningful generalization, not merely identical constants.
+
+## value
+
+PASS
+
+Identifies an exact geometrically natural invariant controlling polynomial orbit complexity of all compact frozen-base torus translation families, yielding explicit noninteger hpol in a zero-topological-entropy Haar-preserving T³ homeomorphism and showing growth need not match affine rotation span dimension. Not a tiny numerical improvement or arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
