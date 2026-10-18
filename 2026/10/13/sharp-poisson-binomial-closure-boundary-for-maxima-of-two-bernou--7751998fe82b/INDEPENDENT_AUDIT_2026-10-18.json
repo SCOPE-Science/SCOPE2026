@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T17:53:05.166818Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026@40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/sharp-poisson-binomial-closure-boundary-for-maxima-of-two-bernou--7751998fe82b/RESULT.md blob:846058c891b77288edd59bbd188c2e2395d967fb",
+        "SymPy exact factorization of heterogeneous two-Bernoulli maximum quadratic discriminant and of homogeneous m=3 cubic discriminant",
+        "Numerical roots verify unique positive p*~0.1507324653; finite examples are supporting only"
+      ],
+      "rationale": "The maximum of two independent iid copies has mass b_k=F(k)^2-F(k-1)^2, so its PGF is Poisson-binomial iff all zeros are real nonpositive. For heterogeneous two-trial X=B_p+B_r, polynomial quadratic discriminant equals A(A+4(1-p)(1-r)) with A=(p-r)^2+2pr(1-p)(1-r)>=0; positive coefficients force nonpositive real roots, including degenerate boundaries. For every m>=3, homogeneous binomial small-p rescaling yields G_{m,p}(u/p)->2(1+u)^m-1 with simple nonreal roots; root continuity makes nonreal PGF roots persist for sufficiently small p. For m=3 the exact cubic discriminant is 108p^6(1-p)^12R(p) with R=4p^6+8p^3+3p^2+6p-1, strictly increasing for p>=0, with unique p*~0.1507324653; sign criterion plus positivity gives PB iff p>=p* in 0<p<1, with p=0,1 degenerate PB. Independently verified both factorizations symbolically in SymPy; finite test cannot replace nonreal-root continuity for every m.",
+      "residual_risks": [
+        "Two independent iid maximum draws, small p failure all m>=3, complete p-phase only m=3 homogeneous; no dependent/three-draw/heterogeneous m=3 theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Badiella, del Castillo and Puig, Ultra log-concavity of discrete order statistics, Statistics & Probability Letters 201 (2023), 109900, doi:10.1016/j.spl.2023.109900, open primary manuscript",
+          "Tang and Tang, The Poisson binomial distribution—Old & New, arXiv:1908.10024"
+        ],
+        "reasoning": "Badiella et al demonstrate ULC inheritance, not PF-infinity/Poisson-binomial inheritance; failure for m>=3 is compatible with their result. No stronger identified order-statistic closure theorem covers the asserted real-zero threshold.",
+        "searches": [
+          "Resultary semantic search: Poisson binomial sample maxima independent copies real rooted PGF three binomial phase transition",
+          "Primary: Badiella, del Castillo and Puig, Ultra log-concavity of discrete order statistics, Statistics & Probability Letters 201 (2023), 109900, doi:10.1016/j.spl.2023.109900, open primary manuscript",
+          "Primary: Tang and Tang, The Poisson binomial distribution—Old & New, arXiv:1908.10024"
+        ]
+      },
+      "checked_sources": [
+        "Badiella, del Castillo and Puig, Ultra log-concavity of discrete order statistics, Statistics & Probability Letters 201 (2023), 109900, doi:10.1016/j.spl.2023.109900, open primary manuscript",
+        "Tang and Tang, The Poisson binomial distribution—Old & New, arXiv:1908.10024",
+        "Jakimiuk, Murawski, Nayar and Słobodianiuk, Log-concavity and discrete degrees of freedom, arXiv:2205.04069"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Badiella, del Castillo and Puig, Ultra log-concavity of discrete order statistics, Statistics & Probability Letters 201 (2023), 109900, doi:10.1016/j.spl.2023.109900, open primary manuscript",
+          "Tang and Tang, The Poisson binomial distribution—Old & New, arXiv:1908.10024"
+        ],
+        "reasoning": "Classical Bernoulli PGF linear factors characterize PB but do not decide real-rootedness after squaring its CDF; the new exact quadratic/cubic discriminant computations and small-p root-limit supply missing conclusions.",
+        "searches": [
+          "Resultary semantic search: Poisson binomial sample maxima independent copies real rooted PGF three binomial phase transition",
+          "Primary: Badiella, del Castillo and Puig, Ultra log-concavity of discrete order statistics, Statistics & Probability Letters 201 (2023), 109900, doi:10.1016/j.spl.2023.109900, open primary manuscript",
+          "Primary: Tang and Tang, The Poisson binomial distribution—Old & New, arXiv:1908.10024"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Badiella, del Castillo and Puig, Ultra log-concavity of discrete order statistics, Statistics & Probability Letters 201 (2023), 109900, doi:10.1016/j.spl.2023.109900, open primary manuscript",
+          "Tang and Tang, The Poisson binomial distribution—Old & New, arXiv:1908.10024"
+        ],
+        "reasoning": "Real-rooted PGF, Pólya-frequency sequences (PF-infinity), and a maximum order-statistic transform F(k)^2-F(k-1)^2 are equivalent formulations for searches.",
+        "searches": [
+          "Resultary semantic search: Poisson binomial sample maxima independent copies real rooted PGF three binomial phase transition",
+          "Primary: Badiella, del Castillo and Puig, Ultra log-concavity of discrete order statistics, Statistics & Probability Letters 201 (2023), 109900, doi:10.1016/j.spl.2023.109900, open primary manuscript",
+          "Primary: Tang and Tang, The Poisson binomial distribution—Old & New, arXiv:1908.10024"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Badiella, del Castillo and Puig, Ultra log-concavity of discrete order statistics, Statistics & Probability Letters 201 (2023), 109900, doi:10.1016/j.spl.2023.109900, open primary manuscript",
+          "Tang and Tang, The Poisson binomial distribution—Old & New, arXiv:1908.10024"
+        ],
+        "reasoning": "The cubic root p* is algebraic, not a lookup table; exact discriminant factorization and monotonicity give the full homogeneous three-trial parameter classification. Resultary returned other PB invariants but no exact threshold.",
+        "searches": [
+          "Resultary semantic search: Poisson binomial sample maxima independent copies real rooted PGF three binomial phase transition",
+          "Primary: Badiella, del Castillo and Puig, Ultra log-concavity of discrete order statistics, Statistics & Probability Letters 201 (2023), 109900, doi:10.1016/j.spl.2023.109900, open primary manuscript",
+          "Primary: Tang and Tang, The Poisson binomial distribution—Old & New, arXiv:1908.10024"
+        ]
+      },
+      "rationale": "Existing work shows closure of ultra-log-concavity under discrete order statistics; PF-infinity or real-rooted generating polynomials characterize the stronger Poisson-binomial property and need not be preserved. The explicit two-trial closure, small-p nonclosure at every m>=3, and sharp m=3 algebraic parameter boundary are not consequences of the cited weaker ULC closure theorem. Tang-Tang survey covers distributions/real-rooted criterion but not an inspected exact max-of-iid phase classification. Resultary semantic search found only different Poisson-binomial cumulant/dispersion and order-statistic correlation results, no same statement. PASS best knowledge with aliases/Pólya-frequency risk.",
+      "residual_risks": [
+        "Pólya-frequency and total-positivity literature may contain equivalent order-statistic transformations under alternative language",
+        "The m>=3 nonclosure result is existential near p=0, not a complete parameter classification for m>=4",
+        "Full Tang-Tang and Jakimiuk papers not read here; assess best knowledge with explicit access scope"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Its ULC preservation does not imply that PGF zeros remain all real; no inspected theorem establishing Poisson-binomial closure",
+          "evidence": "Theorem 2 is about ultra-log-concavity, weaker than PF-infinity",
+          "identifier_or_url": "doi:10.1016/j.spl.2023.109900",
+          "material_read": "Inspected accessible manuscript full text, especially Theorem 2 and conditions for log-concavity/ultra-log-concavity under order statistics",
+          "method": "Open-access university-hosted manuscript",
+          "title": "Ultra log-concavity of discrete order statistics",
+          "trigger": "Closest order-statistic preservation theorem"
+        },
+        {
+          "assessment": "Supports PB characterization, but whole-paper noncoverage cannot be asserted from this material alone",
+          "evidence": "Poisson-binomial PGF factors into Bernoulli linear terms",
+          "identifier_or_url": "arXiv:1908.10024",
+          "material_read": "Read indexed abstract, explanatory cited characterization and relevant metadata; complete manuscript not independently inspected",
+          "method": "arXiv abstract/index and primary citation",
+          "title": "The Poisson binomial distribution—Old & New",
+          "trigger": "Exact distribution class and PGF/real zeros characterization"
+        },
+        {
+          "assessment": "No identified exact max-of-two-copies PF-infinity classification; cannot assert full-text absence",
+          "evidence": "Studies discrete log-concavity rather than this exact max-PGF discriminant",
+          "identifier_or_url": "arXiv:2205.04069",
+          "material_read": "Inspected abstract/indexed theorem description, not full article",
+          "method": "arXiv index",
+          "title": "Log-concavity and discrete degrees of freedom",
+          "trigger": "Discrete log-concavity and possible stronger preservation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Badiella, del Castillo and Puig, Ultra log-concavity of discrete order statistics, Statistics & Probability Letters 201 (2023), 109900, doi:10.1016/j.spl.2023.109900, open primary manuscript",
+        "Tang and Tang, The Poisson binomial distribution—Old & New, arXiv:1908.10024"
+      ],
+      "rationale": "The closure problem for an analytically natural nonlinear transformation of the Poisson-binomial family (two-sample maxima) has a sharp smallest failure size and a nontrivial exact critical probability. It delineates PF-infinity versus ULC preservation and supplies a minimal counterexample with useful parameter phase transition.",
+      "residual_risks": [
+        "Pólya-frequency and total-positivity literature may contain equivalent order-statistic transformations under alternative language",
+        "The m>=3 nonclosure result is existential near p=0, not a complete parameter classification for m>=4",
+        "Full Tang-Tang and Jakimiuk papers not read here; assess best knowledge with explicit access scope"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Two independent iid maximum draws, small p failure all m>=3, complete p-phase only m=3 homogeneous; no dependent/three-draw/heterogeneous m=3 theorem. Literature and prior-art residual risks are detailed in the structured originality field. Entire source tree object matched; repository-root ancestry beyond direct record tree not independently rehashed.",
+  "schema_version": 1
+}

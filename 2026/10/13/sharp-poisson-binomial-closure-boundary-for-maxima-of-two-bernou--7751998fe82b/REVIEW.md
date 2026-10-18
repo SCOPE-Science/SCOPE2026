@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The distributional CDF-square identity is exact. For two arbitrary Bernoulli summands its quadratic PGF discriminant is the product of two nonnegative factors. For larger homogeneous binomial sums, the rescaled PGF converges coefficientwise to \(2(1+u)^m-1\); its simple nonreal roots persist under sufficiently small perturbations when \(m\ge3\). At three trials, explicit probabilities and a fully specified cubic discriminant yield a strictly monotone polynomial whose unique zero locates the real-rootedness transition. The equivalence between real nonpositive PGF zeros and finite Bernoulli convolutions handles factorization and the boundary cases. Exact-rational checks in `verify.py` are supplemental and do not certify the universal statement.
+PASS
 
-## Originality (PASS, residual risk)
+The maximum of two independent iid copies has mass b_k=F(k)^2-F(k-1)^2, so its PGF is Poisson-binomial iff all zeros are real nonpositive. For heterogeneous two-trial X=B_p+B_r, polynomial quadratic discriminant equals A(A+4(1-p)(1-r)) with A=(p-r)^2+2pr(1-p)(1-r)>=0; positive coefficients force nonpositive real roots, including degenerate boundaries. For every m>=3, homogeneous binomial small-p rescaling yields G_{m,p}(u/p)->2(1+u)^m-1 with simple nonreal roots; root continuity makes nonreal PGF roots persist for sufficiently small p. For m=3 the exact cubic discriminant is 108p^6(1-p)^12R(p) with R=4p^6+8p^3+3p^2+6p-1, strictly increasing for p>=0, with unique p*~0.1507324653; sign criterion plus positivity gives PB iff p>=p* in 0<p<1, with p=0,1 degenerate PB. Independently verified both factorizations symbolically in SymPy; finite test cannot replace nonreal-root continuity for every m.
 
-The 2023 order-statistics theorem of Badiella, del Castillo, and Puig establishes preservation of ultra log-concavity, not the stronger Pólya-frequency/real-rooted-PGF condition defining Poisson-binomial distributions. The 2022 article of Jakimiuk and collaborators addresses inequalities and extremal laws among log-concave or ultra-log-concave distributions, not maxima of independent Bernoulli sums. Tang and Tang's survey gives polynomial tools and distribution learning but not the CDF-square operator's exact small-dimensional phase. Published-record and semantic mathematical-result searches did not identify a result implying this three-part classification. Terminology or an older unindexed paper could nevertheless contain it; no independent literature audit has occurred.
+## originality
 
-## Value (PASS)
+PASS
 
-Order-statistic formation is known to preserve ultra log-concavity. The identified sharp cutoff between two and three trials shows why this does not extend automatically to Poisson-binomial structure, and the exact three-trial transition identifies where the stronger structure reappears. The result is a complete natural minimal-size boundary, a uniform negative classification at higher sizes near zero, and an exact first nontrivial parameter phase diagram, not an isolated numerical example.
+Existing work shows closure of ultra-log-concavity under discrete order statistics; PF-infinity or real-rooted generating polynomials characterize the stronger Poisson-binomial property and need not be preserved. The explicit two-trial closure, small-p nonclosure at every m>=3, and sharp m=3 algebraic parameter boundary are not consequences of the cited weaker ULC closure theorem. Tang-Tang survey covers distributions/real-rooted criterion but not an inspected exact max-of-iid phase classification. Resultary semantic search found only different Poisson-binomial cumulant/dispersion and order-statistic correlation results, no same statement. PASS best knowledge with aliases/Pólya-frequency risk.
 
-## Closest literature and limits
+## value
 
-The nearest theorem is Badiella–del Castillo–Puig (2023), Theorem 2, whose conclusion is strictly weaker. No claim is made about arbitrary three-trial heterogeneous laws or the full parameter region at trial count four and beyond. Potential equivalence through classical Pólya-frequency terminology remains the main originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The closure problem for an analytically natural nonlinear transformation of the Poisson-binomial family (two-sample maxima) has a sharp smallest failure size and a nontrivial exact critical probability. It delineates PF-infinity versus ULC preservation and supplies a minimal counterexample with useful parameter phase transition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
