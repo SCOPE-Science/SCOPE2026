@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T04:14:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the prescribed continuous-time reversible generator, stationary-mass-weighted Poisson equations telescope and give H_{i,i+1}=P_i/w_i and H_{i+1,i}=(1-P_i)/w_i. Strong Markov additivity makes the maximal ordered-pair hitting expectation the maximum of the two endpoint directional sums. For each lambda in [0,1], a weighted average and Cauchy-Schwarz yield lower bound S(lambda)^2 and force w_i(lambda)=sqrt(a_i(lambda)/c_i)/S(lambda) at equality. S is strictly concave for n>=3 because not all partial masses P_i equal 1/2; its derivative G/2 is strictly decreasing. At the maximizing scalar lambda*, F-B=S G with correct boundary signs, so the sharp Cauchy bound equals the max objective and the equality allocation is uniquely optimal. Reflection/price cancellation at lambda=1/2 and the symmetric three-state threshold 1/3<=c1/c2<=3 follow by direct substitution. The inspected verify.py independently solves rational Poisson systems in finite cases but is not the proof. All domain restrictions (positive pi,c,w, normalized total mass and cost, no discrete-time rate caps) are needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ghosh-Boyd-Saberi full 2006 paper primarily minimizes total effective resistance; Section VII treats maximum effective resistance, a symmetric pair criterion.",
+          "The audited objective is asymmetric max directed hitting time, independently fixed pi and nonuniform price budget."
+        ],
+        "reasoning": "Even a general graph solver for summed or max resistance does not entail the one-dimensional balance of directed endpoint hitting times; objective/constraints are substantively different.",
+        "searches": [
+          "minimax maximum directed mean hitting time optimize conductances reversible birth death path prescribed stationary distribution edge prices",
+          "Ghosh Boyd Saberi Minimizing Effective Resistance of a Graph 2006 Sections I VI VII",
+          "Aldous Fill reversible Markov chains Chapter 4"
+        ]
+      },
+      "checked_sources": [
+        "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "https://doi.org/10.1155/2014/852481",
+        "https://www.stat.berkeley.edu/~aldous/RWG/book.pdf",
+        "https://doi.org/10.1016/0167-7152(95)00209-X"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published Poisson/electrical identities permit reproducing a fixed generator but do not optimize worst directed endpoint pair under fixed masses and prices.",
+          "The max effective-resistance objective is symmetric in starting/target order whereas max hitting times involves both P_i and 1-P_i coefficients."
+        ],
+        "reasoning": "The existing tools supply Step 1 as background, but solving the arbitrary-mass, arbitrary-price exact minimax design does not follow simply from those cited prior objectives. The older inaccessible article is an explicit residual risk.",
+        "searches": [
+          "Ghosh Boyd Saberi 2006 full article Section VI path allocation and Section VII max effective resistance",
+          "Palacios Gomez Del Rio 2014 fixed-walk hitting times",
+          "Palacios Tetali 1996 expected hitting times birth death abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Poisson flux expression distinguishes H_{1n}=sum P_i/w_i and H_{n1}=sum(1-P_i)/w_i, unlike symmetric commute-time/resistance sum.",
+          "Published fixed-chain birth-and-death electrical formulas give the two linear sums but not the lambda-optimal conductances under prices."
+        ],
+        "reasoning": "Compared equivalent electrical-network variables and chain-speed scheduling formulations mathematically, not just naming. An exact equivalent would require the same max of two weighted reciprocal conductance sums with arbitrary positive pi,c.",
+        "searches": [
+          "minimax maximum directed mean hitting time optimize conductances reversible birth death path prescribed stationary distribution edge prices",
+          "optimal directed mean first-passage hitting time reversible path fixed stationary distribution conductance budget",
+          "optimal birth death chain fastest worst hitting time"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top matches concern Bernoulli first passage, coordinate sampling and other Markov problems, not a table of arbitrary positive pi,c optimal conductances.",
+          "The audited three-state price frontier has transitions at r=1/3 and r=3 and general n formula with scalar root."
+        ],
+        "reasoning": "No preexisting table was found for the all-parameter optimization; absence of a database hit alone is not a priority proof.",
+        "searches": [
+          "minimax maximum directed mean hitting time optimize conductances reversible birth death path prescribed stationary distribution edge prices",
+          "Resultary minimax hitting time path price stationary mass allocation"
+        ]
+      },
+      "rationale": "Classical first-passage and electrical results concern a given chain. Ghosh-Boyd-Saberi minimize summed or maximum undirected effective resistance and different variables/objectives; such symmetric resistance optimization does not imply separately directed worst hitting time with externally prescribed stationary masses and nonuniform prices. Full-text source comparisons and Resultary queries found no dominating all-parameter allocation theorem. Palacios-Tetali 1996 remains plausible inaccessible fixed-chain source; authorized download returned vpn_disconnected, so originality is qualified, not failed automatically.",
+      "residual_risks": [
+        "Palacios–Tetali (1996) primary full text could not be retrieved; Oxford authorized institutional route returned vpn_disconnected, no bypass or claimed reading.",
+        "An optimal birth–death allocation theorem may be indexed under control/weighted-resistance rather than explicit directed hitting time."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_OBJECTIVE",
+          "evidence": "Minimizes sum of pairwise effective resistances or max symmetric effective resistance, not max of ordered directed hitting times at fixed arbitrary pi,c.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+          "material_read": "Entire available conference article; objective, path examples, Section VII maximum effective resistance extension",
+          "method": "Full lawful open PDF with section comparison",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Closest broad conductance-optimization paper, including path examples"
+        },
+        {
+          "assessment": "FIXED_CHAIN_FORMULAS_ONLY",
+          "evidence": "Supports first-passage relation but lacks externally-priced minimax conductance optimization.",
+          "identifier_or_url": "https://doi.org/10.1155/2014/852481",
+          "material_read": "Primary full article and linear-graph voltage identities",
+          "method": "Publisher full-article HTML inspected",
+          "title": "Hitting Times of Walks on Graphs through Voltages",
+          "trigger": "Exact fixed-graph hitting formula potentially dominating step 1"
+        },
+        {
+          "assessment": "INACCESSIBLE_FULL_TEXT_RESIDUAL_RISK",
+          "evidence": "Cannot claim full-text noncoverage; no inspected abstract statement about price-optimal minimax allocation.",
+          "identifier_or_url": "https://doi.org/10.1016/0167-7152(95)00209-X",
+          "material_read": "Abstract and later citations; arXiv/OA attempts yielded no full text; institutional route reported vpn_disconnected for job 524cfbfb2b312d4912053b8b326e7655",
+          "method": "Bibliographic abstract plus authorized institutional request (no auth bypass)",
+          "title": "A Note on Expected Hitting Times for Birth and Death Chains",
+          "trigger": "Historically earliest highly relevant fixed birth-death hitting source"
+        },
+        {
+          "assessment": "FIXED_CHAIN_BACKGROUND",
+          "evidence": "Classical identities are not presented as new.",
+          "identifier_or_url": "https://www.stat.berkeley.edu/~aldous/RWG/book.pdf",
+          "material_read": "Relevant hitting/commute identities, not an exhaustive whole-monograph novelty screen",
+          "method": "Lawful full text and relevant chapter material",
+          "title": "Reversible Markov Chains and Random Walks on Graphs",
+          "trigger": "Foundational commute and hitting framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A prescribed-stationary reversible path with priced conductances is a natural robust hitting-latency design problem. The proof gives exact optimum for every path length and positive mass/price vector via one monotone scalar balance, including surprising mass-independent allocation and exact three-state price regime breakpoints; this is a complete optimization decision, not merely an evaluated known formula.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+    "https://doi.org/10.1155/2014/852481",
+    "https://www.stat.berkeley.edu/~aldous/RWG/book.pdf",
+    "https://doi.org/10.1016/0167-7152(95)00209-X"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Palacios–Tetali (1996) primary full text could not be retrieved; Oxford authorized institutional route returned vpn_disconnected, no bypass or claimed reading.",
+    "An optimal birth–death allocation theorem may be indexed under control/weighted-resistance rather than explicit directed hitting time."
+  ],
+  "schema_version": 1
+}
