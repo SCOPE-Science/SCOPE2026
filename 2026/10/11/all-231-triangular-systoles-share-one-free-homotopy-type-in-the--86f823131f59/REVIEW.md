@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact ninety-facet presentation reconstructs \((16,106,180,90)\) and exactly \(231\) nonfacial three-vertex cliques. The embedded group certificate defines a surjective representation of the spanning-tree edge presentation into an explicitly enumerated group of order \(120\): all \(180\) triangular relators are rechecked, and two edge generators map to the two permutation generators. The published Poincaré-sphere identification independently gives fundamental-group order \(120\), so the representation is faithful. Exact evaluation shows all \(231\) missing-triangle loops have order \(10\), lie in one conjugacy class of size \(12\), and that class is inverse-stable. This proves the stated systole and free-homotopy classification.
+## correctness
 
-## Originality
-PASS, with residual literature risk. Required semantic searches covered the exact object, missing or empty triangles, shortest noncontractible cycles, order-\(10\) elements, binary-icosahedral conjugacy, and free-homotopy formulations. No indexed finding covered the \(231\)-loop census or one-class conclusion. The closest exact-object primary material gives the triangulation, topology, and facet data; the inspected passages do not state this shortest-loop classification. A close finite-loop analogue on another spherical three-manifold does not imply the Poincaré-sphere result. Older inaccessible computations remain an explicit residual risk.
+PASS
 
-## Value
-PASS. A homology sphere has no nonzero first-homology class with which to detect essential loops, so its shortest noncontractible edge loops are genuinely nonabelian information. The result completely resolves the first possible simple-loop layer of a canonical small Poincaré-sphere triangulation and shows unexpected concentration: all \(231\) minimizers realize one order-\(10\) free-homotopy type despite the triangulation having trivial simplicial symmetry.
+The actual 90-tetrahedron source and actual permutation/edge-generator certificate were inspected, not just its saved output. An independent exact evaluator reconstructed \(f=(16,106,180,90)\), the 411 three-cliques with 180 faces and 231 nonfaces, the BFS spanning tree with 91 chord generators, and all 180 relators. The 120-point permutations generate a group of order 120 and are actual images of two chord generators; every relator maps to the identity, so the resulting map of \(\pi_1\) is surjective. The established binary-icosahedral fundamental group has order 120, making it an isomorphism. Re-evaluation of all 231 missing triangles gave order 10 each, with a single size-12 conjugacy class containing its inverses. Facial loops bound triangles and simple graph cycles have length at least 3, proving the claimed complete combinatorial minimum. This is an exact finite exhaustive certificate with an explicit published topology premise, not an empirical inference.
 
-## Closest literature and limitations
-Björner--Lutz and Lutz's dissertation establish the exact sixteen-vertex object and its Poincaré topology; the latter also records its trivial automorphism group. Standard exact-object documentation records the binary-icosahedral fundamental group. The theorem is limited to the minimum simple edge-loop layer of this one triangulation and makes no claim about longer loops or other triangulations.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The exact facet and global group results in the original sources do not themselves count nonfacial three-cliques carrying nontrivial order-ten group elements or locate their conjugacy classes. The numerical group certificate and full exhaustive class computation add information not inferable from the abstract group type or face vector. Searches distinguished the assigned same-day result from different-triangulation systole censuses.
+
+## value
+
+PASS
+
+The combinatorial systole and exact number/conjugacy type of shortest essential loops on a canonical asymmetric triangulation are natural homotopy invariants of the particular finite object. The size-12 inverse-stable concentration across 231 distinct carriers is not a textbook consequence of the global group and provides a concrete test case for short-loop topology computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

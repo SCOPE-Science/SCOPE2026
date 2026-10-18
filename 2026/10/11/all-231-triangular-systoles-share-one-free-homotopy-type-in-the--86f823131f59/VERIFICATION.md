@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` reconstructs the complete ninety-tetrahedron complex and its one-skeleton. A lexicographic spanning tree leaves \(91\) edge generators for the standard edge presentation of the fundamental group.
+# Independent mathematical audit
 
-`group_certificate.json` assigns those generators to words in two explicit degree-\(120\) permutations. The verifier checks all \(180\) triangular relators and enumerates the generated permutation group to exactly \(120\) elements. Two original edge generators map to the two permutation generators, so the representation is surjective. The published topology supplies \(|\pi_1|=120\), hence the representation is faithful.
+## correctness
 
-The program then enumerates all \(411\) three-vertex cliques in the one-skeleton, subtracts the \(180\) facial triangles, and evaluates all \(231\) remaining triangular loops in the faithful group. It verifies order \(10\) for every image, computes a conjugacy class of size \(12\), checks all \(231\) images lie in it, and checks the class is inverse-stable.
+PASS
 
-Exact successful output:
+The actual 90-tetrahedron source and actual permutation/edge-generator certificate were inspected, not just its saved output. An independent exact evaluator reconstructed \(f=(16,106,180,90)\), the 411 three-cliques with 180 faces and 231 nonfaces, the BFS spanning tree with 91 chord generators, and all 180 relators. The 120-point permutations generate a group of order 120 and are actual images of two chord generators; every relator maps to the identity, so the resulting map of \(\pi_1\) is surjective. The established binary-icosahedral fundamental group has order 120, making it an isomorphism. Re-evaluation of all 231 missing triangles gave order 10 each, with a single size-12 conjugacy class containing its inverses. Facial loops bound triangles and simple graph cycles have length at least 3, proving the claimed complete combinatorial minimum. This is an exact finite exhaustive certificate with an explicit published topology premise, not an empirical inference.
 
-`VERIFY_OK f=16,106,180,90 tree=15 edge_generators=91 perm_group=120 triangle_relators=180 cliques3=411 missing3=231 missing3_orders=10:231 conjugacy_class=12 inverse_stable=yes`
+## originality
 
-The finite group and loop computations are exhaustive. The only external mathematical premise used by the certificate replay is the independently published identification of the complex with the Poincaré homology sphere, whose fundamental group has order \(120\).
+PASS
+
+The exact facet and global group results in the original sources do not themselves count nonfacial three-cliques carrying nontrivial order-ten group elements or locate their conjugacy classes. The numerical group certificate and full exhaustive class computation add information not inferable from the abstract group type or face vector. Searches distinguished the assigned same-day result from different-triangulation systole censuses.
+
+## value
+
+PASS
+
+The combinatorial systole and exact number/conjugacy type of shortest essential loops on a canonical asymmetric triangulation are natural homotopy invariants of the particular finite object. The size-12 inverse-stable concentration across 231 distinct carriers is not a textbook consequence of the global group and provides a concrete test case for short-loop topology computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
