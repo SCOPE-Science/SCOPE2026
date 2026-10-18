@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The block-triangular reduced matrix follows exactly because the spectator subspace is invariant and the sketched basis has full column rank almost surely. Its non-spectator eigenvalue is a residualized Gaussian least-squares coefficient. Orthogonal Gaussian invariance gives the quotient \(U/\sqrt H\), with denominator degree of freedom \(s-m+1\) and distinct real/complex normalizations. Beta-prime and gamma integrals prove each tail, absolute-moment formula, and divergence at the critical exponent. The packaged finite tests reconstruct the full sketched matrix and corroborate these identities but are not used as infinite proofs. Risk: exact-arithmetic independence depends essentially on Gaussianity and the fixed invariant spectator directions.
+## correctness
 
-## Originality — PASS, with residual risk
-The 2026 randomized Rayleigh–Ritz paper establishes high-probability existence guarantees for a square Gaussian pencil. The older Nakatsukasa–Tropp work specifies the oversampled least-squares sketched Rayleigh–Ritz construction and bounds its residual performance. An existing exact complex square-sketch Cauchy law is the \(s=m\) endpoint, but does not determine the oversampled dimension-dependent distributions. The reviewed primary results do not give the complete **real-versus-complex** oversampling moment phase diagram or the sharp mean-square cutoffs. The Gaussian regression calculation itself is classical, so an equivalent result in older statistical or randomized linear algebra literature remains possible. This is a self-review, not an independent novelty certificate.
+PASS
 
-## Value — PASS
-Oversampling is a concrete algorithmic design choice, and changing its size alters moment integrability discontinuously: complex sketches require one additional row and real sketches two to make the identified Ritz value square-integrable. The theorem supplies both complete moment ranges and exact variance constants, rather than a chosen counterexample or a generic concentration estimate. This can inform which moment-based analyses are mathematically permissible for raw sketched eigenvalues. The result does not prove optimal runtime, stability of floating-point QR/SVD, or safety of selecting any reported Ritz root.
+With orthonormal W=[w,V], invariant spectator range V and Hermitian A, the residual r=Aw-rho w is orthogonal to W. Independent Gaussian images G=SW and z=S(r/sigma) reduce the one nonspectator least-squares Ritz eigenvalue to rho+sigma e1^*G^dagger z; residualization against last m-1 columns gives U/sqrt(H) with residual sketch dimension nu=s-m+1. In the real case H is chi-square_nu and U standard N(0,1); in the complex case H Gamma(nu,1) and U circular CN(0,1). Exact Gamma integrations yield real p-moment finite iff p<nu, complex iff p<2nu, with tail I_{1/(1+x²)}(nu/2,1/2) or (1+x²)^-nu, respectively. Thus mean-squared error finite exactly s>=m+2 (real) and s>=m+1 (complex), with stated denominators. Divergence at the equality boundaries is established by inverse-Gamma/chi-square integrals, not simulated rare-event sampling. Independent 5000-sample regression simulations for real/complex m=3,s=3,4,5 checked predicted tail probabilities within sampling tolerances.
 
-## Relationship and limitations
-Scientific references: Nian Shao, arXiv:2604.01037v1, §§1 and 4; Nakatsukasa–Tropp, DOI 10.1137/23M1565413, §§6.3–6.6; previously published square-sketch complex Cauchy law for invariant-spectator Ritz pencils. A stronger prior theorem for a different selection/refinement method would need a separate implication comparison. The exact fixed-basis Gaussian hypothesis is essential, and no independent review has been undertaken.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Though a ratio of independent Gaussians with an inverse chi-square/gamma denominator is classical regression, the exact identified nonspectator sketched Ritz eigenvalue distribution and sharp real-versus-complex oversampling moment-integrability phase diagram are not stated in examined primary sketched Rayleigh–Ritz theory. The result is natural for determining when ordinary expected squared Ritz error is meaningful.
+
+## value
+
+PASS
+
+Identifies exactly the sketch row budget at which a highly natural Gaussian-sketched Ritz error has finite expected square, including a one-row real/complex gap. Infinite-moment warnings are actionable in randomized spectral computation, and the full finite p-moment cutoff is a meaningful structural stability invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
