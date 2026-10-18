@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact verifier reconstructs the published non-erasing morphism and its output map, then forms the closed adjacent-letter-pair state space. It checks \(26\) letter states, \(68\) adjacent-pair states, and hence a \(94\)-dimensional integer linear count state.
+# Independent mathematical audit
 
-For the morphic prefixes \(W_m\), it verifies the initial values and checks \(94\) consecutive residuals of each claimed recurrence. Because every scalar residual is a matrix coefficient of powers of the same \(94\)-dimensional linear map, Cayley--Hamilton extends the zero residuals to every later index.
+## correctness
 
-The verifier also constructs the incidence matrix on the \(25\)-letter growing component and checks that its twentieth power is strictly positive. This is the finite primitivity input used with standard Perron--Frobenius substitution-frequency theory.
+PASS
 
-As a separate normalization check, the original nested recurrence is evaluated directly through \(200000\) first differences and its four adjacent-pair counts are compared with the exact limiting formulas. This finite replay is not used to infer the infinite theorem.
+Read complete RESULT.md and verifier morphisms and compared original primary source Proposition 5.2/Table 2. Independently parsed all 26 ν-letter images and η binary outputs, closed 68 neighboring letter pair states and built 94-dimensional exact BigInt linear count update. Computed 94 consecutive zero residuals for L_(m+3)-L_(m+1)-L_m and Q_(m+6)-Q_(m+4)-Q_(m+1)-Q_m; by Cayley-Hamilton these linear-functional recurrences hold for all m. Independently verified positive twentieth power (not earlier) of 25-letter growing component incidence support, yielding primitivity and full-word frequencies. Dominant Padovan pole gives 01 ratio. Equality pi01=pi10 follows endpoint telescoping; one-letter 1-density c from primary paper yields pi00/pi11. A separate direct 150000-term nested recurrence replay had empirical frequencies within 5e-6 of formulas, corroborative only.
 
-Limit: the verification assumes the source theorem identifying the recurrence difference word with the explicit morphic image. It does not re-prove that published identification or any statement about factors of length at least three.
+## originality
+
+PASS
+
+Cloitre-Ma-Zhang establish the morphic presentation and single-letter density but their inspected article, including Proposition 5.2, Table 2 and Section 6, does not give 01 transition recurrence or bigram frequencies. OEIS A076502 describes the nested recurrence, not these local statistics. No indexed domination found; equivalent prior word-statistic literature remains possible.
+
+## value
+
+PASS
+
+The exact adjacent-factor law and strictly negative nearest-neighbor covariance are a natural next-order invariant of an explicitly studied automatic difference word; the sixth-order recurrence exposes mechanism beyond letter-density, answering a meaningful part of the stated dynamical characterization direction without asserting full invariant measure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

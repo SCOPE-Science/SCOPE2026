@@ -1,13 +1,21 @@
-# Review
-## Correctness
-PASS. The proof reduces the source morphism to a \(94\)-dimensional integer linear state consisting of \(26\) letter counts and \(68\) adjacent-letter-pair counts. Exact residual checks over a full Cayley--Hamilton window establish the displayed recurrences for all morphic levels. The generating-function singularity calculation then gives \(\pi_{01}\), primitivity of the \(25\)-letter growing component supplies existence of the full-word factor frequencies, endpoint telescoping gives \(\pi_{10}=\pi_{01}\), and the source's proved one-letter density gives the remaining two entries. A separate direct evaluation of the nested recurrence through \(200000\) differences agrees numerically.
+# Independent mathematical audit
 
-## Originality
-PASS. The primary full text states the one-letter density, nonperiodicity, balance constant, and the explicit morphism, but it does not state adjacent-pair frequencies or the sixth-order transition recurrence. Searches for the source title together with “bigram”, “adjacent”, “two-letter”, and exact-factor-frequency terminology found no such result. OEIS A076502 records the recurrence and slope only. Published-finding searches returned only unrelated morphic-word or density results; none implies the stated formulas for this word.
+## correctness
 
-## Value
-PASS. Adjacent-pair frequencies are the first nontrivial local correlation data beyond the already known letter density. They are a natural invariant for the source paper's explicitly open problem of describing the dynamics of the difference word, and the exact negative covariance rules out the independence heuristic at nearest-neighbor scale. The sixth-order recurrence is structural rather than a finite table: its characteristic polynomial factors into the Padovan cubic and unit-circle factors, explaining why the exact density remains in the same cubic field.
+PASS
 
-The main limitation is that no claim is made about longer factors or a complete dynamical system, and the theorem inherits the source morphic identity as an input.
+Read complete RESULT.md and verifier morphisms and compared original primary source Proposition 5.2/Table 2. Independently parsed all 26 ν-letter images and η binary outputs, closed 68 neighboring letter pair states and built 94-dimensional exact BigInt linear count update. Computed 94 consecutive zero residuals for L_(m+3)-L_(m+1)-L_m and Q_(m+6)-Q_(m+4)-Q_(m+1)-Q_m; by Cayley-Hamilton these linear-functional recurrences hold for all m. Independently verified positive twentieth power (not earlier) of 25-letter growing component incidence support, yielding primitivity and full-word frequencies. Dominant Padovan pole gives 01 ratio. Equality pi01=pi10 follows endpoint telescoping; one-letter 1-density c from primary paper yields pi00/pi11. A separate direct 150000-term nested recurrence replay had empirical frequencies within 5e-6 of formulas, corroborative only.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Cloitre-Ma-Zhang establish the morphic presentation and single-letter density but their inspected article, including Proposition 5.2, Table 2 and Section 6, does not give 01 transition recurrence or bigram frequencies. OEIS A076502 describes the nested recurrence, not these local statistics. No indexed domination found; equivalent prior word-statistic literature remains possible.
+
+## value
+
+PASS
+
+The exact adjacent-factor law and strictly negative nearest-neighbor covariance are a natural next-order invariant of an explicitly studied automatic difference word; the sixth-order recurrence exposes mechanism beyond letter-density, answering a meaningful part of the stated dynamical characterization direction without asserting full invariant measure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
