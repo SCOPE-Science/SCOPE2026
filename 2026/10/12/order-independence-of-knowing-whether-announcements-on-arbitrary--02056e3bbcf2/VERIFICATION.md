@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The mathematical proof establishes the exact arbitrary-carrier equivalence by two implications. For the reverse implication, a singleton true world shared by unequal intersecting nontrivial equivalence classes gives a concrete order-sensitive survivor. For the forward implication, only mixed non-singleton equivalence classes are deleted; the criterion prevents their deletion from cutting across any other non-singleton class. Singleton classes never get deleted by their own knowing-whether announcement. This controls infinite as well as finite frames without compactness or termination assumptions.
+## correctness
 
-The Python 3 standard-library script `verify.py` enumerates every labelled pair of S5 equivalence relations on one through five worlds and each Boolean valuation until a mismatch is observed. It compares independently computed sequential restrictions with the exact structural condition and validates finite counts, the minimal three-world witness, and the recurrence to size eight. This exhaustive *finite* check is corroborating evidence only and is not an infinite proof. The known integer sequence values are credited to OEIS A367888, not represented as an independently discovered table.
+PASS
+
+The source proof handles every P and arbitrary W: a violation consists of unequal intersecting nonsingleton classes A,B; P={w∈A∩B} deletes one class first, and a vertex in the nonempty difference survives only the opposite order. Under the criterion each deleted mixed E-class is a union of intact F-classes (and vice versa), so the second test preserves exactly the originally F-homogeneous surviving classes. Counting compatible classes as disjoint >=2 blocks colored E-only,F-only,both gives EGF. Independently enumerated every ordered pair of set partitions and all atomic valuations on n=1,...,5, obtaining 1,4,13,61,304 compatible pairs and zero equivalence failures. These finite tests corroborate, but do not replace, the infinite set-theoretic proof. Three worlds is the sharp obstruction.
+
+## originality
+
+PASS
+
+The semantic equivalence and all-frame commutativity criterion is the contribution. Public-announcement semantics and knowing-whether operators are foundational prior art; the exact finite enumeration and EGF were already recorded in OEIS A367888 and are explicitly not claimed new. The all-valuations-if-and-only-if block criterion is neither established by reduction axioms nor by independent results on arrow-refinement. Related published Resultary factual hedged belief contractions use a different update operation.
+
+## value
+
+PASS
+
+A natural two-agent epistemic update ordering question is completely resolved on finite and infinite S5 frames, with a single-true-world diagnostic and a deterministic O(n log n) recognizer on finite partitions; the three-world sharp obstruction and combinatorial interpretation add usable structure beyond a pre-existing numeric table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

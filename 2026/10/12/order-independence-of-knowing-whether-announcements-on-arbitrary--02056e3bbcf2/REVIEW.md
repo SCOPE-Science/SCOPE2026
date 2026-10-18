@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Every update is a restriction of the same fixed S5 model and preserves the truth set of the atomic proposition. The necessity direction reconstructs a singleton valuation at a point shared by unequal nontrivial equivalence classes: one update removes the entire first class, whereas the opposite first update removes the second class, and an element in their set difference survives the other order. The sufficiency direction checks a subtle boundary: a singleton class may be contained in a larger class of the other agent, but it is never deleted; only mixed (hence non-singleton) classes are deleted, and these are entire classes of the other relation under the hypothesis. The surviving second-agent classes are therefore unchanged or removed whole. The enumerative bijection classifies non-singleton blocks as first-only, second-only, or shared, leaving all remaining points as singletons. Finite semantic tests corroborate, but do not replace, these unrestricted proofs.
+## correctness
 
-## Originality — PASS with residual risk
-The 2013 *Knowing Whether* paper already gives public-announcement semantics and modal reduction axioms. The September 2026 DEL paper develops epistemic update proof theory, and the September 2026 non-contingency paper develops a modal proof theory; inspection of their relevant mathematical material did not reveal the exact commutation/partition theorem. Earlier results concerning commutation of non-contingency *truth-set operators* differ from commutation of the induced-model *announcement transformations*. An alternating four-point square illustrates the distinction: the non-contingency operators commute, whereas the present announcements do not. The sequence \(1,1,4,13,61,304,\ldots\) and its exponential generating function are already tabulated as OEIS A367888 and are not separately asserted as original. Searches cannot rule out all terminological equivalents; an older characterization could still exist.
+PASS
 
-## Value — PASS
-It is natural to ask when a pair of agents can make epistemically conditioned observations in either order without changing the resulting model. The universal frame-level criterion is exact for arbitrary infinite carriers, its failure is detected using just one true world, the three-world example shows optimal obstruction size, and the finite criterion supports efficient recognition. The connection to a previously known labelled sequence follows structurally rather than being a numerical recomputation. These resolve an independently motivated dynamic-model question, not an arbitrary slice of a known table.
+The source proof handles every P and arbitrary W: a violation consists of unequal intersecting nonsingleton classes A,B; P={w∈A∩B} deletes one class first, and a vertex in the nonempty difference survives only the opposite order. Under the criterion each deleted mixed E-class is a union of intact F-classes (and vice versa), so the second test preserves exactly the originally F-homogeneous surviving classes. Counting compatible classes as disjoint >=2 blocks colored E-only,F-only,both gives EGF. Independently enumerated every ordered pair of set partitions and all atomic valuations on n=1,...,5, obtaining 1,4,13,61,304 compatible pairs and zero equivalence failures. These finite tests corroborate, but do not replace, the infinite set-theoretic proof. Three worlds is the sharp obstruction.
 
-## Scope and risks
-The announcements are whole-model world-deletion operations for a *fixed atom*, not private or arrow-refining updates, and are evaluated in successive restricted S5 submodels. Different modalities or changing formulas require separate analysis. No independent verification has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The semantic equivalence and all-frame commutativity criterion is the contribution. Public-announcement semantics and knowing-whether operators are foundational prior art; the exact finite enumeration and EGF were already recorded in OEIS A367888 and are explicitly not claimed new. The all-valuations-if-and-only-if block criterion is neither established by reduction axioms nor by independent results on arrow-refinement. Related published Resultary factual hedged belief contractions use a different update operation.
+
+## value
+
+PASS
+
+A natural two-agent epistemic update ordering question is completely resolved on finite and infinite S5 frames, with a single-true-world diagnostic and a deterministic O(n log n) recognizer on finite partitions; the three-world sharp obstruction and combinatorial interpretation add usable structure beyond a pre-existing numeric table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
