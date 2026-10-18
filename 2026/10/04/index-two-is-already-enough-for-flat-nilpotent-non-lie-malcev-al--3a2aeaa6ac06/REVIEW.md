@@ -1,15 +1,21 @@
-# Review of Index two is already enough for flat nilpotent non-Lie Malcev algebras
+# Independent mathematical audit
 
-## Correctness
-PASS. The lower-central series and center follow directly from the explicit bracket under \(af\ne0\). The metric is the orthogonal sum of two hyperbolic planes and two positive lines, so its index is \(2\), and the center is a totally isotropic plane. The Jacobiator \(J(d,e_4,e_2)=af\,e\) is nonzero. The symbolic verifier checks the generic Malcev identity, these structural claims, the metric inertia, and the Levi-Civita products. Flatness is supplied by the primary source's Malcev-specific curvature construction rather than inferred from classical Lie curvature.
+## correctness
 
-## Originality
-PASS. The primary source gives the family, flatness, non-Lie behavior, and the theorem that flat Lorentzian nilpotent Malcev algebras are Lie. The inspected example does not state its lower-central series, exact center, or the resulting sharpness of the metric-index threshold. Exact and semantic searches for an index-\(2\) nilpotent flat non-Lie Malcev boundary did not find a covering result. The closest checked 2024 classification is restricted to Lie algebras. Residual risk remains that older double-extension literature may encode the same example under different terminology.
+PASS
 
-## Value
-PASS. The result identifies the first adjacent metric-index boundary to a central theorem of the motivating paper: index \(1\) forces Lie behavior, whereas this explicit index-\(2\) family is flat, nilpotent, and non-Lie. The totally isotropic two-plane center gives a structural reason that the example genuinely uses the extra negative direction. This is a motivated boundary result, not a routine parameter slice.
+From the five nonzero bracket pairs with af!=0, lower-central terms are gamma2=span(e1,e3,e), gamma3=span(e1,e), gamma4=0; the exact center is span(e,e1). The metric is two hyperbolic planes plus two positive axes, with index 2 and isotropic center. J(d,e4,e2)=af e is nonzero. The audited symbolic script reconstructs Malcev identity and Koszul products. Primary arXiv Section 3 explicitly identifies this example as flat in its Malcev-specific curvature; no invalid replacement with Lie curvature. Authors establish the separate Lorentzian index-one nilpotent-Lie theorem.
 
-## Closest literature and limitations
-The closest source is arXiv:2609.13950v1 itself, which supplies all construction premises but not the sharpened nilpotent/index conclusion in the inspected material. DOI 10.1112/blms.13047 classifies the analogous flat Lorentzian nilpotent Lie setting. The claim does not classify index-\(2\) Malcev algebras and does not assert minimal dimension.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge sharp natural boundary of the primary index-one theorem: source supplies the flat non-Lie example, while audited algebra shows it is already class-three nilpotent with index two and isotropic center.
+
+## value
+
+PASS
+
+The source index-one Lorentzian theorem is a natural sharp metric boundary; this class-three index-two flat non-Lie counterexample shows failure at the adjacent index and explains its isotropic two-plane center. No classification or dimension minimality is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
