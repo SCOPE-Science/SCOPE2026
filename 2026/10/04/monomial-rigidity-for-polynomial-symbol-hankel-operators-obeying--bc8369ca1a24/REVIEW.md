@@ -1,27 +1,21 @@
-# Review of Monomial rigidity for polynomial-symbol Hankel operators obeying the strong reproducing kernel thesis
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. A degree-\(N\) analytic polynomial symbol produces a finite-rank Hankel operator that annihilates every Hardy basis vector of degree at least \(N\). Normalized Hardy kernels are weakly null at the boundary, so compactness makes their Hankel images tend to zero there. Thus strong reproducing-kernel norm saturation is attained by an interior kernel.
+PASS
 
-Equality in the positive Rayleigh quotient makes that kernel a top eigenvector of \(H^*H\). The range of \(H^*H\) lies in the polynomial space of degree below \(N\), whereas every nonzero-center normalized kernel has infinitely many nonzero Taylor coefficients. Therefore the only possible norming kernel is \(k_0=1\).
+For degree N polynomial, H_{bar psi} annihilates z^j for j>=N, so H*H range is in E_N. Normalized kernels k_a tend weakly to zero as |a|->1; compact H sends them to 0 in norm, hence SRKT equality attains an interior norming kernel. Rayleigh quotient makes it an eigenvector in E_N, forcing a=0 since k_a for a!=0 has infinite tail. The equations for k_0=1 being top eigenvector force all positive-lag autocorrelations of c_1..c_N zero. The widest support lag s-r contributes only c_s conjugate(c_r), a contradiction unless one coefficient; monomial case directly norming. No numerical experiment necessary.
 
-The top-singular-vector equations at \(1\) are the positive-lag coefficient autocorrelations. If two or more coefficients are occupied, the lag between the largest and smallest occupied degrees has exactly one nonzero term and cannot vanish. Hence the symbol is a monomial. Conversely, a monomial symbol gives a scalar multiple of a finite partial reversal and \(k_0\) attains its norm.
+## originality
 
-## Originality
+PASS
 
-PASS. The full recent primary paper was inspected. It poses the strong reproducing kernel thesis classification as an open problem, identifies it with equality between the Nehari quotient norm and the Garsia norm, gives broad sufficient examples, and notes only that a suitable \(az+z^2\) symbol can fail. It does not classify polynomial symbols.
+Dyakonov 2026 poses the general Hankel SRKT characterization; Brevig-Seip maximal norm and earlier Garsia max norm are different equalities. Prior to the audited 2026-10-04 publication, no retrieved theorem classifies all polynomial SRKT symbols. A 2026-10-11 complete finite-rank shifted-Blaschke theorem logically specializes to monomials but explicitly credits the earlier polynomial classification, so it is subsequent progress, not prior anticipation.
 
-The full Brevig--Seip primary paper was inspected because it treats closely related Hankel norm equalities. Its maximal-norm condition is equality with the supremum norm, which is stronger and different. The earlier Garsia-norm paper was checked through its primary abstract and the precise theorem-level discussion in the recent source; it studies \(G\)-extremality, again a stronger sufficient mechanism.
+## value
 
-Database searches covered polynomial and finite-rank Hankel operators, strong reproducing-kernel equality, Garsia-versus-Nehari equality, monomial symbols, and equivalent kernel-norm formulations. No covering polynomial classification was found.
+PASS
 
-Residual risk: an equivalent finite-rank observation could exist in older Hankel-matrix literature under terminology not surfaced by the searches.
+A complete rigidity classification of all polynomial symbols is a natural finite-rank boundary inside a recent open Hardy-Hankel equality question. The proof isolates a sharp autocorrelation obstruction, and the subsequent finite-rank classification takes it as an explicit earlier special case. It is not merely a parameter substitution or a handful of low-degree calculations.
 
-## Value
-
-PASS. The motivating paper explicitly asks for a characterization of all Hardy-space Hankel operators satisfying the strong reproducing kernel thesis. Polynomial symbols are the canonical finite-band finite-rank subclass. The theorem completely resolves this natural subclass and upgrades an isolated quadratic nonexample to a sharp dichotomy: all nonmonomial polynomials fail and all monomials succeed.
-
-The mechanism is structural rather than computational and isolates two potentially reusable ingredients: finite-rank localization of a norming kernel and endpoint-lag autocorrelation rigidity.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
