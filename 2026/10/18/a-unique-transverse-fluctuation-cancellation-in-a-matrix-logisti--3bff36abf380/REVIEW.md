@@ -1,0 +1,19 @@
+# Scientific review: transverse fluctuations of the two-node matrix logistic map
+
+## Correctness — PASS
+The matrix-coordinate identity follows by direct multiplication, making the off-diagonal derivative an exact scalar cocycle on the invariant diagonal curve. The arcsine-to-doubling conjugacy and classical logarithmic Fourier identity determine the transverse exponent. The transfer operator decreases the \(L^2\)-norm of the centered observable by \(O(2^{-j})\), giving a convergent martingale-coboundary decomposition, a stationary reverse-martingale central limit theorem, and the explicit nonnegative odd-frequency variance series. Fourier uniqueness for a finite atomic orbit measure classifies every zero of the variance inside \(1<b<\sqrt3\). The exact telescoping product at \(b=\sqrt2\) and the finite-series calculation at \(b=2/\sqrt3\) provide independent structural checks. The packaged Python verifier executed 4,199 consistency assertions successfully. The verifier is not a substitute for the infinite proof; the limit theorem's remaining theoretical reliance is on the standard ergodic martingale CLT.
+
+## Originality — PASS, with residual priority risk
+The full accessible public manuscript of Pawela and Życzkowski (arXiv:2303.06176, March 2023) was checked in the model section and Appendix A: its diagonal positive-matrix case is treated through decoupled logistic scalar spectral distributions, whereas the present normal cocycle, exact variance series, and unique coboundary resonance are not supplied. General martingale approximation is established background and contributes no matrix-specific coefficient. A related paper on coupled scalar logistic maps is not the same Hermitian matrix system and therefore does not imply this transverse theorem. A related calculation for a Sharkovskiĭ Lotka–Volterra map treats the endpoint logarithmic cocycle \(\log x\) for an arcsine logistic base; it does not cover the moving interior singularity \(\log|1-c_b-x|\) or its unique zero-variance locus. Targeted terminology, equation, and parameter searches in published literature and research records produced no direct antecedent to the combined claim. Residual risks remain for an unindexed cocycle paper or an equivalent log-singular doubling-map variance classification; bibliographic absence is not a proof of absolute priority.
+
+## Mathematical value — PASS
+The nontrivial invariant diagonal curve is a natural test of how chaos from one diagonal matrix channel affects a linearly stable off-diagonal perturbation. The finding separates average normal contraction, always \(\log(b/2)\), from quantitative finite-time fluctuations, and determines their unique zero-variance resonance across the entire stable-fixed-channel range. The exact nonzero contrast \(\sigma_{2/\sqrt3}^2=\pi^2/3\) and an explicit infinite parameter-series yield reproducible dynamical invariants, not an arbitrary isolated numeric slice. It is specifically a normal linearized/stationary result, not a theorem of full nonlinear synchronization.
+
+## Closest literature and limitations
+- Ł. Pawela and K. Życzkowski, arXiv:2303.06176v1, Eq. (6) and Appendix A. Same matrix model and diagonal curve; no comparable normal fluctuation variance or resonance classification identified in the inspected text.
+- M. Gordin and M. Peligrad, arXiv:0910.3448. General martingale limit framework, not the model-specific variance or zero set.
+- Research on coupled scalar logistic maps (for example Cánovas, 2022) considers distinct evolution laws and does not directly imply the Hermitian off-diagonal statement.
+
+The conclusion is for infinitesimal normal derivatives along stationary diagonal dynamics; exceptional singular logarithmic phases have measure zero. An uninspected equivalent formulation could alter the originality judgment. No claim of independent scientific certification is made.
+
+Self-review: passed. Independent audit: not yet performed.
