@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-The proof was checked in five parts. First, for infinite \(\kappa\), direct products preserve cardinality: if \(|A|=|B|=\kappa\), then \(|A\times B|=\kappa\), so the exact-cardinality frame remains directed and validates \(\mathsf{S4.2}\).
+## correctness
 
-Second, Berger--Block--Löwe's control statements were checked in the source. The button \(\beta_p\) is the existence of nonzero \(p\)-torsion, the switch \(\sigma_q\) is \(q\)-divisibility of the whole group, and Lemma 3.2 states independence for arbitrary finite disjoint prime sets.
+PASS
 
-Third, the cardinal-correction step was checked carefully. Given the source-produced extension \(A\le B\), identify \(A\) with its image and apply downward Löwenheim--Skolem to \(B\) with parameter set \(A\). In the countable group language this gives \(A\subseteq C\preccurlyeq B\) with \(|C|\le\kappa\); containment of \(A\) forces \(|C|=\kappa\). As a substructure of a group, \(C\) is a subgroup.
+For each infinite κ, any two κ-sized abelian groups embed into their direct product A×B, of size κ, so the subobject embeddability frame is reflexive/transitive/directed and validates S4.2. Berger–Block–Löwe supply arbitrary finite independent FIRST-ORDER control sets β_p=∃x≠0(px=0) and σ_q=∀x∃y(qy=x) on ALL abelian groups. For any starting A of size κ and any compatible pattern, take their witnessing extension B≥A; by ordinary downward Löwenheim–Skolem for group language with parameter set A obtain elementary subgroup C≺B containing A with κ≤|C|≤κ+ℵ0=κ. Subgroup inclusion A≤C and elementarity preserve every first-order button/switch truth value; hence the same finite independent patterns exist within exact κ, proving ML_{LGr}(A_κ)⊆S4.2 by the control theorem. The directed lower bound and valuation-language monotonicity sandwich give equality for all adequate languages. An infinite κ is essential; this does not prove modal preservation for arbitrary higher-order controls.
 
-Fourth, because every control is a first-order sentence, \(C\preccurlyeq B\) preserves the complete finite control pattern. Hence independence survives on the exact-cardinality layer, allowing direct application of the Hamkins--Löwe upper-bound theorem.
+## originality
 
-Fifth, the robustness conclusion was checked by the standard inclusion of validity sets between arbitrary valuations, adequate-language valuations, and first-order structure valuations.
+PASS
 
-The closest broader result, Saveliev--Shapirovsky Theorem 22, concerns structures of cardinality at most \(\kappa\), not exactly \(\kappa\). Its conclusion therefore does not logically subsume the present claim: a subframe restriction can validate additional modal formulas.
+Prior Berger–Christensen Block–Löwe 2023 proves S4.2 for the class of all abelian groups, not exact fixed κ, and its full-function-group constructions can enlarge cardinality. Saveliev–Shapirovsky 2020 gives modal downward-LS size-≤κ results but not exact-layer subgroup logic merely by restriction. Hałapacz 2026's full ten-page paper treats ratchets and an application to infinite linear-order theories, not abelian groups or fixed-κ transfer. The submitted cardinality-correction of first-order independent controls is short and perhaps folklore, but the precise exact-κ robustness statement is not a corollary of bounded-cardinal modal equality alone and is not stated in checked primary sources.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The known modal characterization of all abelian groups leaves open whether it survives fixing the exact infinite cardinality of each possible world; restriction can introduce new modal validities. The elementary-submodel transfer shows the full S4.2 richness persists already among countable abelian groups and uniformly at every infinite size. This gives a useful stability/robustness lemma bridging potentialist frames and model-theoretic cardinal arithmetic, with a complete all-κ proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
