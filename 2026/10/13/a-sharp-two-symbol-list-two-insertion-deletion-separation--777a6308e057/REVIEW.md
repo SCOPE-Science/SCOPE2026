@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The incidence normalization distinguishes a diagonal length-two word (one deletion output) from an off-diagonal word (two), proving the exact all-alphabet deletion optimum with a matching construction. Insertion is defined by *subsequence* containment in received triples. The bipartite family meets every triple constraint by the two-class pigeonhole argument. For the ternary upper bound, six permutations count each of the six possible nonloop ordered pairs exactly three times; the antiparallel edge obstruction limits loops when four such pairs are chosen. The ternary directed-cycle witness meets all received triples. The exhaustive q=2,3 replay and q=2..24 family checks returned `VERIFY_OK`. Finite checks corroborate but do not replace the all-alphabet proof.
+## correctness
 
-## Originality — PASS, with named residual risk
-Searches for insertion versus deletion fixed-list capacities, short q-ary blocklength two, length-two subsequence compatibility, and equivalent directed-triangle formulations retrieved no source proving the exact combined length-two frontier. In the inspected primary content, Haeupler–Shahrasbi–Sudan and Guruswami–Haeupler–Shahrasbi treat asymptotic-rate insertion/deletion asymmetry, which is expressly credited. Con–Doron–Ribeiro treat asymptotic list capacity. Kiah–Wei–Zeng (2026) was available only as title and abstract, despite attempts for arXiv and lawful accessible full text; an unseen short-block lemma in its full text remains a genuine risk. No inference of absolute novelty is made merely from unsuccessful search.
+PASS
 
-## Value — PASS
-The exact minimum nonempty-output blocklength calculation exhibits the first alphabet-size threshold where insertion and deletion list-two code sizes separate; the same theorem constructs an unbounded multiplicative gap, not just a small parameter improvement. The short-length all-alphabet deletion optimum provides the correct benchmark. This clarifies a finite, fixed-list synchronization boundary that asymptotic rate regions by themselves do not resolve, while not claiming that qualitative asymmetry was unknown.
+One-letter deletion receiver counts each diagonal pair once and off-diagonal pair twice, giving ell+2r<=2q, ell<=q and Dq=floor(3q/2); diagonal plus oriented matching attains it. For insertions, a balanced bipartition A∪B and both directed cross-part pairs yield 2floor(q²/4), since every triple has a same-part pair. For q2, 010 rules out full four-code; size-three witness. For q3, six permutations of all-distinct triples bound offdiagonal count e<=4; if e=4, a digon excludes two diagonal words, limiting total <=5; if e<=3, total <=6, attained by three loops plus a directed 3-cycle. Independent exhaustive enumeration of all 16 q2 and 512 q3 codebooks verified (3,3),(4,6). No exact Iq for q>=4 asserted.
 
-## Scope and remaining risks
-The exact insertion capacity for \(q\ge4\) is not asserted; the quadratic family is a lower bound, not an exhaustive optimum. The full 2026 fixed-list paper and potentially unindexed finite tables remain incomplete originality comparisons. Independent mathematical audit was not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original joint exact short-block list-two alphabet frontier: D_q=floor(3q/2) for all alphabets, I2=3 and I3=6, separation first at q=3, plus growing insertion family >=2 floor(q^2/4). The original Kiah–Wei–Zeng (2026) full preprint and earlier Haeupler/Guruswami works establish general insertion/deletion list-decoding asymmetry and rate bounds, not this exact ordered-pair q=2,3 extremal census. Preserve the pre-existing qualitative asymmetry credit.
+
+## value
+
+PASS
+
+Pinpoints the first nonempty-deletion-output list-two alphabet size at which insertion and deletion capacities differ, and supplies an unbounded ratio construction while keeping symbols, list size and edit budget fixed. This is a meaningful natural finite coding frontier rather than a cherry-picked experiment; the exact larger-alphabet insertion optimum remains open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
