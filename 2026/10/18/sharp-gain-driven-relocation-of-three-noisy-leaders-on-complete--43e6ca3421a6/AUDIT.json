@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "Exact rank-two Woodbury inverse trace for all four orbit types, verified against explicit Laplacian inverses. Three symbolic difference identities and strict positivity of P after \\(m-3\\) substitution establish every strict and tie case with no finite-m extrapolation. The positive threshold roots and asymptotic formula follow algebraically. Verification program independently checks 183 exact symbolic/rational assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1708.06873 Introduction and Section IV give resistance-based formula and path/cycle/tree optimizers, not the complete bipartite three-leader result.",
+        "arXiv:1712.08212 §§II-IV prove approximation-related submodular structure, not an exact \\(K_{m,3}\\) phase diagram."
+      ],
+      "reasoning": "General all-graph coherence identities and greedy bounds do not supply the global sign comparisons between \\(a=0,1,2,3\\). They could be used to derive this classification, but they do not state a theorem that implies its exact switching formulas without further nontrivial analysis.",
+      "searches": [
+        "published-finding corpus: optimal leader selection complete bipartite graphs noisy leader trace covariance",
+        "Literature: noisy leader selection complete bipartite graph two leaders exact optimal trace inverse threshold",
+        "Literature: finite gain noisy leader selection complete bipartite graph closed form trace inverse 3 leaders"
+      ]
+    },
+    "checked_sources": [
+      {
+        "title": "Fitch and Leonard, Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+        "url": "https://arxiv.org/pdf/1407.1569"
+      },
+      {
+        "title": "Patterson, Yi and Zhang, A Resistance Distance-Based Approach",
+        "url": "https://arxiv.org/pdf/1708.06873"
+      },
+      {
+        "title": "Mackin and Patterson, Submodular Optimization for Consensus Networks with Noise-Corrupted Leaders",
+        "url": "https://arxiv.org/pdf/1712.08212"
+      },
+      {
+        "title": "Patterson, McGlohon and Dyagilev, Efficient Optimal k-Leader Selection",
+        "url": "https://arxiv.org/pdf/1412.6595"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fitch–Leonard Theorem 2 specializes finite-gain joint centrality to two leaders; Section IV analyzes arbitrary leader count principally in the noise-free limit.",
+        "Patterson–Yi–Zhang explicitly list optimal special graph classes as paths, cycles, trees; the \\(K_{m,3}\\) comparison is absent.",
+        "New direct comparison identity \\(J_0-J_1\\) has sign-changing quadratic with coefficient \\(m-7\\), while \\(J_0-J_3\\) has factor \\(m-6\\); their interplay yields size-dependent transitions."
+      ],
+      "reasoning": "Previously published general expressions can evaluate each candidate, but the asserted exact all-parameter optimizer map does not follow by renaming parameters or a stated broader theorem. The decisive novel component being asserted is the all-integer sign classification, not the standard Woodbury trace formula.",
+      "searches": [
+        "arxiv:1407.1569 full text finite-gain two-leader and general joint centrality sections",
+        "arxiv:1708.06873 full text introduction and graph-specific solutions",
+        "published-finding corpus: three noisy leaders complete bipartite K_m3 optimal pinned Laplacian trace"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1407.1569 §§II,IV-V analyzes trace inverse/joint centrality but gives explicit finite-gain solutions for one/two leaders, not three on \\(K_{m,3}\\).",
+        "No exact matching three-leader gain transition was found in the reported semantic search results."
+      ],
+      "reasoning": "The known matrix-inverse and joint-centrality expression is an equivalent optimization formulation, not a statement of the exact 3-leader minimizer across all integer m and positive gains. Matching the objective alone does not cover the derived switchpoint classification.",
+      "searches": [
+        "published-finding corpus: three finite gain noisy leader nodes complete bipartite graph K_m3 exact minimization of trace inverse pinned Laplacian threshold m 4 5 8",
+        "published-finding corpus: three pinned vertices on K_m,3 minimizing trace inverse Laplacian finite gain sharp switching",
+        "Literature: \"complete bipartite\" \"three leaders\" \"network coherence\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest surfaced public published-finding corpus record concerns discounted hitting domination of bipartite graphs (2026/10/4, f5f86f5d861d), a different optimization objective.",
+        "Neither source text inspected nor search results supplied an exact published numerical/symbolic table covering the gain switch thresholds."
+      ],
+      "reasoning": "No known database or table was identified for these gain-dependent leader configurations; absence from search is not proof of nonexistence.",
+      "searches": [
+        "published-finding corpus: three leader placement complete bipartite graphs noisy leader gains phase transition threshold",
+        "Literature: \"\\(K_{m,3}\\)\" \"leader\" \"coherence\"",
+        "Literature: \"complete bipartite\" \"noise-corrupted leaders\" \"optimal\""
+      ]
+    },
+    "rationale": "Inspected closely relevant primary full texts and searched public mathematical results using claim/alias/parameter formulations. Existing sources establish the same covariance objective and general matrix/relation frameworks or different graph families, but none inspected asserts the exact three-leader \\(K_{m,3}\\) gain regimes; they do not imply the specific switch roots without additional orbit comparisons. Residual risk of unindexed equivalent specializations remains explicit.",
+    "residual_risks": [
+      "A mathematically equivalent three-leader complete-bipartite gain classification may exist in unindexed or poorly searchable literature.",
+      "Generic joint-centrality and resistance-distance formulas could be specialized by a reader, but the all-m minimizer comparison is not stated in the inspected sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same stochastic objective and generic graph expressions; does not state the present three-leader complete-bipartite threshold classification.",
+        "evidence": [
+          "PDF Section II defines L+K, and Theorem 2 (pp.12-13) treats exactly two noise-corrupted leaders.",
+          "Section V cycle/path examples do not include \\(K_{m,3}\\)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1407.1569",
+        "material_read": "PDF pages 1-3, 8-14, including model, joint centrality, finite-gain two-leader Theorem 2 and specialized cycle theorem; explicit search in full PDF for bipartite terms.",
+        "method": "Read publicly accessible arXiv full-text PDF, examined equations and graph-family statements.",
+        "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+        "trigger": "Earliest directly relevant finite-gain noisy leader formulation; possible dominating joint-centrality theorem."
+      },
+      {
+        "assessment": "General coherence formula and explicit path/cycle/tree results; no exact \\(K_{m,3}\\) three-finite-gain thresholds.",
+        "evidence": [
+          "Introduction enumerates graph-family solutions; Section IV develops path/cycle/tree configurations."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1708.06873",
+        "material_read": "PDF pages 1-2, 5-8 including special-topology optimality discussion and conclusions; full-text phrase search for bipartite.",
+        "method": "Read open arXiv PDF text and checked solution scope.",
+        "title": "A Resistance Distance-Based Approach for Optimal Leader Selection in Noisy Consensus Networks",
+        "trigger": "General resistance-based formulas and graph-specific optimal leader results could subsume the claim."
+      },
+      {
+        "assessment": "Establishes general submodularity and approximation bounds; no exact three-leader \\(K_{m,3}\\) formula.",
+        "evidence": [
+          "Eq. (LS) gives general subset optimization and Section III studies submodularity."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1712.08212",
+        "material_read": "PDF pp.1-4, including model, trace objective and submodularity proof.",
+        "method": "Read open arXiv PDF text including central derivation.",
+        "title": "Submodular Optimization for Consensus Networks with Noise-Corrupted Leaders",
+        "trigger": "Potential general optimization theorem covering all exact placements."
+      },
+      {
+        "assessment": "Exact algorithms concern paths and rings, not complete bipartite graphs.",
+        "evidence": [
+          "Abstract identifies one-dimensional path and ring setting."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1412.6595",
+        "material_read": "Paper title/abstract and full-text keyword search for bipartite.",
+        "method": "Read PDF opening and searched entire PDF for the relevant graph family.",
+        "title": "Efficient, Optimal k-Leader Selection for Coherent, One-Dimensional Formations",
+        "trigger": "Possibly stronger exact optimal-k leader formula."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "43e6ca34-21a6-4497-8d06-9569bfa032ac",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Choosing exactly three sensors in \\(K_{m,3}\\) naturally tests whether filling the entire higher-degree side is preferable to spreading leaders across the two communities. The theorem exhibits two distinct gain-driven reallocations separated by size m, four integer regimes, sharp critical gains, tie classification, and a large-size scaling law. This is a structural family theorem, not a single computed example or routine normalization.",
+    "status": "PASS"
+  }
+}
