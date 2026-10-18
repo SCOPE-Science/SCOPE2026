@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. The critical checks are:
+# Independent mathematical audit
 
-1. For the truncated geometric law on \(\{0,\ldots,n\}\), differentiation with respect to \(\theta=\log r\) gives \(d\mu_n(e^\theta)/d\theta=\operatorname{Var}(Y)>0\).
-2. At \(r=k/(k+1)\), the corresponding infinite geometric law has mean \(k\), and truncation at \(n>2k\) strictly lowers that mean.
-3. As \(r\uparrow1\), the truncated law becomes uniform and its mean tends to \(n/2>k\); hence the integer-mean parameter exists uniquely.
-4. For fixed \(k\), comparison with every fixed \(s>k/(k+1)\) proves \(r_{k,n}\to k/(k+1)\).
-5. The exact tail formula
-\[
- r_{k,n}^{\,k}\frac{1-r_{k,n}^{\,n-k+1}}{1-r_{k,n}^{\,n+1}}
-\]
-then tends to \((k/(k+1))^k\).
-6. Reversal \(X=n-Y\) preserves log-affinity, makes the mean \(n-k\), and identifies the tail with \(\{X\le\mathbb E[X]\}\).
-7. The elementary limit \((1+1/k)^{-k}\to e^{-1}\), combined with the published lower bound, gives the exact infimum.
+## correctness
 
-The bundled `verify.py` solves representative mean equations by bisection, checks the resulting means and tail probabilities, and confirms convergence numerically. It does not prove the all-parameter theorem or the literature comparison.
+PASS
+
+The truncated geometric family is strictly increasing in its parameter by exponential-family variance. For each k and n>2k the mean crosses integer k uniquely between r=k/(k+1) and 1; as n grows the ratio converges back to k/(k+1). Reflecting gives finite log-affine laws of integer mean n-k with tail probability approaching (k/(k+1))^k and finally e^-1. The published integer-mean corollary proves the opposite bound; numerical script only corroborates representative parameters.
+
+## originality
+
+PASS
+
+Alqasem–Aravinda–Marsiglietti–Melbourne 2023 arXiv full HTML Introduction Corollary 1.4 and Section 3 read: integer-mean e^-1 bound, unrestricted sharpness and the eight-atom violation of 1/2 are prior art. Their displayed sharpness family does not impose integer mean; the current exact integer-mean perturbation and double limit resolve a genuine subclass sharpness gap. Marsiglietti–Melbourne discrete localization establishes log-affine extremizers, but explicit integer-mean saturation was not found. An unindexed traditional tail construction remains possible.
+
+## value
+
+PASS
+
+Sharpness of an already important universal probability lower bound after an integer-mean restriction identifies the exact constant on a natural constrained subclass; the two-scale finite-support construction is an independently useful exact extremal fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
