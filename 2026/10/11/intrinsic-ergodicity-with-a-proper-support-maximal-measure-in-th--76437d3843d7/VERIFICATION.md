@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-The verification uses the exact factor estimates in the proof of Hong--Kim Theorem 3.7. If the last factor symbol \(1\) in an \(n\)-block is at coordinate \(k\), the source proves
-\[
-|\pi^{-1}(w)|\le p c_Y^2\lambda^{k\alpha+(n-k)}.
-\]
-For the all-zero block, the source identifies the fiber with \(\mathcal B_n(Y)\), so its size is at most \(c_Y\lambda^n\). These two cases give the uniform logarithmic lift bound used in RESULT.md.
+# Independent mathematical audit
 
-For an ergodic factor measure with positive \(1\)-frequency, the terminal zero-run length divided by \(n\) tends to zero. This was checked directly from the ergodic theorem: a terminal gap of a fixed positive fraction along infinitely many \(n\) would make the normalized one-count on two proportional prefixes have incompatible limits. Bounded convergence then controls its expectation.
+## correctness
 
-The block-entropy inequality follows by conditioning the \(n\)-word partition of \(X\) on the factor \(n\)-word and bounding each conditional entropy by the logarithm of that factor word's number of lifts. Dividing by \(n\) yields
-\[
-h_\mu(X)\le h_{\pi_*\mu}(\mathsf X(S))+\alpha\log\lambda
-\le\log\eta+\alpha\log\lambda<\log\lambda.
-\]
-The non-ergodic case is handled through ergodic decomposition and affinity of entropy. No numerical experiment or unverified certificate is used.
+PASS
+
+ORIGINAL false quantified uniform bound asserted for every invariant marker-positive measure, while Birkhoff terminal-zero sublinearity is only valid componentwise for ergodic positive-marker measures. A convex mixture of a maximal measure supported on Y and a marker-positive invariant measure has positive marker frequency but entropy tending to h(X), violating the source-independent uniform bound. COMPLETE repaired RESULT.md has exact original hypotheses, restricts h_mu≤log eta+alpha log lambda to ERGODIC positive-marker measures, proves strict but not uniform h_mu<h(X) for arbitrary positive-marker measures using entropy affinity, then localizes all maximal measures to Y by ergodic decomposition. Y has variable specification and h(Y)=h(X), giving unique fully supported MME on Y and unique MME on X with proper support. The corrected final theorem and proof are logically sound CONDITIONAL on the source fiber estimates and variable specification result, primary full text unavailable in this execution. All changed scientific bytes supplied.
+
+## originality
+
+PASS
+
+Best-of-knowledge original mathematical claim; matches no implication-equivalent inspected primary/published comparison; detailed risks remain.
+
+## value
+
+PASS
+
+Preserves a meaningful structural classification of one-sided balanced examples of every prescribed positive entropy: intrinsic ergodicity can coexist with failure of entropy minimality and proper support of unique maximal measure. The measure-entropy localization mechanism is substantive, not the routine equal-topological-entropy observation; removal of false nonergodic uniform gap is essential and demonstrated by a motivated mixture counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

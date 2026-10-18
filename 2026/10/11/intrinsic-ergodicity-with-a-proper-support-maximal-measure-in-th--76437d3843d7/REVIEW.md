@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source's explicit lift bound gives a uniform estimate in terms of the terminal zero-run length. Under any ergodic measure with positive marker frequency that terminal run is sublinear by the ergodic theorem, so conditional entropy over the factor is at most \(\alpha\log\lambda\) beyond the factor entropy. Since \(h(\mathsf X(S))=\log\eta\) and \(\log\eta+\alpha\log\lambda<\log\lambda\), marker-positive invariant measures cannot be maximal. Ergodic decomposition extends the conclusion to arbitrary maximal measures. The source's all-zero fiber identity makes the marker-free subsystem exactly \(Y\), and variable specification gives \(Y\) a unique fully supported maximal measure. Thus the maximal-measure sets of \(X\) and \(Y\) coincide and are singletons.
+## correctness
 
-## Originality
-PASS with a stated bibliographic risk. The motivating paper proves the construction, the fiber estimates, and \(h(Y)=h(X)\), but it does not state maximal-measure localization or intrinsic ergodicity of the ambient one-sided-balanced example. General synchronized-shift theory controls fully supported maximal measures and therefore does not imply this improper-support uniqueness statement. Targeted searches for marker-supported entropy loss, one-sided balance plus intrinsic ergodicity, and proper full-entropy support found no implication-equivalent theorem. A thesis cited by the source as an antecedent of Theorem 3.7 was not directly inspectable in the bounded search, so an equivalent observation there remains a residual risk.
+PASS
 
-## Value
-PASS. The result separates three properties that the paper's bi-balanced theory links together: intrinsic ergodicity, entropy minimality, and full support of the maximal measure. The fresh one-sided-balanced counterexamples retain uniqueness of the maximal measure while losing both entropy minimality and full support, and the proof identifies the exact mechanism: positive marker frequency carries a strict entropy penalty. This is a structural classification of the paper's full counterexample family for every prescribed positive entropy, not a numerical slice or a restatement of the equal-entropy subsystem.
+ORIGINAL false quantified uniform bound asserted for every invariant marker-positive measure, while Birkhoff terminal-zero sublinearity is only valid componentwise for ergodic positive-marker measures. A convex mixture of a maximal measure supported on Y and a marker-positive invariant measure has positive marker frequency but entropy tending to h(X), violating the source-independent uniform bound. COMPLETE repaired RESULT.md has exact original hypotheses, restricts h_mu≤log eta+alpha log lambda to ERGODIC positive-marker measures, proves strict but not uniform h_mu<h(X) for arbitrary positive-marker measures using entropy affinity, then localizes all maximal measures to Y by ergodic decomposition. Y has variable specification and h(Y)=h(X), giving unique fully supported MME on Y and unique MME on X with proper support. The corrected final theorem and proof are logically sound CONDITIONAL on the source fiber estimates and variable specification result, primary full text unavailable in this execution. All changed scientific bytes supplied.
 
-## Closest literature and limitations
-The closest source is Hong--Kim, arXiv:2609.33476v1, especially Theorem 3.7 and its preimage estimates. Thomsen's synchronized-system theory concerns fully supported maximal measures and does not settle the present improper-support uniqueness. The result is limited to the source's marker-coded construction and does not claim a general theorem for all one-sided balanced shifts.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original mathematical claim; matches no implication-equivalent inspected primary/published comparison; detailed risks remain.
+
+## value
+
+PASS
+
+Preserves a meaningful structural classification of one-sided balanced examples of every prescribed positive entropy: intrinsic ergodicity can coexist with failure of entropy minimality and proper support of unique maximal measure. The measure-entropy localization mechanism is substantive, not the routine equal-topological-entropy observation; removal of false nonergodic uniform gap is essential and demonstrated by a motivated mixture counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

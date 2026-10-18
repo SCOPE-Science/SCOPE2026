@@ -1,106 +1,87 @@
 # Intrinsic ergodicity with a proper-support maximal measure in the one-sided balanced construction
 
 ## Finding
-For every \(h>0\), let \(X\) be the coded system in Theorem 3.7 of Hong and Kim. Their construction uses a synchronizing marker \(\bar 1\), a one-block factor
+For every \(h>0\), let \(X\) be the coded system of Theorem 3.7 of Hong and Kim. Their construction uses a synchronizing marker \(\bar 1\), a one-block factor
 \[
-\pi:X\longrightarrow \mathsf X(S),
+\pi:X\longrightarrow\mathsf X(S),\qquad \pi(\bar 1)=1,
 \]
-with \(\pi(\bar 1)=1\), and a proper marker-free subshift \(Y\subsetneq X\) with variable specification and
+and a proper marker-free subshift \(Y\subsetneq X\) with variable specification and
 \[
 h(Y)=h(X)=h.
 \]
-Write \(\lambda=e^h\), let \(h(\mathsf X(S))=\log\eta<\log\lambda\), and let the construction parameter satisfy
+Put \(\lambda=e^h\), write \(h(\mathsf X(S))=\log\eta<\log\lambda\), and take the construction parameter satisfying
 \[
 \alpha<1-\frac{\log\eta}{\log\lambda}.
 \]
-Then every invariant probability measure \(\mu\) on \(X\) with positive marker frequency satisfies
+**For every ergodic** invariant probability measure \(\mu\) on \(X\), positive marker frequency implies the uniform entropy estimate
 \[
-\mu([\bar 1])>0
-\quad\Longrightarrow\quad
+\mu([\bar 1])>0\quad\Longrightarrow\quad
 h_\mu(X)\le \log\eta+\alpha\log\lambda<\log\lambda=h(X).
 \]
-Therefore every measure of maximal entropy of \(X\) gives zero mass to the marker and is supported on \(Y\). The subshift \(Y\) has variable specification, so it is intrinsically ergodic and its unique maximal-entropy measure is fully supported on \(Y\). Hence \(X\) is intrinsically ergodic too, with the same unique maximal-entropy measure, whose support is exactly the proper subshift \(Y\).
+For an arbitrary (not necessarily ergodic) invariant measure, positive marker frequency still implies \(h_\mu(X)<h(X)\), but the displayed uniform quantitative bound need not hold.
 
-In particular, for every prescribed positive entropy there is a synchronized one-sided balanced shift that is intrinsically ergodic but not entropy minimal, and whose unique maximal-entropy measure is not fully supported on the ambient shift.
+Consequently every measure of maximal entropy on \(X\) gives the marker zero mass and is supported on \(Y\). The variable-specification subsystem \(Y\) has a unique fully supported measure of maximal entropy. Hence \(X\) also has a unique measure of maximal entropy, supported on the proper subshift \(Y\), even though \(X\) is not entropy minimal.
+
+For every prescribed positive entropy this yields a synchronized one-sided-balanced shift that is intrinsically ergodic but not entropy minimal, and whose unique maximal measure is not fully supported on the ambient shift.
 
 ## Assumptions and scope
-The statement concerns the specific coded systems constructed in Theorem 3.7 of Hong--Kim. The notation \(\lambda,\eta,\alpha,Y,S,\bar 1\) is exactly the notation of that construction. No assertion is made that every synchronized one-sided balanced shift is intrinsically ergodic, or that every proper full-entropy extension has the same localization property.
+The assertion concerns the particular coded systems of Hong--Kim Theorem 3.7, not arbitrary synchronized or one-sided-balanced shifts. The notation \(\lambda,\eta,\alpha,Y,S,\bar1\) follows that construction. The marker-free subsystem is precisely \(Y\), as witnessed by the source's equality of the all-zero factor fibers with the word sets of \(Y\). The positive-entropy, strict parameter inequality and the source's factor-word lift estimates are hypotheses used here. Nothing is asserted about the uniqueness of equilibrium states for general potentials.
 
-The marker-free subsystem is exactly \(Y\): the source's entropy count identifies the all-zero factor fiber \(\pi^{-1}(0^n)\) with \(\mathcal B_n(Y)\) for every \(n\). The strict inequality \(\log\eta+\alpha\log\lambda<\log\lambda\) is one of the defining parameter inequalities in the construction.
+The qualifier **ergodic** in the quantitative inequality is essential. An arbitrary invariant measure can be a convex combination of a maximal measure supported on \(Y\) and a marker-positive invariant measure; its marker frequency can be positive but arbitrarily small, while its entropy approaches \(h(X)\). Such mixtures are not subject to a uniform entropy gap independent of marker frequency.
 
 ## Proof
-For an \(n\)-word \(w\) in the factor \(\mathsf X(S)\), let \(R_n(w)\) be the number of trailing zeros after the last occurrence of \(1\); for \(w=0^n\), put \(R_n(w)=n\). The source proves that if the last \(1\) occurs at coordinate \(k\), then
+For an \(n\)-letter word \(w\) in \(Z=\mathsf X(S)\), write \(R_n(w)\) for the number of terminal zeros following its last \(1\), and put \(R_n(0^n)=n\). The source's last-marker estimate, when the last \(1\) is at position \(k\), states
 \[
-|\pi^{-1}(w)|
-\le p c_Y^2\lambda^{k\alpha+(n-k)}.
+|\pi^{-1}(w)|\le p c_Y^2\lambda^{k\alpha+(n-k)}.
 \]
-For the all-zero word it proves \(\pi^{-1}(0^n)=\mathcal B_n(Y)\), hence
+For the all-zero factor word it identifies \(\pi^{-1}(0^n)=\mathcal B_n(Y)\), and gives \(|\pi^{-1}(0^n)|\le c_Y\lambda^n\). Absorbing the fixed constants into \(C\ge1\), both cases give
 \[
-|\pi^{-1}(0^n)|\le c_Y\lambda^n.
-\]
-Thus there is a constant \(C\ge1\), independent of \(n\) and \(w\), such that
-\[
-\log|\pi^{-1}(w)|
-\le \log C+\alpha n\log\lambda
- +(1-\alpha)R_n(w)\log\lambda.
+\log|\pi^{-1}(w)|\le \log C+\alpha n\log\lambda
+ +(1-\alpha)R_n(w)\log\lambda.\tag{1}
 \]
 
-First let \(\mu\) be ergodic and suppose \(\delta=\mu([\bar 1])>0\). Put \(\nu=\pi_*\mu\). Then \(\nu([1])=\delta\). By the ergodic theorem, the final run of zeros in a typical length-
-\(n\) factor block is sublinear:
+Let \(\mu\) be ergodic, with \(\delta=\mu([\bar1])>0\), and let \(\nu=\pi_*\mu\), also ergodic. Then \(\nu([1])=\delta\). By the pointwise ergodic theorem, the number of \(1\)'s among the first \(n\) coordinates is \(\delta n+o(n)\) almost surely. If \(R_n\ge\varepsilon n\) for infinitely many \(n\), then the count of \(1\)'s in the first \(n\) positions equals the count in at most the first \((1-\varepsilon)n\) positions on that subsequence, contradicting the same ergodic-frequency limit along the shorter prefixes. Thus \(R_n/n\to0\) almost surely. Since \(0\le R_n/n\le1\), dominated convergence gives
 \[
-\frac{R_n}{n}\longrightarrow0
-\quad\text{for }\nu\text{-almost every point}.
-\]
-Indeed, if \(R_n\ge\varepsilon n\) along an infinite subsequence, then the number of ones in the first \(n\) coordinates would equal the number in the first at most \((1-\varepsilon)n\) coordinates along that subsequence, contradicting the two ergodic-frequency limits. Since \(0\le R_n/n\le1\), dominated convergence also gives
-\[
-\frac1n\int R_n\,d\nu\longrightarrow0.
+\frac1n\int R_n\,d\nu\longrightarrow0.\tag{2}
 \]
 
-Let \(\mathcal P_X^n\) and \(\mathcal P_Z^n\) be the length-
-\(n\) word partitions of \(X\) and \(Z=\mathsf X(S)\). Conditional entropy on each factor cylinder is at most the logarithm of the number of lifts, so
+For the length-\(n\) word partitions \(\mathcal P_X^n\) and \(\mathcal P_Z^n\), conditioning on the factor word bounds conditional entropy by the logarithm of its number of lifts:
 \[
 H_\mu(\mathcal P_X^n)
-\le H_\nu(\mathcal P_Z^n)
- +\int\log|\pi^{-1}(w)|\,d\nu(w).
+\le H_\nu(\mathcal P_Z^n)+\int\log|\pi^{-1}(w)|\,d\nu(w).
 \]
-Divide by \(n\) and let \(n\to\infty\). The preceding fiber estimate gives
+Divide by \(n\), use (1)--(2), and take the entropy limits. Since \(h_\nu(Z)\le h(Z)=\log\eta\),
 \[
-h_\mu(X)
-\le h_\nu(Z)+\alpha\log\lambda
-\le \log\eta+\alpha\log\lambda
-<\log\lambda.
+h_\mu(X)\le h_\nu(Z)+\alpha\log\lambda
+\le\log\eta+\alpha\log\lambda<\log\lambda.
+\tag{3}
 \]
-Thus no ergodic maximal-entropy measure can assign positive mass to the marker.
+This proves the quantitative estimate for every **ergodic** marker-positive measure.
 
-For an arbitrary maximal-entropy measure, apply the ergodic decomposition and affinity of measure entropy. Since every ergodic component has entropy at most \(h(X)\) and their average equals \(h(X)\), almost every component is itself maximal; hence almost every component gives the marker zero mass. Therefore the original measure gives zero mass to every translate of the marker cylinder and is supported on the marker-free subsystem \(Y\).
+For a general invariant \(\mu\), write its ergodic decomposition as \(\mu=\int\mu_\omega\,d\rho(\omega)\). Entropy is affine under this decomposition. If \(\mu([\bar1])>0\), a positive-\(\rho\)-measure set of components has \(\mu_\omega([\bar1])>0\), and each such component satisfies (3), whereas all other components have entropy at most \(h(X)\). Therefore the average entropy is strictly less than \(h(X)\). Importantly, this does **not** put the same uniform upper bound from (3) on the entropy of the mixture: its marker-zero ergodic components may have entropy \(h(X)\).
 
-Conversely, every maximal-entropy measure on \(Y\) is maximal on \(X\) because \(h(Y)=h(X)\). Thus the maximal-entropy measures of \(X\) and \(Y\) coincide. The source proves that variable specification yields intrinsic ergodicity with a fully supported maximal-entropy measure, so \(Y\) has a unique such measure. This proves the asserted uniqueness on \(X\), with support exactly \(Y\subsetneq X\).
+In particular, if \(\mu\) is any measure of maximal entropy on \(X\), its ergodic components are almost surely maximal, since all their entropies are bounded above by \(h(X)\) and their average is \(h(X)\). By (3), none of those components can have positive marker frequency. Thus \(\mu([\bar1])=0\), and invariance makes every shift of the marker cylinder have measure zero. The measure is therefore supported on the closed marker-free subsystem, which the construction identifies with \(Y\).
 
-Finally, \(X\) is not entropy minimal because it contains the proper subshift \(Y\) with \(h(Y)=h(X)\).
+Conversely, any maximal-entropy measure on \(Y\) is maximal on \(X\), since \(h(Y)=h(X)\). Hence the sets of maximal measures on \(X\) and on \(Y\) coincide. The source's variable-specification result supplies intrinsic ergodicity and full support for the unique maximal measure on \(Y\). Therefore this is the unique maximal measure on \(X\) too, with support exactly \(Y\subsetneq X\). The ambient system is not entropy minimal because it has this proper full-entropy subshift.
 
-## Verification
-The proof was checked directly against the construction's factor-fiber bounds. The critical source estimates are the bounds for \(\pi^{-1}(0^l1)\), the synchronization product estimate, the resulting last-marker estimate
+## Verification and precise scope of the repair
+The proof uses the published factor-fiber bounds and the exact all-zero-fiber identification; these are not inferred from numerical experiments. The measure-theoretic step from positive marker frequency to sublinear terminal zero runs uses ergodicity. The passage from ergodic maximal measures to arbitrary maximal measures instead uses ergodic decomposition and entropy affinity.
+
+The original version of the quantitative statement omitted the ergodicity hypothesis. That stronger version is unjustified and, whenever marker-positive invariant measures exist, false. Indeed, let \(\mu_Y\) be the maximal measure supported on \(Y\) and \(\nu\) any marker-positive invariant measure. For \(0<t<1\), the invariant mixture \(\mu_t=(1-t)\mu_Y+t\nu\) satisfies \(\mu_t([\bar1])>0\) and
 \[
-|\pi^{-1}(w)|\le p c_Y^2\lambda^{k\alpha+(n-k)},
+h_{\mu_t}(X)=(1-t)h(X)+t h_\nu(X)\longrightarrow h(X)
+\quad(t\downarrow0).
 \]
-and the identification of the all-zero fiber with \(\mathcal B_n(Y)\). No finite experiment is used to infer an asymptotic statement.
-
-The only new limiting step is the sublinearity of the terminal zero run under a factor measure with positive \(1\)-frequency; this is a direct consequence of the ergodic theorem. The conditional-entropy inequality is the standard finite-partition bound obtained by conditioning on the factor word. The non-ergodic case is handled by ergodic decomposition and entropy affinity rather than by assuming ergodicity.
+For sufficiently small \(t\), this exceeds the fixed strict upper bound \(\log\eta+\alpha\log\lambda\), while remaining below \(h(X)\). Correcting the quantitative quantifier leaves the maximal-measure localization and uniqueness conclusion unchanged.
 
 ## Relationship to prior work
-Hong--Kim construct the one-sided balanced systems, prove their exact topological entropy, and show that they contain a proper full-entropy variable-specification subsystem. Their paper does not state that all maximal-entropy measures of these systems are supported on that subsystem, nor that the ambient examples are intrinsically ergodic. The additional point is that the source's fiber estimate becomes strictly entropy-losing as soon as the marker has positive invariant frequency.
+Hong and Kim construct the one-sided-balanced examples, prove their topological entropy and proper equal-entropy variable-specification subsystem, and provide the word-lift estimates used here. Their main result about synchronized bi-balanced shifts concerns a different, entropy-minimal regime. The extra conclusion here is the localization of all maximal-entropy measures on the marker-free subsystem and resulting uniqueness for these one-sided-balanced examples.
 
-Thomsen's work on synchronized systems gives general structure and uniqueness results for fully supported maximal-entropy measures, while Hong--Kim use those results in their bi-balanced theory. Those theorems do not imply uniqueness here because the maximal measure found above is deliberately not fully supported on \(X\). The uniqueness instead comes from localizing all maximal measures to the proper subsystem \(Y\).
-
-A prior quantitative result for entropy-minimal bi-balanced shifts gives exact word-avoidance exponents. It concerns a different regime: the present result studies the one-sided-balanced, non-bi-balanced counterexamples and classifies their maximal-entropy measures through the marker factor rather than through word avoidance.
+Thomsen's synchronized-system theory gives general structural results for fully supported maximal measures, but does not itself establish uniqueness of a maximal measure with support strictly smaller than \(X\). An earlier result about entropy-minimal bi-balanced shifts concerns word-avoidance exponents rather than these proper-full-entropy one-sided-balanced examples.
 
 ## Limitations
-The argument depends on the particular marker construction and its explicit preimage estimates. It does not classify maximal-entropy measures for arbitrary right-balanced or synchronized shifts.
-
-The theorem attributed by Hong--Kim to an earlier thesis was not located as a directly inspectable full text in the bounded source search. The present comparison therefore leaves a residual bibliographic risk that the same maximal-measure localization may have been observed there. No indexed statement found in the searches implied the claim, and the 2026 paper itself does not state it.
-
-No claim is made about rates of convergence to the maximal measure, Bernoulli properties, equilibrium states for nonzero potentials, or uniqueness outside the maximal-entropy problem.
+The conclusion is specific to the Hong--Kim coded family and relies on its precise fiber estimates and variable-specification subsystem. It is not a statement about all synchronized shifts or all one-sided-balanced examples. There is no uniform entropy gap for arbitrary nonergodic marker-positive measures without controlling their marker-positive ergodic weight. No mixing rate, Bernoulli property, or uniqueness for nonzero potentials is established. An antecedent thesis cited by the source was not independently inspectable and may contain an earlier equivalent maximal-measure observation.
 
 ## References
-1. Soonjo Hong and Minkyu Kim, *Bi-balanced shifts and variable specification*, arXiv:2609.33476v1, 2026.
-2. Klaus Thomsen, *On the ergodic theory of synchronized systems*, Ergodic Theory and Dynamical Systems, 2006.
+1. S. Hong and M. Kim, *Bi-balanced shifts and variable specification*, arXiv:2609.33476v1 (2026).
+2. K. Thomsen, *On the ergodic theory of synchronized systems*, Ergodic Theory and Dynamical Systems (2006).
