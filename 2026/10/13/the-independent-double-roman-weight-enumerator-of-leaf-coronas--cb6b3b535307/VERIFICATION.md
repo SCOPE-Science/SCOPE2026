@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,27 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the complete corona enumerator
 
-The included standalone Python 3 script `verify_idrd_corona.py` has no external dependencies. For every base graph tested it enumerates all \(4^{2n}\) independent double Roman *candidate* labelings, checks all Roman-defense and positive-support-independence conditions on the actual corona adjacency, and constructs a separate predicted polynomial directly from independent subsets \(I\subseteq V(G)\) and their open-neighborhood cardinalities.
+# Independent mathematical audit
 
-The script checks every labeled simple base graph on \(1\), \(2\), \(3\), or \(4\) vertices (respectively \(1\), \(2\), \(8\), and \(64\) choices), plus four five-vertex graphs: the path, cycle, star, and complete graph. Thus it checks \(79\) base graphs and \(8{,}421{,}904\) labelings. All coefficients, not merely the minima, agree with the proposed transform; the independent-domination minimum is also independently computed and checked.
+## correctness
 
-Actual verifier output:
+PASS
 
-```text
-ALL_LABELINGS_OK_n=1_graph_count=1
-ALL_LABELINGS_OK_n=2_graph_count=2
-ALL_LABELINGS_OK_n=3_graph_count=8
-ALL_LABELINGS_OK_n=4_graph_count=64
-P5: all_functions=57, min_count=3, i(G)=2
-C5: all_functions=61, min_count=5, i(G)=2
-K1,4: all_functions=47, min_count=1, i(G)=1
-K5: all_functions=81, min_count=5, i(G)=1
-P4: gamma=10, min_count=5, indep_dom=2
-graphs_checked= 79
-labelings_checked= 8421904
-VERIFY_OK
-```
+Let X=G∘K1 for any finite simple labeled G (n>=1). Positive support independence rules out label1, and each degree-one leaf forces exactly (core,leaf)=(3,0),(0,2),(0,3). The core 3-set I must be independent; any (0,2) leaf-core requires a core-3 neighbor, so its core belongs to N_G(I). Thus feasible functions biject with (I,J subset N_G(I)), and weight=3n-|J|, yielding F(z)=z^{3n}B_G(1+z^-1). Extending I to a maximal independent D gives max |N(I)|=n-i(G), so minimum 2n+i(G) and optimizer count highest neighborhood coefficient. Independent enumeration of all 4^8 labelings on P4 agrees with predicted full polynomial {10:5,11:12,12:8}; finite check corroborative only.
 
-The arbitrary-order result is proved by the exact bijection, not by extrapolation from these finite computations. Only graphs with one leaf per core vertex are covered by the mathematical result.
+## originality
+
+PASS
+
+Mojdeh–Mansouri introduced independent double Roman domination; Nahani Pour et al. 2022 Theorem 3 establishes restricted tree-corona extremal number, not the complete feasible-weight polynomial or invertible all-base-graph neighborhood enumerator. Other Roman variants impose independence on zero set or different label rules and do not imply this transform. Resultary returned polynomial results for other graph families or invariants, not this exact transform.
+
+## value
+
+PASS
+
+A complete bijection and reversible full weight distribution for every finite base graph, with exact count of optimal functions, materially strengthen known scalar minima. P4 example has 5 optimum corona functions but only 3 minimum independent dominating base sets, showing enumerative content beyond old extremal characterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

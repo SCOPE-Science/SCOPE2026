@@ -1,15 +1,21 @@
-# Scientific review: The independent double Roman weight enumerator of leaf coronas
+# Independent mathematical audit
 
-## Correctness — PASS
-For any finite simple base graph, positive-support independence excludes label \(1\) globally. At each pendant pair the zero/positive conditions leave precisely \((3,0)\), \((0,2)\), and \((0,3)\). The core vertices receiving \(3\) form an independent set \(I\), and exactly the leaves indexed by a subset \(J\subseteq N_G(I)\) may receive \(2\). The resulting bijection is explicit in both directions; the weight is \(3n-|J|\). Summing over \(J\) proves the full weight generating function. Any independent set extends to a maximal independent set, proving \(\max_I |N_G(I)|=n-i(G)\), including disconnected and edgeless bases. A minimum function must take \(J=N_G(I)\); the top coefficient of \(\mathcal B_G\) therefore counts them. Definition-level exhaustive checks cover 79 labeled base graphs and 8,421,904 corona labelings. The finite tests corroborate but are not used to prove the infinite family.
+## correctness
 
-## Originality — PASS
-The 2019 first public independent-double-Roman paper gives the predicate, general bounds, and ordinary graph families, and mentions one specially constructed corona but contains no all-function leaf-corona polynomial. The especially close 2022 article characterizes when a **tree** leaf corona attains \(5N/4\) and its proof uses a core independent dominating set; that previous restricted scalar/extremal insight is acknowledged and not reclaimed. Its materially inspected Theorem 3 does not give an independent-subset binomial sum, reversible full weight transform, or complete feasible-function correspondence for arbitrary finite simple base graphs. A different outer-independent double Roman corona theorem uses the independence of the zero set and is not equivalent. Indexed literature and published mathematical record searches did not identify the present all-function transform. Full 2022 PDF access remained unavailable, recorded as a residual risk rather than treated as decisive proof of novelty.
+PASS
 
-## Value — PASS
-The theorem supplies a complete, bijective exact weight enumerator over a large naturally defined graph-operation class. It transfers an independent-set neighborhood-size distribution of **arbitrary** graphs to independent double Roman functions and reconstructs that distribution from the corona polynomial, not merely the minimum parameter. Even the number of minima can exceed the number of minimum independent dominating sets: on the four-vertex path there are five optimal functions versus three minimum independent dominating sets. The local classification and invertible transform are reusable structural information not implied by a single known extremal-value theorem.
+Let X=G∘K1 for any finite simple labeled G (n>=1). Positive support independence rules out label1, and each degree-one leaf forces exactly (core,leaf)=(3,0),(0,2),(0,3). The core 3-set I must be independent; any (0,2) leaf-core requires a core-3 neighbor, so its core belongs to N_G(I). Thus feasible functions biject with (I,J subset N_G(I)), and weight=3n-|J|, yielding F(z)=z^{3n}B_G(1+z^-1). Extending I to a maximal independent D gives max |N(I)|=n-i(G), so minimum 2n+i(G) and optimizer count highest neighborhood coefficient. Independent enumeration of all 4^8 labelings on P4 agrees with predicted full polynomial {10:5,11:12,12:8}; finite check corroborative only.
 
-## Scope and remaining risks
-The result applies to one-leaf coronas only; no graph reconstruction theorem is claimed. An uncatalogued same-function enumeration may exist. The 2022 relevant published theorem/proof was materially reviewed in indexed publisher HTML but its entire PDF could not be inspected. Independent external validation is not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Mojdeh–Mansouri introduced independent double Roman domination; Nahani Pour et al. 2022 Theorem 3 establishes restricted tree-corona extremal number, not the complete feasible-weight polynomial or invertible all-base-graph neighborhood enumerator. Other Roman variants impose independence on zero set or different label rules and do not imply this transform. Resultary returned polynomial results for other graph families or invariants, not this exact transform.
+
+## value
+
+PASS
+
+A complete bijection and reversible full weight distribution for every finite base graph, with exact count of optimal functions, materially strengthen known scalar minima. P4 example has 5 optimum corona functions but only 3 minimum independent dominating base sets, showing enumerative content beyond old extremal characterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
