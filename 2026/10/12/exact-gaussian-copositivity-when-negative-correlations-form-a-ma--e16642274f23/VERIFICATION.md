@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,47 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof has four critical components.
+# Independent mathematical audit
 
-1. If \(\rho_{ij}\ge0\), covariance of nondecreasing transforms of a bivariate Gaussian pair is nonnegative. This follows by conditioning one coordinate on the other and applying the scalar covariance identity for two increasing functions.
+## correctness
 
-2. If \(\rho_{ij}<0\), Hermite expansion gives
-\[
-|\operatorname{Cov}(T_i,T_j)|
-\le
-|\rho_{ij}|\|T_i\|_2\|T_j\|_2,
-\]
-hence
-\[
-\operatorname{Cov}(T_i,T_j)
-\ge
-\rho_{ij}\|T_i\|_2\|T_j\|_2.
-\]
+PASS
 
-3. Because the negative edges are disjoint, each two-coordinate block satisfies
-\[
-s_i^2+s_j^2+2\rho_{ij}s_is_j
-\ge
-(1+\rho_*)(s_i^2+s_j^2).
-\]
-Linear transforms on a most-negative pair attain equality in the infimum.
+Read actual Git RESULT.md blob fc0c9cf0c83b786855bea7878220839a2a5c59fd and exact rational verify.py. For each ρij≥0, bivariate Gaussian conditional monotonicity gives Cov(T_i(X_i),T_j(X_j))≥0. For ρij<0, Hermite orthogonality and Cauchy–Schwarz yield Cov≥ρij s_i s_j for centered square-integrable increasing transforms. Negative edges are vertex-disjoint, so disjoint 2×2 quadratic blocks have smallest eigenvalue 1+ρij≥1+ρ*. Choosing linear increasing transforms on the most negative pair (other coordinates zero, permitted in Sei T_cw*) attains β=1+ρ*. Sending other positive weights to zero proves α=1+ρ*; if no negative edges both infima equal 1. Explicit singular rank-two correlation constructed from U,V has ρ*=-sinθ, β=α=1−sinθ>0 for 0<θ<π/2. Finite verify.py cases are algebraic checks, not the proof.
 
-4. The matrix constant obeys the same block lower bound, and equality in its infimum is approached by sending all weights outside a most-negative pair to zero.
+## originality
 
-The standalone script `verify.py` checks the block inequality and finite-Hermite maximal-correlation inequality in exact rational arithmetic, and checks a singular rank-two example with
-\[
-\cos\theta=\frac35,\qquad
-\sin\theta=\frac45.
-\]
-For that example,
-\[
-\det R_\theta=0,\qquad
-\beta(\mu)=\alpha(R_\theta)=\frac15.
-\]
+PASS
 
-Expected successful terminal line:
-`VERIFY_OK block_cases=1764 hermite_cases=192 singular_beta=1/5`.
+Best-of-knowledge PASS: Sei’s primary full text formulates strict Gaussian copositivity in the singular case as Conjecture 4 and a coefficient-equality question. Matching negative edges yield the full exact β=α=1+ρ*, including explicit singular positive examples; the proof is not just a positive-definite spectral bound.
 
-These finite calculations are reproducibility checks only and do not replace the all-dimensional proof.
+## value
+
+PASS
+
+Sharp β=α for a structural class containing genuinely singular Gaussian measures resolves a motivated special case of Sei’s open Gaussian copositivity/equality questions exactly where the older minimum-eigenvalue bound is zero. It gives a reusable precise coefficient from only the signed-correlation graph and the worst negative pair, without implying the unrestricted conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

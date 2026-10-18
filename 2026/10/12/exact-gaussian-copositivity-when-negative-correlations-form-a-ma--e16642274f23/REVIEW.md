@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. For nonnegative Gaussian correlations, increasing coordinate transforms have nonnegative covariance. For negative correlations, the Hermite expansion gives the sharp maximal-correlation bound
-\[
-\operatorname{Cov}(T_i,T_j)\ge\rho_{ij}\|T_i\|_2\|T_j\|_2.
-\]
-Because the negative-correlation graph is a matching, these lower bounds separate into disjoint two-coordinate blocks with smallest block eigenvalue \(1+\rho_{ij}\). A most-negative pair with linear transforms attains the lower bound. The identical block argument proves the matrix constant. The explicit singular family has a rank-two Gaussian factor representation, so singularity and positive copositivity are both established without approximation.
+## correctness
 
-## Originality
-PASS. The direct source defines the same coefficient, proves the nonsingular Gaussian case via a relaxed \(L^2\) coefficient, then explicitly states the singular strictly-copositive implication as Conjecture 4 and conjectures equality with the matrix copositivity expression. Full-text comparison found no matching-graph theorem. Candidate-specific searches over the source terminology, Gaussian maximal correlation, signed graph structure, and the exact coefficient found no covering statement. The main residual risk is a classical equivalent under different terminology.
+PASS
 
-## Value
-PASS. The theorem resolves a nontrivial structural class of an explicit open Gaussian conjecture and strengthens positivity to an exact coefficient identity. The class contains a continuous family of singular Gaussian correlations, precisely where the source's minimum-eigenvalue lower bound becomes zero and ceases to prove copositivity.
+Read actual Git RESULT.md blob fc0c9cf0c83b786855bea7878220839a2a5c59fd and exact rational verify.py. For each ρij≥0, bivariate Gaussian conditional monotonicity gives Cov(T_i(X_i),T_j(X_j))≥0. For ρij<0, Hermite orthogonality and Cauchy–Schwarz yield Cov≥ρij s_i s_j for centered square-integrable increasing transforms. Negative edges are vertex-disjoint, so disjoint 2×2 quadratic blocks have smallest eigenvalue 1+ρij≥1+ρ*. Choosing linear increasing transforms on the most negative pair (other coordinates zero, permitted in Sei T_cw*) attains β=1+ρ*. Sending other positive weights to zero proves α=1+ρ*; if no negative edges both infima equal 1. Explicit singular rank-two correlation constructed from U,V has ρ*=-sinθ, β=α=1−sinθ>0 for 0<θ<π/2. Finite verify.py cases are algebraic checks, not the proof.
 
-## Closest literature and limitations
-The closest source is T. Sei, DOI 10.1007/s41884-021-00051-9. The theorem is limited to negative-correlation graphs that are matchings and does not solve the arbitrary signed-graph case. An older equivalent argument framed only in Gaussian association or maximal-correlation language remains a bibliographic risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: Sei’s primary full text formulates strict Gaussian copositivity in the singular case as Conjecture 4 and a coefficient-equality question. Matching negative edges yield the full exact β=α=1+ρ*, including explicit singular positive examples; the proof is not just a positive-definite spectral bound.
+
+## value
+
+PASS
+
+Sharp β=α for a structural class containing genuinely singular Gaussian measures resolves a motivated special case of Sei’s open Gaussian copositivity/equality questions exactly where the older minimum-eigenvalue bound is zero. It gives a reusable precise coefficient from only the signed-correlation graph and the worst negative pair, without implying the unrestricted conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
