@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T04:08:18.701425Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md at immutable tree a16bc714abf81668caba23178437d93b8e57d8e3; CHECK.py reviewed as evidence (not relied on as proof)",
+        "Independent checker ANONYMOUS_CTMC_TWO_TIME_AND_THIRD_MOMENTS_OK 36"
+      ],
+      "rationale": "For independent stationary binary CTMCs the conditional relaxation identity E(Z_i(t)-p_i|Z_i(0))=(Z_i(0)-p_i)e^{-lambda_i t} gives m=sum p_i, C(t)=sum v_i e^{-lambda_i t} and H(t)=sum v_i(1-2p_i)e^{-lambda_i t}; mixed-site centered terms vanish. Positive exponential weights identify lambda and v at unequal rates. At equal rates m and W=sum v determine unordered p via X^2-mX+(W-m+m^2)/2=0. With distinct rates each probability is 1/2 +/- sqrt(1/4-v_i); four signed sums collide in distinct labeled-rate assignments only when the positive square roots coincide and signs oppose, i.e. p1+p2=1 with p1 != p2. Exactly two inequivalent assignments remain. H(t0)=v(1-2p1)(e^{-lambda1 t0}-e^{-lambda2 t0}) is nonzero at each t0>0 and has opposite sign under the rival. Independently enumerated 36 rational two-time Bernoulli joint laws and rederived the third mixed moment and example; exact analytic argument covers all strictly positive rates.",
+      "residual_risks": [
+        "Conclusion is population-level exact identifiability from the entire autocovariance function, not finite-data statistical estimability.",
+        "Endpoint p=0 or1, >2 sites, coincident data acquisition, and dependent/nonstationary chains excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rydén 1996 and Larget 1998 describe general hidden aggregated Markov representation/identifiability but complete proofs/appendices not inspected",
+          "Bernstein–Sheldon AISTATS 2016 model assumes shared Markov transition matrix among individuals, unlike two distinct generators here"
+        ],
+        "reasoning": "Broader full-law identification and shared-transition second-order models have incompatible data/parameter quantifiers. General methods may specialize, so residual risk is retained rather than an unjustified whole-paper novelty certificate.",
+        "searches": [
+          "Rydén On identifiability and order of continuous-time aggregated Markov chains 1996",
+          "Larget A canonical representation for aggregated Markov processes 1998",
+          "Bernstein Sheldon 2016 Consistently estimating Markov chains with noisy aggregate data Proposition 1"
+        ]
+      },
+      "checked_sources": [
+        "Bernstein–Sheldon 2016 PMLR 51 PDF model/Proposition 1",
+        "Rydén 1996 DOI 10.2307/3215346 abstract",
+        "Larget 1998 DOI 10.1239/jap/1032192850 abstract",
+        "Resultary semantic query hits above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Single common kernel in Bernstein–Sheldon excludes unequal lambda1 != lambda2, exactly the exceptional family; full observed law contains higher-order moments and does not recover how much information mean plus covariance discard"
+        ],
+        "reasoning": "None of the materially examined published statements establishes an implication to the specific heterogeneous mean/C fiber plus universal single-lag H resolution. Older broad works inaccessible in full could still contain a corollary; this is flagged.",
+        "searches": [
+          "Bernstein Sheldon 2016 PMLR 51 1142-1150 Proposition 1",
+          "Rydén 1996 aggregated Markov output identifiability",
+          "Larget 1998 aggregated Markov canonical representation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary nearby stationary alternating renewal and proportional-hazard examples concern different observable functions, not the attached two-pole Bernoulli variance and moment-sign fiber",
+          "Rydén/Larget concern full aggregated Markov output-law equivalence, not an exhibited full-C(t) exceptional twofold moment fiber"
+        ],
+        "reasoning": "Equivalent formulations include unlabeled sum of two heterogeneous telegraph processes and partial identification of two-rate Markov-binomial process. Exact full observed-law identification cannot imply injectivity of second moments; no inspected theorem supplies the twofold exceptional set and H resolution.",
+        "searches": [
+          "Resultary: identifiability two heterogeneous independent binary continuous-time Markov chains sum population count from mean autocorrelation covariance higher order moment",
+          "Resultary: anonymous two habitat occupancy identifiability complementary probabilities mean autocovariance third moment",
+          "Rydén 1996 DOI:10.2307/3215346 aggregated Markov identifiability; Larget 1998 DOI:10.1239/jap/1032192850 canonical representation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed nearby Resultary records include two-visit N-mixture (2026/9/21/...1c1f6450764b) and two-time reversible spectral aliasing, not this CTMC twofold moment fiber"
+        ],
+        "reasoning": "No same-model covariance/third-moment identification table found in these actual searches; absence alone is not a proof of originality.",
+        "searches": [
+          "Resultary two-state aggregated Markov stationary mean covariance third moment two habitats",
+          "Resultary two visit binomial N-mixture identification heterogeneous population"
+        ]
+      },
+      "rationale": "Best-of-knowledge distinct exact two-source moment identifiability classification. Full observed-law identifiability for general aggregated chains is not equivalent to identifiability from mean and second-order moments; same-generator aggregate models cannot automatically cover heterogeneous rate–occupancy assignments. Basic exponential-mixture uniqueness and Bernoulli moments are credited. Closest broad aggregated Markov texts were not fully available; this is an explicit priority risk, not asserted absence.",
+      "residual_risks": [
+        "Full text of Rydén 1996 and Larget 1998 not read to rule out specialized equivalents; those are genuine remaining originality hazards.",
+        "No exhaustive literature search can establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different homogeneous-generator model; does not imply unequal-rate complementary-occupancy ambiguity",
+          "evidence": "Bernstein and Sheldon, AISTATS 2016, model/Proposition 1",
+          "identifier_or_url": "https://proceedings.mlr.press/v51/bernstein16.pdf",
+          "material_read": "PDF model/introduction and Proposition 1, pages 1–3, common transition matrix assumption",
+          "method": "Primary open PDF text and visual first-page verification",
+          "title": "Consistently estimating Markov chains with noisy aggregate data",
+          "trigger": "Same aggregate-observation identification goal"
+        },
+        {
+          "assessment": "Plausible broad equivalence risk, NOT a whole-paper NOT_COVERING determination",
+          "evidence": "Rydén 1996 Journal of Applied Probability 33, 640–653",
+          "identifier_or_url": "https://doi.org/10.2307/3215346",
+          "material_read": "Publisher bibliographic record and abstract; complete article proof/appendices not accessed",
+          "method": "Publisher indexing and title/abstract",
+          "title": "On identifiability and order of continuous-time aggregated Markov chains, Markov-modulated Poisson processes, and phase-type distributions",
+          "trigger": "Broad prior same aggregated-Markov objects"
+        },
+        {
+          "assessment": "Unresolved plausible coverage in inaccessible full text",
+          "evidence": "Larget 1998 J. Applied Probability 35, 313–324",
+          "identifier_or_url": "https://doi.org/10.1239/jap/1032192850",
+          "material_read": "Citation and article abstract only, not primary complete proof",
+          "method": "Primary bibliographic metadata and summary",
+          "title": "A canonical representation for aggregated Markov processes",
+          "trigger": "Broad prior aggregation representation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md identifying the exceptional fiber and third-order resolver",
+        "Bernstein–Sheldon 2016 AISTATS aggregate estimation context"
+      ],
+      "rationale": "The exact information threshold of a natural anonymous two-patch model is a motivated structural identifiability statement. It proves exactly where covariance loses labels and gives a minimal-in-moment-order single-lag remedy; neither a parameter rewrite nor a numerical threshold without mechanism. The twofold sharp witness is essential and could guide moment design.",
+      "residual_risks": [
+        "No robustness, sampling efficiency or >2-site extension is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Same single population aggregate has neither finite-sample guarantees nor noisy detection.",
+    "Closest broad aggregated-chain originals remain partly inaccessible; accepted O is best-of-knowledge."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The identities for stationary mean, lag covariance, and third centered mixed moment are proved from two-state transition kernels and independence in RESULT.md. The positivity of every component covariance weight guarantees uniqueness of its exponential support and excludes cancellation. Two possible Bernoulli roots per distinct relaxation rate are exhausted using a four-sign-sum argument; coincident relaxation rates are treated separately by a quadratic reconstruction. The complementary-probability witness has unequal turnover rates and is genuinely inequivalent under whole-patch relabeling. The third moment is nonzero at every strictly positive lag in the exceptional class, with the opposite sign for the rival assignment.
+# Independent mathematical audit
 
-To reproduce finite independent arithmetic checks, run `python3 CHECK.py` in the directory containing that file (Python standard library only). Expected output: `VERIFY_OK exact_two_time_joint_cases=90 complementary_ambiguity=1 equal_rate_reconstruction=16 third_order_resolution=4`.
+## correctness
 
-The checker evaluates rational two-time transition kernels at 90 chosen parameter tuples, the exact counterexample and equal-turnover reconstruction, but these tests are not an exhaustive proof. The theorem concerns exact population moments; finite estimation error, observation noise, interactions between patches, and more than two habitats are not addressed. Some broad aggregated-Markov identifiability literature could include equivalent specializations.
+PASS
+
+For independent stationary binary CTMCs the conditional relaxation identity E(Z_i(t)-p_i|Z_i(0))=(Z_i(0)-p_i)e^{-lambda_i t} gives m=sum p_i, C(t)=sum v_i e^{-lambda_i t} and H(t)=sum v_i(1-2p_i)e^{-lambda_i t}; mixed-site centered terms vanish. Positive exponential weights identify lambda and v at unequal rates. At equal rates m and W=sum v determine unordered p via X^2-mX+(W-m+m^2)/2=0. With distinct rates each probability is 1/2 +/- sqrt(1/4-v_i); four signed sums collide in distinct labeled-rate assignments only when the positive square roots coincide and signs oppose, i.e. p1+p2=1 with p1 != p2. Exactly two inequivalent assignments remain. H(t0)=v(1-2p1)(e^{-lambda1 t0}-e^{-lambda2 t0}) is nonzero at each t0>0 and has opposite sign under the rival. Independently enumerated 36 rational two-time Bernoulli joint laws and rederived the third mixed moment and example; exact analytic argument covers all strictly positive rates.
+
+## originality
+
+PASS
+
+Best-of-knowledge distinct exact two-source moment identifiability classification. Full observed-law identifiability for general aggregated chains is not equivalent to identifiability from mean and second-order moments; same-generator aggregate models cannot automatically cover heterogeneous rate–occupancy assignments. Basic exponential-mixture uniqueness and Bernoulli moments are credited. Closest broad aggregated Markov texts were not fully available; this is an explicit priority risk, not asserted absence.
+
+## value
+
+PASS
+
+The exact information threshold of a natural anonymous two-patch model is a motivated structural identifiability statement. It proves exactly where covariance loses labels and gives a minimal-in-moment-order single-lag remedy; neither a parameter rewrite nor a numerical threshold without mechanism. The twofold sharp witness is essential and could guide moment design.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

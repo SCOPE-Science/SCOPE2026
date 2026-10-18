@@ -1,9 +1,21 @@
-# Scientific review — anonymous two-habitat occupancy identification
+# Independent mathematical audit
 
-**Correctness (C): PASS.** Every rate is strictly positive and every occupancy weight \(p_i(1-p_i)\) is nonzero, so the finite exponential covariance representation is unique after merging coincident exponents. In the equal-relaxation-rate case, stationary mean and variance reconstruct the unordered Bernoulli roots. When relaxation rates differ, each recovered covariance weight has precisely two complementary Bernoulli roots; their four possible sums collide at different assignments only for equal nonzero deviations of opposite sign. The exhibited rational rates realize the exception, and its third centered mixed moment has a strictly nonzero, sign-reversing factor for every positive lag. The standalone exact-rational checker independently verifies the two-time moment algebra and witness. The theorem does not assert empirical or numerical estimation guarantees.
+## correctness
 
-**Originality (O): PASS, with identified residual risks.** Royle and Kéry (2007) develop state-space dynamic ecological occupancy estimation rather than an anonymous two-site second-order identifiability classification. Bernstein and Sheldon (2016), inspected in its full accessible manuscript, assume a single common transition matrix for all individuals, unlike heterogeneous two-site generators. Rydén (1996) and Larget (1998) give broad aggregated-Markov full-law identifiability and canonical representation results; those objectives do not by themselves imply that first/second moments fail only at precisely one complementary family or that one specified third moment resolves it. Their full texts were not accessible for definitive specialist comparison, however. Searches included direct wording, independent telegraph-process aliases, higher-order cumulants, and aggregate-population model reductions. A hidden explicit specialization in a general identifiability theorem is a material residual risk; search absence does not prove novelty.
+PASS
 
-**Value (V): PASS.** Anonymous occupancy totals are natural when individual habitat identities cannot be tracked, while distinct recolonization and extinction rates are essential ecological turnover parameters. The sharp complementary-occupancy symmetry pinpoints exactly when all autocovariance measurements are insufficient even with unlimited time resolution. A single additional temporal third moment resolves that blind spot without restoring identity-level observation. This is a motivated exact information boundary, not a mere relabeling or an arbitrary finite numerical comparison. Applicability requires stationarity, independent sites, positive rates and access to population-level moments; near-symmetry conditioning is not quantified.
+For independent stationary binary CTMCs the conditional relaxation identity E(Z_i(t)-p_i|Z_i(0))=(Z_i(0)-p_i)e^{-lambda_i t} gives m=sum p_i, C(t)=sum v_i e^{-lambda_i t} and H(t)=sum v_i(1-2p_i)e^{-lambda_i t}; mixed-site centered terms vanish. Positive exponential weights identify lambda and v at unequal rates. At equal rates m and W=sum v determine unordered p via X^2-mX+(W-m+m^2)/2=0. With distinct rates each probability is 1/2 +/- sqrt(1/4-v_i); four signed sums collide in distinct labeled-rate assignments only when the positive square roots coincide and signs oppose, i.e. p1+p2=1 with p1 != p2. Exactly two inequivalent assignments remain. H(t0)=v(1-2p1)(e^{-lambda1 t0}-e^{-lambda2 t0}) is nonzero at each t0>0 and has opposite sign under the rival. Independently enumerated 36 rational two-time Bernoulli joint laws and rederived the third mixed moment and example; exact analytic argument covers all strictly positive rates.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge distinct exact two-source moment identifiability classification. Full observed-law identifiability for general aggregated chains is not equivalent to identifiability from mean and second-order moments; same-generator aggregate models cannot automatically cover heterogeneous rate–occupancy assignments. Basic exponential-mixture uniqueness and Bernoulli moments are credited. Closest broad aggregated Markov texts were not fully available; this is an explicit priority risk, not asserted absence.
+
+## value
+
+PASS
+
+The exact information threshold of a natural anonymous two-patch model is a motivated structural identifiability statement. It proves exactly where covariance loses labels and gives a minimal-in-moment-order single-lag remedy; neither a parameter rewrite nor a numerical threshold without mechanism. The twofold sharp witness is essential and could guide moment design.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
