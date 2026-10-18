@@ -1,0 +1,9 @@
+# Review of the extinction-threshold theorem
+
+**Correctness — PASS.** Factoring the cubic gives the two positive frozen roots and the resource-growth sign. The lower-root curve and constant upper root are strict barriers for the saddle's stable graph; the graph extends to strategy frequency one without escape. Monotonicity of strategy frequency and the limiting scalar resource equation establish the global convergence alternatives. Scalar order preservation identifies the graph as the unique separator. Direct comparison in \(T/w\) proves strict greed monotonicity, and a linear differential inequality proves the uniform bound. The included script corroborates the phase geometry and 60 parameter pairs but is not used as an infinite proof.
+
+**Originality — PASS, with residual literature risk.** The full primary Allee resource-game preprint, arXiv:2405.01271, supplies bistability and a straight-line graphical interpolation but not the nonlinear saddle-manifold graph, its global basin trichotomy, strict response-rate ordering, or the uniform quantitative error bound. arXiv:2401.11269 has no cubic Allee fold. Broader evolutionary/environmental feedback classifications give different payoff/resource laws and do not imply this graph. Searches for exact equation aliases, stable-manifold boundaries, greed-rate comparisons, and broader coverage found no equivalent result. Later specialist material not indexed in searched sources remains a risk.
+
+**Value — PASS.** The quantitative separator locates the initial resource abundance required to avoid collapse at any composition, and its strict rate dependence shows that the source's rate-independent straight-line approximation cannot be an exact global basin law. The uniform \(O(w)\) estimate gives an actionable regime of controlled approximation, instead of a single local or numerical trajectory.
+
+Self-review: passed. Independent audit: not yet performed.
