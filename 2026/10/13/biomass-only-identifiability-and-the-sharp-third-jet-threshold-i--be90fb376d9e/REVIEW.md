@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof is based on exact input–output elimination rather than finite simulation. It proves \(a=A+mB\), rules out constant \(B\) for any nonconstant positive biomass via a nonconstant cubic polynomial, classifies all constant biomass outputs, and establishes an exact continuous family matching any second jet. The derived third-jet difference \(-\varepsilon u^2\dot B\) proves both necessity and sufficiency of the regularity condition, with analytic isolation of singular times. A standalone exact SymPy checker independently recomputes the key Lie derivatives and verifies a positive nonstationary third-jet singular witness.
+## correctness
 
-**Originality — PASS, with residual risk.** The closest published result proves identifiability with **both** water and biomass observed and an equilibrium-only Fisher-correlation law, which does not imply the much stronger one-output claim. The open 2017 Klausmeier analysis supplies forward equations and equilibria, and the primary 2023 generalized-model inverse section uses paired-state Bayesian observations. The closest contemporary model preprint was accessible only by abstract, so hidden coverage in its full text remains possible; broad differential-algebraic observability literature may also contain a stronger general theorem. Absence of an exact search hit was not used as a novelty proof.
+PASS
 
-**Value — PASS.** The result resolves whether unobserved soil water creates a genuine parameter ambiguity in a classic normalized vegetation model, and determines the minimal local exact-derivative information. It separates structural identifiability in transient vegetation from failure at a stationary vegetation profile, a motivated measurement limitation rather than an arbitrary parameter sample.
+For u>0 the eliminated-water identity a=A+mB holds with B=u+1/u-u'/u² and A=(u'/u²)'+(1+u²)u'/u². B constant would force nonconstant u to make the cubic 2u(u²-bu+1) constant on an interval, impossible. Thus two distinct B values reconstruct a,m on any positive nonconstant observation interval. Constant u=s gives a/m=s+s^{-1}; u=0 hides both parameters. An admissible infinitesimal parameter/state perturbation preserves u,u',u'' for every state and changes u''' by -epsilon*u²*B', proving the single-instant third-jet iff condition; analytic nonconstant B gives isolated singular instants. Symbolic Lie-derivative rederivation independently verified A+mB=a, its time derivative, second-jet invariance, third-jet difference, and the positive nonstationary singular example (6,1,2,1) with B'=0,B''=20. These are exact analytic identities, not numerical extrapolations.
 
-Scientific boundaries: exact continuously differentiable observations of the normalized autonomous nonspatial model only. The inversion can be badly conditioned near equilibrium or at a small \(\dot B\); the theorem does not supply a stable estimator. Original 1999 full text and the contemporary primary preprint were not fully accessible. See the structured comparisons in `AUDIT.json` for source-by-source implication analysis.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The claimed inverse problem observes only biomass with water hidden and asks a sharp instantaneous derivative order. A directly compared earlier exact Klausmeier result assumes the entire water-and-biomass trajectory and gives integral formulas involving water; it does not imply one-output identifiability or the three-jet criterion. Beer et al. study practical near-fold inference and both-state observed data, not this formal one-output reconstruction. No prior exact same-model one-output theorem was established among the material inspected. Residual risk remains of an unindexed differential-algebraic structural-identifiability derivation.
+
+## value
+
+PASS
+
+Structural identifiability from a single measured state component is a natural inverse problem for the biologically motivated two-state ODE. The complete positive/constant/zero trichotomy, exact inverse, and sharp 2-versus-3 local jet obstruction are substantive model-specific facts; the nonstationary exceptional third-jet example distinguishes the result from an unmotivated routine rearrangement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
