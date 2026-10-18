@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-14.md",
+      "INDEPENDENT_AUDIT_2026-10-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,13 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The executable check uses exact rational arithmetic for a witness and integer matrix identities for the symbolic covariance structure.
 
-For common transmission-rate noise, the direction vector is \((-1,1)^T\). Its outer product is \(\begin{pmatrix}1&-1\\-1&1\end{pmatrix}\), which has rank one and annihilates the total-population direction \((1,1)^T\). Therefore the transmission contribution to \(S+I\) has zero quadratic variation.
+# Independent mathematical audit
 
-For the independent-driver implementation with amplitudes of equal magnitude and opposite sign, the diffusion matrix is diagonal and its covariance is the identity times \(q^2\). This covariance has rank two for \(q\neq0\) and gives quadratic-variation coefficient \(2q^2\) in \(S+I\).
+## correctness
 
-At \(S=1/2\), \(I=1/4\), \(\alpha=0\), and source variance coefficient \(0.02=1/50\), the checker obtains \(q^2=1/3200\), common-driver cross covariance \(-1/3200\), and independent-driver total quadratic-variation rate \(1/1600\).
+PASS
 
-The checker verifies only these algebraic consequences. It does not solve the corrected Fokker--Planck control problem or validate downstream numerical figures.
+For q=(1-alpha)sigma_beta SI, a scalar noisy beta enters both S,I with vector q(-1,1). Its covariance q^2[[1,-1],[-1,1]] differs from the paper's independent two-coordinate covariance q^2 I. The generator therefore differs by -partial_SI(q^2 f), and S+I receives quadratic-variation coefficient 0 vs 2q^2. Full source equations inspected; independent exact-fraction replay at S=1/2,I=1/4,alpha=0 gives q^2=1/3200. Restricted to q!=0; does not infer corrected numerical control trajectories.
+
+## originality
+
+PASS
+
+Best-of-knowledge original source-specific covariance and Fokker--Planck interpretation correction; general Itô covariance identities and common-driver SIR modeling are acknowledged prior ingredients.
+
+## value
+
+PASS
+
+A mismatch of the very diffusion tensor used in a stochastic epidemic forward-control PDE changes its rank, mixed derivative and total-transfer stochastic conservation; it materially changes interpretation and potential recomputation, beyond cosmetic signs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

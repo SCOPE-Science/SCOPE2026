@@ -1,16 +1,21 @@
-# Review
-## Correctness
-PASS. The claim follows directly from the Itô covariance matrices. Randomizing one scalar transmission rate produces the diffusion vector \(q(-1,1)^T\), hence negative cross covariance \(-q^2\). Independent susceptible and infected Brownian drivers instead give zero cross covariance. The corresponding forward operators differ by \(-\partial_{SI}(q^2f)\), and the quadratic-variation test for \(S+I\) gives zero versus \(2q^2\). The bundled exact checker reproduces these identities and the witness \(q^2=1/3200\).
+# Independent mathematical audit
 
-## Originality
-PASS. Searches using the source title, DOI, transmission-noise aliases, common versus independent Brownian drivers, covariance, and mixed Fokker--Planck derivatives did not return this claim. The closest published finding located, `2026/9/14/SCOPE021`, concerns reproduction-number bracketing in a coupled SEIR model and does not imply this covariance correction. Exact title and identifier searches found the source and descriptive reviews but no erratum or mathematical comment stating the mismatch.
+## correctness
 
-The most relevant inspected predecessor is Parkinson and Wang, arXiv:2507.01046v1, which uses a single scalar Brownian motion for transmission-rate uncertainty and opposite signs across internal disease-transfer compartments. That construction is consistent with the covariance derived here, but it does not state that Parkinson and Roy's later independent-driver Fokker--Planck equation fails the claimed transmission-rate interpretation.
+PASS
 
-## Value
-PASS. The issue changes the diffusion geometry of the PDE used in the numerical control experiments, from rank-one transfer noise to diagonal rank-two noise. It also creates stochastic variation in \(S+I\) that cannot be caused by uncertainty in an internal transmission rate. The correction is therefore materially relevant to reproduction, interpretation, and future extensions of the model rather than a cosmetic sign or notation change.
+For q=(1-alpha)sigma_beta SI, a scalar noisy beta enters both S,I with vector q(-1,1). Its covariance q^2[[1,-1],[-1,1]] differs from the paper's independent two-coordinate covariance q^2 I. The generator therefore differs by -partial_SI(q^2 f), and S+I receives quadratic-variation coefficient 0 vs 2q^2. Full source equations inspected; independent exact-fraction replay at S=1/2,I=1/4,alpha=0 gives q^2=1/3200. Restricted to q!=0; does not infer corrected numerical control trajectories.
 
-## Closest literature and limitations
-The closest primary comparison is Parkinson and Wang, arXiv:2507.01046v1 / DOI:10.1016/j.mbs.2025.109588. The present finding does not recompute optimal controls, does not quantify numerical error in any figure, and does not assess unrelated boundary or control-indexing issues. Searches cannot rule out unindexed commentary, so that remains a residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original source-specific covariance and Fokker--Planck interpretation correction; general Itô covariance identities and common-driver SIR modeling are acknowledged prior ingredients.
+
+## value
+
+PASS
+
+A mismatch of the very diffusion tensor used in a stochastic epidemic forward-control PDE changes its rank, mixed derivative and total-transfer stochastic conservation; it materially changes interpretation and potential recomputation, beyond cosmetic signs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

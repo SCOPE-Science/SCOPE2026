@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-14",
+  "audited_at_utc": "2026-10-14T23:18:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For q=(1-alpha)sigma_beta SI, a scalar noisy beta enters both S,I with vector q(-1,1). Its covariance q^2[[1,-1],[-1,1]] differs from the paper's independent two-coordinate covariance q^2 I. The generator therefore differs by -partial_SI(q^2 f), and S+I receives quadratic-variation coefficient 0 vs 2q^2. Full source equations inspected; independent exact-fraction replay at S=1/2,I=1/4,alpha=0 gives q^2=1/3200. Restricted to q!=0; does not infer corrected numerical control trajectories.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2507.01046 predecessor is a different model of stochastic transmission; arXiv:2601.20181 gives the later diagonal covariance.",
+          "Resultary nearest related correlated-noise sensitivity and epidemic findings concern other equations."
+        ],
+        "reasoning": "General Itô covariance calculus is old, but it does not itself state that the exact source's numerical forward PDE contradicts its infection-rate-noise interpretation. There is no broader correction located that identifies this particular paper.",
+        "searches": [
+          "Publication/erratum aliases: A Fokker-Planck framework for control of epidemics Parkinson Roy DOI 10.1007/s00285-026-02462-7",
+          "Prior stochastic rate formulation: arXiv:2507.01046 Parkinson Wang common transmission Brownian",
+          "generic SIR stochastic parameter-noise rank-one diffusion matrix versus independent compartment noise"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2601.20181",
+        "DOI:10.1007/s00285-026-02462-7",
+        "arXiv:2507.01046",
+        "Resultary semantic query for exact source covariance",
+        "PubMed:42747468"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source Eq.(5) diagonal sigma and stated independent W1,W2 give a=q^2 I; stochastic replacement beta+sigma_beta dW uses a=q^2((-1,1)^T(-1,1)).",
+          "The earlier same-author paper is cited as stochastic transmission-rate model but does not assert the later covariance mismatch."
+        ],
+        "reasoning": "The premises imply the correction by one Itô-generator computation, but no inspected paper states the claimed incompatibility of these specific two source expressions.",
+        "searches": [
+          "Primary arXiv:2601.20181, Section 2 Eq.(2),(5),(6) and Section 4 diffusion choice; arXiv HTML searched independent, uncertainty, sigma",
+          "Prior stochastic rate formulation: arXiv:2507.01046 Parkinson Wang common transmission Brownian"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2601.20181 Section 2 explicitly calls W1 and W2 independent but analogizes opposite sigma_S=-sigma_I to one white-noise beta perturbation.",
+          "Published semantic hits on covariance errors concern other models, not this exact source-specific comparison."
+        ],
+        "reasoning": "Common-driver parameter uncertainty, negative S-I cross-covariance, a mixed forward derivative, and cancellation in S+I are equivalent diagnostics. They contradict the source's diagonal independent-driver covariance for q!=0; none is an already stated correction in the inspected source.",
+        "searches": [
+          "Resultary semantic: independent Brownian noises susceptible infected equations stochastic epidemic transmission rate covariance mixed Fokker Planck mismatch Parkinson Roy",
+          "Primary arXiv:2601.20181, Section 2 Eq.(2),(5),(6) and Section 4 diffusion choice; arXiv HTML searched independent, uncertainty, sigma",
+          "Prior stochastic rate formulation: arXiv:2507.01046 Parkinson Wang common transmission Brownian"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Primary article and public abstract were located; the inspected source contains no corrigendum or covariance comparison.",
+          "Published-finding result nearest to this query is the same record under audit, not an independent covering source."
+        ],
+        "reasoning": "Not an indexed table computation; exact-identifier search checked whether an erratum or separately published correction provides the same diagnosis, with none found. Absence from searches does not prove novelty.",
+        "searches": [
+          "Publication/erratum aliases: A Fokker-Planck framework for control of epidemics Parkinson Roy DOI 10.1007/s00285-026-02462-7",
+          "arXiv:2601.20181 error erratum comment mixed derivative",
+          "Resultary semantic query Resultary semantic: independent Brownian noises susceptible infected equations stochastic epidemic transmission rate covariance mixed Fokker Planck mismatch Parkinson Roy"
+        ]
+      },
+      "rationale": "Best-of-knowledge original source-specific covariance and Fokker--Planck interpretation correction; general Itô covariance identities and common-driver SIR modeling are acknowledged prior ingredients.",
+      "residual_risks": [
+        "An unindexed response, later erratum or differently worded stochastic-covariance remark could cover this correction.",
+        "No corrected optimal-control run is performed; no magnitude of downstream numerical change is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVARIANCE_MISMATCH_NOT_ALREADY_DIAGNOSED",
+          "evidence": "Eqs.(2),(5) explicitly independent two-driver diagonal noise; introduction equates opposite transfer amplitudes with parameter noise; Section 4 says numerical diffusion models infection-rate uncertainty.",
+          "identifier_or_url": "https://arxiv.org/abs/2601.20181",
+          "material_read": "Full arXiv HTML, introduction and Section 2 stochastic equations and diagonal diffusion, forward equation and Section 4 simulation rationale",
+          "method": "Direct comparison of SDE noise drivers, generator and paper's interpretation",
+          "title": "A Fokker--Planck Framework for Control of Epidemics",
+          "trigger": "Target paper whose driver covariance is audited"
+        },
+        {
+          "assessment": "BACKGROUND_COMPARISON_WITH_LIMITED_MATERIAL",
+          "evidence": "Target article specifically cites this predecessor as motivating rate uncertainty; literature/full-text residual risk retained.",
+          "identifier_or_url": "https://arxiv.org/abs/2507.01046",
+          "material_read": "arXiv abstract and target paper's references to predecessor, not its entire proof text",
+          "method": "Checked scope of the cited earlier paper; did not infer whole-document noncoverage from abstract",
+          "title": "A Compartmental Model for Epidemiology with Human Behavior and Stochastic Effects",
+          "trigger": "Closest predecessor for stochastic transmission formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A mismatch of the very diffusion tensor used in a stochastic epidemic forward-control PDE changes its rank, mixed derivative and total-transfer stochastic conservation; it materially changes interpretation and potential recomputation, beyond cosmetic signs.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed response, later erratum or differently worded stochastic-covariance remark could cover this correction.",
+    "No corrected optimal-control run is performed; no magnitude of downstream numerical change is inferred."
+  ],
+  "schema_version": 1
+}
