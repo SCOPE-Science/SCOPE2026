@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T10:56:32.559748Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each nonfull part i, selected-neighbor count is d-d_i, so feasible iff d-d_i>=2. This proves the universal gamma2 dichotomy: 2 selected requires a complete 2-part or two 1-parts, otherwise 3 from distinct parts (r>=3); bipartite threshold follows by separately checking incomplete shores. For stability, an original small part must be deleted/shortened to remove 2-witnesses, whereas creating a 2-part from a big part costs m-2, or deleting the sole singleton in r=3 changes the surviving biclique. Lower/upper deletion bounds match in all branches incl. K_2,2 needing 3 and K_2,3 needing 1. Independent occupancy/deletion brute for 53 cases, some with repeated sizes, matched; the uniform occupancy proof supplies the infinite-size conclusion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Same invariant prior claim and defects: Mehraban–Alikhani 2025 Proposition 2.6 states st(Km,n)=2 in all m,n>=2; K2,3 actually st=1, K2,2 st=3, checked directly; Resultary published (3,2) metric-geodesic domination uses a different witness condition."
+        ],
+        "reasoning": "Closest existing stability result is narrower and wrong on small bipartite boundaries; published (3,2) geodesic, rainbow, and neighborhood-total variants do not imply ordinary vertex-deletion stability.",
+        "searches": [
+          "Resultary: 2 domination stability vertex deletion complete multipartite graphs gamma_2 st_gamma2 exact part sizes",
+          "Resultary: complete multipartite 2 domination vertex deletion stability",
+          "https://arxiv.org/pdf/2507.18535",
+          "https://arxiv.org/abs/1205.0102"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2507.18535",
+        "https://arxiv.org/abs/1205.0102",
+        "Resultary semantic index: 2 domination stability vertex deletion complete multipartite graphs gamma_2 st_gamma2 exact part sizes",
+        "Resultary semantic index: complete multipartite 2 domination vertex deletion stability"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Compare source implication: Lu–Xu gamma_p may imply submitted gamma2 baseline. Mehraban says a constant st biclique value contradicted by direct graph reductions. No source checked supplies u+2v-1, N-1 or m-2 full stability cases."
+        ],
+        "reasoning": "The target finding is gamma2 plus every deletion-stability branch; baseline alone is known and not counted independently as novelty, while complete stability classification remains non-implied.",
+        "searches": [
+          "Resultary: 2 domination stability vertex deletion complete multipartite graphs gamma_2 st_gamma2 exact part sizes",
+          "Resultary: complete multipartite 2 domination vertex deletion stability",
+          "https://arxiv.org/pdf/2507.18535",
+          "https://arxiv.org/abs/1205.0102"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stability vs gamma2: Mehraban–Alikhani arXiv:2507.18535 introduces exactly st_gamma2; Lu–Xu arXiv:1205.0102 determines baseline gamma_p on complete multipartite graphs."
+        ],
+        "reasoning": "Equivalent definition of vertex-deletion stability is used, but knowing gamma2 on original graphs without analyzing ALL deletion profiles does not directly provide the present complete stability classification.",
+        "searches": [
+          "Resultary: 2 domination stability vertex deletion complete multipartite graphs gamma_2 st_gamma2 exact part sizes",
+          "Resultary: complete multipartite 2 domination vertex deletion stability",
+          "https://arxiv.org/pdf/2507.18535",
+          "https://arxiv.org/abs/1205.0102"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published complete multipartite tables: Resultary/2026/2026/10/4 published full RESULT.md of neighborhood-total 2-domination polynomial; that adds the N(S) no-isolates condition and no deletion threshold. Mehraban prior covered biclique only."
+        ],
+        "reasoning": "Even all feasible neighborhood-total 2-dominating sets are not a table of ordinary st_gamma2: the extra neighborhood constraint changes feasible sets; deleting vertex sets and recomputing ordinary gamma2 is a separate task.",
+        "searches": [
+          "Resultary: 2 domination stability vertex deletion complete multipartite graphs gamma_2 st_gamma2 exact part sizes",
+          "Resultary: complete multipartite 2 domination vertex deletion stability",
+          "https://arxiv.org/pdf/2507.18535",
+          "https://arxiv.org/abs/1205.0102"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality only for the exact full finding and domain; prior same-invariant and general sources were compared by statement and mathematical implication, and the listed unresolved literature risks remain. The target finding is gamma2 plus every deletion-stability branch; baseline alone is known and not counted independently as novelty, while complete stability classification remains non-implied.",
+      "residual_risks": [
+        "Lu–Xu primary full theorem was not re-read throughout; only baseline and abstract compared, although the stability invariant is distinct.",
+        "Older literature may use robustness, resilience or p-domination stability aliases not indexed by sampled searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same invariant; does not state all multipartite profiles and its blanket complete-bipartite formula conflicts with checked boundary cases.",
+          "evidence": "Proposition 2.6 claims stability 2 for all K_{m,n} with m,n>=2, whereas direct deletion K_{2,3}->K_{1,3} changes gamma2 after one vertex, and K_{2,2} needs three.",
+          "identifier_or_url": "https://arxiv.org/pdf/2507.18535",
+          "material_read": "11-page original preprint PDF, the definition and its complete-bipartite statement (Proposition 2.6), with page image inspection of relevant page.",
+          "method": "Public arXiv lawful PDF text, inspected original theorem and its hypothesis directly.",
+          "title": "Stability of 2-Domination Number of a Graph",
+          "trigger": "Names the same deletion-stability invariant and claims values for K_{m,n}."
+        },
+        {
+          "assessment": "Baseline gamma2 may be previously covered, but parameter st_gamma2 involves minimizing deletion and is a distinct stronger question.",
+          "evidence": "The work concerns p-domination number, not vertex-deletion change threshold.",
+          "identifier_or_url": "https://arxiv.org/abs/1205.0102",
+          "material_read": "Abstract and theorem scope from openly accessible preprint record; full theorem not re-audited.",
+          "method": "arXiv OA abstract and citation compared to assessed theorem.",
+          "title": "The p-Domination Number of Complete Multipartite Graphs",
+          "trigger": "Same ordinary p-domination baseline on complete multipartite graphs."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Vertex-deletion stability is structurally different from the baseline domination number. A complete all-part-size classification determines sharp robustness thresholds, reveals the unusual K2,2 / K2,3 boundaries and corrects erroneous primary values; a nontrivial natural graph-family classification, not mere rebranding.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2507.18535",
+    "https://arxiv.org/abs/1205.0102",
+    "Assigned RESULT.md and actual Git frozen tree/blob content",
+    "Independent local checker: /mnt/data/scope07_checks_20261018.py"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Older literature may use robustness, resilience or p-domination stability aliases not indexed by sampled searches.",
+    "This conclusion is about the precisely stated domain and counts only; no generalization to other domination/WL/substitution variants.",
+    "Finite independently reproduced examples corroborate, not establish, the universal theorem."
+  ]
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The analytic proof uses the exact occupancy identity for complete multipartite graphs. The only computational artifact is `verify.py`, which is a finite corroboration and not an infinite certificate.
 
-Replay command:
+# Independent mathematical audit
 
-`python verify.py`
+## correctness
 
-Expected successful output:
+PASS
 
-`ALL CHECKS PASSED; multipartite_profiles_N<=11=183; bipartite_profiles_a,b<=20=210`
+For each nonfull part i, selected-neighbor count is d-d_i, so feasible iff d-d_i>=2. This proves the universal gamma2 dichotomy: 2 selected requires a complete 2-part or two 1-parts, otherwise 3 from distinct parts (r>=3); bipartite threshold follows by separately checking incomplete shores. For stability, an original small part must be deleted/shortened to remove 2-witnesses, whereas creating a 2-part from a big part costs m-2, or deleting the sole singleton in r=3 changes the surviving biclique. Lower/upper deletion bounds match in all branches incl. K_2,2 needing 3 and K_2,3 needing 1. Independent occupancy/deletion brute for 53 cases, some with repeated sizes, matched; the uniform occupancy proof supplies the infinite-size conclusion.
 
-The verifier independently enumerates all occupancy vectors to obtain \(\gamma_2\), independently enumerates all vertex-deletion count vectors to obtain stability, and compares those values with the closed formulas. It explicitly checks the boundary profiles \(K_{1,2}\), \(K_{2,2}\), \(K_{2,3}\), and \(K_{5,5}\).
+## originality
 
-Limit: the exhaustive enumeration stops at the stated finite ranges. The theorem for arbitrary order rests on the proof in `RESULT.md`.
+PASS
+
+Best-of-knowledge originality only for the exact full finding and domain; prior same-invariant and general sources were compared by statement and mathematical implication, and the listed unresolved literature risks remain. The target finding is gamma2 plus every deletion-stability branch; baseline alone is known and not counted independently as novelty, while complete stability classification remains non-implied.
+
+## value
+
+PASS
+
+Vertex-deletion stability is structurally different from the baseline domination number. A complete all-part-size classification determines sharp robustness thresholds, reveals the unusual K2,2 / K2,3 boundaries and corrects erroneous primary values; a nontrivial natural graph-family classification, not mere rebranding.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

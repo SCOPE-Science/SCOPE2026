@@ -1,16 +1,21 @@
-# Review
-## Correctness
-PASS. The proof reduces 2-domination to the exact occupancy criterion \(|D|-|D\cap V_i|\ge2\) for every incomplete part. Each stability case then becomes a necessary-and-sufficient residual part-size condition. The bipartite and at-least-three-part regimes are separated so that deletion can neither silently remove a whole part nor create an unhandled edgeless residual graph. Independent exhaustive profile enumeration through order \(11\), plus every \(K_{a,b}\) with \(1\le a\le b\le20\), agrees with the theorem.
+# Independent mathematical audit
 
-## Originality
-PASS. The 2025/2026 initiating stability paper defines the invariant and treats complete bipartite graphs but gives no complete-multipartite theorem. The 2012 Lu–Xu paper gives the exact \(p\)-domination number for complete multipartite graphs but does not study vertex-deletion stability. Searches using “2-domination stability”, “complete multipartite”, “complete bipartite”, \(\gamma_2\), and stability aliases located no exact theorem subsuming the stated classification. The closest adjacent literature concerns 2-rainbow domination stability or other domination variants, which do not imply ordinary 2-domination stability. A poorly indexed equivalent theorem under different terminology remains possible.
+## correctness
 
-The initiating paper's Proposition 2.7 states a uniform complete-bipartite stability value for both shores of size at least \(2\). Direct application of its own definitions gives counterexamples at the first boundaries: \(K_{2,3}\) changes after one deletion and \(K_{2,2}\) changes only after three. The new theorem does not rely on that proposition.
+PASS
 
-## Value
-PASS. The finding gives a natural complete classification for the graph family that contains the complete and complete-bipartite test cases used in the initiating stability paper. It identifies three qualitatively different mechanisms—persistence among \(1\)- and \(2\)-parts, creation of a 2-part from a larger part, and loss of the unique singleton in the tripartite case—and supplies corrected exact bipartite boundaries. These are structural phenomena rather than a routine numerical extension.
+For each nonfull part i, selected-neighbor count is d-d_i, so feasible iff d-d_i>=2. This proves the universal gamma2 dichotomy: 2 selected requires a complete 2-part or two 1-parts, otherwise 3 from distinct parts (r>=3); bipartite threshold follows by separately checking incomplete shores. For stability, an original small part must be deleted/shortened to remove 2-witnesses, whereas creating a 2-part from a big part costs m-2, or deleting the sole singleton in r=3 changes the surviving biclique. Lower/upper deletion bounds match in all branches incl. K_2,2 needing 3 and K_2,3 needing 1. Independent occupancy/deletion brute for 53 cases, some with repeated sizes, matched; the uniform occupancy proof supplies the infinite-size conclusion.
 
-## Closest literature and limitations
-The closest primary sources are arXiv:2507.18535v1 / DOI 10.22052/MIR.2025.257573.1540 for the stability invariant and arXiv:1205.0102v1 / DOI 10.1142/S1793830914500633 for complete-multipartite \(p\)-domination. The claim is limited to finite complete multipartite graphs and ordinary 2-domination; finite enumeration is corroborative only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality only for the exact full finding and domain; prior same-invariant and general sources were compared by statement and mathematical implication, and the listed unresolved literature risks remain. The target finding is gamma2 plus every deletion-stability branch; baseline alone is known and not counted independently as novelty, while complete stability classification remains non-implied.
+
+## value
+
+PASS
+
+Vertex-deletion stability is structurally different from the baseline domination number. A complete all-part-size classification determines sharp robustness thresholds, reveals the unusual K2,2 / K2,3 boundaries and corrects erroneous primary values; a nontrivial natural graph-family classification, not mere rebranding.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
