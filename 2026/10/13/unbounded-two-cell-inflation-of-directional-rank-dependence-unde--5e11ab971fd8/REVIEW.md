@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every integer \(k\ge1\), differentiation of the explicit polynomial copula yields a density in \([1/2,3/2]\), correct uniform margins, and a conditional CDF decreasing strictly in its predictor. The exact conditional-CDF integral gives \(\xi(C_k)=2\varepsilon_k^2I_k\); independent quadrant integration gives \(\xi(B_k)=\varepsilon_k^2/2\). The beta identity and dominated-convergence/Laplace argument prove the ratio tends to infinity, with a sharp first inflation index \(k=6\) inside the family. Standalone exact-rational comparisons for sixteen indices verify independent coefficient calculations and the finite transition. Nonstandard assumptions and the exclusion from TP\(_2\) are explicitly proved. The finite checks are corroboration, not an infinite certificate.
+PASS
 
-## Originality — PASS, with priority risk
+For every integer k>=1, C_k(u,v)=uv+(1/8k)u(1-u)[4v(1-v)]^k has uniform margins and c_k=1+eps(1-2u)f'_k with |f'_k|<=4k; consequently c_k lies in [1/2,3/2]. The conditional CDF v+eps(1-2u)f_k(v) decreases in u for interior v, establishing strict stochastic increase, while C-uv>=0 yields PQD. Directly integrating its squared conditional-CDF deviation gives xi(C_k)=2 eps^2 I_k, I_k=4^(2k)((2k)!)^2/(4k+1)!. Four actual quadrant masses [[(1+eps)/4,(1-eps)/4],[(1-eps)/4,(1+eps)/4]] yield a piecewise-linear checkerboard conditional CDF and xi(B_k)=eps^2/2. Hence the exact ratio 1/(4I_k) diverges like sqrt(k/(2*pi)); dominated convergence supplies the infinite result. Independently evaluated rational beta integrals, checkerboard matrix and k=5,6 threshold; I5=262144/969969, I6=4194304/16900975. k6 ratio=16900975/16777216. These finite calculations do not replace the asymptotic proof; absolute inflation tends to zero.
 
-Rockel's arXiv:2505.08045v2 Theorem 4.2 proves one-sided checkerboard control under density TP\(_2\), and Example 4.3 already reports a twofold counterexample under stochastic increase alone. Those facts are credited. This claim is stronger and logically distinct: a *uniformly density-bounded polynomial SI family* exhibits an unbounded relative inflation factor at a *fixed* \(2\times2\) grid, precluding every finite multiplicative bound over that class. The paper's full sections, examples and appendix were compared; no unbounded statement or asymptotically growing counterfamily was identified. Ansari–Fuchs arXiv:2503.11390 Corollary 3.6 and Remark 3.7 concern qualitative continuity and checkerboard convergence, not a uniform multiplicative envelope. Exact/synonym searches of published mathematical findings and primary literature did not identify a covering result. Priority cannot be certified solely by incomplete indexing.
+## originality
 
-## Value — PASS
+PASS
 
-The motivating approximation theorem works under a strong TP\(_2\) density assumption, while the same source gives only a single finite failure after weakening to stochastic increase. The present theorem rules out not merely the inequality with constant one, but *every* finite multiplicative comparison in a smooth SI class with uniformly controlled density; thus it identifies a quantitative structural boundary relevant to whether checkerboard diagnostics reliably scale very weak directed dependence. No stronger downstream theorem is asserted or needed.
+Best-of-knowledge original quantitative divergence at one fixed 2x2 coarse grid inside smooth SI and PQD copulas with density bounded above and away from zero. Rockel (2026) has the already known twofold SI checkerboard inflation example (2x4 down to 2x2), along with a reverse inequality under stronger TP2 density. Both prior facts are correctly credited. Neither finite ratio two, positive TP2 bound, nor Ansari–Fuchs fixed-input continuity entails arbitrarily large relative ratios across varying k. Focused Resultary and web comparisons did not reveal dominating statement; unsuccessful searches are not novelty proof.
 
-## Boundaries and risks
+## value
 
-Relative rather than absolute discrepancy; fixed coarse grid rather than increasing grid; no finite-sample inference. A finite SI counterexample is already known and expressly excluded from the novelty claim. Unindexed equivalences and variant smoothness assumptions remain possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A structural instability/boundary of a widely used fixed-grid directional rank-dependence approximation is substantively motivated: no uniform multiplicative fidelity constant even for polynomial strictly SI copulas with uniformly bounded positive densities, despite the TP2 lower bound and fixed-C refinement convergence. The explicit k=6 first crossing and asymptotic growth give interpretable sharp family behavior. Distinct from merely showing one coarse-grid counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

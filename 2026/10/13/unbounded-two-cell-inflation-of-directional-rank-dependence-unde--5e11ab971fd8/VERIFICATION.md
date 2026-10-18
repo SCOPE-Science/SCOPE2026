@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-For the exact polynomial family, algebraic differentiation checks the density and conditional CDF. Integration gives the exact original coefficient, and a separate two-cell conditional calculation gives the approximant coefficient; the proof in `RESULT.md` handles all positive integers and the asymptotic limit by dominated convergence.
+## correctness
 
-The standalone `checkerboard_inflation_check.py` uses only the Python standard library. Run `python3 checkerboard_inflation_check.py`. It passed exact rational binomial and factorial integral comparisons for indices 1–16, exact four-cell mass computations, and independent piecewise-linear conditional CDF integration. It verified the strict transition at index six and printed the exact ratio there.
+PASS
 
-The computation is finite and does not establish the asymptotic limit by itself. The class remains SI/PQD but is not density-TP\(_2\). The lead paper's finite counterexample to the unqualified lower inequality is prior art; only the unbounded multiplicative mechanism and its uniformly positive polynomial implementation are assessed here. Independent audit has not been performed.
+For every integer k>=1, C_k(u,v)=uv+(1/8k)u(1-u)[4v(1-v)]^k has uniform margins and c_k=1+eps(1-2u)f'_k with |f'_k|<=4k; consequently c_k lies in [1/2,3/2]. The conditional CDF v+eps(1-2u)f_k(v) decreases in u for interior v, establishing strict stochastic increase, while C-uv>=0 yields PQD. Directly integrating its squared conditional-CDF deviation gives xi(C_k)=2 eps^2 I_k, I_k=4^(2k)((2k)!)^2/(4k+1)!. Four actual quadrant masses [[(1+eps)/4,(1-eps)/4],[(1-eps)/4,(1+eps)/4]] yield a piecewise-linear checkerboard conditional CDF and xi(B_k)=eps^2/2. Hence the exact ratio 1/(4I_k) diverges like sqrt(k/(2*pi)); dominated convergence supplies the infinite result. Independently evaluated rational beta integrals, checkerboard matrix and k=5,6 threshold; I5=262144/969969, I6=4194304/16900975. k6 ratio=16900975/16777216. These finite calculations do not replace the asymptotic proof; absolute inflation tends to zero.
+
+## originality
+
+PASS
+
+Best-of-knowledge original quantitative divergence at one fixed 2x2 coarse grid inside smooth SI and PQD copulas with density bounded above and away from zero. Rockel (2026) has the already known twofold SI checkerboard inflation example (2x4 down to 2x2), along with a reverse inequality under stronger TP2 density. Both prior facts are correctly credited. Neither finite ratio two, positive TP2 bound, nor Ansari–Fuchs fixed-input continuity entails arbitrarily large relative ratios across varying k. Focused Resultary and web comparisons did not reveal dominating statement; unsuccessful searches are not novelty proof.
+
+## value
+
+PASS
+
+A structural instability/boundary of a widely used fixed-grid directional rank-dependence approximation is substantively motivated: no uniform multiplicative fidelity constant even for polynomial strictly SI copulas with uniformly bounded positive densities, despite the TP2 lower bound and fixed-C refinement convergence. The explicit k=6 first crossing and asymptotic growth give interpretable sharp family behavior. Distinct from merely showing one coarse-grid counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

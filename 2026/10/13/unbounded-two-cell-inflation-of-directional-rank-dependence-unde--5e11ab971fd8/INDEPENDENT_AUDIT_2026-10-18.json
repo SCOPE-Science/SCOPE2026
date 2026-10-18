@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T10:12:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every integer k>=1, C_k(u,v)=uv+(1/8k)u(1-u)[4v(1-v)]^k has uniform margins and c_k=1+eps(1-2u)f'_k with |f'_k|<=4k; consequently c_k lies in [1/2,3/2]. The conditional CDF v+eps(1-2u)f_k(v) decreases in u for interior v, establishing strict stochastic increase, while C-uv>=0 yields PQD. Directly integrating its squared conditional-CDF deviation gives xi(C_k)=2 eps^2 I_k, I_k=4^(2k)((2k)!)^2/(4k+1)!. Four actual quadrant masses [[(1+eps)/4,(1-eps)/4],[(1-eps)/4,(1+eps)/4]] yield a piecewise-linear checkerboard conditional CDF and xi(B_k)=eps^2/2. Hence the exact ratio 1/(4I_k) diverges like sqrt(k/(2*pi)); dominated convergence supplies the infinite result. Independently evaluated rational beta integrals, checkerboard matrix and k=5,6 threshold; I5=262144/969969, I6=4194304/16900975. k6 ratio=16900975/16777216. These finite calculations do not replace the asymptotic proof; absolute inflation tends to zero.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rockel Theorem 4.2: xi(checkerboard)<=xi(C) under density TP2, whereas tested f_k density violates TP2 for k>=2.",
+          "Ansari–Fuchs: qualitative continuity for one underlying copula as resolution increases, not a uniform ratio for different copulas at fixed 2x2 grid."
+        ],
+        "reasoning": "TP2 is more restrictive than SI; fixed-input convergence as n→∞ is logically compatible with diverging relative errors across k at fixed resolution. Neither stronger-looking theorem covers the present quantifiers.",
+        "searches": [
+          "Resultary semantic: Stochastically increasing copulas 2x2 checkerboard Chatterjee xi approximation unbounded relative inflation uniform positive densities Rockel",
+          "arxiv:2505.08045v2 Theorem 4.2",
+          "arxiv:2503.11390 continuity SI copulas checkerboard approximation"
+        ]
+      },
+      "checked_sources": [
+        "Pinned Git RESULT.md SHA 6f08216081443dc78ec49aff303bc32f67bbbf89",
+        "checkerboard_inflation_check.py SHA 6a3ec78ded7f0166e56a30bd0ef8c56a9fef741e",
+        "arxiv:2505.08045v2",
+        "arxiv:2503.11390",
+        "Resultary semantic: Stochastically increasing copulas 2x2 checkerboard Chatterjee xi approximation unbounded relative inflation uniform positive densities Rockel"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier checkerboard SI failure factor 2 does not force arbitrarily large factors.",
+          "Earlier TP2 lower bound cannot apply to this non-TP2 density family."
+        ],
+        "reasoning": "Combining existing pointwise checkerboard formulas with novel polynomial oscillatory f_k and Gaussian concentration is essential to establish divergence; an unindexed equivalent construction remains a residual risk.",
+        "searches": [
+          "Resultary semantic: Stochastically increasing copulas 2x2 checkerboard Chatterjee xi approximation unbounded relative inflation uniform positive densities Rockel",
+          "Rockel Example 4.3 and Theorem 4.2",
+          "Ansari Fuchs arxiv:2503.11390"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rockel Example 4.3: xi(2x4 SI input)=1/16 and xi(coarsened 2x2)=1/8 (factor 2); new family ratio sqrt(k/(2pi)) unbounded.",
+          "Resultary related copulas: Marshall–Olkin xi range and FGM block substitution concern different quantities/operations."
+        ],
+        "reasoning": "An SI finite counterexample under coarsening is not equivalent to a uniform-positive-density smooth family with no finite multiplicative bound. Neither Rockel nor retrieved Resultary titles/statements contains this implication.",
+        "searches": [
+          "Resultary semantic: Stochastically increasing copulas 2x2 checkerboard Chatterjee xi approximation unbounded relative inflation uniform positive densities Rockel",
+          "Rockel arxiv:2505.08045v2 Proposition 3.3 Example 4.3",
+          "checkerboard stochastically increasing unbounded Chatterjee xi multiplier fixed 2x2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior paper supplies the matrix-to-xi formula, which is used and credited; it does not tabulate the constructed polynomial family or unbounded ratio.",
+          "The Resultary BFEx checkerboard entry studies a distinct joint-CDF dependence index, not directional xi amplification."
+        ],
+        "reasoning": "The exact 2x2 masses and k-dependent beta integrals are not an already recorded exact finite table; the claim is an analytic all-k family.",
+        "searches": [
+          "Resultary semantic: Stochastically increasing copulas 2x2 checkerboard Chatterjee xi approximation unbounded relative inflation uniform positive densities Rockel",
+          "arxiv:2505.08045v2 Proposition 3.3 checkerboard matrix formula",
+          "Resultary checkerboard xi BFEx dependence"
+        ]
+      },
+      "rationale": "Best-of-knowledge original quantitative divergence at one fixed 2x2 coarse grid inside smooth SI and PQD copulas with density bounded above and away from zero. Rockel (2026) has the already known twofold SI checkerboard inflation example (2x4 down to 2x2), along with a reverse inequality under stronger TP2 density. Both prior facts are correctly credited. Neither finite ratio two, positive TP2 bound, nor Ansari–Fuchs fixed-input continuity entails arbitrarily large relative ratios across varying k. Focused Resultary and web comparisons did not reveal dominating statement; unsuccessful searches are not novelty proof.",
+      "residual_risks": [
+        "Equivalent unindexed smooth copula construction may be missed; qualified best-of-knowledge originality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "A twofold SI counterexample and TP2 inequality are known; unrestricted smooth positive-density unbounded ratio not stated in inspected result",
+          "evidence": "Example 4.3: xi(2x4)=1/16, xi(2x2)=1/8; Theorem 4.2 has density TP2 hypothesis.",
+          "identifier_or_url": "https://arxiv.org/html/2505.08045v2",
+          "material_read": "HTML manuscript, Secs. 2.4, 3.3, 4.1, Theorem 4.2, Example 4.3 and discussion",
+          "method": "Read published HTML source full text portions and relevant proof/comparison",
+          "title": "Measures of association for approximating copulas",
+          "trigger": "Exact same statistic, checkerboard, SI and TP2 boundary"
+        },
+        {
+          "assessment": "Qualitative fixed-input continuity differs in quantifiers; uninspected details still bibliographic risk",
+          "evidence": "Convergence n→∞ for a fixed copula is compatible with family-wise unbounded ratio at n=2.",
+          "identifier_or_url": "https://arxiv.org/abs/2503.11390",
+          "material_read": "Abstract and fixed-input continuity cited in Rockel reference/discussion; not a complete new whole-document noncoverage certification",
+          "method": "Primary abstract + cross-reference examination",
+          "title": "On continuity of Chatterjee's rank correlation and related dependence measures",
+          "trigger": "Potential stronger continuity implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A structural instability/boundary of a widely used fixed-grid directional rank-dependence approximation is substantively motivated: no uniform multiplicative fidelity constant even for polynomial strictly SI copulas with uniformly bounded positive densities, despite the TP2 lower bound and fixed-C refinement convergence. The explicit k=6 first crossing and asymptotic growth give interpretable sharp family behavior. Distinct from merely showing one coarse-grid counterexample.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned Git RESULT.md SHA 6f08216081443dc78ec49aff303bc32f67bbbf89",
+    "checkerboard_inflation_check.py SHA 6a3ec78ded7f0166e56a30bd0ef8c56a9fef741e",
+    "arxiv:2505.08045v2",
+    "arxiv:2503.11390",
+    "Resultary semantic: Stochastically increasing copulas 2x2 checkerboard Chatterjee xi approximation unbounded relative inflation uniform positive densities Rockel",
+    "Pinned METADATA.json blob fd12c35e37c6e58eb071f6deb65af452d1eacbf0",
+    "Pinned AUDIT.json blob c8b0060b0dab44b301b5353eb00e7d39634a4636"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only relative inflation of population xi, both statistics vanish as k grows.",
+    "No TP2-density counterexample; no sample-estimator claim or fixed input with finer and finer grid.",
+    "Prior unindexed FGM-type constructions might encode same family."
+  ],
+  "schema_version": 1
+}
