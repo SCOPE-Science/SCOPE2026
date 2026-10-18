@@ -1,0 +1,169 @@
+{
+  "correctness": {
+    "rationale": "The complete proof derives the tree curvature identity from exact tree Wasserstein cut flows, obtains the universal curvature-sum feasibility limit, and uses arbitrary normalized weights and summed leaf inequalities to give a one-variable monotone lower bound. The root solves in two exact branches; an explicit feasible weighting attains it; equality in the lower bound forces the asserted unique normalized weights. Algebra proves that the activation threshold is interior iff a<b and differentiating both branch equations proves a positive jump. Finite independent checks cover 726 scalar/curvature cases, 180 constrained numerical optimizations, 300 rational endpoint cases and 180 direct Wasserstein LP edge comparisons. No finite calculation is used to infer an infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.21454v1 Theorem 1.1: all finite-tree feasibility and unique normalized implicit fixed points, monotone continuous profiles.",
+        "arXiv:2604.22449v3 Theorem 1.2: Perron eigenpair characterizes constant-curvature weights, not all prescribed lower floors.",
+        "arXiv:2605.20862v2 Example 3.2: spectral sign on double stars depends on (a-1)(b-1), a different classification question."
+      ],
+      "reasoning": "The all-tree theorem does include double stars as a class, so general existence and uniqueness and implicit numerical recovery are prior-implied and not claimed new. It does not state a two-branch closed optimization formula, active-leaf threshold or nondifferentiability. The Einstein results concern a single prescribed equality of all curvatures; for k below its maximum, the minimax optimum has some strictly larger leaf curvatures and is generally not Einstein. The full explicit phase law requires an additional nonuniform-weight lower bound and parameter analysis.",
+      "searches": [
+        "Lin-Lu-Yau curvature weighted tree least max/min edge weights positive prescribed k double star full closed form",
+        "Curvature-Distortion Numbers of Graphs Prescribed Lin Lu Yau Curvature Lower Bounds Qing Xia Example 4.13 generalized double stars",
+        "arxiv:2610.21454v1",
+        "arxiv:2604.22449v3",
+        "arxiv:2605.20862v2"
+      ]
+    },
+    "checked_sources": [
+      "Zenodo DOI 10.5281/zenodo.22757916 (abstract/publication metadata)",
+      "arXiv:2610.21454v1 (target full-text HTML relevant sections)",
+      "arXiv:2609.12125v2 (source full-text HTML relevant sections)",
+      "arXiv:2604.22449v3 (Einstein full-text HTML relevant sections)",
+      "arXiv:2605.20862v2 (Einstein classification full-text HTML relevant sections)",
+      "published mathematical record 7ee8f1c6b217 (title/summary)",
+      "published mathematical record de350c5f72a5 (title/summary)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source explicitly proves monotone continuous profiles for all trees but not differentiability or a qualitative symmetry-triggered cusp.",
+        "The older source implies the k=0 specialization and the later source gives D_{1,2} at the maximal target.",
+        "Independent direct lower bound of this finding forces both a saturated bridge constraint and a b-leaf constraint, producing the interior kink for a<b."
+      ],
+      "reasoning": "The general implicit fixed-point theorem is stronger in graph-family scope but weaker in explicit parameter structure. It supplies boundary facts but cannot by itself assert the exhibited non-C1 phase transition. The exact joint statement (two formulas, active-set threshold, derivative jump for every a<b) is not an immediate restatement of known examples; it is established by additional scalar comparison and equality analysis. Claim priority remains qualified rather than certified.",
+      "searches": [
+        "positive curvature tree weights unique canonical optimizer double stars endpoint k=2/(a+b+1) active leaves",
+        "Curvature-Distortion Numbers of Graphs Prescribed Lin Lu Yau Curvature Lower Bounds Qing Xia Example 4.13 generalized double stars",
+        "arxiv:2609.12125v2",
+        "arxiv:2610.21454v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Qing Xia arXiv:2609.12125v2, Example 4.1: zero-bound double-star distortion sqrt(ab).",
+        "Qing Xia arXiv:2610.21454v1, Examples 4.12-4.13: one path profile and one asymmetric double-star endpoint.",
+        "Published mathematical record 7ee8f1c6b217, Curvature-distortion numbers of spider trees: zero-curvature canonical weights and spider geometry."
+      ],
+      "reasoning": "The same object appears explicitly at zero target and for one endpoint, but the all-real-k weighted minimax function and interior leaf-activation kink are absent from those inspected sections. A spider with one long arm is a boundary subfamily when a=1; the retrieved spider record concerns k=0 and does not subsume positive target phases. Replacing edge weights by graph lengths would define a different notion of curvature.",
+      "searches": [
+        "\"double star\" \"curvature distortion\" positive k profile",
+        "\"ST_{m,n}\" \"curvature\" \"prescribed\" \"distortion\"",
+        "ST_{a,b} double star weighted LLY curvature distortion number with prescribed positive k, exact switch at 4/(2b+1+sqrt(1+4a(b+1))), optimal middle-edge weight"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2609.12125v2 gives the exact k=0 number sqrt(ab) but no positive-k table.",
+        "arXiv:2610.21454v1 gives k=2/m sample D_{1,2} and P4, not the arbitrary a,b phase profile.",
+        "Retrieved published mathematics record de350c5f72a5 concerns exact curvature distortion of pineapple graphs."
+      ],
+      "reasoning": "An existing general-purpose fixed-point solver or a table of one endpoint does not tabulate the closed threshold or jump; the specific two-parameter family law and sharp transition were not matched. Finite solver checks alone cannot establish bibliographic novelty.",
+      "searches": [
+        "\"double star\" \"Lin Lu Yau\" \"threshold\" weights",
+        "edge weight optimization on bistar two-center tree curvature lower bound piecewise profile critical k leaf activation",
+        "\"double star\" \"edge weights\" \"curvature\" 2/m"
+      ]
+    },
+    "rationale": "The October full-text source gives an implicit fixed-point theorem for all finite trees and one asymmetric endpoint example, but does not report an explicit two-parameter family profile, the sharp interior activity threshold, or nondifferentiability. The September Xia source gives only the k=0 double-star formula. Constant-curvature Einstein sources determine the terminal regime, not minimax solutions for every lower curvature target. Published mathematical-record hits for spider trees address nonnegative curvature and a different branch topology or for pineapple graphs address a different family. Actual query, statement and implication comparisons found no covering result; an earlier equivalent explicit formula remains a priority risk.",
+    "residual_risks": [
+      "The earlier September 2026 Zenodo PDF was not materially read, although the later October arXiv full text was inspected; an earlier unadvertised version-specific computation remains possible.",
+      "A mathematically equivalent piecewise formula under different terminology or in an uncatalogued table might predate this finding.",
+      "The general published finite-tree fixed-point theorem implies an implicit computable answer for all double stars. Novelty rests on the exact closed form and non-C1 activity transition, not general existence or uniqueness.",
+      "Independent literature-priority assessment has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives general implicit tree solver; P4 and D_{1,2} endpoint only; exact full two-parameter phase diagram and cusp not stated",
+        "evidence": [
+          "arXiv:2610.21454v1 Theorem 1.1, Examples 4.12, 4.13, and equation (50)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.21454v1",
+        "material_read": "HTML abstract, definitions and curvature convention in sections 1-2, finite-tree Theorem 1.1 and section 4, examples 4.11-4.14, and full-text phrase search for double star",
+        "method": "Public open-access HTML full-text inspection with targeted section and phrase reading",
+        "title": "Curvature-Distortion Numbers of Graphs: Prescribed Lin--Lu--Yau Curvature Lower Bounds",
+        "trigger": "Direct target invariant and finite-tree optimality; most plausible stronger coverage"
+      },
+      {
+        "assessment": "Published on September 15, 2026; incomplete source comparison risk retained",
+        "evidence": [
+          "Zenodo DOI 10.5281/zenodo.22757916, publication date September 15, 2026; record created September 14"
+        ],
+        "identifier_or_url": "https://zenodo.org/records/22757916",
+        "material_read": "Release metadata, version/date fields and abstract; the archived PDF itself was not read",
+        "method": "Public Zenodo metadata and description",
+        "title": "Curvature-Distortion Numbers of Graphs: Prescribed Lin--Lu--Yau Curvature Lower Bounds (earlier public release)",
+        "trigger": "Earliest verified public release date of focal research"
+      },
+      {
+        "assessment": "Explicitly covers zero target sqrt(ab), not the positive target profile",
+        "evidence": [
+          "arXiv:2609.12125v2, Example 4.1, equation (21)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.12125v2",
+        "material_read": "Introduction, forest/curvature convention, section 4.1 Example 4.1, and full-text double-star occurrences",
+        "method": "Open-access HTML full-text inspection",
+        "title": "Curvature-Distortion Numbers of Graphs: Nonnegative Lin--Lu--Yau Curvature",
+        "trigger": "Earlier exact same-object double-star formula"
+      },
+      {
+        "assessment": "Only constant-curvature (Einstein) metric; no nonconstant prescribed-floor distortion profile",
+        "evidence": [
+          "arXiv:2604.22449v3, Theorem 1.2, Einstein eigenvector"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.22449v3",
+        "material_read": "Introduction and Theorems 1.2 and 1.5, spectral classification and double-star discussion",
+        "method": "Open-access HTML full-text inspection",
+        "title": "Discrete Einstein metrics on trees",
+        "trigger": "Plausible endpoint constant-curvature implication"
+      },
+      {
+        "assessment": "Classifies sign of Einstein curvature, a different spectrum-based property and not this prescribed-floor phase",
+        "evidence": [
+          "arXiv:2605.20862v2 Example 3.2: (a-1)(b-1)<4"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.20862v2",
+        "material_read": "Introduction, Theorems 1.1-2.2, Example 3.2 and final double-star phase diagram discussion",
+        "method": "Open-access HTML full-text inspection",
+        "title": "Positive-Curvature Discrete Einstein Metrics on Trees",
+        "trigger": "Double-star spectral phase theorem might dominate a claimed phase transition"
+      },
+      {
+        "assessment": "Concerns zero-target canonical weights on spiders and not the all-double-star positive-curvature phase",
+        "evidence": [
+          "Indexed summary: spider trees, geometric arm weights, sharp distortion ranges at k=0"
+        ],
+        "identifier_or_url": "published mathematical record 7ee8f1c6b217",
+        "material_read": "Indexed title and summary, not the full original research file",
+        "method": "Semantic mathematical record discovery",
+        "title": "Curvature-distortion numbers of spider trees",
+        "trigger": "Highest related published research record with a similar invariant"
+      },
+      {
+        "assessment": "Different clique-with-leaves family and nonnegative curvature optimization",
+        "evidence": [
+          "Indexed summary gives formula for pineapple graph P_{p,q}"
+        ],
+        "identifier_or_url": "published mathematical record de350c5f72a5",
+        "material_read": "Indexed title and summary only",
+        "method": "Semantic mathematical record discovery",
+        "title": "Exact curvature-distortion number of pineapple graphs",
+        "trigger": "Closely related extremal weight optimization record"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b2c31d3c-a7d8-4af9-a7ad-11314deb4f31",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact two-parameter prescribed-curvature profile is a natural first nontrivial bridge between the known zero-target double-star invariant and the constant-curvature terminal weight. Its asymmetric phase boundary identifies precisely when heavier-class pendant weights leave the lower bound and yields a strict interior nondifferentiability phenomenon not implied by prior general continuity or the known endpoints. The arbitrary-weight lower bound certifies that the structure survives outside symmetric ansatzes. The claim is a complete natural classification rather than an arbitrary small parameter slice; it does not purport to re-prove the already known global finite-tree existence theorem.",
+    "status": "PASS"
+  }
+}
