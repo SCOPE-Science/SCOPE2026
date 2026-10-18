@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T20:04:11Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md blob f1b507a6d4e4199cd8d7c5c4ef1ec4caab83b84f",
+        "Holdener and Holdener 2020 Lemma 21, Propositions 22–23",
+        "Independent QUASI_FRIENDLY_MIN_LAYER_DIVISIBILITY_AND_SIZE_OK"
+      ],
+      "rationale": "For b>=3 odd and q odd, if sigma(N)/N=(sigma(q^b)+1)/q^b with q^b|N, an even host is excluded by the 3/2 (q>=5) or 2 (q=3 with 6|N) abundancy bound. Then sigma(N) is odd, since sigma(q^b) is even; an odd host with odd divisor sum has only even prime exponents, so N is a square. If N=q^(b+1)p^(2a), let S=sigma(q^b), H=sigma(q^(b+1))=S+q^(b+1). Divisibility monotonicity gives p>=S. The exact ratio implies H*sigma(p^(2a-1))=(q-1)p^(2a). As p>=S>q and sigma(p^(2a-1))==1 mod p, p^(2a)|H. But S^2>H, a contradiction. The next possible square-host shared exponent is >=b+3. Independently checked rational identities and size inequalities on many q,b, but this is a symbolic all-prime proof.",
+      "residual_risks": [
+        "No contradiction is derived for >=3 prime supports or shared q-adic exponent >=b+3; none of the original existence questions is settled."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Holdener gives p>=sigma(q^b) but leaves odd prime-power quasi-friendly existence open and shared prime branch unresolved.",
+          "The published Resultary stronger obstruction is specific to q itself (b=1) with ratio (q+2)/q, not odd powers q^b with b>=3."
+        ],
+        "reasoning": "The q-adic identity for q^(b+1) and bound S^2>H are not covered by the b=1 theorem; neither checked source dominates the candidate.",
+        "searches": [
+          "Holdener Holdener 2020 Propositions 22,23",
+          "Resultary 2026/10/4/b452d3888e92 Prime quasi-friendly divisors force at least three prime factors in the host"
+        ]
+      },
+      "checked_sources": [
+        "Holdener and Holdener JIS 2020 primary full PDF",
+        "Resultary 2026/10/4/b452d3888e92 complete RESULT",
+        "OEIS A240991 and A387406"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From Holdener p>=S plus square-host parity one may write N=q^(b+1)p^(2a), but these premises do not automatically contradict it.",
+          "The new equality H*sigma(p^(2a-1))=(q-1)p^(2a), p coprime q-1, and S^2>H jointly provide the forbidden-layer proof."
+        ],
+        "reasoning": "The candidate draws a genuinely additional valuation-layer conclusion not following as a restatement of the published statements or the distinct b=1 case.",
+        "searches": [
+          "Holdener and Holdener 2020 proof of odd host and p>=S",
+          "Resultary 2026/10/4/b452d3888e92 full RESULT.md for prime divisor b=1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Holdener defines q^b quasi-friendly exactly by abundancy sigma(N)/N=(sigma(q^b)+1)/q^b.",
+          "For odd b the host is odd square, so the first possible shared exponent is precisely b+1; the candidate excludes that exponent for two-prime hosts."
+        ],
+        "reasoning": "No alternative-language equivalence with a stronger published exponent exclusion was located; the nearest parent structural facts fall short.",
+        "searches": [
+          "Holdener Holdener Characterizing Quasi-Friendly Divisors 2020 prime power q^b shared prime host square",
+          "Resultary quasi-friendly odd prime power shared host p lower bound sigma"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing sequence entries and prime-factor lower bounds concern example constructions, general divisors and computable abundancy ratios.",
+          "The candidate is a symbolic impossibility uniformly in odd primes and all odd b>=3, not an enumeration of small hosts."
+        ],
+        "reasoning": "Neither listed OEIS sequence asserts this no-two-prime at first shared layer theorem; database absence alone is not evidence of novelty.",
+        "searches": [
+          "https://oeis.org/A240991",
+          "https://oeis.org/A387406",
+          "Holdener 2020 tabulated quasi-friendly cases"
+        ]
+      },
+      "rationale": "Holdener and Holdener’s primary article establishes host oddness, the lower bound for other prime divisors and the square-host observation for odd b, but does not rule out the first q-adic shared-prime layer with two-prime host. A published Resultary theorem eliminates two-prime hosts for q as divisor (b=1), whose stronger prime-case result does not imply b odd >=3. The new divisibility-and-size contradiction uses H=sigma(q^(b+1)) at exactly the minimal layer. Best of knowledge; historical abundancy literature is not exhaustively indexed.",
+      "residual_risks": [
+        "Earlier non-indexed work on odd-power quasi-friendly divisors could contain related valuation restrictions; checked literature is not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_INPUT_NOT_COVERING",
+          "evidence": "Establishes parity, other-prime lower bound and open existence context; does not prove the candidate minimal q-adic layer contradiction.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL23/Holdener/holdener4.pdf",
+          "material_read": "Full 13-page primary PDF, close review of Lemma 21, Propositions 22–23 and concluding odd-power shared-divisor discussion",
+          "method": "Open-access primary PDF with page images inspected",
+          "title": "Characterizing Quasi-Friendly Divisors",
+          "trigger": "Primary article for same q^b abundancy ratio and open odd prime-power/shared-prime case"
+        },
+        {
+          "assessment": "SPECIAL_CASE_B1_ONLY",
+          "evidence": "Proves host support>=3 only for quasi-friendly q with b=1, different abundancy target; cannot force odd b>=3 result.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-prime-quasi-friendly-divisors-force-at-least-three-prime-factors--b452d3888e92/RESULT.md",
+          "material_read": "Entire published RESULT.md including prime-case proof",
+          "method": "Published GitHub full source through Git connector",
+          "title": "Prime quasi-friendly divisors force at least three prime factors in the host",
+          "trigger": "Possible stronger same-subject prime-support obstruction"
+        },
+        {
+          "assessment": "NO_DETECTED_EXACT_TABLE",
+          "evidence": "No universal shared q-adic valuation restriction appears in checked sequence descriptions.",
+          "identifier_or_url": "https://oeis.org/A240991",
+          "material_read": "Sequence headings and description/related construction, not complete monograph",
+          "method": "Public database records",
+          "title": "OEIS A240991 / A387406",
+          "trigger": "Direct arithmetic sequence context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Holdener Holdener 2020 open questions on odd prime-power quasi-friendly divisors",
+        "Source divisibility/size contradiction"
+      ],
+      "rationale": "The first shared-prime valuation layer is the natural smallest branch left by parity in a published open quasi-friendly-divisor existence problem. Uniformly ruling it out for two-prime hosts provides a meaningful structural obstruction with exact sharp scope, not merely failure to find a small example. It guides later attempts by requiring either >=3 prime supports or q-adic depth at least b+3.",
+      "residual_risks": [
+        "Does not exclude odd prime-power quasi-friendly divisors overall or settle the next q-adic layer."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Does not exclude odd prime-power quasi-friendly divisors overall or settle the next q-adic layer.",
+    "Earlier non-indexed work on odd-power quasi-friendly divisors could contain related valuation restrictions; checked literature is not exhaustive.",
+    "No contradiction is derived for >=3 prime supports or shared q-adic exponent >=b+3; none of the original existence questions is settled.",
+    "Scientific review complete but publication transport not_ready due to public privacy sanitization and recursive tree verification; no GitHub writes performed."
+  ],
+  "schema_version": 1
+}
