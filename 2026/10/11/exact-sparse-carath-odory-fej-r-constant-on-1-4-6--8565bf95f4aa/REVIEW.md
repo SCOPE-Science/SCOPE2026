@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The upper bound follows from two necessary nonnegativity constraints at \(\theta=\pi\) and \(\theta=4\pi/5\). Their combination gives \(a\le\sqrt5/2\) with no numerical approximation. At equality, both constraints are tight; the zero at \(4\pi/5\) must be stationary, and the derivative equation uniquely determines the two remaining coefficients. For attainment, the candidate polynomial factors exactly as \((x+1)(x-r)^2R(x)\) on \(x=\cos\theta\). The derivative \(R'\) has negative leading coefficient and negative discriminant, and \(R(1)>0\), so \(R>0\) on \([-1,1]\). This proves universal nonnegativity and the full equality classification. Risk: arithmetic transcription is the main local failure mode; the standalone exact symbolic replay checks every displayed identity.
+## correctness
 
-## Originality
-**PASS.** The closest general source defines the same support-constrained Carathéodory–Fejér problem but does not evaluate this support. Nearby exact database results concern different supports such as \(\{1,2,4\}\) and \(\{1,3,4\}\). A prior qualitative theorem for \(\mathcal M_{m,n}\) implies only \(\mathcal M_{4,6}>\sec(\pi/8)\), not the exact value or extremizer. Searches across Carathéodory–Fejér, positive-definite, and support aliases did not uncover an implication-equivalent statement. Risk: older sparse trigonometric-polynomial literature may encode the same small support differently, so the package records this as residual risk rather than treating search failure as proof of novelty.
+PASS
 
-## Value
-**PASS.** The support \(\{1,4,6\}\) defines a natural exact coefficient extremum in the classical sparse Carathéodory–Fejér framework. The result gives both a closed sharp constant and the unique extremizer, with a two-contact certificate and a global factorization. It is not a mere recomputation of a known table entry or a numerical special case; it resolves the complete continuous optimization for this support and sharpens the previously available qualitative strict inequality.
+At θ=π, nonnegativity gives b+c≥a−1, and at 4π/5 all three cosine factors equal r=−(1+√5)/4, giving a+b+c≤√5−1. Thus a≤√5/2. Equality makes both contacts zero and the derivative condition −a+4b−6c=0 solves b=(7√5−12)/20, c=(3√5−8)/20 uniquely. With x=cosθ, independent exact Chebyshev expansion verifies (x+1)(x−r)²R(x). R′(x) has negative leading coefficient and strictly negative discriminant 32(1063−477√5)/25<0, so R decreases on ℝ and R(x)≥R(1)=−1+3√5/5>0 on [−1,1]. Hence global feasibility and uniqueness.
 
-## Closest literature and limitations
-Krenedits–Révész, arXiv:1304.0071v1, supplies the general support-constrained framework and primary MSC 43A35. Kolountzakis–Révész, arXiv:math/0312218v1, supplies broader positive-definite extremal context but optimizes a different functional. The theorem here is support-specific and leaves arbitrary support pairs and finite cyclic sampling open.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the precise real-even continuous-circle support {1,4,6} exact optimal first-harmonic coefficient √5/2 with unique optimizer. The primary general support papers and explicit exact families were compared statement-wise; general definitions/duality and adjacent nonnested supports do not supply this formula. This is not a novelty proof from failed searches: Resultary unavailable; hidden exact sparse polynomial literature remains a residual risk.
+
+## value
+
+PASS
+
+Sparse Carathéodory–Fejér coefficient extrema are canonical invariants of frequency support and positive-definite Fourier sequences. For {1,4,6}, Fifth-root resonance and simultaneous contact of frequencies 1,4,6 select a motivated support; computing its exact √5/2 optimum and unique extremizer strengthens a qualitative strict-improvement statement with a sharp full-circle certificate. The exact optimizing value, a globally certified feasible extremizer and uniqueness are precise reusable mathematical benchmarks; no paper-sized downstream theorem is required for this motivated exact fact. It is not a routine evaluation of a full consecutive Fourier support problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
