@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,24 +18,25 @@
   "schema_version": 1
 }
 ---
-The checker independently reconstructs the complementary root products for the ordinary and symplectic line-plane flag varieties for
-\[
-2\le n\le100.
-\]
-It verifies the closed formulas
-\[
-\deg A_n=\frac{2^{2n-2}(4n-3)!}{(2n-1)!(2n-2)!}
-\]
-and
-\[
-\deg C_n=\frac{3\,2^{2n-3}(4n-4)!}{(2n-1)!(2n-3)!},
-\]
-together with the Weyl-coset Euler counts and both cross-type ratios.
 
-It also checks the exact normalized suppression factor
-\[
-\frac{3(2n-1)}{2(4n-3)}
-\]
-and its strict decrease for every tested consecutive pair.
+# Independent mathematical audit
 
-Finite computation is regression evidence only. The infinite theorem is the symbolic root-product calculation in `RESULT.md`.
+## correctness
+
+PASS
+
+A_n and C_n have dimensions 4n-3 and 4n-4. The type-A Weyl numerator for weight omega1+omega2 has 2^(2n-2) over positive-root denominators (2n-1)!(2n-2)!, yielding the displayed ordinary degree. Type-C complement to Levi C_(n-2) has 4n-4 positive roots and numerator 3*2^(2n-3) over (2n-1)!(2n-3)!, giving isotropic degree. Schubert-cell W/W_P gives 2n(2n-1) and 4n(n-1) Euler counts. Exact algebra gives the two ratios, and q_n-q_(n+1)=3/[(4n-3)(4n+1)]>0. Independently checked n=2..9 with exact rational arithmetic; source nested verifier checks n=2..100.
+
+## originality
+
+PASS
+
+Both degrees and Euler counts follow known general Weyl/Schubert mechanisms; their explicit comparison for the natural isotropic inclusion and identical Segre–Plücker polarization, including the sharp monotone normalized suppression, was not found in inspected geometric literature. Best-of-knowledge novelty is restricted to this specialized geometric comparison, not the standard formulas.
+
+## value
+
+PASS
+
+The natural codimension-one inclusion of symplectic isotropic flags into ordinary line–plane flags provides genuine geometric motivation for comparing degree and Euler characteristic under the same polarization. The exact competing suppression factors and their monotone sharp 3/4 normalized limit quantify distinct global invariants of this inclusion, rather than an arbitrarily selected polynomial value. The general computational tools themselves remain classical.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

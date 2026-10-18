@@ -1,20 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The type-\(A\) and type-\(C\) degrees are reconstructed independently from the Weyl dimension formula for the common natural polarization \(\omega_1+\omega_2\). The Euler characteristics are independently obtained from Weyl-coset counts. Exact cancellation gives
-\[
-\frac{\deg C_n}{\deg A_n}=\frac{3(n-1)}{4n-3}
-\]
-and
-\[
-\frac{\chi(C_n)}{\chi(A_n)}=\frac{2(n-1)}{2n-1}.
-\]
-The final normalized factor decreases strictly because its consecutive difference is positive.
+## correctness
 
-## Originality
-PASS. The inspected archival sources develop the symplectic flag cohomology and the natural inclusion of symplectic partial flags into ordinary partial flags, but targeted full-text searches found no projective-degree/Euler suppression law. Semantic and web searches for the exact flag, polarization, and ratio found no covering statement. The closest existing results treat either the ordinary line-plane flag or a one-step symplectic Grassmannian and do not imply the mixed type-\(C\) degree.
+PASS
 
-## Value
-PASS. The result gives an exact quantitative comparison for a canonical inclusion of homogeneous spaces. It identifies a universal and monotone mismatch between how isotropy suppresses projective degree and Euler characteristic, approaching a clean asymptotic factor of \(3/4\).
+A_n and C_n have dimensions 4n-3 and 4n-4. The type-A Weyl numerator for weight omega1+omega2 has 2^(2n-2) over positive-root denominators (2n-1)!(2n-2)!, yielding the displayed ordinary degree. Type-C complement to Levi C_(n-2) has 4n-4 positive roots and numerator 3*2^(2n-3) over (2n-1)!(2n-3)!, giving isotropic degree. Schubert-cell W/W_P gives 2n(2n-1) and 4n(n-1) Euler counts. Exact algebra gives the two ratios, and q_n-q_(n+1)=3/[(4n-3)(4n+1)]>0. Independently checked n=2..9 with exact rational arithmetic; source nested verifier checks n=2..100.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Both degrees and Euler counts follow known general Weyl/Schubert mechanisms; their explicit comparison for the natural isotropic inclusion and identical Segre–Plücker polarization, including the sharp monotone normalized suppression, was not found in inspected geometric literature. Best-of-knowledge novelty is restricted to this specialized geometric comparison, not the standard formulas.
+
+## value
+
+PASS
+
+The natural codimension-one inclusion of symplectic isotropic flags into ordinary line–plane flags provides genuine geometric motivation for comparing degree and Euler characteristic under the same polarization. The exact competing suppression factors and their monotone sharp 3/4 normalized limit quantify distinct global invariants of this inclusion, rather than an arbitrarily selected polynomial value. The general computational tools themselves remain classical.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
