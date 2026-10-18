@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,53 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The infinite proof has two components.
+# Independent mathematical audit
 
-First, if doubling \(X=(a,c)_b\) causes no low-digit carry, then digitwise doubling gives
-\[
-S_{3,b}(2X)=8S_{3,b}(X),
-\]
-which is incompatible with
-\[
-S_{3,b}(X)=2X,\qquad S_{3,b}(2X)=X.
-\]
+## correctness
 
-Second, in the carry branch,
-\[
-2X<b^2
-\]
-forces
-\[
-a<b/2,
-\]
-while the carry forces
-\[
-c\ge b/2.
-\]
-The first cycle equation gives
-\[
-c^3\le b^2+b-2.
-\]
-Thus
-\[
-b^3/8\le b^2+b-2,
-\]
-which fails for every integer \(b\ge9\).
+PASS
 
-The attached checker exhausts the remaining bases \(2\le b\le8\). It visits exactly \(68\) digit pairs for which both \(X\) and \(2X\) are two-digit. Exactly one satisfies the first cycle equation:
-\[
-b=8,\qquad X=27=(33)_8.
-\]
-Its double is
-\[
-54=(66)_8,
-\]
-and
-\[
-S_{3,8}(54)=432,
-\]
-so it does not return to \(27\).
+Let X=ab+c with 1<=a<b,0<=c<b and b<=X<2X<b^2. In a no-carry doubling 2c<b, both digits double, so S3(2X)=8S3(X)=16X, contradicting required X. A carry forces c>=b/2 and a<b/2. From S3(X)=2X follows c^3<=b^2+b-2, whereas c^3>=b^3/8. The difference b^3-8b^2-8b+16 is positive at b=9 and increasing thereafter, so no b>=9. Independent enumeration of all 68 admissible digit pairs for 2<=b<=8 recovered exactly one satisfying first equation: (8,3,3,X=27), but S3,8(54)=432!=27. All bases and all two-digit cases exhausted; none beyond two digits claimed.
 
-The file `small_b_certificate.csv` records the exact per-base counts reproduced by the checker. No finite experiment is used to justify the exclusion of bases \(b\ge9\).
+## originality
+
+PASS
+
+Scientific best-of-knowledge assessment after independently reading the frozen RESULT.md and recreating relevant proof/calculation, checking Resultary and named primary source statements. Wu--Dang--Zhang 2015 surveys cubic digit-map periodic points only for finitely many bases (up to 16) and Hargreaves--Siksek studies generalized happy functions and bounds, not this uniform arbitrary-base ratio-two exclusion. The square-digit doubling-cycle family in Goedhart--Gurtas--Harris differs in exponent; it motivates the contrast rather than implying this negative result.
+
+## value
+
+PASS
+
+The exact ratio-two question is a mathematically motivated small-denominator dynamical rigidity test: the exponent-two map has an infinite two-digit doubling two-cycle construction, while cubic digit dynamics forbids that entire mechanism in every base. The all-base analytic cutoff plus exhaustive finite residual classification proves a genuine universal negative boundary, though it is narrow and not a census of all cubic cycles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
