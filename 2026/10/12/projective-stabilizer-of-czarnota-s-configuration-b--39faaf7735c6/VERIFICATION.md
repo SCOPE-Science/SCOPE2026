@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-The packaged `verify.py` checks the exact algebra used in the projective-stabilizer proof for
-\[
-Q_6=x(x-z)(x+z)(y-z)(y+z)(x^2+y^2-z^2).
-\]
-It verifies that all four diagonal sign changes preserve \(Q_6\) up to nonzero scalar, that \(x=0\) is the unique secant among the five line components while the other four are tangent to the conic, and that
-\[
-\nu(t)=[2t:1-t^2:1+t^2]
-\]
-parametrizes the conic with the distinguished parameters \(0,\infty,1,-1\). It also verifies the projective identities inducing \(t\mapsto-t\), \(t\mapsto t^{-1}\), and \(t\mapsto-t^{-1}\), and checks that the remaining scalar condition is \(a^2=1\).
 
-A successful replay prints `VERIFY_OK group_order=4 group=C2xC2 restrictions=t,-t,1/t,-1/t`.
+# Independent mathematical audit
 
-The proof that no additional projective transformations exist is the exact Möbius-pair argument in `RESULT.md`; no numerical sampling or finite-field heuristic is used.
+## correctness
+
+PASS
+
+The polynomial factors as one smooth conic K and five distinct lines. K is the unique nonlinear component and x=0 the unique secant among the lines (restriction y^2-z^2 versus squares on the other four). The secant marks the two tangency points y=±z. On parametrization [2t:1-t²:1+t²], any preserving Möbius map fixes {0,∞} and {1,-1} setwise; it must be t,−t,1/t,−1/t. The conic action is faithful for projective PGL3, and all four maps arise from independent sign flips x,y. Thus precisely C2×C2. Independent symbolic checks verified conic restrictions, parametrization and diagonal maps.
+
+## originality
+
+PASS
+
+Czarnota gives Configuration B's exact equation, singularities and freeness, not the embedded projective stabilizer. Other published projective stabilizers in Resultary refer to different arrangements. The four-point Möbius reduction supplies a new precise invariant of this object, subject to coordinate-alias priority risk.
+
+## value
+
+PASS
+
+Projective isotropy is an exact natural invariant of the specifically published free conic–line septic configuration. Distinguishing the two tangent-pair orbits from hypothetical exchange symmetry is relevant to arrangement classification and moduli/coordinate identifications. It is not a generic automorphism-count restatement or a computation of a known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

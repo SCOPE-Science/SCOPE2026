@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The unique conic component is projectively intrinsic. Direct restriction shows that among the five lines exactly \(x=0\) is secant and the other four are tangent. On the conic parametrization \(\nu(t)=[2t:1-t^2:1+t^2]\), the distinguished secant pair is \(\{0,\infty\}\) and the other two tangency parameters are \(\{1,-1\}\). A Möbius map preserving both unordered pairs is exactly one of \(t,-t,t^{-1},-t^{-1}\). Restriction of plane-conic projective automorphisms is injective, giving an upper bound of four, and the four diagonal sign maps realize that bound. The packaged exact verifier replays all algebraic identities used in the proof.
+## correctness
 
-## Originality
-PASS. The exact source introduces Configuration B, gives its equation and freeness/singularity data, but does not state its projective stabilizer; full-text searches in that source found no “automorphism”, “symmetry”, or “stabilizer”. Exact-equation, Configuration-B, and one-conic-five-line stabilizer searches in the checked published-finding index returned no covering statement. The closest hits concern different arrangements with different component multisets. Residual risk remains that an older or poorly indexed source may encode the same arrangement in different coordinates.
+PASS
 
-## Value
-PASS. The full projective stabilizer is a natural exact invariant of a named free arrangement introduced as a new construction. The result identifies precisely which apparent conic-point symmetries survive after the distinguished secant is included, and shows that the two tangent-line pairs cannot be exchanged projectively. This gives structural geometry not contained in the source's Jacobian-freeness computation.
+The polynomial factors as one smooth conic K and five distinct lines. K is the unique nonlinear component and x=0 the unique secant among the lines (restriction y^2-z^2 versus squares on the other four). The secant marks the two tangency points y=±z. On parametrization [2t:1-t²:1+t²], any preserving Möbius map fixes {0,∞} and {1,-1} setwise; it must be t,−t,1/t,−1/t. The conic action is faithful for projective PGL3, and all four maps arise from independent sign flips x,y. Thus precisely C2×C2. Independent symbolic checks verified conic restrictions, parametrization and diagonal maps.
 
-## Closest literature and limitations
-The closest exact source is Czarnota, arXiv:2401.14721v1, Example 4.7. The claim is restricted to this displayed complex arrangement; no assertion is made that its weak combinatorics determine the same symmetry group for every realization.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Czarnota gives Configuration B's exact equation, singularities and freeness, not the embedded projective stabilizer. Other published projective stabilizers in Resultary refer to different arrangements. The four-point Möbius reduction supplies a new precise invariant of this object, subject to coordinate-alias priority risk.
+
+## value
+
+PASS
+
+Projective isotropy is an exact natural invariant of the specifically published free conic–line septic configuration. Distinguishing the two tangent-pair orbits from hypothetical exchange symmetry is relevant to arrangement classification and moduli/coordinate identifications. It is not a generic automorphism-count restatement or a computation of a known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
