@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T11:52:57.201857Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Starting from the Stanovnik–Moškon–Mraz exact SQN integer recurrence, fix a=x1≤b=y1 and relax x2,x3,x4 to r,s,t∈[0,1]. The normalized objective F is a rational polynomial with multidegree (6,3,2,1). Independently constructed its exact Bernstein transforms: 168 coefficients of p(1-p)^5-F on p∈[0,1/5], all nonnegative (min0); eight halfboxes of (r,s,t) for 1024/15625-F on p∈[1/5,1/2], all 168 coefficients nonnegative (all mins≥0). Independently expanded integer q=5k+j, k≥2, j=0..4, and verified every polynomial coefficient of 15625*k*(4k+j)^5-1024*(5k+j)^6 after k=h+2 is ≥0. This is an exact rational polynomial proof for ALL q≥10, not a finite sample. Original certificate.json/verify.py and RESULT.md checked.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stanovnik gives the exact optimization input, Blackburn gives lower code construction",
+          "Resultary October4 covers all q≥10 at fixed length six"
+        ],
+        "reasoning": "The October4 result covers the entire submitted domain (and states identical threshold); its conclusion dominates this claim exactly even though proof methods differ.",
+        "searches": [
+          "Blackburn arXiv:1303.1026 optimal constructions",
+          "Stanovnik–Moškon–Mraz arXiv:2307.12593 exact SQN and conjecture",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-blackburn-optimality-for-length-six-non-overlapping-codes-from-a--b22c7f7b76c9"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2307.12593",
+        "arXiv:1303.1026",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-blackburn-optimality-for-length-six-non-overlapping-codes-from-a--b22c7f7b76c9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier theorem: S(q,6)=max_{1≤l≤q-1} l^5(q-l) ∀q≥10",
+          "Current theorem: identical mathematical formula, alphabet and code overlap definition"
+        ],
+        "reasoning": "Prior claim immediately implies the full submitted result via identity; the submitted Bernstein positivity certificate is a new proof route but the research claim does not assert a distinct nontrivial theorem.",
+        "searches": [
+          "October4 Blackburn optimality length-six https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-blackburn-optimality-for-length-six-non-overlapping-codes-from-a--b22c7f7b76c9",
+          "Resultary semantic claim matched score 0.60385"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published finding gives identical formula for every q≥10",
+          "Earlier source writes c(q-c)^5, exactly equivalent to l^5(q-l) by l=q-c"
+        ],
+        "reasoning": "The polynomial/Bernstein upper certificate proves the same final size assertion; no novel assertion remains in source RESULT.md once equivalent variable names are identified.",
+        "searches": [
+          "Resultary semantic: non-overlapping cross-bifix-free codes length six exact S(q,6) Blackburn threshold large alphabets",
+          "same claim source Resultary October 4 https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-blackburn-optimality-for-length-six-non-overlapping-codes-from-a--b22c7f7b76c9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier Resultary paper includes a fully symbolic all-q formula, not merely a finite table",
+          "Published Stanovnik finite table does not prove infinite tail but is superseded by the October4 result"
+        ],
+        "reasoning": "The exact prior result is a formula/theorem strictly more relevant than a database table and leaves no new classification here.",
+        "searches": [
+          "S(q,6) q>=10 exact published Resultary https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-blackburn-optimality-for-length-six-non-overlapping-codes-from-a--b22c7f7b76c9",
+          "cross-bifix-free length6 maximum q=10 tail"
+        ]
+      },
+      "rationale": "A previously published October 4, 2026 Resultary finding states EXACTLY S(q,6)=max_{1≤l<q} l^5(q-l) for every integer q≥10; the complete earlier RESULT.md was fetched and read. The prior proof is independent algebraic analysis of the same Stanovnik recurrence. The submitted formulation is mathematically equivalent with identical hypotheses, threshold, and conclusion; a second Bernstein route cannot make the same theorem original.",
+      "residual_risks": [
+        "The submitted exact certificate may be a technically different proof of a known statement, but no separate original/value-bearing claim is formulated.",
+        "Preserve the full failed source; do not replace the discredited novelty with certificate-only wording or report scientific incompleteness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_EXACTLY",
+          "evidence": "Both use exact SQN formulation and conclude precisely S(q,6)=max_{l} l^5(q-l), q≥10; published October4 precedes source Oct13.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-blackburn-optimality-for-length-six-non-overlapping-codes-from-a--b22c7f7b76c9",
+          "material_read": "FULL Resultary published RESULT.md including Finding/Assumptions/Proof/Verification and limitations",
+          "method": "GitHub connector full file fetch",
+          "title": "Blackburn optimality for length-six non-overlapping codes from alphabet size ten",
+          "trigger": "Exact same parameter range q≥10 and same S(q,6) formula"
+        },
+        {
+          "assessment": "PREMISE_NOT_PRIOR_THRESHOLD",
+          "evidence": "SQN program is valid input and earlier authors pose eventual optimality; later Resultary theorem completes the exact same conclusion.",
+          "identifier_or_url": "arXiv:2307.12593; DOI:10.1007/s10623-023-01344-z",
+          "material_read": "Primary article actual optimization definitions, non-overlapping code setting, Proposition 10 and relevant code size discussion",
+          "method": "Lawful accessible full preprint text/PDF and relevant-page inspection",
+          "title": "In search of maximum non-overlapping codes",
+          "trigger": "Original exact SQN integer recurrence and Blackburn conjecture"
+        },
+        {
+          "assessment": "BASE_CONSTRUCTION",
+          "evidence": "Blackburn construction produces lower bound, but the October4 result supplies the prior exact all-q upper theorem.",
+          "identifier_or_url": "arXiv:1303.1026",
+          "material_read": "Primary arXiv record and relevant construction/conjecture passages",
+          "method": "Lawful public arXiv primary text",
+          "title": "Non-overlapping codes",
+          "trigger": "Original construction named in both submissions"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The purported substantive gap—eventual Blackburn optimality at n=6 starting q=10—was already filled exactly by the earlier published theorem. The new proof format may be an alternative verification argument, but neither a new boundary, distinct structural classification, nor another mathematically motivated non-implied invariant survives in the final claim. A known theorem with a different certificate does not meet the research-value bar.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2307.12593",
+    "arXiv:1303.1026",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-blackburn-optimality-for-length-six-non-overlapping-codes-from-a--b22c7f7b76c9"
+  ],
+  "disposition": "failed",
+  "residual_risks": [
+    "The submitted exact certificate may be a technically different proof of a known statement, but no separate original/value-bearing claim is formulated.",
+    "Preserve the full failed source; do not replace the discredited novelty with certificate-only wording or report scientific incompleteness.",
+    "Public metadata sanitization not prepared; no public import approved."
+  ],
+  "schema_version": 1
+}
