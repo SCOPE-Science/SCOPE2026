@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 artifacts/verify.py` with Python 3. The script uses only the standard library and reconstructs the full finite problem from the cover-weight definition. It verifies the cover-weight histogram, enumerates every normalized size-eight code, confirms all row and column projections are bijections, counts affine versus nonlinear maxima, and computes the orbit partition under translations, row permutations, column permutations, and transposition.
+# Independent mathematical audit
 
-Expected final line:
+## correctness
 
-`VERIFY_OK cover_weight_hist=0:1,1:33,2:231,3:247 normalized_maxima=7622 maximum=8 labeled_maxima=487808 affine_maxima=109952 nonlinear_maxima=377856 natural_group_size=36864 orbits=59 orbit_sizes=128x1,768x2,1152x2,2304x8,3072x1,4608x21,6144x1,9216x9,18432x13,36864x1`
+PASS
 
-The finite computation proves only the stated binary \(3\times3\) case. No asymptotic or higher-size classification is inferred.
+Projection onto any single row of a 3x3 code with cover distance >=3 is injective, proving |C|<=8 for arbitrary nonlinear codes; equality forces all three row and column projections to be bijective. König matching theorem identifies cover weight 3 with a perfect matching in the 3x3 support graph. Independently enumerated all 512 binary matrices, obtaining cover histogram 1,33,231,247; built the 247-vertex compatibility graph and enumerated all size-seven cliques extending zero, obtaining exactly 7622. Addition-closure found 1718 linear normalized codes, giving 487808 total labeled, 109952 affine, 377856 nonlinear by eight-point incidence. Independently generated row/column S3, transpose and normalized translation actions and obtained exactly 59 orbits with labeled orbit-size distribution 128:1,768:2,1152:2,2304:8,3072:1,4608:21,6144:1,9216:9,18432:13,36864:1. This is a finite exhaustive proof of the specified nine-bit universe, not a claim for larger parameters.
+
+## originality
+
+PASS
+
+The relevant cover-metric coding work establishes optimal constructions and Singleton-type bounds but the accessible primary statements do not contain an exhaustive labeled/nonlinear equality-case census. Resultary identifies a superficially similar 3x3 criss-cross DELETION problem with different channel/distance and 514 maxima, not covering the one-cover-error model. The Caltech technical report full proof was not accessible; priority is therefore best-of-knowledge with this substantial named residual risk.
+
+## value
+
+PASS
+
+The smallest nontrivial square 3x3 cover-metric space is a canonical finite testbed for one-crisscross-error-correcting codes. Exact maximum-code classification, linear versus nonlinear split, and orbit sizes reveal the full equality-case geometry beyond proving a bound. Complete finite census is a natural reproducible classification and useful benchmark, not an arbitrary isolated number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

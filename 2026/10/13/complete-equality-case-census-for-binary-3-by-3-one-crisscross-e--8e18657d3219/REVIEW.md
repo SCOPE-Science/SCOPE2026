@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The size upper bound is a direct injection argument: agreement on one row would confine a difference to two rows and force cover weight at most \(2\). The finite equality census is reconstructed from all \(512\) arrays, all cover weights, the \(247\)-vertex normalized compatibility graph, and an exhaustive seven-clique enumeration. A second increasing-order enumeration used during review reproduced all \(7622\) normalized maxima and the affine count \(1718\). The packaged verifier rechecks the final census, projection rigidity, affine split, and orbit partition.
+## correctness
 
-## Originality
-PASS, with residual risk stated below. Blaum--Bruck gives distance-three one-crisscross-error constructions, while Wachter-Zeh defines arbitrary cover-metric codes and studies bounds/list decoding. The inspected statements do not imply or tabulate the \(487808\) equality cases, their affine/nonlinear split, or their \(59\) natural-isometry orbits. Targeted searches were made for the exact parameter, term-rank/array-metric aliases, nonlinear equality cases, and the census numbers. No implication-equivalent source was found.
+PASS
 
-## Value
-PASS. This is the smallest square array size on which minimum cover distance \(3\) is possible, hence the first square binary instance capable of correcting one arbitrary row-or-column crisscross error. The complete equality landscape shows that optimality is overwhelmingly nonlinear rather than merely documenting one construction, and supplies a compact symmetry-reduced benchmark for cover-metric code searches.
+Projection onto any single row of a 3x3 code with cover distance >=3 is injective, proving |C|<=8 for arbitrary nonlinear codes; equality forces all three row and column projections to be bijective. König matching theorem identifies cover weight 3 with a perfect matching in the 3x3 support graph. Independently enumerated all 512 binary matrices, obtaining cover histogram 1,33,231,247; built the 247-vertex compatibility graph and enumerated all size-seven cliques extending zero, obtaining exactly 7622. Addition-closure found 1718 linear normalized codes, giving 487808 total labeled, 109952 affine, 377856 nonlinear by eight-point incidence. Independently generated row/column S3, transpose and normalized translation actions and obtained exactly 59 orbits with labeled orbit-size distribution 128:1,768:2,1152:2,2304:8,3072:1,4608:21,6144:1,9216:9,18432:13,36864:1. This is a finite exhaustive proof of the specified nine-bit universe, not a claim for larger parameters.
 
-## Closest literature and limitations
-The closest sources are Blaum--Bruck’s distance-three MDS array-code construction and Wachter-Zeh’s general cover-metric/list-decoding framework. The finding is limited to the stated finite binary parameter set. An obscure or unindexed prior census is the remaining originality risk; the stated orbit classification is only under the explicitly generated natural isometry group.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The relevant cover-metric coding work establishes optimal constructions and Singleton-type bounds but the accessible primary statements do not contain an exhaustive labeled/nonlinear equality-case census. Resultary identifies a superficially similar 3x3 criss-cross DELETION problem with different channel/distance and 514 maxima, not covering the one-cover-error model. The Caltech technical report full proof was not accessible; priority is therefore best-of-knowledge with this substantial named residual risk.
+
+## value
+
+PASS
+
+The smallest nontrivial square 3x3 cover-metric space is a canonical finite testbed for one-crisscross-error-correcting codes. Exact maximum-code classification, linear versus nonlinear split, and orbit sizes reveal the full equality-case geometry beyond proving a bound. Complete finite census is a natural reproducible classification and useful benchmark, not an arbitrary isolated number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
