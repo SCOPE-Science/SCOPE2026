@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification: exact finite-dimensional quotient law
+# Independent mathematical audit
 
-1. **Existence of signs.** Rodríguez--Rueda Zoca, arXiv:2301.07943v1, Lemma 2.1, proves that finite atomless measure spaces admit measurable Rademacher-type signs with \(r_nf\rightharpoonup0\) for each \(f\in L^1\). These real signs are \(\pm1\).
-2. **Fixed-kernel-vector identity.** Because \(r_n\in\{-1,1\}\),
-\[
- \|r_nf-z\|_1=\tfrac12(\|f-z\|_1+\|f+z\|_1)
- +\tfrac12\int r_n(|f-z|-|f+z|)\,d\mu.
-\]
-The last term vanishes since the integrand without \(r_n\) is in \(L^1\), and the even average equals \(\int\max(|f|,|z|)\) for real scalars.
-3. **Correct interchange with infimum.** Suppose a subsequence of infimum distances were smaller than \(\|f\|_1-\varepsilon\). Approximate minimizing \(z_n\in Z\) satisfy \(\|z_n\|_1\leq\|f\|_1+\|r_nf-z_n\|_1\); bounded sequences in finite-dimensional \(Z\) have convergent subsequences. Continuity in \(z\) contradicts Step 2. The candidate \(z=0\) gives the upper limit.
-4. **Minimal coset representative.** For each unit coset, the distance to finite-dimensional \(Z\) is attained by coercivity of \(z\mapsto\|f_0-z\|_1\). Choose its norm-one representative \(f\).
-5. **WASQ witnesses.** Put \(y_n=q(r_nf)\). Quotient bounded linear maps preserve weak nullness. By the distance law \(\|y_n\|\to1\); since \(1\pm r_n\ge0\), \(\|q(f)\pm y_n\|\leq\int|f|(1\pm r_n)\to1\). Weak lower semicontinuity supplies the lower limits.
-6. **Prior implication check.** arXiv:2210.09158v1 Theorem 3.1 claimed full geodesic WASQ, which is why the metric-graph consequence is not being presented as a new theorem. The subsequent arXiv v2 restricts to finitely supported points; neither version claims arbitrary finite-dimensional quotients of atomless real \(L^1\) or the sharp Rademacher distance limit.
+## correctness
 
-No numerical computation or automated independent certificate is asserted. The full analytic argument is contained in RESULT.md; independent audit has not been performed.
+PASS
+
+For an arbitrary fixed z in any finite-dimensional Z subset real L1, the sign identity expresses ||r_n f-z||_1 as the average of ||f-z||_1 and ||f+z||_1 plus an integral r_n(|f-z|-|f+z|)/2 that vanishes by the weak-null sign hypothesis. The limit is int max(|f|,|z|) >=||f||_1. If inf over Z fell below ||f||_1-epsilon on a subsequence, almost-minimizing z_n have L1 norm at most ||f||_1+distance and hence a convergent subsequence in the finite-dimensional kernel, contradicting fixed-z convergence. z=0 gives matching upper bound. A unit quotient coset has an attained norm-one representative by finite-dimensional coercivity; q(r_n f) is weakly null, has norm ->1 by the proved identity, and ||q(f) +/-q(r_n f)||_1 is bounded above by 1 +/- int |f|r_n ->1. Weak lower semicontinuity supplies lower limits. Covers arbitrary nonzero finite atomless mu (not requiring separability), any finite-dimensional Z, every f, both signs, and all qualifying r_n. Source Rademacher sign existence independently checked in Rodriguez--Rueda Zoca Lemma 2.1; no finite experiment substitutes for this proof.
+
+## originality
+
+PASS
+
+The new universal distance identity for arbitrary finite-dimensional norm-quotients L1/Z is not provided by the inspected ambient-L1 WASQ theorem, nor mathematically implied by a previously claimed WASQ theorem restricted to geodesic Lipschitz-free spaces. Source and Resultary comparisons were statement/implication comparisons, not word matching. The historical 2022 v1 graph claim is acknowledged and the graph application is explicitly not asserted as independently new. Originality is best of currently readable evidence, with first-version and unindexed quotient-theorem risks retained.
+
+## value
+
+PASS
+
+The invariant question is a natural structural stability/permanence problem for a major Banach-space geometric property. It proves a kernel-independent exact norm-distance law for every finite-dimensional quotient of real nonatomic L1, not merely an isolated example; the finite-dimensional compactness mechanism resolves an actual quotient-norm obstruction. It supplies useful geometry even though the metric-graph corollary is not claimed original. Not an automatic consequence of the ambient WASQ result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem has explicit universal quantifiers over finite atomless measures, all finite-dimensional kernels and all real Rademacher-type sign sequences. A fixed-parameter sign identity gives \(\|r_nf-z\|_1\to\int\max(|f|,|z|)\) for every \(z\in Z\). Bounded almost-minimizers in \(Z\) admit convergent subsequences, forcing the exact infimum limit. A unit coset has a norm-minimizing representative; its sign perturbations remain weakly null in the quotient, have norm tending to one, and both plus/minus norms tend to one by direct \(L^1\) upper bounds plus weak lower semicontinuity. The standard nonatomic-sign lemma was directly checked in the 2023 primary full text. No finite experiment supports an infinite claim.
+## correctness
 
-## Originality — PASS for the narrowed quotient theorem
-The primary 2023 paper of Rodríguez--Rueda Zoca gives Rademacher-type signs and WASQ on atomless \(L^1\), not the exact distance to an arbitrary finite-dimensional kernel nor WASQ after quotienting. Searches for weak almost square finite-dimensional quotients, renormed quotient aliases, and uniform Rademacher distance profiles found no covering mathematical statement. Kaasik--Veeorg's **original v1 Theorem 3.1 (2022) expressly claimed** WASQ for all geodesic free spaces, including metric graphs; in 2023 v2 the authors narrowed the assertion to finitely supported vectors and posed the general question. The present contribution does **not** claim graph or geodesic WASQ as a new assertion: its universal \(L^1/Z\) theorem and exact quotient distance profile are not implied by the earlier geodesic statement. Freeman--Gartland's isomorphism classification similarly does not imply an isometric quotient-norm formula. Residual risk is an unindexed stronger quotient-stability theorem.
+PASS
 
-## Mathematical value — PASS
-This is a structural permanence theorem for the weakly almost square property under **every finite-dimensional norm quotient** of atomless real \(L^1\), with a sharp exact norm-distance law independent of kernel geometry. It isolates the compactness mechanism needed to recover the norms of weakly null sign perturbations after quotienting, rather than extending a finite table or calculating an arbitrary single case. Its natural applications include the cycle-flow quotients underlying metric-graph Lipschitz-free spaces; no priority is claimed for the graph consequence itself.
+For an arbitrary fixed z in any finite-dimensional Z subset real L1, the sign identity expresses ||r_n f-z||_1 as the average of ||f-z||_1 and ||f+z||_1 plus an integral r_n(|f-z|-|f+z|)/2 that vanishes by the weak-null sign hypothesis. The limit is int max(|f|,|z|) >=||f||_1. If inf over Z fell below ||f||_1-epsilon on a subsequence, almost-minimizing z_n have L1 norm at most ||f||_1+distance and hence a convergent subsequence in the finite-dimensional kernel, contradicting fixed-z convergence. z=0 gives matching upper bound. A unit quotient coset has an attained norm-one representative by finite-dimensional coercivity; q(r_n f) is weakly null, has norm ->1 by the proved identity, and ||q(f) +/-q(r_n f)||_1 is bounded above by 1 +/- int |f|r_n ->1. Weak lower semicontinuity supplies lower limits. Covers arbitrary nonzero finite atomless mu (not requiring separability), any finite-dimensional Z, every f, both signs, and all qualifying r_n. Source Rademacher sign existence independently checked in Rodriguez--Rueda Zoca Lemma 2.1; no finite experiment substitutes for this proof.
 
-## Limits
-Finite-dimensional kernels and finite atomless measures are essential hypotheses of this proof; no general statement about infinite-dimensional quotients or complex scalars is made. Early and revised versions of a strongly related geodesic paper differ substantially, and earlier literature may contain an equivalent quotient theorem. This review is not independent validation.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The new universal distance identity for arbitrary finite-dimensional norm-quotients L1/Z is not provided by the inspected ambient-L1 WASQ theorem, nor mathematically implied by a previously claimed WASQ theorem restricted to geodesic Lipschitz-free spaces. Source and Resultary comparisons were statement/implication comparisons, not word matching. The historical 2022 v1 graph claim is acknowledged and the graph application is explicitly not asserted as independently new. Originality is best of currently readable evidence, with first-version and unindexed quotient-theorem risks retained.
+
+## value
+
+PASS
+
+The invariant question is a natural structural stability/permanence problem for a major Banach-space geometric property. It proves a kernel-independent exact norm-distance law for every finite-dimensional quotient of real nonatomic L1, not merely an isolated example; the finite-dimensional compactness mechanism resolves an actual quotient-norm obstruction. It supplies useful geometry even though the metric-graph corollary is not claimed original. Not an automatic consequence of the ambient WASQ result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
