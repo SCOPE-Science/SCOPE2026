@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T21:10:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/13/a-sharp-upper-share-covariance-profile-for-the-exponential-sampl--873a317ea0c5/RESULT.md",
+        "2026/10/13/a-sharp-upper-share-covariance-profile-for-the-exponential-sampl--873a317ea0c5/verify.py"
+      ],
+      "rationale": "PASS: IID scaled exponential spacings yield Dirichlet(1,...,1) shares Z_j. Express G_n=Σ((j-1)/n) Z_j and the top-k share as Σmin(1,k/(n-j+1)) Z_j. Dirichlet covariance gives k[(n+1)(H_n-H_k)-(n-k)]/[2n²(n+1)]; positivity follows strict rearrangement for k<n. Subtraction yields Δ=(n+1)(H_n-H_k)-2(n-k), single sign switch by Δ(k+1)-Δ(k)=2-(n+1)/(k+1), with equality producing exactly a two-way tie. Harmonic asymptotics locate alpha*= -W0(-2e^-2)/2 and limit alpha*(1-alpha*)/2. Rates and all n≥2 boundary conditions consistent.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dirichlet moments determine any two linear statistics in normalized spacings; population exponential Lorenz results concern the limit of one marginal curve."
+        ],
+        "reasoning": "Existing distributional machinery is more general but its straightforward statement does not contain the all-rank covariance argmax, unique threshold and Lambert branch; deriving them needs the finite sums and sign analysis supplied here.",
+        "searches": [
+          "exponential order statistics Dirichlet spacings Gini Lorenz covariance",
+          "Gail Gastwirth 1978 scale free Gini and Lorenz curve tests",
+          "https://arxiv.org/abs/cond-mat/0008305"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1111/j.2517-6161.1978.tb01048.x",
+        "https://doi.org/10.1080/01621459.1978.10480100",
+        "https://arxiv.org/abs/cond-mat/0008305",
+        "https://doi.org/10.1007/PL00011112"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classic Gini test predates and motivates G_n, and the Lorenz test motivates T_nk. For n=2,k=1 the submitted covariance reduces to 1/48, while general k gives a nontrivial harmonic-difference sequence."
+        ],
+        "reasoning": "No inspected primary theorem supplied a joint covariance or explicit threshold. The algebra is reproducible from standard exponential spacings, but no simple prior theorem was identified that states or immediately specializes to the displayed optimizer.",
+        "searches": [
+          "https://doi.org/10.1111/j.2517-6161.1978.tb01048.x",
+          "https://doi.org/10.1080/01621459.1978.10480100"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gail–Gastwirth (1978) develop Gini-based and Lorenz-curve scale-free tests. Both G_n and T_nk are linear forms in normalized exponential spacings."
+        ],
+        "reasoning": "Top-k share is one minus the empirical Lorenz ordinate at fraction (n-k)/n; an equivalent joint Gini/Lorenz covariance would cover the claim. Only abstract/landing materials of the closest tests were available, so exact historic noncoverage cannot be asserted.",
+        "searches": [
+          "exponential order statistics sample Gini top k share covariance maximum harmonic k n",
+          "https://doi.org/10.1111/j.2517-6161.1978.tb01048.x",
+          "https://doi.org/10.1080/01621459.1978.10480100"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest hit is covariance of exponential range and variance, not the pair (sample Gini, top-k share)."
+        ],
+        "reasoning": "A two-integer all-sample theorem is not reducible to a finite catalogued table; searches returned no matching exact table. This is absence of located coverage, not a novelty proof.",
+        "searches": [
+          "Gini top income share exponential sample covariance finite-sample table",
+          "Resultary: exponential order statistics sample Gini top k share exact covariance maximum harmonic k n"
+        ]
+      },
+      "rationale": "PASS best of knowledge: published exponential Gini and sample-Lorenz tests, population Lorenz curves, and Dirichlet spacing laws are credited. The inspected primary bibliographic and accessible material did not provide the all-(n,k) mixed covariance, its exact maximizing upper rank, or Lambert-W limit. The classical Dirichlet trick supplies premises but leaves explicit mixed covariances and maximizer proof. Full historic tests remain an indirect-coverage risk.",
+      "residual_risks": [
+        "Gail–Gastwirth 1978 Gini and Lorenz papers lacked accessible full PDFs, so a hidden joint moment identity remains possible.",
+        "Older joint empirical Lorenz-process covariance may imply the formula indirectly; no exhaustive priority attestation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Plausible source for marginal Gini distribution, not enough access for whole-text exclusion.",
+          "evidence": [
+            "JRSS B 40 (1978), 350–357; scale-free Gini statistic for exponential samples."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/j.2517-6161.1978.tb01048.x",
+          "material_read": "Journal abstract, opening bibliographic material and topic; full PDF not obtained, Oxford returned no_pdf.",
+          "method": "Oxford Academic landing and authorized institutional attempt",
+          "title": "A Scale-Free Goodness-of-Fit Test for the Exponential Distribution Based on the Gini Statistic",
+          "trigger": "Same sample Gini normalization and exponential law"
+        },
+        {
+          "assessment": "Close alternative formulation, uncertainty about implicit joint covariance retained.",
+          "evidence": [
+            "JASA 73 (1978), 787–793, sampling Lorenz-curve exponentiality test."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/01621459.1978.10480100",
+          "material_read": "Indexed bibliographic record and description; article full text not obtained.",
+          "method": "Primary work metadata and targeted search",
+          "title": "A Scale-Free Goodness-of-Fit Test for the Exponential Distribution Based on the Lorenz Curve",
+          "trigger": "Empirical Lorenz curve includes upper share as complementary ordinate"
+        },
+        {
+          "assessment": "Population-scale Lorenz benchmark, not documented finite-sample top-k mixed covariance.",
+          "evidence": [
+            "Drăgulescu–Yakovenko 2000 exponential population Lorenz curve and Gini value."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0008305",
+          "material_read": "Abstract and publication description, not entire paper.",
+          "method": "ArXiv abstract inspection",
+          "title": "Evidence for the exponential distribution of income in the USA",
+          "trigger": "Population exponential Lorenz/Gini relationships"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/13/a-sharp-upper-share-covariance-profile-for-the-exponential-sampl--873a317ea0c5/RESULT.md",
+        "https://doi.org/10.1111/j.2517-6161.1978.tb01048.x",
+        "https://doi.org/10.1080/01621459.1978.10480100"
+      ],
+      "rationale": "PASS: Finite-sample dependence of an income-inequality index on the largest k exponential incomes is a natural statistical question. Exact all-rank covariance and sharp optimal share fraction about 0.203 provide useful nontrivial quantification beyond mean Gini or deterministic sample Lorenz identities.",
+      "residual_risks": [
+        "Gail–Gastwirth 1978 Gini and Lorenz papers lacked accessible full PDFs, so a hidden joint moment identity remains possible.",
+        "Older joint empirical Lorenz-process covariance may imply the formula indirectly; no exhaustive priority attestation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "n>=2 iid exponential with common rate, uncorrected Gini and largest k share; cannot extend to other distributions from this proof.",
+    "Covariance optimal k, not optimal correlation or predictive share; equality ties only at exact Δ=0."
+  ]
+}
