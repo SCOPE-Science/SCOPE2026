@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T06:55:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact result follows from the already published canonical one-point model construction: for input phi its candidate finite generator G(Delta) is a subset of the source Sub*(neg phi), polynomial in syntax length. Membership in cl_Lambda(G) for a queried box subformula can be decided by saturation restricted to the subformulas of G union {psi,top}, as Nishimura explicitly states in Corollary 3.14; this finite set has polynomial cardinality, and each monotone rule M/C/N/K adds each relevant formula only once, so O(poly(|phi|)) rounds/checks. Thus a guessed one-point model verifies SAT in polynomial time. Classical SAT and tautology embed as box-free fragments; negation transfers SAT to invalidity and strong completeness to derivability. Unrestricted C-closure can be infinite but is never claimed finite. All 16 systems and both modal-free lower bounds are covered. Correctness does NOT make this corollary original.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nishimura Theorem 3.12 establishes the one-point completeness and Cor3.14 supplies a full generic candidate decision algorithm for all 16 systems; Dalmonte-Mazzullo analyze different E/congruential systems"
+        ],
+        "reasoning": "Nishimura is the dominating same-semantics result, not the congruential cube. His broader model construction implies the submitted precise complexity upper bound via routine complexity accounting.",
+        "searches": [
+          "Nishimura 2026 Closure Semantics for Weak Modal Logics full Section 3.1",
+          "Dalmonte Mazzullo 2023 coNP complexity combinations of nonnormal modal logics"
+        ]
+      },
+      "checked_sources": [
+        "Closure Semantics for Weak Modal Logics: Completeness and Representations — arXiv:2610.01433v1",
+        "CoNP Complexity for Combinations of Non-normal Modal Logics — DOI:10.1007/978-3-031-43513-3_17",
+        "Hyperintensional models for non-congruential modal logics — DOI:10.1093/jigpal/jzad018"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Corollary3.14: choose Delta subset Sub*(neg phi), G=boxed arguments from Delta; closure membership suffices within subformulas of G(Delta)∪{psi,top}; candidate falsity test finite. Those sets have O(poly(|phi|)) distinct formula nodes. At most one insertion per node makes the saturation polynomial."
+        ],
+        "reasoning": "Conjoin 1) nondeterministically guess Delta, 2) polynomial saturation/evaluation, 3) propositional SAT and TAUT identity lower bounds. This proves the exact claim without additional structural discovery: scientific rejection O/V despite C PASS.",
+        "searches": [
+          "Nishimura arXiv:2610.01433 Section3.1 Corollary3.14 proof lines 318-331",
+          "Nishimura Theorem3.12",
+          "propositional SAT/TAUT classical complexity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nishimura Cor. 3.14 directly prescribes finite candidate Delta subset Sub*(not phi), and membership computation *within the finite set of subformulas of G(Delta) union {psi,top}*"
+        ],
+        "reasoning": "The submitted polynomial relevance normalization is already explicitly part of the cited primary construction. Its polynomial-time runtime is immediate from finite explicit syntax-size and at most |R| insertions.",
+        "searches": [
+          "Resultary: Nishimura Closure Semantics for Weak Modal Logics coNP validity NP satisfiability no E G modal inference sixteen closure systems complexity",
+          "Nishimura arXiv:2610.01433 Def3.7 Def3.8 Corollaries3.13-3.14"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior source does not spell out a table headed NP/coNP, but its finitary generator + bounded subformula saturation already suffices for every Lambda"
+        ],
+        "reasoning": "Lack of exact printed complexity values does not prove originality when each table entry is a direct immediate consequence of a stronger primary algorithm.",
+        "searches": [
+          "Nishimura arXiv:2610.01433 Corollary3.14",
+          "Resultary modal logic no-inference classification"
+        ]
+      },
+      "rationale": "FAILED originality by decisive prior implication: Nishimura arXiv:2610.01433, Corollaries 3.13-3.14, already supply the polynomial-size one-point candidate family and EXACT closure membership restricted to subformulas of G(Delta) union {psi,top}. Counting at most |R| insertions and selecting a nondeterministic candidate yields NP membership immediately; ordinary propositional NP-hardness then gives exact NP/coNP completeness. Rebranding the same restricted saturation as a polynomial relevance lemma does not avoid prior coverage by the stronger full construction, irrespective of original source calling general computational complexity an open problem.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_AS_IMMEDIATE_COMPLEXITY_COROLLARY",
+          "evidence": "Corollary 3.14 supplies exact finite relevant-subformula computation and finitely describable one-point candidates; no new polynomial relevance theorem is required.",
+          "identifier_or_url": "arXiv:2610.01433v1",
+          "material_read": "Full 2026 primary text particularly Definitions 3.5, 3.7, 3.8, Lemmas 3.10-3.11, Theorem 3.12, Corollaries 3.13-3.14, Prospects",
+          "method": "Full arXiv HTML at https://arxiv.org/abs/2610.01433",
+          "title": "Closure Semantics for Weak Modal Logics: Completeness and Representations",
+          "trigger": "Exact same semantics and no E/G systems, strongest prior implication test"
+        },
+        {
+          "assessment": "DISTINCT_CONGRUENTIAL_SYSTEMS",
+          "evidence": "The classical E/replacement-of-equivalents assumption differs; Nishimura, not this article, supplies decisive coverage.",
+          "identifier_or_url": "DOI:10.1007/978-3-031-43513-3_17",
+          "material_read": "Published statement and bibliographic description; not all primary sections",
+          "method": "Source metadata/abstract and comparison from inspected assigned package",
+          "title": "CoNP Complexity for Combinations of Non-normal Modal Logics",
+          "trigger": "Other exact complexity classifications under modal aliases"
+        },
+        {
+          "assessment": "UNREAD_RESIDUAL",
+          "evidence": "Full paper unavailable; not needed for decisive covered-by-Nishimura judgment.",
+          "identifier_or_url": "DOI:10.1093/jigpal/jzad018",
+          "material_read": "Abstract/bibliographic evidence only",
+          "method": "Published metadata summary",
+          "title": "Hyperintensional models for non-congruential modal logics",
+          "trigger": "Alias non-congruential/no-inference"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAILED independent value: the exact complexity labels are correct but adding elementary polynomial bookkeeping and the textbook SAT/TAUT identity reductions to the already published concrete finite-subformula model-checking procedure is a routine consequence, not a new substantive boundary proof. Contrasts with congruential nonnormal cube do not rescue the already implied classification; no distinct nonstandard lemma remains.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Closure Semantics for Weak Modal Logics: Completeness and Representations arXiv:2610.01433v1",
+    "CoNP Complexity for Combinations of Non-normal Modal Logics DOI:10.1007/978-3-031-43513-3_17",
+    "Hyperintensional models for non-congruential modal logics DOI:10.1093/jigpal/jzad018"
+  ],
+  "disposition": "failed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The theorem is mathematically true but directly implied by stronger source-specific one-point subformula decision procedure.",
+    "Only 16 no-inference systems; adding E or G may change model/certificate complexity.",
+    "Unread non-congruential modal work has no effect on decisive same-model Nishimura coverage."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "COVERS_AS_IMMEDIATE_COMPLEXITY_COROLLARY",
+      "evidence": "Corollary 3.14 supplies exact finite relevant-subformula computation and finitely describable one-point candidates; no new polynomial relevance theorem is required.",
+      "identifier_or_url": "arXiv:2610.01433v1",
+      "material_read": "Full 2026 primary text particularly Definitions 3.5, 3.7, 3.8, Lemmas 3.10-3.11, Theorem 3.12, Corollaries 3.13-3.14, Prospects",
+      "method": "Full arXiv HTML at https://arxiv.org/abs/2610.01433",
+      "title": "Closure Semantics for Weak Modal Logics: Completeness and Representations",
+      "trigger": "Exact same semantics and no E/G systems, strongest prior implication test"
+    },
+    {
+      "assessment": "DISTINCT_CONGRUENTIAL_SYSTEMS",
+      "evidence": "The classical E/replacement-of-equivalents assumption differs; Nishimura, not this article, supplies decisive coverage.",
+      "identifier_or_url": "DOI:10.1007/978-3-031-43513-3_17",
+      "material_read": "Published statement and bibliographic description; not all primary sections",
+      "method": "Source metadata/abstract and comparison from inspected assigned package",
+      "title": "CoNP Complexity for Combinations of Non-normal Modal Logics",
+      "trigger": "Other exact complexity classifications under modal aliases"
+    },
+    {
+      "assessment": "UNREAD_RESIDUAL",
+      "evidence": "Full paper unavailable; not needed for decisive covered-by-Nishimura judgment.",
+      "identifier_or_url": "DOI:10.1093/jigpal/jzad018",
+      "material_read": "Abstract/bibliographic evidence only",
+      "method": "Published metadata summary",
+      "title": "Hyperintensional models for non-congruential modal logics",
+      "trigger": "Alias non-congruential/no-inference"
+    }
+  ]
+}
