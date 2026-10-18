@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T17:50:16.442097Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Rebuilt the one-step projection identity and positive-semidefinite covering reformulation using w_i=p_i/C(p) and min cost of z>=0 with sum_i z_i v_i v_i^T >= I. The dual max tr Z subject to v_i^T Z v_i<=c_i has explicit positive-definite witness Z=alpha I+beta v0v0^T for t<d^2, with alpha=(d^2-t)/(d^2-1), beta=d^2(t-1)/(d^2-1) and tr Z=d(d+t)/(d+1); uniform z_i=d/(d+1) saturates. At t>=d^2 the dual Z=d^2 v0v0^T and z0=0,z_i=d saturate price d^2. Complementarity and independence of rank-one matrices (Gram eigenvalues 1-1/d^2 and 1+1/d) force all equality distributions, including t=d^2. Independent rational eigenvalue/primal-dual checks for d=2,3,5 at prices on both sides confirm boundary arithmetic; these do not replace proof for all d,t.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General optimal sampling/sketch-and-project SDP covers the mathematical programming framework but does not state the d^2 deletion threshold for d+1 regular-simplex rows with one exceptional price."
+        ],
+        "reasoning": "The geometry and heterogeneous cost constraint are essential to the explicit formula; broader convex optimization formalism provides a method, not an already stated classification.",
+        "searches": [
+          "Gower--Richtárik Randomized Iterative Methods for Linear Systems arXiv:1506.03296 §5.1",
+          "Published Resultary semantic query: randomized Kaczmarz minimax single-step expected error decrease per expected sampling cost simplex frame unequal row cost optimal probabilities quadratic threshold"
+        ]
+      },
+      "checked_sources": [
+        "Dai, Soltanalian, Pelckmans arXiv:1402.2863 v1 §II",
+        "Agaskar, Wang, Lu 2014 IEEE GlobalSIP open full text §3 (Harvard DASH)",
+        "Gower, Richtárik arXiv:1506.03296 §5.1",
+        "Resultary semantic query Kaczmarz unequal cost simplex"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Agaskar equation (20) is min lambda_max(R_A(p)) for annealed multi-step decay; Dai equal-cost SDP does not impose exceptional row cost or state a sharp deletion phase transition."
+        ],
+        "reasoning": "The proposed formula requires new exact dual witnesses and complementarity under a heterogeneously weighted one-step objective; previously published general convex setups do not entail the full price-dependent optimizer classification as a quoted result.",
+        "searches": [
+          "Agaskar--Wang--Lu full GlobalSIP 2014 Harvard open full text §§2–4",
+          "Dai--Soltanalian--Pelckmans 2014 full arXiv §§I–III"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dai optimizes lambda_min(sum p_i v_i v_i^T) under sum p_i=1 with equal prices; Agaskar equation (20) minimizes a multi-step annealed MSE eigenvalue, not lambda_min/weighted mean price."
+        ],
+        "reasoning": "A general least-eigenvalue SDP is prior, but neither formula reduces to the submitted priced simplex minimax ratio without a new geometric specialization; the exact cost threshold and all equality distributions are separate statements.",
+        "searches": [
+          "Published Resultary semantic query: randomized Kaczmarz minimax single-step expected error decrease per expected sampling cost simplex frame unequal row cost optimal probabilities quadratic threshold",
+          "Dai--Soltanalian--Pelckmans arXiv:1402.2863 §II equations 15–17",
+          "Agaskar--Wang--Lu GlobalSIP 2014 §3 equation (20)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Relevant indexed findings concern inverse-positive coordinate sampling, cyclic two-row relaxations, and multistage pivoting, not a priced simplex optimizer table."
+        ],
+        "reasoning": "An exact continuum of optimizer laws is a structural theorem, not an entry in a known invariant table. Negative indexing is treated only as qualified evidence.",
+        "searches": [
+          "Published Resultary semantic query: randomized Kaczmarz minimax single-step expected error decrease per expected sampling cost simplex frame unequal row cost optimal probabilities quadratic threshold",
+          "\"regular simplex\" Kaczmarz expensive row sampling price d squared threshold"
+        ]
+      },
+      "rationale": "PASS (best knowledge): The exact optimization objective differs from the previously published unpriced least-eigenvalue SDP and from asymptotic MSE-annealed-exponent minimization. The cost heterogeneity on one row of the natural minimal-redundancy simplex frame creates a sharp d^2 transition, with a complete equality-case proof. This conclusion is best-of-knowledge, not a priority claim for general Kaczmarz SDP methods.",
+      "residual_risks": [
+        "General Kaczmarz optimization and SDP methodology are established; only exact priced-simplex phase diagram claimed original.",
+        "Optimizes sharp one-step per expected sampling cost, not multi-step realized wall-clock performance or quenched exponent.",
+        "Unindexed equivalent specialized calculation is not excluded by bounded literature search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers unpriced SDP only",
+          "evidence": [
+            "Dai et al optimize smallest eigenvalue for sum p_i=1 without a nonunit row price ratio."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1402.2863v1",
+          "material_read": "Entire open HTML, especially Section II and equations (15)–(17), numerical examples, references",
+          "method": "Read mathematical theorem and objective and compared the constraint/price parameters",
+          "title": "On the Randomized Kaczmarz Algorithm",
+          "trigger": "Same one-step least-eigenvalue stochastic projection objective"
+        },
+        {
+          "assessment": "Different objective: asymptotic annealed MSE, with cost only narrative computational tradeoff, no quoted priced-simplex formula",
+          "evidence": [
+            "Section 3 minimizes lambda_max(R_A(p)) over simplex of p; distinguishes from guaranteed one-step mean-square decrease per expected row price."
+          ],
+          "identifier_or_url": "https://dash.harvard.edu/server/api/core/bitstreams/7312037d-8b4a-6bd4-e053-0100007fdf3b/content",
+          "material_read": "Complete six-page lawful open-access PDF, all sections 1–4 and equation (20), including visual inspection of page 5",
+          "method": "Read entire searchable PDF and checked its printed optimization formula in a page screenshot",
+          "title": "Randomized Kaczmarz algorithms: Exact MSE analysis and optimal sampling probabilities",
+          "trigger": "Previously plausibly covering optimal Kaczmarz row probabilities"
+        },
+        {
+          "assessment": "General optimal sampling not explicit simplex single-row priced classification",
+          "evidence": [
+            "The theorem concerns a special symmetric frame and unequal price ratio absent in general statement."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1506.03296v5",
+          "material_read": "Source §5.1 and general SDP characterization as available in rendered arXiv HTML",
+          "method": "Compared general sampling objective; no exhaustive noncoverage claim",
+          "title": "Randomized Iterative Methods for Linear Systems",
+          "trigger": "Broad sketch-and-project convex optimal sampling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Distinct row-measurement prices are mathematically natural in a minimal redundant tight frame; the precise cost frontier tells exactly when dropping a geometrically redundant measurement is optimal and characterizes the critical nonunique law. This sharp, all-dimensional optimizer classification is independently useful even without multi-step runtime claims.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For unit regular-simplex normals in every integer d>=2, with one distinguished row price t>0, the sharp single-step worst-error decrement per expected cost has optimum (d+1)/(d(d+t)) until t=d^2 and 1/d^2 thereafter; unique uniform sampling below d^2, unique deletion of the costly row above d^2, and precisely the one-parameter symmetric continuum p0 in [0,1/(d+1)] at equality.",
+  "limitations": [
+    "No multi-step optimality or arbitrary price vector theorem asserted.",
+    "Finite computational examples do not prove the universal semidefinite inequalities."
+  ],
+  "schema_version": 1
+}

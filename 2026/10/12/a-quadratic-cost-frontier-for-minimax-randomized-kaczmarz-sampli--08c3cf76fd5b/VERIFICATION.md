@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Mathematical reproducibility
+# Independent mathematical audit
 
-Run `python3 check.py` in the directory containing the delivered files. The checker uses Python 3's standard library only, including exact `fractions.Fraction` arithmetic.
+## correctness
 
-The deterministic result is `VERIFY_OK 56 exact simplex primal-dual cases; all principal minors checked`.
+PASS
 
-The checker constructs each regular-simplex dyad exactly in the rational ambient sum-zero hyperplane of dimension \(d+1\). For each integer \(2\le d\le8\) and eight positive rational exceptional prices, it verifies unit norms, pairwise regular-simplex Gram values, the tight-frame identity, the candidate expected-cost budget, the analytic optimal objective, dual matrix constraints, equality of primal and dual prices, and nonnegativity of every principal minor of the exact matrix slacks. At the transition it additionally verifies four members of the complete feasible optimum family.
+PASS: Rebuilt the one-step projection identity and positive-semidefinite covering reformulation using w_i=p_i/C(p) and min cost of z>=0 with sum_i z_i v_i v_i^T >= I. The dual max tr Z subject to v_i^T Z v_i<=c_i has explicit positive-definite witness Z=alpha I+beta v0v0^T for t<d^2, with alpha=(d^2-t)/(d^2-1), beta=d^2(t-1)/(d^2-1) and tr Z=d(d+t)/(d+1); uniform z_i=d/(d+1) saturates. At t>=d^2 the dual Z=d^2 v0v0^T and z0=0,z_i=d saturate price d^2. Complementarity and independence of rank-one matrices (Gram eigenvalues 1-1/d^2 and 1+1/d) force all equality distributions, including t=d^2. Independent rational eigenvalue/primal-dual checks for d=2,3,5 at prices on both sides confirm boundary arithmetic; these do not replace proof for all d,t.
 
-The universal positivity, uniqueness, and complete equality classification rest on the analytic dual and complementary-slackness arguments in `RESULT.md`; finite rational cases do **not** prove a continuum of prices or arbitrarily large dimensions. The theorem optimizes exactly the one-step worst-case mean-squared error decrement per *expected* projection cost. It does not optimize all definitions of long-run rate per unit time or establish exact realized-runtime performance.
+## originality
+
+PASS
+
+PASS (best knowledge): The exact optimization objective differs from the previously published unpriced least-eigenvalue SDP and from asymptotic MSE-annealed-exponent minimization. The cost heterogeneity on one row of the natural minimal-redundancy simplex frame creates a sharp d^2 transition, with a complete equality-case proof. This conclusion is best-of-knowledge, not a priority claim for general Kaczmarz SDP methods.
+
+## value
+
+PASS
+
+PASS: Distinct row-measurement prices are mathematically natural in a minimal redundant tight frame; the precise cost frontier tells exactly when dropping a geometrically redundant measurement is optimal and characterizes the critical nonunique law. This sharp, all-dimensional optimizer classification is independently useful even without multi-step runtime claims.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,22 +1,21 @@
-# Scientific review — quadratic cost frontier for simplex-frame sampling
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed objective is a precise one-step conditional worst-case squared-error decrease divided by expected row cost. Positive-price homogenization maps probability sampling bijectively to an information-matrix problem. A second scaling turns it into a semidefinite covering problem. The exhibited dual witnesses match exact primal costs in both price regimes and give a universal upper bound. Complementary slackness, linear independence of the regular-simplex dyads, and the exact boundary eigenspace establish the **entire** optimizer set without assuming symmetric sampling. The proof handles every integer dimension at least two and every positive real exceptional price. An independent rational checker confirms 56 finite primal/dual instances; its finite range is not the proof.
+PASS
 
-## Originality — PASS, with residual risk
+PASS: Rebuilt the one-step projection identity and positive-semidefinite covering reformulation using w_i=p_i/C(p) and min cost of z>=0 with sum_i z_i v_i v_i^T >= I. The dual max tr Z subject to v_i^T Z v_i<=c_i has explicit positive-definite witness Z=alpha I+beta v0v0^T for t<d^2, with alpha=(d^2-t)/(d^2-1), beta=d^2(t-1)/(d^2-1) and tr Z=d(d+t)/(d+1); uniform z_i=d/(d+1) saturates. At t>=d^2 the dual Z=d^2 v0v0^T and z0=0,z_i=d saturate price d^2. Complementarity and independence of rank-one matrices (Gram eigenvalues 1-1/d^2 and 1+1/d) force all equality distributions, including t=d^2. Independent rational eigenvalue/primal-dual checks for d=2,3,5 at prices on both sides confirm boundary arithmetic; these do not replace proof for all d,t.
 
-The strongest antecedent is Dai, Soltanalian, and Pelckmans, *On the Randomized Kaczmarz Algorithm* (2014), Sections I–V, especially equations (15)–(17). Their unpriced E-optimal sampling SDP is equivalent to the present general covering formulation **only when all row prices are equal**, and does not state the quadratic exceptional-price threshold or complete parameterized optimizer classification. Gower and Richtárik (2015/2016), Section 5.1, likewise present a more general unpriced optimal-sampling SDP; that framework contains the calculation algorithmically once costs are introduced, but does not imply a formula without solving the specialized problem. Strohmer and Vershynin (2007) provide the row-projection contraction foundation, not the priced solution. Previously disclosed regular-simplex reshuffling calculations and planar Kaczmarz sampling results concern different sampling mechanisms, cost conventions, or asymptotic objectives, and do not imply this threshold. These are implication comparisons, not title comparisons. The complete original text of Agaskar, Wang, and Lu's related 2014 conference paper was inaccessible, leaving possible historical specialization as an explicit residual risk. Literature and record searches do not establish absolute novelty.
+## originality
 
-## Value — PASS
+PASS
 
-Variable per-row projection costs are a natural feature of heterogeneous data acquisition, storage, and computation. A minimally redundant tight frame is a canonical model for understanding how economic asymmetry affects worst-case guaranteed progress. The result gives an exact resource-allocation decision at a nontrivial quadratic cost ratio, proves a surprising rigidity of uniform sampling on an entire open price interval, and classifies every optimum including the degenerate transition. It avoids repeated numerical SDP solutions for this full dimension-and-price family. The scope is the one-step guarantee per *expected* action cost, not realized runtime or an exact long-horizon annealed decay rate.
+PASS (best knowledge): The exact optimization objective differs from the previously published unpriced least-eigenvalue SDP and from asymptotic MSE-annealed-exponent minimization. The cost heterogeneity on one row of the natural minimal-redundancy simplex frame creates a sharp d^2 transition, with a complete equality-case proof. This conclusion is best-of-knowledge, not a priority claim for general Kaczmarz SDP methods.
 
-## Closest sources and scientific limits
+## value
 
-- Strohmer and Vershynin, *A randomized Kaczmarz algorithm with exponential convergence*, arXiv:math/0702226v1 (2007): rate analysis for row projections.
-- Dai, Soltanalian, and Pelckmans, *On the Randomized Kaczmarz Algorithm*, arXiv:1402.2863v1 (2014): directly relevant full-text unpriced sampling SDP, including homogeneous covering reformulation.
-- Gower and Richtárik, *Randomized Iterative Methods for Linear Systems*, arXiv:1506.03296 (2015): broader unpriced sampling optimization.
-- Agaskar, Wang, and Lu, *Randomized Kaczmarz algorithms: Exact MSE analysis and optimal sampling probabilities* (2014): abstract inspected, complete text unavailable; specialization risk remains.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Distinct row-measurement prices are mathematically natural in a minimal redundant tight frame; the precise cost frontier tells exactly when dropping a geometrically redundant measurement is optimal and characterizes the critical nonunique law. This sharp, all-dimensional optimizer classification is independently useful even without multi-step runtime claims.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
