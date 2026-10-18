@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T23:52:06Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each axis i, condition on its Gaussian coefficient x; a sign-vector edge crosses iff |sum_{j != i} eps_j Z_j|<|x|, and the conditional mean of the normalized count is p_m(x)=2 Phi(|x|/sqrt(m))-1, m=n-1. The centered threshold indicator is even; its Hermite expansion has no odd or zeroth coefficients, so for sign vectors with correlation rho the indicator covariance is between zero and rho^2 p_m(x). Averaging rho^2 exactly over all sign-vector pairs gives 1/m, hence Var(X|Z_i=x)<=p_m(x)/m without false independence. The integral representation sqrt(m)p_m(x)=sqrt(2/pi) int_0^{|x|}exp(-t^2/(2m))dt bounds squared L2 bias by 5/(6pi m^2) using E|Z|^6=15. Also E p_m(Z)=2/pi arctan(1/sqrt(m)), yielding the stated full error bound. Sum over fixed r gives joint L2, then exact first/second moments and zero cross-covariance limits. Independent cube-edge endpoint enumeration matched the threshold identity for dimensions 3..7; finite tests do not prove the asymptotic theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brandenburg–Meroni classify central-section combinatorial types in bounded dimensions (through seven) and cite the edge-crossing mean.",
+          "Calkin et al. study one- and two-edge intersection probabilities in fixed hypercubes."
+        ],
+        "reasoning": "Finite dimension type classification and fixed-event probabilities do not alone entail the joint m→infinity half-normal limit; the uniform Hermite dependence bound and scaling proof supply missing implication.",
+        "searches": [
+          "arXiv:2510.09265v1 Brandenburg–Meroni, Combinatorics of slices of cubes",
+          "Calkin et al., Cuts of the Hypercube (2008)"
+        ]
+      },
+      "checked_sources": [
+        "frozen Git tree 609dd2588e94f341e4c4c731cb4ee1b3334ada06; RESULT.md blob a733ce09faa0bfce17b516d7ea4c0ee9ca06fe5a; verify.py blob 3eb62e9738d1d8403eca3944749bd850d3773fd1",
+        "arXiv:math/9812123",
+        "arXiv:2510.09265v1",
+        "Calkin et al., Cuts of the Hypercube (2008)",
+        "Resultary random central cube direction-query and matching finite-dimensional distinct records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Total expectation is the sum of 2^m times 2/pi arctan(1/sqrt m) over n axes.",
+          "A mean formula and bounded-n classification cannot imply the random vector limit from themselves."
+        ],
+        "reasoning": "Prior expectation and combinatorial inputs establish normalization but not convergence/nonconcentration. The new structural dependence estimate is a necessary theorem-level step.",
+        "searches": [
+          "Lonke arXiv:math/9812123, sections on expected vertices",
+          "Brandenburg–Meroni arXiv:2510.09265v1, introduction and central sections",
+          "Resultary directional cube-search record IDs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lonke determines the aggregate expected vertex count; the directional mean is its coordinate-symmetry summand.",
+          "The submitted theorem is an L2 distributional joint law, not an expectation identity."
+        ],
+        "reasoning": "Summing the directional counts recovers the previously known aggregate first moment, but aggregate expectation does not determine the individual joint distribution, conditional L2 fluctuations, or the displayed finite-n rate.",
+        "searches": [
+          "Resultary semantic: Random central cube hyperplane section number of intersected edges in a given coordinate direction, asymptotic half-normal distribution, L2 fluctuation, Gaussian normals",
+          "arXiv:math/9812123, Lonke, On random sections of the cube"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The four-cube result is finite-dimensional face-vector distribution; simplex/cross-polytope studies involve different polytopes or observables."
+        ],
+        "reasoning": "The searched records did not furnish an exact table or characteristic function for these coordinate-direction counts across arbitrary n; own same-title record was excluded as independent prior evidence.",
+        "searches": [
+          "Resultary exact/semantic query on random central cube-direction half-normal L2 law",
+          "Resultary similar records: exact two-point face-vector law for central four-cube sections; exact central simplex and cross-polytope section fluctuation laws"
+        ]
+      },
+      "rationale": "The all-dimensional directionwise vector L2 half-normal fluctuation law and dependence estimate survive; the exact one-edge crossing probability, total expected vertex count, and small-dimensional combinatorial classification are prior art, not claimed new.",
+      "residual_risks": [
+        "Earlier high-dimensional probability literature might present the coordinatewise half-normal limit under another name or as an implicit application of Gaussian empirical processes.",
+        "The explicit mean-square bound is not claimed optimal and applies only to a fixed number of selected axes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers total mean, not the independent half-normal direction-resolved vector L2 statement.",
+          "evidence": [
+            "arXiv:math/9812123; expected section vertices and edge probabilities"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/9812123",
+          "material_read": "Full 18-page open PDF, definitions and expected-vertex theorem/derivation and references; checked scope and dimensional asymptotics",
+          "method": "Lawful arXiv PDF text and targeted theorem-page reading",
+          "title": "On random sections of the cube",
+          "trigger": "Identical random-central cube problem and known expected face count"
+        },
+        {
+          "assessment": "No high-dimensional directional joint L2 theorem established in the inspected portions.",
+          "evidence": [
+            "arXiv:2510.09265v1, central cube combinatorial sections through dimension seven"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2510.09265v1",
+          "material_read": "Full 33-page open PDF, introduction and enumerations/classifications for bounded dimensions, relevant referenced expectation formulas",
+          "method": "Lawful arXiv PDF text and relevant-page inspection",
+          "title": "Combinatorics of slices of cubes",
+          "trigger": "Central cube sections and intercepted edges; same geometric objects"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural geometrically labeled sub-counts of cube section vertices remain randomly fluctuating even though each aggregates 2^(n-1) dependent edges. Their sharp nonconcentration order, joint independent half-normal law, and explicit finite-n error solve a meaningful natural random-section statistic left undetermined by expected face-vector calculations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Haar-uniform central codimension-one cuts; fixed finite directional indices, not r(n) growing; independent Gaussian coefficient coupling.",
+    "No complete total face-vector limit or noncentral-hyperplane statement.",
+    "Verification is finite sanity checking; infinite-dimensional limit rests on Hermite analysis.",
+    "Earlier high-dimensional probability literature might present the coordinatewise half-normal limit under another name or as an implicit application of Gaussian empirical processes.",
+    "The explicit mean-square bound is not claimed optimal and applies only to a fixed number of selected axes."
+  ],
+  "schema_version": 1
+}
