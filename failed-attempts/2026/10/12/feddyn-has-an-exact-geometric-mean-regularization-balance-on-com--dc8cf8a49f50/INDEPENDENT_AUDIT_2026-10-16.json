@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T21:45:09Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The block-gradient recursion and mean/disagreement formulas are valid; independently replayed six rounds with rational 1D heterogeneous clients and verified these identities. But the claimed equalities ||alpha(H+alpha I)^(-1)||=alpha/(alpha+mu) and ||H(H+alpha I)^(-1)||=L/(L+alpha) are FALSE when mu,L are merely non-tight bounds, as the stated assumptions allow. Take H=[2], mu=1,L=3,alpha=2: both true norms equal 1/2, while the claimed values are 2/3 and 3/5. The claimed unique optimum alpha=sqrt(3) for this H is also false; the true joint norm maximum is minimized at alpha=2 with value 1/2. Requiring mu=lambda_min(H),L=lambda_max(H), or expressly redefining factors as uniform class upper envelopes, would correct this, but is not the current theorem. No complete changed scientific files were supplied, so the false final claim cannot be passed or called repaired.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original ICLR FedDyn convergence statements assume strong convexity/smoothness constants, which need not be exact extremal eigenvalues."
+        ],
+        "reasoning": "Acar et al. prove general convergence rates under wider objective families, but their statements do not imply exact one-round server cancellation or the proposed sharp equality for arbitrary loose mu,L. Fundamental spectral calculus proves upper envelopes when parameters are bounds, not equality.",
+        "searches": [
+          "Resultary semantic query: FedDyn common Hessian quadratics exact trajectory client disagreement spectral radius regularization geometric mean alpha sqrt mu L server one round",
+          "https://arxiv.org/pdf/2111.04263",
+          "https://openreview.net/forum?id=B7v4QMR6Z9w"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query: FedDyn common Hessian quadratics exact trajectory client disagreement spectral radius regularization geometric mean alpha sqrt mu L server one round",
+        "https://arxiv.org/pdf/2111.04263",
+        "https://openreview.net/forum?id=B7v4QMR6Z9w",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e7970a86eb52a25c6e66d1138bd9c53e740fadc0/2026/10/12/feddyn-has-an-exact-geometric-mean-regularization-balance-on-com--dc8cf8a49f50"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The true optimizer for a single Hessian eigenvalue 2 is alpha=2 versus the asserted sqrt(3)."
+        ],
+        "reasoning": "Even granting original FedDyn dynamics, the Rayleigh inequalities only imply ||R||<=alpha/(alpha+mu), ||S||<=L/(L+alpha). Equality requires tight bounds and cannot be derived from mu I<=H<=L I alone. Hence the claim as worded is false independent of the literature search.",
+        "searches": [
+          "Resultary semantic query: FedDyn common Hessian quadratics exact trajectory client disagreement spectral radius regularization geometric mean alpha sqrt mu L server one round",
+          "https://arxiv.org/pdf/2111.04263",
+          "https://openreview.net/forum?id=B7v4QMR6Z9w"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "FedDyn Algorithm1 state-gradient and server-correction update; independent scalar counterexample H=2I with non-tight parameters."
+        ],
+        "reasoning": "FedDyn original Algorithm 1 gives the gradient-state recursion and server correction. This can be algebraically reduced to the mean and disagreement modes on common-Hessian quadratics; there is no evidence of this complete explicit two-channel law in its inspected theorem statements. The incorrect equality is not an equivalent restatement of mere spectral bounds.",
+        "searches": [
+          "Resultary semantic query: FedDyn common Hessian quadratics exact trajectory client disagreement spectral radius regularization geometric mean alpha sqrt mu L server one round",
+          "https://arxiv.org/pdf/2111.04263",
+          "https://openreview.net/forum?id=B7v4QMR6Z9w"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For H=2I, mu=1,L=3,alpha=2: actual operator norms 0.5,0.5; asserted 2/3 and 3/5."
+        ],
+        "reasoning": "No inspected published numerical table supplies the exact channel balance or exposes the quantifier defect. A one-dimensional H=2 example is a complete symbolic counterexample to both sharp-norm equations, not a finite performance simulation.",
+        "searches": [
+          "Resultary semantic query: FedDyn common Hessian quadratics exact trajectory client disagreement spectral radius regularization geometric mean alpha sqrt mu L server one round",
+          "https://arxiv.org/pdf/2111.04263",
+          "https://openreview.net/forum?id=B7v4QMR6Z9w"
+        ]
+      },
+      "rationale": "The surviving exact common-Hessian recurrence, joint mean/disagreement spectral decomposition, and isotropic server cancellation are not stated in the inspected defining FedDyn paper or Resultary retrieval. However originality of a corrected theorem is not scientific acceptance of the broader false one.",
+      "residual_risks": [
+        "A corrected tight-extremum theorem may be independently worthwhile but was not materialized as complete guarded replacement files.",
+        "Any equality or tuning assertion with non-tight mu,L is false; the isotropic one-round identity remains valid when alpha equals the actual scalar curvature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source states general dynamics but not the proposed exact shared-H two-channel formula; source allows ordinary strong-convexity and smoothness constants.",
+          "evidence": [
+            "Algorithm 1 gradient recursion; general convergence theorem and regularization discussion."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2111.04263",
+          "material_read": "Complete 43-page primary paper inspected, with emphasis on Algorithm 1, stored local gradient state, corrected server iterate and strongly convex convergence theorem.",
+          "method": "Direct full-paper PDF inspection and theorem/algorithm comparison.",
+          "title": "Federated Learning Based on Dynamic Regularization (Acar et al., ICLR 2021)",
+          "trigger": "Initiating exact FedDyn algorithm and potential broader coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The true decomposition isolates a meaningful tension between consensus and optimization modes in a canonical federated quadratic benchmark. Such exact spectral tuning would be useful after a correctly stated endpoint convention; scientific value does not cure the false stated quantifier.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "FedDyn exact mean/disagreement recurrences and asserted sharp spectral factors/geometric-mean minimizer under only mu I <= H <= L I",
+  "limitations": [
+    "Exact client and mean recurrences were reconstructed; decisive failure concerns only the asserted sharp factor identities and their H-specific optimizer under overly weak assumptions.",
+    "No executable repair is supplied; entire assigned scientific package remains unchanged.",
+    "A corrected tight-extremum theorem may be independently worthwhile but was not materialized as complete guarded replacement files.",
+    "Any equality or tuning assertion with non-tight mu,L is false; the isotropic one-round identity remains valid when alpha equals the actual scalar curvature."
+  ],
+  "schema_version": 1
+}
