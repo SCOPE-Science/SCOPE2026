@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Checks of the mixed-parity Hamming-box formula
+# Independent mathematical audit
 
-To reproduce the exact finite calculations, run `python3 verify.py` with Python 3 and no third-party packages. The program constructs each \(K_{q_1}\square\cdots\square K_{q_d}\) adjacency row by independently enumerating neighboring coordinate tuples; it does *not* generate the matrix from the Kronecker-sum proof. It computes its rank over \(\mathbb F_2\) by bitset Gaussian elimination, then compares \(N-\operatorname{rank}A\) with \((Q+H)(P+(-1)^dR)/4\).
+## correctness
 
-Observed output after extraction and replay of this package:
+PASS
 
-`VERIFY_OK all=1222 mixed_parity=1034 odd_only=26 even_only=162 max_N=324`
+For d≥2, q_i≥2 and both parity classes represented, A over F₂ of the Cartesian product of loopless complete graphs equals (d mod 2)I+Σ J_i. For odd q_i, J_i is projector; parity sectors contribute multiplicity (P+(-1)^d R)/2. For even q_i, J_i²=0 and rank one, their tensor sum D has D²=0, and each rank-two Jordan factor is contractible; only tensor product of (q_i−2)-dimensional trivial homology components survives, dimension H, yielding dim ker D=(Q+H)/2. Product formula dim ker A=(Q+H)(P+(-1)^dR)/4 follows. Direct GF₂ Gaussian elimination for 210 mixed-parity tuples with q_i∈2..5 and d∈2..4, N≤160, agrees with formula; not an infinite proof. For fully oriented edges, B+Bᵀ=A and Riera–Parker–Stănică Lemma4.1 gives e=rank(A)/2, independent orientation. Connected graph alternating binary adjacency rank even; denominator integral even at q_even=2.
 
-The 1,222 checked ordered parameter tuples have alphabet sizes in \(\{2,3,4,5,6\}\), lengths \(1\) to \(5\), and at most \(350\) vertices. The 1,034 mixed-parity instances fall inside the claim; the remaining 188 cases are controls testing formula boundaries. Since these are finite observations, they do not establish the unbounded theorem. The proof in RESULT.md proves it for every allowed size and dimension, including the zero-homology boundary \(q_i=2\).
+## originality
 
-The connection to physical-resource counting depends on the mixed-graph framework's external Lemmas 4.1 and 4.2 and on orienting every edge exactly once; no claim is made for graph models with retained undirected edges. No hardware implementation, numerical quantum simulation, or independent external validation is claimed.
+PASS
+
+Riera–Parker–Stănică already proves the general half-commutator-rank to ancilla identity. Fish–Key–Mwambene already determines homogeneous Hamming adjacency binary rank. This work evaluates heterogeneous mixed-parity Cartesian complete-graph products by an even-Jordan-factor homology calculation, not implied by homogeneous q. Closely related Fish–Key–Mwambene 2023 Cartesian product code paper available in excerpt, incomplete full text; no general exact theorem found. General modular Kronecker-sum algebra could encode equivalent formulas, retained as important risk.
+
+## value
+
+PASS
+
+Closed uniform binary rank for heterogeneous Hamming boxes is a natural graph-code invariant beyond known homogeneous case and gives precise orientation-independent minimal stabilizer ancilla budget for every fully directed realization. Nonstandard odd/even tensor-complex argument handles q_even=2 and arbitrarily many coordinates; this is a reusable structural result rather than mere substitution into a quantum formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

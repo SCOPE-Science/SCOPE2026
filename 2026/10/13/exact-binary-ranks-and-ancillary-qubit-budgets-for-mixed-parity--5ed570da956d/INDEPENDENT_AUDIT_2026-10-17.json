@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T21:59:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For d≥2, q_i≥2 and both parity classes represented, A over F₂ of the Cartesian product of loopless complete graphs equals (d mod 2)I+Σ J_i. For odd q_i, J_i is projector; parity sectors contribute multiplicity (P+(-1)^d R)/2. For even q_i, J_i²=0 and rank one, their tensor sum D has D²=0, and each rank-two Jordan factor is contractible; only tensor product of (q_i−2)-dimensional trivial homology components survives, dimension H, yielding dim ker D=(Q+H)/2. Product formula dim ker A=(Q+H)(P+(-1)^dR)/4 follows. Direct GF₂ Gaussian elimination for 210 mixed-parity tuples with q_i∈2..5 and d∈2..4, N≤160, agrees with formula; not an infinite proof. For fully oriented edges, B+Bᵀ=A and Riera–Parker–Stănică Lemma4.1 gives e=rank(A)/2, independent orientation. Connected graph alternating binary adjacency rank even; denominator integral even at q_even=2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Riera–Parker–Stănică 2023 general e=½ rank(B+B^T) but leaves A rank unevaluated.",
+          "Fish–Key–Mwambene 2023 related Cartesian-product code conditions and bounds; Clemson manuscript not fully retrieved."
+        ],
+        "reasoning": "General resource lemma alone does not give heterogeneous Hamming formula. Broader graph-product rank literature may encode it; only accessible portions of closely related primary manuscript were inspected.",
+        "searches": [
+          "binary rank Cartesian product complete graphs heterogeneous Hamming graph mixed even odd q_i adjacency GF2 ancillary qubits",
+          "Fish Key Mwambene Special LCD codes from products of graphs rank of Cartesian product binary",
+          "Riera Parker Stanica mixed graph ancillary qubits Lemma 4.1"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md bbcb9e7caec775d26e676a763c8237add22f8755 and tree 7aef84ff78eb981759fc65398c608b981019c109",
+        "Riera–Parker–Stănică 2023 Lemmas 4.1–4.2",
+        "Fish–Key–Mwambene homogeneous Hamming ranks, Proposition 1",
+        "Fish et al. 2023 Cartesian product codes excerpt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For every full orientation, B+Bᵀ=A by one-directed-edge assumption.",
+          "Even-factor J_i²=0, odd-factor J_i²=J_i; kernel dimension formula has parity-dependent R term."
+        ],
+        "reasoning": "Earlier conversion theorem entails only ancilla once mixed-rank computed; homogeneous rank does not entail heterogeneous rank by parameter replacement, so new substantive component is exact mixed-parity rank.",
+        "searches": [
+          "binary rank Cartesian product complete graphs heterogeneous Hamming graph mixed even odd q_i adjacency GF2 ancillary qubits",
+          "Riera Parker Stanica quantum states associated to mixed graphs e half rank",
+          "Fish Key Mwambene Hamming homogeneous rank Proposition 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fish–Key–Mwambene 2009 Proposition 1 homogeneous K_q^square d, equal alphabet size.",
+          "Mixed-parity heterogeneous boxes require simultaneous odd projections and even nilpotents."
+        ],
+        "reasoning": "Known homogeneous case is neither a literal same-domain result nor sufficient by naive tensor product, because Cartesian adjacency is a Kronecker sum and rank is not multiplicative.",
+        "searches": [
+          "binary rank Cartesian product complete graphs heterogeneous Hamming graph mixed even odd q_i adjacency GF2 ancillary qubits",
+          "Fish Key Mwambene binary rank homogeneous Hamming graph complete graph Cartesian product"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/11 SCOPE-complete-coordinate-symmetry-homology-of-hamming-graph-total-two--719066eb9684 studies homology, not binary adjacency rank.",
+          "Resultary 2026/10/4 SCOPE-edge-regularity-and-exact-triangle-multiplicity-in-binary-lcd-ne--159df54d52bf studies LCD neighbor graphs, not the mixed-product adjacency."
+        ],
+        "reasoning": "No actual same-rank table located. Homology and code adjacency are different invariants, and the published same-Hamming label does not imply the formula.",
+        "searches": [
+          "binary rank Cartesian product complete graphs heterogeneous Hamming graph mixed even odd q_i adjacency GF2 ancillary qubits",
+          "binary rank mixed alphabet Hamming box GF(2) Cartesian products table",
+          "Resultary published Hamming graph binary adjacency rank"
+        ]
+      },
+      "rationale": "Riera–Parker–Stănică already proves the general half-commutator-rank to ancilla identity. Fish–Key–Mwambene already determines homogeneous Hamming adjacency binary rank. This work evaluates heterogeneous mixed-parity Cartesian complete-graph products by an even-Jordan-factor homology calculation, not implied by homogeneous q. Closely related Fish–Key–Mwambene 2023 Cartesian product code paper available in excerpt, incomplete full text; no general exact theorem found. General modular Kronecker-sum algebra could encode equivalent formulas, retained as important risk.",
+      "residual_risks": [
+        "Closely relevant Fish et al. 2023 full paper was not completely accessible; a general mixed-parameter rank statement is an unresolved but not decisive originality risk.",
+        "For partial/mixed directed-and-undirected graph orientations the commutator may not equal underlying A; claim only fully oriented edges.",
+        "No claim that e/2 rank identity is original; original part is new exact rank evaluation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General e=rank(B+Bᵀ)/2 is PRIOR, so quantum theorem only corollary of new exact rank; no orientation novelty claimed",
+          "evidence": [
+            "Riera–Parker–Stănică, Adv. Math. Commun. 17 (2023) 660–680; DOI 10.3934/amc.2021015"
+          ],
+          "identifier_or_url": "https://faculty.nps.edu/pstanica/research/2021AMCNewMixed.pdf",
+          "material_read": "Full relevant primary text, Lemmas 4.1–4.2, commutator and orientation statements (also PDF p.7 screenshot)",
+          "method": "author-hosted PDF materially read",
+          "title": "Quantum states associated to mixed graphs and their algebraic characterization",
+          "trigger": "Identical mixed-graph stabilizer ancilla append parameter"
+        },
+        {
+          "assessment": "Homogeneous equal-q formula known; mixed parity excluded",
+          "evidence": [
+            "Fish–Key–Mwambene Proposition 1 (2009)"
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/268301204_Codes_designs_and_groups_from_the_Hamming_graphs",
+          "material_read": "Proposition 1 and summary of homogeneous adjacency ranks read in accessible source material, not all manuscript appendices",
+          "method": "author/public-hosted source and citations",
+          "title": "Codes, designs and groups from the Hamming graphs",
+          "trigger": "Same binary rank for homogeneous Cartesian clique powers"
+        },
+        {
+          "assessment": "Related but unresolved possible broader results; this is a residual risk, not proof of absence",
+          "evidence": [
+            "Fish–Key–Mwambene (2023), DOI 10.1007/s00200-021-00517-4"
+          ],
+          "identifier_or_url": "https://www.math.clemson.edu/~keyj/Key/FKM16JRev.pdf",
+          "material_read": "Indexed abstract and accessible manuscript excerpt including Cartesian-product rank remarks; attempted full PDF returned transport error, no whole-paper claim",
+          "method": "OA author PDF attempt and partial text",
+          "title": "Special LCD codes from products of graphs",
+          "trigger": "Potential broader Cartesian graph rank theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Closed uniform binary rank for heterogeneous Hamming boxes is a natural graph-code invariant beyond known homogeneous case and gives precise orientation-independent minimal stabilizer ancilla budget for every fully directed realization. Nonstandard odd/even tensor-complex argument handles q_even=2 and arbitrarily many coordinates; this is a reusable structural result rather than mere substitution into a quantum formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Closely relevant Fish et al. 2023 full paper was not completely accessible; a general mixed-parameter rank statement is an unresolved but not decisive originality risk.",
+    "For partial/mixed directed-and-undirected graph orientations the commutator may not equal underlying A; claim only fully oriented edges.",
+    "No claim that e/2 rank identity is original; original part is new exact rank evaluation.",
+    "The metadata still has private provenance; plan not ready despite scientific acceptance; no publication, certification or GitHub write.",
+    "Potential newer/relevant full text not read as specifically documented; no unsuccessful novelty search asserted conclusive."
+  ],
+  "schema_version": 1
+}
