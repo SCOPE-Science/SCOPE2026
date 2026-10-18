@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Once the first vertex is ignited, the opposite shore is forced in one propagation phase. Exactly one additional ignition then occurs before the correlation-forcing wave on the original shore, so it can preempt at most one vertex; this is exactly the indicator correction in the formula. Every other original-shore vertex is governed by a row or column inner product. Zero correlations are the only vertices left unresolved after that wave, and they lie on one independent shore, so later ignitions assign them independently. This gives both the lower and upper bounds. The literal recursive verifier agrees with the formula on all \(1168\) signings in six exhaustive small profiles and on \(651\) additional structured profiles.
+## correctness
 
-## Originality
-**PASS, with a stated access risk.** Searches under the invariant name and complete-bipartite, biclique, sign-matrix, correlation, and inner-product aliases found no indexed theorem implying the row/column formula. The initiating 2026 abstract advertises exact signed-path results, a code formulation, switching-class consequences, and hardness, but no biclique theorem. A full-text copy of that very recent source was not available for section-level comparison, so an unindexed equivalent observation inside it remains the principal residual risk.
+PASS
 
-## Value
-**PASS.** Complete bipartite graphs are a canonical dense family, and the theorem handles every signing rather than one special signature. It reduces an adaptive process to an explicit matrix statistic and yields a direct polynomial-time evaluation rule. The row/column-correlation mechanism is also structurally informative: it identifies exactly which vertices are forced by the first wave and which remain freely assignable because of zero correlation.
+For signed K_(m,n) with m,n>=2, the signed-burning rule propagates one synchronous round then ignites one remaining vertex. With first ignition at a_i of colour +, the entire opposite shore is forced to s_ij in the next spread; the second ignition can preempt at most one same-shore vertex before the correlation wave. Unignited a_k receives sign rho_ik=sum_j s_ij s_kj; negative/positive correlations can be preempted once while zero correlations remain later independently ignitable. Hence the exact maximum is R_i=r_i^0+max(1+p_i+r_i^++1_[r_i^->0],q_i+r_i^-+1_[r_i^+>0]); swap shores for C_j and maximize. Reversing both colours accounts for either chosen target. Independently implemented signed-round recursion versus formula, exhaustively for all 16 K2,2, 64 K2,3, 64 K3,2, 256 K2,4 and 512 K3,3 signings (912 signing tests); all matched. The structural proof covers arbitrary m,n and is not inferred from finite cases.
 
-## Closest literature and limitations
-The closest scientific source is the initiating paper *Burning Signed Graphs*, which introduces the plurality number and gives exact path results. Searches also returned signed-domination and signed-spectral results on multipartite or bipartite graphs, but those optimize different quantities and do not imply the burning formula here. The full-text access limitation is retained as a bibliographic risk; the finite verifier is only a consistency check.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The initiating 2026 Fallat–Gupta–Khodamoradi–Zilles full arXiv rendered article defines precisely this two-colour burning process, proves switching/coding reductions and signed-path results and hardness, but in inspected complete text contains no K_mn, complete-bipartite, or biclique all-signature correlation formula. A generic Hamming-code characterization alone does not evaluate each signing in O(m²n+mn²). The exact row/column-correlation formula is a family-specific structural consequence, not a claim of a new burning process.
+
+## value
+
+PASS
+
+A complete polynomial-time plurality formula for arbitrary signed complete bipartite graphs is a natural full-family tractable island inside a general hard signed-burning problem. It converts an adaptive process to low-degree sign correlations and can be used directly on signed bicliques.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
