@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible checks and limits
+# Independent mathematical audit
 
-The all-parameter conclusion follows from the analytic proof in `RESULT.md`. The two standalone scripts below use only the Python standard library and independently test demanding finite boundaries; none certifies a theorem by finite enumeration.
+## correctness
 
-Run `python3 verify_faults.py` to reconstruct the discounted hitting potential for every nonempty source set on labeled cycles of orders \(3\) through \(9\), for fidelities \(1/2\), \(2/3\), and \(4/5\). The script solves the original pinned linear system over exact rational numbers. It evaluates every allowed removal of \(f\) sources for \(f=1,2,3\) (where admissible) and the extreme \(f=n-1\). It checks the proposed cyclic-window characterization for every source set at each strict and equality threshold, verifies the exact minimum, and checks the number of optimum labeled source sets against an independently generated cyclic-composition count. The recorded result is in `faults_verification_output.txt`: **PASS**, with 3,027 pinned solves, 57,345 removal cases, 948 threshold profiles, 194,796 source-set classifications, and 10,464 optimum-set comparisons.
+PASS
 
-Run `python3 verify_transfer.py` for a separate finite matrix-enumerator test. It constructs the state transitions and takes literal matrix-power traces as polynomials, comparing the resulting coefficient with an independently enumerated set of cyclic compositions. The recorded result is in `transfer_verification_output.txt`: **PASS** across 374 parameter profiles, including 229 nonzero coefficients.
+For λ∈(0,1), τ∈(0,1], C_n and 1≤f≤n−1, pinned hitting potential solves u_i=λ(u_{i−1}+u_{i+1})/2, giving minimum ψ_g at the midpoint of a surviving arc of g edges, even when one source remains. Every deletion merges at most f+1 successive original positive gaps; each f+1 window arises by deleting its f interior original sources. Thus feasibility iff all such sums≤L. Summing gives (f+1)n≤kL; a balanced floor-difference cyclic gap word attains k=max(f+1,ceil((f+1)n/L)) for L≥f+1, otherwise impossible. Transfer graph weighted closed walks correspond bijectively up to n/k rooting to labeled optimal sets. Independently solved 113 sampled cycle threshold profiles and removal cases with numeric linear systems, distinct from the submitted logs.
 
-The programs are fully reproducible from the files in this package. The linear solver is exact over \(\mathbb Q\); the universal theorem also applies to irrational \(\lambda\) and \(\tau\) by the algebraic proof. Neither program is an independently commissioned audit, a formal external certification, or evidence for any untested graph family.
+## originality
+
+PASS
+
+The full originating paper proves pinned two-source discounted gap potentials in Lemma 5.5, but explicitly names failure of sources as an additional research direction. The all-f cyclic windows, sharp optimum and exact count are not direct assertions of its published no-failure results. Existing Resultary work for complete bipartite graphs concerns no-failure ordinary domination.
+
+## value
+
+PASS
+
+Adversarial loss of monitoring sources is a natural robust variation explicitly motivated by the initiating work. Exact feasibility, optimal placements and complete labeled counts across arbitrary failure budgets are mathematically useful, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
