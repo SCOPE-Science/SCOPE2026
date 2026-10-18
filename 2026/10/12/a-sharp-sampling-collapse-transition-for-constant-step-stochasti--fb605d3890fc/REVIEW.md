@@ -1,15 +1,21 @@
-# Review: sharp sampling-collapse transition for constant-step stochastic proximal quadratics
+# Independent mathematical audit
 
-## Correctness — PASS
-The two update maps are contractions with affine coefficients \(1/(\kappa+1)\) and \(1/2\). Direct stationary first- and centered-second-moment equations give the displayed risk; symbolic differentiation yields a polynomial whose derivative is positive on the full probability interval and whose endpoint sign crosses at \(1+2\sqrt2\). This establishes a unique global optimizer, including the boundary. Exact rational enumeration and symbolic checks in `verify.py` independently diagnose the algebra; finite experiments are not used as infinite-horizon proof.
+## correctness
 
-## Originality — PASS, with residual priority risk
-Inspected sections of Asi–Duchi, Bianchi–Hachem–Salim, and Patrăşcu–Necoara contain general stochastic proximal convergence and stationary principles, not this sharp optimization of the uncorrected sampling law against a fixed equal-weight objective. Défossez–Bach addresses a related sample-allocation bias–variance theme but works with explicit averaged SGD and importance corrections. Targeted searches of published mathematical records did not surface this exact switching polynomial, and related sampling findings concern different algorithms or performance criteria. Search incompleteness and specialized unpublished work remain risks; no priority or independent certification is claimed.
+PASS
 
-## Value — PASS
-The complete policy classification answers a natural finite-dimensional question about how component-selection bias interacts with stationary variance in fixed-step stochastic proximal point. The nontrivial interior-to-deterministic threshold, uniqueness, and distinction between unbiased stationary mean and minimum stationary squared error are mathematically motivated diagnostics for stochastic resolvent algorithms. The phenomenon is not a recommendation to abandon objective components in general; limitations of the deliberately uncorrected toy model are material.
+With unit proximal step, two strict scalar contractions x/(kappa+1) and (x+1)/2 (kappa>=1) admit a unique invariant law for each p in [0,1] and all finite starts. Independent stationarity gives mean mu=(1-p)w2/W and variance p(1-p)w1^2w2^2/(W^2 S), with w1=kappa/(kappa+1),w2=1/2,W=pw1+(1-p)w2,S=p(2w1-w1^2)+(1-p)(2w2-w2^2)>0. Fixed equal-weight target x*=1/(kappa+1): R=Var+(mu-x*)^2. Independently differentiated exact rational R to recover derivative sign P(p)=A p^2+B p-3(kappa+1)^4 where A=(kappa-1)(kappa+3)(kappa^2+4kappa+5), B=6(kappa+1)^2(kappa+3). P increases on [0,1], P(0)<0 and P(1)=-2kappa(kappa+2)(kappa^2-2kappa-7); hence unique optimizer interior for 1<=kappa<1+2sqrt(2), exactly p=1 for kappa>= boundary (root p=1 at equality). The unbiased-stationary-mean p_ub=(kappa+1)/(kappa+3) is less than optimal for kappa>1 and gives R(p_ub)/R(1)=kappa^2/(2kappa+1). Source derivative, rational boundary, unbiased identities were independently reconstructed with SymPy. Fixed objective is NOT optimized in the usual unbiased algorithm sense by p=1.
 
-## Closest literature and limitations
-The motivating source is Asi–Duchi (arXiv:1810.05633, earliest public 2018-10-12). Further checks include Bianchi–Hachem–Salim (arXiv:1702.04144), Patrăşcu–Necoara (arXiv:1706.06297), and Défossez–Bach (arXiv:1412.0156). The proof assumes two scalar strongly convex quadratics, fixed step, independent samples, and a fixed equal-weight evaluation objective. No broader stochastic optimization or finite-time rate theorem follows.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Asi–Duchi 2018 studies stochastic approximate proximal convergence, Bianchi–Hachem–Salim 2017 the general constant-step random-resolvent invariant framework, and Défossez–Bach 2014 optimizes explicit LMS sampling with different objective conventions. None of the materially inspected general statements yields the displayed exact scalar uncorrected sampling transition kappa=1+2sqrt(2) or normalized stationary-risk comparison. Resultary other coordinate-sampling and STORM stationary covariance claims concern other update laws.
+
+## value
+
+PASS
+
+The stationary variance/bias policy problem is a natural quantitative diagnostic of constant-step stochastic resolvents. Its exact critical curvature 1+2sqrt(2), unique optimal policy, and unbounded relative risk of an unbiased stationary mean reveal a non-obvious phase boundary with an explicit warning about implicit objective shift. It is a motivated small theoretical benchmark rather than a universal recommendation to omit components.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

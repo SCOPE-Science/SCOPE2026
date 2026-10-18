@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T14:16:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen Git RESULT.md 4f6a554b987c7daa4071ba3c4a464051dd98351b",
+        "Actual frozen verify.py 2b1f0a2c1c2cf5ff840e09e9b7d769ccc6c920a6",
+        "Asi & Duchi, Stochastic (Approximate) Proximal Point Methods: Convergence, Optimality, and Adaptivity, arXiv:1810.05633"
+      ],
+      "rationale": "With unit proximal step, two strict scalar contractions x/(kappa+1) and (x+1)/2 (kappa>=1) admit a unique invariant law for each p in [0,1] and all finite starts. Independent stationarity gives mean mu=(1-p)w2/W and variance p(1-p)w1^2w2^2/(W^2 S), with w1=kappa/(kappa+1),w2=1/2,W=pw1+(1-p)w2,S=p(2w1-w1^2)+(1-p)(2w2-w2^2)>0. Fixed equal-weight target x*=1/(kappa+1): R=Var+(mu-x*)^2. Independently differentiated exact rational R to recover derivative sign P(p)=A p^2+B p-3(kappa+1)^4 where A=(kappa-1)(kappa+3)(kappa^2+4kappa+5), B=6(kappa+1)^2(kappa+3). P increases on [0,1], P(0)<0 and P(1)=-2kappa(kappa+2)(kappa^2-2kappa-7); hence unique optimizer interior for 1<=kappa<1+2sqrt(2), exactly p=1 for kappa>= boundary (root p=1 at equality). The unbiased-stationary-mean p_ub=(kappa+1)/(kappa+3) is less than optimal for kappa>1 and gives R(p_ub)/R(1)=kappa^2/(2kappa+1). Source derivative, rational boundary, unbiased identities were independently reconstructed with SymPy. Fixed objective is NOT optimized in the usual unbiased algorithm sense by p=1.",
+      "residual_risks": [
+        "At p=1 the algorithm always selects only f1 and retains nonzero fixed-objective error for finite kappa; the claim is solely terminal stationary square risk.",
+        "Two scalar components, iid uncorrected sampling, fixed unit proximal step; do not extrapolate to unbiased gradient schemes or objective minimization, arbitrary costs, nonlinear losses."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Défossez–Bach arXiv:1412.0156",
+          "Resultary:inverse-positive-optimal-coordinate-sampling--82c9d23eb995"
+        ],
+        "reasoning": "Importance-weighted LMS and coordinate descent optimize different iterations and usually preserve an objective; they do not imply the uncorrected proximal stochastic fixed-target collapse.",
+        "searches": [
+          "optimal sampling stochastic proximal point stationary risk drop component"
+        ]
+      },
+      "checked_sources": [
+        "Asi & Duchi, Stochastic (Approximate) Proximal Point Methods: Convergence, Optimality, and Adaptivity, arXiv:1810.05633",
+        "Bianchi, Hachem & Salim, A Constant Step Forward-Backward Algorithm Involving Random Maximal Monotone Operators, arXiv:1702.04144",
+        "Défossez & Bach, Constant Step Size Least-Mean-Square, arXiv:1412.0156",
+        "Resultary:2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+        "Resultary:2026/10/4/SCOPE-exact-stationary-covariance-and-stability-factorization-for-cons--fd5004e04a73"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Stationary variance equation in source and reconstructed proof",
+          "Asi–Duchi 2018 proximal framework"
+        ],
+        "reasoning": "The method gives an implicit computable R(p); the exact sharp global switch and comparison require a nontrivial derivative sign/endpoint calculation and are not supplied as a consequence of a checked prior optimal-sampling statement.",
+        "searches": [
+          "optimal sampling stochastic proximal point stationary risk drop component"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Asi–Duchi arXiv:1810.05633",
+          "Bianchi et al. arXiv:1702.04144"
+        ],
+        "reasoning": "General stationary random-affine recurrences cover the method, but the new finite-parametric minimizer/phase is not an immediate named equivalent result.",
+        "searches": [
+          "optimal sampling stochastic proximal point stationary risk drop component"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary:exact-stationary-covariance-and-stability-factorization-for-cons--fd5004e04a73",
+          "Independent symbolic P(1) factorization"
+        ],
+        "reasoning": "No matching table of this scalar proximal selector was found; an omitted private worked exercise remains possible; lack of a hit is not positive novelty evidence.",
+        "searches": [
+          "optimal sampling stochastic proximal point stationary risk drop component"
+        ]
+      },
+      "rationale": "Asi–Duchi 2018 studies stochastic approximate proximal convergence, Bianchi–Hachem–Salim 2017 the general constant-step random-resolvent invariant framework, and Défossez–Bach 2014 optimizes explicit LMS sampling with different objective conventions. None of the materially inspected general statements yields the displayed exact scalar uncorrected sampling transition kappa=1+2sqrt(2) or normalized stationary-risk comparison. Resultary other coordinate-sampling and STORM stationary covariance claims concern other update laws.",
+      "residual_risks": [
+        "An unindexed exact two-map random affine stationary-risk calculation or a broader sampling-optimality theorem may imply this particular threshold.",
+        "Only checked portions, not every page, of older primary general stochastic optimization papers; no whole-document not-covering assertion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_METHOD_NOT_EXACT_PHASE",
+          "evidence": [
+            "Convergence/optimality stochastic approximate proximal setting, not displayed quadratic p optimizer."
+          ],
+          "identifier_or_url": "arXiv:1810.05633",
+          "material_read": "PDF first-page abstract/intro and accessible methodology; full 39-page text not all read",
+          "method": "ArXiv PDF textual opening plus screenshot of introductory page",
+          "title": "Stochastic (Approximate) Proximal Point Methods: Convergence, Optimality, and Adaptivity",
+          "trigger": "Exact proximal operator and importance of sampled objectives"
+        },
+        {
+          "assessment": "GENERAL_CONSTANT_STEP_EXISTENCE_THEORY; EXACT_2_COMPONENT_OPTIMUM_UNRESOLVED_IN_FULL_PAPER",
+          "evidence": [
+            "Constant-step random maximal monotone operators support stationarity framework; not evidence of actual exact optimizer."
+          ],
+          "identifier_or_url": "arXiv:1702.04144",
+          "material_read": "Public abstract/relevant summary and method; full original paper not read",
+          "method": "Abstract and bibliographic reading",
+          "title": "A Constant Step Forward-Backward Algorithm Involving Random Maximal Monotone Operators",
+          "trigger": "Possible stronger invariant-distribution coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Asi & Duchi, Stochastic (Approximate) Proximal Point Methods: Convergence, Optimality, and Adaptivity, arXiv:1810.05633",
+        "Bianchi, Hachem & Salim, A Constant Step Forward-Backward Algorithm Involving Random Maximal Monotone Operators, arXiv:1702.04144",
+        "Défossez & Bach, Constant Step Size Least-Mean-Square, arXiv:1412.0156"
+      ],
+      "rationale": "The stationary variance/bias policy problem is a natural quantitative diagnostic of constant-step stochastic resolvents. Its exact critical curvature 1+2sqrt(2), unique optimal policy, and unbounded relative risk of an unbiased stationary mean reveal a non-obvious phase boundary with an explicit warning about implicit objective shift. It is a motivated small theoretical benchmark rather than a universal recommendation to omit components.",
+      "residual_risks": [
+        "At p=1 the algorithm always selects only f1 and retains nonzero fixed-objective error for finite kappa; the claim is solely terminal stationary square risk.",
+        "An unindexed exact two-map random affine stationary-risk calculation or a broader sampling-optimality theorem may imply this particular threshold."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "At p=1 the algorithm always selects only f1 and retains nonzero fixed-objective error for finite kappa; the claim is solely terminal stationary square risk.",
+    "Two scalar components, iid uncorrected sampling, fixed unit proximal step; do not extrapolate to unbiased gradient schemes or objective minimization, arbitrary costs, nonlinear losses.",
+    "An unindexed exact two-map random affine stationary-risk calculation or a broader sampling-optimality theorem may imply this particular threshold.",
+    "Only checked portions, not every page, of older primary general stochastic optimization papers; no whole-document not-covering assertion."
+  ]
+}
