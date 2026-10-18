@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (C): PASS.** The exact binomial matrix formula and telescoping identity produce a weighted first-difference convolution. On outputs above the square-root scale, Young's inequality and the binomial total-variation estimate give the required upper order; below that scale, Hölder and the integrability condition \(\alpha p<1\) give the same order. Uniform local binomial asymptotics on separated input/output windows give matching lower powers and exclude cancellation. The spectral and Cesàro claims follow from explicit weighted-shift eigenvectors and a cited convex-average lemma. Replayed finite diagnostics corroborate the algebra but do not replace the proof.
+
+**Originality (O): PASS under presently accessible evidence, with priority risk.** Arnold's original 2026 text was materially read, especially Example 3.2, Section 7, Lemma 7.3 and Question 8.2: it establishes the weighted-shift construction and non-power-boundedness, but not the asserted reflexive two-sided norm exponents for the lazy operator's power differences. The known \(\ell^1\) case is explicitly excluded. Available information about Abbar–Arnold–Coine and Cohen–Cuny–Eisner–Lin covers Cesàro boundedness, weighted-shift power growth and general estimates, not an identified directly dominating statement. Relevant mathematical records on sharp finite-horizon Cesàro power amplification likewise do not imply a sharp exponent for these binomially averaged consecutive powers. Some plausible full texts could not be accessed; broader discrete semigroup or weighted Hardy results are residual priority risks.
+
+**Value (V): PASS.** For every \(1<p<\infty\) the construction yields a non-power-bounded positive \(p\)-absolutely Cesàro bounded operator whose spectrum meets the unit circle only at one point, with a *sharp* polynomial convergence rate for successive powers. This quantitatively illuminates the model behind an explicitly posed positive Katznelson–Tzafriri question, rather than merely repeating boundedness or a finite calculation.
+
+The theorem does not answer the question for all positive operators and does not claim an exact leading constant or independent validation.
+
+Self-review: passed. Independent audit: not yet performed.
