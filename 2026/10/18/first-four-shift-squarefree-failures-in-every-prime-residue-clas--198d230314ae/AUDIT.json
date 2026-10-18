@@ -1,0 +1,158 @@
+{
+  "correctness": {
+    "rationale": "An exhibited prime in each of twelve classes bounds its least possible prime by \\(6165527\\). The Eratosthenes scan enumerates every smaller candidate, including all primes and offsets; prime-square marking is equivalent to nonsquarefreeness because a repeated prime has square <= n. A second integer-trial square-factor predicate produces identical minima; displayed primes and each four-square divisor are trial-division checked. Small excluded primes 5 and 7 have an initial squarefree remainder. Deterministic Python 3 certificate replayed successfully with VERIFY_OK. The exact scope is first failures for \\(a=0\\),1,2,3, not an infinite assertion.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Harman–Paquin, arXiv:2610.07214, 2026-10-05, abstract (class 7 mod 36, first four offsets, density, 11 examples requiring a=5)",
+        "Hercher, J. Integer Sequences 28 (2025), Article 25.3.1, complete PDF pp. 1, 8–11: \\(a\\ge1\\) for odd n, Table 3 (first odd n for positive-exponent windows)",
+        "Hercher’s Theorem 5 guarantees representation by exponent at most 13 below \\(2^{50}\\), but does not identify the initial four-exponent failures per prime residue class."
+      ],
+      "reasoning": "A global existence bound for some power of two neither gives nor rules out the precise four-initial-power obstruction minima. A density theorem for primes 7 mod 36 entails infinitely many exceptions in that class, but cannot give exact first-occurrence values in all twelve classes. Partial source data for the class 7 may overlap a row but cannot imply the complete twelve-class table.",
+      "searches": [
+        "one power Erdos conjecture local covering square divisors exponent windows prime residue class",
+        "least exceptional primes for powers of two squarefree remainders first four exponents a=0,1,2,3 modulo 36",
+        "arXiv 2610.07214 Harman Paquin first failure primes in each of 12 reduced residue classes modulo 36 all p−1 p−2 p−4 p−8 nonsquarefree",
+        "Web: \"The One-Power Erdős Conjecture for Primes\" \"squarefree\" minima 2026"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.07214 (abstract; primary PDF inaccessible)",
+      "Hercher, JIS 28 (2025), Article 25.3.1 (primary paper, Sections 3–4 and tables)",
+      "OEIS A377587 (entire visible entry)",
+      "OEIS A257545 (entire visible entry)",
+      "OEIS A257108 (entire visible entry)",
+      "Published mathematical-results index: ten specific submitted searches; closest thematic result IDs Published result 2026/9/21/SCOPE-erdos-nicolas-two-prime-power-reduction--fab5fef920f2: divisor sums of \\(2^a p^b\\), not squarefree shifts; Published result 2026/10/4/SCOPE-exact-evaluation-of-s-1-4-and-the-eight-term-extremals--e0dfeeac2337: residue-set extremal problem, not prime-shift nonsquarefreeness"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Harman–Paquin, arXiv:2610.07214, 2026-10-05, abstract (class 7 mod 36, first four offsets, density, 11 examples requiring a=5)",
+        "Hercher, J. Integer Sequences 28 (2025), Article 25.3.1, complete PDF pp. 1, 8–11: \\(a\\ge1\\) for odd n, Table 3 (first odd n for positive-exponent windows)",
+        "OEIS A377587: smallest odd n failing shifts by \\(2^k\\) for \\(1\\le k\\le m\\), not prime-class minima and not including \\(k=0\\)",
+        "OEIS A257545: first prime failing consecutive shifts \\(p-1,\\ldots,p-k\\), not powers-of-two shifts; includes \\(5051\\) for a different k"
+      ],
+      "reasoning": "The target quantifies separately over every r in (Z/36Z)^×, includes \\(a=0\\) and a=1,2,3, requires p prime and an exact minimum. The motivating source only covers \\(r=7\\), proves asymptotic density and a large finite upper search rather than the all-class first-minima theorem. Hercher’s theorem concerns existence of some \\(a\\le13\\); its first-failure table has \\(a\\ge1\\) and all odd integers. OEIS A257545 instead tests contiguous shifts. Consequently none of these published statements dominates the complete twelve-class claim.",
+      "searches": [
+        "one-power Erdős conjecture squarefree prime shifted powers 2^a distribution p congruent 19 mod 36 density three candidates",
+        "simultaneously nonsquarefree p-2 p-4 p-8 primes arithmetic progression 19 modulo 36 explicit Euler constant",
+        "one-power Erdos representation p=2^a+squarefree least primes by p mod 36 with no squarefree p-1 p-2 p-4 p-8 12 residue classes",
+        "arXiv 2610.07214 Harman Paquin first failure primes in each of 12 reduced residue classes modulo 36 all p−1 p−2 p−4 p−8 nonsquarefree",
+        "least prime p in each residue class mod 36 such that four shifts by powers 1 2 4 8 are all divisible by prime squares; first values 280729 439601 4851151",
+        "Hercher Sections 3–4 Tables 3–4 (PDF)",
+        "Harman–Paquin arXiv abstract (2610.07214)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Harman–Paquin, arXiv:2610.07214, 2026-10-05, abstract (class 7 mod 36, first four offsets, density, 11 examples requiring a=5)",
+        "Hercher, J. Integer Sequences 28 (2025), Article 25.3.1, complete PDF pp. 1, 8–11: \\(a\\ge1\\) for odd n, Table 3 (first odd n for positive-exponent windows)",
+        "OEIS A377587: smallest odd n failing shifts by \\(2^k\\) for \\(1\\le k\\le m\\), not prime-class minima and not including \\(k=0\\)",
+        "No close mathematical-result record was returned for the complete twelve residue-class minima."
+      ],
+      "reasoning": "Equivalent form: for each unit r mod 36, the smallest prime p in that progression with each of \\(p-2^a\\) (\\(a\\in\\{0,1,2,3\\}\\)) divisible by a prime square. A squarefree-part test and a minimal first-occurrence sequence in arithmetic progressions describe the same invariant. Hercher’s positive-exponent first-failure sequence is not equivalent because it omits \\(a=0\\), restricts to odd integers rather than primes, and has no twelve-class stratification.",
+      "searches": [
+        "one-power Erdős conjecture squarefree prime shifted powers 2^a distribution p congruent 19 mod 36 density three candidates",
+        "one-power Erdos representation p=2^a+squarefree least primes by p mod 36 with no squarefree p-1 p-2 p-4 p-8 12 residue classes",
+        "least exceptional primes for powers of two squarefree remainders first four exponents a=0,1,2,3 modulo 36",
+        "arXiv 2610.07214 Harman Paquin first failure primes in each of 12 reduced residue classes modulo 36 all p−1 p−2 p−4 p−8 nonsquarefree",
+        "Web: \"p-1\" \"p-2\" \"p-4\" \"p-8\" \"squarefree\" smallest prime residue"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A377587: smallest odd n failing shifts by \\(2^k\\) for \\(1\\le k\\le m\\), not prime-class minima and not including \\(k=0\\)",
+        "OEIS A257545: first prime failing consecutive shifts \\(p-1,\\ldots,p-k\\), not powers-of-two shifts; includes \\(5051\\) for a different k",
+        "OEIS A257108: first prime failing consecutive positive shifts p+1,...,\\(p+k\\), not this problem",
+        "The published-results index returned near-thematic records Published result 2026/9/21/SCOPE-erdos-nicolas-two-prime-power-reduction--fab5fef920f2: divisor sums of \\(2^a p^b\\), not squarefree shifts and Published result 2026/10/4/SCOPE-exact-evaluation-of-s-1-4-and-the-eight-term-extremals--e0dfeeac2337: residue-set extremal problem, not prime-shift nonsquarefreeness but no twelve-class table or exact prime-shift data."
+      ],
+      "reasoning": "The numerical coincidence \\(5051\\) in A257545 does not cover even a single twelve-class minimality assertion unless the entire offset condition and residue-class restriction also hold, which that table does not state. A377587 tabulates odd-integer first failures for powers 2,4,..., not prime minima including power 1. Search evidence is negative only within inspected sources; external unindexed computation remains possible.",
+      "searches": [
+        "5051 6029 6329 6421 45179 236329 primes each shifted p-1 p-2 p-4 p-8 squareful minimal thresholds",
+        "2610.07214 prime 4851151 6165527 1052083 squarefree first four offsets",
+        "least prime p in each residue class mod 36 such that four shifts by powers 1 2 4 8 are all divisible by prime squares; first values 280729 439601 4851151",
+        "squarefree powers of two Erdős minimum exceptional primes p modulo 36 exact classification 12 residue class first witnesses including 6165527 5051",
+        "OEIS A377587",
+        "OEIS A257545",
+        "OEIS A257108",
+        "Web: \"280729\" \"439601\" \"5051\" squarefree primes",
+        "Web: \"6165527\" \"4851151\" squarefree"
+      ]
+    },
+    "rationale": "The twelve-class sharp first-prime table for four power-of-two shifts is not mathematically implied by the inspected published results: the source arXiv paper restricts its theorem to one class and density, Hercher treats odd integers and \\(a\\ge1\\) with different record tables, and checked OEIS tables use different domains/shifts. Ten focused published-results index searches returned no matching or stronger result, and accessible past mathematical claims were checked for overlap. Database nonappearance is not a novelty proof: the arXiv full text could not be read, and unindexed numerical work is a residual risk.",
+    "residual_risks": [
+      "Harman–Paquin preprint complete PDF/appendix was inaccessible despite arXiv/HTML and mirror attempts. Its class-7 numerical dataset might cover that row, although its available theorem is restricted to one class.",
+      "An unpublished, unindexed, or obscure table of all twelve minima may exist; semantic search is not mathematical proof of originality.",
+      "The finding deliberately asserts no novelty for the already known density or existence results and no standalone novelty for any previously tabulated individual numeral."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same offsets and possibly same class-7 first-prime data; does not state the twelve-class exact first-occurrence classification in available material. Unread appendix is a residual risk, not negative full-text evidence.",
+        "evidence": [
+          "Harman–Paquin, arXiv:2610.07214, 2026-10-05, abstract (class 7 mod 36, first four offsets, density, 11 examples requiring a=5)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.07214",
+        "material_read": "Verified author/title/2026-10-05 submission and full public abstract, plus secondary synopsis. Original primary PDF and HTML not retrievable from accessible mirrors; no assertion that appendices were read.",
+        "method": "Comparison of quantified residue classes, density statements, and explicit numeric-output description",
+        "title": "The One-Power Erdős Conjecture for Primes p congruent to 7 modulo 36",
+        "trigger": "Identical four power-of-two offsets in a focal prime progression"
+      },
+      {
+        "assessment": "A prior global existence verification and first-odd-integer records for positive powers, not an exact twelve-class first-prime table for powers 1,2,4,8.",
+        "evidence": [
+          "Hercher, J. Integer Sequences 28 (2025), Article 25.3.1, complete PDF pp. 1, 8–11: \\(a\\ge1\\) for odd n, Table 3 (first odd n for positive-exponent windows)"
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL28/Hercher2/hercher24.pdf",
+        "material_read": "Complete 13-page primary PDF was accessible; inspected title/abstract and materially read Sections 3–4, algorithms, Theorem 5 and Tables 3–4 (PDF pp. 8–12).",
+        "method": "Direct comparison of exponent domain, integer domain, quantifiers and tables",
+        "title": "On the Sum of a Squarefree Integer and a Power of Two",
+        "trigger": "Stronger-looking finite verification of Erdős’ squarefree-plus-power conjecture through \\(2^{50}\\)"
+      },
+      {
+        "assessment": "Different invariant: all odd n, positive exponents only, and no residue-stratified prime minimum.",
+        "evidence": [
+          "OEIS A377587: smallest odd n failing shifts by \\(2^k\\) for \\(1\\le k\\le m\\), not prime-class minima and not including \\(k=0\\)"
+        ],
+        "identifier_or_url": "https://oeis.org/A377587",
+        "material_read": "Complete OEIS entry, including definition, terms, cited Hercher paper, and example for three initial positive powers",
+        "method": "Direct comparison of the prime predicate, modulus restriction and exponent starting index",
+        "title": "OEIS A377587 — first odd failures for positive powers of two",
+        "trigger": "Likely preexisting exhaustive first-failure table"
+      },
+      {
+        "assessment": "Consecutive shifts differ from 1,2,4,8 and no modulo-36 breakdown is given.",
+        "evidence": [
+          "OEIS A257545: first prime failing consecutive shifts \\(p-1,\\ldots,p-k\\), not powers-of-two shifts; includes \\(5051\\) for a different k"
+        ],
+        "identifier_or_url": "https://oeis.org/A257545",
+        "material_read": "Full entry, definitions, terms, example and cited search code",
+        "method": "Compared tested shifts term by term with powers-of-two offsets",
+        "title": "OEIS A257545 — consecutive prime-shift nonsquarefreeness",
+        "trigger": "Matching small prime \\(5051\\) and explicit prime minimum convention"
+      },
+      {
+        "assessment": "Not equivalent: \\(p+k\\) rather than \\(p-2^a\\), and no class minima.",
+        "evidence": [
+          "OEIS A257108: first prime failing consecutive positive shifts p+1,...,\\(p+k\\), not this problem"
+        ],
+        "identifier_or_url": "https://oeis.org/A257108",
+        "material_read": "Full entry, terms and definition",
+        "method": "Shift direction and offset-pattern comparison",
+        "title": "OEIS A257108 — consecutive shifts above a prime",
+        "trigger": "Cross-reference of A257545 with potential prime min tables"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "198d2303-14ae-45da-b05d-6d2f08717646",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first four powers in the Erdős squarefree decomposition problem produce natural local strata modulo \\(\\operatorname{lcm}(4,9)=36\\); the current motivating paper explicitly studies one of those 12 classes. The complete sharp first-prime table, with a 1200-fold spread, is a natural finite invariant and a quantitative benchmark for each stratum, rather than an arbitrary sampled interval, an unmotivated slice, or a restatement of a density theorem. A general downstream theorem is not asserted or needed.",
+    "status": "PASS"
+  }
+}
