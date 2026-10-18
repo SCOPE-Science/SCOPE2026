@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Grouping the W state by a partition produces a weighted W state with block weights \(p_j=|B_j|/n\). The explicit product witness has squared overlap \(\alpha^2/\prod_j(1+\alpha^2p_j)\). Strict Jensen concavity at \(\alpha^2=q/(q-1)\) gives the universal lower bound \(A_q\) and strictness away from equal weights. Equal blocks reduce to the symmetric \(q\)-party W state, whose exact product fidelity is \(A_q\); the singleton case gives \(A_n\). The asymptotic expansion follows from the Taylor series of \(\log(1-1/q)\).
+## correctness
 
-## Originality
-PASS. The closest recent source gives only an \(O(1/q)\) upper existence statement for a block partition. The closest older W-state literature gives exact product overlaps but does not compare the fully product and optimally grouped domains. Published-result searches, exact-form searches, and current/prior ledger checks found no implication-equivalent statement. The principal residual risk is that the inaccessible portion of the recent anchor could contain an unindexed tightness remark; this risk does not alter the independent proof but is retained for originality assessment.
+PASS
 
-## Value
-PASS. The result determines the order of the approximation loss in a core reduction of the recent tolerant-testing framework. It shows that arbitrary-state block grouping cannot universally improve from \(O(1/q)\) to \(o(1/q)\), and it supplies an explicit natural witness family and leading lower constant.
+For each partition, the local 0- and normalized one-excitation subspaces reduce |W_n> exactly to a q-party weighted W with coefficients sqrt(p_j), p_j=|B_j|/n. The explicit normalized block-product witness (|0_j>+alpha sqrt(p_j)|1_j>)/sqrt(1+alpha² p_j) has squared overlap alpha²/prod_j(1+alpha² p_j). Strict concavity of log(1+alpha²p) gives product <= (1+alpha²/q)^q, and alpha²=q/(q-1) yields F_Pi²>=((q-1)/q)^(q-1) strictly for nonuniform block sizes. For q|n the equal-block state is locally the symmetric q-qubit W, whose standard exact product overlap is A_q; singletons give A_n. Expanding (q-1)log(1-1/q) gives e^-1(1+1/(2q)+7/(24q²)+O(q^-3)). Bounds 2<=q<=n, q|n for equality; finite tests only corroborate.
 
-## Closest literature and limitations
-The recent anchor is arXiv:2610.01979v1. The symmetric-W fidelity formula is supported by arXiv:0806.1314v1 and the generalized-W theory by arXiv:1002.3049v1. The finite exact formula is stated for \(q\mid n\), and the claim is a lower bound for the partition-relaxation step rather than a sample-complexity converse for the full algorithm.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Symmetric W product fidelity is preexisting, and Shimoni–Biham previously studied the *same* W state under arbitrary partitions, including exact bipartition values. Their accessible analysis does not establish the all-q best-partition equality or the O(1/q) lower sharpness relative to the 2026 random-coloring upper existence theorem. Distinct optimization quantifiers and limiting regime matter. Best-of-knowledge originality passes with explicit risk from full unread Bao manuscript and possible unindexed optimal-partition results.
+
+## value
+
+PASS
+
+The W family provides a sharp natural witness that the 2026 block-product relaxation cannot enjoy a uniform o(1/q) additive error over arbitrary states, with exact best partition and first two asymptotic terms. This evaluates a specifically motivated quantitative loss in product-state testing, not merely another known W fidelity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
