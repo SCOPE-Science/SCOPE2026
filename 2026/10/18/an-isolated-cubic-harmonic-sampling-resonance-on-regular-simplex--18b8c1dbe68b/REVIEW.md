@@ -1,0 +1,15 @@
+# Mathematical review: cubic-harmonic simplex sampling
+
+## Correctness
+**PASS.** The domain and normalization are explicit. The normalized cubic Gegenbauer addition theorem identifies the evaluation Gram matrix; the unsigned complete-graph incidence matrix decomposes its full finite-dimensional domain into three orthogonal eigenspaces, and substitution yields the stated rational eigenvalues. Every numerator factor has been checked symbolically, including the exclusive zero at \(m=8\). The exceptional projector and minimal-norm interpolation formula follow by exact Gram algebra. The packaged exact-rational checker passed 19 orders; tests corroborate rather than establish the infinite theorem.
+
+## Originality
+**PASS, with bounded literature risk.** Seidel (1981) materially supplies the general spherical-harmonic and discrete-sphere machinery and acknowledges the 28-line configuration, but its inspected sections do not give this all-order cubic Gram spectrum, the unique zero sector at eight vertices, or the 21-dimensional quotient-tight interpolation formula. Roy–Suda (2011) addresses complex spherical designs and association-scheme criteria, not this real cubic sampling map. Dette–Melas–Pepelyshev (2006) addresses spherical-harmonic experimental design in dimension three; its accessible abstract does not resolve this all-dimensional simplex family. The 1977 Delsarte–Goethals–Seidel foundational full text was not accessible and is a material residual risk. General Gegenbauer/Johnson techniques do not by themselves state the new exceptional interpolation classification. Relevant research-record searches returned distinct Hamming-shell, Grassmann, and other harmonic sampling problems without coverage of this claim. The review is not a claim of exhaustive priority or independent discovery verification.
+
+## Mathematical value
+**PASS.** The normalized edge-midpoint family is canonical and infinite, while the sole failure of surjectivity occurs at the geometrically distinguished 28 equiangular lines in dimension seven. The explicit eigenvalue gap and the accidental equality of both surviving eigenvalues explain the defect: a seven-dimensional incidence-contrast nullspace alongside a 21-dimensional tight quotient. The interpolant and exact norm give usable stability/reconstruction data; this is not a routine numerical census or an arbitrary isolated parameter slice.
+
+## Limits and references
+The theorem is only for one harmonic degree and exact simplex edge-midpoint locations. It concerns interpolation/surjectivity, not uniqueness of harmonic polynomial interpolants. Earlier general spherical design and association-scheme work remains a potential source of implicit equivalent formulations; the inaccessible 1977 foundational article warrants further checking. Sources: Seidel (1981) Section 2–6; Delsarte–Goethals–Seidel (1977), DOI 10.1007/BF03187604; Dette–Melas–Pepelyshev, arXiv:math/0603075; Roy–Suda, arXiv:1104.4692.
+
+Self-review: passed. Independent audit: not yet performed.
