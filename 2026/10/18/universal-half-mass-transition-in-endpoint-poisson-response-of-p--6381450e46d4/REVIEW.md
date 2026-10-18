@@ -1,0 +1,12 @@
+# Self-review of a sharp endpoint Poisson response theorem
+
+## Correctness — PASS
+The head-to-path exact Poisson identity is derived by summing Kirchhoff currents and imposing global zero mean. Its head correction has an explicit spectral-gap estimate. The remaining finite optimization is the exact dual distance of a coefficient vector to constants in \(\ell^1\), and the Riemann comparison is uniform in the optimizing median. The atom of weight \(\lambda\) produces a median switch at \(1/2\) and the displayed piecewise cubic. The clique specialization follows from \(L_{K_m}=mI-J\), and the two factor-four limits follow with a bounded finite-clique error. Reconstructing the proof also fixes what is *not* claimed: no global maximum over output vertices and no uniform limit for slow-mixing heads. The supplied standalone finite checker (not an independent scientific audit) passed 2,271 exact-rational and continuum-consistency comparisons.
+
+## Originality — PASS within examined evidence
+The published Green-function and hitting-time results of Beveridge (arXiv:1505.06989v1), Palacios–Gómez–Del Río (DOI:10.1155/2014/852481), and Jonasson (2000 lollipop commute-time extremality) were compared by mathematical implication. General Green formulas do not by themselves supply the balanced-input median optimization, the uniform gapped-head estimate, or the half-mass cubic law. Published findings about pineapple-graph curvature and complete-multipartite graph quantities concern different operators/invariants, not the pointwise sharp Poisson-response norm. The full article text of Jonasson and of Belardo–Petecki was not available in the inspected material; their respective abstracts address commute time and spectral determination, not the stated norm. Historical priority remains provisional: earlier norm and median formulations under another name are possible.
+
+## Value — PASS
+Bounded balanced load → maximal pendant voltage is a natural exact stability question for diffusion networks. A path connected by one cut edge to a rapidly mixing head exhibits a universal response shape independent of head topology, with a sharp forcing-pattern change at 50% head mass, a jump in the second derivative of the stability profile, and a quantitative finite-graph error bound. The exact clique formula makes the theorem reproducible without spectral calculation and yields a macroscopic factor-four comparison. These are structural results rather than isolated finite-table values.
+
+Self-review: passed. Independent audit: not yet performed.
