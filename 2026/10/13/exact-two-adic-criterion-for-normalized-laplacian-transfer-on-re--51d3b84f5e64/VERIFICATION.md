@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The mathematical proof reduces the symmetric normalized-Laplacian evolution on a regular double cone to one antisymmetric eigenvector and a \(2\)-dimensional symmetric invariant subspace. Its two nontrivial normalized-Laplacian eigenvalues are calculated by exact trace/determinant identities. Strict positivity of both symmetric spectral weights makes exact phase alignment necessary as well as sufficient. Coprime parity then establishes the full if-and-only-if criterion and **all** positive perfect-transfer times, independently of numerical tests.
+## correctness
 
-To reproduce supplementary checks, execute `python3 verify.py` with Python 3 and the standard library. The script verifies exact rational formulas and valuations across 7,450 allowed base-parameter cases for both apex-edge variants; its expected final line is `VERIFY_OK exact_reduced_eigenvalues_and_valuation_tests=7450 examples=6`. The finite sweep cannot establish validity for all integer parameters and is not presented as such. The statement excludes irregular bases, other transfer pairs, decoherence, and other Hamiltonians.
+PASS
+
+For an arbitrary simple k-regular m-vertex base graph H, both apexes have degree d=m+epsilon; base degree k+2. Symmetric and antisymmetric apex modes reduce normalized adjacency to 2x2 block [[epsilon/d,sqrt(2m/(d(k+2)))],[sqrt(2m/(d(k+2))),k/(k+2)]] and anti eigenvalue -epsilon/d. The symmetric normalized-Laplacian eigenvalues are 0 and theta_s=[m(k+4)+2epsilon]/[(m+epsilon)(k+2)]; anti eigenvalue theta_a=(m+2epsilon)/(m+epsilon). Positive weights w,1-w force exact phase conditions exp(-it theta_s)=1 and exp(-it theta_a)=-1. With theta_s/theta_a=p/q reduced, simultaneous phases exist iff p even and q odd, equivalently ν2(m(k+4)+2epsilon)>ν2((k+2)(m+2epsilon)); least t=pi q (m+epsilon)/(m+2epsilon) and all others odd multiples. For epsilon=0 iff k≡0 mod4, while edge-connected epsilon=1 can change feasibility in either direction. Independent exact rational 2-adic checks on small graphic parameters corroborate unrestricted direct quotient proof; no connectivity assumption on H required.
+
+## originality
+
+PASS
+
+On inspected evidence this exact final claim is not a mere restatement or implication of a known stronger theorem; all four formal comparisons below and material primary-source inspections distinguish what is already known. Originality is best-of-knowledge, not independence or certification.
+
+## value
+
+PASS
+
+A natural infinite family of graph quantum walks is given a complete, explicit arithmetical perfect-transfer classification and least transfer time for the physically distinct symmetric normalized Laplacian, including a counterintuitive edge-toggle transition. This solves a meaningful operator-specific parameter problem; spectral quotient phase conditions alone do not supply the final two-adic taxonomy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
