@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The prior nonequivariant concentration in degree \(n-m\) is exactly Babson–Kozlov [1, Proposition 4.5]. For every color permutation, a product cell contributes to the signed cellular trace only when all blocks are unions of permutation cycles. Combining its dimension parity with its orientation sign gives the weight \((-1)^{q-m}\), where \(q\) counts selected cycles. Exact Stirling-number inclusion–exclusion produces the stated character, including the disconnected boundary case \(n=m\). The quotient claim follows from the absence of sign representations in function-permutation modules using \(j-1<n\); the three-block decomposition follows from Young's rule. All three embedded verification programs reproduce the specified finite consistency checks. The infinite proof does not depend on extrapolation from those tests.
+
+## Originality — PASS (with bibliographic qualification)
+Babson–Kozlov [1] determine the ordinary homotopy type and homology rank, but the inspected Section 4.3 does not give the target-color \(S_n\) top-homology character, and its highlighted source-vertex involution is a different action. Thansri [2] works equivariantly with source-factor symmetry for hypergraph box/Hom comparison, not this target-color representation. Dochtermann [3] develops graph homotopy functoriality, and [4] concerns Boolean constructions and their distinct permutation actions. Related mathematical search records involve directed Hom into tournaments, finite poset endomorphism actions and deleted joins; their objects or action groups differ. The full character and quotient statement therefore supply a distinct refinement of known results. The possibility of an equivalent calculation in unindexed literature remains; no absolute novelty certification is made.
+
+## Value — PASS
+Color relabeling is the full natural automorphism action on the target complete graph, and its effect on homology is not recoverable from the established sphere counts alone. A uniform formula for every conjugacy class and every pair \(2\le m\le n\) gives an infinite-family equivariant invariant. The exact rational acyclicity of the symmetry quotient and irreducible decomposition in the three-source case illustrate concrete topological and representation-theoretic consequences; neither is merely a rearrangement of a Betti number. No claim is made concerning integral equivariant lattices, quotient contractibility or arbitrary source graphs.
+
+## Closest literature and limits
+[1] E. Babson–D. N. Kozlov, *Complexes of graph homomorphisms*, arXiv:math/0310056, Section 4.3; [2] T. Thansri, *Simple \(\Sigma_r\)-homotopy types of Hom complexes and box complexes*, doi:10.2206/kyushujm.66.493; [3] A. Dochtermann, arXiv:math/0605275; [4] E. Babson–D. N. Kozlov, arXiv:math/9704227. Residual risk: unindexed equivalent representation formula. Finite tests verify only the explicitly stated parameter ranges.
+
+Self-review: passed. Independent audit: not yet performed.
