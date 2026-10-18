@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Boolean edge transform is explicitly defined on spanning edge-subgraphs, and its parity inversion is proved in the finding. The quadratic Gauss-sum test is shown equivalent to nonsingular elliptic Arf type in eight variables; for a singular polar form the sum is zero or has absolute value at least 32, so no false positive at \(-16\) is possible. A deterministic smallest-unsaturated-vertex recursion enumerates each labeled cubic graph exactly once; an independent six-representative orbit covering checks all \(19{,}355\) generated masks. Two distinct exact Gauss-sum algorithms agree for all \(4096\) edge-subgraphs of all six representatives. The six-vertex transform is recovered as a regression to the published classification. The proof extends no further than the stated cubic eight-vertex domain.
+PASS
 
-## Originality — PASS with residual risk
+The polar form of Q_H is adjacency over F2. Its Gauss sum equals −16 precisely in the eight-dimensional nonsingular elliptic case; degenerate forms give zero or magnitude ≥32. Independent Walsh–Hadamard transform on all 2^12 spanning-edge subsets for six representative cubic graphs reproduced elliptic counts (54,26,17,6,0,5), so only classes 2 and 5 have odd Möbius transforms. The source has a separate full labeled enumeration and orbit-partition certificate for all 19355 cubic graphs, with six orbit sizes (35,2520,10080,3360,840,2520); the audited code was inspected and its saturation/orbit argument reconstructed. This is finite exhaustive classification, not a claim about all graphs.
 
-The closest published study is Raza et al., *The Quantum States of a Graph*, DOI `10.3390/math11102310`, Section 7. It states the transform and the six-vertex support and attributes the general subcubic conjecture to a 2019 draft. Its visible complete article does not present a classification for all six cubic eight-vertex types, their individual elliptic-edge-subgraph counts, or which two survive the transform. Related graph-state Arf work addresses phases and rank rather than this edge-inversion census. Targeted mathematical-record and literature searches found no covering statement, which is not by itself a proof of novelty. The cited unpublished 2019 draft was not recovered; its unexamined content is a material residual risk. A 2026 closely themed Arf graph-state paper was available only at abstract level and remains an additional, less direct comparison risk.
+## originality
 
-## Value — PASS
+PASS
 
-The source identifies the graph-transform support conjecture and computes the cases up to six vertices. Cubic graphs sit exactly at the conjectured maximum-degree boundary. Classifying **all** six cubic eight-vertex isomorphism types at the very next even size is a natural complete finite case, not an arbitrary subfamily: it distinguishes two genuine survivors from four exclusions and records exact counts that govern the parity phenomenon. It does not purport to solve the whole eight-vertex case or the general conjecture; the finite exact information is the motivated contribution.
+Raza et al. establish the Arf property, edge Möbius transform and complete n=6 support; inspected published Section 7 does not give the precise cubic n=8 restriction. The unpublished Alahmadi et al. 2019 draft is a material priority risk, but inaccessible material alone is not evidence that the exact six-class vector was previously computed.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The first even graph order beyond the published six-vertex study gives a complete natural cubic boundary of the subcubic-support conjecture, with exact positive graph types (including Wagner graph) and a reproducible finite census. This is a motivated exact finite classification, not a claim to solve the general conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

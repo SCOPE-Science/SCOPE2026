@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility of the finite classification
+# Independent mathematical audit
 
-Run `python3 verify_cubic8.py` using the Python 3 standard library. This program contains all six representative edge lists, generates every labeled cubic eight-vertex graph by exhaustive degree saturation, generates full vertex-permutation orbits of the six representatives, and checks exact orbit partition equality.
+## correctness
 
-Every representative has 12 edges. For each of the 4096 spanning edge-subgraphs, the first algorithm evaluates all 256 binary inputs of the associated quadratic form using exact integer bit operations; the second builds a complete Walsh--Hadamard transform of the 256 edge signatures and checks the same Gauss sums independently. Both are exact, not floating point. The six counts must be (54, 26, 17, 6, 0, 5), leaving exactly classes 2 and 5 with odd parity.
+PASS
 
-A regression independently enumerates all simple six-vertex edge sets and applies an exact characteristic-two zeta transform to the elliptic property, recovering 345 supported labeled graphs with 105, 180 and 60 graphs of edge counts 7, 8, 9. This agrees with the cited published four-type six-vertex result and independently checks the convention for fixed-vertex spanning edge-subgraphs.
+The polar form of Q_H is adjacency over F2. Its Gauss sum equals −16 precisely in the eight-dimensional nonsingular elliptic case; degenerate forms give zero or magnitude ≥32. Independent Walsh–Hadamard transform on all 2^12 spanning-edge subsets for six representative cubic graphs reproduced elliptic counts (54,26,17,6,0,5), so only classes 2 and 5 have odd Möbius transforms. The source has a separate full labeled enumeration and orbit-partition certificate for all 19355 cubic graphs, with six orbit sizes (35,2520,10080,3360,840,2520); the audited code was inspected and its saturation/orbit argument reconstructed. This is finite exhaustive classification, not a claim about all graphs.
 
-Expected successful terminal string:
+## originality
 
-`VERIFY_OK graphs=19355 classes=6 orbit_cover=exact two_independent_Gauss_transforms=agree selected_classes=2,5`
+PASS
 
-The enumerations establish a finite, exact classification. They neither prove the transform is supported only on subcubic graphs in general nor exclude a previously published equivalent enumeration. Independent scientific audit has not been performed.
+Raza et al. establish the Arf property, edge Möbius transform and complete n=6 support; inspected published Section 7 does not give the precise cubic n=8 restriction. The unpublished Alahmadi et al. 2019 draft is a material priority risk, but inaccessible material alone is not evidence that the exact six-class vector was previously computed.
+
+## value
+
+PASS
+
+The first even graph order beyond the published six-vertex study gives a complete natural cubic boundary of the subcubic-support conjecture, with exact positive graph types (including Wagner graph) and a reproducible finite census. This is a motivated exact finite classification, not a claim to solve the general conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
