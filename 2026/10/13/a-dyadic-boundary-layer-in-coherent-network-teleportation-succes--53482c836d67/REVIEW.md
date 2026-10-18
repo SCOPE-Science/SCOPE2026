@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The published hyperbolic expression reduces algebraically to an exponential quotient. After the change of variable \(q=e^{-2x}\), its derivative is controlled by a strictly increasing scalar function with opposite endpoint signs, proving one and only one interior minimum. Rescaling the exact critical equation by \(u=q^a\) yields the limiting quadratic \(u^2+2u-1=0\), and direct substitution gives both the scaled-location and minimum-value limits. The boundary-layer and fixed-intensity limits follow from the same exact quotient. A deterministic checker independently replays the algebra numerically at finite parameter values; it is supplementary to the analytic proof.
+PASS
 
-## Originality
+From the actual pinned RESULT.md, m>=2, a=2^(m-1), x>=0 and P_m=(1+e^[-2(2a-1)x])/[2(1+e^(-2ax))]. Verified hyperbolic-sine cancellation against the original El Allati et al. Eq. (18). In q=e^(-2x), the derivative numerator is q^(a-1)[(2a-1)q^(a-1)+(a-1)q^(2a-1)-a], whose bracket is strictly increasing from -a to 2a-2, proving one interior minimum (q decreases with x). At its root u=q^a, the equation limits to 2u+u^2=1, with the only (0,1) solution sqrt(2)-1. This proves scaled minimizer 2^m*x_m -> log(1+sqrt2), minimum -> sqrt2-1, and global uniform deviation 3/2-sqrt2. The fixed-t boundary profile follows by substituting x=t/2^m; fixed x>0 tends to 1/2, x=0 equals 1/2 exactly. Independently computed minimizers m=2,3,4,6,12 against both limits and verified the derivative sign analytically. The underlying quantum-state derivation is not independently validated; this is a conditional formula theorem.
 
-**PASS.** The primary paper states Eq. (18), displays finite-size curves, and gives a qualitative large-network intensity-independence interpretation. The inspected text does not state the exact quotient, the unique-minimum equation, the dyadic profile, the constant limiting minimum \(\sqrt2-1\), or the resulting nonuniform convergence. Focused database searches and the prior local result ledger did not return an implication-equivalent statement. A later bidirectional coherent-network paper concerns a different protocol. The residual risk is that an unindexed or differently phrased follow-up may contain equivalent asymptotics.
+## originality
 
-## Value
+PASS
 
-**PASS.** The result changes the interpretation of a natural scaling claim rather than adding an arbitrary numerical refinement. At every fixed positive intensity the success probability tends to \(1/2\), yet the worst-case deficit remains asymptotically \(3/2-\sqrt2\). This identifies the precise shrinking intensity scale on which the finite-network dip survives and supplies the exact worst-case limit needed to distinguish pointwise from uniform scalability.
+The new claim was compared at the level of mathematical implication against the explicitly identified primary sources and Resultary findings. Existing core definitions/classical identities are credited; no stronger previously published result covering the precise new structure was found in material inspected, subject to named residual risks.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The new quantitative boundary-layer profile resolves precisely what a published physical interpretation of large-participant intensity independence means: pointwise convergence conceals a nonvanishing global success-probability deficit. The sharp layer width 2^(-m), unique minimum and exact worst-case limit have direct operational meaning for a specific quantum-network success metric rather than being an arbitrary change of variables; no claims about fidelity or experimental devices are made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
