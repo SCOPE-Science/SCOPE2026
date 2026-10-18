@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "Global Lipschitz dynamics and row-stochastic synchrony reduce the network to a single scalar ODE. The no-input equilibria 0,q,1 determine necessary/sufficient successful threshold crossing. The exact piecewise control calibration u >= Phi prime(s)*s-dot is checked algebraically in both saturation regimes, remains valid for transient backward motion, integrates to the universal D* bound, and its equality trajectory is explicitly constructed. Strict success requires input beyond first reaching q, hence D>D*. Constant pulse crossing uses separated variables; strict convexity and one-sided derivative prove exactly one optimal rectangular amplitude, with strictly higher minimal cost. The standalone symbolic and numerical program was executed successfully; numerics are corroborative, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gastaldi et al., arXiv:1805.10116v1, pp. 3–4 and 11–13: two-timescale cubic synaptic plasticity; nontrivial stimulation protocols, not this exact uniform NOD control problem.",
+        "Franci et al., arXiv:2103.12223, §§2,5,8: smooth sigmoid/attention feedback, local bifurcations and centrality-based seed placement, not an all-broadcast dose-calibration formula.",
+        "Bizyaeva et al., arXiv:2103.14764, pp. 1–5: smooth sigmoid/attention model; its nonlinear bifurcation threshold concerns static distributed inputs, not the clipped-quadratic minimum integrated broadcast.",
+        "Belaustegui et al., arXiv:2603.29214v2, Sections IV and VI: clipped-quadratic model and qualitative time-separated square-wave examples; Section VI ends by deferring formal analysis of temporal inputs."
+      ],
+      "reasoning": "Potentially dominating models were checked for time-dependent minimum-energy control in a general saturating class. The 2018 source varies stimulation in a two-timescale synaptic system and is not a theorem encompassing a uniform quadratic-clipped NOD flow. The 2021 papers treat differing sigmoid/attention feedback, input direction and bifurcation sensitivity. A general deterministic minimum-fuel calibration theorem might subsume the proof technique, not necessarily the explicit NOD formulas and optimal rectangular classification; residual risk is expressly retained.",
+      "searches": [
+        "minimum pulse impulse area bistable threshold activation saturating quadratic feedback time rectangular",
+        "continuous threshold model social contagion finite pulse duration input cost optimal constant amplitude",
+        "bistable scalar opinion adoption ẋz=-z+sat(mu z+k z^2+u(t)) pulse dose optimum",
+        "optimal stimulation protocol bistable synaptic consolidation Gastaldi Muscinelli Gerstner 2018",
+        "2021 control of agreement and disagreement cascades distributed inputs pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2603.29214v2",
+      "https://arxiv.org/abs/2603.29214v1",
+      "https://naomi.princeton.edu/wp-content/uploads/sites/744/2021/11/BizSorFraLeoCDC2021.pdf",
+      "https://arxiv.org/abs/2103.12223",
+      "https://arxiv.org/abs/1805.10116",
+      "https://www.researchgate.net/publication/403380415_A_Continuous-Time_and_State-Space_Relaxation_of_the_Linear_Threshold_Model_with_Nonlinear_Opinion_Dynamics"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Belaustegui et al., arXiv:2603.29214v2, Sections IV and VI: clipped-quadratic model and qualitative time-separated square-wave examples; Section VI ends by deferring formal analysis of temporal inputs.",
+        "Franci et al., arXiv:2103.12223, §§2,5,8: smooth sigmoid/attention feedback, local bifurcations and centrality-based seed placement, not an all-broadcast dose-calibration formula.",
+        "Bizyaeva et al., arXiv:2103.14764, pp. 1–5: smooth sigmoid/attention model; its nonlinear bifurcation threshold concerns static distributed inputs, not the clipped-quadratic minimum integrated broadcast.",
+        "Gastaldi et al., arXiv:1805.10116v1, pp. 3–4 and 11–13: two-timescale cubic synaptic plasticity; nontrivial stimulation protocols, not this exact uniform NOD control problem."
+      ],
+      "reasoning": "The motivating paper supplies the defining vector field and qualitative activation boundary but does not compute the value function Phi(q) nor prove it is a lower bound for all time profiles; it does not compare a unique best rectangle. The older opinion results give bifurcation sensitivity and input positioning, not a statement implying this dose for all nonnegative broadcast pulses. A prior general HJB method can guide derivation but the explicit NOD quantities and unique rectangle have not been found. The theorem intentionally does not claim novel saturation dynamics, pulse optimization in all bistable systems, or all-network heterogeneous control.",
+      "searches": [
+        "arxiv:2603.29214v2 Section IV autonomous thresholds and Section VI temporal pulse comparison",
+        "arXiv 2603.29214 A Continuous-Time and State-Space Relaxation of the Linear Threshold Model with Nonlinear Opinion Dynamics finite-duration pulses",
+        "arxiv:2103.14764 Theorem IV.1 V.3 pulse",
+        "arxiv:2103.12223 Section 5 input centrality",
+        "sharp minimum dose amplitude duration globally synchronized square pulse nonlinear opinion dynamics saturation bistable threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Belaustegui et al., arXiv:2603.29214v2, Sections IV and VI: clipped-quadratic model and qualitative time-separated square-wave examples; Section VI ends by deferring formal analysis of temporal inputs.",
+        "Franci et al., arXiv:2103.12223, §§2,5,8: smooth sigmoid/attention feedback, local bifurcations and centrality-based seed placement, not an all-broadcast dose-calibration formula.",
+        "Bizyaeva et al., arXiv:2103.14764, pp. 1–5: smooth sigmoid/attention model; its nonlinear bifurcation threshold concerns static distributed inputs, not the clipped-quadratic minimum integrated broadcast."
+      ],
+      "reasoning": "Compared not just the title but identical clipped saturating quadratic vector field, zero initial state, synchronous broadcast, energy integral, threshold crossing, and pulse duration. Existing source models or claims lack an exact L1 minimal-dose law for these assumptions. A threshold on constant bias alone is insufficient to imply a time-dependent global minimum.",
+      "searches": [
+        "nonlinear opinion dynamics NOD finite rectangular pulse amplitude duration threshold minimum total dose optimal intervention bistability saturation",
+        "sharp minimum dose amplitude duration globally synchronized square pulse nonlinear opinion dynamics saturation bistable threshold",
+        "arXiv 2603.29214 A Continuous-Time and State-Space Relaxation of the Linear Threshold Model with Nonlinear Opinion Dynamics finite-duration pulses",
+        "arxiv:2603.29214v2 Section VI time-varying input",
+        "arxiv:2103.12223 control cascade input time"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Title-level and summary-level mathematical research retrievals found a finite-switching bounded-confidence result, a forced nonsmooth-oscillator fold result, and a scalar transient-result, each for a different dynamical system.",
+        "The motivating primary manuscript arXiv:2603.29214v2 contains no dose table or exact pulse-optimization formula in the inspected time-varying-input section."
+      ],
+      "reasoning": "Named published mathematical record queries and primary-source comparison identified no table or theorem of the exact NOD broadcast activation budget. Approximate retrieval alone does not establish uniqueness or novelty; the implication analysis of highly relevant primary sources is decisive to the limited assessment.",
+      "searches": [
+        "nonlinear opinion dynamics NOD finite rectangular pulse amplitude duration threshold minimum total dose optimal intervention bistability saturation",
+        "rectangular input pulse optimal unique amplitude irreducible stochastic network bistable cascade",
+        "social network DeGroot bounded confidence polarization consensus nonlinear opinion sharp stability threshold",
+        "recent mathematical ecology epidemiology opinion dynamics exact thresholds extinction bifurcation network 2026 2025",
+        "finite population evolutionary game cooperation hypergraph majority stochastic epidemic exact stationary distribution",
+        "sharp minimum dose amplitude duration globally synchronized square pulse nonlinear opinion dynamics saturation bistable threshold"
+      ]
+    },
+    "rationale": "The 2026 motivating NOD paper defines and analyzes the model but explicitly defers formal time-input optimization; its full revised HTML sections IV–VII contain neither the exact L1 broadcast activation infimum nor strict convexity/unique amplitude for rectangular pulses. Closest 2021 nonlinear-opinion control works use different continuous sigmoid/attention dynamics and address input location and bifurcation, not this clipped quadratic saturation or global integrated dose. A 2018 two-variable synaptic article contains nontrivial stimulation-optimality effects in a distinct model; such effects are not claimed novel generally. Actual approximate published-record searches  were compared semantically. Priority uncertainty from generic scalar optimal-control theorems remains, but no inspected theorem states or implies the specific analytical NOD frontier with its restrictions.",
+    "residual_risks": [
+      "The exact method is related to general scalar minimal-fuel Hamilton–Jacobi calibration; priority of the abstract methodology is not asserted.",
+      "Unindexed or terminology-divergent work on scalar saturated cascade costs might state the same model-specific formulas.",
+      "Human mathematical peer review and independent historical-priority assessment remain outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the model and threshold but does not prove sharp all-input broadcast-dose infimum or rectangular cost optimizer.",
+        "evidence": [
+          "Section IV equation (3) clipped quadratic NOD",
+          "Section VI discusses timed square waves; future work promises formal study of temporal input.",
+          "arxiv first v1 2026-03-31, v2 2026-09-14"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.29214v2",
+        "material_read": "2026 revised full-text HTML Sections IV-A, IV-B, V and VI–VII, including stated propositions, numerical temporal-signal figure and declared future-work questions",
+        "method": "Direct primary HTML inspection and comparison of definitions, theorem statements and temporal-signal section",
+        "title": "A Continuous-Time and State-Space Relaxation of the Linear Threshold Model with Nonlinear Opinion Dynamics",
+        "trigger": "Exact same nonlinear opinion equation, homogeneous specialization, temporal square inputs and first-public-date proof"
+      },
+      {
+        "assessment": "Smooth odd sigmoidal interaction and dynamic attention with centrality/bifurcation triggering, not saturation polynomial or a full L1 temporal dose optimization.",
+        "evidence": [
+          "Equation (1), p. 2, model with odd sigmoid",
+          "Theorems IV.1 and V.3 on bifurcations; Corollary V.3.1 on input vector magnitude"
+        ],
+        "identifier_or_url": "https://naomi.princeton.edu/wp-content/uploads/sites/744/2021/11/BizSorFraLeoCDC2021.pdf",
+        "material_read": "Primary 6-page PDF pp. 1–2 model, pp. 3–5 bifurcation and dynamic attention theorems, conclusions and associated result text",
+        "method": "Primary PDF text inspection with page-2 image verification",
+        "title": "Control of Agreement and Disagreement Cascades with Distributed Inputs",
+        "trigger": "Earlier nonlinear-opinion model with controlled distributed inputs"
+      },
+      {
+        "assessment": "Distinguishes centrality-based seed selection and attention-driven bifurcation control; no same clipped-quadratic integrated temporal input law.",
+        "evidence": [
+          "Section 5: optimal seed-selection left as future work",
+          "No pulse calculation; different smooth sigmoid dynamics"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2103.12223",
+        "material_read": "Online original manuscript Introduction, mathematical model and Sections 5 and 8 descriptions/results with exact-text search for pulse and optimal",
+        "method": "Primary online text selective section and theorem comparison",
+        "title": "Analysis and control of agreement and disagreement opinion cascades",
+        "trigger": "Broader 2021 nonlinear opinion cascades and input optimality"
+      },
+      {
+        "assessment": "A related optimal-stimulation motif in two-time-scale synaptic plasticity, but does not state this universal network-broadcast saturated-quadratic threshold law.",
+        "evidence": [
+          "Two-timescale synaptic model rather than homogeneous row-stochastic NOD",
+          "Frequency/amplitude effect not exact global minimum-cost Phi(q)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1805.10116",
+        "material_read": "Original PDF model and stimulus protocol sections pp. 3–4, selected results pp. 11–13, discussion; several page images read",
+        "method": "Authorized open PDF primary text and page-image inspection",
+        "title": "Optimal Stimulation Protocol in a Bistable Synaptic Consolidation Model",
+        "trigger": "Potential prior nontrivial optimal pulse-amplitude effect in a bistable system"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "59c0a876-472e-457b-9c75-846b63887d87",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The recent motivating paper specifically identifies timed and distributed subthreshold signals as an application and defers formal temporal effects. An exact network-independent minimal integrated broadcast-dose bound, a sharp unattainable success boundary, an optimally shaped profile, and a strictly more expensive uniquely optimized square pulse form a motivated quantitative intervention trade-off. A complete motivated classification requires more than substituting parameters in a published equilibrium threshold; finite network independence is mathematically exact in the stated symmetry regime.",
+    "status": "PASS"
+  }
+}
