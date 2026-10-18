@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T18:17:51.240202Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For τ≠0, the cyclic adjacency decomposes into reflection-even/odd sectors. An onsite rank-one perturbation couples to each even Fourier mode and makes its Jacobi spectrum simple, with no overlap with unchanged odd eigenvalues. Every squared eigenvector is reflection invariant so rank≤m+1 where m=⌊n/2⌋. The vectors 1,d1,d3,…,d_{2m−1} have triangular restriction to distance shells because an odd closed walk of length <n must visit the mark and stay; the diagonal entries are τ and the determinant is exactly (−1)^m τ^m. Thus rank≥m+1. For τ=0, standard cycle Fourier projector formulas give ranks n (odd) and n/2 (even). Independently generated Hτ powers and checked determinant for n=3..8 and τ=1,-2. Numerical checks are finite only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Godsil computes average mixing matrices for unmarked paths and cycles.",
+          "Coutinho et al. describe commutant/automorphism framework and rank connections."
+        ],
+        "reasoning": "Those frameworks contain general tools but the pinned theorem needs its new Jacobi simplicity and triangular moment calculation; broad abstract coverage alone does not prove the specific rank law.",
+        "searches": [
+          "Godsil Average Mixing of Continuous Quantum Walks arXiv:1103.2578",
+          "Coutinho Godsil Guo Zhan New Perspective arXiv:1709.03591"
+        ]
+      },
+      "checked_sources": [
+        "pinned RESULT.md sha 6308f15c8e0cdce1480c271ce477e8787a59c680",
+        "pinned verify.py sha d31723060ac1b0f719dc5479a19f5a0733eb3854",
+        "Godsil arXiv:1103.2578 abstract and assigned Lemma6.1 citation",
+        "Coutinho–Godsil–Guo–Zhan arXiv:1709.03591 abstract",
+        "Resultary and web marked-cycle defect searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The τ=0 ranks n for odd cycles and n/2 for even ones are explicitly pre-existing.",
+          "The odd-moment determinant is not obtained from zero-potential Fourier formulas; τ≠0 breaks degeneracy."
+        ],
+        "reasoning": "The new result is the nonzero-τ perturbation rank and its certificate; unlike unmarked formulas it does not follow directly by parameter substitution.",
+        "searches": [
+          "Godsil Lemma6.1 unmarked cycle as cited in pinned RESULT",
+          "Coutinho et al. 2018 general average mixing rank"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Godsil arXiv:1103.2578 abstract and assigned citation Lemma6.1 give unmarked cycle cases.",
+          "The new pinned RESULT.md adds a rank-one perturbation and (−1)^m τ^m odd-moment determinant."
+        ],
+        "reasoning": "The known projector identity converts the problem to Gram rank but does not by itself determine dependence on τ or parity.",
+        "searches": [
+          "Resultary average mixing quantum walk cycle single vertex defect rank",
+          "web marked cycle average mixing matrix onsite potential rank"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table of the τ≠0 rank profile was retrieved.",
+          "The pinned determinant has the exact polynomial form for every n."
+        ],
+        "reasoning": "This is a natural all-size invariant, not a finite database table; no equivalent parameter table was found.",
+        "searches": [
+          "web search marked cycle average mixing rank potential",
+          "Resultary quantum walk average mixing marked vertex query"
+        ]
+      },
+      "rationale": "Published average-mixing theory establishes spectral-projector identity and unmarked-cycle baselines, but the one-defect, all-real-nonzero-τ rank formula and odd-moment witness are additional. Resultary query on marked-cycle quantum mixing and review of accessible source abstracts found no decisive stronger covering theorem; full Godsil and Coutinho full text were not independently read, so originality is best-of-knowledge.",
+      "residual_risks": [
+        "General spectral-projector theory in inaccessible primary full text might contain an equivalent single-defect corollary.",
+        "Rank is for infinite-time Cesaro average, adjacency Hamiltonian and exactly one diagonal defect; no multi-defect extension."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Background on unmarked cycles; absence of the marked result cannot be asserted from abstract alone",
+          "evidence": [
+            "Abstract states explicit formulas for path and cycle average mixing."
+          ],
+          "identifier_or_url": "arXiv:1103.2578; JCTA 120 (2013)",
+          "material_read": "Public abstract and bibliographic details; original full paper not obtained",
+          "method": "arXiv/public abstract and literature searches",
+          "title": "Average mixing of continuous quantum walks",
+          "trigger": "source for exact unmarked cycle ranks"
+        },
+        {
+          "assessment": "The general commutant rank framework is highly relevant, full text not read; retain priority risk",
+          "evidence": [
+            "Abstract states rank/automorphism connections for average mixing."
+          ],
+          "identifier_or_url": "arXiv:1709.03591; EJC25(4) P4.14",
+          "material_read": "Journal/arXiv abstracts",
+          "method": "published journal abstract",
+          "title": "A New Perspective on the Average Mixing Matrix",
+          "trigger": "possible stronger general rank characterization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A single diagonal defect is a canonical minimal perturbation of a quantum ring. The opposite parity rank jump and exact polynomial moment determinant describe a sharply discontinuous long-time mixing invariant and give an intrinsic spectral-free certificate for every n,τ≠0. A complete natural classification is valuable independently of downstream applications.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "pinned RESULT.md sha 6308f15c8e0cdce1480c271ce477e8787a59c680",
+    "pinned verify.py sha d31723060ac1b0f719dc5479a19f5a0733eb3854",
+    "Godsil arXiv:1103.2578 abstract and assigned Lemma6.1 citation",
+    "Coutinho–Godsil–Guo–Zhan arXiv:1709.03591 abstract",
+    "Resultary and web marked-cycle defect searches"
+  ],
+  "disposition": "passed",
+  "limitations": "All n≥3 and all real τ, but only a simple unweighted cycle with one marked vertex. Moment checks n≤8 corroborate the universal argument, not replace it.",
+  "residual_risks": [
+    "General spectral-projector theory in inaccessible primary full text might contain an equivalent single-defect corollary.",
+    "Rank is for infinite-time Cesaro average, adjacency Hamiltonian and exactly one diagonal defect; no multi-defect extension."
+  ],
+  "schema_version": 1
+}

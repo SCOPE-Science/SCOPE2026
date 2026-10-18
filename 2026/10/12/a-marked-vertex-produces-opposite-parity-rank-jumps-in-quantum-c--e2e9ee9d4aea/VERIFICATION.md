@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-`verify.py` is self-contained for the exact witness portion, using Python's standard library. Execute with `python verify.py`. If NumPy is installed, the program also computes independent symmetric-eigensolver spectral projectors and checks mixing matrix entries, ranks, and unmarked special cases.
+## correctness
 
-For \(3\le n\le22\) and four integer nonzero marks, 80 exact integer moment determinants equal \((-1)^{\lfloor n/2\rfloor}\tau^{\lfloor n/2\rfloor}\). With NumPy, the code checks 96 spectral profiles and 12,624 average-mixing entries for orders \(3\le n\le18\), including \(\tau=0\), negative marks and nonintegral positive marks.
+PASS
 
-Successful reproducible output:
+For τ≠0, the cyclic adjacency decomposes into reflection-even/odd sectors. An onsite rank-one perturbation couples to each even Fourier mode and makes its Jacobi spectrum simple, with no overlap with unchanged odd eigenvalues. Every squared eigenvector is reflection invariant so rank≤m+1 where m=⌊n/2⌋. The vectors 1,d1,d3,…,d_{2m−1} have triangular restriction to distance shells because an odd closed walk of length <n must visit the mark and stay; the diagonal entries are τ and the determinant is exactly (−1)^m τ^m. Thus rank≥m+1. For τ=0, standard cycle Fourier projector formulas give ranks n (odd) and n/2 (even). Independently generated Hτ powers and checked determinant for n=3..8 and τ=1,-2. Numerical checks are finite only.
 
-```
-EXACT_WITNESS_OK 80
-VERIFY_OK exact_witness_profiles=80 numerical_spectral_profiles=96 numerical_entries=12624 moment_det=(-1)^floor(n/2)*potential^floor(n/2)
-```
+## originality
 
-NumPy uses finite-precision eigenvalue clustering; these computations test examples and cannot prove claims for arbitrary real potentials or unrestricted graph order. The proof in `RESULT.md` supplies the unrestricted upper bound, the closed-walk lower bound and the unmarked cycle boundary. No human or independent external audit is implied.
+PASS
+
+Published average-mixing theory establishes spectral-projector identity and unmarked-cycle baselines, but the one-defect, all-real-nonzero-τ rank formula and odd-moment witness are additional. Resultary query on marked-cycle quantum mixing and review of accessible source abstracts found no decisive stronger covering theorem; full Godsil and Coutinho full text were not independently read, so originality is best-of-knowledge.
+
+## value
+
+PASS
+
+A single diagonal defect is a canonical minimal perturbation of a quantum ring. The opposite parity rank jump and exact polynomial moment determinant describe a sharply discontinuous long-time mixing invariant and give an intrinsic spectral-free certificate for every n,τ≠0. A complete natural classification is valuable independently of downstream applications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
