@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T10:12:07Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md ec2e15e001f182e0b58a057f4b7653bba7d4d9bd",
+        "Pinned artifacts/verify.py f99d5574c0b4304ece89b607e1630268fa2cb3ee",
+        "Independent full Hilbert partial-transpose and active determinant computations n=2..6 all cuts",
+        "Standard Peres–Horodecki 2⊗2 PPT=separability theorem"
+      ],
+      "rationale": "For a nonspanning edge the unused tensor factor is |+> and the mixture is product across E|E^c; for p=0 or theta in 2pi Z it is globally product. For a spanning edge the two-state range S=span{|+>^n,|1>^n} contains precisely the two product rays under every bipartition, since its coefficient matrix in the two independent local vectors is diag(s,t). For cut k|(n-k), the active local 2x2 matrix H has det H=kappa*u*w, with kappa=(exp(i theta)-1)2^{-n/2}; the partial transpose of rho has active 4x4 determinant -p^3 |kappa|^4 u^4 w^4 = -16 p^3 2^{-2n} sin^4(theta/2)(1-2^{-k})^2(1-2^{-(n-k)})^2. More importantly, any positive PPT-mixture decomposition would consist of positive operators with support inside S; each cut is effectively 2x2, hence PPT implies separable, and only the two product rays may occur. But rho has a nonzero |a><v| coherence coefficient p*kappa; thus no PPT mixture at p>0 and nontrivial phase. At p=1 the pure state is entangled on every split. The proof avoids the invalid shortcut NPT on each split => non-PPT-mixture.",
+      "residual_risks": [
+        "The source RESULT uses an inconsistent notation u versus nu for sqrt(1-alpha^2); it is a harmless transcription ambiguity resolved by the displayed H and VERIFIED.md, not a gap in determinant proof.",
+        "No multi-hyperedge, decoherence, finite precision or GME monotone quantified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rank-2 multipartite PPT states are separable under all cuts, but a PPT-mixture permits components PPT on different cuts; the randomized-state paper evaluates SDP numerically for small sizes."
+        ],
+        "reasoning": "Neither inspected general rank-2 PPT theorem nor source-model numerics dominates the all-n PPT-mixture convex-hull conclusion without the support-range classification.",
+        "searches": [
+          "arXiv:1301.2372 Lemmas 11–12",
+          "Salem et al. DOI 10.1002/andp.202500622 Sections 5–6"
+        ]
+      },
+      "checked_sources": [
+        "Salem, Silva & Andrade, Randomized Hypergraph States and Their Entanglement Properties, Ann. Phys. 2026, DOI 10.1002/andp.202500622, full HTML sections 3–9",
+        "Chen & Đoković, Separability problem for multipartite states of rank at most four, arXiv:1301.2372, full author posted manuscript, Lemmas 11 and 12",
+        "Jungnitsch, Moroder and Gühne, Taming multiparticle entanglement, PRL 106 190502",
+        "Resultary targeted PPT mixture hyperedge query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known cutwise NPT is strictly weaker than global PPT-mixture nonmembership; an SDP definition is not the analytic certificate."
+        ],
+        "reasoning": "Source model plus generic separability theory could enable the proof, but no inspected primary theorem asserts its all-parameter consequence. The support product-ray proof step is required and reproduced.",
+        "searches": [
+          "Chen–Đoković 2013 Lemma 12",
+          "Jungnitsch–Moroder–Gühne 2011 PPT-mixture SDP",
+          "Salem–Silva–Andrade 2026 Section 6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lemma 12 implies NPT for each bipartition where the spanning pure branch is entangled, but does not imply nonmembership in a convex hull of distinct cut-PPT states."
+        ],
+        "reasoning": "NPT on every cut is insufficient for GME/PPT-mixture exclusion in general. The support-ray argument supplies the missing implication, so the stated theorem is not just relabeled NPT.",
+        "searches": [
+          "Resultary semantic search: single randomized spanning hyperedge controlled phase gate rank two state PPT mixtures arbitrary positive success probability",
+          "arXiv:1301.2372 Lemma 12, NPT mixtures of product and entangled pure states"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source tables/figures are numerical SDP plots on fixed small hypergraphs, not an exact all-n non-PPT-mixture threshold or every-cut determinant."
+        ],
+        "reasoning": "No exact database/table covering the full probability and phase domain found. This is not inferred from a failed search alone; compare the actual modeled states and parameter ranges.",
+        "searches": [
+          "Resultary hyperedge semantic query",
+          "Salem et al. RH state numerical GME Figures 4–6"
+        ]
+      },
+      "rationale": "Chen–Đoković Lemma 12 already establishes that a convex mixture of a product projector and an entangled pure projector is NPT across a fixed cut; do not claim ordinary NPT as new. Their article makes no PPT-mixture convex-hull classification across varying cuts. Salem–Silva–Andrade define randomized hypergraph states and perform numerical PPT-mixture SDP studies up to four qubits; the inspected full paper has no arbitrary-n single spanning hyperedge exact zero-threshold theorem and no parameterized active determinant formula. The analytic all-size necessary-and-sufficient PPT mixture criterion and quantitative determinant are best-of-knowledge original; possible implicit low-rank PPT-mixture implications are residual risks.",
+      "residual_risks": [
+        "Potential implicit equivalent in specialized low-rank multipartite PPT-mixture convex hull theory not excluded; searchable record index contains another RZZY hypergraph result with different gate architecture."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MODEL_PRIOR_PARTIAL_NOT_COVERING",
+          "evidence": "The article analyzes randomized multiedge ensembles and numerical four-qubit PPT mixture; no theorem classifies all n and nonzero p for a single spanning edge.",
+          "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/andp.202500622",
+          "material_read": "Full accessible article HTML, specifically model definitions, bipartite negativity section, Section 6 PPT-mixture equation (19), witness SDP equation (20), Figures 4–6 and interpretations",
+          "method": "web primary full HTML",
+          "title": "Randomized Hypergraph States and Their Entanglement Properties",
+          "trigger": "Same probabilistically applied hyperedge model and numerical GME analysis"
+        },
+        {
+          "assessment": "PARTIAL_PRIOR_NPT_NOT_PPT_MIXTURE",
+          "evidence": "Lemma 12 states product projector plus entangled pure projector is NPT; full text has no PPT-mixture theorem or single-hyperedge parameter threshold.",
+          "identifier_or_url": "https://www.researchgate.net/publication/234108909_Separability_problem_for_multipartite_states_of_rank_at_most_4",
+          "material_read": "Full author posted preprint text, in particular Section III Lemma 11 rank-two PPT separability and Lemma 12 product-plus-entangled mixture NPT; later theorems reviewed for domination",
+          "method": "web full posted manuscript",
+          "title": "Separability problem for multipartite states of rank at most four",
+          "trigger": "Exact rank-two PPT and mixture implications"
+        },
+        {
+          "assessment": "BACKGROUND_ONLY",
+          "evidence": "PPT-mixture relaxation and decomposable-witness SDP are standard, but do not encode the source-specific classification.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevLett.106.190502",
+          "material_read": "Bibliography and method descriptions in original Salem et al. Section 6; full 2011 source not independently read in this run",
+          "method": "primary method cited via model paper",
+          "title": "Taming multiparticle entanglement",
+          "trigger": "Defines PPT mixtures"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Source physical model and numerical PPT-mixer Section 6",
+        "Support-subspace separability rigidity and all-n explicit determinant",
+        "Direct n=2..6 active/full partial transpose reconciliation"
+      ],
+      "rationale": "The source proposes PPT-mixture SDPs and numerical GME in few-qubit randomized hypergraphs; this theorem computes a complete infinite-size sharp decision boundary for the simplest physically interpretable randomized hyperedge, with arbitrarily small positive success probability and all phases. The support-geometry proof distinguishes strict PPT-mixture exclusion from cutwise NPT, and exact determinant quantifies the strength and asymptotic weakness of each cut certificate. It is an exact natural structural boundary, not a random tiny numerical example.",
+      "residual_risks": [
+        "No assertion about multiple independently randomized hyperedges or experimental noise tolerance; determinant may decay exponentially with n."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "n>=2, one single spanning controlled-phase gate randomly present/absent, p in [0,1], no genuine multi-edge or physical nonidealities."
+  ]
+}

@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The direct support calculation gives a two-qubit block for every bipartition, an exact negative determinant for each nontrivial gate at every positive success probability, and a separate proof excluding convex mixtures of states PPT across cut-dependent partitions. The endpoint and nonspanning-edge cases are explicit. The attached checker corroborates the determinant and the local basis reduction for finite test sizes; the all-size conclusion comes from the proof rather than enumeration.
+## correctness
 
-## Originality
-PASS for the **full PPT-mixture rigidity classification and the exact cut determinant**, not for the already-known qualitative claim of NPT on every cut. Salem--Silva--Andrade define the model and use low-qubit PPT-mixture numerical tests; they do not prove this all-size boundary. Chen--Đoković's rank-two Lemma 12 already implies NPT for product-plus-entangled mixtures, and this is acknowledged as prior. Their rank-two results do not by themselves settle the convex hull of operators PPT on different cuts. Comparison with the cited primary results revealed no implication-equivalent single-hyperedge theorem.
+PASS
 
-## Value
-PASS. The theorem gives an all-parameter closed decision rule for a natural idealized primitive underlying the source's multi-edge entanglement study, replacing numerical PPT-mixture decisions for this case. The exact determinant provides a parameter-sensitive certificate of entanglement on every split. It identifies precisely which edges can create genuine multipartite entanglement at arbitrarily low nonzero success probability.
+For a nonspanning edge the unused tensor factor is |+> and the mixture is product across E|E^c; for p=0 or theta in 2pi Z it is globally product. For a spanning edge the two-state range S=span{|+>^n,|1>^n} contains precisely the two product rays under every bipartition, since its coefficient matrix in the two independent local vectors is diag(s,t). For cut k|(n-k), the active local 2x2 matrix H has det H=kappa*u*w, with kappa=(exp(i theta)-1)2^{-n/2}; the partial transpose of rho has active 4x4 determinant -p^3 |kappa|^4 u^4 w^4 = -16 p^3 2^{-2n} sin^4(theta/2)(1-2^{-k})^2(1-2^{-(n-k)})^2. More importantly, any positive PPT-mixture decomposition would consist of positive operators with support inside S; each cut is effectively 2x2, hence PPT implies separable, and only the two product rays may occur. But rho has a nonzero |a><v| coherence coefficient p*kappa; thus no PPT mixture at p>0 and nontrivial phase. At p=1 the pure state is entangled on every split. The proof avoids the invalid shortcut NPT on each split => non-PPT-mixture.
 
-## Closest literature and limitations
-The closest physical model is arXiv:2506.20075v1 and its predecessor arXiv:2310.20418v2; the closest general rank-two domination is Lemma 12 of arXiv:1301.2372v1. The original PPT-mixture method is due to Jungnitsch--Moroder--Gühne. A residual risk is unindexed specialized low-rank PPT-mixture theory. The theorem does not analyze realistic gate noise, multiple random hyperedges, or finite experimental detection thresholds.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Chen–Đoković Lemma 12 already establishes that a convex mixture of a product projector and an entangled pure projector is NPT across a fixed cut; do not claim ordinary NPT as new. Their article makes no PPT-mixture convex-hull classification across varying cuts. Salem–Silva–Andrade define randomized hypergraph states and perform numerical PPT-mixture SDP studies up to four qubits; the inspected full paper has no arbitrary-n single spanning hyperedge exact zero-threshold theorem and no parameterized active determinant formula. The analytic all-size necessary-and-sufficient PPT mixture criterion and quantitative determinant are best-of-knowledge original; possible implicit low-rank PPT-mixture implications are residual risks.
+
+## value
+
+PASS
+
+The source proposes PPT-mixture SDPs and numerical GME in few-qubit randomized hypergraphs; this theorem computes a complete infinite-size sharp decision boundary for the simplest physically interpretable randomized hyperedge, with arbitrarily small positive success probability and all phases. The support-geometry proof distinguishes strict PPT-mixture exclusion from cutwise NPT, and exact determinant quantifies the strength and asymptotic weakness of each cut certificate. It is an exact natural structural boundary, not a random tiny numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
