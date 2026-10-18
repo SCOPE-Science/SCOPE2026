@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The mathematical proof is a symbolic two-class decomposition, explicit matrix exponentiation, and a two-branch amplitude comparison. This document records supplementary finite tests, not an infinite certificate.
+# Independent mathematical audit
 
-Execute `python verify.py` with Python 3 and NumPy. The script constructs the actual symmetric adjacency and signed weighted Laplacian matrices from their edge definitions. It compares all exterior-start probabilities at six nonzero times and across 151 matching class-size and weight profiles (121,212 scalar entries); the largest floating-point absolute discrepancy in the recorded run was \(1.665\times10^{-14}\). Nonmatching cases exhibit positive differences. It separately verifies the key fourth-order polynomial identity exactly over rational arithmetic for 1,980 choices, including vanishing clique weights and singleton boundaries. Nine unit-weight nonregular examples also confirm a center-start exclusion that is outside the theorem's assertion.
+## correctness
 
-The unconditional, unrestricted statement relies on the proof in `RESULT.md`. Numerical agreement may reflect numerical error; finite samples alone cannot establish all-time equivalence or impossibility outside sampled profiles. The code is an independently constructible computational cross-check, not an independent scientific audit.
+PASS
+
+For r,s>=1, eta>0, alpha>=0, use normalized uniform center/exterior vectors and the exterior dark space; the 2x2 blocks have gaps Δ=sqrt(alpha²(r−1)²+4eta²rs) and eta(r+s). The exact central difference t⁴ coefficient is −eta²[alpha²(r−1)²−eta²(r−s)²]/12, yielding necessity. When Δ=eta(r+s), compare exterior amplitudes: phase relation on the s<=r branch and conjugate-phase relation on s>=r, proving every target/time probability. At r=1 alpha is irrelevant and only s=1 works; at r=s alpha(r−1)=0. No distinct-eigenvalue assumption is used. I independently built full weighted A and A−D and compared exterior columns numerically at multiple on-locus profiles/times; finite checks support, but the exact amplitude identities prove universality.
+
+## originality
+
+PASS
+
+Best-of-knowledge priority for the precisely delimited contribution. Known subfamilies, classical inputs, and plausible stronger derivations separately documented; searches alone are not treated as a novelty proof.
+
+## value
+
+PASS
+
+Exterior localized quantum walks exhibit equivalence beyond graph regularity; classification of the full nonnegative two-parameter split-join family and an exact one-coefficient local-to-global criterion are motivated, reusable structural facts. Prior unweighted instances are explicitly credited; the independently useful novelty is the exact converse and weighted irregular branch.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

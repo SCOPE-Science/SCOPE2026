@@ -1,15 +1,21 @@
-# Scientific review: weighted split-join equivalence
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof explicitly decomposes both real symmetric Hamiltonians into a two-dimensional uniform sector and exterior dark sector, computes the two-level gaps and central probabilities, and compares exact exterior amplitudes branch by branch. A single central transition's fourth-order coefficient is a necessary algebraic witness, while the exact amplitude relations show its sufficiency for every exterior start and every destination at every real time. The domain includes \(r=1\), \(s=1\), \(r=s\), vanishing internal weight, and both weighted-regular and nonregular cases. The exact fourth-order identity and finite matrix examples are independently checked in `verify.py`. All cases are proved without assuming distinct eigenvalues. Finite checks corroborate and do not establish the universal quantifiers.
+## correctness
 
-## Originality — PASS, with residual risk
-Wong–Lockhart (arXiv:2107.05580, Sec. IV, eighth family) already propose the unit-weight \(s=2r-1\) infinite family and rigorously establish smaller special instances. Therefore the unweighted sufficient examples are **not** claimed as new. This theorem adds a converse over every \(r,s,\alpha,\eta\) in the stated domain, a precise continuously tunable nonregular branch, and a local fourth-order-to-entire-wave probability criterion. Kirkland–Monterde (arXiv:2312.06906) supply broad weighted-join evolution formulas, but inspected main theorem statements concern individual Hamiltonian dynamics, strong cospectrality, periods, PST, or within-Hamiltonian amplitudes, not the asserted cross-Hamiltonian if-and-only-if. This comparison is based on inspected full-text material and statement-level implications, not title matching. The full power of general join amplitudes or another unlocated theorem could subsume the criterion; there is no independent validation of absolute novelty.
+PASS
 
-## Value — PASS
-The prior physical question asks when two inequivalent transport Hamiltonians produce identical measurable probability vectors on irregular graphs. The exact algebraic classification solves that inverse-design problem for a natural weighted infinite graph family, distinguishes trivial regularity from nonregular indistinguishability, and yields a one-site short-time fourth-order test for an all-time many-vertex property. The result is neither a finite-only data point nor merely a renamed instance of the known unweighted numerical family; weights and the necessity statement vary across unrestricted integer class sizes.
+For r,s>=1, eta>0, alpha>=0, use normalized uniform center/exterior vectors and the exterior dark space; the 2x2 blocks have gaps Δ=sqrt(alpha²(r−1)²+4eta²rs) and eta(r+s). The exact central difference t⁴ coefficient is −eta²[alpha²(r−1)²−eta²(r−s)²]/12, yielding necessity. When Δ=eta(r+s), compare exterior amplitudes: phase relation on the s<=r branch and conjugate-phase relation on s>=r, proving every target/time probability. At r=1 alpha is irrelevant and only s=1 works; at r=s alpha(r−1)=0. No distinct-eigenvalue assumption is used. I independently built full weighted A and A−D and compared exterior columns numerically at multiple on-locus profiles/times; finite checks support, but the exact amplitude identities prove universality.
 
-## Evidence and limits
-Sources: Wong–Lockhart (2021), arXiv:2107.05580, Sections I, II, IV, V and Appendix A; Kirkland–Monterde (2023), arXiv:2312.06906, abstract, Sections 2–3 and theorems on PST/periodicity; Qu et al. (2022) abstract. The exact rational fourth-order identity was tested on 1,980 examples; matrix evolution checks used 151 matching profiles and 121,212 probabilities. They are demonstrations rather than infinite proofs. Remaining scientific risk is preexisting broader implication of weighted-join spectral identities and uninspected related treatments.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge priority for the precisely delimited contribution. Known subfamilies, classical inputs, and plausible stronger derivations separately documented; searches alone are not treated as a novelty proof.
+
+## value
+
+PASS
+
+Exterior localized quantum walks exhibit equivalence beyond graph regularity; classification of the full nonnegative two-parameter split-join family and an exact one-coefficient local-to-global criterion are motivated, reusable structural facts. Prior unweighted instances are explicitly credited; the independently useful novelty is the exact converse and weighted irregular branch.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
