@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3.10+ and NumPy. The verifier independently constructs Cayley–Hamilton trace-moment recurrence polynomials using rational arithmetic, checks their weighted degree and their exact values for the eigenvalue triple \((2,-1,-1)\), and confirms strict dependence on the cubic-trace square for even orders 6–32. It samples 3500 reproducible positive complex qutrit density matrices, checking purity, cubic moments, sixth-moment identity, and five even Schatten bounds. It checks 4355 grid points of phase and mixing strength against the analytic determinant positivity condition and tests the two equality branches, including rejection of the negative branch for mixing strength above one half.
+## correctness
 
-Actual replay on the accompanying `verify.py` returned:
+PASS
 
-`VERIFY_OK checks=41205 exact_trace_recursion=60 random_density_matrices=3500 phase_grid=4355`
+For B=ρ−diagρ and u=Tr B², the Hilbert–Schmidt orthogonality yields u≤t−1/3 with equality only for uniform diagonal. The gauge-invariant cubic v=Tr B³=6Re(B12B23B31) obeys |v|≤u^(3/2)/sqrt6 by AM–GM, with equal-modulus edges and phase 0 or π at equality. Cayley–Hamilton for traceless Hermitian 3×3 B gives B³−uB/2−vI/3=0; recurrence h_k=(u/2)h_(k−2)+(v/3)h_(k−3), in particular h6=u³/4+v²/3, gives all even 2m≥6 moments with positive v² dependence. Their maximum is (2^(2m)+2)(u/6)^m and is attainable via ρ=I/3±s(ww*−I/3), |wi|²=1/3. Eigenvalues (1±2s)/3,(1∓s)/3 twice give negative branch PSD iff s≤1/2, i.e. t≤1/2. Entrywise l1 maximum 2s and determinant positivity 1−3s²+2s³cosθ≥0 follow separately. Independently recomputed Cayley–Hamilton polynomial coefficients through moment order 32 and exact phase/eigenvalue cases. No higher-dimensional or noninteger extension claimed.
 
-Finite sampling cannot establish sharpness for all purities, dimensions, or powers. Analytic proof of the entire statement is in `RESULT.md`. Complex matrices and the fixed basis are essential; positivity excludes the negative triangle phase above purity one half. No external mathematical audit has been performed.
+## originality
+
+PASS
+
+Singh–Bera–Dhar–Pati (2015), inspected complete source, proves the entrywise l1 mixedness inequality and exhibits the positive pseudo-pure maximizing family; that numerical inequality is not new. The present result concerns direct even Schatten norms of the fixed-basis off-diagonal matrix and classifies the gauge-invariant ±triangle phase, including an admissible negative branch contradicting any blanket positive-family uniqueness. Rana–Parashar–Lewenstein (2015–16) study minimization of Schatten distances to arbitrary diagonal states, not ||ρ−Δρ|| at fixed purity. A classical matrix inequality in older traceless-3x3 spectral-moment literature could coincide; retained as risk.
+
+## value
+
+PASS
+
+The qutrit three-edge gauge product is the first phase-sensitive invariant beyond quadratic purity: quartic moment is u²/2 and cannot distinguish phases, whereas every even moment from order six does. Sharp analytic fixed-purity control, all equality cases, and the exact t=1/2 positivity threshold are structurally motivated quantum-matrix inequalities, not a routine numerical tightening of l1 coherence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

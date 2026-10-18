@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The trace/purity decomposition gives the exact available squared off-diagonal norm. The cubic trace is bounded by the AM–GM inequality on the three edge moduli. Cayley–Hamilton provides a positive-coefficient recurrence for every even moment, strictly increasing in the squared cubic trace from order six onward. Equality forces uniform diagonal and equal off-diagonal moduli with triangle phase \(0\) or \(\pi\); all PSD eigenvalue and determinant conditions were explicitly checked. The proof covers every real purity in the entire feasible interval and every integer order \(m\ge3\). The extracted verifier passed 41,205 finite checks. It is not an infinite proof.
+## correctness
 
-**Originality — PASS, with residual risk.** Singh et al. (arXiv:1503.06303, Theorems 1–2) already establish the numerical \(\ell_1\) trade-off and exhibit one positive pseudo-pure maximizing family. That result is explicitly not claimed as new. Their stated uniqueness up to incoherent unitary equivalence is not supported by the triangle phase: positive and negative triangle products are unitary-gauge invariants, and a positive negative-sign density matrix exists for \(1/3<t\le1/2\). The new result is the sharp *higher even-Schatten* norm, full equality classification, and the intrinsic cutoff of the additional phase class. Rana et al. define a minimized Schatten-distance functional rather than \(\|\rho-\Delta\rho\|_{S_p}\); Yao et al. treat Frobenius/purity quantifiers. A later fixed-spectrum theorem by Streltsov et al. concerns another optimization and does not directly imply the displayed fixed-purity equality classes. Scientific semantic searches found no covering record, but cannot establish historical uniqueness.
+PASS
 
-**Value — PASS.** Fixed-purity sharp spectral control of off-diagonal qutrit matrices is a natural exact matrix inequality. The higher moment distinguishes phase structure invisible to quadratic purity and the entrywise \(\ell_1\) maximum. The precise \(t=1/2\) cutoff and gauge-invariant distinction explain non-uniqueness of a classical maximizing family, giving motivated boundary information rather than an arbitrary finite calculation.
+For B=ρ−diagρ and u=Tr B², the Hilbert–Schmidt orthogonality yields u≤t−1/3 with equality only for uniform diagonal. The gauge-invariant cubic v=Tr B³=6Re(B12B23B31) obeys |v|≤u^(3/2)/sqrt6 by AM–GM, with equal-modulus edges and phase 0 or π at equality. Cayley–Hamilton for traceless Hermitian 3×3 B gives B³−uB/2−vI/3=0; recurrence h_k=(u/2)h_(k−2)+(v/3)h_(k−3), in particular h6=u³/4+v²/3, gives all even 2m≥6 moments with positive v² dependence. Their maximum is (2^(2m)+2)(u/6)^m and is attainable via ρ=I/3±s(ww*−I/3), |wi|²=1/3. Eigenvalues (1±2s)/3,(1∓s)/3 twice give negative branch PSD iff s≤1/2, i.e. t≤1/2. Entrywise l1 maximum 2s and determinant positivity 1−3s²+2s³cosθ≥0 follow separately. Independently recomputed Cayley–Hamilton polynomial coefficients through moment order 32 and exact phase/eigenvalue cases. No higher-dimensional or noninteger extension claimed.
 
-**Closest literature and limitations.** Singh et al. (2015) provide the quantitative \(\ell_1\) antecedent; Rana et al. (2015) distinguish Schatten-coherence functionals; Yao et al. (2016) analyze quadratic purity; Streltsov et al. (2016/2018) address a different fixed-spectrum optimization. The scope is complex Hermitian \(3\times3\), fixed reference basis, and integer exponents at least six; no coherence-monotonicity or independent validation is claimed. The risk is an older spectral-moment or matrix-analysis theorem with an equivalent sharp inequality and phase classification.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Singh–Bera–Dhar–Pati (2015), inspected complete source, proves the entrywise l1 mixedness inequality and exhibits the positive pseudo-pure maximizing family; that numerical inequality is not new. The present result concerns direct even Schatten norms of the fixed-basis off-diagonal matrix and classifies the gauge-invariant ±triangle phase, including an admissible negative branch contradicting any blanket positive-family uniqueness. Rana–Parashar–Lewenstein (2015–16) study minimization of Schatten distances to arbitrary diagonal states, not ||ρ−Δρ|| at fixed purity. A classical matrix inequality in older traceless-3x3 spectral-moment literature could coincide; retained as risk.
+
+## value
+
+PASS
+
+The qutrit three-edge gauge product is the first phase-sensitive invariant beyond quadratic purity: quartic moment is u²/2 and cannot distinguish phases, whereas every even moment from order six does. Sharp analytic fixed-purity control, all equality cases, and the exact t=1/2 positivity threshold are structurally motivated quantum-matrix inequalities, not a routine numerical tightening of l1 coherence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
