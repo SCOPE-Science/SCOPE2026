@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T16:14:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Translation invariance makes the projection a convolution with D_{4,N}/N; its ℓ∞ and ℓ1 norms equal the normalized ℓ1 size of the kernel by phase-aligned input and a normalized point mass. The factorization |D_{4,N}(j)|=4|cos(πj/N) cos(2πj/N)| splits at the quarter-period zero on the half-grid. Product-to-sum and the exact finite cosine progression give the displayed master formula with u=π/(2N), q=floor((N−1)/4), r=2q+1 and T=csc for odd N or cot for even N. The residue-specific closed expressions permit Taylor expansions: negative −2π(2sqrt(2)+1)/(3N²) for N≡0, positive 2π(sqrt(2)−1)/(3N²) for N≡2, positive π(sqrt(2)+2)/(6N²) for odd N, with appropriate stated remainders. The continuous integral is 8(2sqrt(2)−1)/(3π). Independently compared the closed formula with direct |D| kernel sums for all N=4..1000; the analytic trigonometric sum proves every N.",
+      "residual_risks": [
+        "Expansion coefficient derivations were checked from the displayed closed forms, not replaced by mesh extrapolation."
+      ],
+      "sources": [
+        "Frozen RESULT.md, verify.py",
+        "Independent 997-grid direct kernel versus exact formula checks",
+        "Elementary finite cosine progression and expansion of csc/cot"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bonami–Révész arXiv:0811.4576 accessible published abstract; Ash DOI:10.1007/s00041-009-9115-8 bibliographic abstract."
+        ],
+        "reasoning": "Bonami–Révész investigate L1 idempotent concentration on cyclic groups, not an all-N exact four-consecutive-frequency endpoint projector value in the material read; Ash studies Lebesgue constants for triangular/multivariate kernels. A general Young bound is equality here but leaves the nontrivial sampled absolute kernel sum unevaluated.",
+        "searches": [
+          "four consecutive characters cyclic Z_N Fourier projection L1 Linfinity operator norm exact finite Dirichlet kernel four term modulus residue mod four",
+          "Bonami Révész concentration integral norm of idempotents 0811.4576 pdf"
+        ]
+      },
+      "checked_sources": [
+        "Frozen source RESULT.md proof and its closest prior-work section",
+        "arXiv:0811.4576 accessible primary abstract",
+        "Ash DOI:10.1007/s00041-009-9115-8 bibliographic material",
+        "Resultary query incomplete",
+        "Three-term published-finding comparison from frozen record only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Frozen proof half-grid sign split and finite cosine sums; independent all N≤1000 direct computation."
+        ],
+        "reasoning": "Four-term Dirichlet kernel equals a product of cosines, and exact parity defects follow from a different sign pattern than the three-term kernel; the existence of general Dirichlet-Lebesgue formulas does not by itself identify the particular mod4 signed asymptotic coefficients without computing this sample sum.",
+        "searches": [
+          "four consecutive characters cyclic Z_N Fourier projection L1 Linfinity operator norm exact finite Dirichlet kernel four term modulus residue mod four"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Four-term kernel factorization from frozen RESULT.md; published three-frequency record title documented in frozen primary AUDIT/REVIEW, but its full text was not accessed this execution."
+        ],
+        "reasoning": "This norm is the four-term discrete Dirichlet kernel Lebesgue constant, or the ℓ1 norm of a four-character idempotent on a cyclic group. It differs from the three-character norm, where quarter-period zero-alignment geometry does not occur; the three-character formula alone cannot algebraically imply the four-term residue classes.",
+        "searches": [
+          "four consecutive characters cyclic Z_N Fourier projection L1 Linfinity operator norm exact finite Dirichlet kernel four term modulus residue mod four",
+          "Exact three-frequency Fourier projection norm on every cyclic group"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic query returned search_completed:false; three-frequency comparative title in audited RESULT.md is not a four-frequency formula."
+        ],
+        "reasoning": "The exact four-term formula, including signed N mod4 order-N^-2 defects, was not observed in the available primary summaries; published corpus comparison failed because Resultary returned temporarily_unavailable and the identified three-frequency result was not fully accessible. This is retained as an actual unresolved literature risk, not proof of uniqueness.",
+        "searches": [
+          "four consecutive characters cyclic Z_N Fourier projection L1 Linfinity operator norm exact finite Dirichlet kernel four term modulus residue mod four"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of statements/implications from genuinely inspected primary material and the audited claim. Resultary returned temporarily_unavailable/search_completed:false; this failed search supplies NO negative novelty evidence. Four-term Dirichlet kernel equals a product of cosines, and exact parity defects follow from a different sign pattern than the three-term kernel; the existence of general Dirichlet-Lebesgue formulas does not by itself identify the particular mod4 signed asymptotic coefficients without computing this sample sum.",
+      "residual_risks": [
+        "A classical finite trigonometric-sum identity or an inaccessible stronger general Lebesgue-constant result may already imply this formula.",
+        "Closest three-frequency published result and relevant longer primary sources were not fully inspected this execution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_SOURCE_ONLY_NO_WHOLE_DOCUMENT_NONCOVERAGE",
+          "evidence": [
+            "Announced objective is concentration rather than exact four-consecutive-frequency sampled norm; uninspected full text might contain stronger information."
+          ],
+          "identifier_or_url": "arXiv:0811.4576",
+          "material_read": "Accessible primary arXiv abstract describing L1 concentration for idempotents on Z/qZ and the Littlewood problem; complete mathematical paper text not available in this execution.",
+          "method": "Primary publication abstract/metadata comparison",
+          "title": "Concentration of the integral norm of idempotents",
+          "trigger": "Finite cyclic idempotents and their L1 norms are directly related objects."
+        },
+        {
+          "assessment": "PARTIAL_SOURCE_ONLY",
+          "evidence": [
+            "The studied triangular and higher-dimensional kernels are not identical on their face to four consecutive characters on arbitrary finite cyclic groups; no full noncoverage claim."
+          ],
+          "identifier_or_url": "DOI:10.1007/s00041-009-9115-8",
+          "material_read": "Title and bibliographic descriptions of higher-dimensional triangular Dirichlet kernels; not complete paper.",
+          "method": "Published article metadata/abstract",
+          "title": "Triangular Dirichlet Kernels and Growth of Lp Lebesgue Constants",
+          "trigger": "Lebesgue constant and Dirichlet kernel concepts plausibly cover the same invariant."
+        },
+        {
+          "assessment": "NOT_FULLY_INSPECTED_RESIDUAL_RISK",
+          "evidence": [
+            "The three-term frequency block does not have the four-term cos(2πj/N) quarter-period factor; full comparator may contain general arguments."
+          ],
+          "identifier_or_url": "published-finding corpus title in frozen AUDIT.json",
+          "material_read": "Audited RESULT.md and AUDIT.json descriptions of the three-term comparator, not comparator full text.",
+          "method": "Secondary source description and mathematical kernel comparison",
+          "title": "Exact three-frequency Fourier projection norm on every cyclic group",
+          "trigger": "Closest potential comparable finite cyclic exact formula."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact endpoint operator norm of a natural projection onto four consecutive group characters is a meaningful finite harmonic-analysis invariant. The mod4 zero-alignment effect reverses the sign of the leading deviation from the continuum limit; this explains a real sampling phenomenon rather than merely reciting the Riemann-sum convergence. The all-moduli exact formula can be reused in quantitative finite Fourier analysis.",
+      "residual_risks": [
+        "Intermediate ℓp and arbitrary four-point frequency-set norms are not determined."
+      ],
+      "sources": [
+        "Four-term Dirichlet kernel and cyclic idempotent identity in RESULT.md",
+        "Finite-cyclic idempotent context Bonami–Révész arXiv:0811.4576"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only ℓ1/ℓ∞ and four consecutive frequencies, with residue-specific asymptotics; computations finite N≤1000 only."
+  ]
+}
