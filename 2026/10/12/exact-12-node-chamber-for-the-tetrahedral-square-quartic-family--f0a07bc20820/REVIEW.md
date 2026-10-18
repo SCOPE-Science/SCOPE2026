@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** In characteristic \(2\), the square term contributes no first derivatives, so the Jacobian ideal is the squarefree monomial ideal of the six coordinate edges. The quartic equation reduces to \(q^2\) on that edge union. Each edge restriction is a binary quadratic, and the elementary characteristic-two root criterion gives the ten simultaneous nonvanishing conditions. The local coordinate argument gives \(uv+w^2\) and the local Jacobian scheme \((u,v,w^2)\), so each support has length \(2\). The included exact checker confirms the derivative identities and a twelve-node witness over \(\mathbb F_4\).
+## correctness
 
-## Originality
-**PASS.** The closest source is Catanese--Schütt, arXiv:2206.03295v1, Example 19, which defines the family and says it has twelve nodes generally. Full-text inspection did not find the coefficient-wise if-and-only-if criterion or the length-\(24\) Jacobian scheme. Catanese, arXiv:2106.09988v3, analyzes an \(\mathfrak S_4\)-symmetric specialization and does not imply the arbitrary-quadric criterion. Semantic searches using the exact equation, tetrahedron-edge language, coefficient nonvanishing, Jacobian scheme, and length \(24\) found no covering published finding. Residual risk remains for classical or unindexed literature using different terminology.
+PASS
 
-## Value
-**PASS.** The result replaces the lead paper's genericity qualifier by a sharp natural boundary: precisely ten coefficient hyperplanes are excluded in the marked affine family. It also identifies the infinitesimal singular scheme, which is directly relevant to deformation calculations. The classification concerns a distinguished family used to attain the sharp twelve-node bound, not an arbitrary slice.
+Formal partial differentiation in char2 kills q^2, leaving four coordinate triple products; their common reduced locus comprises six coordinate edges. Complementary binary quadratics have two distinct nonvertex zeros iff mixed coefficient and two square endpoint coefficients are nonzero. Across six edges this is equivalent to all ten coefficients nonzero; degenerations either merge roots at vertices, yield repeated roots, or make whole edge singular, never exactly twelve. At nonvertex simple roots choose q as tangential local coordinate w, and F becomes unit*uv+w²; Jacobian local algebra k[[w]]/(w²) has length two. Verified all quantifiers and marked scope, and the finite-field witness is only a consistency check.
 
-## Closest literature and limitations
-The result is restricted to characteristic \(2\) and to the marked tetrahedral form. It does not classify projective equivalences inside the coefficient torus or all degenerations on its boundary. The global twelve-singularity bound and the symmetric-orbit classifications remain prior results and are not re-proved or claimed as new.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new exact coefficient-torus chamber and Jacobian scheme refinement for Catanese–Schütt marked tetrahedral family. Original Example 19 gives generic twelve nodes, not an if-and-only-if boundary classification; different local singular schemes not conflated.
+
+## value
+
+PASS
+
+A sharp iff boundary for a motivated characteristic-two twelve-node family, and scheme-theoretic length 24 absent from generic existence assertion, provides useful deformation/discriminant stratification data; not a generic textbook algebra exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

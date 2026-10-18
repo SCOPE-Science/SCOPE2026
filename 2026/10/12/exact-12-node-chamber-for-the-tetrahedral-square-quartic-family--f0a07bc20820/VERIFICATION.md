@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is exact and symbolic. For \(F=x_1x_2x_3x_4+q^2\) in characteristic \(2\), direct differentiation gives the four cubic edge-ideal generators because \(d(q^2)=0\). Localizing at an interior edge point reduces the edge ideal to the two transverse coordinates, and a simple root of the binary edge restriction makes \(q\) a third local coordinate. This gives completed local equation \(uv+w^2\) and local Jacobian quotient with basis \(1,w\).
+# Independent mathematical audit
 
-The bundled `artifacts/verify.py` is a finite exact consistency check. It constructs the witness \(q_0=\sum_i x_i^2+\sum_{i<j}x_ix_j\), verifies the formal derivative pattern over \(\mathbb F_2\), enumerates the two roots of \(s^2+st+t^2\) on each of the six edges over \(\mathbb F_4\), and checks that all twelve projective points are distinct and satisfy the quartic and all four partial derivatives. It also verifies that no tetrahedron vertex lies on the witness quadric and records the resulting Jacobian-scheme length \(24\).
+## correctness
 
-The finite-field witness is not used to infer the universal theorem. The universal direction and converse are supplied by the binary-quadratic argument in `RESULT.md`. No claim is made about characteristic different from \(2\), unmarked projective equivalence classes, or a classification of boundary degenerations.
+PASS
+
+Formal partial differentiation in char2 kills q^2, leaving four coordinate triple products; their common reduced locus comprises six coordinate edges. Complementary binary quadratics have two distinct nonvertex zeros iff mixed coefficient and two square endpoint coefficients are nonzero. Across six edges this is equivalent to all ten coefficients nonzero; degenerations either merge roots at vertices, yield repeated roots, or make whole edge singular, never exactly twelve. At nonvertex simple roots choose q as tangential local coordinate w, and F becomes unit*uv+w²; Jacobian local algebra k[[w]]/(w²) has length two. Verified all quantifiers and marked scope, and the finite-field witness is only a consistency check.
+
+## originality
+
+PASS
+
+Best-of-knowledge new exact coefficient-torus chamber and Jacobian scheme refinement for Catanese–Schütt marked tetrahedral family. Original Example 19 gives generic twelve nodes, not an if-and-only-if boundary classification; different local singular schemes not conflated.
+
+## value
+
+PASS
+
+A sharp iff boundary for a motivated characteristic-two twelve-node family, and scheme-theoretic length 24 absent from generic existence assertion, provides useful deformation/discriminant stratification data; not a generic textbook algebra exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
