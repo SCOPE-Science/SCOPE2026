@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The planted state definitions correctly count the parent edge in the root degree. A low planted root has at most one child of either state; a high planted root has at least two children and all must be low. Vertex-rooted, edge-rooted, and oriented-edge-rooted classes then give the displayed dissymmetry formula. The forest SET construction is exact. Independent brute-force enumeration agrees through seven vertices for connected trees and through six vertices for all forests.
+## correctness
 
-## Originality
-PASS, with residual terminology risk. The anchor paper defines the class and proves its weak-amalgamation properties but does not give this labeled EGF. Searches used the exact defining phrase, equivalent branching-vertex language, and exact initial coefficient strings. published-finding corpus semantic searches returned nearby tree/forest enumerations but no equivalent age enumerator. A prior result on the same generic structure concerns radial stabilizer orbits and a Padovan recurrence; it does not count labeled finite members of the age or imply the species system here.
+PASS
 
-## Value
-PASS. Age growth is a basic invariant of a weak Fraïssé class. The result turns a local model-theoretic example into a complete exact labeled enumeration, with a compact system suitable for coefficient extraction and later asymptotic analysis.
+With high=degree>2, low=degree≤2 in finite simple acyclic undirected labeled graphs, a planted low root has at most one child and any planted high root has at least two low children: L=x(1+L+H), H=x(e^L−1−L). Root an actual vertex to get T•=x(1+P+P²/2)+x(e^L−1−L−L²/2), P=L+H. Undirected-edge-rooted EGF L²/2+LH; oriented-edge-rooted EGF L²+2LH. The standard dissymmetry identity yields U=T•−L²/2−LH, all labeled forests F=e^U. This formal-power-series proof covers arbitrary finite orders, no convergence assumption. Independent exact rational expansions recovered all connected/forest coefficients n≤12 and Prüfer-code exhaustive connected counts n≤7.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The defining weak-amalgamation class appears in the original model-theory paper, but its full labeled age EGF and exact coefficients do not follow from WAP/not-CAP and were not found in named prior searches. Tree dissymmetry and SET species are standard and not claimed as new; the new computation is the two-state specialization to the precise class.
+
+## value
+
+PASS
+
+Exact enumeration of the entire finite age of a natural weak-Fraïssé WAP/not-CAP example provides a reusable global invariant and formal system, distinct from generic-limit orbit enumeration. The coefficient sequence allows later asymptotic, random-structure and model-theoretic comparison; no such downstream theorem is needed for the exact invariant to be valuable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
