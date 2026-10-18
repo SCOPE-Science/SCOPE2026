@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Complete proof identifies all n rotation discontinuities and shows exactly one of the n adjacent lex transitions changes the last bit; the others are 01→10. For internal j the tortoise images merge iff the unchanged prefix has zero ones, or equivalently ceil(j alpha)=1. Irrationality makes these j exactly 1..min(n-1,floor(1/alpha)), with no non-adjacent extra collapse because images are nondecreasing. The proof handles all positive n, n=1, and n=0; finite checks independently support n<=100 at five algebraic slopes without replacing infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Campbell–Rampersad Theorem 1: for linear factor complexity with bounded gaps of ones, the tortoise difference is bounded by an unspecified constant, not computed exactly.",
+        "Campbell–Rampersad Theorems 3 and 6: exact tortoise results for paperfolding and Thue–Morse, not Sturmian.",
+        "De Luca–Fici Theorem 4: Lie complexity can be zero for infinitely many lengths, whereas the present tortoise-image count grows linearly.",
+        "Allouche–Campbell–Li–Shallit–Stipulanti Definition 3: identifies reversals; not first-one movement."
+      ],
+      "reasoning": "The strongest relevant general theorem supplies bounded loss but does not fix its value, slope parameter, transition labels or small-length cutoff. Two related exact Sturmian results concern inequivalent relations, so neither can dominate this all-length count.",
+      "searches": [
+        "arxiv:2604.25811v2 Theorem 1 and Theorems 3, 6",
+        "arxiv:2206.00995v2 Theorem 4",
+        "arxiv:2406.09302v4 Definition 3 and Sturmian section"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2604.25811",
+      "https://ajc.maths.uq.edu.au/pdf/77/ajc_v77_p051.pdf",
+      "https://arxiv.org/pdf/2206.00995",
+      "https://arxiv.org/pdf/2406.09302"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original tortoise map defines images but not the number of merged Sturmian cylinders.",
+        "The bounded-defect theorem implies only that the loss is O(1) for each slope; it does not distinguish q=floor(1/alpha), initial plateau, or exact j-threshold identifications.",
+        "Reversal and full cyclic conjugacy relations neither coincide with one-step first-one movement nor determine its equivalence classes."
+      ],
+      "reasoning": "The new result strictly resolves a parameter-dependent constant and all boundary lengths left undetermined by the most pertinent published bound. Existing other complexity invariants and the ordinary count n+1 cannot imply which first-one images collide.",
+      "searches": [
+        "arxiv:2604.25811v2 Theorem 1 Lemma 1 and conclusion §7",
+        "arxiv:1809.09158v2 Definition 1.1",
+        "arxiv:2206.00995v2 Sturmian Theorem 4",
+        "arxiv:2406.09302v4 Definition 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2604.25811v2 §§2–3: equivalence is equality after moving first 1 to end; Theorem 1 only gives bounded defect.",
+        "arxiv:1809.09158v2 §1.2: original recursive tortoise on words, not Sturmian factor quotients.",
+        "arxiv:2206.00995v2 §3: Lie classes are conjugacy classes all of whose rotations are factors."
+      ],
+      "reasoning": "The same operator was searched using the aliases first-one deletion-and-append, one-step tortoise, stack-sorting equivalence, mechanical-word factor images and adjacent 01/10 swap. The defining source has the same operator but no exact Sturmian slope formula. Lie complexity requires entire cyclic conjugacy classes and is a different quotient.",
+      "searches": [
+        "Sturmian words tortoise complexity Defant Kravitz Campbell Rampersad k=1 exact formula slope continued fraction floor reciprocal irrational rotation",
+        "\"Subword enumeration up to stack-sorting equivalence\" \"Sturmian\" tortoise complexity formula n floor 1/alpha",
+        "Sturmian mechanical words first-one deletion map images distinct length n factors stack sorting tortoise left special factors",
+        "Sturmian factor lexicographic adjacent transposition orbit rotation intercept floor alpha exact tortoise complexity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact matching tortoise/Sturmian indexed formula emerged from the directed searches.",
+        "The law depends on the continuous irrational slope parameter; a short linear numerical profile by itself is not the mathematical claim.",
+        "arxiv:2604.25811v2 §7 discusses related integer-sequence questions but gives no Sturmian table with the slope law."
+      ],
+      "reasoning": "A database of a particular linear sequence would not imply the universal parameter-dependent theorem. No exact matching table was found; search absence is not a novelty proof.",
+      "searches": [
+        "site:oeis.org \"tortoise complexity\" \"Sturmian\"",
+        "\"first 1\" \"Sturmian\" \"tortoise\" complexity",
+        "tortoise complexity of Sturmian words rho(n)=max(2,n+1-floor(1/alpha)) first 1 moved to end"
+      ]
+    },
+    "rationale": "After full-text comparison with the defining paper and related primary literature, the exact all-slope, all-length first-one tortoise image count is not stated nor implied. The motivating paper gives only an eventual bounded defect in this family, while its exact results apply to other binary languages; standard conjugacy and reflection complexity measure different relations. Residual unindexed-literature risk is disclosed.",
+    "residual_risks": [
+      "Semantic and phrase searches do not prove worldwide novelty; unindexed publications or unpublished manuscripts may contain the same formula.",
+      "The standard mechanical representation is used as classical background; the proof of the new image count itself is included."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 1 bounds defect for linear-complexity bounded-gap words but does not compute its slope-dependent value; other exact theorems concern paperfolding and Thue–Morse. The §7 Sturmian question supports the mathematical motivation.",
+        "evidence": [
+          "§2, pp.2–3 recursive tortoise",
+          "§3, pp.6–9 Definitions 1–2 and Theorem 1",
+          "§7, p.20 explicit Sturmian question"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2604.25811",
+        "material_read": "Open-access full text materially examined at definitions (pp.2–3 and 6–7), Lemma 1 and Theorem 1 (pp.8–9), exact paperfolding results (pp.10–13), Thue–Morse results, and §7 concluding questions (p.20), including page-image inspection.",
+        "method": "Full-text theorem/definition comparison with the exact claimed factor quotient and inspected question; no inference from snippets alone.",
+        "title": "Subword enumeration up to stack-sorting equivalence",
+        "trigger": "Introduces one-step tortoise complexity and asks about Sturmian variants."
+      },
+      {
+        "assessment": "Introduces the recursive map and enumerations of word preimages and sortable multisets, not tortoise-images of Sturmian factor languages.",
+        "evidence": [
+          "Australas. J. Combin. 77(1) (2020) pp.51–68, §1.2 Definition 1.1"
+        ],
+        "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/77/ajc_v77_p051.pdf",
+        "material_read": "Open-access published paper, introductory definitions and main theorem sections; visually inspected p.53 Definition 1.1.",
+        "method": "Checked operator semantics and the kind of objects and claims in the original word-map work.",
+        "title": "Stack-sorting for Words",
+        "trigger": "Original definition of the hare and tortoise word maps."
+      },
+      {
+        "assessment": "The Lie statistic can vanish and is bounded by 2 for Sturmian words; it does not count first-one tortoise images (which grow linearly).",
+        "evidence": [
+          "§1 pp.1–2 definition of Lie class",
+          "§3 pp.4–6 Theorem 4"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2206.00995",
+        "material_read": "Full six-page open-access preprint, Definitions and §3 Theorem 4 plus proof.",
+        "method": "Compared conjugacy-class condition, asymptotic range, and claimed parameter dependence.",
+        "title": "On the Lie complexity of Sturmian words",
+        "trigger": "Exact Sturmian complexity under a different cyclic word equivalence."
+      },
+      {
+        "assessment": "Quotients by reversal are not one-step tortoise equivalence; the paper does not provide an exact tortoise slope law.",
+        "evidence": [
+          "§1 pp.1–3 reflection Definition 3",
+          "§6 Sturmian sequence applications"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2406.09302",
+        "material_read": "Open-access full-text sections materially examined: §1 definitions and §6 Sturmian Theorem 41 and comparison with other factor equivalences.",
+        "method": "Compared Definition 3 equivalence by reversal with first-one movement.",
+        "title": "The reflection complexity of sequences over finite alphabets",
+        "trigger": "Close contemporary study of quotient factor complexity with a Sturmian theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "85e11f89-cd29-4286-bbbf-c1152a42ec11",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Motivated directly by the explicit Sturmian direction in Campbell–Rampersad §7. An exact all-length, all-irrational-slope formula for a newly introduced equivalence is a structural answer beyond known O(1) defect, with an explanatory threshold bijection and sharp plateau-to-linear transition. It is not a renaming, a finite numerical increment, or an unmotivated special case.",
+    "status": "PASS"
+  }
+}
