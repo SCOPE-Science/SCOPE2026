@@ -1,14 +1,21 @@
-# Same-model review
-## Correctness
-PASS. The three equilibrium equations were solved without treating a necessary two-equation reduction as sufficient. The resulting parameter map \(\Phi:(0,\infty)\to(0,\infty)\) is strictly increasing because its derivative has the globally positive numerator \(t^4+2t^3-t^2+2t+5\). Symbolic Jacobian substitution gives the stated cubic. A Routh count on \(0<t<1/2\), followed by an analytic exclusion of imaginary-axis roots for every \(t>0\), proves that the unstable dimension is exactly two throughout. The bundled checker returns `VERIFY_OK`.
+# Independent mathematical audit
 
-## Originality
-PASS. The primary article states only two necessary relations for the equilibrium coordinates, then reports a numerical stability locus containing stable nodes. The omitted stationarity equation changes the qualitative result: the printed flow has no equilibria at all for nonpositive \(\nu\), and every actual equilibrium for positive \(\nu\) is index-two unstable. Direct equation/title/DOI searches and semantic published-finding searches found no same-object statement or stronger theorem implying this classification.
+## correctness
 
-## Value
-PASS. Equilibria and their stability are the local objects used to classify self-excited versus hidden oscillations and to organize bifurcation claims. Replacing a reported mixed stable/unstable equilibrium diagram by an exact sign threshold and a universal hyperbolic instability theorem materially changes that geometric foundation. The result is exact, parameter-global, and directly reusable in any subsequent local or global analysis of the model.
+PASS
 
-## Closest literature and limitations
-The closest source is the introducing article itself: Qiu et al., *Scientific Reports* 13, 1893 (2023), DOI 10.1038/s41598-023-28509-z. The closest semantic-index matches are equilibrium/stability corrections for different flows; none specializes to this vector field. Search coverage cannot exclude an unindexed correction. No claim is made here about the correctness of the article's non-equilibrium numerical dynamics.
+PASS: Stationarity requires x!=0 and y=2xz. Dividing the second equation gives z(1-x^2-z)=1, implying z<0 (z>0 would give x^2<0). With t=-z>0, x^2=1+t+1/t and nu=Phi(t)=t(t^2+t+5)/[5(t^2+t+1)]. Independent symbolic differentiation gives Phi'(t)=P(t)/[5(t^2+t+1)^2], P=t^4+2t^3-t^2+2t+5>0 for t>0, hence bijective onto nu>0 and two sign equilibria. Independently recomputed Jacobian characteristic coefficients a1=(1-4t^2)/(2t), a2=(15-17t-17t^2)/10, a3=2P/(5t). For 0<t<1/2 a1,a2,a3>0 but a1a2-a3=N/(20t)<0 (N=60t^4+52t^3-69t^2-33t-25), so two RHP roots. Since a3>0, no zero root; an imaginary root would require a3=a1*a2 and a2>=0, impossible both for t<1/2 and t>=1/2. The unstable index is thus identically two; the separate source necessary relations omit this stationarity condition.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS best of knowledge: The published paper presents plotted stable-node equilibria from only two necessary coordinate relations, not full simultaneous stationarity. Their reported branch is not an equilibrium of the printed equations. Exact sign threshold and universal index-two claim correct that source.
+
+## value
+
+PASS
+
+PASS: A full real-parameter equilibrium threshold and universal hyperbolic unstable-index theorem correct a physically interpreted chaotic model's core local stability description, rather than merely adjusting numeric eigenvalues; it clarifies what claims about coexisting attractors do not follow.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

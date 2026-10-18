@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The bundled `verify.py` performs exact symbolic checks against the printed vector field. It verifies:
 
-1. the equilibrium parametrization \(E_\pm(t)\) and the parameter map \(\nu=\Phi(t)\);
-2. the derivative identity \(\Phi'(t)=P(t)/(5(t^2+t+1)^2)\);
-3. the Jacobian characteristic polynomial and all three coefficient formulas;
-4. the Routh determinant identity \(a_1a_2-a_3=N(t)/(20t)\);
-5. that the two coordinate relations printed in the source leave a nonzero unresolved second-equation residual unless the missing scalar condition is imposed; and
-6. a numerical replay at \(\nu=0.21\), yielding exactly two eigenvalues with positive real part and one with negative real part.
+# Independent mathematical audit
 
-A successful replay prints `VERIFY_OK`.
+## correctness
 
-The checker confirms algebra and one numerical example. The universal root count is established by the analytic Routh and no-imaginary-axis-crossing argument in `RESULT.md`, not by finite sampling.
+PASS
+
+PASS: Stationarity requires x!=0 and y=2xz. Dividing the second equation gives z(1-x^2-z)=1, implying z<0 (z>0 would give x^2<0). With t=-z>0, x^2=1+t+1/t and nu=Phi(t)=t(t^2+t+5)/[5(t^2+t+1)]. Independent symbolic differentiation gives Phi'(t)=P(t)/[5(t^2+t+1)^2], P=t^4+2t^3-t^2+2t+5>0 for t>0, hence bijective onto nu>0 and two sign equilibria. Independently recomputed Jacobian characteristic coefficients a1=(1-4t^2)/(2t), a2=(15-17t-17t^2)/10, a3=2P/(5t). For 0<t<1/2 a1,a2,a3>0 but a1a2-a3=N/(20t)<0 (N=60t^4+52t^3-69t^2-33t-25), so two RHP roots. Since a3>0, no zero root; an imaginary root would require a3=a1*a2 and a2>=0, impossible both for t<1/2 and t>=1/2. The unstable index is thus identically two; the separate source necessary relations omit this stationarity condition.
+
+## originality
+
+PASS
+
+PASS best of knowledge: The published paper presents plotted stable-node equilibria from only two necessary coordinate relations, not full simultaneous stationarity. Their reported branch is not an equilibrium of the printed equations. Exact sign threshold and universal index-two claim correct that source.
+
+## value
+
+PASS
+
+PASS: A full real-parameter equilibrium threshold and universal hyperbolic unstable-index theorem correct a physically interpreted chaotic model's core local stability description, rather than merely adjusting numeric eigenvalues; it clarifies what claims about coexisting attractors do not follow.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

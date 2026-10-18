@@ -1,0 +1,90 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T07:50:48.796045Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Stationarity requires x!=0 and y=2xz. Dividing the second equation gives z(1-x^2-z)=1, implying z<0 (z>0 would give x^2<0). With t=-z>0, x^2=1+t+1/t and nu=Phi(t)=t(t^2+t+5)/[5(t^2+t+1)]. Independent symbolic differentiation gives Phi'(t)=P(t)/[5(t^2+t+1)^2], P=t^4+2t^3-t^2+2t+5>0 for t>0, hence bijective onto nu>0 and two sign equilibria. Independently recomputed Jacobian characteristic coefficients a1=(1-4t^2)/(2t), a2=(15-17t-17t^2)/10, a3=2P/(5t). For 0<t<1/2 a1,a2,a3>0 but a1a2-a3=N/(20t)<0 (N=60t^4+52t^3-69t^2-33t-25), so two RHP roots. Since a3>0, no zero root; an imaginary root would require a3=a1*a2 and a2>=0, impossible both for t<1/2 and t>=1/2. The unstable index is thus identically two; the separate source necessary relations omit this stationarity condition.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary's Qi recurrence theorem has different equations, while an analogous Fu-Cheng-Liu exact threshold covers a distinct four-dimensional generator.",
+          "The proof requires a specific monotone elimination Phi(t) and Routh determinant N(t)."
+        ],
+        "reasoning": "Generic existence or index theorems do not specialize to these coefficients without nonstandard model-specific elimination.",
+        "searches": [
+          "Qiu Xu Jiang Sun Cao 2023 symmetric cubic chaotic system exact equilibrium threshold no stable nodes",
+          "Qiu symmetric cubic chaos Routh Hurwitz stable equilibria general theorem"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1038/s41598-023-28509-z",
+        "PMCID:PMC9895447",
+        "2026/10/4/SCOPE-exact-equilibrium-threshold-and-universal-instability-in-a-symme--2e6cfb4486bd",
+        "2026/10/4/SCOPE-a-sharp-global-recurrence-threshold-and-stationary-defect-law-fo--98309e3fc272"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substituting source Eq (4) into the full second stationarity equation leaves a generally nonzero residual.",
+          "The corrected full equations have no equilibria for nu<=0 and all positive-nu equilibria hyperbolic with two unstable roots."
+        ],
+        "reasoning": "The new classification logically disagrees with the source plot, not merely a parameter-renamed special case.",
+        "searches": [
+          "DOI:10.1038/s41598-023-28509-z Eq (3) Eq (4) stability discussion",
+          "Qiu Xu Jiang Sun Cao 2023 symmetric cubic chaotic system exact equilibrium threshold no stable nodes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary top hit 2026/10/4/SCOPE-exact-equilibrium-threshold-and-universal-instability-in-a-symme--2e6cfb4486bd is the same target; next-nearest global stability result concerns Qi flow, not Qiu flow.",
+          "The Qiu source DOI 10.1038/s41598-023-28509-z prints the exact RHS to compare."
+        ],
+        "reasoning": "No distinct candidate in the retrieved list has the same cubic model and both the strict nu>0 threshold and two-dimensional unstable eigenspace.",
+        "searches": [
+          "Qiu Xu Jiang Sun Cao 2023 symmetric cubic chaotic system exact equilibrium threshold no stable nodes",
+          "GitHub SCOPE2026 code search: Qiu Xu Jiang Sun Cao equilibrium",
+          "Qiu Xu Jiang Sun Cao 2023 printed flow equilibrium stable nodes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Primary paper uses incomplete coordinate relations and depicts stable-node branches in a numerical equilibrium/stability figure."
+        ],
+        "reasoning": "No exact tabulation gives the corrected sign threshold or all-index-two theorem; the old plotted stable nodes are not valid roots.",
+        "searches": [
+          "DOI:10.1038/s41598-023-28509-z equilibrium figure Eq (4)",
+          "PMCID:PMC9895447 equilibrium stable-node illustration"
+        ]
+      },
+      "rationale": "PASS best of knowledge: The published paper presents plotted stable-node equilibria from only two necessary coordinate relations, not full simultaneous stationarity. Their reported branch is not an equilibrium of the printed equations. Exact sign threshold and universal index-two claim correct that source.",
+      "residual_risks": [
+        "Unindexed notes or corrections may have spotted the missing equilibrium condition.",
+        "No inference about global attractor existence, circuit synchronization or Lyapunov numerical plots from local fixed-point indices."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Reported stable-node branches follow from incomplete necessary relations and do not satisfy the remaining stationarity equation.",
+          "evidence": "The printed y=8/x-10 nu x and z=4/x^2-5 nu are necessary, not sufficient, equilibrium relations.",
+          "identifier_or_url": "DOI:10.1038/s41598-023-28509-z; PMCID:PMC9895447",
+          "material_read": "Lawful full-text model equations (3)–(7), displayed equilibrium relations, local stability figure discussion and numerical parameter examples",
+          "method": "Primary open-access scientific article read with direct equation comparison",
+          "title": "Dynamical behaviors, circuit design, and synchronization of a novel symmetric chaotic system with coexisting attractors",
+          "trigger": "Exact printed symmetric cubic flow and erroneous equilibrium plot"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A full real-parameter equilibrium threshold and universal hyperbolic unstable-index theorem correct a physically interpreted chaotic model's core local stability description, rather than merely adjusting numeric eigenvalues; it clarifies what claims about coexisting attractors do not follow.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed notes or corrections may have spotted the missing equilibrium condition.",
+    "No inference about global attractor existence, circuit synchronization or Lyapunov numerical plots from local fixed-point indices.",
+    "Both AUDIT.json and METADATA.json retain original operational provenance; publication is not_ready pending confidential-safe transformation, irrespective of science PASS."
+  ],
+  "schema_version": 1
+}
