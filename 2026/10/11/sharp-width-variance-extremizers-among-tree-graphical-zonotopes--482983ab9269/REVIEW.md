@@ -1,19 +1,21 @@
-# Scientific review: sharp width-variance extremizers among tree graphical zonotopes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Euclidean width is exactly the sum of the absolute root-coordinate projections. A standard Gaussian direction, normalized by its independent radius, reduces all second moments to the absolute bivariate Gaussian pair integral. Disjoint edges have zero root correlation; edges sharing one endpoint have absolute correlation \(1/2\). This gives the exact coefficient \(\delta=1/3+(2\sqrt3-4)/\pi>0\) multiplying the incident-edge-pair count. For a tree the degree excesses sum to \(n-2\); their sum of squares is minimized only by path degrees and maximized only by star degrees. The resulting exact gap, equal-volume statement, and limits follow algebraically. The standalone exact-count and finite Monte Carlo diagnostics reproduced `VERIFY_OK`; no probabilistic experiment is used as a proof.
+PASS
 
-## Originality — PASS, subject to residual priority risk
+For connected simple unweighted G on n≥3 vertices and d=n-1, the centered zonotope support sum gives W_G(U)=Σ_{e={i,j}}|U_i-U_j|. Gaussian polar decomposition g=RU in H has E R²=d and E|<e_i-e_j,U>|=sqrt(2)c_d. For distinct root vectors, normalized correlations are 0 (disjoint edges) or ±1/2 (incident edges). Independently applied exact bivariate normal kernel E|XY|=(2/π)(sqrt(1-ρ²)+ρ arcsinρ) to get off-diagonal spherical moments 4/(πd) and (2sqrt3/π+1/3)/d; expansion of W² yields (2m+8 binom(m,2)/π+2δq(G))/d with δ=1/3+(2sqrt3-4)/π>0. For trees, excess degrees a_v=deg(v)-1≥0 sum n-2; sum binom(a_v+1,2) uniquely minimized by all a_v in {0,1} (path), maximized by concentration (star); exact gap δ(n-2)(n-3)/(n-1) follows. Tree incidence maximal minors all ±1, hence Gram determinant n and Euclidean volume sqrt(n), and full-rank tree zonotope is a parallelotope/cube. Gamma-ratio expansion confirms path finite asymptotic 2+2δ-6/π and star variance/n→δ. These are analytic proofs, with finite Prüfer tests and Monte Carlo only diagnostic.
 
-Grujić's *Counting faces of graphical zonotopes* (arXiv:1604.06931, Theorem 1.1 and Sections 2 and 5) classifies face numbers and identifies tree graphical zonotopes as combinatorial cubes; the inspected full text does not provide spherical width variance or its tree extremizers. Dall and Pfeifle's *A Polyhedral Proof of the Matrix Tree Theorem* (arXiv:1404.3876, Theorems 3 and 17) concerns zonotope volume, not width fluctuation. Padrol–Pilaud–Poullot's *Deformed Graphical Zonotopes* (arXiv:2111.12422, accessible structural treatment) develops deformation geometry, not this moment identity. Targeted searches for width variance, Gaussian graph total variation, degree-square/Zagreb descriptions and implied general zonoid correlations returned no established theorem implying this path–star classification. Classical Gaussian pair integrals and tree degree inequalities are acknowledged as ingredients rather than claimed as new. Unindexed or differently formulated prior work remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-Every tree graphical zonotope has identical dimension, face vector, Euclidean volume \(\sqrt n\), and mean width, making the observed sharp difference in width fluctuations genuinely geometric rather than a trivial size normalization. The exact graph-theoretic variance invariant rigorously distinguishes tree branching, with path variances converging to a finite constant but star variances increasing linearly with vertex number. The all-graph moment formula permits wider applications to graph-indexed geometric anisotropy.
+Best-of-knowledge PASS: classical Gaussian absolute moments and standard extremal degree sequences are acknowledged ingredients, but the natural graphical-zonotope directional-width variance formula and complete tree path/star extremizers are not shown as consequences of inspected graph zonotope face/volume papers. An unindexed generic zonoid-width correlation theorem remains a named possible partial antecedent.
 
-## Limits and verification
+## value
 
-The theorem does not imply stochastic ordering, complete width laws, weighted-edge or non-Euclidean versions. Direct inspection covered the complete relevant graphical-zonotope face-enumeration paper and the matrix-tree volume treatment; a later deformation paper was inspected for its structural portions. Classical general zonoid correlation literature might independently imply the formula and constitutes a priority uncertainty. A standard-library verifier checks the finite consequences but does not establish the infinite theorem.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The second moment of width is a natural intrinsic stochastic geometric statistic. Among all n-vertex tree zonotopes, identical Euclidean volume, combinatorial cube structure, and mean width nevertheless conceal a sharp, strictly branch-sensitive variance, classified uniquely by paths and stars with explicit finite-n gap and scaling limits. That geometric distinction is a motivated exact result a zonotope or random geometry researcher could directly use, not an arbitrary graph slice or known face-count recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
