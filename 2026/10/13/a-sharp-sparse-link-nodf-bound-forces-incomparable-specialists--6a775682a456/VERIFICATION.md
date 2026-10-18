@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-The theorem bounds classical unequal-degree-pair NODF for binary ecological interaction matrices containing exactly three rows, \(n\ge4\) columns, precisely \(n+2\) interactions, and no zero row or column.
+# Independent mathematical audit
 
-The proof directly checks the exhaustive column-degree-excess split into either one degree-three column or two degree-two columns. The latter case separates the two possibilities of intersection size one or two. Equality can occur only when every degree-one column meets the common row of the two distinct degree-two columns, yielding the claimed single optimum shape and count \(3n(n-1)\).
+## correctness
 
-The embedded script `verify_sparse_nodf.py` uses only the Python standard library and exact rational arithmetic. For every \(2\le n\le7\), it generates every admissible matrix and calculates the NODF numerator by two independently implemented methods: bitmasks and set intersections. Their scores are checked for exact equality for all \(63{,}906\) matrices. The script checks the maximum and equality shapes for \(4\le n\le7\), validates the stated Ferrers comparison, and tests the symbolic inequalities through \(n=100\).
+PASS
 
-Run:
+With 3 rows, n positive columns and n+2 links, sum_j(deg column_j -1)=2. Hence either one degree-3 column, with P<=n-1+5/2<2n-2 for n>=4, or two degree-2 columns. If their common rows number one, column contribution <=2(n-2) and row contribution <=2, with equality iff all singleton columns hit common row; if identical degree-2 column neighbors, third-row no-isolate forces at least one disjoint singleton column, so P<=2n-5. This proves unique maximizer, labeled 3n(n-1), and Ferrers P=n+1. Independently generated all no-isolate 3xn matrices with n+2 links at n=4,5,6 and computed exact rational overlap sums: 522,2595,11673 admissible and maxima P=6,8,10 with labeled optimum counts 36,60,90. The infinite n theorem follows from the exhaustive structural degree-excess argument.
 
-`python3 verify_sparse_nodf.py`
+## originality
 
-Its first output line must be `VERIFY_OK`.
+PASS
 
-Finite enumeration is not treated as a proof of the infinite family. The universal result relies on the structural case proof. No external audit or independent validation has been performed.
+Classical NODF and its fixed-link numerical maximization are established. The primary metric analyses characterize complete/empty nestedness; Song et al. normalize using estimated fixed-connectance maxima rather than giving this closed sparse 3xn value and equality. Unrestricted-link Ferrers extremizers do not dominate the fixed-link constraint, which changes the optimizer to non-Ferrers. No matching NODF 3xn E=n+2 analytic census found in the Resultary semantic search.
+
+## value
+
+PASS
+
+Exact sharp and unique optimizer of a common ecological nestedness metric under the minimally connected fixed-link regime, plus quantitative strict suboptimality of every Ferrers network. It isolates a meaningful mechanism behind non-nested optimal sparse structures.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

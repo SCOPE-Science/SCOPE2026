@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The fixed link count and absence of zero columns force total column-degree excess two; hence every candidate has either one degree-three column or exactly two degree-two columns. In the first type the column contribution is \(n-1\), and the row contribution is at most \(5/2\), strictly below the proposed maximum for \(n\ge4\). For distinct degree-two columns meeting in one row, the column contribution is at most \(2(n-2)\) and the row contribution at most two, with equality forcing all singleton columns onto the common row. If the degree-two columns share two rows, the third nonisolated row forces a strict gap. The equality structure, Ferrers comparison, and labeled count are explicit. Two independent exact scorers agree on every one of 63,906 exhaustive small matrices; this is not substituted for the universal proof.
+## correctness
 
-Residual C risk: the theorem applies to classical unequal-degree-pair NODF with both guilds counted and positive degrees; changing the metric or constraint changes the problem.
+PASS
 
-## Originality — PASS
-The original NODF paper defines the metric, the detailed analytical study characterizes its zero and one values, and later fixed-size/fixed-link ecological optimizations use heuristics without a guarantee of exact global maxima. Targeted literature and mathematical database searches for exact three-guild sparse bounds, Ferrers comparison, tree extremizers, and explicit fixed-connectance equalities produced no covering result. The nearest already-known size-only extremum does not constrain link count and has Ferrers maximizers, whereas the new optimum at the prescribed sparse link count is necessarily non-Ferrers. Thus the new statement is not implied by that earlier theorem.
+With 3 rows, n positive columns and n+2 links, sum_j(deg column_j -1)=2. Hence either one degree-3 column, with P<=n-1+5/2<2n-2 for n>=4, or two degree-2 columns. If their common rows number one, column contribution <=2(n-2) and row contribution <=2, with equality iff all singleton columns hit common row; if identical degree-2 column neighbors, third-row no-isolate forces at least one disjoint singleton column, so P<=2n-5. This proves unique maximizer, labeled 3n(n-1), and Ferrers P=n+1. Independently generated all no-isolate 3xn matrices with n+2 links at n=4,5,6 and computed exact rational overlap sums: 522,2595,11673 admissible and maxima P=6,8,10 with labeled optimum counts 36,60,90. The infinite n theorem follows from the exhaustive structural degree-excess argument.
 
-Residual O risk: an obscure table of tiny matrices or code test may reproduce an instance of the optimizer; no independently validated uniqueness claim is asserted.
+## originality
 
-## Value — PASS
-Normalization by the maximum NODF attainable at the same network dimensions and link count is an established ecological practice, but current algorithms do not certify that maximum in general. This is an exact, closed-form benchmark for the sparsest connected-link regime at a fixed three-species guild. More importantly, it shows that the configuration maximizing a widely used nestedness score necessarily contains incomparable specialist neighborhoods, rather than the Ferrers arrangement normally associated with strict nestedness. The positive gap \((n-3)/K\) quantifies this diagnostic discrepancy and holds for all \(n\ge4\).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Classical NODF and its fixed-link numerical maximization are established. The primary metric analyses characterize complete/empty nestedness; Song et al. normalize using estimated fixed-connectance maxima rather than giving this closed sparse 3xn value and equality. Unrestricted-link Ferrers extremizers do not dominate the fixed-link constraint, which changes the optimizer to non-Ferrers. No matching NODF 3xn E=n+2 analytic census found in the Resultary semantic search.
+
+## value
+
+PASS
+
+Exact sharp and unique optimizer of a common ecological nestedness metric under the minimally connected fixed-link regime, plus quantitative strict suboptimality of every Ferrers network. It isolates a meaningful mechanism behind non-nested optimal sparse structures.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
