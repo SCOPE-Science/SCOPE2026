@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T13:11:46.560668Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The strict Jury conditions for z^2-ap z-a(1-p) are |a|(1-p)<1, a<1, and 1+a(2p-1)>0; their convex-weight feasible union is -3<a<1, whereas p=1/2 permits -2<a<1. Yule-Walker elimination yields V/sigma^2=(1-a+ap)/[(1+a-ap)(1-a)(1-a+2ap)]. Symbolic differentiation gives d(V/sigma^2)/dp=2a^2 Q_a(p)/[(1-a)(1+a-ap)^2(1-a+2ap)^2]; Q has its unique feasible root p*=sqrt(1-a)/(1+sqrt(1-a)), is negative before, positive after, and p* passes all strict Jury conditions. At a=0 all weights tie at sigma^2. With t=sqrt(1-a), V*=sigma^2/[t^2(2-t)^2] and (a+3)^2 V*/sigma^2 ->4. Independent sympy exact derivative, exact-radical substitutions and limit passed, corroborating the algebra.",
+      "risk": [
+        "Only causal mean-square-stable stationary scalar AR(2) with iid centered finite-variance innovations."
+      ],
+      "sources": [
+        "Frozen RESULT.md blob 7bd1a9567291d33a1479e4eaa518adf141c2cc0b",
+        "independent_1673_checks.py: INDEPENDENT_AR2_DERIVATIVE_JURY_AND_CRITICAL_CONSTANT_OK"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Moving-Average Iteration abstract characterizes deterministic, uniformly weighted spectral stability regions; full text is not accessible for decisive coverage determination.",
+          "Jury criterion gives feasibility inequalities but not stationarity and constrained variance optimizer."
+        ],
+        "reasoning": "A general spectral stability paper can imply deterministic portions; its abstract cannot settle or negate possible stochastic-noise coverage. Acceptance is best-of-knowledge with named access risk, not a claim to know the unread full paper.",
+        "searches": [
+          "AR(2) two lag convex weighting stationary variance minimizing noisy fixed point iteration negative coefficient stability",
+          "arXiv:2609.21442",
+          "classical second-degree Schur/Jury test"
+        ]
+      },
+      "checked_sources": [
+        "J. Epperlein and F. Wirth, Moving-Average Iteration of Linear Maps, arXiv:2609.21442 (abstract/partial HTML; full text unavailable; Oxford VPN disconnected)",
+        "Classical AR(2) Schur/Jury stability criterion and Yule–Walker equations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical covariance identities plus new constrained optimization yield unique p* and quadratic divergence at -3.",
+          "The accessible motivating abstract emphasizes deterministic uniform-window stability, not fresh additive noise or choosing unequal weights."
+        ],
+        "reasoning": "The exact objective and unrestricted constrained stationary minimum are not a stated implication of accessible prior results; the complete 38-page predecessor is an explicit substantial residual risk.",
+        "searches": [
+          "AR(2) two lag convex weighting stationary variance minimizing noisy fixed point iteration negative coefficient stability",
+          "arXiv:2609.21442 abstract",
+          "Yule-Walker AR(2) covariance formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Two-lag fixed-point recursion is AR(2) with phi1=ap and phi2=a(1-p); stationary variance is the rational Yule-Walker formula (1-a+ap)/[(1+a-ap)(1-a)(1-a+2ap)].",
+          "Exact derivative factors as a positive prefactor times Q_a(p)=ap^2-2ap+a+2p-1."
+        ],
+        "reasoning": "Checked the aliases AR(2), noise-filter design, spectral-mapping fixed-point iteration, and memory-weighted linear recursion; classical AR formulas give an analytic tool but do not by themselves state the constrained optimum over stable p.",
+        "searches": [
+          "AR(2) two lag convex weighting stationary variance minimizing noisy fixed point iteration negative coefficient stability",
+          "AR(2) Yule-Walker stationary noise optimal convex lag weights",
+          "arXiv:2609.21442"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest stationary-covariance record addresses constant-template STORM, a different two-mode estimator recursion.",
+          "No indexed exact p*=sqrt(1-a)/(1+sqrt(1-a)) or variance singularity at a=-3 located in searches."
+        ],
+        "reasoning": "Searched optimization under moving-average and AR(2) vocabulary; a failed search is not proof of novelty.",
+        "searches": [
+          "AR(2) two lag convex weighting stationary variance minimizing noisy fixed point iteration negative coefficient stability",
+          "Resultary scalar STORM covariance and moving average noise search",
+          "arXiv:2609.21442"
+        ]
+      },
+      "rationale": "Best-of-knowledge, with material uninspected-source risk: the jointly optimized fixed-p convex AR(2) noise variance, sharp -3 stability frontier and exact critical singularity are not established by the accessible abstract of the motivating deterministic moving-average paper or by the nearby Resultary records. The entire 38-page source could not be read.",
+      "residual_risks": [
+        "Highly relevant Epperlein–Wirth 38-page manuscript full text not inspected; arXiv/OA unsuccessful and Oxford connection returned vpn_disconnected. It may contain a stronger weighting/noise implication.",
+        "An older AR(2) constrained-filter optimization could be indexed under signal processing rather than fixed-point iteration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Abstract describes deterministic uniform moving-average spectral stability, not a confirmed stochastic AR(2) optimization. Its unread full body might nevertheless contain a weighted noise result; no whole-document noncoverage claim.",
+          "evidence": [
+            "Abstract: spectral necessary/sufficient stability for moving-average linear-map iteration, nested width-dependent stability regions; does not mention stationary noisy variance. Oxford status vpn_disconnected"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.21442",
+          "material_read": "Public arXiv abstract and initial HTML introduction lines; full PDF 38 pages was inaccessible, arXiv PDF fetch disabled; other lawful OA mirrors returned abstract only; institutional retrieval returned vpn_disconnected",
+          "method": "Read arXiv abstract and OA metadata; attempted arXiv PDF then institutional oxford_paper authorized route; no authentication bypass",
+          "title": "Moving-Average Iteration of Linear Maps",
+          "trigger": "Same moving-average fixed-width iteration; potential dominating spectral/stochastic theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Convex two-lag memory weights are a natural tuning variable with fresh stochastic iteration errors. The complete best feasible feedback range -3<a<1, uniquely noise-minimizing weight for a!=0, and variance singularity coefficient 4 form a usable stability-versus-noise design diagram; not a mere rewriting of an unconstrained AR covariance identity.",
+      "risk": [
+        "No general matrix, nonlinear, correlated-innovation, transient or unbiased-estimation guarantee."
+      ],
+      "sources": [
+        "J. Epperlein and F. Wirth, Moving-Average Iteration of Linear Maps, arXiv:2609.21442 (abstract/partial HTML; full text unavailable; Oxford VPN disconnected)",
+        "Classical AR(2) Schur/Jury stability criterion and Yule–Walker equations"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Real scalar feedback a, p in [0,1], fresh additive iid mean-zero finite-variance innovations; output is stationary variance of stable recursion.",
+    "The full motivating original paper was unavailable after lawful attempts; this is a priority risk rather than an automatic failure."
+  ],
+  "schema_version": 1
+}
