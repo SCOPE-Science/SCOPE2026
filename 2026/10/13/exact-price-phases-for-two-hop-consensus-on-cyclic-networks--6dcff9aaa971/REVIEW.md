@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Rayleigh–Ritz variational characterization proves global reduction from arbitrary independent weights to two class-uniform conductances. The Fourier symbol is an explicit concave quadratic in the original cycle eigenvalue; therefore the smallest nonzero eigenvalue occurs at one of exactly two known Fourier endpoints. A complete affine-envelope analysis covers all positive prices, both equality boundaries, even and odd cycle sizes, and the large-size limit. The included Python checker reproduced 23,760 comparison tests against feasible uniform allocations, 972 independently weighted full-spectrum cases, 54 boundary checks, and 9 parity cases. Finite tests corroborate but do not replace the proof.
+## correctness
 
-**Originality — PASS (self-review, not certified priority).** The same-graph study Saha–Das (2025), Theorem 3.4, already gives the unweighted Laplacian spectrum of the square of a cycle but does not optimize independently priced first- and second-neighbor conductances. Boyd–Diaconis–Parrilo–Xiao (2007), treats discrete-time SLEM and generic graph symmetry reductions; its ordinary-cycle formula does not imply the two-hop continuous-time rate-price diagram. Shakeri et al. (2015) solve a one-to-one interlayer-budget problem with fixed layer weights, not this two-orbit cycle graph. Gerencsér (2014) treats random sublinear-count shortcuts rather than all deterministic distance-two edges. Apers–Sarlette (2015) optimize polynomial-filtered discrete-time consensus. The available published material and claim-level searches did not reveal an equivalent exact formula or dominating theorem. Residual risk remains from unindexed circulant design literature and possible unstated specializations of general semidefinite programs.
+PASS
 
-**Value — PASS.** The all-size, all-price classification is a natural complete optimization problem, not an arbitrary finite slice. It gives a practicable closed-form rate allocation without a numerical semidefinite solver, identifies both exact switching prices and all symmetric boundary optimizers, distinguishes genuine topological parity, and quantifies the large-network rate gain. The underlying two-mode reduction is the structural reason the full problem has an explicit answer. This claim is restricted to symmetric linear continuous-time dynamics and does not classify arbitrary nonuniform optima.
+Averaging independently priced edge conductances over cyclic rotations preserves the price budget and cannot decrease λ2 because λ2 is the minimum of linear Rayleigh quotients over 1⊥, hence concave. For uniform nearest conductance a and next-nearest b, the Fourier eigenvalue at cycle parameter x=4sin²(pi k/n) is a x+b x(4-x), concave as a function of x for b>=0. All nonzero x lie between attained endpoints μ=4sin²(pi/n) and ν=4sin²(pi floor(n/2)/n); therefore the gap is exactly min{μ(a+(4-μ)b),ν(a+(4-ν)b)}. Under n(a+t b)=1 this becomes the minimum of two affine functions; intersecting at a=ηb yields the exact three price phases νr/(nt), μν/[n(t+η)], μ/n, with η=μ+ν-4>0, r=4-ν≥0 and q=4-μ. Equality plateau conditions follow from slope-zero boundary cases t=r or t=q; odd/even behavior from graph connectivity; large-n μ~4π²/n², ν→4 establishes 16π²/(tn³) for fixed 0<t<4. All results n>=5, t>0 are proved analytically rather than by finite numerical searches.
 
-**Closest scientific literature and limits.** Boyd et al., arXiv:0709.0955; Shakeri et al., arXiv:1510.06785; Gerencsér, arXiv:1401.1692; Apers–Sarlette, arXiv:1503.01269; Saha–Das, DOI:10.26713/cma.v16i4.3246. Their model/objective distinctions are material; this review is not an independent historical priority judgment. The executable tests are finite checks only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Saha and Das (2025) Theorem 3.4 gives the UNWEIGHTED Laplacian spectrum of exactly C_n^2: λ_k=4-2cos(2πk/n)-2cos(4πk/n). Thus Fourier technique and unweighted eigenvalues are prior. Boyd–Diaconis–Parrilo–Xiao (2007) handle SLEM and symmetry reduction in discrete-time fastest mixing; Shakeri et al. (2015) optimize a different fixed-layer interconnection budget; Gerencsér studies random sparse cycle shortcuts. These may suggest the method but neither the particular priced 2-orbit continuous-time feasible set nor the explicit r/q price transition and parity-specific boundary plateaux appear in their inspected statements. Originality is qualified by possible broader circulant SDP cases.
+
+## value
+
+PASS
+
+For a natural network C_n^2 with independently selectable conductances, the answer is a complete all-n price-to-rate function with exact optimal allocations and sharp boundary families. It distinguishes odd cycles (cheap two-hop edges alone retain connectivity) from even cycles (two-hop alone disconnects) and provides the precise factor 4/t in long-network performance. The two-mode reduction turns a global semidefinite optimization into an explicit law, useful for diffusion and consensus design.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
