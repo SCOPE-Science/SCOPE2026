@@ -1,16 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The source theorem supplies bounded continuous \(h\) and \(k\) with the two semiconjugacy identities and a uniform displacement bound. In \(\mathbb R^n\), \(\operatorname{Id}+h\) and \(\operatorname{Id}+k\) are proper because bounded displacement turns the preimage of a bounded set into a bounded set. Surjectivity follows from a boundary-zero-free Brouwer-degree homotopy to the identity. Proper surjective semiconjugacies pull compact forward-invariant sets back to compact forward-invariant sets, and entropy cannot increase under a compact factor. Reversing the roles gives equality.
+## correctness
 
-Risk: the proof does not establish injectivity or mutual inverse identities.
+PASS
 
-## Originality
-**PASS.** arXiv:2610.04179v1 explicitly says that surjectivity is not asserted in the general Banach-space theorem, and its future-research discussion focuses on the stronger unresolved problem of mutual invertibility. Full-text searches in that paper found no finite-dimensional degree upgrade and no entropy consequence. Targeted published-finding corpus searches for the exact source, finite-dimensional surjectivity, bounded-displacement factor maps, and compact-subsystem entropy found no implication-equivalent published finding.
+Tikhomirov's actual Theorem 2.3 supplies bounded continuous fields h,k with the two claimed semiconjugacy equations and uniform sup bounds. For H=Id+h on R^n, H^-1(C) closed and bounded for every compact C, hence compact; H is proper. For arbitrary y choose R>||y||+||h||∞, and homotope x-y to x+h(x)-y on B_R; nonzero boundary gives Brouwer degree 1, implying H(x)=y. Ditto K=Id+k. Pullback H^-1(C) of any nonempty compact forward g-invariant subsystem C is compact, nonempty and forward f-invariant; restriction H is an onto compact factor map, so htop(g|C)≤htop(f|H^-1(C)). Taking suprema yields h_cpt(g)≤h_cpt(f), and K gives the reverse. Empty family convention in [0,∞] is 0 on both sides since factors transfer compact subsystems. No injectivity, inverse identity, Bowen entropy or whole-noncompact entropy is claimed. This is a complete finite-dimensional degree and factor proof, not a numerical certificate.
 
-Residual risk: an equivalent finite-dimensional observation may exist in older or unindexed structural-stability literature, and a later revision of the recent preprint may add it.
+## originality
 
-## Value
-**PASS.** The finding upgrades a theorem that deliberately gives only non-surjective semiconjugacies in general to actual factor maps in finite dimensions. Every compact invariant subsystem on either side then has a compact factor extension on the other, yielding an exact robust entropy invariant. This separates the finite-dimensional obstruction that disappears automatically—surjectivity—from the genuinely unresolved obstruction—injectivity and mutual invertibility.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Theorem 2.3 of arXiv:2610.04179v1 explicitly withholds surjectivity for general Banach semiconjugacies, while the R^n bounded-displacement Brouwer degree argument is a stronger FINITE-DIMENSIONAL inference and the mutual-factor compact entropy equality is absent from the parent. Classical degree theory alone is prior general machinery, not a published same-parameter factor/entropy implication of the parent without this application. Resultary searches found the assessed claim, related entropy results for other systems and no stronger theorem directly covering this applied finite-dimensional mutual-factor conclusion. A later revision or unindexed structural stability textbook discussion may contain the observation; best-of-knowledge risk recorded.
+
+## value
+
+PASS
+
+The parent Banach-space theorem deliberately stops short of onto factor maps. Finite-dimensional properness/degree eliminates a real obstruction and gives a new unambiguous consequence: compact-subsystem entropy is invariant under these perturbations even without established conjugacy. The result isolates the remaining injectivity obstacle. Though the topological lemma is standard, applying it to a nontrivial two-sided generalized-hyperbolic theorem with the concrete dynamical invariant is more than textbook renaming; value is restricted to finite dimensions and the stated entropy notion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
