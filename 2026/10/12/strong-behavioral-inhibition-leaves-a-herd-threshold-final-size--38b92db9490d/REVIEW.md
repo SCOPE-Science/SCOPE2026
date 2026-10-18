@@ -1,29 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof begins from the source's exact final-state equation. The transformed root satisfies
-\[
-a_\epsilon-x_\infty
-=
-C_\epsilon x_\infty^{\alpha\epsilon/\beta},
-\qquad
-C_\epsilon=O(\epsilon)>0.
-\]
-For any fixed \(q\in(\alpha/(\beta S_0),1)\), the root lies below \(q\) for sufficiently large \(\epsilon\), giving the claimed exponential bound. The limit is analytic, not inferred from simulation.
+PASS
 
-## Originality
+From the explicitly quoted phase first integral, x=S∞/S0 obeys x−aε+Cε x^σ=0, aε=α/(β S0)−1/(ε S0), σ=αε/β, Cε=(σ−1)(I0+1/ε−S0/(σ−1))/S0=O(ε)>0 for all large ε. Then 0<x<aε<q<1 and 0<aε−x=Cε x^σ≤Cε q^σ, proving the stated exponentially small remainder and strict inequality without extrapolating a finite sample. Independently verified rational algebra of the final-state equation and high-precision finite ε=9.8 and ε=12 root residuals; no claim for βS0≤α.
 
-PASS. Behavioral incidence and final-size analysis are established. The accepted contribution is the exact strong-inhibition asymptotic for this prevalence-saturating source model. The motivating article does not state the limit, and the closest later full-text final-size study analyzes generalized contact rates and power-law incidence instead. Source, alias, implication, and historical-overlap searches found no equivalent statement.
+## originality
 
-## Value
+PASS
 
-PASS. The result identifies the limiting long-run depletion under arbitrarily strong behavioral saturation and shows that it remains the classical herd-threshold amount rather than vanishing. This sharpens the source model's intervention interpretation while remaining distinct from peak and timing effects.
+Earlier Li–Wang–Lin develops finite-ε epidemic characteristics and the exact root equation, but accessible article synopsis does not state an ε→∞ susceptible floor with exponential remainder. The broader Gao et al. final-size work treats a different power-law incidence family. Best-of-knowledge acceptance with explicit full-text access limitation.
 
-## Closest literature and limitations
+## value
 
-The later generalized-contact final-size paper is the closest inspected primary comparison, but its nonlinear family is \(\beta s^p i^q\), not \(\beta SI/(1+\epsilon I)\).
+PASS
 
-The theorem assumes permanent fixed behavior, supercritical initial susceptible mass, and the deterministic source model exactly as stated.
+Final size is a canonical epidemic invariant, and the nonzero limit is surprising relative to arbitrarily strong transient suppression: cumulative susceptible infections still reach the classical herd-threshold depletion despite long delay. It answers an interpretable singular limit of the exact motivating model with a sharp exponentially small remainder, not merely a plotted peak.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

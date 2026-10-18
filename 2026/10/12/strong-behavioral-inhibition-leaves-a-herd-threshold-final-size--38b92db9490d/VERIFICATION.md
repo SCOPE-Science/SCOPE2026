@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,28 +18,25 @@
   "schema_version": 1
 }
 ---
-The bundled checker reconstructs the source's final-state relation using exact rational arithmetic at the source parameter values.
 
-For
-\[
-S_0=200,\qquad I_0=2,\qquad
-\alpha=2,\qquad \beta=0.2,\qquad
-\epsilon=9.8,
-\]
-it verifies
-\[
-\sigma=\frac{\alpha\epsilon}{\beta}=98
-\]
-and
-\[
-a_\epsilon
-=
-\frac{\alpha}{\beta S_0}
--\frac1{\epsilon S_0}
-=
-\frac{97}{1960}.
-\]
+# Independent mathematical audit
 
-The exact final-state function is negative at \(x=0\) and positive at \(x=a_\epsilon\), so its unique positive root lies strictly below \(a_\epsilon\), matching the proof's one-sided correction.
+## correctness
 
-The infinite-\(\epsilon\) conclusion is established by the analytic exponential estimate; the finite calculation is only a replay check.
+PASS
+
+From the explicitly quoted phase first integral, x=S∞/S0 obeys x−aε+Cε x^σ=0, aε=α/(β S0)−1/(ε S0), σ=αε/β, Cε=(σ−1)(I0+1/ε−S0/(σ−1))/S0=O(ε)>0 for all large ε. Then 0<x<aε<q<1 and 0<aε−x=Cε x^σ≤Cε q^σ, proving the stated exponentially small remainder and strict inequality without extrapolating a finite sample. Independently verified rational algebra of the final-state equation and high-precision finite ε=9.8 and ε=12 root residuals; no claim for βS0≤α.
+
+## originality
+
+PASS
+
+Earlier Li–Wang–Lin develops finite-ε epidemic characteristics and the exact root equation, but accessible article synopsis does not state an ε→∞ susceptible floor with exponential remainder. The broader Gao et al. final-size work treats a different power-law incidence family. Best-of-knowledge acceptance with explicit full-text access limitation.
+
+## value
+
+PASS
+
+Final size is a canonical epidemic invariant, and the nonzero limit is surprising relative to arbitrarily strong transient suppression: cumulative susceptible infections still reach the classical herd-threshold depletion despite long delay. It answers an interpretable singular limit of the exact motivating model with a sharp exponentially small remainder, not merely a plotted peak.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
