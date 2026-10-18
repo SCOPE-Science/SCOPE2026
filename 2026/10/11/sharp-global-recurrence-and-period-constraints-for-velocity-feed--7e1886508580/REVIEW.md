@@ -1,15 +1,21 @@
-# Scientific review: velocity-feedback jerk recurrence theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The direct identity \(L(\tfrac12a^2+xv-F(v))=v^2-Aa^2\) follows by differentiation for locally Lipschitz feedback. Invariance of compactly supported measures justifies the generator integrations; the two additional tests \(x^2/2\) and \(va\) close the feedback–acceleration balance, while \(\int v\,d\mu=0\) removes the constant feedback. The maximal invariant subset of the nonnegative-drift zero set is the unique equilibrium when \(A\le0\); compact alpha-/omega-limit arguments yield the claimed full-trajectory rigidity. On a periodic orbit, zero-mean velocity and sharp Wirtinger give \(P\ge2\pi\sqrt A\), and its equality case is checked by direct substitution. The quadratic Sprott velocity excursion follows from the nonnegative polynomial moment identity and zero mean. Exact symbolic replay checked the differentiations and equality orbit. No numerical approximation is used as an infinite proof.
+## correctness
 
-## Originality — PASS, qualified by identified sources
-Both exact-system primary papers were materially read: Sprott (1997) reports quadratic velocity-feedback chaos and the damping parameter, and Munmuangsaen–Srisuchinwong–Sprott (2011) treats broad \(f(\dot x)\) numerically and gives the **local** imaginary-pair slope, but neither establishes the global measure secant law, closed-side compact-recurrence theorem or sharp period/equality criterion. The full 2002 Eichhorn–Linz–Hänggi paper was checked for its two polynomial jerk classes, which have different feedback coordinates or nonlinearities. The published Goodwin global-slope theorem has nonlinear **position** feedback and a different weighted observable; the earlier forced Arneodo-style jerk law similarly changes the restoring term and feedback argument. Those claims do not imply the present theorem by parameter substitution. Searches of the public mathematical results database using the exact equation, energy, slope, period, and dual-form formulations found no dominating statement. Residual risk: the 2009 Kocić–Gegovska-Zajkova paper was located only bibliographically, and some older third-order multiplier literature was not read completely. Absence of a database hit alone is not a novelty proof.
+PASS
 
-## Value — PASS
-The single structural balance answers three related natural questions for a documented family with chaotic smooth and diode-type examples: whether compact recurrence is possible without positive damping (a rigorous nonexistence result rather than a negative numerical search), which finite-amplitude velocity-feedback slopes are compatible with recurrence (an exact global continuation of the local imaginary-pair threshold), and how short a periodic cycle can be (a sharp dimensional parameter-dependent bound with complete equality classification). The original quadratic flow further has a strict unavoidable negative-velocity excursion. These are testable obstructions to reported periodic or chaotic dynamics, not arbitrary parameter slices or numerical table recomputations.
+In exact first-order coordinates (x,v,a), H=a²/2+xv-∫_0^v f has Lie derivative v²-Aa², with no approximation or differentiability of f beyond local Lipschitz required (F is C1). Compactly supported invariant measures annihilate generator observables x,x²/2,v²/2,va,H, yielding both balances; zero v² forces support at e. A<=0 gives monotone H and LaSalle on bounded orbits; alpha/omega limit sets both equal e on a bounded complete orbit, forcing H constant and orbit stationary. For periodic v, mean zero and exact Wirtinger yield P>=2pi√A; pure harmonic equality requires f(s)=f(0)-s/A throughout [-R,R], and its explicit orbit substitutes exactly. For f(v)=v², E[v²(v+1/A)]=0 plus E v=0 gives strict negative/positive excursions. Independent symbolic Lie identities and equality orbit verified; symbolic tests cannot replace the compact-invariance/Wirtinger proof.
 
-## Literature comparisons and limits
-Nearest works: Sprott (1997), *Simplest dissipative chaotic flow*, DOI `10.1016/S0375-9601(97)00088-1`; Munmuangsaen et al. (2011), *Generalization of the simplest autonomous chaotic system*, DOI `10.1016/j.physleta.2011.02.028`; Eichhorn et al. (2002), DOI `10.1016/S0960-0779(00)00237-X`; the published Goodwin weighted-slope theorem identified by `2026/9/20/SCOPE-goodwin-global-hopf-slope-balance--69bab068e3f7`. The result proves necessary conditions only when \(A>0\), assumes locally Lipschitz feedback, and does not establish existence of chaos or nonlinear Hopf nondegeneracy. Uninspected 2009 piecewise-jerk literature is an explicit originality risk, not claimed to be disproved.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Sprott 1997 exactly introduces quadratic f(v)=v² and numerically reports chaos, periods and divergence; Munmuangsaen–Srisuchinwong–Sprott 2011 Eq.(3) introduces A=1 general f(v) and Eq.(5) its LOCAL equilibrium slope f'(0)=-1, but its article concerns numerical chaos, maps, and local spectra. No inspected primary theorem there supplies arbitrary-compact-invariant-measure secant equality, full A<=0 complete recurrence barrier, or sharp universal period plus equality. Genesio, Goodwin and Moore–Spiegel published balances concern DIFFERENT restoring/feedback coordinates. Classical third-order multiplier literature and 2009 jerk article remain explicit risks.
+
+## value
+
+PASS
+
+This gives exact global necessary obstructions across an actual experimentally studied jerk family: rigorous nonpositive damping recurrence exclusion, nonlinear finite-amplitude statistical slope selection matching the local imaginary-pair threshold, sharp least-period with equality family, and forced velocity excursions for original Sprott flow. Strong structural utility surpasses trivial identity alone; no claim of positive-A chaotic existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

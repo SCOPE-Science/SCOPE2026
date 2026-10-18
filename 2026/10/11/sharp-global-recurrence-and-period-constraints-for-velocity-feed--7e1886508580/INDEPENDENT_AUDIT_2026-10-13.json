@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T06:48:50Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md bf7ad4091a04728d89bfa185f9f2f4cd1a79de51; artifacts/verify_identities.py 7bb985e96b322707a5b7721452b9ce47ceec4321; all source blobs and tree"
+      ],
+      "rationale": "In exact first-order coordinates (x,v,a), H=a²/2+xv-∫_0^v f has Lie derivative v²-Aa², with no approximation or differentiability of f beyond local Lipschitz required (F is C1). Compactly supported invariant measures annihilate generator observables x,x²/2,v²/2,va,H, yielding both balances; zero v² forces support at e. A<=0 gives monotone H and LaSalle on bounded orbits; alpha/omega limit sets both equal e on a bounded complete orbit, forcing H constant and orbit stationary. For periodic v, mean zero and exact Wirtinger yield P>=2pi√A; pure harmonic equality requires f(s)=f(0)-s/A throughout [-R,R], and its explicit orbit substitutes exactly. For f(v)=v², E[v²(v+1/A)]=0 plus E v=0 gives strict negative/positive excursions. Independent symbolic Lie identities and equality orbit verified; symbolic tests cannot replace the compact-invariance/Wirtinger proof.",
+      "residual_risks": [
+        "Finite experiments are supplementary; global claim depends on the specific analytic steps in RESULT.md."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "1997 original concerns a single quadratic f(v) with numerical return map, not arbitrary locally Lipschitz f and all compact invariant measures.",
+          "2011 paper extends f(v) family at A=1 and discusses local spectral bifurcation, not the stated global period theorem.",
+          "Six-coefficient quadratic jerk recurrence theorem concerns another polynomial parameter family not shown to contain arbitrary f(v)."
+        ],
+        "reasoning": "The input object of 2011 partially covers the broad feedback class, but its results as inspected are local/numerical and do not dominate global recurrence/period classification.",
+        "searches": [
+          "third-order velocity feedback jerk global recurrence period bound invariant measures",
+          "Sprott 1997 DOI:10.1016/S0375-9601(97)00088-1",
+          "Munmuangsaen 2011 DOI:10.1016/j.physleta.2011.02.028",
+          "Resultary six-parameter quadratic jerk e1b6be44b454"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md bf7ad4091a04728d89bfa185f9f2f4cd1a79de51",
+        "Sprott 1997 DOI:10.1016/S0375-9601(97)00088-1",
+        "Munmuangsaen et al. 2011 DOI:10.1016/j.physleta.2011.02.028",
+        "Resultary 05dd465b6b5b",
+        "Goodwin weighted slope 69bab068e3f7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2011 Jacobian polynomial at A=1 implies local f'(0)=-1 condition, whereas theorem requires invariant-measure average of v(f(v)-f0)/v²=-1/A over arbitrary amplitude.",
+          "Published Genesio proof gets period floor from different energy identity for nonlinear x² restoring, not a corollary for arbitrary velocity feedback f(v)."
+        ],
+        "reasoning": "A local Hopf threshold and numerical periodic orbit do not imply global secant identity, all Lipschitz feedback period and exact affine equality; here derive them from a distinct coboundary H.",
+        "searches": [
+          "third-order velocity feedback jerk global recurrence period bound invariant measures",
+          "Sprott 1997 full four-page source",
+          "Munmuangsaen 2011 full six-page source",
+          "Genesio published RESULT 05dd465b6b5b"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original 2011 primary paper Eq.(3) is x triple dot+x double dot+x=f(xdot) with A=1, so this is indeed the same family; Eq.(5) is LOCAL f'(0) threshold -1 only.",
+          "Published Goodwin result has position feedback g(x), with derivative weighted slope; Genesio has nonlinear x² and a b*x' restoring coefficient."
+        ],
+        "reasoning": "The nonlinear invariant velocity secant slope -1/A is not merely the local Jacobian derivative criterion. Slope/period language in differently coupled jerk fields is not an implication under coefficient renaming.",
+        "searches": [
+          "third-order velocity feedback jerk global recurrence period bound invariant measures",
+          "Munmuangsaen et al 2011 Eq(3), Eq(5)",
+          "Resultary Goodwin weighted slope 69bab068e3f7",
+          "Resultary Genesio period law 05dd465b6b5b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2011 Table 1 gives numerical Lyapunov exponents and Kaplan–Yorke dimensions for 12 f choices; not exact invariant expectations or a universal period/equality table.",
+          "Relevant published Resultary recurrence balances on Genesio/Goodwin etc correspond to different nonlinearities."
+        ],
+        "reasoning": "Numerical chaos tables cannot imply arbitrary invariant probability identities and equality classifications; search did not identify an exact same-system published table beyond assigned result.",
+        "searches": [
+          "third-order velocity feedback jerk global recurrence period bound invariant measures",
+          "\"x triple dot\" \"f(x prime)\" invariant period",
+          "Resultary third-order velocity feedback jerk global recurrence period bound invariant measures",
+          "Munmuangsaen 2011 Table 1 Lyapunov exponents"
+        ]
+      },
+      "rationale": "Sprott 1997 exactly introduces quadratic f(v)=v² and numerically reports chaos, periods and divergence; Munmuangsaen–Srisuchinwong–Sprott 2011 Eq.(3) introduces A=1 general f(v) and Eq.(5) its LOCAL equilibrium slope f'(0)=-1, but its article concerns numerical chaos, maps, and local spectra. No inspected primary theorem there supplies arbitrary-compact-invariant-measure secant equality, full A<=0 complete recurrence barrier, or sharp universal period plus equality. Genesio, Goodwin and Moore–Spiegel published balances concern DIFFERENT restoring/feedback coordinates. Classical third-order multiplier literature and 2009 jerk article remain explicit risks.",
+      "residual_risks": [
+        "The complete 2009 Kocić–Gegovska-Zajkova jerk system paper was not accessed; its precise multiplier results remain unknown.",
+        "Older third-order ODE global integral identities may provide overlapping individual conclusions, despite different inspected feedback coordinates.",
+        "No positive-A recurrence existence asserted; equality requires f affine on complete traversed velocity interval."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ORIGINAL_QUADRATIC_NUMERICS",
+          "evidence": [
+            "1997 abstract and main equation x triple dot+A x double dot - (x dot)^2+x=0, chaotic window 2.017<A<2.082, not universal compact-measure theorem."
+          ],
+          "identifier_or_url": "https://wippl.wisc.edu/pub_files/journal/Sprott116.pdf",
+          "material_read": "Original four-page primary PDF, cover/abstract rendered, equation and numerical claims read in published source; no searchable PDF text from endpoint",
+          "method": "Read original original page images and article summary; scanned numerical period-doubling scope",
+          "title": "Simplest dissipative chaotic flow",
+          "trigger": "exact quadratic feedback prototype"
+        },
+        {
+          "assessment": "LOCAL_SLOPE_PRIOR_NOT_GLOBAL_SEE_RISK",
+          "evidence": [
+            "p.1445 Eq(3) x triple dot+x double dot+x=f(xdot); p.1446 Eq(5) local f'(0)=-1 Hopf; Table1 Lyapunov data."
+          ],
+          "identifier_or_url": "https://sprott.physics.wisc.edu/pubs/paper354.pdf",
+          "material_read": "Complete six-page original primary PDF searchable text, with rendered pages 1,2 for Eq(3), Eq(5), numerical Table1 and local eigenvalues; remainder checked for scope",
+          "method": "Lawful author-posted primary PDF text and pages inspection",
+          "title": "Generalization of the simplest autonomous chaotic system",
+          "trigger": "exact arbitrary velocity-feedback family at A=1"
+        },
+        {
+          "assessment": "DISTINCT_NONLINEAR_POSITION_FEEDBACK",
+          "evidence": [
+            "Genesio x triple dot+a x double dot+b x dot+c x-x²=0: structural similarity in method, but no arbitrary f(xdot) secant or period equality consequence."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-genesio-recurrence-balance-and-period-floor--05dd465b6b5b",
+          "material_read": "Entire published RESULT.md, Lie identity, LaSalle proof, strict Wirtinger period, prior-work section",
+          "method": "Read full public GitHub source",
+          "title": "Exact recurrence balances and a sharp period floor for the Genesio system",
+          "trigger": "strong competing global third-order recurrence theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md bf7ad4091a04728d89bfa185f9f2f4cd1a79de51",
+        "Sprott 1997 DOI:10.1016/S0375-9601(97)00088-1",
+        "Munmuangsaen et al. 2011 DOI:10.1016/j.physleta.2011.02.028",
+        "Resultary 05dd465b6b5b",
+        "Goodwin weighted slope 69bab068e3f7"
+      ],
+      "rationale": "This gives exact global necessary obstructions across an actual experimentally studied jerk family: rigorous nonpositive damping recurrence exclusion, nonlinear finite-amplitude statistical slope selection matching the local imaginary-pair threshold, sharp least-period with equality family, and forced velocity excursions for original Sprott flow. Strong structural utility surpasses trivial identity alone; no claim of positive-A chaotic existence.",
+      "residual_risks": [
+        "The complete 2009 Kocić–Gegovska-Zajkova jerk system paper was not accessed; its precise multiplier results remain unknown.",
+        "Older third-order ODE global integral identities may provide overlapping individual conclusions, despite different inspected feedback coordinates.",
+        "No positive-A recurrence existence asserted; equality requires f affine on complete traversed velocity interval."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For x'''+A x''+x=f(x'), locally Lipschitz: bounded complete recurrence only equilibrium if A<=0; positive A invariant measures obey E(v²)=A E(a²), E[v f(v)]=-E(a²), secant slope -1/A, and cycles P>=2pi sqrt A with critical affine equality; quadratic f(v)=v² forces both-sign velocity excursions and strict periods.",
+  "limitations": [
+    "The complete 2009 Kocić–Gegovska-Zajkova jerk system paper was not accessed; its precise multiplier results remain unknown.",
+    "Older third-order ODE global integral identities may provide overlapping individual conclusions, despite different inspected feedback coordinates.",
+    "No positive-A recurrence existence asserted; equality requires f affine on complete traversed velocity interval."
+  ],
+  "schema_version": 1
+}
