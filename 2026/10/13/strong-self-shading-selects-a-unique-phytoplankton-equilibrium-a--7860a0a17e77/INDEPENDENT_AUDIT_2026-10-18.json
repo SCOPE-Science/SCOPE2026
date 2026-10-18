@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T11:16:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the exact Zhang–Yan–Shi I=V=0 stationary BVP, fixed positive parameters, arbitrary finite advection and strictly positive phytoplankton invasion eigenvalue, integrating the two zero-flux biomass terms and the exact Lambert–Beer photon budget bounds kappa*S in L1 uniformly across ALL positive equilibria. A positive bounded Green kernel for mu_p-D converts this into a common L-infinity bound; ODE and Robin boundary estimates give C2 precompactness. Any zero limit contradicts the strictly positive principal invasion eigenvalue on normalization. Strictly decreasing light feedback and the Wronskian force the limiting scalar positive solution to be unique, with Hsu–Lou existence as prior input. Linearized Wronskian W=z'u-zu' obeys W'=omega/d_p W -(A_H/d_p)u^2 j, j=integral(z)>0, giving F_a=d_p W(X)/u(X)>0; nutrient shooting derivative G_b=alpha>0, G_a=0. The 2x2 shooting Jacobian is invertible, local implicit-function uniqueness and global compactness exclude remote coupled steady branches for sufficiently large finite kappa. Differentiating in epsilon=1/kappa yields S=kappa^-1 u_*+O(kappa^-2), N=N0-kappa^-1 n_*+O(kappa^-2) in C2, n_* the explicit positive Neumann–Robin Green integral. Not a theorem on all finite kappa, infected equilibria or nonlinear stability; numerical solve_bvp of one parameter set corroborates but is not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhang–Yan–Shi states supercritical disease-free uniqueness unknown; the 2009 coupled work uses different boundary structure; the 2019 crowding paper is scalar in its accessible abstract."
+        ],
+        "reasoning": "Existence and local near-threshold stability cannot imply uniqueness for all large attenuation. No inspected stronger all-parameter theorem covers the pair of claims, with incompletely read scalar paper explicitly a risk.",
+        "searches": [
+          "doi:10.1007/s00285-024-02093-w Section 3 Theorem 3.6",
+          "doi:10.1137/070693692",
+          "doi:10.3934/dcds.2019003"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1007/s00285-024-02093-w",
+        "https://doi.org/10.1137/100782358",
+        "https://doi.org/10.3934/dcds.2019003",
+        "https://doi.org/10.1137/070693692",
+        "Resultary semantic search: phytoplankton nutrient nonlocal light attenuation strong self shading unique positive stationary profile inverse attenuation limit advection"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first paper proves a positive E2 and leaves global uniqueness unknown; the second proves only single-population scalar uniqueness."
+        ],
+        "reasoning": "Combining prior existence and scalar uniqueness does not give global compactness, nonsingular nutrient-coupled shooting at positive reciprocal attenuation or explicit nutrient correction. Those are the candidate proof’s additional steps.",
+        "searches": [
+          "doi:10.1007/s00285-024-02093-w equation (3.16) Theorem 3.6",
+          "doi:10.1137/100782358 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hsu–Lou Theorem 1 solves the scalar light-only rescaled equation, with no nutrient variable.",
+          "The present quantified conclusion ranges over every positive coupled equilibrium at all sufficiently large finite attenuation."
+        ],
+        "reasoning": "Scaling biomass by attenuation reduces only the limit to a known scalar BVP. It does not remove finite nutrient feedback and crowding. Scalar-equation equivalence is therefore credited as prior but does not cover the new coupled claim.",
+        "searches": [
+          "Resultary: phytoplankton nutrient nonlocal light attenuation strong self shading unique positive stationary profile inverse attenuation limit advection",
+          "doi:10.1137/100782358"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hit 2026/9/20/SCOPE-klausmeier-identifiability-fisher-correlation-floor--962dc48d4a2e concerns identifiability not this BVP."
+        ],
+        "reasoning": "Inapplicable as a finite table: analytic continuum existence/uniqueness with variable attenuation cannot be established by numeric grid. Checked nearby published records do not assert this theorem.",
+        "searches": [
+          "Resultary: phytoplankton nutrient nonlocal light attenuation strong self shading unique positive stationary profile inverse attenuation limit advection",
+          "doi:10.1007/s00285-024-02093-w"
+        ]
+      },
+      "rationale": "The exact originating 2024 coupled paper proves positive disease-free equilibrium existence above its invasion threshold and notes unknown supercritical uniqueness; the Hsu–Lou scalar light/advection theorem already gives the positive limiting profile. The joint high-finite-shading two-field uniqueness and the first nutrient deficit are neither implied by scalar uniqueness alone nor stated in the inspected coupled results. Best-of-knowledge original for this precise conjunction, with risk of an unindexed strong-light-attenuation BVP theorem.",
+      "residual_risks": [
+        "Pang–Nie–Wu (2019) complete scalar-light/crowding text inaccessible; cannot claim its entire results are excluded.",
+        "Unindexed earlier nonlinear coupled light–nutrient strong attenuation theorem may subsume the uniqueness or expansion.",
+        "Nonconstructive large-kappa threshold, strict invasion supercriticality and strictly positive fixed rates; finite numerics do not prove generality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS positive disease-free existence, leaves uniqueness above threshold open; no all-large-shading expansion",
+          "evidence": "Section 3.16 and Theorem 3.6; statement that E2 uniqueness is unknown.",
+          "identifier_or_url": "https://doi.org/10.1007/s00285-024-02093-w",
+          "material_read": "Author-posted/open text and publisher model, disease-free equation (3.16), Lemma 3.5, Theorem 3.6, after-theorem uniqueness discussion",
+          "method": "Compared PDE coefficients, boundary fluxes, R_p>1 quantifier and stationary theorem",
+          "title": "Modelling phytoplankton-virus interactions: phytoplankton blooms and lytic virus transmission",
+          "trigger": "Same full source model and explicit unresolved uniqueness"
+        },
+        {
+          "assessment": "COVERS scalar positive limit; not the coupled finite-kappa nutrient-shading uniqueness or correction",
+          "evidence": "Theorem 1 concerns a single phytoplankton field and prescribed nutrient environment.",
+          "identifier_or_url": "https://doi.org/10.1137/100782358",
+          "material_read": "Accessible complete scalar model and Theorem 1",
+          "method": "Mathematical comparison with kappa-scaled nutrient-free limiting BVP",
+          "title": "Single Phytoplankton Species Growth with Light and Advection in a Water Column",
+          "trigger": "Potential dominating scalar nonlocal uniqueness"
+        },
+        {
+          "assessment": "Inaccessible complete article; scalar rather than dynamical nutrient variable per abstract; overlap unresolved",
+          "evidence": "The abstract concerns single-species light and crowding, no proved claim about source coupled nutrient BVP.",
+          "identifier_or_url": "https://doi.org/10.3934/dcds.2019003",
+          "material_read": "Abstract and model description only; full proofs not obtained",
+          "method": "Publisher abstract-level comparison; no whole-text noncoverage claim",
+          "title": "Single phytoplankton species growth with light and crowding effect in a water column",
+          "trigger": "Related damping and optical crowding uniqueness"
+        },
+        {
+          "assessment": "Different coupled BVP and light-pattern-onset focus in material inspected; no direct coverage established",
+          "evidence": "The source analyzes bloom onset and patterns rather than all-positive-equilibrium high-shading uniqueness of [1].",
+          "identifier_or_url": "https://doi.org/10.1137/070693692",
+          "material_read": "Accessible model and principal linear threshold/pattern theorem sections",
+          "method": "Compared nutrient boundary structure and exact assertion scope",
+          "title": "Blooming in a Nonlocal, Coupled Phytoplankton-Nutrient Model",
+          "trigger": "Same light-nutrient coupling and possible stronger asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The originating biological two-field model explicitly has unresolved multiple-positive-equilibrium possibility. Strong attenuation is a natural physical regime; a global uniqueness theorem for ALL positive profiles with a nonzero asymptotic standing crop and nutrient depletion resolves a meaningful stationary structural question rather than a mere rescaling or sample value.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1007/s00285-024-02093-w",
+    "https://doi.org/10.1137/100782358",
+    "https://doi.org/10.3934/dcds.2019003",
+    "https://doi.org/10.1137/070693692",
+    "Resultary semantic search: phytoplankton nutrient nonlocal light attenuation strong self shading unique positive stationary profile inverse attenuation limit advection",
+    "Frozen Git 2026/10/13/strong-self-shading-selects-a-unique-phytoplankton-equilibrium-a--7860a0a17e77/RESULT.md blob 7a3af87eca62ec548786f1a77093068dd00dd0a4"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Pang–Nie–Wu (2019) complete scalar-light/crowding text inaccessible; cannot claim its entire results are excluded.",
+    "Unindexed earlier nonlinear coupled light–nutrient strong attenuation theorem may subsume the uniqueness or expansion.",
+    "Nonconstructive large-kappa threshold, strict invasion supercriticality and strictly positive fixed rates; finite numerics do not prove generality."
+  ],
+  "residual_risks": [
+    "Pang–Nie–Wu (2019) complete scalar-light/crowding text inaccessible; cannot claim its entire results are excluded.",
+    "Unindexed earlier nonlinear coupled light–nutrient strong attenuation theorem may subsume the uniqueness or expansion.",
+    "Nonconstructive large-kappa threshold, strict invasion supercriticality and strictly positive fixed rates; finite numerics do not prove generality."
+  ],
+  "schema_version": 1
+}

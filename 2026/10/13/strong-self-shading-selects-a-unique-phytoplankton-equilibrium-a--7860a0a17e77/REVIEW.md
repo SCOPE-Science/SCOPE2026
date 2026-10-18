@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof starts from the exact Lambert–Beer photon identity and the zero-flux population balance to bound the rescaled phytoplankton mass for every positive stationary branch. A bounded positive elliptic Green kernel upgrades this to a uniform pointwise bound. Fixed-domain ODE estimates then compactify **all** stationary solutions. A zero limiting biomass would produce a nonnegative eigenfunction for a zero principal invasion eigenvalue, contradicting strict invasion supercriticality. The scalar limiting problem has a positive unique profile; a Wronskian comparison proves uniqueness directly. The linearized shooting residual in the phytoplankton initial amplitude has a **strictly positive** derivative, while the nutrient residual has positive derivative with respect to its initial value. The implicit-function theorem, combined with global-in-branch compactness, therefore proves eventual uniqueness, not merely uniqueness of one selected branch. The first nutrient correction follows from integrating its linear Neumann–Robin problem twice. A standalone numerical BVP check returned `VERIFY_OK`; no finite calculation is used as the infinite-parameter proof.
+## correctness
 
-## Originality — PASS (subject to documented literature-access risk)
-Zhang–Yan–Shi explicitly leave global uniqueness of their positive disease-free equilibrium unresolved and prove existence, with near-threshold stability, instead. The earlier Hsu–Lou theorem already handles the **light-only scalar** equation, and the scalar uniqueness/scaling are acknowledged as prior work. It has no dynamic nutrient feedback, so it does not imply uniqueness for the full coupled model at every sufficiently strong but **finite** shading coefficient, nor the explicit first nutrient correction. Pang–Nie–Wu consider a scalar phytoplankton light–crowding model; their full text was not accessible in this review. Zagaris and colleagues study a different coupled nutrient boundary-value problem, primarily emphasizing the invasion threshold and bloom-pattern onset; no identical all-branch high-shading theorem was located in the material examined. Focused published-results and published-finding corpus semantic searches did not locate a theorem dominating the exact new claim. Such non-detection is not proof of absolute novelty.
+PASS
 
-## Value — PASS
-The base study identifies uniqueness as a structural gap relevant to whether the virus reproduction number depends on which disease-free equilibrium is chosen. The result resolves this gap in a natural strong-optical-attenuation regime, **uniformly across all positive stationary branches**, and quantifies both the vanishing phytoplankton standing crop and the nonzero nutrient deficit with a mathematically explicit profile. The coupled asymptotic is not a numerical parameter slice or a restatement of the earlier scalar theorem.
+For the exact Zhang–Yan–Shi I=V=0 stationary BVP, fixed positive parameters, arbitrary finite advection and strictly positive phytoplankton invasion eigenvalue, integrating the two zero-flux biomass terms and the exact Lambert–Beer photon budget bounds kappa*S in L1 uniformly across ALL positive equilibria. A positive bounded Green kernel for mu_p-D converts this into a common L-infinity bound; ODE and Robin boundary estimates give C2 precompactness. Any zero limit contradicts the strictly positive principal invasion eigenvalue on normalization. Strictly decreasing light feedback and the Wronskian force the limiting scalar positive solution to be unique, with Hsu–Lou existence as prior input. Linearized Wronskian W=z'u-zu' obeys W'=omega/d_p W -(A_H/d_p)u^2 j, j=integral(z)>0, giving F_a=d_p W(X)/u(X)>0; nutrient shooting derivative G_b=alpha>0, G_a=0. The 2x2 shooting Jacobian is invertible, local implicit-function uniqueness and global compactness exclude remote coupled steady branches for sufficiently large finite kappa. Differentiating in epsilon=1/kappa yields S=kappa^-1 u_*+O(kappa^-2), N=N0-kappa^-1 n_*+O(kappa^-2) in C2, n_* the explicit positive Neumann–Robin Green integral. Not a theorem on all finite kappa, infected equilibria or nonlinear stability; numerical solve_bvp of one parameter set corroborates but is not the proof.
 
-## Sources and limitations
-The most direct comparison is Zhang–Yan–Shi (2024), doi:10.1007/s00285-024-02093-w, Theorem 3.6 and the subsequent explicit uniqueness question. Hsu–Lou (2010), doi:10.1137/100782358, Theorem 1, is strictly weaker for this coupled question but supplies the scalar limiting existence theorem. Pang–Nie–Wu (2019), doi:10.3934/dcds.2019003, was accessible only in abstract-level detail. Zagaris et al. (2009), doi:10.1137/070693692, concerns a different nutrient coupling. Unindexed equivalences remain a residual originality risk. The result does not prove finite-attenuation uniqueness below an unknown positive threshold, nonlinear dynamic attractivity, or virus-free equilibrium stability.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact originating 2024 coupled paper proves positive disease-free equilibrium existence above its invasion threshold and notes unknown supercritical uniqueness; the Hsu–Lou scalar light/advection theorem already gives the positive limiting profile. The joint high-finite-shading two-field uniqueness and the first nutrient deficit are neither implied by scalar uniqueness alone nor stated in the inspected coupled results. Best-of-knowledge original for this precise conjunction, with risk of an unindexed strong-light-attenuation BVP theorem.
+
+## value
+
+PASS
+
+The originating biological two-field model explicitly has unresolved multiple-positive-equilibrium possibility. Strong attenuation is a natural physical regime; a global uniqueness theorem for ALL positive profiles with a nonzero asymptotic standing crop and nutrient depletion resolves a meaningful stationary structural question rather than a mere rescaling or sample value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
