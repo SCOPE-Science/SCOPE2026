@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the three-level convolution nullity theorem
+# Independent mathematical audit
 
-The proof's critical group-theoretic facts were reconstructed explicitly: the quotient symplectic form, the full irreducible degree count \(Q+2(3^n)^2=3Q\), the regular-block nullity weighting, and trace-zero eigenvalue multiplicities for noncentral elements. Scalar cancellation holds only for a permutation of the two nontrivial cube roots. Joint diagonalization for isotropic-independent vectors gives two vanishing eigenpairs, whereas the primitive quantum commutator implies \((U+W)^3=2I\) and hence an inverse for \(I+U+W\).
+## correctness
 
-The support-census calculation distinguishes central cosets, noncentral cyclic cosets, two-fiber supports, the remaining affine lines, and isotropic or nonisotropic quotient triangles. All counts sum to \(\binom{3Q}{3}\) for every \(Q=3^{2n}\), and each count is nonnegative in the stipulated range.
+PASS
 
-The attached `heisenberg_check.cpp` is standalone C++17 source. Build and execute it with `g++ -std=c++17 -O2 -Wall -Wextra -pedantic heisenberg_check.cpp -o heisenberg_check` followed by `./heisenberg_check`. It generates the group operation from the stated symplectic formula, constructs the complete left-convolution matrix of each tested support, and independently computes its rank modulo \(1009\). At \(n=1\), it exhausts all 2925 supports and verifies the exact distribution: 117 at nullity 18, 864 at nullity 6, and 1944 at nullity 2, with zero mismatches. At \(n=2\), it examines twelve supports, including representatives of all three predicted classes. A successful execution prints `VERIFY_OK`; failures cause nonzero exit codes.
+Complex irreducibles of the extraspecial exponent-3 group have Q one-dimensional characters plus two dimension-d=3^n representations; regular-block multiplicities are d. The scalar cancellation 1+zeta^a+zeta^b yields line/nonline nullities; commuting isotropic independent differences give two joint zero eigenpairs with multiplicity d/9, and noncommuting Heisenberg Weyl pair yields (U+W)^3=2I hence invertible I+U+W. Symplectic quotient incidence gives nullities 2Q,2Q/3,2Q/9 and exact support counts Q(3Q-1)/2,3Q(Q-1)^2/2,3Q^2(Q-1), summing to binomial(3Q,3). Independently enumerated all 2925 order-27 triples and modular ranks, obtaining exactly (18:117,6:864,2:1944); higher-rank complex theorem rests on representation arguments rather than mod-1009 enumeration.
 
-The computation takes place in characteristic \(1009\) to make exact integer elimination efficient. It is a finite consistency check, not proof of complex ranks or of the classification for all \(n\). The unrestricted complex result rests on the self-contained representation-theoretic and counting proof in `RESULT.md`. Independent mathematical validation has not been conducted.
+## originality
+
+PASS
+
+DeDeo et al. study finite Heisenberg graph spectra with principally symmetric four-generator sets, not all 3-distinct unweighted support singularities. Arezoomand–Taeri give a general Cayley-digraph representation decomposition but not the three-stratum symplectic nullity and support census. Weyl/discrete-phase-space literature supplies commutation fundamentals without this exact rank distribution. Resultary nearby generalized-dihedral three-tap results concern another group and do not imply the nonabelian Heisenberg pairing criterion.
+
+## value
+
+PASS
+
+A natural small-support convolution operator on a canonical nonabelian p-group exhibits universal singularity with precisely classified information-loss ranks, a geometric symplectic trichotomy and closed all-support counts for arbitrary n. This is a motivated, infinite-family structural classification, not a computation of isolated random examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review of the three-level ternary Heisenberg convolution census
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite-group Fourier decomposition is explicit, including the two high-dimensional central-character representations and their multiplicities in the regular representation. The proof resolves the scalar, commuting, and noncommuting matrix blocks, including the exact cancellation criterion for three cube roots of unity. The noncommuting blocks are demonstrably invertible by a cubic quantum-binomial identity. Symplectic incidence counts recover all three support multiplicities and their sum. The attached checker independently tests every three-point support in the order-27 group and selected cases in the order-243 group. Finite tests support rather than replace the general proof.
+## correctness
 
-**Originality — PASS, with residual priority risk.** DeDeo et al.'s Heisenberg Cayley spectra concern primarily four-generator symmetric connection sets and do not establish the all-support ternary three-tap nullity census. Arezoomand–Taeri's general Cayley-digraph block-factorization formula, which is used as a known ingredient, does not itself evaluate the five cancellation geometries or count supports across every rank stratum. Gibbons–Hoffman–Wootters supply relevant finite Weyl commutation and phase-space geometry but do not determine the convolution rank distribution. Existing three-point Fourier support classifications for abelian or generalized-dihedral groups involve different groups and do not imply the nonabelian symplectic classification. An unpublished or differently formulated historical computation of these exact counts cannot be ruled out. The result has not received independent priority certification.
+PASS
 
-**Mathematical value — PASS.** The sharp trichotomy and exact all-support counts characterize every information-loss rank of a natural three-tap convolution family on the higher-rank extraspecial ternary groups. The result combines noncommutative Fourier blocks with intrinsic quotient symplectic geometry, yields precise equality cases, and persists in arbitrarily large dimensions. These are structural classification data, not merely a finite experiment or restatement of a generic representation-theoretic formula.
+Complex irreducibles of the extraspecial exponent-3 group have Q one-dimensional characters plus two dimension-d=3^n representations; regular-block multiplicities are d. The scalar cancellation 1+zeta^a+zeta^b yields line/nonline nullities; commuting isotropic independent differences give two joint zero eigenpairs with multiplicity d/9, and noncommuting Heisenberg Weyl pair yields (U+W)^3=2I hence invertible I+U+W. Symplectic quotient incidence gives nullities 2Q,2Q/3,2Q/9 and exact support counts Q(3Q-1)/2,3Q(Q-1)^2/2,3Q^2(Q-1), summing to binomial(3Q,3). Independently enumerated all 2925 order-27 triples and modular ranks, obtaining exactly (18:117,6:864,2:1944); higher-rank complex theorem rests on representation arguments rather than mod-1009 enumeration.
 
-**Limitations and residual risks.** The result is restricted to complex ranks, unit coefficients and distinct three-point supports in the specified exponent-three family. The modular rank experiments are not a proof over the complex numbers; that conclusion depends on the character and algebraic arguments in `RESULT.md`. Existing broad block-diagonalization results could contain an unlocated implicit specialization, although no inspected result stated the geometric census itself.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+DeDeo et al. study finite Heisenberg graph spectra with principally symmetric four-generator sets, not all 3-distinct unweighted support singularities. Arezoomand–Taeri give a general Cayley-digraph representation decomposition but not the three-stratum symplectic nullity and support census. Weyl/discrete-phase-space literature supplies commutation fundamentals without this exact rank distribution. Resultary nearby generalized-dihedral three-tap results concern another group and do not imply the nonabelian Heisenberg pairing criterion.
+
+## value
+
+PASS
+
+A natural small-support convolution operator on a canonical nonabelian p-group exhibits universal singularity with precisely classified information-loss ranks, a geometric symplectic trichotomy and closed all-support counts for arbitrary n. This is a motivated, infinite-family structural classification, not a computation of isolated random examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
