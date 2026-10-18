@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The structural proof is exact and symbolic.
 
-For necessity, if \(X=ARB\) and \(AB=0\), then \(\operatorname{im}(B)\subseteq\ker(A)\). Rank-nullity over a division ring gives \(\operatorname{rank}(A)+\operatorname{rank}(B)\le n\), while \(\operatorname{rank}(ARB)\le\min\{\operatorname{rank}(A),\operatorname{rank}(B)\}\). Hence \(\operatorname{rank}(X)\le\lfloor n/2\rfloor\).
+# Independent mathematical audit
 
-For sufficiency, after row and column reduction a rank-\(r\) matrix is \(U J_r V\). With \(2r\le n\), the matrices
-\[
-A_r=\sum_{i=1}^rE_{i,r+i},\qquad
-R_r=\sum_{i=1}^rE_{r+i,i},\qquad
-B_r=J_r
-\]
-satisfy \(A_rB_r=0\) and \(A_rR_rB_r=J_r\). Thus \(U J_rV=(UA_r)R_r(B_rV)\) with \((UA_r)(B_rV)=0\).
+## correctness
 
-The finite-field enumeration is not used to prove the structural theorem. It is obtained afterward by summing the standard rank-\(r\) matrix count over the proved range \(0\le r\le\lfloor n/2\rfloor\).
+PASS
 
-The proof does not address coefficient rings that are not division rings, and it does not infer an infinite theorem from finite experiments.
+PASS: AB=0 implies im B⊂ker A, rank A+rank B≤n and rank ARB≤min(rankA,rankB)≤floor(n/2). Conversely rank-r X=U J_r V can be decomposed with A_r=∑_{i≤r}E_{i,r+i}, R_r=∑E_{r+i,i}, B_r=J_r; A_rB_r=0, A_rR_rB_r=J_r if 2r≤n. Invertibles transfer. Finite-field rank-r count is standard; n2 singular versus n≥3 rank n−1 excluded. Right-vector-space rank conventions are respected.
+
+## originality
+
+PASS
+
+The elementwise 2025 zero-insertive work and September 2026 path/Leavitt paper establish definitions, n=2 nonsingular boundary, and ZINC ring properties, but available material does not give a determinantal rank iff classification for every n and division ring. The independent two-way construction supplies a natural exact locus not implied by the known n=2 special case. The 2026 full manuscript was inaccessible despite access attempts; this is recorded as a material residual originality risk, not converted automatically to FAIL.
+
+## value
+
+PASS
+
+PASS: New zero-insertive algebraic notion naturally prompts classification of all matrices satisfying a zero-product sandwich. Exact rank cutoff and determinantal-locus description uniformly for all n and division rings give a structurally meaningful boundary and readily usable finite-field enumeration; not just a tiny-instance computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

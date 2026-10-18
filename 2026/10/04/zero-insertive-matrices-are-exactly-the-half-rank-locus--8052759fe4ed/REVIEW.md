@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. If \(X=ARB\) with \(AB=0\), then \(\operatorname{im}(B)\subseteq\ker(A)\), so \(\operatorname{rank}(A)+\operatorname{rank}(B)\le n\) and \(\operatorname{rank}(X)\le\lfloor n/2\rfloor\). Conversely, every rank-\(r\) normal form with \(2r\le n\) has the explicit factorization \(J_r=A_rR_rB_r\) with \(A_rB_r=0\), and invertible left/right changes of basis transport this factorization to every rank-\(r\) matrix. The finite-field enumeration then sums the standard exact rank-\(r\) matrix count over the proved rank range.
+# Independent mathematical audit
 
-## Originality
-PASS. The inspected 2026 source proves the \(2\times2\) singular-matrix result and displays only a special general-size family; it does not state the complete rank locus. The inspected 2025 precursor determines when the whole matrix ring is ZINC but does not identify \(Z_i(M_n(D))\). Targeted searches for rank, zero-insertive matrices, and equivalent zero-product sandwich factorizations did not return the half-rank theorem. A residual risk remains that an older matrix-factorization paper contains an equivalent statement under unrelated terminology.
+## correctness
 
-## Value
-PASS. The result gives a complete, basis-free classification of a newly emphasized element class in the basic simple Artinian algebra \(M_n(D)\), sharply explains why the published \(n=2\) phenomenon fails in higher size, and yields an exact finite-field enumeration. The half-rank threshold is a structural boundary rather than a parameter substitution or isolated example.
+PASS
 
-## Closest literature and limitations
-The closest sources are arXiv:2609.24439v1 and arXiv:2508.01333v1. The theorem does not extend here to arbitrary coefficient rings, and no claim is made that the literature search eliminates every possible equivalent formulation under older terminology.
+PASS: AB=0 implies im B⊂ker A, rank A+rank B≤n and rank ARB≤min(rankA,rankB)≤floor(n/2). Conversely rank-r X=U J_r V can be decomposed with A_r=∑_{i≤r}E_{i,r+i}, R_r=∑E_{r+i,i}, B_r=J_r; A_rB_r=0, A_rR_rB_r=J_r if 2r≤n. Invertibles transfer. Finite-field rank-r count is standard; n2 singular versus n≥3 rank n−1 excluded. Right-vector-space rank conventions are respected.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The elementwise 2025 zero-insertive work and September 2026 path/Leavitt paper establish definitions, n=2 nonsingular boundary, and ZINC ring properties, but available material does not give a determinantal rank iff classification for every n and division ring. The independent two-way construction supplies a natural exact locus not implied by the known n=2 special case. The 2026 full manuscript was inaccessible despite access attempts; this is recorded as a material residual originality risk, not converted automatically to FAIL.
+
+## value
+
+PASS
+
+PASS: New zero-insertive algebraic notion naturally prompts classification of all matrices satisfying a zero-product sandwich. Exact rank cutoff and determinantal-locus description uniformly for all n and division rings give a structurally meaningful boundary and readily usable finite-field enumeration; not just a tiny-instance computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
