@@ -1,0 +1,12 @@
+# Self-review
+
+## Correctness — PASS
+The critical social-attention value and the hybrid flow/jump rules agree with the motivating source. The strict tanh boundary argument proves global attraction for all real initial opinions with nonovershooting feedback, including the full quadrant boundaries. On the aligned-sign cones, the exact stochastic Jacobian, left stationary weight, cubic remainder, stable difference recursion and inverse-square scalar drift yield the claimed limiting amplitudes. The gain derivative and dwell derivatives are algebraic identities; the strict physical-time reversal follows from \(xe^{-x}<1-e^{-x}\). Five independently replayed parameter scenarios corroborate, but do not substitute for, the infinite-time proof.
+
+## Originality — PASS, historical-priority risk remains
+The Kumar--Yao full-text article establishes the hybrid update equations, local Jacobian, opinionated equilibrium and pitchfork location, then concentrates on a different flip instability and its controlled deadlock. Relevant sections of its full supplementary document use a flip center-manifold normal form at an opinionated state; they do not supply this neutral-pitchfork global theorem or its exact physical-clock coefficient. Bizyaeva--Franci--Leonard supplies prior continuous opinion pitchfork background; the present finite-dwell stochastic projection and sharp rate are different. Actual targeted mathematical-record and external literature searches yielded related generic critical relaxation results and stable linear consensus, not an implication-equivalent result for this model. Generic cubic-normal-form coverage of the exponent is acknowledged. Residual risks include an unindexed specialized hybrid-dyad theorem or a broader asymptotic theorem that specializes to the full coefficient.
+
+## Mathematical value — PASS
+The motivating model has two qualitatively different instabilities; at its first, pitchfork boundary the neutral linear eigenvalue alone does not resolve clearance speed. This theorem fills that natural quantitative gap globally for a meaningful nonovershooting gain interval, supplies an exact amplitude usable for comparing feedback gains, and exposes an experimentally relevant reversal between per-update and physical-time assessments. No claims are made for overreactive updates, multiagent networks or independent validation.
+
+Self-review: passed. Independent audit: not yet performed.
