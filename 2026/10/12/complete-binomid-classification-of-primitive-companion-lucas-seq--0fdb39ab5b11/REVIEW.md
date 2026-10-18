@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The coefficient at \((n,k)=(2,1)\) restricts the primitive parameter \(|P|\) to \(1\) or \(2\). The coefficient at \((4,2)\), together with coprimality identities, reduces both cases to three admissible possibilities and one explicit countercandidate. The exact witness at \((6,3)\) eliminates the countercandidate. A periodicity-and-counting argument proves all required integrality statements and divisibility implications for every remaining parameter and index. The packaged checker independently exercises the decisive arithmetic in finite ranges, without being used as proof of the infinite claim.
+## correctness
 
-**Originality — PASS relative to inspected sources.** Shapiro's source explicitly asks for a binomid classification of order-two recurrences with nonzero initial term, whereas its positive theorem treats \(V_0=0\). The normalized companion \(V_0=2\) classification, including the if-and-only-if restriction on primitive parameters, is not supplied by the inspected manuscript. Published-related searches and semantic database comparisons yielded other Lucas properties, not equivalent generalized-factorial integrality. Unindexed prior exact classification remains a risk.
+PASS
 
-**Value — PASS.** This fully determines a canonical infinite two-parameter companion branch of an explicitly formulated number-theory classification question. The classification collapses infinitely many possible coprime recurrences to three parameter patterns using two low-order integrality obstructions and one sharp explicit exclusion. The conclusion that every survivor is divisible gives a nontrivial affirmative case of the companion divisibility question; the degenerate \(Q=0\) branch is included only for completeness.
+For coprime P,Q, V2/V1=P−2Q/P integral forces P|2 and hence |P|∈{1,2}. For P=1, V2=1−2Q coprime to V3 and Q; the [4,2] integer coefficient forces V2|2 and odd V2, so Q=0 or 1. For P=2 with Q odd, Wn=Vn/2 has W2=2−Q coprime to W3, and [4,2] forces W2|4; its oddness leaves Q=1,3. At (2,3), the exact [6,3] quotient is −161/5, excluding Q=3. Remaining Q=0,1 and Q=1 with P=2 have nonzero constant or six-periodic terms; every k-consecutive-index interval contains at least floor(k/3) multiples of three, proving all generalized coefficients integral. The same absolute-value pattern proves m|n => Vm|Vn. Sign P↦−P only changes signs. Independent arithmetic checked admissible pairs n<=30 and all short-slot exclusions in a coprime parameter box; symbolic proof is unrestricted.
 
-**Closest literature and limitations.** D. B. Shapiro, *Divisibility Properties for Integer Sequences* (arXiv:2302.02243v1), especially Section 4.4 and Open Questions 27. This finding does not classify nonprimitive pairs or arbitrary order-two initial conditions. It has not received independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Shapiro explicitly raises the general order-two binomid classification for recurrences with nonzero initial value while proving positive results primarily for zero-initial Lucas U sequences and known divisible cases. The present V0=2 coprime-parameter iff theorem gives an original necessary binomid-to-divisibility implication for that natural companion family, not merely periodic examples. Granville treats classification of divisibility recurrences, not the converse binomid necessity for primitive V; equivalent earlier special-family formulations remain possible.
+
+## value
+
+PASS
+
+The primitive companion Lucas family is a canonical infinite two-parameter branch of a published explicit open question, with a sharp iff parameter list and a positive answer to binomid=>divisible within the family. Necessity of three coefficient constraints plus unrestricted periodic sufficiency is a genuine classification rather than merely naming a textbook identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
