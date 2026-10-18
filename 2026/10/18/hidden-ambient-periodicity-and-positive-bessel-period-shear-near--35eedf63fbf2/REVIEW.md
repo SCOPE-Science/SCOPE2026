@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Exact differentiation proves both globally defined first integrals. The regular-level argument makes the nearby invariant ovals smooth, and the axial first integral closes all three coordinates. A direct oscillator reduction plus the first-harmonic solvability condition gives the period derivative, including its sign and the isochronous boundary. The same calculation establishes all quantifiers for fixed coefficients. Numerical period, trajectory and integral checks corroborate but do not replace this proof.
+
+**Originality — PASS, with residual risk.** The September 2026 Messias–Reinol–Rodrigues de Lima paper includes the seven-parameter ambient system, and its full-text normal form, proof of cylinder period annuli and conclusion were compared with this theorem. Its nonzero-cofactor assertion concerns the distinguished cylinder and explicitly leaves the off-cylinder dynamics untreated. The earlier Llibre–Serantola full-text classification concerns a different, circular-radius-integrable simplest class. Searches for equivalent exponential Darboux integrals, Bessel period derivatives, cylinder twist, and wider period-annulus implications found no encompassing exact result. Classical period-function and integrability methods could yield the result after specialization, so independent priority remains a risk.
+
+**Mathematical value — PASS.** The natural and nontrivial distinction is between an invariant algebraic cylinder with a nonvanishing cofactor and a genuine ambient periodic foliation created by a nonpolynomial conserved quantity. The exact positive Bessel derivative quantifies a physical-time shear invisible to cylinder-only phase portraits and to unit Floquet multipliers. The boundary \(c=0\) is exactly isochronous, making the sign and transition structurally motivated rather than an arbitrary coefficient computation. The theorem is local and does not claim generic integrability.
+
+Closest primary sources: https://doi.org/10.1007/s40435-026-02300-0 (2026), https://doi.org/10.17398/2605-5686.40.1.121 (2025). Outstanding risk: broader classical Darboux-integrability or period-function literature may imply this special case, though the explicit ambient and Bessel statement was not located.
+
+Self-review: passed. Independent audit: not yet performed.
