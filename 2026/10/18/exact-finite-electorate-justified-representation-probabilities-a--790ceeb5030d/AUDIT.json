@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Starting from the exact JR definition, violating groups are in one-to-one existential correspondence with excluded candidates receiving at least r=ceil(n/k) approvals among voters with no elected approval. Those voters form Bin(n,q_W); conditional outside candidate counts are independent Bin(u,p_c), proving equation (1). Monotone binomial coupling gives monotonicity in q and excluded p, so each exchange replacing an elected low-p candidate by an excluded high-p candidate increases J. For top-k, all failure witness counts have Bin(n,a_c) laws with a_c<=p_c(1-p_c)^k<=a_k<1/k, giving Chernoff and the union bound. The equal-probability vector p*=1/(k+1) supplies a matching single-candidate binomial lower tail; standard Stirling asymptotics (or exact p^n for k=1) prove the limiting equality. Endpoint probabilities, m=k, integer rounding, and finite-input arithmetic complexity are treated explicitly. Independent exhaustive small-instance rational enumeration passed 81 direct assertions but is not relied on as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Xia (2025), arXiv:2503.03082, Theorems 16 and 17 and Corollary 3: top-probability committees achieve CORE and EJR+ with exponentially high probability under fixed heterogeneous p-vector; this gives a stronger qualitative asymptotic guarantee.",
+        "Elkind et al. (2021/2022), arXiv:2108.12949, Section 3, Theorem 1 and proof: independent common-p model has asymptotic JR thresholds, and p(1-p)^k is maximized at 1/(k+1)."
+      ],
+      "reasoning": "Xia proves top-probability committees meet stronger CORE/EJR+ axioms with probability 1-exp(-Omega(n)) for every fixed interior p-vector. Consequently, top-k JR high-probability behavior is NOT a novel claim; however, this existential rate statement does not specify a finite-n probability, does not rank all committees by finite-n JR probability, and does not give a sharp rate uniformly over the full parameter cube. Elkind et al. cover common-p qualitative thresholds and the elementary maximum a_k, both explicitly credited. The new claim only concerns the additional exact finite-n and sharp universal quantitative information.",
+      "searches": [
+        "sharp optimal universal large-deviation rate D(1/k || k^k/(k+1)^(k+1)) for failure of justified representation under independent Bernoulli approval preferences arbitrary candidate probabilities; equality at p=1/(k+1)",
+        "Approval-Based Committee Voting under Uncertainty 2024 Aziz Kagita Rastegari Suzuki JR-Probability candidate probability homogeneous across voters tractable MaxJR exact finite n",
+        "fixed heterogeneous approval probability top-k committee CORE EJR+ high probability Xia 2025"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2407.19391, public HTML, Sections 1, 3, 6 and 7",
+      "arXiv:2108.12949, lawful OA PDF, Sections 2-3 and proof",
+      "arXiv:2503.03082, lawful OA PDF, Section 5.2 and appendix proof indication",
+      "DOI:10.24963/ijcai.2019/16, OA proceedings PDF",
+      "DOI:10.1609/aaai.v29i1.9324, foundational definition page"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Aziz et al. (2024), arXiv:2407.19391, Section 6, Theorems 6.2 and 6.3: arbitrary voter-candidate probability JR-counting is #P-complete, deterministic elected approvals yield polynomial-time computation.",
+        "Elkind et al. (2021/2022), arXiv:2108.12949, Section 3, Theorem 1 and proof: independent common-p model has asymptotic JR thresholds, and p(1-p)^k is maximized at 1/(k+1).",
+        "Xia (2025), arXiv:2503.03082, Theorems 16 and 17 and Corollary 3: top-probability committees achieve CORE and EJR+ with exponentially high probability under fixed heterogeneous p-vector; this gives a stronger qualitative asymptotic guarantee."
+      ],
+      "reasoning": "The 2024 #P-completeness theorem has voter-dependent candidate probabilities and therefore does not preclude a P-time restricted algorithm; its Theorem 6.3 concerns deterministic approvals for elected candidates rather than random selected approvals. The 2021 Chernoff argument and the 2025 fixed-parameter exponent only yield high-probability statements and do not imply finite-n top-k optimality or the exact optimal uniform relative-entropy constant. The previously known a_k maximization is incorporated as a lemma without claiming its rediscovery. There is no assertion of novelty for the JR definition or for the binomial Chernoff theorem.",
+      "searches": [
+        "Approval-Based Committee Voting under Uncertainty 2024 Aziz Kagita Rastegari Suzuki JR-Probability candidate probability homogeneous across voters tractable MaxJR exact finite n",
+        "probabilistic justified representation finite committee top k maximizer dominance selected candidate approval versus excluded candidate probability; binomial mixture exact probability",
+        "sharp optimal universal large-deviation rate D(1/k || k^k/(k+1)^(k+1)) for failure of justified representation under independent Bernoulli approval preferences arbitrary candidate probabilities; equality at p=1/(k+1)",
+        "\"candidate-specific\" \"justified representation\" \"probability\" committee"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Aziz et al. (2024), arXiv:2407.19391, Section 6, Theorems 6.2 and 6.3: arbitrary voter-candidate probability JR-counting is #P-complete, deterministic elected approvals yield polynomial-time computation.",
+        "Elkind et al. (2021/2022), arXiv:2108.12949, Section 3, Theorem 1 and proof: independent common-p model has asymptotic JR thresholds, and p(1-p)^k is maximized at 1/(k+1)."
+      ],
+      "reasoning": "The violation event is an unrepresented cohesive coalition equivalently witnessed by one excluded candidate approved by at least ceil(n/k) unrepresented voters. This equivalence is standard; the claimed result instead computes its full probability by conditioning on the random number of unrepresented voters, and optimizes it over committee choices. No full finite-n binomial-mixture identity or exact optimizer was found in the inspected primary passages.",
+      "searches": [
+        "Under candidate-specific impartial approval culture voters independently approve each candidate with probability p_c, maximizing exact finite-n probability that size-k committee satisfies justified representation is achieved by selecting k highest probabilities. Exact binomial mixture conditional on unrepresented voters; polynomial-time JR probability.",
+        "probabilistic justified representation finite committee top k maximizer dominance selected candidate approval versus excluded candidate probability; binomial mixture exact probability",
+        "\"justified representation\" \"exact probability\" \"binomial\" approval committee"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Bredereck et al. (2019), DOI:10.24963/ijcai.2019/16: experimental frequencies of JR/PJR/EJR satisfaction under approval cultures, not an exact candidate-specific finite-n formula.",
+        "Aziz et al. (2024), arXiv:2407.19391, Section 6, Theorems 6.2 and 6.3: arbitrary voter-candidate probability JR-counting is #P-complete, deterministic elected approvals yield polynomial-time computation."
+      ],
+      "reasoning": "The experimental committee proportions in the 2019 source and the 2024 counting-complexity classifications are not exact tables of the complete voter-homogeneous candidate-heterogeneous JR distribution. The exact formula itself provides all finite cells without enumerating exponential ballot profiles; the numerical four-voter illustration is not asserted novel as a standalone table entry.",
+      "searches": [
+        "Under candidate-specific impartial approval culture voters independently approve each candidate with probability p_c, maximizing exact finite-n probability that size-k committee satisfies justified representation is achieved by selecting k highest probabilities. Exact binomial mixture conditional on unrepresented voters; polynomial-time JR probability.",
+        "sharp optimal universal large-deviation rate D(1/k || k^k/(k+1)^(k+1)) for failure of justified representation under independent Bernoulli approval preferences arbitrary candidate probabilities; equality at p=1/(k+1)",
+        "approval-based committee voting justified representation exact finite n binomial table",
+        "\"MaxJR\" \"homogeneous\" \"probability\" committee voting"
+      ]
+    },
+    "rationale": "The central exact finite-electorate JR mixture, its distribution-wise finite-n probability-maximizing top-k committee, and a parameter-uniform sharp large-deviation failure exponent were compared by statement and logical implication with the closely related 2024 uncertainty-hardness paper, the 2021/22 common-probability JR threshold paper, the 2025 stronger CORE/EJR+ asymptotic result, and empirical 2019 literature. The qualitative asymptotic guarantee and the maximum of p(1-p)^k are known and excluded from novelty. The inspected results did not state or logically determine the full finite-n/optimality/sharp-exponent conjunction. This is a self-review with residual priority risk, not a global uniqueness certificate.",
+    "residual_risks": [
+      "The binomial-mixture identity or finite-n top-k optimizer might have appeared in uninspected supplemental or later independent work despite the targeted searches.",
+      "The sharp universal rate refines a known common-p binomial argument and may follow from an existing broader probabilistic result not explicitly compared.",
+      "Only self-review has been performed; independent publication-priority assessment is not yet available."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General counting hardness and different deterministic-elected special case; no exact voter-homogeneous random-elected formula or finite-n top-k theorem stated in inspected portions.",
+        "evidence": "arXiv:2407.19391, Section 3.1, Theorems 6.2-6.3, results table.",
+        "identifier_or_url": "https://arxiv.org/abs/2407.19391",
+        "material_read": "Full accessible arXiv HTML: abstract, introduction, definitions, stochastic models, Sections 5-7 with Theorems 6.2, 6.3 and 6.4.",
+        "method": "Compared quantifiers and model hypotheses: arbitrary p_{i,c}, three-valued probabilities, deterministic elected columns, and counting reductions.",
+        "title": "Approval-Based Committee Voting under Uncertainty",
+        "trigger": "Directly models independent uncertain approvals, MaxJR, and JR probability; closest original paper."
+      },
+      {
+        "assessment": "Contains the exact maximization p(1-p)^k and qualitative all-committee JR high probability; no assessed three-part full theorem.",
+        "evidence": "arXiv:2108.12949 pp. 3-6, Theorem 1, Proposition 1.",
+        "identifier_or_url": "https://arxiv.org/pdf/2108.12949",
+        "material_read": "28-page OA PDF, abstract, introduction, definitions, Section 3 Theorem 1 and proof, Proposition 1; inspected PDF page image at relevant proof.",
+        "method": "Compared fixed common-p asymptotic threshold p(1-p)^s and maximum at p=1/(s+1) against exact heterogeneous probability and sharp KL exponent.",
+        "title": "Justifying Groups in Multiwinner Approval Voting",
+        "trigger": "Prior direct binomial-tail description of JR and uniform-probability thresholds."
+      },
+      {
+        "assessment": "Covers qualitatively stronger properties at fixed p; does not furnish exact finite-n probability/order or uniform sharp JR exponent.",
+        "evidence": "arXiv:2503.03082 Section 5.2, Theorems 16-17, Corollary 3.",
+        "identifier_or_url": "https://arxiv.org/pdf/2503.03082",
+        "material_read": "47-page OA PDF, abstract, Section 5.2 Theorems 16-17, Corollary 3, comparative passages and appendical proof outline; inspected relevant PDF page image.",
+        "method": "Evaluated whether fixed-vector exp(-Omega(n)) CORE/EJR+ guarantees imply exact finite-n JR probability, optimizer, or uniform sharp rate.",
+        "title": "A Linear Theory of Multi-Winner Voting",
+        "trigger": "Strongest plausible broader result on top-k committees under heterogeneous approval probabilities."
+      },
+      {
+        "assessment": "Reports empirical frequencies and broad trends, not a universally exact finite-n distribution formula.",
+        "evidence": "DOI:10.24963/ijcai.2019/16, experiments and Discussion.",
+        "identifier_or_url": "https://www.ijcai.org/Proceedings/2019/0016.pdf",
+        "material_read": "Accessible seven-page IJCAI proceedings PDF, introduction, experiment model and results sections, especially illustrated experiment pages.",
+        "method": "Compared empirical sample-frequency outcomes with universal symbolic formula and optimizing theorem.",
+        "title": "An Experimental View on Committees Providing Justified Representation",
+        "trigger": "Earlier empirically studied frequencies of JR, PJR, EJR under independent approval cultures."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "790ceeb5-030d-4013-9758-c6124182e2f9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "General uncertain-voter JR counting and MaxJR are hard, whereas candidate-specific probability estimates shared across voters define a natural and strictly non-deterministic restricted class. A closed form evaluating arbitrary n,m,k without enumerating approval profiles, a globally optimal committee for every finite n, and a best-possible distribution-uniform failure rate address statistical reliability and algorithmic committee design. These are more than a textbook binomial inequality in isolation: the exact mixture and exchange principle eliminate general-parameter computational hardness in a motivated model, and the sharp global exponent adds a meaningful quantitative guarantee. Previously established qualitative high-probability JR and a_k maximization are not counted as new.",
+    "status": "PASS"
+  }
+}
