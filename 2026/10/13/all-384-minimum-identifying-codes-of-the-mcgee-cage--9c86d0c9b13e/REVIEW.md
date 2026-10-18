@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The definitions are explicit and the graph's \(24\) vertices are fixed by an independently documented LCF presentation. The counting identity \(\sum_v|I_C(v)|=4|C|\) and the bound on singleton signatures prove that every identifying code has at least \(10\) members. The exhaustive source enumerates all \(\binom{24}{10}+\binom{24}{11}=4{,}457{,}400\) relevant subsets, testing identification by two equivalent but separately implemented constraints and finding zero size-\(10\) solutions and \(384\) size-\(11\) solutions. Independently constructed graph and automorphism enumeration verifies the complete \(13\)-orbit table. The argument is specific to this finite graph, so no infinite conclusion is inferred from experiments.
+PASS
 
-## Originality — PASS with residual risk
+Every code vertex lies in exactly four closed neighborhoods; among 24 distinct nonempty closed-neighborhood signatures at most k are singleton, so 4k>=k+2(24-k), i.e. k>=10. Independent C++ direct signature enumeration of all C(24,10)=1,961,256 and C(24,11)=2,496,144 candidates gives zero size-ten codes and exactly 384 size-eleven codes; monotonicity eliminates sizes below 10. Independent NetworkX construction from the LCF sequence and exact isomorphism enumeration gives 32 graph automorphisms, all checked as bijections preserving incidences; orbit partition of all 384 codes gives 13 disjoint orbits of sizes 16 twice and 32 eleven times and reproduces all 13 listed representatives. This exhausts the only finite candidate layers needed for minimum, rather than sampling.
 
-The nearest literature establishes the \((3,7)\)-cage, its symmetry group and vertex orbits, and the existence of stronger high-girth identification codes. Existence of a code separating subsets of up to three vertices does not imply the exact minimum and number of ordinary single-vertex identifying codes; neither do cage-size or symmetry results. Targeted searches for the McGee identifying-code number, the count \(384\), and the \(13\)-orbit classification found no matching statements. The text of Laihonen (2008), however, could not be fully inspected, and unindexed prior enumerations cannot be ruled out conclusively.
+## originality
 
-## Value — PASS
+PASS
 
-The McGee graph is the unique smallest cubic graph of girth seven and the smallest cubic cage without a transitive vertex action. The exact count and the complete symmetry classification answer a natural optimal sensor-identification problem on this canonical extremal network. The two unequal vertex orbits make it meaningful to describe all optimal configurations rather than merely exhibiting one optimal set; the classification produces concrete disjoint orbit representatives and their incidence profiles. This is a finite but naturally defined exact invariant, not an arbitrary sliced parameter.
+The original graph order/girth, symmetry group and stronger identifying-code existence literature are antecedents. None of the compared statements provides both the exact minimum ordinary identifying-code multiplicity 384 and full 13-orbit representative classification, although the 2008 directly relevant titled Laihonen paper could not be inspected beyond available abstract.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The McGee graph is the canonical extremal cubic (3,7)-cage; identifying codes are a natural sensor/location-discrimination invariant. The exact minimum, full 384 optimum multiplicity and 13 symmetry classes provide an independently usable complete classification of optimal configurations and distinguish multiple geometry types.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
