@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T02:20:04.878023Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Use B_n=P_{2n}/2 and C_n=Q_{2n}. The Pell square identities reduce sums of k consecutive squares to (B_k Q_{4n+2k+2}-k)/16 and (B_k Q_{4n+2k+2}+k)/2 respectively. Consecutive block differences and strong divisibility of Pell numbers give gcd of B-square differences B_k, and gcd of C-square differences 8B_k. For odd k, B_k odd and relevant residue modulo 4 makes C initial block sum odd, giving both gcds gcd(B_k,k). Independently regenerated sequences and verified direct 9-window GCDs for every odd k<=101. The proof uses infinite GCD of successive differences, not bounded windows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier generalized Fibonacci x_n=x_{n-1}+x_{n-2} square sums; 2023 Questions 30–31 distinguish balancing and index GCDs."
+        ],
+        "reasoning": "The earlier general theorem has a different recurrence and hypotheses and does not directly imply the claimed odd balancing branch.",
+        "searches": [
+          "Mbirika–Spilker arXiv:2204.12626",
+          "Mbirika et al 2023 Section 6"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2301.05758",
+        "https://arxiv.org/abs/2204.12626"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Question 30 explicitly asks for the square-sum gcd formulas."
+        ],
+        "reasoning": "Known sum-of-terms GCD formulas are a different invariant; the new Pell-square telescoping identities are needed to answer the question.",
+        "searches": [
+          "arXiv:2301.05758 p.22 Question 30 and 31",
+          "arXiv:2204.12626"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source states as evidence B2(k)=C2(k) for odd k without a formula."
+        ],
+        "reasoning": "The equality alone is weaker than the exact gcd(B_k,k) identity for both sequences.",
+        "searches": [
+          "Mbirika–Schrader–Spilker arXiv:2301.05758 Question 30",
+          "Resultary Pell balancing odd square gcd query"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2023 paper records open cases and numerical evidence."
+        ],
+        "reasoning": "No exact odd k formula appears in the inspected primary text.",
+        "searches": [
+          "JIS 26 (2023), 23.6.4 Question 30",
+          "Resultary balancing square GCD query"
+        ]
+      },
+      "rationale": "The primary 2023 article posed both square-sum cases as Question 30 and reported the odd branch equality as computational evidence only. Earlier generalized Fibonacci square-sum formula treats recurrence x_n=x_{n-1}+x_{n-2}, not balancing recurrence 6x_{n-1}-x_{n-2}.",
+      "residual_risks": [
+        "Other generalized Lucas-sequence square-sum results could imply the same formula by a non-obvious specialization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not covering exact odd square-sum gcd formula",
+          "evidence": "Question 30 asks for it and notes only odd B2=C2 evidence",
+          "identifier_or_url": "https://arxiv.org/pdf/2301.05758",
+          "material_read": "Sections 6.1–6.2, page 22 Question 30 and odd-branch observation; earlier B/C formulas",
+          "method": "PDF page text and screenshot",
+          "title": "Pell and Associated Pell Braid Sequences as GCDs of Sums of k Consecutive Pell, Balancing, and Related Numbers",
+          "trigger": "Exact source Question 30"
+        },
+        {
+          "assessment": "Different second-order recurrence class",
+          "evidence": "Generalized Fibonacci recurrence is x_n=x_{n-1}+x_{n-2}",
+          "identifier_or_url": "https://arxiv.org/abs/2204.12626",
+          "material_read": "Abstract and recurrence scope",
+          "method": "Open-access abstract inspection",
+          "title": "GCD of Sums of k Consecutive Squares of Generalized Fibonacci Numbers",
+          "trigger": "Potential broader square-sum theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Answers the entire odd branch of two explicit open problems for natural classical recurrence sequences, with a sharp exact sequence-index GCD formula rather than a finite sampling result.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2301.05758",
+    "https://arxiv.org/abs/2204.12626"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Odd k only; neither even k nor cobalancing pair is covered."
+  ],
+  "residual_risks": [
+    "Other generalized Lucas-sequence square-sum results could imply the same formula by a non-obvious specialization."
+  ],
+  "schema_version": 1
+}

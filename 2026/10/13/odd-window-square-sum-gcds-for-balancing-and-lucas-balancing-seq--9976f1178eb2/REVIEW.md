@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof derives exact block-sum formulas from standard Pell/associated-Pell identities, reduces each infinite GCD to the first block sum together with the GCD of all successive differences, and uses the Pell strong-divisibility property on an index progression congruent to \(2\pmod4\). The balancing branch gives \(\gcd(B_k,k)\) because \(16\) is invertible modulo odd \(B_k\). The Lucas-balancing branch has the same odd-prime GCD and its first block sum is proved odd by explicit mod-\(4\) recurrences, removing the possible factor \(2\).
+## correctness
 
-## Originality
-PASS, with residual literature risk. The focal 2023 paper explicitly asks for closed forms for these square-sum GCDs. It records only the experimentally observed equality of the balancing and Lucas-balancing GCDs on odd \(k\), not the formula \(\gcd(B_k,k)\) or a proof of that branch. Exact-formula, alias, and broader-coverage searches in the indexed literature and published-finding corpus returned no implication-equivalent result. The earlier generalized-Fibonacci square-sum theorem has a different recurrence and is not a covering theorem.
+PASS
 
-## Value
-PASS. The result resolves an infinite parity branch of an explicit open problem simultaneously for two natural related sequences and connects the previously empirical square-sum equality to the sequence-index GCD \(\gcd(B_k,k)\), the structural object highlighted separately by the source paper. The odd/even split is intrinsic to the source's braid phenomena rather than an arbitrary finite slice.
+Use B_n=P_{2n}/2 and C_n=Q_{2n}. The Pell square identities reduce sums of k consecutive squares to (B_k Q_{4n+2k+2}-k)/16 and (B_k Q_{4n+2k+2}+k)/2 respectively. Consecutive block differences and strong divisibility of Pell numbers give gcd of B-square differences B_k, and gcd of C-square differences 8B_k. For odd k, B_k odd and relevant residue modulo 4 makes C initial block sum odd, giving both gcds gcd(B_k,k). Independently regenerated sequences and verified direct 9-window GCDs for every odd k<=101. The proof uses infinite GCD of successive differences, not bounded windows.
 
-## Closest literature and limitations
-The closest source is Mbirika--Schrader--Spilker (2023), Question 30 and its three computational observations. Mbirika--Spilker (2022) gives an analogous theorem for generalized Fibonacci recurrences but does not cover balancing or Lucas-balancing sequences. The present theorem leaves even \(k\), cobalancing, Lucas-cobalancing, and a prime-factor closed form for \(\gcd(B_k,k)\) open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The primary 2023 article posed both square-sum cases as Question 30 and reported the odd branch equality as computational evidence only. Earlier generalized Fibonacci square-sum formula treats recurrence x_n=x_{n-1}+x_{n-2}, not balancing recurrence 6x_{n-1}-x_{n-2}.
+
+## value
+
+PASS
+
+Answers the entire odd branch of two explicit open problems for natural classical recurrence sequences, with a sharp exact sequence-index GCD formula rather than a finite sampling result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
