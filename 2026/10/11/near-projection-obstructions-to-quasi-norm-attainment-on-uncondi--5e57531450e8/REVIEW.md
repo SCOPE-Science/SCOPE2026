@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The norm-one unconditional block-multiplier axiom bounds every diagonal map and gives exact equality via the first and late blocks. For every nonzero vector, a Hahn–Banach supporting functional proves strict contraction by comparing an absolutely convergent scalar series with coefficients strictly below one. The contractive projection identifies the unit-ball image as the image of a closed ball under a Banach-space automorphism, so it is closed and cannot meet the unit sphere. These steps prove non-quasi-norm-attainment and the exact operator norm and perturbation size in both scalar fields. The theorem does not depend on computational extrapolation.
+## correctness
 
-## Originality — PASS with residual risk
-Choi–Choi–Jung–Martín (arXiv:2004.11025v1; published 2022), Definition 1.1, Lemma 2.1, Propositions 4.3–4.4 and Section 7.4, motivate the endomorphism question but do not give this blockwise near-projection family: their universal construction has target \(c_0\), not necessarily the original space. Ostrovskii's 2005 necessary condition for all operators to attain their norm excludes spaces with particular complemented approximation-property subspaces but does not establish the stated no-approximation-property block family or its exact approximation to the projection. The \(\ell_2\) diagonal example was explicitly described in public comments in 2016 and is excluded from any novelty claim. Relevant subsequent work on norm attainment of adjoints concerns a different operator class. The remaining risk is that the contractively complemented block formulation is implicit or stated in unindexed Banach-space literature.
+PASS
 
-## Mathematical value — PASS
-The exact construction gives a structural necessary restriction on any potential positive example to the published universal-endomorphism quasi-norm-attainment problem. It works for arbitrary nonzero blocks without approximation-property hypotheses, including nonatomic \(L_1\), and identifies every projection onto such a sum as a norm-boundary point of quasi norm attainment. Exact perturbation and inverse-norm constants show that the obstruction persists arbitrarily near invertible isometries when the whole space is decomposed. The statement is deliberately limited to those hypotheses and does not claim to solve the general problem.
+For any infinite 1-unconditional Schauder decomposition, diagonal D_eps=diag(1-eps/n) has norm 1 by late nonzero blocks, norm distance eps from identity on first block and inverse norm (1-eps)^-1. A Hahn–Banach norm-one functional supporting nonzero D_eps y satisfies sum abs phi(y_n)<=||y|| by unconditional phase choices, hence strict ||D_eps y||<||y|| because all diagonal coefficients <1. Norm-one projection P maps B_X onto B_Y, while invertible D_eps carries B_Y to a closed subset missing norm sphere; S_eps=i D_eps P is not QNA. Includes complex scalars and arbitrary nonzero block dimensions; excludes ell-infinity products.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The classical Hilbert diagonal I-K example is already known, but Choi et al Proposition 4.3 is X to c0 and Proposition 4.4 is l1 to Y, not near-projection non-QNA endomorphisms for every 1-complemented arbitrary block sum. The exact eps and inverse estimates require arbitrary-block support-functional lemma. Ostrovskii norm-attainment/AP necessary condition has different hypotheses. Best-of-knowledge new structural quantified obstruction, folklore-risk remains.
+
+## value
+
+PASS
+
+Motivated structural exclusion for possible universal QNA endomorphism spaces (Choi et al Problem 7.11), including nonreflexive L1 and arbitrary non-AP components. Exact norm-boundary points at norm-one projections and invertible near-identity examples matter; not a universal classification or mere renaming of Hilbert case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
