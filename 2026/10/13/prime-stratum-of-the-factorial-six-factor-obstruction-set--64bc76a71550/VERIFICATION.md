@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof separates an exact finite calculation from an infinite analytic step.
+# Independent mathematical audit
 
-`verify_prime_R.py` computes factorial squarefree parts from Legendre valuations and checks all \(38\) cases \(12\le c\le49\). It also checks \(s(11!)=77\), \(s(12!)=231\), and the five explicit counterexamples for primes below \(13\). Finally it stress-tests every prime up to \(401\) and all \(c\le500\). Expected replay:
+## correctness
 
-`VERIFY_OK finite_tail=38 small_prime_witnesses=5 prime_stress=79 c_max=500 threshold_11_12=77,231`
+PASS
 
-The infinite tail is not inferred from this finite experiment. For \(c\ge50\), Nagura's theorem is applied to \((c+1)/2\), \(2c/3\), and \(5c/6\), producing three disjoint primes of exact factorial valuation one. Their product is at least \(5c^3/18>c^2\). The prime classification then follows algebraically by toggling the \(p\)-parity in the squarefree part of \(pc!\).
+For c=12..49 independent exact valuation computation gives s(c!)>c^2, while s(11!)=77<121 and s(12!)=231>144. For c>=50 Nagura at x=(c+1)/2,2c/3,5c/6 yields distinct q1,q2,q3 above c/2, each with odd v_q(c!)=1, so s(c!)>=q1q2q3>(5/18)c^3>c^2. For p>=13, s(pc!)=p s(c!) if p does not divide s(c!), and s(c!)/p>c^2/p>=p otherwise. For 2,3,5,7,11 the c=2,3,6,7,11 witnesses give s(pc!)<p. Independent script confirmed finite tail, endpoints, and p<=401,c<=500. Infinite proof rests on Nagura, not the script.
 
-The critical external input is Nagura's published prime-interval theorem. Its statement was cross-checked against an open-access later paper that explicitly records the interval \([x,6x/5)\) for \(x\ge25\).
+## originality
+
+PASS
+
+Best-of-knowledge PASS with a meaningful uncertainty: the manuscript defining R was not fully accessible. The sharp quadratic factorial threshold and complete prime stratum are not furnished by the inspected sequence entries, theorem abstract, or general asymptotic results. No whole-source noncoverage is asserted for Yudin.
+
+## value
+
+PASS
+
+The prime parameters of a natural six-factor square-product obstruction set are completely classified. The exact cutoff p=13, sharp c=12 quadratic bound, and explicit excluded witnesses form a useful structural lemma beyond an isolated example; no composite classification or density claim is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
