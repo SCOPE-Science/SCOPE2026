@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T20:43:09Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Beatty complementary partition makes r(n)=K(n)−s(n), where K(n)=#{k:v(k)<n}=⌊n/φ²⌋ and s(n) counts ordered upper-plus-upper pairs. At N=v(t), K(N−1)=K(N)=t−1. Since 2<φ²<3, a representation v(j)+v(k) in {N−1,N} forces j+k=t; the irrational fractional carry separates the count A_t from t−1−A_t. Exact independent integer enumeration directly counted u+v for every t=1..250 and matched both formulas and the sum; infinite proof is the exact carry argument, not these samples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ashburn Theorem1 characterizes r(n)=0,1,2 via Fibonacci/Lucas numbers; Shallit constructs finite automata for whether u(h)+v(k)=n is possible."
+        ],
+        "reasoning": "Neither a low-fiber classification nor a Boolean membership automaton implies arbitrary multiplicity sum t−1. Some automatic counting extensions may conceivably exist but are not printed in the inspected results.",
+        "searches": [
+          "Resultary semantic search: Wythoff lower upper Beatty representation multiplicities consecutive upper Wythoff v(t) r(v(t)-1)+r(v(t))=t-1",
+          "https://arxiv.org/abs/2610.04842",
+          "https://arxiv.org/pdf/2006.04177"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.04842",
+        "https://arxiv.org/pdf/2006.04177",
+        "https://oeis.org/A259598",
+        "Resultary semantic search: Wythoff lower upper Beatty representation multiplicities consecutive upper Wythoff v(t) r(v(t)-1)+r(v(t))=t-1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem1 in Ashburn applies only when r(n) is 0,1,2, while for large t the proposed pair has sum t−1 and forces unbounded multiplicity."
+        ],
+        "reasoning": "No cited theorem gives the arbitrary-t additive conservation conclusion without the new Beatty-carry partition.",
+        "searches": [
+          "Resultary semantic search: Wythoff lower upper Beatty representation multiplicities consecutive upper Wythoff v(t) r(v(t)-1)+r(v(t))=t-1",
+          "https://arxiv.org/abs/2610.04842",
+          "https://arxiv.org/pdf/2006.04177"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ashburn §3 uses the same A259598 representation count r(n); OEIS entry labels r(n) with generating function."
+        ],
+        "reasoning": "This is the identical object, not a renamed new sequence; its new assertion controls adjacent values at v(t) for arbitrary multiplicity.",
+        "searches": [
+          "Resultary semantic search: Wythoff lower upper Beatty representation multiplicities consecutive upper Wythoff v(t) r(v(t)-1)+r(v(t))=t-1",
+          "https://arxiv.org/abs/2610.04842",
+          "https://oeis.org/A259598"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A259598 lists initial r(n) and low-fiber conjectures; the inspected direct arXiv paper proves the three fibers; Shallit's tables classify membership, not counts."
+        ],
+        "reasoning": "The claimed adjacent-pair t−1 identity was compared against actual sequence definitions and known tables and not found in them. Table absence alone is not proof of novelty.",
+        "searches": [
+          "Resultary semantic search: Wythoff lower upper Beatty representation multiplicities consecutive upper Wythoff v(t) r(v(t)-1)+r(v(t))=t-1",
+          "https://oeis.org/A259598",
+          "https://arxiv.org/abs/2610.04842",
+          "https://arxiv.org/pdf/2006.04177"
+        ]
+      },
+      "rationale": "Natural new consecutive-upper-index conservation identity for all multiplicities; preceding direct paper classifies only the 0/1/2 fibers and Shallit treats sumset membership. The source/sequence inspections show no equivalent adjacent-pair count law.",
+      "residual_risks": [
+        "An unindexed older Beatty/rotation counting identity may be equivalent; searches were targeted, not exhaustive.",
+        "The exact formula covers adjacent pairs only, not all n or all multiplicity level sets."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Low-fiber equivalences do not state the all-t adjacent pair identity.",
+          "evidence": [
+            "Theorem1 §§3: r(n)=0,1,2 classes only."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.04842",
+          "material_read": "Full available arXiv HTML manuscript including Theorem1 and §3, and the representation definitions.",
+          "method": "Primary complete arXiv HTML, direct reading.",
+          "title": "Proofs of some OEIS conjectures on Wythoff sums, Fibonacci and Lucas words",
+          "trigger": "Same A259598 exact multiplicity function"
+        },
+        {
+          "assessment": "Decides sumset membership via automata; not exact unrestricted counts for consecutive upper Wythoff levels.",
+          "evidence": [
+            "Theorem2 and formula for ∃a,b(n=a+b), membership characterization."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2006.04177",
+          "material_read": "Abstract, §3–5 Wythoff/sumset automaton constructions and related results; PDF 14 pages, topical portions inspected.",
+          "method": "Primary arXiv PDF, direct search/reading.",
+          "title": "Sumsets of Wythoff Sequences, Fibonacci Representation, and Beyond",
+          "trigger": "Earlier precise Wythoff sumset theory"
+        },
+        {
+          "assessment": "Indexes r(n) but no inspected exact t−1 adjacent law.",
+          "evidence": [
+            "A259598 is # of pairs u(h)+v(k)=n."
+          ],
+          "identifier_or_url": "https://oeis.org/A259598",
+          "material_read": "Definition, initial table/remarks and linked Ashburn reference.",
+          "method": "OEIS entry HTML reading.",
+          "title": "OEIS A259598",
+          "trigger": "Exact indexed representation function and numerical tables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The function A259598 is intrinsically motivated by Wythoff/Beatty partitions. An exact all-t local conservation law forces arbitrarily large representation multiplicities and gives an efficient local invariant beyond low-fiber results, despite leaving each A_t in rotation-rank form.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For lower u(h)=⌊hφ⌋ and upper v(k)=⌊kφ²⌋, the exact lower-plus-upper representation function satisfies r(v(t)−1)=A_t, r(v(t))=t−1−A_t, A_t=#{1≤j<t:{jφ²}<{tφ²}}, so the adjacent pair sums to t−1 for every t≥1.",
+  "limitations": [
+    "No closed elementary formula for individual A_t; adjacent-pair result does not classify all r(n).",
+    "Earlier differently phrased Beatty identities remain a bounded originality risk."
+  ],
+  "schema_version": 1
+}

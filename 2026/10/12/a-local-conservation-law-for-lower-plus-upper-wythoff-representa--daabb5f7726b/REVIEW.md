@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Beatty complementarity gives the exact decomposition \(r(n)=K(n)-s(n)\), where \(K(n)\) counts admissible upper-Wythoff second summands and \(s(n)\) counts upper-plus-upper decompositions. At \(N=v(t)\), both \(K(N)\) and \(K(N-1)\) equal \(t-1\). The gap \(v(q+1)-v(q)\in\{2,3\}\) forces every upper-plus-upper representation of \(N\) or \(N-1\) to have index sum \(t\), and the fractional-part carry then partitions the \(t-1\) possible ordered pairs exactly according to whether \(\{j\varphi^2\}\) lies below or above \(\{t\varphi^2\}\). The bundled exact-integer checker confirms the formulas through \(t=1000\); the finite check is not used as an infinite proof.
+## correctness
 
-## Originality
-PASS with a residual older-literature risk. Ashburn's direct source proves the exact fibers of multiplicity \(0\), \(1\), and \(2\), but does not state an arbitrary-multiplicity adjacent-pair conservation law. OEIS A259598 gives the definition, data, generating function, and those low-fiber conjectures. Shallit's earlier full treatment proves sumset-membership results, not the displayed exact multiplicity identity. Targeted searches for the identity, its rotation-rank form, and equivalent Wythoff-convolution language found no covering statement.
+PASS
 
-## Value
-PASS. The source's focus on the exceptional fibers \(0\), \(1\), and \(2\) leaves the general multiplicity structure largely opaque. The theorem gives a simple exact law at every upper-Wythoff boundary, identifies the two individual counts as complementary irrational-rotation ranks, and forces linear total multiplicity \(t-1\) on a canonical adjacent pair. This is a structural invariant of the full representation function rather than a recomputation of isolated terms.
+The Beatty complementary partition makes r(n)=K(n)−s(n), where K(n)=#{k:v(k)<n}=⌊n/φ²⌋ and s(n) counts ordered upper-plus-upper pairs. At N=v(t), K(N−1)=K(N)=t−1. Since 2<φ²<3, a representation v(j)+v(k) in {N−1,N} forces j+k=t; the irrational fractional carry separates the count A_t from t−1−A_t. Exact independent integer enumeration directly counted u+v for every t=1..250 and matched both formulas and the sum; infinite proof is the exact carry argument, not these samples.
 
-## Closest literature and limitations
-The closest source is Ashburn's arXiv:2610.04842v1, Section 3, which treats the same function but only the fibers \(0\), \(1\), and \(2\). OEIS A259598 and Shallit's arXiv:2006.04177v1 were also inspected. The main residual risk is an older Beatty-sequence identity phrased in different convolution terminology.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Natural new consecutive-upper-index conservation identity for all multiplicities; preceding direct paper classifies only the 0/1/2 fibers and Shallit treats sumset membership. The source/sequence inspections show no equivalent adjacent-pair count law.
+
+## value
+
+PASS
+
+The function A259598 is intrinsically motivated by Wythoff/Beatty partitions. An exact all-t local conservation law forces arbitrarily large representation multiplicities and gives an efficient local invariant beyond low-fiber results, despite leaving each A_t in rotation-rank form.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
