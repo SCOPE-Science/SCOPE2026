@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T15:47:19Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/13/an-exact-gaussian-positivity-threshold-for-two-mode-sketched-har--82e6f28b1c80/RESULT.md",
+        "2026/10/13/an-exact-gaussian-positivity-threshold-for-two-mode-sketched-har--82e6f28b1c80/VERIFICATION.md",
+        "2026/10/13/an-exact-gaussian-positivity-threshold-for-two-mode-sketched-har--82e6f28b1c80/verify.py"
+      ],
+      "rationale": "Orthonormal eigenvectors turn restrictions SU and SV into independent isotropic s-Gaussians. Numerator ||SAb||^2>0 simultaneously for all nonzero b almost surely (full rank on 2-plane). The denominator is b^T H b for H with diagonals mu||U||^2 and L||V||^2 and off-diagonal (mu+L)U·V/2 divided by s. Sylvester gives H>0 iff cosine²(U,V)<4kappa/(kappa+1)^2; H indefinite otherwise except measure-zero equality. Gaussian spherical cosine² has Beta(1/2,(s-1)/2), giving the probability. Its monotonicity and CLT yield sharp uniform row budget: at s/kappa=t, probability tends to 2Phi(2sqrt t)-1; the strict inverse threshold follows by sandwich. For fixed s, beta density at zero gives the stated Gamma prefactor kappa^{-1/2}. Independently checked low-row exact beta expressions at kappa=2,10,100 and Sylvester algebra; no false implication from a fixed b to a uniform b.",
+      "residual_risks": [
+        "Full primary Sketch-and-Restart text and possible Wishart/antieigenvalue antecedents were not all read; exact prior-implication check remains bounded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Güttel–Liu–Nyman arXiv:2607.10354v1 states harmonic Petrov–Galerkin and right-half-plane convergence conditions",
+          "Grigori/Kressner/Shao/Simunec arXiv:2601.10248v1 ordinary Ritz similarity",
+          "Gaunt arXiv:2408.04101 fixed products of correlated Gaussians"
+        ],
+        "reasoning": "A general Wishart pencil positivity theorem could dominate this exact 2D calculation, but no such direct implication verified in inspected bibliographic and accessible materials; ordinary Ritz and single-start results have different quantifiers.",
+        "searches": [
+          "Resultary semantic query: sketched harmonic Ritz Gaussian random sketch positive real eigenvalues uniform all starting directions two dimensional beta law (top 15 published records)",
+          "Primary article comparison for randomized Krylov Ritz Gaussian products"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2607.10354",
+        "https://arxiv.org/abs/2601.10248",
+        "https://arxiv.org/abs/2408.04101",
+        "frozen RESULT.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:2607.10354v1 Section 2.2 eq 2.13 sketched harmonic pencil and Section 5 right-half-plane assumption as quoted by frozen source",
+          "Exact uniform-all-b Gaussian positivity equivalent to a 2x2 Sylvester test"
+        ],
+        "reasoning": "The cited convergence hypothesis is not a probability theorem and does not by itself supply the Beta success law or its sharp κ-dependent row budget; an alternative historical Wishart reduction could nevertheless reproduce it.",
+        "searches": [
+          "Resultary semantic query: sketched harmonic Ritz Gaussian random sketch positive real eigenvalues uniform all starting directions two dimensional beta law (top 15 published records)",
+          "Primary article comparison for Sketch-and-Restart right-half-plane requirement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sylvester 2x2 positivity reduces to Gaussian squared spherical cosine",
+          "Classical Beta(1/2,(s-1)/2) angular law"
+        ],
+        "reasoning": "The probability is an elementary transformation of a classical angular distribution; originality is its quantifier-sensitive formulation for one shared harmonic-sketch pencil, not the beta law itself.",
+        "searches": [
+          "Resultary semantic query: sketched harmonic Ritz Gaussian random sketch positive real eigenvalues uniform all starting directions two dimensional beta law (top 15 published records)",
+          "Primary article comparison for Gaussian Wishart 2x2 matrix positivity angle"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Derived exact s=2 success 2arcsin(sqrt c)/pi; s=3 success sqrt c",
+          "Independent s=2 and s=3 numerical values for kappa=2,10,100 matched formula"
+        ],
+        "reasoning": "No finite table can prove the all-kappa continuum or sharp confidence scaling; this is a distributional theorem, not an enumerated database claim.",
+        "searches": [
+          "Resultary semantic query: sketched harmonic Ritz Gaussian random sketch positive real eigenvalues uniform all starting directions two dimensional beta law (top 15 published records)",
+          "Primary article comparison for Gaussian-row threshold tables"
+        ]
+      },
+      "rationale": "The sketched harmonic Petrov–Galerkin construction and a right-half-plane requirement are from Güttel–Liu–Nyman 2026. Existing ordinary Ritz reorthogonalization and fixed-direction Gaussian-product facts do not identify this joint one-sketch/all-vectors success event. Classical Sylvester and Gaussian beta facts are acknowledged, not novel individually. Full primary sketch-and-restart article inaccessible in this run; best-of-knowledge comparison has explicit high relevance risk.",
+      "residual_risks": [
+        "Full primary Sketch-and-Restart text and possible Wishart/antieigenvalue antecedents were not all read; exact prior-implication check remains bounded.",
+        "Only rank-one harmonic projection on a fixed eigenplane, no convergence theorem, finite precision, complex or structured sketches.",
+        "Uniform over the plane using one sketch differs from fixed-start probability."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supports motivation and exact method origin; no whole-document NOT_COVERING claim",
+          "evidence": "Right-half-plane hypothesis relevant; residual possible overlap with unpublished appendices",
+          "identifier_or_url": "https://arxiv.org/abs/2607.10354",
+          "material_read": "Abstract/accessible article summary and formula quoted in frozen RESULT; original full text could not be independently read via arXiv or alternative OA interface in this execution",
+          "method": "Primary metadata and source excerpt, not full-document reading",
+          "title": "Sketch-and-Restart: Randomized Sketching in Quadrature-Based Restarting for Matrix Functions",
+          "trigger": "Exact source method, harmonic pencil, right-half-plane convergence"
+        },
+        {
+          "assessment": "Ordinary Ritz/similarity problem rather than exact shared-sketch harmonic uniform positivity",
+          "evidence": "Ritz versus harmonic construction",
+          "identifier_or_url": "https://arxiv.org/abs/2601.10248",
+          "material_read": "Abstract and research record bibliographic comparison; no full paper read in this execution",
+          "method": "Title/abstract-level primary comparison",
+          "title": "Restoring Similarity in Randomized Krylov Methods with Applications to Eigenvalue Problems and Matrix Functions",
+          "trigger": "Plausible randomized Ritz alternative"
+        },
+        {
+          "assessment": "Product distribution for fixed variables does not directly impose common-sketch all-start direction requirement",
+          "evidence": "Different quantifier order",
+          "identifier_or_url": "https://arxiv.org/abs/2408.04101",
+          "material_read": "Abstract and scope from source research description; full text not independently read",
+          "method": "Abstract comparison",
+          "title": "On the Product of Correlated Normal Random Variables and the Noncentral Chi-Square Difference Distribution",
+          "trigger": "Gaussian product law plausible dominating distribution"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2607.10354",
+        "https://arxiv.org/abs/2601.10248",
+        "https://arxiv.org/abs/2408.04101"
+      ],
+      "rationale": "This is an exact, motivated stability precondition for a sketched harmonic extraction algorithm: protecting an entire two-mode invariant plane using one shared random sketch has a sharp linear-in-condition-number row cost, unlike condition-independent informal guarantees. Precise probability and confidence constant are useful design facts, without pretending to prove the full restarted algorithm converges.",
+      "residual_risks": [
+        "Uniform over the plane using one sketch differs from fixed-start probability."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For any fixed two-eigenmode plane of real SPD A with condition number kappa>1 and one shared iid N(0,1/s) sketch with integer s>=2, probability that all one-dimensional sketched harmonic Ritz values are defined and positive is I_{4kappa/(kappa+1)^2}(1/2,(s-1)/2). The minimal s achieving confidence >=1-delta scales as [Phi^{-1}(1-delta/2)]^2*kappa/4.",
+  "limitations": [
+    "Full primary Sketch-and-Restart text and possible Wishart/antieigenvalue antecedents were not all read; exact prior-implication check remains bounded.",
+    "Only rank-one harmonic projection on a fixed eigenplane, no convergence theorem, finite precision, complex or structured sketches.",
+    "Uniform over the plane using one sketch differs from fixed-start probability."
+  ],
+  "schema_version": 1
+}
