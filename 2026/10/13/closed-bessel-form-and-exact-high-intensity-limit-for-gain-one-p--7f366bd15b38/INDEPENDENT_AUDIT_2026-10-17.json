@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T05:07:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Start with the published unit-gain average fidelity F=(2I0(2zeta))^-1 sum_{m,n>=0}(zeta/2)^(m+n)(m+n)!/(m!² n!²), nonnegative and absolutely convergent for zeta>=0. At k=m+n, Vandermonde yields sum_m k!/(m!²(k-m)!²)=binom(2k,k)/k!, so the series becomes 1F1(1/2;1;2zeta). The Euler integral and t=(1+cos(theta))/2 give e^zeta I0(zeta), proving the exact Bessel quotient. Standard large-positive-x I0(x)~exp(x)/(sqrt(2pi x))*(1+1/(8x)+9/(128x²)+225/(3072x³)+...) then gives F=2^-1/2*(1+1/(16zeta)+25/(512zeta²)+491/(8192zeta³)+...), tending to 1/sqrt2 from above and eventually above 2/3. Independent mpmath rectangular double-series truncation agreed with Bessel quotient at zeta=0,0.5,1.2,4; independent symbolic rational division confirmed the three coefficients. Valid only at gain g=1.",
+      "risk": "Finite double-sum truncation only checks selected zeta; equality and high-intensity asymptotic rest on exact Vandermonde/Kummer integral and Bessel expansion. No optimal-gain theorem.",
+      "sources": [
+        "Frozen RESULT.md, verify.py source blob",
+        "Gábris–Agarwal arXiv:quant-ph/0607162, gain-one fidelity double sum and Fig. discussion",
+        "NIST DLMF modified Bessel asymptotics §10.40",
+        "independent_checks.py GAIN_ONE_*"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic teleportation with pair-coherent states can refer to different Bell measurements and gain conventions.",
+          "The older Wu et al. paper concerns phase damping and a different protocol; its abstract is insufficient for a whole-document noncoverage claim."
+        ],
+        "reasoning": "A general pair-coherent-teleportation title does not dominate this fixed gain-one source-specific mean-fidelity formula.",
+        "searches": [
+          "pair coherent quantum teleportation gain 1 coherent fidelity Bessel I0 exact asymptotic limit",
+          "arXiv:quant-ph/0607162",
+          "DOI:10.1142/S0217984904007426"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/quant-ph/0607162",
+        "DOI:10.1142/S0217984904007426",
+        "https://dlmf.nist.gov/10.40",
+        "Resultary search pair coherent quantum teleportation gain 1 coherent fidelity Bessel I0 exact asymptotic limit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The paper explicitly supplies the unsummed double series at g=1 and qualitative limit above 1/2.",
+          "The new diagonal regrouping identifies the exact Kummer function and converts it to the Bessel quotient before applying known asymptotics."
+        ],
+        "reasoning": "The source statement implies a computable numeric value but does not state the exact closed quotient or approach expansion; obtaining the source-specific answer requires summing its series.",
+        "searches": [
+          "arXiv:quant-ph/0607162 fidelity double series",
+          "pair coherent quantum teleportation gain 1 coherent fidelity Bessel I0 exact asymptotic limit",
+          "DLMF §10.40"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gábris–Agarwal unit-gain two-index sum is identical to the object reduced in the finding.",
+          "Classical 1F1(1/2;1;2zeta)=e^zeta I0(zeta) is a known special-function identity, not claimed novel."
+        ],
+        "reasoning": "Normalization checked against original denominator 2I0(2zeta); the source does not identify the exact simplified quotient or plateau in the inspected full paper.",
+        "searches": [
+          "pair coherent quantum teleportation gain 1 coherent fidelity Bessel I0 exact asymptotic limit",
+          "arXiv:quant-ph/0607162 Eqs. gain-one double series",
+          "DLMF §10.40"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original paper gives numerical plots and series, not a table stating the exact 1/sqrt2 plateau.",
+          "DLMF tabulates generic I0 asymptotic coefficients, not the pair-coherent fidelity connection."
+        ],
+        "reasoning": "Known Bessel tables are legitimately used as inputs; a preexisting exact table of this fidelity quotient was not found in actual searches.",
+        "searches": [
+          "pair coherent quantum teleportation gain 1 coherent fidelity Bessel I0 exact asymptotic limit",
+          "arXiv:quant-ph/0607162",
+          "NIST DLMF §10.40"
+        ]
+      },
+      "rationale": "Gábris–Agarwal 2006 derives the gain-one double series, a numerical maximum near 0.75884, and a qualitatively nonclassical high-intensity plateau, but not its exact special-function reduction or value 1/sqrt2. The Kummer integral, Vandermonde identity and Bessel asymptotics are textbook tools credited as prior. The relevant claim is their new application to the exact original teleportation protocol, extracting a previously unstated plateau and positive approach correction. The earlier Wu–Li–Wang–Xu study uses a distinct pair-coherent teleportation protocol. Unindexed equivalent summations remain a risk.",
+      "residual_risks": [
+        "A parallel unindexed summation of the same series could exist.",
+        "Only unit gain and this exact teleportation protocol are treated; no finite-intensity optimum proof or alternate gain model."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Only double series and numerical/qualitative plateau are stated; no source-specific Bessel quotient or analytic 1/sqrt2 limit identified",
+          "evidence": "Gábris–Agarwal gain-one sum denominator 2I0(2zeta) and input-amplitude independent fidelity; source reported numerical maximum near zeta=1.2357.",
+          "identifier_or_url": "https://arxiv.org/pdf/quant-ph/0607162",
+          "material_read": "Full 7-page arXiv public primary PDF, especially gain-one fidelity equation, surrounding plot/numerical and large-intensity discussion",
+          "method": "Read original PDF text and relevant equation page image",
+          "title": "Quantum teleportation with pair-coherent states",
+          "trigger": "Exact originating protocol, gain normalization, mean-fidelity double series"
+        },
+        {
+          "assessment": "Different phase-damping teleportation protocol; cannot assert whole-document noncoverage from abstract",
+          "evidence": "Bibliographic/abstract material mentions applications under phase damping rather than this gain-one Gábris–Agarwal equation.",
+          "identifier_or_url": "DOI:10.1142/S0217984904007426",
+          "material_read": "Publisher abstract and bibliographic data, not full original article",
+          "method": "Limited abstract comparison; full text not read",
+          "title": "Application of pair coherent states in quantum information processes",
+          "trigger": "Plausible same-resource earlier quantum information work"
+        },
+        {
+          "assessment": "Standard asymptotic input, not source-specific teleportation fidelity computation",
+          "evidence": "I0(x)~e^x/sqrt(2pi x)*(1+1/(8x)+9/(128x²)+...).",
+          "identifier_or_url": "https://dlmf.nist.gov/10.40",
+          "material_read": "Standard modified-Bessel large-positive-real argument expansion and coefficients as used in proof",
+          "method": "Applied the known expansion to independent algebraic quotient",
+          "title": "NIST Digital Library of Mathematical Functions §10.40",
+          "trigger": "Classical asymptotic expansion that could make claim a tautological rephrasing"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact asymptotic average teleportation fidelity is a physically natural target-invariant, and the source previously left its high-intensity value qualitative and its expression as a double numerical sum. The source-specific closed Bessel quotient gives the exact stable plateau 1/sqrt2, its approach direction and positive corrections, and the eventual 2/3 benchmark exceedance without new numerical optimizations. Although the summation uses classical identities, recovering the exact interpretation for the published protocol supplies a motivated useful fact, not an arbitrary table value.",
+      "risk": "Special-function simplification is methodologically elementary; the assessed mathematical value is the source-specific exact fidelity and corrected asymptotic interpretation, not a new identity of 1F1.",
+      "sources": [
+        "Gábris–Agarwal arXiv:quant-ph/0607162",
+        "DLMF 10.40 for standard input",
+        "Frozen RESULT.md",
+        "independent_checks.py GAIN_ONE_*"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Real zeta>=0, gain g=1, coherent input protocol fixed by Gábris–Agarwal.",
+    "No uniqueness proof for numerical maximum; no optimization over gain or noise.",
+    "Earlier related protocol literature not completely accessible; possible unindexed source-specific summation retained as risk.",
+    "No external attestation or formal verification is inferred from a verifier printout.",
+    "Public metadata confidentiality blocks publication: scientifically completed review is not an importable change-set."
+  ],
+  "schema_version": 1
+}
