@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T10:51:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The reviewed checkerboard matrix P=(1/64) times rows (32,12,12,8,0,0),(12,17,17,18,0,0),(12,17,17,18,0,0),(8,18,18,20,0,0),(0,0,0,0,32,32),(0,0,0,0,32,32), equals blockdiag(A^T A,J2/2) for a product of adjacent-coordinate averaging matrices A. These and the ordered block concatenation are TP2; Cauchy–Binet maintains TP2. All row/column sums 1 and symmetry hold. Reflected contrast P23−P53−P24+P54=−1/64 gives density contrast −3/32 on I2×I3, so P fails PMI. For ε=1/100000, S=(R1…R5)^5 with R_i=I−(ε/2)(e_i−e_{i+1})(e_i−e_{i+1})^T is strictly positive, doubly stochastic and TP2, and Q=S^T P S remains so. Telescoping gives |Q_ij−P_ij|<=50ε, hence reflected contrast ≤−1/64+200ε<0. Independent SymPy exact rational computation verified every ordered TP2 minor of P and Q, positive entries, stochasticity, and Q contrast ≈−0.015601954808512043. The proof and finite 6×6 certificate establish the statement completely; no smoothness is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The previously published example establishes MK-TP2 does not imply PMI, not d-TP2 does not imply PMI.",
+          "The known d-TP2⇒MK-TP2 hierarchy prevents deducing the stronger failure from a weaker witness.",
+          "Parametric Gaussian/Frank families with both properties cannot imply a global coincidence."
+        ],
+        "reasoning": "The stronger structural premise and strictly positive symmetric density are essential; the old Marshall–Olkin counterexample is singular and cannot be treated as prior direct coverage.",
+        "searches": [
+          "arXiv:2306.09676v1 Example 7 (Extreme value copulas) Item2",
+          "arXiv:2205.01914v1 total positivity of copulas from Markov kernels",
+          "Fuchs Tschimpke J Multivariate Anal 200 2024 105259"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2306.09676v1 full HTML and PDF screenshot",
+        "arXiv:2205.01914v1",
+        "DOI:10.1016/j.jmva.2023.105259",
+        "Resultary semantic dTP2 checkerboard non-PMI query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The old non-PMI Marshall–Olkin example satisfies MK-TP2, but is not a strictly positive absolutely continuous d-TP2 example.",
+          "The new Q satisfies all 225 TP2 minors and has strictly positive entries with negative PMI density reflection."
+        ],
+        "reasoning": "The prior results provide definitions and weaker negative direction; only the new Q establishes the stronger d-TP2/non-PMI nonimplication with added exchangeability and positive density.",
+        "searches": [
+          "Fuchs–Tschimpke 2023 Remark 1 and Example 7",
+          "Fuchs–Tschimpke 2022 total positivity Markov kernel comparison",
+          "Independent rational matrix witness"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior PMI condition is nonnegative reflected density contrast on (0,1/2)^2; the new Q has a negative contrast on an open cell rectangle.",
+          "Foundational Example7 supplies a Marshall–Olkin copula MK-TP2/nonPMI but has singular support, so not an equivalent strictly positive density TP2 example."
+        ],
+        "reasoning": "Equivalent dependency notions (SI, MK-TP2, d-TP2) cannot be conflated; all the stated extra hypotheses are genuine and verified in the finite matrix.",
+        "searches": [
+          "Fuchs–Tschimpke arXiv:2306.09676v1 Remark1 density reflection Eq.(2.4)",
+          "Fuchs–Tschimpke arXiv:2205.01914 dTP2 and MKTP2 hierarchy",
+          "Resultary positive exchangeable density TP2 copula outside PMI reflected checkerboard"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No returned exact 6×6 Q or same matrix in semantic search; nearest Resultary BFEx checkerboard zero index record 2026/10/4/SCOPE-a-checkerboard-copula-with-zero-bfex-dependence-index-but-nonzer--07356e3b9859 concerns a different index and 3×3 matrix."
+        ],
+        "reasoning": "A previously published table of TP2 checkerboard copulas could contain an implicit witness, but none located; the exact matrix is a finite complete constructive certificate rather than a trivial table lookup.",
+        "searches": [
+          "Resultary strictly positive exchangeable density TP2 copula not PMI six-bin checkerboard query",
+          "2026 checkerboard copula PMI reflection all positive TP2 matrix search",
+          "Fuchs–Tschimpke references 2023 2022"
+        ]
+      },
+      "rationale": "The foundational Fuchs–Tschimpke paper establishes a PMI density contrast and MK-TP2 counterexamples with singular components, but no absolutely continuous strictly positive exchangeable d-TP2 negative-PMI witness inspected. Since d-TP2 is strictly stronger than MK-TP2, the published singular weaker witness cannot by implication refute d-TP2⇒PMI; the new explicit positive TP2 matrix construction resolves a distinct implication. Resultary search near checkerboard dependence indices found no same nonimplication. Best-of-knowledge priority caveat remains.",
+      "residual_risks": [
+        "Cannot prove no earlier unpublished or unindexed positive d-TP2/non-PMI example exists; inspection targets primary foundational hierarchy and exact sign test.",
+        "Piecewise-constant density is not smooth and no minimal grid-size claim is established.",
+        "Definition of PMI uses almost-everywhere density contrast; cell-boundary conventions have no measure impact."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PMI_CRITERION_AND_WEAKER_EXAMPLE_ONLY",
+          "evidence": "Definition1/Remark1 give reflected-density sign; Example7 Item2 Marshall–Olkin for α=0.05,β=1 is MK-TP2 and non-PMI, not an everywhere positive density example.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.09676",
+          "material_read": "Full arXiv HTML mathematical text Sections 1–3 incl. Definition1, Remark1 and Example7, supporting PDF page screenshot checked in same audit",
+          "method": "Read primary HTML and inspect relevant PDF page visually",
+          "title": "A novel positive dependence property and its impact on a popular class of concordance measures",
+          "trigger": "Introduces exact PMI test and strongest plausible counterexample"
+        },
+        {
+          "assessment": "PRIOR_HIERARCHY",
+          "evidence": "d-TP2 is stronger than MK-TP2; a singular MK-TP2 negative-PMI example cannot decide the stronger antecedent.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.01914",
+          "material_read": "Published abstract and mathematical dependency hierarchy as quoted within later full primary Fuchs–Tschimpke paper",
+          "method": "Primary arXiv landing and explicit later-paper dependency context",
+          "title": "Total positivity of copulas from a Markov kernel perspective",
+          "trigger": "Defines exact d-TP2/MK-TP2 hierarchy essential for implication comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The d-TP2 versus PMI implication is a natural unresolved boundary in positive dependence, and the strictly positive exchangeable 6×6 exact certificate separates two properties that agreed for several standard smooth parametric families. This is a motivated structural counterexample, not merely a numerical perturbation or rephrasing of the weaker singular MK-TP2 example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "A strictly positive exchangeable density-TP2 copula outside the PMI class",
+  "limitations": [
+    "The witness density is piecewise constant, not smooth; no minimality or Archimedean assertion.",
+    "Finite arithmetic here is exhaustive for all minors of the one fixed 6×6 matrix, not a random experimental test."
+  ],
+  "schema_version": 1
+}

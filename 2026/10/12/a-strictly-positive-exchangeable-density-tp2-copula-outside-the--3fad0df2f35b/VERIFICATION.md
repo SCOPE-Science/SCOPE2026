@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The checkerboard density has exact rational cell heights and uniform margins. The analytical proof supplies the factorization through adjacent averaging matrices, the Cauchy–Binet argument for TP2 and a uniform perturbation bound controlling the strict negative PMI contrast. The accompanying exact-rational verifier checks the displayed matrix, all 225 ordered two-by-two minors, both marginal sums, strict positivity after smoothing, and the negative reflection contrast on the specified open rectangle.
+# Independent mathematical audit
 
-To reproduce, execute `python3 verify_positive_tp2_not_pmi.py` in a Python 3 standard-library environment. A successful run prints three PASS/contrast lines. The finite computations are not being used as an infinite search: the density is piecewise constant on a six-by-six grid, so the matrix minors exhaust all ordered-point TP2 inequalities, and the exact open-cell PMI defect disproves the measure property. Boundary conventions are chosen consistently and have no effect on the induced copula measure.
+## correctness
 
-No claim is made that the checkerboard counterexample has a smooth density, minimizes the number of cells, or violates particular integrated concordance inequalities.
+PASS
+
+The reviewed checkerboard matrix P=(1/64) times rows (32,12,12,8,0,0),(12,17,17,18,0,0),(12,17,17,18,0,0),(8,18,18,20,0,0),(0,0,0,0,32,32),(0,0,0,0,32,32), equals blockdiag(A^T A,J2/2) for a product of adjacent-coordinate averaging matrices A. These and the ordered block concatenation are TP2; Cauchy–Binet maintains TP2. All row/column sums 1 and symmetry hold. Reflected contrast P23−P53−P24+P54=−1/64 gives density contrast −3/32 on I2×I3, so P fails PMI. For ε=1/100000, S=(R1…R5)^5 with R_i=I−(ε/2)(e_i−e_{i+1})(e_i−e_{i+1})^T is strictly positive, doubly stochastic and TP2, and Q=S^T P S remains so. Telescoping gives |Q_ij−P_ij|<=50ε, hence reflected contrast ≤−1/64+200ε<0. Independent SymPy exact rational computation verified every ordered TP2 minor of P and Q, positive entries, stochasticity, and Q contrast ≈−0.015601954808512043. The proof and finite 6×6 certificate establish the statement completely; no smoothness is claimed.
+
+## originality
+
+PASS
+
+The foundational Fuchs–Tschimpke paper establishes a PMI density contrast and MK-TP2 counterexamples with singular components, but no absolutely continuous strictly positive exchangeable d-TP2 negative-PMI witness inspected. Since d-TP2 is strictly stronger than MK-TP2, the published singular weaker witness cannot by implication refute d-TP2⇒PMI; the new explicit positive TP2 matrix construction resolves a distinct implication. Resultary search near checkerboard dependence indices found no same nonimplication. Best-of-knowledge priority caveat remains.
+
+## value
+
+PASS
+
+The d-TP2 versus PMI implication is a natural unresolved boundary in positive dependence, and the strictly positive exchangeable 6×6 exact certificate separates two properties that agreed for several standard smooth parametric families. This is a motivated structural counterexample, not merely a numerical perturbation or rephrasing of the weaker singular MK-TP2 example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

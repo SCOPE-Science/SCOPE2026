@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is reconstructible from the exact six-by-six matrix, its 4-by-4 adjacent-averaging factorization, and the 25-factor rational smoothing construction. The Cauchy–Binet theorem proves matrix TP2 after each product, while stochastic row/column sums certify uniform copula margins. Positivity follows from the five-sweep path argument and positive diagonal of the unsmoothed matrix. The strict PMI defect follows from an exact value \(-1/64\) and an analytic uniform bound of \(200/100000<1/64\). The standalone rational verifier independently checks all 225 minors and both exact constructions. Neither numerical experiments nor unexamined software outputs serve as infinite proofs.
+## correctness
 
-## Originality — PASS, with residual risk
-Fuchs–Tschimpke (arXiv:2306.09676v1) introduced PMI and explicitly disproved the weaker implication MK-TP2 \(\Rightarrow\) PMI using a singular Marshall–Olkin copula. Its Example 7 does not supply a strictly positive density-TP2 counterexample. Their arXiv:2205.01914v1 proves d-TP2 is stronger than MK-TP2 and does not address the later PMI property. Targeted searches for density-TP2, checkerboard and reflection aliases, along with closely related mathematical records and existing claim ledgers, found no statement that implies the present strict-positive symmetric construction. Search absence cannot establish absolute novelty, and an equivalent older total-positivity example remains possible.
+PASS
 
-## Value — PASS
-The d-TP2 condition is one of the strongest standard positive-dependence properties for absolutely continuous copulas. The constructed robust strict-positive counterexample establishes that PMI's reflected additive mass inequality does not follow from that stronger multiplicative positivity condition, even in the exchangeable subclass. The distinction is substantive for the applicability of PMI-dependent concordance arguments and is sharper than the already documented singular MK-TP2 counterexample. No smoothness, minimal grid or Archimedean assertion is needed for this boundary result.
+The reviewed checkerboard matrix P=(1/64) times rows (32,12,12,8,0,0),(12,17,17,18,0,0),(12,17,17,18,0,0),(8,18,18,20,0,0),(0,0,0,0,32,32),(0,0,0,0,32,32), equals blockdiag(A^T A,J2/2) for a product of adjacent-coordinate averaging matrices A. These and the ordered block concatenation are TP2; Cauchy–Binet maintains TP2. All row/column sums 1 and symmetry hold. Reflected contrast P23−P53−P24+P54=−1/64 gives density contrast −3/32 on I2×I3, so P fails PMI. For ε=1/100000, S=(R1…R5)^5 with R_i=I−(ε/2)(e_i−e_{i+1})(e_i−e_{i+1})^T is strictly positive, doubly stochastic and TP2, and Q=S^T P S remains so. Telescoping gives |Q_ij−P_ij|<=50ε, hence reflected contrast ≤−1/64+200ε<0. Independent SymPy exact rational computation verified every ordered TP2 minor of P and Q, positive entries, stochasticity, and Q contrast ≈−0.015601954808512043. The proof and finite 6×6 certificate establish the statement completely; no smoothness is claimed.
 
-## Relationship and limitations
-The nearest primary example is Fuchs–Tschimpke's 2023 Marshall–Olkin MK-TP2/non-PMI construction, which is weaker on the antecedent and cannot establish the density-level claim. Family-specific FGM/Gaussian/Frank positive-parameter equivalences likewise do not cover the general six-cell construction. The density has grid jumps, and independent bibliographic priority confirmation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The foundational Fuchs–Tschimpke paper establishes a PMI density contrast and MK-TP2 counterexamples with singular components, but no absolutely continuous strictly positive exchangeable d-TP2 negative-PMI witness inspected. Since d-TP2 is strictly stronger than MK-TP2, the published singular weaker witness cannot by implication refute d-TP2⇒PMI; the new explicit positive TP2 matrix construction resolves a distinct implication. Resultary search near checkerboard dependence indices found no same nonimplication. Best-of-knowledge priority caveat remains.
+
+## value
+
+PASS
+
+The d-TP2 versus PMI implication is a natural unresolved boundary in positive dependence, and the strictly positive exchangeable 6×6 exact certificate separates two properties that agreed for several standard smooth parametric families. This is a motivated structural counterexample, not merely a numerical perturbation or rephrasing of the weaker singular MK-TP2 example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
