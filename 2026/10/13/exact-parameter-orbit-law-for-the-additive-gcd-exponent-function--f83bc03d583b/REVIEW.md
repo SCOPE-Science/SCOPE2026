@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The reduction \(\gcd(k,\alpha_i)=\gcd(\gcd(k,L),\alpha_i)\) follows because \(\alpha_i\mid L\). Counting the fiber \(\gcd(k,L)=d\) gives \(\varphi(L/d)\). Exactness of the period follows by comparing the unique maximal residue class with a hypothetical smaller period. The extremal and mean formulas then follow termwise. The finite verifier independently exercises these identities on 4,680 exponent tuples.
+## correctness
 
-## Originality
-PASS. The focal paper’s Theorem 2.2 proves only that \(L\) is a period, while Theorem 2.4 gives a sufficient equality condition. Full-text inspection found no exact least-period statement, divisor-weighted orbit law, complete value multiplicities, or period mean. Targeted semantic searches using the function’s title, formula, least-period language, gcd-projection aliases, and distribution language returned no implication-equivalent result. Current and prior owned claims were checked for the same function, parameter periodicity, gcd-exponent aliases, and lcm/gcd orbit descriptions; the closest owned claim for this function concerns unbounded amplitude as \(n\) varies, while separate owned results concern different multiplicative exponent functions.
+PASS
 
-## Value
-PASS. The source treats \(k\) as a genuine parameter and establishes periodicity but leaves its internal orbit structure unresolved. The divisor-projection theorem completely resolves that structure for every fixed \(n\): it proves the published period is always sharp, gives exact multiplicities of every attained value, identifies both extremal fibers, and supplies an exact first moment. These data are directly usable in any parameter averaging or collision question for the function and are not a mere numerical increment.
+For arbitrary n>1 with positive prime exponents alpha_i and L=lcm(alpha_i), each alpha_i divides L and gcd(k,alpha_i)=gcd(gcd(k,L),alpha_i); totient counts gcd(k,L)=d are phi(L/d). Exact least period follows because equality f(L-T)=f(L)=sum alpha_i for hypothetical 0<T<L forces alpha_i|(L-T) for every i and hence L|(L-T), impossible. Extremal fibers follow from gcd bounds, and the mean from sum_{k=1}^a gcd(k,a)=sum_{d|a}(a/d)phi(d). Independent exact integer cross-check covered 216 triples of exponent values 1..6; the all-n proof is symbolic, not finite inference.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge narrowly: the primary 2022 paper defines f_k and proves L is a period and some equality conditions; the exact parameter-fiber multiset and multiplicities, least period, and average are not stated there. These formulas are short consequences of elementary gcd and totient identities; novelty and mathematical depth are modest, with specific risk of an unnoticed corollary/table in the primary or general gcd literature.
+
+## value
+
+PASS
+
+The entire parameter distribution of a naturally defined arithmetic function is a complete exact invariant, not an arbitrary numerical slice. It explains frequency of degeneracies, identifies the true fundamental period and exact extremes and mean for all n. Mathematical value is limited and elementary, but the full orbit histogram is a motivated usable classification of the source-defined function; no claim of a deep new analytic phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

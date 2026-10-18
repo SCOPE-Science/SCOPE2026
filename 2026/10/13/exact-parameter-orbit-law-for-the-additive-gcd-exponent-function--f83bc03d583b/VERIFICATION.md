@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is symbolic and unbounded. The key identity is
-\[
-\gcd(k,\alpha)=\gcd(\gcd(k,L),\alpha)\quad\text{whenever }\alpha\mid L.
-\]
-The count of parameters with \(\gcd(k,L)=d\) in one complete block is exactly \(\varphi(L/d)\). Exactness of the period follows from the unique maximal gcd condition, and the mean follows from the finite gcd-sum identity.
+# Independent mathematical audit
 
-`verify.py` exhausts every ordered exponent tuple of support size \(1\) through \(4\), with each exponent in \(\{1,\ldots,8\}\). It verifies the projection formula, full weighted distribution, extrema and their multiplicities, the absence of a smaller divisor-period, and the first-moment formula. The recorded output is:
+## correctness
 
-`VERIFY_OK exponent_tuples=4680 parameter_checks=323280 max_L=840 support_max=4 exponent_max=8`
+PASS
 
-The computation is a regression check only; it is not an exhaustive proof over all exponents.
+For arbitrary n>1 with positive prime exponents alpha_i and L=lcm(alpha_i), each alpha_i divides L and gcd(k,alpha_i)=gcd(gcd(k,L),alpha_i); totient counts gcd(k,L)=d are phi(L/d). Exact least period follows because equality f(L-T)=f(L)=sum alpha_i for hypothetical 0<T<L forces alpha_i|(L-T) for every i and hence L|(L-T), impossible. Extremal fibers follow from gcd bounds, and the mean from sum_{k=1}^a gcd(k,a)=sum_{d|a}(a/d)phi(d). Independent exact integer cross-check covered 216 triples of exponent values 1..6; the all-n proof is symbolic, not finite inference.
+
+## originality
+
+PASS
+
+Best-of-knowledge narrowly: the primary 2022 paper defines f_k and proves L is a period and some equality conditions; the exact parameter-fiber multiset and multiplicities, least period, and average are not stated there. These formulas are short consequences of elementary gcd and totient identities; novelty and mathematical depth are modest, with specific risk of an unnoticed corollary/table in the primary or general gcd literature.
+
+## value
+
+PASS
+
+The entire parameter distribution of a naturally defined arithmetic function is a complete exact invariant, not an arbitrary numerical slice. It explains frequency of degeneracies, identifies the true fundamental period and exact extremes and mean for all n. Mathematical value is limited and elementary, but the full orbit histogram is a motivated usable classification of the source-defined function; no claim of a deep new analytic phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
