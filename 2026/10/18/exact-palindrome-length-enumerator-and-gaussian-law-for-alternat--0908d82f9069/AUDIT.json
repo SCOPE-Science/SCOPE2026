@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Every nonempty palindrome has a unique half-word decomposition; greedy embedding gives an exact necessary-and-sufficient endpoint formula. Binomial sums yield the formal generating function, checked independently against direct 2^n-position enumeration for n<=17 and a separate exact rational recurrence to n=75. Splitting parities and examining the unique simple dominant pole proves analytic uniformity; explicit first and second cumulant derivatives give the stated Gaussian CLT. No finite experiment was extrapolated to infinity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Müllner–Ryzhikov, Palindromic Subsequences in Finite Words, arXiv:1901.07502, discusses longest-palindrome rather than all distinct-palindrome length frequencies.",
+        "The 2021 Fibonacci total-count result does not dominate a two-variable enumerator or provide Gaussian asymptotics."
+      ],
+      "reasoning": "The longest-subsequence and scalar total-count theorems concern different marginal or extremal statistics and cannot imply the claimed joint exact length enumerator.",
+      "searches": [
+        "palindromic subsequence length histogram alternating word (01)^k count Fibonacci",
+        "gaussian distribution length of uniformly random distinct palindromic scattered subsequence alternating binary word golden ratio",
+        "arXiv 2108.02729 Mahalingam Pandoh refinement joint length distribution Gaussian law",
+        "arXiv:1901.07502"
+      ]
+    },
+    "checked_sources": [
+      "Mahalingam and Pandoh, arXiv:2108.02729v1, first-public date 2021-08-05",
+      "Müllner and Ryzhikov, arXiv:1901.07502, first-public 2019-01-22",
+      "Flajolet and Sedgewick, Analytic Combinatorics (2009), general pole/limit-law techniques"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The existing binary alternating count follows as the specialization t=1 of the proposed formula.",
+        "The proposed Gaussian length law depends on derivatives of the two-variable dominant singularity; those derivatives are not given by the scalar total-count formula."
+      ],
+      "reasoning": "Prior scalar theorems are corollaries of the present stronger claim for this fixed family, but do not entail either its bivariate coefficient array or Gaussian limit; inspected source statements do not dominate it.",
+      "searches": [
+        "arXiv:2108.02729v1",
+        "alternating binary words distinct scattered palindromic subsequences exact count of each length binomial coefficient",
+        "alternating binary word 0101 palindromic scattered subsequence length distribution rational bivariate generating function and central limit theorem Gaussian",
+        "arXiv 2108.02729 Mahalingam Pandoh refinement joint length distribution Gaussian law"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mahalingam–Pandoh 2021, arXiv:2108.02729v1, develops Fibonacci total counts of distinct scattered palindromes and studies alternating binary extremizers; it does not state the bivariate palindrome-length identity or a Gaussian law in the inspected sections.",
+        "The greedy-endpoint count retains length via a formal variable; specialization at t=1 recovers prior scalar totals but is not reversible."
+      ],
+      "reasoning": "Searches for scattered-palindrome length-spectrum aliases, bivariate generating functions and Gaussian laws were compared at statement level; total counts neither logically imply the length distribution nor the typical-length CLT.",
+      "searches": [
+        "alternating binary words distinct scattered palindromic subsequences exact count of each length binomial coefficient",
+        "bivariate generating function binary alternating word distinct palindromic subsequences z t (1+z)(1+t z²)/(1-z)(1-t² z²-t² z⁴) asymptotic normal length",
+        "alternating binary word 0101 palindromic scattered subsequence length distribution rational bivariate generating function and central limit theorem Gaussian",
+        "arXiv:2108.02729v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table for the complete polynomial sequence P_n(t), beyond the known t=1 Fibonacci totals, was found in the inspected paper and relevant comparison searches.",
+        "The first seventeen polynomials are computable directly by the packaged verification program; no externally claimed database match was used as a novelty certificate."
+      ],
+      "reasoning": "Checking exact length coefficients and an enumerator is stricter than matching the known Fibonacci sequence of total counts. Unindexed tables remain a residual priority risk.",
+      "searches": [
+        "count distinct palindromic subsequences by length alternating word 010101",
+        "distinct scattered palindromes of periodic alternating word exact length enumerator mean variance 0.723606 0.178885",
+        "alternating binary word 0101 palindromic scattered subsequence length distribution rational bivariate generating function and central limit theorem Gaussian"
+      ]
+    },
+    "rationale": "Relevant full primary source was compared on objects and implications. Earlier Fibonacci formulas establish only total distinct palindrome counts, while the proposed exact length enumerator and normal length law refine that scalar result; the 2019 paper studies longest subsequences instead. No equivalent distribution or Gaussian law was identified. Residual risk: an unindexed equivalent computation.",
+    "residual_risks": [
+      "Unindexed earlier exact bivariate formula or asymptotic length law may exist.",
+      "The 2019 paper was checked at abstract/subject level rather than fully; its long-palindrome focus makes coverage less plausible but cannot prove noncoverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covered scalar counts but not the full length-by-length generating function or distributional CLT in inspected full text",
+        "evidence": [
+          "The paper proves total Fibonacci-type counts for alternating binary words and general scattered-palindromic word bounds; no length-marking parameter or normal law appears in its inspected theorems."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2108.02729",
+        "material_read": "Full third-party transcription of arXiv:2108.02729v1, including definitions, binary alternating family, Fibonacci count arguments, bounds, and concluding sections",
+        "method": "Read open HTML full-text transcription of the preprint and compare theorems, proofs, and length parameterization with the proposed bivariate statement",
+        "title": "Counting scattered palindromes in a finite word",
+        "trigger": "Same objects (distinct scattered palindromes) and alternating binary extremizers; potential stronger prior"
+      },
+      {
+        "assessment": "Distinct problem statistic (longest length rather than count by all lengths); cannot justify comprehensive noncoverage of uninspected paper",
+        "evidence": [
+          "The indexed statement concerns longest palindrome/antipalindrome subsequences and circular words, not a uniform distribution among distinct scattered palindromes."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1901.07502",
+        "material_read": "Abstract and bibliographic statement of principal longest-palindromic-subsequence problem",
+        "method": "Read arXiv indexed description and relevant research summary; full text not materially inspected",
+        "title": "Palindromic Subsequences in Finite Words",
+        "trigger": "Palindromic subsequences and possible broader treatment"
+      },
+      {
+        "assessment": "General transfer method alone does not supply the case-specific bivariate generating function or constants",
+        "evidence": [
+          "The present argument computes the required pole directly and proves convergence via characteristic functions."
+        ],
+        "identifier_or_url": "https://ac.cs.princeton.edu/",
+        "material_read": "Reference to classical singularity analysis and multivariate limit laws, not case-specific proof",
+        "method": "Compare scope of general methodology with the case-specific rational generating function and pole calculation",
+        "title": "Analytic Combinatorics",
+        "trigger": "General analytic machinery could imply Gaussian fluctuations if the bivariate formula is supplied"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0908d82f-9069-4a31-b7d5-8d7b057fb0d7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact distribution by palindrome length is a natural refinement of the known counting problem on its classical alternating binary extremizer. The two-variable rational identity supplies all exact length multiplicities and leads to a nontrivial normal law with explicit linear mean and variance, neither of which follows from the published total count alone; it supplies structural baseline data for scattered-palindrome enumeration.",
+    "status": "PASS"
+  }
+}
