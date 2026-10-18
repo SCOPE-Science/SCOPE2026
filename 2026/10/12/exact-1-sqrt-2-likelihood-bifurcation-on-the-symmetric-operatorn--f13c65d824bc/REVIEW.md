@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. On the stated symmetric model slice the Plücker relation admits the exact parameterization \(r=s\cos	heta\), \(t=s\sin	heta\). After the projective scale cancels, the likelihood reduces to a one-variable function of \(v=\sin	heta+\cos	heta\) with derivative \((1-bv)/(v^2-1)\). Its sign gives the complete trichotomy, and the quadratic equation for \(q=	an	heta\) gives the two maximizers when \(b>1/\sqrt{2}\). The threshold expansion is derived from \(v=\sqrt{2}\cos h\) and \(g''(\sqrt{2})=-1/\sqrt{2}\).
+## correctness
 
-## Originality
-PASS. The inspected 2026 source gives the relevant positive-Grassmannian likelihood, a numerical multi-maximum example, Table 2 region counts, and a degree-six discriminant on the same three-coordinate data slice. It does not state the exact reflection-symmetric threshold, the reciprocal maximizing ratios, or the quartic threshold behavior. published-finding corpus searches for those formulations returned no covering finding. The closest highly relevant earlier paper concerns the squared Grassmannian, a distinct model in which all positive critical points are local maxima.
+PASS
 
-## Value
-PASS. The result turns a numerical multimodality phenomenon in a new algebraic-statistical model into a complete exact phase diagram on its most natural reflection-symmetric line. The threshold is intrinsic, the maximizing points are explicit, and the quartic degeneracy explains how the two-maxima regime is born.
+Normalize u by 2a+b=1 and use the positive Plucker relation r^2+t^2=s^2 on the stated symmetric x slice. Parameter r=s cos(theta), t=s sin(theta), theta∈(0,pi/2), and v=sin theta+cos theta∈(1,sqrt2]. The scale cancels and reduced log likelihood is g_b(v)=a log(v-1)+(a-1)log(v+1), giving exact derivative (1-bv)/(v^2-1). Sign analysis proves one symmetric strict maximum for b<=1/sqrt2 (quartic flat at equality) and two off-symmetric maxima for b>1/sqrt2; symmetric point then a strict local minimum. Solving (1+q)^2/(1+q^2)=1/b^2 gives the two exact reciprocal ratios. Independent SymPy verified derivative, exact quadratic roots, b=3/4 witness, and the quartic Taylor loss coefficient -1/(4 sqrt2). The argument makes no assertion about nonsymmetric full Grassmannian critical points.
 
-## Closest literature and limitations
-The closest source is H. Friedman, arXiv:2607.19593v2, especially its discussion of positive critical points of \(\operatorname{Gr}(2,4)\), Table 2, and the displayed sliced logarithmic discriminant. H. Friedman's arXiv:2409.03730 treats squared Plücker coordinates and therefore does not dominate the present statement. The main residual originality risk is an unindexed note or computational supplement that may already record the same one-parameter factorization; no such statement was found in the inspected source text or focused searches.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original positive Grassmannian paper supplies the model and computational/numerical multimodality discussion, but the inspected metadata/available abstract and follow-up searches did not locate the closed 1/sqrt2 critical ratio or reciprocal maximizing q values. Earlier squared-Grassmannian statements use probabilities proportional to squared Plucker coordinates and cannot cover the unsquared positive model. This is a conditional best-of-knowledge PASS: full Friedman v2 text was inaccessible, so an unindexed exact slice analysis in it remains material residual risk.
+
+## value
+
+PASS
+
+The symmetric reflection slice is a geometrically motivated one-parameter family inside the source's model; a sharp bifurcation, exact optimizers, and quartic degeneration convert a qualitative/numerical multimodality into a precise theorem. A future researcher studying positive-Grassmannian likelihood can use these exact transition data without any claim to the full model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

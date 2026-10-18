@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T11:17:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/12/exact-1-sqrt-2-likelihood-bifurcation-on-the-symmetric-operatorn--f13c65d824bc/RESULT.md",
+        "2026/10/12/exact-1-sqrt-2-likelihood-bifurcation-on-the-symmetric-operatorn--f13c65d824bc/RESULT.md",
+        "Friedman, Maximum Likelihood Estimation on the Grassmannian of Lines, arXiv:2607.19593v2 (abstract/metadata; full text inaccessible)",
+        "Friedman, Likelihood Geometry of the Squared Grassmannian, arXiv:2409.03730; Proc. AMS 153 (2025), 4463-4474"
+      ],
+      "rationale": "Normalize u by 2a+b=1 and use the positive Plucker relation r^2+t^2=s^2 on the stated symmetric x slice. Parameter r=s cos(theta), t=s sin(theta), theta∈(0,pi/2), and v=sin theta+cos theta∈(1,sqrt2]. The scale cancels and reduced log likelihood is g_b(v)=a log(v-1)+(a-1)log(v+1), giving exact derivative (1-bv)/(v^2-1). Sign analysis proves one symmetric strict maximum for b<=1/sqrt2 (quartic flat at equality) and two off-symmetric maxima for b>1/sqrt2; symmetric point then a strict local minimum. Solving (1+q)^2/(1+q^2)=1/b^2 gives the two exact reciprocal ratios. Independent SymPy verified derivative, exact quadratic roots, b=3/4 witness, and the quartic Taylor loss coefficient -1/(4 sqrt2). The argument makes no assertion about nonsymmetric full Grassmannian critical points.",
+      "residual_risks": [
+        "The discriminant-factor specialization stated in Verification could not be independently compared against full Friedman polynomial this run; it is nonessential to the analytic proof.",
+        "Boundary b approaches 0 or 1 but the actual domain is 0<b<1 with a>0; endpoints are excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Friedman positive-Grassmannian MLE and squared-Grassmannian general theorem",
+          "broader full-Grassmannian maximum likelihood degree or local maxima in a distinct squared model do not logically determine exact restricted unsquared threshold"
+        ],
+        "reasoning": "broader full-Grassmannian maximum likelihood degree or local maxima in a distinct squared model do not logically determine exact restricted unsquared threshold",
+        "searches": [
+          "Resultary: positive Grassmannian Gr(2,4) likelihood symmetric data 1/sqrt2 bifurcation multimodality",
+          "web 2026-10-15: Friedman arxiv:2607.19593 positive Grassmannian likelihood discriminant and symmetric bifurcation",
+          "Friedman positive-Grassmannian MLE and squared-Grassmannian general theorem"
+        ]
+      },
+      "checked_sources": [
+        "Friedman, Maximum Likelihood Estimation on the Grassmannian of Lines, arXiv:2607.19593v2 (abstract/metadata; full text inaccessible)",
+        "Friedman, Likelihood Geometry of the Squared Grassmannian, arXiv:2409.03730; Proc. AMS 153 (2025), 4463-4474",
+        "Resultary published semantic search, first 12 results: no positive-Grassmannian symmetric-likelihood result located"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Friedman arXiv:2607.19593v2 abstract, source-described discriminant, arXiv:2409.03730",
+          "source numerical multimodality and degree-six discriminant do not by themselves imply global optimizer uniqueness/multiplicity or quartic flatness along the entire positive b interval"
+        ],
+        "reasoning": "source numerical multimodality and degree-six discriminant do not by themselves imply global optimizer uniqueness/multiplicity or quartic flatness along the entire positive b interval",
+        "searches": [
+          "Resultary: positive Grassmannian Gr(2,4) likelihood symmetric data 1/sqrt2 bifurcation multimodality",
+          "web 2026-10-15: Friedman arxiv:2607.19593 positive Grassmannian likelihood discriminant and symmetric bifurcation",
+          "Friedman arXiv:2607.19593v2 abstract, source-described discriminant, arXiv:2409.03730"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Friedman arXiv:2607.19593 abstract/metadata, arXiv:2409.03730 squared model",
+          "the proposed exact symmetric slice likelihood law uses unsquared positive Plucker data; squared likelihood has different stationarity"
+        ],
+        "reasoning": "the proposed exact symmetric slice likelihood law uses unsquared positive Plucker data; squared likelihood has different stationarity",
+        "searches": [
+          "Resultary: positive Grassmannian Gr(2,4) likelihood symmetric data 1/sqrt2 bifurcation multimodality",
+          "web 2026-10-15: Friedman arxiv:2607.19593 positive Grassmannian likelihood discriminant and symmetric bifurcation",
+          "Friedman arXiv:2607.19593 abstract/metadata, arXiv:2409.03730 squared model"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "web exact searches for 1/sqrt2 likelihood bifurcation Gr(2,4), 4a^2+4ab-b^2, Friedman discriminant; Resultary positive-Grassmannian query",
+          "numeric positive critical-point examples do not encode this global symmetric-slice phase diagram unless separately optimized; no exact formula located"
+        ],
+        "reasoning": "numeric positive critical-point examples do not encode this global symmetric-slice phase diagram unless separately optimized; no exact formula located",
+        "searches": [
+          "Resultary: positive Grassmannian Gr(2,4) likelihood symmetric data 1/sqrt2 bifurcation multimodality",
+          "web 2026-10-15: Friedman arxiv:2607.19593 positive Grassmannian likelihood discriminant and symmetric bifurcation",
+          "web exact searches for 1/sqrt2 likelihood bifurcation Gr(2,4), 4a^2+4ab-b^2, Friedman discriminant; Resultary positive-Grassmannian query"
+        ]
+      },
+      "rationale": "The original positive Grassmannian paper supplies the model and computational/numerical multimodality discussion, but the inspected metadata/available abstract and follow-up searches did not locate the closed 1/sqrt2 critical ratio or reciprocal maximizing q values. Earlier squared-Grassmannian statements use probabilities proportional to squared Plucker coordinates and cannot cover the unsquared positive model. This is a conditional best-of-knowledge PASS: full Friedman v2 text was inaccessible, so an unindexed exact slice analysis in it remains material residual risk.",
+      "residual_risks": [
+        "Only reflection-symmetric data and three-coordinate positive model slice; full model critical points are not classified.",
+        "Friedman v2 complete text inaccessible, creating a concrete originality-overlap risk, not proof of coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "potential direct overlap remains unchecked; best-of-knowledge PASSED with material residual risk",
+          "evidence": "primary abstract establishes positive Grassmannian likelihood and numerical critical-point studies but does not state a symmetric 1/sqrt2 threshold",
+          "identifier_or_url": "arXiv:2607.19593v2",
+          "material_read": "arXiv primary abstract and bibliographic update, author preprint list, indexed thesis summary; complete preprint unavailable after arXiv HTML/PDF and OA attempts",
+          "method": "primary metadata, author page and search results",
+          "title": "Maximum Likelihood Estimation on the Grassmannian of Lines",
+          "trigger": "same positive Grassmannian model and three-coordinate data slice"
+        },
+        {
+          "assessment": "noncovering on object: squared Plucker probabilities, not unsquared positive x coordinates",
+          "evidence": "squared model squares the Plucker coordinates before forming probabilities; changing this modifies likelihood geometry",
+          "identifier_or_url": "arXiv:2409.03730, DOI:10.1090/proc/17287",
+          "material_read": "abstract/model distinction available through published bibliographic material and submitted result literature comparison; full text not reread",
+          "method": "bibliographic primary abstracts and source quotation",
+          "title": "Likelihood Geometry of the Squared Grassmannian",
+          "trigger": "plausible broader Grassmannian likelihood theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Friedman, Maximum Likelihood Estimation on the Grassmannian of Lines, arXiv:2607.19593v2 (abstract/metadata; full text inaccessible)",
+        "Friedman, Likelihood Geometry of the Squared Grassmannian, arXiv:2409.03730; Proc. AMS 153 (2025), 4463-4474"
+      ],
+      "rationale": "The symmetric reflection slice is a geometrically motivated one-parameter family inside the source's model; a sharp bifurcation, exact optimizers, and quartic degeneration convert a qualitative/numerical multimodality into a precise theorem. A future researcher studying positive-Grassmannian likelihood can use these exact transition data without any claim to the full model.",
+      "residual_risks": [
+        "Value is assessed for the exact final claim, not an extrapolation to arbitrary graph/variety families."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only reflection-symmetric data and three-coordinate positive model slice; full model critical points are not classified.",
+    "Friedman v2 complete text inaccessible, creating a concrete originality-overlap risk, not proof of coverage."
+  ]
+}

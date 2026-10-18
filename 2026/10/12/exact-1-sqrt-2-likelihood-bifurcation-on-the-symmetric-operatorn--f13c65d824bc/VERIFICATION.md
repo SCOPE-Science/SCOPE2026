@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-The final claim was checked by direct symbolic algebra on the restricted likelihood.
+# Independent mathematical audit
 
-With \(2a+b=1\), \(r=s\cos\theta\), and \(t=s\sin\theta\), all dependence on the projective scale \(s\) cancels. Setting \(v=\sin\theta+\cos\theta\) reduces the objective, up to a positive scale and additive constant, to
-\[
-g_b(v)=a\log(v-1)+(a-1)\log(v+1),\qquad 1<v\le\sqrt{2}.
-\]
-Differentiation gives
-\[
-g_b'(v)=\frac{1-bv}{v^2-1},
-\]
-so the transition can occur only when \(1/b=\sqrt{2}\), namely \(b=1/\sqrt{2}\). For \(b>1/\sqrt{2}\), solving \((1+q)/\sqrt{1+q^2}=1/b\) yields the two reciprocal positive maximizer ratios stated in the result.
+## correctness
 
-At equality, \(v=\sqrt{2}\cos h\) and \(g_b''(\sqrt{2})=-1/\sqrt{2}\), producing the strict quartic loss \(-h^4/(4\sqrt{2})+O(h^6)\).
+PASS
 
-As a separate cross-check, specializing the degree-six sliced logarithmic discriminant printed in arXiv:2607.19593v2 to its reflection-symmetric data line gives \(2(4a^2+4ab-b^2)^3\); under \(2a+b=1\) this vanishes exactly when \(1-2b^2=0\).
+Normalize u by 2a+b=1 and use the positive Plucker relation r^2+t^2=s^2 on the stated symmetric x slice. Parameter r=s cos(theta), t=s sin(theta), theta∈(0,pi/2), and v=sin theta+cos theta∈(1,sqrt2]. The scale cancels and reduced log likelihood is g_b(v)=a log(v-1)+(a-1)log(v+1), giving exact derivative (1-bv)/(v^2-1). Sign analysis proves one symmetric strict maximum for b<=1/sqrt2 (quartic flat at equality) and two off-symmetric maxima for b>1/sqrt2; symmetric point then a strict local minimum. Solving (1+q)^2/(1+q^2)=1/b^2 gives the two exact reciprocal ratios. Independent SymPy verified derivative, exact quadratic roots, b=3/4 witness, and the quartic Taylor loss coefficient -1/(4 sqrt2). The argument makes no assertion about nonsymmetric full Grassmannian critical points.
 
-No numerical experiment is used as proof. The result does not classify off-slice critical points of the full positive Grassmannian.
+## originality
+
+PASS
+
+The original positive Grassmannian paper supplies the model and computational/numerical multimodality discussion, but the inspected metadata/available abstract and follow-up searches did not locate the closed 1/sqrt2 critical ratio or reciprocal maximizing q values. Earlier squared-Grassmannian statements use probabilities proportional to squared Plucker coordinates and cannot cover the unsquared positive model. This is a conditional best-of-knowledge PASS: full Friedman v2 text was inaccessible, so an unindexed exact slice analysis in it remains material residual risk.
+
+## value
+
+PASS
+
+The symmetric reflection slice is a geometrically motivated one-parameter family inside the source's model; a sharp bifurcation, exact optimizers, and quartic degeneration convert a qualitative/numerical multimodality into a precise theorem. A future researcher studying positive-Grassmannian likelihood can use these exact transition data without any claim to the full model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
