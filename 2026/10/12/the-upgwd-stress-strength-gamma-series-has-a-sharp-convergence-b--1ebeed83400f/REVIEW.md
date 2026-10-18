@@ -1,20 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Writing \(r=\beta_2/\beta_1\), fixed-cutoff incomplete-gamma asymptotics and Stirling's formula give
-\[
-\log\!\left(\frac{\Gamma(1+nr,1)}{n!}\right)
-=
-(r-1)n\log n+n(r\log r-r+1)+O(\log n).
-\]
-Thus the printed terms grow when \(r>1\). At \(r=1\), the exact integer incomplete-gamma identity makes the term magnitude tend to one. When \(r<1\), absolute termwise integration is justified by an integrable exponential majorant. Symmetry then gives the complementary convergent branch. The packaged checker verifies representative direct integrals and series values.
+## correctness
 
-## Originality
-PASS. The primary article states Eq. (3.11) without a shape-order condition and validates it only at Table 2 examples satisfying \(\beta_2<\beta_1\). Focused source, model, equation, incomplete-gamma, exponent-ratio, convergence, and correction searches found no published UPGWD-specific repair. Standard gamma asymptotics are ingredients rather than a covering result.
+PASS
 
-Residual risk remains that a recent unindexed correction exists or that the authors intended the display only as a formal expansion despite its use as a numerical reliability formula.
+From the primary Eq. (3.7) reliability integral β1 e²∫1∞t^(β1−1)exp(−t^β1−t^β2)dt, the magnitude of its formal n-th upper-incomplete-gamma term is a_n=Γ(1+nr,1)/n!, r=β2/β1>0. For n→∞ the lower cutoff 1 is negligible relative to Γ(1+nr); Stirling gives log a_n=(r−1)n log n+n(r log r−r+1)+O(log n). If r>1 terms grow; at r=1, Γ(n+1,1)/n!→1; neither series can converge. If 0<r<1, ∫1∞β1e²t^(β1−1) exp(−t^β1+t^β2)dt is finite and exactly dominates absolute termwise exponential expansion, so Tonelli/Fubini and the gamma formula are valid. At equal shapes independent continuous equal laws give R=1/2; for opposite ordering R(β1,β2)=1−R(β2,β1), yielding the valid three-branch formula for all βi>0 at common α,λ. Direct bounded gamma asymptotic spot checks at r=1/2,1,3/2 with n=5,10,20 independently display decay, unit-size terms, and growth; analytic Stirling/dominated-interchange prove the full boundary. The source integral itself remains valid and finite.
 
-## Value
-PASS. The source presents stress–strength reliability as a substantive reliability property. Its series fails on half of the positive shape-order space and at the iid equality benchmark. The piecewise complementary formula restores a convergent representation everywhere with no change to the underlying integral.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Directly inspected AIMS Mathematics 2025 primary PDF p.18739: Eq. (3.11) claims the upper-incomplete-gamma sum without a β shape-order condition; Table 2 tests only β2<β1, explaining why the missing branch was undetected. Standard DLMF Stirling asymptotics contain general term-test ingredients, but no source-specific stress–strength order condition or complementary repair. Resultary semantic search found unrelated gamma/reliability bounds, no implication. This is a statement-level correction to a concrete printed formula, not a claim that general gamma tests are newly invented.
+
+## value
+
+PASS
+
+An actual published stress–strength reliability formula is divergent throughout half the permitted shape-order plane and at the diagonal, while reported numerical examples lie only in the safe region. Identifying the exact boundary and globally valid complementary formula prevents invalid reliability computation and is a motivated mathematical correction, even though the proof uses standard special-function techniques.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

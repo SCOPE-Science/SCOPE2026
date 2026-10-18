@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T12:02:34.310552Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From the primary Eq. (3.7) reliability integral β1 e²∫1∞t^(β1−1)exp(−t^β1−t^β2)dt, the magnitude of its formal n-th upper-incomplete-gamma term is a_n=Γ(1+nr,1)/n!, r=β2/β1>0. For n→∞ the lower cutoff 1 is negligible relative to Γ(1+nr); Stirling gives log a_n=(r−1)n log n+n(r log r−r+1)+O(log n). If r>1 terms grow; at r=1, Γ(n+1,1)/n!→1; neither series can converge. If 0<r<1, ∫1∞β1e²t^(β1−1) exp(−t^β1+t^β2)dt is finite and exactly dominates absolute termwise exponential expansion, so Tonelli/Fubini and the gamma formula are valid. At equal shapes independent continuous equal laws give R=1/2; for opposite ordering R(β1,β2)=1−R(β2,β1), yielding the valid three-branch formula for all βi>0 at common α,λ. Direct bounded gamma asymptotic spot checks at r=1/2,1,3/2 with n=5,10,20 independently display decay, unit-size terms, and growth; analytic Stirling/dominated-interchange prove the full boundary. The source integral itself remains valid and finite.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stirling theory dominates the generic asymptotic estimate of Γ(nr)/n!, but not the UPGWD-specific parameter-domain correction and complementary integral formula.",
+          "The primary article states the series for general positive shape parameters without the needed condition."
+        ],
+        "reasoning": "A standard special-function theorem alone is not the corrected statement for this published reliability model; the precise failed domain and branch repair must be identified.",
+        "searches": [
+          "https://dlmf.nist.gov/5.11 §5.11",
+          "https://www.aimspress.com/aimspress-data/math/2025/8/PDF/math-10-08-837.pdf Eq.3.7–3.11",
+          "Resultary: unit power generalized Weibull UPGWD stress strength upper incomplete gamma series beta2 beta1 convergence divergence correction"
+        ]
+      },
+      "checked_sources": [
+        "https://www.aimspress.com/aimspress-data/math/2025/8/PDF/math-10-08-837.pdf",
+        "https://dlmf.nist.gov/5.11",
+        "Resultary UPGWD gamma/reliability semantic search."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The paper derives an integrable expression on all βi>0 and then interchanges a series and improper integral unconditionally.",
+          "The new comparison proves that exchange is justified exactly when β2<β1 and that the complementary branch recovers the valid integral for β2>β1."
+        ],
+        "reasoning": "The printed formula is not a consequence of the valid integral outside its convergence domain, so the corrected claim cannot be inferred as already stated in the source.",
+        "searches": [
+          "https://www.aimspress.com/aimspress-data/math/2025/8/PDF/math-10-08-837.pdf Eqs.3.7–3.11",
+          "https://dlmf.nist.gov/5.11 §5.11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The gamma series can be expressed as a term-test boundary on r=β2/β1 or as an invalid integral-series interchange.",
+          "No checked record gives the same source-specific split r<1, r=1, r>1 or complementary reliability formulation."
+        ],
+        "reasoning": "Compared convergence, absolute Fubini validity, factorial/gamma term ratio and symmetry-repaired formula as mathematical aliases, not just UPGWD title.",
+        "searches": [
+          "Resultary: unit power generalized Weibull UPGWD stress strength upper incomplete gamma series beta2 beta1 convergence divergence correction",
+          "https://www.aimspress.com/aimspress-data/math/2025/8/PDF/math-10-08-837.pdf Eq. 3.11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Every one of the paper’s six Table 2 pairs has β2<β1; not one tests equality or reversed order.",
+          "Reported numerical agreement on the safe branch does not validate divergence-region summation."
+        ],
+        "reasoning": "The most directly relevant exact table misses the forbidden domain, so it does not supply a general convergence result; the inspected table strengthens why the correction is material.",
+        "searches": [
+          "https://www.aimspress.com/aimspress-data/math/2025/8/PDF/math-10-08-837.pdf Table 2",
+          "https://www.aimspress.com/aimspress-data/math/2025/8/PDF/math-10-08-837.pdf Eq.3.11",
+          "Resultary: unit power generalized Weibull UPGWD stress strength upper incomplete gamma series beta2 beta1 convergence divergence correction"
+        ]
+      },
+      "rationale": "Directly inspected AIMS Mathematics 2025 primary PDF p.18739: Eq. (3.11) claims the upper-incomplete-gamma sum without a β shape-order condition; Table 2 tests only β2<β1, explaining why the missing branch was undetected. Standard DLMF Stirling asymptotics contain general term-test ingredients, but no source-specific stress–strength order condition or complementary repair. Resultary semantic search found unrelated gamma/reliability bounds, no implication. This is a statement-level correction to a concrete printed formula, not a claim that general gamma tests are newly invented.",
+      "residual_risks": [
+        "A newly issued erratum for the original Eq. (3.11) could already identify the missing convergence condition.",
+        "Near the parameter diagonal the convergent series is numerically ill-conditioned, though mathematically valid for strict ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRINTED_SERIES_UNRESTRICTED_AND_TABLE_ONLY_SAFE_BRANCH",
+          "evidence": "Eq. (3.11) shows R=e²Σ(-1)^nΓ(1+nβ2/β1,1)/n! with no β2<β1 restriction; Table 2 tests (2,1.5),(1.5,1),(1,0.5),(3,0.9),(3,1),(1.3,0.2), all with β2<β1.",
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2025/8/PDF/math-10-08-837.pdf",
+          "material_read": "Open complete 39-page publisher PDF; stress–strength section Eqs. (3.7)–(3.11) on pp.18738–18739; rendered p.18739, including exact Table 2 shape values.",
+          "method": "Read primary full-text PDF; inspect relevant theorem/proof and exact passage",
+          "title": "A novel extension to the unit Weibull distribution: properties and inference with applications to medicine, engineering, and radiation",
+          "trigger": "Same UPGWD parameters, same stress–strength gamma series; decisive primary source."
+        },
+        {
+          "assessment": "STANDARD_INGREDIENT_NOT_SOURCE_SPECIFIC",
+          "evidence": "General Γ(z) Stirling terms yield the n log n sign; the reference does not address the UPGWD stress–strength formula.",
+          "identifier_or_url": "https://dlmf.nist.gov/5.11",
+          "material_read": "Stirling asymptotics for Γ(z) at large real z and fixed-shift cases, combined with the fixed-cutoff upper-incomplete-gamma definition.",
+          "method": "Direct standard mathematical reference comparison and analytic reconstruction",
+          "title": "NIST Digital Library of Mathematical Functions §5.11",
+          "trigger": "Asymptotic lemma needed to decide gamma-to-factorial term growth."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An actual published stress–strength reliability formula is divergent throughout half the permitted shape-order plane and at the diagonal, while reported numerical examples lie only in the safe region. Identifying the exact boundary and globally valid complementary formula prevents invalid reliability computation and is a motivated mathematical correction, even though the proof uses standard special-function techniques.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.aimspress.com/aimspress-data/math/2025/8/PDF/math-10-08-837.pdf",
+    "https://dlmf.nist.gov/5.11",
+    "Resultary UPGWD gamma/reliability semantic search."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Uses common α and λ as in the original stress–strength calculation; no claims for unequal ancillary parameters.",
+    "The original integral remains valid. The text of source RESULT.md has a stray form-feed glyph in a_n=frac notation; the correct analytic formula is given independently in this review; no altered RESULT bytes supplied and publication is withheld."
+  ],
+  "residual_risks": [
+    "A newly issued erratum for the original Eq. (3.11) could already identify the missing convergence condition.",
+    "Near the parameter diagonal the convergent series is numerically ill-conditioned, though mathematically valid for strict ordering."
+  ],
+  "schema_version": 1
+}
