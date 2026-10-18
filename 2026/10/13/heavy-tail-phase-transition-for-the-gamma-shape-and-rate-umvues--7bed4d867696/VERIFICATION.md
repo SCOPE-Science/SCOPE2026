@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was reconstructed from the exact public formulas rather than from numerical fitting. The following checks were carried out.
+# Independent mathematical audit
 
-1. The public preprint was inspected for the density \(f_Y(y)=K(\alpha)y^{\alpha-1}(1-y)^{(n-3)/2}G(y)\), the power-series expansion of \(G\), and the signs \(G>0\), \(G'<0\).
-2. Theorem 2.1 was inspected for \(U_0=(n-3)Y/(2(1-Y))-YG'(Y)/G(Y)\) and for the published finite-variance threshold.
-3. The proof's lower-endpoint estimate \(y^{\beta+1}|G'(y)|\to0\) for every \(\beta>0\) was checked and generalized only by choosing \(\beta<\alpha/q\); no unproved uniformity in \(q\) is used.
-4. Corollary 2.1 was inspected for \(U_1=(nU_0-1)/X\), \(X\perp Y\), and the unbiasedness domain \(\alpha>1/n\).
-5. The inverse-Gamma identity \(\mathbb E[X^{-q}]=\lambda^q\Gamma(n\alpha-q)/\Gamma(n\alpha)\) for \(q<n\alpha\) follows directly by integrating the Gamma density.
-6. In the critical product case, the logarithm comes from \(\mathbb E[B^p;B\le t]\sim pC_B\log t\) when \(\Pr\{B>t\}\sim C_Bt^{-p}\); the remaining product-event regions are lower order after fixed truncation.
-7. Setting \(q=2\) recovers exactly the source conditions \(n\ge6\) for the shape estimator and \(\alpha>2/n\) for the rate estimator when \(n\ge6\).
+## correctness
 
-The argument does not establish bounded exponential moments, subexponential constants beyond the displayed power-law equivalents, or optimality among competing estimators. No finite numerical experiment is used to infer an infinite-domain statement.
+PASS
+
+Set p=(n-1)/2>1 for n>=4 and c=(n-3)/2>0. Papadatos gives the exact Y density K(alpha)y^(alpha-1)(1-y)^c G(y), G(1-)=d0>0, and U0=cY/(1-Y)-YG′/G. At y=1-z, zU0→c and density ~K d0 z^c, yielding P(U0>t)~(K d0 c^p/p)t^-p. At y=0, source unbiasedness for arbitrary shape beta and positivity/monotonicity of |G′| give all positive local moments; hence no rival polynomial tail. X~Gamma(a=nalpha,lambda) is independent of Y, and |U1|=|nU0-1|/X when alpha>1/n. Independent regular-variation product asymptotics yield regimes a<p with C_V E Z^a, a=p with p C_Z C_V log t, and a>p with C_Z lambda^p Gamma(a-p)/Gamma(a). Tonelli gives the exact moment cutoff q<min(a,p). Reconstructed boundary integrability and product indices algebraically; Papadatos q=2 cutoffs agree but are only consistency checks.
+
+## originality
+
+PASS
+
+Papadatos (arXiv:2205.10799) derives the UMVUEs and their finite-variance thresholds and supplies the ratio density; its inspected main theorem does not state regularly varying tails or full arbitrary-q moments. Generic Breiman product laws are prior tools; their application needs a new endpoint analysis and yields three explicit constants and the logarithmic crossover. Older ratio-distribution originals were only identified, not read and remain a plausible priority risk.
+
+## value
+
+PASS
+
+Exact tail exponents, constants and a critical log-enhanced product regime provide a complete qualitative risk classification for natural Gamma parameter UMVUEs beyond the binary variance criterion. An explicit phase boundary alpha=(n-1)/(2n) is a meaningful nontrivial parameter distinction for heavy-tailed estimators.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

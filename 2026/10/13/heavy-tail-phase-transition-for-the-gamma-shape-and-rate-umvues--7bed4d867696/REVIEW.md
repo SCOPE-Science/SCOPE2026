@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The endpoint expansion of the exact ancillary density gives the shape-estimator power law and constant. The opposite endpoint is controlled for every positive moment using the monotonicity argument already present in the source proof. Independence of the complete-sufficient components then reduces the rate estimator to a product of two regularly varying factors, yielding the unequal-index and matched-index regimes. The second-moment specialization reproduces the published variance thresholds.
+## correctness
 
-## Originality
-PASS. The closest source is Papadatos's construction of the UMVUEs; it gives existence and variance conditions but no regularly varying tail, all-order moment spectrum, rate-tail phase boundary, or critical logarithmic factor. The public abstracts of earlier Gamma mean-ratio papers describe the distribution used to build the ancillary statistic; their full texts were not inspected, so an older equivalent endpoint calculation remains a residual risk. Targeted searches for these equivalent formulations found no covering statement.
+PASS
 
-## Value
-PASS. Heavy-tail index and moment existence are intrinsic stability properties of an estimator. The full phase diagram tells which of the estimator's two independent mechanisms controls extreme error and identifies the exact critical parameter where they interact, extending the source's variance-only result in a structurally informative way.
+Set p=(n-1)/2>1 for n>=4 and c=(n-3)/2>0. Papadatos gives the exact Y density K(alpha)y^(alpha-1)(1-y)^c G(y), G(1-)=d0>0, and U0=cY/(1-Y)-YG′/G. At y=1-z, zU0→c and density ~K d0 z^c, yielding P(U0>t)~(K d0 c^p/p)t^-p. At y=0, source unbiasedness for arbitrary shape beta and positivity/monotonicity of |G′| give all positive local moments; hence no rival polynomial tail. X~Gamma(a=nalpha,lambda) is independent of Y, and |U1|=|nU0-1|/X when alpha>1/n. Independent regular-variation product asymptotics yield regimes a<p with C_V E Z^a, a=p with p C_Z C_V log t, and a>p with C_Z lambda^p Gamma(a-p)/Gamma(a). Tonelli gives the exact moment cutoff q<min(a,p). Reconstructed boundary integrability and product indices algebraically; Papadatos q=2 cutoffs agree but are only consistency checks.
 
-## Closest literature and limitations
-The closest literature is Papadatos, arXiv:2205.10799v1, together with the earlier Gamma geometric-mean/arithmetic-mean ratio papers of Glaser and Nandi. The generic product-tail lemma used in the proof is standard and is not claimed as new. A residual risk is an older equivalent estimator-tail result under different terminology.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Papadatos (arXiv:2205.10799) derives the UMVUEs and their finite-variance thresholds and supplies the ratio density; its inspected main theorem does not state regularly varying tails or full arbitrary-q moments. Generic Breiman product laws are prior tools; their application needs a new endpoint analysis and yields three explicit constants and the logarithmic crossover. Older ratio-distribution originals were only identified, not read and remain a plausible priority risk.
+
+## value
+
+PASS
+
+Exact tail exponents, constants and a critical log-enhanced product regime provide a complete qualitative risk classification for natural Gamma parameter UMVUEs beyond the binary variance criterion. An explicit phase boundary alpha=(n-1)/(2n) is a meaningful nontrivial parameter distinction for heavy-tailed estimators.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
