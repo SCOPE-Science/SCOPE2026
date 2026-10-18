@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T15:00:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For B_k=binom(3k,k)-2binom(3k,k-1)+binom(3k,k-2), reconstruct Shankar T=1+zT^3 and B(z)=T(T-2)^2/(3-2T), F(s)=B(1/s)/s. Boundary branch at 1/x, x=(4c^2-1)^3/(4c^2), c in (1/2,1), has T=u+iv with u=2c^2-1/2 and v=(4c^2-1)sqrt(1-c^2)/(2c). Stieltjes jump and Jacobian give w(c)=(64c^6-112c^4+44c^2+7)/(4 pi c^2 sqrt(1-c^2)). Endpoint bounds F(s)=O(|s|^-2/3) at zero and O(|s-27/4|^-1/2) at other endpoint permit keyhole contour reconstruction, hence integral identity for ALL k. With y=c^2, cubic P(y) has critical minimum P(11/12)=68/27>0 and endpoints positive. X increases from 0 to 27/4; compact positive continuous-support measure is unique. Andreief plus strictly positive generalized Vandermonde determinants proves ALL Hankel minors. Independently computed multiple B_k and high-precision integral moments through k>=7 and symbolic derivative/positivity; finite moments not the all-k argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gorska–Penson sequence 1,1,5,42 differs from B sequence 1,1,4,21; Stieltjes inversion general framework does not state this exact positive algebraic density."
+        ],
+        "reasoning": "General inversion techniques are prior, but a method does not dominate a particular positivity result without computing the right algebraic branch and checking sign; other Catalan laws cannot be substituted.",
+        "searches": [
+          "arXiv:2001.00393 Stieltjes moment sequences for pattern-avoiding permutations",
+          "arXiv:1304.6008 Multidimensional Catalan as Hausdorff moments",
+          "arXiv:2202.05757 product coproduct prographs"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.30002",
+        "OEIS:A274969",
+        "arXiv:2202.05757",
+        "arXiv:2604.04900",
+        "arXiv:2001.00393",
+        "arXiv:1304.6008",
+        "Resultary Stieltjes moment query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing B_k enumeration and ternary-tree generating function are acknowledged; candidate density, jump calculation and P>0 imply every Stieltjes and generalized Hankel minor claim by contour/Andreief."
+        ],
+        "reasoning": "Prior results are necessary input but do not directly imply measure positivity; this is a new all-order consequence, limited strictly to B and not the other conjectured Q sequence.",
+        "searches": [
+          "arXiv:2608.30002 Theorem 6.2 6.3 Conjecture 9.5",
+          "arXiv:2001.00393 Stieltjes inversion algebraic generating functions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shankar source is identified with the precise B_k sequence and stated moment positivity conjecture. OEIS contains same B_k formula but not a density in the material examined."
+        ],
+        "reasoning": "Sequence aliases checked via A274969 and constrained binary-tree counts; identical enumerations do not automatically include positivity measure.",
+        "searches": [
+          "Resultary semantic: Stieltjes moment positive Hankel minors restricted 3-row lattice words Shankar B_k A274969 explicit measure",
+          "arXiv:2608.30002 Conjecture 9.5",
+          "OEIS A274969 moment measure"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS gives exact counts, generating identities and combinatorial aliases; no exact w(c) positivity and all Hankel minor table found."
+        ],
+        "reasoning": "Moment positivity is not implied by a sequence being nonnegative or by finitely many positive Hankel determinants. Search failures are bounded evidence, not proof.",
+        "searches": [
+          "OEIS A274969 restricted 3 row lattice words",
+          "Shankar B_k Stieltjes Hankel minors",
+          "Resultary same three row Catalan density"
+        ]
+      },
+      "rationale": "Shankar (2026) supplies B_k and algebraic generating function and poses Stieltjes conjecture; this constructs a new exact positive density and proves all-order Hankel positivity. OEIS A274969, Borie–Falque and Inagaki–Pramatarova enumerate the same numbers but no known moment measure in inspected material. Górska–Penson multidimensional Catalan law involves different initial terms; Bostan–Elvey Price–Guttmann–Maillard supplies general analytic tools, not this special explicit density. Shankar's complete current manuscript was not available through public/Oxford access, so full-text prior overlap is a recorded risk rather than automatic failure.",
+      "residual_risks": [
+        "Same-object Shankar manuscript unavailable in complete full text, so a hidden theorem/appendix overlap cannot be excluded",
+        "Requires analytic branch and endpoint growth; independent moment quadrature alone is not proof of Stieltjes positivity",
+        "Other sequence Q from the same conjecture remains unsolved here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original may contain additional relevant arguments uninspected; cannot claim whole-document absence of explicit measure, genuine residual O risk",
+          "evidence": [
+            "Conjecture 9.5 attribution and Theorems 6.2-6.3 as quoted by assigned package; independent primary full-text NOT completed"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.30002",
+          "material_read": "Abstract/search-result snippets and cited theorem/conjecture summaries; complete original manuscript inaccessible during this run",
+          "method": "arXiv OA search and authorized institutional attempt (VPN disconnected; no bypass)",
+          "title": "Avoiding patterns with three distinct letters in Canon permutations",
+          "trigger": "Exact B sequence and Conjecture 9.5"
+        },
+        {
+          "assessment": "Matches B_k and allows alias identification; no representation by this density in material read",
+          "evidence": [
+            "A274969 initial terms 1,1,4,21 and binomial expression"
+          ],
+          "identifier_or_url": "https://oeis.org/A274969",
+          "material_read": "Sequence entries, binomial formula, listed combinatorial interpretations and references",
+          "method": "public OEIS record",
+          "title": "OEIS A274969",
+          "trigger": "Exact sequence/database crosscheck"
+        },
+        {
+          "assessment": "General technique and different combinatorial families, no demonstrated implication to explicit B density",
+          "evidence": [
+            "arXiv:2001.00393 Stieltjes inversion framework"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2001.00393",
+          "material_read": "Title, abstract and sections 2.1–2.5 methods as cited; not full specialized case calculation",
+          "method": "open access abstract and relevant discussion",
+          "title": "Stieltjes moment sequences for pattern-avoiding permutations",
+          "trigger": "Broad Stieltjes inversion method"
+        },
+        {
+          "assessment": "Distinct moment sequence with 1,1,5,42 rather than 1,1,4,21",
+          "evidence": [
+            "arXiv:1304.6008 multidimensional Catalan"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1304.6008",
+          "material_read": "Abstract/sequence comparison, not complete paper",
+          "method": "arXiv abstract and initial-sequence comparison",
+          "title": "Multidimensional Catalan and related numbers as Hausdorff moments",
+          "trigger": "Potential equal Catalan variant with known moment measure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An explicit nonnegative compactly supported representing measure resolves a named open moment-positivity question for a natural lattice-word sequence. The strict all-minor positivity and unique compact-support law are structural consequences useful for future combinatorics and orthogonal polynomial analysis, not a known-table recomputation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Addresses only B_k portion, not Shankar Q sequence; no external independent institutional/full-text validation of inaccessible same-source appendix."
+  ],
+  "schema_version": 1
+}
