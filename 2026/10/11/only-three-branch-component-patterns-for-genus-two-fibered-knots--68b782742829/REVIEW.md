@@ -1,21 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof uses the knot identity \(|\Delta_K(1)|=1\) to show that the mod-two capped monodromy has no nonzero fixed vector. The standard even-subset model
-\[
-H_1(\Sigma_2;\mathbf F_2)\cong E/\langle\mathbf1\rangle
-\]
-then converts fixed vectors into invariant even unions of Weierstrass cycles. Classifying the partitions of six with no nonempty proper even union gives exactly \((6)\), \((5,1)\), and \((3,3)\). The characteristic-polynomial quotient by two trivial factors gives the stated Alexander reductions. The standalone exhaustive checker confirms the complete six-point group calculation.
+## correctness
 
-## Originality
-PASS. Akhmedov's Theorem 2.1 gives the orbit-to-component correspondence and genus-two applicability but not the cycle-type restriction or Alexander-polynomial refinement. Searches using Weierstrass-orbit, \(S_6\), \(Sp(4,2)\), fixed-vector, and the explicit partition formulations found no equivalent or stronger statement. Melvin--Morton's older genus-two mod-two monodromy work is highly relevant but, in the material inspected, is directed at Hopf-plumbing obstructions rather than the universal branch-locus classification.
+PASS
 
-Residual literature risk remains because the Melvin--Morton article was readable here through its publisher abstract and a searchable author-copy extract around its most relevant theorem rather than through a fully navigable full text. No decisive competing statement was found.
+The capped genus-two hyperelliptic monodromy acts on six Weierstrass points via σ∈S6 and on H1(Σ2;F2) via the even-subset quotient E/⟨1⟩ (dimension four). For a fibered knot the monodromy characteristic polynomial equals the Alexander polynomial up to a monomial; |ΔK(1)|=1 excludes eigenvalue 1 over F2. If σx=x+1 for an even representative x, all cycles must be even and alternating x would have exactly three 1s, impossible. Thus any fixed homology class is represented by a σ-invariant even union of cycles; no nontrivial even proper union forces precisely the partitions (6),(5,1),(3,3). Dividing the permutation-module characteristic polynomial ∏(t^ℓ−1) by (t−1)^2 yields t⁴+t³+t²+t+1 for (5,1) and t⁴+t²+1 for (6) and (3,3). Independent exhaustive F2 action on ALL 720 permutations (not reuse of saved log) returned precisely 120,144,40 zero-fixed classes, total 304. Knot-to-branch multisection correspondence relies on Akhmedov's hyperelliptic double-cover theorem, named as an imported premise; no claim that all three cycle types are realizable by knots.
 
-## Value
-PASS. The number and degrees of connected components are intrinsic first-order topology of the newly introduced branch multisection. The theorem completely restricts those possibilities for every genus-two fibered knot and supplies a simple Alexander-polynomial discriminator for the \((5,1)\) case. It is therefore a motivated structural classification rather than a routine parameter substitution or isolated computation.
+## originality
 
-## Closest literature and limitations
-The closest recent source is Akhmedov, arXiv:2610.00409v1, Theorem 2.1. The closest older source located is Melvin--Morton, DOI:10.1112/jlms/s2-34.1.159. The result does not prove that all three permitted patterns are realized, does not distinguish \((6)\) from \((3,3)\) by the mod-two Alexander polynomial, and does not classify integral monodromies.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Resultary search using genus-two Weierstrass permutation, mod-two Alexander, orbit patterns and equivalent Sp(4,2) aliases returned no covering distinct theorem. Akhmedov arXiv:2610.00409 describes the genus-two branch locus components indexed by permutation orbits, while the submitted restriction additionally uses ΔK(1) parity to rule out all but three orbits and provides a mod-two Alexander discriminator. A separate Resultary paper on first homology of hyperelliptic branch complements uses arbitrary orbit lengths as inputs, without restricting the genus-two orbit partitions. Melvin–Morton 1986 discusses mod-two genus-two monodromy for Hopf plumbings, not a demonstrated implication of the complete branch-degree classification. Original Akhmedov full text and Melvin–Morton full primary text were not accessible in this run, so potential exact overlap remains an explicit material risk, not falsely dismissed as NOT_COVERING.
+
+## value
+
+PASS
+
+The six Weierstrass orbit lengths give the number and topological degrees of torus components of a natural branch surface in a four-manifold. Exhaustively constraining the degree multiset from universal knot Alexander parity and identifying a canonical mod-two polynomial discriminator are motivated structural topological information; a finite S6 classification is mathematically complete for this geometric construction despite not establishing realization of all patterns.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

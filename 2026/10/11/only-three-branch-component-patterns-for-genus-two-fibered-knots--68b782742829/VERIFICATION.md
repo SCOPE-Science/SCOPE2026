@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The symbolic proof has two independent checkpoints.
+# Independent mathematical audit
 
-First, \(|\Delta_K(1)|=1\) implies that \(I-\bar h_*\) is invertible over \(\mathbf F_2\). Under the even-subset model of \(H_1(\Sigma_2;\mathbf F_2)\), a nonzero fixed class exists exactly when a nonempty proper union of Weierstrass cycles has even cardinality. The only partitions of six avoiding such a union are \((6)\), \((5,1)\), and \((3,3)\).
+## correctness
 
-Second, for cycle lengths \(\ell_j\), the characteristic polynomial on the four-dimensional quotient is
-\[
-\frac{\prod_j(t^{\ell_j}-1)}{(t-1)^2}.
-\]
-This gives \(t^4+t^3+t^2+t+1\) for \((5,1)\) and \(t^4+t^2+1\) for both \((6)\) and \((3,3)\).
+PASS
 
-The included script `artifacts/verify_branch_partitions.py` exhausts all \(720\) permutations of six points and reconstructs their induced four-dimensional actions. It verifies exactly the three fixed-point-free types and the two characteristic polynomials. Its successful output is:
+The capped genus-two hyperelliptic monodromy acts on six Weierstrass points via σ∈S6 and on H1(Σ2;F2) via the even-subset quotient E/⟨1⟩ (dimension four). For a fibered knot the monodromy characteristic polynomial equals the Alexander polynomial up to a monomial; |ΔK(1)|=1 excludes eigenvalue 1 over F2. If σx=x+1 for an even representative x, all cycles must be even and alternating x would have exactly three 1s, impossible. Thus any fixed homology class is represented by a σ-invariant even union of cycles; no nontrivial even proper union forces precisely the partitions (6),(5,1),(3,3). Dividing the permutation-module characteristic polynomial ∏(t^ℓ−1) by (t−1)^2 yields t⁴+t³+t²+t+1 for (5,1) and t⁴+t²+1 for (6) and (3,3). Independent exhaustive F2 action on ALL 720 permutations (not reuse of saved log) returned precisely 120,144,40 zero-fixed classes, total 304. Knot-to-branch multisection correspondence relies on Akhmedov's hyperelliptic double-cover theorem, named as an imported premise; no claim that all three cycle types are realizable by knots.
 
-`VERIFY_OK allowed_types=(6),(5,1),(3,3) counts=120,144,40 total=304`
+## originality
 
-`CHAR_OK (5,1)=t^4+t^3+t^2+t+1; (6),(3,3)=t^4+t^2+1`
+PASS
 
-The permutation counts are verification data only; they are not counts of knots or realizability statements. No claim is made that all three permitted branch patterns occur for actual genus-two fibered knots.
+Resultary search using genus-two Weierstrass permutation, mod-two Alexander, orbit patterns and equivalent Sp(4,2) aliases returned no covering distinct theorem. Akhmedov arXiv:2610.00409 describes the genus-two branch locus components indexed by permutation orbits, while the submitted restriction additionally uses ΔK(1) parity to rule out all but three orbits and provides a mod-two Alexander discriminator. A separate Resultary paper on first homology of hyperelliptic branch complements uses arbitrary orbit lengths as inputs, without restricting the genus-two orbit partitions. Melvin–Morton 1986 discusses mod-two genus-two monodromy for Hopf plumbings, not a demonstrated implication of the complete branch-degree classification. Original Akhmedov full text and Melvin–Morton full primary text were not accessible in this run, so potential exact overlap remains an explicit material risk, not falsely dismissed as NOT_COVERING.
+
+## value
+
+PASS
+
+The six Weierstrass orbit lengths give the number and topological degrees of torus components of a natural branch surface in a four-manifold. Exhaustively constraining the degree multiset from universal knot Alexander parity and identifying a canonical mod-two polynomial discriminator are motivated structural topological information; a finite S6 classification is mathematically complete for this geometric construction despite not establishing realization of all patterns.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
