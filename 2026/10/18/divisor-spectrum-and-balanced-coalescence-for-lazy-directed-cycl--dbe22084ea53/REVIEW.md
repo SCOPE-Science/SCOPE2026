@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The one-step clockwise separation, stopped at collision, is a bounded martingale because both marginals have identical increment mean. Its integer-valued limit is eventually constant; recurrence and independent masks force any permanent positive separation to be a common spatial period. Quotienting by all periods removes this possibility, so the quotient synchronizes. Equivariance then forces the exact rank and equal kernel-fiber cardinalities. Repeating independent Bernoulli bits on any prescribed quotient constructs every divisor. The hypotheses include \(0<p<1\), a finite directed cycle and independent random maps through time. Exact finite semigroup tests passed independently of the proof.
+
+**Originality — PASS, qualified.** The full open-access article by Grimmett and Holmes (2026; first public arXiv:2510.13572, 2025) was compared at its definitions, Sections 3–7, and Questions 3.3 and 3.11. Its general minimum coalescence number and block-measure results do not imply that arbitrary supported directed-cycle maps have the precise period-subgroup rank. Published-record searches and mathematical-record comparisons found no exact statement covering this classification. The earlier 2019/2021 chapter was located but its full text could not be accessed; broader automata-semigroup priority is a genuine remaining risk.
+
+**Mathematical value — PASS.** This is a natural complete resolution of the explicit grand-coupling spectrum question for the canonical one-way lazy cycle. It reveals a sharp arithmetic obstruction, constructs every permitted value, and gives deterministic equal class sizes for all couplings in this family. The period-subgroup criterion is a structural proof of impossibility for non-divisor ranks, rather than a numerical classification of a few small cycles.
+
+Closest source: Grimmett–Holmes, *Coalescence in Markov Chains*, arXiv:2510.13572, DOI 10.1007/s10959-026-01500-w. Limitations: only homogeneous directed hold-or-forward chains and iid time-composition couplings; possible priority coverage in the earlier chapter or general automata literature has not been independently eliminated.
+
+Self-review: passed. Independent audit: not yet performed.
