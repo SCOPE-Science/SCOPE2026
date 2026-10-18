@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For an invariant simplex comprising \(k\) matching edges in \(s\) edge orbits, the orientation contribution \((-1)^{k-s}\) is combined with the alternating sign, yielding \((-1)^{s+1}\). The augmented empty face has the same convention. The row-reflection pair decomposition and the two parity-specific column-reflection decompositions are exact. The eight-state transfer matrix includes all incoming, outgoing, and vertical matching options without double counting. Exact symbolic inversion verifies the stated rational generating functions. A separate brute-force matching-orbit enumerator checked both formulas for widths 2 through 7. No claim about individual homology degrees is needed. The proof is universal; the finite enumerations are only checks.
+## correctness
 
-## Originality — PASS, with limitations
-The relevant 2026 paper gives nonequivariant connectivity and homology conclusions in its accessible abstract, not the two reflection Lefschetz formulas. The full text was not accessible for a definitive whole-paper comparison, which remains an explicit overlap risk. The 2021 same-grid study was inspected in its primary published form, which marks the paper as retracted; textual searches and inspected introduction focus on homotopy type, not reflection actions. Searches for alias terms (equivariant Euler characteristic, signed invariant matchings, row and column involutions, Lefschetz trace), stronger coverages and exact tables located no result implying these two rational character formulas. Search absence does not establish global novelty.
+PASS
 
-## Value — PASS
-The 2026 literature studies the same natural family but leaves its nontrivial symmetry characters beyond nonequivariant statements. The theorem computes **two distinct global homological symmetry invariants for every width**, even when the complete rational homology is unknown. The simple period-three vanishing for one reflection contrasts with the genuinely nonperiodic degree-six transfer recurrence for the other. They give independent constraints on possible homology representations and exact reproducible test values without inferring degreewise information from Euler traces. This is a motivated all-width structural refinement, not a single arbitrarily sized numerical calculation.
+For a fixed simplicial matching of k edges in s reflection edge-orbits, simplex orientation sign (−1)^{k−s} times reduced chain sign (−1)^{k−1} is (−1)^{s+1}, including augmented empty face contribution −1. For top-bottom reflection vertical edge pairs intersect and are forbidden; horizontal upper/lower orbits and fixed middle edges yield two independent signed path matching counts a_n². For left-right reflection, odd central column contributes (1−2)=−1 while off-axis orbits correspond to left 3×m matchings; even middle seam cancels except last-column-saturating half-matchings. Independently built 8×8 transfer matrix with signed horizontal selection and at-most-one vertical edge, and exactly inverted I−zT, obtaining BOTH claimed rational F,Q functions (degree-six denominator). Independent edge-orbit enumerator gives row/column Lefschetz n=2..7 = (0,0), (−1,−1),(−1,1),(0,2),(−1,−1),(−1,−5). The universal proof is the orbit decomposition and exact formal matrix identity, not finite enumeration.
 
-## Closest literature and limits
-The closest work is Chauhan–Sharma–Shukla (arXiv:2609.27366, 2026) and the retracted Goyal–Shukla–Singh (2021) paper. The first full text was inaccessible; the second's retracted homotopy claims were not used. There remains risk of an unindexed equivalent trace formula. An independent literature review could change the originality assessment.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: the same 3×n grid matching complexes have nonequivariant homology/connectivity work (Chauhan–Sharma–Shukla, 2026) and a retracted 2021 claimed homotopy classification, but those conclusions do not determine the two nontrivial reflection actions on rational homology. Distinct half-turn finding computes a third group element rather than the two axis reflections. The crucial 2026 source full text could not be retrieved despite arXiv/OA attempts, then authorized Oxford returned vpn_disconnected; abstract-only noncoverage is NOT asserted. Retain priority risk.
+
+## value
+
+PASS
+
+All-width exact alternating homology characters of two natural involutions are motivated equivariant invariants, beyond nonequivariant Betti data. A periodic row-reflection trace versus a nonperiodic rational recurrence for column-reflection is a substantive symmetry refinement, even without a degreewise representation decomposition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
