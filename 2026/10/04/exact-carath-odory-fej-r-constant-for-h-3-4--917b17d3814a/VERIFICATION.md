@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof has two independent mathematical components. First, the contact certificate
-\[
-sT(1/2)+T(5/14)=1+s-\lambda(r+s)
-\]
-with \(r=\cos(2\pi/7)\) and \(s=\cos(\pi/7)\) yields the sharp upper bound. Second, the proposed extremizer has the exact factorization
-\[
-\frac{32(1-r)}7(x+1)(x+r)^2(q-x),\qquad q=\frac{5+2r-4r^2}{4}>1,
-\]
-for \(-1\le x\le1\), proving global nonnegativity.
+# Independent mathematical audit
 
-Run `python3 verify.py`. The checker performs exact arithmetic in \(\mathbb Q[r]/(8r^3+4r^2-4r-1)\). It checks the coefficient-by-coefficient factorization, the identities for the two contact points, the equality \(1+s=2r(r+s)\), and the nonzero determinant of the three equality conditions used for uniqueness. Success prints `VERIFY_OK`.
+## correctness
 
-The checker does not certify that a finite sample is representative of the continuum. The continuum positivity and the selection of the real root \(r=\cos(2\pi/7)\) are supplied by the analytic factorization and angle inequalities in the proof.
+PASS
+
+For H={3,4}, nonnegativity at t=1/2 and 5/14 yields the positive dual certificate sT(1/2)+T(5/14)=1+s-lambda(r+s)>=0, where r=cos(2pi/7), s=cos(pi/7); ratio (1+s)/(r+s)=2r. For lambda=2r, b=(3-10r)/7,c=4(r-1)/7 the Chebyshev quartic factors 32(1-r)(x+1)(x+r)^2(q-x)/7, q=(5+2r-4r^2)/4>1. Equality at x=-1,-r plus interior stationarity determines unique coefficients (determinant 7(2r²-r-1) nonzero). Independently verified factor coefficient-by-coefficient in Q[r]/(8r³+4r²-4r-1) using Sympy polynomial remainders; numerically q≈1.173>1. Global nonnegativity, not finite grid testing.
+
+## originality
+
+PASS
+
+The full problem-defining Kolountzakis–Révész source lists singleton/complement, tails, odd/even supports and duality, none evaluating H={3,4}. Published Resultary corpus shows nearby exact sparse cases and a general doubled-harmonic family, but {3,4} is not {m,2m} and no known frequency equivalence fixing 1 reduces it. Originality accepted best-of-knowledge, with plausible older 1995 dual-cosine source incompletely read.
+
+## value
+
+PASS
+
+A natural concrete sparse prescribed-support extremal constant with a sharp global dual certificate and unique extremizer; determines a specific missing-support value not entailed by common full-degree or parity formulas, and usable as a benchmark in harmonic-analysis support problems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

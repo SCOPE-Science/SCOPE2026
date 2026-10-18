@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. A positive two-contact certificate gives the universal upper bound, while an explicit quartic factorization proves attainability on the full continuum. Equality in the certificate forces two zeros, one interior and therefore double, and the resulting linear system has nonzero determinant. Exact symbolic replay verifies the critical algebraic identities. The proof does not infer a continuum statement from a finite experiment.
+## correctness
 
-## Originality
-PASS. The closest full-text source defines the same extremal quantity and lists several exact support geometries, but not \(H=\{3,4\}\); its complement duality also does not reduce this support to a listed case. Searches in trigonometric-polynomial, positive-definite-sequence, and dual-support language found no matching statement. The strongest residual risk is the inaccessible full text of Révész's 1995 duality paper or another older source under different terminology.
+PASS
 
-## Value
-PASS. A two-element higher-frequency support is the first interacting finite-support regime beyond the singleton case, and the adjacent pair \(\{3,4\}\) is a natural exact benchmark. The result supplies the sharp constant, unique extremizer, and a short structural certificate rather than an isolated floating-point computation.
+For H={3,4}, nonnegativity at t=1/2 and 5/14 yields the positive dual certificate sT(1/2)+T(5/14)=1+s-lambda(r+s)>=0, where r=cos(2pi/7), s=cos(pi/7); ratio (1+s)/(r+s)=2r. For lambda=2r, b=(3-10r)/7,c=4(r-1)/7 the Chebyshev quartic factors 32(1-r)(x+1)(x+r)^2(q-x)/7, q=(5+2r-4r^2)/4>1. Equality at x=-1,-r plus interior stationarity determines unique coefficients (determinant 7(2r²-r-1) nonzero). Independently verified factor coefficient-by-coefficient in Q[r]/(8r³+4r²-4r-1) using Sympy polynomial remainders; numerically q≈1.173>1. Global nonnegativity, not finite grid testing.
 
-## Closest literature and limitations
-Kolountzakis–Révész establish the general \(M(H)\) framework, several structured exact cases, and complement duality. Krenedits–Révész broaden the framework to locally compact Abelian groups. The theorem here addresses one finite support not among the inspected exact cases. The literature comparison cannot exclude unindexed or inaccessible earlier occurrences.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The full problem-defining Kolountzakis–Révész source lists singleton/complement, tails, odd/even supports and duality, none evaluating H={3,4}. Published Resultary corpus shows nearby exact sparse cases and a general doubled-harmonic family, but {3,4} is not {m,2m} and no known frequency equivalence fixing 1 reduces it. Originality accepted best-of-knowledge, with plausible older 1995 dual-cosine source incompletely read.
+
+## value
+
+PASS
+
+A natural concrete sparse prescribed-support extremal constant with a sharp global dual certificate and unique extremizer; determines a specific missing-support value not entailed by common full-degree or parity formulas, and usable as a benchmark in harmonic-analysis support problems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

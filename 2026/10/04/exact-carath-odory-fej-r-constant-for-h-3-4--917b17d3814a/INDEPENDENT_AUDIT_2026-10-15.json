@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T05:44:40.483989Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cd76f0b741a81ebc64b2fc7846361df5d730832d/2026/10/04/exact-carath-odory-fej-r-constant-for-h-3-4--917b17d3814a/RESULT.md",
+        "Git blob b45ac86aeb8103b9347f0e215d67e5b141c3bab6",
+        "Git blob 4ff10f31c699c95fb8ed94e465c4108f14aaecae"
+      ],
+      "rationale": "For H={3,4}, nonnegativity at t=1/2 and 5/14 yields the positive dual certificate sT(1/2)+T(5/14)=1+s-lambda(r+s)>=0, where r=cos(2pi/7), s=cos(pi/7); ratio (1+s)/(r+s)=2r. For lambda=2r, b=(3-10r)/7,c=4(r-1)/7 the Chebyshev quartic factors 32(1-r)(x+1)(x+r)^2(q-x)/7, q=(5+2r-4r^2)/4>1. Equality at x=-1,-r plus interior stationarity determines unique coefficients (determinant 7(2r²-r-1) nonzero). Independently verified factor coefficient-by-coefficient in Q[r]/(8r³+4r²-4r-1) using Sympy polynomial remainders; numerically q≈1.173>1. Global nonnegativity, not finite grid testing.",
+      "residual_risks": [
+        "Applies precisely to real even coefficients and H={3,4}; not arbitrary two-element supports."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published known families: singleton, complements, tails, odd/even; doubled-harmonic exact formula covers sets {m,2m}, not {3,4}."
+        ],
+        "reasoning": "Complement-duality exchanges H={3,4} with an unsolved two-hole complement and does not numerically determine this case; different sparse supports cannot be identified through parameter renaming.",
+        "searches": [
+          "arXiv:math/0302193 exact families",
+          "arXiv:1304.0071",
+          "Resultary 2026/10/11 doubled-harmonic family"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0302193",
+        "arXiv:1304.0071",
+        "DIMACS TR 93-66",
+        "Resultary semantic: Caratheodory Fejer extremal constant set H={3,4} sparse positive trigonometric polynomial cosine frequencies",
+        "Resultary 2026/10/11 doubled-harmonic family"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The doubled-harmonic family frequencies {1,m,2m} cannot give {1,3,4} for integer m; complement duality does not determine {3,4}."
+        ],
+        "reasoning": "Known related constants do not imply target without new sparse polynomial dual certificate and factorization.",
+        "searches": [
+          "arXiv:math/0302193 solved support types",
+          "Resultary semantic: Caratheodory Fejer extremal constant set H={3,4} sparse positive trigonometric polynomial cosine frequencies",
+          "Resultary doubled-harmonic family m>=2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent real positive definite sequence support {0,±1,±3,±4} maximizes first value r; same optimization as nonnegative cos polynomial."
+        ],
+        "reasoning": "Compared both sparse trigonometric polynomial and sequence formulations rather than title matches.",
+        "searches": [
+          "Resultary semantic: Caratheodory Fejer extremal constant set H={3,4} sparse positive trigonometric polynomial cosine frequencies",
+          "arXiv:math/0302193 prescribed support M(H)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returns matching present record, plus distinct H={4,5}, {3,7}, {2,4} results; no earlier separately documented table entry for {3,4} in inspected primary results."
+        ],
+        "reasoning": "Absence of an exact hit alone does not establish novelty; result supported by explicit primary full-text solved-case comparison.",
+        "searches": [
+          "Resultary semantic: Caratheodory Fejer extremal constant set H={3,4} sparse positive trigonometric polynomial cosine frequencies",
+          "Carathéodory–Fejér support {3,4} 2cos(2pi/7)"
+        ]
+      },
+      "rationale": "The full problem-defining Kolountzakis–Révész source lists singleton/complement, tails, odd/even supports and duality, none evaluating H={3,4}. Published Resultary corpus shows nearby exact sparse cases and a general doubled-harmonic family, but {3,4} is not {m,2m} and no known frequency equivalence fixing 1 reduces it. Originality accepted best-of-knowledge, with plausible older 1995 dual-cosine source incompletely read.",
+      "residual_risks": [
+        "The 1995 Révész duality article is plausible but its full text was not read in this execution.",
+        "Poorly indexed old exact sparse cosine-polynomial cases may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Theorem-listed support geometries omit {3,4} and its two-hole complement; duality alone gives no numerical value.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0302193; DOI:10.4153/CJM-2006-017-8",
+          "material_read": "Full arXiv PDF; read support definition, Theorem 3 solved families and complement duality; inspected PDF p.10 (zero-index 9) visually.",
+          "method": "Compared each solved support case and duality implication against {3,4}.",
+          "title": "On pointwise estimates of positive definite functions with given support",
+          "trigger": "Defines exact M(H) and lists prior closed cases"
+        },
+        {
+          "assessment": "DISTINCT_SUPPORT_NOT_COVERING",
+          "evidence": "No m has {m,2m}={3,4}; cannot obtain this result from m=2, m=3 or other m.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-doubled-harmonic-carath-odory-fej-r-family--f8b2aed0e5e0",
+          "material_read": "Entire published RESULT.md read, including all-m theorem, Hermite-majorant proof and limitations.",
+          "method": "Compared prescribed support {m,2m} against {3,4} and fixed first harmonic.",
+          "title": "Exact doubled-harmonic Carathéodory–Fejér family",
+          "trigger": "Newer broad published sparse support family"
+        },
+        {
+          "assessment": "NOT_FULLY_INSPECTED",
+          "evidence": "Cannot exclude an internal exact H={3,4} formula without accessing full text.",
+          "identifier_or_url": "DIMACS TR 93-66; 1995 J. Fourier Anal. Appl. 485–508",
+          "material_read": "Bibliographic metadata and abstract; full paper not read this run.",
+          "method": "Record as unresolved source-access risk; no whole-paper negative assertion.",
+          "title": "The least possible value at zero of some nonnegative cosine polynomials and equivalent dual problems",
+          "trigger": "Highly plausible older dual extremal literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:math/0302193",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cd76f0b741a81ebc64b2fc7846361df5d730832d/2026/10/04/exact-carath-odory-fej-r-constant-for-h-3-4--917b17d3814a/RESULT.md"
+      ],
+      "rationale": "A natural concrete sparse prescribed-support extremal constant with a sharp global dual certificate and unique extremizer; determines a specific missing-support value not entailed by common full-degree or parity formulas, and usable as a benchmark in harmonic-analysis support problems.",
+      "residual_risks": [
+        "One specific support, no general two-element classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Real even trigonometric polynomial with fixed frequencies 1,3,4; no general support classification.",
+    "Older 1995 dual-source full body was not read; residual originality risk."
+  ],
+  "schema_version": 1
+}
