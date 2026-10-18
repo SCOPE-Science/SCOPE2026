@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The source's symmetric de Jonquières matrix is independent of the unit weight, so any indefinitely nondegenerate iteration of the same type has the same limiting ray \(R_n\). The natural weight-\(q\) orbit curve has strict-transform class \(qH_1+H_2-E\). Exact reflection arithmetic gives ruling coefficients \(A_q\) and \(B\), and their rationality determinant factors as \(2n(q-n)(q-n+2)\). Since \(\sqrt{n(n-4)}\) is irrational for \(n>4\), the slope is rational exactly for \(q=n-2\). For even \(n\), that weight has gcd \(2\) with \(n\), so it is not admissible as a unit. Nondegeneracy and balancedness are explicitly hypotheses rather than claimed facts.
+## correctness
 
-## Originality
-**PASS.** The October 2026 source explicitly asks whether different weights or a more general finite-group action can handle even \(n\). It gives the weight-independent matrix and the special odd weight, but does not carry out the general-\(q\) reflection or state the rational-slope obstruction. The n=5 predecessor and the broader Dionne–Roth even-point reflection theory do not cover the source-specific unit-weight template. Targeted searches found no statement equivalent to the iff condition \(q=n-2\). The main residual risk is a very recent or differently phrased observation not yet indexed.
+PASS
 
-## Value
-**PASS.** Changing only the unit weight is the closest literal approach suggested by the source's even-\(n\) question. Showing that this cannot reproduce the final rational-polarization Seshadri ray removes a natural but doomed strategy and identifies exactly which ingredient must change. The obstruction is structural and uniform in every even \(n>4\), rather than a single failed experiment.
+With n>4, Δ=sqrt(n(n-4)), R_n=((n-Δ)/2)H1+((n+Δ)/2)H2-E and gamma_q=qH1+H2-E, gamma_q²=-2(n-q). Under the explicitly assumed balanced reflection, intersection form H1.H2=1,E²=-2n gives s_gamma(R)=R+(R.gamma)/(n-q)gamma. Its scaled first and second coefficients are A_q=n(n+q²-4q)+(q²-n)Δ and B=n(n-3)+(n-1)Δ. Δ irrational for all integer n>4 by (n-2-Δ)(n-2+Δ)=4 parity argument. The determinant for rationality factors as 2n(q-n)(q-n+2). In range 1<=q<n, only q=n-2. When n even, gcd(n,n-2)=2, not a unit. Independent SymPy bilinear intersection calculation and symbolic factorization confirm these steps for arbitrary formal n,q,Δ. Neither nondegenerate dynamics nor balanced geometry is claimed proven for new q; the obstruction is conditional on their availability.
 
-## Closest literature and limitations
-The closest source is Malara–Merta–Szpond–Zieliński, arXiv:2610.01783v1. Laface–Ugaglia provide the n=5 predecessor, while Dionne–Roth provide broad reflection theory on \(\mathbf P^1\times\mathbf P^1\). The result does not rule out a different finite group, reflection curve, birational dynamics, or an even-\(n\) irrational limiting ray by another method.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Malara–Merta–Szpond–Zieliński prove the odd-n family, a weight-independent symmetric de Jonquières action for units, and discuss the even-n problem explicitly. The unit q reflection rational-slope determinant and proof that it rules out all even-n unit weights within their precise template are absent from their inspected theorem and question. General Dionne–Roth even-point Seshadri reflections concern different orbit geometry and cannot settle this template-specific obstruction.
+
+## value
+
+PASS
+
+The source explicitly motivates extending the irrational Seshadri examples to even n. Proving a structural no-go for the simplest weight-only extension, even under favorable assumptions about its hard geometry, rules out a real mathematical approach rather than reporting a cosmetic failed computation. It does not solve or foreclose the full even-n question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
