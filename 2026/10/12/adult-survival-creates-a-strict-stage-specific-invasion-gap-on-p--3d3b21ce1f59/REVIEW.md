@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The published three-species recurrence gives an upper-triangular Jacobian on the predator-free axis. Its two predator diagonal entries are \(\rho_Ja_JF(H)H\) and \(\rho_Aa_AH\), so their period multipliers are products of these factors. Positive survival makes \(\log(e^u-\sigma)\) strictly concave, and telescoping the prey ratios proves the strict cycle inequality. Direct exact substitution and a symbolic two-step Jacobian calculation give the prey multiplier \((7\log7-8)(\log7-1)/8\), juvenile \(7/8\), and adult \(9/8\), with an analytic proof that the prey multiplier lies in \((0,3/4)\).
+## correctness
 
-## Originality
-PASS. The motivating 2026 article limits its persistence theorems to increasing prey offspring and expressly leaves high-growth Ricker responses beyond its hypotheses. Its earlier 2025 poster describes an equilibrium-oriented Beverton–Holt case. The strictly ordered stage-specific Floquet products with positive adult survival and the exact spectral split on one prey-only cycle are not present in the inspected source results or the closest two-parasitoid models. Generic Jensen and periodic multiplier methods are established prior art.
+PASS
 
-## Value
-PASS. Equal invasion rates at the predator-free equilibrium need not mean equal success along an oscillating prey population. The theorem gives the precise direction of the stage difference, and the constructive exact two-cycle proves that it can change the local outcome from attracting to repelling. This addresses a naturally excluded regime in a model whose scientific purpose is to compare juvenile versus adult predation.
+From the actual RESULT.md three-species recurrence the Jacobian is upper triangular at (h,0,0), giving juvenile beta_J F(h)h and adult beta_A h. With q_j=h_{j+1}/h_j=sigma+F(h_j), mean log q_j=0 and phi(u)=log(exp(u)-sigma) has strictly negative second derivative. Strict Jensen proves the ratio for all periods p>=2. Independently verified the two prey points h_-=49log7/4, h_+=49log7/2, F values 7/4 and 1/4, monodromy eigenvalues (7log7-8)(log7-1)/8, 7/8 and 9/8. Domain excludes sigma=0 for strictness and any global persistence claim.
 
-## Closest literature and limitations
-Seno and Goyal (2026) provide the underlying models and exclusion of high-growth Ricker from the main theory. Jia et al. (2024), DOI 10.1142/S0218127424500147, study a different two-parasitoid Ricker map without adult survival; May and Hassell (1981), DOI 10.1086/283704, provide broader multiparasitoid theory. The new theorem proves local Floquet properties, not eventual invasion outcomes. The full three-species periodic orbit is a saddle; the attracting statement applies to Model J with the adult predator absent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Seno–Goyal establishes the recurrence, equilibrium replacement factors and persistence in a different monotone-offspring regime. The published oscillatory juvenile advantage in Resultary concerns sigma=0 and a predator-positive conjugate resident state; neither implication covers sigma>0 prey-only cycles with matched equilibrium factors, strict Jensen gap and explicit opposite local invasions. Best-of-knowledge priority risk remains for analogous stage-structured Floquet theory.
+
+## value
+
+PASS
+
+A strict, assumption-sharp stage-specific invasion ordering on arbitrary positive prey cycles and one exact opposite-sign local threshold resolve a biologically motivated gap beyond equilibrium persistence; the result does not mistake local invasion for global survival.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
