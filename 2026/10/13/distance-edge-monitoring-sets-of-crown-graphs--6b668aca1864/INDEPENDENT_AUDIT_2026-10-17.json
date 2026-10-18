@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T19:56:37Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the monitoring definition: x monitors xy because removal increases d(x,y)=1. For x=a_p and a nonincident edge a_r b_s, every target b_j (j!=p) retains its direct edge, every other a_q has n-2>=2 two-edge geodesics with at most one affected, and b_p has (n-1)(n-2) geodesics a_p-b_j-a_i-b_p with at least one avoiding the edge, including s=p. Thus only incident edges are monitored n>=4; by symmetry every monitoring set is a vertex cover. Independent set classification: subsets of A or B plus n matched pairs {a_i,b_i}; I(z)=2(1+z)^n-1+nz² and D(z)=z^(2n)I(z^-1). Minimum monitoring sets exactly A and B, cardinality n. For n=3 is C6 and its monitoring number is 2, so threshold sharp. Independent edge deletion and shortest-path recomputation for all probes and all vertex subsets checked n=3,4,5, including polynomials.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General dem<=vertex-cover number alone cannot give equality or all sets",
+          "Complete bipartite graphs in foundational examples omit a perfect matching differently"
+        ],
+        "reasoning": "General monitoring criteria plus crown-graph elementary structure allow this deduction, but identified prior theorem does not state its crown application or complete polynomial.",
+        "searches": [
+          "crown graph distance edge monitoring sets vertex cover n>=4",
+          "Foucaud et al 2022 Theorem 12 and Observation 13",
+          "2024 distance-edge monitoring graph perturbation results"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2011.00029",
+        "doi:10.1016/j.dam.2021.07.002",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-edge-metric-bases-of-crown-graphs--b5b3c45f23e8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Foucaud statement every vertex cover monitors; converse conditioned on edge-monitor pattern",
+          "Crown graph edge metric dimension n-1 differs from monitoring number n"
+        ],
+        "reasoning": "General one-way inclusion does not imply iff; source proves nonincident edge survives a geodesic and sharp Cr3 boundary, adding exact family monitoring characterization.",
+        "searches": [
+          "crown graph distance edge monitoring sets vertex cover n>=4",
+          "Foucaud et al 2022 section vertex cover",
+          "Resultary 2026/10/4 crown edge-metric bases"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Foucaud et al give vertex covers as sufficient monitoring sets, not crown-specific iff in inspected theorem",
+          "Resultary crown edge-metric bases are a different invariant"
+        ],
+        "reasoning": "The equivalent wording is distance-edge monitoring = vertex-cover family under incident-edge-only property. The missing nonincident geodesic proof is the crown-specific step.",
+        "searches": [
+          "crown graph distance edge monitoring sets vertex cover n>=4",
+          "distance edge monitoring K_n,n minus perfect matching",
+          "Foucaud et al 2022 monitoring distance edges"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching census/table retrieved; distinct crown metric bases and domination polynomials do not count monitored edge sets",
+          "Exact cover polynomial is computable once monitoring iff cover is known"
+        ],
+        "reasoning": "An identical vertex-cover polynomial could be a known graph invariant; mere coefficient identity is not sufficient by itself to support new monitoring claim. Inspected monitoring theorem did not supply crown equivalence.",
+        "searches": [
+          "crown graph distance edge monitoring sets vertex cover n>=4",
+          "Resultary crown graph metric/edge monitoring searches"
+        ]
+      },
+      "rationale": "The foundational monitoring theorem only implies that vertex covers monitor, with equality when no probe detects a nonincident edge. The present all-n proof establishes this property for the non-complete crown class and enumerates all sets, n=3 exception. Exact equality may be historically known under vertex-cover language; best-of-knowledge.",
+      "residual_risks": [
+        "An unindexed crown-graph monitoring corollary or general theorem may already imply the same result.",
+        "The all-set polynomial is a routine cover-enumerator deduction after the substantive incident-only lemma; value is in structural monitoring characterization and sharp boundary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_GENERAL_COVERAGE; theorem gives reduction but no crown result",
+          "evidence": "Every vertex cover monitors; equality in prescribed incident-only situation; complete bipartite given as example, not deleted matching.",
+          "identifier_or_url": "https://arxiv.org/abs/2011.00029",
+          "material_read": "Full arXiv PDF statements, theorems on vertex covers and condition for converse; examined concrete complete bipartite example",
+          "method": "arXiv lawful open full text, theorem-level read",
+          "title": "Monitoring the edges of a graph using distances",
+          "trigger": "primary original definitions and possible general theorem"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": "Edge metric resolving bases size n-1 rather than all distance-edge-monitoring sets with size n.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-edge-metric-bases-of-crown-graphs--b5b3c45f23e8",
+          "material_read": "Resultary indexed summary only",
+          "method": "semantic lookup",
+          "title": "Edge metric bases of crown graphs",
+          "trigger": "same graph and edge-distance vocabulary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact identification of all monitoring sets for the natural crown family, not simply another domination statistic, establishes the threshold n>=4 against C6 and describes the precise change caused by deleting a matching from K_{n,n}. This can serve as a test class for monitoring-vs-vertex-cover and perturbation questions; polynomial coefficients then follow transparently.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Claim n>=4 with exceptional n=3; no arbitrary matching deletion graph generalization.",
+    "Prior proof general criterion is credited, not the crown-specific geodesic argument.",
+    "Public-facing operational identifiers not sanitized; five publication plans intentionally not ready, regardless of science.",
+    "Pinned record-tree SHAs from dispatcher were not independently reconstructed from Git tree listings."
+  ],
+  "schema_version": 1
+}

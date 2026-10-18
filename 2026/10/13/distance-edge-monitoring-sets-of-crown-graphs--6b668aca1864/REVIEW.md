@@ -1,12 +1,21 @@
-# Review of Distance-edge-monitoring sets of crown graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. For a fixed probe \(a_p\), every nonincident edge is shown to leave a shortest path to every target: direct paths to unmatched opposite-side vertices survive; same-side targets retain at least one of at least two length-two paths; and the matched target \(b_p\) retains a length-three path because \(n\ge4\). Symmetry handles probes in the other part. Hence each vertex monitors exactly its incident edges, so monitoring sets are exactly vertex covers. The independent sets of a crown graph are precisely one-side subsets and the deleted matched pairs, which gives the stated enumerator and the two minimum sets. Direct exhaustive verification for \(4\le n\le7\) matches the theorem and confirms the \(n=3\) boundary failure.
+## correctness
 
-## Originality
-PASS. The foundational full text gives the general incident-edge-only criterion and applies it to complete bipartite graphs and hypercubes, but does not state the crown specialization. The closest later same-parameter sources develop general bounds, small monitoring-number characterizations, product constructions, girth bounds, and perturbation results. Targeted searches under “crown graph,” “\(K_{n,n}\) minus a perfect matching,” and deleted-matching aliases found no crown distance-edge-monitoring formula or all-set polynomial. Existing crown results checked in the comparison set concern different invariants. The theorem is not a formal corollary of the complete-bipartite result, because deleting the perfect matching can create new shortest-path alternatives and the threshold actually fails at \(n=3\); the new proof establishes the preserved monitoring structure for every \(n\ge4\).
+PASS
 
-## Value
-PASS. The foundational theory singles out the equality between distance-edge-monitoring sets and vertex covers as a structurally important regime. Crown graphs are a standard dense regular bipartite perturbation of the complete bipartite family, and the sharp \(n=3\) versus \(n\ge4\) transition shows that preservation under deleting a perfect matching is not automatic. The result gives the whole feasible-set family, a closed polynomial, and exact minimum-basis multiplicity, not only a scalar optimum.
+Reconstructed the monitoring definition: x monitors xy because removal increases d(x,y)=1. For x=a_p and a nonincident edge a_r b_s, every target b_j (j!=p) retains its direct edge, every other a_q has n-2>=2 two-edge geodesics with at most one affected, and b_p has (n-1)(n-2) geodesics a_p-b_j-a_i-b_p with at least one avoiding the edge, including s=p. Thus only incident edges are monitored n>=4; by symmetry every monitoring set is a vertex cover. Independent set classification: subsets of A or B plus n matched pairs {a_i,b_i}; I(z)=2(1+z)^n-1+nz² and D(z)=z^(2n)I(z^-1). Minimum monitoring sets exactly A and B, cardinality n. For n=3 is C6 and its monitoring number is 2, so threshold sharp. Independent edge deletion and shortest-path recomputation for all probes and all vertex subsets checked n=3,4,5, including polynomials.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The foundational monitoring theorem only implies that vertex covers monitor, with equality when no probe detects a nonincident edge. The present all-n proof establishes this property for the non-complete crown class and enumerates all sets, n=3 exception. Exact equality may be historically known under vertex-cover language; best-of-knowledge.
+
+## value
+
+PASS
+
+Exact identification of all monitoring sets for the natural crown family, not simply another domination statistic, establishes the threshold n>=4 against C6 and describes the precise change caused by deleting a matching from K_{n,n}. This can serve as a test class for monitoring-vs-vertex-cover and perturbation questions; polynomial coefficients then follow transparently.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

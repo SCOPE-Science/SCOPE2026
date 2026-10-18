@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,41 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The verifier constructs the crown graph
-\[
-\operatorname{Cr}_n=K_{n,n}-M
-\]
-directly from its deleted-matching definition.
+# Independent mathematical audit
 
-For every edge \(e\) and every probe vertex \(x\), it computes all distances from \(x\) before and after deleting \(e\). Thus the monitored edges are recovered directly from the defining distance-change condition, with no use of the theorem being checked.
+## correctness
 
-For every
-\[
-4\le n\le7,
-\]
-the verifier checks that each edge is monitored exactly by its two endpoints. It then exhaustively enumerates every vertex subset, compares the direct DEM predicate with the vertex-cover predicate, and compares every cardinality coefficient with
-\[
-2z^n(1+z)^n-z^{2n}+nz^{2n-2}.
-\]
-It separately checks the boundary graph \(\operatorname{Cr}_3\), where the incident-edge-only property fails and the minimum is \(2\).
+PASS
 
-Recorded output:
+Reconstructed the monitoring definition: x monitors xy because removal increases d(x,y)=1. For x=a_p and a nonincident edge a_r b_s, every target b_j (j!=p) retains its direct edge, every other a_q has n-2>=2 two-edge geodesics with at most one affected, and b_p has (n-1)(n-2) geodesics a_p-b_j-a_i-b_p with at least one avoiding the edge, including s=p. Thus only incident edges are monitored n>=4; by symmetry every monitoring set is a vertex cover. Independent set classification: subsets of A or B plus n matched pairs {a_i,b_i}; I(z)=2(1+z)^n-1+nz² and D(z)=z^(2n)I(z^-1). Minimum monitoring sets exactly A and B, cardinality n. For n=3 is C6 and its monitoring number is 2, so threshold sharp. Independent edge deletion and shortest-path recomputation for all probes and all vertex subsets checked n=3,4,5, including polynomials.
 
-```text
-VERIFY_OK
-n=4: edges=12, DEM_sets=35, minimum=4, bases=2
-n=5: edges=20, DEM_sets=68, minimum=5, bases=2
-n=6: edges=30, DEM_sets=133, minimum=6, bases=2
-n=7: edges=42, DEM_sets=262, minimum=7, bases=2
-boundary_n=3: minimum=2, incident-edge-only property fails
-n_checked = 4..7 plus boundary n=3
-vertex_subsets_checked = 21824
-probe_edge_checks = 1280
-minimum_bases_checked = 8
-all n>=4 DEM sets matched vertex covers
-all DEM polynomial coefficients matched
-```
+## originality
 
-The finite computation is corroborative only. The arbitrary-parameter theorem is established by the explicit surviving-geodesic proof in the result.
+PASS
+
+The foundational monitoring theorem only implies that vertex covers monitor, with equality when no probe detects a nonincident edge. The present all-n proof establishes this property for the non-complete crown class and enumerates all sets, n=3 exception. Exact equality may be historically known under vertex-cover language; best-of-knowledge.
+
+## value
+
+PASS
+
+Exact identification of all monitoring sets for the natural crown family, not simply another domination statistic, establishes the threshold n>=4 against C6 and describes the precise change caused by deleting a matching from K_{n,n}. This can serve as a test class for monitoring-vs-vertex-cover and perturbation questions; polynomial coefficients then follow transparently.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
