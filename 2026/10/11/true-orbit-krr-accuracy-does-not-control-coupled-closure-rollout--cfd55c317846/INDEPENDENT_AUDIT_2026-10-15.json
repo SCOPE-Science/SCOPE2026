@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T06:12:34.585053Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The source identifies KRR Φtilde_y:R^(dx+dy)→R^dy at equation (3), so equation (8) powers of Φtilde_y(z0) are undefined for dx>0; equation (7) and Appendix B equation (29) in fact use coupled predicted inputs. Under the explicitly stated natural teacher-forced interpretation, let h=1/m, true z_j=(jh,1) for x'=y,y'=0, target y≡1, Gaussian kernel k_h(z,z_j)=exp(-||z-z_j||²/h^10), ridge λ=h^5. True centers have distinct distance≥h and off-diagonal Gram bound O(m exp(-h^-8)), so K=I+o(h^r) for each r and α=(K+h^5 I)^-1 1=1+O(h^5)+o(h^r). Exactly Kα=1-h^5α yields uniform teacher-forced error O(h^5). On coupled rollout the first yhat1=1-h^5(1+o(1)) and first trapezoid xhat1=h-(h^6/2)(1+o(1)), so distance squared from true z1 equals h^10(1+o(1)) and its Gaussian self-kernel tends to e^-1. All other training kernels vanish super-polynomially, hence yhat2→e^-1. With stable degree-one interpolation and globally second-order Heun/trapezoidal resolved solver, 2h-xhat2=(h/2)(3-2yhat1-yhat2)∼(1-e^-1)h/2, not O(h²) as a naive teacher-forced theorem would give. This is a rigorous small-h family, not numerical extrapolation, and carefully excludes a stronger theorem assuming the actual coupled yhat error directly.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Broader learning-theory work warns of one-step-versus-rollout instability and motivates Lipschitz/stability conditions.",
+          "The actual focal paper empirically uses rollout-aware tuning but its Theorem 2.1 attempts to infer a rate from an uncomposable true-orbit closure notation."
+        ],
+        "reasoning": "Broad instability observations do not mathematically imply the Gaussian RKHS counterexample with exponentially narrow h^10 bandwidth, O(h^5) true-center residual and Θ(h) two-step resolved error, nor the precise theorem typing defect.",
+        "searches": [
+          "Primary author manuscript reproduced as ResearchGate full text: Habbershaw--Harlim--Liang, Learning Closure of Dynamical Systems with Kernel Ridge Regression, equations (3),(7),(8), Appendix B (29)",
+          "https://doi.org/10.3390/math14152850 (Li--Wan 2026, general rollout stability)",
+          "https://arxiv.org/abs/2512.17203 (Song--Huang--Harlim 2025, diffusion-maps KRR rollout validation)",
+          "Resultary: Habbershaw Harlim Liang kernel ridge regression closure coupled rollout teacher forced theorem 2.1 Gaussian bandwidth counterexample"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.02564 (Habbershaw--Harlim--Liang 2026, focal theorem)",
+        "Primary author manuscript reproduced as ResearchGate full text: Habbershaw--Harlim--Liang, Learning Closure of Dynamical Systems with Kernel Ridge Regression, equations (3),(7),(8), Appendix B (29)",
+        "https://doi.org/10.3390/math14152850 (Li--Wan 2026, general rollout stability)",
+        "https://arxiv.org/abs/2512.17203 (Song--Huang--Harlim 2025, diffusion-maps KRR rollout validation)",
+        "Resultary: Habbershaw Harlim Liang kernel ridge regression closure coupled rollout teacher forced theorem 2.1 Gaussian bandwidth counterexample",
+        "Resultary: true orbit KRR Habbershaw Harlim Liang missing rollout stability gaussian 2610.02564 type equation 8 theorem 2.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The focal paper equation (29) needs bound on actual yhat_n-y_n, whereas (8) writes invalid powers of a non-self-map.",
+          "The KRR Gram matrix I+o(h^r) leads to O(h^5) teacher-forced error but the second coupled query moves at exactly its kernel width and loses O(1) in yhat_2."
+        ],
+        "reasoning": "Prior general stability results require additional off-trajectory regularity, so they do not validate the focal theorem under only teacher-forced nodal accuracy; the explicit separation refutes that implication without contradicting stronger hypotheses.",
+        "searches": [
+          "https://arxiv.org/abs/2610.02564 (Habbershaw--Harlim--Liang 2026, focal theorem)",
+          "https://doi.org/10.3390/math14152850 (Li--Wan 2026, general rollout stability)",
+          "https://arxiv.org/abs/2512.17203 (Song--Huang--Harlim 2025, diffusion-maps KRR rollout validation)",
+          "Resultary: true orbit KRR Habbershaw Harlim Liang missing rollout stability gaussian 2610.02564 type equation 8 theorem 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equation (3) of Habbershaw--Harlim--Liang has a predictor from R^(dx+dy) to R^dy, making the powers of that map in (8) ill-typed when dx>0.",
+          "Natural teacher-forcing is KRR nodal accuracy at the true orbit, whereas coupled rollout uses KRR on self-predicted off-orbit inputs."
+        ],
+        "reasoning": "The finding is a specific failure of an implication from true-orbit KRR regression accuracy to coupled autonomous closure rollout; it is not a general claim that interpolation or integrators fail and does not contradict a repaired theorem explicitly assuming actual rollout accuracy.",
+        "searches": [
+          "Resultary: Habbershaw Harlim Liang kernel ridge regression closure coupled rollout teacher forced theorem 2.1 Gaussian bandwidth counterexample",
+          "Resultary: true orbit KRR Habbershaw Harlim Liang missing rollout stability gaussian 2610.02564 type equation 8 theorem 2.1",
+          "https://arxiv.org/abs/2610.02564 (Habbershaw--Harlim--Liang 2026, focal theorem)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "This is an analytic asymptotic counterexample, not an exact finite combinatorial table or database; matched-source and error/erratum searches found only the focal manuscript and the assigned claim."
+        ],
+        "reasoning": "No static table can cover a continuum sequence h=1/m unless it establishes a general theorem. No equivalent specific published KRR witness was located in the bounded search; failure of search remains a residual risk.",
+        "searches": [
+          "Resultary: Habbershaw Harlim Liang kernel ridge regression closure coupled rollout teacher forced theorem 2.1 Gaussian bandwidth counterexample",
+          "Resultary: true orbit KRR Habbershaw Harlim Liang missing rollout stability gaussian 2610.02564 type equation 8 theorem 2.1",
+          "https://arxiv.org/abs/2610.02564 (Habbershaw--Harlim--Liang 2026, focal theorem)"
+        ]
+      },
+      "rationale": "The elementary rollout-instability principle was known, but this explicit source-specific type defect and standard Gaussian-KRR counterexample to a natural repair of Theorem 2.1 were not covered by the inspected focal manuscript or earlier general work.",
+      "residual_risks": [
+        "The source theorem could be made valid with a direct bound on coupled unresolved predictions; this finding refutes only the teacher-forced repair, not that stronger version.",
+        "The source primary was read from an accessible manuscript mirror rather than the blocked direct arXiv PDF; minor version drift would require rechecking equation labels against publisher copy.",
+        "Counterexample uses deliberately vanishingly narrow Gaussian bandwidth and λ=h^5; no assertion about practical tuned hyperparameters."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The predictor input/output types disagree with printed self-composition; the proof needs actual coupled yhat_n, not a teacher-forced pointwise bound.",
+          "evidence": [
+            "Source equations (3),(7),(8); Appendix B equation (29) use the exact stated variables and rate."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.02564",
+          "material_read": "Primary manuscript full text as accessible via online mirrored author publication, with focus on Theorem 2.1, definitions, Gaussian kernel in equation (4), and Appendix B equation (29); source accessible earlier in this execution despite arxiv PDF transport failure",
+          "method": "Full HTML textual theorem and proof inspection through accessible manuscript mirror",
+          "title": "Habbershaw, Harlim and Liang, Learning Closure of Dynamical Systems with Kernel Ridge Regression",
+          "trigger": "Exact target Theorem 2.1 and equations (3),(7),(8),(29)"
+        },
+        {
+          "assessment": "The abstract concerns broad contractivity regularization, not a specific Gaussian kernel counterexample; no whole-document noncoverage asserted.",
+          "evidence": [
+            "General global/local Lipschitz conditions are distinct from teacher-forced only accuracy."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math14152850",
+          "material_read": "Title/abstract and published bibliographic statement; primary full text not read in this execution",
+          "method": "Targeted text/search comparison",
+          "title": "Li and Wan, Stability-Regularized Residual Neural ODEs",
+          "trigger": "General predictive rollout instability/stability theorems"
+        },
+        {
+          "assessment": "Rollout-aware empirical selection is acknowledged, does not by itself prove the focal inequality.",
+          "evidence": [
+            "Different diffusion-map KRR procedure and empirical rollout objective."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2512.17203",
+          "material_read": "Abstract and reference context, not full primary text",
+          "method": "Targeted bibliographic query",
+          "title": "Song, Huang and Harlim, Learning solution operator of dynamical systems with diffusion maps kernel ridge regression",
+          "trigger": "Closely related kernel closure and rollout validation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. It pinpoints the missing stability interface in a claimed convergence theorem for learned dynamical closures. A fully explicit Gaussian-KRR witness with a sharp rate gap is mathematically substantive because it separates true-orbit approximation from on-policy coupled dynamics, and it points to the exact additional hypothesis rather than merely issuing a qualitative warning.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Refutes implication from teacher-forced accuracy to coupled rollout and highlights ill-typed printed equation (8); does not refute a stronger theorem assuming actual coupled-error control, nor empirical efficacy.",
+    "The source theorem could be made valid with a direct bound on coupled unresolved predictions; this finding refutes only the teacher-forced repair, not that stronger version.",
+    "The source primary was read from an accessible manuscript mirror rather than the blocked direct arXiv PDF; minor version drift would require rechecking equation labels against publisher copy.",
+    "Counterexample uses deliberately vanishingly narrow Gaussian bandwidth and λ=h^5; no assertion about practical tuned hyperparameters."
+  ],
+  "schema_version": 1
+}
