@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+The two standalone source programs separately build the finite plane, reconstruct the noncover faces, and check every one of the \(3861\) nonempty faces and \(20085\) cover relations for the signed discrete-Morse model. The resulting critical-cell counts are exactly \((1,39,1)\) in dimensions \((0,4,5)\); the one possible nonzero integral Morse differential vanishes coefficient by coefficient. The collineation checker enumerates all \(5616\) projective matrices, calculates the signed Lefschetz number from fixed faces and verifies that the resulting fourth-homology character has self-inner-product one. Perfectness of the determinant-one collineation group forces the one-dimensional fifth homology character to be trivial. The conclusion is specific to this finite complex and does not purport to classify integral equivariant attaching maps.
+
+## Originality — PASS, qualified
+The closest named same-object result is *Mixed-dimensional neighborhood-complex homotopy of the ternary projective nonincidence graph* (2026), which establishes the non-equivariant sphere wedge of each nonincidence-graph neighborhood component. The present theorem deliberately does not claim that wedge as new. The exact \(5616\)-element projective action, complete character and absolute irreducibility do not follow from a non-equivariant homotopy type. Actual indexed-result searches using projective-plane and equivariant-neighborhood aliases found the nonequivariant result and no character classification. Kim and Kim (2021) supply the noncover foundations but not the finite-plane character. Novik (2002) concerns a different Fano matroid resolution. Because the exact same-object prior paper's full text was inaccessible and unindexed results cannot be excluded, novelty is qualified rather than certified.
+
+## Value — PASS
+This is the natural first order-three projective-plane noncover complex with mixed-dimensional homology. The prior rank calculation cannot distinguish whether a nonzero class survives the full collineation symmetry. The exact degree-four character gives the stronger structural answer: its entire \(39\)-dimensional module remains absolutely irreducible and admits no invariant vectors, while the degree-five class is fixed. The result differentiates equivariant topology from a bare list of sphere multiplicities.
+
+Self-review: passed. Independent audit: not yet performed.
