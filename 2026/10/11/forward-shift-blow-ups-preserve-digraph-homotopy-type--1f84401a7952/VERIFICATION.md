@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is symbolic and all-parameter. A finite replay is included to check the implementation-level statements used by the proof and to stress-test the directed-cycle corollary.
+# Independent mathematical audit
 
-Running `python verify_forward_shift_blowup.py` produces `VERIFY_OK`. The script exhaustively enumerates every loopless digraph on two and three vertices and every endomorphism \(\tau\) satisfying \(v\to\tau(v)\) at every vertex. For each of 53 resulting endomorphism instances it constructs a nontrivial complete blow-up, checks that the projection and section are digraph maps, checks that \(q=s\tau\pi\) is a digraph map, and checks both one-step homotopies pointwise.
+## correctness
 
-The script also constructs nonuniform complete blow-ups of \(\overrightarrow C_n\) for \(3\le n\le7\). It forms the degree-one boundary matrix, constructs an explicit basis of \(\Omega_2\) from differences of two-step paths sharing endpoints, and performs exact rational elimination. Every sample has \(b_0=b_1=1\). Finally, it checks the unique-skip argument on the base directed cycles for \(3\le n\le12\).
+PASS
 
-The computations are corroborative only. The infinite statement rests on the explicit homotopy and the direct base-cycle chain argument, not on extrapolation from finite cases.
+Given nonempty independent fibers and complete lifted edges, the section s is a digraph map and pi*s=id_G. With q=s*tau*pi, the forward arcs x->q(x) and s*pi(x)->q(x) are present for each x; each gives a valid one-step line-digraph homotopy, hence s*pi~id_B. This proves all-parameter homotopy equivalence, not just sampled homology. For an oriented n-cycle (n>=3) the only nonzero integral path-homology groups are H0=H1=Z: the cycle edge sum generates ker(d1), while deletion of the second vertex of an allowed k>=2 path creates a unique forbidden skip, so Omega_k=0. Verified definitions/normalization. The source finite verification is supportive, but its claimed direct n=3..12 skip test is actually a tautological assert n-1==n-1; no inferential weight assigned to that line.
+
+## originality
+
+PASS
+
+No earlier located source supplies the projection-section homotopy equivalence for nonuniform complete blowups under forward endomorphism; foundational homotopy invariance alone does not imply the criterion. Search includes blowup/vertex duplication/lexicographic-product aliases; the result is a structural sufficient condition for infinitely many bases/fiber sizes.
+
+## value
+
+PASS
+
+A reusable structural homotopy equivalence criterion for arbitrary nonuniform fiber sizes reduces all homotopy-invariant path calculations; an infinite directed-cycle family follows. This is more than rerunning a homology computation on one finite digraph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
