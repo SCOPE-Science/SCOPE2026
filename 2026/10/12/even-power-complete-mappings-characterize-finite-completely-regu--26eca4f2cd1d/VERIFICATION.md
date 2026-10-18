@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,25 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The symbolic proof of the theorem is included in `RESULT.md`. The main nonstandard implication is the finite permutation-cycle argument: the composition \(\theta\circ\alpha^{-1}\) sends each \(y\) into \(S^1y^k\), which lies in \(S^1y^2\) when \(k\geq2\). Since this composition permutes \(S\), the descending principal-left-ideal sequence along each finite cycle is constant. Consequently \(y=uy^2\), and iteration to an idempotent power constructs an inverse in a local group. No Green-relation separation theorem is assumed.
+## correctness
 
-The constructive converse is elementary arithmetic on group exponents. For even \(k\), the prime two never presents two forbidden residues, and every odd prime leaves at least one nonzero permitted residue; CRT then supplies a power exponent making both global power maps bijective.
+PASS
 
-To reproduce the finite checks, run:
+For finite nonempty S and permutation alpha with theta(x)=x(alpha(x))^k also bijective, k>=2, F=theta circ alpha^{-1} permutes S and F(y)<=_L y^k<=_L y^2<=_L y. Around each finite F cycle principal left ideals cannot strictly decrease, so y L y^2; writing y=u y^2 implies y=u^{N-1}y^N for every N. Pick N>=2 with e=y^N idempotent; y=u^{N-1}e so ye=y, and y commutes with e hence ey=y. Since e commutes with y and y^N=e, y^{N-1} is the inverse of y in local monoid eSe. Thus S union of groups. Conversely for even k choose a positive a by CRT avoiding a=0 and 1+ka=0 modulo each prime of subgroup exponent E: at p=2 even k leaves 1 available; odd p leaves >=1 of p residues. Then x->x^a and x->x^{1+ka} permute all maximal subgroups and S. Odd-k C2 fails, and k=1 not asserted. Independent enumeration of all 122 labeled semigroup tables on 1,2,3 elements (1+8+113) found no disagreements for even k=2,4; general theorem is the principal-ideal and CRT argument.
 
-```bash
-python3 verify.py
-```
+## originality
 
-Expected terminal summary:
+PASS
 
-```
-ORDER 1 ASSOCIATIVE_TABLES 1
-ORDER 2 ASSOCIATIVE_TABLES 8
-ORDER 3 ASSOCIATIVE_TABLES 113
-ASSOCIATIVE_TOTAL 122 COMPLETELY_REGULAR 57 ODD_THREE_COMPLETE 43 CRT_CASES 900 VERIFY_OK
-```
+Araújo–Bentz–Cameron–Hendrey–Kinyon 2026 Definition 15.1 formulates higher-k complete mappings and Problem 15.8 asks their existence classification. Their Theorem 2.1 obtains regularity for ordinary k=1 complete mappings, and Sections 11,13 address different stronger original-factor maps. Those do not settle necessity of complete regularity for k>=2 nor even-k converse on all finite semigroups. Existing published SCOPE semantic matches concern unrelated semigroup dynamics rather than this result. Equivalent older generalized orthomorphism terminology remains a possible unknown; qualified best-of-knowledge PASS.
 
-The exhaustive tests cover only multiplication tables of orders at most three, explicit examples of larger matrix-unit structures, and 900 CRT pairs. They do not establish the all-order theorem without the general mathematical proof. This review does not represent independent verification.
+## value
+
+PASS
+
+Answers a natural substantial subproblem of a published all-finite-semigroup existence question with sharp structural characterization, a uniform CRT power-map witness and a parity obstruction. Includes non-groups and no monoid/commutativity hypothesis; not merely k=1 renaming or small examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
