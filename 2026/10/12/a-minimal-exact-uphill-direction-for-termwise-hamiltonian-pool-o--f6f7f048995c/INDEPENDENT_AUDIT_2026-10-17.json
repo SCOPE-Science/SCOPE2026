@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T04:43:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Normalized Bloch and rotation axes have dot product zero and cross n × r=(-3,2,-1)/sqrt(14). Consequently J=(2,-1)^T/sqrt(14), v=(0,-1)^T, J^T J=5/14, J^T v=1/sqrt(14), c^T J=1/sqrt(14), and s_E=1/(5+14 lambda)>0. Independently reconstructed these exact identities symbolically; H^2=2I, E^2=3/2 gives -2 Var(H)=-1. For any one-term H=cO, s_E=||j||^2/(||j||^2+lambda)*v_H<=0 for lambda>0; zero-row and lambda=0 least-squares degeneracies also cannot ascend. The source checker was inspected and is ancillary. Claim is a local directional, not an accepted step, result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "VIME arXiv:2610.01954 §§II, Appendix A.7/A.8 provides an energy descent safeguard; continuing past failed check can increase energy.",
+          "One-term descent follows from v_H=-2Var(H) and ordinary scalar least squares; this is a boundary, not an alleged novelty of McLachlan’s formalism."
+        ],
+        "reasoning": "The broad variational projection theory permits non-descent but neither proves the sharp minimal-term threshold nor gives the present state/tangent operator example. A general exact projection counterexample might subsume existence but not necessarily minimality.",
+        "searches": [
+          "operator projected variational quantum imaginary time Hamiltonian operator pool exact uphill energy local update descent minimal two terms",
+          "OVQITE energy descent monotonicity"
+        ]
+      },
+      "checked_sources": [
+        "Santona et al., arXiv:2610.01954v1 full PDF §II, Appendix A.7 and A.8",
+        "Anuar et al., arXiv:2409.12018v1 public bibliographic/source descriptions",
+        "Resultary semantic search: operator projected variational quantum imaginary time Hamiltonian operator pool exact uphill energy local update descent minimal two terms"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The VIME paper says projected J theta-dot need not equal v, which alone does not prove a strict uphill example exists with only two terms.",
+          "The one-term scalar least-squares calculation excludes a one-term counterexample for every parametric tangent."
+        ],
+        "reasoning": "The claimed minimality and uniformly regularized explicit ascent require constructive positive product (c^T J)(J^T v), not an immediate consequence of qualitative non-descent warnings.",
+        "searches": [
+          "operator projected variational quantum imaginary time Hamiltonian operator pool exact uphill energy local update descent minimal two terms",
+          "operator projected variational quantum imaginary time Hamiltonian pool one term descent two terms"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Santona et al., arXiv:2610.01954, Appendix A.7/8 defines the directional slope and Armijo test and notes J theta-dot need not equal v.",
+          "Original OVQITE arXiv:2409.12018 is about operator-projected imaginary-time evolution, not a universal descent assertion for restricted parameter directions."
+        ],
+        "reasoning": "Equivalent formulations via c^T J(J^T J+lambda I)^{-1}J^T v and energy directional derivative are the same. The source identifies non-monotonic directions qualitatively but lacks the exact minimal two-term all-lambda construction in the inspected text.",
+        "searches": [
+          "operator projected variational quantum imaginary time Hamiltonian operator pool exact uphill energy local update descent minimal two terms",
+          "arXiv:2610.01954 VIME OVQITE energy descent check"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source Appendix A.7 offers algorithmic slope formula and numerical behavior rather than exact listed r,n,H.",
+          "Resultary semantic query yielded nearest classical Gauss–Newton/optimization directions, no exact quantum two-term entry."
+        ],
+        "reasoning": "No inspected source/table contains these exact normalized qubit data or s_E=1/(5+14lambda). Not finding a database result does not establish absolute first discovery.",
+        "searches": [
+          "operator projected variational quantum imaginary time Hamiltonian operator pool exact uphill energy local update descent minimal two terms",
+          "Hamiltonian-term pool Tikhonov regularization uphill energy one qubit"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: the motivating VIME paper expressly warns that the projected velocity may violate an energy descent test and uses Armijo safeguards, even reporting numerical increases if unchecked. That qualitative statement and algorithm do not state an exact noise-free one-qubit direction uniformly positive for all lambda nor the minimal Hamiltonian term count. Earlier OVQITE methods and weak Gauss–Newton obstructions have different quantifiers.",
+      "residual_risks": [
+        "A contemporaneous equivalent exact example may be unindexed.",
+        "Fermionic algebra embedding is an abstract parity-sector realization, not an end-to-end molecular c-tUPS execution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source explicitly anticipates non-descent and enforces a check; it does not present the assessed exact qubit/minimality theorem in inspected material.",
+          "evidence": "Appendix A.7 pp.26-27: J theta-dot may not reproduce v; s_E formula and Armijo safeguard; report of energy increase after bypassing check.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.01954",
+          "material_read": "Complete 52-page arXiv full text including §II/VI and Appendix A.7/A.8, with direct PDF page inspection around pp. 5 and 26.",
+          "method": "arXiv PDF full-text and page screenshot",
+          "title": "Hardware-Efficient Ground-State Preparation using Variational Imaginary-Time Majorana Evolution",
+          "trigger": "Exact termwise pool, update equations and descent check"
+        },
+        {
+          "assessment": "Original operator projection should not be conflated with restricted variational least-squares descent.",
+          "evidence": "Assumption H lies in selected operator span pertains to operator-space evolution, not arbitrary parameterized ansatz projection.",
+          "identifier_or_url": "https://arxiv.org/abs/2409.12018",
+          "material_read": "Public source description and references in main VIME manuscript; full manuscript not reread in this run.",
+          "method": "bibliographic/public text and cited framing",
+          "title": "Operator-Projected Variational Quantum Imaginary Time Evolution",
+          "trigger": "Original method and its assumptions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact obstruction isolates projected-vector geometry from sampling, truncation and solver error, and proves that two nonconstant Hamiltonian terms are the smallest possible setting. This mathematically explains why a descent safeguard can be necessary even with exact observables; no typicality or source algorithm failure is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For exact termwise Hamiltonian-pool OVQITE on a one-qubit pure state, the explicit two-term H=Y+Z, Bloch r=(-1,-2,-1)/sqrt(6), ansatz axis n=(2,1,-4)/sqrt(21) yields strictly uphill exact energy derivative s_E=1/(5+14 lambda) at every regularization lambda>=0 although imaginary-time energy derivative is -1; no one-term Hamiltonian pool can point strictly uphill.",
+  "limitations": [
+    "Local derivative only; Armijo-accepted steps and statistical performance are not refuted.",
+    "No universal rate/frequency result for multi-term Hamiltonian pools."
+  ],
+  "schema_version": 1
+}
