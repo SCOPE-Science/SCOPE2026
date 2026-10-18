@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The monomial moments for normalized \(A^2_\alpha\) are exact beta integrals. Every forward orbit is a scalar multiple of exactly one orthonormal monomial; thus Tonelli gives the complete frame-operator diagonal \(\Lambda_m\). The jump relation is exact and its error tends to zero under the frame's bounded upper diagonal. On each gap the diagonal decreases, so comparison of endpoint ratios bounds the corresponding ratio of monomial weights. The gamma-function asymptotic with exponent \(\alpha+1>0\) converts this to a bound on successive sensor degrees, and iteration yields the logarithmic density lower bound. Geometric seed degrees realize both endpoint limits, while the explicit dyadic generator sequence gives global bounds by a direct finite sum. The checker independently confirmed finite cases but is not an infinite proof. No boundary or convergence issue is hidden in the proof's Tonelli step.
+
+## Originality — PASS, with residual risk
+The motivating primary full-text Hardy orbit article, Aguilera–Carando (arXiv:2606.00912), treats multiplication-operator frames on \(H^2\) and the finite-Blaschke generator criterion. Its theorems do not yield an optimal Bergman monomial degree density versus conditioning. Aguilera–Cabrelli–Negreira–Paternostro (arXiv:2506.00567) derive a general cardinal frame index, not growth of **where** generators must be placed. Gallardo-Gutiérrez–Partington (arXiv:2605.29671) address other constructions of orbit frames and do not identify the theorem's exact gamma-weighted monotone-diagonal formula. Published related results on Szegő-kernel orbit conditioning, weighted-shift decompositions, and normal orbit-frame excess were compared by objects and mathematical implications; none supplies the present inequality. Lack of a discovered direct analogue is not proof of absolute novelty. A broader weighted-shift sparsity theorem, including one under different terminology, remains a priority risk.
+
+## Value — PASS
+In dynamical sampling with multiplication shifts, it is natural to measure the number of **unit-energy sensors** needed below a resolution degree and the high-frequency stability of the induced frame. The theorem solves the full sharp density-versus-condition tradeoff for a canonical monomial sensor class over every standard power-weighted Bergman Hilbert space; it is not just a statement that countably many generators exist or an isolated computation. The explicit dyadic construction gives a simple globally optimal benchmark for the asymptotic tradeoff. This result does not claim a solution for arbitrary generator vectors.
+
+## Limitations and closest sources
+This is a restricted monomial-seed theorem; other normalization conventions, finite initial transients, and nonmonomial seeds are outside its statement. Sources for direct comparison: https://arxiv.org/abs/2606.00912 , https://arxiv.org/abs/2506.00567 , https://arxiv.org/abs/2605.29671 . A separate independent literature and proof review is still required for publication priority.
+
+Self-review: passed. Independent audit: not yet performed.
