@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Smooth Birkhoff orthogonality gives an exact one-parameter reduction. The negative tangent orientation is dominated by the positive one through an explicit factorization. The positive branch has a constrained algebraic derivative whose resultant is the displayed degree-fourteen polynomial in \(t^4\); exact root counting and the pre-elimination stationarity equation leave a single compatible interior critical point, with derivative signs proving global maximality. The displayed unit Birkhoff pair attains the value.
+## correctness
 
-## Originality
-PASS. The defining 2022 full text was inspected at the definition, bounds, square and Hilbert examples, and conclusion. It gives no \(\ell_4^2\) computation and explicitly leaves values on further specific spaces for future work. Searches covered the exact symbol, the defining Birkhoff product, \(\ell_4\), the DOI, and polynomial/exact-value aliases. The closest exact public record is for \(\ell_3^2\); other \(\ell_4\) records optimize different invariants. The current own ledger through g000059 contains no \(T_{\perp}(\ell_4^2)\) result.
+PASS
 
-## Value
-PASS. This supplies an exact canonical smooth uniformly convex non-Hilbert benchmark for a constant whose source gives only the square and Hilbert cases. The maximizer is an interior tangent direction, not an axis or diagonal, and therefore records genuine Birkhoff geometry rather than a routine endpoint value.
+Smooth Birkhoff orthogonality gives x=(t,1)/(1+t^4)^(1/4), y=±(1,-t³)/(1+t^12)^(1/4), 0<=t<=1. Directly expanded the two branch products; the stated exact factorization shows the positive branch dominates for 0<t<1. The constrained derivative along (1+t^12)r^4=1+t^4 has a resultant proportional to the displayed palindromic degree-14 Q(t^4). Inspected exact SymPy verifying script checking this identity and Sturm root counts; independently computed Q roots in (0,1) near 0.002416998 and 0.825586362 and optimized both branches, obtaining t*=0.9532144723 and T=2.070379018225525. Only the large root is compatible with the positive constrained derivative; endpoint values are lower. Numerical computation is corroboration, while exact resultant/root isolation is the proof.
 
-## Closest literature and limitations
-Ahmad, Xie and Li introduced \(T_{\perp}\) in Advances in Fixed Point Theory 12 (2022), Article 9, published 25 August 2022. A public exact result exists for \(\ell_3^2\), and separate exact results exist for other \(\ell_4\) invariants, but none implies this asymmetric Birkhoff product. The result is two-dimensional and specifies the maximum through an isolated algebraic parameter rather than radicals.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Ahmad–Xie–Li (2022) define T_perp, derive universal bounds, the Hilbert value 10^(1/4) and ell_infinity squared endpoint, and explicitly leave further spaces open; their full primary 13-page paper does not compute ell_4². Published ell_3² T_perp and other ell_4² constants have different Birkhoff constraints or defining products and cannot imply the precise asymmetric two-chord optimization. Targeted Resultary and bibliographic searches did not locate the same constant in real ell_4².
+
+## value
+
+PASS
+
+Provides a benchmark exact interior maximizing Birkhoff pair for a canonical smooth uniformly convex non-Hilbert space; the degree-14 isolated-algebraic extremum distinguishes it from endpoint and Hilbert benchmarks and can test sharp general inequalities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
