@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T08:08:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=1,b>=2, g=gcd(n,b-1), q=(b-1)/g, the digit congruence gives D subset g*N. The residues jn mod (b-1) for j=1..q cover every multiple-of-g residue because gcd(n/g,q)=1. Set T=max_{1<=j<=q} s_b(jn). For any t>=T divisible by g, choose j with s_b(jn)=u congruent t mod (b-1), and apply Clokie et al. Theorem 4 to attain t=u+r(b-1). Carry-free concatenation proves D union {0} additive; scaling gives a numerical semigroup with conductor at most ceil(T/g). Independent finite automaton computed all 1000 admissible targets across 200 (base,modulus) instances.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Clokie Theorem 4 holds for every b,n and every initial attained u, a strictly more flexible progression principle than the submitted tail existence. The remaining gcd/residue argument is elementary."
+        ],
+        "reasoning": "Clokie statement with the basic digit-sum congruence and complete multiples residue cycle mathematically dominates the submitted eventual-spectrum theorem; no advanced additional hypothesis or method is needed.",
+        "searches": [
+          "Clokie et al arXiv:2002.02731 Theorems 3–4",
+          "Dartyge–Luca–Stănică 2009 JNT 129 2820–2830"
+        ]
+      },
+      "checked_sources": [
+        "Clokie et al arXiv:2002.02731 pp 2–4 Theorem 4, exact progression",
+        "Dartyge–Luca–Stănică 2009 JNT 129 2820–2830 full PDF",
+        "Resultary semantic search on eventual digit sum spectrum and numerical semigroup; no exact hit",
+        "Independent finite-state digit sum automaton tests b=2..9 n=1..25"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 4 applies from every s_b(jn). Since n/g is coprime to (b-1)/g, j=1..q hits each admissible residue. Choosing t>=max s_b(jn) immediately yields all positive multiples of g in the tail."
+        ],
+        "reasoning": "This is a decisive short claim-vs-prior implication using one published same-object theorem and elementary modular arithmetic; it is why originality fails, not because searches lacked hits.",
+        "searches": [
+          "Clokie et al Theorem 4 in arXiv:2002.02731 pp 3–4",
+          "congruence s_b(kn) ≡ kn (mod b-1)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 4 says any attained u extends to all u+r(b-1). The claim that all sufficiently large multiples of g occur is obtained by choosing one obvious residue seed in each of q compatible classes."
+        ],
+        "reasoning": "All-residue eventual spectrum is the union of finitely many directly covered progressions; equivalence via congruence arithmetic is routine and not an independent theorem-level breakthrough.",
+        "searches": [
+          "multiples of integer base b digit sums eventually gcd(n,b-1) numerical semigroup sturdy flimsy",
+          "\"attainable digit sums\" multiples of n numerical semigroup",
+          "Clokie et al arXiv:2002.02731 Theorem 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Dartyge et al. work on equal-digit-sum multiples and frequency, not an exact conductor table; Clokie provides the progression generator and minimization algorithms, not a conductor table."
+        ],
+        "reasoning": "No exact precomputed table of conductors was found; nevertheless the submitted bound T is a direct finite maximum of the first q seeds, and exact conductor values are not determined. Absence of an identical table cannot establish originality.",
+        "searches": [
+          "multiples of integer base b digit sums eventually gcd(n,b-1) numerical semigroup sturdy flimsy",
+          "digit sums of multiples conductor gcd b-1",
+          "Dartyge Luca Stanica On digit sums of multiples of an integer 2009"
+        ]
+      },
+      "rationale": "The principal infinite tail is a direct corollary of Clokie–Lidbetter–Molina Lovett–Shallit–Witzman Theorem 4 plus the elementary fact that jn covers every gcd-compatible residue modulo b-1. No new nonstandard arithmetic lemma or genuinely narrower unresolved case is required. Concatenation is the standard zero-carry identity, and numerical-semigroup status is the definition once cofinite closure is established. Thus the original claim does not survive the strong prior-implication standard despite absence of identical words in the earlier paper.",
+      "residual_risks": [
+        "This scientific failure is not correctness: the theorem is correct and the finite tests pass. The original packet remains unchanged; no weak disclaimer can make the old originality claim valid.",
+        "An explicit named characterization of the full set might be useful pedagogically, but no new exact conductor or substantive independent classification method is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 4 directly supplies all upward progressions needed; main submitted result follows by selecting the complete set of ordinary modular seeds.",
+          "evidence": "Theorem 4: if s_b(jn)=t, each t+r(b-1) is attainable, for every integer r>=0.",
+          "identifier_or_url": "https://arxiv.org/pdf/2002.02731",
+          "material_read": "Full primary paper examined; Section 2 pp 2–4, especially Theorems 3 and 4, read in extracted PDF and page image",
+          "method": "Lawful arXiv full text and page screenshot",
+          "title": "Computational Aspects of Sturdy and Flimsy Numbers",
+          "trigger": "Exactly the same attainable digit-sum object and general progression theorem"
+        },
+        {
+          "assessment": "Focuses on existence of distinct multiples with same digit sum and extremal frequency; no need to claim whole-document noncoverage.",
+          "evidence": "Theorem 1: every n not a power of the base admits a distinct same-digit-sum multiple.",
+          "identifier_or_url": "https://faculty.nps.edu/pstanica/research/2009JNT_digit-sums-multiple.pdf",
+          "material_read": "Full 11-page primary PDF inspected, in particular Theorem 1 and proof context on same-digit-sum multiples",
+          "method": "Lawful author-hosted PDF",
+          "title": "On digit sums of multiples of an integer",
+          "trigger": "Older same-object possible covering theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The attainable spectrum is a natural object, but the asserted new result is an immediate arithmetic corollary of a published all-parameter progression theorem, with a nonoptimal threshold assembled from the first q obvious seeds. The semigroup observation is routine concatenation and supplies neither the exact conductor nor a new obstruction/classification beyond the prior implication. It is not a substantive independent advance under the same value bar.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The stated T is a sufficient upper bound, not the exact normalized conductor.",
+    "Finite automaton replay is not an independent infinite proof; infinite reasoning uses the published Theorem 4."
+  ],
+  "schema_version": 1
+}
