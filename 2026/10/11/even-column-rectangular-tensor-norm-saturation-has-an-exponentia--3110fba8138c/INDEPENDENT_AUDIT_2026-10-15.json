@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T03:48:42Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/11/even-column-rectangular-tensor-norm-saturation-has-an-exponentia--3110fba8138c/RESULT.md",
+        "2026/10/11/even-column-rectangular-tensor-norm-saturation-has-an-exponentia--3110fba8138c/VERIFICATION.md",
+        "2026/10/11/even-column-rectangular-tensor-norm-saturation-has-an-exponentia--3110fba8138c/verify_rectangular_endpoint.py"
+      ],
+      "rationale": "Jensen/permutation symmetrization gives E|sum eps_j a_j|>= [binom(n,n/2)/2^n] sum|a_j|. Strictness for nonflat rows follows from a balanced sign vector with mean signed sum 0 after averaging permutations but nonzero values under swapping unequal positions. Equality of max over eps with average forces constant convolution of sign-row weights w with f(s)=|sum s_j| on antipodal cube G. For every nonempty even subset S (size 2j), integral Fourier coefficient (2(-1)^(j+1)/pi) integral_0^infty sin(t)^(2j)cos(t)^(n-2j)/t² dt is nonzero because both powers even and integral absolutely convergent. Fourier inversion forces w constant positive across all 2^(n-1) classes; converse uniform reps attains ratio, and compactness proves strict subthreshold. Independently evaluated coefficients/extremizing sums for n=2,4,6, finite only.",
+      "residual_risks": [
+        "Real scalar matrices only; column count even; no exact R_(m,n) for m<2^(n-1) or odd/complex versions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Santos–Serrano-Rodríguez Section 4 and Prop 1.2 provide endpoint compression and quote pi_1(id); Sections 8 treat other endpoint questions. Aubrun et al 2020 Prop 12/Appendix C relates unrestricted tensor ratios and summing operators. Neither supplies minimum finite row number or all equality matrices."
+        ],
+        "reasoning": "Existence of universal 1-summing constant over unrestricted representations does not control the number of nonzero sign-class rows needed for equality; that follows from the new nonvanishing even-Walsh spectrum.",
+        "searches": [
+          "Resultary semantic search: rectangular real tensor ell1 projective injective norm ratio even columns Rademacher equality minimum rows Fourier",
+          "https://arxiv.org/abs/2610.04398",
+          "https://doi.org/10.1007/s00220-020-03688-2",
+          "https://arxiv.org/abs/1711.04427"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.04398",
+        "https://doi.org/10.1007/s00220-020-03688-2",
+        "https://arxiv.org/abs/1711.04427",
+        "Resultary semantic search: rectangular real tensor ell1 projective injective norm ratio even columns Rademacher equality minimum rows Fourier",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/even-column-rectangular-tensor-norm-saturation-has-an-exponentia--3110fba8138c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Santos and Serrano-Rodríguez arXiv:2610.04398 (available paper sections 4, 8), Aubrun–Lami–Palazuelos–Szarek–Winter CMP 2020 Prop 12, Friedland–Lim–Zhang 2019 tensor norm formulations."
+        ],
+        "reasoning": "The central coefficient identity and endpoint-column compression are prior work and not claimed novel; the particular finite-row saturation and classification are not consequences of the cited prior theorems without additional Fourier rigidity.",
+        "searches": [
+          "Resultary semantic search: rectangular real tensor ell1 projective injective norm ratio even columns Rademacher equality minimum rows Fourier",
+          "https://arxiv.org/abs/2610.04398",
+          "https://doi.org/10.1007/s00220-020-03688-2",
+          "https://arxiv.org/abs/1711.04427"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "R_(m,n) is ratio of entrywise l1 projective tensor norm to signed bilinear/infinity-to-one norm; equal antipodal row classes are Fourier convolution eigenweight requirement. Existing exact real 4x4 ratio 12/5 is below even-n=4 universal 8/3, consistent with threshold 8 rows."
+        ],
+        "reasoning": "Aliased Grothendieck–Hölder endpoint compression, unrestricted Rademacher 1-summing sharpness, XOR-game tensor ratios, and Walsh kernel. The issue is row-dimension saturation/equality rigidity not just the known universal bound.",
+        "searches": [
+          "Resultary semantic search: rectangular real tensor ell1 projective injective norm ratio even columns Rademacher equality minimum rows Fourier",
+          "https://arxiv.org/abs/2610.04398",
+          "https://doi.org/10.1007/s00220-020-03688-2",
+          "https://arxiv.org/abs/1711.04427"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact real 4x4 tensor ratio 12/5 differs from the n=4 universal 8/3 at m>=8; finite n=2,4,6,8 verifier agrees with threshold, but finite enumerations are not source of uniform theorem."
+        ],
+        "reasoning": "No exact row-threshold/equality table found in real matrix-space/tensor norm indexed sources; an old unindexed Fourier kernel classification remains possible.",
+        "searches": [
+          "Resultary semantic search: rectangular real tensor ell1 projective injective norm ratio even columns Rademacher equality minimum rows Fourier",
+          "https://arxiv.org/abs/2610.04398",
+          "https://doi.org/10.1007/s00220-020-03688-2",
+          "https://arxiv.org/abs/1711.04427"
+        ]
+      },
+      "rationale": "Best-of-knowledge mathematical comparison of the complete statement and stronger potential prior claims: The central coefficient identity and endpoint-column compression are prior work and not claimed novel; the particular finite-row saturation and classification are not consequences of the cited prior theorems without additional Fourier rigidity.",
+      "residual_risks": [
+        "Classical Fourier equality classifications could contain an equivalent theorem under 1-summing terminology.",
+        "Institutional full-text VPN disconnected; lawful open primary material was used; residual noncoverage risk is explicitly retained."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING row threshold 2^(n-1) or classification of all real even-column equality matrices",
+          "evidence": [
+            "Supplies universal ratio upper bound and endpoint compression but leaves saturation dimension uncomputed."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.04398",
+          "material_read": "Full available primary paper text, Proposition 1.2, Sections 4 and 8 and norm/endpoint setup",
+          "method": "Direct reading of available primary full-text HTML or original paper text",
+          "title": "Effective Dimensions in Grothendieck–Hölder Inequalities",
+          "trigger": "direct motivating paper with exact norm/row parameters"
+        },
+        {
+          "assessment": "NO_IMPLICATION_SHOWN for finite real row support/equality",
+          "evidence": [
+            "Unrestricted 1-summing identity norm does not fix minimal m."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00220-020-03688-2",
+          "material_read": "Available primary article theorem summaries, Proposition 12 discussion and Appendix C context, not complete text certified",
+          "method": "Available open-access article sections and descriptions; no entire-paper negative claim",
+          "title": "Universal gaps for XOR games from estimates on tensor norm ratios",
+          "trigger": "general tensor-ratio results might imply saturation"
+        },
+        {
+          "assessment": "Not shown to imply sign-class Fourier equality criterion",
+          "evidence": [
+            "Different tensor formulation; no exact min number rows in the inspected sections."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1711.04427",
+          "material_read": "Available abstract and stated matrix-multiplication tensor norm results",
+          "method": "Available primary abstract and results, not entire-paper exclusion",
+          "title": "Grothendieck constant is norm of Strassen matrix multiplication tensor",
+          "trigger": "matrix norm equivalent formulations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/11/even-column-rectangular-tensor-norm-saturation-has-an-exponentia--3110fba8138c/RESULT.md",
+        "2026/10/11/even-column-rectangular-tensor-norm-saturation-has-an-exponentia--3110fba8138c/VERIFICATION.md",
+        "2026/10/11/even-column-rectangular-tensor-norm-saturation-has-an-exponentia--3110fba8138c/verify_rectangular_endpoint.py",
+        "https://arxiv.org/abs/2610.04398",
+        "https://doi.org/10.1007/s00220-020-03688-2",
+        "https://arxiv.org/abs/1711.04427"
+      ],
+      "rationale": "Sharp exponential minimal-row threshold and complete equality classification for a natural Banach tensor norm extremum answer a genuine rectangular saturation question left by known dimension-independent 1-summing bounds; classification is structural rather than routine numeric evaluation.",
+      "residual_risks": [
+        "This value judgment concerns the exact stated object, invariant and normalization only; no broader extension claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For any real matrix with positive even n columns, the universal l1-entry/infinity-to-one norm ratio 2^n/binom(n,n/2) is attained precisely when m>=2^(n-1), and all equality matrices comprise flat sign rows with uniform total weight in every antipodal sign class.",
+  "limitations": [
+    "Real scalar matrices only; column count even; no exact R_(m,n) for m<2^(n-1) or odd/complex versions.",
+    "Classical Fourier equality classifications could contain an equivalent theorem under 1-summing terminology.",
+    "Institutional full-text VPN disconnected; lawful open primary material was used; residual noncoverage risk is explicitly retained."
+  ],
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite-dimensional norm formula is exact. Symmetric Jensen averaging gives the sharp Rademacher bound and shows, using a balanced sign vector when the column dimension is even, that each extremal row must have equal absolute entries. The crucial nonstandard Fourier lemma is established by a convergent signed-sine/cosine integral with strictly positive integrand in absolute value, for every nontrivial character of the antipodal Boolean cube. Invertibility of convolution on nonconstant modes forces uniform sign-class weights, proving both the row lower bound and the complete equality classification. A concrete sign-class matrix attains equality; compactness proves strict inequality below the threshold. The finite exact-arithmetic checker supplements but does not replace these universal proofs.
+## correctness
 
-**Originality — PASS, with residual risk.** The relevant comparison is to the sharp unrestricted identity-summing constant and the endpoint compression formula, not merely to source titles. Santos–Serrano-Rodríguez, arXiv:2610.04398v1, Proposition 1.2 and Sections 4 and 8, give the universal bound and discuss unknown square endpoint ratios; the examined full text does not state an exponential rectangular saturation threshold or classify equality cases. Aubrun–Lami–Palazuelos–Szarek–Winter (2020), Proposition 12 and Appendix C, give the classical sum-norm formula, not the minimum cardinality and forced uniformity. Friedland–Lim–Zhang (arXiv:1711.04427v2), Sections 4–5, study the general tensor inequality without this saturation characterization. Published mathematical-record searches found no stronger covering result. Prior claims with other tensor-geometry invariants do not imply the row threshold. Risk: an older or unindexed equality classification may exist; search incompleteness is not proof of global novelty.
+PASS
 
-**Value — PASS.** The number of available rows is an intrinsic rectangular resource in projective/injective tensor ratios and the recent dimension-sensitive Grothendieck–Hölder endpoint. The exact exponential threshold separates the classical unrestricted \(1\)-summing value from all finite-row restrictions below it, and the equality classification identifies the unique required antipodal weight distribution rather than exhibiting just one example. This is a motivated structural boundary, although the much harder exact subthreshold and square-value problems remain open here.
+Jensen/permutation symmetrization gives E|sum eps_j a_j|>= [binom(n,n/2)/2^n] sum|a_j|. Strictness for nonflat rows follows from a balanced sign vector with mean signed sum 0 after averaging permutations but nonzero values under swapping unequal positions. Equality of max over eps with average forces constant convolution of sign-row weights w with f(s)=|sum s_j| on antipodal cube G. For every nonempty even subset S (size 2j), integral Fourier coefficient (2(-1)^(j+1)/pi) integral_0^infty sin(t)^(2j)cos(t)^(n-2j)/t² dt is nonzero because both powers even and integral absolutely convergent. Fourier inversion forces w constant positive across all 2^(n-1) classes; converse uniform reps attains ratio, and compactness proves strict subthreshold. Independently evaluated coefficients/extremizing sums for n=2,4,6, finite only.
 
-**Scientific limits.** Even numbers of columns and real matrices only; no formulas for subthreshold constants or odd/complex analogues. Finite checks are not used as infinite proofs. No external verification or global publication novelty certificate is claimed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge mathematical comparison of the complete statement and stronger potential prior claims: The central coefficient identity and endpoint-column compression are prior work and not claimed novel; the particular finite-row saturation and classification are not consequences of the cited prior theorems without additional Fourier rigidity.
+
+## value
+
+PASS
+
+Sharp exponential minimal-row threshold and complete equality classification for a natural Banach tensor norm extremum answer a genuine rectangular saturation question left by known dimension-independent 1-summing bounds; classification is structural rather than routine numeric evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
