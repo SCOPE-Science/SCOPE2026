@@ -1,25 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The example is an exact one-point continuous \(g\)-fusion system on \(\mathbb C^2\). The original \((T,T)\)-controlled form is represented by
-\[
-TST=
-\begin{pmatrix}
-6&6\\
-6&9
-\end{pmatrix},
-\]
-whose exact eigenvalues are positive. The target \((T^2,I)\) mixed form is nonreal at \(f=(1,i)\), so the claimed controlled-frame inequality cannot hold. The proof flaw is the unsupported interchange \(TSU=STU\).
+## correctness
 
-## Originality
-PASS. Exact-source, theorem-number, \((TU,I)\)-reduction, noncommuting-operator, and erratum searches were compared with indexed scientific literature. The closest results concern different \(g\)-fusion operator-independence, resolution, perturbation, duality, or \(K\)-frame mechanisms.
+PASS
 
-The primary preprint was materially inspected at the definition, Theorem 3.8 and proof, Corollary 3.9, and Theorem 3.10. Later controlled-frame literature was inspected for broader commutation assumptions.
+PASS: At one-atom measure space, S=diag(1,2), T=U=[[2,1],[1,2]] >0; TST=[[6,6],[6,9]] has eigenvalues (15±3√17)/2 positive. Theorem 3.8 proposed (T²,I) form is <Λf,ΛT²f>=15+4i at f=(1,i) with source convention, nonreal. Independently multiplied matrices/characteristic polynomial. Source proof swaps TSU to STU without [T,S]=0; TS=ST suffices for this interchange. No need for infinite-dimensional/log proof.
 
-## Value
-PASS. The theorem is a claimed characterization of the new controlled continuous \(g\)-fusion notion. The failure is structural: replacing two controls by their product can turn a positive mixed quadratic form into a nonreal one. The repair pinpoints the missing frame-operator commutation rather than merely supplying a numerical counterexample.
+## originality
 
-## Limitations
-The sufficient repair \(TS=ST\) is not asserted to be necessary in every exceptional configuration. The result does not reassess all later square-root or product identities in the preprint. An unindexed correction remains a literature risk.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS best-of-knowledge: original 2021 theorem and follow-on source do not supply this equal-positive-control counterexample to Thm 3.8; related published controlled K-g-fusion counterexample concerns a separate ordinary/controlled equivalence and distinct theorem, not implication of this exact failed characterization.
+
+## value
+
+PASS
+
+PASS: Refutes an unconditional equivalence theorem central to a frame construction and pinpoints the missing commutator in the proof; commutation with the frame operator is a natural structural repair. The 2×2 size is smallest noncommuting positive matrix setting, mathematically motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

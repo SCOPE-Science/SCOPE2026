@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,78 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Take
-\[
-S=
-\begin{pmatrix}
-1&0\\
-0&2
-\end{pmatrix},
-\qquad
-T=U=
-\begin{pmatrix}
-2&1\\
-1&2
-\end{pmatrix}.
-\]
-Then
-\[
-TST=
-\begin{pmatrix}
-6&6\\
-6&9
-\end{pmatrix}.
-\]
-Its characteristic polynomial is
-\[
-\lambda^2-15\lambda+18,
-\]
-so its eigenvalues are
-\[
-\frac{15\pm3\sqrt{17}}2.
-\]
-Both are positive.
+# Independent mathematical audit
 
-Also,
-\[
-T^2=
-\begin{pmatrix}
-5&4\\
-4&5
-\end{pmatrix}.
-\]
-With
-\[
-\Lambda=
-\begin{pmatrix}
-1&0\\
-0&\sqrt2
-\end{pmatrix}
-\]
-and
-\[
-f=(1,i),
-\]
-the source-definition target mixed form is
-\[
-\langle \Lambda f,\Lambda T^2 f\rangle
-=
-15+4i
-\]
-under the source convention, hence is not real.
+## correctness
 
-The relevant source proof was checked at the exact step
-\[
-\langle TSU f,f\rangle
-=
-\langle STU f,f\rangle.
-\]
-This equality is valid if
-\[
-TS=ST.
-\]
-The source later includes exactly this type of frame-operator commutation hypothesis in Theorem 3.10.
+PASS
 
-All calculations are exact symbolic matrix identities; no numerical approximation or finite search is used as mathematical evidence.
+PASS: At one-atom measure space, S=diag(1,2), T=U=[[2,1],[1,2]] >0; TST=[[6,6],[6,9]] has eigenvalues (15±3√17)/2 positive. Theorem 3.8 proposed (T²,I) form is <Λf,ΛT²f>=15+4i at f=(1,i) with source convention, nonreal. Independently multiplied matrices/characteristic polynomial. Source proof swaps TSU to STU without [T,S]=0; TS=ST suffices for this interchange. No need for infinite-dimensional/log proof.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: original 2021 theorem and follow-on source do not supply this equal-positive-control counterexample to Thm 3.8; related published controlled K-g-fusion counterexample concerns a separate ordinary/controlled equivalence and distinct theorem, not implication of this exact failed characterization.
+
+## value
+
+PASS
+
+PASS: Refutes an unconditional equivalence theorem central to a frame construction and pinpoints the missing commutator in the proof; commutation with the frame operator is a natural structural repair. The 2×2 size is smallest noncommuting positive matrix setting, mathematically motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
