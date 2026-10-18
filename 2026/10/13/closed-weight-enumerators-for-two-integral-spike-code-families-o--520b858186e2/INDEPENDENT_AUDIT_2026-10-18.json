@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T17:45:44Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Git blob c6f57b218496a65450ce9a891b1ef29a11d65119",
+        "arXiv:2601.21121 same integral spike generators and tables",
+        "Independent local modular codeword enumeration scope09_independent_checks_20261018_1729.py"
+      ],
+      "rationale": "Systematic identity columns give a bijection from q^k input messages to codewords. With s=Σ_i u_i mod q, the s=0 sector contributes A via the additive-character count of j nonzero residues with sum zero, [(q−1)^j+(q−1)(−1)^j]/q. For each s≠0, the pair (u_i,s−u_i) weighs 1 if u_i∈{0,s} and 2 otherwise; the root-of-unity filter gives a factor (2+(q−2)z)^k and (1−z)^k Σ_{a≠0} ζ^(−as)(1+ζ^{as})^k. Summing nonzero s uses exactly gcd(q,j−1)−1 nonzero solutions to (j−1)s=0, valid even for zero divisors, giving B. This is an exact partition for all integer q≥2, not a field-only argument. Independently directly enumerated generator codewords for 15 small (k,q) pairs and verified coefficients of the formula. A(1)=q^{k−1}, B(1)=(q−1)q^{k−1}, so all q^k words counted. Finite tests only corroborate the uniform character proof.",
+      "residual_risks": [
+        "Ring Z/qZ, not a finite field for composite q; no field assumptions are used.",
+        "Hamming weight counts nonzero residues and not full symbol-composition enumerator."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Imamura et al. Proposition 3.4 gives generic Smith-normal-form sum over subsets, and Theorem 5.3 gives full-support coefficient; Section 6 gives fixed-size tables.",
+          "General coboundary theory provides a broader framework without inspected specialization to these two modular code families."
+        ],
+        "reasoning": "Broader algorithms imply computability of the weight distribution but not in themselves the displayed compressed one-statistic all-parameter formula; the already-published extreme weights and small tables are excluded from claimed novelty.",
+        "searches": [
+          "arXiv:2601.21121 Proposition 3.4 Theorem 5.3",
+          "arXiv:2512.10838 coboundary quasi polynomial codes Dedekind domains"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2601.21121",
+        "arXiv:2512.10838",
+        "Resultary semantic query: integral spike code N_k Z_k modular ring Hamming weight enumerator closed form character sums"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original source explicitly remarks that a complete description of the weight enumerators of N_k(q), Z_k(q) appears delicate (Section 5).",
+          "The published general subset/SNF formula is uncompressed and covers arbitrary integer matrices, unlike the direct root-of-unity closed derivation."
+        ],
+        "reasoning": "Known extrema and finite instances do not imply all intermediate weights, and general formal computability is not the same claim as the displayed binomial–gcd simplification. However, an as-yet-unchecked equivalent specialization of a general Tutte/coboundary formula could cover it.",
+        "searches": [
+          "arXiv:2601.21121 Proposition 3.4 Section 5 Section 6",
+          "arXiv:2512.10838 coding matroid weight enumerator specialization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact same generators occur in Imamura–Nakashima–Saito, arXiv:2601.21121.",
+          "Kuroda–Nakashima–Tsujie arXiv:2512.10838 offers general coboundary quasi-polynomial form but no N_k/Z_k-specific one-statistic expression in material read."
+        ],
+        "reasoning": "Compared all-weight coefficient implications rather than name alone: a general matrix-subset algorithm logically computes all coefficients but does not supply their compact closed family dependence; a special Tutte evaluation may be equivalent and is a named risk.",
+        "searches": [
+          "integral spike code N_k Z_k modular ring Hamming weight enumerator closed form character sums",
+          "I_k J_k-I_k integral spike N_k Z_k weight enumerator gcd(q,j-1)",
+          "2601.21121 complete weight enumerator spike matroid"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Section 6 of direct source tabulates small N4 and Z5 coefficients and Section 5 gives top weight; these are known checks, not newly claimed.",
+          "Independent local direct enumeration recovered all coefficients for 15 small parameter pairs."
+        ],
+        "reasoning": "The infinite-family formula subsumes some known finite tables; it is not a recomputation of those table rows, because it gives arbitrary intermediate coefficients for every k,q including composite moduli.",
+        "searches": [
+          "integral spike code N_k Z_k modular ring Hamming weight enumerator closed form character sums",
+          "arXiv:2601.21121 N4 Z5 enumerator table 2026"
+        ]
+      },
+      "rationale": "Imamura–Nakashima–Saito arXiv:2601.21121 supplies these same integral code families, general Smith-normal-form subset enumeration, extrema and low-k tables. The present claim compresses all intermediate weight coefficients over arbitrary q to one binomial–gcd statistic and two explicit polynomials; the inspected primary formulas do not display this all-k,q special closed expression. Generic Tutte/coboundary descriptions may compute the distribution but do not constitute explicit this formula in inspected material. A possibly hidden older closed Tutte specialization remains a residual risk.",
+      "residual_risks": [
+        "An older special Tutte/coboundary polynomial specialization may already encode the same compact formula in different notation.",
+        "The known generic Smith-normal-form method already determines the whole enumerator algorithmically; novelty is the compressed form."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same objects and generic counting method, minimum/full weights, tables; inspected text does not present this exact all-k,q binomial-gcd expression.",
+          "evidence": "Section 5 says full weight enumerators appear delicate; Theorem 5.3 supplies maximum-weight coefficients.",
+          "identifier_or_url": "arXiv:2601.21121 (open HTML) https://arxiv.org/html/2601.21121v2",
+          "material_read": "Public full HTML source, Sections 3, 5 and 6 including Proposition 3.4, Proposition 5.1, Corollary 5.2, Theorem 5.3 and small enumerator tables.",
+          "method": "Read accessible mathematical formulas and the explicit sections for these two code families.",
+          "title": "Periodicity of weight enumerators for codes generated by an integral matrix",
+          "trigger": "Exact same code generator matrices and most decisive prior coverage"
+        },
+        {
+          "assessment": "Broad framework, but no explicit one-binomial-gcd specialization for these matrices identified.",
+          "evidence": "Provides general coding-matroid/coboundary machinery, not specifically reported N_k/Z_k closed all-weight formula.",
+          "identifier_or_url": "arXiv:2512.10838",
+          "material_read": "Public abstract/introductory overview, main coding/coboundary framework and descriptions of example families available in HTML.",
+          "method": "Read accessible source sections with targeted comparison to named spike matrices.",
+          "title": "The Coboundary Quasi-Polynomials of Hyperplane Arrangements over Residually Finite Dedekind Domains",
+          "trigger": "Potential broader coding matroid enumerator expression"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2601.21121, Proposition 3.4, Section 5 Theorem 5.3, Section 6",
+        "arXiv:2512.10838"
+      ],
+      "rationale": "Gives an explicit complete weight spectrum, including intermediate coefficients and composite-modulus torsion dependence, for two named integral spike code families previously treated via general subset algorithms, extrema and finite tables. A mathematically natural structural compression with usable closed formula across all k,q, not a tiny fixed instance.",
+      "residual_risks": [
+        "Only two named generator families and ordinary Hamming weights over Z/qZ.",
+        "No new minimum-distance or full-support theorem is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For all k,q≥2 over the residue ring Z/qZ, the two integral spike generator matrices [I_k|J_k−I_k] and [I_k|J_k−I_k|1] have complete ordinary Hamming enumerators A_{k,q}(z)+z^k B_{k,q}(z) and A_{k,q}(z)+z^{k+1} B_{k,q}(z), where A and B use a single binomial-gcd statistic T=Σ_j C(k,j) gcd(q,j−1).",
+  "limitations": [
+    "Only two named generator families and ordinary Hamming weights over Z/qZ.",
+    "No new minimum-distance or full-support theorem is claimed."
+  ],
+  "schema_version": 1
+}

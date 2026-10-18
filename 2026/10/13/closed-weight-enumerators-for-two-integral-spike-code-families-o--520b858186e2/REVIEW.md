@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The systematic generator columns establish an injective parametrization. The case split on the coordinate sum is exhaustive; the zero-sum nonzero-coordinate counts follow by finite-group character orthogonality, and the nonzero-sum part follows from a character-filter identity combined with the exact count of modular solutions of \((j-1)s=0\). These equalities hold for every integer \(q\ge2\), including zero divisors, because no field property is used. All coefficients count disjoint sets of actual codewords. The packaged `verify.py` independently reconstructs the original generators and compares exact enumerations and dynamic-programming counts. Tests are finite consistency evidence, not a purported infinite proof.
+## correctness
 
-## Originality — PASS
-Imamura–Nakashima–Saito, arXiv:2601.21121, already supplies the spike matrices, a general Smith-normal-form subset sum, minimum-distance facts, full-support coefficients and small enumerator tables. Those statements and their consequences are excluded from the new contribution. Detailed examination of its Sections 3, 5 and 6 found no explicit all-parameter closed coefficient formula equivalent to the one-binomial-gcd formula. Kuroda–Nakashima–Tsujie's general coboundary theory concerns a larger formal framework, rather than this compressed closed specialization. Relevant semantic searches of published published-finding corpus records, primary-literature and equivalent terminology returned no matching statement. An earlier unindexed closed specialization or one hidden in classic spike/Tutte computations remains a residual novelty risk; absence from search results is not proof of priority.
+PASS
 
-## Value — PASS
-The source calls general weight enumeration for these spike families delicate and only supplies a full-support coefficient and fixed-size tables. The theorem exposes how the full distribution depends on composite-modulus torsion through precisely one binomial-gcd invariant, without the exponential column-subset expansion of generic methods. This is an exact uniform structural description across both spike families, with computable intermediate weights, not a routine calculation of a single parameter or a mere relabeling of the known full-support result.
+Systematic identity columns give a bijection from q^k input messages to codewords. With s=Σ_i u_i mod q, the s=0 sector contributes A via the additive-character count of j nonzero residues with sum zero, [(q−1)^j+(q−1)(−1)^j]/q. For each s≠0, the pair (u_i,s−u_i) weighs 1 if u_i∈{0,s} and 2 otherwise; the root-of-unity filter gives a factor (2+(q−2)z)^k and (1−z)^k Σ_{a≠0} ζ^(−as)(1+ζ^{as})^k. Summing nonzero s uses exactly gcd(q,j−1)−1 nonzero solutions to (j−1)s=0, valid even for zero divisors, giving B. This is an exact partition for all integer q≥2, not a field-only argument. Independently directly enumerated generator codewords for 15 small (k,q) pairs and verified coefficients of the formula. A(1)=q^{k−1}, B(1)=(q−1)q^{k−1}, so all q^k words counted. Finite tests only corroborate the uniform character proof.
 
-The source's full-support theorem and fixed-parameter tables remain credited. Applicability is restricted to modular integer-matrix codes; no independent review is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Imamura–Nakashima–Saito arXiv:2601.21121 supplies these same integral code families, general Smith-normal-form subset enumeration, extrema and low-k tables. The present claim compresses all intermediate weight coefficients over arbitrary q to one binomial–gcd statistic and two explicit polynomials; the inspected primary formulas do not display this all-k,q special closed expression. Generic Tutte/coboundary descriptions may compute the distribution but do not constitute explicit this formula in inspected material. A possibly hidden older closed Tutte specialization remains a residual risk.
+
+## value
+
+PASS
+
+Gives an explicit complete weight spectrum, including intermediate coefficients and composite-modulus torsion dependence, for two named integral spike code families previously treated via general subset algorithms, extrema and finite tables. A mathematically natural structural compression with usable closed formula across all k,q, not a tiny fixed instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
