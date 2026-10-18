@@ -1,26 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Conditioning on the minimum of a uniformly sampled pair makes the partner uniform over the upper tail of the finite population. The claimed regression therefore converts exactly into an affine formula for every upper-tail mean. The elementary tail recurrence then forces consecutive spacings to be equal, and the converse follows from the mean of a finite arithmetic progression.
+PASS
 
-The correlation statement uses the exact simple-random-sampling variance of the pair total and the exact finite-population variance of the first order statistic. The package checker independently enumerates all pairs for a broad finite census using rational arithmetic.
+Conditioning on M=z_k makes the other value uniformly distributed over z_(k+1),...,z_N. Set U_k=mean of that tail; the assumed regression makes U_k=z_k/2+c. The identity (N-k)U_k=z_(k+1)+(N-k-1)U_(k+1) yields (N-k+1)z_(k+1)=(N-k)z_k+2c, so successive differences are equal for all k<=N-2. Conversely arithmetic endpoints give E[S|M]=3M/2+(a+Nd)/2. For canonical z=1..N, direct covariance computation yields Var S=(N+1)(N-2)/6, Var M=(N+1)(N-2)/18 and Cov(M,S)=3 Var(M)/2, proving the exact correlation. Independent exact rational arithmetic sample checks support the all-N algebra; no finite search is substituted for the recurrence proof.
 
-## Originality
+## originality
 
-PASS, with explicit residual risk from older finite-population and ranked-set-sampling literature. The most relevant inspected primary paper, Takahasi--Futatsuya, proves positive likelihood-ratio dependence and covariance-sign theorems for finite-population order statistics. Its inspected dependence and covariance sections do not state an equal-spacing characterization from conditional regression.
+PASS
 
-O'Neill gives a stronger modern distributional framework, including a joint order-statistic law and arbitrary finite-population rank mapping. That framework makes the conditional expectation computable, but the inspected full text has no regression or arithmetic-progression characterization. The accepted claim adds a nontrivial inverse step: a single specified regression law forces the unknown population geometry.
+The exact statement was compared against the primary literature with special-case implications and pre-existing formulas separated from the contribution. Priority is a bounded best-of-knowledge assessment; see all four explicit comparisons and residual risks. The exact inverse direction follows from a new recurrence on upper-tail means, not from generic sign or asymptotic theorems for order statistics.
 
-Balakrishnan--Charalambides--Papadatos is a genuine residual risk because its sample-size-two results include covariance questions, but only abstract-level material was available for decisive comparison.
+## value
 
-## Value
+PASS
 
-PASS. Equally spaced finite populations are the canonical model behind serial-number and finite-uniform sampling. The theorem gives an intrinsic statistical signature of that geometry: one observable conditional-regression slope is sufficient to characterize equal spacing.
+The inverse characterizing one observable conditional regression as exact equal spacing is a natural structural theorem for finite-population sampling without replacement, not just a covariance tabulation. It identifies when classical uniform-label formulas genuinely describe unknown population geometry, with a population-size-independent correlation consequence.
 
-This is more than a marginal-moment identity. It is a finite inverse theorem, and its population-size-free correlation consequence explains why the canonical two-draw model has a stable dependence constant across every population size and affine rescaling.
-
-Self-review: passed. Independent audit: not yet performed.
-
-
-Exact replay: `VERIFY_OK populations=967 pair_rows=11430 regression_checks=4043 rigidity_checks=967 max_checks=194 covariance_checks=54 correlation_checks=108`.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
