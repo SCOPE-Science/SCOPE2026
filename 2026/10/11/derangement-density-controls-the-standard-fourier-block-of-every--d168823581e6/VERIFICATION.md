@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-The universal proof is analytic. The critical checks are:
+# Independent mathematical audit
 
-1. For a doubly transitive action, the permutation character has inner product \(2\) with itself, so after removing the trivial constituent the remaining degree-\(n-1\) character is irreducible.
-2. Schur orthogonality gives the central primitive idempotent kernel \(d\chi(g^{-1})/|G|\).
-3. The endpoint norm of finite-group convolution is the absolute mass of its kernel.
-4. The standard character is \(F(g)-1\), so its negative support is exactly the derangement set and every negative value is \(-1\). Zero total character sum therefore gives \(\sum_g|\chi(g)|=2D\).
-5. The complement kernel has positive identity coefficient because double transitivity gives \(|G|\ge n(n-1)\), and direct absolute summation yields \(1+2(n-1)(D-(n-1))/|G|\).
-6. Cameron--Cohen's rank-two specialization gives \(D\ge |G|/n\) with equality precisely in the Frobenius equality case, completing the sharp-double-transitivity criterion.
+## correctness
 
-`verify.py` performs exact integer/rational checks for \(S_n\), \(2\le n\le8\), and for \(\operatorname{AGL}(1,p)\), \(p\in\{3,5,7,11\}\). It also checks that in the sharply doubly transitive affine cases the complementary convolution kernel is exactly uniform on the translation subgroup. Expected terminal line:
+PASS
 
-`VERIFY_OK symmetric_n=2..8 affine_primes=3,5,7,11`
+Permutation rank two gives permutation character 1+chi with chi irreducible of degree d=n-1 and chi(g)=fix(g)-1. The central idempotent convolution kernel has absolute mass (d/|G|)sum|chi|; chi is -1 precisely on the D derangements and has zero total sum, so sum|chi|=2D. The complement is delta_e-k, identity coefficient 1-d²/|G|>0 by |G|>=nd; its absolute mass is 1+2d(D-d)/|G|. Cameron–Cohen rank-two derangement bound D>=|G|/n and Frobenius equality prove both lower bounds and the sharp-double-transitivity condition; uniform subgroup averaging follows by evaluating the equality-case kernel. Independent exact S2..S6 character counts and complement formulas passed.
 
-The finite computations do not prove the general theorem; they only replay representative consequences and normalization choices.
+## originality
+
+PASS
+
+Classical character sums and derangement lower bounds are inputs, but the exact endpoint projection norms, complementary norm, and Fourier contractivity/Frobenius-kernel classification are not stated by the compared primary sources or adjacent published Resultary Fourier-block findings.
+
+## value
+
+PASS
+
+An exact operator norm is identified with a canonical permutation-group density for every 2-transitive action, while contractivity of its complement yields a clean if-and-only-if Frobenius structure with explicit subgroup averaging. This is a natural structural classification, not a fixed-size computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
