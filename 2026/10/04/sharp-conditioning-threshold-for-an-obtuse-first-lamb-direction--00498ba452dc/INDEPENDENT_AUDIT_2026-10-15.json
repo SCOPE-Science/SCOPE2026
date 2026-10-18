@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T07:20:27.304370Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cd76f0b741a81ebc64b2fc7846361df5d730832d/2026/10/04/sharp-conditioning-threshold-for-an-obtuse-first-lamb-direction--00498ba452dc/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cd76f0b741a81ebc64b2fc7846361df5d730832d/2026/10/04/sharp-conditioning-threshold-for-an-obtuse-first-lamb-direction--00498ba452dc/VERIFICATION.md"
+      ],
+      "rationale": "At first bias-corrected step from zero moments, mhat=g and vhat=g^2 for any beta1,beta2 in (0,1), so r_i=g_i/(|g_i|+epsilon). LAMB scales -r by a positive factor; x^+ norm squared difference is -2a x.r+a^2||r||^2. The SPD turn-angle bound cos(angle(x,Hx))>=2 sqrt(kappa)/(kappa+1) follows by endpoint chord lambda^2<=(kappa+1)lambda-kappa and optimization of mean. In 2D, if x.g>0 but x.Teps(g)<=0 then angle(x,g)>pi/4: reflect x to quadrant I and examine the compression of a mixed-sign g's coordinate ratio toward one. Therefore kappa<=3+2sqrt2 ensures x.r>0 for every epsilon>0. For larger kappa the rotated two-eigenvalue maximizer makes x1>x2>0 and g1<0<g2 so x.sign(g)<0; scaling Hessian with fixed kappa makes r tend to sign(g). Independently checked rotated numerical witnesses above threshold and positivity of x.g, plus the explicit rational H,x example. This controls Euclidean distance, NOT objective descent; g.r always positive.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/cd76f0b741a81ebc64b2fc7846361df5d730832d/2026/10/04/sharp-conditioning-threshold-for-an-obtuse-first-lamb-direction--00498ba452dc/RESULT.md",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-conditioning-threshold-for-an-obtuse-first-lamb-direction--00498ba452dc",
+          "https://ar5iv.labs.arxiv.org/html/1904.00962",
+          "https://arxiv.org/abs/2011.13584"
+        ],
+        "reasoning": "General nonconvex LAMB convergence or LAMBC trust-ratio clipping results concern iteration asymptotics/magnitude, not the all-orientations two-dimensional first-step acute-direction criterion. The SPD maximal-turning inequality alone does not imply coordinate saturation geometry without the second lemma.",
+        "searches": [
+          "Resultary semantic search: LAMB Adam first step obtuse direction SPD threshold 3+2sqrt2 sign preconditioning"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cd76f0b741a81ebc64b2fc7846361df5d730832d/2026/10/04/sharp-conditioning-threshold-for-an-obtuse-first-lamb-direction--00498ba452dc/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-conditioning-threshold-for-an-obtuse-first-lamb-direction--00498ba452dc",
+        "https://ar5iv.labs.arxiv.org/html/1904.00962",
+        "https://arxiv.org/abs/2011.13584"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/cd76f0b741a81ebc64b2fc7846361df5d730832d/2026/10/04/sharp-conditioning-threshold-for-an-obtuse-first-lamb-direction--00498ba452dc/RESULT.md",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-conditioning-threshold-for-an-obtuse-first-lamb-direction--00498ba452dc",
+          "https://ar5iv.labs.arxiv.org/html/1904.00962",
+          "https://arxiv.org/abs/2011.13584"
+        ],
+        "reasoning": "Algorithm 2 with bias correction implies the formula r_i=g_i/(|g_i|+eps), but not a condition-number bound or an obtuse-angle exclusion. Clipping by any positive factor preserves an obtuse direction, so qualitative clipping claims do not refute or contain the theorem.",
+        "searches": [
+          "Resultary semantic search: LAMB Adam first step obtuse direction SPD threshold 3+2sqrt2 sign preconditioning"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/cd76f0b741a81ebc64b2fc7846361df5d730832d/2026/10/04/sharp-conditioning-threshold-for-an-obtuse-first-lamb-direction--00498ba452dc/RESULT.md",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-conditioning-threshold-for-an-obtuse-first-lamb-direction--00498ba452dc",
+          "https://ar5iv.labs.arxiv.org/html/1904.00962",
+          "https://arxiv.org/abs/2011.13584"
+        ],
+        "reasoning": "Searched first-step LAMB, Adam sign preconditioning, obtuse gradient-relative direction, Euclidean-distance growth and SPD maximal turning angle aliases; closest exact publication is this record, no independent identical threshold located.",
+        "searches": [
+          "Resultary semantic search: LAMB Adam first step obtuse direction SPD threshold 3+2sqrt2 sign preconditioning"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/cd76f0b741a81ebc64b2fc7846361df5d730832d/2026/10/04/sharp-conditioning-threshold-for-an-obtuse-first-lamb-direction--00498ba452dc/RESULT.md",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-conditioning-threshold-for-an-obtuse-first-lamb-direction--00498ba452dc",
+          "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789"
+        ],
+        "reasoning": "The critical 3+2sqrt2 also occurs for a scaled Polyak objective threshold, but the parameter is attached to a different update/operator property, and matching a number cannot establish coverage. Here the sharpness construction rotates a 2x2 SPD Hessian and scales overall curvature against fixed epsilon.",
+        "searches": [
+          "Resultary semantic search: LAMB Adam first step obtuse direction SPD threshold 3+2sqrt2 sign preconditioning"
+        ]
+      },
+      "rationale": "You et al. Algorithm 2 provides precisely the first-step Adam normalization and layerwise trust ratio but proves general stationary-point performance, not the sharp two-dimensional SPD turning threshold. Fong et al. clip magnitude to address extreme trust ratios, which cannot fix the sign of x.r. An older Polyak threshold numerically shares 3+2sqrt2 but derives an unrelated step-size objective bound, not an implication of this coordinatewise LAMB angle result.",
+      "residual_risks": [
+        "Potential prior sign/diagonal-preconditioned quadratic angle lemma under unrelated terminology is not excluded exhaustively",
+        "Euclidean-distance increase does not mean quadratic objective increase; source-form LAMB, first step, and one 2D layer only"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Bias-corrected coordinatewise normalization matches result exactly; no sharp Euclidean-distance SPD threshold in the examined original algorithm and theorem",
+          "evidence": "Algorithm 2, lines 112-135, Theorem 3",
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1904.00962",
+          "material_read": "Full accessible ar5iv paper text, focusing Algorithm 2 lines 112-135 and Theorem 3 lines 143-170 plus appendices on epsilon/bias correction",
+          "method": "Primary ar5iv full text sections and algorithm inspected",
+          "title": "Large Batch Optimization for Deep Learning: Training BERT in 76 minutes (You et al.)",
+          "trigger": "Defining source-form LAMB algorithm with bias correction and trust ratio"
+        },
+        {
+          "assessment": "PARTIAL ONLY: proposes trust-ratio magnitude clipping rather than proving directional safety",
+          "evidence": "Arxiv 2011.13584 abstract",
+          "identifier_or_url": "https://arxiv.org/abs/2011.13584",
+          "material_read": "Arxiv abstract plus publisher/discovery snippets; arxiv original full paper not retrieved",
+          "method": "OA search and arxiv abstract",
+          "title": "Improving Layer-wise Adaptive Rate Methods using Trust Ratio Clipping (Fong--Chen--Chen)",
+          "trigger": "Possible dominating trust clipping safety theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cd76f0b741a81ebc64b2fc7846361df5d730832d/2026/10/04/sharp-conditioning-threshold-for-an-obtuse-first-lamb-direction--00498ba452dc/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-conditioning-threshold-for-an-obtuse-first-lamb-direction--00498ba452dc",
+        "https://ar5iv.labs.arxiv.org/html/1904.00962",
+        "https://arxiv.org/abs/2011.13584"
+      ],
+      "rationale": "Identifies a motivated limitation of positive trust-ratio rescaling: no step magnitude can repair an obtuse first-step direction as measured by Euclidean distance. The exact spectral conditioning threshold separates safe and unsafe orientations, making it a structural optimizer-boundary result; caveat objective descent remains possible.",
+      "residual_risks": [
+        "Euclidean-distance increase does not mean quadratic objective increase; source-form LAMB, first step, and one 2D layer only"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Potential prior sign/diagonal-preconditioned quadratic angle lemma under unrelated terminology is not excluded exhaustively",
+    "Euclidean-distance increase does not mean quadratic objective increase; source-form LAMB, first step, and one 2D layer only"
+  ],
+  "schema_version": 1
+}

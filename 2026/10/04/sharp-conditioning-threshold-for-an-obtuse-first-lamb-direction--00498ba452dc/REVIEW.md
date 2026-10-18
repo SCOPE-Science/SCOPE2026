@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The first LAMB direction is reconstructed exactly after bias correction. The proof supplies both needed nontrivial ingredients: a sharp SPD turning-angle inequality and a two-dimensional coordinate-saturation lemma. Their combination yields the exact threshold \(3+2\sqrt2\), while a rotated endpoint-spectrum family establishes sharpness for every positive denominator.
+PASS
 
-Risk: the theorem concerns Euclidean parameter distance, not objective monotonicity.
+At first bias-corrected step from zero moments, mhat=g and vhat=g^2 for any beta1,beta2 in (0,1), so r_i=g_i/(|g_i|+epsilon). LAMB scales -r by a positive factor; x^+ norm squared difference is -2a x.r+a^2||r||^2. The SPD turn-angle bound cos(angle(x,Hx))>=2 sqrt(kappa)/(kappa+1) follows by endpoint chord lambda^2<=(kappa+1)lambda-kappa and optimization of mean. In 2D, if x.g>0 but x.Teps(g)<=0 then angle(x,g)>pi/4: reflect x to quadrant I and examine the compression of a mixed-sign g's coordinate ratio toward one. Therefore kappa<=3+2sqrt2 ensures x.r>0 for every epsilon>0. For larger kappa the rotated two-eigenvalue maximizer makes x1>x2>0 and g1<0<g2 so x.sign(g)<0; scaling Hessian with fixed kappa makes r tend to sign(g). Independently checked rotated numerical witnesses above threshold and positivity of x.g, plus the explicit rational H,x example. This controls Euclidean distance, NOT objective descent; g.r always positive.
 
-## Originality
+## originality
 
-PASS. The defining LAMB paper analyzes layer-normalized Adam and nonconvex convergence; LAMBC later clips extreme trust-ratio magnitudes. The inspected full texts do not state the sharp conditioning threshold, an obtuse first-step family, or the fact that every positive scalar multiplier increases distance on those instances. Focused published-record searches found no implication-equivalent result.
+PASS
 
-Residual risk: a similar angle observation may appear in unindexed analyses of sign-preconditioned methods.
+You et al. Algorithm 2 provides precisely the first-step Adam normalization and layerwise trust ratio but proves general stationary-point performance, not the sharp two-dimensional SPD turning threshold. Fong et al. clip magnitude to address extreme trust ratios, which cannot fix the sign of x.r. An older Polyak threshold numerically shares 3+2sqrt2 but derives an unrelated step-size objective bound, not an implication of this coordinatewise LAMB angle result.
 
-## Value
+## value
 
-PASS. LAMB's central design separates update direction from layerwise update magnitude. The result shows exactly when controlling only the magnitude becomes insufficient: beyond a sharp conditioning threshold, the first Adam-preconditioned direction itself can point obtusely relative to the minimizer displacement. This distinguishes directional safety from trust-ratio stabilization and gives a natural geometric diagnostic for the optimizer.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Identifies a motivated limitation of positive trust-ratio rescaling: no step magnitude can repair an obtuse first-step direction as measured by Euclidean distance. The exact spectral conditioning threshold separates safe and unsafe orientations, making it a structural optimizer-boundary result; caveat objective descent remains possible.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
