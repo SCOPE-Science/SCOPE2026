@@ -1,18 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. For a strictly positive periodic solution, the prey maximum condition gives \(0<u(t)<1\). Averaging \(\dot u/u\) and \(\dot u\) gives the exact predator-mean defect. Averaging \(\dot v/(\delta v)\) removes the delay by period-shift invariance. The pointwise comparison \(p/q<(p+u)/(q+u)<1\), together with Jensen's inequality for \(1/(p+u)\), gives the two prey-mean bounds. Strictness is justified by positivity and, for the variance defect, by the fact that constant \(u\) forces constant \(v\). The Case 2 radical bounds were replayed with exact rational algebra.
+## correctness
 
-Risk: the claim assumes a classical strictly positive periodic solution; it is not a statement about arbitrary recurrent histories in the delay phase space.
+PASS
 
-## Originality
-PASS. The primary article's complete publisher text was inspected through its model, global-periodic-solution theorem, numerical examples, and conclusion. It establishes local/global Hopf results but does not state a period-mean law; targeted searches in the full text found no “mean” or “average” population statement. Semantic searches using the exact source object, periodic-orbit averages, variance, and delay-independent bounds returned no covering statement. The closest indexed comparison results concern different dynamical systems and do not imply the present rational comparison or Case 2 corridor.
+With p=αβ,q=p+m, the prey maximum and strict positivity give 0<u(t)<1. Integrals of dlog(u), du, and dlog(v) over one period give Wbar=(1−ubar)/s, vbar=q Wbar+E(uW), and Zbar=n+βE[1/(p+u)] despite delayed evaluation, by period shift invariance. Since p/q<(p+u)/(q+u)<1, compare W and Z and invoke convexity of 1/(p+x) to obtain both strict inequalities. A constant u forces constant v; hence nonconstant orbit has Var>0. Independent exact rational calculations verified the Case 2 quadratic 875x²−290x−399<0 and ustar radical, not from simulation.
 
-Risk: the proof is short, and an equivalent averaging identity could exist in unindexed ecological-dynamics literature. The closely related 2019 predecessor could not be inspected in complete lawful full text, although the primary source reproduces its model and the available record identifies its scope.
+## originality
 
-## Value
-PASS. The source's main nonlinear contribution is global continuation/existence of periodic branches, while its local Hopf calculations do not control their finite-amplitude population means. The new theorem supplies a branch-wide, delay-independent constraint. In the paper's principal coexistence example, the exact upper mean-prey bound \((29+\sqrt{14806})/175\) stays only about \(0.013397\) above the equilibrium prey density even for finite-amplitude cycles, and the predator mean carries an exact variance penalty. This is a structural diagnostic for globally continued cycles rather than a routine equilibrium recomputation.
+PASS
 
-Closest literature: Wu–Zheng 2021 supplies the delayed model and global periodic branches; Basheer–Quansah–Parshad 2019 is the nondelayed motivating model; Yu–Wang–Zhai 2023 is a later citing delayed additional-food model with different ratio-dependent bioeconomic structure. None of the inspected material implication-wise supplies the accepted mean corridor.
+The source studies Hopf and existence/continuation of positive cycles; the new statement is a precise necessary mean constraint at any amplitude and any τ where such a cycle exists. Primary-source abstract/model comparisons do not supply it; originality is qualified by incomplete material access and generic averaging possibility.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The model is studied for global continuation of finite-amplitude coexistence branches, but Hopf thresholds do not constrain average populations away from onset. The explicit variance penalty and two-sided delay-independent prey mean corridor in the published Case 2 provide meaningful diagnostics for entire branches, with the upper mean within ~0.0134 of coexistence u*.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

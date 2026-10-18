@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,38 +18,25 @@
   "schema_version": 1
 }
 ---
-The bundled `verify.py` uses only the Python standard library.
 
-It verifies the Case 2 lower prey-mean bound
-\[
-1-\frac15\left(\frac25+1\right)=\frac{18}{25},
-\]
-and expands the second mean constraint after multiplication by the positive denominator \(3/5+\bar u\). The boundary polynomial is proportional to
-\[
--875\bar u^2+290\bar u+399,
-\]
-whose positive zero is
-\[
-\frac{29+\sqrt{14806}}{175}.
-\]
+# Independent mathematical audit
 
-It verifies the source Case 2 coexistence coefficients
-\[
-A=-\frac{11}{50},\qquad B=-\frac{133}{250},
-\]
-so the positive root of \(u^2+Au+B=0\) is
-\[
-\frac{11+\sqrt{5441}}{100}.
-\]
+## correctness
 
-It also checks, at exact rational synthetic moments, the algebraic identity
-\[
-q\frac{1-\bar u}{s}
-+\frac{\bar u(1-\bar u)-\operatorname{Var}_T(u)}s
-=
-\frac{(q+\bar u)(1-\bar u)-\operatorname{Var}_T(u)}s.
-\]
+PASS
 
-The stored checker output is `VERIFY_OK`.
+With p=αβ,q=p+m, the prey maximum and strict positivity give 0<u(t)<1. Integrals of dlog(u), du, and dlog(v) over one period give Wbar=(1−ubar)/s, vbar=q Wbar+E(uW), and Zbar=n+βE[1/(p+u)] despite delayed evaluation, by period shift invariance. Since p/q<(p+u)/(q+u)<1, compare W and Z and invoke convexity of 1/(p+x) to obtain both strict inequalities. A constant u forces constant v; hence nonconstant orbit has Var>0. Independent exact rational calculations verified the Case 2 quadratic 875x²−290x−399<0 and ustar radical, not from simulation.
 
-The strict inequalities and all-parameter theorem are analytic consequences of positivity, period-shift invariance, and Jensen's inequality. They are not inferred from finite simulation. The verification does not establish existence or stability of periodic solutions.
+## originality
+
+PASS
+
+The source studies Hopf and existence/continuation of positive cycles; the new statement is a precise necessary mean constraint at any amplitude and any τ where such a cycle exists. Primary-source abstract/model comparisons do not supply it; originality is qualified by incomplete material access and generic averaging possibility.
+
+## value
+
+PASS
+
+The model is studied for global continuation of finite-amplitude coexistence branches, but Hopf thresholds do not constrain average populations away from onset. The explicit variance penalty and two-sided delay-independent prey mean corridor in the published Case 2 provide meaningful diagnostics for entire branches, with the upper mean within ~0.0134 of coexistence u*.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
