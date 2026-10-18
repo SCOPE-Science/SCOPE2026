@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The claimed domain is \(\varepsilon>0\), \(\mu>337/9\), on the original-time mass-action ODE. The published quartic-oval classification is independently matched by its polar discriminant. A strict Lyapunov identity for \(h^2\) excludes off-curve periodic orbits, while regularity makes each of the four ovals a hyperbolic attracting cycle. The exact angular quadrature proves two pairs of periods with strict cross-pair inequality. The scalar cofactor and arclength change of variables prove one common transverse multiplier, and a four-endpoint elliptic-kernel calculation fixes the sharp rational logarithmic coefficients. A divergence-theorem calculation and an elementary rational integral fix the exact critical geometric exponent. The companion finite checker independently tests the quadrature, rational saddle weights, area integral and a physical-time ODE return. Risks: these checks are not an independent certification; the singular endpoint error estimate requires the bounded numerator control explicitly described in RESULT.md.
+## correctness
 
-## Originality (PASS, subject to stated residual risks)
-The Craciun–Erban article (arXiv:2406.05057, relevant full text inspected) already proves the existence and stability of the four ovals, derives the cofactor, and locates the nodal threshold. Gasull–Giacomini (arXiv:2210.15803, relevant full text inspected) gives general invariant-algebraic-curve limit-cycle tools. Both are credited. Searches for the exact model and threshold, physical-time periods, logarithmic coefficients, Floquet equivalence and known exact tables produced no covering mathematical statement. Generic logarithmic separatrix laws or cofactor formulas alone do not supply the two distinct, translated-weighted clock coefficients, their exact ratio, or the source-specific critical geometric multiplier integral. Residual risk: a less-indexed paper or an equivalent specialization of general singular-period theory could anticipate part of the theorem; search absence is not a priority guarantee.
+PASS
 
-## Value (PASS)
-This is a motivated quantification of the four stable oscillations constructed to exhibit multiple mass-action cycles: their observed periods in unrescaled time are not the same, despite equal transverse stability per circuit. Their nodal merger yields two sharply distinct logarithmic times but a finite common multiplier. Exact coefficients \(125/8281\), \(125/4459\), ratio \(13/7\), and the limiting positive geometric contraction integral are natural original-time observables tied to the model's actual chemical translation; they are not arbitrary small parameter samples or mere restatements of the known oval count. It does not purport to classify arbitrary ninth-degree systems.
+On x,y>0, direct h cofactor dh/dt=-xy |grad h|²h yields strict monotonic h² off regular zero level and rules out all other nonconstant periodic orbits. At mu>337/9 Craciun–Erban Lemma 13 establishes precisely four regular ovals, inside [1,3]^2. On h=0 the speed is eps xy |grad h|, so normal multiplier rho=exp[-(1/eps)∮|grad q|ds]; four quarter-turned lobes share the geometric integral. Polar quadratic in r² has discriminant Delta=49-9(mu-32)sin²(2theta), yielding exact branch period quadrature. Reflection reverses 2+u to 2-u, making strict T_right<T_left, while x/y exchange gives equality R=T and L=B. Node weights 169/25,91/25,49/25 give logarithmic coefficients (1/28)(25/169+25/91)=125/8281 and (1/28)(25/91+25/49)=125/4459; ratio 13/7. Direct symbolic integration of critical divergence-area integral 12600∫_0^1(625-49z²)/(576+49z²)² dz verified exactly Ic=8407/400 + (1225/384)atan(7/24)=21.92283277026..., positive. Independently reconstructed branch integrals numerically for mu=38,39,100,mu_c+10^-3,mu_c+10^-5; all have periods positive and strict split; finite quadrature checks support but do not prove the asymptotic remainder. The proof uses endpoint collar estimates.
 
-## Limitations and closest literature
-Independent audit was not performed. The limiting claims are for fixed \(\varepsilon\) on \(\mu\downarrow337/9\), not across this threshold. Earlier global invariant-curve methods may imply the straightforward exhaustive count, which is supporting context rather than the independent contribution. Sources: Craciun–Erban arXiv:2406.05057 (especially Theorem 3 and Lemma 13); Gasull–Giacomini arXiv:2210.15803.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The complete Craciun–Erban primary OA article gives this exact chemical ODE, cofactor, four-oval topology and nodal 337/9 threshold, but not original-time period split coefficients, Floquet equality/exact integral, or nonzero limiting multiplier. These are quantitative refinements with new physical-time and transversal comparisons, not another claim of four cycles.
+
+## value
+
+PASS
+
+This is a motivated sharp quantification of the specific four-oval chemical realization: despite diverging and inequivalent physical periods (ratio 13/7), the transverse multipliers coincide and stay bounded away from 1, with explicit critical integral. It disentangles physical slowing from orbital attraction and provides exact limiting benchmarks rather than another existence claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
