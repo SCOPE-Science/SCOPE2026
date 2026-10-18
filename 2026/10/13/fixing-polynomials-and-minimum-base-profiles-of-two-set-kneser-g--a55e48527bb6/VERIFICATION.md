@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-The script `artifacts/verify_fixing.py` uses only Python's standard library, with no external files or network access. Run `python3 artifacts/verify_fixing.py` from the extracted package directory.
+## correctness
 
-It independently checks two decision tests for every selected-edge subset of \(K(n,2)\), for \(n=5,6,7\): distinct incidence-membership signatures and the independent connected-component exclusion. These ranges cover \(2^{10}+2^{15}+2^{21}=2{,}130{,}944\) subsets. It then tests every size-\(\lfloor2n/3\rfloor\) subset for \(n=8,9\), comprising \(98{,}280+1{,}947{,}792=2{,}046{,}072\) subsets. In total, \(4{,}177{,}016\) candidate sets receive two different decision tests. For \(n=5,6,7\) every coefficient is compared directly; for \(n=8,9\) the minimum coefficient is compared. Finite coefficient extraction checks all minimum formulas through \(n=21\) and checks the top two polynomial coefficients.
+PASS
 
-The run output in `artifacts/checks.txt` is the actual output of the bundled script. The proof of the theorem is mathematical and does not rely on extrapolating from these finite cases.
+For n>=5 Aut(K(n,2))=S_n. Every selected two-subset induces an edge in a labeled graph H; its membership signature at vertex v is the set of selected edges incident to v. Distinct signatures are equivalent to no K2 component and <=1 isolated vertex: a repeated nonempty signature forces an isolated selected edge. Labelled exponential formula removes singleton components exp(-t) and isolated edges exp(-zt^2/2) from all graphs, then permits one singleton with (1+t), giving the exact all-cardinality EGF. Minimizing edges in components of size >=3 yields floor(2n/3), all minima forests with enumerated residue profiles; Cayley s^(s-2) yields D_n. Independent exhaustive enumeration of all edge sets for n=5,6 and separate EGF coefficient inclusion-exclusion reconstructs D5=80,D6=840. The all-n proof is structural, not inferred from finite counts.
 
-The established automorphism-group identification \(\operatorname{Aut}(K(n,2))\cong S_n\) and the 2017 definition of fixing polynomial are cited in `RESULT.md`; they are not claims of new independent certification.
+## originality
+
+PASS
+
+PASS best-of-knowledge: structural separation criterion and determining number are old; the complete all-cardinality labelled fixing polynomial and counts of all minimum fixing sets are distinct new enumerative statements not found in inspected published proofs.
+
+## value
+
+PASS
+
+The symmetric-group action on 2-subsets is a canonical family, and counting all pointwise bases by cardinality is a natural finer invariant than minimum size. The exact labelled EGF, classification of every optimal forest structure, and residue counts supply independently useful enumerative data and exact benchmarks for determining-set algorithms; not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

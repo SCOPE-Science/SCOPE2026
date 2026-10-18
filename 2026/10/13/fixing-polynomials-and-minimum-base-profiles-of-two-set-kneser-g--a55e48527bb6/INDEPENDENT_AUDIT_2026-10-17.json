@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T21:17:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=5 Aut(K(n,2))=S_n. Every selected two-subset induces an edge in a labeled graph H; its membership signature at vertex v is the set of selected edges incident to v. Distinct signatures are equivalent to no K2 component and <=1 isolated vertex: a repeated nonempty signature forces an isolated selected edge. Labelled exponential formula removes singleton components exp(-t) and isolated edges exp(-zt^2/2) from all graphs, then permits one singleton with (1+t), giving the exact all-cardinality EGF. Minimizing edges in components of size >=3 yields floor(2n/3), all minima forests with enumerated residue profiles; Cayley s^(s-2) yields D_n. Independent exhaustive enumeration of all edge sets for n=5,6 and separate EGF coefficient inclusion-exclusion reconstructs D5=80,D6=840. The all-n proof is structural, not inferred from finite counts.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.1 of the 2024 paper explicitly concerns b(S_n,r), the minimum base size, while the claimed Phi_n is a polynomial across all m from floor(2n/3) to binom(n,2)."
+        ],
+        "reasoning": "A general minimum theorem does not logically determine the numbers of larger bases or labeled optimum multiplicities; these can vary even with fixed minimum. The stated all-base EGF is not subsumed as a claimed result of these theorems.",
+        "searches": [
+          "Del Valle and Roney-Dougal Theorem 1.1 base size all subset actions",
+          "Caceres et al. Section 2 determining number of Kneser graphs"
+        ]
+      },
+      "checked_sources": [
+        "https://dmtcs.episciences.org/en/articles/634/download",
+        "https://research-repository.st-andrews.ac.uk/bitstream/handle/10023/30607/del_Val_2024_The_Base_size_ALCO_2024_7_4_959_CCBY.pdf",
+        "https://arxiv.org/abs/2009.08787",
+        "Resultary query: fixing polynomial Kneser exact"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior point-separation lemma plus the standard exponential formula allows a new derivation, but the earlier statement supplies a yes/no criterion for a specified set, not the closed EGF or residue-class D_n enumeration."
+        ],
+        "reasoning": "The specialization uses prior characterization and elementary labeled-graph combinatorics; deductive availability from primitives is recognized, but no existing stronger enumerator or theorem from which Phi_n is a direct stated corollary was found.",
+        "searches": [
+          "Caceres et al. Boutin separation lemma 2.1",
+          "Del Valle and Roney-Dougal Section 3 Corollary 3.3",
+          "Resultary semantic fixing polynomial"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Caceres et al. Lemma 2.1 / Boutin 2006 separates elements by membership signatures",
+          "Del Valle and Roney-Dougal Section 2 identifies bases with irrepeating incidence hypergraphs"
+        ],
+        "reasoning": "Equivalent base-size / determining-set language was investigated, not only the words fixing polynomial. These theorems characterize feasibility; their printed conclusions do not give the generating function of every base size.",
+        "searches": [
+          "Resultary: fixing polynomial determining sets Kneser graph K(n,2) all sizes count labeled minimum bases",
+          "2024 del Valle Roney-Dougal base-size full-text Section 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No implication-equivalent published K(n,2) all-cardinality table surfaced among retrieved candidates; searched integer prefix is D5..D9, not a proof of novelty."
+        ],
+        "reasoning": "Exact tables are pertinent to the full coefficient vector and minimum layer; the searches did not locate that exact dataset. Database/index coverage is incomplete.",
+        "searches": [
+          "Resultary: fixing polynomial Kneser graph all cardinalities",
+          "public exact search: \"80\" \"840\" \"630\" \"13440\" \"277200\" \"fixing\""
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: structural separation criterion and determining number are old; the complete all-cardinality labelled fixing polynomial and counts of all minimum fixing sets are distinct new enumerative statements not found in inspected published proofs.",
+      "residual_risks": [
+        "Generic fixing-polynomial paper full text not inspected; another base-enumeration or incidence-distinct-graph EGF may predate this specialization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides separation lemma and minimum sizes; no all-cardinality fixing polynomial in inspected sections",
+          "evidence": [
+            "Lemma 2.1; Section 2; Theorem 2.7"
+          ],
+          "identifier_or_url": "https://dmtcs.episciences.org/en/articles/634/download",
+          "material_read": "14-page PDF: abstract, Lemma 2.1, Theorem 2.6/2.7, fixed determining-number discussion",
+          "method": "full parsed PDF and page 3 image",
+          "title": "The determining number of Kneser graphs",
+          "trigger": "same Kneser S_n pointwise stabilizer criterion"
+        },
+        {
+          "assessment": "Exact scalar base-size expressions, not full all-base counts",
+          "evidence": [
+            "Theorem 1.1; Proposition 2.2; Sections 2-3"
+          ],
+          "identifier_or_url": "https://research-repository.st-andrews.ac.uk/bitstream/handle/10023/30607/del_Val_2024_The_Base_size_ALCO_2024_7_4_959_CCBY.pdf",
+          "material_read": "10-page open-access PDF: Theorem 1.1, Section 2 hypergraph duality, Sections 2-3 base-size scope",
+          "method": "full PDF parsed text; relevant full sections read, page image fetch timed out",
+          "title": "The base size of the symmetric group acting on subsets",
+          "trigger": "more general symmetric-group subset action with n>2r"
+        },
+        {
+          "assessment": "Possible unexamined family-specific polynomial is residual novelty risk",
+          "evidence": [
+            "fixing polynomial terminology"
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/317041311_ON_SOME_PARAMETERS_RELATED_TO_FIXING_SETS_IN_GRAPHS",
+          "material_read": "bibliographic source abstract and record cited in frozen proof, full contents not obtained",
+          "method": "web record/index",
+          "title": "On Some Parameters Related to Fixing Sets in Graphs",
+          "trigger": "generic fixing polynomial work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The symmetric-group action on 2-subsets is a canonical family, and counting all pointwise bases by cardinality is a natural finer invariant than minimum size. The exact labelled EGF, classification of every optimal forest structure, and residue counts supply independently useful enumerative data and exact benchmarks for determining-set algorithms; not an arbitrary finite slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://dmtcs.episciences.org/en/articles/634/download",
+    "https://research-repository.st-andrews.ac.uk/bitstream/handle/10023/30607/del_Val_2024_The_Base_size_ALCO_2024_7_4_959_CCBY.pdf",
+    "https://arxiv.org/abs/2009.08787",
+    "Resultary query: fixing polynomial Kneser exact"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "n>=5 and only 2-set Kneser graphs.",
+    "Aut group identified via standard S_n theorem, not proved from first principles here.",
+    "Literature novelty remains best of knowledge; full generic fixing-polynomial text was not obtained."
+  ],
+  "residual_risks": [
+    "Generic fixing-polynomial paper full text not inspected; another base-enumeration or incidence-distinct-graph EGF may predate this specialization."
+  ],
+  "schema_version": 1
+}
