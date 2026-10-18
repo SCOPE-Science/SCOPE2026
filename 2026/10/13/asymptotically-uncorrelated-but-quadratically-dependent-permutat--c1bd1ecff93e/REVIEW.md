@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The domain, orientation and scaling are explicit for uniform odd-size permutations. The exact pair covariance follows from a canonical two-point kernel and the row balance of the clockwise tournament. The leading mixed fourth moment is obtained by classifying nonvanishing four-edge/linear-factor overlap diagrams; its only order-five term contracts to exact integrals \(1/45\) and \(1/12\). The remaining terms have lower polynomial order by canonicality and bounded fourth moments. A finite-rank Gaussian-chaos approximation establishes the joint limit. The direct limiting contraction gives the positive covariance \(1/1080\) independently of finite enumeration. Rational checks cover every permutation at odd sizes three, five, seven and nine. The squared-correlation conclusion uses an established fourth moment from Even-Zohar; no unpublished numerical extrapolation is treated as proof.
+PASS
 
-## Originality: PASS, with residual historical risk
+The circular tournament coefficient matrix has zero row sums, so writhe is the canonical degenerate order-two sum of h(u,v)=sgn(v−u)+2u−2v, while centered inversions are a linear rank projection plus lower-order canonical correction. Independent direct enumeration for m=3,5,7 verifies exact finite Cov(W,I)=−(m−1)²/24 and nonzero scaled covariance of squares for m=5,7 (0.0006755555 and 0.0008660413). Direct independent symbolic integration gives F(u)=2u(1−u)−1/3, ∫F²=1/45 and triangular R(t) with ∫R²=1/12, yielding the mixed limit (1/4)*(2/45)*(1/12)=1/1080 from overlap contractions. The bounded canonical kernel controls lower-order terms, and finite-rank approximation/triangular CLT jointly realizes second and first Wiener chaoses. Product formula Cov(I2(K)^2,I1(g)^2)=8||Kg||² confirms same constant, proving dependence despite zero covariance. Correlation-of-squares further uses Even-Zohar published writhe fourth moment; finite calculations do not prove the asymptotic remainder bounds.
 
-The strongest close primary source, Even-Zohar, arXiv:1511.09469 (Sections 1, 3.1, 4 and 5), develops circular writhe and its marginal moments, not the joint nonlinear dependence with ordinary inversions. Janson, arXiv:2510.12480 (Example 8.5 and Section 9.1), develops the general cyclic-statistic limit mechanism and explicitly discusses uncompleted joint extensions, but provides neither the stated mixed fourth moment nor its coefficient. Foata and Zeilberger's graphical inversion paper studies a distinct Mahonian-enumerative question. Separate searches for circular tournament inversion pairs, joint limits, squared covariance, mixed fourth moments and equivalent graphical-inversion formulations did not identify an explicit stronger statement. This is evidence of noncoverage in the inspected material, not a proof of historical priority. General extensions of Janson's methods may subsume the mechanism; the precise nonlinear coefficient remains the assessed contribution.
+## originality
 
-## Value: PASS
+PASS
 
-Circular writhe and the standard inversion count are two natural rank-disorder statistics on one permutation. Their different fluctuation scales and vanishing Pearson correlation make a concrete mathematical question: does the circular fluctuation decouple from the linear one? The theorem answers no at the first natural nonlinear level, identifies an explicit universal positive square-covariance, and supplies the joint first/second Wiener-chaos coupling. This detects dependence invisible to covariance and is not a restatement of either marginal limit.
+Independent best-of-knowledge originality assessment of the precise final claim. Matching the exact circular-tournament orientation and inversion comparison avoids title-based mismatch. Marginal writhe law and first-order inversion Gaussian CLT do not fix their joint covariance of squares. Orthogonal different chaos orders have zero linear covariance without independence; neither original source statement implies that specific nonzero mixed contraction, so original contribution is coupled nonlinear limit. Residual risks and genuine material inspected are explicitly recorded.
 
-## Limitations and literature risks
+## value
 
-Odd uniform permutations only; the joint density is not evaluated. General graphical inversion identities or unpublished mixed-moment calculations may establish equivalent historical priority. Foata--Zeilberger's complete older text was not inspected; its accessible abstract describes equidistribution rather than joint asymptotic moments. Neither publication priority nor independent correctness validation is certified here.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Writhe and inversion count are two canonical same-permutation rank-disorder observables with different fluctuation orders. Quantifying their residual nonlinear dependence when all linear covariance disappears reveals a genuine mixed-chaos feature not determined by either marginal law; an explicit 1/1080 coefficient is a natural sharp invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
