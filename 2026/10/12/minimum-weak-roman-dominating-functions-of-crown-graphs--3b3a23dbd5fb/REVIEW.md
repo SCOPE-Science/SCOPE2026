@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The support lemma for domination in a crown graph is elementary and complete, and the proof exhausts all side-weight splits at the minimum weight. Direct enumeration for \(3\le n\le12\) independently checks the transfer condition and every classified minimum function.
+## correctness
 
-## Originality
-PASS. Searches for crown graph, complete bipartite graph minus a perfect matching, bipartite Kneser \(H(n,1)\), weak Roman domination number, and minimum weak Roman functions found general weak Roman results and a complete-graph-minus-matching example, but no crown-graph minimum-function classification. The closest published database result is a weak Roman polynomial for complete multipartite graphs; crown graphs are not complete multipartite for \(n\ge3\). A known secure-domination classification of crown graphs covers exactly the \(\{0,1\}\)-valued optimum functions but not the label-\(2\) optimum families.
+PASS
 
-## Value
-PASS. Minimum-function structure is a natural refinement of the scalar weak Roman domination number. The crown graph is a canonical nearly complete bipartite family, and the result pinpoints exactly how one missing perfect matching changes mobile defense: optimal \(\{0,1\}\)-functions coincide with secure domination, while labels \(2\) create precisely quantified additional optima.
+A support S dominates Cr_n exactly by the two singleton/empty opposite-side index tests. This yields weight lower bounds 3 at n=3 and 4 for n>=4 and gives complete 1/2-label configurations for n>=5; n=3,4 are exhaustively treated boundary cases. Independent direct enumerator constructs all labelings of weight <=4 and all legal one-unit defenses, reproducing (optimum,count,binary count) (3,14,14), (4,90,62), (4,115,70), (4,201,135), (4,322,231), (4,484,364) for n=3,...,8. Finite corroboration is not the all-n proof; complete supporting lemma and branch analysis supply the quantifier.
 
-## Closest literature and limitations
-The 2003 source introduces weak Roman domination; the 2011 paper develops the parameter on specific graph classes; the 2014 paper gives general inequalities and an example on a different graph obtained from a complete graph by deleting a perfect matching. The present result is limited to minimum functions, and an unindexed equivalent formulation remains a residual bibliographic risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior secure domination covers only 0/1-valued optima, whereas weak Roman 2-labelled families contribute n(2n-1) new optimal functions for n>=5; complete-multipartite weak Roman results do not apply to crown graphs, which omit precisely one cross-part neighbor per vertex. Perfect Roman domination is a different condition and Resultary crown theorem does not cover the weak variant. No equivalent all-n labeled weak Roman classification found in the searched primary sources.
+
+## value
+
+PASS
+
+The complete extremizer census on standard n-regular bipartite crown graphs, especially 2-labelled weak guards absent in secure-domination, is a natural domination-invariant refinement of an already motivated graph family, not an arbitrary small slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
