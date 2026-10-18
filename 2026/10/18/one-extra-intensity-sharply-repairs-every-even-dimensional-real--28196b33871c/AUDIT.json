@@ -1,0 +1,93 @@
+{
+  "correctness": {
+    "rationale": "The explicit two-geometric-block sum computes the zero ambiguity frequencies for every N and r; finite Weyl Fourier orthogonality yields exactly m independent even-order skew-antipodal Hermitian kernel blocks. Any s nonzero blocks have rank 2s, so only single blocks can equal a difference of two rank-one projectors. The scalar probe pairs nontrivially with every such block precisely for nonzero imaginary antipodal products. Both directions and boundaries N=2, odd N were checked algebraically; numerical N<=12 is corroboration only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bartusel, arXiv:2206.06729v1: even order real Gabor-only signals are ambiguous.",
+        "Goldberger–Kang–Okoudjou, arXiv:2106.01509v1: general operator-span ranks for Gabor projectors."
+      ],
+      "reasoning": "Neither theorem asserts injectivity after augmenting by one arbitrary new rank-one measurement; arbitrary matrix informational completeness is stronger and is false here for N>=4, so a general complete-tomography theorem does not dominate this nonlinear result.",
+      "searches": [
+        "cyclic Gabor phase retrieval real window additional measurement completion",
+        "incomplete Gabor POVM full phase retrieval additional projector"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2106.01509v1, full text",
+      "arxiv:2206.06729v1, full text"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bartusel proves noninjectivity for even-order real windows but does not give a one-probe repair.",
+        "Goldberger–Kang–Okoudjou give the Weyl operator-rank machinery; applying it to the geometric seed plus the rank-two block and probe test is the additional implication here."
+      ],
+      "reasoning": "The claim is not merely a special case of a prior injectivity theorem, since the starting measurement family is explicitly noninjective. Nor is it a corollary of just its nullity m, because generic kernels of dimension m can contain rank-two combinations in incompatible directions. The direct-sum antidiagonal rank geometry and exact probe condition are necessary.",
+      "searches": [
+        "arxiv:2206.06729 real window phase retrieval obstruction",
+        "arxiv:2106.01509 Gabor POVM ambiguity zero rank",
+        "one non-Gabor measurement phase retrieval real Gabor"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bartusel, arXiv:2206.06729v1, Theorem 4.2.4: real even-order obstruction, not augmentation.",
+        "Goldberger–Kang–Okoudjou, arXiv:2106.01509v1: ambiguity/Gram diagonalization, not single extra intensity."
+      ],
+      "reasoning": "The natural equivalent formulations are rank-two Hermitian kernel avoidance, one-vector phase-retrieval frame completion, and an added noncovariant POVM outcome. The inspected primary works supply the obstruction and diagonalization separately, but not the iff antipodal product criterion.",
+      "searches": [
+        "single extra intensity even cyclic STFT real-window phase retrieval",
+        "arxiv:2206.06729 phase retrieval even real window",
+        "arxiv:2106.01509 Gabor POVM matrix kernel"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The explicit rank test is algebraic for every even N, rather than a table of computed small-order cases."
+      ],
+      "reasoning": "No relevant fixed-order database or table was found that determines the complete all-order iff probe condition. Published small-dimensional frame examples would not imply the parametrized infinite theorem.",
+      "searches": [
+        "one extra rank one probe even dimension Gabor complete phase retrieval",
+        "real Weyl Heisenberg covariant frame augmentation exact phase retrieval"
+      ]
+    },
+    "rationale": "Actual searches of published Gabor phase-retrieval and operator-rank results, together with comparisons against accessible prior findings, found no full characterization of the one-extra-measurement repair for all even cyclic orders. Goldberger–Kang–Okoudjou 2021 gives diagonalization; Bartusel 2022 gives impossibility for the original real Gabor system. The new iff antipodal phase criterion is a distinct implication. Residual risk of an unindexed general augmented-frame theorem remains.",
+    "residual_risks": [
+      "A general older rank-two-nullspace or augmented STFT phase-retrieval theorem may imply the specific criterion under a different vocabulary; the available primary searches did not identify one.",
+      "A later general phase-retrieval completion paper may contain a stronger statement; some recent related results were not fully accessible, so no claim of exhaustive literature coverage is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the foundational Fourier diagonalization; does not establish the exact single-extra-probe phase-retrieval result.",
+        "evidence": "The Gabor Gram eigenvalues are N times squared ambiguity magnitudes; the paper studies completeness/rank of covariant projector families.",
+        "identifier_or_url": "arxiv:2106.01509v1",
+        "material_read": "Full published preprint text, especially definitions, Gram spectrum/ambiguity diagonalization and completeness discussion.",
+        "method": "Open-access paper full-text inspection",
+        "title": "Towards a classification of incomplete Gabor POVMs in C^d",
+        "trigger": "Gabor operator-span spectrum and matrix kernel"
+      },
+      {
+        "assessment": "Establishes the sharp need for a supplemental probe but does not classify all one-probe repairs for a geometric positive window.",
+        "evidence": "Theorem 4.2.4 gives the even-real-window obstruction; no added arbitrary intensity-probe iff result is stated.",
+        "identifier_or_url": "arxiv:2206.06729v1",
+        "material_read": "Full open-access preprint text, including Theorem 4.2.4 and discussion of real even-order windows and later construction sections.",
+        "method": "Open-access paper full-text inspection",
+        "title": "Injectivity conditions for STFT phase retrieval on finite cyclic groups",
+        "trigger": "Even-order real-window universal noninjectivity, potential dominating phase-retrieval criteria"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "28196b33-871c-4996-9ffb-14ad7b007005",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A sharp one-outcome repair for a natural positive full-support Gabor window resolves every even-order phase ambiguity, despite an arbitrarily growing N/2-dimensional matrix nullspace. An exact iff condition allows design of all working added measurements and distinguishes universal nonlinear phase retrieval from full linear informational completeness. This is a natural structural recovery theorem, not an arbitrary fixed-size parameter count.",
+    "status": "PASS"
+  }
+}
