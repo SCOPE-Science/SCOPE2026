@@ -1,11 +1,21 @@
-# Scientific review: rational homology representation of near-maximal domination complexes
+# Independent mathematical audit
 
-**Correctness — PASS.** For each \(n\ge4\), the published homotopy theorem gives vanishing rational reduced homology outside degree two. The graph-property face classification is explicit and exhaustive. The signed local orbit characters for disjoint edge pairs, four-vertex paths and four-cycles were checked directly; equivariant Euler--Poincaré and Pieri expansion then give a uniform theorem. The standalone script independently enumerates every graph-property simplex through five graph edges for \(n=4,5,6,7\) and checks all corresponding conjugacy-class characters. Uniform validity does not depend on extrapolation from these finite checks.
+## correctness
 
-**Originality — PASS, subject to residual unindexed-literature risk.** The closest full text, González--Hoekstra-Mendoza, arXiv:1901.07130, proves the nonequivariant wedge-of-two-spheres result, gives its Betti number, and classifies its simplex graph types; those statements are not presented as new. Its examined theorem, construction and proof do not compute the induced \(S_n\)-homology character or its Specht decomposition. Focused searches for the equivariant homology, alternative descriptions and dominating graph complexes found no equivalent or more general result; nearby graph domination-complex classifications concern different parameters. A stronger result outside the indexed sources remains a possibility, but no identified result implies the representation formula.
+PASS
 
-**Value — PASS.** Four explicit Specht families, with stable multiplicities and precise low-order exceptions, solve a natural equivariant refinement for an entire homotopy-classified graph-property family. The action carries information unavailable from the existing two-sphere count: in particular, the rational invariant homology vanishes and nonidentity permutation traces are determined. The calculation also supplies a reproducible comparison target for related graph-property complexes.
+PASS. The prior nonequivariant wedge-of-S^2 theorem supplies homology concentration. From graph domination condition every simplex has 1 or 2 arbitrary edges, or 3 edges forming C3/P4, or 4 edges forming C4, with no larger simplices; orientation signs under S_n give local C1/C2/C3 characters (not unsigned permutation counts). Direct local S4 character traces for disjoint pairs, P4 and C4 are respectively (3,1,-1,0,-1), (12,0,-4,0,0) and (3,1,-1,0,-1). Euler–Poincare in the rational representation ring gives h_(n-2)h2 - h_(n-3)s_(2,1)+2h_(n-4)s_(2,1,1)-h_n; Pieri horizontal strips yield the four claimed stable Specht constituents, and separate n4/n5 cases. Independent hook-length dimension check n4..12 matches wedge Betti polynomial; finite dimensions alone do NOT certify the full character. Hypotheses n>=4, rational S_n module only.
 
-**Limitations and closest literature.** This is a rational representation theorem; it does not classify integral \(\mathbb Z[S_n]\)-lattices, and it uses the cited nonequivariant concentration theorem. The principal comparison is González--Hoekstra-Mendoza, arXiv:1901.07130 (2019). Broader graph-property-complex literature may contain an unindexed equivalent formulation. No independent audit is claimed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge. The 2019/2021 González–Hoekstra-Mendoza full primary paper already establishes the complete non-equivariant homotopy wedge and face classification, which are treated solely as premises. Its inspected theorems/sections do not compute S_n action or Schur character. The signed local orbit representation and stable four-Specht decomposition require orientation-trace information not implied by Betti numbers. Resultary returned identical assigned entry and different Kneser/matching-complex representation claims, none a stronger theorem on this D_{n,n-2}. Unindexed equivariant domination-complex literature remains risk.
+
+## value
+
+PASS
+
+PASS. Equivariant homology gives complete S_n symmetry content of a natural graph domination complex where nonequivariant two-sphere counts were known. Exact Specht multiplicities permit fixed-point and symmetry questions that Betti numbers alone cannot answer. The n4/n5 transitions and n>=6 stable family constitute a complete natural classification, not a mere cosmetic rewording.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
