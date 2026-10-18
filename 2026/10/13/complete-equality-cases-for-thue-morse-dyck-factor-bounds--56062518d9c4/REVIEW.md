@@ -1,20 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof uses the exact recurrence system and inequalities established in the primary source. The finite range below the recurrence cutoff is evaluated from the source's exact rank-\(7\) representation.
+## correctness
 
-For the upper bound, all sufficiently large odd arguments are strictly below \(n\); the even recurrence preserves equality exactly. The finite base therefore propagates only the \(3\cdot2^j\) branch, with \(1,2\) remaining isolated.
+PASS
 
-For the global lower bound, odd arguments cannot equal \(n/2\), and doubling preserves equality exactly. The only surviving base branch starts at \(4\), so the complete set is \(2^j\) for \(j\ge2\).
+The proof uses the cited published recurrence d(2m)=2d(m) and three odd-index recurrences for m>=3, the published two-sided inequalities and DFA q(2^a)=2. Independently counted distinct Dyck factors of a 32768-symbol Thue–Morse prefix for 1<=n<29, recovering exactly the base equality lists upper [1,2,3,6,12,24], global lower [4,8,16], odd lower [3,5]. Published bounds make the upper inequality strict at every sufficiently large odd n; doubling propagates upper equality exactly. The global lower has only even equality and doubling reduces to powers of two. Odd lower: 4m+3 requires simultaneously m power of two and q(m)=1, contradicting q(2^a)=2; 8m+1 has a stronger lower bound; 8m+5 equality would make consecutive m,m+1 powers of two. This is a complete infinite induction, not an extrapolation from the finite prefix.
 
-For the stronger odd bound, each odd recurrence branch is analyzed at equality. The \(4m+3\) branch would require a lower extremizer \(m=2^a\) together with \(q(m)=1\), contradicted by the published DFAO value \(q(2^a)=2\). The \(8m+1\) branch is uniformly strict, and the \(8m+5\) branch would require consecutive powers of two.
+## originality
 
-## Originality
-PASS. The direct paper proves the bounds and displays infinite equality families, but it does not state the converse. The checked OEIS entry gives the sequence and recurrences without an if-and-only-if extremizer classification. Focused searches under the exact equations, the sequence identifier, and extremizer terminology found no covering result.
+PASS
 
-Residual risk remains for an unindexed short note extracting the same equality cases from the published recurrences.
+The exact 2023/2025 Mol–Rampersad–Shallit paper was read in the relevant full mathematical sections, including Lemma 5.1 and Theorems 5.2–5.3. It establishes sharp inequalities and exhibits infinite extremal families, but its written statements do not assert their uniqueness or list the two isolated upper and two odd lower equality cases as an iff theorem. OEIS A345199 supplies values/recurrences but not a demonstrated if-and-only-if classification. The new argument logically combines source recurrence strictness, finite base, and automatic q behavior; a priority risk remains if the equivalence is known in subsequent commentary.
 
-## Value
-PASS. A theorem advertised as having tight upper and lower bounds naturally raises the question of all equality cases. The result completes both bounds and the stronger odd refinement with exact infinite classifications, rather than extending a finite table.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For a natural automatic word and a distinguished Dyck-factor complexity function, classifying all equality cases of sharp published extremal bounds is a motivated complete extremizer problem. Showing no other odd or dyadic equality families exist strengthens mere examples and reveals recurrence rigidity, without claiming new bounds or closed forms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
