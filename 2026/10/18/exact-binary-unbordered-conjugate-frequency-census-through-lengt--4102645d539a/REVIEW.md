@@ -1,0 +1,9 @@
+# Review of the binary unbordered-conjugate frequency census
+
+**Correctness (PASS).** The supplied generator traverses all binary necklaces of lengths \(1\)–\(28\) with orbit weights (period for nonprimitive words; full length for primitive words) and an exhaustive border test at every rotation. The mathematical FKM necklace generation theorem and the short-border equivalence justify exhaustion. An independently written word-by-word bitmask enumerator matches every bin for lengths \(1\)–\(25\); every row through \(28\) matches exact total counts, Möbius nonprimitive counts, and the classical first-moment identity. Exact rational arithmetic yields the stated variance. The last three rows were not independently checked by a full second exhaustive enumeration.
+
+**Originality (PASS with residual bibliographic risks).** Clokie, Gabrić and Shallit (arXiv:1904.08187) determine maximum, support, and mean but not the complete finite frequency distribution. Holub and Müller (arXiv:1504.02222) classify restricted unbordered-conjugate patterns. Harju and Nowotka’s border-correlation image counts, including OEIS A091838, do not state preimage-fiber weights. OEIS A321162 records only the maximum. Rivals and Wang’s 2024 pair-overlap populations are a distinct statistic. A full reading of the 2004 original binary correlation paper was not obtained, and unindexed equivalent tables remain possible.
+
+**Value (PASS).** This is an exhaustive distributional classification, not an isolated value: its \(28\) finite laws refine known first-moment/maximum theory for exactly the same random variable, supply higher moments including an exact variance, and provide reproducible benchmark data against which to test asymptotic conjectures. This work does not claim an all-length formula or a theorem based on finite samples.
+
+Self-review: passed. Independent audit: not yet performed.

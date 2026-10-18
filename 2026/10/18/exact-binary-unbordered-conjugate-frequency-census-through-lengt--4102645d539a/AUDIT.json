@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "The FKM binary necklace generator emits one representative per cyclic orbit of words of each length n. Orbit sizes are exactly p (primitive root length); proper powers contribute zero unbordered rotations, primitive words contribute n to the bin for their explicitly tested rotations. For each rotation every border of length at most floor(n/2) is checked, and every longer border implies a smaller positive border. Thus complete finite enumeration yields exact H(n,j) for all n=1,...,28, with maximum sum 2^28 well within 64-bit unsigned counters. A completely separate all-binary-words enumerator using bit rotations and XOR tests agrees in every bin through n=25. Every n=1..28 row additionally satisfies exact total, nonprimitive count via Möbius inversion, and expected-count identity n*u_2(n). Exact rational variance computed from second moment; output-level verification replayed successfully from actual prepared source paths. No asymptotic statements inferred.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1904.08187 v1, Theorem 14 (PDF p.12): expectation equals n*u_2(n)/2^n, and Sections 3–4 give support and maximum.",
+        "arXiv:1504.02222 (Holub–Müller): structural results for fully bordered words and words with two unbordered conjugates.",
+        "arXiv:2405.09393 (Rivals–Wang): population recurrences for correlations of ordered pairs of words."
+      ],
+      "reasoning": "The known expectation and maximum are projections of the full distribution and do not imply its remaining frequencies or finite variance. A result classifying words in one special category does not determine all frequencies. The overlap-correlation pair model differs in domain from cyclic conjugates of one word; no implication to the entire finite table was found.",
+      "searches": [
+        "circularly squarefree words unbordered conjugate count joint distribution binary length",
+        "Fully bordered words counts exact table distribution unbordered rotations",
+        "https://arxiv.org/pdf/1904.08187",
+        "https://arxiv.org/abs/1504.02222",
+        "https://arxiv.org/abs/2405.09393"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1904.08187v1",
+      "arXiv:1504.02222",
+      "doi:10.37236/916",
+      "doi:10.1016/j.jcta.2004.07.009 (indirect; full text unavailable)",
+      "arXiv:2405.09393 (abstract only)",
+      "OEIS:A091838",
+      "OEIS:A321162"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2019 Theorem 14 yields exactly the aggregate identity sum(j*H(n,j))=n*u_2(n), which was independently used as a checksum.",
+        "2019 maximum theorem identifies only the largest j with H(n,j)>0; OEIS A321162 records that statistic.",
+        "2004/2008 border-correlation image results concern existence and image support; the census counts labeled preimages, including multiplicity."
+      ],
+      "reasoning": "The finite claim is strictly finer than its first-moment and maximum projections, because many integer histograms have the same support, mean and maximum. Nothing in the checked texts establishes each exact H(n,j). Conversely, this census does not purport to strengthen the universal support/maximum theorem or supply an all-length distribution.",
+      "searches": [
+        "circularly squarefree words unbordered conjugate count joint distribution binary length",
+        "Fully bordered words counts exact table distribution unbordered rotations",
+        "https://arxiv.org/pdf/1904.08187",
+        "https://arxiv.org/abs/1504.02222",
+        "https://arxiv.org/abs/2405.09393",
+        "Exact full frequency distribution of number of unbordered cyclic conjugates for each binary word of length 1 through 28; histogram H(n,j) counts words with exactly j unbordered conjugates, including second moment and variance",
+        "Count of binary words having exactly 3,4,5 unbordered conjugates; census of border correlation arrays for all binary words length n"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Clokie–Gabrić–Shallit (2019), arXiv:1904.08187 Sections 3–5: attainable counts, extremum, and expected value.",
+        "Harju–Nowotka (2008) abstract: possible binary-valued border-correlation images, distinct from their preimage multiplicities."
+      ],
+      "reasoning": "Rephrasing as weight distribution of border-correlation words, distribution of the number of unbordered cyclic conjugates, or distribution of zero entries of the border indicator produces the same requested table. The inspected publications constrain allowable indicator vectors or individual moments, but none exhibits exact preimage-multiplicity histograms for lengths 1–28.",
+      "searches": [
+        "\"unbordered conjugates\" \"distribution\" number binary words",
+        "\"unbordered conjugates\" \"variance\" \"expected\" finite",
+        "\"unbordered conjugates\" \"number of words\" exactly",
+        "Exact full frequency distribution of number of unbordered cyclic conjugates for each binary word of length 1 through 28; histogram H(n,j) counts words with exactly j unbordered conjugates, including second moment and variance",
+        "Count of binary words having exactly 3,4,5 unbordered conjugates; census of border correlation arrays for all binary words length n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A091838: number of distinct images of binary border-correlation function (not image multiplicities).",
+        "OEIS A321162: largest number of unbordered conjugates at each length (not frequency distribution)."
+      ],
+      "reasoning": "Both OEIS entries collapse the preimage histogram and cannot recover the claimed H(n,j) values or their variance. No identical full table was found in the queried database or search results. Database absence is not mathematical proof of novelty.",
+      "searches": [
+        "unbordered conjugates distribution number frequency histogram computational OEIS",
+        "https://oeis.org/A091838",
+        "https://oeis.org/A321162"
+      ]
+    },
+    "rationale": "The 2019 original theorem determines maximum, achievable support, and expectation, none of which determines the full integer fiber sizes or second moment. The 2004/2008 border-correlation literature concerns realizable indicator vectors; this census weights each number of unbordered conjugates by the exact number of binary word preimages. The 2024 population recurrence is for overlap correlations of pairs of words rather than cyclic rotations of one word. Published database tables examined give image counts and maxima, not the full H(n,j) table. Multiple semantic searches and relevant inspected texts found no covering theorem/table. Residual risk: 2004 full text inaccessible and unindexed computations could overlap.",
+    "residual_risks": [
+      "Exact 2004 full text was not available for direct checking; a previously unpublished appendix/table might partially overlap.",
+      "Other unindexed numerical tables or an implication of a broader border-correlation enumeration may exist.",
+      "The finite cutoff n=28 is computational and does not imply an infinite-family distribution formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS maximum, feasible range and mean; does not contain full frequency table/second moments.",
+        "evidence": [
+          "Theorem 14, paper p.12, sums indicators over all primitive words to obtain n*u_2(n)/2^n.",
+          "Sections 3 and 4 characterize maximum and support of number of unbordered conjugates."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1904.08187",
+        "material_read": "Introduction, definitions and statements; Sections 3–5 including Theorem 14 proof and numerical/structural assertions; PDF page images at introduction and page 12.",
+        "method": "arXiv open-access full-text extraction with rendered-page inspection",
+        "title": "Circularly squarefree words and unbordered conjugates: a new approach",
+        "trigger": "Exact same invariant and first-moment theorem."
+      },
+      {
+        "assessment": "Partial special-fiber structural information; no full n-by-j labeled frequency table.",
+        "evidence": [
+          "Classifies fully bordered words and the possible two-unbordered case; unrelated to intermediate fibers taken jointly."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1504.02222",
+        "material_read": "Open-access PDF primary statements and relevant structural sections.",
+        "method": "arXiv full-text and targeted theorem inspection",
+        "title": "Fully Bordered Words",
+        "trigger": "Classification of primitive words with small numbers of unbordered rotations."
+      },
+      {
+        "assessment": "The stated contribution counts distinct border-correlation images over three symbols, not binary labeled preimage frequencies. Full text not conclusively inspected.",
+        "evidence": [
+          "Electronic Journal of Combinatorics 15 (2008) #N41 abstract gives image-count formula for three symbols."
+        ],
+        "identifier_or_url": "https://doi.org/10.37236/916",
+        "material_read": "Published abstract and bibliographic description; full-text source attempted but access-limited.",
+        "method": "Official journal abstract and alternate publicly indexed paper description",
+        "title": "Bordered Conjugates of Words over Large Alphabets",
+        "trigger": "Possible stronger image classification via border correlations."
+      },
+      {
+        "assessment": "Strong relatedness; known image-count sequence differs from present preimage-weighted histogram. Full source remains material bibliographic risk.",
+        "evidence": [
+          "OEIS A091838 links the 2004 work to number of border-correlation images.",
+          "Clokie et al. 2019 discuss this article as source of maximum/indicator constraints."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jcta.2004.07.009",
+        "material_read": "Bibliographic record, database link, and discussion of its results in 2019 primary full text. Original full text inaccessible.",
+        "method": "Cross-reference analysis from later source; direct full-text access attempted but unavailable",
+        "title": "Border correlation of binary words",
+        "trigger": "Original binary border-correlation function, plausible prior coverage."
+      },
+      {
+        "assessment": "Pair-of-words overlap populations; possible inspiration but no demonstrated covering result for the single-word cyclic orbit distribution.",
+        "evidence": [
+          "The abstract concerns cross-overlap correlations of ordered pairs and longest-overlap length distributions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2405.09393",
+        "material_read": "Complete bibliographic abstract with theorem description; no claim of full paper inspection.",
+        "method": "arXiv primary abstract and scientific implication comparison",
+        "title": "Counting overlapping pairs of strings",
+        "trigger": "A general population-counting framework for word overlap correlations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4102645d-539a-433b-8193-8056d5faa46f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Clokie–Gabrić–Shallit specifically address the random variable counting unbordered conjugates but obtain its first moment, maximum and attainable support. The full probability law, not any one arbitrary slice, is the natural missing statistic: it distinguishes typical from extreme cyclic border behavior and gives all moments and reconstruction ambiguity probabilities for finite blocklengths. Exhaustive n<=28 census covers 268,435,456 labeled words at its boundary and produces a non-obvious exact n=28 variance 131772345343303/70368744177664 and 5,040 extremal words. These natural distributional facts are not logically entailed by the known extremum/expectation, offer reproducible benchmarks for future enumeration/analytic recurrence work, and give meaningful new finite quantitative detail despite no universal theorem. Limitation: not a statement about n>28; a broader theoretical distribution would be more valuable but is not claimed.",
+    "status": "PASS"
+  }
+}
