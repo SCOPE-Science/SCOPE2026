@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The claim is finite and is checked by exhaustive exact arithmetic. Compile `verify.cpp` with a C++17 compiler and run the resulting executable. It enumerates all words in \(\{T,T+1\}^d\) for each \(15\leq d\leq22\), marks their continuant denominators, enumerates every squarefree monic polynomial of degree \(d\) prime to \(T(T+1)\), factors it exactly over \(\mathbb F_2\), evaluates every simple-pole trace \(\psi_P(f)\), and compares the two predicates.
+# Independent mathematical audit
 
-The replay on the packaged source ended with:
+## correctness
 
-`VERIFY_OK degrees=15..22 coprime_squarefree_cases=1856852 mismatches=0`
+PASS
 
-Degree-by-degree tested counts were 7,286; 14,559; 29,132; 58,249; 116,514; 233,011; 466,040; and 932,061, all with zero mismatches.
+Inspected full C++17 verifier: every 2^d word over {T,T+1} produces the corresponding degree-d continuant K_d, so membership exactly tests positive multiplicity; the loop scans all monic degree-d bitmasks, filters squarefree by gcd(f,f')=1 and f(0)=f(1)=1, divides all small irreducibles of degrees ≤d/2 and any remaining composite would violate that bound. The residue trace computes Tr_{F_{2^degP}/F2}[1/(T(T+1)(f/P)P')] via exact modular powering/Frobenius. Independently recompiled and reran the *inspected code*, reproducing by-degree tested counts 7286,14559,29132,58249,116514,233011,466040,932061 and ZERO mismatches across total 1,856,852. Verified the logic and no extrapolation beyond degree22; original published positive-denominator table alone does not test residue equivalence.
 
-A separate direct continuant enumeration gave the distinct-denominator counts 10,302; 19,921; 38,680; 75,053; 146,230; 284,755; 556,082; and 1,085,674 for degrees 15 through 22, exactly matching Table 1 of arXiv:2610.02352v1. This cross-check validates the continuant-membership side against an independently published table.
+## originality
 
-The verification does not extrapolate beyond degree 22. It does not test nonsquarefree polynomials or polynomials divisible by \(T\) or \(T+1\), and those cases are not claimed.
+PASS
+
+A complete explicit finite verification of the previously conjectural pointwise residue criterion for degrees 15..22 is a new finite dataset; published counts of positive multiplicity through degree33 do not themselves compare the two predicates. Best of knowledge, with inaccessible Lauder thesis risk.
+
+## value
+
+PASS
+
+The conjectured residue criterion is a natural local-to-global characterization of orthogonal multiplicity; verifying all 1,856,852 admissible objects through degree22 is a meaningful complete finite cutoff extending published direct checks from degree14 and crossing a historical degree21 tabulation limit. Both indicator predicates were independently enumerated, not just recomputed a known table. This is a finite benchmark for future attempts at the open all-degree criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

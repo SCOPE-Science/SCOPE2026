@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T13:47:38.748062Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen verify.cpp Git blob 804314fe33513029c76a09cdfe0203417f728cb8",
+        "fresh C++17 -O3 execution with complete 8-degree census; runtime 8.79sec",
+        "RESULT.md complete finite-domain definitions"
+      ],
+      "rationale": "Inspected full C++17 verifier: every 2^d word over {T,T+1} produces the corresponding degree-d continuant K_d, so membership exactly tests positive multiplicity; the loop scans all monic degree-d bitmasks, filters squarefree by gcd(f,f')=1 and f(0)=f(1)=1, divides all small irreducibles of degrees ≤d/2 and any remaining composite would violate that bound. The residue trace computes Tr_{F_{2^degP}/F2}[1/(T(T+1)(f/P)P')] via exact modular powering/Frobenius. Independently recompiled and reran the *inspected code*, reproducing by-degree tested counts 7286,14559,29132,58249,116514,233011,466040,932061 and ZERO mismatches across total 1,856,852. Verified the logic and no extrapolation beyond degree22; original published positive-denominator table alone does not test residue equivalence.",
+      "residual_risks": [
+        "Independent rerun used a faithful inspected source transcription rather than a mathematically independent algorithm; full all-degree conjecture remains open."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Source reports positive multiplicity cardinalities through degree33, Blackburn table degree21; neither numerical count by itself implies the residue equivalence for each polynomial."
+        ],
+        "reasoning": "The known denominator count is coarser than the memberwise local residue test, so the larger numerical table does not automatically cover this validation.",
+        "searches": [
+          "arXiv:2610.02352 positive orthogonal multiplicity counts degree33",
+          "Blackburn 1998 orthogonal multiplicity degree21",
+          "Lauder 1999 Laurent continued fractions given set"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.02352 abstract only",
+        "Blackburn 1998 bibliographic and package-cited discussion",
+        "Lauder 1999 title and source discussion, not full-text read",
+        "Resultary orthogonal multiplicity semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An all-degree proof in older Lauder work would make finite validation logically covered; such a proof was not established in accessible source material; current motivating paper still labels residue test conjectural."
+        ],
+        "reasoning": "With presently inspected evidence, the finite memberwise criterion is not a corollary of any established all-degree theorem; preserve possibility of uninspected equivalence as residual rather than fabricating novelty proof.",
+        "searches": [
+          "arXiv:2610.02352 equation 4 and finite evidence",
+          "Lauder continued fraction criterion possible equivalence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Motivating source abstract and inspected package cite criterion as conjectural, reportedly verified squarefree through degree14; new direct exact local verification covers degrees15..22."
+        ],
+        "reasoning": "Same objects and exact predicate, but expands finite checked domain; does not assert new unbounded theorem.",
+        "searches": [
+          "orthogonal multiplicity polynomial F2 Laurent continued fractions local residue psi_P positivity degree 22 finite computational verification [Resultary 20 hits]",
+          "arXiv:2610.02352 local residue psi_P f criterion conjecture equation 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published table contains counts of f with m(f)>0; audited degree15..22 1,856,852 indicator comparisons are a distinct exact Boolean table."
+        ],
+        "reasoning": "Exact tables of marginal counts do not determine equality of the two per-polynomial predicates; no located table compares both in these degrees.",
+        "searches": [
+          "arXiv:2610.02352 Table 1 degrees 15..33",
+          "Blackburn J Number Theory 68 (1998) multiplicity tables",
+          "orthogonal multiplicity polynomial F2 Laurent continued fractions local residue psi_P positivity degree 22 finite computational verification [Resultary 20 hits]"
+        ]
+      },
+      "rationale": "A complete explicit finite verification of the previously conjectural pointwise residue criterion for degrees 15..22 is a new finite dataset; published counts of positive multiplicity through degree33 do not themselves compare the two predicates. Best of knowledge, with inaccessible Lauder thesis risk.",
+      "residual_risks": [
+        "Complete recent primary arxiv text and Lauder 1999 thesis were inaccessible; their proofs or tables might already imply the checked criterion.",
+        "Short finite cutoff beyond Blackburn table is independently valuable only within exact conjectural validation; not proof in arbitrary degree."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Abstract does not claim pointwise verification beyond degree14; cannot assert whole-text noncoverage",
+          "evidence": [
+            "Abstract states counts to degree33, independent local distributions, conjectural pooled behavior"
+          ],
+          "identifier_or_url": "arXiv:2610.02352v1",
+          "material_read": "Abstract only, including definition of orthogonal multiplicity, reciprocity, local distribution, exact degree counts through33; complete primary PDF inaccessible",
+          "method": "arXiv abstract and lawful OA searches; authorized institutional retrieval gave vpn_disconnected and was not bypassed",
+          "title": "The proportion of polynomials over F_2 with positive orthogonal multiplicity",
+          "trigger": "Same local residue criterion and published counts"
+        },
+        {
+          "assessment": "Historically relevant but unpublished full-text implication not ruled out",
+          "evidence": [
+            "J. Number Theory 68 (1998), orthogonal multiplicity structural source"
+          ],
+          "identifier_or_url": "DOI:10.1006/jnth.1997.2201",
+          "material_read": "Bibliographic description and source discussion; no full text",
+          "method": "Public bibliographic and cited primary-source descriptions",
+          "title": "Orthogonal Sequences of Polynomials over Arbitrary Fields",
+          "trigger": "Possible underlying multiplicity table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Niedbala Giraudin 2026 conjectural criterion and known finite evidence",
+        "Blackburn positive multiplicity theory"
+      ],
+      "rationale": "The conjectured residue criterion is a natural local-to-global characterization of orthogonal multiplicity; verifying all 1,856,852 admissible objects through degree22 is a meaningful complete finite cutoff extending published direct checks from degree14 and crossing a historical degree21 tabulation limit. Both indicator predicates were independently enumerated, not just recomputed a known table. This is a finite benchmark for future attempts at the open all-degree criterion.",
+      "residual_risks": [
+        "Finite exact validation alone does not establish a global theorem or asymptotic distribution; claimed domain precisely bounded."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Exact finite computational theorem: for all 1,856,852 squarefree monic f∈F2[T] of degrees 15..22 prime to T(T+1), m(f)>0 iff every nonlinear irreducible P dividing f has vanishing trace residue psi_P(f), as explicitly defined by simple-pole finite-field trace.",
+  "limitations": [
+    "Only degrees15..22, squarefree and prime to T(T+1); no arbitrary-degree or repeated-factor assertion.",
+    "Primary arXiv full text and Lauder historical thesis access blocked, recorded as originality risk."
+  ],
+  "schema_version": 1
+}
