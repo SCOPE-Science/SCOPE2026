@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "All quantifiers and hypotheses are explicit: m integer at least 2, all symmetric nonnegative stochastic 2m-by-2m kernels with allowed loops and only the prescribed edges. Averaging proves reduction over ALL feasible kernels to two weights. Orthogonal decomposition yields eigenvalues 1, 1-my, 1-(m-1)x-y (multiplicity 2m-4), and the explicit 2-by-2 odd block. For 2<=m<=7, its first column proves the global 1/sqrt(m) lower bound, achieved by a feasible rational choice; the remaining eigenvalue is bounded. For m>=8, the stated candidate has three active convex eigenvalue bounds and positive coefficients alpha,beta,gamma summing to one whose weighted gradients vanish, yielding a supporting-hyperplane global certificate; positivity follows from sqrt(m^2-8m+8)>2 and <m. Strictly positive multipliers force uniqueness of the invariant optimizer. The exact penalty follows by rationalization. The package checker independently constructs full matrices and verifies symbolically the nonstandard identities for tested integer values; no finite test is used to infer the all-m claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2007 paper proves general group-averaging and reduced SDP methods but gives no closed value for this particular two-orbit perturbed family in its relevant examples.",
+        "Olesker-Taylor and Zanetti, arXiv:2111.05816v1, abstract and sections 1-2 give geometric order estimates for mixing and optimal spectral gap under laziness conventions, not the exact SLEM and edge probabilities here."
+      ],
+      "reasoning": "A general SDP that can solve each finite instance numerically is weaker than this uniform symbolic closed-form classification. Coarse graph-geometric mixing bounds do not determine the square-root branch or exact edge weights.",
+      "searches": [
+        "arXiv:0709.0955v1 section 2 symmetry reduction and section 5 block-diagonalization",
+        "arXiv:2111.05816v1 geometric bounds on fastest mixing chain",
+        "fastest mixing Markov chain graph edge deletion robustness sensitivity single edge explicit optimum"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1137/S0036144503423264 (public PDF relevant sections)",
+      "arXiv:0709.0955v1 (public PDF relevant sections)",
+      "DOI:10.1080/00029890.2006.11920281 (author abstract)",
+      "arXiv:2111.05816v1 (public PDF abstract/intro/definitions)",
+      "arXiv:1109.6075 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Boyd et al. (2004) specify intact-biclique optimum SLEM 1/3 for the balanced case and symmetrization, which serves as baseline only.",
+        "Boyd et al. (2007) solve the intact biclique via equal cross-edge weights; the one-deleted-edge case violates this symmetry.",
+        "The 2006 path theorem covers m=2 because K_{2,2} with one edge removed is P_4.",
+        "Fill and Kahn focus on stochastically monotone chains on ordered spaces and path birth-death chains, not this graph."
+      ],
+      "reasoning": "The new theorem does not claim m=2 or intact-graph mixing as original. The graph with one absent edge has different 2x2 odd-block eigenvalues, an exactly located seven/eight transition and a new asymptotic edge-loss coefficient. These are not straightforward corollaries of cited numerical SDP algorithms, unrelated path comparisons, or the intact graph formula.",
+      "searches": [
+        "DOI:10.1137/S0036144503423264 public PDF section 7.1",
+        "arXiv:0709.0955v1 equation (10)-(11) complete bipartite",
+        "fastest mixing Markov chain on a path Boyd Diaconis Sun Xiao 2006",
+        "DOI:10.1214/12-AAP886 Fill Kahn comparison inequalities"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2007 arXiv:0709.0955v1 pp.8-10 gives intact biclique K_{m,n} equation (10)-(11), pp.17-18 Kn-Kn bridge, and pp.26-27 intact biclique blocks; none removes one cross-edge.",
+        "Public searches returned generic fastest-mixing optimization frameworks and unrelated graph families, not the same statement."
+      ],
+      "reasoning": "The graph has 2m vertices and one absent cross edge. The intact biclique is edge-transitive and has a single edge orbit; the perturbed graph has two edge orbits and a distinct odd 2-by-2 quotient. An intact result cannot be specialized by setting one edge probability to zero without losing the equal-orbit argument; the new exact piecewise optimum must be derived separately.",
+      "searches": [
+        "fastest mixing Markov chain missing one edge complete bipartite graph optimal",
+        "FMMC biclique delete one edge exact threshold",
+        "fastest mixing transition matrix complete bipartite graph one absent edge",
+        "arXiv:0709.0955v1 sections 3.1.2, 4.3.1, 5.3.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "In a public mathematical research semantic index, closest displayed entries concerned geodesic-subpath numbers or non-CIS pairs of deleted-matchings, an eight-vertex path average-mixing question, and unrelated graph metrics; none claims the two-orbit FMMC optimum.",
+        "Earlier 2004 and 2007 full-text examples contain exact tables/formulas for intact bicliques, not a deleted single edge."
+      ],
+      "reasoning": "A source about a graph with missing edges is not an exact-database match unless its invariant is SLEM optimized over symmetric stochastic matrices. The nearest results involve distinct invariants and cannot recover the present two-branch value by implication. A failed query is not proof that no matching table exists.",
+      "searches": [
+        "exact fastest mixing on K_{m,m} with one missing edge phase transition at m=8 eigenvalue modulus one over square root m",
+        "balanced biclique one edge deleted fastest symmetric random walk optimum 1/sqrt(m) m<=7 square root m^2-8m+8",
+        "fastest mixing on edge-deleted complete bipartite graph single absent link 90C22"
+      ]
+    },
+    "rationale": "The inspected 2004 and 2007 primary papers give the general SDP and symmetry framework and solve intact complete bipartite graphs; the 2006 path theorem covers the degenerate m=2 instance. Their results do not state the deleted-single-edge all-m formulas, the sharp transition at m=8, or the asymptotic deletion penalty. Their generic algorithms can compute individual finite instances, but do not imply these exact closed formulas without new two-orbit eigenvalue and positivity-certificate calculations. The searched external mathematical research records address many other deleted-edge or fastest-mixing graph families but no matching theorem. Residual specialized-literature risk remains.",
+    "residual_risks": [
+      "Equivalent treatment of almost-complete bipartite fastest-mixing in unindexed specialized literature cannot be ruled out.",
+      "Full text of the Fill–Kahn comparison paper not inspected; the abstract points to paths, so its possible indirect implications remain unverified.",
+      "The 2007 general symmetry-SDP machinery is prior work and not claimed new; novelty is only its explicit single-edge-deletion solution and threshold."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_PRIOR_AND_INTACT_CASE; no edge-deleted biclique formula in inspected relevant section",
+        "evidence": "Section 7.1 pp.684-685 derives one common edge weight and eigenvalues 1,1-mp,1-np,1-(m+n)p for K_{m,n}; printed 2004 electronic first-public date 2004-10-29.",
+        "identifier_or_url": "https://www.stat.berkeley.edu/~aldous/206-RWG/RWGpapers/boyd.pdf",
+        "material_read": "Abstract/introduction, FMMC definition, symmetry reduction and complete bipartite calculation pp. 1-3, 18-19 of 23-page PDF",
+        "method": "Read public full-text PDF via searchable page text and inspected relevant formula",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Foundational full SDP source and exact intact K_{m,n} baseline"
+      },
+      {
+        "assessment": "STRONG_METHODOLOGICAL_PRIOR_NOT_SAME_CLASSIFICATION",
+        "evidence": "Equation (10)-(11) treats intact K_{m,n}; section 4.3.1 treats two K_n joined by bridge, not K_{m,m} with one absent cross-edge; arXiv v1 posted 2007-09-06.",
+        "identifier_or_url": "https://arxiv.org/pdf/0709.0955",
+        "material_read": "Full-text sections 1-2 and relevant sections 3.1.2 (pp.9-10), 4.3.1 (pp.17-19), 5.3.1 (pp.26-27), reference list; searched full document for missing/single edge",
+        "method": "Read arXiv v1 public PDF page text, inspected first page image and matching sections",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Most plausible directly relevant symmetry/quotient method and graph examples"
+      },
+      {
+        "assessment": "COVERS_M_EQUALS_2_ONLY",
+        "evidence": "Path P_4 has optimal SLEM cos(pi/4)=1/sqrt2, consistent with the theorem; not claimed novel.",
+        "identifier_or_url": "https://www.web.stanford.edu/~boyd/papers/fmmc_path.html",
+        "material_read": "Public author abstract giving exact 1/2 path weights and optimal cos(pi/n)",
+        "method": "Author-hosted abstract and bibliographic record, not an entire downloaded paper",
+        "title": "Fastest Mixing Markov Chain on a Path",
+        "trigger": "Special case K_{2,2} minus an edge is a four-vertex path"
+      },
+      {
+        "assessment": "COARSE_DIFFERENT_OBJECTIVE_NOT_SAME_EXACT_FORMULA",
+        "evidence": "Abstract gives Cheeger-type mixing-time bounds using vertex conductance; paper uses laziness and spectral-gap optimization rather than exact unrestricted SLEM deleted-biclique formulas.",
+        "identifier_or_url": "https://arxiv.org/pdf/2111.05816",
+        "material_read": "Full-text introduction, results/definitions, contents and bibliography; searched whole extracted document for bipartite and edge-deletion",
+        "method": "Read public arXiv PDF text and searched relevant terms",
+        "title": "Geometric Bounds on the Fastest Mixing Markov Chain",
+        "trigger": "Potential broader graph-independent strongest mixing result"
+      },
+      {
+        "assessment": "ABSTRACT_APPEARS_PATH_FOCUSED; incomplete source inspection retained as residual risk",
+        "evidence": "Abstract discusses comparison order and fastest birth-death chains on paths, not a stated optimal biclique-deletion formula.",
+        "identifier_or_url": "https://arxiv.org/abs/1109.6075",
+        "material_read": "Primary arXiv public abstract only",
+        "method": "Read title and abstract; no full-document NOT_COVERING judgment",
+        "title": "Comparison Inequalities and Fastest-Mixing Markov Chains",
+        "trigger": "Possibly stronger path or general Markov comparison result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "737f4115-8a98-4acb-8f31-2714dff65488",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This determines a natural all-m spectral optimization invariant of a minimally damaged dense network, with exact transition probabilities under an unrestricted global optimization, a sharp non-obvious dimension switch at m=8, and a quadratic-in-size loss 4/(9m^2) relative to the intact biclique. The result quantifies resilience of optimally designed reversible Markov mixing to one failed link and gives a usable closed-form redesign. It is not merely a numerical SDP solve, a parametrically renamed known graph, or a small isolated example; m>=3 is an infinite structural family.",
+    "status": "PASS"
+  }
+}
