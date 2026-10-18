@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The graph has only two degree-three vertices, and symmetry keeps them in one color class in every round. On each degree-two thread, round-\(r\) colors are exactly the unordered clipped endpoint-distance pairs. This gives the within-thread thresholds \(\lfloor m/2\rfloor\) and \(\lceil k/2\rceil\). For unequal thread lengths, endpoint-adjacent vertices realize the latest cross-thread collision and split exactly at the shorter thread length; equality of clipped pairs beyond that point would force equal total thread lengths. When the lengths coincide, cross-thread positions remain color-equivalent forever. The orbit statement then follows from cut-vertex status on the connector versus non-cut cycle vertices. The standalone checker verifies 2828 parameter pairs.
+## correctness
 
-## Originality
-PASS with residual priority risk. published-finding corpus searches for dumbbell/handcuff color-refinement depth, Weisfeiler--Leman iteration number, and the equal-length resonance returned no matching finding. The inspected dumbbell papers define and study this family spectrally; they do not discuss color refinement. Krebs--Verbitsky supplies only the general universal-cover/refinement framework. No inspected source states the piecewise stabilization formula or the exact resonance criterion for orbit recovery.
+PASS
 
-## Value
-PASS. Dumbbell graphs are a standard bicyclic family, and the result identifies a structural phenomenon rather than a routine numeric table: equality of the cycle and connector thread lengths creates a precise \(1\)-WL resonance where refinement ceases to recover automorphism orbits. The same thread calculation gives a complete exact iteration law off resonance. This supplies a compact benchmark for how cycle structure can become invisible to color refinement despite being automorphism-theoretically decisive.
+The two attachment vertices are same-colored by the end-interchanging graph automorphism, and all other degree-two vertices lie on threads of lengths m or p between degree-three endpoints in the universal cover. At round r, each thread position has color determined by unordered clipped distances from its endpoints; induction extends one visible edge per round, with degree-three endpoint color as anchor. Same-thread partitions stabilize at floor(L/2). Unequal thread lengths first separate positions near an endpoint at round min(m,p), while equal threads remain identified forever. If p!=m, position up to reflection and thread type exactly describes automorphism orbits; if p=m, connector internal vertices are cut vertices while cycle internal vertices are not, proving orbit mismatch. Independently reimplemented 1-WL and constructed graphs for all 210 pairs 3<=m<=12, 0<=k<=20 and reproduced the depth formula, including 10 resonances. Infinite claim relies on clipped-distance induction, not these samples.
 
-## Closest literature and limitations
-The closest object-specific sources are Wang--Belardo--Huang--Li Marzi (2010) and Liu--Lu (2014), both on spectral determination of dumbbell graphs. The closest methodological source is Krebs--Verbitsky (2014) on universal covers and color-refinement depth. None of the inspected material gives the present formula. Unequal cycle lengths are not covered.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original exact stabilized partition and resonance classification for canonical equal-cycle dumbbells. Krebs–Verbitsky establish the general truncated universal-cover interpretation of refinement, while Liu–Lu and Wang et al. study spectral structure of dumbbells, not exact 1-WL depth. Generic covering results do not directly yield the piecewise formula and strict orbit-recovery dichotomy for this family.
+
+## value
+
+PASS
+
+The exceptional equality of cycle and connector lengths yields a clean qualitative phase change where 1-WL fails to recover orbit classes, along with sharp iteration depth for every family parameter. Exact depth and the cutvertex-orbit obstruction are natural graph isomorphism/color-refinement invariants and cannot be replaced by a finite-instance observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
