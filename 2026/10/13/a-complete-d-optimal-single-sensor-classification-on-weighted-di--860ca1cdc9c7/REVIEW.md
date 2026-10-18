@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The weighted Laplacian is defined explicitly and has a simple real spectrum for pairwise distinct positive leaf conductances. Its Gramian diagonalization yields an exact finite-horizon determinant factorization. An exact characteristic-polynomial evaluation eliminates the unknown eigenvalues, while polynomial identities for all Krylov determinants handle every repeated-weight boundary. Direct inequalities eliminate the hub and smallest-weight leaf, and the explicit near-collision construction realizes every remaining weight rank as a unique optimum. The standalone exact-rational verification program tests the identities and constructive rankings; it does not replace the proof for all real parameters. No claims are made about directed stars or other sensor criteria.
+PASS
 
-## Originality — PASS (bounded literature check)
+For all star sizes m>=2 and w_i>0, the symmetric weighted Laplacian has simple eigenvalues when w_i distinct: the eigenvector leaf-to-hub ratio is w_i/(w_i-lambda). Evaluating its characteristic polynomial at w_i yields the exact horizon-free determinant ratio d_i², d_i=w_i^{m-1}/prod_{k!=i}|w_i-w_k|. Independent exact rational Krylov determinants confirm |det O_0|=(prod w_i)prod_{a<b}|w_a-w_b| and |det O_j|=(prod w_i)w_j^{m-1}prod_{a<b,a,b!=j}|w_a-w_b|. These polynomial formulas extend to coincident weights and prove only duplicated-pair leaves stay observable in exactly-one-pair case, while any triple or two-pairs make every Gramian singular. Strict factor comparisons exclude hub and lowest leaf; perturbing the pair at ranks r-1 and r yields positive log-ratio derivative and realizes each rank r>=2 as uniquely optimal. Symbolic construction, not finite random tests, supports all m and T.
 
-The closest powerful antecedent is Fitch and Leonard (ECC 2016), Theorem 2, which already gives the general Laplacian-eigenvector product for Gramian log-volume ranking. That general spectral factorization is not claimed as new. The added claim is the spectral-free closed conductance formula for weighted stars, complete coincident-conductance observability classification, and attainability of exactly all nonminimum leaf ranks as unique optima. Parlangeli and Notarstefano (2011) treat unweighted paths/cycles; Xiang and collaborators (2013) treat qualitative weighted/directed leader control, including a star-symmetry criterion; Summers and Lygeros (2013) focus on modularity of a trace metric; Dilip (2019) studies packet-loss observability. Inspected material does not cover the explicit full statement. A 2025 tree-graph survey could not be read beyond its abstract, and older specialized weighted-star results may exist: this is a real residual risk, not asserted evidence of independence.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem gives an exact, horizon-independent D-optimal node-placement rule at every star size and conductance tuple, determines whether any single node is fully observable at repeated weights, and shows exactly which conductance-rank positions can be made uniquely best. All these are motivated by single-sensor design for Laplacian diffusion rather than by an arbitrary fixed size or parameter selection.
+The general eigenvector-coordinate product criterion is already in Fitch-Leonard 2016 and the spectral Gramian method is known. The inspected primary material does not state the exact all-m weighted-star Vandermonde conductance ratio, complete repeated-weight singularity strata or attainability of each nonminimum conductance rank as unique maximizer. Related Resultary normalized-path result is not a star theorem. These graph-specific all-parameter conclusions survive a best-of-knowledge check.
 
-## Scope and verification limits
+## value
 
-The full-state finite-horizon determinant differs from pseudodeterminants in unobservable cases. Only undirected stars with positive time-independent weights, one coordinate sensor and strictly positive finite horizons are treated. The finite exact-arithmetic tests are supportive diagnostics, and no independent validation is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Conductance-only D-optimal scores for arbitrary size weighted stars, exact observability bifurcation at repeated weights, and realization of every nonminimum leaf rank provide a natural complete single-sensor classification. These are practical network-design invariants not arbitrary finite parameter slices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

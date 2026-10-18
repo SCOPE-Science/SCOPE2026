@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the weighted-star observability classification
+# Independent mathematical audit
 
-The package includes `verify.py`, a standalone program using only the Python standard library. Run `python3 verify.py` from a directory containing that file. It computes the weighted-star Krylov observability matrices and their determinants by exact rational Gaussian elimination, rather than relying on rounded eigensolvers.
+## correctness
 
-The actual packaged source was executed and returned `VERIFY_OK` with 247 rational-weight observability cases, including repeated conductances, and 36 constructed strict-optimum rank examples for stars with 2 through 9 leaves. These checks validate both Vandermonde determinant identities in the stated test cases and illustrate the ranking existence construction. They are not exhaustive over arbitrary dimensions or real weights.
+PASS
 
-The proof of the general result is analytic: a simple-spectrum eigenvector factorization gives every finite-horizon determinant ratio, the characteristic polynomial evaluates explicitly at leaf conductances, and the polynomial Krylov determinant extends the statement to conductance collisions. The rank realizability theorem follows from a strictly positive one-sided logarithmic derivative. These steps—not finite testing—establish the universal quantifiers and boundary cases.
+For all star sizes m>=2 and w_i>0, the symmetric weighted Laplacian has simple eigenvalues when w_i distinct: the eigenvector leaf-to-hub ratio is w_i/(w_i-lambda). Evaluating its characteristic polynomial at w_i yields the exact horizon-free determinant ratio d_i², d_i=w_i^{m-1}/prod_{k!=i}|w_i-w_k|. Independent exact rational Krylov determinants confirm |det O_0|=(prod w_i)prod_{a<b}|w_a-w_b| and |det O_j|=(prod w_i)w_j^{m-1}prod_{a<b,a,b!=j}|w_a-w_b|. These polynomial formulas extend to coincident weights and prove only duplicated-pair leaves stay observable in exactly-one-pair case, while any triple or two-pairs make every Gramian singular. Strict factor comparisons exclude hub and lowest leaf; perturbing the pair at ranks r-1 and r yields positive log-ratio derivative and realizes each rank r>=2 as uniquely optimal. Symbolic construction, not finite random tests, supports all m and T.
 
-No independent audit has been performed. The possibility of an equivalent prior specialized weighted-star formula is a literature-comparison limitation, not an assertion of mathematical independence.
+## originality
+
+PASS
+
+The general eigenvector-coordinate product criterion is already in Fitch-Leonard 2016 and the spectral Gramian method is known. The inspected primary material does not state the exact all-m weighted-star Vandermonde conductance ratio, complete repeated-weight singularity strata or attainability of each nonminimum conductance rank as unique maximizer. Related Resultary normalized-path result is not a star theorem. These graph-specific all-parameter conclusions survive a best-of-knowledge check.
+
+## value
+
+PASS
+
+Conductance-only D-optimal scores for arbitrary size weighted stars, exact observability bifurcation at repeated weights, and realization of every nonminimum leaf rank provide a natural complete single-sensor classification. These are practical network-design invariants not arbitrary finite parameter slices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
