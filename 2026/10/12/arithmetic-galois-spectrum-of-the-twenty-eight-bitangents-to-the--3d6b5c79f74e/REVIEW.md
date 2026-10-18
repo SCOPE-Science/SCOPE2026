@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof exhausts projective line forms and the two ways a degree-four restriction can become a square. Every nonvertical solution is parametrized by two exact quadratic values \(k\) and twelve nonzero roots \(c\), with distinctness checked in every characteristic \(p\ge5\). The field-degree proof uses the nonsquare norm of \((3+2\sqrt3)/12\), the quartic Kummer extension, and irreducibility of the two orbit-polynomials. The finite-field classification follows from quadratic and fourth-power tests; the density statement uses Chebotarev. The executable verifies the identities and forty-four finite fields, which corroborate but do not replace the general proof. Characteristics two and three are excluded.
+## correctness
 
-## Originality — PASS, subject to bibliographic limitations
-Janasz, arXiv:2406.07015v1, already gives the complex \(28\)-bitangent construction and explicit algebraic formulas, so these are explicitly **not** new. Bethea–Brazelton, arXiv:2410.09242v1, gives complex automorphism-orbit data, not the arithmetic action of the absolute Galois group. Earlier comparable recorded results concern four hyperflex lines or bitangents of other quartics. Searches of mathematical records and the relevant primary papers did not locate the exact degree-sixteen minimal field, \(1+1+2+8+16\) arithmetic orbit partition, and universal \(2/4/28\) finite-field spectrum. Search incompleteness and unindexed historical computations are residual risks.
+PASS
 
-## Value — PASS
-The complete splitting-field and Frobenius classification resolve natural arithmetic invariants of a distinguished order-forty-eight quartic, not a freely chosen narrow subsample. It explains precisely when its geometric bitangent configuration is fully visible over prime fields and supplies densities for the full distribution; the result is not a restatement of complex incidence counts or group orbits.
+For quartic X^4+Y^4+XZ^3, the three partial derivatives have no common nonzero projective zero for p>=5. Separating vertical lines X=lambda Z gives four hyperflex bitangents; Y=mX+cZ with c!=0 yields exactly k=(-3±sqrt3)/12 and two equations c^12=a±^3 with 12 roots each (no repetitions, p>=5), total 28. Independent symbolic irreducibility checks for P8=48U^8-24U^4-1 and P16=2304U^16+1152U^12+624U^8-24U^4+1 support orbit partition 1,1,2,8,16. The nonsquare norm a+a-=-1/48 over Q(i) implies quartic Kummer degree four over Q(i,sqrt3), so common Galois splitting field has degree16. Direct finite-field perfect-square tests independently corroborated exact N_p=2/4/28 residue/fourth-power cases for sampled primes through 97; the unrestricted statement uses the algebraic factorization and Chebotarev density, not samples.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The complex 28-bitangent equations and incidence of the quartic were known from Janasz 2024, and automorphism-orbit calculations from Bethea–Brazelton 2024 are different from the absolute Galois action. The new exact minimal degree-16 arithmetic field, Galois orbit partition and all-primes rational-line count do not appear in inspected relevant original sections as evaluated formulas. The data can be derived from earlier explicit complex formulas only after nontrivial number-field and Frobenius analysis; best-of-knowledge with unindexed arithmetic risk.
+
+## value
+
+PASS
+
+The full Galois action on bitangents of a distinguished rational quartic, and the complete list of rational bitangent counts for every prime p>=5 with asymptotic densities, are natural arithmetic invariants. They clarify precisely when the known complex geometric configuration descends, beyond a known complex incidence table or arbitrary finite sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
