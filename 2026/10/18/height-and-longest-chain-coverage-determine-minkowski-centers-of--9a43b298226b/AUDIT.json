@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Proof reconstructs every defining halfspace and its exact unit support width by explicit binary points, derives the necessary and sufficient reflection criterion, proves the height lower bound and a longest-path achieving center, and proves both inequalities for center-space affine dimension via longest-chain forced equalities and separate strict-slack potential certificates. Exact integer verifier passed 33,866 finite cases with 175,583 compressed arcs. Finite checks are corroboration, not infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Finite-poset order-polytope center formula: own recorded statement 2f48aab3-ef81-4776-9f63-49d2157c0b89 covers C empty.",
+        "Perfect-graph stable-set polytope Minkowski-center formula: own recorded statement fa9dec18-ce76-4bfd-9cb9-3cbda641b38b covers O empty.",
+        "arXiv:1807.03970v2 Theorem 2.8 is an additive Minkowski decomposition in varying markings."
+      ],
+      "reasoning": "Endpoint center formulas do not cover mixed chain/order assignments: the transfer maps in the original literature are piecewise linear rather than globally affine. A hypothetical general theorem for all 2-level polytopes remains a residual risk but no explicit covering implication was found.",
+      "searches": [
+        "\"Minkowski asymmetry\" \"chain polytope\" height",
+        "\"Minkowski asymmetry\" \"2-level\" \"codegree\"",
+        "\"chain-order\" \"degree of asymmetry\" polytope",
+        "arXiv:1807.03970v2 sections 2,3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1508.02232v2",
+      "arXiv:1807.03970v2",
+      "arXiv:2309.01626v2",
+      "recorded finite-poset order-polytope center result (endpoint)",
+      "recorded perfect-graph stable-set-polytope center result (endpoint)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1508.02232v2 proves Ehrhart equivalence and discusses facet and unimodular structure for admissible decompositions.",
+        "arXiv:1807.03970v2 Definition 1.2 extends to arbitrary partitions; Theorem 2.8 addresses Minkowski-sum factorization.",
+        "arXiv:2309.01626v2 Theorem 4.1 focuses on face-number monotonicity for maximal ranked posets.",
+        "The order-polytope and stable-set-polytope endpoint conclusions overlap the two extremal partitions but do not imply intermediate geometry."
+      ],
+      "reasoning": "The submitted theorem establishes equality of a reflected-containment invariant across nonaffine intermediate polytopes and exact dimension of every optimizer locus. These assertions are logically different from Ehrhart equivalence, unimodular equivalence criteria, Minkowski sum decomposition, and face-count monotonicity. Endpoint coverage is openly acknowledged, not repackaged as a novel special case.",
+      "searches": [
+        "arXiv:1508.02232v2 Sections 1–5",
+        "arXiv:1807.03970v2 Sections 1–3",
+        "arXiv:2309.01626v2 Sections 2–5",
+        "Theorem on Minkowski asymmetry of arbitrary marked chain-order polytopes rank/height and optimal center dimension independent of chain and order partition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2309.01626v2 Sections 2–5 describe chain-order inequalities, normal forms for faces, and f-vector comparisons, with no asymmetry statement.",
+        "arXiv:1807.03970v2 Sections 1–3 develops Minkowski sum decompositions and reflexivity, not reflection asymmetry."
+      ],
+      "reasoning": "Minkowski sum identities of marked-polytope families are not the containment -(K-c) subset lambda(K-c). A title containing Minkowski therefore does not dominate the reflected-containment theorem. Exact matching formulation not found in queried full-text sections; that is not a proof of global novelty.",
+      "searches": [
+        "\"chain-order polytopes\" \"Minkowski asymmetry\"",
+        "\"marked chain-order polytope\" \"Minkowski asymmetry\"",
+        "\"chain-order polytopes\" \"Minkowski centers\"",
+        "For finite posets chain-order interpolation polytopes, asymmetry equals longest chain length, dimension of minimizing Minkowski centers equals number of elements outside all longest chains"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2309.01626v2 Section 5 Tables 4 and 5 count f-vectors and vertices/facets, not asymmetry or center-space dimensions.",
+        "The exact finite checker enumerates 33,866 naturally labeled poset/partition instances; no previous matching asymmetry table was identified."
+      ],
+      "reasoning": "Counting combinatorial faces is not equivalent to determining Minkowski asymmetry, and the numerical table has neither the all-partition parameter nor the optimizer dimension invariant.",
+      "searches": [
+        "arXiv:2309.01626v2 Section 5 face-number tables",
+        "\"chain-order polytopes\" \"Minkowski\" \"centers\"",
+        "Minkowski centers chain-order polytopes posets marked interpolating order chain f vectors"
+      ]
+    },
+    "rationale": "The general all-partition reflection-asymmetry formula and affine dimension statement are not stated in the materially read sources. The 2015 origin develops chain–order polytopes, lattice and face properties; the 2018 extension treats Minkowski addition and reflexivity; the 2023 maximal-ranked-poset paper establishes facet and f-vector monotonicity. Prior order-polytope and stable-set-polytope findings imply endpoint cases only; their piecewise-linear transfer does not preserve Minkowski asymmetry or affine center dimension automatically. Residual priority risk from broader two-level-polytope theorems remains.",
+    "residual_risks": [
+      "An unpublished or indexed under a different name general two-level-polytope theorem may imply the result.",
+      "Literature priority is not independently certified; public search misses are not novelty proofs."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the asserted all-poset reflection-asymmetry and optimal-center dimension result",
+        "evidence": "Introduces chain/order polytope inequalities, maximal-ranked interpolation and f-vector monotonicity; Section 5 tables contain f-vectors, not reflection coefficients.",
+        "identifier_or_url": "https://arxiv.org/html/2309.01626v2",
+        "material_read": "Introduction, Definition 2.2, Proposition 2.3, Lemma 3.2, proof and results sections 3–4 overview, Section 5 computations and references",
+        "method": "Accessible primary arXiv full-text HTML; compared claimed invariant with face-normal-form and f-vector arguments",
+        "title": "Order and chain polytopes of maximal ranked posets",
+        "trigger": "Middle-cohort motivating source, first public 2023-09-04; same interpolation objects"
+      },
+      {
+        "assessment": "NOT_COVERING; Minkowski there means addition, not Minkowski asymmetry",
+        "evidence": "Theorem 2.8 decomposes polytopes by marking vectors under Minkowski sums; no reflected-containment or minimizing-center statement in material read.",
+        "identifier_or_url": "https://arxiv.org/html/1807.03970v2",
+        "material_read": "Introduction, Definition 1.2, Sections 2.1 and 2.2 Minkowski decomposition, Section 3 reflexivity and references",
+        "method": "Primary full-text arXiv HTML; contrasted Minkowski addition and reflected containment",
+        "title": "The Minkowski Property and Reflexivity of Marked Poset Polytopes",
+        "trigger": "Plausible same-object/same-word strongest prior for arbitrary partitions"
+      },
+      {
+        "assessment": "NOT_COVERING; provides objects, not reflection asymmetry or center dimension",
+        "evidence": "The paper describes order-chain interpolation, Minkowski sum property of lattice points, Ehrhart equivalence and unimodular criteria.",
+        "identifier_or_url": "https://arxiv.org/html/1508.02232v2",
+        "material_read": "Introduction, definition/admissibility discussion, Sections 2–3 normality and Ehrhart equivalence, Sections 4–5 facet/isomorphism results and references",
+        "method": "Primary accessible arXiv HTML",
+        "title": "Marked chain-order polytopes",
+        "trigger": "Original foundational construction and closest earlier facets/equivalence treatment"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9a43b298-226b-4691-acee-db2cce4c0baa",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A full classification across all chain–order interpolation polytopes for arbitrary finite posets and arbitrary partition, with a sharp integer affine invariant and complete optimizer-locus affine dimension and uniqueness criterion. It captures invariance even when facet numbers differ or the endpoint polytopes are not affinely equivalent. The longest-chain coverage governing free center coordinates is a motivated structural phenomenon, not a narrow arbitrary example.",
+    "status": "PASS"
+  }
+}

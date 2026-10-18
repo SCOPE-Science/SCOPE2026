@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** Unit support widths follow from explicit integral feasible witnesses for every defining inequality. The exact reflected-containment criterion yields the optimizer inequalities. A longest-chain budget gives a sharp lower bound, while longest-path potentials attain it. The center-dimension proof identifies equality constraints used by longest chains and constructs a simultaneously strict point for all remaining constraints. The standalone integer verifier checks 33,866 finite naturally labeled poset/partition instances and 175,583 compressed arcs. Finite enumeration does not replace the analytic proof.
+
+**Originality — PASS, with risk.** Fang–Fourier introduced the polytopes; Fang–Fourier–Pegel address Minkowski sums and reflexivity; Ahmad–Fourier–Joswig address facet structure and face-number monotonicity. The general order-polytope and perfect-graph stable-set-polytope center formulas cover the two endpoint polytopes, not arbitrary interpolating partitions. None of the materially inspected primary works states the claimed all-partition asymmetry and dimension invariances. An existing theorem for all two-level or marked-poset polytopes might imply them under different terminology and remains the principal residual risk.
+
+**Value — PASS.** This is a full affine-invariant classification for an entire naturally motivated interpolation, not a selected small instance. It remains true when endpoints are not affinely equivalent and face vectors change, and it classifies exactly when and in how many dimensions optimal centers are nonunique for nonpure posets. The result connects longest-chain combinatorics with the geometry of an infinite family without assuming rankedness or admissibility.
+
+Self-review: passed. Independent audit: not yet performed.
