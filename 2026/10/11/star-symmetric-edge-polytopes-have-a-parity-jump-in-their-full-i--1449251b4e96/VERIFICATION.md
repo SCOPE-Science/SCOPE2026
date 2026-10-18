@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,26 +18,25 @@
   "schema_version": 1
 }
 ---
-The complete symbolic proof for every integer \(m\ge1\) appears in `RESULT.md`.
 
-The reconstruction is determined by the following explicit checks:
+# Independent mathematical audit
 
-- For each \(\varepsilon\in\{\pm1\}^m\), the unique facet normal in the zero-sum hyperplane is
-  \[
-  f^\varepsilon=\left(S/(m+1),S/(m+1)-\varepsilon_1,\ldots,S/(m+1)-\varepsilon_m\right),
-  \quad S=\sum_i\varepsilon_i.
-  \]
-- Every norm satisfies the exact identity
-  \[
-  \|f^\varepsilon\|^2=m-\frac{S^2}{m+1}.
-  \]
-- The parity-constrained smallest \(|S|\) is \(0\) for even \(m\), and \(1\) for odd \(m\). Opposite facets certify the maximal inscribed radius.
-- The span of maximum-length normals has rank \(m-1\) or \(m\), respectively. For even \(m\), all centers at maximal radius are forced to have the form \((-mu,u,\ldots,u)\).
-- The exact remaining center constraints are
-  \[
-  |Su|\le1-\sqrt{1-S^2/(m(m+1))}.
-  \]
-  Their threshold ratio is strictly increasing for positive admissible \(S\), so \(|S|=2\) alone fixes the nontrivial endpoints.
-- Each antipodal vertex pair gives squared-distance average \(2+\|c\|^2\), proving the unique enclosing sphere.
+## correctness
 
-The embedded `verify.py` independently enumerates all facets for \(1\le m\le11\), checks the normal formulas and sign-vector counts, solves the complete inradius linear program, verifies the extreme attainable centers and their contact counts, and solves auxiliary linear programs for the full optimal-center range. The script reports only finite corroboration, not an infinite computational certification.
+PASS
+
+PASS. The m vectors e0-ei form a basis of H_m and yield 2^m sign-labeled facets. Exact intrinsic normal f_e=(S/(m+1),S/(m+1)-eps_i) has squared norm m-S²/(m+1). Opposite longest normals force radius 1/sqrt(m-(m mod2)/(m+1)), attained at 0. Span of extremal balanced sign vectors has rank m for odd m and m-1 for even m; this forces unique center versus the star-axis c=(-mu,u,..,u). Every other facet clearance reduces to |u|<=(1-sqrt(1-S²/(m(m+1))))/|S|, strict monotonicity over S=2,4,.. proves exact even-m endpoints and facet contacts. Antipodal vertex average proves unique outer ball sqrt2. Independent facet normals/endpoint inequalities checked m1..12; finite checks corroborate not prove universal.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge. Standard general graph symmetric-edge facet/polar data and tree unimodular-crosspolytope equivalence do not determine Euclidean distances or complete incenter sets in the canonical incidence embedding. Explicit maximum-length facet normals and linear constraint span yield a parity-dependent one-dimensional incenter family, not implied by mere combinatorial crosspolytope equivalence. Related published bistar, path, fan inradius results are distinct graph/metric cases; possible degenerate bistar specialization is retained risk until that full primary comparator is checked.
+
+## value
+
+PASS
+
+PASS. A canonical Euclidean incenter is a natural invariant for a symmetric-edge polytope in its incidence embedding; the parity jump in the entire incenter set and contact facets is a structural metric phenomenon invisible under mere unimodular tree-to-crosspolytope equivalence. Every dimension m>=1 is classified exactly.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

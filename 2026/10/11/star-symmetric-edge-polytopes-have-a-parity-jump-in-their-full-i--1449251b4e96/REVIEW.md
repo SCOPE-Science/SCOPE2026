@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The graph edge vectors form a basis of the intrinsic hyperplane and the facets are exactly sign selections. Reconstructing the normals gives the exact squared norm \(m-S^2/(m+1)\). Opposite extreme facets provide a global inradius certificate, and the origin attains it. The linear spans of all maximum-length facet normals force either a unique zero center or the star-axis line; imposing all remaining facets cuts that line to the exact closed segment. Monotonicity of its sign-imbalance bounds and strictness away from the \(|S|=2\) class prove the complete contact classification. Opposite vertices independently certify the unique outer sphere.
+## correctness
 
-## Originality
-PASS. D'Alì--Delucchi--Michałek's primary full text was read at the tree-crosspolytope statement, graph-metric definition, and general facet characterization; it gives no Euclidean inradius or incenter theorem. The broader regular-matroid text treats unimodular equivalence and facets, which are not Euclidean invariants. A later unitary-equivalence text illustrates star polytopes and explains the relevance of rigid rather than lattice geometry, but gives no radius or incenter formula. Targeted published-result searches under star, adjacency, fundamental, root-crosspolytope, Chebyshev-center, inradius, and insphere aliases found no covering statement. A classical-coordinate alias remains a residual risk.
+PASS
 
-## Value
-PASS. Stars are a canonical extremal tree family despite the fact that every tree symmetric-edge polytope is combinatorially a crosspolytope. The theorem fully classifies their Euclidean inball centers, exhibiting a parity-controlled jump from a point to a segment and an additional facet-contact orbit at the segment endpoints. This separates true Euclidean realization data from unimodular and combinatorial invariants.
+PASS. The m vectors e0-ei form a basis of H_m and yield 2^m sign-labeled facets. Exact intrinsic normal f_e=(S/(m+1),S/(m+1)-eps_i) has squared norm m-S²/(m+1). Opposite longest normals force radius 1/sqrt(m-(m mod2)/(m+1)), attained at 0. Span of extremal balanced sign vectors has rank m for odd m and m-1 for even m; this forces unique center versus the star-axis c=(-mu,u,..,u). Every other facet clearance reduces to |u|<=(1-sqrt(1-S²/(m(m+1))))/|S|, strict monotonicity over S=2,4,.. proves exact even-m endpoints and facet contacts. Antipodal vertex average proves unique outer ball sqrt2. Independent facet normals/endpoint inequalities checked m1..12; finite checks corroborate not prove universal.
 
-## Closest literature and limitations
-The closest source theorem gives all tree facets and their crosspolytope combinatorics, and related later literature gives matroidal and unitary equivalences. The present results apply only to the standard unweighted star realization; they do not classify all trees or weighted stars. An equivalent classical crosspolytope calculation under different coordinates cannot be categorically ruled out.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge. Standard general graph symmetric-edge facet/polar data and tree unimodular-crosspolytope equivalence do not determine Euclidean distances or complete incenter sets in the canonical incidence embedding. Explicit maximum-length facet normals and linear constraint span yield a parity-dependent one-dimensional incenter family, not implied by mere combinatorial crosspolytope equivalence. Related published bistar, path, fan inradius results are distinct graph/metric cases; possible degenerate bistar specialization is retained risk until that full primary comparator is checked.
+
+## value
+
+PASS
+
+PASS. A canonical Euclidean incenter is a natural invariant for a symmetric-edge polytope in its incidence embedding; the parity jump in the entire incenter set and contact facets is a structural metric phenomenon invisible under mere unimodular tree-to-crosspolytope equivalence. Every dimension m>=1 is classified exactly.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
