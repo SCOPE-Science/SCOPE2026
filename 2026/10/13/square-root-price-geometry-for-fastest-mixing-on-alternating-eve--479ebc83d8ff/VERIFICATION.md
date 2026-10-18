@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-# Reproducibility and limitations
-The theorem is analytic. Reconstruct the normalized Laplacian from the cycle and alternating prices, verify the explicit proposed conductances satisfy the weighted budget, construct the complex polygon vector in the proof, and check the edge-chord bound and two-vertex Bloch spectrum. Equality of the Rayleigh quotient with the spectral gap is a global upper-bound certificate; uniqueness uses noncollinearity of successive circle chords at every vertex.
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and NumPy installed. This constructs the Laplacian from edge data for sampled rings, checks its numerical eigenvalues, verifies the polygon dual certificates, tests nonsymmetric feasible allocations, and checks the exact six-cycle rational example. The numerical tests provide consistency checks only. They do not establish the quantified all-size theorem, prove historical originality, or constitute an independent audit.
+## correctness
+
+PASS
+
+PASS: Independently reconstructed the complex unit-circle vector z at alternating angular gaps 2u,2(α−u), with z⊥1 and squared edge chords K c, K d. Its Rayleigh quotient is exactly the budget-wide upper bound Γ for EVERY nonsymmetric allocation. Explicit a,b positive and m(ca+db)=1; Bloch two-vertex bands are a+b±sqrt(a²+b²+2ab cos(2πj/m)), with the k=1 lower band exactly Γ. Any other optimizer attains Rayleigh equality with fixed complex z, hence satisfies L(w)z=Γz; at every vertex two adjacent noncollinear circle chords imply each real conductance difference is zero. This proves uniqueness even at m=2; α→0 yields limiting inverse-square-root price ratio and m³Γ. Source numerical checker inspects 75 spectral/eigenvector instances, 600 nonsymmetric candidates and an exact C6 witness; finite numerics are corroborative.
+
+## originality
+
+PASS
+
+PASS best of knowledge for the **two alternating positive prices** exact closed-form global unique optimizer; Sun-Boyd-Xiao-Diaconis 2006 §5.3 treats uniform edge costs and describes arbitrary-cost cycle analysis in a dual framework, not the explicit two-price rates, Fiedler multiplicity, uniqueness and price response. Known uniform-cost specialization is credited, not novel. Discrete-time SLEM cycle results are not equivalent to this linear-budget continuous-time optimization.
+
+## value
+
+PASS
+
+PASS: Computes an exact closed form for a natural nonuniform priced network-design problem with all individual conductances free, and proves global uniqueness rather than only symmetry-restricted optimization. The square-root response quantifies a finite-size design transition from equal four-cycle investment to inverse-square-root pricing; the exact dual certificate is reusable for mixing and algebraic-connectivity design.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

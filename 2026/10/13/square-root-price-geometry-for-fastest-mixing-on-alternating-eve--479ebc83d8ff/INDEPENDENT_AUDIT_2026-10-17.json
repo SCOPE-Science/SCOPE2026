@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T21:56:30.922966Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Independently reconstructed the complex unit-circle vector z at alternating angular gaps 2u,2(α−u), with z⊥1 and squared edge chords K c, K d. Its Rayleigh quotient is exactly the budget-wide upper bound Γ for EVERY nonsymmetric allocation. Explicit a,b positive and m(ca+db)=1; Bloch two-vertex bands are a+b±sqrt(a²+b²+2ab cos(2πj/m)), with the k=1 lower band exactly Γ. Any other optimizer attains Rayleigh equality with fixed complex z, hence satisfies L(w)z=Γz; at every vertex two adjacent noncollinear circle chords imply each real conductance difference is zero. This proves uniqueness even at m=2; α→0 yields limiting inverse-square-root price ratio and m³Γ. Source numerical checker inspects 75 spectral/eigenvector instances, 600 nonsymmetric candidates and an exact C6 witness; finite numerics are corroborative.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun et al 2006 fully general convex model includes these costs computationally and proves 2D dual geometry; section 5.3 explicitly solves only uniform-cost cycle. Boyd et al 2009 and Gerencsér et al 2015 use discrete-time transition and SLEM or perturbation constraints."
+        ],
+        "reasoning": "General optimization algorithms can recover a numeric optimum but do not directly imply an all-m,c,d closed form, edgewise uniqueness or fixed-cost asymptotic; the nonuniform special case requires extra analysis.",
+        "searches": [
+          "Sun Boyd Xiao Diaconis 2006 fastest mixing Markov process graph §5.3 arbitrary costs",
+          "Boyd Diaconis Parrilo Xiao 2009 fastest mixing Markov chain graphs with symmetries",
+          "Gerencsér Hendrickx Van Dooren 2015 spectral gap cycle"
+        ]
+      },
+      "checked_sources": [
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "https://doi.org/10.1109/ECC.2015.7330635",
+        "Resultary query: fastest mixing continuous time Markov chain even cycle alternating edge cost conductance spectral gap square root prices unique optimizer"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original Sun et al §5.3 starts with d_ij=1 and displays equal-rate cycle optimality; its general dual says dimension two is enough but leaves optimizing exact nonuniform chord lengths."
+        ],
+        "reasoning": "Uniform-rate cycle statement is an explicit covered subcase. To infer alternating-price allocation for arbitrary ratio c/d and its edgewise uniqueness one needs a nonuniform circle certificate and chord-independent equality analysis absent from the checked uniform theorem.",
+        "searches": [
+          "Sun et al SIAM Review 2006 Section 5.3 pages696-697",
+          "Boyd et al 2009 SIAM J Optim cycles SLEM",
+          "Gerencser et al 2015 homogeneous cycle spectral perturbations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sun et al 2006 §5.3 formulates equivalent Laplacian spectral-gap/maximum-variance-unfolding cycle optimization, but displayed exact solution has costs d_ij=1."
+        ],
+        "reasoning": "The same mathematical problem appears as fastest mixing Markov process, algebraic-connectivity maximizing weights, and a constrained circle/chord dual. General SDP equivalence alone does not entail exact two-price rates or uniqueness.",
+        "searches": [
+          "fastest mixing continuous time Markov chain even cycle alternating edge cost conductance spectral gap square root prices unique optimizer",
+          "algebraic connectivity alternating weight even cycle two prices optimal Laplacian conductance",
+          "maximum variance unfolding circle dual alternating edge cost closed form"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No Resultary or checked author PDF yields the exact D=c+d+2cos(pi/m)sqrt(cd) normalizer or a=[1+r sqrt(d/c)]/(mD); the read uniform-cost formula coincides only at c=d."
+        ],
+        "reasoning": "No exact two-price table or formula was found; generic SDP solvers or a table of uniform cycles would not themselves certify this closed-form theorem.",
+        "searches": [
+          "fastest mixing continuous time Markov chain even cycle alternating edge cost conductance spectral gap square root prices unique optimizer",
+          "fastest mixing alternating cost weighted cycles exact square-root formula",
+          "\"cycle\" \"conductances\" \"alternating prices\" spectral gap"
+        ]
+      },
+      "rationale": "PASS best of knowledge for the **two alternating positive prices** exact closed-form global unique optimizer; Sun-Boyd-Xiao-Diaconis 2006 §5.3 treats uniform edge costs and describes arbitrary-cost cycle analysis in a dual framework, not the explicit two-price rates, Fiedler multiplicity, uniqueness and price response. Known uniform-cost specialization is credited, not novel. Discrete-time SLEM cycle results are not equivalent to this linear-budget continuous-time optimization.",
+      "residual_risks": [
+        "A specialized older two-periodic cost-cycle derivation could be indexed under optimal algebraic connectivity rather than fastest mixing.",
+        "The proof concerns symmetric continuous-time λ2 with fixed linear conductance-price budget; discrete-time or arbitrary-price conclusions are not claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR: unit-price cycle, dual framework, not explicit alternating-price optimizer",
+          "evidence": "Section 5.3 says first consider d_ij=1, obtains identical cycle rates, and discusses difficulty of geometric proof and arbitrary edge costs.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "material_read": "Full 19-page author PDF readable, §§2–5; §5.3 pp696–697 materially inspected and page696 screenshot read",
+          "method": "author OA PDF text and screenshot",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem, Sun et al (2006)",
+          "trigger": "Original continuous-time same spectral gap problem and cycles with edge prices"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECTIVE: discrete-time SLEM and normalization, not continuous-time cost-weighted Laplacian gap",
+          "evidence": "Discrete-time spectral radius (SLEM) optimization differs from λ2(L) under a conductance price budget.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+          "material_read": "Full 28-page OA author PDF available; introductory problem and relevant cycle/symmetry setup inspected",
+          "method": "author OA PDF text",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries, Boyd, Diaconis, Parrilo and Xiao (2009)",
+          "trigger": "Symmetry-reduced fastest mixing cycles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Computes an exact closed form for a natural nonuniform priced network-design problem with all individual conductances free, and proves global uniqueness rather than only symmetry-restricted optimization. The square-root response quantifies a finite-size design transition from equal four-cycle investment to inverse-square-root pricing; the exact dual certificate is reusable for mixing and algebraic-connectivity design.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+    "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+    "https://doi.org/10.1109/ECC.2015.7330635",
+    "Resultary query: fastest mixing continuous time Markov chain even cycle alternating edge cost conductance spectral gap square root prices unique optimizer"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "A specialized older two-periodic cost-cycle derivation could be indexed under optimal algebraic connectivity rather than fastest mixing.",
+    "The proof concerns symmetric continuous-time λ2 with fixed linear conductance-price budget; discrete-time or arbitrary-price conclusions are not claimed."
+  ]
+}
