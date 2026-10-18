@@ -1,0 +1,15 @@
+# Scientific review: triangular record–inverse-descent dependence
+
+## Correctness — PASS
+The value-transposition map is an exact uniform measure-preserving bijection between the two inverse-descent conditions. Because the transposed values are consecutive, it can only remove a record at the second of their occurrences; it removes precisely that one record iff those values are the first two among the larger-value set in the specified order. Conditional label-order probability is \(2/[m(m-1)]\), and the location of the second larger value is an independent hypergeometric order statistic. Combining this with the conditional-mean covariance identity yields the exact triangular formula. All boundaries including \(n=2\), strict matrix diagonal, and telescoping totals are covered by the proof. Exact-rational exhaustive checks through \(n=8\) corroborate the proof; enumeration is not substituted for the general argument.
+
+## Originality — PASS, with explicit residual risk
+Gnedin–Gorin (arXiv:1202.3680) establish a record-based random-permutation framework but not the present conditional inverse-descent record-vector coupling. Baril–Vajnovszki (arXiv:1606.07913, Theorem 2) supply a **broader set-valued equidistribution** that encodes all relevant indicator data in another coding. This is a serious implicit-coverage risk, and their theorem is acknowledged as such. It does not exhibit a coordinatewise pathwise ordering, a one-record-loss mechanism, or a triangular closed covariance kernel. Jin (arXiv:2210.08789) gives generating functions of **total counts**, covering the aggregate relationship, not the indexed kernel or vector stochastic order. Comparison also excluded overlap with earlier position-descent (rather than inverse-descent) formulas. The old aggregate covariance is expressly not offered as new. No source was found explicitly giving the stated rankwise matrix and coupling, but this is not proof of worldwide priority.
+
+## Mathematical value — PASS
+Records are the basic online-extreme process, while inverse descents encode adjacent *value-rank* reversals. The result establishes a natural multivariate conditional stochastic order, all exact position-by-rank covariance entries, a sharp triangular support, full rank, and a quantitative concentration of total dependence in the largest labels. These are structural facts not just a numerically computed instance, and they distinguish value-neighbor perturbations from known position-neighbor dependence. The same theorem works uniformly for every permutation size and all coordinates without artificial parameter restrictions.
+
+## Limits and literature comparison
+The statement requires uniformity; no extension to other permutation laws is proved. A set-valued coding from prior work could lead to an alternative derivation of the covariance, so independent literature verification remains warranted. Exhaustive finite checks cannot prove the all-size theorem; the exact coupling is the proof.
+
+Self-review: passed. Independent audit: not yet performed.
