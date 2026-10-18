@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof handles every integer \(q\ge2\) and \(k\ge1\), with the binary and one-information-symbol boundaries stated separately. The one-check obstruction is a positive-affine collision of two constant-message codewords with equal orientation. The unrestricted length-three supply follows from an exact primitive-triple count, a coprimality union bound, and a Cartesian extension. The verifier independently computes gcd primitive forms and exact rational signatures for finite ranges; those computations corroborate, rather than replace, the quantified proof.
+## correctness
 
-## Originality
-PASS for the narrow combined exact systematicity-gap theorem. The 2015 Pearson-code paper already establishes the optimal unrestricted capacity and general canonical primitive representatives. The 2016 systematic-coding paper already gives the two-reference fixed-to-fixed construction. Neither inspected full text supplies the universal necessity of two check symbols for a full-message systematic encoder, and the capacity result alone does not imply it. Searches using fixed-to-fixed, single-parity, positive-affine and reference-symbol equivalent formulations found no encompassing statement. An unindexed exposition of this elementary obstruction is the material residual risk.
+PASS
 
-## Value
-PASS. For the storage/communications setting with unknown gain and offset, the new theorem settles whether one can retain all information coordinates at the same whole-symbol overhead as an unrestricted Pearson encoder. The answer is sharply negative for all \(q\ge3\) and \(k\ge2\): the one-symbol penalty is uniform, and the exact exceptional cases are proved. This is a motivated systematic-versus-nonsystematic boundary, not a new optimum-size table or a claimed improvement of the already known two-reference construction.
+PASS: For q≥3, one systematic check position attached to q constant messages produces nonconstant pairs (a,t_a) oriented up or down. Three or more messages force two equal signs and hence a positive-affine collision; thus r_sys≥2. Two reserved reference symbols (0,1) attain equality. For unrestricted q≥3,k≥2, primitive nonconstant triples with minimum zero number 3 F(q−1)+3, with F(m)=#{1≤a,b≤m:gcd(a,b)=1}>m²/2, giving at least q² nonequivalent triples. Appending arbitrary k−2 payload symbols preserves nonconfusability, proving one-symbol overhead. For k=1 there are only two length-two positive-affine orientation classes; q≥3 requires two checks. Binary one-check construction covers every k. Finite independent gcd/normalized-affine tests corroborate q=2..13 but are not the universal argument.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS: The 2015 Pearson Codes paper determines unrestricted capacity and primitive representatives and the 2016 Simple Systematic Pearson Coding gives a two-reference construction. The final new content is the universal lower bound against a single systematic check for q≥3 and the exact sharp systematicity gap, not the unrestricted capacity or existing two-reference construction. Full relevant primary texts were read; an unpublished elementary orientation argument remains a risk.
+
+## value
+
+PASS
+
+PASS: Positive gain/offset invariance is the communications problem motivating Pearson codes; the exact necessity of two extra coordinates when all message coordinates must remain intact establishes a concrete nontrivial design penalty for every q≥3,k≥2. This is a natural systematic-versus-unrestricted limitation with all binary and k=1 boundary cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
