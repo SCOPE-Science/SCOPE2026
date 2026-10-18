@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,36 +18,25 @@
   "schema_version": 1
 }
 ---
-The proof is symbolic.
 
-The packaged checker `artifacts/verify.py` evaluates
-\[
-C(G)=\{(1,1),(p,p^{2n}-1),(p^{n+1},p-1)\}
-\]
-for
-\[
-p\in\{2,3,5,7\},
-\qquad
-1\le n\le4.
-\]
+# Independent mathematical audit
 
-For each case it verifies the total number of irreducible characters and
-\[
-p^{2n}\cdot1^2+(p-1)(p^n)^2=p^{1+2n}.
-\]
-It then reconstructs \(p\), \(n\), and the group order from the pseudo-algebra alone.
+## correctness
 
-The checker also verifies
-\[
-D_8,\ Q_8:
-\quad
-\{(1,1),(2,3),(4,1)\},
-\]
-and the order-\(27\) extraspecial pair:
-\[
-\{(1,1),(3,8),(9,2)\}.
-\]
+PASS
 
-The checker returns `VERIFY_OK`.
+Extraspecial G has G/G′=C_p^(2n), hence p^(2n) linear characters, one principal (codegree1) and p^(2n)-1 nonprincipal (codegree p). Its p-1 nonlinear degree-p^n characters are indexed by faithful nontrivial center characters; they vanish off the center so are faithful and have codegree p^(n+1). The degree-squared sum p^(2n)+(p-1)p^(2n)=p^(2n+1) exhausts Irr(G). Least nontrivial and largest codegrees recover p,n. The two extraspecial isomorphism types have identical data. Independent arithmetic checks across 25 (prime,rank) pairs match.
 
-Finite arithmetic checks are not used to prove the character-theoretic theorem.
+## originality
+
+PASS
+
+The character table of an extraspecial group is classical and fully credited. Moretó introduced pseudo-algebras and Lewis–Yan give non-rigidity of group order in general, but the latter full 2024 paper proves comparisons with particular abelian groups, not the exact extraspecial-family invariant. The new statement is exact codegree multiplicities and within-family order/type classification, subject to possible older codegree-table equivalents.
+
+## value
+
+PASS
+
+Group pseudo-algebra rigidity is an explicit motivating invariant question. Extraspecial groups are a canonical two-type family in all prime ranks; a uniform exact formula determines which information the invariant preserves and loses. Though the derivation from known character tables is short, it supplies a complete motivated restricted-family answer, not only a relabelled character-degree count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

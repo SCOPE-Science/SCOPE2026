@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The abelianization is \(C_p^{2n}\), giving \(p^{2n}\) linear characters; every nonprincipal one has kernel index \(p\) and codegree \(p\). Standard extraspecial character theory gives \(p-1\) nonlinear irreducibles of degree \(p^n\), indexed by nonprincipal characters of the order-\(p\) center. Each is faithful because its center character is faithful and its value is zero off the center, so its codegree is \(p^{n+1}\). The degree-squared identity closes the character count, and the pseudo-algebra visibly reconstructs \(p\) and \(n\). The packaged checker verifies the formulas on multiple primes and ranks.
+PASS
 
-## Originality
+Extraspecial G has G/G′=C_p^(2n), hence p^(2n) linear characters, one principal (codegree1) and p^(2n)-1 nonprincipal (codegree p). Its p-1 nonlinear degree-p^n characters are indexed by faithful nontrivial center characters; they vanish off the center so are faithful and have codegree p^(n+1). The degree-squared sum p^(2n)+(p-1)p^(2n)=p^(2n+1) exhausts Irr(G). Least nontrivial and largest codegrees recover p,n. The two extraspecial isomorphism types have identical data. Independent arithmetic checks across 25 (prime,rank) pairs match.
 
-PASS. Lewis--Yan give global pseudo-algebra counterexamples and restricted \(p\)-group rigidity results but no extraspecial specialization in the inspected full text. Moretó introduces the invariant and its order-recovery question without treating extraspecial groups. Sin--Sorci provide the standard extraspecial character structure, not its codegree multiplicities or pseudo-algebra rigidity/type-blindness consequence. Targeted database and literature searches found no exact covering statement. A short equivalent computation in older codegree literature remains the principal bibliographic risk.
+## originality
 
-## Value
+PASS
 
-PASS. Extraspecial groups form a canonical two-type family at every admissible order. The theorem completely identifies their pseudo-algebras and shows exactly which structural data the invariant remembers and forgets: order is rigid, type is invisible. This directly complements the known global failure of pseudo-algebra order determination.
+The character table of an extraspecial group is classical and fully credited. Moretó introduced pseudo-algebras and Lewis–Yan give non-rigidity of group order in general, but the latter full 2024 paper proves comparisons with particular abelian groups, not the exact extraspecial-family invariant. The new statement is exact codegree multiplicities and within-family order/type classification, subject to possible older codegree-table equivalents.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Group pseudo-algebra rigidity is an explicit motivating invariant question. Extraspecial groups are a canonical two-type family in all prime ranks; a uniform exact formula determines which information the invariant preserves and loses. Though the derivation from known character tables is short, it supplies a complete motivated restricted-family answer, not only a relabelled character-degree count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
