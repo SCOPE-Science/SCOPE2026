@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Section 6.1 infectious equation contains an incidence subtraction absent from both continuous equations (2.1) and (2.2). Adding the printed exposed and infected updates gives an exact cancellation. A uniform explicit bound on the step size keeps all six compartments nonnegative, so the geometric extinction inequality is valid for every step. The stated rational endemic equilibrium was substituted into all six intended differential equations; its source disease-free instability follows from an exact positive eigenvalue. The printed infection-block determinant and trace have strictly stable signs at every positive transmission rate. The executable exact-rational checks agree with the proof.
+## correctness
 
-**Originality — PASS, specifically for the numerical scheme.** The closest source is Din (2026), equations (2.1), (2.2), Section 6.1, where the contradictory infection-coordinate terms appear but the consequent universal artificial-eradication theorem is not stated. Farhan et al. (2024) study the deterministic six-class model and neural-network approximations, not the 2026 Lévy Milstein recurrence. Khan and Din (2023) concern an earlier stochastic measles system, but only its accessible abstract and figures were examined. Standard threshold mathematics and prior critique of deterministic reproduction-number normalization are not claimed as new: neither implies the distinct exact extinction identity for the printed discretization.
+PASS
 
-**Mathematical value — PASS.** This is not an isolated typo inspection: the printed recurrence changes the biological threshold *for every choice of transmission strength*, suppresses every positive endemic equilibrium in its noise-free limit, and makes total infection decay with a model-independent rate bound. It therefore undermines using that printed scheme as a reference for stochastic simulations or learned trajectory predictors unless implementation consistency is separately established. The proof also identifies the minimal necessary change to this drift component.
+Read primary source 2026 measles ODE (2.1), SDE drift (2.2), and printed Milstein Section6.1 directly. Printed I step contains an extra -hβSI/N absent from source while E step has +hβSI/N, so cancellation yields H_{n+1}=H_n-h[μE+(μ+γ+φ1)I]. On all nonnegative states N>0, if h≤1/max{β+ψv+μ, μ+φ, μ+γ+φ1+β, μ+κ+ωv, μ+ω, μ}, each Euler coordinate remains nonnegative and S_{n+1}≥hΛ>0; hence geometric H bound holds for every β>0 and every nonnegative initial state. Exact rational arithmetic of frozen verifier confirms at Λ=5,β=20, all other positive rates=1, true endemic state (15/11,15/11,5/11,5/11,5/22,15/22), incidence 30/11, N=50/11; true DFE infected eigenvalues 1,-6 versus printed trace -17 determinant 18, h=1/40 gives H≤(39/40)^nH0. This is a property of the printed zero-noise recurrence, not stochastic almost-sure extinction or actual source implementation.
 
-**Risks and scope.** A full probabilistic Lévy convergence analysis is not provided. The result does not establish that the published code (not available for inspection) used the printed expression. The full 2023 Khan–Din text was not accessible, leaving a limited possibility of analogous older observations. No claim is made about stochastic almost-sure extinction or actual measles data.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A directly matching earlier published Resultary record already exposed the spurious -βSI/N term and first-order inconsistency, so those premises are NOT original here. Distinct contribution considered is all-positive-parameter invariant-cone geometric eradication of H and explicit exact true-endemic counterexample with threshold reversal, not shown in the visible earlier index synopsis. Full previous package was inaccessible, creating a real equivalence risk; a matching theorem there would defeat the novelty assessment.
+
+## value
+
+PASS
+
+Global forced infection eradication regardless of β in a positivity-preserving published numerical update reverses epidemic-threshold behavior. The universal Lyapunov contraction and exact supercritical endemic witness exhibit substantive qualitative numerical-method failure beyond merely noting a stray term; the known local consistency objection is credited and not presented as the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

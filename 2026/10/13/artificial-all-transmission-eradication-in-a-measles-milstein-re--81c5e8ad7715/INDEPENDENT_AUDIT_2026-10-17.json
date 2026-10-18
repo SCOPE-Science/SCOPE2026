@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T00:45:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read primary source 2026 measles ODE (2.1), SDE drift (2.2), and printed Milstein Section6.1 directly. Printed I step contains an extra -hβSI/N absent from source while E step has +hβSI/N, so cancellation yields H_{n+1}=H_n-h[μE+(μ+γ+φ1)I]. On all nonnegative states N>0, if h≤1/max{β+ψv+μ, μ+φ, μ+γ+φ1+β, μ+κ+ωv, μ+ω, μ}, each Euler coordinate remains nonnegative and S_{n+1}≥hΛ>0; hence geometric H bound holds for every β>0 and every nonnegative initial state. Exact rational arithmetic of frozen verifier confirms at Λ=5,β=20, all other positive rates=1, true endemic state (15/11,15/11,5/11,5/11,5/22,15/22), incidence 30/11, N=50/11; true DFE infected eigenvalues 1,-6 versus printed trace -17 determinant 18, h=1/40 gives H≤(39/40)^nH0. This is a property of the printed zero-noise recurrence, not stochastic almost-sure extinction or actual source implementation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Source paper proves stochastic persistence in parameter regime and prints miscalculated scheme; previous prior research proves altered total population drift and inconsistency but not, in its indexed summary, the full invariant infection-mass bound."
+        ],
+        "reasoning": "Persistence theorem for true stochastic model does not apply to erroneous deterministic printed scheme, and a first-order mismatch diagnosis alone does not quantify exact all-initial-state eradication.",
+        "searches": [
+          "DOI:10.3934/math.2026761 equations 2.1,2.2, Section 6.1; Resultary 2026/10/4 prior mismatch"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search: measles Milstein recurrence Din 2026 extra infection loss in infectious update inconsistency unconditional extinction",
+        "DOI:10.3934/math.2026761, https://www.researchgate.net/publication/408217752_Stochastic_analysis_and_ANN-based_approximation_of_measles_transmission_dynamics_under_Levy_noise",
+        "Resultary 2026/10/4/SCOPE-a-spurious-incidence-sink-makes-the-printed-milstein-measles-sch--055a1e49ae06"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The local drift defect known previously implies the numerical system differs from ODE but does not itself establish invariant-cone positivity and a common nonincreasing Lyapunov mass H for all β or construct a true endemic equilibrium contrasting it."
+        ],
+        "reasoning": "The current algebra makes that strong dynamical consequence rigorous, a substantive clarification of why the original printed scheme cannot preserve the source model’s invasion threshold. It does not claim actual implementation used the printed equation.",
+        "searches": [
+          "Resultary 2026/10/4 prior published summary; DOI:10.3934/math.2026761 original drift and Milstein printed scheme"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior Resultary explicitly identifies the same spurious -βSI/N infection loss and failure of first-order drift consistency. This part is COVERED, regardless of different naming."
+        ],
+        "reasoning": "Only the stronger all-β positive-cone global geometric extinction theorem, stable printed infection block, and explicit supercritical true-endemic counterexample remain assessed as possibly novel; overlap is material and documented.",
+        "searches": [
+          "measles Milstein recurrence Din 2026 extra infection loss in infectious update inconsistency unconditional extinction; Resultary 2026/10/4/SCOPE-a-spurious-incidence-sink-makes-the-printed-milstein-measles-sch--055a1e49ae06"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Positive matching indexed prior explicitly covers the spurious sink; no visible indexed claim of E_n+I_n≤(1-μh)^n(E0+I0) or exact endemic parameter state. Full earlier Resultary file unavailable through connected GitHub repository, so uncertainty cannot be erased."
+        ],
+        "reasoning": "Do not claim the sink or consistency discrepancy as original. The residual originality finding hinges solely on global eradication, exact step bound and dynamical contradiction; if earlier full text already contains it, this assessment would need revision.",
+        "searches": [
+          "measles Milstein recurrence Din 2026 extra infection loss in infectious update inconsistency unconditional extinction; Resultary direct published hit ID 2026/10/4/SCOPE-a-spurious-incidence-sink-makes-the-printed-milstein-measles-sch--055a1e49ae06"
+        ]
+      },
+      "rationale": "A directly matching earlier published Resultary record already exposed the spurious -βSI/N term and first-order inconsistency, so those premises are NOT original here. Distinct contribution considered is all-positive-parameter invariant-cone geometric eradication of H and explicit exact true-endemic counterexample with threshold reversal, not shown in the visible earlier index synopsis. Full previous package was inaccessible, creating a real equivalence risk; a matching theorem there would defeat the novelty assessment.",
+      "residual_risks": [
+        "Applies to zero-noise specialization of the printed numerical scheme, not actual software or stochastic pathwise noise.",
+        "Prior published Resultary record covers the same drift typo; originality of stronger global extinction rests on indexed-summary distinction, as full prior result was inaccessible.",
+        "Full earlier same-model Resultary theorem is an important unresolved equivalence risk; indexed synopsis alone does not prove not-covering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CONFIRMS_MISPRINT_AND_SOURCE_ODE_THRESHOLD_NOT_GLOBAL_NUMERICAL_ERADICATION",
+          "evidence": "Original dI=φE-(μ+γ+φ1)I has no incidence loss; Section 6.1 printed I update explicitly adds -βSI/N, while E update gains it. Therefore H=E+I has no incidence input and is strictly contracting under positivity.",
+          "identifier_or_url": "DOI:10.3934/math.2026761, https://www.researchgate.net/publication/408217752_Stochastic_analysis_and_ANN-based_approximation_of_measles_transmission_dynamics_under_Levy_noise",
+          "material_read": "Complete accessible primary full-text article; checked equations (2.1) and (2.2) about printed lines 396–538 and Section 6.1 scheme printed lines 1757–1892; examined persistence/discussion Section 6.3",
+          "method": "Primary full-text HTML scholarly text line-by-line against frozen RESULT",
+          "title": "Stochastic analysis and ANN-based approximation of measles transmission dynamics under Lévy noise",
+          "trigger": "Decisive equation-by-equation comparison of source drift (2.1)/(2.2) and printed Milstein Section 6.1"
+        },
+        {
+          "assessment": "COVERS_DRIFT_INCONSISTENCY_SUBCLAIM; POSSIBLE_OVERLAP_RISK",
+          "evidence": "Earlier record already says extra -βSI/N is spurious and inconsistent and changes total population drift. Indexed synopsis does not claim the new every-β global contraction for nonnegative states or exact endemic equilibrium witness; full work could overlap and must be treated as residual risk.",
+          "identifier_or_url": "Resultary 2026/10/4/SCOPE-a-spurious-incidence-sink-makes-the-printed-milstein-measles-sch--055a1e49ae06",
+          "material_read": "Published Resultary semantic index record title, synopsis and identifier; direct complete repository package URL inaccessible",
+          "method": "Semantic research database result, not full-text inspection",
+          "title": "A spurious incidence sink makes the printed Milstein measles scheme drift-inconsistent",
+          "trigger": "Direct published same-source error with overlapping equations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Global forced infection eradication regardless of β in a positivity-preserving published numerical update reverses epidemic-threshold behavior. The universal Lyapunov contraction and exact supercritical endemic witness exhibit substantive qualitative numerical-method failure beyond merely noting a stray term; the known local consistency objection is credited and not presented as the contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The printed zero-noise Section6.1 Milstein measles scheme adds a false incidence loss in the infectious component and for every positive β geometrically eliminates E+I for any nonnegative initial state at sufficiently small h; an explicit endemic supercritical state of the intended ODE is thereby contradicted.",
+  "limitations": [
+    "Applies to zero-noise specialization of the printed numerical scheme, not actual software or stochastic pathwise noise.",
+    "Prior published Resultary record covers the same drift typo; originality of stronger global extinction rests on indexed-summary distinction, as full prior result was inaccessible."
+  ],
+  "schema_version": 1
+}
