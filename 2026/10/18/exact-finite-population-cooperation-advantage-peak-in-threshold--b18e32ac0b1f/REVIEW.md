@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The focal sampling pools differ by one distinguished individual's type; coupling the uniform samples reduces the benefit difference to a hypergeometric marginal-gain expectation. A second one-individual coupling produces an exact finite difference whose sole variable sign factor is \(MZ-N(k+1)\). The proof explicitly treats inactive support boundaries, plateau cases and the high-cooperation endpoint. Independent direct payoff summations and exact-rational verification reproduce the formulas. The symbolic coupling/factorization—not numerical enumeration—is the universal proof.
+
+**Originality — PASS, with bibliographic risk.** The originating 2008 and 2011 threshold-stag-hunt studies contain the finite-population model, its payoff sums and numerical phase descriptions, which are acknowledged as prior knowledge. The inspected finite-population sections do not state the precise mode formula \(\lceil MZ/N-1\rceil\), the adjacent-mode divisibility condition or the exact sign-change threshold. The gain-from-switching results in Peña–Lehmann–Nöldeke concern binomial large-population sampling and do not alone imply the hypergeometric finite difference. The related deterministic threshold-game study by Bach–Helvik–Christiansen was checked at the abstract/metadata level only. An unlocated equivalent derivation elsewhere remains a residual originality risk.
+
+**Mathematical value — PASS.** The finite-state collective-action payoff curves were treated numerically in motivating work. A closed structural formula now locates the composition where selective incentives are greatest for every population size and every interior threshold, without optimizing numerically over composition. Two exact benefit thresholds classify whether any cooperative advantage exists and whether the advantage is bounded by negative selection at both ends. This directly addresses finite-population collective-action bistability and excludes more complicated selective sign sequences under the stated mechanism.
+
+**Scientific limits.** No claims are made about fixation probabilities, stochastic-process absorbing states at neutral payoff equality, or heterogeneous meeting patterns. The finding has not undergone external independent validation.
+
+Self-review: passed. Independent audit: not yet performed.
