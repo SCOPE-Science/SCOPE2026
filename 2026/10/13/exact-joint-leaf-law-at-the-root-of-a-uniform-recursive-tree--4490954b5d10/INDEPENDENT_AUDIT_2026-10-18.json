@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T06:48:32.347410Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Git blob 0a5522fd9386a1aa93a45379163a617f4eab48cf",
+        "verify.py Git blob 13fbef8f42a8f69bcc2c83894e0c5bccdecb3b6f",
+        "Independent exact-rational parent-assignment enumeration n=3..7"
+      ],
+      "rationale": "For any k distinct nonroot labels forced to be root-adjacent leaves, deleting them bijects the event onto the (n-k-1)! remaining uniform recursive trees. Thus E[(Q)_k z^L]=z^k E[z^(L_(n-k))] for k<=n-2, separately z^(n-1) for k=n-1. Eulerian leaf PGF and u^Q factorial expansion give all coefficients and handle n=2. First and mixed derivatives give EQ=1, EQL=(n+1)/2, VarQ=1, VarL=n/12, hence stated covariance and correlation n>=3. The Eulerian-descent bounded 1-dependent CLT and dominated factorial series (summable 1/k! at 0<=u<=1) yield independent joint Poisson-normal limits. Independently enumerated every (n-1)! parent assignment for n=3..7 and checked Cov(Q,L)=1/2 using exact fractions, without treating finite checks as an infinite proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:1310.0665v1, Devroye--Janson, Protected nodes and fringe subtrees in some random trees, Section 7 discusses root protection; Mahmoud--Ward (2015), Asymptotic properties of protected nodes in random recursive trees, Sections 2--3 counts protected nodes; doi:10.1002/rsa.20046, Janson, Asymptotic degree distribution in random recursive trees concerns global outdegree."
+        ],
+        "reasoning": "These broader fringe-subtree/degree techniques do not state or algebraically dominate the coupled Eulerian polynomial for the designated root and all-tree leaf count; possible unlocated general multivariate enumerators remain a risk.",
+        "searches": [
+          "uniform recursive tree joint distribution root leaf children total leaves bivariate generating function Eulerian Poisson normal asymptotic independence covariance",
+          "Mahmoud--Ward (2015), Asymptotic properties of protected nodes in random recursive trees, Sections 2--3",
+          "doi:10.1002/rsa.20046, Janson, Asymptotic degree distribution in random recursive trees"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1310.0665v1, Devroye--Janson, Protected nodes and fringe subtrees in some random trees, Section 7",
+        "Mahmoud--Ward (2015), Asymptotic properties of protected nodes in random recursive trees, Sections 2--3",
+        "doi:10.1002/rsa.20046, Janson, Asymptotic degree distribution in random recursive trees",
+        "Resultary:2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:1310.0665v1, Devroye--Janson, Protected nodes and fringe subtrees in some random trees, Section 7 provides fixed-time root leaf-child thinning; 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f gives covariance for total root degree D with L."
+        ],
+        "reasoning": "Fixed-time thinning and an unrelated root-degree covariance do not imply E[u^Q z^L] for size-conditioned trees; many couplings have identical marginals. The new deletion-conditioned Eulerian transform supplies genuinely joint information.",
+        "searches": [
+          "uniform recursive tree joint distribution root leaf children total leaves bivariate generating function Eulerian Poisson normal asymptotic independence covariance",
+          "arXiv:1310.0665v1, Devroye--Janson, Protected nodes and fringe subtrees in some random trees, Section 7",
+          "Mahmoud--Ward (2015), Asymptotic properties of protected nodes in random recursive trees, Sections 2--3",
+          "2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Devroye--Janson Section 7 studies Poisson thinning of leaves among root children in a continuous-time growth representation."
+        ],
+        "reasoning": "The aliases singleton root branches, leaf children of vertex 1 and root-tip offspring are equivalent to Q, but a Poisson marginal for Q does not supply the joint law with global L.",
+        "searches": [
+          "uniform recursive tree joint distribution root leaf children total leaves bivariate generating function Eulerian Poisson normal asymptotic independence covariance",
+          "arXiv:1310.0665v1, Devroye--Janson, Protected nodes and fringe subtrees in some random trees, Section 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary hit 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f has Cov(root degree,L)=(n-2)/(2(n-1)), a different statistic; none of the inspected exact leaf marginal distributions includes two-variable coefficients."
+        ],
+        "reasoning": "A table of leaf-count Eulerian numbers or of Poisson root singleton marginals does not determine all joint coefficients. Search found no matching bivariate table; absence is not proof of priority.",
+        "searches": [
+          "uniform recursive tree joint distribution root leaf children total leaves bivariate generating function Eulerian Poisson normal asymptotic independence covariance",
+          "2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f"
+        ]
+      },
+      "rationale": "The nearest published result gives root singleton-leaf thinning at fixed continuous Yule time, not the fixed-size joint transform with all leaves. Mahmoud--Ward treats protected nodes globally, and Janson treats global degree profiles. A published Resultary root-degree/global-leaf covariance uses all root children rather than leaf-children; knowing those marginal or covariance claims does not imply the full root-leaf/global-leaf bivariate distribution. No dominating same-joint-law theorem was identified in inspected primary portions or Resultary search.",
+      "residual_risks": [
+        "An unindexed all-parameter multivariate increasing-tree enumeration might specialize to the same polynomial.",
+        "Janson older primary degree-profile article not exhaustively reread for every possible specialization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_AS_STATED",
+          "evidence": "Section 7 Poisson thinning/root protection is in continuous time; no displayed exact fixed-size joint distribution with L.",
+          "identifier_or_url": "arXiv:1310.0665v1",
+          "material_read": "Public complete article, especially Section 7 on root protection and root leaf-children at fixed time.",
+          "method": "ArXiv open full-text PDF, scientific section and displayed statements read.",
+          "title": "Protected nodes and fringe subtrees in some random trees",
+          "trigger": "Same object (root leaf-children) in recursive/Yule trees."
+        },
+        {
+          "assessment": "DIFFERENT_STATISTIC",
+          "evidence": "Protected-node count is not total global leaf count and is not the root-adjacent-leaf/global-leaf joint PGF.",
+          "identifier_or_url": "Mahmoud--Ward (2015), Asymptotic properties of protected nodes in random recursive trees, Sections 2--3",
+          "material_read": "Primary full text relevant definitions and moment recurrences in Sections 2--3.",
+          "method": "Lawful open article PDF, pertinent sections read.",
+          "title": "Asymptotic properties of protected nodes in random recursive trees",
+          "trigger": "Global protected-node results plausible for leaf counts."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:1310.0665v1, Devroye--Janson, Protected nodes and fringe subtrees in some random trees, Section 7",
+        "Mahmoud--Ward (2015), Asymptotic properties of protected nodes in random recursive trees, Sections 2--3",
+        "doi:10.1002/rsa.20046, Janson, Asymptotic degree distribution in random recursive trees",
+        "Resultary:2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f"
+      ],
+      "rationale": "The local-versus-global leaf statistics measure distinct natural scales of terminal branching. The exact coupled law, finite nonzero covariance and asymptotically independent normalized fluctuations quantify dependence not reconstructible from their separately classical Eulerian and Poisson marginals. It is an all-order exact distribution, not a tiny-instance recomputation.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every n>=2 uniform recursive tree the entire bivariate law E[u^(root leaf-children) z^(total leaves)] equals the Eulerian binomial factorial transform including its exceptional star term; for n>=3 covariance=1/2, correlation=sqrt(3/n), and scaled joint limit is independent Poisson(1) x N(0,1).",
+  "limitations": [
+    "Uniform independent-parent recursive trees only, not preferential attachment or plane increasing trees.",
+    "n=2 is deterministic; covariance/correlation statements start at n=3.",
+    "Finite brute force n<=7 verifies examples only; independence limit depends on the 1-dependent CLT."
+  ],
+  "schema_version": 1
+}

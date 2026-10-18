@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The root-leaf deletion bijection is exact for every subset of marked root leaf-children. The exceptional all-star term is essential and explicitly included. Reconstructing the falling-factorial transform gives the full bivariate polynomial; differentiation and Eulerian moments give the claimed half-unit covariance and exact correlation. The 1-dependent Eulerian-descent central limit theorem together with summable factorial transforms proves independent Poisson/Gaussian limits. Independent exhaustive tree enumeration in `verify.py` supports, but does not replace, the infinite proof. The bound is for uniform recursive trees, with the deterministic two-vertex case excluded from the covariance and correlation statements.
+## correctness
 
-## Originality — PASS, with historical-priority uncertainty
-Devroye and Janson, *Protected nodes and fringe subtrees in some random trees* (arXiv:1310.0665v1), Section 7, identify the number of root leaf-children in a continuous-time Yule tree by thinning, without coupling it to global leaf number in a fixed-size recursive tree. Mahmoud and Ward, *Asymptotic properties of protected nodes in random recursive trees* (2015), instead study the number of protected vertices. Janson's degree-frequency results concern global outdegrees, not the stated root-specific mixed polynomial. Existing individual marginal distributions, as well as the root-degree/leaf covariance, are not sufficient to determine the bivariate transform. The author's hosted full copy of Janson's 2004/05 degree paper was inaccessible through repeated fetch timeouts; a broader classical increasing-tree polynomial may contain an indirect specialization. Priority is provisional; no global uniqueness or independent confirmation is represented.
+PASS
 
-## Mathematical value — PASS
-Root singletons and total tree leaves quantify local versus global terminal branching. The result gives a complete exact joint law for every tree order, a nonzero constant covariance, an exact decaying correlation, and an independent mixed limit. These findings distinguish the different scales of root-neighborhood and whole-tree fluctuations; they are more than a recomputation of the known marginal Eulerian and Poisson laws.
+For any k distinct nonroot labels forced to be root-adjacent leaves, deleting them bijects the event onto the (n-k-1)! remaining uniform recursive trees. Thus E[(Q)_k z^L]=z^k E[z^(L_(n-k))] for k<=n-2, separately z^(n-1) for k=n-1. Eulerian leaf PGF and u^Q factorial expansion give all coefficients and handle n=2. First and mixed derivatives give EQ=1, EQL=(n+1)/2, VarQ=1, VarL=n/12, hence stated covariance and correlation n>=3. The Eulerian-descent bounded 1-dependent CLT and dominated factorial series (summable 1/k! at 0<=u<=1) yield independent joint Poisson-normal limits. Independently enumerated every (n-1)! parent assignment for n=3..7 and checked Cov(Q,L)=1/2 using exact fractions, without treating finite checks as an infinite proof.
 
-## Verification scope and limitations
-Exact enumeration covers all 46,233 trees with orders 2 through 9, with all joint coefficients and factorial transforms checked. Higher orders and the distributional limit are established analytically rather than enumerated. No analogous result is claimed for alternative recursive-tree models. Full priority assurance requires additional independent literature assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The nearest published result gives root singleton-leaf thinning at fixed continuous Yule time, not the fixed-size joint transform with all leaves. Mahmoud--Ward treats protected nodes globally, and Janson treats global degree profiles. A published Resultary root-degree/global-leaf covariance uses all root children rather than leaf-children; knowing those marginal or covariance claims does not imply the full root-leaf/global-leaf bivariate distribution. No dominating same-joint-law theorem was identified in inspected primary portions or Resultary search.
+
+## value
+
+PASS
+
+The local-versus-global leaf statistics measure distinct natural scales of terminal branching. The exact coupled law, finite nonzero covariance and asymptotically independent normalized fluctuations quantify dependence not reconstructible from their separately classical Eulerian and Poisson marginals. It is an all-order exact distribution, not a tiny-instance recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
