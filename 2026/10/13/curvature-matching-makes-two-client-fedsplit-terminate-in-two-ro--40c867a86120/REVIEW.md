@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The two-client server average makes each client's reflected argument exactly the other client's state. The scalar quadratic proximal map is affine, so the complete FedSplit round reduces to a \(2\times2\) cross-reflection matrix. Squaring that matrix gives \(r_1r_2I\) exactly. Curvature matching makes one reflection coefficient zero, hence the state map is nilpotent of index at most two.
+PASS
 
-Risk: literal finite termination depends on exact proximal computation.
+For two equally weighted scalar strongly convex quadratic clients, the original FedSplit proximal-reflection formula reduces exactly to z1+=r1*z2+(1-r1)*b1 and z2+=r2*z1+(1-r2)*b2, with rj=(1-s*aj)/(1+s*aj). Subtracting the unique affine fixed point yields A=[[0,r1],[r2,0]], A^2=r1*r2*I. For s>0 and aj>0, |rj|<1; at s=1/a1 or 1/a2, A^2=0 for every initial pair, giving exact two-round client-state and averaged primal convergence. Independent rational arithmetic for a1=1,a2=9,b1=-2,b2=1 independently confirmed both choices s=1 and s=1/9 from three distinct common starts; the fixed-point average is 7/10. The geometric-mean rate is strictly positive for unequal curvatures. Checks establish the scalar exact-prox regime only.
 
-## Originality
+## originality
 
-PASS. The defining FedSplit source proves correct fixed points, linear convergence, and robustness to inexact local solves but does not state the exact two-client scalar rate or curvature-matched nilpotency. Focused searches across FedSplit aliases and broader Douglas--Rachford/Peaceman--Rachford terminology did not identify an implication-equivalent published statement.
+PASS
 
-Residual risk: the same elementary two-quadratic reflected-proximal calculation may exist in older splitting literature under different notation.
+Pathak and Wainwright (arXiv:2005.05238, algorithm, Proposition 3 and Theorem 1) define the same update and general convergence guarantees; their examined mathematical statement does not identify the two-client cross-reflection nilpotency. General Douglas--Rachford rate/metric-selection papers concern broad convergence bounds; a uniform contraction estimate is not the asserted exact instancewise annihilation. Resultary splitting results found use different algorithms/matrices. The two-client specialization is elementary and a literature not indexed as FedSplit may already contain it; originality is best-of-knowledge rather than priority certification.
 
-## Value
+## value
 
-PASS. The result identifies an exact finite-communication regime in a canonical federated splitting method. It shows that an instancewise curvature match can beat symmetric worst-case balancing qualitatively, replacing linear convergence by exact termination after two communications.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Finite communication termination is a meaningful algorithmic structural boundary in the exact FedSplit method, and the two-round nilpotent setting contrasts with the nonzero geometric-mean-tuned linear factor when a1 != a2. The statement is an exact special-case benchmark, not a claim of practical robust parameter selection or multidimensional finite termination.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

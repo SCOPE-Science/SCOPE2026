@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T20:03:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For two equally weighted scalar strongly convex quadratic clients, the original FedSplit proximal-reflection formula reduces exactly to z1+=r1*z2+(1-r1)*b1 and z2+=r2*z1+(1-r2)*b2, with rj=(1-s*aj)/(1+s*aj). Subtracting the unique affine fixed point yields A=[[0,r1],[r2,0]], A^2=r1*r2*I. For s>0 and aj>0, |rj|<1; at s=1/a1 or 1/a2, A^2=0 for every initial pair, giving exact two-round client-state and averaged primal convergence. Independent rational arithmetic for a1=1,a2=9,b1=-2,b2=1 independently confirmed both choices s=1 and s=1/9 from three distinct common starts; the fixed-point average is 7/10. The geometric-mean rate is strictly positive for unequal curvatures. Checks establish the scalar exact-prox regime only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2005.05238, Theorem 1; NeurIPS 2020 full primary proceedings paper"
+        ],
+        "reasoning": "General linear contraction results bound rates but do not force A^2=0 when one reflected prox coefficient vanishes. The source Theorem 1 chooses s=(ell_*L_*)^-1/2, which remains nonzero-rate at heterogeneous scalar curvatures.",
+        "searches": [
+          "FedSplit two scalar quadratic clients exact finite termination nilpotent proximal curvature reflection rate",
+          "\"FedSplit\" \"finite termination\" quadratic clients",
+          "arXiv:2005.05238, Theorem 1; NeurIPS 2020 full primary proceedings paper"
+        ]
+      },
+      "checked_sources": [
+        "Pathak and Wainwright, FedSplit (arXiv:2005.05238v1), defining Algorithm 1, Proposition 3, Theorem 1",
+        "Giselsson and Boyd, Linear Convergence and Metric Selection for Douglas-Rachford Splitting and ADMM (2017)",
+        "Ryu et al., Operator Splitting Performance Estimation (2020)",
+        "Resultary: 2026/10/4/SCOPE-critical-damping-relaxation-for-scalar-strictly-contractive-peac--25b033956fe0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:2005.05238, Proposition 3 and Theorem 1"
+        ],
+        "reasoning": "The cited source proves convergence for a broader function class and a conservative canonical step; those theorems do not determine the optimal instancewise scalar parameter or the nilpotent endpoint.",
+        "searches": [
+          "FedSplit two scalar quadratic clients exact finite termination nilpotent proximal curvature reflection rate",
+          "\"FedSplit\" \"finite termination\" quadratic clients",
+          "arXiv:2005.05238, Proposition 3 and Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2005.05238; Giselsson-Boyd 2017; Ryu et al. 2020"
+        ],
+        "reasoning": "Two-client scalar nilpotent reflection is also describable as Douglas-Rachford/Peaceman-Rachford composition; the Pathak-Wainwright client form gives the exact cross-map, but the cited splitting statements do not identify the s=1/aj two-round FedSplit fixed point.",
+        "searches": [
+          "FedSplit two scalar quadratic clients exact finite termination nilpotent proximal curvature reflection rate",
+          "\"FedSplit\" \"finite termination\" quadratic clients",
+          "arXiv:2005.05238; Giselsson-Boyd 2017; Ryu et al. 2020"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "FedSplit 2020; targeted web and Resultary searches"
+        ],
+        "reasoning": "The exact two-client coefficient pair r1,r2 and two-round nilpotency were not found in the primary algorithm text or indexed focused searches. Absence in indexing does not establish absolute novelty.",
+        "searches": [
+          "FedSplit two scalar quadratic clients exact finite termination nilpotent proximal curvature reflection rate",
+          "\"FedSplit\" \"finite termination\" quadratic clients",
+          "FedSplit 2020; targeted web and Resultary searches"
+        ]
+      },
+      "rationale": "Pathak and Wainwright (arXiv:2005.05238, algorithm, Proposition 3 and Theorem 1) define the same update and general convergence guarantees; their examined mathematical statement does not identify the two-client cross-reflection nilpotency. General Douglas--Rachford rate/metric-selection papers concern broad convergence bounds; a uniform contraction estimate is not the asserted exact instancewise annihilation. Resultary splitting results found use different algorithms/matrices. The two-client specialization is elementary and a literature not indexed as FedSplit may already contain it; originality is best-of-knowledge rather than priority certification.",
+      "residual_risks": [
+        "Classical Peaceman-Rachford composition on two quadratics could contain the same scalar nilpotent specialization without FedSplit terminology.",
+        "Literal two-round termination requires exact proximal evaluation, 2 clients, scalar curvatures and a shared s."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The defining update is prior; the inspected global theorem bounds convergence for a generic step but does not supply this exact two-client nilpotent regime.",
+          "evidence": [
+            "Algorithm 1 proximal reflected client step and centering",
+            "Proposition 3 fixed points optimal",
+            "Theorem 1 geometric-mean parameter and rate"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2005.05238",
+          "material_read": "Full defining method/algorithm, fixed-point proposition and strong-convexity convergence theorem, including exact/inexact proximal distinction.",
+          "method": "Primary preprint and NeurIPS 2020 proceedings text",
+          "title": "FedSplit: An algorithmic framework for fast federated optimization",
+          "trigger": "The exact source of the FedSplit iteration and potentially dominating rate guarantees"
+        },
+        {
+          "assessment": "General contraction theory; no found exact two-client FedSplit finite-communication statement.",
+          "evidence": [
+            "Distinct objective: worst-case contraction and metric selection"
+          ],
+          "identifier_or_url": "Giselsson-Boyd (IEEE TAC 2017)",
+          "material_read": "Convergence-rate and metric selection results as exposed in indexed source and relevant research comparisons, not asserted exhaustive whole document reading.",
+          "method": "Primary bibliographic/search material and cited theorem comparison",
+          "title": "Linear Convergence and Metric Selection for Douglas-Rachford Splitting and ADMM",
+          "trigger": "Broader potentially dominating splitting convergence analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Finite communication termination is a meaningful algorithmic structural boundary in the exact FedSplit method, and the two-round nilpotent setting contrasts with the nonzero geometric-mean-tuned linear factor when a1 != a2. The statement is an exact special-case benchmark, not a claim of practical robust parameter selection or multidimensional finite termination.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pathak and Wainwright, FedSplit (arXiv:2005.05238v1), defining Algorithm 1, Proposition 3, Theorem 1",
+    "Giselsson and Boyd, Linear Convergence and Metric Selection for Douglas-Rachford Splitting and ADMM (2017)",
+    "Ryu et al., Operator Splitting Performance Estimation (2020)",
+    "Resultary: 2026/10/4/SCOPE-critical-damping-relaxation-for-scalar-strictly-contractive-peac--25b033956fe0"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Classical Peaceman-Rachford composition on two quadratics could contain the same scalar nilpotent specialization without FedSplit terminology.",
+    "Literal two-round termination requires exact proximal evaluation, 2 clients, scalar curvatures and a shared s."
+  ],
+  "residual_risks": [
+    "Classical Peaceman-Rachford composition on two quadratics could contain the same scalar nilpotent specialization without FedSplit terminology.",
+    "Literal two-round termination requires exact proximal evaluation, 2 clients, scalar curvatures and a shared s."
+  ],
+  "schema_version": 1
+}
