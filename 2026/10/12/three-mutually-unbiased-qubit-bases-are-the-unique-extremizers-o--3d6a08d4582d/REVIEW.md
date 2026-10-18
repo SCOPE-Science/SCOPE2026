@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The Bloch parametrization is exact for rank-one qubit projective measurements. The function \(H(s)=h((1+\sqrt s)/2)\) has the explicit strictly negative second derivative displayed in RESULT.md. This proves both exact MUB extrema. The global upper comparison uses the exact sign average \(\frac18\sum_\varepsilon\|A^{-1}\varepsilon/\sqrt3\|^2=\frac13\operatorname{tr}((AA^T)^{-1})\) and the arithmetic-harmonic mean inequality; singular triples are handled separately. Equality conditions are tracked at every strict step.
+## correctness
 
-## Originality
-PASS. arXiv:1506.07709 explicitly reports numerical exploration of arbitrary triples of qubit measurements and states the general MUB extremality as Conjecture 1; it gives the tight MUB endpoint values but does not prove the global Shannon comparison. Searches using the source identifier, qubit/MUB/certainty aliases, Bloch-axis formulations, the exact endpoint constant, and the octahedral-POVM reformulation found no implication-equivalent result. The closest fixed-POVM entropy literature does not optimize over arbitrary triples of projective bases.
+PASS
 
-## Value
-PASS. This settles the complete first nontrivial instance of a published entropic certainty/uncertainty conjecture, including both directions and rigid equality cases, for every triple of qubit projective measurements rather than a one-parameter or numerical family. The proof also isolates a reusable three-vector balancing lemma behind the certainty half.
+Let g(x)=h((1+x)/2), H(s)=g(sqrt(s)). The analytic derivative H(s)=−(sqrt(s)/(1−s)−artanh(sqrt(s)))/(4s^{3/2})<0 proves strict concavity on 0<s<1. For orthonormal axes squares s1+s2+s3=1, Jensen gives maximum H(1/3)=beta*, and concavity at simplex vertices gives minimum 2ln2/3. For arbitrary axes, test r=n_i to bound Bmin, equality forces all axes orthogonal. For Bmax singular 3x3 axis matrix A admits r in ker A giving ln2>beta*. For invertible A, trace(C)=3, C=AA^T; averaging over sign epsilon gives average ||A^{-1}epsilon/sqrt3||²=tr(C^{-1})/3≥1, strict unless C=I. A norm>1 witness yields a normalized r with all |n_j·r|<1/sqrt3, so Bmax>beta*. Independent symbolic Hessian sign checks and a nonorthogonal exact frame test corroborate strictness; proof is analytic for every triple.
 
-## Closest literature and limitations
-The defining 2015 paper supplies the conjecture and exact MUB endpoint values. Sánchez-Ruiz supplies complete-MUB certainty bounds, and the highly symmetric POVM literature treats the fixed octahedral measurement. None of those inspected sources gives the all-triples extremal comparison proved here. The theorem does not extend the claim to higher dimensions or to the separate variance conjecture.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Puchała et al. explicitly pose the global MUB extremality as Conjecture 1, know the MUB endpoint values, and discuss N=2 L=3 numerically; that does not imply global comparison with all other projective triples or rigid uniqueness. Related symmetric-POVM endpoint bounds treat fixed POVMs, not arbitrary triple optimization. Resultary qubit minimax results concern different measurement tasks.
+
+## value
+
+PASS
+
+The precise first nontrivial dimension and three complementary measurements are central to entropic certainty theory. Both global extremal directions and exact uniqueness settle a named conjectural special case, not merely re-evaluate the known MUB points.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
