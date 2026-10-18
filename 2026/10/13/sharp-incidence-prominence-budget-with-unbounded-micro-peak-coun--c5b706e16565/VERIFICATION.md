@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The symbolic derivation in `RESULT.md` is the proof. The exact incidence derivative is obtained by differentiating the positive SIR incidence; integrating it proves the drop budget. The Gaussian construction is assessed with exact state bounds \(S\geq18/25\), \(I\leq2/17\), \(39/10<\beta\leq4\), \(2867/2125\leq H\leq13/5\); these yield positive incidence-growth derivative at all pulse midpoints, negative derivative at all centers, and strictly positive infectious growth everywhere.
+## correctness
 
-Execute `python verify.py` using Python 3 standard library. The checked execution returned `VERIFY_OK: rational guards and five independent sampled Gaussian schedules`. The checker uses exact rational comparisons for the theorem's finite numerical constants and finite RK4 runs for illustrative values of pulse count one, two, four, seven and twelve. These checks are neither an exhaustive enumeration nor a proof for arbitrarily large pulse count. The unlimited-count and sharpness conclusions come from the written analytic comparisons and the shrinking-width limits, not from a finite checker.
+PASS
 
-The quantitative prominence inequality is established only for ordered disjoint intervals and nonnegative \(H\); the analytic construction only guarantees arbitrarily many strict, potentially tiny peaks. No tests of noisy observations, discrete aggregation, or intervention outcomes are asserted. An independent scientific audit has not been performed.
+Differentiating log(beta S I) gives (log c)prime=(log beta)prime+H, so H>=0 and monotonic beta imply the sum of disjoint peak-to-trough logarithmic drops is bounded by total log beta decline. The Gaussian pulses of q=-beta prime/beta are positive analytic with arbitrarily small integrated mass and uniformly bounded height; H remains in explicit positive bounds, so derivative changes signs at every center/midpoint while I increases. Shrinking fixed-mass pulses makes the prominence/log-budget ratio approach one. Reviewed exact rational guard inequalities and numerical verifier, with infinitely-many-peaks conclusion from analytic estimates, not RK4.
+
+## originality
+
+PASS
+
+Rabajante 2026 full HTML, Section 3 Corollary 1, Section 4.2 Eq.(21) and Proposition 2 were checked: arbitrary incidence peaks under unrestricted forcing and the log-derivative formula are explicit prior art. The sharp additive log-prominence budget under H>=0 and strictly decreasing analytic beta with bounded logarithmic slope, unbounded tiny peaks, and constant-one sharpness are stronger constrained conclusions not present there. General Gaussian pulse transmission constructions are not exact coverage of decreasing logarithmic slope.
+
+## value
+
+PASS
+
+The exact unit-constant log-prominence budget distinguishes observable peak depth from peak count, while the tiny-peak analytic counterfamily proves why raw counts are unstable under bounded monotone intervention; this is a substantive boundary theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
