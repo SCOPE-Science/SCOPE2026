@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Finite and symbolic verification
+# Independent mathematical audit
 
-The theorem is supported by the explicitly quantified Boolean-algebra proof in `RESULT.md`; the following finite computations are checks, not a proof for infinite Boolean algebras.
+## correctness
 
-Invoke `python3 verify.py` from the directory containing this package. Python standard library only; no network or nonstandard dependencies. The program enumerates every map on the powerset algebras with one and two atoms and checks agreement of the quasi-identity and binary-join preservation, giving 3 out of 4 and 25 out of 256 satisfying maps respectively. Since the quasi-identity implies monotonicity symbolically, testing all 8,000 monotone maps on the three-atom powerset algebra exhausts every possible satisfying map there; precisely 729 satisfy both. Finally, the exact operator printed in arXiv:2603.17724v1, Example 2.2, violates the quasi-identity on the explicitly stated triple.
+PASS
 
-The locally rerun output ends with `VERIFY_OK`. The code is complete and works as printed. No computational experiment addresses arbitrary infinite Boolean algebras, CEP of the example, or the paper's other constructions.
+For an arbitrary Boolean algebra, x△y≤y whenever x≤y, so the asserted quasi-law implies f(x)≤f(y). Taking u=x∨y, u△x≤y and monotonicity imply f(u)≤f(x)∨f(y); the reverse inequality is monotonicity. Conversely x=p∨r,y=q∨r with p=x∧¬y,q=y∧¬x,r=x∧y and the lattice identity (a∨c)△(b∨c)≤a∨b yield f(x)△f(y)≤f(x△y)≤f(z). No normality or nontriviality assumption. For each of n labelled output atoms, a join-preserving {0,1}-valued coordinate map is either identically one or is uniquely determined by n singleton bits, hence (2^n+1)^n. Independently enumerated all n=1,2 unary operators: respectively 3/4 and 25/256 satisfy both. The published Example 2.2 f({1,3})={1,2,3} while f({1})={1}, f({3})={3} violates the quasi-law with x={1,3},y={1},z={3}.
+
+## originality
+
+PASS
+
+The actual 2026 Gyenis–Molnár–Öztürk primary article asserts the quasi-law to be strictly weaker than additivity and asserts its nonadditive example satisfies it. The independently proved equivalence and explicit violating triple refute those two particular assertions; previous general CEP results do not imply the converse equivalence. Earlier implicit Boolean lattice identities and subsequent versions of the manuscript are residual risks, not grounds to dismiss this demonstrated direct correction.
+
+## value
+
+PASS
+
+A concrete correction of a published claimed strict weakening of the algebraic sufficient condition for the congruence extension property, together with a rigorous counterexample to the asserted witness, closes a motivated mathematical error. It does not claim that the specific example lacks CEP nor question unrelated later constructions. The labelled finite census is secondary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

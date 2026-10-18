@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The first implication of the theorem derives monotonicity from the quasi-identity and then proves join preservation using the triple \((x\vee y,x,y)\). Conversely, the disjoint decomposition of \(x\) and \(y\) proves the quasi-identity from join preservation without assuming \(f(0)=0\). The finite count follows from independent output-atom choices. `verify.py` checks all 4 unary maps on the two-element algebra, all 256 maps on the four-element algebra, all 8,000 monotone maps on the eight-element algebra, and the stated counterexample, and finishes with `VERIFY_OK`. Exhaustive finite checks do not replace the universal proof.
+## correctness
 
-**Originality — PASS, with risk.** The arXiv manuscript *More on modal logics and deduction* (arXiv:2603.17724v1, Sections 1–2) expressly claims that the displayed quasi-identity is strictly weaker than additivity and that its Example 2.2 satisfies it. The complete relevant proof context and example have been read and tested. The present equivalence entails neither claim. Semantic literature searches and published mathematical-result searches did not return an equivalent formulation. The primary risk is that the equivalence, viewed as a standalone Boolean-algebra identity, may have been stated in earlier algebra literature independently of this new application; database absence does not prove novelty.
+PASS
 
-**Value — PASS.** This is a correction to a mathematically consequential proposed weakening of additivity in a recent analysis of CEP and deduction: it proves that the new intermediate condition collapses exactly to the known additive class, supplies a counterexample to the article's asserted witness, and gives a complete exact finite census. This is not merely an unexplained negative calculation or a claim that the entire article fails. No statement is made about the CEP of the example under other arguments.
+For an arbitrary Boolean algebra, x△y≤y whenever x≤y, so the asserted quasi-law implies f(x)≤f(y). Taking u=x∨y, u△x≤y and monotonicity imply f(u)≤f(x)∨f(y); the reverse inequality is monotonicity. Conversely x=p∨r,y=q∨r with p=x∧¬y,q=y∧¬x,r=x∧y and the lattice identity (a∨c)△(b∨c)≤a∨b yield f(x)△f(y)≤f(x△y)≤f(z). No normality or nontriviality assumption. For each of n labelled output atoms, a join-preserving {0,1}-valued coordinate map is either identically one or is uniquely determined by n singleton bits, hence (2^n+1)^n. Independently enumerated all n=1,2 unary operators: respectively 3/4 and 25/256 satisfy both. The published Example 2.2 f({1,3})={1,2,3} while f({1})={1}, f({3})={3} violates the quasi-law with x={1,3},y={1},z={3}.
 
-**Scope and risk.** Only the explicit quasi-identity of Fact 2.1 and the asserted satisfaction by Example 2.2 are addressed. Later strongly non-additive constructions, their proofs, and historical equivalence of the Boolean identity remain outside this result.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The actual 2026 Gyenis–Molnár–Öztürk primary article asserts the quasi-law to be strictly weaker than additivity and asserts its nonadditive example satisfies it. The independently proved equivalence and explicit violating triple refute those two particular assertions; previous general CEP results do not imply the converse equivalence. Earlier implicit Boolean lattice identities and subsequent versions of the manuscript are residual risks, not grounds to dismiss this demonstrated direct correction.
+
+## value
+
+PASS
+
+A concrete correction of a published claimed strict weakening of the algebraic sufficient condition for the congruence extension property, together with a rigorous counterexample to the asserted witness, closes a motivated mathematical error. It does not claim that the specific example lacks CEP nor question unrelated later constructions. The labelled finite census is secondary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
