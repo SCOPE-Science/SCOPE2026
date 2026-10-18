@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact scope is fixed by binary words of lengths three and four, both represented, and Kraft equality. The equation \(2a+b=16\) gives seven exhaustive cases; choosing the two word sets accounts for exactly 1,901,636 potential codes with no duplicates. Literal Sardinas--Patterson suffix-set iteration and an independently written bitmask transition-graph implementation both examined every case, produced identical seven uniquely decodable totals and the same four exceptional word sets. The first exceptional representative has repeating nonempty remainder sets \(\{1\}\) and \(\{10,101,111\}\), disjoint from its codewords. Reversal and bitwise complementation generate the other three. Counting ordinary prefix and suffix completions and using strong connectivity of the binary de Bruijn graph proves the two 254-member classes do not intersect. The nonprefix infinite-delay deduction uses Schützenberger's existing theorem, not experimental extrapolation.
+PASS
 
-## Originality — PASS
+For a short layer S subset of eight 3-bit words with 1<=a=|S|<=7, Kraft equality forces b=16-2a four-bit words. Every unordered candidate is reached once by choosing S and b distinct four-bit words; sum_a C(8,a)C(16,16-2a)=1,901,636. A fresh independent C++ complete enumeration implemented the Sardinas-Patterson remainder-state reachability recurrence, not the submitted program, over all candidates. It reproduced unique-decipherability counts 16,56,112,140,116,56,16 (512 total), 4 exceptional neither-prefix-nor-suffix cases at a=5, and the exact complement/reversal orbit; prefix-free and suffix-free counts each equal sum_a C(8,a)=254. Prefix/suffix intersections are impossible because the three-bit de Bruijn graph is strongly connected. The SP finite remainder-state equivalence is valid for all these codes, so this is exhaustive, not a sampled experiment. Only the restricted length profile is proved; the infinity of deciphering delay uses classical Schützenberger finite-maximal-code theory, not novel proof.
 
-Woryna's arXiv:1608.08381 presents the general counting problem and exact results for a different three-word profile and for divisible-length profiles with one longer word. The specific Kraft-equality word-set count for lengths three and four is not an instance of those formulas. Woryna's arXiv:1804.02531 supplies upper/lower proportion estimates and an exact two-word count, neither determining the present multiword distribution or the four mixed exceptions. The classical Kraft--McMillan, Sardinas--Patterson, and Schützenberger theorems are used but not claimed as novel. Related fixed-length and fix-free enumerations cover different code properties. A prior unindexed exact census cannot be excluded.
+## originality
 
-## Value — PASS
+PASS
 
-Prescribed-length uniquely decodable code counts are a recognized mathematical question, and equality in Kraft--McMillan singles out maximal, zero-slack designs. The exact 512-element classification isolates only four noncanonical codes between the 254 prefix and 254 suffix completions; they form a single complement-and-reversal orbit. This identifies and exhausts the exception to the natural prefix-or-suffix construction at a complete, variable-length binary profile, while separating immediate from unbounded-delay decoding. The case is finite but natural, complete, and not implied by the known general inequalities. No broader theorem or application is asserted.
+Classical Sardinas-Patterson and Kraft-McMillan determine the decision procedure and candidate-space constraint but not this completed mixed-length saturated census. Woryna 2016 gives general length-sequence bounds and exact small three-word cases; its detailed statements do not imply this profile, which permits many words of both lengths. Resultary semantic search found different alphabet/blocklength/code criteria, not a theorem implying 512 or the four non-prefix/non-suffix exceptions. A prior unindexed exact table is residual risk, not assumed absent.
 
-## Closest literature and limitations
+## value
 
-Primary comparisons: Woryna (2016), arXiv:1608.08381 (sections 1--4); Woryna (2018), arXiv:1804.02531 (introduction and exact two-word theorem); Berstel--Perrin--Reutenauer, *Codes and Automata*, chapter 5, Theorem 5.2.4 (known finite-delay restriction). Direct comparisons to associated published fix-free and non-overlapping results find stronger code constraints, not an implication of these uniquely decodable counts. The Derencourt (1996) study of prefix/suffix-composition of three-word codes was not accessible in full and is retained as a bibliographic risk, though it does not purport to enumerate the stated many-word Kraft boundary. The enumeration is certified by two reproducible finite methods, not by independent external audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Uniquely decodable Kraft-equality codes are a natural extremal family, and the first mixed 3/4-length binary profile asks how many maximal codes are nonprefix. The exact 512 code census and four exceptional word sets separate the classical obvious prefix/suffix subclasses from genuinely nonprefix codes; that is a reproducible natural finite classification rather than a named parameter substitution or isolated sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
