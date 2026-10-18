@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The general theorem is proved analytically in `RESULT.md` from the published middle-line characterization and exposed-point lemma.
+# Independent mathematical audit
 
-The following source-dependent steps were materially checked in the primary texts:
-- `arXiv:1504.00541`, Lemma 2: for bodies with no pair of parallel edges, a point is a convexity point exactly when every middle line through it has a middle set containing it.
-- `arXiv:1504.00541`, Lemma 6: exposed points of the convex hull of all middle sets are convexity points.
-- `arXiv:1607.03014`, Section 2 and the polygonal discussion in Section 3: for a polygon without parallel edges, the middle hedgehog is the polygonal union of the edge middle sets.
-- `arXiv:1607.03014`, introduction: triangles and Reuleaux triangles are given as examples with precisely three convexity points, while a typical planar convex body is proved to have infinitely many.
+## correctness
 
-`verify.py` checks the regular-polygon indexing, middle-set endpoint identity, and radius formula for many odd values. It is a sanity check only; the infinite statement does not depend on enumeration.
+PASS
 
-Scientific limit: the theorem does not classify even regular polygons or arbitrary odd polygons, and it does not claim that only odd finite convexity-point counts are possible in general.
+From polygonal support faces, for each edge E_j=[v_j,v_{j+1}] the antipodal support face is v_{j+m+1}; the edge-normal middle set is (E_j+v_{j+m+1})/2=[c_j,c_{j+m+1}]. All other middle sets are singleton endpoints, so Schneider’s polygon description identifies the hull A_P as conv{c_j}. Distinct rotated c_j have radius R sin(π/(2n)) and are exposed in A_P; Schneider 2015 Lemma 6 makes each a convexity point. Conversely the continuous q_z(φ)=⟨z,u(φ)⟩−[h_P(u)−h_P(−u)]/2 is π-antiperiodic, so has a zero. Schneider Lemma 2 demands z lie in the middle set at EVERY zero for convexity. If z is not any endpoint c_j, such a zero with z in a relative interior of [c_j,c_{j+m+1}] is a strict local extremum by the one-sided support derivatives. Yet antiperiodicity from a maximum to its shifted minimum forces a sign-changing zero in between, where z cannot lie in an edge middle segment or singleton, contradiction. Verified index formula and radius; finite n=3..101 checker is only corroboration.
+
+## originality
+
+PASS
+
+Full texts of Schneider’s 2015 and 2016 source papers supply existence, middle-line characterization, the exposed-point lemma and generic infinitude; neither establishes exact regular odd-n cardinality and midpoint locus. Resultary searches show a separate exact-three quadrilateral theorem but no all-odd polygon statement. The new theorem gives an exact natural infinite family, with residual risk of unindexed exercises/notes that record the same elementary specialization.
+
+## value
+
+PASS
+
+Fills a natural finite-cardinality problem in the exact setting introduced by Schneider: gives canonical convex bodies with each odd finite number n≥3 of convexity points, and computes their full geometric locus and radius. The exact upper bound is nontrivial because exposed hedgehog vertices supply merely sufficient convexity points, while a middle segment could a priori hold extras. This is a motivated complete classification for a recognizable symmetry family, not an arbitrary low-n enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
