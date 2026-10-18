@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "A complete incidence-row bijection modulo plant permutations enumerates every connected graph with each \\(a+b\\le8\\). Each survivor-set component order is separately computed by disjoint-set union and breadth-first flood fill, with equality asserted for every case. All 55 comparisons of unequal coefficient vectors within equal degree-signature classes are coordinatewise ordered, proving no crossover because the expectation is a nonnegative-basis polynomial. At nine vertices, the exact coefficient vectors differ by (0,0,-1,1,2,0), yielding \\(q(1-q)^2(2-3q)\\), whose only interior root is 2/3 and whose sign changes. Independent exact subset matching confirms equality for all 32 survivor sets. The included Python standard-library checker was run successfully; no continuous/infinite claim relies on partial enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Solé and Montoya (2000), whole accessible manuscript including Section III and Fig. 3, simulates random and targeted removal in three empirical food webs.",
+        "Kitsak et al., arXiv:1709.10174 abstract: stability of giant components under link percolation rather than guild-specific site percolation."
+      ],
+      "reasoning": "General ecological network robustness, degree-sequence percolation asymptotics and edge-percolation component stability do not logically imply coefficientwise ordering for each of the finite, one-guild site-deletion enumerations. No known stronger exact finite statement found in searches.",
+      "searches": [
+        "graph degree sequence largest connected component expected size independent vertex failures polynomial degree matched counterexample crossing",
+        "network fragmentation robustness largest component crossover degree preserving rewiring site percolation"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:cond-mat/0011196v1 (complete six-page manuscript)",
+      "DOI:10.1046/j.1461-0248.2002.00354.x (publisher abstract)",
+      "arXiv:2106.06348 / DOI:10.1002/env.2709 (available abstracts only)",
+      "arXiv:1709.10174 (public abstract only)",
+      "targeted literature and indexed claim search comparisons"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Dunne, Williams and Martinez (2002) characterize food-web secondary extinction patterns versus connectance, a different random variable.",
+        "Chabert-Liddell et al. (2021), available abstract, uses robustness of disconnected species under sequences and not the exact largest-component degree-matched crossover.",
+        "Solé and Montoya (2000) report empirical large-network cluster size as deletion proceeds, with no exhaustive pairwise degree-matched comparison."
+      ],
+      "reasoning": "A ranking of mean matching capacity, secondary-extinction counts, or asymptotic giant-component threshold does not entail the sign of the expected largest component in a finite one-guild deletion experiment. The present pair has exactly equal matching maximum for each of 32 survival outcomes yet a strict connectivity crossover, directly ruling out reduction to the matching statistic.",
+      "searches": [
+        "plant pollinator networks random removal largest connected component robustness sign reversal",
+        "expected largest connected component under independent node removal ecological network exact finite bipartite degree sequence",
+        "same maximum matching size under every vertex deletion but different largest connected component expectation crossover"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Solé and Montoya, arXiv:cond-mat/0011196v1, Section III, uses the largest species cluster under random node deletions without exact fixed-degree finite classification.",
+        "Chabert-Liddell et al., arXiv:2106.06348, abstract, studies a distinct sequential robustness functional via stochastic block models."
+      ],
+      "reasoning": "Fixed-degree one-guild site deletion, largest-component expectation, and Bernstein coefficientwise comparison are direct equivalent formulations searched. Observed literature does not state the small-order sharp result. Accessible abstracts alone are not grounds for asserting full-text noncoverage.",
+      "searches": [
+        "site percolation expected largest component bipartite graphs degree-sequence equivalence coefficientwise",
+        "largest connected component polynomials for bipartite graphs under random deletion of one vertex guild and sharp nine-vertex degree-matched reversal",
+        "expected largest component difference q (1-q)^2 (2-3q) degree-matched bipartite nine vertices pollinator removal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Standard graph software documentation defines largest-component computation but does not provide the one-guild deletion-polynomial table (igraph graph-components manuals).",
+        "The complete derived finite table explicitly lists distinct polynomials by guild sizes and degree signatures, with a standalone reproducer."
+      ],
+      "reasoning": "The search did not locate an exact published table identifying this witness or proving the eight-vertex boundary; the private enumeration is not asserted to prove bibliographic uniqueness. Existing general graph or reliability databases could contain equivalent computed data under alternative names.",
+      "searches": [
+        "small graph atlas bipartite ecological robustness network deletion components exact table",
+        "smallest degree-matched network reversal expected largest connected component plant pollinator",
+        "bipartite plant pollinator network size largest connected component maximum matching survival pollinators",
+        "four plants five pollinators degree multiset (2,2,2,3) (1,2,2,2,2) site percolation component-size crossing"
+      ]
+    },
+    "rationale": "The closest fully examined original work, Solé and Montoya 2000, measures largest ecological clusters under random removal but reports simulations of three large food webs, not exact coefficientwise dominance up to eight species or an explicit nine-species crossover with identical matching response. Dunne et al. 2002 concern secondary extinctions and connectance. Kitsak et al. 2017 study stability under bond rather than one-guild site percolation. Chabert-Liddell et al. 2021/2022 give stochastic-block-model predictions of sequential ecological robustness rather than the exact functional, according to available abstracts; inaccessible full text and supplements remain a bibliographic risk, not represented as checked. Indexed research and relevant exact-graph queries did not identify a covering result. The witness retains matching equality on every survivor subset, so known matching-capacity reversals cannot imply this result.",
+    "residual_risks": [
+      "Full text and supplementary material for Chabert-Liddell et al. were unavailable; a covered exact special case could have been overlooked.",
+      "Other reliability-theory or ecological-network literature could describe the equivalent graph polynomial under an alternative name.",
+      "No independent audit or external novelty certification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Experiments on three large empirical webs, random/targeted removals and relative largest-cluster curves; does not state a finite degree-matched nine-vertex crossover or coefficientwise small-order classification.",
+        "evidence": [
+          "First page gives arXiv public date 10 November 2000.",
+          "Section III defines largest species cluster and reports simulation results in Fig. 3."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0011196",
+        "material_read": "Full 6-page public manuscript, abstract, Sections I-IV, figures, Table I, references.",
+        "method": "Read extracted full article text and inspected source page images, especially pages 2–3 on response to removal.",
+        "title": "Complexity and Fragility in Ecological Networks",
+        "trigger": "Most relevant early source using the same largest-cluster ecological fragmentation statistic under random removal."
+      },
+      {
+        "assessment": "Focuses on food-web robustness to secondary extinction and connectance; no conclusion based solely on abstract is claimed about all internal results.",
+        "evidence": [
+          "Abstract compares random versus selective removals across 16 food webs, secondary extinctions and connectance."
+        ],
+        "identifier_or_url": "https://doi.org/10.1046/j.1461-0248.2002.00354.x",
+        "material_read": "Publisher abstract and publication metadata; not full article.",
+        "method": "Read publisher landing page and abstract.",
+        "title": "Network structure and biodiversity loss in food webs: robustness increases with connectance",
+        "trigger": "Early ecological robustness study under random species deletion."
+      },
+      {
+        "assessment": "Abstract describes sequential extinction robustness in a stochastic block model and expectation/variance of disconnected-species proportions, rather than exact largest components in a fixed nine-vertex degree-matched pair. Full-document implication check remains unresolved.",
+        "evidence": [
+          "Available abstract defines a different robustness statistic and identifies stochastic block modeling."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2106.06348",
+        "material_read": "Author-page abstract, preprint abstract, publisher abstract and bibliography; full manuscript and supplement unavailable.",
+        "method": "Checked open preprint and author/publisher access routes; read accessible abstracts only.",
+        "title": "Impact of the mesoscale structure of a bipartite ecological interaction network on its robustness through a probabilistic modeling",
+        "trigger": "Closest ecological bipartite network work on robustness under species loss."
+      },
+      {
+        "assessment": "Treats link percolation and the vertex-identity stability of giant components; does not directly settle the one-guild site-deletion coefficient ordering; no full-text noncoverage claim.",
+        "evidence": [
+          "Abstract explicitly identifies link-percolation failures."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1709.10174",
+        "material_read": "Public abstract and bibliographic information only.",
+        "method": "Read preprint and journal abstracts.",
+        "title": "Stability of a giant connected component in a complex network",
+        "trigger": "Plausible stronger coverage of expected largest-component behavior after random failure."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0f725f6b-f2a0-4698-816e-8c281253ea3c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The largest surviving connected component directly measures potential fragmentation of a species interaction network. Sharp minimal-order and coefficientwise classification control for guild sizes and both degree multisets. The nine-vertex example shows a risk-ranking reversal as failure pressure changes; yet maximum one-to-one matching capacity agrees for every failure subset, proving the effect reflects connectivity organization and not even a change in instantaneous assignment capacity. This is a natural structural boundary for a standard robustness functional rather than an arbitrary subgraph slice. It is not a statement about actual persistence under ecological dynamics.",
+    "status": "PASS"
+  }
+}
