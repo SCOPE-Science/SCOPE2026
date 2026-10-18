@@ -1,41 +1,21 @@
-# Review of Point-orbit rigidity for exotic Oka complex structures on projective three-space
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source gives
-\[
-H^2(X_a,\mathbb Z)=0
-\]
-and the point-blow-up formula
-\[
-c_1(TY)=-2[E],
-\qquad
-H^2(Y,\mathbb Z)=\mathbb Z[E].
-\]
-A biholomorphism therefore preserves the exceptional cohomology class. If the inverse image \(D\) of the target exceptional plane were different from the source exceptional plane \(E\), the canonical section of \(\mathcal O(D)\) would restrict nontrivially to \(E\), whereas
-\[
-\mathcal O(D)|_E\simeq\mathcal O_{\mathbb P^2}(-1)
-\]
-has no nonzero section. Hence the exceptional divisor is preserved setwise, and the biholomorphism descends through the two point blow-downs. The converse lift is standard.
+PASS
 
-The uncountability argument uses the source computation
-\[
-\dim_{\mathbb C}\operatorname{Aut}^0(X_a)=1
-\]
-and only measure dimension: every full orbit is a countable union of real at-most-two-dimensional immersed submanifolds of a real six-manifold.
+Let Y=Bl_p X_a. The original 107-page author-hosted primary shows H²(X_a,Z)=0, H²(Y,Z)=Z[E], c1(TY)=-2[E], E=P² with normal O(-1). A biholomorphism F:Y->Y′ preserves c1, hence sends the target exceptional divisor back to an effective divisor D in cohomology class [E]. If D and E are distinct irreducible divisors, the canonical holomorphic section of O(D) restricts to a nonzero section of O(D)|E; by H²(E,Z)=Z and [D]=[E], this line bundle is O_{P²}(-1), with no sections. Therefore D=E. The map descends holomorphically across contractions of E and E′ (holomorphic rigidity/blow-down universal property) to g:X_a->X_{a′}, g(p)=q, with inverse descending similarly. Conversely such a pointed base isomorphism lifts. For fixed a the source proves Aut(X_a)=C* (indeed not merely connected component); its orbits in a real 6-manifold are real dimension at most 2, hence measure zero and cannot cover X_a with countably many orbits. The uncountable orbit quotient classifies one-point blow-ups, not arbitrary multipoint cases or deformation equivalence.
 
-## Originality
+## originality
 
-PASS. The fresh paper proves Oka preservation under finite point blow-up and singles out each one-point blow-up as an exotic complex structure on smooth \(\mathbb P^3\). It does not classify how the result depends on the chosen point.
+PASS
 
-The accepted result is not a special case of the source theorem: it proves the converse rigidity needed to recover the centre from the biholomorphism class of the blow-up. The decisive step is uniqueness of the exceptional divisor from the source Chern class and its negative normal bundle.
+The primary long paper explicitly establishes exotic Oka one-point blowups, Chern divisibility and base-family biholomorphism/automorphism orbit classification; it does not in its checked main theorem, exceptional-divisor proof, or classification section classify the centres of blowups. The accepted claim adds an intrinsic recognition of the exceptional divisor, then a pointed-biholomorphism classification at fixed a. Its uncountability is not obtained by confusing parameter moduli A/2Z with centre moduli X_a/Aut(X_a). No Resultary near-neighbor explicitly covers the pointed-blowup equivalence. General blowup uniqueness may have established an equivalent abstract theorem elsewhere; that residual risk is not concealed.
 
-Searches under point-blow-up isomorphism, centre recovery, automorphism-orbit, and exotic Oka \(\mathbb P^3\) formulations did not locate a covering statement.
+## value
 
-## Value
+PASS
 
-PASS. The source produces an exotic Oka complex structure on \(\mathbb P^3\) from every point but leaves open whether changing the centre changes the resulting complex manifold. The classification answers that natural moduli question completely: the only identifications are those already forced by base automorphisms.
+The classification determines how the continuous choice of blow-up centre changes the biholomorphism type, a natural missing question after the primary discovery that all one-point blowups are exotic Oka structures on smooth CP³. Proving centre recovery yields an uncountable family *at a fixed base parameter*, which is stronger in a different direction than merely changing the source parameter a. The cohomology/divisor obstruction is substantive geometry rather than a renamed invariant.
 
-Since the automorphism group has complex dimension one while the base has complex dimension three, this immediately upgrades the source's existence statement to uncountably many pairwise non-biholomorphic exotic Oka complex structures on the same smooth \(\mathbb P^3\).
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
