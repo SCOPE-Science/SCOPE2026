@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "Every acyclic orientation of \\(K_{a,b}\\) corresponds to a canonical alternation of part-symbol runs. The AB/BA adjacent exchange has exact difference \\(\\Delta\\varphi(i)-\\Delta\\varphi(j)\\); discrete strict convexity strictly improves each surplus imbalance. All and only balanced AB/BA tile words with larger-side tail survive, and the switching operation is a Robin Hood indegree transfer, proving majorization and the universal optimum. For a given side-word the number of labelled orientations is \\(m!(m+t)!\\) divided by same-letter run factorials; summing weights \\(2^{-c}\\) gives \\((3/2)^{m-1}(1/t!+1/(t+1)!)\\). Exhaustive labelled-edge enumeration covered 104334 edge assignments and 13638 DAGs in 52 strictly-convex cost tests, without taking finite evidence as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Borsik–Madarasi, arxiv:2509.06182, general complexity and dynamic programming for arbitrary graphs",
+        "Borradaile et al., arxiv:1212.2178, acyclic maximum-indegree algorithm; NP-hard lexicographic acyclic fairness"
+      ],
+      "reasoning": "A broad theorem minimizing maximum indegree does not imply universal optimality for every strictly convex indegree sum, nor the complete set and count of biclique optimizers. General-purpose exponential dynamic programming gives algorithmic solvability but not this explicit all-size structural theorem.",
+      "searches": [
+        "orientation acyclic K_{a,b} sum squares indegrees optimal alternating source sink vertex ordering",
+        "For complete bipartite graph K_{a,b}, all acyclic orientations minimizing every strictly convex indegree-sum are exactly alternating paired A/B side-word orientations, with number m!(m+t)!(3/2)^(m-1)(1/t!+1/(t+1)!), m=min(a,b), t=abs(a-b)",
+        "arxiv:2509.06182v2 (general convex-indegree acyclic orientation theorems)",
+        "arxiv:1212.2178v4 (acyclic lexicographic orientation)"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2509.06182",
+      "https://dwest.web.illinois.edu/pubs/aobip.pdf",
+      "https://arxiv.org/abs/1412.3685",
+      "https://arxiv.org/html/1212.2178v4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Borsik–Madarasi: cost optimization generalized but no biclique formula or all optimizers counted",
+        "West: same family and representation, different quantity—independently reversible edges",
+        "Cameron et al.: total acyclic orientations not convex-optimal subset",
+        "Borradaile et al.: maximum indegree and hardness not precise universal convex optimum"
+      ],
+      "reasoning": "The closest work provides important premises (canonical run representation, generic optimisation models and total enumeration). None of their compared statements implies the exact optimal degree multiset for all strictly convex costs, the \\(2^m\\) optimal side-word characterization and the run-weighted factorial orientation count without additional analysis.",
+      "searches": [
+        "acyclic orientations of complete bipartite graphs minimizing separable strictly convex functions of indegrees, optimal source order alternating and 2^min(a,b) minimizers",
+        "indegree convex sum fairness acyclic orientation K_{m,n} exact count universal optimal orientations",
+        "orientation acyclic K_{a,b} sum squares indegrees optimal alternating source sink vertex ordering",
+        "arxiv:2509.06182 (strictly convex indegree sum)",
+        "dwest.web.illinois.edu/pubs/aobip.pdf (Lemma 3 and main independent-edge results)",
+        "arxiv:1212.2178v4 Section 4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2509.06182, introduction and general acyclic objective results",
+        "arxiv:1212.2178v4, Section 4 (acyclic objective bounds and hardness), Section 2.1 (unconstrained fairness)",
+        "D. B. West (1995), Lemma 3, run compositions of acyclic bipartite orientations"
+      ],
+      "reasoning": "Lexicographic minimal indegrees, quadratic energy, majorization and minimum convex cost are plausible equivalent descriptions of the optimization side. The present stronger output includes a precise biclique optimizer side-word set and an exact labelled multiplicity. General fairness and biclique orientation-run sources inspected do not supply that specialized result.",
+      "searches": [
+        "acyclic orientations of complete bipartite graphs minimizing separable strictly convex functions of indegrees, optimal source order alternating and 2^min(a,b) minimizers",
+        "indegree convex sum fairness acyclic orientation K_{m,n} exact count universal optimal orientations",
+        "\"complete bipartite\" \"acyclic orientations\" \"strictly convex\" indegree optimal",
+        "\"complete bipartite\" \"indegree\" \"lexicographically\" acyclic orientation",
+        "\"complete bipartite\" \"egalitarian\" \"acyclic\" orientation min",
+        "arxiv:1212.2178v4 (acyclic and lexicographic fairness sections)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Cameron–Glass–Rekvényi–Schumacher, arxiv:1412.3685, Section 3, poly-Bernoulli count of all acyclic orientations",
+        "West (1995), Lemma 3, orientation by alternating blocks"
+      ],
+      "reasoning": "Known total orientation counts and run encodings enumerate all orientations, with no filter by strict convex indegree optimum. Exact labelled optimum multiplicities 27 at \\(K_{2,3}\\) and 162 at \\(K_{3,3}\\) are strict subsets of known totals 46 and 230.",
+      "searches": [
+        "For complete bipartite graph K_{a,b}, all acyclic orientations minimizing every strictly convex indegree-sum are exactly alternating paired A/B side-word orientations, with number m!(m+t)!(3/2)^(m-1)(1/t!+1/(t+1)!), m=min(a,b), t=abs(a-b)",
+        "\"K_{m,n}\" \"acyclic\" \"sum of squares of indegrees\"",
+        "arxiv:1412.3685 (poly-Bernoulli enumeration of all complete-bipartite acyclic orientations)",
+        "West 1995 K_{p,q} acyclic orientations run-length encoding"
+      ]
+    },
+    "rationale": "All four scientific overlap dimensions were compared against four pertinent primary sources and mathematical-record matches; no surveyed result implies the complete biclique universal strictly convex optimizer characterization plus factorial labelled multiplicity. This is a scoped best-knowledge originality judgment, not absolute priority or independent verification.",
+    "residual_risks": [
+      "A specialized result under balanced topological orders, score sequences, graphical zonotope vertices or adjacent-transposition optimisation terminology could remain unindexed.",
+      "Available bibliographic searching does not constitute proof of novelty; no independent priority audit.",
+      "Some general manuscripts were read by targeted theorem/section inspection rather than checking every auxiliary proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes broad hardness, approximation and algorithms, not an explicit universal minimizer family and count for bicliques.",
+        "evidence": [
+          "arxiv:2509.06182v1 dated 2025-09-07",
+          "arxiv:2509.06182v2 updated 2026-10-09, introduction, main results and optimization sections"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2509.06182",
+        "material_read": "Public arXiv history and manuscript text: abstract, definitions/introduction, general optimization statements, and relevant later sections; searched text for complete bipartite and alternating. Not every proof line independently checked.",
+        "method": "Primary open-access preprint read and searched by central objects and optimization parameters.",
+        "title": "Separable convex optimization over indegree polytopes",
+        "trigger": "Exactly the same optimization objective and acyclicity constraint; possible direct coverage."
+      },
+      {
+        "assessment": "Provides run-coding premise, not universal minimum convex indegree sums nor optimizer counts.",
+        "evidence": [
+          "Discrete Mathematics 138 (1995), 393–396, p.395 Lemma 3 and surrounding proof"
+        ],
+        "identifier_or_url": "https://dwest.web.illinois.edu/pubs/aobip.pdf",
+        "material_read": "Four-page original PDF including Lemma 3 and discussion that alternating block construction obtains all bipartite acyclic orientations; principal optimization of independently reversible arcs.",
+        "method": "Primary author-hosted full PDF, extracted-text reading and direct page visualization.",
+        "title": "Acyclic orientations of complete bipartite graphs",
+        "trigger": "Exactly the graph and orientation family; could dominate classification."
+      },
+      {
+        "assessment": "Totals count every acyclic orientation; does not state convex-minimum-filtered subfamily count.",
+        "evidence": [
+          "arxiv:1412.3685, Section 3 complete-bipartite poly-Bernoulli correspondence"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1412.3685",
+        "material_read": "Primary full-text text available; inspected introduction, biclique acyclic orientation enumeration in Section 3, and corresponding main result.",
+        "method": "Original preprint full-text section reading and comparison of counted orientation sets.",
+        "title": "Acyclic orientations and poly-Bernoulli numbers",
+        "trigger": "Exact count for all acyclic biclique orientations could subsume claimed count."
+      },
+      {
+        "assessment": "Acyclic maximum-indegree algorithm and NP-hard acyclic lexicographic objective; no exact all-cost biclique characterization or optimizer number.",
+        "evidence": [
+          "arxiv:1212.2178, Section 4.1 Theorem 13, Section 4.2, Section 2.1 Theorem 4 (unconstrained)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1212.2178v4",
+        "material_read": "Full HTML introduction, Section 2.1 discussion of convex costs for unrestricted orientations, and Section 4 acyclic-orientation optimization and hardness.",
+        "method": "Open-access HTML primary source section reading and complete-bipartite exact phrase search.",
+        "title": "Egalitarian Graph Orientations",
+        "trigger": "Earlier acyclic indegree fairness objective and possible broader optimization theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cd2544d7-8dff-4605-8974-e92f26c2006c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Complete classification and labelled multiplicities for a natural fairness optimization on an infinite graph family of unbounded size and degree; one optimizer set simultaneously minimizes all strictly convex separable indegree energies, yielding the exact majorization-minimal degree multiset and a factorial count. This is a mathematically substantive tractable class within a broadly hard problem, more informative than textbook exchange arithmetic alone.",
+    "status": "PASS"
+  }
+}
