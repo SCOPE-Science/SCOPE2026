@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification procedures and limits
 
-Execute the complete attached source files from the same directory:
+# Independent mathematical audit
 
-```
-python3 verify_frucht.py
-python3 verify_homology.py
-```
+## correctness
 
-Expected terminal success strings are `FRUCHT_MORSE_CERTIFICATE_OK` and `FRUCHT_INDEPENDENT_HOMOLOGY_OK`. Both were executed successfully from these supplied source files. The first enumerates every simplex of the original independence complex and all twelve deletions and links, verifies exact Morse matching counts, runs a topological sort on every oriented Hasse diagram (5,376 total incidences), and explicitly checks simplicial elementary collapses for all four contractible links. The second generates the graph independently from the standard LCF representation, verifies an explicit isomorphism, and obtains mod-two boundary ranks for every complex. The full face vector is \((12,48,73,34,1)\), and the reduced integral homotopy classification follows from the acyclic matching and the cone gluing argument, not from mod-two ranks alone.
+PASS
 
-These programs certify finite statements about the specified graph and its one-vertex deletions, not a theorem about all cubic/asymmetric graphs. No separate independent scientific audit has been performed.
+The pinned source defines the exact Frucht edge list and an explicit LCF relabeling. A fresh independent finite reconstruction enumerated its full 168 independent simplices (face vector (12,48,73,34,1)) and rebuilt every staged Morse matching on the complete graph plus twelve deletions and twelve closed-neighborhood links. Every directed Hasse diagram was checked acyclic, yielding one critical 0-cell and ranks 3,2/3/4,1/2/0 in exactly the stated cases. Source also supplies and checks four elementary link collapse sequences. Discrete Morse theory yields integral wedge-of-spheres homotopy, not merely mod-p Betti guesses. The cone decomposition K=(K-v)∪(v*lk(v)) proves that contractible links preserve the deletion inclusion; unequal second Betti ranks refute the other eight cases. This is exhaustive only for 25 fixed finite complexes.
+
+## originality
+
+PASS
+
+Full Frucht deletion/link profile exceeds the narrower contemporaneously published same-object wedge result. Barmak supplies a suspension in an applicable triangle-free-vertex case but not multiplicities or per-vertex ranks; named graph catalog and other graph-family sources do not imply the full exact table. Bounded originality assessment with explicit unindexed-source risk.
+
+## value
+
+PASS
+
+The Frucht graph is a canonical asymmetric cubic test object whose automorphism group gives no shortcut for twelve distinct deletion profiles. The complete topological classification identifies all deletion-preserving vertices, all rank-changing vertices and the distinct link mechanisms, resolving a motivated finite but complete graph invariant and extending beyond the known base wedge type.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

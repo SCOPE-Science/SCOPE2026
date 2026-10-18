@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For the explicit 18-edge Frucht graph, exhaustive enumeration gives face vector \((12,48,73,34,1)\). A concrete acyclic discrete-Morse matching has one critical vertex and three critical two-cells, proving \(\operatorname{Ind}(F)\simeq\bigvee^{3}S^{2}\). All twelve deletions and links have their own fully checked acyclic matchings and critical-cell counts. For four links, elementary-collapse sequences are actually checked. Homotopy invariance of the inclusion follows from the simplicial cone attachment; the other eight exclusions follow from unequal integral second Betti ranks. Across the 25 complexes, full topological sorts checked 5,376 oriented face incidences. An independent graph presentation and mod-two boundary calculation corroborates every homology rank, without replacing the homotopy proof.
+## correctness
 
-## Originality — PASS, with residual risk
-The Frucht graph has no graph automorphisms, yet its vertex-deletion homotopy behavior has three distinct exact regimes. Primary full-text comparisons include Barmak's star-cluster paper (arXiv:1007.0418), whose applicable suspension theorem does not determine these exact ranks or per-vertex links; Goyal–Shukla–Singh (arXiv:1905.06926), which classifies different graph families; and Nilakantan–Shukla (arXiv:1709.04789), restricted to a bipartite graph family. Ehrenborg–Hetyei's forest-specific results do not cover the cyclic Frucht graph. Weisstein documents the graph and LCF model but no simplicial homotopy classification. Searches for Frucht graph independence homotopy, complementary-graph clique homotopy, Halin-graph independence topology, asymmetry, and all vertex-deletion/link synonyms did not reveal a covering theorem. The closest indexed computations concern different graphs, especially the Heawood independence complex, and do not imply the Frucht classification. The search is not a proof of worldwide novelty: unindexed identical computations remain a genuine residual risk.
+PASS
 
-## Value — PASS
-The Frucht graph is a canonical smallest 12-vertex cubic graph with trivial automorphism group, so vertex-orbit methods cannot collapse its twelve cases. The exact integral homotopy classification of all twelve deletions/links is therefore an intrinsic, motivated finite topological inventory, rather than a single isolated Betti number: four deletions preserve homotopy while eight change the rank, and links distinguish two distinct mechanisms of loss/gain. A complete, short, reproducible certificate makes the distinction reusable when studying graph changes and independence-complex topology. No generalization beyond this graph is asserted.
+The pinned source defines the exact Frucht edge list and an explicit LCF relabeling. A fresh independent finite reconstruction enumerated its full 168 independent simplices (face vector (12,48,73,34,1)) and rebuilt every staged Morse matching on the complete graph plus twelve deletions and twelve closed-neighborhood links. Every directed Hasse diagram was checked acyclic, yielding one critical 0-cell and ranks 3,2/3/4,1/2/0 in exactly the stated cases. Source also supplies and checks four elementary link collapse sequences. Discrete Morse theory yields integral wedge-of-spheres homotopy, not merely mod-p Betti guesses. The cone decomposition K=(K-v)∪(v*lk(v)) proves that contractible links preserve the deletion inclusion; unequal second Betti ranks refute the other eight cases. This is exhaustive only for 25 fixed finite complexes.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Full Frucht deletion/link profile exceeds the narrower contemporaneously published same-object wedge result. Barmak supplies a suspension in an applicable triangle-free-vertex case but not multiplicities or per-vertex ranks; named graph catalog and other graph-family sources do not imply the full exact table. Bounded originality assessment with explicit unindexed-source risk.
+
+## value
+
+PASS
+
+The Frucht graph is a canonical asymmetric cubic test object whose automorphism group gives no shortcut for twelve distinct deletion profiles. The complete topological classification identifies all deletion-preserving vertices, all rank-changing vertices and the distinct link mechanisms, resolving a motivated finite but complete graph invariant and extending beyond the known base wedge type.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
