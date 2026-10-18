@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The complete-graph difference operator \(D:\ell_p^4\to\ell_p^6\) has exact norm \(2\) for every \(2\le p\le\infty\): at \(p=2\), \(D^{*}D=4I-J\); at \(p=\infty\), each row has two coefficients of modulus one; interpolation gives the upper bound, and \((1,1,-1,-1)\) gives equality for every \(p\). Applied coordinatewise, this bounds the sum of sixth pairwise \(p\)-th powers by \(4\cdot2^p\). The six-number power-mean inequality then gives the squared-distance bound. The centered three-coordinate sign tetrahedron has six equal distances and attains every inequality.
+## correctness
 
-## Originality
-PASS. The defining 2021 article was inspected at the definition, universal bounds, Hilbert characterization, comparison inequalities, normal-structure application, and conclusion. It does not state the all-\(p\), dimension-at-least-three formula. Searches covered exact \(J_{\mathrm{in}}\) notation, \(\ell_p\) aliases, the candidate formula, tetrahedral wording, dimension-jump language, and the complete-graph incidence reformulation. The closest exact result is planar and has a strictly smaller value for every finite \(p>2\). The current ledger contains the isolated \(p=4\) specialization, but that does not imply the continuum theorem.
+PASS
 
-## Value
-PASS. The finding converts a four-vector geometric constant into an exact \(K_4\) incidence-operator law across the whole super-Hilbert \(\ell_p\) scale. It identifies one common tetrahedral extremizer for every exponent and establishes a strict two-to-three-coordinate dimension jump throughout \(2<p<\infty\). This is structurally stronger than an isolated exact computation.
+For real ell_p(I), |I|≥3 and 2≤p<∞, D:R^4→R^6 maps a_i to a_i-a_j over all pairs. The exact D*D=4I-J has spectral norm 2 and maximum row l1 norm 2, hence by Riesz–Thorin ||D||_{p→p}≤2 for 2≤p≤∞; (1,1,-1,-1) attains 2 throughout. Coordinatewise application to four unit vectors gives Σ_{i<j}||x_i-x_j||_p^p≤4·2^p. The power-mean inequality on six distances bounds the squared-distance energy by 24(2/3)^{2/p}, attained simultaneously in both inequalities by four zero-sum three-coordinate sign-tetrahedral vectors with equal pairwise distance 2(2/3)^{1/p}. At p=∞ the trivial pairwise bound2 and same sign tetrahedron yield 24. Strict dimension jump over planar 8(1+2^{1-2/p}) for 2<p<∞ follows from strict concavity of t^{1-2/p}. Independent exact K4 Gram and numerical equality checks confirm normalization; all-p theorem is analytic interpolation, not experiment.
 
-## Closest literature and limitations
-Ahmad, Liu and Li, *Symmetry* 13 (2021), article 1294, define \(J_{\mathrm{in}}\) and prove its universal \(16\)-to-\(24\) bounds. A later exact planar theorem gives \(J_{\mathrm{in}}(\ell_p^2)=8(1+2^{|2/p-1|})\), while an earlier isolated computation gives the higher-dimensional \(p=4\) value. The present theorem covers \(2\le p\le\infty\) when at least three coordinates are available; it does not determine the higher-dimensional \(1<p<2\) regime.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The defining Ahmad–Liu–Li 2021 paper, read as full 10-page OA PDF, gives J_in definition, universal 16..24 range and Hilbert characterization but not this all-p higher-dimensional sharp formula. Existing published exact planar formula is strictly smaller for every finite p>2; existing p=4 special value 8sqrt6 is subsumed but does not imply all p. The K4 incidence operator and tetrahedron are precise alternate formulations. Web and index searches did not verify a stronger source; Resultary was unavailable, with genuine unknown search risk.
+
+## value
+
+PASS
+
+All-p closed sharp constant across real super-Hilbert ell_p family with a common natural tetrahedral extremizer and genuine strict jump from two to three coordinates is a structural geometric theorem, not an arbitrary numerical interpolation. The incidence-operator mechanism explains parameter uniformity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
