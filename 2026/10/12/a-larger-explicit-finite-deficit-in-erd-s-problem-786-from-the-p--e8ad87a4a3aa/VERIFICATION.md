@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,35 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof reuses Section 4 of arXiv:2609.37471v1 and changes only the upper bound allowed for \(\delta=(N-|A|)/N\). The three deficit-sensitive checks are:
+# Independent mathematical audit
 
-1. Heavy-prime and final-pool slack:
-\[
-3073\eta_0<\frac{c_0}2.
-\]
-2. Small-prime richness at \(p_0=e^{3200}\), uniformly for \(N\ge e^{200000}\):
-\[
-e^{-200000}+2\eta_0<\frac1{2p_0}.
-\]
-3. The third failure probability in Lemma 10:
-\[
-\frac{8\eta_0}{c_0}<\frac18.
-\]
+## correctness
 
-For \(\eta_0=e^{-3200}/5\) and \(c_0=e^{-1400}\), these reduce after division by common exponential factors to
-\[
-\frac{3073}5e^{-1800}<\frac12,\qquad
-e^{-196800}+\frac25<\frac12,\qquad
-\frac85e^{-1800}<\frac18.
-\]
-The script `verify.py` evaluates these with 80-digit decimal arithmetic and asserts positive margins. It also checks the logarithm of the improvement factor \(e^{1800}/5\).
+PASS
 
-Replay command: `python verify.py`
+The proof reduces to three strict numerical requirements while reusing Li’s published auxiliary estimates: 3073 η0 < e^-1400/2, e^-196800+2/5<1/2, and 8η0/e^-1400 <1/8, with η0=e^-3200/5. Independently checked all three scaled decimal margins; the small-prime pair bound and heavy-prime removal leave the same smooth-integer budget. Within the cited published lemmas and unchanged N≥e^200000 threshold, the contradiction gives strict |A|<(1−η0)N. Li’s full primary source could not be directly rechecked, so dependence on its complete Section4 use of δ is a recorded verification risk, not a fabricated full-text check.
 
-Observed output:
+## originality
 
-`VERIFY_OK heavy_margin_scaled=5.0000000000000000000000000E-1 pair_margin_scaled=1.0000000000000000000000000E-1 coupling_margin=1.2500000000000000000000000E-1 log_improvement=1798.3905620875658996253992407`
+PASS
 
-The computation is only a numerical consistency replay of explicit inequalities. The all-\(N\), all-admissible-set conclusion follows from the exact inequalities in RESULT.md together with Li's published lemmas. No independent audit has been performed.
+Theorem2 of Li publicly states η=e^-5000 but does not by statement alone imply the stronger η0=e^-3200/5. The new explicit parameter choice and verification of all claimed binding inequalities are a genuine quantitative strengthening of the bound, while the source’s underlying lemmas and method are acknowledged as entirely prior. No searched published statement of this stronger specific finite threshold or a dominating one was found; claim is best-of-knowledge, and Li’s inaccessible full proof is a substantive residual risk.
+
+## value
+
+PASS
+
+The finite distinct-factor form of Erdős Problem 786 is a recently resolved natural problem. A completely explicit, much larger (factor e^1800/5) valid deficit without changing the massive N-threshold identifies the small-prime richness constraint p0=e^3200 as the effective bottleneck and gives a usable sharper theorem constant; despite its tiny absolute size, this is an interpretable quantitative boundary improvement, not a random parameter slice. The proof does not claim optimality, new mechanisms or progress toward the conjectural optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

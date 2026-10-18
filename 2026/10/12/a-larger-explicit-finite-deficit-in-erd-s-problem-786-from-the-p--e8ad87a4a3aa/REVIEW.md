@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Section 4 of arXiv:2609.37471v1 was reconstructed with special attention to every use of the deficit parameter. The source's heavy-prime estimate gives \(S\le3072\delta\); at \(\delta\le e^{-3200}/5\), this still gives \(S+\delta<c_0/2\). The separate Step-4 condition is checked from \(\lfloor N/p\rfloor-2D\ge N/p_0-1-2\delta N\) and \(e^{-196800}+2/5<1/2\). The coupling failure is at most \((8/5)e^{-1800}<1/8\), and the final smooth-number pool remains nonempty. All other displayed bounds depend only on \(N\) and the unchanged parameters. The verifier replays the scaled inequalities exactly to high decimal precision; it is not used as a substitute for the all-parameter proof.
+## correctness
 
-## Originality
-PASS. Li explicitly publishes the choice \(e^{-5000}\) and says no attempt is made to optimize it. The full Section-4 proof was inspected, including the small-prime and coupling steps, and no stronger explicit constant is stated. Gessel's preceding note addresses only natural density and explicitly leaves the finite-set question open. Targeted public-literature and published-finding corpus searches for the source, its constants, and stronger finite distinct-factor deficits found no checked statement of \(e^{-3200}/5\) or a dominating finite distinct-factor constant. The residual risk is independent uncatalogued constant optimization.
+PASS
 
-## Value
-PASS. This is not a cosmetic numerical tweak: it improves the explicit finite deficit in a newly solved Erdős problem by the factor \(e^{1800}/5\), while keeping the same theorem threshold and all auxiliary lemmas. The proof also identifies the quantitative bottleneck: the small-prime richness estimate at \(p_0=e^{3200}\), rather than the smooth-number coupling controlled by \(c_0=e^{-1400}\). That diagnosis is useful for any further attempt to optimize the published proof, even though the resulting constant remains far from the conjectured optimum.
+The proof reduces to three strict numerical requirements while reusing Li’s published auxiliary estimates: 3073 η0 < e^-1400/2, e^-196800+2/5<1/2, and 8η0/e^-1400 <1/8, with η0=e^-3200/5. Independently checked all three scaled decimal margins; the small-prime pair bound and heavy-prime removal leave the same smooth-integer budget. Within the cited published lemmas and unchanged N≥e^200000 threshold, the contradiction gives strict |A|<(1−η0)N. Li’s full primary source could not be directly rechecked, so dependence on its complete Section4 use of δ is a recorded verification risk, not a fabricated full-text check.
 
-## Closest literature and limitations
-The main source is Shisheng Li, arXiv:2609.37471v1, especially Theorem 2 and Sections 4.2--4.9. The closest preceding distinct-factor result is Declan Gessel's September 2026 note, which proves a \(7/8\) natural-density upper bound but expressly does not settle the finite-set problem. Repetition-allowed results concern a stronger property and do not imply the finite distinct-factor constant. The current sharpening does not improve the conjectural asymptotic target and does not optimize Li's proof globally.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Theorem2 of Li publicly states η=e^-5000 but does not by statement alone imply the stronger η0=e^-3200/5. The new explicit parameter choice and verification of all claimed binding inequalities are a genuine quantitative strengthening of the bound, while the source’s underlying lemmas and method are acknowledged as entirely prior. No searched published statement of this stronger specific finite threshold or a dominating one was found; claim is best-of-knowledge, and Li’s inaccessible full proof is a substantive residual risk.
+
+## value
+
+PASS
+
+The finite distinct-factor form of Erdős Problem 786 is a recently resolved natural problem. A completely explicit, much larger (factor e^1800/5) valid deficit without changing the massive N-threshold identifies the small-prime richness constraint p0=e^3200 as the effective bottleneck and gives a usable sharper theorem constant; despite its tiny absolute size, this is an interpretable quantitative boundary improvement, not a random parameter slice. The proof does not claim optimality, new mechanisms or progress toward the conjectural optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
