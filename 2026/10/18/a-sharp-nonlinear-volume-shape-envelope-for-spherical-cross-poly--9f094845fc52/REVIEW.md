@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness
+**PASS.** Boundary orientations of all \(2^d\) signed facets give a multilinear determinant identity for the volume of each actual cross-polytope realization, without incorrectly assuming central symmetry or containment of the origin. Singular-value decomposition gives the exact labelled Procrustes distance; arithmetic–geometric mean supplies the sharp upper envelope with equality precisely at scalar-orthogonal half-chord matrices. The cyclic displaced construction has all vertices on the sphere, preserves strict facet incidence by perturbation stability, and attains the bound for a nonzero interval of deviations in every dimension. Independent convex-hull computations were reproduced for dimensions \(2,3,4,5,6\). The proof, rather than finite tests, covers all dimensions.
+
+## Originality
+**PASS, subject to independent priority review.** Horváth–Lángi (arXiv:1402.6496, full text read) establishes only qualitative volume maximality of the regular cross-polytope. The separate opposite-diagonal determinant identity is already discussed in low dimensions in an October 2025 mathematical question, so no novelty is attributed to it. Actual published-finding searches for cross-polytope volume, opposite diagonals, singular values, Procrustes discrepancies, stability, and equality configurations located no all-dimensional volume-versus-Procrustes envelope; the nearest findings concern normed ellipse constants, vertex index, and nine-vertex spherical-polytope Hessians, none of which bounds this same quantity on the same domain. Broader standard matrix inequalities imply the computational core only *after* the geometric volume and vertex metric are identified, rather than state this geometric stability theorem. The 1970 three-dimensional volume-maximization source was identified from the 2014 bibliography, but not read in full; its possible overlapping local estimates are a residual priority risk.
+
+## Mathematical value
+**PASS.** The theorem supplies a scale-exact quantitative version of a classical uniqueness result, with a complete equality criterion and a continuum of genuinely asymmetric sharp witnesses. The explicit nonlinear profile determines the optimum among small shape discrepancies and its dimension-dependent best quadratic coefficient. It connects a geometric shape metric to singular-value structure and distinguishes sharp, non-antipodal perturbations from the regular optimizer. These are structural stability data not supplied by the pre-existing extremal classification.
+
+## Scope and limitations
+The shape discrepancy preserves a chosen opposite-vertex labelling and minimizes only over orthogonal transformations. This is not a statement about arbitrary vertex counts, Banach–Mazur distance, or the complete global equality-discrepancy range. Numerical verifications do not certify all dimensions. Literature comparison used available full text and records the remaining archival-priority uncertainty.
+
+Self-review: passed. Independent audit: not yet performed.
