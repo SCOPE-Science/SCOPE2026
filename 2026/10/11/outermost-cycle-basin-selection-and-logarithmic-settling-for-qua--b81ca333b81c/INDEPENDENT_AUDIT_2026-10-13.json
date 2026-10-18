@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T07:14:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For f(n)=floor(μ−rn), integer adjacent differences are −1 or 0; composing yields g(n+1)−g(n)∈{0,1} and h(n)=g(n)−n nonincreasing by steps 0 or −1. The exact rounding defects ε_n=μ−rn−f(n)∈[0,1) give g(n)=r²n+(1−r)μ+r ε_n−ε_{f(n)}; hence h changes sign at infinity and, with unit steps, has a nonempty consecutive finite zero interval [L,U]. Monotonicity rules out overshoot; exterior g-orbits strictly approach and attain their nearer endpoint. f permutes finite fixed core and reverses its order, giving f(j)=L+U−j. The half-open real first-step cells ((μ−j−1)/r,(μ−j)/r] yield exact disjoint basins incl all boundary ties. Uniform additive error |g^k(n)−r^{2k}n|≤C gives τ(n)=log|n|/(−2log r)+O_{r,μ}(1) from lower exclusion and finite-state upper capture. The bundled rational checker was read, not executed; no finite result is infinite proof.",
+      "risks": [
+        "Source program output is not a substitute for the universal analytic argument."
+      ],
+      "sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/outermost-cycle-basin-selection-and-logarithmic-settling-for-qua--b81ca333b81c/RESULT.md",
+        "https://arxiv.org/pdf/2406.14055",
+        "https://arxiv.org/pdf/1503.07129",
+        "https://doi.org/10.1080/10236198.2024.2428386"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hoseana Theorem2 is the all-cycle enumeration in two-parameter family; Theorem3 is qualitative ω-classification.",
+          "Rozikov et al. theorem for floor(λx) fixes μ=0 and has no arbitrary-shift basin law."
+        ],
+        "reasoning": "The new all-shift endpoint selection and logarithmic transient require a unit-step second-iterate analysis and additive-error control not given by the cited periodicity census.",
+        "searches": [
+          "https://arxiv.org/pdf/2406.14055",
+          "https://arxiv.org/pdf/1503.07129",
+          "piecewise affine floor map negative slope 0<r<1 omega limit cycle basin endpoint selection logarithmic transient Hoseana"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2406.14055",
+        "https://arxiv.org/pdf/1503.07129",
+        "https://doi.org/10.1080/10236198.2024.2428386"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hoseana Proposition13 (pp12–13) explicitly allows the exterior orbit to terminate at some 2-cycle or at a fixed point, with no selected specific orbit.",
+          "The displayed result proves every exterior integer reaches the specific L or U, then enumerates all real first-step cells and the hitting-time asymptotic."
+        ],
+        "reasoning": "Neither the general eventual periodicity nor cycle enumeration alone logically supplies endpoint capture or rate; these demand additional monotonicity and rounding-defect estimates.",
+        "searches": [
+          "https://arxiv.org/pdf/2406.14055",
+          "https://arxiv.org/pdf/1503.07129",
+          "piecewise affine floor map negative slope 0<r<1 omega limit cycle basin endpoint selection logarithmic transient Hoseana"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The originating model uses f(x)=floor(λx+μ) with −1<λ<0, equivalent after λ=−r.",
+          "Its ω-limit theorem states a two-cycle OR a fixed point without identifying an actual cycle for each exterior x."
+        ],
+        "reasoning": "Compared parameter alias and per-initial-point orbit assignment, not just paper titles.",
+        "searches": [
+          "piecewise affine floor map negative slope 0<r<1 omega limit cycle basin endpoint selection logarithmic transient Hoseana",
+          "https://arxiv.org/pdf/2406.14055",
+          "floor negative-slope affine iteration fixed interval period two basin of attraction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned assessed result and unrelated logarithmic escape dynamics, not an independent already-tabulated two-parameter basin classifier.",
+          "Hoseana Theorem2 lists cycle parameter intervals but does not give exact basin-cell partition."
+        ],
+        "reasoning": "The exact object is an infinite continuous-parameter dynamical map; periodic-point tables do not encode attraction rates or every initial state.",
+        "searches": [
+          "piecewise affine floor map negative slope 0<r<1 omega limit cycle basin endpoint selection logarithmic transient Hoseana",
+          "Resultary quantized affine negative slope all basins logarithmic hitting time"
+        ]
+      },
+      "rationale": "PASS best of knowledge after direct primary reading: Hoseana 2024 preprint Theorem2 enumerates all cycles and Theorem3(vi/vii), Proposition13 prove qualitative eventual cycle-or-fixed alternatives for λ=−r, not which cycle attracts exterior initial states when several coexist, nor exact half-open cells/finite basin measures, nor a logarithmic settling coefficient. Rozikov–Sattarov–Usmonov 2015 covers μ=0 only. These are not necessarily minor restatements of a periodic-point census. The 2025 published Hoseana version was identified but not read in full, leaving version-drift risk; search failure not claimed as proof.",
+      "residual_risks": [
+        "The 2025 journal revision may refine dynamics beyond the fully read 2024 preprint.",
+        "The O_{r,μ}(1) constant is not uniform as r tends to 1; no statements for r≥1, positive slope, higher dimensions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING",
+          "evidence": [
+            "Theorem2 enumerates cycles. Thm3(vi) says exterior ω(x) either 2-cycle or central fixed point. Proposition13 terminates without selecting which 2-cycle. No quantitative τ coefficient."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2406.14055",
+          "material_read": "full 15-page 2024 arXiv primary preprint; materially inspected Theorems2 and 3 pp4–6 and proof of Proposition13 pp11–13",
+          "method": "lawful arXiv PDF, text and visual page screenshots",
+          "title": "The dynamics of one-dimensional quasi-affine maps",
+          "trigger": "same f=⌊λx+μ⌋ family and published source"
+        },
+        {
+          "assessment": "SPECIAL_CASE_NOT_DOMINATING",
+          "evidence": [
+            "Model has no affine shift μ and thus cannot state general half-open shifted cells."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1503.07129",
+          "material_read": "2015 arXiv 8pp: title, definition and Theorem1 on negative contraction (pp1,4)",
+          "method": "lawful arXiv PDF primary text",
+          "title": "The dynamical system generated by the floor function ⌊λx⌋",
+          "trigger": "one-parameter predecessor"
+        },
+        {
+          "assessment": "INACCESSIBLE_REVISION_RISK",
+          "evidence": [
+            "Journal version exists but revisions beyond the 2024 full preprint not verified."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/10236198.2024.2428386",
+          "material_read": "bibliographic publication details only; journal text not read",
+          "method": "citation listing; arXiv full text of SAME paper read first",
+          "title": "The dynamics of one-dimensional quasi-affine maps (journal)",
+          "trigger": "2025 journal revision priority risk"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a discontinuous quantized contraction with many coexisting cycles, exact initial-condition basin selection is a natural dynamical gap left open by listing periodic points and coarse eventual behavior. The basin partition and parameter-dependent exact cell measures distinguish an outer-cycle infinite-tail attractor from finite interior basins; the logarithmic transient coefficient addresses a meaningful independent asymptotic observable across all μ∈R and 0<r<1.",
+      "risks": [
+        "The 2025 journal revision may refine dynamics beyond the fully read 2024 preprint.",
+        "The O_{r,μ}(1) constant is not uniform as r tends to 1; no statements for r≥1, positive slope, higher dimensions."
+      ],
+      "sources": [
+        "https://arxiv.org/pdf/2406.14055",
+        "https://arxiv.org/pdf/1503.07129",
+        "https://doi.org/10.1080/10236198.2024.2428386"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The 2025 journal revision may refine dynamics beyond the fully read 2024 preprint.",
+    "The O_{r,μ}(1) constant is not uniform as r tends to 1; no statements for r≥1, positive slope, higher dimensions."
+  ]
+}

@@ -1,15 +1,21 @@
-# Scientific review: quantized affine basin selection
+# Independent mathematical audit
 
-## Correctness — PASS
-The floor differences on consecutive integers equal \(0\) or \(-1\); hence the second iterate has consecutive differences \(0\) or \(1\). This yields a nonincreasing displacement with adjacent changes in \(\{0,-1\}\). The exact rounding-error identity forces opposite signs at integer infinity, establishing a nonempty consecutive fixed-point interval. Monotonicity then proves finite endpoint capture without overshoot, while commutation and involution give the order-reversal reflection. The half-open floor cells establish exact basins, and iterated bounded-error contraction yields the two-sided logarithmic hitting-time bound. The argument covers real \(\mu\), every \(0<r<1\), ties at all discontinuities and both signs of remote initial integers. Exact-rational tests in `CHECK.py` are corroboration, not the proof.
+## correctness
 
-## Originality — PASS, subject to documented priority risk
-Hoseana (arXiv:2406.14055v1), Theorems 2 and 3, already counts all cycles and classifies coarse eventual behavior. In the specifically relevant Theorem 3(vi), its alternatives for external points are *either a two-cycle or the fixed point*; even when only two-cycle behavior is specified, its precise selection among coexisting cycles is not. Its proof in Proposition 13 likewise terminates on either outcome without exact basin assignment. Neither this inspected preprint nor Rozikov–Sattarov–Usmonov (arXiv:1503.07129v1) gives the parameter-uniform outer-cycle selection, disjoint finite cells versus infinite tails, or logarithmic settling coefficient. Targeted scientific-literature searches revealed no covering exact statement; search absence alone is not a novelty proof. The inaccessible 2025 journal revision, different terminology, and unpublished work are residual priority uncertainties.
+PASS
 
-## Value — PASS
-A mere periodic-point census and a statement that each orbit is eventually periodic do not determine the fate of an arbitrary initial condition when multiple cycles coexist. This theorem closes that dynamical gap with a global endpoint-selection principle and exact basin geometry, including the contrast between one full-measure-in-the-tails attractor and finite-measure interior cycle basins. The sharp logarithmic settling coefficient quantifies iteration cost for remote initial data, a distinct and natural observable relevant to finite-time discretized dynamics. These are structural conclusions for all allowable affine shifts and slopes rather than a one-off numerical example.
+For f(n)=floor(μ−rn), integer adjacent differences are −1 or 0; composing yields g(n+1)−g(n)∈{0,1} and h(n)=g(n)−n nonincreasing by steps 0 or −1. The exact rounding defects ε_n=μ−rn−f(n)∈[0,1) give g(n)=r²n+(1−r)μ+r ε_n−ε_{f(n)}; hence h changes sign at infinity and, with unit steps, has a nonempty consecutive finite zero interval [L,U]. Monotonicity rules out overshoot; exterior g-orbits strictly approach and attain their nearer endpoint. f permutes finite fixed core and reverses its order, giving f(j)=L+U−j. The half-open real first-step cells ((μ−j−1)/r,(μ−j)/r] yield exact disjoint basins incl all boundary ties. Uniform additive error |g^k(n)−r^{2k}n|≤C gives τ(n)=log|n|/(−2log r)+O_{r,μ}(1) from lower exclusion and finite-state upper capture. The bundled rational checker was read, not executed; no finite result is infinite proof.
 
-## Closest literature and limitations
-The closest source is Hoseana's 2024 arXiv manuscript, especially Theorem 3(vi)–(vii) and Proposition 13. The 2015 floor-function paper covers the zero-shift subfamily. The 2025 journal version was identified but not materially read, so subtle changes to the originating paper remain a priority risk. No claim beyond the strictly contracting negative-slope family is made. The external independent mathematical audit has not been undertaken.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge after direct primary reading: Hoseana 2024 preprint Theorem2 enumerates all cycles and Theorem3(vi/vii), Proposition13 prove qualitative eventual cycle-or-fixed alternatives for λ=−r, not which cycle attracts exterior initial states when several coexist, nor exact half-open cells/finite basin measures, nor a logarithmic settling coefficient. Rozikov–Sattarov–Usmonov 2015 covers μ=0 only. These are not necessarily minor restatements of a periodic-point census. The 2025 published Hoseana version was identified but not read in full, leaving version-drift risk; search failure not claimed as proof.
+
+## value
+
+PASS
+
+For a discontinuous quantized contraction with many coexisting cycles, exact initial-condition basin selection is a natural dynamical gap left open by listing periodic points and coarse eventual behavior. The basin partition and parameter-dependent exact cell measures distinguish an outer-cycle infinite-tail attractor from finite interior basins; the logarithmic transient coefficient addresses a meaningful independent asymptotic observable across all μ∈R and 0<r<1.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
