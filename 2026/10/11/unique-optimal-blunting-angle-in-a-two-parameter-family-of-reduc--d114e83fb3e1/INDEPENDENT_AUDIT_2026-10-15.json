@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T07:10:56.158784Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the exact frozen Kominers-derived two-arc/two-segment construction, the closure condition q(m)=2 sin(m)/(m+sin(m)cos(m)) cancels the perturbation of endpoint displacement. The active-arc curvature radii 1/2±r stay nonnegative on pi/4<=m<pi/2 and 0<=epsilon<=epsilon_*(m), with connecting support atoms positive; opposite active supports have width exactly 1 and force reducedness through their unique supporting points. The area integral expands as A=C0+B epsilon+C epsilon^2; on its allowed curvature boundary A(m,epsilon_*)=F(m)=m+beta(m)J1(m)+beta(m)^2 J2(m). The attached rational-interval verifier was inspected in full: outward-rounded 10^40 fixed-point arithmetic, sine/cosine alternating Taylor enclosures, automatic derivative jets, and 1000/3000/10000 subinterval covers of [0.785398,1.02], [1.02,1.17], [1.17,1.570797]. Low/middle blocks bound B>0 and B+2C epsilon_*>0, locating their amplitude maxima on epsilon_*; the high block has C<0 and unconstrained quadratic envelope C0-B^2/(4C)<0.788329, below the certified winning area. Middle F''<-0.1303, with F'(1.02)>0 and F'(1.17)<0, gives one joint maximizer. Certified root bracket (1.0783169,1.0783171) and area (0.78884378,0.78884380) match independent high-precision direct numerical evaluation m≈1.0783169774 and area≈0.78884378863. Certificate semantics and derivatives were inspected; independent numeric evaluations are corroboration and do not replace the continuous-domain interval enclosure.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original area lower-bound example is about 0.7862156027, less than the claimed optimized 0.7888437886.",
+          "No identified general reduced-body global theorem reports this unique optimizer on the specified support-function quadrant."
+        ],
+        "reasoning": "A universal characterization of maximum-area reduced bodies could cover the family, but the inspected papers exhibit construction and partial optimization rather than a general theorem implying this exact pair.",
+        "searches": [
+          "reduced planar body Kominers support function blunting unique maximum area",
+          "global largest area reduced convex planar bodies unit thickness optimized family",
+          "arXiv:2606.28612"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.28612v1",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-area-optimizer-on-the-fixed-angle-blunted-quarter-disk-sli--369c8e768fcb",
+        "Resultary ranked query: reduced planar body Kominers support function blunting unique maximum area",
+        "Frozen SCOPE2026 RESULT.md and verify.py at assigned Git tree"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kominers construction gives A(m,epsilon) and example not a global optimizer.",
+          "Fixed m=15/16 published optimum of 0.7871835 is strictly inferior to m≈1.078317 optimum.",
+          "The sign partition F''<0 in the middle and quadratic envelope across the high end is new work required for uniqueness."
+        ],
+        "reasoning": "Neither construction nor one-dimensional restricted optimum implies the global two-variable maximum. The full interval sign certificate and boundary-reduction argument supply the missing implications.",
+        "searches": [
+          "reduced planar body Kominers support function blunting unique maximum area",
+          "2026/10/4/SCOPE-exact-area-optimizer-on-the-fixed-angle-blunted-quarter-disk-sli--369c8e768fcb",
+          "arXiv:2606.28612"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kominers 2026 gives the support-function parameterization and an area example at m=15/16, epsilon=13/20.",
+          "Published fixed-angle research proves amplitude maximum only for m=15/16; new m≈1.078317 differs from 15/16."
+        ],
+        "reasoning": "Equivalent curvature-split reparameterizations do not eliminate the independent angle variable. The fixed-slice theorem does not cover global optimization across angles.",
+        "searches": [
+          "reduced planar body Kominers support function blunting unique maximum area",
+          "Kominers reduced body curvature radius support blunted quarter disk arXiv:2606.28612",
+          "2026/10/4/SCOPE-exact-area-optimizer-on-the-fixed-angle-blunted-quarter-disk-sli--369c8e768fcb"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior recorded numbers include the source 0.7862156027 example and fixed-angle optimized 0.7871835267, not the joint optimum 0.7888437886.",
+          "The new value arises from strict concavity and continuous interval bounds rather than a finite lookup table."
+        ],
+        "reasoning": "Not known-table recomputation; a complete continuous two-parameter extremal point is determined.",
+        "searches": [
+          "reduced planar body Kominers support function blunting unique maximum area",
+          "0.788843 reduced planar body Kominers optimization"
+        ]
+      },
+      "rationale": "Original construction supplies a valid point, not the maximum over the two-dimensional admissible parameter domain. A published exact fixed-m slice optimizes amplitude only and reaches a strictly smaller area; it does not imply a globally unique maximizing angle.",
+      "residual_risks": [
+        "Independent execution of all 14,000 verifier intervals was not available in this execution; code enclosures and sampled high-precision evaluations were examined separately.",
+        "A newer unindexed global parameter optimization could duplicate the full result; the search does not certify priority.",
+        "The source construction excludes negative epsilon and other shape families."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CONSTRUCTION_NOT_COVERING_GLOBAL_OPTIMUM",
+          "evidence": [
+            "Published source constructs m=15/16 epsilon=13/20 body area≈0.7862156; two-parameter unique maximum not stated in accessible material."
+          ],
+          "identifier_or_url": "arXiv:2606.28612v1",
+          "material_read": "Source-described two arcs, two segments, width/reducedness construction, area functional, nonoptimized benchmark and optimization motivation",
+          "method": "primary arXiv materials and matched frozen source mathematical formulas",
+          "title": "An Unexpected Aspect of Reduced Convex Planar Sets (blunted quarter-disk construction)",
+          "trigger": "Original same family, parameter domain, reducedness and numerical lower bound"
+        },
+        {
+          "assessment": "SPECIAL_SLICE_NOT_FULL_OPTIMUM",
+          "evidence": [
+            "At m=15/16, optimal amplitude≈0.7080841391 and area≈0.7871835267; m is fixed, while current theorem optimizes m as well."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-area-optimizer-on-the-fixed-angle-blunted-quarter-disk-sli--369c8e768fcb",
+          "material_read": "Published record summary, repository original file inventory, fixed-angle m=15/16 assertion and its exact area",
+          "method": "Resultary semantic search and published Git source directory examination",
+          "title": "Exact area optimizer on the fixed-angle blunted quarter-disk slice",
+          "trigger": "Very close exact optimization in same source family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determining the actual global best member and unique admissible angle of a natural reduced-body support-function family sharpens a published nonoptimal counterexample in a classical unit-thickness area problem. It supplies a mathematically motivated continuous extremum and certified robust bound, not an arbitrary numerical slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only prescribed two-parameter quadrant pi/4<=m<pi/2, 0<=epsilon<=epsilon_*(m); not all reduced convex plane bodies.",
+    "Exact interval certificate source reviewed, not all 14,000 interval checks independently executed."
+  ],
+  "schema_version": 1
+}

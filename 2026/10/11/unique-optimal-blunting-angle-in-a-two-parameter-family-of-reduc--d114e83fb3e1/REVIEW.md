@@ -1,11 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem is restricted to precisely specified support functions, parameters and boundary cases. The source area integral and reducedness argument are reconstructed; the independent simplification of the boundary area profile agrees with the original formula. Rational interval differentiation with 14,000 subintervals proves the global partition: positive amplitude derivatives on the first two angle ranges, a sharp quadratic envelope in the last, and strict concavity plus a derivative sign change in the middle. Replaying the packaged code establishes the strict inequalities and the optimizer bounds. A floating-point quadrature is auxiliary, not used to infer an infinite theorem.
+## correctness
 
-**Originality — PASS.** The relevant primary preprint constructs one example, says its parameters were chosen for convenience, and does not optimize the family. The closest published optimization covers only the fixed angle \(m=15/16\) and expressly excludes optimizing over \(m\). The present result is a mathematically stronger full-domain result on a specified nonnegative-amplitude quadrant, with a unique angular maximizer. Targeted searches for an equivalent full-angle result, a stronger area bound over the family, and an exact table yielded no covering statement. Residual risk: independent work or an unindexed equivalent reparameterization could contain the same optimization.
+PASS
 
-**Value — PASS.** The source raises a natural extremal problem in reduced planar geometry. Determining a unique joint optimizer across a geometrically motivated, two-dimensional parameter domain advances this problem beyond a fixed-angle slice and gives a materially sharper explicit area lower bound. The angular and amplitude boundary mechanisms are both structural rather than a numerical parameter tweak. It does not solve global reduced-body area maximization.
+For the exact frozen Kominers-derived two-arc/two-segment construction, the closure condition q(m)=2 sin(m)/(m+sin(m)cos(m)) cancels the perturbation of endpoint displacement. The active-arc curvature radii 1/2±r stay nonnegative on pi/4<=m<pi/2 and 0<=epsilon<=epsilon_*(m), with connecting support atoms positive; opposite active supports have width exactly 1 and force reducedness through their unique supporting points. The area integral expands as A=C0+B epsilon+C epsilon^2; on its allowed curvature boundary A(m,epsilon_*)=F(m)=m+beta(m)J1(m)+beta(m)^2 J2(m). The attached rational-interval verifier was inspected in full: outward-rounded 10^40 fixed-point arithmetic, sine/cosine alternating Taylor enclosures, automatic derivative jets, and 1000/3000/10000 subinterval covers of [0.785398,1.02], [1.02,1.17], [1.17,1.570797]. Low/middle blocks bound B>0 and B+2C epsilon_*>0, locating their amplitude maxima on epsilon_*; the high block has C<0 and unconstrained quadratic envelope C0-B^2/(4C)<0.788329, below the certified winning area. Middle F''<-0.1303, with F'(1.02)>0 and F'(1.17)<0, gives one joint maximizer. Certified root bracket (1.0783169,1.0783171) and area (0.78884378,0.78884380) match independent high-precision direct numerical evaluation m≈1.0783169774 and area≈0.78884378863. Certificate semantics and derivatives were inspected; independent numeric evaluations are corroboration and do not replace the continuous-domain interval enclosure.
 
-**Closest literature and limitations.** Kominers, arXiv:2606.28612v1; *Exact area optimizer on the fixed-angle blunted quarter-disk slice* (2026). Scope excludes negative amplitudes, angles below \(\pi/4\), and bodies outside the original support-function construction. Computational sign bounds are based on rational Taylor enclosures rather than approximate samples. No independent assessment of these results is asserted.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Original construction supplies a valid point, not the maximum over the two-dimensional admissible parameter domain. A published exact fixed-m slice optimizes amplitude only and reaches a strictly smaller area; it does not imply a globally unique maximizing angle.
+
+## value
+
+PASS
+
+Determining the actual global best member and unique admissible angle of a natural reduced-body support-function family sharpens a published nonoptimal counterexample in a classical unit-thickness area problem. It supplies a mathematically motivated continuous extremum and certified robust bound, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
