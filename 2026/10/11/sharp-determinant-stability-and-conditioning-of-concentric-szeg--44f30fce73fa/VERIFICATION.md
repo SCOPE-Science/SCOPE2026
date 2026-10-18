@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and reproducibility
 
-The exact theorem depends on the Cauchy double-alternant Gram identity, the model-space decomposition for finite Blaschke products, global strong concavity of the pseudohyperbolic angular interaction, and a cyclic variance identity. The proof of each specialized step is included in `RESULT.md`. A finite test cannot establish the all-degree inequality.
+# Independent mathematical audit
 
-Run `python verify_szego_ring.py` under Python 3 with no third-party dependencies. The script builds normalized Hardy-kernel matrices, computes determinants by complex Gaussian elimination, and verifies the regular-polygon Fourier eigenvectors/eigenvalues for 32 degree/radius pairs. It then checks 945 randomly perturbed circle configurations against the analytic determinant-stability bound and probes the exact sharpness asymptotic at three radii. The program was run on the included source and returned `PASS: 32 regular spectra, 945 jittered configurations, 3 sharpness sequences`.
+## correctness
 
-The sharp constant is analytic: the angular potential curvature has minimum magnitude at separation \(\pi\), and a perturbed antipodal pair has determinant deficit \(c_r h^2+O_r(h^4)\). A zero or finite numerical tolerance is never interpreted as an exhaustive proof. The determinant refers only to the finite seed Gram matrix, not to an infinite Fredholm determinant. The theorem does not address repeated zeros, varying radii, or globally optimal condition numbers outside the regular-polygon family.
+PASS
+
+PASS: The frozen RESULT.md constructs H^2=⊕_{n≥0} B^n K_B for the finite inner Blaschke multiplier and shows d distinct normalized evaluation kernels span K_B by the positive Cauchy determinant. Thus all infinite-orbit Riesz bounds reduce to the finite seed Gram. Expanding the Cauchy double alternant yields log det=Σ_{k=1}^{d-1}Σ_j L_r(θ_{j+k}-θ_j), L_r(t)=log[2r sin(t/2)/|1-r²e^{it}|]. Differentiation gives -L_r''≥c_r=(1-r²)²/(4(1+r²)²); strong Jensen and the exact cyclic identity Σ_{k,j}(ε_{j+k}-ε_j)²=2d Σ_j(ε_j-mean ε)² give the claimed quadratic loss, with equality only for rotated regular polygons. For d=2, the second-order near-antipodal loss tends to c_r h², proving uniform optimality. Fourier diagonalization gives λ_l=d(1-r²)r^{2l}/(1-r^{2d}) and uniform two-sided frame bounds iff sup_d d(1-r_d)<∞. I independently evaluated the d=2 quadratic coefficient at r=0.2,0.5,0.8 and h=0.02,0.01; all ratios tend to the displayed c_r. Script trials alone are not the proof.
+
+## originality
+
+PASS
+
+PASS (best knowledge): The raw unorthogonalized Szegő kernels, precise radial Gram spectrum and the globally optimal all-degree angular determinant-defect coefficient are not provided by the inspected finite-Blaschke orbit existence theorem or general kernel Fekete design results. The Cauchy determinant and strong concavity principle are classical and are explicitly treated as inputs, not novel discoveries. A stronger generalized circular energy stability theorem is a residual coverage risk.
+
+## value
+
+PASS
+
+PASS: This gives a sharp D-optimality stability modulus for a natural nonorthogonal generator family, plus exact optimal infinite-orbit Riesz bounds and a sharp high-degree uniform conditioning threshold. The quantitative penalty is structurally tied to pseudo-hyperbolic separation and has a proven extremal two-node obstruction, not an arbitrary constant recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

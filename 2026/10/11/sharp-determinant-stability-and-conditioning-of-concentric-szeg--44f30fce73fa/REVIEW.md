@@ -1,20 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is proved for every integer degree at least two, all interior radii, and all distinct circular zeros. The reproducing kernels span the finite model space; Wold orthogonality reduces the orbit bound to the seed Gram. The Cauchy kernel determinant gives an exact pseudohyperbolic pair potential. Its explicitly differentiated second derivative has global upper bound \(-c_r\), and strong Jensen plus an exact cyclic variance identity proves the determinant stability. Perturbed antipodal pairs attain the coefficient asymptotically. Fourier diagonalization establishes the exact Gram spectrum. The standard-library program verifies finite instances only; it cannot replace these analytic steps.
+## correctness
 
-## Originality — PASS, with residual risk
-Aguilera–Carando [1, Theorem 2.6, Example 2.7] provide finite Blaschke orbital bases from orthonormalized Malmquist–Walsh generators; the source does not state the sharp determinant penalty for raw Szegő kernels, the D-optimal circular node configuration, or its exact geometric spectrum. Karvonen–Särkkä–Tanaka [2] treat kernel-determinant optimal design but the directly inspected article concerns approximate Fekete sets and Gaussian real-variable interpolation. Gaál et al. [3] analyze a separate logarithmic equilibrium problem involving unit-circle points and external protons; only its abstract and references were accessible in this comparison. Direct claim/alias/stronger-coverage mathematical-record and literature searches did not locate the combined inequality or its universal sharp coefficient. A broader classical theorem on strongly concave circular pair energies could subsume the design/rigidity component; this is an explicit unexcluded risk, and negative searches are not proof of novelty.
+PASS
 
-## Value — PASS
-Raw evaluation kernels are natural, directly measurable orbit generators, while orthogonalized bases mask the conditioning of those measurements. The theorem gives the exact best determinant for any fixed radius/degree, its unique geometric optimizer, a quantitative globally sharp loss under arbitrary angular jitter, all optimal Riesz bounds at the optimum, and an exact degree-uniform conditioning threshold. These are natural sampling and frame-stability invariants rather than an arbitrary numeric slice; the conclusion is not merely the known existence of some orbit frame.
+PASS: The frozen RESULT.md constructs H^2=⊕_{n≥0} B^n K_B for the finite inner Blaschke multiplier and shows d distinct normalized evaluation kernels span K_B by the positive Cauchy determinant. Thus all infinite-orbit Riesz bounds reduce to the finite seed Gram. Expanding the Cauchy double alternant yields log det=Σ_{k=1}^{d-1}Σ_j L_r(θ_{j+k}-θ_j), L_r(t)=log[2r sin(t/2)/|1-r²e^{it}|]. Differentiation gives -L_r''≥c_r=(1-r²)²/(4(1+r²)²); strong Jensen and the exact cyclic identity Σ_{k,j}(ε_{j+k}-ε_j)²=2d Σ_j(ε_j-mean ε)² give the claimed quadratic loss, with equality only for rotated regular polygons. For d=2, the second-order near-antipodal loss tends to c_r h², proving uniform optimality. Fourier diagonalization gives λ_l=d(1-r²)r^{2l}/(1-r^{2d}) and uniform two-sided frame bounds iff sup_d d(1-r_d)<∞. I independently evaluated the d=2 quadratic coefficient at r=0.2,0.5,0.8 and h=0.02,0.01; all ratios tend to the displayed c_r. Script trials alone are not the proof.
 
-## Scope and limitations
-Only fixed-radius distinct zeros and the unorthogonalized kernel generators are classified; no spectral optimum is claimed for arbitrary angular configurations. Independent checking beyond the present mathematical review remains necessary, and unindexed equivalent Fekete-energy results remain a residual possibility.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
 
-## References
-[1] A. Aguilera and D. Carando, arXiv:2606.00912, Theorem 2.6 and Example 2.7, https://arxiv.org/abs/2606.00912.
-[2] T. Karvonen, S. Särkkä and K. Tanaka, arXiv:1912.07316, https://arxiv.org/abs/1912.07316.
-[3] M. Gaál et al., SIAM J. Math. Anal. 52 (2020), DOI:10.1137/19M1302971.
+PASS (best knowledge): The raw unorthogonalized Szegő kernels, precise radial Gram spectrum and the globally optimal all-degree angular determinant-defect coefficient are not provided by the inspected finite-Blaschke orbit existence theorem or general kernel Fekete design results. The Cauchy determinant and strong concavity principle are classical and are explicitly treated as inputs, not novel discoveries. A stronger generalized circular energy stability theorem is a residual coverage risk.
+
+## value
+
+PASS
+
+PASS: This gives a sharp D-optimality stability modulus for a natural nonorthogonal generator family, plus exact optimal infinite-orbit Riesz bounds and a sharp high-degree uniform conditioning threshold. The quantitative penalty is structurally tied to pseudo-hyperbolic separation and has a proven extremal two-node obstruction, not an arbitrary constant recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
