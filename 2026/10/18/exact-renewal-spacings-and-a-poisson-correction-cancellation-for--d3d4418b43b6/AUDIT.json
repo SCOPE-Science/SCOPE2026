@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Two-sided isolation is exactly the LL pattern for independent Poisson spacings. Conditioning on the outgoing gap being long yields independent regenerative blocks; a two-state first-passage recursion yields the exact Laplace transform and independent rare-thinning gives the geometric compound law. Direct symbolic differentiation yields the first two moments and rational Taylor expansion yields the sharp fixed-s correction. Finite Python checks independently verify transforms, moments and finite-n convergence. The proof and statement explicitly exclude uniformity and total-variation rates.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 general result supplies only weak Poisson-process convergence/intensity for dependent thin processes.",
+        "The 2025 general correlation result supplies intensity and pair correlation but no explicit interarrival or Palm regeneration."
+      ],
+      "reasoning": "A strong multivariate process theorem might imply the leading exponential gap limit, but does not provide the finite-n renewal law and signed first-order transform. The novelty claim excludes variance-only statements already within correlation coverage.",
+      "searches": [
+        "neighbour-count dependent thinning Poisson point process critical geometric scaling second-order pair correlations variance law of thin processes local neighbor count",
+        "arxiv:2609.25733v1, sections 2–3",
+        "arxiv:2511.10083 §§3–4",
+        "Matérn type I one-dimensional nearest neighbor distance renewal distribution"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2609.25733v1",
+      "https://arxiv.org/abs/2511.10083",
+      "https://arxiv.org/html/1912.03786v1",
+      "https://arxiv.org/html/1308.1136v2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem in arXiv:2609.25733v1 identifies first-order intensity \\(\\lambda e^{-\\lambda\tau}\\) for isolation thinning, consistent with but strictly weaker than transform expansion.",
+        "The 2025 article derives pair correlation and may imply sign of long-window variance, but not the claimed renewal-gap formula and universal frequency-wise cancellation.",
+        "Spinka defines one-sided simple selection, an inequivalent retained set for positive radius."
+      ],
+      "reasoning": "A general intensity/weak convergence conclusion cannot imply a sharp first-order Palm spacing transform; a two-point correlation function plus a proved renewal property might reconstruct spacing, but the relevant renewal property is not supplied in the compared published work. Thus the combined exact finite-n regenerative characterization and correction are not direct cited corollaries. Classical scan/renewal coverage remains a residual risk.",
+      "searches": [
+        "arxiv:2609.25733v1",
+        "arxiv:2511.10083",
+        "arxiv:1912.03786v1",
+        "arxiv:1308.1136v2",
+        "one-dimensional hard core Poisson thinning rare Bernoulli thinning geometric sum of renewal gaps first order Laplace correction e^t(e^(t/2)-1-t) sign"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "One-sided simple-selection process in Spinka §5 has only one long prior gap; two-sided isolate requires the LL pattern.",
+        "Hlyniana 2025 pair density is at two marked positions, not Palm next-neighbour transform."
+      ],
+      "reasoning": "Equivalent formulations include two-success runs in a Bernoulli gap-label sequence, Matérn type-I Palm spacings, geometric compounding of renewal gaps, and a Markov renewal hitting-time transform. Full-text comparison did not establish an existing exact version of the combined claim.",
+      "searches": [
+        "one dimensional Matérn type I isolated points of stationary Poisson process forms renewal process interarrival Laplace transform independent thinning",
+        "Matérn I 1D isolation renewal inter-point gap generating transform a(s)(1-b)/(1-b-a b)",
+        "arxiv:1912.03786v1 §5",
+        "arxiv:2511.10083 §3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted mathematical-record searches returned related stationary renewal age/residual laws and geometric point process results but no close exact two-sided-isolation spacing statement."
+      ],
+      "reasoning": "No specific existing table of this continuum-parameter Palm transform was identified; this is not proof none exists, and the full source comparisons rather than search absence carry the comparison.",
+      "searches": [
+        "one dimensional Matérn type I isolated points of stationary Poisson process forms renewal process interarrival Laplace transform independent thinning",
+        "Matérn I 1D isolation renewal inter-point gap generating transform a(s)(1-b)/(1-b-a b)",
+        "one-dimensional hard core Poisson thinning rare Bernoulli thinning geometric sum of renewal gaps first order Laplace correction e^t(e^(t/2)-1-t) sign",
+        "Matérn I 1D isolation renewal inter-point gap generating transform a(s)(1-b)/(1-b-a b)"
+      ]
+    },
+    "rationale": "The 2026 source establishes the leading process limit, the 2025 source exact pair correlation, Spinka a different one-sided renewal selection, and Rao–Adams–Dunson type III inference. Compared at claim/implication level, none of the inspected accessible full texts states the exact two-sided Palm gap transform with the signed finite-n rare-thinning correction or its nonzero cancellation value. Residual classical-scan coverage risk remains explicit.",
+    "residual_risks": [
+      "A classical two-consecutive-long-gap renewal result, perhaps under scan-statistics terminology, might already give the unthinned interarrival transform.",
+      "The sign of the coefficient has an integrated-pair-correlation counterpart potentially derivable from arXiv:2511.10083; novelty rests on the full renewal and Palm-transform law, not the variance sign alone."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Leading Poisson limit covers the zeroth-order term, but not exact renewal regeneration or the stated signed 1/n Palm transform.",
+        "evidence": [
+          "arXiv 2609.25733v1, §2 critical scale and §3 limit; original public date 2026-09-22; MSC 60G55"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.25733v1",
+        "material_read": "Full arXiv HTML: abstract, assumptions, theorem, examples and bibliography",
+        "method": "Followed arXiv abstract to original HTML and compared limiting-intensity theorem against exact Palm spacing and finite-n correction",
+        "title": "A law of thin processes with neighbour-count thinning",
+        "trigger": "Same superposition and critical neighbour-count thinning; 2026 recent motivating paper"
+      },
+      {
+        "assessment": "Contains exact two-point correlations that may imply integrated dispersion; does not state regenerative Palm gaps or geometric-sum spacing transform.",
+        "evidence": [
+          "arXiv:2511.10083, §3 Theorem 1, §3.2 Example 4, §4; first available 2025-11-13"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2511.10083",
+        "material_read": "Full available parsed article through theory of pair correlation, Matérn-I example, Stein bounds, bibliography",
+        "method": "Compared Theorem 1 (pair correlation), Example 4 (Matérn-I), and distance estimates to renewal-gap formula and geometric compounding",
+        "title": "Neighbour-count dependent thinning of Poisson processes: correlation structure and Poisson approximation",
+        "trigger": "Earlier same-author work on exact Matérn-I pair structure; potential broad coverage"
+      },
+      {
+        "assessment": "The selected point has a left-side empty interval, whereas isolated Matérn I requires empty intervals on both sides; does not contain claimed exact transform or rare-thinning correction.",
+        "evidence": [
+          "arXiv:1912.03786v1, §5 around Lemma 17"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1912.03786v1",
+        "material_read": "Full arXiv HTML, especially §5 definition of simple-selection and its renewal claim",
+        "method": "Compared special-point conditions and interarrival interpretations",
+        "title": "Finitary isomorphisms of renewal point processes and continuous-time regenerative processes",
+        "trigger": "Most plausible renewal-theoretic prior: special Poisson point selection"
+      },
+      {
+        "assessment": "Models type III and inference, with type-I background; no two-sided Matérn-I Palm transform or first-order rare-thinning spacing law.",
+        "evidence": [
+          "arXiv:1308.1136v2, §§3–4"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1308.1136v2",
+        "material_read": "Full HTML sections 2–4, including Matérn types and remarks on renewal point processes",
+        "method": "Compared construction of type-I isolation and type-III Markovian thinning to present two-sided isolation",
+        "title": "Bayesian inference for Matérn repulsive processes",
+        "trigger": "Foundational Matérn-type paper with discussion of one-dimensional renewal processes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d3d4418b-43b6-4faf-8a84-a93eb53d8480",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete interarrival law is a natural full-statistics strengthening of intensity and pair correlation for Matérn-I patterns; the explicitly signed first correction and unique nontrivial cancellation furnish sharp finite-size calibration of rare-neighbour-thinning Poisson approximation. Both hold for all positive intensity and radii in a continuous family rather than an arbitrary finite sample or narrow numerical constant.",
+    "status": "PASS"
+  }
+}
