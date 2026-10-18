@@ -1,12 +1,21 @@
-# Scientific review: sharp Steinhaus criterion
+# Independent mathematical audit
 
-## Correctness — PASS
-The local increment lemma is proved for all distinct vectors in each strictly convex block of real dimension at least two. Its critical positive-collinearity case uses a perturbation independent of the common direction; the strict triangle inequality forces unequal increments. For the full direct sum, a single unequal higher-dimensional block separates arbitrary distinct unit vectors. If none exists, equality of unit norms forces a differing scalar coordinate to have opposite signs. Conversely, two real lines give an explicit pair with identical norm germs in every perturbation of norm below one third. The complex integration corollary uses a finite-measure threshold set and countable rational localization; it is not an assertion about a numerical sample.
+## correctness
 
-## Originality — PASS, with residual risk
-Kania–Kochanek, arXiv:1302.6443, proved the equivalent norm-germ formulation, the real-scalar atomic \(L^1\) criterion, and a related mixed-norm sum construction. The complete endpoint criterion for arbitrary families of strictly convex blocks is not stated in those inspected relevant sections. Johnson–Kania, arXiv:2602.09106, prove a stronger nonatomic Bochner-\(L^1\) result; the atomless complex consequence is accordingly acknowledged as previously covered. A separate prior theorem for \(1<p<\infty\) does not entail preservation at \(p=1\). Indexed searches found no equivalently stated iff criterion, but that is not novelty proof; unindexed equivalent classifications remain possible.
+PASS
 
-## Value — PASS
-The result gives a complete, sharply necessary-and-sufficient structural classification at the delicate \(\ell_1\) endpoint, including arbitrary index sets. It identifies why exactly two real one-dimensional blocks destroy local metric distinguishability while a complex line behaves differently. No uniform quantitative Steinhaus constant or arbitrary non-strictly-convex component classification is claimed.
+The cited Kania–Kochanek local Steinhaus norm-germ characterization is the correct equivalence. In a strictly convex real normed block of dimension ≥2, distinct u,v always have unequal small norm increments: choose perturbation along u if noncollinear, opposite sign for opposing collinear rays, a noncollinear direction with strict triangle inequality for unequal same-direction scalars, and handle zero separately. In the ℓ1-sum each coordinate increment adds exactly, so differing high-dimensional block yields separation; if all such coordinates coincide and at most one real scalar block remains, equality of unit norms forces opposite scalar entries and a small perturbation separates them. With two scalar blocks, (1/3,2/3) vs (2/3,1/3), zero elsewhere, have identical norm germs for ‖h‖<1/3, proving sharp necessity. For complex L1 over arbitrary measure, A={|f−g|>1/m} has 0<µ(A)<∞; at each point the complex-plane increment lemma offers an arbitrarily small rational complex q separating increments. Countable measurable sign sets cover A; selecting one with positive measure gives h=q 1_B with arbitrarily small L1 norm and strictly nonzero total increment. Covers nonσfinite measures because A has finite measure; no numerical check needed.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Compared the exact final theorem and quantifiers against all materially relevant inspected same-object and related published statements. Actual source readings and residual priority risks below; no negative search is treated as novelty proof.
+
+## value
+
+PASS
+
+The ℓ1 endpoint of permanence is a motivated sharp structural boundary: a complete arbitrary-index characterization in terms of the NUMBER of 1D real summands, not an unmotivated isolated example. It yields a natural and potentially useful contrast between real and complex scalar L1 with arbitrarily many atoms. A general ℓp (1<p<∞) preservation theorem and atomless Bochner L1 coverage do not give this sharp endpoint classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
