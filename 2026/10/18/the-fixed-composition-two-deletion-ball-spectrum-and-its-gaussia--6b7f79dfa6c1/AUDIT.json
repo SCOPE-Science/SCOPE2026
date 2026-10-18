@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "A bijection between distinct descendants and leftmost greedy embeddings gives a self-contained canonical-mask count. Alternating run compositions enumerate every fixed-weight word exactly once and mark the same cardinality. Hypergeometric local moments prove the mean; classical fixed-content runs CLT and O(n) variance for the local singleton statistic prove the n^(3/2) Gaussian limit. The actual included checker directly verifies all words at lengths 2..13 and formal products through 18. Finite computation is supporting evidence, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "A published unconditioned binary variance result gives Var(B)=(n-1)(n-2)(2n-3)/32. An accessible finite-alphabet complete-law claim likewise assumes independent uniform symbols and has no weight marker.",
+        "The fixed-length Levenshtein radius-one ball permits insertion after deletion, a different output relation.",
+        "Liron–Langberg arXiv:1202.1644 treats extremal descendant counts and per-run-type constraints, not the joint conditional ball-size law."
+      ],
+      "reasoning": "Conditioning on exactly k ones changes the joint distribution of adjacent transitions. The unconditioned law is only a binomially weighted mixture of conditional laws; it cannot determine all mixture components. The deterministic per-word identity permits brute-force enumeration but does not state or algebraically imply the coefficient formula and Gaussian scaling without new combinatorial/probabilistic work.",
+      "searches": [
+        "Complete finite alphabet two deletion sphere size law Gaussian fluctuations transfer matrix unconditioned vs conditional Hamming weight distribution",
+        "Exact mean and variance of two deletion descendant set cardinality conditioned on binary Hamming weight k; formula 1+[3(n-2)k(n-k)+2k(k-1)(n-k)(n-k-1)]/[n(n-1)]",
+        "arxiv:1202.1644"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1802.00703: parts of full text pages 1–3, 9–11, 13–16",
+      "arxiv:2204.02201: abstract, introduction, distribution section and conclusion",
+      "arxiv:1202.1644: introduction and extremal run-count results",
+      "public RESULT.md titled Exact variance of binary two-deletion sphere size",
+      "DOI:10.1109/TIT.2002.806155: bibliographic and excerpt evidence only",
+      "accessible historical claim: Complete finite-alphabet two-deletion-sphere size law and Gaussian fluctuations (unconditioned; no source full-text inspection claimed)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Atashpendar et al., arXiv:1802.00703, Section V analyzes supersequence embedding multiplicities and entropy at two deletions.",
+        "Wang–Wang, arXiv:2204.02201, Section 3 treats the distribution of fixed-length Levenshtein balls and concentration bounds.",
+        "An accessible published binary variance result gives an unconditioned variance, not conditional histograms or a conditional central limit theorem."
+      ],
+      "reasoning": "The target theorem is the probability law of distinct two-deletion descendants when the source weight is prescribed. The cited two-deletion supersequence results reverse the direction of conditioning, while FLL balls include reinsertion. Neither implication recovers the marked full distribution. The Gaussian conclusion depends on the fixed-composition runs CLT, distinct from unconditioned iid fluctuations.",
+      "searches": [
+        "Distribution of exactly-two-deletion ball sizes conditioned on fixed number of ones, binary constant-composition words, bivariate or trivariate generating function",
+        "Run-length singleton statistics and distribution of the two-deletion sphere size for binary words",
+        "arxiv:1802.00703",
+        "arxiv:2204.02201"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The classical per-word identity expresses ball size using runs, internal singleton runs and endpoint singleton runs; the displayed new coefficient law additionally tracks exact Hamming weight.",
+        "The inspected 2018 paper discusses distinct subsequences only as context, primarily counting embedding weights of compatible supersequences rather than this conditional distribution."
+      ],
+      "reasoning": "Searches included two-deletion descendants, deletion-sphere size, run singleton statistics and constant-composition words. A formula for one word is not the explicit joint count of all words by (length, weight, sphere size); no equivalent joint enumeration was identified.",
+      "searches": [
+        "Complete fixed-composition distribution of distinct subsequences obtained by exactly two deletions from a binary word; run-length enumeration, joint distribution of number of runs and interior singleton runs",
+        "\"fixed weight\" \"two-deletion\" \"ball size\" expected distribution",
+        "\"fixed Hamming weight\" \"number of distinct subsequences\" deletions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted searches for a table or sequence indexed by (n,k,d) for exact two-deletion sphere size found no named matching tabulation.",
+        "The conditional histogram at n=6,k=3 is {3:2,5:4,6:2,7:4,8:2,9:4,11:2}, verified both by masks and run-products."
+      ],
+      "reasoning": "No matching table was identified. This is limited negative search evidence, not evidence that no table exists or that the result is necessarily novel.",
+      "searches": [
+        "\"distribution\" \"two deletion\" \"subsequences\" \"runs\" binary",
+        "\"constant composition\" two deletion sphere size distribution",
+        "number of words with a given two deletion sphere size binary"
+      ]
+    },
+    "rationale": "Novelty is confined to the complete joint (length, Hamming weight, distinct two-deletion ball size) coefficient law and the conditioned mean/Gaussian limit. Classical per-word formula, unconditional binary variance, and an accessible unconditional q-ary law are acknowledged. Primary full-text comparisons distinguish the supersequence entropy and fixed-length Levenshtein problems. No dominating conditional theorem found; unindexed equivalents remain possible.",
+    "residual_risks": [
+      "An equivalent conditional joint histogram or CLT may exist under different indexing or in nonsearchable literature.",
+      "The original Swart–Ferreira article was not read in full; its per-word formula is known and acknowledged, but other statements were not exhaustively compared.",
+      "A deterministic per-word formula and independent-source complete law make this a natural extension; value rests on conditioning and the entire marked distribution rather than the already-known run identity."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper addresses embedding multiplicity in the inverse supersequence ensemble; does not in inspected material state the all-weight source-descendant spectrum.",
+        "evidence": [
+          "Introduction distinguishes earlier exact per-source descendant cardinality from its own compatible-parent embedding-weight problem.",
+          "Section V-B describes two-deletion supersequence insertions and their entropy weights."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1802.00703",
+        "material_read": "Abstract; Introduction and contributions, pages 1–3; supersequence and singleton method near pages 9–11; double-deletion entropy section pages 13–16; concluding section heading and paragraphs. Not every appendix was read.",
+        "method": "Open-access full-text page and section inspection, including PDF first-page image and substantive internal passages",
+        "title": "From Clustering Supersequences to Entropy Minimizing Subsequences for Single and Double Deletions",
+        "trigger": "Same deletion depth and explicit Hamming-weight conditioning"
+      },
+      {
+        "assessment": "Distribution of fixed-length Levenshtein balls using one deletion and one insertion; not the exact-two-deletion descendant set.",
+        "evidence": [
+          "Primary MSC 94B50 printed on page 1.",
+          "Section 3 explicitly studies |L_1(x)| rather than the exact-two-deletion descendant count."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2204.02201",
+        "material_read": "Abstract and introduction page 1; Section 3 distribution setup around page 6; conclusion around page 12. Not the entire paper.",
+        "method": "Open-access full-text page/section inspection, including first-page image",
+        "title": "On the Size Distribution of the Fixed-Length Levenshtein Balls with Radius One",
+        "trigger": "Size distribution of deletion/insertion observation balls, marked primary 94B50"
+      },
+      {
+        "assessment": "Focuses on extrema and analytic extremal counts; no matching joint weight-conditioned distribution in the inspected material.",
+        "evidence": [
+          "Introduction states fixed-number-of-runs extremal objectives and recurrence for extremal words."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1202.1644",
+        "material_read": "Introduction and statement of extremal run-count results, pages 1–2; named run transformation and theorem sections located by text search. No whole-document exclusion asserted.",
+        "method": "Open-access full-text page and theorem inspection, first-page image",
+        "title": "A characterization of the number of subsequences obtained via the deletion channel",
+        "trigger": "Potential stronger coverage of exact two-deletion descendant counts"
+      },
+      {
+        "assessment": "Proves the unconditioned variance only; expressly excludes full distribution and contains no fixed-content parameter.",
+        "evidence": [
+          "Var(B_n)=(n-1)(n-2)(2n-3)/32 under independent uniform binary bits.",
+          "Limitations explicitly state no full distribution."
+        ],
+        "identifier_or_url": "Public result: Exact variance of binary two-deletion sphere size (2026-10-04)",
+        "material_read": "Complete publicly available RESULT.md, including theorem, proof, prior work and limitations.",
+        "method": "Public document full-text inspection",
+        "title": "Exact variance of binary two-deletion sphere size",
+        "trigger": "Direct scientific overlap on two-deletion ball cardinality"
+      },
+      {
+        "assessment": "Known exact per-word identity, explicitly not claimed as novel; residual access risk for other statements in the original paper.",
+        "evidence": [
+          "Classical count uses run number, internal unit runs and endpoint unit runs."
+        ],
+        "identifier_or_url": "DOI:10.1109/TIT.2002.806155",
+        "material_read": "Accessible quotation of Proposition 3.1 and independent complete proof of the run formula; original publisher full text was not accessed.",
+        "method": "Bibliographic abstract/snippet and independent reconstruction",
+        "title": "A note on double insertion/deletion correcting codes",
+        "trigger": "Source of the classical per-word run-length formula"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6b7f79df-a6c1-4b0c-a8d7-e987dddaee7f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Fixed-composition inputs arise naturally in deletion-channel coding and sequence storage, and their without-replacement dependence differs substantially from iid inputs. The theorem gives a complete natural all-length histogram, a closed rational conditional mean, and a nontrivial density-dependent Gaussian fluctuation scale. The exact conditional array is not determined by its iid mixture, so it is a substantive reconstruction-capacity refinement rather than a textbook statistic. No larger-alphabet or more-deletion result is claimed.",
+    "status": "PASS"
+  }
+}
