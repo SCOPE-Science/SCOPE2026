@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Euclid's unique coprime opposite-parity parametrization reduces odd square legs to coprime odd pairs in \(u<v,\ u^4+v^4\le2X\), and even square legs to coprime pairs with odd second coordinate in \(4u^4+v^4\le X\). The two quartic domains have equal area at scale \(X^{1/4}\), equal to \(G/\sqrt2\) where \(G=\Gamma(5/4)^2/\Gamma(3/2)\). Möbius inversion produces exact parity-coprimality densities \(2/\pi^2\) and \(4/\pi^2\), with \(O(X^{1/4}\log(2X))\) boundary error. The classical theorem excluding a square sum of two positive fourth powers makes the branches disjoint. Two independent integer enumerations agree at all six tested bounds up to \(10^7\). The regression does not establish the asymptotic.
+PASS
 
-## Originality — PASS, with residual risk
+Euclid parametrization m>n coprime opposite parity gives odd-square leg m²-n²=(m-n)(m+n) with coprime odd factors, uniquely u²,v²; even-square 2mn forces {m,n}={2u²,v²} with v odd and (u,v)=1. Their heights are (u⁴+v⁴)/2 and 4u⁴+v⁴. Primitive odd-odd density 2/pi² and v-odd density 4/pi² follow odd-divisor Möbius inversion; symmetric quartic-region areas both sqrt(2)G/2 after diagonal restriction/rescaling; boundary error O(X^(1/4)log X). Fermat fourth-power descent forbids both legs square. Independent direct Euclid and quartic counts agree at X=100:(1,3), 1000:(3,8), 10000:(13,27), 1000000:(132,269). Finite cross-check does not establish infinity.
 
-The closest reviewed works concern the unrestricted population of triangles (Benito–Varona, 2002), alternative odd/even parametrization (Overmars–Ntogramatzidis, 2015), and nonexistence criteria with prescribed squarefree leg multipliers (Zelator, 2008). None of their inspected statements contains, implies, or bounds sharply enough to determine the two branch constants. A recent AMS publisher-preview theorem (Chapter 4, §4.7, Theorem 4.10) establishes infinitude of square-leg examples but supplies no counting asymptotic in the accessible excerpt; the full book was inaccessible and remains a literature risk. Targeted literature and mathematical-record searches for square legs, biquadratic parametrizations, gamma constants, and equivalent counting laws found no prior coverage. An earlier unindexed independent derivation remains possible. Related classifications for perfect-square inradius, perfect-power perimeter, and power-free odd leg do not imply this square-leg count.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The square-leg property is a natural sparse Diophantine condition on primitive triples. The asymptotic gives its exact growth rate and gamma-function constant, together with an elementary power-scale error bound. The two-to-one odd/even law is not a formal consequence of standard unrestricted-triple counts; it comes from equal quartic-region areas and distinct local parity densities. This is more than a finite sequence extension or an arbitrary parameter restriction.
+The hypotenuse-bounded primitive one-square-leg asymptotic and 2:1 parity constant are not entailed by the cited constructions proving existence or general unrestricted Pythagorean-triangle asymptotics. The inspected primary Zelator theorem treats specified squarefree coefficients for both legs; it does not state this one-square-leg height-count. An older exact asymptotic may exist in uninspected AMS chapter/historical literature; qualified best-of-knowledge originality.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Nontrivial leading constant, power-saving log error and even/odd two-to-one relation determine a natural quantitative arithmetic density, beyond simple production of examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

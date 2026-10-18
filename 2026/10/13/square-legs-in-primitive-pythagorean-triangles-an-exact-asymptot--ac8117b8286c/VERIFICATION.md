@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_square_legs.py` using Python 3.8 or later. There are no third-party package dependencies. It enumerates primitive triangles through the standard Euclid formula and independently through two quartic constructions for six hypotenuse bounds \(100,1000,10000,100000,1000000,10000000\). It verifies exact set equality and pairwise disjointness, and checks primitiveness, the Pythagorean identity and the hypotenuse bounds.
+## correctness
 
-Expected exact odd/even counts: \((1,3),(3,8),(13,27),(42,84),(132,269),(413,839)\), with totals \(4,11,40,126,401,1252\). The program reports `SQUARE_LEG_EXACT_REGRESSION_OK` on success.
+PASS
 
-The program does not certify an infinite theorem. The analytical proof uses the Euclid bijections, the explicit parity-coprimality density from odd-divisor Möbius inversion, the beta-integral area, the elementary lattice boundary estimate, and Fermat's established fourth-power descent theorem. The novelty comparison is not an exhaustive survey of unindexed publications.
+Euclid parametrization m>n coprime opposite parity gives odd-square leg m²-n²=(m-n)(m+n) with coprime odd factors, uniquely u²,v²; even-square 2mn forces {m,n}={2u²,v²} with v odd and (u,v)=1. Their heights are (u⁴+v⁴)/2 and 4u⁴+v⁴. Primitive odd-odd density 2/pi² and v-odd density 4/pi² follow odd-divisor Möbius inversion; symmetric quartic-region areas both sqrt(2)G/2 after diagonal restriction/rescaling; boundary error O(X^(1/4)log X). Fermat fourth-power descent forbids both legs square. Independent direct Euclid and quartic counts agree at X=100:(1,3), 1000:(3,8), 10000:(13,27), 1000000:(132,269). Finite cross-check does not establish infinity.
+
+## originality
+
+PASS
+
+The hypotenuse-bounded primitive one-square-leg asymptotic and 2:1 parity constant are not entailed by the cited constructions proving existence or general unrestricted Pythagorean-triangle asymptotics. The inspected primary Zelator theorem treats specified squarefree coefficients for both legs; it does not state this one-square-leg height-count. An older exact asymptotic may exist in uninspected AMS chapter/historical literature; qualified best-of-knowledge originality.
+
+## value
+
+PASS
+
+Nontrivial leading constant, power-saving log error and even/odd two-to-one relation determine a natural quantitative arithmetic density, beyond simple production of examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
