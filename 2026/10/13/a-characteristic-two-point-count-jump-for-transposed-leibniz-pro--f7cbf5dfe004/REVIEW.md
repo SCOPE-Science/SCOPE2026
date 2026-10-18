@@ -1,12 +1,21 @@
-# Scientific review: characteristic-two point-count jump
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement concerns **labeled** commutative associative products satisfying the polynomial transposed Leibniz identity on the fixed Lie algebra of upper triangular two-by-two matrices. The proof begins with the exact basis \(x=E_{11}\), \(y=E_{12}\), \(z=E_{11}+E_{22}\), so no division or unrecorded normalization is used. The compatibility identity yields five free coefficients in odd characteristic and ten in characteristic two. Associativity yields one determinantal relation in the former and six explicitly written equations in the latter. The characteristic-two count is proved by separating \(z^2\ne0\) (splitting off a central idempotent) from \(z^2=0\) (multiplicative characters of the two-dimensional quotient and a rank-at-most-one extension matrix). Every fiber is counted exactly. Independent algebraic checks over small fields and the packaged standalone script support the symbolic steps; no finite enumeration is used as the proof of the general assertion. The dimension bounds use geometric strata over algebraic closures. Risks: a transcription error in a symbolic identity would affect the result; the source table and test script expose all coefficient equations for verification.
+## correctness
 
-## Originality — PASS
-The closest primary paper, Kaygorodov–Khrypchenko, arXiv:2305.00727 (Theorem 12), classifies products **up to isomorphism** on the same Lie algebra only in **characteristic zero**. Its full relevant section explicitly makes that assumption; the published 2023–24 three-dimensional and incidence-algebra classifications likewise concern characteristic zero or the complex field. They therefore do not imply the characteristic-two point formula, its square-zero central extension count, or the two-characteristic dimension comparison. The odd-characteristic determinantal side is included to state the contrast rather than to claim a new complex isomorphism classification. Published mathematical-record searches for the object, modular aliases, polynomial count and character-extension formulation found no same result; that absence is evidence of search coverage, not a mathematical proof of novelty. Residual risk: an equivalent modular enumeration could exist in associative-extension or operadic literature not using the label “transposed Poisson.”
+PASS
 
-## Value — PASS
-The characteristic-two specialization of the integral transposed Leibniz identity is mathematically natural but cannot be handled by the usual half-derivation classification. The result gives a complete finite-field enumeration, a sharp dimension jump from \(4\) to \(6\), and exact rational zeta functions, while showing why the new degrees of freedom occur: the trace-zero quotient and its square-zero extension system. These are exact global invariants for a canonical nonabelian three-dimensional Lie algebra, not an arbitrary sample or a slight modification of an existing complex classification. Their reusable square-zero-extension reduction provides a concrete tool for modular studies. Limitations: no orbit classification or full irreducible decomposition in characteristic two is proved, and some usage reserves “transposed Poisson” for characteristics with \(2\) invertible.
+For fixed [x,y]=y Lie bracket of upper triangular 2x2 matrices, the full polynomial (not divided-by-two) transposed identity gives five compatible linear product coefficients at odd characteristic, ten at characteristic two. Odd associativity is i(e-i)+cs=0, a 2x2 determinant cone times affine line and count q^4+q^3-q^2. In char 2, six displayed associativity equations are sufficient: with central z^2=sz, s≠0 splits an idempotent line and gives (q-1)q²(q³+q²-q); with s=0 the two-dimensional trace-zero quotient B, a character α and a rank-one extension matrix yield q³+(2q³+q²-2q-1)q². Their sum is q^6+2q^5-q^4-q². The open strata establish dimension 6 against dimension 4 odd and extension fields give stated rational zeta functions. Fresh independently coded full basis-product checks enumerated all 1024 char2 ten-parameter tables (108 admissible) and all 243 odd F3 five-parameter tables (99 admissible); all-fields conclusion rests on the symbolic stratification.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Kaygorodov–Khrypchenko Theorem 12 classifies transposed Poisson multiplications on T2 in characteristic zero up to isomorphism. Its assumptions explicitly exclude characteristic two. The reviewed result counts *labeled* products, provides all finite fields and a characteristic-two dimension/point-count jump, not a rewording of characteristic-zero classes. The exact modular polynomial convention is essential.
+
+## value
+
+PASS
+
+The large finite-field point-count and geometric dimension jump expose a genuine modular deformation of the compatible-product variety, with a meaningful characteristic-two square-zero boundary and uniform zeta functions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
