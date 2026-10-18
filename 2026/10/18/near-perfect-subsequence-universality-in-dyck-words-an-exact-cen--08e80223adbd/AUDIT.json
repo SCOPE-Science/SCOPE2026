@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The greedy arch length budget is exactly two, forcing a unique 001 arch plus a final 1 and no other surplus configuration under Dyck height nonnegativity. All permitted two-letter arches before/after it are classified exhaustively. The full SAS count is calculated by six explicit pair-absence matrices and the established shortest-absent gluing lemma, with positivity and n=2,3 boundary cases checked. The Fibonacci ordered-coordinate induction proves the upper bound and uniquely identifies the equality choices. An independent next-occurrence dynamic program exhaustively corroborates all Dyck paths of semilength <=12; direct SAS word tests and longer witnesses are supplementary and do not substitute for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2108.13968v1 Lemma 3.16 and unrestricted bounds",
+        "Published published-finding corpus Fibonacci extremals RESULT.md: all length-2n words max F_{n+3}, fixed-index bound F_{k+3}"
+      ],
+      "reasoning": "The unrestricted bounds apply to the Dyck subclass but are not sharp and give no constrained class cardinality or equality cases. A valid stronger result would need a Dyck-specific refinement; none was seen in inspected primary text.",
+      "searches": [
+        "Dyck path balanced parentheses word shortest absent scattered words count Fibonacci extremal number universality arches",
+        "Dyck universality index arches binary",
+        "Dyck subsequence universal enumeration"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1303.3785 (verified v1 2013-03-15)",
+      "https://arxiv.org/html/1303.3785v1 (full mathematical paper)",
+      "https://arxiv.org/abs/2108.13968 (verified v1 2021-08-31)",
+      "https://arxiv.org/html/2108.13968v6 (mathematical gluing text)",
+      "published-finding corpus published 2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28, full RESULT.md",
+      "published-finding corpus published 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37, full RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bernini et al 2013 full HTML: Dyck-pattern poset quantifies Dyck patterns",
+        "Kosche et al 2021 full HTML: SAS gluing lemma without Dyck subclass enumeration",
+        "Two full published published-finding corpus notes for unrestricted SAS maxima and ordinary binary arch-index GF"
+      ],
+      "reasoning": "The gluing lemma supplies a reusable proof tool, but the new theorem requires proving the tight two-symbol arch budget forces 001 followed by a final 1 and then sharpening Fibonacci growth with two uniquely alternating equality patterns. None of the closest statements entails those necessary steps directly.",
+      "searches": [
+        "For Dyck words of semilength n with scattered subsequence universality index n-1, there are exactly 2^(n-1)-1 words and the maximum number of shortest absent subsequences is Fibonacci F_n; one long arch 001 and terminal 1.",
+        "Dyck words near maximal subsequence universality Fibonacci extremal shortest absent subsequence count arch factorization semilength n",
+        "period doubling substitution 0 to 01 1 to 00 scattered subsequence universality index shortest absent subsequences automatic word exact formula"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus nearest relevant 2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28, full result text read",
+        "2013 arXiv Dyck pattern poset full text uses Dyck-only patterns"
+      ],
+      "reasoning": "A Dyck host containing all binary scattered words is strictly different from a Dyck host containing Dyck subpatterns; neither a renamed pattern poset nor an unrestricted SAS maximum establishes the exact exceptional-arch family. No equivalent was located in searched records.",
+      "searches": [
+        "For Dyck words of semilength n with scattered subsequence universality index n-1, there are exactly 2^(n-1)-1 words and the maximum number of shortest absent subsequences is Fibonacci F_n; one long arch 001 and terminal 1.",
+        "Dyck words near maximal subsequence universality Fibonacci extremal shortest absent subsequence count arch factorization semilength n",
+        "Dyck shortest absent subsequences Fibonacci count",
+        "balanced parentheses shortest absent subsequence Fibonacci"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact matching published table found in targeted searches",
+        "Standalone program directly generated and verified complete Dyck words of semilengths 2..12 (290510 words); class count 4083 in aggregate"
+      ],
+      "reasoning": "The finite verification is newly computed corroboration, not an exact published database or a proof of novelty; no identified OEIS or public table was found to provide the all-n structural theorem.",
+      "searches": [
+        "OEIS Dyck paths universality index n-1 count 2^(n-1)-1",
+        "For Dyck words of semilength n with scattered subsequence universality index n-1, there are exactly 2^(n-1)-1 words and the maximum number of shortest absent subsequences is Fibonacci F_n; one long arch 001 and terminal 1."
+      ]
+    },
+    "rationale": "The closest full-text dyadic/Bernini Dyck-pattern treatment quantifies only over Dyck subpatterns. The unrestricted Fibonacci extremal statement bounds all binary words but does not imply the sharp Dyck restricted maximum or extremizer set. The all-binary index generating function lacks path-height information. The combination of forced exceptional arch, exact Catalan subclass count, and restricted Fibonacci equality classification is not stated or implied by those results; equivalent unindexed formulations remain a genuine risk.",
+    "residual_risks": [
+      "An earlier unindexed ballot-word/subsequence-universality identity may state an equivalent formula under different terminology; no exhaustive global uniqueness proof is claimed.",
+      "Proof depends on the published shortest-absent gluing lemma, used only under its greedy-arch hypotheses; the finite verifier supplies independent checks but is not an independent scientific audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Studies host and pattern both Dyck, including covered/covering paths and Dyck avoidance; neither all-binary scattered-word universality nor shortest-absent multiplicity.",
+        "evidence": [
+          "2013-03-15 submission history https://arxiv.org/abs/1303.3785; HTML Sections 1-3, particularly introductory definition of subposet of the word pattern poset"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1303.3785v1",
+        "material_read": "Complete publicly rendered research paper, particularly introduction, definition of Dyck subword-pattern order, Section 2 covering and Section 3 enumeration",
+        "method": "Read full HTML and compare the allowed host and pattern alphabets and quantification",
+        "title": "The Dyck pattern poset",
+        "trigger": "Dyck combinatorial-pattern containment and possible stronger classification of word embeddings"
+      },
+      {
+        "assessment": "Provides the correct pair-absence gluing tools and unrestricted results, but does not impose prefix balance or deduce this Dyck structural classification and equality set.",
+        "evidence": [
+          "arXiv:2108.13968 originally submitted 2021-08-31; shortest-absent gluing in Lemma 3.16"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2108.13968v6",
+        "material_read": "Research paper HTML including introduction, definitions, Lemma 3.16, and relevant extremal propositions",
+        "method": "Read source sections and compare shortest-absent enumeration under fixed binary ambient alphabet with the extra Dyck height constraint",
+        "title": "Absent Subsequences in Words",
+        "trigger": "Canonical greedy arch characterization, shortest-absent-sequence gluing and possible unrestricted upper bounds"
+      },
+      {
+        "assessment": "Its F_{n+3} maximum among all length-2n binary words is broader in domain but numerically weaker for the constrained maximum. Its fixed-index F_{n+2} upper bound also does not imply the Dyck F_n maximum or classify near-perfect Dyck words.",
+        "evidence": [
+          "Published RESULT.md exact formulas M_{2m}=F_{m+3} and fixed-index F_{k+3}, using arbitrary binary arches"
+        ],
+        "identifier_or_url": "https://raw.githubusercontent.com/published-finding corpus/2026/main/2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28/RESULT.md",
+        "material_read": "Complete RESULT.md including proof, hypotheses, equality witnesses, and relationship to earlier literature",
+        "method": "Read full scientific text; compare its universe of all binary length-two-n words and fixed universality-index bounds with Dyck-conditioned words",
+        "title": "Fibonacci extremals for shortest absent subsequences of binary words",
+        "trigger": "Closest exact unrestricted Fibonacci SAS extremal theorem and explicit alternating arches"
+      },
+      {
+        "assessment": "Enumerates all binary words via unrestricted arch lengths; does not track ballot-path height nor count shortest-absent multiplicities or constrained extremizers.",
+        "evidence": [
+          "Published RESULT.md GF (1+z)/(1-z-2uz^2), with unrestricted factorization"
+        ],
+        "identifier_or_url": "https://raw.githubusercontent.com/published-finding corpus/2026/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37/RESULT.md",
+        "material_read": "Complete RESULT.md including exact bivariate generating function, coefficient formulas and proof",
+        "method": "Read entire statement and generating-function derivation; inspect whether Catalan positive-prefix condition was retained",
+        "title": "Closed-form law for binary subsequence universality",
+        "trigger": "Potential closed-form domination of counts at fixed n and index n-1"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "08e80223-adbd-41ad-bf80-08efa85eef21",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The condition is naturally the one-unit defect below the length-imposed upper bound for subsequence universality of balanced Dyck words, rather than an arbitrary finite or normalization slice. It has a nontrivial Catalan-height obstruction that forces one exceptional arch and yields an exact 2^{n-1}-1 structural subclass plus a sharp F_n SAS maximum and complete one/two-extremizer classification. These quantify a natural tradeoff between near-complete scattered-pattern coverage and missing-pattern ambiguity, strictly sharpening unrestricted Fibonacci bounds.",
+    "status": "PASS"
+  }
+}
