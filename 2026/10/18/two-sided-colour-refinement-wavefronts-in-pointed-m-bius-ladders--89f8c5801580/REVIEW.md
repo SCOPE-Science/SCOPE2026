@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The three-neighbour multiplicity quotient is derived directly from cycle edges and opposite chords. It gives exact partitions at rounds zero through three, followed by an induction in which the two boundary cells of the central interval see different already distinguished singleton colours while the remaining central cells have only central neighbours. Four-cycle incidences distinguish chord edges from circumference edges for the stated range, giving the dihedral stabilizer-orbit classification. Boundary cases are addressed. Two independently structured implementations reproduce the full finite round profiles and small-graph automorphism groups; these experiments corroborate, but do not replace, the proof.
+
+**Originality — PASS, qualified.** Searches for Möbius ladders, rooted circulants, one-vertex refinement, double wavefronts, and counting-logic depth were compared with published records and the checked historical claims. The closest inspected primary full text is Arvind–Köbler–Rattan–Verbitsky (arXiv:1502.01255v3): its general hierarchy and Johnson-graph appendix do not entail the asserted exact Möbius-ladder round partitions. The complete Guy–Harary (1967) four-page article was read; it proves a crossing-number result for even and odd ladders, not colour-refinement partitions or depth. Searches did not reveal the same theorem or a dominating parameter theorem. This is best-knowledge originality, not a priority certificate; uninspected later specialized graph papers remain a priority risk.
+
+**Value — PASS.** Exact iteration depth is a natural invariant of counting logic and individualization-refinement. The result gives both the stable orbit partition and *every* transient partition for an infinite, vertex-transitive cubic family, with a two-front propagation mechanism and a sharp finite-start exception. It is not an arbitrary isolated small graph or a merely numerical experiment.
+
+**Scientific limits.** The claim treats one marked vertex only; it neither characterizes all individualizations nor identifies graphs against arbitrary competitors. Historical priority has not received independent expert review.
+
+Self-review: passed. Independent audit: not yet performed.
