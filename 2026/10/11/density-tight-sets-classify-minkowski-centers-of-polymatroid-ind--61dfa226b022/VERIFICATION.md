@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducible verification and scientific limits
+# Independent mathematical audit
 
-The self-contained `verify.py` requires only the Python standard library. Invoke `python3 verify.py` in the directory containing the file. Its exact-rational procedure builds 110 finite normalized monotone submodular functions from sums of representable matroid-rank functions and modular functions in dimensions one to five. It tests every submodularity and monotonicity condition for those finite instances, the density-tight subset union/intersection and residual conditions, the uniform-density equivalence, and reflection containment at 2,348 greedy-generated vertices for 178 proposed centers. It tests the graphic triangle-plus-bridge case separately, confirming maximal density \(3/2\) and one free coordinate.
+## correctness
 
-Observed output:
+PASS
 
-`EXACT_VERIFY_PASS polymatroids 110 greedy_vertices_checked 2348 centers_checked 178 triangle_bridge_density 3/2 triangle_bridge_free_coordinates 1`
+Independently reconstructed two-way reflected containment: q=(s+1)c; q−x∈sP_f for all x∈P_f iff q_e≥w_e from the axis vertices and q(S)≤s f(S) from x=0; converse uses x∈[0,w] and x(S)≥0. Thus s≥ρ and q=w realizes equality. h=ρf−w is nonnegative submodular; zero tight sets form a union/intersection lattice with maximal T. For z=q−w≥0, h(T)=0 forces z|T=0. Submodularity with any U⊂T shows all constraints reduce to contraction g(S)=h(T∪S)>0 for nonempty S⊂E\T, hence residual full-dimensional small box and dimension |E\T|. Uniqueness iff T=E. Independently checked triangle+bridge rho3/2 dimension1 and U2,4 rho2 dimension0, while universal proof is exact.
 
-The exact mathematical proof uses: (i) the necessary and sufficient scaled-center inequalities derived from \(0\) and every axis intercept \(w_e\mathbf e_e\); (ii) normalization, monotonicity and nonnegativity to prove sufficiency; (iii) submodularity of \(\rho f-w\) to prove closure of tight subsets; and (iv) contraction to a positive residual submodular packing region to determine the center-space dimension. None of these steps extrapolates from the finite checker.
+## originality
 
-Limits: the test suite is finite and does not enumerate all polymatroids, and arbitrary real submodular functions are handled only by the proof. The external fractional-arboricity identity is an established result attributed to the literature. The literature search does not independently certify mathematical novelty. Independent audit was not performed.
+PASS
+
+The scalar matroid density expression is established fractional arboricity and not claimed novel. The substantive claim is the full reflection-center polytope, maximal-density tight coordinate rigidity, residual submodular packing, and uniqueness classification for arbitrary positive-singleton polymatroids. Related published definitions/principal partitions do not demonstrably dominate that geometric statement in accessible material; the unavailable Catlin article remains a named priority risk.
+
+## value
+
+PASS
+
+Complete classification of all centers for a canonical family of submodular polytopes and the density-tight rigidity/free-coordinate decomposition is a natural structural result that a future matroid or convex-geometry researcher can apply. It adds geometric data beyond the already-known scalar fractional arboricity and yields sharp uniqueness for uniform density.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
