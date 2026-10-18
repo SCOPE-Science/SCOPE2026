@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducible checks and proved limits
+# Independent mathematical audit
 
-`verify_cone.py` is a self-contained Python 3 script using `itertools` and `collections` only. Run `python3 verify_cone.py` from the directory containing the files. Successful execution prints `PASS` with the graph counts.
+## correctness
 
-The exhaustive finite portion covers every labeled simple graph of orders \(2,3,4,5\) (\(2+8+64+1024=1098\) graphs), plus six explicitly listed graphs on six vertices, for 1,104 graphs in total and 431 bipartite cases. It checks all assignments of edge and spoke signs, their exact integer Euclidean squared norms, the complete-cut equality condition, the bipartite degree identity, and the farthest-vertex multiplicity.
+PASS
 
-The mathematical argument, rather than the finite sweep, establishes the result for every integer \(m\ge2\). The central step is the exact formula
-\[
-\|(d+s,-\sum_i s_i)\|_2^2
-=\|d\|_2^2+m(m+1)-4\left(|S|(m-|S|)+\sum_{i\in S}d_i\right)
-\]
-together with \(-\sum_{i\in S}d_i\le |\partial_HS|\le |S|(m-|S|)\). All assumptions, quantifiers and contact-equality criteria are spelled out in `RESULT.md`.
+Centering the unweighted graphical zonotope gives (1/2)∑[-b_e,b_e]; strict convexity of squared Euclidean norm puts farthest points at signed endpoints and gives D₂(G)²=max_ε||∑ε b_e||². For H with m leaves, inner signed imbalance d, spoke signs s and S={i:s_i=−1} of size k, expand ||(d+s,−∑s_i)||²=||d||²+m(m+1)−4[k(m−k)+∑_{i∈S}d_i]. Since −∑_{i∈S}d_i≤|∂_H S|≤k(m−k), every cone endpoint obeys claimed bound; choosing all spoke signs equal attains it. Exact equality requires original maximal imbalance and either uniform spokes or a complete nontrivial cut with every crossing contribution negative. Bipartite H has ||d||²≤∑deg², equality precisely componentwise source/sink orientations; a nontrivial complete cut in bipartite H forces the whole graph K_{p,q}, adding two contacts beyond 2^{c+1}. Isolates are handled. Independently enumerated all simple labeled H of orders 2,3,4 (74 graphs), checking squared cone maximum; general theorem is the exact cut proof, not the finite checks.
 
-No external proof assistant, independent audit, or exhaustive enumeration beyond the stated finite instances is claimed. The implementation requires no external datasets, network access, or downloaded third-party papers.
+## originality
+
+PASS
+
+Best-of-knowledge PASS: Chapoton–Pilaud establish graphical zonotope shuffles under graph joins, including joining a vertex; this is a combinatorial/Minkowski construction and does not itself give Euclidean squared diameter additivity or equality contact classification. Padrol–Pilaud–Poullot study deformation cones, while Deza–Pournin–Sukegawa’s diameter is the one-skeleton graph distance. A relevant published complete-multipartite circumradius formula covers special H/cones only and does not imply an identity for arbitrary H. No inspected source supplies the full general cut bound.
+
+## value
+
+PASS
+
+An exact edge-independent Euclidean cone increment for every finite simple graph is a structural law for a fundamental geometric operation; complete equality and bipartite contact counts add sharp geometric rigidity, including connected nonmultipartite families. It relates nontrivial graph structure to Euclidean polytopal extremal geometry and is not mere substitution of a known complete-graph value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
