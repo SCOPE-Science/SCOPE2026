@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T10:19:57.651695Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The graph is the 24-vertex cubic LCF [-12,7,-7]^8 with 36 undirected edges and girth 7. Every unordered nonempty proper vertex bipartition has exactly one representative containing vertex 0, hence exactly 2^23-1=8,388,607 tested masks. The boundary identity |delta S|=3|S|-2|E(S)| and DSU/DFS e>=v criterion are exact. Independently rebuilt the graph and executed a new exhaustive 8,388,607-mask C++ subset enumeration (not simply the package output); it obtained 32 size-7 and 362 size-8 cyclic cuts, all sides connected. Size-8 side size distribution is 258 at size8 (34 induced 8-cycles, 224 7-cycle+pendant), 80 size10 theta paths 3,4,4, and 24 size12 K4 subdivisions. Independent graph-isomorphism and automorphism partition checks gave |Aut(G)|=32, 21 orbits and 6 AA, 16 AB, 2 BB balanced pairs. Counts certify the finite classification, not an all-cage generalization.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lukoťka et al. Theorem 11 proves maximum cyclic edge connectivity and minimum cuts for cages through girth15.",
+          "It has no quantitative classification of the first nonminimal size-eight layer, component K4 subdivisions or stabilizers."
+        ],
+        "reasoning": "A general minimum-cut theorem does not logically dominate classification of larger boundary cuts.",
+        "searches": [
+          "cages and cyclic connectivity Theorem 11 McGee",
+          "McGee graph 8 cyclic edge cut enumerations bond orbit LCF 24 cage"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2503.07400",
+        "https://mathworld.wolfram.com/McGeeGraph.html",
+        "https://doi.org/10.1007/978-3-540-27810-8_21",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/0c9388fc1533d38ed91063a55c96c9c935f40448/2026/10/12/near-extremal-cyclic-edge-cuts-of-the-mcgee-graph--f2071fe04f1e/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known |Aut(McGee)|=32 and 32 girth 7 cycles can help corroborate 7-cut and 224 pendant counts, but do not imply 80 theta and 24 balanced K4 cuts nor 21 orbit partition."
+        ],
+        "reasoning": "The prior minimum-cut theorem and graph invariants imply at most some ingredients, not the complete new higher-cut theorem.",
+        "searches": [
+          "arxiv:2503.07400 Theorem 11",
+          "McGee graph automorphism group order 32",
+          "McGee graph 8 cyclic edge cut enumerations bond orbit LCF 24 cage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "McGee is the unique cubic (3,7)-cage; seven-edge cyclic cut isolates girth cycle under Lukoťka–Máčajová–Rajník theorem 11.",
+          "The audited theorem concerns 362 eight-edge bonds and 21 automorphism orbits, not just minimum cyclic connectivity."
+        ],
+        "reasoning": "Cyclic vertex connectivity 8 in other sources is different from deleting 8 edges; do not conflate the invariants.",
+        "searches": [
+          "McGee graph 8 cyclic edge cut enumerations bond orbit LCF 24 cage",
+          "McGee graph cyclic edge connectivity girth seven cut sizes",
+          "arxiv:2503.07400"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independently enumerated 362 eight-edge cuts on all 8,388,607 bipartitions and 21 automorphism orbits.",
+          "Known cage tables in cited 2025 paper concern min connectivity, not this exact mask/orbit table."
+        ],
+        "reasoning": "No exact prior database table for the size-8 layer found; a hidden independent census remains a priority risk.",
+        "searches": [
+          "McGee graph cyclic eight edge cuts 362 21 orbits",
+          "24-vertex 3-7 cage cyclic cut size 8 census",
+          "McGee graph 8 cyclic edge cut enumerations bond orbit LCF 24 cage"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for eight-edge cyclic cuts, component types and orbits, while the minimum seven-edge girth-isolating cut theorem is established prior art and explicitly excluded from the claimed novelty.",
+      "residual_risks": [
+        "The 2004 exact-cyclic-connectivity algorithm paper was not available in full text; a supplemental table or unindexed enumeration could contain some finite cut counts.",
+        "Exhaustive proof applies solely to the frozen 24-vertex LCF graph; extension to other cages is not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers seven-edge minimum cut structure; does not state eight-edge McGee enumeration.",
+          "evidence": "Theorem 11 isolates shortest cycles in minimum cycle-separating cuts of cages through girth15.",
+          "identifier_or_url": "https://arxiv.org/abs/2503.07400",
+          "material_read": "Primary arXiv PDF including Theorem 11, cage connectivity consequences and tables",
+          "method": "full PDF text and relevant page screenshot",
+          "title": "Cages and cyclic connectivity",
+          "trigger": "same graph class and cyclic edge connectivity"
+        },
+        {
+          "assessment": "Confirms graph object; no eight-edge cut census.",
+          "evidence": "LCF [-12,7,-7]^8, order24, degree3, girth7.",
+          "identifier_or_url": "https://mathworld.wolfram.com/McGeeGraph.html",
+          "material_read": "Classical LCF representation, order, size, girth and automorphism information",
+          "method": "reference entry",
+          "title": "McGee Graph, MathWorld",
+          "trigger": "canonical graph specification and known invariants"
+        },
+        {
+          "assessment": "Do not infer absence of precomputed census from unavailable full paper.",
+          "evidence": "Scope is algorithms for computing cyclic connectivity rather than enumerating all near-extremal cuts.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-540-27810-8_21",
+          "material_read": "Bibliographic theorem-level material and package comparison, not full paper read",
+          "method": "bibliographic reference plus inspected RESULT.md",
+          "title": "An Algorithm for Cyclic Edge Connectivity of Cubic Graphs",
+          "trigger": "prior algorithm for related invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the natural unique (3,7)-cage, the first edge-cut layer above cyclic connectivity has an exact full geometric and symmetry census, including structurally distinct balanced K4 subdivisions. This finite classification is substantive, reproducible and can support later structural graph investigations; not an arbitrary isolated mask table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2503.07400",
+    "https://mathworld.wolfram.com/McGeeGraph.html",
+    "https://doi.org/10.1007/978-3-540-27810-8_21",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/0c9388fc1533d38ed91063a55c96c9c935f40448/2026/10/12/near-extremal-cyclic-edge-cuts-of-the-mcgee-graph--f2071fe04f1e/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The 2004 exact-cyclic-connectivity algorithm paper was not available in full text; a supplemental table or unindexed enumeration could contain some finite cut counts.",
+    "Exhaustive proof applies solely to the frozen 24-vertex LCF graph; extension to other cages is not established."
+  ],
+  "schema_version": 1
+}

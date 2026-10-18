@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,28 +19,24 @@
 }
 ---
 
-# Reproducible finite checks
+# Independent mathematical audit
 
-The supplied source files compile and execute with a C++17 compiler and Python 3.10+ / NetworkX 3.x. Run the following commands from the directory containing the embedded files:
+## correctness
 
-```sh
-g++ -O3 -std=c++17 verify_cuts.cpp -o verify_cuts
-./verify_cuts
-g++ -O3 -std=c++17 verify_independent.cpp -o verify_independent
-./verify_independent
-python3 verify_orbits.py
-```
+PASS
 
-Observed exact outputs:
+The graph is the 24-vertex cubic LCF [-12,7,-7]^8 with 36 undirected edges and girth 7. Every unordered nonempty proper vertex bipartition has exactly one representative containing vertex 0, hence exactly 2^23-1=8,388,607 tested masks. The boundary identity |delta S|=3|S|-2|E(S)| and DSU/DFS e>=v criterion are exact. Independently rebuilt the graph and executed a new exhaustive 8,388,607-mask C++ subset enumeration (not simply the package output); it obtained 32 size-7 and 362 size-8 cyclic cuts, all sides connected. Size-8 side size distribution is 258 at size8 (34 induced 8-cycles, 224 7-cycle+pendant), 80 size10 theta paths 3,4,4, and 24 size12 K4 subdivisions. Independent graph-isomorphism and automorphism partition checks gave |Aut(G)|=32, 21 orbits and 6 AA, 16 AB, 2 BB balanced pairs. Counts certify the finite classification, not an all-cage generalization.
 
-```text
-VERIFY_ENUM_OK tested_unordered_partitions=8388607 cut7=32 cut8=362
-VERIFY_ENUM_OK cut8_types=C8:34,C7+leaf:224,theta(3,4,4):80,K4-subdivision:24
-VERIFY_INDEPENDENT_OK recurrence_masks=16777216 cut7=32 cut8=362
-VERIFY_INDEPENDENT_OK cut8_partition=8+16:258,10+14:80,12+12:24 exact_mask_equality=true
-VERIFY_ORBITS_OK graph=McGee_24_36 girth_cycles=7:32,8:34 automorphisms=32
-VERIFY_ORBITS_OK cut7=32,2_orbits cut8=362,21_orbits
-VERIFY_ORBITS_OK cut8_types=C8:34,C7+leaf:224,theta:80,balanced_K4:AA:6+AB:16+BB:2
-```
+## originality
 
-`verify_cuts.cpp` regenerates `cut_masks.csv`. `verify_independent.cpp` counts every vertex mask by a separate recurrence and compares the precise canonical cut-mask set to that CSV. `verify_orbits.py` verifies `cut_orbits.csv` and independently determines the component topologies, seven- and eight-cycles, full graph automorphism group, and orbit sizes. These finite checks establish the asserted enumeration if the supplied simple programs execute as written; they do not constitute independent human review, external certification, or a claim about other graphs.
+PASS
+
+Best-of-knowledge PASS for eight-edge cyclic cuts, component types and orbits, while the minimum seven-edge girth-isolating cut theorem is established prior art and explicitly excluded from the claimed novelty.
+
+## value
+
+PASS
+
+For the natural unique (3,7)-cage, the first edge-cut layer above cyclic connectivity has an exact full geometric and symmetry census, including structurally distinct balanced K4 subdivisions. This finite classification is substantive, reproducible and can support later structural graph investigations; not an arbitrary isolated mask table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
