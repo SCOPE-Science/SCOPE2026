@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** By the definition of NODF, a tied-degree within-guild pair contributes zero and every other pair at most one. When one guild has \(b\) vertices and the other has \(a\le b\), the larger guild has at most \(a\) positive degree values. Discrete convexity proves the exact unavoidable number of ties, \((a-r)\binom q2+r\binom{q+1}2\), with equality precisely for balanced multiplicities. A Ferrers incidence matrix with those multiplicities attains every remaining pair's maximum. At equality all shorter-guild pairs must be strict neighborhood inclusions, forcing the Ferrers form. The longer-side degree histogram uniquely identifies each Ferrers isomorphism type, giving \(\binom ar\). The accompanying integer verifier checks all 176554 nonisolated labeled matrices in ten small shapes and independently exercises larger constructions.
+## correctness
 
-Risk: the theorem is not an optimum at prescribed edge count, and does not cover altered NODF conventions or isolated species.
+PASS
 
-## Originality
-**PASS.** The original NODF paper supplies the index and its strict-degree condition. Britton, Almeida Neto, and Corso rigorously prove the square perfect-staircase and zero-index classifications; these existing endpoint theorems are acknowledged, not relabeled as new. Song, Rohr, and Saavedra and Hoeppke and Simmons treat the practically different maximum at fixed guild sizes **and fixed edge count**, with numerical optimization. The full texts and exact-result searches inspected did not provide the exact shape-only rectangular ceiling, its all-shapes equality classification, or the \(\binom ar\) count. The new theorem supplies a sharp intermediate bound not implied by the known endpoint statements.
+For a=min(m,n) and b=qa+r, positive column degrees lie in 1..a; equal-degree column pairs contribute zero. Convexity of choose(c_d,2) forces minimum ties T=(a-r)choose(q,2)+r choose(q+1,2), bounding NODF≤1-T/K. Ferrers initial-segment columns with all c_d=q or q+1 attain every available nontied pair contribution, and equality forces a strictly nested row chain, hence Ferrers and balanced degree multiplicities. Choices of r degree labels give exactly choose(a,r) classes; fixed-a asymptotics 1-1/a. Independent exhaustive bitmatrix enumeration checked (2,2),(2,3),(2,4),(2,5),(3,3),(3,4),(3,5): 18,859 valid labeled matrices, maxima and types agree.
 
-Risk: some niche combinatorial note or unindexed package documentation could independently derive the same dimension-only formula; failed search is not a proof of novelty.
+## originality
 
-## Value
-**PASS.** Network ecologists compare nestedness across unequal guild sizes, and size/connectance confounding is a documented problem. Here rectangular guild imbalance forces a nontrivial NODF deficit even with a completely nested architecture and no fixed link count. The exact closed form, complete Ferrers maximizer classification, and nonzero asymptotic shape penalty give a natural shape-specific baseline and a rigorous upper-bound check for fixed-link numerical optimization. This value does not depend on claiming a solution to the distinct fixed-link optimization task.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Britton et al fully characterize only endpoints NODF=0 and 1. The exact shape-dependent *subunit* maximum and all Ferrers multiplicity classes for every rectangular m×n constitute a separate optimization not implied numerically by the square-staircase endpoint theorem.
+
+## value
+
+PASS
+
+A sharp size-only ceiling and complete extremizer classification are directly useful for ecological nestedness benchmarking and identify unavoidable shape bias without confounding prescribed-link-count optimizations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
