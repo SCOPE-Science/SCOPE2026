@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,21 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The analytic chain checked in the proof is:
 
-1. \(V_n(t)=\sin(nt/2)\sin(3nt/2)/(n\sin^2(t/2))\).
-2. On each sample coset \(t_s+2\pi q/n\), the numerator product is invariant in \(q\).
-3. Differentiation of the cotangent multiplication identity gives
-\[
-\sum_{q=0}^{n-1}\csc^2\!\left(x+\frac{\pi q}{n}\right)=n^2\csc^2(nx).
-\]
-4. Each coset therefore contributes \(n|1+2\cos(2\pi s/m)|\), including \(s=0\) by continuity.
-5. Absolute row and column sums give the exact endpoint convolution norms.
-6. The three formulas for \(A_m\) follow from the negative-index interval \(m/3<s<2m/3\) and a finite cosine sum.
+# Independent mathematical audit
 
-The included `artifacts/verify.py` was executed from its package path. It returned:
+## correctness
 
-`VERIFY_OK cases=4680 decimation_maxerr=4.086e-14 closed_maxerr=4.441e-16 csc_relerr=1.990e-15`
+PASS
 
-The numerical checks cover \(1\le n\le40\) and \(4\le m\le120\). They are regression tests only; they do not replace the exact proof or assert anything for arbitrary grid ratios or interior \(\ell^p\) norms.
+The de la Vallée Poussin kernel identity V_n(t)=sin(nt/2)sin(3nt/2)/(n sin²(t/2)) follows by averaging D_n,…,D_{2n−1}. Partition N=nm samples into m cosets each with n values t_s+2πq/n. Both numerator sin factors change by (-1)^q and (-1)^{3q}, leaving their product fixed, so absolute summation invokes Σ csc²(x+πq/n)=n² csc²(nx). Each s≠0 coset contributes n|sin(3πs/m)/sin(πs/m)|=n|1+2 cos(2πs/m)|; s=0 contributes 3n with all other terms zero, by limits. The normalized absolute row/column sums prove both endpoint norms. The negative-index set m/3<s<2m/3 and elementary finite cosine-progressions give the three mod-3 formulas. Independent float recomputation examined 4680 n,m pairs with max decimation error <4.2e−14 and closed-form error <4.5e−16; these checks corroborate, not prove, all n,m.
+
+## originality
+
+PASS
+
+Classical constant continuous L1-norm along dilation is not itself the exact discrete cyclic n-to-three-frequency norm collapse. All-n coset decimation identity for N=nm is distinct from known A_m numerical norm and is proved here; residual risk remains that a sampling/interpolation paper proves it under a different kernel convention.
+
+## value
+
+PASS
+
+This is an exact all-n discretization-stability law for a canonical Fourier summability kernel and an infinite two-parameter set of nonaliased cyclic grids. It reduces a degree-n kernel’s endpoint norm to the same fixed 3-frequency cyclic projection and includes exact residue-class formulas; useful as a structural sampling and operator-norm benchmark, not merely a known A_m table copied for one m.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
