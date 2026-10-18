@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The exact first-success recursion follows from independent edge clocks and accounts separately for bridge occupation, nonincident internal deposition and endpoint-blocking internal deposition. Complete-clique parity forces the entire jamming distribution. The exponential-time coupling proves strict bridge-rate monotonicity and the singular weak-rate limit. A pure-death generator, a martingale/fluid limit and a logistic comparison bound justify the critical-rate profile and fixed-rate coefficient. The independent full-configuration exact-arithmetic check verified 144 parameter triples and 144 unmatched-count identities. Finite tests are not the infinite-size proof.
+
+**Originality — PASS, with identified risk.** Published results on graphical dimer adsorption and greedy matching provide the general process, but the accessible Bal--Bennett full text concerns sparse random graphs with a degree assumption excluding the clique pair, and the available older abstracts focus on global matching guarantees or other graph classes. Searches for bridged cliques, alternate barbell/dumbbell terminology, finite jamming parity, and rate-window scaling did not reveal a theorem implying the joint tagged-edge and scaling statement. The full texts of Pippenger (1989) and Dyer--Frieze (1991) remained unavailable, so a specialized older computation is a residual bibliographic risk rather than an established negative comparison.
+
+**Value — PASS.** The result classifies the terminal coverage effect of an additional intercommunity bond, including a counterintuitive sign change controlled by community parity. It proves a nontrivial critical rate window with a universal explicit crossover integral, an inverse-size rare-bridge law with a logarithmic size-ratio coefficient, and a singular small-rate effect for two odd communities. These features distinguish a physically motivated finite-size jamming problem from a routine evaluation of a generic greedy-matching recurrence.
+
+**Limitations.** The network consists of precisely two cliques linked by one bridge, internal adsorption rates are homogeneous, and the asymptotics assume a nonzero finite community-size ratio. No assertion covers arbitrary community topologies or supplies an independent audit.
+
+Self-review: passed. Independent audit: not yet performed.
