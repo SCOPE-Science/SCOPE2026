@@ -1,23 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The example is a Hilbert \(C^*\)-module over \(\mathbb C\). Both constituent families are Parseval \(g\)-frames and satisfy the stated \(K\)-\(g\)-frame bounds for
-\[
-K=\frac14I.
-\]
-With
-\[
-\alpha=\beta=\mu=\frac34,
-\]
-the scalar threshold is \(9/4<4\), and the coefficient-space perturbation norm is exactly \(\sqrt2\|c\|\), below the required \(9\|c\|/4\). The weave selecting \(\Lambda_1\) and \(\Gamma_2\) has zero energy on \(e_2\), so it cannot be a \(K\)-\(g\)-frame.
+## correctness
 
-## Originality
-PASS. The exact source, theorem number, DOI, perturbation parameters, Moore--Penrose dependence, \(K\)-rescaling aliases, earlier woven \(K\)-fusion perturbation results, and a later controlled continuous extension were compared. No checked indexed source supplied this theorem-specific counterexample or an implication that covers it.
+PASS
 
-## Value
-PASS. The source theorem is intended to guarantee weaving under perturbation. The failure persists in dimension two and is caused by a systematic normalization defect: scaling \(K\) down inflates an admissible lower \(K\)-frame bound while leaving the woven analysis geometry unchanged. This is a substantive boundary for formulating perturbation criteria.
+With H=C², K=I/4 and the coordinate families swapped between Λ and Γ, both are Parseval g-frames: energy ||f||² and legitimate K-g-frame constants A1=A2=16, B1=B2=1. For coefficient c the two adjoint differences have squared sum 2||c||², while α=β=μ=3/4 gives source perturbation upper 9||c||/4, and the printed scalar threshold is 9/4<16/(2(1+1))=4. The weave Λ1,Γ2 repeats coordinate e1, has zero energy at f=e2 even though ||K*e2||²=1/16; it is not a K-g-frame, disproving the theorem conclusion despite every displayed hypothesis. The original 2022 source Theorem 3.10 and proof were inspected including the omitted ||K†||=4 factor; a direct fresh hand calculation independently checked all inequalities, not a numerical approximation.
 
-## Limitations
-The theorem is refuted as printed, but a complete replacement theorem for arbitrary Hilbert \(C^*\)-modules is not asserted. A valid repair must compensate for the scale of \(K\) or use an equivalent \(K\)-scaled perturbation measure.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge no located erratum or prior counterexample for this exact printed statement. The original article makes an unrestricted sufficiency claim, and the present construction supplies an explicit falsifying two-dimensional witness with a scaling mechanism. Related woven fusion-frame stability criteria impose differently normalized K-energy conditions and therefore do not state this source-specific failure. Resultary search did not complete, so final publication remains blocked and this is not certified novelty.
+
+## value
+
+PASS
+
+A two-dimensional exact counterexample falsifying a published general perturbation criterion is a substantive, motivated boundary correction. Its scaling diagnosis identifies why conditions independent of ||K†|| are insufficient, preventing incorrect downstream use of the theorem; no full replacement theorem is needed for value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

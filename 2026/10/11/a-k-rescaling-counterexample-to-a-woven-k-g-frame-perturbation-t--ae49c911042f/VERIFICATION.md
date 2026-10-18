@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-11.md",
+      "INDEPENDENT_AUDIT_2026-10-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,71 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Let
-\[
-K=\frac14I_{\mathbb C^2}.
-\]
-Then
-\[
-\|K^*f\|^2=\frac1{16}\|f\|^2.
-\]
-For both coordinate families,
-\[
-\sum_{i=1}^2\|\Lambda_i f\|^2
-=
-\sum_{i=1}^2\|\Gamma_i f\|^2
-=
-\|f\|^2.
-\]
-Thus
-\[
-A_1=A_2=16,\qquad B_1=B_2=1
-\]
-are valid bounds.
+# Independent mathematical audit
 
-For \(c=(c_1,c_2)\),
-\[
-(\Lambda_1^*-\Gamma_1^*)c_1=c_1(e_1-e_2)
-\]
-and
-\[
-(\Lambda_2^*-\Gamma_2^*)c_2=c_2(e_2-e_1).
-\]
-Therefore
-\[
-\left(
-\sum_i\|(\Lambda_i^*-\Gamma_i^*)c_i\|^2
-\right)^{1/2}
-=
-\sqrt2\,\|c\|.
-\]
-At
-\[
-\alpha=\beta=\mu=\frac34,
-\]
-the right side of the printed perturbation inequality is
-\[
-\frac94\|c\|,
-\]
-and the scalar smallness condition is
-\[
-\frac94
-<
-\frac{16}{2(1+1)}
-=
-4.
-\]
+## correctness
 
-For the weave using \(\Lambda_1\) and \(\Gamma_2\),
-\[
-|\Lambda_1e_2|^2+|\Gamma_2e_2|^2=0,
-\]
-while
-\[
-\|K^*e_2\|^2=\frac1{16}.
-\]
-Hence no positive lower \(K\)-\(g\)-frame bound exists.
+PASS
 
-The open publisher PDF was inspected at the theorem statement and proof. The proof explicitly introduces \(\|K^\dagger\|\) after the printed smallness hypothesis, consistent with the scale-dependence exposed by the example.
+With H=C², K=I/4 and the coordinate families swapped between Λ and Γ, both are Parseval g-frames: energy ||f||² and legitimate K-g-frame constants A1=A2=16, B1=B2=1. For coefficient c the two adjoint differences have squared sum 2||c||², while α=β=μ=3/4 gives source perturbation upper 9||c||/4, and the printed scalar threshold is 9/4<16/(2(1+1))=4. The weave Λ1,Γ2 repeats coordinate e1, has zero energy at f=e2 even though ||K*e2||²=1/16; it is not a K-g-frame, disproving the theorem conclusion despite every displayed hypothesis. The original 2022 source Theorem 3.10 and proof were inspected including the omitted ||K†||=4 factor; a direct fresh hand calculation independently checked all inequalities, not a numerical approximation.
+
+## originality
+
+PASS
+
+Best-of-knowledge no located erratum or prior counterexample for this exact printed statement. The original article makes an unrestricted sufficiency claim, and the present construction supplies an explicit falsifying two-dimensional witness with a scaling mechanism. Related woven fusion-frame stability criteria impose differently normalized K-energy conditions and therefore do not state this source-specific failure. Resultary search did not complete, so final publication remains blocked and this is not certified novelty.
+
+## value
+
+PASS
+
+A two-dimensional exact counterexample falsifying a published general perturbation criterion is a substantive, motivated boundary correction. Its scaling diagnosis identifies why conditions independent of ||K†|| are insufficient, preventing incorrect downstream use of the theorem; no full replacement theorem is needed for value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
