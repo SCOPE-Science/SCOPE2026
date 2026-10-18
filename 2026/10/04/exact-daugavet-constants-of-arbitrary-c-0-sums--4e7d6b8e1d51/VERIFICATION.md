@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,6 +18,25 @@
   "schema_version": 1
 }
 ---
-The theorem is verified analytically from the slice definition. The critical checks are: (1) a functional in the dual \(\ell_1\)-sum is approximated on a finite set before coordinate witnesses are chosen, ensuring the lower-bound witness belongs to the \(c_0\)-sum; (2) when the selected coordinate functional is zero, an opposite unit vector gives distance \(1+\|x_\gamma\|\) without changing slice membership; (3) the finite-support convex combination in the upper bound has norm \(1\) and forces every selected coordinate into its prescribed slice; and (4) for infinite index sets, \(M\ge1\) follows from \(\operatorname{dc}_X(y)\ge1-\|y\|\) and the \(c_0\) condition before the tail estimate is invoked.
 
-No finite experiment or numerical certificate is needed for the infinite-dimensional statement. The proof does not establish a \(\Delta\)-constant analogue, a complex-space analogue, or an infinite \(\ell_\infty\)-product formula.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+For Z=(oplus_gamma X_gamma)_{c0} with dual (oplus X_gamma*)_{ell1}, fix any global slice and any coordinate gamma0. A finite-support witness, norming all but an arbitrarily small dual l1 tail and making component gamma0 arbitrarily far in its own slice, yields dc_Z(x)>=dc_gamma0(x_gamma0). If the selected dual coordinate vanishes, an opposite norm-one vector gives distance 1+||x_gamma0||, still above dc_gamma0. For the reverse, approximate x by finitely many non-small coordinates and combine their near-optimal component slice functionals with positive weights into a single norm-one global functional; a small deficit forces every selected component slice. Outside this finite set c0 gives ||x_gamma||<epsilon, and for infinite Gamma the needed M=sup dc_gamma(x_gamma)>=1 is proved from dc_gamma(y)>=1-||y|| along vanishing tail. Finite Gamma works without tail. Thus exact supremum formula holds for all real Banach-valued c0 sums. No finite numeric experiment substitutes for proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS: Choi–Jung’s scalar c0 and finite ell_infinity cases and their Proposition 4.3 one-sided sum estimate do not imply equality for arbitrary Banach components or infinite c0 index family. Resultary searches found same assigned theorem but no stronger independent published matching formula; residual risk unindexed equivalent source.
+
+## value
+
+PASS
+
+A natural infinite/finite direct-sum composition law reducing an otherwise global, slice-defined nonlinear point invariant exactly to its components. It upgrades published one-sided l_infinity stability and unifies scalar c0 and finite ell_infinity results; the finite-support/simultaneous-slice construction is reusable geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
