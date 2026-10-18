@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,27 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of binary fourth moments
 
-The complete standalone source is `checker.cpp`. Compile it using a standard C++17 compiler:
+# Independent mathematical audit
 
-```sh
-g++ -O3 -std=c++17 checker.cpp -o checker
-./checker
-```
+## correctness
 
-Actual execution returned `CHECK_PASS`, with the exact integer outputs listed below.
+PASS
 
-| Family | Enumerated cases | Fourth-moment minimum | Minimizing graph classes |
-| --- | ---: | ---: | ---: |
-| Every binary sixteen-mode four-cube, after sign normalization | 2048 | 336 | 12 normalized sign patterns |
-| Quadratic phase on 2 variables | 2 graphs | 20 | 1 |
-| Quadratic phase on 3 variables | 8 graphs | 88 | 3 |
-| Quadratic phase on 4 variables | 64 graphs | 336 | 12 |
-| Quadratic phase on 5 variables | 1024 graphs | 1376 | 60 |
-| Quadratic phase on 6 variables | 32768 graphs | 5440 | 360 |
-| Quadratic phase on 7 variables | 2097152 graphs | 21888 | 2520 |
+Orthogonality on the integer torus converts L4^4 to 81 integer convolution squares; an independent gauge-reduced direct check enumerated all 2048 binary four-cube representatives, giving minimum 336 and 12 representatives/384 arrays. Quadratic Boolean fibers vanish unless induced degrees are all even; hence moment=2^d∑_{even-degree S}2^|S|. Inspected standalone checker.cpp uses exhaustive 2^{binom(d,2)} Gray masks and 2^d vertex subsets for d≤7 and compares full minimizer sets to all labeled paths; independently recomputed d4/d5 graphs (12/60 minimizers). No claim beyond d7 or for arbitrary complex phases.
 
-For the unrestricted binary four-cube, the checker constructs the \(81\) ordinary (noncyclic) convolution coefficients and squares them exactly for every normalized array. The five sign normalizations account bijectively for all \(65536\) arrays. For quadratic phases the checker independently computes all even-induced-degree vertex subsets, sums the weights \(2^{|S|}\), and compares the *complete set of minimizers* to the path graphs generated from permutations. All loops exhaust explicitly bounded finite sets. The arithmetic identity explaining why the graph formula equals the Fourier fourth moment is proved in `RESULT.md`, rather than assumed from a log.
+## originality
 
-The validity of the exact search is limited to the stated coefficient spaces and dimensions. No exhaustive claim is made for all binary arrays beyond four dimensions, for all quadratic arrays in dimension eight or above, or for general unit-circle coefficient phases. No independent mathematical audit is represented by these checks.
+PASS
+
+Pai–Chen and Zhang–Fan–Mesnager use Hamiltonian-path Boolean phases for complementary PAIRS, not strict minimization of one array's squared aperiodic correlations. Danielsen–Parker's interlace-polynomial special value counts even induced subgraphs WITHOUT |S| weight. Published eight-mode d3 result is lower dimension. No implication-equivalent four-cube binary optimum or d4–7 full graph classification found, with array-catalog priority risk.
+
+## value
+
+PASS
+
+Sharp finite classifications of natural binary Fourier sign patterns and corresponding weighted induced-Eulerian graph invariant reveal precise path optimizer rigidity; exact unknown low-dimensional cutoffs can be useful in array design and graph-correlation analysis. Not a table recomputation shown to be already known; d≤7 stated honestly.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

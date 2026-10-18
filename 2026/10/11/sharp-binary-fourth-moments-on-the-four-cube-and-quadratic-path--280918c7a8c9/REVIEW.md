@@ -1,21 +1,21 @@
-# Scientific assessment of the binary hypercube fourth-moment theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed sharp constants and the complete equality families were reconstructed from the torus Fourier-convolution identity. The quadratic Boolean-phase identity was independently derived by summing characters over every two-sum fiber: it returns a nonzero coefficient exactly when every vertex of the induced graph on free coordinates has even degree. The Hamilton-path value follows algebraically from the independence-polynomial recurrence. The necessary final minimality and equality classifications are finite and exhaustive: a direct exact-integer convolution checks every one of the \(2048\) four-dimensional sign patterns after justified gauge normalization, and a distinct graph-subset calculation checks every one of the \(2^{\binom d2}\) labeled graphs for each \(2\le d\le7\). The two independently generated optimizer sets agree with the path families. Actual compilation and execution of the delivered standalone source returned `CHECK_PASS`. No infinite-dimensional or complex-unimodular conclusion was inferred from these finite checks.
+PASS
 
-## Originality — PASS, with literature risk
+Orthogonality on the integer torus converts L4^4 to 81 integer convolution squares; an independent gauge-reduced direct check enumerated all 2048 binary four-cube representatives, giving minimum 336 and 12 representatives/384 arrays. Quadratic Boolean fibers vanish unless induced degrees are all even; hence moment=2^d∑_{even-degree S}2^|S|. Inspected standalone checker.cpp uses exhaustive 2^{binom(d,2)} Gray masks and 2^d vertex subsets for d≤7 and compares full minimizer sets to all labeled paths; independently recomputed d4/d5 graphs (12/60 minimizers). No claim beyond d7 or for arbitrary complex phases.
 
-The closest motivating full texts are Pai–Chen (arXiv:2102.04043v1), especially their Theorem 12 and Corollary 15, and Zhang–Fan–Mesnager (arXiv:2107.11599v1), especially their generalized Boolean constructions. They **already construct and count** path-shaped phases, and no novelty is claimed for that construction or for the mere count of paths. Their results concern complementary *pairs* and power/zero-correlation properties rather than the global fourth-moment minimum of a **single** binary four-cube, and do not classify its arbitrary binary minimizers or establish weighted-Eulerian minimum among all graphs through seven vertices. Danielsen–Parker (arXiv:0804.2576v2) tabulate and interpret an **unweighted** Eulerian-subgraph count via interlace polynomials and a different Clifford merit factor. The weighted objective here is not an immediate value of those tabulated scalars. Searches of a published mathematical-results index for the exact coefficient domain, numerical thresholds, Hamilton-path classification, weighted Eulerian interpretation and common aliases found no matching or stronger implication. The first relevant nearby entries concern four-*point* Fourier supports and independent Walsh-phase questions, not sixteen-mode hypercube coefficients.
+## originality
 
-Residual novelty risks are an exact result concealed in older binary-array merit-factor catalogs, and a derivation from a stronger graph-polynomial theorem using a different normalization. Originality is conditional on the inspected comparisons, not absolute uniqueness.
+PASS
 
-## Value — PASS
+Pai–Chen and Zhang–Fan–Mesnager use Hamiltonian-path Boolean phases for complementary PAIRS, not strict minimization of one array's squared aperiodic correlations. Danielsen–Parker's interlace-polynomial special value counts even induced subgraphs WITHOUT |S| weight. Published eight-mode d3 result is lower dimension. No implication-equivalent four-cube binary optimum or d4–7 full graph classification found, with array-catalog priority risk.
 
-The object is the complete four-variable multilinear trigonometric polynomial with binary coefficients, a canonical small multidimensional Fourier aperture and autocorrelation-design model. Finding **all** global binary minimizers at the first sixteen-mode four-cube, rather than exhibiting a low-correlation construction, is a natural complete classification: it makes the familiar Hamilton-path construction **necessary**. The second, tightly connected assertion proves its optimality inside the full quadratic Boolean family through seven variables, converting Fourier fourth moments into a graph invariant and closing a nontrivial finite range including over two million distinct graph cases at seven variables. Exact finite results have relevance even though the arbitrary-phase and higher-dimensional minima remain open. The result provides a precise obstruction test for competing graph-state constructions and a reproducible starting point for generalization, without asserting a downstream theorem.
+## value
 
-## Sources and boundaries
+PASS
 
-The most relevant source sections were materially inspected, not only search snippets: Pai–Chen (2021), definitions and Theorem 12/Corollary 15; Zhang–Fan–Mesnager (2021), generalized Boolean construction and pair autocorrelation proofs; Danielsen–Parker (2009), interlace-polynomial evaluations, Table 5 and Clifford merit-factor discussion. The nearest pre-existing eight-mode result addresses the three-dimensional unrestricted unimodular problem only; it does not imply the new dimension-four binary classification. The signed path construction is known; only the stated optimum and completeness are assessed as potentially new. An independently performed mathematical audit is absent.
+Sharp finite classifications of natural binary Fourier sign patterns and corresponding weighted induced-Eulerian graph invariant reveal precise path optimizer rigidity; exact unknown low-dimensional cutoffs can be useful in array design and graph-correlation analysis. Not a table recomputation shown to be already known; d≤7 stated honestly.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
