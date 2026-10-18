@@ -1,0 +1,15 @@
+# Mathematical assessment
+
+## Correctness — PASS
+The claim concerns all unit normals for the exact cuboctahedron \(C=[-1,1]^3\cap\{\lVert x\rVert_1\le2\}\). A signed-permutation symmetry reduction, complete supporting-face chord formulas, and an algebraic monotonicity argument produce a **global**, not merely sampled, inequality comparing every section with the corresponding zero-coordinate-normal section. The positive transverse factor follows from the identity \(4(1+b+b^2)-(1+2b)^2=3\). Strict convexity of the reduced one-variable function is proved by explicit positive second-derivative bounds on two subintervals. The defining critical-point equation has precisely one root and identifies all equality cases. A standalone independent section reconstruction and exact derivative computations reproduced the formulas. The finite tests are corroboration, not substitutes for the continuum proof.
+
+## Originality — PASS relative to inspected sources
+Kovič (2013) classifies centrally symmetric regular-faced convex polyhedra and their combinatorics; it does not optimize central-section perimeter. Koenig–Koldobsky (2018) optimize the **maximum** perimeter for **cube** sections, with no cuboctahedron minimum conclusion. Related published geometric records address inscribed tetrahedral volume, cuboctahedron blocking, illumination, or octahedron section diameter. A previously documented sharp cuboctahedron section **area** bound has a different functional and a different set of extremizers; it does not imply the present minimum-perimeter theorem. A comparison of equivalent phrasings, dual objects and potentially dominating results found no covering theorem. Residual risk: an unindexed classical geometry source could establish the same exact extremum; historical priority has not been independently verified.
+
+## Mathematical value — PASS
+The intrinsic perimeter of a central section is a natural metric invariant of a canonical Archimedean solid. Its global minimizer is unexpectedly oblique, rather than one of the coordinate or diagonal directions, and is characterized by a unique nontrivial algebraic-radical equation. The sharp equality classification and positive transverse stability provide a structural optimization result, not a one-direction computation. It also distinguishes section-perimeter optimization from section-area optimization for the same solid. No unproved general theorem or claim of downstream necessity is needed for this complete natural classification.
+
+## Limitations and closest literature
+The claim does not concern noncentral sections or other shapes. The transverse estimate is not claimed to have a sharp coefficient. Kovič (2013), *Mathematical Communications* **18**, 429–440, and Koenig–Koldobsky (2018), arXiv:1806.08659, provide the closest inspected primary comparisons, but neither treats this precise object–functional–optimization combination. The independent literature audit and independent mathematical validation remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
