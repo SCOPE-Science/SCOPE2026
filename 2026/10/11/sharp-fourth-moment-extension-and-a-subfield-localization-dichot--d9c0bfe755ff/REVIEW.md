@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Orthogonality gives an exact pair-sum convolution energy. The inverse graph has one off-diagonal representation per unordered pair except for the precisely enumerated \(\mathbb F_4\)-coset collisions in even extension degree. The odd-degree bound uses triangle and power-mean inequalities with complete equality conditions. The even-degree bound follows from an exact collision expansion, orbitwise AM–GM, Cauchy–Schwarz and a two-case one-variable optimization; the remaining deficit is \(3(a-b)^2(a^2+2ab+5b^2)\). This also forces the stated four-point support and signs. Exact finite-field Gaussian-integer tests corroborate, but do not replace, the general proof.
+## correctness
 
-**Originality — PASS, with residual risk.** The known differential-uniformity classification and the subfield inverse-sum theorem supply collision geometry and cannot themselves be claimed new. Mockenhaupt–Tao supply the original Fourier-extension setting; modern sharp extension theorems cover different surfaces. A statement-level comparison finds no direct implication to the precise complex-weighted norm and exhaustive extremizer census. An equivalent weighted additive-energy inequality in historical finite-field or cryptographic literature remains a specific priority risk.
+PASS
 
-**Value — PASS.** The sharp inequality concerns a canonical finite-field nonlinear permutation graph across an infinite family. Its parity split is qualitative: full-support complex extremizers in odd degrees but sharply localized four-point packets in even degrees. Complete optimizer counts and the uniform even-degree sharp constant identify the harmonic consequence of a known subfield resonance, rather than merely repeating differential-uniformity data.
+On F_(2^m) with zero-completed inverse h, orthogonality identifies the fourth-power norm with ordered pair-sum convolution. Because x+y=s!=0 and h(x)+h(y)=t determine xy, off-diagonal fibers are singleton unordered pairs except in even m, where z²+z+1=0 makes precisely one additional inverse graph pair collide with {0,s}. The odd-m formula |sum f²|²+2N²-2sum|f|⁴ implies optimal 3-2/q and equal-amplitude aligned-square signs. For even m the exact 8Re cross-term yields the orbitwise bound, normalization A=|f(0)|²/N, S=sum orbital squared masses, and a two-regime quadratic optimization at A=1/13. Equality forces A=1/4, one nonzero F4-multiplicative orbit and four equal-modulus coefficients with even sign product; count 4(q-1)/3 projective packets. Checked q=2,4,8,16 independent exact pair fibers and witnesses; finite examples corroborate, the algebraic argument proves all m.
 
-**Limitations.** The theorem concerns the fourth moment with a particular measure normalization. It does not address higher moments, odd characteristic, or priority against all historically unindexed literature. The included checker covers only degrees at most six; the theorem is proved without relying on extrapolation from those computations.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS. This characteristic-two fourth-moment inverse-graph theorem is not the published odd-characteristic completed inverse-graph result: the latter assumes p>3 and its resonant packets have six nonzero roots plus the origin, not the F4 four-point packets here. Carlet establishes subfield inverse-sum vanishing, which accounts for the packet existence but not the global weighted extension constant, support rigidity or exhaustive sign-phase classification. The other sharp extension primary source concerns parabolic/higher-dimensional surfaces, not this binary inverse graph. Unindexed cryptographic additive-energy work may encode an equivalent weighted theorem; this remains explicit risk.
+
+## value
+
+PASS
+
+PASS: The inversion map is a standard cryptographic and finite-field harmonic-analysis object. The parity-dependent sharp analytic norm, full-support versus exact F4-subfield localization dichotomy, and complete optimizer counting provide a motivated structural phase transition beyond already known inverse-sum vanishing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
