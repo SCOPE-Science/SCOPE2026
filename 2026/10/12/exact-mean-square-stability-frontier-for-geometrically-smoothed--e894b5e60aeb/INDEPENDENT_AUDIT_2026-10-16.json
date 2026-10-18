@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T00:56:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently derived the exact coordinate matrices J0=[[1,M],[0,beta+(1−beta)M]] for missed row, J1=[[0,M],[-(1−beta),beta+(1−beta)M]] for selected row; their covariance map is the printed 3x3 T. Symbolic SymPy determinant factoring reproduces det(I−T)=π(β−1)[2(1−β)^2 M²+LM+C] with printed L,C. Its quadratic has one positive root and T(0) spectral radius<1 for π in (0,1), beta<1; positivity of the map makes its spectral radius a nonnegative eigenvalue, so no crossing of radius 1 without det=0. Above the root the determinant sign produces a real eigenvalue>1. Starting from (u0≠0,v0=0), the one-step covariance diag(1−π,π(1−β)^2) is positive definite, hence excites every positive-semidefinite Perron direction, proving boundary nondecay and supercritical exponential growth of E[u²]. The u-coordinate of any Perron eigenmatrix must be positive for M>0. Verified βcrit=(5−sqrt17)/2 and β=0,π=1/2,M=.9 gives mean-square radius≈1.20656 while signed H spectral radius=√.9. Finite rational spot tests in source are corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Source first-moment theorem leaves critical M and expected norm as directions for study.",
+          "Minibatch HBM has different velocity and batching, yielding no direct all-π exact KGSM covariance frontier."
+        ],
+        "reasoning": "No inspected broader theorem subsumes the precise diagonal second-moment boundary.",
+        "searches": [
+          "arXiv:2401.09415v3 Theorem 1.1 and Section4.2",
+          "arXiv:2206.07553v5 minibatch HBM update"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2401.09415v3",
+        "https://arxiv.org/html/2206.07553v5",
+        "Resultary KGSM mean-square frontier semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With β=0,π=1/2,M=9/10, |eig(H)|=sqrt(9/10)<1 while the covariance operator has eigenvalue≈1.20656>1.",
+          "The source theorem cannot imply the mean-square phase classification since its hypothesis permits that separation."
+        ],
+        "reasoning": "This explicit countermodel disproves implication from the most plausible stronger signed-mean theorem; the exact threshold is additional mathematical content.",
+        "searches": [
+          "arXiv:2401.09415v3 Theorem 1.1; Section 4.2; rational witness",
+          "arXiv:2206.07553 HBM algorithm comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source-form KGSM geometric momentum update agrees with J0/J1 when A diagonal and row chosen by squared norm.",
+          "Signed first-moment operator H is 2x2; covariance T is a different 3x3 positive map."
+        ],
+        "reasoning": "Reformulated the claim as exact covariance-map spectral radius and a random-switching linear-system phase boundary; the existing expected-error theorem is not equivalent.",
+        "searches": [
+          "Resultary semantic mathematical-research index: geometrically smoothed momentum randomized Kaczmarz diagonal orthogonal row sampling mean-square exact stability threshold",
+          "Web: \"KGSM\" mean-square covariance diagonal stability threshold smoothing",
+          "Alderman et al. arXiv:2401.09415v3 equations 9–14"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "KGSM original has numerical trajectories and first-moment eigenvalue calculations, not the 3x3 determinant/root table.",
+          "No matching exact all-beta/all-row-probability covariance stability table returned by targeted searches."
+        ],
+        "reasoning": "No known table settles the full root; unindexed independent derivations remain a risk.",
+        "searches": [
+          "Resultary semantic mathematical-research index: geometrically smoothed momentum randomized Kaczmarz diagonal orthogonal row sampling mean-square exact stability threshold",
+          "Web: KGSM mean-square covariance diagonal stability threshold smoothing",
+          "arXiv:2401.09415v3 numerical experiment/analytical sections"
+        ]
+      },
+      "rationale": "Alderman–Luikart–Marshall arXiv:2401.09415v3 was read at the defining update, Theorem 1.1, Section 3 and Section 4.2: it establishes a signed first-moment 2x2 dynamics and asks for critical mass and Euclidean/absolute expectations. A stable expectation need not imply a stable second moment; the explicit rational KGSM example separates them. Bollapragada–Chen–Ward uses minibatch heavy-ball momentum, not this geometrically smoothed single-row state. Independent Resultary and specific mean-square search found no full orthogonal-diagonal threshold. Best-of-knowledge with residual priority uncertainty.",
+      "residual_risks": [
+        "An unindexed KGSM second-moment stability analysis could duplicate the orthogonal specialization.",
+        "Nonorthogonal systems, inconsistent data, nonzero initial momentum, almost-sure convergence and finite precision remain unproved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers signed first moment and asks for critical momentum; no matching exact 3x3 covariance threshold in inspected analysis",
+          "evidence": "Algorithm source Theorem1.1 and Sections 3,4.2; direct signed-vs-mean-square separation.",
+          "identifier_or_url": "https://arxiv.org/html/2401.09415v3",
+          "material_read": "Open full-text update equations and Theorem 1.1, Sections 1.2–1.5, Section3 derivation and Section4.2 unresolved parameter/norm questions",
+          "method": "Lawful full HTML section-by-section inspection",
+          "title": "Randomized Kaczmarz with geometrically smoothed momentum",
+          "trigger": "Defines exact algorithm and discusses momentum convergence question"
+        },
+        {
+          "assessment": "Algorithm and guarantees do not match geometric KGSM single-row covariance phase, no whole-paper noncoverage beyond inspected portions claimed",
+          "evidence": "Minibatch-HBM velocity and batch-size restriction versus KGSM geometric smoothing state.",
+          "identifier_or_url": "https://arxiv.org/html/2206.07553v5",
+          "material_read": "Abstract, algorithm definitions HBM/Minibatch-HBM and principal sufficient-acceleration assumptions",
+          "method": "Lawful open HTML read for exact algorithm comparison",
+          "title": "On the fast convergence of minibatch heavy ball momentum",
+          "trigger": "Plausible general stochastic heavy-ball bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp exact stability boundary for every row-norm probability in a natural diagonal benchmark resolves a concrete question posed by the algorithm's source. It diagnoses a physically relevant failure mode hidden by signed means and extends the source's first-moment analysis to a new norm moment; not a routine reparametrization of a known Schur bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Consistency, invertible real diagonal A, row-norm iid selection πj>0, deterministic u0, y0=0, 0≤β<1 and 0≤M≤1 only.",
+    "No claim of almost-sure or nonorthogonal general rates."
+  ],
+  "schema_version": 1
+}
