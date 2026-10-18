@@ -1,0 +1,60 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T11:08:32Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Barakat et al., AIMS Mathematics 11 (2026) 6269–6296, DOI:10.3934/math.2026259, Proposition 1.1, Sections 3–4",
+        "Leemis–McQueston, Univariate Distribution Relationships, DOI:10.1198/000313008X270448"
+      ],
+      "rationale": "The exact change of variable y=exp(x/theta)-1 yields f_theta(x)dx=y² exp(-y)dy/2, proving the Gamma(3,1) law. For scale family f_theta(x)=theta^-1 f_1(x/theta), F_theta(x)=F_1(x/theta), the likelihood differs by -n log c under (x,theta)→(cx,c theta), and all five CDF-based objectives remain invariant, so argopt sets scale exactly. Twice differentiating yields observed information scaling c^-2. Independent symbolic Jacobian check at theta=3,y=2 gave zero residual. Statements concern mathematical argopt sets, not fixed numeric implementations.",
+      "residual_risks": [
+        "The source uses asymptotic language for simulation trends, but its mathematical scale identity is already explicit; this nuance cannot restore independent originality.",
+        "No statement about finite-precision implementation, hard optimizer bounds or existence/uniqueness of every objective optimizer.",
+        "Current rejection does not imply any formula is false; it is coverage/value-based."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "checked_sources": [
+        "Barakat et al., AIMS Mathematics 11 (2026) 6269–6296, DOI:10.3934/math.2026259, Proposition 1.1, Sections 3–4",
+        "Leemis–McQueston, Univariate Distribution Relationships, DOI:10.1198/000313008X270448"
+      ],
+      "rationale": "FAIL: Barakat et al. explicitly prove in Proposition 1.1 that the transformation y=e^x-1 changes the modified Muth PDF into (1/2)y²e^-y, even evaluating Gamma(3)/2. This already establishes the submitted stochastic Gamma equivalence by direct change of variables; only the label and generator/quantile restatement differ. The same article expressly calls the law a one-parameter scale family and discusses MRE/coverage/RMSE/interval-length scaling; the six optimizer identities are routine formal consequences of the printed scale and CDF criteria, not an independent theorem escaping coverage.",
+      "residual_risks": [
+        "The source uses asymptotic language for simulation trends, but its mathematical scale identity is already explicit; this nuance cannot restore independent originality.",
+        "No statement about finite-precision implementation, hard optimizer bounds or existence/uniqueness of every objective optimizer.",
+        "Current rejection does not imply any formula is false; it is coverage/value-based."
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Barakat et al., AIMS Mathematics 11 (2026) 6269–6296, DOI:10.3934/math.2026259, Proposition 1.1, Sections 3–4",
+        "Leemis–McQueston, Univariate Distribution Relationships, DOI:10.1198/000313008X270448"
+      ],
+      "rationale": "FAIL: The exact generator merely relabels the density transformation already printed in the primary article. All six argopt identities and the Wald scaling follow from standard scale-family invariance with no nonstandard estimator behavior, sharp threshold, motivated open boundary, or additional mathematical phenomenon. The clarification that mathematical finite-sample scaling is exact is useful editorially but not a substantive independent research claim on this package.",
+      "residual_risks": [
+        "The source uses asymptotic language for simulation trends, but its mathematical scale identity is already explicit; this nuance cannot restore independent originality.",
+        "No statement about finite-precision implementation, hard optimizer bounds or existence/uniqueness of every objective optimizer.",
+        "Current rejection does not imply any formula is false; it is coverage/value-based."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Barakat et al., AIMS Mathematics 11 (2026) 6269–6296, DOI:10.3934/math.2026259, Proposition 1.1, Sections 3–4",
+    "Leemis–McQueston, Univariate Distribution Relationships, DOI:10.1198/000313008X270448"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Rejection is due to direct prior implication and routine scale invariance, not invalid mathematics.",
+    "Primary source was read as full-text transcription rather than downloaded publisher PDF; decisive equations verified."
+  ],
+  "residual_risks": [
+    "The source uses asymptotic language for simulation trends, but its mathematical scale identity is already explicit; this nuance cannot restore independent originality.",
+    "No statement about finite-precision implementation, hard optimizer bounds or existence/uniqueness of every objective optimizer.",
+    "Current rejection does not imply any formula is false; it is coverage/value-based."
+  ],
+  "schema_version": 1
+}
