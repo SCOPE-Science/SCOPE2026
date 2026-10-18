@@ -1,17 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Parseval gives the exact pair-sum convolution formula. The progression-free hypothesis separates diagonal and off-diagonal sums, and multiplicity at most two leaves one cosine interference term per repeated distinct-pair sum. Two collision quadruples on at most five points would share three points; two distinct completions of the same triple force a three-term progression. For the six-point example, the three collision rows have the single dependency \(\phi_1-\phi_2+\phi_3=0\), and the resulting two-variable cosine minimum is exactly \(-3/2\).
+PASS
 
-## Originality
+For progression-free integer A with <=2 unordered distinct-pair representations per sum, Parseval of P^2 separates diagonal, unique and double-collision terms, giving ||P||_4^4=2m²-m+8Σcos(phi). Two distinct four-point collision supports on m<=5 would overlap in >=3 points; alternative completions of three ordered points force a three-term AP, so R<=1 and all cosine terms can be minimized. For A={0,1,3,4,9,10}, independent complete pair-sum enumeration gives exactly 3 collisions and unique rank-two phase relation. The exact identity cos(a)+cos(g)+cos(a+g)=2cos x cos y+2cos²x−1 has min −3/2, giving minimum 66−12=54; independent unimodular phase witness and direct convolution both give 54, rather than unattainable formal value 42.
 
-PASS. The closest inspected primary source gives the general even-\(L^p\) additive-relation expansion and solves the one-relation \(p=4\) cases, but it does not state the five-point no-frustration threshold, the first six-point obstruction, or the exact value \(54\). Targeted semantic searches and the checked prior results found nearby four-point and three-frequency phase-moment statements without this implication.
+## originality
 
-Residual risk: an older finite-support unconditionality, Littlewood-polynomial, or merit-factor calculation may encode the same six-point example under different notation.
+PASS
 
-## Value
+One-relation L4 minimizations and Sidon/B2 representation multiplicity are known, but the simultaneous collision-phase compatibility condition, the sharp no-frustration boundary at m=5, and explicit minimal six-point obstructed support with exact value 54 do not follow from Neuwirth's one-collision result. Distinct from other published Fourier support moment results in Resultary (triangular multivariate aperture, four-point geometries). Best-of-knowledge with stated specialized merit-factor literature risk.
 
-PASS. The statement identifies a natural structural boundary: low-multiplicity additive collisions behave independently through five frequencies but can become phase-frustrated at six. The exact six-point example is a canonical minimal benchmark for phase-only \(L^4\) optimization rather than an arbitrary parameter slice.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Determines the first possible cardinality at which additive collision phases cannot all be optimized independently, a natural structural barrier in sparse Fourier L4/unconditionality optimization. A sharp small-support threshold plus explicit frustrated witness is reusable even without full six-point classification; not an arbitrary unmotivated slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
