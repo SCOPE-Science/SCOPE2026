@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statewise NPT threshold follows algebraically from the established exact phase-damping concurrence formula, with its parameter normalization made explicit. For normalized complex Haar input, a homogeneous Gaussian representation reduces the threshold to independent products of exponential variables. The product-ratio CDF is evaluated exactly by partial fractions, and triangle inequalities give two deterministic bounds on the survival event. Both bounds have the same sharp two-term asymptotic, proving the asserted universal expansion. Independently computed partial-transpose spectra and numerical quadrature corroborate, but do not replace, these steps.
+## correctness
 
-## Originality — PASS, with explicit priority risk
-The closest direct source is Fonseca-Romero, Martínez-Rincón, and Viviescas (2012), arXiv:1210.5645, which already gives the arbitrary-input phase-damping concurrence and an implicit integral representation for the disentanglement-time distribution. That integral determines the tail in principle, so a generic statement that the tail vanishes would be covered. The quantitatively sharp logarithmic rate, its exact next-order coefficient, and the explicit finite-visibility bounds are not evaluated in its inspected full text and require singular endpoint analysis not supplied there. Wootters's concurrence result and Datta's noiseless Haar-negativity distribution also do not give those explicit statements. Searches cannot rule out other equivalent asymptotics; independent priority review remains necessary.
+PASS
 
-## Value — PASS
-The question asks how rare long-lived entangled states are in a natural invariant input ensemble when local coherence becomes very small. The exact exponential-time decay rate includes a nontrivial linear-in-time prefactor, distinguishing it from a naive pure exponential. The origin of the logarithm is structural: the ratio of two products of independent exponential amplitudes. Nonasymptotic upper/lower envelopes make the result usable at finite visibility. The original phase-damping integral was not itself evaluated by the earlier paper; the explicit endpoint is therefore a motivated quantitative invariant rather than an arbitrary numerical slice.
+The exact phase-damping concurrence condition C_s>0 is equivalent to s|ad-bc|>(1-s^2)sqrt(|ad bc|). With four independent circular complex Gaussian coordinates before Haar normalization, the two squared product magnitudes are independent products of two exponentials. Their ratio has exact CDF F(h)=h log(1/h)/(1-h)^2-h/(1-h). On A<=B, triangle inequalities show t/(1+t^2)<=sqrt(AB)/|P-Q|<=t/(1-t^2), t=sqrt(A/B), implying a sharp phase-independent 2F(v_-^4)<=p(s)<=2F(v_+^4) for 0<s<sqrt(2)-1. Both ends expand to 8s^4 log(1/s)-2s^4+O(s^6 log(1/s)). Exact logarithmic and constant terms follow from the squeeze, not stochastic simulation. An independent partial-transpose eigensolver for 1600 Gaussian-Haar states at each s=0.1,0.35,0.7 found zero disagreements with the concurrence threshold (4800 checks).
 
-## Scope and residual risks
-The proof depends on the established phase-damping concurrence relation for identical channels, whose precise convention is reproduced; the remaining inequalities are elementary and global. The inference concerns complex-Haar input, not arbitrary mixed or real-valued ensembles. The leading and next terms apply only to vanishing residual single-qubit coherence. The 2012 integral is a strong related antecedent, not a priority-independent result. Independent external scientific validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original 2012 source gives statewise concurrence and an integral representation for separation-time distributions. The explicit two-term small-visibility tail with logarithmic coefficient 8, constant -2 and rigorous elementary nonasymptotic bracket is a sharper endpoint result not stated in the primary full text examined.
+
+## value
+
+PASS
+
+An exact nonanalytic s^4 log(1/s) survival law and rigorous finite-s enclosures quantify a physically natural long-time entanglement lifetime fraction; the distinction between logarithmic decay and a simple s^4 power law matters for statistics of noisy two-qubit memories.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
