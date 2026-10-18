@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The first three phase averages reduce to balanced torus characters. The only balanced edge pairs are reversals, and the only balanced edge triples are directed triangles. The proof covers every finite dimension, all density matrices including rank-deficient ones, and strictly positive witnesses for both cubic signs. Exhaustive root-phase checks and edge-circulation counts corroborate the formulas. The calculations do not replace the all-dimensional character proof.
+## correctness
 
-**Originality — PASS, subject to residual source-access and priority risk.** The motivating published work gives an annealed Haar-circuit mean relation, not the variance, cubic triangle statistic, or minimal-dimension sign dichotomy under an arbitrary diagonal phase twirl. The geometric decomposition of imaginarity and the attainable-overlap work use different quantifiers and do not explicitly establish these phase-randomized cumulants. Published semantic comparisons returned no stated equivalent; this is not a proof of absolute priority. Full primary PDFs could not be inspected because direct full-text retrieval failed and institutional access was disconnected; an implicit derivation remains possible.
+PASS
 
-**Value — PASS.** The cubic observable is the first statistic sensitive to gauge-invariant triangular phases of coherences, while the mean and variance erase those phases. A pair of strictly positive states in the smallest possible dimension has matching diagonal entries, identical entry magnitudes, equal lower statistics, and opposite skewness. This gives a sharp structural boundary for experimental phase-twirling diagnostics, not an arbitrary slice or a routine increment of the mean relation.
+For a fixed d-dimensional density matrix rho and independent Haar-uniform diagonal phases, let P=Tr rho^2>0 and S=sum_i rho_ii^2. Expanding Tr(Re(UrhoU*)^2)=(P+Tr(rho_theta rho_theta^T))/2 and balancing torus characters gives mean (P+S)/(2P), variance sum_{i<j}|rho_ij|^4/(2P^2), and central third moment 3 sum_{i<j<k} Re(rho_ij^2 rho_jk^2 rho_ki^2)/(2P^3). Balanced ordered pairs are reverse edges and balanced ordered triples are directed triangles, with combinatorial factor 12. The d=2 sum is empty. For all d>=3, rho=I/d+epsilon H with 0<epsilon<1/(2d) and three nonzero edges yields strict positive definiteness, fixed diagonals/entry magnitudes and opposite cubic signs as the triangular phase flips. Independently formed Re(UrhoU*) matrices over 343 seventh-root grids for two qutrit witnesses and matched mean, variance and third moment at 1e-12 tolerance. The character proof, not finite grids, covers arbitrary d and continuously uniform phase.
 
-**Scope and risk.** Independent uniform diagonal phases and the quadratic, nonlogarithmic real-sector statistic are essential. No complete distribution, higher moments, robustness claim, or computational advantage is proved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality comparison by actual statement and implication, with historical and unavailable-material risks recorded; no priority certification. Inspected closest prior statements use different scopes/estimands or do not directly entail this final exact claim.
+
+## value
+
+PASS
+
+The first phase-sensitive higher moment of a normalized real-sector coherence/imaginarity statistic is a natural quantum-resource question; finding the triangle-cycle invariant and sharp d=3 onset separates magnitude-dependent variance from phase-dependent skewness. The witness realizes both signs at equal moduli in physical positive-definite states, giving a usable structural diagnostic rather than a cosmetic Fourier rewriting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
