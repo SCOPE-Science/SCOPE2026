@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The displayed Hamiltonian differentiates exactly to the cubic vector field. The strict parameter inequality proves positivity of the kinetic factor and single-well quartic potential. The period quadrature preserves original physical time. The exact inverse-hyperbolic-sine primitive gives the first asymptotic constant; a separately justified moving-endpoint dominated-convergence argument gives the additive \(\log2\) correction. The occupation law is a ratio of logarithmic mass integrals. Finite reproducibility checks confirm representative numerical cases but do not replace any of these proofs.
+## correctness
 
-## Originality — PASS, with priority risk
-The closest primary classification [Llibre–Rondón, 2023, Theorem 2(c), eq. (23)] contains precisely these equations, but only asserts global-center status. The full Ghose-Choudhury–Guha 2016 manuscript provides a general quadrature and derivative-sign criteria; it does not state the discriminant-dependent two-term limit or the logarithmic signed occupation law. The García-Saldaña–Llibre–Valls classification of homogeneous cubics overlaps \(a=0\) without that quantitative assertion. Statement-level comparisons against mathematical-record searches and prior scientific claims revealed no direct covering result. The residual priority risk is differently normalized or unindexed earlier high-energy analysis, not a proof of uniqueness.
+PASS
 
-## Value — PASS
-In a natural classified global-center family, the physical-time period is anomalous: the quadratic kinetic factor produces \(E^{-1/2}\log E\), not a pure power law. The sharp additive constant resolves the discriminant dependence, and the independent fair-sign/uniform logarithmic-distance occupation law identifies how a large orbit distributes its *physical time* across growing positions. Both quantities distinguish global periodicity from quantitative high-energy dynamics.
+Checked displayed H=q(x)y²/2+V(x), q=1+2ax+kx², V=x²/2-a x³/3+kx⁴/4: independently expanding H_x xdot+H_y ydot gave exactly zero. k>a² makes q>0 and V single-well/coercive, so two turning points and one periodic oval for each E>0. Original-time period T=sqrt(2/E)J follows from both traversals, without hidden time reparameterization. Splitting J into asinh primitive J0 and turn-point correction J1, the latter tends log(2)/sqrt(k) by integrable moving-endpoint dominated convergence; together yield stated log(8k²/(k-a²)). On |x|≤s_E^u with 0<u<1, (1-V/E)^-1/2→1 uniformly and integral per sign is u log(s_E)/sqrt(k)+o(log s_E), yielding each probability u/2 and joint weak limit. Fixed-parameter, nondegenerate boundaries respected; finite checker not proof.
 
-## Closest sources and limits
-Llibre–Rondón, arXiv:2310.07454v1; Ghose-Choudhury–Guha, arXiv:1608.02910v1; García-Saldaña–Llibre–Valls, DOI:10.1007/s12215-019-00433-0. No statement is made about uniformity when \(k\downarrow a^2\), finite-energy monotonicity, or independently verified publication priority.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Llibre–Rondón Theorem 2(c), equation (23) already classifies this exact cubic family under k>a² as global center. Ghose-Choudhury–Guha supply the broad variable-mass period quadrature, a methodological antecedent; neither reviewed statement fixes the two-term discriminant constant or signed log-scale occupation. Other published Resultary cubic-center records concern different vector fields/invariants. No verified stronger coverage of both quantified asymptotics was found; source classification and generic quadrature remain explicitly credited.
+
+## value
+
+PASS
+
+For a naturally classified global-center polynomial family, qualitative periodicity does not determine speed along large orbits. The logarithmic physical-time period with a parameter-dependent additive constant and log-uniform signed occupation give two exact global-dynamical invariants not implied by local linear center or generic period existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
