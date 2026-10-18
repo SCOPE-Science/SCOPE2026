@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T05:45:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each nondecreasing word-map f, f(S) is a singleton iff f(min S)=f(max S), so reduce each subset to one of n(n+1)/2 ordered pairs. Inspected frozen census.cpp (blob 4bca34cd5dc132bf86d057e5252e9b6a36195cd1): enumerates all C(2n-1,n) monotone maps, every unordered pair of letter maps, forms exact inverse pair-state transitions, and reverse-BFS layers from every diagonal. The program asserts 0,1,2,3,4,5,6,7,9 for n=1..9 and exactly two unordered normalized n9 extremals, hence four ordered. Independent Python reverse pair BFS checked the enumeration mechanism exhaustively for n<=5, and independent forward BFS for the explicit n9 maps from (1,6) returned shortest word babbaabbb length 9. N9 full 590976100 ordered-pair computation was inspected but not independently rerun: no false claim of its execution. Its complete source loops provide a bounded finite exhaustive certificate, beyond finite extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General upper bound (n−2)^2/4 at n>=8 and asymptotic quadratic binary lower families bound, but do not force equality at n9 or uniqueness of normalized maps."
+        ],
+        "reasoning": "Neither broad bound entails a sharp first crossing at n=9 or enumerates every binary map pair.",
+        "searches": [
+          "Ryzhikov & Shemyakov 2018 Theorems 3-4",
+          "Ryzhikov 2019 weakly acyclic automata",
+          "Resultary semantic search: Binary monotonic synchronizing automata shortest synchronizing subset n=9 first greater n-1, exact enumeration binary letters"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1703.06356v1 (primary full PDF)",
+        "doi:10.3233/FI-2018-1721",
+        "doi:10.1016/j.tcs.2018.12.026 (partial)",
+        "Resultary query Binary monotonic synchronizing automata shortest synchronizing subset n=9 first greater n-1, exact enumeration binary letters",
+        "Git RESULT, census.cpp, verify.py and exact tree"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Asymptotic binary lower family at sizes 4m+3, and general monotone upper bound, do not logically determine n9 exact maximum or its extremal orbit."
+        ],
+        "reasoning": "The new finite max is a genuine additional exact computation, not substitution in an existing exact formula.",
+        "searches": [
+          "arXiv:1703.06356v1 Theorems 3,4",
+          "Binary monotonic synchronizing automata shortest synchronizing subset n=9 first greater n-1, exact enumeration binary letters"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ryzhikov–Shemyakov treats monotone subset synchronization but states asymptotic/subquadratic bounds and constructive families, without T2(9) or four extremal pairs."
+        ],
+        "reasoning": "Same notion of synchronizing an arbitrary subset after its endpoint reduction. Different from ordinary full-state reset length and avoiding one state.",
+        "searches": [
+          "Binary monotonic synchronizing automata shortest synchronizing subset n=9 first greater n-1, exact enumeration binary letters",
+          "arXiv:1703.06356v1 §§2-3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching T2(n<=9) census/table among reviewed published findings or main tables in primary article. The provided source has a reproducible exhaustive loop for exact counts."
+        ],
+        "reasoning": "A small-state catalogue would be decisive even with different prose; searches and primary tables did not identify one, residual risk remains.",
+        "searches": [
+          "Resultary semantic search: Binary monotonic synchronizing automata shortest synchronizing subset n=9 first greater n-1, exact enumeration binary letters",
+          "SCOPE frozen RESULT.md 1974fe3290b54cd2aa98b9cdeb9a0937ce6d615c",
+          "arXiv:1703.06356v1"
+        ]
+      },
+      "rationale": "Binary monotonic automaton subset-synchronization is a published problem; the new assertion is the first exact n<=9 threshold and the chain-normalized extremal classification, not the general asymptotic lower/upper bounds. In the reviewed primary work these sharper small-size data were not stated or implied; best-of-knowledge PASS with unindexed-census risk.",
+      "residual_risks": [
+        "Full n=9 exhaustive census source was mathematically inspected but not rerun in this audit; n<=5 and explicit 9-state pair independently reproduced.",
+        "An unindexed monotone-automata small census or an unread 2019 weakly-acyclic appendix could overlap the precise threshold."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General structural and asymptotic results, not exact binary n9 first excess or maximizer orbit",
+          "evidence": [
+            "Theorem 3 monotone subset upper bound; Theorem 4 and binary family lower bounds; no small n exact classification in inspected full source."
+          ],
+          "identifier_or_url": "arXiv:1703.06356v1; doi:10.3233/FI-2018-1721",
+          "material_read": "Complete sixteen-page primary PDF; §§2-3, definitions, main upper-bound theorem and two/three-letter family statements",
+          "method": "Full PDF visual/text inspection",
+          "title": "Subset Synchronization in Monotonic Automata",
+          "trigger": "Same exact objects and parameters"
+        },
+        {
+          "assessment": "Not evidence of whole-text non-coverage; residual originality risk",
+          "evidence": [
+            "Broad weak-acyclic class, but source was not fully inspected."
+          ],
+          "identifier_or_url": "doi:10.1016/j.tcs.2018.12.026",
+          "material_read": "Bibliographic record and available summary; full text not obtained",
+          "method": "Search/abstract only",
+          "title": "Synchronization Problems in Automata without Non-trivial Cycles",
+          "trigger": "Related broader weakly acyclic generalization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact first failure of the linear n−1 bound is a natural minimal-size frontier in binary monotone subset synchronization; isolating n=9 and classifying all chain-normalized extremal maps can guide constructions and benchmarking. This is not simply a renamed asymptotic theorem, and no n>=10 assertion is made.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1703.06356v1 (primary full PDF)",
+    "doi:10.3233/FI-2018-1721",
+    "doi:10.1016/j.tcs.2018.12.026 (partial)",
+    "Resultary query Binary monotonic synchronizing automata shortest synchronizing subset n=9 first greater n-1, exact enumeration binary letters",
+    "Git RESULT, census.cpp, verify.py and exact tree"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Full n=9 exhaustive census source was mathematically inspected but not rerun in this audit; n<=5 and explicit 9-state pair independently reproduced.",
+    "An unindexed monotone-automata small census or an unread 2019 weakly-acyclic appendix could overlap the precise threshold."
+  ],
+  "schema_version": 1
+}
