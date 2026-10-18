@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T13:14:52.407590Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Li–Yuan Theorem 3.4 proves min_{1<=j<=k}Q_j=o(1/k) where Q_j=Σ_i(c_i+tilde c_i)||x_i^{j+1}-x_i^j||²>=0. Taking square roots yields only min sqrt(Q_j)=o(k^(-1/2)). For z_j=1/log(j+2), MVT gives |Δz_j|~1/[j(log j)^2] so Σ(Δz_j)²<∞ and min_{j<=k}(Δz_j)²=o(1/k), but for EVERY subsequence j_l→∞, j_l z_{j_l}→∞. Therefore the square-increment estimate does not imply ANY o(1/k) iterate-to-limit subsequence rate. Verified Li–Yuan original Theorem 3.4 and its narrative distinction; counterexample is a logical countermodel, expressly NOT claimed as a proximal ADMM iterate trajectory.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Yuan proof yields summability and identifies accumulation points as KKT, not a uniform error bound."
+        ],
+        "reasoning": "Stronger convergence theory can yield iterate rates under KL/error-bound assumptions, but those hypotheses and transfer estimates are absent here; it cannot rescue the asserted deduction.",
+        "searches": [
+          "arXiv:2506.17405 Theorem 3.4 proof summability KKT metric subregularity",
+          "Proximal multiblock ADMM Li Yuan best increment min squared step o(1/k) convergent subsequence iterate distance theorem 3.4 rate correction"
+        ]
+      },
+      "checked_sources": [
+        "Li–Yuan arXiv:2506.17405v1 Theorem 3.4 primary pages 20–21",
+        "Deng–Lai–Peng–Yin arXiv:1312.3040, rate-object context",
+        "Resultary semantic ADMM best-increment query Proximal multiblock ADMM Li Yuan best increment min squared step o(1/k) convergent subsequence iterate distance theorem 3.4 rate correction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A summable squared increment can coexist with subpolynomial iterate convergence, exhibited exactly by the logarithmic sequence."
+        ],
+        "reasoning": "Primary o(1/k) conclusion does not imply the proposed iterate statement absent a quantitative residual-to-distance inequality; correction is to inference not convergence itself.",
+        "searches": [
+          "arXiv:2506.17405v1 Theorem 3.4 pages 20-21",
+          "Deng et al arXiv:1312.3040 abstract convergence rates"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li–Yuan Theorem 3.4 uses Q_j=weighted squared adjacent increments; its following prose uses convergent subsequence language.",
+          "Deng–Lai–Peng–Yin arXiv:1312.3040 uses differing residual/step rate notions."
+        ],
+        "reasoning": "The rate phrases are only equivalent when the underlying metric is identified; min squared step is not an iterate distance, as shown by z_j=1/log(j+2).",
+        "searches": [
+          "Proximal multiblock ADMM Li Yuan best increment min squared step o(1/k) convergent subsequence iterate distance theorem 3.4 rate correction",
+          "Li Yuan arXiv:2506.17405v1 theorem 3.4 o(1/k) convergent subsequence erratum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published primary Theorem 3.4 explicitly records best-step estimate; no exact correction or scalar countermodel was found in reviewed results."
+        ],
+        "reasoning": "There is no finite database for a rate implication; an absence of listed errata is NOT a novelty proof, hence stated priority risk.",
+        "searches": [
+          "Li Yuan proximal multiblock ADMM erratum correction theorem 3.4",
+          "Resultary proximal ADMM rate correction semantic search"
+        ]
+      },
+      "rationale": "The initiating Li–Yuan arXiv:2506.17405v1 Theorem 3.4 proves a best squared-increment estimate and then advertises an o(1/k) rate of a convergent subsequence. The supplied independent elementary sequence refutes this implication; the source text read contains no corresponding error bound. Deng–Lai–Peng–Yin arXiv:1312.3040 describes multiblock ADMM o(1/k) in residual/successive-step settings, not the claimed nonconvex iterate-distance rate. Targeted Resultary and literature searches found no published implication-equivalent correction; indexing/interpretational risk remains.",
+      "residual_risks": [
+        "The counterexample need not satisfy the specific nonlinear ADMM recurrence and does not assert actual slow ADMM trajectory.",
+        "An unindexed correction or alternative interpretation of “subsequence rate” could reduce novelty; the mathematical distinction remains exact."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The proof controls weighted squared increments, with no KKT distance error bound supplying claimed subsequence iterate rate.",
+          "evidence": "Theorem 3.4 and following sentence, arXiv:2506.17405v1",
+          "identifier_or_url": "https://arxiv.org/pdf/2506.17405",
+          "material_read": "Theorem 3.4 and its proof pp20–21, adjacent convergence-rate interpretation; PDF page rendering inspected",
+          "method": "primary arXiv PDF and rendered page",
+          "title": "Convergent Proximal Multiblock ADMM for Nonconvex Dynamics-Constrained Optimization",
+          "trigger": "Same theorem and exact claimed interpretation"
+        },
+        {
+          "assessment": "Known o(1/k) ADMM residual setting does not prove nonconvex iterate-distance statement.",
+          "evidence": "Deng–Lai–Peng–Yin arXiv:1312.3040",
+          "identifier_or_url": "https://arxiv.org/abs/1312.3040",
+          "material_read": "Title/abstract and rate-object context, not entire article",
+          "method": "public abstract and targeted bibliographic inspection",
+          "title": "Parallel Multi-Block ADMM with o(1/k) Convergence",
+          "trigger": "Possible prior same-name rate result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Correcting a published convergence-rate interpretation in a proximal multiblock optimization algorithm is substantively useful: researchers must distinguish a best squared-step certificate, a KKT residual, and distance-to-KKT iterate rates before citing the result. The explicit slowly converging scalar countermodel fixes exactly the logical boundary without overclaiming a failing ADMM trajectory.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Li–Yuan arXiv:2506.17405v1 Theorem 3.4 primary pages 20–21",
+    "Deng–Lai–Peng–Yin arXiv:1312.3040, rate-object context",
+    "Resultary semantic ADMM best-increment query Proximal multiblock ADMM Li Yuan best increment min squared step o(1/k) convergent subsequence iterate distance theorem 3.4 rate correction"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "The counterexample need not satisfy the specific nonlinear ADMM recurrence and does not assert actual slow ADMM trajectory.",
+    "An unindexed correction or alternative interpretation of “subsequence rate” could reduce novelty; the mathematical distinction remains exact."
+  ],
+  "schema_version": 1
+}
