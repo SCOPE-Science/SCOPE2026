@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T14:16:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen Git RESULT.md 559354bd5188f3244ed99206645e3362ae7baf87",
+        "Actual frozen verify.py a53529ad7da5a2469cc40e1d7d7a9419cbb47549",
+        "Iršič, Klavžar, Rus, Tuite, General Position Polynomials, arXiv:2401.05696, Problem 5.2"
+      ],
+      "rationale": "The direct product K_a×K_r (adjacency when both coordinates differ) has diameter two. A subset with no selected geodesic triple induces disjoint cliques. Classifying selected configurations into row, column, transversal clique, and 2-by-2 rectangle yields p_k=a*C(r,k)+r*C(a,k)+(r)_k*C(a,k)+C(a,2)C(r,2)C(4,k) for k>=3, agreeing with the 2026 corrected PRIOR enumerator; p0=1,p1=ar,p2=C(ar,2). For a>=5,r>=2a+4, check strict p0<...<p_a, explicitly absorbing rectangle corrections at 3/4. Beyond a the remaining a*C(r,k) forms a binomial tail with p_(a+2)>p_(a+1). The single junction has (p_(a+1)-p_a)/(r)_a=(r-2a-1)/K-1-1/[(r-1)...(r-a+1)], K=(a+1)!/a. Its integer sign changes precisely between r=2a+1+K and r=2a+2+K. Hence full unimodality exactly at/above R(a)=2a+2+K, while below p_a>p_(a+1)<p_(a+2). Independent geodesic subgraph enumeration matched for 3×3,3×4,4×3; exact boundary signs verified a=5..9 (R=156,854,5776,45378,403220). The infinite theorem relies on coefficient inequalities, not those samples.",
+      "residual_risks": [
+        "Requires a>=5 and r>=2a+4; earlier parameter regions not classified. Published corrected coefficient formula is a necessary prior theorem.",
+        "Small direct subset tests and finite threshold checks are not an all-parameter proof; the displayed tail and initial-segment inequalities supply the all-parameter step."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rather 2026 Theorem 5.6, Corollary 5.7",
+          "Iršič et al. Problem 5.2"
+        ],
+        "reasoning": "Rather settles other regimes and mentions mixed patterns, but no all-a>=5 high-r phase theorem was found in inspected theorem scope; potential indirect domination is specifically limited by the missing coefficient inequality.",
+        "searches": [
+          "factorial unimodality threshold general position polynomial T*(r,a) direct product complete graphs"
+        ]
+      },
+      "checked_sources": [
+        "Iršič, Klavžar, Rus, Tuite, General Position Polynomials, arXiv:2401.05696, Problem 5.2",
+        "B. A. Rather, Explicit Formulas and Unimodality Phenomena for General Position Polynomials, arXiv:2603.06930v3, Theorems 5.3/5.6, Corollary 5.7",
+        "Resultary:2026/10/4/SCOPE-strict-log-concavity-for-complete-graph-coronas--cc76f1cb7642",
+        "Resultary:2026/9/30/SCOPE-unimodality-of-general-position-polynomials-for-generalized-wind--f09137092e5f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rather 2026 Thm.5.3 supplies p_k",
+          "Source proof new estimates bound p3,p4 and sign of p_(a+1)-p_a"
+        ],
+        "reasoning": "An explicit calculation from an earlier formula is not automatically new; here the global inequality across every a>=5 is not a previously stated corollary and resolves a posed parametric phase question. No stronger checked theorem directly subsumes it.",
+        "searches": [
+          "factorial unimodality threshold general position polynomial T*(r,a) direct product complete graphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rather arXiv:2603.06930 Theorem 5.3 graph-polynomial identity",
+          "Resultary:strict-log-concavity-for-complete-graph-coronas--cc76f1cb7642"
+        ],
+        "reasoning": "Prior enumeration and diameter-two clique characterizations are equivalent building blocks; alone they DO NOT establish the exact r threshold without coefficient comparison.",
+        "searches": [
+          "factorial unimodality threshold general position polynomial T*(r,a) direct product complete graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary coronal and windmill/spider polynomial hits are different graphs",
+          "Boundary R(5)=156, R(6)=854 independently verified"
+        ],
+        "reasoning": "No matching exhaustive phase database or table appeared in targeted Resultary results; numerical cutoff instances by themselves would not imply the infinite result.",
+        "searches": [
+          "factorial unimodality threshold general position polynomial T*(r,a) direct product complete graphs"
+        ]
+      },
+      "rationale": "The exact graph polynomial is PRIOR from Rather 2026 Theorem 5.3; novelty is restricted to deriving the sharp uniform factorial inequality for a>=5, r>=2a+4. Rather Theorem 5.6 exhibits mixed behaviour and Corollary 5.7 resolves a=3, not this entire phase region. Iršič et al Problem 5.2 asks for these decisions. Resultary related coronas, windmills and spiders are different graphs and their unimodality implications do not yield this factorial threshold.",
+      "residual_risks": [
+        "An unindexed alternative parameter-threshold analysis or a stronger theorem could subsume the result; failed semantic search is not proof of novelty.",
+        "The known coefficient enumerator must not be claimed as an original result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_ENUMERATOR_COVERING; FACTORIAL_PHASE_NOT_STATED_IN_INSPECTED_MATERIAL",
+          "evidence": [
+            "Theorem 5.3 p_k formula matches source; 5.6 and Cor.5.7 have different scope."
+          ],
+          "identifier_or_url": "arXiv:2603.06930v3",
+          "material_read": "Full HTML theorem and relevant surrounding discussion: Theorem 5.3 corrected coefficients, 5.6 parameter phenomena, Corollary 5.7 a=3",
+          "method": "Direct arXiv HTML reading with in-document theorem searches",
+          "title": "Explicit Formulas and Unimodality Phenomena for General Position Polynomials",
+          "trigger": "Same T*(r,a) graphs; most likely earlier dominating theorem"
+        },
+        {
+          "assessment": "PROBLEM_STATEMENT_NOT_SOLUTION",
+          "evidence": [
+            "Problem 5.2 poses unimodality determination."
+          ],
+          "identifier_or_url": "arXiv:2401.05696",
+          "material_read": "Problem 5.2 and corresponding graph family as cited and bibliographically checked; complete full text not re-read in current run",
+          "method": "Primary publication bibliographic and relevant-problem extraction",
+          "title": "General Position Polynomials",
+          "trigger": "Foundational exact family and conjecture"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Iršič, Klavžar, Rus, Tuite, General Position Polynomials, arXiv:2401.05696, Problem 5.2",
+        "B. A. Rather, Explicit Formulas and Unimodality Phenomena for General Position Polynomials, arXiv:2603.06930v3, Theorems 5.3/5.6, Corollary 5.7",
+        "Resultary:2026/10/4/SCOPE-strict-log-concavity-for-complete-graph-coronas--cc76f1cb7642"
+      ],
+      "rationale": "The parent paper explicitly posed unimodality classification for this graph family. The exact factorial phase boundary resolves an infinite, structurally motivated range and isolates a genuine coefficient valley on one side. It supplies an exact all-parameter decision, not an arbitrary instance or known-table recomputation; a<5 and smaller r remain open/outside scope.",
+      "residual_risks": [
+        "Requires a>=5 and r>=2a+4; earlier parameter regions not classified. Published corrected coefficient formula is a necessary prior theorem.",
+        "An unindexed alternative parameter-threshold analysis or a stronger theorem could subsume the result; failed semantic search is not proof of novelty."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Requires a>=5 and r>=2a+4; earlier parameter regions not classified. Published corrected coefficient formula is a necessary prior theorem.",
+    "Small direct subset tests and finite threshold checks are not an all-parameter proof; the displayed tail and initial-segment inequalities supply the all-parameter step.",
+    "An unindexed alternative parameter-threshold analysis or a stronger theorem could subsume the result; failed semantic search is not proof of novelty.",
+    "The known coefficient enumerator must not be claimed as an original result."
+  ]
+}
