@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "An absent-species indicator derivation supplies exact integer hypergeometric second moments. The attached executable exhaustively enumerates every positive-integer partition of N<=8 and every permitted one-unit transfer, with 0,0,1,2,5,9,17 candidate pairs for N=2,...,8; the only double reversal occurs at (4,3,1)->(4,2,2). Independent direct combination enumeration agrees with all seven differences. For arbitrary k>=1 the strict inequalities at sample sizes 2,3,7 are proved by displayed exact rational polynomial coefficient vectors in t=k-1>=0 (all coefficients one fixed sign). The checker expands and checks every coefficient and evaluates selected independent binomial formulas. Formula (2) proves the strictly increasing means. The finite search is not used as a proof for arbitrary k.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nipperess and Matsen arXiv:1208.6552, methods for marked phylogenetic trees with multiplicity; Shimadzu 2018, DOI 10.1007/s00285-018-1255-5."
+      ],
+      "reasoning": "General tree-based rarefaction moments cover the numerical variance formula via a star-tree embedding. Such generality does not automatically imply a bound on sign reversals as abundances are balanced, and the inspected source does not state a stronger monotonicity or sign-bound result that would dominate the new theorem. The exact comparison is between two variance curves under constrained profile change, not the ability to evaluate either curve.",
+      "searches": [
+        "Schur convexity variance hypergeometric distinct species observed ecological rarefaction",
+        "rarefaction variance non monotonic evenness more even community sample richness variance",
+        "majorization Schur concavity variance number of occupied urns multivariate hypergeometric sample distinct categories",
+        "rarefied richness variance stochastic ordering dispersal evenness relative abundance"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.2307/1934145 (publisher abstract)",
+      "doi:10.2307/1934716 (publisher abstract; full text inaccessible)",
+      "doi:10.1046/j.1461-0248.2001.00230.x (full author-hosted text)",
+      "arXiv:1208.6552 (full open preprint)",
+      "doi:10.1007/s00285-018-1255-5 (full open article)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gotelli and Colwell, mean rarefaction curves may cross twice for arbitrary community comparisons; formula (2) in the new proof makes mean richness monotonically larger after balancing.",
+        "Nipperess and Matsen establish moment formulas for arbitrary phylogenetic marked samples, including a star-tree case, but make no transfer-specific reversal-count claim in inspected sections."
+      ],
+      "reasoning": "The already known general formulas allow the new comparison to be computed, but do not by themselves state the nontrivial global sharp threshold. The prior mean-curve crossing statement applies to different pairs not ordered by the strict balancing transfer and therefore cannot cover the positive-mean yet twice-reversing variance phenomenon. A previously accessible finite census for mean-richness reversals compares arbitrary abundance partitions and has a different statistic; it neither implies nor is implied by the present variance theorem.",
+      "searches": [
+        "stochastic richness uncertainty evenness majorization sample size reversal",
+        "variance of number species observed simple random sample finite population abundance monotonic with evenness transfer",
+        "rarefaction variance balancing transfer sign patterns sample sizes",
+        "majorization Schur concavity variance number of occupied urns multivariate hypergeometric sample distinct categories"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gotelli and Colwell (2001), p. 383: arbitrary-community mean rarefaction crossings; Heck et al. (1975): original variance formulas; Nipperess and Matsen (2012): phylogenetic moment formulas."
+      ],
+      "reasoning": "Searched for the same assertion under rarefaction, species-occupancy, richness-variance, Robin-Hood transfer, majorization and equalization terminology. The exact hypergeometric second-moment identity is known; the claimed new object is a sequence of variance differences under a single transfer. Prior mean crossings do not imply variance reversals because the expected-richness difference here is everywhere nonnegative.",
+      "searches": [
+        "rarefaction species richness variance under Robin Hood transfer abundance equalization finite population sampling",
+        "eight individuals three species profiles (4,3,1) (4,2,2) rarefaction richness sampling variance two reversals",
+        "rarefaction variance balancing transfer sign patterns across sample sizes 4 3 1 4 2 2",
+        "finite population distinct species richness variance majorization robin hood exchange double sign changes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matched published table for the exhaustive 2–8-person one-unit balancing-transfer comparison was returned in actual semantic queries. The theorem supplies a reproducible exhaustive program; database search absence does not prove uniqueness."
+      ],
+      "reasoning": "Looked specifically for the profile pair (4,3,1)/(4,2,2), a sharp eight-individual double reversal, and the two-signed-variance-transition census. The inspected source tables characterize moments and sample-size dependence rather than these exact transfer constraints. The one-unit transfer census was independently recomputed for the new work, not imported from any table.",
+      "searches": [
+        "eight individuals three species profiles (4,3,1) (4,2,2) rarefaction richness sampling variance two reversals",
+        "rarefaction variance balancing transfer sign patterns across sample sizes 4 3 1 4 2 2",
+        "finite population distinct species richness variance majorization robin hood exchange double sign changes",
+        "rarefaction richness variance species abundance evenness Schur convex majorization sampling without replacement"
+      ]
+    },
+    "rationale": "The original mathematical contribution is the constrained-sign-reversal sharp minimum, unique eight-person witness, and all-size positive-coefficient sign certificate, not the known expected-richness or variance formulas. Literature on rarefaction means and generalized variance formulas was substantively inspected; no source found deriving the stated one-transfer variance transition. A classical 1975 source was abstract-only, so equivalent prior work remains a genuine possibility and bibliographic risk.",
+    "residual_risks": [
+      "Heck, van Belle and Simberloff (1975) is highly relevant and was accessible only through abstract and secondhand citation; the article cannot be classified as definitively non-covering.",
+      "A synonymous extremal theorem in finite-population occupancy, majorization, or reliability literature might be overlooked despite targeted searches.",
+      "Independent bibliographic auditing is not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The cited mean rarefaction formula is background and is not presented as original; the abstract does not establish an abundance-balancing variance reversal classification.",
+        "evidence": [
+          "Ecology 52 (1971), 577–586; publisher first-publication date 1971-07-01; abstract displays the expected-species formula."
+        ],
+        "identifier_or_url": "doi:10.2307/1934145",
+        "material_read": "Publisher abstract containing the hypergeometric expected-richness expression and bibliographic history; not full publisher article.",
+        "method": "Read publisher abstract and bibliographic publication details.",
+        "title": "The Nonconcept of Species Diversity: A Critique and Alternative Parameters",
+        "trigger": "Foundational individual-based rarefaction expectation and earliest motivating publication."
+      },
+      {
+        "assessment": "The abstract explicitly states it supplies expectation and variance formulas; those are prior and not claimed novel. Its unread full text is a residual risk for the transfer-specific theorem. Abstract-only inspection cannot establish noncoverage.",
+        "evidence": [
+          "Ecology 56 (1975), 1459–1461; abstract states variance of sampled richness is explicitly calculable; no comparative balancing result can be ruled out without full text."
+        ],
+        "identifier_or_url": "doi:10.2307/1934716",
+        "material_read": "Publisher abstract, bibliographic details, and citations; complete article text could not be obtained.",
+        "method": "Read publisher abstract; attempted authorized full-text routes after open-access search.",
+        "title": "Explicit Calculation of the Rarefaction Diversity Measurement and the Determination of Sufficient Sample Size",
+        "trigger": "Highly relevant original source for variance of finite-census sampled species richness."
+      },
+      {
+        "assessment": "The twice-crossing remark concerns expected richness curves when comparing arbitrarily different abundance patterns; it does not imply twice-crossing variance under a more-even one-unit transfer. The mean comparison is monotone by the binomial identity for this transfer.",
+        "evidence": [
+          "https://www.robertkcolwell.org/publications/7086.pdf, p. 383: individual-based rarefaction curves for two communities with different relative abundance may cross twice; same page distinguishes expected number from variance."
+        ],
+        "identifier_or_url": "doi:10.1046/j.1461-0248.2001.00230.x",
+        "material_read": "Full 13-page author-hosted article, especially sampling model and page discussing crossings and formula provenance.",
+        "method": "Read full PDF text including pages discussing mean rarefaction and crossings; inspected the relevant page visually.",
+        "title": "Quantifying biodiversity: procedures and pitfalls in the measurement and comparison of species richness",
+        "trigger": "Closest ecological review mentioning multiple crossings of individual-based rarefaction curves."
+      },
+      {
+        "assessment": "The source derives strictly more general moment formulas, so the raw richness-variance identity is covered. The inspected article does not classify variance changes induced by one unit of abundance balancing across all sample sizes, nor prove the sharp eight-individual threshold or all-size sign certificates.",
+        "evidence": [
+          "https://arxiv.org/html/1208.6552v2, Section 4: exact phylogenetic rarefaction moment formulas for marked trees; Section 5 empirical illustrations; summary acknowledges prior exact species-richness moments."
+        ],
+        "identifier_or_url": "arXiv:1208.6552",
+        "material_read": "Open-access full-text HTML, summary, assumptions, moment derivations for rooted/unrooted diversity, results, discussion, and appendix context.",
+        "method": "Read original preprint material and compared star-tree species-richness specialization with the claimed variance sign classification.",
+        "title": "The mean and variance of phylogenetic diversity under rarefaction",
+        "trigger": "Potentially stronger phylogenetic random-sample moment theorem subsuming richness as a star-tree case."
+      },
+      {
+        "assessment": "Focuses on size- versus coverage-based richness changes and expectations, not fixed-census sampling-variance reversals following a one-unit abundance transfer.",
+        "evidence": [
+          "https://link.springer.com/article/10.1007/s00285-018-1255-5, mathematical species-richness comparison results."
+        ],
+        "identifier_or_url": "doi:10.1007/s00285-018-1255-5",
+        "material_read": "Accessible full online article, including definitions, results, and discussion.",
+        "method": "Read open-access HTML sections and searched for variance comparisons.",
+        "title": "On species richness and rarefaction: size- and coverage-based techniques quantify different characteristics of richness change in biodiversity",
+        "trigger": "Nearby analysis of non-equivalent rarefaction comparisons in a mathematical-biology setting."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "29bc5c67-42fc-49b4-a3c1-887a055ef4a1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Species-abundance evenness is central to ecological diversity measurement, and expected rarefied richness increases monotonically with balancing. The new theorem proves uncertainty can still oscillate twice as sampling effort changes, isolates the smallest possible census over all integer partitions, establishes uniqueness at the first occurrence, and shows robustness of this behavior at arbitrarily large census sizes through a one-parameter abundance family. This is a mathematically motivated comparison, not a routine restatement of the hypergeometric variance formula.",
+    "status": "PASS"
+  }
+}
