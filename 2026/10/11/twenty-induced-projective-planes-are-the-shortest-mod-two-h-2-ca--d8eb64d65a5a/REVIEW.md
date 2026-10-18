@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Exact mod-two chain reduction gives \(\dim H_2=1\). Every vertex subset through size six is exhaustively checked via its complete local \(2\)-cycle space. No support of size at most five survives in ambient homology, while exactly twenty six-vertex supports do. Each minimizer is independently verified to be a closed connected surface with \(f=(6,15,10)\) and Euler characteristic \(1\), hence \(\mathbb{RP}^2\). Full finite automorphism enumeration gives group order \(48\) and carrier orbits \(12+8\).
+## correctness
 
-## Originality
-PASS. The exact-object sources provide the eleven-vertex \(\mathbb{RP}^3\), its face vector, homology context, and tetrahedra but not this middle-dimensional support census. Focused published-result searches did not locate the twenty-carrier theorem. Same-object owned findings concern \(H_1\) support and shortest loops; they do not imply an \(H_2\) minimum or induced-surface classification. The closest standalone six-vertex \(\mathbb{RP}^2\) census addresses a different ambient problem.
+PASS
 
-## Value
-PASS. The nonzero mod-two \(H_2\)-class of the vertex-minimal \(\mathbb{RP}^3\) is realized at exactly the six-vertex minimum for a projective-plane triangulation, and all minimizers are themselves induced minimal projective planes. The exact count twenty and the two symmetry orbits give a natural structural refinement of the known minimal triangulation.
+Independently rebuilt the 40 tetrahedra from the public Lutz facet table (exact same 40 labelled facets as in assigned verify.py), yielding f=(11,51,80,40). A separately written GF(2) bit-vector boundary reduction finds rank ∂2=40 and rank ∂3=39 on 80 triangles, hence H2 dimension one. For all vertex subsets of sizes 1..6, independently constructed complete local 2-cycle spaces and reduced them modulo global 3-boundaries; numbers of supporting subsets are 0,0,0,0,0,20. Every minimizing induced complex has six vertices, fifteen edges, ten triangles, no tetrahedron, links single cycles and χ=1, so is RP2. Exhaustive degree/triangle-compatible vertex bijections with final facet preservation gave 48 automorphisms and 12+8 carrier orbit sizes with the specified two representatives. All searches over 11 vertices or labelled permutations finite and exhaustive; this is mod-two homology, not integral H2.
 
-## Closest literature and limitations
-The Manifold Page exact data and Lutz's 2003 small-manifold survey are the closest object-level sources. The result is mod-two and classifies only minimum induced supports. An unindexed historical finite computation remains a residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The exact original Lutz public table contains this triangulation and all facets, but not the minimum induced H2 support, twenty induced RP2 carriers, or the action of its automorphisms on those carriers. Other indexed research addresses shortest mod-two H1 loops, not H2, and a well-known standalone six-vertex RP2 is not an occurrence census inside this RP3. No stronger claim implying these enumerated data was found in actual literature/Resultary comparisons; an unindexed historical facet census remains a risk.
+
+## value
+
+PASS
+
+The vertex-minimal triangulation of a standard manifold has a canonical nonzero mod-two middle homology class. Knowing its sharp minimum vertex support and exactly which minimal induced RP2 subcomplexes realize it, including complete orbit decomposition, is a natural and usable invariant for triangulation topology, embedding constraints and symmetry comparisons rather than an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

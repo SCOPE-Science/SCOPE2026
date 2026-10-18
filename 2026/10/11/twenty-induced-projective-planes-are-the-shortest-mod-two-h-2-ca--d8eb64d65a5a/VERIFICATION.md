@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,33 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` embeds the complete forty-tetrahedron presentation and uses only the Python standard library.
+# Independent mathematical audit
 
-It reconstructs
-\[
-f=(11,51,80,40)
-\]
-and computes
-\[
-\operatorname{rank}\partial_2=40,\qquad
-\operatorname{rank}\partial_3=39,
-\]
-so
-\[
-H_2(K;\mathbf F_2)\cong\mathbf F_2.
-\]
+## correctness
 
-For every vertex set of size at most six, the verifier constructs the complete local \(2\)-cycle space and reduces it modulo the global tetrahedral-boundary space. The exact support counts for sizes \(1,\ldots,6\) are
-\[
-0,0,0,0,0,20.
-\]
+PASS
 
-Each of the twenty six-vertex carriers is checked to have \(15\) edges, \(10\) triangles, no tetrahedra, edge degree two, cyclic vertex links, and Euler characteristic \(1\). Hence every carrier is an induced six-vertex \(\mathbb{RP}^2\).
+Independently rebuilt the 40 tetrahedra from the public Lutz facet table (exact same 40 labelled facets as in assigned verify.py), yielding f=(11,51,80,40). A separately written GF(2) bit-vector boundary reduction finds rank ∂2=40 and rank ∂3=39 on 80 triangles, hence H2 dimension one. For all vertex subsets of sizes 1..6, independently constructed complete local 2-cycle spaces and reduced them modulo global 3-boundaries; numbers of supporting subsets are 0,0,0,0,0,20. Every minimizing induced complex has six vertices, fifteen edges, ten triangles, no tetrahedron, links single cycles and χ=1, so is RP2. Exhaustive degree/triangle-compatible vertex bijections with final facet preservation gave 48 automorphisms and 12+8 carrier orbit sizes with the specified two representatives. All searches over 11 vertices or labelled permutations finite and exhaustive; this is mod-two homology, not integral H2.
 
-The verifier also exhausts the full simplicial automorphism group and obtains order \(48\). Its action on the twenty carriers has exactly two orbits of sizes \(12\) and \(8\).
+## originality
 
-Exact successful output:
+PASS
 
-`VERIFY_OK f=11,51,80,40 H2_F2_dim=1 min_vertex_support=6 carriers6=20 all_carriers_induced_RP2=yes aut=48 carrier_orbits=12,8 reps=23451011|23491011`
+The exact original Lutz public table contains this triangulation and all facets, but not the minimum induced H2 support, twenty induced RP2 carriers, or the action of its automorphisms on those carriers. Other indexed research addresses shortest mod-two H1 loops, not H2, and a well-known standalone six-vertex RP2 is not an occurrence census inside this RP3. No stronger claim implying these enumerated data was found in actual literature/Resultary comparisons; an unindexed historical facet census remains a risk.
+
+## value
+
+PASS
+
+The vertex-minimal triangulation of a standard manifold has a canonical nonzero mod-two middle homology class. Knowing its sharp minimum vertex support and exactly which minimal induced RP2 subcomplexes realize it, including complete orbit decomposition, is a natural and usable invariant for triangulation topology, embedding constraints and symmetry comparisons rather than an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
