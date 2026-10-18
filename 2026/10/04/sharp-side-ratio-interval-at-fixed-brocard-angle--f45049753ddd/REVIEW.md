@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. After normalization, the published cone-angle relation gives \(q^2=(1-3\tan^2\omega)/2\). The fixed-\(q\) family is exactly the circular section cut out by \(x+y+z=1\) and \(x^2+y^2+z^2=(1+q^2)/3\). The lower endpoint follows from the two chamber boundary classes; the upper endpoint follows from an exact discriminant calculation for \(r=x/z\). Equality cases and connectedness give the complete interval. The packaged checker independently replays the formulas numerically on dense deterministic grids.
+## correctness
 
-## Originality
-PASS with a recorded residual literature risk. The closest primary source, Bényi--Ćurgus arXiv:1109.0557v1, supplies the cone model and the Brocard-angle/cone-angle identity but the inspected full text does not state the fixed-Brocard-angle longest/shortest-side profile, its two endpoints, or the scalene upper extremizer. Targeted database searches for Brocard-angle side-ratio, condition-number, and longest/shortest-side formulations returned no matching theorem. Adjacent indexed findings on triangle roundness, triangle shape metrics, and non-Euclidean side-variance profiles do not imply this result. Older terminology remains a genuine residual risk.
+PASS
 
-## Value
-PASS. A Brocard angle is only one scalar shape invariant, so quantifying exactly how anisotropic a triangle can or must be at that fixed invariant is a natural geometric question. The result converts the cone model into a complete sharp range, identifies a symmetry-breaking upper extremizer, and gives explicit inverse information from Brocard angle to side conditioning.
+The source gives 3tan²ω+2tan²γ=1 for the cone angle of the squared-side vector. Normalizing x=a²/N,y=b²/N,z=c²/N yields Σx=1 and (x−y)²+(y−z)²+(z−x)²=q², q²=(1−3tan²ω)/2<1/2; Heron implies every positive point of the circle is a strict triangle. In ordered chamber x≥y≥z>0 the fixed-q section is a connected compact arc. Its boundary y=z gives r_min=(1+√2 q)/(1−q/√2), while x=y has no lower ratio. The discriminant after x=rz gives (1−2q²)(r²+1)−2(1+q²)r≤0, with unique larger root r_max=(1+q²+q√(3(2−q²)))/(1−2q²), attained at y=(1+q²)/3 and x,z=((2−q²)/3±q√((2−q²)/3))/2. Symbolic independent calculations verified constraints and extrema; numerical q=0.4 gave κ_min≈1.4775597308, κ_max≈1.7572485219. At q=0 both equal one; q→1/√2 only limiting degeneracy and is excluded.
 
-## Closest literature and limitations
-The primary comparison is Á. Bényi and B. Ćurgus, *Triangles and groups via cevians*, arXiv:1109.0557v1, especially Proposition 4.1 and its surrounding cone geometry. A. Ben-Israel and S. Foldes, *Stability of Brocard points of polygons* (2000), concerns nested similar polygons rather than side-ratio extremization. The literature search was targeted rather than exhaustive, and equivalent older formulations cannot be excluded.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Bényi–Ćurgus Proposition 4.1 supplies the cone/Brocard equivalence but not the constrained max/min longest-to-shortest side ratio. The later Hungerbühler–Zhang “Brocard families” constructs families sharing ω via fourth-power sum invariance; it does not optimize κ over all shapes. The submitted ordered-chamber endpoint and discriminant classification therefore adds an exact extremal interval that is not implied by these source theorems.
+
+## value
+
+PASS
+
+A complete fixed-invariant shape spectrum with both sharp endpoints, optimizer geometry (isosceles vs unique scalene), and attainment of every intermediate ratio is a motivated geometric classification; it quantifies how strongly triangles may deform while holding the Brocard angle fixed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

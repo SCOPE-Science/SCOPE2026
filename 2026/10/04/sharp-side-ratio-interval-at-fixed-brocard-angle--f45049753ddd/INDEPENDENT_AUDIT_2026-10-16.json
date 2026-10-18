@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T05:53:41.208569Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The source gives 3tan²ω+2tan²γ=1 for the cone angle of the squared-side vector. Normalizing x=a²/N,y=b²/N,z=c²/N yields Σx=1 and (x−y)²+(y−z)²+(z−x)²=q², q²=(1−3tan²ω)/2<1/2; Heron implies every positive point of the circle is a strict triangle. In ordered chamber x≥y≥z>0 the fixed-q section is a connected compact arc. Its boundary y=z gives r_min=(1+√2 q)/(1−q/√2), while x=y has no lower ratio. The discriminant after x=rz gives (1−2q²)(r²+1)−2(1+q²)r≤0, with unique larger root r_max=(1+q²+q√(3(2−q²)))/(1−2q²), attained at y=(1+q²)/3 and x,z=((2−q²)/3±q√((2−q²)/3))/2. Symbolic independent calculations verified constraints and extrema; numerical q=0.4 gave κ_min≈1.4775597308, κ_max≈1.7572485219. At q=0 both equal one; q→1/√2 only limiting degeneracy and is excluded.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bényi–Ćurgus proves same Brocard angle iff same cone angle; Hungerbühler–Zhang supplies multiple constructed one-parameter Brocard families."
+        ],
+        "reasoning": "Neither broader family-equivalence result states an extremal side ratio over the full circle; selecting a subfamily does not bound all triangle shapes.",
+        "searches": [
+          "Resultary query: fixed Brocard angle triangle longest shortest side ratio sharp bounds squared side cone",
+          "Hungerbühler–Zhang Brocard families DOI:10.1007/s00591-025-00395-8",
+          "Bényi–Ćurgus §11 Theorem 11.1"
+        ]
+      },
+      "checked_sources": [
+        "https://wwu.elsevierpure.com/ws/portalfiles/portal/40050619/Triangles%20and%20Groups%20via%20Cevians.pdf",
+        "https://link.springer.com/article/10.1007/s00591-025-00395-8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source common invariant Σa⁴/(Σa²)² fixes a circle in squared-side simplex. The submitted formula additionally optimizes ratio x/z and classifies where equality occurs."
+        ],
+        "reasoning": "The source equations yield the feasible locus but not the claimed min/max without a nontrivial constrained ratio calculation; no dominating side-ratio theorem was located.",
+        "searches": [
+          "Bényi–Ćurgus Proposition 4.1 and Theorem 11.1",
+          "Hungerbühler–Zhang Brocard families Lemma 1 Theorems 1 and 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both predecessors use the fixed normalized sum of fourth powers; neither displays the ratio κ=max(side)/min(side) extremum or both optimizer classes."
+        ],
+        "reasoning": "Equivalent Brocard-angle, Heron, and cone formulations were explicitly mapped to q, so absence of identical wording alone was not taken as novelty; the extremization is an additional statement.",
+        "searches": [
+          "Resultary query: Brocard angle cone shape fixed side ratio maximum minimum triangle",
+          "Bényi–Ćurgus Proposition 4.1 arXiv:1109.0557",
+          "Hungerbühler–Zhang 2025 Brocard families Lemma 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No table of extremal fixed-ω κ appears in the inspected primary full article or the relevant published-finding searches."
+        ],
+        "reasoning": "This continuous two-endpoint interval is not an exact finite database/table entry; broad source comparisons are mathematically more decisive than a failed lookup.",
+        "searches": [
+          "Resultary query: Brocard angle maximum ratio longest shortest sides fixed omega sharp bounds isosceles scalene",
+          "Hungerbühler–Zhang 2025 full open article keyword searches largest, ratio, isosc"
+        ]
+      },
+      "rationale": "Bényi–Ćurgus Proposition 4.1 supplies the cone/Brocard equivalence but not the constrained max/min longest-to-shortest side ratio. The later Hungerbühler–Zhang “Brocard families” constructs families sharing ω via fourth-power sum invariance; it does not optimize κ over all shapes. The submitted ordered-chamber endpoint and discriminant classification therefore adds an exact extremal interval that is not implied by these source theorems.",
+      "residual_risks": [
+        "Historic triangle-geometry literature (Brocard shape/inradius/condition-number aliases) was not exhaustively read; an older equivalent constrained-ratio inequality may exist.",
+        "Continuous equality cases rely on strict q<1/√2; degenerate endpoint is not included."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUND_COMMON_PARAMETER_NOT_ENDPOINT",
+          "evidence": "Proposition 4.1: 3tan²ω+2tan²γ=1; Theorem 11.1: equal cone angle iff equal Brocard angle; neither bounds longest/shortest side ratio.",
+          "identifier_or_url": "https://wwu.elsevierpure.com/ws/portalfiles/portal/40050619/Triangles%20and%20Groups%20via%20Cevians.pdf",
+          "material_read": "Author OA full 30-page paper text; §4 Proposition 4.1 and cone geometry pages 6–8, §11 Theorem 11.1 equivalence statements on page 22",
+          "method": "author-hosted public PDF text and targeted theorem passages; PDF page screenshot transiently unavailable",
+          "title": "Triangles and groups via cevians",
+          "trigger": "exact Brocard-cone identity and possible profile"
+        },
+        {
+          "assessment": "SAME_INVARIANT_NO_EXTREMAL_INTERVAL",
+          "evidence": "Constructed geometric families have constant Σa⁴/(Σa²)²; no global κ optimizer or endpoint interval found.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00591-025-00395-8",
+          "material_read": "Full open HTML article: Lemma 1 fourth-power invariant, proofs and constructions Theorems 1–2 and Corollary 1, references",
+          "method": "publisher open HTML, entire main mathematical text",
+          "title": "Brocard families",
+          "trigger": "highly relevant newer same-object full text"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete fixed-invariant shape spectrum with both sharp endpoints, optimizer geometry (isosceles vs unique scalene), and attainment of every intermediate ratio is a motivated geometric classification; it quantifies how strongly triangles may deform while holding the Brocard angle fixed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Historic triangle-geometry literature (Brocard shape/inradius/condition-number aliases) was not exhaustively read; an older equivalent constrained-ratio inequality may exist.",
+    "Continuous equality cases rely on strict q<1/√2; degenerate endpoint is not included."
+  ],
+  "schema_version": 1
+}
