@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The normal fan is determined by twelve explicit integral facet normals and forty vertices. Exhaustive exact enumeration of all nonempty facet intersections yields a full face lattice, including precisely three inclusion-maximal nonsimplicial faces. Total unimodularity rules out simplicial nonunimodular exceptions. For each maximal singular face, a primitive saturated square normal cone supplies the threefold-node transverse germ. The checker regenerates the 567 faces, three maximal singular faces, component incidence, and rank-three lattice certificates with rational/integer arithmetic. Limits: the nonreduced singular scheme and nongeneric intersection germs are not determined.
+
+**Originality — PASS, qualified.** Prior work classifies and counts faces of Gelfand–Tsetlin and marked order polytopes, including regular \(\mathrm{GL}_4\) instances; these face-lattice results and the toric smoothness criterion are prior art. The inspected relevant sections of Kiritchenko (2009), Kiritchenko–Smirnov–Timorin (2010/2011), An–Cho–Kim (2016), and Pegel (2016) do not state the exact three toric singular components, their edge-incidence chain, or saturated conifold transverse types. A specialized computation derivable from these theories could exist elsewhere; searching cannot prove universal novelty.
+
+**Mathematical value — PASS.** The complete irreducible reduced singular-support classification is a natural geometric invariant of the smallest regular full-flag example whose singular strata form a nontrivial configuration. The three conifold types and intersection chain give information not conveyed by an undifferentiated total \(f\)-vector or the existence of a singular toric degeneration; they also identify the entire non-\(\mathbb Q\)-factorial support. No general higher-rank statement is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
