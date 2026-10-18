@@ -1,0 +1,165 @@
+{
+  "correctness": {
+    "rationale": "For fixed \\(r\\), the DeSalvo--Menz total-variation comparison applies up to \\(m=O(N^{r/(2r+2)})=o(\\sqrt N)\\). The independent zero-multiplicity indicators have probabilities \\(1-\\exp(-cj/\\sqrt N)\\), leading to marked-run intensity \\(c^r x^r\\,dx\\). Connected clusters of \\(t\\) distinct overlapping starts require at least \\(r+t-1\\) zeros and have total factorial-moment mass \\(O(\\varepsilon^{t-1})\\), where \\(\\varepsilon=N^{-1/(2r+2)}\\); only disjoint singleton clusters survive. This proves the Poisson random measure and Poisson ordered-run tails. The supplied exact finite checker independently passed 754 coefficient/enumeration comparisons and six Boltzmann error checks. No infinite inference is based solely on numerics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DeSalvo--Menz arxiv:1610.07664 p.25 Theorem 4.14 proves small-part total-variation transfer; pp.26--27 Example 4.6 treats ordinary single gaps.",
+        "He--Huang--Li--Zhang arxiv:2501.12864 studies r-chain excludants of overpartitions, a different measure on partitions.",
+        "Eyyunni et al. arxiv:2604.12557 Section 2 counts missing indices below the maximum but does not study consecutive absence runs."
+      ],
+      "reasoning": "The DeSalvo--Menz theorem is a broad necessary ingredient, and general Poisson approximation is classical; neither inspected text contains a theorem already specifying the r-chain process or controlling its overlapping marks at the critical scale. A still broader rare-pattern theorem may imply the application and remains a stated risk.",
+      "searches": [
+        "arxiv:1610.07664 Theorems 4.13, 4.14 and Example 4.6",
+        "arxiv:2501.12864 pp.1--4",
+        "arxiv:2604.12557 Theorems 2.1--2.4",
+        "general local limit theorem integer partitions rare missing runs Poisson"
+      ]
+    },
+    "checked_sources": [
+      "Bhoria--Eyyunni--Maji 2022, arXiv:2208.03658",
+      "Bhoria--Eyyunni--Li 2023, arXiv:2312.02620",
+      "DeSalvo--Menz, arXiv:1610.07664",
+      "He et al. 2025, arXiv:2501.12864",
+      "Eyyunni et al. 2026, arXiv:2604.12557",
+      "Chakraborty--Ray, Hardy--Ramanujan Journal 43 (2020), pp.122--128",
+      "Bhowmick--Meher arXiv:2609.31104 (abstract only, and different r-gap definition)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "An exact summed generating function determines finite coefficients in principle but its text supplies no Poisson limit or successive-run distribution.",
+        "DeSalvo--Menz supplies a transfer theorem for vectors of part multiplicities; proving the claim additionally needs the critical scaling and overlap-cluster bounds.",
+        "Bhowmick--Meher arxiv:2609.31104 studies least r-gaps defined by multiplicity below r, not r consecutive missing part sizes."
+      ],
+      "reasoning": "Classical single-gap and multiplicity-based least r-gap results do not imply the r-dependent Weibull shape by parameter substitution. The broad transfer principle plus independently established rare-run factorial moments does mathematically imply this claim; that reliance and potential implicit broader coverage are acknowledged rather than hidden.",
+      "searches": [
+        "arxiv:2208.03658 Problem 6",
+        "arxiv:2312.02620 Theorem 1.6",
+        "arxiv:1610.07664 Theorem 4.14 and Example 4.6",
+        "arxiv:2609.31104 least r-gaps moments abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2208.03658 p.5 defines r-chain mex as first r consecutive absent sizes; p.6--7 gives the aggregate generating function, p.16 Problem 6 asks for an asymptotic sum.",
+        "arxiv:2312.02620 pp.2--4 gives bijections and summed identities for the same r-chain statistic."
+      ],
+      "reasoning": "Search aliases included r-chain mex, consecutive missing part sizes, first r-run of gaps, and Weibull/Poisson rare runs. An aggregate identity for the first-run location is not an explicit limit theorem; the inspected texts contain no scale \\(N^{r/(2(r+1))}\\), intensity \\(c^r x^r\\), or successive-run count laws.",
+      "searches": [
+        "\"r-chain mex\" \"distribution\" \"partition\" Poisson",
+        "\"r-chain minimal excludant\" asymptotic average scaling n exponent",
+        "\"r-chain mex\" asymptotic probabilistic N^{1/3} Poisson",
+        "\"r-chain minimal excludant\" limit distribution Poisson Weibull",
+        "arxiv:2208.03658 Definition 1, Theorem 2.6, Problem 6",
+        "arxiv:2312.02620 Theorems 1.5--1.7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The two full-text primary papers supply coefficient/generating-function identities rather than an exact table of the limiting point process.",
+        "Related 2020 distribution paper arxiv-independent Hardy--Ramanujan Journal source, DOI/URL https://hrj.episciences.org/7425/pdf, concerns modular densities of least multiplicity-gap sums, not r-chain run locations."
+      ],
+      "reasoning": "No inspected database or table records the complete intensity and ordered-run law. Exhaustive indexing is not claimed; absence of hits alone does not establish originality.",
+      "searches": [
+        "first consecutive r missing parts uniform random partitions Weibull limit",
+        "Bhoria Eyyunni Maji r-chain mex asymptotic result 2024 2025 2026",
+        "Consecutive absent part sizes in random integer partitions, r-chain minimal excludant, point-process Weibull limit",
+        "joint distributions mex partition least r gap random partitions",
+        "arxiv:2208.03658 r-chain mex generating function",
+        "arxiv:2312.02620 r-chain mex distribution"
+      ]
+    },
+    "rationale": "Inspection of the primary r-chain mex papers shows exact generating-function and bijective identities, not the inhomogeneous Poisson limit or explicit successive-run laws. The quantitative total-variation comparison theorem for small multiplicities and the single-gap Rayleigh law are prior work; the contribution here identifies the r-dependent scale and controls overlapping r-run events via factorial-moment clusters. Searches and accessible earlier results reveal no covering statement; general rare-pattern machinery and unindexed literature remain risks.",
+    "residual_risks": [
+      "A general theorem for locally dependent rare events combined with small-part TV transfer may subsume this special process without naming it.",
+      "Unindexed literature or proofs not accessible in the sources checked could predate this explicit formula.",
+      "The cited source gives only weak/TV convergence on bounded windows; tail uniform integrability is not claimed, so no expectation-asymptotic follows here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces r-chain mex and sum generating function; no stated Poisson process or ordered-run asymptotic.",
+        "evidence": [
+          "Definition 1: r consecutive missing sizes.",
+          "Theorem 2.6: sum generating function.",
+          "Problem 6 asks asymptotic of aggregate."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2208.03658",
+        "material_read": "Full-text PDF first-public version; abstract, Definition 1 p.5, Theorem 2.4 p.6, Theorem 2.6 pp.6--7, Problem 6 p.16, other relevant search matches.",
+        "method": "Primary openly accessible complete PDF searched and relevant sections read.",
+        "title": "A New Generalization of the Minimal Excludant Arising from an Analogue of Franklin's Identity",
+        "trigger": "Defines exactly the target statistic and gives related generating function."
+      },
+      {
+        "assessment": "Exact combinatorial and bijective results; no matching scaling-limit statement found in inspected material.",
+        "evidence": [
+          "Theorem 1.6 reproduces summed r-chain mex generating function.",
+          "Theorems 1.7--1.10 concern bijections and maximal excludants."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2312.02620",
+        "material_read": "Full-text PDF, pp.1--5 abstract, definitions, Theorems 1.5--1.10; targeted scans for asymptotic, distribution, Poisson and limit.",
+        "method": "Lawful arXiv full text read and searched, rather than publisher abstract alone.",
+        "title": "On the Combinatorics of r-Chain Minimal and Maximal Excludants",
+        "trigger": "Second primary paper on the identical r-chain mex."
+      },
+      {
+        "assessment": "Supplies TV approximation and classical single-gap limiting computations, but not explicit r-chain process.",
+        "evidence": [
+          "Theorem 4.14 permits unbounded part multiplicities and TV for indices o(sqrt N).",
+          "Example 4.6 treats one missing size."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1610.07664",
+        "material_read": "Open full-text PDF Theorems 4.13 and 4.14 on p.25; Example 4.6 and Remark 4.5 on pp.26--27, relevant hypotheses and comparison statement.",
+        "method": "Read exact theorem hypotheses and conclusions on open PDF.",
+        "title": "A Robust Quantitative Local Central Limit Theorem with Applications to Enumerative Combinatorics and Random Combinatorial Structures",
+        "trigger": "Potential stronger probabilistic partition limit and crucial correctness premise."
+      },
+      {
+        "assessment": "Underlying objects are overpartitions, not ordinary uniform partitions; no stated same limit.",
+        "evidence": [
+          "Definition 1.1 concerns overpartition missing r-chains.",
+          "Formulas for sums, not limit process."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2501.12864",
+        "material_read": "Open PDF abstract, definitions, pp.1--4 summed formulas, targeted search for asymptotic.",
+        "method": "Full-text arXiv PDF sections read.",
+        "title": "The r-Chain Minimal and Maximal Excludant Sizes of an Overpartition",
+        "trigger": "Same run-length terminology, plausibly overlapping objects."
+      },
+      {
+        "assessment": "Counts missing part sizes below largest part, not locations of consecutive missing runs.",
+        "evidence": [
+          "Theorem 2.1 gives bivariate generating function for missing-count statistic."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.12557",
+        "material_read": "Full online article abstract, Section 1 and Section 2.1 theorems, closing questions.",
+        "method": "Lawful HTML full text inspected.",
+        "title": "On the Number of Missing Integers in Partitions",
+        "trigger": "Newer primary study of missing integer locations, plausible stronger coverage."
+      },
+      {
+        "assessment": "Arithmetic modular density of aggregate least multiplicity-gap sums, not consecutive missing runs.",
+        "evidence": [
+          "Theorem 1.3 concerns divisibility/density modulo powers of two."
+        ],
+        "identifier_or_url": "https://hrj.episciences.org/7425/pdf",
+        "material_read": "Open complete 7-page PDF abstract, introduction, Theorem 1.3 and definition of least r-gaps.",
+        "method": "Primary full-text PDF searched for chain terminology and inspected in relevant sections.",
+        "title": "Distribution of Generalized Mex-Related Integer Partitions",
+        "trigger": "Distribution-title alias could conceal an equivalent stochastic law."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fb92d3e8-a0fe-4291-9a5e-d9cf9c3a5d1b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The \\(r\\)-chain mex is a literature-defined statistic, explicitly posed for asymptotic study in Bhoria--Eyyunni--Maji Problem 6. This theorem supplies an \\(r\\)-dependent scaling exponent, a full inhomogeneous Poisson point process of rare consecutive holes, and the law of every fixed ordered run, whereas the known \\(r=1\\) Rayleigh law and generating-function identities do not give these statements without a new overlapping-event argument. It does not purport to settle the mean-asymptotic problem.",
+    "status": "PASS"
+  }
+}
