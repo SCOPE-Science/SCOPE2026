@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "For n>=2 the seven mutually disjoint defender-count cases exactly partition the 0/1/2-labellings; necessity and sufficiency follow from neighbor sets excluding the matched index. Their closed terms sum to the stated polynomial. Standalone standard-library exhaustive enumeration of 597861 assignments for n=2..6 matches all coefficients, and exact polynomial arithmetic checks boundary and minimum coefficients through n=30. The infinite proof is combinatorial, not computational.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "A public complete-multipartite total Roman enumerator covers only complete multipartite graphs; the crown graph for n>=3 is not complete multipartite, since nonadjacency is not transitive.",
+        "Theorem 10 of arXiv:2005.13608 classifies products at minimum weight <=7, rather than all feasible weights."
+      ],
+      "reasoning": "On a crown graph distinct same-part vertices are nonadjacent and matched opposite-part pairs are also nonadjacent, but other cross-part pairs are adjacent: nonadjacency cannot define equivalence classes for complete multipartite structure. The general minimum theorem cannot give the many independent high-weight coefficients.",
+      "searches": [
+        "published-record search: total Roman domination number and optimal functions on tensor product K_r times K_s of complete graphs",
+        "published-record search: complete weight generating polynomial of total Roman dominating functions on crown graph K_{n,n} minus perfect matching",
+        "Published record 2a15ca17382c: Exact weight enumerator of total Roman dominating functions on complete multipartite graphs",
+        "arXiv:2005.13608v1 Theorem 10/Corollary 11"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2005.13608v1 (main direct-product total Roman theorem)",
+      "doi:10.3390/math8091438 (same paper journal version)",
+      "doi:10.3934/math.2021643 (ordinary Roman direct products)",
+      "Thakkar–Badiyani 2022 TWMS JAEM article",
+      "published record 2a15ca17382c (total Roman polynomial, multipartite)",
+      "published record e57b781e4a71 (perfect Roman, crown)",
+      "mathematical-record searches on crown, tensor, complete bipartite minus matching and full weight enumerators"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 10 proof describes optimal weight-6 patterns but does not count functions of weight 7 through 2n*2.",
+        "Thakkar–Badiyani characterize pointwise minimality of total Roman functions; this is not enumeration of all (including nonminimal) functions.",
+        "Perfect Roman crown results use a distinct zero-neighbor requirement."
+      ],
+      "reasoning": "The current claim simultaneously determines all coefficients R_n(z), whereas the minimum theorem and its case analysis imply at most a small initial coefficient set. The formula includes all nonminimal total Roman functions, so a minimality characterization alone does not imply it. The small n=2 special case is a known trivial consequence; novelty is the uniform whole-weight polynomial.",
+      "searches": [
+        "Cabrera Martínez et al., arXiv:2005.13608v1, Theorem 10 and Corollary 11 pp. 8-13",
+        "Thakkar–Badiyani, Total Roman domination number of graphs, 2022, Theorem 3.3",
+        "Published e57b781e4a71: Perfect Roman domination of crown graphs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "mathematical-record closely ranked e57b781e4a71 (perfect Roman on crown graphs); no total Roman all-weight crown enumerator in retrieved rankings.",
+        "Cabrera Martínez et al. (2020), arXiv:2005.13608v1, Theorem 10, gives the minimum-value condition, not full weight counts."
+      ],
+      "reasoning": "Perfect Roman requires exactly one 2-neighbor of each zero and omits the positive-support total condition; it does not equal total Roman. The direct-product terminology and crown-graph alias were searched. The complete all-weight polynomial is not a corollary of a minimum-weight characterization.",
+      "searches": [
+        "published-record search: weight enumerator for all total Roman dominating functions on the crown graph K_{n,n} minus a matching, equivalently K_2 tensor K_n, generating polynomial by weight",
+        "published-record search: Total Roman domination functions of crown graph Cr_n (K_n,n minus a perfect matching) count minimum weight six enumerations",
+        "Web: \"crown graph\" \"total Roman\" polynomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The retrieved mathematical-record matches concern perfect Roman crown graphs and Roman variants on complete multipartite graphs, not this all-weight table.",
+        "The 2020 source reports gamma_tR(K_r x K_s)=6 for r,s>=3, but no weight enumerator table."
+      ],
+      "reasoning": "A search that fails to identify a table is not proof that none exists; the comparisons found no exact crown total Roman coefficient sequence across all weights, while explicitly retaining indexing uncertainty.",
+      "searches": [
+        "published-record search: crown graph complete bipartite minus a perfect matching Roman domination weight enumerator",
+        "published-record search: weight enumerator for all total Roman dominating functions on the crown graph K_{n,n} minus a matching, equivalently K_2 tensor K_n, generating polynomial by weight",
+        "Web: \"K_{n,n}\" \"total Roman domination polynomial\"",
+        "Web: \"crown graphs\" \"total Roman dominating functions\" enumeration"
+      ]
+    },
+    "rationale": "Four claim-versus-prior comparisons identify no covering whole-weight crown total Roman theorem. The strongest 2020 primary proof gives optimum-weight classification only, not nonoptimal coefficient counts; the near full enumerator concerns complete multipartite graphs, which do not contain the crown family for n>=3. Specific equivalence and database searches were completed with indexed-record limitations explicitly retained.",
+    "residual_risks": [
+      "Unindexed, differently named, or very recent literature may contain an equivalent crown all-weight identity.",
+      "Two relevant published semantic-record summaries, not their complete public source files, were inspected; their described graph/condition distinctions are decisive for the comparison presented.",
+      "Some follow-on targeted mathematical-record calls returned intermittent internal errors, but a later directly targeted crown all-weight search succeeded."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers gamma_tR=6 for complete direct products and characterizes optimal-function structural possibilities, but not the full all-weight crown polynomial",
+        "evidence": "arXiv:2005.13608v1, Theorem 10(iii), Corollary 11(i), Theorem 12",
+        "identifier_or_url": "https://arxiv.org/pdf/2005.13608",
+        "material_read": "Definitions and setup (pp. 1–3), main Theorem 10 and proof (pp. 8–11), Corollary 11 and Theorem 12 (pp. 12–13), references (pp. 15–16)",
+        "method": "Full open-access primary PDF, parsed text and selected rendered pages",
+        "title": "Dominating the direct product of two graphs through total Roman strategies",
+        "trigger": "Same invariant and exact graph product; decisive prior minimum theorem"
+      },
+      {
+        "assessment": "General criterion for pointwise-minimal functions, not full all-weight enumeration; no direct-product result located",
+        "evidence": "Definitions 2.3–2.4 and Theorem 3.3",
+        "identifier_or_url": "https://jaem.isikun.edu.tr/web/images/articles/vol.12.no.2/05.pdf",
+        "material_read": "Abstract, introduction, definitions of minimal/minimum and Theorem 3.3 with proof portion (pp. 1–4); looked for graph products",
+        "method": "Open-access primary PDF text and rendered Theorem 3.3 page",
+        "title": "Total Roman domination number of graphs",
+        "trigger": "Plausible title mentioning minimum total Roman functions"
+      },
+      {
+        "assessment": "Addresses ordinary Roman domination, not the additional total positive-neighbor restriction; gives numeric ordinary Roman value for complete direct products",
+        "evidence": "Proposition 2.1 and total Roman definition in introductory comparison",
+        "identifier_or_url": "https://mp.feri.um.si/osebne/peterin/clanki/RDF-rooted-direct-6.pdf",
+        "material_read": "Introduction and Proposition 2.1, including its proof (pp. 1–4)",
+        "method": "Open-access primary PDF text and rendered Proposition 2.1 page",
+        "title": "Roman domination in direct product graphs and rooted product graphs",
+        "trigger": "Same direct products and Roman labelings"
+      },
+      {
+        "assessment": "Inapplicable since crown graphs are not complete multipartite for n>=3",
+        "evidence": "Record summary describes complete multipartite graphs only; nonadjacency test for crown graph",
+        "identifier_or_url": "published mathematical record 2a15ca17382c",
+        "material_read": "mathematical-record abstract/summary from semantic record; full text not inspected",
+        "method": "Published semantic summary comparison and graph-class reduction check",
+        "title": "Exact weight enumerator of total Roman dominating functions on complete multipartite graphs",
+        "trigger": "Closest same invariant and full polynomial on a broader-sounding graph class"
+      },
+      {
+        "assessment": "Different perfect Roman domination condition, no implication to all total Roman weights",
+        "evidence": "Record summary describes minimum perfect Roman functions only",
+        "identifier_or_url": "published mathematical record e57b781e4a71",
+        "material_read": "mathematical-record abstract/summary; full text not inspected",
+        "method": "Published semantic summary and definition comparison",
+        "title": "Perfect Roman domination of crown graphs",
+        "trigger": "Exact same crown objects and Roman labeling language"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d48e4d60-806e-4877-ae58-64fd153c926d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Full weight enumeration of every total Roman function on the natural family K_2 tensor K_n is a stronger counting invariant than the known minimum. The deleted matching produces a seven-regime decomposition, and the formula determines an entire degree-4n polynomial for every n, including exceptional small-order behavior. It is not an arbitrary finite restriction or restatement of a general optimum bound.",
+    "status": "PASS"
+  }
+}
