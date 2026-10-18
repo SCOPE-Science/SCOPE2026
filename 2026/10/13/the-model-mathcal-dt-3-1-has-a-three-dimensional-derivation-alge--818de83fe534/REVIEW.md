@@ -1,27 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The complete multiplication table of \(\mathcal{DT}_3^1\) and the source derivation definition were reconstructed. Solving the Leibniz constraints gives exactly
-\[
-\operatorname{Der}(\mathcal{DT}_3^1)
-=
-\left\{
-\begin{pmatrix}
-a&0&0\\
-b&2a&c\\
-0&0&a
-\end{pmatrix}
-\right\}.
-\]
-An exact-arithmetic checker independently verifies the tridendriform identities, the full derivation linear system, its nullity \(3\), and the Lie brackets of the displayed basis.
+PASS
 
-## Originality
+The complete nine nonzero structure constants of the three separate products were reconstructed from the frozen model. Every double product vanishes since e2 annihilates both slots, validating the tridendriform identities. Building nine unknown matrix entries and all Leibniz equations independently yields exact rational constraint rank six and nullity three, with basis diag(1,2,1), E21, E23; matrix commutators are [H,U]=U,[H,V]=V,[U,V]=0. Characteristic zero is necessary for 2c=0 implying c=0. These calculations independently verify the full formula, not just existence of one nonzero derivation.
 
-PASS. The primary paper states the opposite conclusion in Corollary 4.2. Targeted semantic and literature searches for the exact model name, matrix formula, and correction language found no published correction or equivalent derivation table. Nearby Hom-trialgebra work uses a different structure and operator notion. The residual risk is an unindexed correction.
+## originality
 
-## Value
+PASS
 
-PASS. The corrected statement changes a global low-dimensional conclusion of the source and replaces it with the complete derivation Lie algebra of the first classified three-dimensional model. The result is structurally meaningful for symmetry and deformation questions and is not a routine restatement of the multiplication table.
+The primary source Theorem 3.2 supplies DT_3^1 and Definition 2.6 ordinary derivations but Corollary 4.2 asserts all three-dimensional derivations are trivial. Direct computation contradicts a published universal assertion. A nearby Hom-trialgebra paper concerns α-inner operators on distinct structures. Resultary and exact source-title searches uncovered no independent full derivation calculation; an author erratum remains possible.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+An explicit counterexample invalidates a published full-dimension corollary and computes the precise Lie algebra structure of the first classified model. This corrects a mathematical classification claim rather than merely providing another routine matrix example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
