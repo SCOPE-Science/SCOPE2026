@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T05:21:19.704096Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed even s≥4, γ in (d_s,δ_*), positivity of source spectral r_A^(m)(γ) gives a chain α_0,...,α_m with α_i≥d_s for i≥2 and all preceding α_i < u=(1−q)/2, q=(2^(s(1/s−h₂(γ)))−1)^(1/s). The cited Fagnani–Ravazzi transition inequality gives at most −η per middle transition with η=−d_s/2 log₂(1−q²)>0, while r_A^(2)≤1 and the final transition≤0. Thus r_A^(m)(γ)≤1−(m−3)η; m≥4+floor(1/η) contradicts r_A>0. Taylor expansion yields M_s(δ_*−Δ)∼(2 ln2/d_s)[s ln((1−δ_*)/δ_*)]^(−2/s) Δ^(−2/s). This is a sufficient round bound, not an optimum. Numeric checker only corroborates constants, not for-all-s proof. Critical source maximizing-chain hypothesis was quoted in source package but the full preprint could not be independently inspected in this execution; this reliance remains explicit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fagnani–Ravazzi Eq.14 supplies one upper bound on f_A; Zhang source qualitative δ^(m)→δ_*"
+        ],
+        "reasoning": "Classical repeat-multiple-accumulate convergence and quantum encoder complexity: An inequality feeding the bound is prior art but turning its compactness constant into Δ-dependent M_s is an additional specialized estimate; no claimed general optimal rate.",
+        "searches": [
+          "Resultary semantic query: CSS quantum Gilbert Varshamov threshold spectral accumulation rounds convergence rate Zhang 2026 explicit rate bounds",
+          "arXiv:2610.01277",
+          "Fagnani Ravazzi spectra minimum distances repeat multiple accumulate convergence quantitative"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.01277 (Zhang 2026) qualitative CSS-GV convergence",
+        "DOI:10.1109/ITA.2008.4601028 Fagnani–Ravazzi transition inequality",
+        "DOI:10.4230/LIPIcs.ITCS.2026.28 Brehm–Resch fast classical code",
+        "Resultary semantic query: CSS quantum Gilbert Varshamov threshold spectral accumulation rounds convergence rate Zhang 2026 explicit rate bounds",
+        "arXiv:2610.01277",
+        "Fagnani Ravazzi spectra minimum distances repeat multiple accumulate convergence quantitative"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "RESULT.md derives u=(1−q)/2 and η using known inequality; Zhang abstract and note on qualitative convergence were accessible"
+        ],
+        "reasoning": "Whether Prop4.5 already immediately implies an explicit Δ power by direct substitution: The quantitative result is a direct but nontrivial extraction of constants from source proof; unavailable full source creates a concrete risk of already-written equivalent estimate.",
+        "searches": [
+          "Resultary semantic query: CSS quantum Gilbert Varshamov threshold spectral accumulation rounds convergence rate Zhang 2026 explicit rate bounds",
+          "arXiv:2610.01277",
+          "Fagnani Ravazzi spectra minimum distances repeat multiple accumulate convergence quantitative"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhang Prop.4.5 chain argument provides qualitative convergence; RESULT.md introduces explicit q_s,η_s,M_s"
+        ],
+        "reasoning": "Threshold recursion / spectral-shape mixing / CSS distance target gap: The equivalent distance-deficit formulation specifies a numerical sufficient round count absent from the accessible published abstract; full Proposition 4.5 remains a residual priority risk.",
+        "searches": [
+          "Resultary semantic query: CSS quantum Gilbert Varshamov threshold spectral accumulation rounds convergence rate Zhang 2026 explicit rate bounds",
+          "arXiv:2610.01277",
+          "Fagnani Ravazzi spectra minimum distances repeat multiple accumulate convergence quantitative"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search displayed no same quantitative CSS threshold bound; finite checker samples s=4,6,8 only"
+        ],
+        "reasoning": "Existing formulas/tables of spectral thresholds per accumulation round: No relevant exact parameter table found in bounded searches. Numerical samples are not priority evidence and do not prove uniform convergence rate.",
+        "searches": [
+          "Resultary semantic query: CSS quantum Gilbert Varshamov threshold spectral accumulation rounds convergence rate Zhang 2026 explicit rate bounds",
+          "arXiv:2610.01277",
+          "Fagnani Ravazzi spectra minimum distances repeat multiple accumulate convergence quantitative"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS, with a significant primary-access risk: Zhang arXiv:2610.01277 already proves qualitative convergence to the CSS GV target using a uniform negative transition gap; its accessible abstract does not assert an explicit dependence of accumulation rounds on Δ. The closed sufficient M_s and asymptotic Δ^(−2/s) dependence are a quantitative output, not merely changing symbols. Source Proposition 4.5 could contain a sharper explicit bound; its full text was not retrieved, so priority remains conditional on that comparison.",
+      "residual_risks": [
+        "Primary arXiv:2610.01277v1 full proof was not independently obtained; a hidden source lemma or already explicit rate could affect C/O",
+        "Only fixed even s≥4; m fixed before n grows; no finite-n blocklength certificate or optimality claim"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative CSS GV convergence confirmed, exact Proposition 4.5 not independently read",
+          "evidence": "Original source is the stated premise for maximizing-chain and two-round facts; full-text comparison pending",
+          "identifier_or_url": "https://arxiv.org/abs/2610.01277",
+          "material_read": "Abstract and publication metadata accessible; attempted original full preprint PDF/HTML, not retrieved",
+          "method": "arXiv abstract + attempted primary full-text access",
+          "title": "Linear-Time Encodable Quantum Codes near the CSS GV Bound",
+          "trigger": "Identical CSS spectral recursion and qualitative target"
+        },
+        {
+          "assessment": "The quantitative chain argument is internally algebraically coherent",
+          "evidence": "In particular 1−(m−3)η<0 at m=4+floor(1/η)",
+          "identifier_or_url": "GitHub pinned RESULT.md and VERIFICATION.md",
+          "material_read": "Full RESULT.md, proof, verification and Python checker source read",
+          "method": "Pinned Git blob reading",
+          "title": "Linear-Time Encodable Quantum Codes near the CSS GV Bound: package proof",
+          "trigger": "Contains actual deductions from Prop4.5"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: the source poses qualitative threshold convergence but encoder size depends linearly on accumulation rounds; converting a target distance gap into explicit logarithmic-depth and linear-gate constants addresses a concrete resource question. The result does not purport to optimize required rounds.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2610.01277 (Zhang 2026) qualitative CSS-GV convergence",
+    "DOI:10.1109/ITA.2008.4601028 Fagnani–Ravazzi transition inequality",
+    "DOI:10.4230/LIPIcs.ITCS.2026.28 Brehm–Resch fast classical code",
+    "Resultary semantic query: CSS quantum Gilbert Varshamov threshold spectral accumulation rounds convergence rate Zhang 2026 explicit rate bounds",
+    "arXiv:2610.01277",
+    "Fagnani Ravazzi spectra minimum distances repeat multiple accumulate convergence quantitative"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Primary arXiv:2610.01277v1 full proof was not independently obtained; a hidden source lemma or already explicit rate could affect C/O",
+    "Only fixed even s≥4; m fixed before n grows; no finite-n blocklength certificate or optimality claim"
+  ],
+  "residual_risks": [
+    "Primary arXiv:2610.01277v1 full proof was not independently obtained; a hidden source lemma or already explicit rate could affect C/O",
+    "Only fixed even s≥4; m fixed before n grows; no finite-n blocklength certificate or optimality claim"
+  ],
+  "schema_version": 1
+}
