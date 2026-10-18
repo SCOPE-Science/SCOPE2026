@@ -1,19 +1,21 @@
-# Review of Shannon–Simpson dependence transition for symmetric Dirichlet vectors
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-For integer \(m\ge2\) and real \(a>0\), the proof begins with the full Dirichlet gamma-ratio moment formula, not a moment identity inferred from simulations. Differentiating terms with coincident and distinct component indices gives the exact mixed moment. Digamma recurrence removes all special functions from \(\operatorname{Cov}(H,Q)\). Double differentiation and fourth-order Dirichlet moments establish the two required variances. The gamma-normalization representation plus a bivariate delta method yields the joint Gaussian limit, and its covariance coincides with the exact finite-moment asymptotics. A positive integral representation for \((a+1)^2\psi_1(a+1)-(a+1)\), together with \(2\sinh(t/2)>t\), rigorously proves strict monotonicity of the limiting correlation. A first-order trigamma expansion at unity supplies the distinct sparse-shape limit. The domain excludes the undefined correlation for a one-component simplex. The reproducible checker passed symbolic polynomial-rational identities, twelve seeded empirical comparisons, and the two limiting-regime checks. Finite experiments are supplementary evidence, not infinite proofs.
+PASS
 
-## Originality (O): PASS, subject to historical-literature risk
+Dirichlet gamma-ratio mixed moments yield exact negative covariance by differentiating P_i^3 and P_i^2P_j at log exponent one, and double derivative gives Var(H). Direct fourth moments give Var(Q). Gamma representation P_i=Y_i/sumY with independent Gamma(a,1) yields the bivariate delta-method CLT; exact covariance limits agree with its gradient covariance. Integral g(x)=x² psi1(x)-x has representation with f(t)=1/(1-e^-t)-1/t strictly increasing, giving rho(a) strictly decreasing. Trigamma Taylor at a=0 gives fixed-m variances proportional to a and -sqrt(3)/(2sqrt(2zeta(3)-pi²/6)); noncommutation follows. Independent closed-moment calculations at (m,a)=(2,1),(3,1/2),(7,3) and mpmath rho tests match. Finite tests do not replace all-m proof.
 
-The directly matching **uniform-spacing** covariance at \(\(a=1\)\) is known prior material and is not claimed as original. The claim assessed here requires the **whole positive-shape family**, its **strict limiting-correlation interpolation**, and the **noncommuting concentration/dimension limits**. Royen's exact square-sum distribution (arXiv:1008.4059, Theorem 3) describes the marginal concentration statistic for general shape, not its joint law with Shannon entropy. Wolpert–Wolf's entropy work (arXiv:comp-gas/9403001 and comp-gas/9403002) supplies entropy moments and Dirichlet-integration machinery, not the two-index transition. Cerquetti's Tsallis analysis (arXiv:1404.3441, Theorems 1–2, appendix) supplies moments separately at a common entropy order; those do not determine the mixed \(q=1\), \(q=2\) moment. A distinct Poisson–Dirichlet infinite-partition dependence formula covers another model and limiting route, not fixed-positive-shape finite Dirichlet vectors whose dimension grows. Searches of the relevant exact mixed moment, aliases, and strength of these implications revealed no result subsuming the entire theorem. Gill–Joanes (1979) was accessible at abstract level only; its full PDF could not be inspected through institutional access. It is a residual historical risk, as are unindexed multivariate entropy moment treatments. Failed searches are not taken as proof of absolute novelty.
+## originality
 
-## Mathematical value (V): PASS
+PASS
 
-Shannon entropy weights rare categories logarithmically, whereas the Simpson/Greenwood squared-sum emphasizes concentration. Their joint fluctuation has a natural statistical meaning that is not fixed by the marginal laws. In a whole natural family of Dirichlet priors, the limiting correlation follows a **strict**, explicitly bounded interpolation as shape varies, while sparse concentration and growing dimension give sharply **different** correlations depending on limit order. This isolates a structural scale issue in simultaneous use of the two indices; the noncommuting limits and strict transition are not bookkeeping variants of the already known uniform-spacing covariance. The result does not purport to solve posterior inference, to improve critical values, or to establish finite-dimensional shape monotonicity.
+Royen computes distribution of squared Dirichlet sum Q and Wolpert–Wolf gives Shannon entropy moments. These inspected primary sources separately address marginals, not the joint shape-dependent limiting correlation and order-of-limits transition. The a=1 uniform-spacing covariance was previously established and is explicitly excluded from new priority. A broader older joint Dirichlet cross-moment may imply the fixed-a finite covariance but not necessarily strict monotonicity or noncommuting limits; retained O risk.
 
-## Literature and limitations
+## value
 
-Relevant sources: Royen (2010), arXiv:1008.4059; Wolpert and Wolf (1994), arXiv:comp-gas/9403001; Wolf and Wolpert (1994), arXiv:comp-gas/9403002; Archer, Park and Pillow (2013), arXiv:1302.0328; Cerquetti (2014), arXiv:1404.3441. The 1979 Gill–Joanes *Biometrika* paper is plausible historical context but was not available in full. The exact \(\(a=1\)\) case and a related infinite-partition formula are prior knowledge, not novelty claims. All Gaussian asymptotics fix \(a>0\) before increasing \(m\); joint triangular-array regimes require separate analysis.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Quantifies a natural dependence transition for symmetric Dirichlet random probability vectors and the canonical spacings/Greenwood statistic, including a mathematically sharp noncommutation of sparse and high-dimensional limits and a joint CLT. The limiting shape law is a structural property independently useful for uncertainty and diversity modeling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

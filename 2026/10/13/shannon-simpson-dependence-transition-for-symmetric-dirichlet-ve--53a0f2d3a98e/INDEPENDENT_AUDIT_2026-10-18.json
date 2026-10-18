@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T04:03:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Dirichlet gamma-ratio mixed moments yield exact negative covariance by differentiating P_i^3 and P_i^2P_j at log exponent one, and double derivative gives Var(H). Direct fourth moments give Var(Q). Gamma representation P_i=Y_i/sumY with independent Gamma(a,1) yields the bivariate delta-method CLT; exact covariance limits agree with its gradient covariance. Integral g(x)=x² psi1(x)-x has representation with f(t)=1/(1-e^-t)-1/t strictly increasing, giving rho(a) strictly decreasing. Trigamma Taylor at a=0 gives fixed-m variances proportional to a and -sqrt(3)/(2sqrt(2zeta(3)-pi²/6)); noncommutation follows. Independent closed-moment calculations at (m,a)=(2,1),(3,1/2),(7,3) and mpmath rho tests match. Finite tests do not replace all-m proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gamma moment machinery applies beyond symmetric case; source-reported a=1 formula is prior"
+        ],
+        "reasoning": "Check scope: General asymmetric Dirichlet joint moments or gamma CLT. General Dirichlet gamma identities permit a routine cross-moment calculation; however, the specific limiting shape transition and unequal iterated limits require additional analysis not present in inspected main results.",
+        "searches": [
+          "arXiv:1404.3441",
+          "arXiv:1008.4059",
+          "arXiv:comp-gas/9403001"
+        ]
+      },
+      "checked_sources": [
+        {
+          "assessment": "Marginal distribution of Q, not identified two-index H,Q joint dependence or iterated-limit transition",
+          "identifier_or_url": "arXiv:1008.4059",
+          "title": "The Distribution of the Square Sum of Dirichlet Random Variables and a Table with Quantiles of Greenwood’s Statistic"
+        },
+        {
+          "assessment": "Inspected entropy moment framework does not state symmetric Dirichlet Q cross-covariance and shape limit",
+          "identifier_or_url": "arXiv:comp-gas/9403001",
+          "title": "Estimating Functions of Probability Distributions from a Finite Set of Samples, Part I: Bayes Estimators and the Shannon Entropy"
+        },
+        {
+          "assessment": "Does not by itself imply specific finite fixed-shape increasing-dimension CLT/noncommuting sparse limits",
+          "identifier_or_url": "arXiv:1404.3441",
+          "title": "Bayesian nonparametric estimation of Tsallis diversity indices under Gnedin–Pitman priors"
+        }
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Separate formulas E[H],Var(H), distribution of Q do not determine Cov(H,Q); gamma CLT is classical but uses the joint functions"
+        ],
+        "reasoning": "Check scope: Can previous marginal moment theorems give the cross-limit claim?. The main claim comprises exact covariance plus strict shape limiting behavior and noncommuting limits, not merely an a=1 substitution; priority qualified for older unindexed joint formulas.",
+        "searches": [
+          "arXiv:comp-gas/9403001",
+          "arXiv:1008.4059",
+          "arXiv:1404.3441"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Royen square-sum distribution; Wolpert–Wolf Shannon entropy moments; known a=1 uniform spacing case"
+        ],
+        "reasoning": "Check scope: Entropy vs Greenwood statistic covariance for spacings; finite Dirichlet entropy vs Simpson concentration. An equivalent a=1 formula is prior, but does not cover real a, dimension limit, monotonicity and noncommutation; inspected source statements remain marginal.",
+        "searches": [
+          "arXiv:1008.4059",
+          "arXiv:comp-gas/9403001",
+          "Resultary search: symmetric Dirichlet Shannon entropy Simpson concentration correlation Greenwood spacings joint CLT noncommuting limits"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Royen quantile tables are marginal Q tables, not H-Q correlation parameter surface"
+        ],
+        "reasoning": "Check scope: Tables of Greenwood statistic and entropy correlations. One-index quantile tables neither imply nor tabulate the joint limiting correlation monotonicity and sparse-limit discontinuity.",
+        "searches": [
+          "arXiv:1008.4059",
+          "Resultary search: symmetric Dirichlet Shannon entropy Simpson concentration correlation Greenwood spacings joint CLT noncommuting limits"
+        ]
+      },
+      "rationale": "Royen computes distribution of squared Dirichlet sum Q and Wolpert–Wolf gives Shannon entropy moments. These inspected primary sources separately address marginals, not the joint shape-dependent limiting correlation and order-of-limits transition. The a=1 uniform-spacing covariance was previously established and is explicitly excluded from new priority. A broader older joint Dirichlet cross-moment may imply the fixed-a finite covariance but not necessarily strict monotonicity or noncommuting limits; retained O risk.",
+      "residual_risks": [
+        "Older Dirichlet joint moment formula may imply finite covariance under alternate notation",
+        "No claim of finite-m monotonicity or simultaneously varying shape CLT",
+        "Literature searches do not certify universal priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Marginal distribution of Q, not identified two-index H,Q joint dependence or iterated-limit transition",
+          "evidence": "Royen (2010), square-sum model, Greenwood statistic, main theorem",
+          "identifier_or_url": "arXiv:1008.4059",
+          "material_read": "Accessible primary complete PDF: introduction, statement of squared-sum distribution and quantiles and related formulas; pages visually checked",
+          "method": "Full-text arXiv PDF plus page screenshots",
+          "title": "The Distribution of the Square Sum of Dirichlet Random Variables and a Table with Quantiles of Greenwood’s Statistic",
+          "trigger": "Same symmetric Dirichlet Q statistic and general shape parameter"
+        },
+        {
+          "assessment": "Inspected entropy moment framework does not state symmetric Dirichlet Q cross-covariance and shape limit",
+          "evidence": "Wolpert–Wolf (1994), entropy posterior/prior analytic moments",
+          "identifier_or_url": "arXiv:comp-gas/9403001",
+          "material_read": "Primary PDF abstract, entropy moment formulas and setup, with page screenshots; not entire document individually checked",
+          "method": "Lawful arXiv full PDF/parsed text",
+          "title": "Estimating Functions of Probability Distributions from a Finite Set of Samples, Part I: Bayes Estimators and the Shannon Entropy",
+          "trigger": "Dirichlet Shannon entropy moments; possible general dominance"
+        },
+        {
+          "assessment": "Does not by itself imply specific finite fixed-shape increasing-dimension CLT/noncommuting sparse limits",
+          "evidence": "Cerquetti, fixed-order moment identities",
+          "identifier_or_url": "arXiv:1404.3441",
+          "material_read": "Full primary PDF, separate fixed-index moment sections inspected",
+          "method": "Open arXiv PDF",
+          "title": "Bayesian nonparametric estimation of Tsallis diversity indices under Gnedin–Pitman priors",
+          "trigger": "Related entropy/Simpson moments in a broader infinite-dimensional setting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Quantifies a natural dependence transition for symmetric Dirichlet random probability vectors and the canonical spacings/Greenwood statistic, including a mathematically sharp noncommutation of sparse and high-dimensional limits and a joint CLT. The limiting shape law is a structural property independently useful for uncertainty and diversity modeling.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    {
+      "assessment": "Marginal distribution of Q, not identified two-index H,Q joint dependence or iterated-limit transition",
+      "identifier_or_url": "arXiv:1008.4059",
+      "title": "The Distribution of the Square Sum of Dirichlet Random Variables and a Table with Quantiles of Greenwood’s Statistic"
+    },
+    {
+      "assessment": "Inspected entropy moment framework does not state symmetric Dirichlet Q cross-covariance and shape limit",
+      "identifier_or_url": "arXiv:comp-gas/9403001",
+      "title": "Estimating Functions of Probability Distributions from a Finite Set of Samples, Part I: Bayes Estimators and the Shannon Entropy"
+    },
+    {
+      "assessment": "Does not by itself imply specific finite fixed-shape increasing-dimension CLT/noncommuting sparse limits",
+      "identifier_or_url": "arXiv:1404.3441",
+      "title": "Bayesian nonparametric estimation of Tsallis diversity indices under Gnedin–Pitman priors"
+    }
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge mathematical originality with explicit residual risks, not an exhaustive historical-priority certificate.",
+    "Independent finite checks corroborate but do not replace infinite proofs, except the self-contained finite-set exact enumeration for the fixed family in record 4.",
+    "No external expert certification or Lean formal proof asserted.",
+    "Publication withheld pending neutral metadata sanitation and guards."
+  ],
+  "residual_risks": [
+    "Older Dirichlet joint moment formula may imply finite covariance under alternate notation",
+    "No claim of finite-m monotonicity or simultaneously varying shape CLT",
+    "Literature searches do not certify universal priority."
+  ],
+  "schema_version": 1
+}
