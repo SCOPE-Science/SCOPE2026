@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Exact verification of the weighted Birkhoff–James profile
+# Independent mathematical audit
 
-Execute `python3 verify_weighted_james.py` using only the Python 3 standard library. The checker represents every coordinate, facet, breakpoint, endpoint polynomial and quadratic discriminant with `Fraction`; it performs no floating-point comparisons. The expected confirmation is:
+## correctness
 
-`WEIGHTED_JAMES_OCTAGON_ALL_PARAMETERS_EXACT_OK test_points= 2488 critical_polynomials= 3840 lower_families= 3`
+PASS
 
-The proof's infinite weight quantification comes from exhaustive analytic reduction to 768 affine-parameter/facet pairs and algebraic root partitioning. The checker identifies every possible change in feasibility using all polynomial roots, then checks critical points and one representative point in each interval. The four paths follow from supporting functionals of the explicitly given octagon. The three witnesses are checked at each endpoint of the affine lower bound, hence for every weight. The final reflection difference is a piecewise-affine calculation on the explicitly listed six breakpoints.
+The absolute octagon has 8 signed linear facets. Signed-permutation symmetry reduces first unit vector to one vertical and one diagonal arc; supporting-functional Birkhoff orthogonality identifies precisely four affine pair families including the joint vertex normal cone. Three explicit ordered orthogonal pairs yield the lower envelope. For the upper bound, on each affine path, profile branch, and ordered facet pair the two excess expressions are affine in the path parameter, so a common positive excess could occur at endpoints or a crossing. Critical weights are roots of four endpoint polynomials and a determinant, all degree<=2; the inspected exact rational Python verifier checks these algebraic intervals with 3840 critical polynomial instances and 2488 test points. Separately reconstructed exact rational finite-path optimizations at seven rational weights matched the asserted formula, including all change points. The interval-boundary calculation then gives reflection asymmetry 1/40.
 
-Scientific limits: the checker does not investigate higher-dimensional norms or independently establish that no published equivalent formula exists. The full first version of the motivating primary preprint was available and its examples, statements, applications and references were compared; it does not give the octagonal result. No independent audit has been performed.
+## originality
+
+PASS
+
+The complete primary introduction/inequalities/examples do not calculate the octagonal Lorentz-predual space, its flat transition, or its asymmetric weight reflection. The certified exact all-λ profile yields a genuinely different exact invariant than general orthogonal James bounds.
+
+## value
+
+PASS
+
+The exact all-weight phase structure and a nonzero weight-reflection asymmetry in a signed-permutation-symmetric normed plane identify a natural qualitative phenomenon not visible from general bounds. The complete formula is an independently useful precise benchmark for the recently defined invariant; no larger theorem is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
