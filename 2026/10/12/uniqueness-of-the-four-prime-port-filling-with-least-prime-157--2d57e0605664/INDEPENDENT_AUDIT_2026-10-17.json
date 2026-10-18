@@ -1,0 +1,83 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T01:11:02.864215Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Port H=(113322,797), squarefree B=157*q*r*s with prime 157<q<r<s, identity 797B-113322*partial(B)=1. Algebra yields inherited R1=113322*157=17791554 and c1=797*157-113322=11807; for fixed q, c2=c1*q-R1, R2=R1*q, equation c2*r*s-R2*(r+s)=1 forces c2>0. From s>r>q derive 1507<=q<=4520, with 375 prime q candidates. From s>r derive r in max(q+1,R2//c2+1)..floor(2R2/c2), finitely exhaustive and safe global r bound ~1.1 million. For every q and prime r in this interval compute uniquely forced integer s=(R2*r+1)/(c2*r-R2), test exact divisibility. Independent sieve-based enumeration checked 242779 admissible prime r pairs and exactly one integral candidate (q,r,s)=(1979,10093,16879); each prime and s>r confirmed, direct integer identity verified B=52931284472141 and cB-Rpartial(B)=1. All bounds derived algebraically; no heuristic primality or failure/timeout inference. Only least-prime-157 branch, not all possible fillings.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang 2026 Port Fillings for Primary Pseudoperfect Numbers, Proposition 8.4 on primitivity and later general last-two-prime discriminant criterion"
+        ],
+        "reasoning": "Prop 8.4 establishes the product and primitive obstruction but does not bound all other least-prime-157 q,r possibilities. General discriminant parametrization does not itself exhaust the finite branch without the new cutoff and sieve.",
+        "searches": [
+          "primary pseudoperfect port filling H 113322 797 least prime 157 uniqueness 1979 10093 16879"
+        ]
+      },
+      "checked_sources": [
+        "Han Wang 2026 full original PDF arXiv:2605.21518, proposition and later classification discussion",
+        "Resultary semantic search of H=113322 c=797 and least prime 157, hit 2026/9/20/SCOPE-prime-power-pseudoperfect-local-rigidity--e2b81fad1a6a (not equivalent)",
+        "Pinned artifacts/verify.py inspected for exact q/r and s integrality census"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wang gives one four-prime primitive port filling and cautions existing smaller fillings not exhausted"
+        ],
+        "reasoning": "Existence and primitivity of one filling do not establish absence of any other; derived q/r bounds and exhaustive integral-completion check are necessary new content.",
+        "searches": [
+          "primary pseudoperfect port filling H 113322 797 least prime 157 uniqueness 1979 10093 16879"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Inherited-port Diophantine equation (11807)qrs-17791554(qr+qs+rs)=1, with 157<q<r<s prime, or a unique integer completion of a forced rational s"
+        ],
+        "reasoning": "Equivalent inherited form is algebraic, and the uniqueness of positive prime solutions in that branch is not supplied by Wang’s existence/properness result.",
+        "searches": [
+          "primary pseudoperfect port filling H 113322 797 least prime 157 uniqueness 1979 10093 16879"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Wang 2026 list of smaller H-fillings and its express incompleteness note; Resultary hit 2026/9/20/SCOPE-prime-power-pseudoperfect-local-rigidity--e2b81fad1a6a (different invariant)"
+        ],
+        "reasoning": "A known displayed product in an incomplete list is not an exact classification/table of all same-least-prime four-prime fillings. The independent exhaustive enumeration resolves that branch.",
+        "searches": [
+          "primary pseudoperfect port filling H 113322 797 least prime 157 uniqueness 1979 10093 16879"
+        ]
+      },
+      "rationale": "Wang 2026 primary paper Prop 8.4 supplies exactly the same four-prime product as a known primitive filling, but explicitly notes smaller fillings may be incomplete and does not classify all four-prime fillings beginning with 157. The uniqueness statement adds an exhaustive inherited-equation branch theorem (375 second primes and 242779 third-prime possibilities). Resultary related primary pseudoperfect facts concern a different number-theoretic notion. Source existence does not imply uniqueness.",
+      "residual_risks": [
+        "Potential unpublished computer search may independently have completed the same least-prime branch.",
+        "Other least-prime branches remain open; this does not classify all four-prime H-fillings or six-prime channels."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "One filling exhibited and port-primitive; no complete least-prime-157 four-prime uniqueness claimed. Later enumeration is additional exact fact.",
+          "evidence": [
+            "arXiv:2605.21518",
+            "Primary PDF web turn988183view2; Prop 8.4 turn813245view2, incompleteness turn813245view1, Section 15 turn813245view3"
+          ],
+          "identifier_or_url": "Han Wang, arXiv:2605.21518v1, 2026-05-18",
+          "material_read": "Full primary public PDF inspected; proposition on the displayed primitive filling, smaller-filling discussion and explicit incompleteness, and last-two-prime criterion near section 15.",
+          "method": "Opened original arXiv full PDF and inspected relevant pages/sections, not merely downloaded.",
+          "title": "Port Fillings for Primary Pseudoperfect Numbers",
+          "trigger": "Original source defining exactly H=(113322,797) and listing the same four primes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A motivated exact partial classification of a currently incomplete finite-port filling search: isolates the same least prime as a displayed key primitive filling and rules out every other four-prime filling in that natural branch, which can constrain inherited channels in a six-prime problem. This exact branch fact is not a random constant substitution or merely rechecking a known witness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only squarefree four-prime fillings whose least prime exactly 157",
+    "No statement about different least prime or all six-prime fillings"
+  ],
+  "schema_version": 1
+}
