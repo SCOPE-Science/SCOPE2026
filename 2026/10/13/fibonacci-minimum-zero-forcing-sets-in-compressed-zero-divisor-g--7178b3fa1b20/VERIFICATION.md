@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,68 +19,24 @@
 }
 ---
 
-The standalone `verify.py` artifact was read from its packaged path before replay.
+# Independent mathematical audit
 
-For each \(1\le m\le12\), it constructs the graph
-\[
-i\sim j
-\quad\Longleftrightarrow\quad
-i+j\ge m+1,
-\]
-exhaustively tests every vertex subset for zero forcing, and separately tests the “ready” condition used in the proof.
+## correctness
 
-It verifies
-\[
-Z(A_m)=\left\lfloor\frac m2\right\rfloor
-\]
-for \(m\ge2\), together with the recurrences
-\[
-a_{m+2}=2a_m+b_m,
-\qquad
-b_{m+2}=a_m+b_m,
-\]
-and the Fibonacci closed forms for both parity classes.
+PASS
 
-Independently, for
-\[
-\mathbb Z/(p^\ell),
-\qquad
-p\in\{2,3\},
-\qquad
-2\le\ell\le6,
-\]
-the checker computes every annihilator directly from ring multiplication, forms the equivalence classes, and verifies that their valuations are exactly
-\[
-1,\ldots,\ell-1
-\]
-with adjacency equal to \(A_{\ell-1}\).
+For any finite commutative chain ring with maximal ideal (pi) and nilpotency ell, nonzero zero-divisors of valuation i have annihilator m^(ell-i), so classes i=1..ell-1 and distinct classes i,j multiply to zero iff i+j>=ell. This is antiregular graph A_m,m=ell-1, independent of residue-field order. The recursion A_{m+2}=K1 join (K1 disjoint-union A_m), with a pendant vertex p and universal u, yields Z(A_{m+2})=Z(A_m)+1 and ready-ZF counter counts a_{m+2}=2a_m+b_m,b_{m+2}=a_m+b_m. Initial a2=2,b2=1 and a3=2,b3=2 produce Fibonacci formulas a_m=F_{m+1} for even m, =2F_{m-1} for odd m. Independently exhausted every subset of A_m for m=2..10 and confirmed Z, minimum-set counts (a_m:2,2,5,6,13,16,34,42,89), ready counts and base cases. Published theorem M(G)=Z(G) for all threshold graphs gives minrank=m-Z; ell=2 K1 exception gives Z=M=1,mr=0. No infinite inference from finite tests.
 
-Exact replay output:
+## originality
 
-```text
-m=1: K1 boundary, Z=1, min_sets=1, mr=0
-m=2: Z=1, min_sets=2, ready_min=2, ready_sets=1, mr=1
-m=3: Z=1, min_sets=2, ready_min=2, ready_sets=2, mr=2
-m=4: Z=2, min_sets=5, ready_min=3, ready_sets=3, mr=2
-m=5: Z=2, min_sets=6, ready_min=3, ready_sets=4, mr=3
-m=6: Z=3, min_sets=13, ready_min=4, ready_sets=8, mr=3
-m=7: Z=3, min_sets=16, ready_min=4, ready_sets=10, mr=4
-m=8: Z=4, min_sets=34, ready_min=5, ready_sets=21, mr=4
-m=9: Z=4, min_sets=42, ready_min=5, ready_sets=26, mr=5
-m=10: Z=5, min_sets=89, ready_min=6, ready_sets=55, mr=5
-m=11: Z=5, min_sets=110, ready_min=6, ready_sets=68, mr=6
-m=12: Z=6, min_sets=233, ready_min=7, ready_sets=144, mr=6
-Z/2^2: classes=1, valuations=[1], anti_regular=A_1
-Z/2^3: classes=2, valuations=[1, 2], anti_regular=A_2
-Z/2^4: classes=3, valuations=[1, 2, 3], anti_regular=A_3
-Z/2^5: classes=4, valuations=[1, 2, 3, 4], anti_regular=A_4
-Z/2^6: classes=5, valuations=[1, 2, 3, 4, 5], anti_regular=A_5
-Z/3^2: classes=1, valuations=[1], anti_regular=A_1
-Z/3^3: classes=2, valuations=[1, 2], anti_regular=A_2
-Z/3^4: classes=3, valuations=[1, 2, 3], anti_regular=A_3
-Z/3^5: classes=4, valuations=[1, 2, 3, 4], anti_regular=A_4
-Z/3^6: classes=5, valuations=[1, 2, 3, 4, 5], anti_regular=A_5
-VERIFY_OK
-```
+PASS
 
-These finite computations corroborate the recurrence and ring identification. The arbitrary finite-chain-ring theorem is proved symbolically in `RESULT.md`; the real maximum-nullity equality uses the published threshold-graph theorem cited there.
+Spiroff–Wickham established annihilator-class graphs, Levit–Mandrescu gives antiregular recursion, and Malloy already gives M=Z for every threshold graph; these premises are NOT new. A published Resultary October 4 theorem studies the UNCOMPRESSED zero-divisor graph with Z=q^(ell-1)-ell, a different graph and parameter, so it does not cover compressed antiregular minimum-set enumeration. No checked source gave the exact Fibonacci count of minimum forcing sets of compressed chain-ring graphs. Best-of-knowledge new graded minimizer census, risk of earlier antiregular zero-forcing enumeration.
+
+## value
+
+PASS
+
+The compressed ring graph forgets the residue field and is a natural canonical antiregular graph; identifying its exact zero-forcing number, real maximum nullity and especially all minimum-set Fibonacci multiplicities is an independently useful exact extremal classification. Not merely the known M=Z threshold-graph equality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
