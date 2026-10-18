@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is reconstructed from the natural homology quotient for \(\operatorname{Sub}_3(X,*)\), the reduced symmetric-square decomposition of a finite wedge, and the degree of the twist map on \(S^d\wedge S^d\). The diagonal projective-space homology and every degree range are accounted for, including \(d=1\) and \(d=2\). The finite verifier checks the resulting \(S_n\)-actions and character formulas exhaustively for all permutations through \(n=7\).
+## correctness
 
-## Originality
-PASS. The closest primary source gives a non-equivariant reduced-symmetric-square description and the one-sphere diagonal term, but not the bouquet \(S_n\)-module structure or the even/odd sign transition. Focused searches under finite-subset, bouquet, reduced-symmetric-square, equivariant, representation, permutation-module, and exterior-square terminology returned no equivalent statement. Tuffley's graph paper and Mostovoy--Sadykov's connectivity result do not imply the full all-dimensional equivariant formula as stated.
+PASS
 
-## Value
-PASS. The result is a complete natural classification of the integral homology representation for a canonical two-parameter family. It identifies a structural parity phenomenon invisible in ordinary Betti numbers: the same off-diagonal sphere indexing yields an ordinary two-subset permutation lattice in even sphere dimension and an exterior-square lattice in odd dimension. It also records every torsion degree and the diagonal permutation action.
+Kallel–Sjerve Proposition 5.6 maps reduced symmetric square of a suspension to the based third finite-subset space by adjoining the basepoint and proves an integral homology isomorphism; the underlying constructions and maps are natural for based summand permutations. A reduced second symmetric power of a wedge decomposes canonically into individual reduced symmetric squares and off-diagonal smash pieces X_i smash X_j. Example 5.7 yields Sigma^(d+1) RP^(d-1) for each diagonal sphere. Its reduced integral homology has Z/2 at odd indices 1<=r<d-1 and a top Z precisely when d even. The smash factor interchange on S_i^d smash S_j^d has degree (-1)^(d^2)=(-1)^d, so the off-diagonal top lattice is the pair permutation module (d even) or wedge^2 Z^n (d odd). Naturality justifies the claimed group action on homology despite no equivariant homotopy splitting. Checked boundary d=1,d=2 and independently enumerated oriented/unoriented pair traces for all permutations n<=6.
 
-## Closest literature and limitations
-The closest source is Kallel--Sjerve, *Remarks on Finite Subset Spaces*, especially Lemma 5.4, Proposition 5.6, and Example 5.7. Tuffley's graph calculation provides a consistency check in dimension one, and Mostovoy--Sadykov treats connectivity of bouquet finite-subset spaces. No claim is made about arbitrary self-equivalences or an equivariant homotopy splitting. An unindexed symmetric-product representation calculation remains a residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Kallel–Sjerve 2009 Proposition 5.6 and Example 5.7 provide the non-equivariant, one-sphere ingredients, not the complete integral S_n representation for an arbitrary bouquet; they are credited, not presented as novel. Tuffley’s graph case and later connectivity work do not determine the high-dimensional graded action. The parity-induced exterior-square sign is invisible to ordinary Betti counts. An unindexed equivariant symmetric-product computation could overlap, recorded as risk.
+
+## value
+
+PASS
+
+A complete integral equivariant homology calculation for the natural family of bouquets is a motivated structural invariant: it specifies signed representation lattices and torsion at all ranks, enabling character and quotient studies that ordinary homology ranks cannot answer. Even if the decomposition uses classical functors, the precise parity switch under permutation of sphere labels is independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
