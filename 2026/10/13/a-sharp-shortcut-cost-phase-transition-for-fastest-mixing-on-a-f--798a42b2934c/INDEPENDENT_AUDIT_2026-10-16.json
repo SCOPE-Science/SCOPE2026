@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T19:12:39.380096Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a 4-cycle with rates (q,a,r,b), cost tq+a+r+b=1 and Laplacian spectral gap lambda2, the test vectors u=(1,1,-1,-1), v=(sqrt(t),-sqrt(t),-1,1) are orthogonal to constants. For t<=9, the nonnegative Rayleigh multipliers alpha=(3-sqrt(t))(1+sqrt(t))/16 and beta=1/4 sum their edge energies exactly to the total budget, giving lambda2<=4/(t+2sqrt(t)+5). The proposed interior rates meet this bound with double lambda2 and larger final eigenvalue; alpha,beta>0 for t<9 force the unique equality weights. For t>=9, v3=(3,-3,-1,1) gives lambda2<=1/5-(t-9)q/5. Its equality conditions give unique path rates (0,3/10,2/5,3/10) above 9 and complete segment 0<=q<=1/15 at 9, with eigenvalues 0,1/5,3/5-6q,6/5-10q. Independent Laplacian eigensolutions confirmed interior, transition and exterior, but exact Rayleigh equality arguments establish globality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "FMMP 2006 arbitrary-cost paths and equal-cost cycles plus Result 6 (2D embedding arbitrary-cost cycle); Shakeri studies interlayer coupling of existing networks."
+        ],
+        "reasoning": "The general 2D embedding property permits solving the problem but does not imply the sharp scalar frontier, uniqueness away from t9 or full segment at t9; interlayer coupling model not a dominating parameterization.",
+        "searches": [
+          "Sun Boyd Xiao Diaconis 2006 FMMP Sections 5.2 and 5.3",
+          "Shakeri maximizing algebraic connectivity interconnected networks 1510.06785"
+        ]
+      },
+      "checked_sources": [
+        "Sun–Boyd–Xiao–Diaconis SIAM Review 48 (2006) doi:10.1137/S0036144504443821 full text",
+        "Boyd–Ghosh–Prabhakar–Shah IEEE CDC 2004 gossip paper",
+        "Shakeri et al arxiv:1510.06785 interlayer algebraic connectivity",
+        "Resultary and targeted four-cycle costs search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Path optimum matches the t>9 branch after q=0; generic cycle result merely bounds embedding dimension."
+        ],
+        "reasoning": "To establish that removing the costly edge is globally optimal precisely for t>=9 and that a critical continuum exists, the new Rayleigh dual certificate and equality analysis are required. Equal-cost cycles imply only t=1 special case.",
+        "searches": [
+          "FMMP 2006 §5.3 Result 6 optimal cycle 2D",
+          "FMMP 2006 §5.2 arbitrary-cost path"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sun et al. 2006 formulate the equivalent Laplacian lambda2 max SDP and dual geometric unfolding."
+        ],
+        "reasoning": "A generic SDP is an equivalent problem representation, not a closed theorem identifying t=9 and the full equality family. The t=1 equal-cost point is covered and explicitly conceded.",
+        "searches": [
+          "four cycle fastest mixing Markov process weighted edge cost optimal algebraic connectivity threshold shortcut edge",
+          "\"four-cycle\" \"fastest mixing\" \"unequal costs\" \"optimal\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier author PDF contains equal-cost cycle formula, no tables for distinguished-edge price t and cost-nine phase."
+        ],
+        "reasoning": "The exact phase curve is a new all-continuous-parameter optimization classification rather than recomputation of a known isolated edge-weight spectrum; unexplored specialized publications remain risk.",
+        "searches": [
+          "four cycle fastest mixing Markov process weighted edge cost optimal algebraic connectivity threshold shortcut edge",
+          "four vertex cycle edge cost t optimum spectral gap 9"
+        ]
+      },
+      "rationale": "PASS best of knowledge. Sun–Boyd–Xiao–Diaconis (2006) give the general continuous-time fastest-mixing SDP, arbitrary-cost path solution, equal-cost cycle optimum, and 2D optimal cycle embedding. Their §5.3 explicitly calls arbitrary edge-cost cycles more complicated and does not give this single-heterogeneous-price 4-cycle t=9 transition or complete nonunique optimum segment; the t=1 point is prior. Shakeri et al. interlayer algebraic-connectivity allocations and randomized-gossip cost models optimize different variables.",
+      "residual_risks": [
+        "Specialized older four-cycle variable-cost mixing solutions may encode the same threshold without using this title.",
+        "Rates are continuous and unrestricted nonnegative under one budget; result does not extend to other cost profiles, larger cycles or discrete-time mixing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers general SDP, arbitrary-cost paths, equal-cost cycles, 2D embedding; does not explicitly cover claimed heterogeneous four-cycle cost9 transition",
+          "evidence": "§5.3 pp.696–697: equal-cost cycle and statement arbitrary-cost cycles more complicated",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "material_read": "Complete 19-page SIAM Review author PDF, problem/duality setup and §§5.2–5.3 pp.695–697 including Result 6",
+          "method": "public author PDF text and rendered pp.695–697",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "closest primary spectral-gap optimization general theorem and cycle treatment"
+        },
+        {
+          "assessment": "Different discrete-time randomized gossip objective; cannot assert whole-document noncoverage",
+          "evidence": "IEEE CDC 2004, randomized gossip setting",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/gossip_opt.pdf",
+          "material_read": "Public author-provided six-page primary PDF, abstract and §I distributed gossip model, not all pages",
+          "method": "web bibliographic/initial model comparison",
+          "title": "Analysis and Optimization of Randomized Gossip Algorithms",
+          "trigger": "other budgeted mixing optimization under edge constraints"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The four-cycle is the smallest natural connected ring with a single removable edge leaving a spanning path. The exact resource-allocation phase boundary between using and deleting the shortcut, the jump in spectral multiplicity, and the full critical optimizer continuum form a motivated complete finite parametric classification not reducible to a known fixed numerical table. It provides a sharp benchmark for spectral SDP sensitivity and active-set changes.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Sun–Boyd–Xiao–Diaconis SIAM Review 48 (2006) doi:10.1137/S0036144504443821 full text",
+    "Boyd–Ghosh–Prabhakar–Shah IEEE CDC 2004 gossip paper",
+    "Shakeri et al arxiv:1510.06785 interlayer algebraic connectivity",
+    "Resultary and targeted four-cycle costs search"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Specialized older four-cycle variable-cost mixing solutions may encode the same threshold without using this title.",
+    "Rates are continuous and unrestricted nonnegative under one budget; result does not extend to other cost profiles, larger cycles or discrete-time mixing."
+  ],
+  "schema_version": 1
+}
