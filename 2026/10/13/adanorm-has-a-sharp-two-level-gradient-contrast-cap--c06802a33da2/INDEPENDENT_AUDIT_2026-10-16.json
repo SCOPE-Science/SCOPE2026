@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T22:44:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Starting with e_0=0, the two-step recurrence is e_{2n}=gamma^2 e_{2n-2}+(1-gamma)(gamma A+B). It has fixed point E_B=(gamma A+B)/(1+gamma), giving e_{2n}=E_B(1-gamma^{2n}), and e_{2n-1}=E_A-E_B gamma^{2n-1} with E_A=(A+gamma B)/(1+gamma). Since E_A<A high steps never boost. Since E_B>B the low steps eventually boost, and strict e_{2n}>B is precisely gamma^{2n}<gamma(A-B)/(gamma A+B), yielding the claimed floor-plus-one onset even at equality. The rational contrast ((1+gamma)q)/(gamma q+1) has derivative (1+gamma)/(gamma q+1)^2>0 and limit (1+gamma)/gamma. Independent exact rational recurrence for gamma=19/20, A=100, B=1 through 100 steps agrees termwise, gives E_B=640/13 and contrast 65/32=2.03125. These calculations corroborate, rather than replace, the unrestricted algebraic proof. The claim concerns corrected gradient norms, not host optimizer updates.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dubey–Singh–Chaudhuri 2022 AdaNorm abstract and primary bibliographic record describe generic low-gradient correction, not explicit periodic asymptotic bounds in the material accessible this run."
+        ],
+        "reasoning": "A general EMA definition algebraically permits computing periodic forcing, but it does not state or independently prove this strict onset and sharp all-q cap. This is not an inference that the unread full source definitively omits the result.",
+        "searches": [
+          "Web: AdaNorm 2210.06364 HTML Dubey Singh norm Eq exponential corrected gradient full text",
+          "Resultary: AdaNorm two-level alternating norm contrast sharp ceiling onset"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2210.06364 abstract; WACV 2023 publication record",
+        "Resultary searches for AdaNorm, two-cycle and alternating gradient-response formulas",
+        "Public searches for EMA low-gradient boost and gain bounds"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior EMA plus low-norm replacement is a defining premise; a separate two-step fixed-point solution and monotonicity argument are needed for the exact cap."
+        ],
+        "reasoning": "The result is a genuine consequence of the original algorithm, not independent discovery of that algorithm. The mathematical strengthening is a quantified sharp response under explicitly restricted alternating input, absent from material actually read; limited primary-text access remains a risk.",
+        "searches": [
+          "arXiv:2210.06364; compare definition of corrected norm versus theorem",
+          "Resultary: A2Grad-inc alternating gradient scaling"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2210.06364 defines the EMA-and-clamp mechanism; Resultary closest A2Grad-inc alternating-gradient scaling is a different update family."
+        ],
+        "reasoning": "Alternating forcing of a scalar EMA could also be described as a two-cycle frequency response or a steady-state norm gain. The returned other-algorithm results do not contain the AdaNorm boost rule or its cap; no directly equivalent claim was located.",
+        "searches": [
+          "Resultary: AdaNorm alternating two level gradient norms exponential moving average sharp contrast amplification bound gradient correction",
+          "Web: AdaNorm alternating gradient norm exponential moving average"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned Resultary titles on adaptive optimizers concern distinct methods (A2Grad, AdaGrad-Norm, AdaMomentum), not a table of AdaNorm alternating norms."
+        ],
+        "reasoning": "The result is a continuum gamma,q formula, not an entry in a numerical database; no exact published table or analytic curve for this AdaNorm two-cycle was identified.",
+        "searches": [
+          "Resultary: AdaNorm two-level alternating norm contrast sharp ceiling onset",
+          "Web: AdaNorm alternating gradient norm exponential moving average"
+        ]
+      },
+      "rationale": "The defining AdaNorm gradient-norm EMA and conditional low-norm boosting are prior work; the submitted contribution is a sharp periodic input-output response, a strict correction-onset index, and a gamma-only contrast cap. Resultary queries returned other adaptive optimizers, but not a stated AdaNorm two-level contrast law. This is best-of-knowledge, not proof of noncoverage, because original full text was inaccessible in this execution.",
+      "residual_risks": [
+        "Complete initiating AdaNorm article was not retrieved here; cannot infer whole-document NOT_COVERING from abstract, snippets or prior package assertions.",
+        "Any established general periodic EMA transfer-function result could make the algebraic formula routine; no claim of novel basic EMA mechanics.",
+        "No inference about momentum, variance or convergence of downstream host optimizers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS norm correction; exact periodic result cannot be excluded by full-text search in this run",
+          "evidence": "Abstract calls the correction generic and based on historical gradient norms; package defines e_t=gamma e_{t-1}+(1-gamma)||g_t||.",
+          "identifier_or_url": "arXiv:2210.06364 (Dubey, Singh, Chaudhuri; 2022)",
+          "material_read": "Primary arXiv abstract, publication metadata, and source formula cross-checked against the frozen scientific package; full original article NOT read in this run",
+          "method": "Public arXiv abstract/record; OA article attempted but not delivered; protected retrieval blocked by safety checks",
+          "title": "AdaNorm: Adaptive Gradient Norm Correction based Optimizer for CNNs",
+          "trigger": "Direct defining optimizer and possible exact two-level analysis"
+        },
+        {
+          "assessment": "Different adaptive-gradient scheme and scaling quantity; not a cover of AdaNorm EMA clamp",
+          "evidence": "Resultary summary concerns A2Grad-inc quadratic-weight step scale, not AdaNorm correction to gradient norm.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a2grad-inc-has-a-sharp-sqrt-3-alternating-gradient-scaling-advan--39646841fce0",
+          "material_read": "Published title and short ranked summary only; no full paper inspected because different algorithm",
+          "method": "Resultary semantic search",
+          "title": "A2Grad-inc has a sharp sqrt(3) alternating-gradient scaling advantage",
+          "trigger": "Published-record semantic nearest-neighbor from alternating gradient search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The simplest persistent heterogeneous gradient pattern gives an operationally interpretable worst-contrast ceiling and a finite correction-onset formula, directly quantifying the optimizer front end at its recommended gamma; the cap explains why arbitrarily disparate raw norms cannot persist in corrected contrast. This is a motivated quantitative mechanism/bound, not an unmotivated algebraic restatement or a guarantee about whole-optimizer convergence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For 0<gamma<1 and alternating positive raw gradient norms A>B, AdaNorm has explicit even/odd historical norm laws and an exact first corrected low step; high steps never change, and the sharp asymptotic high/low corrected contrast is ((1+gamma)q)/(gamma q+1)<(1+gamma)/gamma, q=A/B>1.",
+  "limitations": [
+    "Full defining paper inaccessible; originality best-of-knowledge.",
+    "Uniform upper cap applies to asymptotic two-level corrected norm contrast only, not transient or final parameter-update contrast."
+  ],
+  "schema_version": 1
+}
