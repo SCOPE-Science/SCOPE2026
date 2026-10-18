@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof gives an exact injectivity lemma for squarefree \(\sigma(s)/s\), an exhaustive disjoint decomposition \(n=dsm\), a one-squarefree-factor counting injection, and a convergent Euler product for powerful denominators. The tail estimate follows from the unique \(d=a^2b^3\) form, while Fan–Pomerance's explicitly stated rough-number theorem supplies the only sieve bound. Letting the fixed exponent parameter approach its boundary *after* the limsup establishes the numerical constant. The finite checker is only a sanity check.
+## correctness
 
-**Originality — PASS (residual risks acknowledged).** Trudgian's original full text formulates an infinitude question and lists examples; OEIS A236474 is a sequence list. The inspected published strict-comparison density study and a \(2\le a\le49\) equality-layer classification do not imply an upper bound across all integers. General Erdős–Wintner continuity implies qualitative zero density, not the exhibited prime-scale rate. An unindexed general concentration result may still dominate the theorem; searches cannot rule that out.
+PASS
 
-**Value — PASS.** This is an unconditional quantitative restriction on the entire solution set of a natural, explicitly posed arithmetic-function equality, with an absolute uniform bound applying also to all positive ratio fibers. Its object and strength do not depend on an arbitrary finite cutoff. Neither equality infinitude nor optimality of the bound is claimed.
+Multiplicativity follows from the two correct prime-power formulas. For squarefree s, R(s)=∏_{p|s}(p+1)/p is injective: after cancelling common primes, the greatest p>=5 of disjoint supports would have to divide q+1 for some q<=p prime, forcing even q=p-1; tiny supports {2,3} are directly checked. Every n=d*s*m with d powerful small-prime repeated powers, s squarefree small-prime exponent-one part, and m y-rough, pairwise coprime; at most one s for fixed (d,m,c). The published Fan–Pomerance inequality Φ(X,y)<(3/5)X/log y for 3<=y<=sqrt X applies when d<=x^(2 epsilon) with y=x^(1/2-epsilon). The unique powerful a²b³ (b squarefree) representation yields A=ζ2ζ3/ζ6 and tail sum O(z^-1/2). Remaining d give O(x^(1-epsilon)). First x→infty then epsilon→0 proves uniform limsup <=(6/5)A, independently evaluated as 2.3323157241849110461. Numerical checks are non-proofs of the infinite bound.
 
-The closest inspected original literature is Trudgian's 2013 manuscript, together with the original published equality sequence and the Fan–Pomerance rough-number theorem. The precise proof dependency and remaining scientific limitations are supplied in RESULT.md; machine reproducibility is described in VERIFICATION.md.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Trudgian states the σ*=σ^(e) equality problem and finite witnesses, but not a quantified unrestricted level-set upper bound. The closest published Resultary records establish a strict-comparison lower density and a bounded-exponent p^a q classification, neither implying the uniform maximum fiber O(x/log x). Fan–Pomerance supplies a general rough-number ingredient but not this theorem; a more general concentration theorem remains a named residual risk.
+
+## value
+
+PASS
+
+The equality σ*(n)=σ^(e)(n) is an explicit open question of Trudgian, and a uniform bound for every ratio value is a natural strengthening. The result shows every fiber, including the unknown infinitude equality fiber, is at most prime-scale O(x/log x), far stronger than finite example tables or an unquantified zero-density result. Squarefree injectivity and sieve decomposition are a substantive arithmetic mechanism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
