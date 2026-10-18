@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T05:13:37Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n=1,M=1,q~N(0,1),p=1/2 and z,rho>=0, the joint event is {-z<=q<=rho/z−z} whenever z>0. Its probability is Phi(rho/z−z)−Phi(−z), so the least feasible rho is g(z)=z[z+Phi^(−1)(1/2+Phi(−z))]. Origin (0,0) is feasible with P(q>=0)=1/2 and is handled separately: dividing by z there would be invalid. As z↓0, argument of Phi^{-1} ↑1 and g(z)/z→+∞; for any z0>0, the finite boundary slope g(z0)/z0 cannot dominate all secants from origin. Therefore some interpolation (tz0,t g(z0)) fails feasibility and the set is nonconvex. All constraints and p endpoint are allowed in the actual primary source. Proof is analytic, not numerical.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Henrion–Schmidt prove convexity only for an equivalent SEPARATE chance model and leave JOINT feasible-set convexity open; earlier work covers different formulations"
+        ],
+        "reasoning": "No broader theorem implies convexity or nonconvexity of this exact scalar joint LCP; generic nonconvexity examples do not specify this coupling.",
+        "searches": [
+          "Optimization Online 33820",
+          "DOI:10.23919/ACC55779.2023.10156516",
+          "DOI:10.1287/opre.13.6.930"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE2026 RESULT.md blob 3ed37978cbc180f4dcb3d7925ed7a024ad90814c",
+        "Henrion–Schmidt Optimization Online record 33820 complete primary PDF",
+        "DOI:10.23919/ACC55779.2023.10156516",
+        "DOI:10.1287/opre.13.6.930",
+        "Resultary semantic search for scalar Gaussian joint LCP"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source proves Gaussian convexity in separate chance model but lists joint convexity as open; explicit scalar joint counterexample refutes universal convexity"
+        ],
+        "reasoning": "Prior results do not directly imply the proposed statement; the model-specific origin/boundary mechanism is a new negative resolution according to inspected material.",
+        "searches": [
+          "Henrion–Schmidt Optimization Online full PDF open question",
+          "Henrion Schmidt chance constrained linear complementarity joint feasible set convexity 2026"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Scalar joint constraint becomes a Gaussian interval and epigraph rho>=g(z) with a feasible origin"
+        ],
+        "reasoning": "Common joint chance constraints and scalar stochastic complementarity aliases searched; no same statement found.",
+        "searches": [
+          "Joint chance constrained linear complementarity Gaussian one dimensional feasible set nonconvex scalar counterexample",
+          "Henrion Schmidt chance constrained linear complementarity joint feasible set convexity 2026",
+          "Henrion Schmidt 2026 joint chance-constrained LCP"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Proof is analytic in the Gaussian CDF and quantile, no finite/discrete table"
+        ],
+        "reasoning": "Exact numerical database/table check is inapplicable to continuum counterexample; decimal example is unnecessary.",
+        "searches": [
+          "Joint chance constrained linear complementarity Gaussian one dimensional feasible set nonconvex scalar counterexample"
+        ]
+      },
+      "rationale": "The exact joint-LCP convexity question is open in inspected 2026 primary full text, while its separate-model convexity theorem is explicitly narrower. Searches for scalar Gaussian LCP counterexamples and semantically related published results did not locate prior coverage; general nonconvexity of other chance constraints does not imply this model-specific event. Best-of-knowledge PASS with residual possibility of an independent post-source resolution.",
+      "residual_risks": [
+        "Source has an updated version after initial March release; inspected open question should be rechecked in final publication manuscript.",
+        "The example only uses p=1/2 and the exceptional feasible origin; no p>1/2 nonconvexity is proven."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The source proves convexity for the separate-chance model but leaves global convexity of joint model open; no source assertion of joint convexity is contradicted",
+          "evidence": [
+            "joint event q^xi+Mz>=0 and z^T(q^xi+Mz)<=rho; paper concluding open question on joint model convexity"
+          ],
+          "identifier_or_url": "Henrion and Schmidt, Optimization Online record 33820 / https://optimization-online.org/2026/03/chance-constrained-linear-complementarity-problems/",
+          "material_read": "Primary full PDF sections defining joint chance constraint, treatment of exceptional origin, separate-model Gaussian convexity theorem, final open question",
+          "method": "open primary publisher PDF, text and rendered page screenshots",
+          "title": "Chance-Constrained Linear Complementarity Problems",
+          "trigger": "Exact target joint model and open feasible-set convexity question"
+        },
+        {
+          "assessment": "Different dynamic contact formulation with decomposed constraints, not the scalar Henrion–Schmidt joint LCP feasible set",
+          "evidence": [
+            "Contact-rich chance constraints approximate/decompose dynamic complementarity conditions"
+          ],
+          "identifier_or_url": "DOI:10.23919/ACC55779.2023.10156516",
+          "material_read": "Accessible abstract and result description; not full paper",
+          "method": "public abstract and focused searches",
+          "title": "Chance-Constrained Optimization in Contact-rich Systems",
+          "trigger": "Chance/complementarity prior with plausible stronger counterexample"
+        },
+        {
+          "assessment": "General chance-programming nonconvexity does not instantiate the specific complementarity event and median-origin boundary",
+          "evidence": [
+            "Joint chance constraints can have nonconvex phenomena under other formulations"
+          ],
+          "identifier_or_url": "DOI:10.1287/opre.13.6.930",
+          "material_read": "Bibliographic and abstract-level material, not full argument",
+          "method": "public bibliographic search",
+          "title": "Chance Constrained Programming with Joint Constraints",
+          "trigger": "Classical general failure of convexity in joint chance constraints"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A one-dimensional exact counterexample to a specific new mathematical open question rules out universal convexity even for Gaussian data and M positive definite. It identifies the median-probability exceptional origin as the mechanism, distinguishing the joint model from the genuinely convex separate-chance model. It is a motivated boundary case rather than an arbitrary negative test.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE2026 RESULT.md blob 3ed37978cbc180f4dcb3d7925ed7a024ad90814c",
+    "Henrion–Schmidt Optimization Online record 33820 complete primary PDF",
+    "DOI:10.23919/ACC55779.2023.10156516",
+    "DOI:10.1287/opre.13.6.930",
+    "Resultary semantic search for scalar Gaussian joint LCP"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only joint chance-constrained LCP at p=1/2, n=1, Gaussian N(0,1), M=1; no statement for p>1/2.",
+    "No contradiction of separate-chance convexity theorem.",
+    "Source has an updated version after initial March release; inspected open question should be rechecked in final publication manuscript.",
+    "The example only uses p=1/2 and the exceptional feasible origin; no p>1/2 nonconvexity is proven."
+  ],
+  "schema_version": 1
+}

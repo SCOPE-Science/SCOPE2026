@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The scalar event was reconstructed directly from the source definition. The origin is feasible with probability exactly \(1/2\). On \(z>0\), the two inequalities give a Gaussian interval whose least feasible \(\rho\) is the stated \(g(z)\). The limit \(g(z)/z\to+\infty\) contradicts the segment inequality that convexity would require. No finite experiment is used as proof.
+## correctness
 
-## Originality
-PASS. The primary full text explicitly leaves convexity of the joint feasible set open. Targeted searches using source, model, scalar, Gaussian, convexity, and counterexample aliases found no equivalent statement. Related stochastic complementarity work decomposes different dynamic joint chance constraints, while classical joint-chance nonconcavity results do not imply this exact LCP feasible set.
+PASS
 
-## Value
-PASS. The result gives an exact one-dimensional negative answer to a stated 2026 structural question, and it cleanly separates the joint model from the source's Gaussian convexity theorem for the separate model. The mechanism is mathematically informative because it localizes the obstruction at the median-probability origin rather than reporting only a numerical failure.
+For n=1,M=1,q~N(0,1),p=1/2 and z,rho>=0, the joint event is {-z<=q<=rho/z−z} whenever z>0. Its probability is Phi(rho/z−z)−Phi(−z), so the least feasible rho is g(z)=z[z+Phi^(−1)(1/2+Phi(−z))]. Origin (0,0) is feasible with P(q>=0)=1/2 and is handled separately: dividing by z there would be invalid. As z↓0, argument of Phi^{-1} ↑1 and g(z)/z→+∞; for any z0>0, the finite boundary slope g(z0)/z0 cannot dominate all secants from origin. Therefore some interpolation (tz0,t g(z0)) fails feasibility and the set is nonconvex. All constraints and p endpoint are allowed in the actual primary source. Proof is analytic, not numerical.
 
-## Closest literature and limitations
-The closest primary source is Henrion--Schmidt itself; the closest complementarity application inspected is Shirai et al. The finding is limited to \(p=1/2\), makes no claim for \(p>1/2\), and does not characterize convexity on domains that exclude the origin. A classical 1965 joint-chance paper documents nonconcavity in other stochastic-programming models but does not cover this complementarity structure.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact joint-LCP convexity question is open in inspected 2026 primary full text, while its separate-model convexity theorem is explicitly narrower. Searches for scalar Gaussian LCP counterexamples and semantically related published results did not locate prior coverage; general nonconvexity of other chance constraints does not imply this model-specific event. Best-of-knowledge PASS with residual possibility of an independent post-source resolution.
+
+## value
+
+PASS
+
+A one-dimensional exact counterexample to a specific new mathematical open question rules out universal convexity even for Gaussian data and M positive definite. It identifies the median-probability exceptional origin as the mechanism, distinguishing the joint model from the genuinely convex separate-chance model. It is a motivated boundary case rather than an arbitrary negative test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
