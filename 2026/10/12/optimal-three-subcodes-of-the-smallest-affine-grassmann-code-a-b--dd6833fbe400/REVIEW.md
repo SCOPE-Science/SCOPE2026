@@ -1,15 +1,21 @@
-# Scientific review: optimal three-subcodes of \(C^{\mathbb A}(2,4)\)
+# Independent mathematical audit
 
-## Correctness: PASS
-For any three-space of the six-dimensional coefficient space, its two affine constraints either have no common zero or define a two-dimensional affine plane. The remaining determinant-containing equation gives at most \(q^2\) zeros. Equality gives a bijection with affine planes on which the determinant restricts to an affine function. In fields larger than two, equality requires a totally singular matrix two-space, one of two rank-one rulings, giving \(2q^2(q+1)\). Over \(\mathbb F_2\), the quadratic square terms become affine and the polar symplectic form yields \(15\) isotropic directions and \(60\) affine translates. Explicit independent exact enumerations for three finite fields agree. No field-size restriction is hidden in the theoretical argument.
+## correctness
 
-## Originality: PASS, with stated source-access risk
-The complete accessible Piñero–Singh author manuscript (Theorem 3.11 and Example 3.13) counts individual codewords; it does not give the numbers of optimal three-dimensional subcodes. Datta–Ghorpade addresses generalized Hamming *weight values*, and Yadav (2026) addresses the one-codeword spectrum. Neither of those latter two plausible primary preprints could be inspected in full; their abstracts and the available 2015 page index do not announce this joint-support equality-case classification. Searches of published research records and alternative geometric formulations found no same statement. An unindexed appendix or earlier plane-count translation is the principal unresolved originality risk.
+PASS
 
-## Value: PASS
-The result computes the entire optimal-subcode incidence class for the first nontrivial determinant evaluation code, not merely another individual codeword weight. This is a natural generalized-weight multiplicity statistic and distinguishes the binary field from all other finite fields, including even nonbinary fields. Its classification of actual optimal subcodes makes support patterns explicit for applications needing more information than the bare hierarchy. No significance is asserted for higher levels or for other subcode dimensions.
+For C^A(2,4), V=⟨1,a,b,c,d,det⟩ is 6-dimensional and evaluation on all q^4 matrices is injective, including q=2. A 3-dimensional subspace D of V has at most q² common zeros: if the determinant coefficient vanishes then three independent affine equations give at most q points, while otherwise two independent affine equations cut at most an affine two-plane and a determinant equation only reduces it. Equality means D is precisely the 3-dimensional kernel of evaluation on an affine plane where det restricts to an affine function. For q>2, vanishing of det on the 2-dimensional direction is equivalent to a fixed image line or fixed kernel line of rank-1 matrices, giving 2(q+1) directions and q² translates. For q=2 quadratic s²,t² reduce to linear functions and the only obstruction is the alternating nondegenerate symplectic polar pairing, giving 15 isotropic directions times 4 translates =60. Hence d3=q⁴−q², N_q=60 for q2 and 2q²(q+1) for q>2. Independent direct finite field direction enumeration confirmed 15 for q2, 8 for q3 and translation counts 60/72; this does not substitute for algebraic all-prime-power proof.
 
-## Closest sources and boundaries
-The single-codeword spectrum of Piñero–Singh (2019) is the closest fully inspected primary source. Datta–Ghorpade (2015) is closest for generalized-weight numerical values, while Yadav (2026-09-09) motivates the current family. The proof is self-contained, and finite experiments support rather than replace it. Independent checking of possible obscure earlier extremizer tables remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality of the narrow final statement, not a general absence certificate. Exact multiplicity and geometry of optimal 3-subcodes exceed known generalized weight values or codeword spectra.
+
+## value
+
+PASS
+
+The third generalized-weight *value* is background. Exact multiplicities and a complete classification of optimal 3-subcodes are independently meaningful code-support invariants, and the exceptional field-two symplectic geometry is an instructive sharp boundary not visible in generic rank-one matrix rulings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
