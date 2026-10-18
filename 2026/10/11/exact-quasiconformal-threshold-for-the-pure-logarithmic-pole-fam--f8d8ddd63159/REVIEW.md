@@ -1,68 +1,21 @@
-# Review of Exact quasiconformal threshold for the pure logarithmic pole family
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The disk automorphism centered at the pole and a conformal affine postcomposition reduce the family exactly to
-\[
-G_c(w)=1/w-c\log|w|,
-\qquad
-c=(1-p^2)A.
-\]
-Direct differentiation gives
-\[
-J_{G_c}(w)
-=
-|w|^{-4}(1+\operatorname{Re}(cw))
-\]
-and
-\[
-|\mu_{G_c}(w)|
-=
-\frac{|c||w|}
-{2|1+(c/2)w|}.
-\]
-The essential supremum is exactly
-\[
-|c|/(2-|c|).
-\]
+PASS
 
-Global univalence is not inferred from local Jacobian positivity alone. The image of every centered circle is computed explicitly, and the circles are proved strictly nested for
-\[
-|c|<1.
-\]
-The piecewise reciprocal exterior map is then a sphere homeomorphism with the same Beltrami norm. Necessity follows because every extension agrees with the prescribed map on the disk.
+Normalize with w=(z-p)/(1-pz), c=(1-p²)A. Affinely transformed G_c=1/w−c log|w| has Wirtinger Jacobian |w|^(−4)(1+Re(cw))>0 for |c|<1. Each |w|=r maps once to a circle centered at −c log r, radius 1/r; the strict nesting inequality |c|log(r2/r1)<1/r1−1/r2 gives global univalence and exterior-disk range. Internal Beltrami modulus |c|r/(2|1+cw/2|) has essential supremum s/(2−s). The glued exterior reciprocal 1/w is conformal and matches the unit-circle boundary, attaining this norm, whereas any extension must match the interior. Therefore the threshold follows exactly, including k=0 and p=0; when s≥1 no k<1 qualifies. All domain and orientation hypotheses reconstructed.
 
-## Originality
+## originality
 
-PASS with a stated classical-source residual risk. The fresh source proves only a broader strict necessary bound and a separate sufficient derivative criterion. It neither isolates the pure logarithmic family nor computes its exact minimal extension coefficient.
+PASS
 
-The source's sufficient theorem, after setting
-\[
-h=g=0,
-\]
-gives only
-\[
-|A|
-\le
-\frac{k(1-p)}
-{(1+p)(1+p^2)},
-\]
-so the accepted if-and-only-if statement is not a corollary of that theorem. The source's general bound
-\[
-|A|<2k/(1-p^2)
-\]
-also does not determine the exact subfamily threshold.
+Read Chen–Wang arXiv:2606.03306v2 primary article pages 1–3 and 8–11 in full-text access: Theorem 1.1 provides only necessary strict |A|<2k/(1−p²) and Theorem 1.2 a sufficient derivative-smallness condition; neither determines exact optimal k of pure logarithmic family. Earlier Bhowmik–Satpati results set A=0. Hengartner–Schober 1987 introduced logarithmic representation but its full original article could not be read. No matching equivalent optimal extension found in published search; best-of-knowledge PASS with named risk.
 
-Targeted searches under the normalized model
-\[
-1/w-c\log|w|,
-\]
-the original pole normalization, and exact quasiconformal-threshold formulations found no implication-equivalent published finding. The classical Hengartner--Schober paper remains a named access risk because its full text was unavailable in the inspected sources.
+## value
 
-## Value
+PASS
 
-PASS. Logarithmic singularities are the specific new feature added by the 2026 paper, while its quasiconformal-extension theorem is explicitly only sufficient and its coefficient theorem only gives a broad necessary bound.
+A sharp exact optimal quasiconformal-extension coefficient for the natural pure-logarithmic pole subfamily fills a real quantitative gap between published broader necessary and conservative sufficient estimates; gives an explicit extremizing global extension, independent of the general subclass conjecture.
 
-The pure logarithmic map is the canonical irreducible test case for those two bounds. The accepted result completely classifies that family, gives the least possible extension dilatation, and provides a simple extremal extension. It therefore supplies a natural sharp benchmark for assessing how much room remains between the new paper's general necessary and sufficient estimates.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
