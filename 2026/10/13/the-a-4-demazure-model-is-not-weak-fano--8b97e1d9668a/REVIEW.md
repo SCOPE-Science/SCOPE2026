@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Lemire's construction gives \(v_1=(\gamma_3+\gamma_4)/3\) and the two final smooth maximal cones \(\operatorname{Cone}(\gamma_1,\gamma_2,\gamma_3,v_1)\) and \(\operatorname{Cone}(\gamma_1,\gamma_2,v_1,\gamma_4)\). Their common wall therefore has primitive relation \(\gamma_3+\gamma_4-3v_1=0\). The standard smooth-toric wall formula gives anticanonical degree \(1+1-3=-1\), proving non-nefness.
+## correctness
 
-## Originality
-PASS. The initiating paper constructs the fan but does not discuss nefness or the anticanonical divisor. The closest published result from the same source computes Betti numbers and Picard rank, which do not imply a nef-cone statement. Exact, alias, wall-relation, and broader toric searches found no covering statement of the negative anticanonical degree.
+PASS
 
-## Value
-PASS. The weak-Fano verdict is a natural structural invariant of the newly constructed smooth projective toric compactification. The explicit negative curve pinpoints how the index-three subdivision changes birational positivity and rules out use of geometric tools requiring anticanonical nefness.
+The assigned RESULT.md is a negative anticanonical-degree witness for the precise smooth projective A4 fan of Lemire Proposition 7.6. Its adjacent maximal cones are <gamma1,gamma2,gamma3,v1> and <gamma1,gamma2,v1,gamma4> with primitive relation gamma3+gamma4-3v1=0. Standard smooth toric wall intersection gives (-K).C=1+1-3=-1. The relation was independently reconstructed in the five-coordinate A4 model; this is not a mere finite extrapolation. Hence -K fails nefness (weak Fano requires nef and big).
 
-The result does not compute the full Mori or nef cone and makes no claim about all Demazure models.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The model and star-subdivision rays are prior Lemire geometry; wall intersection is a classical formula. What survives as a new evaluated claim is the specific negative anticanonical curve and weak-Fano exclusion for Lemire's final Y(A4), not the fan construction, Betti numbers or criterion in general.
+
+## value
+
+PASS
+
+Whether a canonical smooth projective toric Demazure compactification is weak Fano is a motivated birational-positivity invariant. A concrete (-K)-negative invariant curve is a decisive, exact obstruction, restricting application of vanishing or weak-Fano tools; no full Mori-cone classification is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
