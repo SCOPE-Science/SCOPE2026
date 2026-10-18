@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T21:14:09.022476Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The claim concerns integers k>=2 and k-1<=d<=2k-3, all finite bipartite G and all induced H (including disconnected and empty under zero conventions). A shortest H-geodesic of length <=d alternates bipartition sides and contains at most ceil((d+1)/2)<=k-1 vertices of either side, yielding a two-color k,d-independent partition. If no k-vertex geodesic hyperedge exists, chi=1 and omega=min(|V(H)|,k-1), so ceil(omega/(k-1))=1 for nonempty H. If one exists, chi=2 and omega>=k. Any 2k-1 vertices have >=k on one bipartition side, which cannot be a geodesic hyperedge, hence omega<=2k-2. Thus ceil(omega/(k-1))=2=chi for every induced subgraph. The exact hypotheses k>=2 and d<=2k-3 are critical; beyond this strip the same proof does not apply. Small finite graph hyperedges independently reconstructed from geodesics; all-graph proof is combinatorial.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Trees are a proper subclass of bipartite graphs, and a specific k,d pair does not imply an infinite strip.",
+          "General-position coloring at d=graph diameter does not supply the hereditary normalized clique equality here."
+        ],
+        "reasoning": "Prior results do not dominate by inclusion or parameter strength: the submitted class is broader in graph types and in d,k.",
+        "searches": [
+          "Cody Detore arXiv:2601.04351 Proposition 3.6 and Questions 6.6–6.8",
+          "Chandran et al 2024 Colouring a graph with position sets arXiv:2408.13494"
+        ]
+      },
+      "checked_sources": [
+        "B. Cody and R. Detore, Metric general position extensions of classical graph invariants and perfection, arXiv:2601.04351",
+        "Resultary/2026/2026/10/4/SCOPE-exact-3-2-clique-and-3-2-domination-numbers-of-complete-multipar--5e4b0acc88e9/RESULT.md",
+        "Chandran et al, arXiv:2408.13494 (limited scope)",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited source proves trees and cycles separately; the theorem includes all bipartite graphs and infinitely many k,d pairs.",
+          "Complete-multipartite clique/ domination values do not imply hereditary equality chi=ceil(omega/(k-1))."
+        ],
+        "reasoning": "The alternation+pigeonhole two-color theorem is not a corollary of the compared statements. Classical bipartite perfectness k=2,d=1 supplies only a boundary case.",
+        "searches": [
+          "Cody Detore trees (3,2)-perfection question",
+          "general position colouring 2024 complete multipartite"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "B. Cody and R. Detore, Metric general position extensions of classical graph invariants and perfection, arXiv:2601.04351: trees (3,2)-perfect and cycles (3,2)-perfect; explicit (3,2)-perfect graph classification question.",
+          "No full-text occurrence of bipartite-class theorem in the source."
+        ],
+        "reasoning": "Equivalences considered: geodesic k-hypergraph two-coloring, graph general-position coloring, higher-order perfection, and the special (3,2) instance. No equivalent bipartite strip theorem located in inspected primary text.",
+        "searches": [
+          "k,d perfect graph geodesic hypergraph bipartite graph metric general position chromatic clique",
+          "bipartite k d perfect graph d <= 2k-3 geodesic hypergraph",
+          "Resultary semantic search: k,d perfect graph geodesic hypergraph bipartite graph metric general position chromatic clique"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary/2026/2026/10/4/SCOPE-exact-3-2-clique-and-3-2-domination-numbers-of-complete-multipar--5e4b0acc88e9/RESULT.md computes omega and domination for complete multipartite graphs at (3,2), not chi/perfection for arbitrary bipartite graphs.",
+          "No database table gives the stated hereditary strip classification."
+        ],
+        "reasoning": "The theorem is structural and quantified over all finite bipartite graphs, not a known finite lookup table or a count for selected graphs.",
+        "searches": [
+          "Resultary published (3,2) clique domination complete multipartite graph",
+          "metric general position perfect graphs known class table"
+        ]
+      },
+      "rationale": "Cody–Detore establish finite trees and cycles at (3,2), and explicitly ask which graphs are (3,2)-perfect; earlier general-position coloring works in a different fixed-cutoff setting. A related Resultary complete-multipartite theorem computes clique and domination at (3,2) but gives no hereditary bipartite perfection for an entire parameter strip.",
+      "residual_risks": [
+        "Differently termed older metric coloring/perfection result could imply this theorem without explicitly mentioning bipartite.",
+        "No statement beyond d<=2k-3, where bipartition color bound can fail.",
+        "Finite sanity checks are not the general proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not state the general bipartite strip theorem; has tree and cycle special cases",
+          "evidence": "Proposition 3.6: every tree (3,2)-perfect; Question 6.6 asks which graphs are (3,2)-perfect.",
+          "identifier_or_url": "https://arxiv.org/html/2601.04351",
+          "material_read": "Accessible complete primary arXiv HTML, definitions, Proposition 3.6 and Questions 6.6–6.8",
+          "method": "Read primary HTML, inspected definition and exact earlier scope",
+          "title": "Metric general position extensions of classical graph invariants and perfection",
+          "trigger": "Introduces exact definition, contains tree/cycle partial results and open classification question"
+        },
+        {
+          "assessment": "Earlier coloring object overlaps a special parameter regime, but no verified full-text exclusion of present theorem",
+          "evidence": "General position colorings for diameter-based regime, not full hereditary k,d strip.",
+          "identifier_or_url": "https://arxiv.org/abs/2408.13494",
+          "material_read": "Available abstract and theorem scope for general-position colorings; no claim of complete full-text reading",
+          "method": "Web arXiv bibliographic/scope comparison",
+          "title": "Colouring a graph with position sets",
+          "trigger": "Plausible equivalent general-position coloring terminology"
+        },
+        {
+          "assessment": "Computes different invariants on a subclass; not a covering theorem",
+          "evidence": "omega=2+min(2,s) and gamma classified for complete multipartite at (3,2).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-3-2-clique-and-3-2-domination-numbers-of-complete-multipar--5e4b0acc88e9",
+          "material_read": "Complete RESULT.md including theorem, proof and scope",
+          "method": "Read full published GitHub RESULT.md",
+          "title": "Exact (3,2)-clique and (3,2)-domination numbers of complete multipartite graphs",
+          "trigger": "Indexed result near same geodesic hypergraph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The primary paper explicitly asks for a classification of (3,2)-perfect graphs and establishes the tree subclass. The present theorem resolves the entire large bipartite class and an infinite natural parameter strip, with hereditary clique-chromatic equality. Although the proof is short, it gives a broad motivated structural answer rather than a tiny unmotivated improvement.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "B. Cody and R. Detore, Metric general position extensions of classical graph invariants and perfection, arXiv:2601.04351",
+    "Resultary/2026/2026/10/4/SCOPE-exact-3-2-clique-and-3-2-domination-numbers-of-complete-multipar--5e4b0acc88e9/RESULT.md",
+    "Chandran et al, arXiv:2408.13494 (limited scope)",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Differently termed older metric coloring/perfection result could imply this theorem without explicitly mentioning bipartite.",
+    "No statement beyond d<=2k-3, where bipartition color bound can fail.",
+    "Finite sanity checks are not the general proof."
+  ],
+  "schema_version": 1
+}

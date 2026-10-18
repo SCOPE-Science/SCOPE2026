@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. For every nonempty induced bipartite subgraph, alternating geodesics contain at most \(k-1\) vertices on either side when \(d\le2k-3\), so the bipartition is a \(k,d\)-proper two-coloring. If the geodesic hypergraph is empty, the normalized clique lower bound and chromatic number are both one. Otherwise a hyperedge gives \(\omega_d^k\ge k\), while pigeonhole plus alternation gives \(\omega_d^k\le2k-2\); therefore the normalized clique lower bound is exactly two. The argument is hereditary and covers disconnected graphs.
+## correctness
 
-## Originality
-PASS. Cody and Detore's primary full text proves the tree subclass only for \((k,d)=(3,2)\), separately treats cycles, and explicitly asks which graphs are \(3,2\)-perfect. A full-text search found no use of “bipartite,” and targeted searches in equivalent geodesic-hypergraph and \\(3,2\\)-perfect terminology found no implication-equivalent theorem. The older general-position-coloring literature studies a different fixed distance regime and does not supply the hereditary clique equality here. Residual risk remains from uncatalogued or differently phrased literature.
+PASS
 
-## Value
-PASS. The theorem extends classical bipartite perfection to a genuine higher-order metric-perfection strip and gives a broad answer to the new \(3,2\)-perfection problem. It strictly subsumes the known tree result and adds infinitely many parameter pairs rather than a routine isolated calculation.
+The claim concerns integers k>=2 and k-1<=d<=2k-3, all finite bipartite G and all induced H (including disconnected and empty under zero conventions). A shortest H-geodesic of length <=d alternates bipartition sides and contains at most ceil((d+1)/2)<=k-1 vertices of either side, yielding a two-color k,d-independent partition. If no k-vertex geodesic hyperedge exists, chi=1 and omega=min(|V(H)|,k-1), so ceil(omega/(k-1))=1 for nonempty H. If one exists, chi=2 and omega>=k. Any 2k-1 vertices have >=k on one bipartition side, which cannot be a geodesic hyperedge, hence omega<=2k-2. Thus ceil(omega/(k-1))=2=chi for every induced subgraph. The exact hypotheses k>=2 and d<=2k-3 are critical; beyond this strip the same proof does not apply. Small finite graph hyperedges independently reconstructed from geodesics; all-graph proof is combinatorial.
 
-## Closest literature and limitations
-The closest source is Brent Cody and Rose Detore, arXiv:2601.04351, especially Proposition 3.6 and Questions 6.6–6.8. The theorem does not address \(d\ge2k-2\), and the finite verifier is only a stress test of the analytic proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Cody–Detore establish finite trees and cycles at (3,2), and explicitly ask which graphs are (3,2)-perfect; earlier general-position coloring works in a different fixed-cutoff setting. A related Resultary complete-multipartite theorem computes clique and domination at (3,2) but gives no hereditary bipartite perfection for an entire parameter strip.
+
+## value
+
+PASS
+
+The primary paper explicitly asks for a classification of (3,2)-perfect graphs and establishes the tree subclass. The present theorem resolves the entire large bipartite class and an infinite natural parameter strip, with hereditary clique-chromatic equality. Although the proof is short, it gives a broad motivated structural answer rather than a tiny unmotivated improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
