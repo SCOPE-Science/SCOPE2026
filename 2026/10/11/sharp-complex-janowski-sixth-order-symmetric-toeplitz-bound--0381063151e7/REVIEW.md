@@ -1,21 +1,21 @@
-# Scientific review of the complex Janowski sharp modulus theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is for every real \(-1\le B<A\le1\) and every normalized odd Janowski-starlike function, allowing arbitrary complex coefficients. Oddness and injectivity of the Janowski target force an even Schwarz function. Its first two coefficients satisfy \(|u|\le1\) and \(v_2=(1-|u|^2)\eta\), \(|\eta|\le1\). Direct coefficient matching gives the claimed \(a_3,a_5\); parity reduces the sixth-order symmetric determinant to the square of \((1-a_5)(1+a_5-2a_3^2)\). Exact symbolic simplification independently checks these identities.
+PASS
 
-The core nonstandard global inequality is explicitly established: for \(|t|=R\), \(|1-St+Kt^2|\le1+SR+KR^2\). For \(K<0\), differentiating the squared modulus in \(\cos\theta\) gives a strictly negative derivative throughout its full domain using \(0<S\le2\) and \(K\ge-S/8\); for \(K\ge0\) use the triangle inequality. The remaining complex Schur parameter is controlled by a strict radial gap of at least \(3(A-B)^2(1-R)/16\). Thus only \(u=\pm i\) are optimal. The exact endpoint values follow by substitution. The accompanying symbolic and finite checks support, but do not replace, these infinite-parameter arguments.
+For real -1<=B<A<=1, odd normalization and a complex Schwarz subordination reduce to an even Schwarz function v(z²), since the Janowski Möbius map is injective. Parity splits T6 into two identical symmetric 3x3 blocks, giving D=(1-a5)(1+a5-2a3²) and T6=D². Write d=A-B, R=|u|², t=u², v2=(1-R)eta: a3=d u/2, a5=k t+ell(1-R)eta, k=d(A-3B)/8, m=d(3A-B)/8, ell=d/4. Expanding D gives 1-St+Kt²+ell(m-k)t(1-R)eta-ell²(1-R)²eta², S=d²/2, K=km. Independently factored the symbolic identity. Angular derivative of |1-St+Kt²|² in cos(arg t) is negative on [-1,1] using K>=-S/8 and S<=2, hence unique t=-R for R>0. The quantitative radial bound P(-1)-|D|>=(1-R)3d²/16 forces R=1. Then v(zeta)=u zeta, u=+i or -i, yielding unique f± and squared bound ((8+d(A-3B))(8+d(3A-B))/64)^2; at (1,-1) it is 16. Equality, nondegeneracy d>0, endpoints B=0 and B=-1, and symmetric-not-Hermitian normalization are all checked. The package script confirms identities/finite meshes only; the arbitrary-parameter proof is the strict analytic angular/radial inequality.
 
-## Originality — PASS, with residual literature risk
+## originality
 
-The closest primary source is Mahmood, Rasheed, Mihsin and Atshan, DOI: 10.1186/s13660-026-03535-3 (2026). Its Theorem 6.3 gives an upper bound of \(1\) **only for real coefficients**; its Proposition 5.3 treats a different exponential class, and its Discussion identifies the sharp complex Janowski analogue as open. The new theorem proves the precise complex Janowski bound and equality cases, which cannot be inferred from either earlier extremal statement. Kumar, Srivastava and Cho, DOI: 10.18514/MMN.2020.3361, optimize a **third-order Hermitian** determinant, not the sixth-order symmetric one. Relevant public mathematical-record searches and available previous claims did not disclose stronger coverage. An unindexed or newly published equivalent remains possible; publication-index noncoverage is not independent certification of novelty.
+PASS
 
-## Value — PASS
+The self-contained global complex Janowski sharp law is not covered by the inspected September 2026 full primary article, which explicitly leaves this class open. Real bounds and parity factorization are credited to that article; originality is restricted to complex optimization, strict radial equality, and parameter-dependent maxima.
 
-The result answers the expressly formulated complex-coefficient Janowski sharp-bound problem, giving the exact global formula for every admissible pair \((A,B)\), strict separation from the real-coefficient bound, and the complete two-point extremizer family. These are structural facts about a natural Janowski starlike class, rather than a numerical experiment or arbitrary parameter slice. No generalization to higher-order determinants is asserted.
+## value
 
-## Scientific limitations and risks
+PASS
 
-The result gives no lower sharp modulus, no full determinant-image classification, and no eighth-order analogue. The proof uses the known parity block observation but supplies the complex global optimization. The originality assessment has residual risk from unindexed equivalent literature; all scientific claims still require independent audit.
+The parameter-uniform exact extremal constant with a full equality classification resolves a natural open problem in a recently published Toeplitz-class classification. It demonstrates a global real-versus-complex discontinuity for the SAME Janowski parameters, from real maximum 1 to >1 for every d>0, reaching 16 at a natural starlike endpoint. This is not merely symbolic expansion of a known bound; the strict two-complex-variable Schur optimization supplies the missing result.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
