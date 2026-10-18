@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T14:59:01Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned record 3 RESULT.md Git blob bfb62ad40c97d4a8f29ab14eb2a0726469ab414c",
+        "P. Exner and O. Turek, Quantum graphs with the Bethe–Sommerfeld property, arXiv:1705.04363v1",
+        "P. Exner and O. Turek, Periodic quantum graphs from the Bethe–Sommerfeld perspective, arXiv:1705.07306v1, Section 5, Eq. (5.6)"
+      ],
+      "rationale": "Setting x=phi^(-2N) converts A_N to (2pi/sqrt5)(x^-1-x)tan(pi x/2). Taylor at x=0 gives g_c-A_N=(pi²/sqrt5)(1-pi²/12)x²+O(x⁴), positive leading constant. Dividing consecutive deficits yields ratio phi^-4. The Exner–Turek exact count inequalities A_N<g<=A_(N+1) invert via logarithms to N(g)=log(C_phi/(g_c-g))/(4log phi)+O(1); no uniform additive limiting constant is asserted. Mathematically correct conditional on the cited exact spectral gap theorem. Inspected source floating-point checker is corroborative only; it is not an infinite proof.",
+      "residual_risks": [
+        "The underlying existence/count theorem is assumed from a published paper, not reproved from spectral secular equations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published Section 5 supplies threshold asymptotic; original exact theorem says exactly N open gaps for A_N<g<=A_(N+1)."
+        ],
+        "reasoning": "Both the exact leading deficit and the discrete gap staircase follow from the stronger original source. An independently named ratio/counting corollary cannot restore scientific originality.",
+        "searches": [
+          "arXiv:1705.07306v1 Eq (5.6)",
+          "arXiv:1705.04363v1 exact number-of-gaps intervals"
+        ]
+      },
+      "checked_sources": [
+        "Assigned record 3 RESULT.md Git blob bfb62ad40c97d4a8f29ab14eb2a0726469ab414c",
+        "P. Exner and O. Turek, Quantum graphs with the Bethe–Sommerfeld property, arXiv:1705.04363v1",
+        "P. Exner and O. Turek, Periodic quantum graphs from the Bethe–Sommerfeld perspective, arXiv:1705.07306v1, Section 5, Eq. (5.6)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From published Δ_N~C phi^-4N, Δ_(N+1)/Δ_N→phi^-4 by division; Δ_(N+1)<=g_c−g<Δ_N implies count slope 1/(4logphi) by taking logs."
+        ],
+        "reasoning": "The new record is a trivial algebraic corollary of two theorems/formulas already within the same earlier authors’ papers; it contains no uncovered structural lemma.",
+        "searches": [
+          "arXiv:1705.07306v1 Eq (5.6)",
+          "arXiv:1705.04363v1 inequalities A_N<g<=A_(N+1)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published Eq.(5.6) evaluates F_n tan[(pi/2)(ceil(F_n phi)−F_n phi)] = pi/(2sqrt5)[1+(pi²/12−1)phi^(−2n)+O(phi^(−4n))] on the relevant even Fibonacci subsequence."
+        ],
+        "reasoning": "The claimed delta_N is exactly this published expansion rescaled by 2pi and reindexed n=2N. It is an equivalent asymptotic under Fibonacci/golden-mean notation.",
+        "searches": [
+          "Exner Turek golden ratio rectangular quantum graphs Bethe Sommerfeld number gaps logarithmic divergence threshold A_N",
+          "Exner–Turek arXiv:1705.07306v1 Section 5 Eq (5.6)",
+          "Exner–Turek arXiv:1705.04363v1 N-gap theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published primary formula rather than a lookup table already gives the coefficient pi²/sqrt5*(1−pi²/12) and exponent 4N."
+        ],
+        "reasoning": "The exact coefficient is analytically recorded in prior paper under Fibonacci subsequence notation; database title nonmatches are immaterial.",
+        "searches": [
+          "Exner Turek golden ratio rectangular quantum graphs Bethe Sommerfeld number gaps logarithmic divergence threshold A_N",
+          "Exner–Turek source Section 5 formula",
+          "Resultary quantum-graph gap-count query"
+        ]
+      },
+      "rationale": "Decisive exact coverage: Exner and Turek, arXiv:1705.07306v1, Section 5 Equation (5.6), explicitly Taylor-expand the same golden-mean Fibonacci tangent expression with coefficient (pi²/12−1)phi^(−2n). With their even-index n=2N and multiplying by 2pi, this is exactly the asserted nonzero threshold-deficit coefficient C_phi phi^(−4N). Their original gap-count interval theorem already gives the exact N intervals; the ratio and log-count are immediate standard consequences of those two published statements. Despite no identical title, all essential mathematics is covered.",
+      "residual_risks": [
+        "The source self-review incorrectly states that the prior full paper omits the threshold-deficit rate; source Equation (5.6) explicitly contains it.",
+        "The infinite-gap transition relies on the source exact N-gap theorem; this review does not independently reprove that spectral theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT prior asymptotic coverage",
+          "evidence": [
+            "Eq.(5.6) has (pi²/12−1)phi^(−2n) correction, with n=2N matching delta_N rescaling."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1705.07306",
+          "material_read": "Relevant complete Section 5, particularly displayed Equation (5.6), on PDF page 23; page-image screenshot inspected",
+          "method": "Primary PDF textual and page-image formula comparison",
+          "title": "Periodic quantum graphs from the Bethe–Sommerfeld perspective",
+          "trigger": "Same golden-ratio lattice exact asymptotic and gap boundary"
+        },
+        {
+          "assessment": "Exact N-gap staircase is published",
+          "evidence": [
+            "A_N<g<=A_(N+1) produces exactly N gaps."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1705.04363",
+          "material_read": "Golden mean example, exact threshold sequence and N-gap inequalities; PDF page-image screenshot",
+          "method": "Primary PDF mathematical statement and screenshot comparison",
+          "title": "Quantum graphs with the Bethe–Sommerfeld property",
+          "trigger": "Same exact number of gaps"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned record 3 RESULT.md Git blob bfb62ad40c97d4a8f29ab14eb2a0726469ab414c",
+        "P. Exner and O. Turek, Quantum graphs with the Bethe–Sommerfeld property, arXiv:1705.04363v1",
+        "P. Exner and O. Turek, Periodic quantum graphs from the Bethe–Sommerfeld perspective, arXiv:1705.07306v1, Section 5, Eq. (5.6)"
+      ],
+      "rationale": "While critical gap clustering is mathematically meaningful as a phenomenon, here its explicit leading constant is reproduced from Exner–Turek Eq.(5.6), and the remaining ratio and logarithmic counting are immediate textbook asymptotic inversions of their known exact N-gap intervals. No independently useful previously unknown invariant, new method, or new boundary case survives the decisive original theorem. This is a known-formula rephrasing, not an independently valuable new contribution.",
+      "residual_risks": [
+        "Rejection concerns originality/value of purported new result, not validity of the underlying established formulas."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Assigned record 3 RESULT.md Git blob bfb62ad40c97d4a8f29ab14eb2a0726469ab414c",
+    "P. Exner and O. Turek, Quantum graphs with the Bethe–Sommerfeld property, arXiv:1705.04363v1",
+    "P. Exner and O. Turek, Periodic quantum graphs from the Bethe–Sommerfeld perspective, arXiv:1705.07306v1, Section 5, Eq. (5.6)"
+  ],
+  "disposition": "failed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Scientific rejection for prior coverage; no repair can pass the original without a genuinely different new claim."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "EXACT prior asymptotic coverage",
+      "evidence": [
+        "Eq.(5.6) has (pi²/12−1)phi^(−2n) correction, with n=2N matching delta_N rescaling."
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/1705.07306",
+      "material_read": "Relevant complete Section 5, particularly displayed Equation (5.6), on PDF page 23; page-image screenshot inspected",
+      "method": "Primary PDF textual and page-image formula comparison",
+      "title": "Periodic quantum graphs from the Bethe–Sommerfeld perspective",
+      "trigger": "Same golden-ratio lattice exact asymptotic and gap boundary"
+    },
+    {
+      "assessment": "Exact N-gap staircase is published",
+      "evidence": [
+        "A_N<g<=A_(N+1) produces exactly N gaps."
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/1705.04363",
+      "material_read": "Golden mean example, exact threshold sequence and N-gap inequalities; PDF page-image screenshot",
+      "method": "Primary PDF mathematical statement and screenshot comparison",
+      "title": "Quantum graphs with the Bethe–Sommerfeld property",
+      "trigger": "Same exact number of gaps"
+    }
+  ]
+}
