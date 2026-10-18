@@ -1,0 +1,12 @@
+# Self-review
+
+## Correctness — PASS
+A de Bruijn cycle is uniquely rooted by its sole five-zero factor. All \(2^{16}\) possible local bijections between incoming and outgoing edges of the four-bit de Bruijn graph are examined; a bijection system is retained precisely when its edge permutation is one \(32\)-cycle. A separate exhaustive depth-first Euler-tour generator agrees on the entire set of \(2048\) canonical words. Independent center-expansion and direct-window palindromic-length routines agree for each word. The complete eight-bin histogram and the orbit-size refinement are checked by exact integer assertions using the included standalone `verify.py`. No unchecked numerical approximation or infinite extrapolation is used. Every order-five cycle contains `1000001`, providing an analytic lower bound \(7\), which the exhaustive enumeration proves sharp.
+
+## Originality — PASS against inspected literature
+Anisiu–Anisiu–Kása (arXiv:1002.2723) give palindrome generation and complexity results but no distribution of maximum circular palindromic-factor lengths over de Bruijn cycles; their mathematical text was inspected. Simpson (DOI 10.1016/j.tcs.2014.07.012) treats the maximum **number** of distinct palindromes in unrestricted circular words, a different statistic and object class. Its abstract and repository record were inspected, but full text was unavailable. OEIS A247000 concerns maximum distinct-palindrome counts, not maximum length. The existing exact order-five de Bruijn BWT-run histogram is mathematically a different invariant and does not imply the present length profile. Targeted research-record and literature searches found no equivalent profile. Residual risks are an earlier unindexed table or a full-text result not accessible during the comparison.
+
+## Mathematical value — PASS
+Circular palindromes measure reversal symmetry within universal cycles. The classification computes the entire longest-palindrome distribution over a canonical nontrivial finite family, finds the sharp minimum and maximum and the missing value \(14\), and refines the spectrum into reversal-complement symmetry orbits. The finite result is useful as an exact benchmark for reversal-aware construction and palindrome-avoidance questions; its precise values do not follow from the classical \(2048\) total or known distinct-palindrome and BWT-run summaries. No broader all-order theorem is claimed.
+
+Self-review: passed. Independent audit: not yet performed.

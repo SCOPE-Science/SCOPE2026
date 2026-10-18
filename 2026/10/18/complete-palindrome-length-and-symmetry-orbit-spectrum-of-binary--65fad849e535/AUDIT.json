@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The local-matchings proof exhausts all \\(2^{16}\\) bijections at the sixteen four-bit vertices and retains exactly those yielding a single 32-edge Euler circuit; each de Bruijn cycle is uniquely canonically rooted at 00000. A second edge-disjoint Euler-tour DFS independently enumerates all 2048 cycles. Two independent longest-circular-palindrome computations agree word by word; the complete integer histogram and all size-two/size-four reversal/complement orbits are asserted in the replayed standard-library code. The forced circular factor 1000001 analytically proves the common lower bound seven. All statements are finite at order five.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/html/1002.2723v1",
+        "https://doi.org/10.1016/j.tcs.2014.07.012",
+        "Simpson abstract: at most five-thirds times length distinct circular palindromes; lower examples for length divisible by three.",
+        "Anisiu Proposition 2: all length-k palindromes generated from a de Bruijn word of shorter order."
+      ],
+      "reasoning": "Neither the generic cardinality upper bound for arbitrary circular words nor a construction displaying all palindromes determines the maximal palindrome length of individual order-five de Bruijn cycles, let alone its exact histogram. The full Simpson paper was not available for exhaustive comparison; this is explicitly a residual access risk.",
+      "searches": [
+        "palindromic complexity longest palindrome de Bruijn cycles full distribution order 5",
+        "de Bruijn sequences palindromic substring maximum length n binary rotation reversal palindrome occurrence",
+        "https://doi.org/10.1016/j.tcs.2014.07.012",
+        "https://arxiv.org/html/1002.2723v1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1002.2723v1",
+      "https://doi.org/10.1016/j.tcs.2014.07.012",
+      "https://oeis.org/A247000",
+      "Exact binary closed-rich maxima at lengths 25–27 (published mathematical statement)",
+      "Exact binary two-PAL2 code sizes through length eight (published mathematical statement)",
+      "Automorphism rigidity and palindromic collapse in cyclic Sturmian lifts (published mathematical statement)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/html/1002.2723v1",
+        "https://doi.org/10.1016/j.tcs.2014.07.012",
+        "https://oeis.org/A247000",
+        "Exact binary closed-rich maxima at lengths 25–27 (published mathematical statement)",
+        "Exact binary two-PAL2 code sizes through length eight (published mathematical statement)",
+        "Automorphism rigidity and palindromic collapse in cyclic Sturmian lifts (published mathematical statement)",
+        "Previously indexed order-five de Bruijn BWT-runs histogram counts 20,22,24,26,28,30; this claim counts longest circular palindromes 7,8,9,10,11,12,13,15."
+      ],
+      "reasoning": "Known bounds for distinct-palindrome counts can hold for cycles with different longest factors and hence cannot determine frequency bins; likewise an exact BWT run histogram of transformed rotations does not determine palindromic factors of the original cycles. The string classes and their mathematical measurements differ from those in the closest retrieved palindrome/rich-word/automaton records. No inspected stronger theorem logically subsumes the full claim.",
+      "searches": [
+        "binary de Bruijn cycles order five longest circular palindromic factor exact frequency histogram lengths 7 8 9 10 11 12 13 15",
+        "palindromic complexity longest palindrome de Bruijn cycles full distribution order 5",
+        "binary de Bruijn sequence order five palindrome spectrum longest palindromic substring",
+        "de Bruijn cycle subsequence diversity BWT runs attractor combinatorics",
+        "Exact binary closed-rich maxima at lengths 25–27 (published mathematical statement)",
+        "Exact binary two-PAL2 code sizes through length eight (published mathematical statement)",
+        "Automorphism rigidity and palindromic collapse in cyclic Sturmian lifts (published mathematical statement)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/html/1002.2723v1",
+        "https://doi.org/10.1016/j.tcs.2014.07.012",
+        "A. Anisiu et al. Proposition 2 is a covering construction, not a longest-factor histogram.",
+        "Exact binary closed-rich maxima at lengths 25–27 (published mathematical statement)",
+        "Automorphism rigidity and palindromic collapse in cyclic Sturmian lifts (published mathematical statement)"
+      ],
+      "reasoning": "The complete statistic is the vector of frequencies of the longest palindromic circular factor, modulo cyclic rotation, and its reversal-complement orbit spectrum. The examined alternatives count number of distinct palindromes, palindrome complexity within an individual word, or unrestricted/other word classes, without an equivalent rotation-class-conditioned vector.",
+      "searches": [
+        "binary de Bruijn cycles order five longest circular palindromic factor exact frequency histogram lengths 7 8 9 10 11 12 13 15",
+        "palindromic complexity longest palindrome de Bruijn cycles full distribution order 5",
+        "binary de Bruijn sequence order five palindrome spectrum longest palindromic substring",
+        "\"de Bruijn\" \"longest palindrome\" distribution sequences",
+        "order 5 de Bruijn sequence length of longest palindromic substring 15",
+        "de Bruijn sequences palindromic substring maximum length n binary rotation reversal palindrome occurrence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://oeis.org/A247000",
+        "OEIS A247000 description: maximal NUMBER of distinct nonempty circular palindromes of a length-n binary word.",
+        "Established total of binary order-five de Bruijn cycles is 2048; no palindrome-conditioned table in sources inspected."
+      ],
+      "reasoning": "An OEIS table of maximal numbers of distinct circular palindromes does not record the longest palindrome length, restrict hosts to de Bruijn cycles, or refine by dihedral-complement orbits. A table of total 2048 cycles gives no breakdown by a second invariant.",
+      "searches": [
+        "binary de Bruijn cycles order five longest circular palindromic factor exact frequency histogram lengths 7 8 9 10 11 12 13 15",
+        "binary de Bruijn sequence order five palindrome spectrum longest palindromic substring",
+        "order 5 de Bruijn sequence length of longest palindromic substring 15",
+        "de Bruijn cycle palindrome 15 order five",
+        "https://oeis.org/A247000"
+      ]
+    },
+    "rationale": "A material reading of Anisiu–Anisiu–Kása (2010 arXiv HTML) yields generation of palindromes from de Bruijn words and general finite-word palindrome complexity, but no order-five longest-circular-palindrome profile. Simpson (2014) and OEIS A247000 study the count of distinct palindromes in unrestricted circular words, not maximum factor length over de Bruijn cycles. Targeted mathematical-record queries find different problems (rich-word maxima, palindrome-duplication codes, Sturmian palindrome collapse), not this histogram. The published and prior exact order-five BWT run spectrum concerns runs of a transformation, not palindrome length of the original cycle. Potential prior unindexed tables and inaccessible Simpson full text are residual originality risks; not treated as proofs of novelty.",
+    "residual_risks": [
+      "A previously unindexed or differently named complete order-five palindrome-length table may exist; search cannot establish uniqueness.",
+      "The complete text of Simpson (2014) was not available for inspection; its abstract describes a distinct invariant but an appendix could contain related finite data.",
+      "No independent human scientific audit was undertaken."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: length-specific palindrome generation from de Bruijn words and palindrome counts over unrestricted linear words do not supply the claimed all-cycle longest-length distribution.",
+        "evidence": [
+          "Section 2, Proposition 2: all length-k palindromes from a de Bruijn word of order ceil(k/2).",
+          "Section 3 defines palindrome complexity of a word; Section 4 averages numbers of distinct palindromes across unrestricted words."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1002.2723v1",
+        "material_read": "Complete HTML mathematical text, including Sections 1–4, Propositions 1–3, Theorems 1–3 and references.",
+        "method": "Read lawful public arXiv HTML version, submitted 13 February 2010.",
+        "title": "Properties of palindromes in finite words",
+        "trigger": "Direct de Bruijn/palindrome connection in title abstract and proposition."
+      },
+      {
+        "assessment": "Abstract gives bound on number of distinct palindromes in general circular words and near-sharp constructions. No exact order-five longest-length frequency statement is exposed. Full-text noncoverage is not claimed.",
+        "evidence": [
+          "The abstract states the distinct-palindrome count is less than 5n/3 for arbitrary circular words of length n."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.tcs.2014.07.012",
+        "material_read": "Public abstract, title, bibliographic description and repository file listing; full paper not retrieved.",
+        "method": "Read the lawful open repository record; journal full-text retrieval was unavailable.",
+        "title": "Palindromes in circular words",
+        "trigger": "Circular palindromic factor counting potentially relevant to the invariant."
+      },
+      {
+        "assessment": "Not covering: counts distinct palindromes over all binary circular words, whereas the present claim concerns length of the longest palindrome among order-five de Bruijn cycles.",
+        "evidence": [
+          "OEIS A247000 definition explicitly says maximal number of palindromes in a circular binary word of given length."
+        ],
+        "identifier_or_url": "https://oeis.org/A247000",
+        "material_read": "Sequence description, examples, cited paper, and accompanying program.",
+        "method": "Read public OEIS record.",
+        "title": "OEIS A247000: maximal number of palindromes in a circular binary word of length n",
+        "trigger": "Potential exact database table for circular palindromes."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "65fad849-e535-43da-84b5-8f471673d2f0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The longest circular palindromic factor is a natural reversal-symmetry invariant of universal cycles. The complete 2048-cycle census gives an exact distribution rather than one maximizer, sharp endpoints 7 and 15, an unattainable intermediate value 14, and the full 528-orbit classification under reversal and complement. The forced length-seven palindrome explains the unavoidable baseline; the exact finite spectrum is independently useful as a benchmark for reversal-aware universal-cycle constructions and palindromic-avoidance problems. Its distribution cannot be deduced from the classical count of de Bruijn cycles, distinct-palindrome bounds, or the BWT run distribution.",
+    "status": "PASS"
+  }
+}
