@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Exact inverse-state telescoping decomposes the signed error into negative reciprocal terminal tail plus positive Euler quadrature defects. Before the step cap, the inverse square-root variable decreases by epsilon/(2 sqrt(2k)) with relative O(sqrt epsilon), implying the sharp early-step count; each uncapped quadrature defect is epsilon squared/(2k) times 1+O(sqrt epsilon). The capped phase has O(epsilon^-1/2) steps and O(epsilon^3/2) aggregate defect; terminal overshoot changes reciprocal tail by O(epsilon^3/2). The result and work coefficient follow. Rational exact identity tests and finite numerical checks executed, but are not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hoel--Meo Theorem 1 establishes a broad O(epsilon) bound; it neither specifies a nonzero leading coefficient nor implies an improved tuned rate.",
+        "Stuart--Floater (1990) concerns a time transformation; Cho--Wu (2024) concerns repeated rescaling."
+      ],
+      "reasoning": "A general order-one upper bound does not imply that a particular parameter choice cancels the leading order. Classical algorithms using different updates would only dominate if a mathematical reduction to the same recurrence and signed coefficient were shown; no such reduction was identified in the consulted material.",
+      "searches": [
+        "blow-up time Euler cancellation adaptive step stopping threshold discretization error",
+        "2603.12957 Hoel Meo adaptive numerical blow-up Euler leading time error cancellation tuning k"
+      ]
+    },
+    "checked_sources": [
+      "Hoel and Meo (2026), arXiv:2603.12957v1, relevant HTML full text",
+      "Stuart and Floater (1990), algorithm summary via Hoel--Meo",
+      "Cho and Wu (2024), rescaling algorithm summary via Hoel--Meo"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The main source explicitly formulates the identical quadratic stopping algorithm and proves general first-order accuracy with O(epsilon^-1) cost.",
+        "The source numerical example fixes k=1.1 with initial value 1/2, while the cancelling parameter derived here is k=4."
+      ],
+      "reasoning": "The source is stronger on generality of the vector field; the present result is strictly sharper on one natural test equation. Neither the source broad big-O bound nor its fixed-parameter experiment implies the signed asymptotic coefficient, cancellation threshold, or the three-halves bound. The new claim does not appropriate the underlying method.",
+      "searches": [
+        "arXiv:2603.12957v1 Algorithm 1 Theorem 1 Section 4.2",
+        "Hoel Meo 2026 a priori adaptive blow-up time sensitivity Euler x'=x^2 exact asymptotic bias k cancellation superconvergence",
+        "2603.12957 Hoel Meo adaptive numerical blow-up Euler leading time error cancellation tuning k"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hoel--Meo 2026, Section 2 and Algorithm 1, arXiv:2603.12957v1; the published estimate is order epsilon.",
+        "Primary comparison: the quadratic model and its actual parameters appear in Hoel--Meo Section 4.2."
+      ],
+      "reasoning": "Alternative descriptions include terminal-time bias, inverse-state quadrature defect, sensitivity-weighted Euler blow-up estimator, and first-order error cancellation. The source gives only bounds, not the identified signed coefficient or its zero. Search nonmatches do not independently establish novelty.",
+      "searches": [
+        "Hoel Meo 2026 a priori adaptive blow-up time sensitivity Euler x'=x^2 exact asymptotic bias k cancellation superconvergence",
+        "adaptive exploding ODE hitting time x prime x squared Euler derivative step h epsilon sqrt derivative leading error cancellation",
+        "blowup time Euler numerical method error asymptotic expansion cancel stopping truncation tolerance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected source experiments plot error and work for initial value one half and k=1.1 but give no tabulated exact coefficient or tuned k.",
+        "Searches on algorithm identity, reciprocal error, and bias cancellation yielded no exact formula for this recurrence."
+      ],
+      "reasoning": "A plotted convergence rate at one parameter is not an exact database value for the full coefficient or a classification of admissible cancellation parameters. Unindexed earlier exact data are a residual possibility.",
+      "searches": [
+        "numerical blowup time sensitivity balanced truncation-discretization stopping bias tuning k 1.5 order",
+        "blow-up ODE x^2 adaptive Euler time-step leading bias constant tuned tail threshold",
+        "adaptive blow-up x squared Hoel Meo epsilon sqrt(2/(k*x0)) bias tuned parameter k"
+      ]
+    },
+    "rationale": "The directly inspected March 2026 primary paper gives the precise adaptive recurrence and order-one accuracy/work theorem, but not the sharp signed error coefficient, its unique admissible cancelling parameter or the three-halves error consequence. Classical time transformations and rescaling schemes do not directly imply the claim; indexed semantic searches found no same-claim result. This is best-knowledge originality rather than a proof of first discovery.",
+    "residual_risks": [
+      "The cited 1990 and 2024 prior works were not inspected in full; their special-case asymptotic consequences may be broader than abstracts indicate.",
+      "An unindexed earlier asymptotic expansion for an equivalent adaptive recurrence cannot be ruled out merely by the completed searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defining primary prior art, but a broader O(epsilon) estimate does not state or force the signed quadratic coefficient or tuned cancellation",
+        "evidence": [
+          "Algorithm 1 uses h=epsilon/sqrt(b prime(min(k*x,r)))",
+          "Theorem 1 proves O(epsilon) accuracy and O(epsilon^-1) cost",
+          "Section 4.2 uses quadratic b with x0=1/2 and k=1.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.12957v1",
+        "material_read": "HTML full paper, with detailed reading of Assumption A, Algorithm 1, Theorem 1 and proof, Section 4.2, conclusion and cited relevant references",
+        "method": "Direct comparison of stopping threshold, Euler step formula, claimed convergence order, and the exact coefficient derived here",
+        "title": "A priori adaptive numerical methods for estimating blow-up times of autonomous ODEs",
+        "trigger": "Identical underlying one-dimensional sensitivity-adaptive algorithm and identical quadratic numerical example"
+      },
+      {
+        "assessment": "Methodologically distinct; inaccessible full source remains a bibliographic risk",
+        "evidence": [
+          "Hoel--Meo Sections 1 and 4.2 attribute a time-transformation approach to this source"
+        ],
+        "identifier_or_url": "Stuart and Floater, IMA Journal of Numerical Analysis 10 (1990), 169-193",
+        "material_read": "Secondary source discussion in Hoel--Meo Sections 1 and 4.2; no direct full text",
+        "method": "Classify method based on stated time-variable transformation, without making whole-document negative coverage claims",
+        "title": "On the computation of blow-up",
+        "trigger": "Cited early numerical blow-up method in the main source"
+      },
+      {
+        "assessment": "Different algorithm, but full-text equivalence has not been excluded",
+        "evidence": [
+          "Hoel--Meo identifies repeatedly rescaled first-order time estimation for power growth ODEs"
+        ],
+        "identifier_or_url": "Cho and Wu, Numerical Algorithms (2024)",
+        "material_read": "Secondary source discussion in Hoel--Meo Sections 1 and 4.2; no direct full text",
+        "method": "Identify rescaling rather than this sensitivity-weighted per-step rule; reserve uncertainty on material not inspected",
+        "title": "On the convergence of the numerical blow-up time for a rescaling algorithm",
+        "trigger": "Older exact scalar blow-up numerical analysis cited alongside the main algorithm"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "744121da-d42d-4c9c-b48d-91469afcc554",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The actual source method has a free admissible sensitivity guard k. The sharp coefficient identifies a physically meaningful balance between Euler delay and omitted post-threshold blow-up tail, yielding a nontrivial 3/2 convergence upper bound rather than the source generic order-one upper bound, with the same Theta(1/epsilon) evaluations. The parameter is natural to the real algorithm, not an arbitrary statistic. This is an intentionally narrow scalar benchmark and not a general speedup.",
+    "status": "PASS"
+  }
+}
