@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T11:13:12Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every positive diagonal A=diag(lambda_i), one Rademacher sketch column s gives q=D_s p with p=lambda/sqrt(S2). Because D_s commutes with diagonal A, its deflated residual is D_s(I-ppT)A(I-ppT)D_s, and an independent Rademacher probe remains iid after multiplying by fixed D_s. Thus the entire conditional law is sketch-invariant, not merely moments. Rank-one expansion gives T_hat = sum(lambda)+mu - (2/(ell*S2))*sum(U_a V_a) + S3/(ell*S2^2)*sum(U_a^2). Rademacher quadratic variance 4 sum_i<j B_ij^2 divided by ell yields the exact positive expression; choosing max lambda_i shows nonvanishing for all n>=2 positive spectra. Flat lambda I specializes to lambda(n+1) - lambda/(n ell) sum W_a^2, variance 2lambda^2(n-1)/(n ell), and n2 ell1 gives lambda or 3lambda equally. For fixed ell independent sign CLT plus continuous mapping gives centered chi-square limit. Limits: Rademacher diagonal coordinates only, one sketch column, exact products.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gambhir establishes variance inflation for a different SVD-based deflation ensemble; enhanced Hutch++ bounds are broad expected-performance controls but do not determine every support atom conditional on arbitrary diagonal lambda."
+        ],
+        "reasoning": "Distinguish known qualitative harm of deflation from the new exact law in a different specific stochastic ensemble.",
+        "searches": [
+          "Gambhir et al. arXiv:1603.05988 Theorem 2.6",
+          "Persson et al. arXiv:2109.10659"
+        ]
+      },
+      "checked_sources": [
+        "Meyer, Musco, Musco and Woodruff, Hutch++: Optimal Stochastic Trace Estimation, arXiv:2010.09649",
+        "Persson, Cortinovis and Kressner, Improved variants of the Hutch++ algorithm, arXiv:2109.10659",
+        "Gambhir, Stathopoulos and Orginos, Deflation as a method of variance reduction for estimating the trace of a matrix inverse, arXiv:1603.05988",
+        "Resultary live semantic search for: Resultary semantic Hutch++ Rademacher rank one diagonal matrix conditional distribution"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published Rademacher sketch recipe plus standard quadratic-form algebra allows reconstruction, but the inspected prior statements do not assert conditional invariance or the full U,V law. A qualitative warning does not imply formula and limiting chi-square fluctuation."
+        ],
+        "reasoning": "Mathematical derivation remains specific nontrivial exact probabilistic characterization, with foundations and phenomenon credited.",
+        "searches": [
+          "Meyer arXiv:2010.09649 algorithm and Gaussian variance analysis",
+          "Gambhir arXiv:1603.05988 Theorem 2.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Conjugation of Rademacher quadratic forms gives a weighted-sign-sum characterization absent in inspected estimator theory."
+        ],
+        "reasoning": "Exact joint U,V finite-sample distribution is not established by a generic variance inequality.",
+        "searches": [
+          "Resultary semantic Hutch++ Rademacher rank one diagonal matrix conditional distribution",
+          "Meyer et al. arXiv:2010.09649 Algorithm 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No entry with all-positive diagonal law or two-point low-budget output was identified; related results address other stochastic estimators."
+        ],
+        "reasoning": "This is a distribution family rather than a finite known table; failure of search is a residual-risk statement only.",
+        "searches": [
+          "Resultary semantic: Hutch++ Rademacher rank one diagonal output law exact finite sample",
+          "Search for isotropic Hutch++ three query two point {lambda,3lambda} distribution"
+        ]
+      },
+      "rationale": "Prior-work comparisons credit foundational techniques and potential broader theorems. No actually inspected source has a theorem that entails the complete claimed new invariant/formula at the assigned parameters; real full-text gaps are identified as residual risk. The exact mathematical implication comparison is given in four named checks.",
+      "residual_risks": [
+        "Qualitative variance inflation under deflation is prior art; uniqueness is claimed only for the exact sketch-conditional all-spectrum Rademacher law.",
+        "The law does not hold unchanged after arbitrary orthogonal similarity; Rademacher signs are basis-dependent.",
+        "Gaussian sketch, multi-column sketch and large-query behavior are excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ALGORITHM_PRIOR_NOT_FULL_LAW",
+          "evidence": "Rademacher sketch and residual probes are prior; Gaussian-sketch variance discussion does not supply this exact conditional diagonal distribution.",
+          "identifier_or_url": "https://arxiv.org/abs/2010.09649",
+          "material_read": "Primary PDF Algorithm 1 and variance-analysis passages with visual page confirmation",
+          "method": "Full source PDF relevant pages",
+          "title": "Hutch++: Optimal Stochastic Trace Estimation",
+          "trigger": "Identical underlying algorithm and one-column Rademacher sketch"
+        },
+        {
+          "assessment": "PRIOR_PHENOMENON_DISTINCT_ENSEMBLE",
+          "evidence": "Variance can increase after spectral SVD deflation, but the model is singular-vector and random-unitary ensemble, not rank-one data-dependent Rademacher sketch on fixed diagonal A.",
+          "identifier_or_url": "https://arxiv.org/abs/1603.05988",
+          "material_read": "Original PDF Theorem 2.6, expected-variance model and discussion, with page screenshot",
+          "method": "Primary arXiv PDF",
+          "title": "Deflation as a method of variance reduction for estimating the trace of a matrix inverse",
+          "trigger": "Potential stronger prior exact deflation variance theorem"
+        },
+        {
+          "assessment": "RELATED_NOT_DECISIVE",
+          "evidence": "Variance-mitigation variants and Gaussian/Rademacher choices do not from inspected material imply sketch-conditional exact full law.",
+          "identifier_or_url": "https://arxiv.org/abs/2109.10659",
+          "material_read": "ArXiv abstract and accessible algorithm/sampling descriptions; not full theorem-by-theorem source",
+          "method": "Primary abstract/description",
+          "title": "Improved variants of the Hutch++ algorithm for trace estimation",
+          "trigger": "Alternative estimator and diagonal/flat regime"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an exact full output law, not another generic trace estimator error bound. One-sign-column Hutch++ introduces positive error on diagonal matrices where classic Rademacher Hutchinson is deterministic, and the sketch-sign invariance and chi-square limit quantify precisely the low-budget regime. It motivates probe allocation and inference even though overall recommended Hutch++ high-query complexity and prior warnings about deflation are not challenged.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Qualitative variance inflation under deflation is prior art; uniqueness is claimed only for the exact sketch-conditional all-spectrum Rademacher law.",
+    "The law does not hold unchanged after arbitrary orthogonal similarity; Rademacher signs are basis-dependent.",
+    "Gaussian sketch, multi-column sketch and large-query behavior are excluded."
+  ]
+}

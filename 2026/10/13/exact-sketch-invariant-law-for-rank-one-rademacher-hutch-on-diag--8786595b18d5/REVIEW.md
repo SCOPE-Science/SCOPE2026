@@ -1,17 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The sign sketch produces a coordinate-sign conjugate of one fixed rank-one projector. Because independent residual signs are invariant under this conjugation, the entire conditional output law is independent of the sketch. Expanding the fixed residual matrix gives the two-weighted-sign-sum law. The off-diagonal Rademacher variance identity proves the spectral variance expression; choosing a maximal eigenvalue proves strict positivity. The isotropic random-walk fourth moment proves the exact finite distribution and variance. Exhaustive rational enumerations guard the algebra but do not replace its all-dimensions proof.
+PASS
 
-Limits: strictly positive diagonal spectra, one sign-sketch column, exact arithmetic. Further residual probes reuse the same rank-one sketch; non-diagonal or Gaussian-sketch cases are not asserted.
+For every positive diagonal A=diag(lambda_i), one Rademacher sketch column s gives q=D_s p with p=lambda/sqrt(S2). Because D_s commutes with diagonal A, its deflated residual is D_s(I-ppT)A(I-ppT)D_s, and an independent Rademacher probe remains iid after multiplying by fixed D_s. Thus the entire conditional law is sketch-invariant, not merely moments. Rank-one expansion gives T_hat = sum(lambda)+mu - (2/(ell*S2))*sum(U_a V_a) + S3/(ell*S2^2)*sum(U_a^2). Rademacher quadratic variance 4 sum_i<j B_ij^2 divided by ell yields the exact positive expression; choosing max lambda_i shows nonvanishing for all n>=2 positive spectra. Flat lambda I specializes to lambda(n+1) - lambda/(n ell) sum W_a^2, variance 2lambda^2(n-1)/(n ell), and n2 ell1 gives lambda or 3lambda equally. For fixed ell independent sign CLT plus continuous mapping gives centered chi-square limit. Limits: Rademacher diagonal coordinates only, one sketch column, exact products.
 
-## Originality — PASS
+## originality
 
-The 2020 Hutch++ original provides the sign sketch but only generic variance bounds, and its later explicit-variance analysis uses a Gaussian sketch. The 2021 improved-Hutch++ paper describes the sign option and adaptive allocation but not the all-spectrum rank-one conditional distribution. The 2016 Gambhir–Stathopoulos–Orginos paper already proves variance can increase under spectral deflation, so that phenomenon is prior; it does not yield the data-dependent sign-sketch law. Practitioner material also notes diagonal Hutchinson exactness, which is not claimed as new. Focused indexed searches and primary-literature comparisons found no implication-equivalent conditional law, though an unindexed treatment remains possible.
+PASS
 
-## Value — PASS
+Prior-work comparisons credit foundational techniques and potential broader theorems. No actually inspected source has a theorem that entails the complete claimed new invariant/formula at the assigned parameters; real full-text gaps are identified as residual risk. The exact mathematical implication comparison is given in four named checks.
 
-The three-query case is the smallest complete Hutch++ run, and diagonal positive matrices are the natural exactness class for sign-probe trace estimation. The complete distribution and nonrandom sketch-conditional variance quantify failure of variance reduction in the finite-matvec regime for every diagonal spectrum, not just a hand-picked point. A bivariate weighted-Rademacher representation enables exact discrete risk calculations and an explicit two-point worst-case error at the smallest nontrivial dimension. The centered chi-square limiting error remains nondegenerate as dimension grows at fixed residual-sample count, making the warning relevant beyond the smallest illustrative matrix. This gives an exact quantitative calibration for budgeting a rank-one control-variate sketch.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+This is an exact full output law, not another generic trace estimator error bound. One-sign-column Hutch++ introduces positive error on diagonal matrices where classic Rademacher Hutchinson is deterministic, and the sketch-sign invariance and chi-square limit quantify precisely the low-budget regime. It motivates probe allocation and inference even though overall recommended Hutch++ high-query complexity and prior warnings about deflation are not challenged.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
