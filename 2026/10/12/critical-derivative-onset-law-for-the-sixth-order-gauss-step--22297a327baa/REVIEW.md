@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The pole geometry is reduced to the cubic denominator; a strict, exact residue inequality establishes the positive critical margin. A resultant gives the irreducible polynomial of the double-angle cosine, proving irrationality of the critical pole angle. The resulting uniform rotation-hitting argument supplies the upper first-negative-order bound, while pole-amplitude comparison gives the matching lower bound. The attached checker verifies all critical polynomial reductions and an exact finite absorbing-chain witness. Its finite numerical samples are expressly not substituted for the proof.
+## correctness
 
-**Originality — PASS with a precise restriction.** Lóczi and Ketcheson (arXiv:1303.6651, Theorem 4.1) explicitly prove the same radius \(\rho\) and write the pole/residue formula; those facts are already known and not newly claimed. The reviewed proposition is instead the precise asymptotic \(\lim_{s\downarrow\rho}(s-\rho)k_*(s)=C\), where \(k_*\) is the first negative derivative index. The inspected full relevant theorem and surrounding literature do not state that derivative-index law, the degree-three nonintegrality obstruction for the pole angle, or the resulting quantitative finite-chain witness scaling. Residual risk: equivalent quantified onset could exist in other absolute-monotonicity or analytic-combinatorics literature.
+PASS
 
-**Value — PASS.** The first negative derivative controls when the classical nonpositivity obstruction becomes visible in finite nilpotent pure-birth tests. The exact inverse-distance law gives the state-size growth of a canonical witness construction near the boundary, resolving a natural quantitative question left open by knowing the radius alone. It is not claimed to be the minimum state size among all generator classes.
+The [3/3] Padé/Gauss stability function has one positive real pole a and pair α±iβ; first derivative coefficient signs are U-W exp[(k+1)λ(s)]cos[(k+1)θ(s)+φ], U>W. Pole equal-distance radius ρ solves ρ³+6ρ²-40=0. λ(ρ)=0, λ’(ρ)=(a-α)/(a+ρ)²>0. The primitive irreducible nonmonic polynomial 25t³-195t²+534t-353 of t=2cos(2θ(ρ)) precludes t being integral and proves irrational θ(ρ)/π. Lower amplitude barrier and compact finite-cover rotation hitting give matching asymptotics lim(s-ρ)k*(s)=[(a+ρ)²/(a-α)]log(U/W)=3.809808603810598... . Exact nilpotent pure-birth R(sG) coefficient gives a finite negative entry for each s>ρ. Independent numeric high-precision pole/onset examples and inspected symbolic verifier support but do not prove the continuum limit.
 
-**Closest literature and limitations.** Classical exact radius and pole data: Lóczi–Ketcheson (2014), Theorem 4.1. General linear absolute monotonicity: Ketcheson (2008), §2. Distinct stage-level SSP zero: Ketcheson–Macdonald–Gottlieb (2009), §2.5. The verification samples finite parameter choices; the proof covers the limiting real continuum. An independent review of equivalence with broader analytic-combinatorics results remains appropriate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact radius and pole residue data are explicitly prior to Lóczi–Ketcheson Theorem 4.1 (2013/14); the assessment claims only the derivative-index onset constant, nonresonance proof and quantitative canonical chain witness. Relevant theorem text does not state the first-negative-index law; potential analytic-combinatorics equivalent asymptotic remains a residual risk.
+
+## value
+
+PASS
+
+A radius alone says some derivative becomes negative but gives no near-boundary witness depth. The sharp inverse-distance onset quantifies the growth in derivative order (and canonical absorbing-chain dimension), a natural quantitative positivity boundary. It does not assert minimal dimension over all Markov generators or SSP stage positivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
