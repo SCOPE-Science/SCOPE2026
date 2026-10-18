@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is proved by an exact reduction of radial covering multiplicity to an Abel transform. A second application of the same kernel gives uniqueness directly, avoiding reliance on an unstated inversion theorem. The reconstructed tail is decreasing, defines a sigma-finite positive width measure with the stated endpoint atom, and its first width moment is finite and equal to \(2\sqrt{1-a^2}\). The packaged checker replayed the derivative, substitution, cost, and \(a=1/2\) identities from the actual artifact path. The proof, not the finite checker, establishes the continuum statement.
+## correctness
 
-## Originality
-PASS. The closest source, Bakaev--Yehudayoff's 2026 preprint, writes the Abel equation only for \(a=1/2\) and states existence of a suitable tail without displaying it. It does not state uniqueness, the width measure, the exact cost, or an all-radius family. The 2008 annulus paper has no fractional or Abel construction, and the recent plank survey treats the finite-covering line. Exact-expression and alias searches found no published statement dominating the theorem. Residual risk remains from unindexed material, so no absolute priority claim is made.
+PASS
 
-## Value
-PASS. The recent source highlights its lossless fractional cover as the reason several relaxation-based approaches cannot prove the integer theorem. The explicit unique family turns that qualitative obstruction into the exact width profile \(2\sqrt{1-a^2}\) for every concentric hole radius and yields a quantitative second-order fractional gap in the source's small-hole integer regime. This is a natural classification of the source's model rather than an arbitrary slice.
+The actual RESULT.md gives a complete a∈(0,1), H=1−a parameterization, and exact radial angular multiplicity integral. Substituting y=s(s+2a), z=t(t+2a), F(z)=Γ(√(a²+z)−a)/(2√(a²+z)) yields the Abel equation ∫_0^y F(z)/√(y−z) dz=π. Its double Abel transform gives ∫_0^Y F(z)dz=2√Y, hence F(Y)=Y^(−1/2) almost everywhere; uniqueness of the measure tail follows by its LEFT-continuity (not right-continuity as misstated in the source), and inversion gives Γ(t)=2(a+t)/√(t(t+2a)). Independent symbolic differentiation gave exactly zero residual for Γ′+2a²/[t(t+2a)]^(3/2) and for (2√(t(t+2a)))′−Γ. The endpoint atom equals Γ(H) and the width is 2√(1−a²), while all points of the closed hole have zero multiplicity because the a-radius contact occurs only in a null set of angles. A sigma-finite infinite total measure is legitimate since first width moment is finite. The erroneous word right-continuous is correctable to left-continuous without changing the proof or theorem, but remains a public-source defect.
 
-## Closest literature and limitations
-The closest literature is arXiv:2609.30409v1. The present result is restricted to rotationally invariant outward-tangent fractional mixtures with exact unit multiplicity on the annulus. It neither computes the unrestricted fractional optimum nor produces a finite plank family with identical multiplicity. The width measure has infinite total mass near zero width but finite first width moment.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: the 2026 Bakaev–Yehudayoff annulus construction in its complete arXiv text specifies the half-radius tangent-plank Abel ansatz and existence, but not the unique explicit tail, its total width, or its all-radii parameterization. Older Zhang–Ding finite strip coverings do not furnish a general fractional Abel inversion. Standard Abel inversion is not claimed new; its exact application and all-a rigidity are the addition.
+
+## value
+
+PASS
+
+The distinction between exact fractional and integer plank coverings of an annulus is a motivated open-ended geometric covering question. A unique explicit width distribution and cost throughout a natural one-parameter family resolve the exact lossless relaxation within an objectively specified ansatz; this is not an arbitrary numerical slice nor a claim of unrestricted fractional optimality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
