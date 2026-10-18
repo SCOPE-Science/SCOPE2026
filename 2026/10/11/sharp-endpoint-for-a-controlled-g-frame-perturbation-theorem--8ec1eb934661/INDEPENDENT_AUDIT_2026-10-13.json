@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T12:11:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The diagonal ℓ² construction uses Λ_n f=〈f,e_n〉 and Γ_n f=n^−1〈f,e_n〉 with T=U=I. The Λ energy equals ||f||² (A=B=1), Γ energy ≤||f||² and Γ is complete since each coefficient is nonzero, but for f=e_N its energy N^−2 tends to 0: not a g-frame. The mixed operator is diag(1/n); ||S−I||=sup_n(1−1/n)=1=A and inverse diag(n) unbounded, exactly refuting the printed equality endpoint without finite approximations. For λ<A, S_Λ≥A I and ||S−S_Λ||≤λ give ||S f||≥(A−λ)||f||; applying the same to adjoints yields dense+closed range and bounded inverse. The original Cauchy–Schwarz argument gives Γ lower bound (A−λ)²/B. There is no hidden endpoint equality.",
+      "risks": [
+        "Requires invertible controllers and source mixed-operator definition; counterexample uses valid identity-controller specialization."
+      ],
+      "sources": [
+        "Frozen RESULT.md blob c4d5cd2ef51b252c3cc96b8f8b2ef220a3c33860",
+        "arXiv:1709.00585v1 Theorem 3.4 and Proposition 3.5"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Leng source Theorem 3.4 is the purported broader result but is false at λ=A; Proposition 3.5 itself assumes strict ε<1.",
+          "Rahimi–Fereydooni arXiv:1204.1359 develops the controlled g-frame setting, not the particular mistaken closed endpoint."
+        ],
+        "reasoning": "A general strict small-perturbation theorem implies the repaired positive branch, not the published counterexample, so the false endpoint claim is not covered by a correct stronger result.",
+        "searches": [
+          "Resultary: Li Leng controlled g frame Theorem 3.4 lambda equals A endpoint counterexample non-invertible strict perturbation",
+          "arXiv:1709.00585v1 Li–Leng Theorem 3.4 and Proposition 3.5",
+          "arXiv:1204.1359 Rahimi–Fereydooni controlled g-frames",
+          "Resultary 2026/10/11/SCOPE-a-scalar-counterexample-to-a-controlled-k-g-frame-perturbation-t--6d39fcdcb597"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1709.00585v1 Theorem 3.4, Proposition 3.5",
+        "arXiv:1204.1359",
+        "doi:10.1215/20088752-2019-0012 (later publication metadata)",
+        "Resultary search for exact theorem equality and diagonal witness"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original Theorem 3.4 hypothesis 0≤λ≤A includes λ=A=1, but Γ_n=e_n*/n has lower energy N^−2→0 and S=diag(1/n) inverse unbounded.",
+          "Source proof provides strict λ<A argument."
+        ],
+        "reasoning": "The corrected theorem and explicit counterexample are not logically supplied by the original theorem as a VALID statement; they identify and repair its exact incorrect endpoint. Routine Neumann arguments support correctness but a motivated falsification of an extant mathematical claim has standalone value.",
+        "searches": [
+          "Resultary: Li Leng controlled g frame Theorem 3.4 lambda equals A endpoint counterexample non-invertible strict perturbation",
+          "arXiv:1709.00585v1 Li–Leng Theorem 3.4 and Proposition 3.5",
+          "arXiv:1204.1359 Rahimi–Fereydooni controlled g-frames",
+          "Resultary 2026/10/11/SCOPE-a-scalar-counterexample-to-a-controlled-k-g-frame-perturbation-t--6d39fcdcb597"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Endpoint claim equivalent to assertion ||S−S_Λ||≤A forces S boundedly invertible even at equality; counterexample S=diag(1/n), S_Λ=I disproves it.",
+          "An elementary Neumann perturbation theorem with strict operator norm ||S−S_Λ||<A is known; the source incorrectly included the sharp equality boundary."
+        ],
+        "reasoning": "This is an explicit correction of a quoted quantified theorem; prior abstract Neumann invertibility proves the strict side but cannot rescue the falsely included endpoint.",
+        "searches": [
+          "Resultary: Li Leng controlled g frame Theorem 3.4 lambda equals A endpoint counterexample non-invertible strict perturbation",
+          "arXiv:1709.00585v1 Li–Leng Theorem 3.4 and Proposition 3.5",
+          "arXiv:1204.1359 Rahimi–Fereydooni controlled g-frames",
+          "Resultary 2026/10/11/SCOPE-a-scalar-counterexample-to-a-controlled-k-g-frame-perturbation-t--6d39fcdcb597"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No finite numerical database needed; the ℓ² diagonal family is explicit at each natural index N and the operator norm is an exact supremum.",
+          "Resultary related scalar controlled K-g-frame counterexample concerns different theorem/source."
+        ],
+        "reasoning": "Failure is infinite-dimensional bounded-below failure, so truncation to a finite matrix would miss the essential obstruction; no known-table recomputation.",
+        "searches": [
+          "Resultary: Li Leng controlled g frame Theorem 3.4 lambda equals A endpoint counterexample non-invertible strict perturbation",
+          "arXiv:1709.00585v1 Li–Leng Theorem 3.4 and Proposition 3.5",
+          "arXiv:1204.1359 Rahimi–Fereydooni controlled g-frames",
+          "Resultary 2026/10/11/SCOPE-a-scalar-counterexample-to-a-controlled-k-g-frame-perturbation-t--6d39fcdcb597"
+        ]
+      },
+      "rationale": "PASS best of knowledge. The original Li–Leng full arXiv preprint Theorem 3.4 explicitly includes 0≤λ≤A and concludes invertibility of the mixed operator and a g-frame bound; its proof derives a lower estimate A−λ and inadvertently treats zero as positive at λ=A. The proposed complete diagonal ℓ² witness shows the actual published endpoint false even for complete Γ; the correct λ<A condition follows from the original two-sided bounded-below argument. No matching earlier erratum or diagonal endpoint witness emerged in targeted actual searches. Other published SCOPE controlled-g-frame counterexamples address different K/g-fusion/weaving hypotheses and are not this theorem.",
+      "residual_risks": [
+        "An unindexed published erratum or prior thesis remark may already state the λ=A counterexample.",
+        "The correction concerns only Li–Leng Theorem 3.4, not all controlled perturbation results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem includes ≤A and its proof loses positivity at equality; strict condition in subsequent proposition.",
+          "evidence": [
+            "Theorem 3.4 printed 0≤λ≤A",
+            "Proof line ||S f||≥(A−λ)||f||",
+            "Proposition 3.5 perturbation parameter 0<ε<1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1709.00585",
+          "material_read": "Full original preprint relevant definitions, Theorem 3.4 p.8, proof and Proposition 3.5 p.9.",
+          "method": "Lawful arXiv PDF read with actual PDF-page screenshot.",
+          "title": "Generalized frames and controlled operators in Hilbert space",
+          "trigger": "Claim explicitly challenges Theorem 3.4 equality endpoint"
+        },
+        {
+          "assessment": "Background framework, no verified exact endpoint correction.",
+          "evidence": [
+            "Li–Leng RESULT.md references Rahimi–Fereydooni as prior framework."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1204.1359",
+          "material_read": "Metadata/abstract and theorem context where available, not asserted read in full.",
+          "method": "Lawful arXiv discovery.",
+          "title": "Controlled G-Frames and Their G-Multipliers in Hilbert spaces",
+          "trigger": "Background controlled-frame definitions and possibility of broader perturbation correction"
+        },
+        {
+          "assessment": "C/O/V PASS for targeted correction.",
+          "evidence": [
+            "Λ Parseval, Γ Bessel complete but lacks lower bound, ||S−I||=1."
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/sharp-endpoint-for-a-controlled-g-frame-perturbation-theorem--8ec1eb934661",
+          "material_read": "Full RESULT.md, SLOGAN, VERIFICATION, REVIEW and AUDIT material at frozen commit.",
+          "method": "Read actual frozen Git blobs and independently checked diagonal equations.",
+          "title": "Sharp endpoint for a controlled g-frame perturbation theorem",
+          "trigger": "Audited final correction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact counterexample to a named published perturbation theorem that asserts invertibility at a non-strict norm threshold has genuine corrective value: a frame can remain Bessel and complete yet lose all positive lower bound at λ=A. Replacing ≤ with < is the minimal mathematically motivated boundary and recovers a quantitative controlled lower bound. This is not a generic numerical toy; infinite-dimensional compact diagonal spectrum is the obstruction.",
+      "risks": [
+        "The Neumann strict estimate is standard; novelty/value attaches to pinpointing and disproving the published equality case."
+      ],
+      "sources": [
+        "arXiv:1709.00585v1 §3 Theorem 3.4"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Fixes endpoint of one Li–Leng theorem; does not classify controlled frame perturbations generally.",
+    "No finite diagonal truncation was treated as proof of failure in ℓ²."
+  ]
+}
