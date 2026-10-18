@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,57 +18,25 @@
   "schema_version": 1
 }
 ---
-Put
-\[
-\alpha=\frac{\pi}{N},
-\qquad
-c=\cos\alpha,
-\qquad
-s=\sin\alpha.
-\]
-For the reference edge,
-\[
-x=(c,t),
-\qquad
--s<t<s,
-\]
-Birkhoff--James orthogonality forces the second vector onto the perpendicular diameter.
 
-If
-\[
-4\mid N,
-\]
-that diameter meets the sphere at an edge midpoint, so the reverse support residual is
-\[
-\frac{|t|}{c}<\tan\alpha.
-\]
-At a vertex
-\[
-x=(c,s),
-\]
-the complete Birkhoff sector consists of two half-edges around the perpendicular vertex. Their smooth support functionals evaluate \(x\) as
-\[
-\tan\alpha
-\quad\text{and}\quad
--\tan\alpha.
-\]
-The endpoint edge midpoint therefore gives the sharp residual
-\[
-\tan\alpha.
-\]
+# Independent mathematical audit
 
-If
-\[
-N\equiv2\pmod4,
-\]
-the perpendicular to a smooth edge is a vertex whose two support values on \(x\) are
-\[
-s+t
-\quad\text{and}\quad
-t-s,
-\]
-which straddle zero. For a vertex \(x\), its Birkhoff sector is one edge with a supporting functional perpendicular to \(x\). Hence every reverse residual is zero.
+## correctness
 
-The bundled `verify.py` independently enumerates sampled boundary pairs for all even \(N\) from \(6\) through \(80\), detects Birkhoff--James orthogonality from norming facets, and checks the exact predicted maxima numerically. The finite enumeration is supplementary to the analytic support-functional proof.
+PASS
 
-No independent audit or independent validation has been performed.
+Support functionals of edges and adjacent vertices exactly characterize forward BJ pairs; for 4m polygons, reverse residual on relevant sector ≤tan(π/N), attained by a vertex and perpendicular edge-midpoint. For 4m+2, adjacent supports straddle 0 or vertex-sector support annihilates x, giving BJ symmetry. N≥6 excludes the square; orientation/normalization checked; verify.py is finite diagnostics only.
+
+## originality
+
+PASS
+
+2020/2021 Chmieliński–Khurana–Sain polyhedral C-symmetry theorem is qualitative, while previously known Radon polygon branch explains χ=0 when N≡2 mod4. The positive sharp tan(π/N) constant for all 4m-gons is not implied by those results. 2018 Chmieliński–Wójcik primary full text inaccessible (institutional DOI retrieval misidentified 2017 paper, title request failed), explicitly retained as formula-level risk, not automatic O failure.
+
+## value
+
+PASS
+
+Exact optimal reverse C-orthogonality error for the canonical regular even polygon family quantifies non-Radon asymmetry and a sharp parity transition; naturally bridges polyhedral geometry and Hilbert-limit decay, beyond the qualitative previously known Radon branch.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
