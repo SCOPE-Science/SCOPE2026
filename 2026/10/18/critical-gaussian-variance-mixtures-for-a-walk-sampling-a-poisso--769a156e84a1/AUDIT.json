@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For any fixed observer trajectory, Poisson path decomposition gives exact centered variance \\(\\lambda(n+2\\sum_{i<j}Q_{j-i}(x_j-x_i))\\). The triple Markov identity and uniform \\(\\sup_xQ_k(x)\\le2/\\sqrt{k+1}\\) bound give an actual conditional third trace moment at most \\(96n^2\\), yielding the characteristic-function error \\(16\\lambda|u|^3n^{-1/4}\\). The triangular walk invariance principle plus the parity-correct factor-2 simple-walk local CLT with a uniform small-lag cutoff establish the Brownian heat-kernel mixing functional. Exact bivariate Poisson Charlier covariance and the \\(O(n\\log n)\\) higher-chaos variance reduce every fixed first-rank polynomial to the linear case. Uniform variance bounds justify moment convergence; Brownian full support makes the bounded mixing variance nonconstant, so the limit is rigorously not Gaussian. Standalone checker.py was executed successfully with 502 finite exact and supplementary assertions; this finite replay is not an infinite proof. Unproved cases are explicitly excluded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jaramillo–Murillo-Salas use particle sums integrated against deterministic spatial tests and give Gaussian bounds conditional on appropriate moment ratios; their inspected theorem does not formulate a random observer path or identify its Brownian-dependent conditional variance.",
+        "Huang–Rang–Su assume a fixed nonzero drift in their normal-approximation theorem; their symmetric appendix gives no limit law."
+      ],
+      "reasoning": "The broad Stein-type normal approximations can assist with conditional Gaussianity, but a random variance limit does not follow without the two-time heat-kernel Riemann-sum analysis. No inspected broader theorem states or directly covers the joint diffusive observer drift window; residual unlocated generic results are acknowledged.",
+      "searches": [
+        "arXiv:2512.02922v1 Theorem 1 and Section 5",
+        "arXiv:2603.15308v1 Theorem 1.4 and Remark 1.5",
+        "Kesten Spitzer random walk in dynamic random scenery Poisson walkers conditional variance mixture Brownian observer",
+        "annealed CLT dynamic random scenery sampled along recurrent random walk Poisson particles"
+      ]
+    },
+    "checked_sources": [
+      "Huang–Rang–Su, arXiv:2603.15308v1 (2026-03-16), main Theorem 1.4 and Appendix A",
+      "Jaramillo–Murillo-Salas, arXiv:2512.02922v1, Theorem 1 and particle system applications",
+      "Castell–Guillotin-Plantard–Pène–Schapira, arXiv:1002.1878, Section 1.2/Theorem 1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1.4 of the direct primary reference proves Gaussian approximation at fixed \\(v\\ne0\\); its premises are not valid for \\(v_n=\\kappa/\\sqrt n\\).",
+        "Lemma A.6 only bounds conditional-variance fluctuations, and Remark A.7 expressly disclaims proving Gaussian failure in the symmetric case.",
+        "The static random-scenery local limit theorem is not a dynamic Poisson occupation theorem, and the additive-functionals theorem does not state the random-observer critical window."
+      ],
+      "reasoning": "The new limit logically implies Gaussian failure at zero/finite scaled drift and yields an explicit continuum of crossover variances. None of the cited prior claims logically entails the random functional, pathwise joint convergence or non-Gaussianity without substantial new arguments. The known zero-drift variance coefficient is a true overlap but not the assessed contribution.",
+      "searches": [
+        "arXiv:2603.15308v1 Theorem 1.4, Appendix A Lemma A.6, Remark A.7, Example A.9",
+        "arXiv:2512.02922v1 Theorem 1",
+        "arXiv:1002.1878 Theorem 1",
+        "Poisson random walk occupation field symmetric sampling observer drift vanishing n^-1/2 asymptotic nonGaussian Brownian heat-kernel variance mixture n^3/4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source polynomial statistic can be expressed in the same Poisson–Charlier basis; under fixed nonzero drift it is normalized by \\(n^{1/2}\\), whereas the new first-rank critical statistic is normalized by \\(n^{3/4}\\).",
+        "Static scenery produces Brownian local-time mixing of an independent spatial field, in contrast to the two-time dynamic heat kernel in the present \\(\\mathcal V_\\lambda\\)."
+      ],
+      "reasoning": "One may re-express the claim as an asymptotically path-conditional Gaussian field with a random environment-sampling variance; the unconditional mixture is strictly non-Gaussian. Merely matching the exponent \\(3/4\\) with static random scenery or the rank-one variance constant does not imply this different dynamic limiting distribution.",
+      "searches": [
+        "arXiv:2603.15308v1 Theorem 1.4, Appendix A.3, Remark A.7, Example A.9",
+        "random walk sampling dynamic Poisson independent random walk environment annealed fluctuations n^{3/4} mixture conditional Brownian path",
+        "Poisson random walk occupation field intersection local time two independent random walks quenched Gaussian mixture",
+        "arXiv:1002.1878 Theorem 1 and introductory limit process"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Example A.9 already contains the zero-drift scalar variance constant \\(8\\lambda/(3\\sqrt\\pi)\\); that scalar is explicitly excluded from the novelty claim.",
+        "No finite-table or exact database value can encode an infinite-dimensional joint Brownian-path limit and a continuum of scaled drifts."
+      ],
+      "reasoning": "No known exact table contains the claimed functional limiting law. The one specific scalar that does appear in the primary paper is cited as known rather than counted as new.",
+      "searches": [
+        "arXiv:2603.15308v1 Example A.9 and Remark A.7",
+        "Brownian self-intersection heat kernel Gaussian variance mixture n^(3/4) occupation moving particle field critical drift",
+        "Poisson independent random walkers dynamic random scenery sampled independent walk symmetric non Gaussian limit mixture conditional Brownian paths 2026"
+      ]
+    },
+    "rationale": "The motivating source arXiv:2603.15308v1 establishes a normal approximation only for fixed nonzero observer drift (Theorem 1.4) and a zero-drift rank-one variance order and constant (Appendix A); its Remark A.7 expressly states that its obstruction does not determine whether a Gaussian limit fails. The new object is the full joint Brownian-path/field-fluctuation limit at finite diffusive scaled drift, a strictly non-Gaussian Gaussian variance mixture with an explicit random heat-kernel variance functional. Neither of two additional closely related full-text primary comparisons states this dynamic random-observer law. General conditional Poisson CLTs and old static random-scenery mixtures are acknowledged as methodological ancestors, and universal first priority is not claimed.",
+    "residual_risks": [
+      "A general earlier conditional Poisson trajectory CLT with a random continuous observer and arbitrary deterministic path families could, if coupled with a heat-kernel convergence theorem, imply all or part of the result; no such covering statement was found among inspected closest primary sources.",
+      "Search absence and comparisons of the inspected sources do not establish absolute global priority.",
+      "The zerodrift scalar variance constant is already available in arXiv:2603.15308 and is not original here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Fixed nonzero drift normal theorem and symmetric variance calculation only; no stated symmetric or near-critical joint distribution law",
+        "evidence": [
+          "Theorem 1.4 assumes fixed nonzero drift and obtains order-n variance and a normal approximation.",
+          "Remark A.7 says Lemma A.6 does not prove a CLT fails for symmetric sampling.",
+          "Example A.9 computes the already known zero-drift linear variance coefficient."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2603.15308",
+        "material_read": "Full-text PDF: model and hypotheses pp.1–3; Theorem 1.4 and Remarks 1.5 pp.4–5; Appendix A.3 Lemma A.6, Remark A.7 and Example A.9 p.40, including variance constant and stated open limitation.",
+        "method": "Inspected primary arXiv PDF text and rendered relevant pages",
+        "title": "Normal approximation for the polynomial functionals of correlated random field sampling along random walk path in dimension 1+1",
+        "trigger": "Same stationary Poisson walker field, same polynomial along independent observer, exact rank-one symmetric boundary"
+      },
+      {
+        "assessment": "Provides broad moment-based normal approximations for deterministic spatial test integrals, not the Brownian observer-induced variance mixing at the critical drift scale",
+        "evidence": [
+          "Theorem 1 bounds normal approximation for centered particle additive functionals using normalized third moments.",
+          "No random nearest-neighbor observer critical-window limit appears in the inspected central results."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2512.02922",
+        "material_read": "Full-text PDF, definitions/introduction, Theorem 1 on p.8 and introductory applications in Section 5, contrasted with observer-dependent sampling",
+        "method": "Inspected primary arXiv PDF text and rendered theorem page",
+        "title": "Asymptotics for additive functionals of particle systems via Stein’s method",
+        "trigger": "General Poisson particle functional normal approximation might dominate pathwise conditional approach"
+      },
+      {
+        "assessment": "The sampled scenery is time-static and its Brownian local-time functional is distinct from the dynamic particle heat-kernel conditional variance in the present theorem",
+        "evidence": [
+          "Theorem 1 studies random walk in random scenery and local limit density involving Brownian local times.",
+          "The driving random medium there has fixed spatial marks, unlike the particle field moving at every time step here."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1002.1878",
+        "material_read": "Full-text PDF, introduction/setup, static scenery formulation, Section 1.2 and Theorems 1–3 on pp.3–5",
+        "method": "Inspected primary arXiv PDF text and rendered theorem page",
+        "title": "A local limit theorem for random walks in random scenery and on randomly oriented lattices",
+        "trigger": "Known \\(n^{3/4}\\)-scale mixed limits with sampled random media might be equivalent"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "769a156e-84a1-4e64-83cc-6305b15697c1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The primary 2026 study specifically singles out the symmetric rank-one regime as unresolved at distributional level despite identifying its superlinear variance. Establishing a non-Gaussian joint limit, the Brownian-path variance functional and the entire finite critical-drift crossover resolves this natural structural question, not an arbitrary numerical slice. It distinguishes genuine annealed variance mixing from the known fixed-ballistic Gaussian limit and gives an explicit computable crossover coefficient for polynomial observables. The previously computed zero-drift variance constant is not passed off as new. Further regimes and possible broad-priority risks are disclosed.",
+    "status": "PASS"
+  }
+}
