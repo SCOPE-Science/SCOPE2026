@@ -1,0 +1,9 @@
+# Mathematical review
+
+**Correctness — PASS.** The complete five-case optimization of a general support functional over the dual Lipschitz ball, plus the two zero-leaf-coefficient cases, exhausts exposed faces. Counting zero coefficients and the upper/lower sign patterns yields the exact polynomial. The interval-hub faces have an explicit \((k+1)\)-cube combinatorial structure. Polarity gives the extreme-point norming-face and vertex-degree consequences. Independent finite algorithms based on exact facet intersections and tight-edge connectivity agree for all \(2\le m\le6\). The analytic proof, not the computation, establishes the result for every \(m\ge2\).
+
+**Originality — PASS, subject to bibliographic limitations.** D'Alì–Delucchi–Michałek (arXiv:1910.05193) provide the symmetric-edge/Lipschitz-free identification. Chen–Davis–Korchevskaia (arXiv:2107.12315) provide the general face-subgraph criterion. Mori–Mori–Ohsugi (arXiv:2312.11287) establish join-graph facet results. All were examined beyond abstracts; none of the inspected treatments gives the complete book-graph norming-face types or evaluated all-dimensional face polynomial. A separately published book-graph Löwner-ellipsoid theorem treats outer ellipsoids, not faces. The known total facet count is excluded from the novelty claim. Unindexed equivalent work remains a risk; negative searches alone do not prove novelty.
+
+**Value — PASS.** Norming-functional sets determine nonsmoothness in real Banach spaces. An infinite, natural, nontrivial family has every such set cubical, with complete counts by dimension; the result also rigidly determines all extreme-point vertex figures and degrees. It refines aggregate facet enumerations into an exact full norming-face description rather than an arbitrary isolated numerical invariant.
+
+Self-review: passed. Independent audit: not yet performed.
