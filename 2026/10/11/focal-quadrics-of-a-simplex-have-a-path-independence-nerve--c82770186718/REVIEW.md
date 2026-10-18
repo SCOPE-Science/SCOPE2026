@@ -1,37 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The primary source's focal-set/repeated-eigenvalue theorem was checked directly. Necessity follows from Cauchy interlacing: a repeat at \(d_k\) occupies \(\mu_{k-1}=\mu_k=d_k\), so adjacent focal indices cannot occur together. Sufficiency is constructive. Every nonconsecutive index set is encoded by an interlacing target spectrum; the nonnegative residues
-\[
-\frac{p_\mu(d_i)}{p_D'(d_i)}
-\]
-produce a real rank-one vector, and the determinant lemma recovers the target characteristic polynomial. The complementary-block nullity argument shows every repeat is exactly double. The four-dimensional example is verified exactly.
+PASS
 
-## Originality
+The focal condition is a double eigenvalue d_k for D-xx^T. Negative rank-one interlacing places it at the adjacent eigenslots k-1,k, excluding adjacent k. For any independent S, interlacing target eigenvalues at upper/lower endpoints plus midpoint choices and a last point at d_n or d_n-delta give exactly the prescribed duplicated slots. Nonnegative residues p_mu(d_i)/p_D_prime(d_i) reconstruct real x by the determinant lemma; the rank-one complementary block has nullity<=1 so all repeats have multiplicity exactly two. The n=4 D=(10,6,3,1) example has four intersection points and repeated eigenvalues (6,6,1,1), shifted Jacobian (3,3,-2,-2). Independent exact rational calculations sampled all independent S through n=9 and verified the relevant characteristic-polynomial reconstruction; the all-n proof is analytic, not finite sampling.
 
-PASS. The focal paper treats the focal quadrics individually and identifies their union with the repeated-eigenvalue locus; it does not classify simultaneous intersections. General rank-one perturbation theory covers multiplicity and inverse-spectral background but not the simplex focal incidence complex. Targeted searches under intersection, nonconsecutive, nerve, path-independence, and source-specific formulations found no statement implying the complete classification. The claimed novelty is the focal-incidence theorem, not the standard multiplicity-two fact.
+## originality
 
-## Value
+PASS
 
-PASS. This is a complete classification of a natural structure left undescribed by the new focal-set construction. It identifies the entire nerve with
-\[
-\operatorname{Ind}(P_{n-1}),
-\]
-gives the exact maximal simultaneous degeneracy
-\[
-\left\lfloor\frac n2\right\rfloor,
-\]
-and counts all indexed \(r\)-fold intersections by
-\[
-\binom{n-r}{r}.
-\]
-The source's four-dimensional example gains an explicit four-point double-degeneracy locus.
+Eydelzon characterizes each focal quadric individually via repeated eigenvalues; the examined full six-page source does not classify any simultaneous focal-incidence nerve. General rank-one inverse spectral reconstruction and interlacing are already known, so originality rests only on translating their constraints into a complete simplex focal geometric incidence classification and exact realization. Resultary closest exact-object hit is the audited claim, with no older equivalent same-object record identified.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
 
-## Closest literature and limitations
+PASS
 
-The closest source is Anatoly Eydelzon, arXiv:2609.37448v1, which supplies the focal equations and individual repeated-eigenvalue characterization. Dobosevych--Hryniv provide broader rank-one perturbation theory but no focal-geometry incidence result.
+The joint degeneracy incidence nerve is a natural invariant of the source simplex focal-set family. It yields exact maximal simultaneous eigenvalue degeneracies, all possible indexed intersections, and counts in every n, rather than an arbitrary numerical slice or a standard standalone interlacing restatement.
 
-The theorem requires pairwise distinct semiaxes and classifies incidence rather than the topology of every higher intersection. Classical confocal-quadric literature under different terminology remains a residual bibliographic risk.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

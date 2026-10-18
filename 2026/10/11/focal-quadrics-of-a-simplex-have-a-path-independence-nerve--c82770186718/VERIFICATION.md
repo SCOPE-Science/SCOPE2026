@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,69 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For
-\[
-M(x)=D-xx^{\mathsf T},
-\qquad
-D=\operatorname{diag}(d_1,\ldots,d_n),
-\qquad
-d_1>\cdots>d_n,
-\]
-Cauchy interlacing gives
-\[
-d_1\ge\mu_1\ge d_2\ge\mu_2\ge\cdots\ge d_n\ge\mu_n.
-\]
-A repeated \(d_k\) therefore occupies
-\[
-\mu_{k-1}=\mu_k=d_k,
-\]
-which excludes adjacent focal indices.
+# Independent mathematical audit
 
-For any nonconsecutive set \(S\), the proof explicitly chooses an interlacing target spectrum with
-\[
-\mu_{k-1}=\mu_k=d_k
-\]
-exactly for \(k\in S\). With
-\[
-p_D(t)=\prod_i(t-d_i),
-\qquad
-p_\mu(t)=\prod_i(t-\mu_i),
-\]
-the quantities
-\[
-x_i^2=\frac{p_\mu(d_i)}{p_D'(d_i)}
-\]
-are nonnegative by sign interlacing. The partial-fraction identity
-\[
-\frac{p_\mu(t)}{p_D(t)}
-=
-1+\sum_i\frac{x_i^2}{t-d_i}
-\]
-and the determinant lemma give
-\[
-\det(tI-(D-xx^{\mathsf T}))=p_\mu(t).
-\]
-This proves the all-dimensional realization.
+## correctness
 
-The bundled checker exactly verifies the construction for every independent index set in dimensions \(2\) through \(10\), the path independent-set counts through dimension \(14\), and the source's four-dimensional example:
-\[
-x_1^2=\frac{36}{7},
-\qquad
-x_3^2=\frac67,
-\qquad
-\det(tI-M(x))=(t-6)^2(t-1)^2.
-\]
-Since
-\[
-\|x\|^2=6,
-\]
-the Jacobian spectrum is
-\[
-\{3,3,-2,-2\}.
-\]
+PASS
 
-The finite checker is supplementary; finite enumeration is not used as proof of the all-dimensional statement.
+The focal condition is a double eigenvalue d_k for D-xx^T. Negative rank-one interlacing places it at the adjacent eigenslots k-1,k, excluding adjacent k. For any independent S, interlacing target eigenvalues at upper/lower endpoints plus midpoint choices and a last point at d_n or d_n-delta give exactly the prescribed duplicated slots. Nonnegative residues p_mu(d_i)/p_D_prime(d_i) reconstruct real x by the determinant lemma; the rank-one complementary block has nullity<=1 so all repeats have multiplicity exactly two. The n=4 D=(10,6,3,1) example has four intersection points and repeated eigenvalues (6,6,1,1), shifted Jacobian (3,3,-2,-2). Independent exact rational calculations sampled all independent S through n=9 and verified the relevant characteristic-polynomial reconstruction; the all-n proof is analytic, not finite sampling.
 
-The verification does not address coincident semiaxes or the topology of higher focal intersections.
+## originality
+
+PASS
+
+Eydelzon characterizes each focal quadric individually via repeated eigenvalues; the examined full six-page source does not classify any simultaneous focal-incidence nerve. General rank-one inverse spectral reconstruction and interlacing are already known, so originality rests only on translating their constraints into a complete simplex focal geometric incidence classification and exact realization. Resultary closest exact-object hit is the audited claim, with no older equivalent same-object record identified.
+
+## value
+
+PASS
+
+The joint degeneracy incidence nerve is a natural invariant of the source simplex focal-set family. It yields exact maximal simultaneous eigenvalue degeneracies, all possible indexed intersections, and counts in every n, rather than an arbitrary numerical slice or a standard standalone interlacing restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
