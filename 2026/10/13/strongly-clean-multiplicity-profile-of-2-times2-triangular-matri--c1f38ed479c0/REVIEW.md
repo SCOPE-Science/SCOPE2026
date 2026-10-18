@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Every triangular idempotent has diagonal in \(\{0,1\}^2\). The equal-diagonal types force zero off-diagonal entry, while the mixed types allow arbitrary off-diagonal entry before commutation is imposed. Commutation with \(A\) then reduces to one scalar linear equation, and invertibility of \(A-E\) depends only on its diagonal. These four disjoint cases give the formula. The distribution follows by an exhaustive partition of diagonal pairs and sums to \(q^3\). Direct finite enumeration over four fields agrees elementwise with the theorem.
+## correctness
 
-## Originality
-PASS with a bounded literature risk. The clean-index literature counts idempotents giving a unit difference but does not impose commutation. The uniquely-strongly-clean triangular literature gives global existence/uniqueness criteria and, in the inspected full preprint, contains no finite-field cardinality or elementwise multiplicity theorem. Targeted searches for exact strongly clean decomposition counts in \(T_2(\mathbb F_q)\), finite-field unique-strongly-clean element classifications, and commuting clean-idempotent fibers located no statement implying this profile. A residual risk remains that a specialized counting result exists outside the inspected and indexed literature.
+PASS
 
-## Value
-PASS. Strong cleanness is an existence property, while unique strong cleanness is its rigidity boundary. The exact fiber size is therefore a natural quantitative invariant between those two notions. The theorem completely describes that invariant in the first nontrivial triangular matrix ring, identifies the full uniquely strongly clean locus, shows that \(\mathbb F_2\) is the exact global-uniqueness field, and isolates non-Boolean scalar matrices as the unique maximal-symmetry locus.
+Let A=[[a,b],[0,c]]. For an idempotent E=[[e,x],[0,f]], e,f are 0 or 1 and (e+f−1)x=0. Diagonal types 00 and 11 contribute respectively if a,c≠0 or a,c≠1. Types 10,01 have unrestricted x and commute with A iff (a−c)x=±b, giving exactly mu(A)=1 when a≠c, q when a=c,b=0, 0 otherwise, subject to respective diagonal-unit tests. This proves stated exact s(A) formula for every finite field; partition into diagonals in {0,1}, a=c=λ outside, and distinct outside gives q=2 all 8 unique and for q>2 fiber counts s=1:4q; s=2:(q−2)(5q−1); s=4:q(q−2)(q−3); s=2q+2:q−2, sum q^3. New brute force enumerates all A,E in F2,F3,F5,F7 with direct matrix products, verifies elementwise formula and histograms. Proof uses only field properties, so prime-power generality does not depend on tested prime fields.
 
-## Closest literature and limitations
-The closest quantitative predecessor is Lee--Zhou's clean index, which omits the commuting requirement. The closest uniqueness predecessor is Chen--Gürgün--Köse, whose full preprint gives ring-level uniqueness criteria. The result is limited to \(T_2(\mathbb F_q)\); higher triangular sizes are not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Lee–Zhou clean index counts idempotent clean summands without the commutation condition; Chen–Gürgün–Köse classify rings with unique strongly clean decompositions and triangular ring criteria, not the elementwise multiplicity profile on finite T2(Fq). A Resultary separate descent theorem addresses existence, not number of decompositions. Exact all-element histogram and exceptional scalar maxima appear not already covered on sources inspected; potential immediate consequence in unindexed clean-index literature remains a risk.
+
+## value
+
+PASS
+
+An all-element multiplicity distribution and unique/maximum loci are natural refinements of strong cleanness of the smallest noncommutative triangular algebra. It distinguishes four quantitatively different decomposition strata and gives all q, not a routine restatement of ring-wide existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

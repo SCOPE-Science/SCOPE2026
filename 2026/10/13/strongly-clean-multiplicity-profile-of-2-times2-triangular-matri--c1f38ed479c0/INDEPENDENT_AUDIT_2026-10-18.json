@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T11:16:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let A=[[a,b],[0,c]]. For an idempotent E=[[e,x],[0,f]], e,f are 0 or 1 and (e+f−1)x=0. Diagonal types 00 and 11 contribute respectively if a,c≠0 or a,c≠1. Types 10,01 have unrestricted x and commute with A iff (a−c)x=±b, giving exactly mu(A)=1 when a≠c, q when a=c,b=0, 0 otherwise, subject to respective diagonal-unit tests. This proves stated exact s(A) formula for every finite field; partition into diagonals in {0,1}, a=c=λ outside, and distinct outside gives q=2 all 8 unique and for q>2 fiber counts s=1:4q; s=2:(q−2)(5q−1); s=4:q(q−2)(q−3); s=2q+2:q−2, sum q^3. New brute force enumerates all A,E in F2,F3,F5,F7 with direct matrix products, verifies elementwise formula and histograms. Proof uses only field properties, so prime-power generality does not depend on tested prime fields.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Gürgün–Köse characterizes uniquely strongly clean triangular rings; Lee–Zhou counts without commutation; Resultary T2 theorem concerns existence descent."
+        ],
+        "reasoning": "Different global/existence hypotheses or a weaker commutativity-free index do not imply elementwise strong decompositions profile as stated.",
+        "searches": [
+          "arXiv:1307.7339",
+          "doi:10.1080/00927872.2010.538781",
+          "Resultary 2026/9/20/SCOPE-strong-cleanness-descends-to-t2-over-local-rings--72f274369f61"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1307.7339",
+        "https://doi.org/10.1080/00927872.2010.538781",
+        "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-strong-cleanness-descends-to-t2-over-local-rings--72f274369f61",
+        "Resultary semantic search: strongly clean decompositions 2 by 2 upper triangular matrix finite field count multiplicity commuting idempotents"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known boolean-base-ring criterion implies T2(F2) uniquely strongly clean; it says nothing by itself about counts at q>2."
+        ],
+        "reasoning": "The full four-valued distribution requires solving linear offdiagonal commutation equations and counting distinct diagonal types; cannot be extracted from unique-strong-cleanness necessary/sufficient conditions alone.",
+        "searches": [
+          "arXiv:1307.7339",
+          "doi:10.1080/00927872.2010.538781"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "s(A) counts idempotents E with E²=E, AE=EA, A−E unit, equivalent to strongly clean decompositions."
+        ],
+        "reasoning": "The domain is T2(Fq) rather than M2(Fq) or all local rings; uniqueness criterion is just the s(A)=1 subclass, but cannot directly supply values 2,4,2q+2.",
+        "searches": [
+          "arXiv:1307.7339",
+          "Resultary: strongly clean decompositions 2 by 2 upper triangular matrix finite field count multiplicity commuting idempotents"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearby published t-fine matrix decomposition histogram (Resultary 2026/10/4/SCOPE-exact-t-fine-decomposition-multiplicities-for-two-by-two-finite--7b7188752131) concerns nilpotent-plus-torsion-unit decomposition, not commuting idempotent-plus-unit."
+        ],
+        "reasoning": "No exact matching table found; comparison is of precise summands and commutation rather than matching matrix dimension alone.",
+        "searches": [
+          "Resultary: strongly clean decompositions 2 by 2 upper triangular matrix finite field count multiplicity commuting idempotents",
+          "arXiv:1307.7339"
+        ]
+      },
+      "rationale": "Lee–Zhou clean index counts idempotent clean summands without the commutation condition; Chen–Gürgün–Köse classify rings with unique strongly clean decompositions and triangular ring criteria, not the elementwise multiplicity profile on finite T2(Fq). A Resultary separate descent theorem addresses existence, not number of decompositions. Exact all-element histogram and exceptional scalar maxima appear not already covered on sources inspected; potential immediate consequence in unindexed clean-index literature remains a risk.",
+      "residual_risks": [
+        "The elementary one-variable commutation equation might be tabulated without the phrase strongly clean multiplicity.",
+        "The complete Lee–Zhou article was not materially read and cannot be declared wholly noncovering.",
+        "Finite enumeration only over small prime fields; arbitrary q rests on symbolic field proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Studies unique strong cleanness criteria and existence, not the claimed all-q elementwise multiplicities",
+          "evidence": "Results concern properties of R and T_n(R) as a whole, not complete finite-field 2x2 fiber count.",
+          "identifier_or_url": "https://arxiv.org/abs/1307.7339",
+          "material_read": "Entire accessible arXiv preprint including main uniqueness criteria for triangular rings",
+          "method": "Compared uniqueness in every ring element to elementwise count s(A) and histogram",
+          "title": "Uniquely Strongly Clean Triangular Matrix Rings",
+          "trigger": "Potentially covering strong decomposition counts"
+        },
+        {
+          "assessment": "Different counting invariant; no whole-article negative coverage claim from limited access",
+          "evidence": "Clean index optimizes counts of E with A−E unit, without AE=EA.",
+          "identifier_or_url": "https://doi.org/10.1080/00927872.2010.538781",
+          "material_read": "Bibliography and quoted invariant definition; complete article not materially read",
+          "method": "Compared definition of index to commuting strong decomposition condition",
+          "title": "Clean Index of Rings",
+          "trigger": "Possible prior exact clean idempotent count"
+        },
+        {
+          "assessment": "Existence/descent theorem only, does not specify multiplicity counts",
+          "evidence": "Its assertion is strong cleanness in M2 implies in T2, not number of commuting idempotents.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-strong-cleanness-descends-to-t2-over-local-rings--72f274369f61",
+          "material_read": "Resultary title and mathematical summary, not repository full text",
+          "method": "Statement implication comparison on descriptor",
+          "title": "Strong cleanness descends from M2 to T2 over local rings",
+          "trigger": "Relevant published finding about T2 over local rings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An all-element multiplicity distribution and unique/maximum loci are natural refinements of strong cleanness of the smallest noncommutative triangular algebra. It distinguishes four quantitatively different decomposition strata and gives all q, not a routine restatement of ring-wide existence.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1307.7339",
+    "https://doi.org/10.1080/00927872.2010.538781",
+    "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-strong-cleanness-descends-to-t2-over-local-rings--72f274369f61",
+    "Resultary semantic search: strongly clean decompositions 2 by 2 upper triangular matrix finite field count multiplicity commuting idempotents",
+    "Frozen Git 2026/10/13/strongly-clean-multiplicity-profile-of-2-times2-triangular-matri--c1f38ed479c0/RESULT.md blob 33399998f6dbaba0a8b8a12a6466a0ce05df7abe"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The elementary one-variable commutation equation might be tabulated without the phrase strongly clean multiplicity.",
+    "The complete Lee–Zhou article was not materially read and cannot be declared wholly noncovering.",
+    "Finite enumeration only over small prime fields; arbitrary q rests on symbolic field proof."
+  ],
+  "residual_risks": [
+    "The elementary one-variable commutation equation might be tabulated without the phrase strongly clean multiplicity.",
+    "The complete Lee–Zhou article was not materially read and cannot be declared wholly noncovering.",
+    "Finite enumeration only over small prime fields; arbitrary q rests on symbolic field proof."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked directly from the defining equations for a triangular idempotent. There are four diagonal idempotent types. The two equal types force zero off-diagonal entry. Each mixed type leaves one off-diagonal variable and commutation with \(A\) reduces to a single linear equation. The unit condition for \(A-E\) depends only on its diagonal, so the elementwise formula follows without any unproved classification input.
+# Independent mathematical audit
 
-`verify.py` independently enumerates all elements and idempotents in \(T_2(\mathbb F_q)\) for \(q=2,3,5,7\). For every element it computes the strongly clean fiber directly, checks the formula, and compares the complete multiplicity histogram with the theorem. A successful replay prints `VERIFY_OK` together with one summary line for each field.
+## correctness
 
-The enumeration is a finite consistency check only. The theorem for arbitrary prime powers is established by the symbolic proof, not extrapolated from the tested fields.
+PASS
+
+Let A=[[a,b],[0,c]]. For an idempotent E=[[e,x],[0,f]], e,f are 0 or 1 and (e+f−1)x=0. Diagonal types 00 and 11 contribute respectively if a,c≠0 or a,c≠1. Types 10,01 have unrestricted x and commute with A iff (a−c)x=±b, giving exactly mu(A)=1 when a≠c, q when a=c,b=0, 0 otherwise, subject to respective diagonal-unit tests. This proves stated exact s(A) formula for every finite field; partition into diagonals in {0,1}, a=c=λ outside, and distinct outside gives q=2 all 8 unique and for q>2 fiber counts s=1:4q; s=2:(q−2)(5q−1); s=4:q(q−2)(q−3); s=2q+2:q−2, sum q^3. New brute force enumerates all A,E in F2,F3,F5,F7 with direct matrix products, verifies elementwise formula and histograms. Proof uses only field properties, so prime-power generality does not depend on tested prime fields.
+
+## originality
+
+PASS
+
+Lee–Zhou clean index counts idempotent clean summands without the commutation condition; Chen–Gürgün–Köse classify rings with unique strongly clean decompositions and triangular ring criteria, not the elementwise multiplicity profile on finite T2(Fq). A Resultary separate descent theorem addresses existence, not number of decompositions. Exact all-element histogram and exceptional scalar maxima appear not already covered on sources inspected; potential immediate consequence in unindexed clean-index literature remains a risk.
+
+## value
+
+PASS
+
+An all-element multiplicity distribution and unique/maximum loci are natural refinements of strong cleanness of the smallest noncommutative triangular algebra. It distinguishes four quantitatively different decomposition strata and gives all q, not a routine restatement of ring-wide existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
