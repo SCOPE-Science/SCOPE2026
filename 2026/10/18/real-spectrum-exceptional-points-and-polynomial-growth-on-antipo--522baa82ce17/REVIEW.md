@@ -1,0 +1,11 @@
+# Review of real-spectrum exceptional points
+
+**Correctness — PASS.** Reflection across the opposite defect sites block-diagonalizes the ring into a path adjacency block and a tridiagonal gain–loss block. Exact determinant multilinearity gives \((z^2+\gamma^2-4)U_{m-1}(z/2)^2\); the gain–loss block has one-dimensional eigenspaces because its subdiagonals are nonzero. The resulting root collisions rigorously determine every Jordan block and polynomial time-evolution growth. Exact symbolic and numeric checks from the standalone program independently reconstruct representative cases; these are supportive, not exhaustive.
+
+**Originality — PASS relative to identified sources, with residual uncertainty.** Ortega, Benet, and Larralde (2021), Section III.B and equation (19), already show the antipodal pinned levels and the moving spectral circle. Therefore neither the characteristic factorization alone nor the spectral reality threshold is claimed new. Their discussion does not identify all interior Jordan collisions, their algebraic/geometric multiplicities, the first \(2\sin(\pi/m)\) defective threshold, or the consequent growth of \(e^{-itH}\) throughout a real-spectrum region. Scott–Joglekar (2012) addresses general PT ring thresholds; Znojil (2011) studies non-Hermitian ring degeneracies with different couplings. An equivalent Jordan classification in other PT, transfer-matrix, or non-Hermitian matrix literature remains a risk.
+
+**Mathematical value — PASS.** A fully real spectrum often serves as a proxy for an unbroken dynamics regime, but that proxy fails at a size-dependent sequence of exact defect points. The classification separates a fixed onset of nonreal energies from a vanishing first Jordan threshold, including sharp linear versus quadratic time-growth laws. It gives an exact dynamic boundary for the already studied ring rather than repackaging the spectral circle alone.
+
+**Limitations.** Perfect antipodal symmetry and uniform hopping are essential. Polynomial growth is an operator-norm statement for suitable initial data; no disorder stability or nonlinear extension is claimed. Independently checking all historical literature remains beyond this review.
+
+Self-review: passed. Independent audit: not yet performed.
