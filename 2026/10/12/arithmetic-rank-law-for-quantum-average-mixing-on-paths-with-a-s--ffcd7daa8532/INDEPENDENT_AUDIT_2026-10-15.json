@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T15:48:51.018962Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An irreducible symmetric Jacobi Hamiltonian has simple eigenvalues, so average mixing is the Gram matrix of squared real eigenvectors. Vandermonde inversion shows its rank equals that of diagonal moments W_{rj}=(H^r)_{jj}; resolvent adjugate expansion identifies that with span of vertex-deletion polynomials q_j. Unmarked q_j have full ceil(n/2) parity span. Their reflection differences split off tau and reduce, using U_n Chebyshev identities, to U_{n-2i} U_{j-1}^2 for j<=i and U_{i-1}^2 U_{n-2j} for j>i (up to reflection). Polynomial gcd U_{gcd(i,n+1)-1}, parity and degree constraints leave precisely floor((d-1)/2) dependencies. Centered odd marked paths retain reflection symmetry. An independently written exact SymPy diagonal-moment calculation checked 195 cases across n=2..11, all sites, and tau=-2,1/2,3/2. These finite checks corroborate rather than prove the all-n statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Spectral-projector formulas cover every real symmetric Hamiltonian as a method, but do not supply explicit rank without deriving its eigenvector-square dependencies.",
+          "Resultary P8 uniform average-mixing finding concerns randomized observation times/phase constraints on an unmarked path."
+        ],
+        "reasoning": "General formulae subsume the *method* but do not state or immediately numerically settle all gcd-dependent ranks; no stronger explicit marked-Jacobi rank statement located.",
+        "searches": [
+          "arXiv:1709.03591",
+          "arXiv:1103.2578",
+          "continuous time quantum walks average mixing matrix path with single loop diagonal potential marked vertex rank gcd Chebyshev eigenvector squared"
+        ]
+      },
+      "checked_sources": [
+        "Godsil arXiv:1103.2578 (abstract/path rank)",
+        "Coutinho et al arXiv:1709.03591 (indexed material)",
+        "Coutinho et al arXiv:1702.07000 (related quantum average mixing)",
+        "Resultary marked path / quantum mixing semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unmarked paths have paired eigenvectors and rank ceil(n/2); a nonzero off-center potential breaks that parity pairing.",
+          "The gcd defect requires explicit reflected minor cancellation and counting Chebyshev common roots; generic spectral identities alone leave this work undone."
+        ],
+        "reasoning": "No checked prior result supplies the needed gcd count directly. Stronger Jacobi squared-eigenvector literature not exhaustively covered, so risk remains.",
+        "searches": [
+          "arXiv:1103.2578",
+          "arXiv:1709.03591",
+          "continuous time quantum walks average mixing matrix path with single loop diagonal potential marked vertex rank gcd Chebyshev eigenvector squared"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Godsil computed the unmarked path mixing rank ceil(n/2), which is precisely the tau=0 branch.",
+          "Coutinho et al study average-mixing rank via projectors and commutant geometry; a marked-potential gcd law was not identified in the reviewed material."
+        ],
+        "reasoning": "The rank invariant uses time-averaged probabilities, not finite-time uniform mixing or transfer. Single-site diagonal potentials break path reversal except at center, creating a different arithmetic family from unmarked paths.",
+        "searches": [
+          "continuous time quantum walks average mixing matrix path with single loop diagonal potential marked vertex rank gcd Chebyshev eigenvector squared",
+          "arXiv:1103.2578",
+          "arXiv:1709.03591"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No direct exact table covering all n,i and all nonzero real potentials arose in the index; prior unmarked path rank is acknowledged."
+        ],
+        "reasoning": "Exact_database_or_table comparison is relevant because n,i ranks are discrete; none checked entails the all-parameter closed formula. Unsuccessful search is not priority proof.",
+        "searches": [
+          "continuous time quantum walks average mixing matrix path with single loop diagonal potential marked vertex rank gcd Chebyshev eigenvector squared",
+          "Resultary:2026/10/4/SCOPE-uniform-average-mixing-on-the-eight-vertex-path-p-8--606431707242",
+          "arXiv:1709.03591"
+        ]
+      },
+      "rationale": "Published work supplies general projector formulas and the unmarked path rank, but in checked materials no theorem for a single arbitrary diagonal potential gives this exact gcd-dependent rank and exceptional center independent of mark sign and strength. This is qualified best-of-knowledge novelty, with the possibility of an unlocated Jacobi-matrix squared-eigenvector theorem retained.",
+      "residual_risks": [
+        "An unlocated stronger theorem for generic real Jacobi matrices could imply the marked-path squared-eigenvector rank without this exact phrasing.",
+        "Single diagonal potential, unweighted path and Cesaro infinite-time averaging only; no multi-mark or finite-time conclusions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "establishes tau=0 case and spectral projector setup",
+          "evidence": "The unperturbed path average mixing rank ceil(n/2) is prior work, not newly claimed.",
+          "identifier_or_url": "arXiv:1103.2578",
+          "material_read": "Abstract and indexed path-specific formula/statement; complete paper not exhaustively inspected",
+          "method": "public arXiv indexed material",
+          "title": "Average Mixing of Continuous Quantum Walks",
+          "trigger": "Foundational unmarked path average-mixing theorem"
+        },
+        {
+          "assessment": "general method; explicit one-marked rank not verified",
+          "evidence": "Rank depends on linear dependencies of projector diagonals, which are calculated via Chebyshev gcd in the new proof.",
+          "identifier_or_url": "arXiv:1709.03591",
+          "material_read": "Abstract and indexed commutant/linear-algebra conclusions, not all full-text pages",
+          "method": "public arXiv indexed material",
+          "title": "A New Perspective on the Average Mixing Matrix",
+          "trigger": "General quantum average-mixing rank method"
+        },
+        {
+          "assessment": "not same notion of rank",
+          "evidence": "A special randomized readout-time uniform mixing property is not infinite-time average-mixing rank for a marked Hamiltonian.",
+          "identifier_or_url": "Resultary:2026/10/4/SCOPE-uniform-average-mixing-on-the-eight-vertex-path-p-8--606431707242",
+          "material_read": "Indexed finding summary only",
+          "method": "Resultary semantic search",
+          "title": "Uniform average mixing on the eight-vertex path P8",
+          "trigger": "Potential exact P8 overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact gcd classification is a meaningful invariant of a natural one-marked graph: it settles positive definiteness and the rank deficiency for all path lengths, sites, and any nonzero potential without spectral-root approximation. It gives a sharp discontinuity from unmarked paths and tests general average-mixing-rank questions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For any unweighted path P_n, n>=2, one marked site i and any real tau!=0, the continuous-time quantum average-mixing matrix has rank (n+1)/2 if n odd and i central, otherwise n-floor((gcd(i,n+1)-1)/2); at tau=0 its rank is ceil(n/2). Full rank exactly when mark is noncentral and gcd<=2.",
+  "limitations": [
+    "An unlocated stronger theorem for generic real Jacobi matrices could imply the marked-path squared-eigenvector rank without this exact phrasing.",
+    "Single diagonal potential, unweighted path and Cesaro infinite-time averaging only; no multi-mark or finite-time conclusions."
+  ],
+  "schema_version": 1
+}

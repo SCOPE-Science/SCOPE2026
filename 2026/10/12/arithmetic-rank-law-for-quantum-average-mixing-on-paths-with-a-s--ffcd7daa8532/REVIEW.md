@@ -1,13 +1,21 @@
-# Scientific review: marked-site path quantum mixing
+# Independent mathematical audit
 
-**Correctness — PASS.** Every eigenvalue of the real tridiagonal Hamiltonian is simple for all nonzero real potential strengths, because the off-diagonal couplings are one. The spectral-projector Gram formula and invertible Vandermonde reduction turn mixing rank into the dimension of the vertex-deleted characteristic-polynomial span. Parity reduction explicitly isolates the antisymmetric sector, and the Chebyshev resolvent identity gives its exact generating family. Polynomial divisibility and the root-gcd theorem determine exactly the relations, including the centered odd-order exception. Exact integer and rational checks cover 680 instances and test 1,014 symbolic polynomial differences, corroborating but not replacing the analytical proof.
+## correctness
 
-**Originality — PASS, with residual risk.** Godsil [1] gives the spectral-projector/vertex-deleted-minor tools and unmarked-path formula. Coutinho et al. [2] give general mixing-rank geometry. Coutinho et al. [3] provide exact quantum average-mixing methods. Kempton–Lippner–Yau [4] study potentials for state transfer rather than a marked site's average-mixing rank. These ingredients do not themselves provide the specific gcd rank law, the odd central exception, or the potential-independent full-rank criterion. Direct keyword, implication, and semantic comparisons did not identify equivalent stronger coverage; this is not proof of global novelty. A stronger, presently unlocated squared-eigenvector theorem for Jacobi matrices may imply the result.
+PASS
 
-**Value — PASS.** The arithmetic rank law identifies an exact, non-generic resonance controlled by the marked position rather than the strength of the local perturbation. It determines all singularity cases and a sharp design criterion for full-rank long-time quantum mixing in a standard one-dimensional system. It also distinguishes rank behavior under a centered mark from a noncentral one. This is a complete parameter classification, not an arbitrary finite table or numerical extrapolation.
+An irreducible symmetric Jacobi Hamiltonian has simple eigenvalues, so average mixing is the Gram matrix of squared real eigenvectors. Vandermonde inversion shows its rank equals that of diagonal moments W_{rj}=(H^r)_{jj}; resolvent adjugate expansion identifies that with span of vertex-deletion polynomials q_j. Unmarked q_j have full ceil(n/2) parity span. Their reflection differences split off tau and reduce, using U_n Chebyshev identities, to U_{n-2i} U_{j-1}^2 for j<=i and U_{i-1}^2 U_{n-2j} for j>i (up to reflection). Polynomial gcd U_{gcd(i,n+1)-1}, parity and degree constraints leave precisely floor((d-1)/2) dependencies. Centered odd marked paths retain reflection symmetry. An independently written exact SymPy diagonal-moment calculation checked 195 cases across n=2..11, all sites, and tau=-2,1/2,3/2. These finite checks corroborate rather than prove the all-n statement.
 
-**Limits.** Only single-site perturbations of paths with unit edge weights are covered; general weighted or multi-potential Hamiltonians and time-to-mix estimates are outside scope. The originality comparison is not an independent publication priority assessment.
+## originality
 
-**Closest literature.** [1] C. Godsil, arXiv:1103.2578, Sections 3–4; [2] G. Coutinho et al., arXiv:1709.03591, Sections 2–5; [3] G. Coutinho et al., arXiv:2208.08971, Section 3; [4] M. Kempton et al., arXiv:1702.07000, Introduction and main theorems.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Published work supplies general projector formulas and the unmarked path rank, but in checked materials no theorem for a single arbitrary diagonal potential gives this exact gcd-dependent rank and exceptional center independent of mark sign and strength. This is qualified best-of-knowledge novelty, with the possibility of an unlocated Jacobi-matrix squared-eigenvector theorem retained.
+
+## value
+
+PASS
+
+The exact gcd classification is a meaningful invariant of a natural one-marked graph: it settles positive definiteness and the rank deficiency for all path lengths, sites, and any nonzero potential without spectral-root approximation. It gives a sharp discontinuity from unmarked paths and tests general average-mixing-rank questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
