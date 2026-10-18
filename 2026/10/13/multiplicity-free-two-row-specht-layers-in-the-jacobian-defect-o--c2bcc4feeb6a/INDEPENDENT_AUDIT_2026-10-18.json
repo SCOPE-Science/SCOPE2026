@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T10:59:55Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/multiplicity-free-two-row-specht-layers-in-the-jacobian-defect-o--c2bcc4feeb6a/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/multiplicity-free-two-row-specht-layers-in-the-jacobian-defect-o--c2bcc4feeb6a/VERIFICATION.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/multiplicity-free-two-row-specht-layers-in-the-jacobian-defect-o--c2bcc4feeb6a/METADATA.json",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/multiplicity-free-two-row-specht-layers-in-the-jacobian-defect-o--c2bcc4feeb6a/AUDIT.json"
+      ],
+      "rationale": "Over C and every m>=4, ∂e3/∂xi=e2−s xi+xi² and ∑∂e3=(m−2)e2, so J=(xi²−s xi) with s=∑xi. In B=C[s,xi]/(xi²−sxi) all squarefree monomials x_A form a free C[s] basis; quotient by L=∑xi−s gives M=S/J. Specialize s=1: B_d realizes degree<=d multilinear functions on {0,1}^m, and multiplication by L acts diagonally as |A|−1. Its kernel supports singleton subsets; expansion ∑c_i zi ∏_{j≠i}(1−z_j) shows K_d=0 for d<=m−2, standard (m−1)-dimensional for d=m−1, permutation V1 for d>=m. Exact graded sequence then gives M_d≅V_d for 0<=d<=m−1 and V1 beyond. On chart xi≠0, Boolean equations and characteristic zero imply precisely one reduced coordinate singular point, so saturated ideal I=(xi xj:i<j), quotient (S/I)_d≅V1 for d>=1. Subtracting V1 from V_d using Young’s rule produces precisely ∑_{j=2}^{min(d,m−d)} S^(m−j,j), multiplicity one for 2<=d<=m−2 and zero otherwise. Check dimensional identity binom(m,d)−m and length 2^m−m²+m−2; independently verified representation dimensions across m=4..15. These checks supplement the unrestricted symbolic argument.",
+      "residual_risks": [
+        "Finite character-dimension checks m<=15 are not proof of all m; proof depends on precise Boolean-kernel bounds and Young’s rule.",
+        "No Lean or expert-attested verification claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General nodal formulas establish dimensions and some degree ranges, potentially all scalar Hilbert outcomes. They do not by themselves imply the individual Specht constituents or multiplicities, which require the equivariant Boolean-cube argument."
+        ],
+        "reasoning": "A broader theorem about graded numerical defects is weaker for the specific equivariant representation-valued claim; a fully equivariant nodal theorem could cover it, but none was established from inspected passages.",
+        "searches": [
+          "arXiv:1108.3976 general nodal hypersurface Hilbert and defect theory",
+          "arXiv:1111.1533 nodal syzygies",
+          "2016 Dimca Sticlaru Example 3.2"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/multiplicity-free-two-row-specht-layers-in-the-jacobian-defect-o--c2bcc4feeb6a/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/multiplicity-free-two-row-specht-layers-in-the-jacobian-defect-o--c2bcc4feeb6a/VERIFICATION.md",
+        "https://arxiv.org/abs/1108.3976",
+        "https://arxiv.org/abs/1111.1533",
+        "https://doi.org/10.1016/j.jsc.2015.11.003",
+        "Resultary: Jacobian ideal elementary symmetric cubic e3 saturation defect Specht two-row decomposition symmetric group"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known nodal scalar Hilbert data plus Young rule alone do not identify the actual defect module with V_d−V1; saturation equivariance and Boolean function kernel construction establish that identification."
+        ],
+        "reasoning": "The novelty is not an algebraic rewriting of a previously known representation identity: it establishes the correct geometric module to which Young’s rule applies.",
+        "searches": [
+          "arXiv:1108.3976 Hilbert-function defects",
+          "Young’s rule V_d=∑ S^(m−j,j)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The common object is the saturation defect N=(J:𝔪^∞)/J, not the Milnor Hilbert series alone. Scalar dimensions do not determine S_m-character multiplicities. Prior Cayley m=4 Hilbert function is explicitly recognized."
+        ],
+        "reasoning": "Compared representation-valued statement versus scalar Hilbert function and graded Jacobian syzygies; no exact S_m two-row module in inspected sources.",
+        "searches": [
+          "Resultary: Jacobian ideal elementary symmetric cubic e3 saturation defect Specht two-row decomposition symmetric group",
+          "Dimca–Sticlaru arXiv:1108.3976",
+          "Dimca–Sticlaru 2016 J Symbolic Comput Example 3.2",
+          "Young’s subset module rule"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior records have numerical Cayley cubic Hilbert series and non-equivariant nodal defects; no same all-m Specht-layer table found. Checked character identity for m=4..15 is independent bounded corroboration."
+        ],
+        "reasoning": "The known scalar table is excluded from original contribution; the graded two-row character spectrum is more informative than those numbers.",
+        "searches": [
+          "Resultary: Jacobian ideal elementary symmetric cubic e3 saturation defect Specht two-row decomposition symmetric group",
+          "2016 Dimca Sticlaru Example 3.2 Cayley cubic Hilbert",
+          "Resultary query Resultary: Jacobian ideal elementary symmetric cubic e3 saturation defect Specht two-row decomposition symmetric group"
+        ]
+      },
+      "rationale": "Prior Dimca–Sticlaru results cover non-equivariant Jacobian Hilbert functions and the Cayley cubic m=4 numerical series; their compared passages do not state the complete uniform S_m-isotypic decomposition of I/J. The two-row Young decomposition supplies more than scalar dimensions, and each layer is shown multiplicity-free for all m; best-of-knowledge priority assessment, with risk of an unindexed equivariant formulation.",
+      "residual_risks": [
+        "A prior unindexed equivariant construction, if present, could supersede originality; reviewed scalar papers do not settle a global priority question.",
+        "Finite character-dimension checks m<=15 are not proof of all m; proof depends on precise Boolean-kernel bounds and Young’s rule."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior nonequivariant nodal-theory premises; no S_m decomposition in examined passages",
+          "evidence": "Graded dimensions and defect of nodal singular sets addressed, but not an isotypic decomposition for e3 family.",
+          "identifier_or_url": "https://arxiv.org/abs/1108.3976",
+          "material_read": "Accessible primary preprint PDF sections concerning Milnor algebra and defects, checked theorem pages",
+          "method": "primary full-text section inspection",
+          "title": "Koszul complexes and pole order filtrations, Dimca–Sticlaru",
+          "trigger": "Same nodal Jacobian ideal, Hilbert defects and projective singular scheme"
+        },
+        {
+          "assessment": "Known m=4 numerical series is explicit prior, not new Specht-layer result",
+          "evidence": "Cayley cubic Milnor Hilbert series occurs in Example 3.2; equivariant uniform character theorem absent in inspected passage.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jsc.2015.11.003",
+          "material_read": "Accessible article text with Example 3.2 and nearby Jacobian syzygy discussion",
+          "method": "read full-text accessible article page and located cited Example 3.2",
+          "title": "Syzygies of Jacobian ideals and weighted homogeneous singularities, Dimca–Sticlaru",
+          "trigger": "Cayley m=4 exact numerical Hilbert example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/multiplicity-free-two-row-specht-layers-in-the-jacobian-defect-o--c2bcc4feeb6a/RESULT.md",
+        "https://arxiv.org/abs/1111.1533",
+        "https://doi.org/10.1016/j.jsc.2015.11.003",
+        "Resultary: Jacobian ideal elementary symmetric cubic e3 saturation defect Specht two-row decomposition symmetric group"
+      ],
+      "rationale": "The full degree-by-degree representation structure of a natural symmetric cubic Jacobian saturation defect is a structural invariant that controls characters and absence of trivial/standard components, not just a recomputation of known Hilbert numbers. Its uniform all-m classification is mathematically motivated by S_m-equivariance.",
+      "residual_risks": [
+        "A prior unindexed equivariant construction, if present, could supersede originality; reviewed scalar papers do not settle a global priority question.",
+        "Finite character-dimension checks m<=15 are not proof of all m; proof depends on precise Boolean-kernel bounds and Young’s rule."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A prior unindexed equivariant construction, if present, could supersede originality; reviewed scalar papers do not settle a global priority question.",
+    "Finite character-dimension checks m<=15 are not proof of all m; proof depends on precise Boolean-kernel bounds and Young’s rule."
+  ],
+  "schema_version": 1
+}
