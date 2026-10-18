@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "A universal length-(2R+m) superword for every target of length m forces insertion coverage to imply deletion coverage. Constructive robust witnesses prove this for m<=2 over all alphabets and m=3 over binary alphabets. When q>=3, omitting 012 from all codewords of length R+3 gives insertion coverage by the three-letter pigeonhole argument but not deletion coverage. For q=2, omitting 0110 from all codewords of length R+4 similarly works because an allegedly unavoidable 0110 would require at least R+2 occurrences of both letters and then at least 2(R+1)>R+2 ones between consecutive zeros. All cases include arbitrary R>=1; exact finite enumerations provide additional independent checks, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Xie–Sun–Ge (2026), Theorem III.2 gives the binary R+4 witness, which is strictly a sub-result of the asserted sharp onset",
+        "Lenz–Rashtchian–Siegel–Yaakobi (2019) address asymptotic insertion/deletion covering code sizes"
+      ],
+      "reasoning": "General nonequivalence does not determine the minimal witness length. Even a q-ary R+4 example is weaker than the R+3 nonbinary example, and no binary example rules out a shorter one; the new robust witnesses prove the missing lower bounds.",
+      "searches": [
+        "\"sharp alphabet dependent first length insertion covering vs deletion covering codes R+3 q>=3 R+4 binary\"",
+        "\"minimal length n=R+4 insertion covering but not deletion covering code binary; universal forbidden subsequence length three\"",
+        "arXiv:2606.15379 Section III Theorems III.1 and III.2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.15379v1 (relevant Section III full material)",
+      "arXiv:1911.09944 (abstract and related-work synopsis; limited access)",
+      "ECCC TR19-180 (historical abstract)",
+      "Direct searches of published related coding-theory results"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026 Theorem III.2 establishes a binary separation at R+4, acknowledged explicitly in the proof",
+        "The 2019 foundational theory establishes covering-size estimates and constructions, not an exact threshold for the implication"
+      ],
+      "reasoning": "Binary existence for n=R+4 is inherited; the new conclusion is that no binary code can witness failure below R+4 and that every q>=3 has a code witnessing it at R+3 but not earlier. These conclusions are not corollaries of an upper witness alone.",
+      "searches": [
+        "\"New bounds for covering codes under insertions or deletions\" \"III.2\" \"non-equivalence\"",
+        "\"shortest blocklength where insertion-covering deletion-covering differ ternary binary\"",
+        "\"R insertion covering deletion covering non-equivalence distinct symbol pattern length 3\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2606.15379v1, definitions and Section III: separation at binary length R+4, without sharp alphabet-dependent onset",
+        "arXiv:1911.09944, covering-code size and density theorems"
+      ],
+      "reasoning": "The formulation as smallest counterexample blocklength to insertion-cover=>deletion-cover is equivalent to the all-n sharp implication threshold. Retrieved relevant source establishes a counterexample, not the exact threshold in all alphabets; size-density results do not imply an all-code logical equivalence.",
+      "searches": [
+        "\"insertion-covering\" \"deletion-covering\" \"minimal\" \"R+4\"",
+        "\"insertion covering\" \"deletion covering\" \"R+3\"",
+        "\"shortest blocklength where insertion-covering deletion-covering differ ternary binary\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No numerical tables needed for the theorem: all bounds hold symbolically for every integer R>=1 and q>=2",
+        "Exact enumerations independently confirm the small-radius cases, but do not establish uniqueness or priority"
+      ],
+      "reasoning": "The result is an all-parameter structural threshold rather than a finite code-size entry, so neither a known table of small covering numbers nor a short computational census directly implies it.",
+      "searches": [
+        "\"non-equivalence insertion covering deletion covering first possible blocklength sharp threshold n<=R+3 all codes\"",
+        "\"R insertion covering deletion covering non-equivalence distinct symbol pattern length 3\""
+      ]
+    },
+    "rationale": "The June 13 2026 source introduces the one-way nonequivalence and supplies a binary counterexample at n=R+4, but does not supply the sharp impossibility for all smaller n or the nonbinary first failure at n=R+3. The preceding 2019 covering-code work addresses cardinality bounds rather than shortest onset. Direct alias/parameter searches in current indexed literature and prior accepted claims revealed no dominating exact all-q, all-R threshold; residual risk concerns unindexed equivalent formulations.",
+    "residual_risks": [
+      "An earlier theorem formulated as forced scattered-subsequence containment could be equivalent without using covering-code terminology.",
+      "Not every part of the 2019 foundational manuscript was available for complete full-text inspection.",
+      "The 2026 preprint is recent and its indexed coverage can change; independent domain-expert priority review is not yet performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest prior result is the R+4 binary existence construction. Its statements inspected did not include the exact all-alphabet first-onset classification.",
+        "evidence": [
+          "arXiv:2606.15379v1, Section III, Theorems III.1–III.2",
+          "Primary public date June 13, 2026"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.15379",
+        "material_read": "Primary preprint definitions, contribution statement and the mathematical Section III treatment of the two covering implications and the binary avoiding-0110 construction.",
+        "method": "Read accessible primary HTML theorem text and mathematical argument; corroborated bibliographic first-upload date and PDF preview.",
+        "title": "New bounds for covering codes under insertions or deletions",
+        "trigger": "Directly establishes the underlying covering notions and a binary nonequivalence witness."
+      },
+      {
+        "assessment": "Covers sizes/densities of covering codebooks, not a directly identified all-radius minimal first failure of the implication. Incomplete full-body access remains a residual risk.",
+        "evidence": [
+          "arXiv:1911.09944, public November 22, 2019",
+          "ECCC TR19-180 abstract (2019)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1911.09944",
+        "material_read": "Abstract, available bibliographic/early-description material and source-paper discussion of its sphere-covering bounds. Full main-body verification of every result was not available in this inspection.",
+        "method": "Bibliographic and accessible primary abstract review plus comparison with the 2026 related-work synopsis.",
+        "title": "Covering Codes using Insertions or Deletions",
+        "trigger": "Foundational paper explicitly cited in the closest 2026 manuscript."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "57e99635-7773-445c-aa0d-76f8247e2029",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A paper newly demonstrates that insertion and deletion covering differ, motivating the precise first length where their logical equivalence breaks. The new theorem answers that natural boundary question exactly for all radii and all alphabets and finds a sharp q=2 versus q>=3 phase transition. Three-symbol missing-subsequence avoidance explains the nonbinary onset, whereas binary words require a four-symbol obstruction. The result is not a routine code-size substitution or a finite arbitrary small instance; it is a complete structural threshold classification.",
+    "status": "PASS"
+  }
+}
