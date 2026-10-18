@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T03:19:42.108559Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every diagonal matching-field vertex occupies k positions within the active k by (n-k+1) band, one per row. All lie on the sphere around the uniform row coordinate c, of squared radius k-k/(n-k+1). Consecutive blocks cover each active coordinate exactly once, so their centroid is c; averaging ||v_s-q||^2=R^2+||q-c||^2 proves both optimality and uniqueness without reliance on affine-dimension details. The source p.5 supplies exact vertices; the source p.7 confirms dimension. Independently enumerated all vertices for (n,k)=(5,2),(7,3),(9,5), obtaining 10,35,126 equal-distance contacts and correct squared radii.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.15 identifies the polytopes by a unimodular map and does not assert Euclidean radii in the chosen coordinates.",
+          "General order-polytope descriptions do not imply the native matching-field orthogonal projection or contact-simplex condition without additional calculations."
+        ],
+        "reasoning": "No broader consulted theorem dominates the exact radius, all-vertex contacts, and small certificate in this specific embedding.",
+        "searches": [
+          "arXiv:2208.04521 Theorem 2.15",
+          "Resultary: diagonal matching field polytope exact Euclidean circumradius minimal enclosing sphere consecutive subset",
+          "web: matching-field polytope smallest enclosing ball"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2208.04521v1 Example 2.6, Theorem 2.15",
+        "arXiv:1809.01026 abstract and metadata only",
+        "Resultary q=Resultary: diagonal matching field polytope exact Euclidean circumradius minimal enclosing sphere consecutive subset"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact affine hull has one row-sum constraint per row and k(n-k) dimensions; its closest-origin point has all active entries 1/(n-k+1).",
+          "Each vertex has squared norm k; the n-k+1 consecutive-block vertices average to the row-uniform center, certifying the minimum enclosing ball by the mean squared distance identity."
+        ],
+        "reasoning": "The source gives sufficient combinatorial coordinates but not the sphere conclusion; the metric and barycenter argument is a further implication.",
+        "searches": [
+          "arXiv:2208.04521 p.5 Example 2.6,p.7 Theorem 2.15",
+          "Resultary: diagonal matching field polytope exact Euclidean circumradius minimal enclosing sphere consecutive subset"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source matches vertices v_I=sum_i e_{i,j_i} and the order-polytope affine dimension k(n-k).",
+          "A minimum enclosing sphere requires the barycentric contact argument; a unimodular equivalence need not preserve Euclidean metric."
+        ],
+        "reasoning": "Checked both diagonal matching field and Grassmannian Gelfand–Tsetlin circumradius names, and did not equate lattice equivalence with isometry.",
+        "searches": [
+          "Resultary: diagonal matching field polytope exact Euclidean circumradius minimal enclosing sphere consecutive subset",
+          "web: diagonal matching field polytope exact Euclidean circumradius",
+          "arXiv:2208.04521 Example 2.6 Theorem 2.15"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest indexed items concern minimal matroid base polytopes and partial permutohedra, not diagonal matching-field exponent polytopes.",
+          "No exact table for these native-coordinate radii was found."
+        ],
+        "reasoning": "No known database/census includes the stated equal-weight contact certificate; the finite checks are independent verification, not novelty evidence.",
+        "searches": [
+          "Resultary: diagonal matching field polytope exact Euclidean circumradius minimal enclosing sphere consecutive subset",
+          "Resultary: Gelfand–Tsetlin polytope minimum sphere exact radius table"
+        ]
+      },
+      "rationale": "This is a Euclidean native-coordinate result, not a consequence of unimodular equivalence to a GT/order polytope. The source theorem provides the vertex realization and dimension; new cosphericity and the short positive-contact certificate are additional statements. Resultary found itself and distinct polytope radius problems, not the same formula.",
+      "residual_risks": [
+        "A metric calculation may appear in work on matching fields under different terminology; not exhaustively ruled out.",
+        "The formula is coordinate-sensitive and cannot be transported unchanged through arbitrary unimodular mutations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_INPUT_NOT_COVERING_METRIC_CLAIM",
+          "evidence": [
+            "Example 2.6 identifies v_I; Theorem 2.15 establishes k(n-k) dimensional order model, neither specifies a Euclidean circumradius"
+          ],
+          "identifier_or_url": "arXiv:2208.04521v1 / doi:10.1016/j.jpaa.2024.107637",
+          "material_read": "Full PDF p.5 Example 2.6 (diagonal vertices) and p.7 Theorem 2.15 (order-polytope unimodular equivalence and affine map); contextual abstract/introduction",
+          "method": "read source PDF text with page-image check",
+          "title": "Combinatorial Mutations of Gelfand–Tsetlin Polytopes, FFLV Polytopes, and Block Diagonal Matching Field Polytopes",
+          "trigger": "same native polytope and exact coordinates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact minimum sphere in a standard representation-theoretic polytope, all-contact phenomenon, and certificate with only n-k+1 positive vertices give a precise natural metric invariant relevant to comparing embeddings. The certificate establishes minimality rather than mere cosphericity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only standard orthonormal diagonal matching-field coordinates; neither Gelfand–Tsetlin nor FFLV radius is asserted under nonorthogonal maps.",
+    "Prior metric literature coverage is best-of-knowledge rather than exhaustive."
+  ],
+  "schema_version": 1
+}
