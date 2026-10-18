@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,26 +18,25 @@
   "schema_version": 1
 }
 ---
-The universal algebraic identity is
-\[
-T_h=2\left(I-\frac h2A\right)^{-1}-I.
-\]
-For a Hurwitz Metzler matrix, the inverse in this formula is nonnegative. Hence the all-dimensional positivity test reduces exactly to its diagonal entries being at least \(1/2\).
 
-For
-\[
-A=
-\begin{pmatrix}
--a&b\\
-c&-d
-\end{pmatrix},
-\]
-direct inversion gives the two diagonal numerators
-\[
-1\pm(d-a)\frac h2-(ad-bc)\frac{h^2}{4}.
-\]
-Their conjunction yields the claimed sharp threshold.
+# Independent mathematical audit
 
-The embedded `verify.py` uses only exact rational arithmetic. It checks the published-condition counterexample, the coupled example with exact threshold \(h_\star=4\), the retained conservative bound, and a representative three-state resolvent identity.
+## correctness
 
-Finite calculations are witness replays only. They do not substitute for the exact symbolic proof. Higher-order Padé maps and closed-form higher-dimensional sampling thresholds are not established here.
+PASS
+
+For any Hurwitz Metzler A, M=I-hA/2 is an invertible M-matrix with nonnegative inverse and T_h=2M^{-1}-I. Thus only diagonal inequalities matter. For 2 states, direct inversion gives common denominator 1+(a+d)h/2+Delta h²/4 and two diagonal numerators 1±(a-d)h/2-Delta h²/4, so positivity iff 1-|a-d|h/2-Delta h²/4≥0 and h≤4/(|a-d|+sqrt((a+d)²-4bc)). Independently calculated the diagonal A=diag(-10,-1), h=1/2 counterexample: alpha=4 and Delta=10≤16, but T=diag(-3/7,3/5). Independently verified the coupled threshold case a=d=1,b=3/4,c=1. The ratio to the conservative h≤2/max(a,d) diverges for a=d=1,b=c→1-. This is an exact algebraic proof for all h≥0, not inference from numerical samples.
+
+## originality
+
+PASS
+
+The 2010 Zappavigna–Colaneri–Kirkland–Shorten paper itself prints both correct two-state diagonal numerators but makes the false intermediate leap Delta≤alpha² ⇒ nonnegativity. Its later alpha≥max(a,d) condition is correct and conservative. The 2012 follow-up gives sufficient bounds but not the sharp corrected iff; Fallat–Tsatsomeros supplies the Cayley algebra. A prior Resultary reversible Markov-chain resolvent result overlaps with the general resolvent-diagonal equivalence, which is not claimed independently as novel, but does not settle this strictly Hurwitz general two-state threshold, published error, or arbitrarily large improvement. PASS novelty belongs to exact new correction/refinement, with residual risk of an earlier equivalent 2×2 Cayley calculation.
+
+## value
+
+PASS
+
+A mathematically consequential positivity mistake in a published discretization criterion is corrected by an exact necessary and sufficient two-state sampling boundary, while retaining the validity of the subsequent conservative theorem. The explicit unbounded conservatism ratio provides structural insight for strongly coupled positive systems; this is more than a numeric adjustment and avoids claiming a higher-dimensional closed form.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

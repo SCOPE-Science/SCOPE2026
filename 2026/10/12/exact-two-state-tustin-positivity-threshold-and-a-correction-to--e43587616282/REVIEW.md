@@ -1,27 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. For Hurwitz Metzler \(A\), the matrix \(I-hA/2\) is a nonsingular \(M\)-matrix and
-\[
-T_h=2\left(I-\frac h2A\right)^{-1}-I.
-\]
-Thus only diagonal entries can obstruct positivity. In two states, exact inversion reduces positivity to two quadratic inequalities whose conjunction is
-\[
-\alpha^2-|a-d|\alpha-(ad-bc)\ge0.
-\]
-Solving this inequality gives the displayed sharp \(h_\star\). The exact diagonal counterexample satisfies the published determinant-only condition but has a negative Tustin diagonal entry.
+## correctness
 
-The embedded exact-rational verifier reproduces the counterexample, the coupled threshold example, and the resolvent identity.
+PASS
 
-## Originality
-PASS. The 2010 source contains the correct two-state matrix formula but then asserts an insufficient determinant-only condition. It does not state the corrected iff threshold or the unbounded coupling-dependent improvement over its later safe bound. The 2012 follow-up retains a correct conservative general condition and, in the inspected full text, does not give the exact two-state correction. General Cayley-transform literature inspected supplies algebraic context without the control-discretization threshold.
+For any Hurwitz Metzler A, M=I-hA/2 is an invertible M-matrix with nonnegative inverse and T_h=2M^{-1}-I. Thus only diagonal inequalities matter. For 2 states, direct inversion gives common denominator 1+(a+d)h/2+Delta h²/4 and two diagonal numerators 1±(a-d)h/2-Delta h²/4, so positivity iff 1-|a-d|h/2-Delta h²/4≥0 and h≤4/(|a-d|+sqrt((a+d)²-4bc)). Independently calculated the diagonal A=diag(-10,-1), h=1/2 counterexample: alpha=4 and Delta=10≤16, but T=diag(-3/7,3/5). Independently verified the coupled threshold case a=d=1,b=3/4,c=1. The ratio to the conservative h≤2/max(a,d) diverges for a=d=1,b=c→1-. This is an exact algebraic proof for all h≥0, not inference from numerical samples.
 
-Targeted semantic and literature searches using Tustin, Cayley, first-order diagonal Padé, Metzler positivity, determinant tests, and resolvent-diagonal terminology found no implication-equivalent corrected theorem. Residual risk remains that older matrix-positive literature uses another parametrization.
+## originality
 
-## Value
-PASS. Positive-system simulation needs both stability and nonnegative state propagation. The exact threshold directly improves sampling-time selection, corrects a false local sufficiency statement in foundational Padé-positive-systems work, and shows that the retained conservative diagonal bound can lose an arbitrarily large factor when positive coupling is strong.
+PASS
 
-## Closest literature and limitations
-The closest direct source is the 2010 Zappavigna--Colaneri--Kirkland--Shorten paper; the closest later treatment is their 2012 article. The closed form is two-dimensional. In higher dimensions the exact resolvent-diagonal criterion is proved, but no scalar entry formula is claimed. Higher Padé orders and nonlinear or time-varying positive systems are outside scope.
+The 2010 Zappavigna–Colaneri–Kirkland–Shorten paper itself prints both correct two-state diagonal numerators but makes the false intermediate leap Delta≤alpha² ⇒ nonnegativity. Its later alpha≥max(a,d) condition is correct and conservative. The 2012 follow-up gives sufficient bounds but not the sharp corrected iff; Fallat–Tsatsomeros supplies the Cayley algebra. A prior Resultary reversible Markov-chain resolvent result overlaps with the general resolvent-diagonal equivalence, which is not claimed independently as novel, but does not settle this strictly Hurwitz general two-state threshold, published error, or arbitrarily large improvement. PASS novelty belongs to exact new correction/refinement, with residual risk of an earlier equivalent 2×2 Cayley calculation.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A mathematically consequential positivity mistake in a published discretization criterion is corrected by an exact necessary and sufficient two-state sampling boundary, while retaining the validity of the subsequent conservative theorem. The explicit unbounded conservatism ratio provides structural insight for strongly coupled positive systems; this is more than a numeric adjustment and avoids claiming a higher-dimensional closed form.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
