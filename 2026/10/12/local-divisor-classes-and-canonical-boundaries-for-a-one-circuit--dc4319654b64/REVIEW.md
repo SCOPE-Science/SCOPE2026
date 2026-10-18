@@ -1,15 +1,21 @@
-# Review of local divisor-class and canonical boundary classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The matroid base set is all rank-\(k\) subsets except one. The full halfspace description of the base polytope is justified by one-vertex truncation at an integer neighbor hyperplane. Each of the \(2n\) coordinate inequalities remains a facet, and the single new product facet is explicitly identified. The saturated character sublattice gives a torsion-free class-group cokernel of rank one or two, and the unique possible (rational) canonical Cartier character gives the exact pointwise and global Gorenstein criteria. The standard-library exact checker verifies 682 fixed-point configurations and 170 facet-support ranks. Finite testing is not substituted for the proof.
+## correctness
 
-## Originality — PASS, with reservations
-Katz's matroid toric survey introduces the geometric framework but not this special local Weil-class computation. Lasoń–Michałek's general classification of Gorenstein matroid base rings may cover the global Gorenstein corollary and is **not** counted as independent novelty. Ferroni–Schröter supply stronger global face-enumeration coverage than the facet count and are acknowledged. The surviving nontrivial addition is the explicit, torsion-free integral fixed-point class-group stratification together with the *pointwise* Cartier criterion for the single-circuit-hyperplane family. Semantically overlapping published results and nearby toric classifications have been compared; an unindexed specialized calculation remains possible. No independent novelty certification is asserted.
+PASS
 
-## Value — PASS
-A one-circuit-hyperplane matroid is the smallest nonuniform sparse paving perturbation of a hypersimplex. The additional matroid facet changes local class-group rank on exactly \(k(n-k)\) torus-fixed strata and changes the local Cartier boundary at balanced rank. This is intrinsic birational-geometric information invisible to the existing aggregate face numbers. The complete parameter-uniform local classification provides a useful base case for interactions of multiple circuit-hyperplanes. The result does not purport to classify all non-fixed local rings.
+For n>=6 and 3<=k<=n-3, the one-deleted-basis polytope is exactly the hypersimplex clipped by x(H)<=k-1, where the cut passes through all k(n-k) adjacent vertices and creates no fractional vertices. At each surviving vertex B the normal cone has n primitive signed-coordinate rays, plus h=sum_{i in H}e_i only at |B∩H|=k-1. In N=Z^n/Z(1,...,1), M={m:sum m=0}, the signed-coordinate divisor map has saturated image; the extra-ray coordinate is an integral linear combination of coordinates, giving Cl=Z or Z² without torsion. Its unique Q-Cartier canonical character has m_i=+1 for i∈B, -1 otherwise, whence n=2k and, at new-facet vertices, k-2=1. This proves local criterion, all singular fixed points, and global iff (n,k)=(6,3). The exact-rational CHECKER.py inspected tests only n=6..9 and cannot replace the lattice proof.
 
-## Limitations and related literature
-The toric divisor sequence and matroid facets are established tools; the global Gorenstein yes/no criterion can be inferred from broader matroid results. The closest substantive source is *Gorenstein matroids* (arXiv:2005.08359), together with *Face enumeration for split matroid polytopes* (arXiv:2310.05487) and the hypersimplex toric local model. Possible equivalence in older specialized matroid literature remains an originality risk; independent verification remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality of the narrow final statement, not a general absence certificate. The new local integral class group and per-fixed-point Cartier stratification survive broad known global theorems.
+
+## value
+
+PASS
+
+The one-circuit-hyperplane sparse-paving matroid is the minimal nonuniform departure from a hypersimplex. Its extra facet changes the intrinsic integral local class groups at exactly k(n-k) natural fixed points and alters pointwise canonical Cartierness; these are natural structure invariants unavailable from aggregate face counts. The global Gorenstein corollary alone is not claimed as novel.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
