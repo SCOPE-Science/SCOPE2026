@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T03:44:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/rotation-has-order-two-or-four-on-m-bius-ladder-perfect-matching--3551187dd347/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/rotation-has-order-two-or-four-on-m-bius-ladder-perfect-matching--3551187dd347/verify_rotation.py",
+        "https://arxiv.org/abs/2608.30601"
+      ],
+      "rationale": "Independently reconstructed the convention: perfect-matching complex faces are edge matchings extendible to perfect matchings, not the ordinary matching complex. The one-step edge rotation has only perimeter orbit size 2n and rung orbit size n, so exactly empty and all-rung invariant faces; signed reduced Lefschetz number 0. Two-step rotation splits rung edges into two orbits of size n/2 and rim edges into two alternating perfect-matchings of size n; exactly six invariant faces yield reduced Lefschetz 2. The general fixed-face sign (-1)^(number_of_edge_orbits+1) includes the augmented empty face. Theorem 21 of Agarwal–Basak (full primary v2 inspected) gives H_d=Q² and no other reduced homology. Thus tr(T)=0,tr(T²)=2(-1)^d. T is finite order and hence complex diagonalizable; two unit-modulus eigenvalues whose sum is ±2 coincide at ±1, giving the operator identity and parity orders. Independently enumerated edge orbits/fixed faces for n=4,6,8; these are finite checks, not the n-uniform homotopy theorem.",
+      "residual_risks": [
+        "Relies on the published non-equivariant Theorem 21 for all n; direct code checks only finite n and mod-two Betti numbers.",
+        "No integral lattice representation or odd-n classification is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The half-turn theorem treats tau for all n but not generator rho; the dihedral theorem found concerns odd n. Agarwal–Basak treat both circular and Möbius ladder homotopy types without stating generator actions."
+        ],
+        "reasoning": "Neither all-n half-turn character nor odd-n dihedral classification covers the audited even-n one-step action.",
+        "searches": [
+          "Resultary query: Mobius ladder perfect matching homology rotation representation n even parity",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-the-antipodal-half-turn-representation-on-m-bius-ladder-perfect--317e26dcb314/RESULT.md",
+          "Resultary: complete dihedral rational homology representations of odd Möbius-ladder perfect-matching complexes"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2608.30601",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-the-antipodal-half-turn-representation-on-m-bius-ladder-perfect--317e26dcb314/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/rotation-has-order-two-or-four-on-m-bius-ladder-perfect-matching--3551187dd347/RESULT.md",
+        "Resultary query: Mobius ladder perfect matching homology rotation representation n even parity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Agarwal–Basak Theorem21 gives rank and degree, allowing the Lefschetz trace conversion; the half-turn formula supplies only tau=I."
+        ],
+        "reasoning": "The six-face rho² computation and two-face rho computation are new inputs logically necessary to determine T. The source theorems alone admit multiple rotation representations.",
+        "searches": [
+          "https://arxiv.org/abs/2608.30601",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-the-antipodal-half-turn-representation-on-m-bius-ladder-perfect--317e26dcb314/RESULT.md",
+          "Resultary query: Mobius ladder perfect matching homology rotation representation n even parity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rational cyclic action of one-step graph rotation on H_d is the same question as the characteristic/minimal polynomial of T; the half-turn tau=rho^n acts trivially for even n."
+        ],
+        "reasoning": "Triviality of rho^n is a much weaker condition than T²=(-1)^d I and tr(T)=0. Non-equivariant sphere ranks also do not fix this character.",
+        "searches": [
+          "Resultary query: Mobius ladder perfect matching homology rotation representation n even parity",
+          "https://arxiv.org/abs/2608.30601",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-the-antipodal-half-turn-representation-on-m-bius-ladder-perfect--317e26dcb314/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing finite homology tables give a rank-two group, while the published half-turn law gives the action of only the n-th power."
+        ],
+        "reasoning": "No inspected exact all-even one-step character or order table is identified; small-n checks alone would not certify infinite parity behavior.",
+        "searches": [
+          "Resultary query: Mobius ladder perfect matching homology rotation representation n even parity",
+          "https://arxiv.org/abs/2608.30601",
+          "search terms: Mobius ladder perfect matching complex rotation Lefschetz cyclic order"
+        ]
+      },
+      "rationale": "The source's Main Theorem 1(b)/Theorem21 determines only the nonequivariant two-sphere wedge. The published antipodal half-turn character computes rho^n, and cannot determine rho itself (including its order 2 vs 4). The all-even-n one-step cyclic operator calculation is an additional structural symmetry classification.",
+      "residual_risks": [
+        "An unindexed full rotation-character calculation could exist; semantic searches do not prove novelty.",
+        "Agarwal–Basak is recent preprint v2, and its independently proved nonequivariant homotopy theorem is invoked as premise."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves the two-sphere wedge for even n but does not determine one-step rotation action in the inspected full text.",
+          "evidence": [
+            "Theorem21: M_p(M_{2n}) ≃ S^((n-2)/2) ∨ S^((n-2)/2) for even n; future work names symmetries as interesting."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.30601",
+          "material_read": "Read the full 19-page v2 preprint, including Definitions 3, Lemmas 18–20, Theorem 21 (p.14) and future-directions section (p.17).",
+          "method": "Lawfully available complete academic text; theorem and proof comparison",
+          "title": "The Homotopy Types of the Independence and Perfect Matching Complexes of Möbius and Circular Ladder Graphs",
+          "trigger": "Exact graph and perfect-matching complex, central homotopy input"
+        },
+        {
+          "assessment": "All-even half-turn is identity; it does not determine trace/order of one-step rotation.",
+          "evidence": [
+            "Result states explicitly that only the central order-two half-turn is analyzed, not the full dihedral group."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-the-antipodal-half-turn-representation-on-m-bius-ladder-perfect--317e26dcb314/RESULT.md",
+          "material_read": "Read the entire public RESULT.md, including monomer-dimer cancellation, trace formula and limitations.",
+          "method": "Published scientific proof, full result file",
+          "title": "The antipodal half-turn representation on Möbius-ladder perfect-matching homology",
+          "trigger": "Potentially dominating published rotation representation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2608.30601",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-the-antipodal-half-turn-representation-on-m-bius-ladder-perfect--317e26dcb314/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/rotation-has-order-two-or-four-on-m-bius-ladder-perfect-matching--3551187dd347/RESULT.md"
+      ],
+      "rationale": "Determines the full rational cyclic action of the generator, not merely a sphere count or involution character. The unexpected collapse of a geometric 2n-order rotation to homological order two or four is an invariant a researcher studying equivariant graph topology can use directly. It is a uniform infinite-family representation refinement with a short exact Lefschetz proof; it is neither a renaming of the homotopy theorem nor an arbitrary tiny example.",
+      "residual_risks": [
+        "Only rational generator action is determined, not integral representation or complete automorphism group."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For even n>=4, one-step vertex rotation on the rational degree n/2-1 reduced homology of the Möbius-ladder perfect-matching complex has trace zero and T²=(-1)^(n/2-1) I. Its induced cyclic operator has precise order 2 when n=2 mod 4 and order 4 when n=0 mod 4.",
+  "limitations": [
+    "Inherited all-parameter homotopy classification is not independently re-proved. Finite orbit checks corroborate, not establish, the universal formula."
+  ],
+  "schema_version": 1
+}
