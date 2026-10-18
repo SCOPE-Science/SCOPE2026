@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The intrinsic radius and edge-midpoint construction fix the simplices unambiguously. The exact 32 eight-vertex facets close to 3,944 nonempty simplices. Independent exact binary boundary elimination bounds rational homology to degrees three and four with at most one degree-three generator and Euler characteristic 23. The full 384-element signed simplicial Lefschetz computation and complete orthonormal 20-character table force both the determinant degree-three module and the four stated higher modules. Each numerical assertion has an independently reproducible path through the included `verify.py`. An exact finite enumeration is a complete proof here because the claim concerns one specific 16-vertex complex, not an infinite family.
+PASS
 
-## Originality — PASS
+Reconstructed intrinsic graph-metric Čech scale r=3: for every edge uv, the union N1[u]∪N1[v] is a maximal simplex of 8 vertices; 32 edges yield 32 distinct facets and exactly 3944 nonempty faces with f=(16,112,448,1016,1264,800,256,32). Independent mod-2 full chain ranks (15,97,351,664,576,224,32) give reduced β3=1,β4=24 over F2 and bound rational ranks above; reduced Euler 23 leaves rational possibilities (0,23) or (1,24). Enumerated every one of 384 signed coordinate permutations; for every simplex fixed setwise, computed signed reduced simplicial Lefschetz term and found its 20 class values as claimed. The virtual character c has inner product −1 against determinant, impossible if β3=0 and c is an honest degree-4 character. Hence β3=1, χ3=det and χ4=c+det. Independently tested the orthogonal 20 bipartition irreducible characters and found exactly four multiplicity-one constituents V_(2),(2), V_(2),(1,1), V_(3),(1), V_(2,1),(1), dimensions 6+6+4+8=24. The determinant module and four other modules have no fixed full-group vectors. Finite group and all simplex enumeration are exhaustive, not sampling; claim is rational representation, not integral equivariant equivalence.
 
-Adams–Shukla–Singh, arXiv:2212.05871, Lemma 3.1/Table 1/Section 5, already determine the same complex and its nonequivariant integral Betti ranks; these ranks are not claimed as new. Their actual primary full text does not supply the full signed-permutation character. A nonequivariant homotopy type, even a complete wedge description, cannot by itself specify a group action on homology. Generic hypercube character tables likewise do not determine which characters occur in this specific topological complex. Searches under graph-Čech, hypercube nerve, signed permutation, and equivariant homology aliases did not identify a result implying this full decomposition. Residual risk: an unindexed source or indirect representation-theoretic formula may already contain it.
+## originality
 
-## Value — PASS
+PASS
 
-The four-cube is the first hypercube dimension in the published scale-three Čech family where both third and fourth homology appear. Its canonical 384-element symmetry group makes the action on these two grades a natural invariant. The determinant character in degree three, four irreducible components in degree four and complete absence of invariant classes explain topological symmetry that the known ranks \(1\) and \(24\) cannot express. The finite computation is a complete and motivated natural representation classification, not a routine recomputation of known Betti numbers.
+Earlier Adams–Shukla–Singh gives graph-intrinsic scale-three Čech complex and already identifies the nonequivariant integral Betti ranks; these are NOT novelty. The exact B4 representation, character on 20 classes, determinant H3 and four H4 irreps are not implied by the Betti counts or a later nonequivariant wedge decomposition.
 
-## Scope and residual risk
+## value
 
-Only rational modules at this single geometric-graph Čech scale are classified. No lattice integral action, all-dimensional formula, equivariant homotopy model or independent human audit is claimed. A search without covering hits cannot prove global novelty.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS: The hyperoctahedral group B4 acts canonically on the first unresolved mixed-degree graph-intrinsic Čech case; the full 20-class character and four irreducible H4 constituents distinguish geometric symmetry behavior that neither known integral ranks nor the nonequivariant wedge homotopy can detect. The determinant H3 action and lack of invariant homology offer concrete equivariant topological information, useful in symmetry-sensitive persistent topology; only Q4 and scale three are asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
