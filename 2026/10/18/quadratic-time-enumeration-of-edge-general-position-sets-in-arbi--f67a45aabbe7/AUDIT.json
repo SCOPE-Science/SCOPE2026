@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For any edge subset of a tree, forbidding three marked edges on a simple path is exactly bounding the induced 0/1 weighted diameter by two. At a child-to-parent attachment, the new branch height is \\(h=a+b\\) for child height a and incident-edge choice b. When two different branches meet at v, their worst joining path has marked weight equal to the sum of their respective maximum root heights; thus the compatibility criterion \\(a+h\\le 2\\) is necessary and sufficient. The maximum state updates by \\(\\max\\{a,h\\}\\). Induction proves the recurrence without omission or double counting. Dense coefficient convolution across rooted child merges uses at most \\(O(n^2)\\) integer arithmetic operations. Independently enumerated paths tested 18,744 labeled-tree cases and 1,390,623 masks; 100 double-stars and 120 path/star boundary formulas also matched. Finite tests are not substituted for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Klavžar–Tan (2023) primarily studies Fibonacci and Lucas cubes and maximal edge-general-position sets, not exact arbitrary-tree distributions.",
+        "Tian–Klavžar–Tan (2024) treats extremal edge-general-position numbers and block-graph bounds, not a full dense polynomial for all trees.",
+        "Published record 96369ffaa123 explicitly enumerates the proper subclass of spider trees."
+      ],
+      "reasoning": "A spider-only formula does not count configurations with interacting distinct branching vertices. The cited broader graph classes are investigated for different, extremal assertions; their results do not yield the stated all-tree coefficient algorithm. An unindexed general dynamic program remains a residual risk.",
+      "searches": [
+        "all edge general position sets tree polynomial arbitrary tree dynamic programming counting edge triples on paths",
+        "counting every edge general position set in arbitrary trees O(n^2) polynomial",
+        "doi:10.1007/s40840-023-01517-y",
+        "doi:10.1007/s00373-024-02770-z"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2105.04292",
+      "doi:10.1007/s40840-023-01517-y",
+      "doi:10.1007/s00373-024-02770-z",
+      "published_record:96369ffaa123 (summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The leaf extremal theorem supplies only the degree of the new polynomial, not the lower coefficients.",
+        "The spider formula can be computed from the general recursion on one-branching-vertex trees, but a closed spider formula by itself does not establish the unrestricted result.",
+        "The two-center double-star count in RESULT.md is not a spider-only case when both centers branch."
+      ],
+      "reasoning": "There is no reversal of implication: the all-tree enumerator implies the prior spider count and reproduces known maxima, while neither the maximum nor spider polynomial determines coefficients for an arbitrary tree with many independent branch vertices.",
+      "searches": [
+        "counting every edge general position set in arbitrary trees O(n^2) polynomial",
+        "complete cardinality polynomial counting all edge general position subsets of arbitrary finite trees quadratic time three-state weighted tree diameter dynamic program",
+        "arXiv:2105.04292",
+        "arXiv:2304.10114",
+        "arXiv:2302.01587"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The new path constraint is equivalent to requiring the 0/1-selected-edge weighted diameter to be at most two; this equivalence is proved directly in RESULT.md.",
+        "The foundational source arXiv:2105.04292, Theorem 3.3, identifies only the maximal possible cardinality on trees, not all coefficient counts or a quadratic enumeration recurrence."
+      ],
+      "reasoning": "The equivalent zero–one diameter formulation is an internal reformulation, not a known covering theorem. The inspected nearest source establishes only a scalar extremum and does not imply individual coefficients at sizes below the optimum.",
+      "searches": [
+        "edge general position polynomial all trees weighted diameter at most 2 dynamic programming complete cardinality profile",
+        "edge general position set tree weighted path diameter two edge-label enumeration",
+        "arXiv:2105.04292 §3; DOI 10.1007/s40840-022-01319-8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic mathematical-record search returned the spider-family record 96369ffaa123 among nearest relevant hits.",
+        "The previously recorded theta-graph result gives an extremal edge general-position number, while another result counts configurations in clique-hub graphs with pendant leaves; neither has arbitrary-tree scope."
+      ],
+      "reasoning": "The exact coefficients computed here depend on unrestricted input-tree structure. No matching all-tree lookup table or enumerator was identified in actually inspected results. Search nonappearance alone is not a novelty certificate; implication-level comparisons of the closest records are the basis of this assessment.",
+      "searches": [
+        "edge general position sets tree edge general position polynomial spider enumeration geodesic triple",
+        "edge general position polynomial all trees weighted diameter at most 2 dynamic programming complete cardinality profile",
+        "complete cardinality polynomial counting all edge general position subsets of arbitrary finite trees quadratic time three-state weighted tree diameter dynamic program"
+      ]
+    },
+    "rationale": "Compared implication-level content against the accessible 2021 foundational tree maximum theorem, the full relevant HTML content of 2023 partial-cube and 2024 extremal/block-graph papers, a published spider-family count, and related earlier mathematical claims. The maximum equals the number of leaves but does not determine the full coefficient distribution; the spider formula applies only to trees with at most one branching vertex; the other works concern extremal sets or other classes. The present theorem is an all-tree \\(O(n^2)\\) full cardinality algorithm with a branch-merge invariant. Searches found no covering statement, while incomplete index coverage and an unretrieved spider full record remain risks.",
+    "residual_risks": [
+      "The published spider record was retrieved as an indexed statement but its entire package was inaccessible; an unshown general algorithm cannot be excluded by its summary alone.",
+      "Published mathematical indexing is incomplete; no claim of exhaustive priority or uniqueness follows from unsuccessful searches.",
+      "General zero–one weighted-diameter dynamic programming may be implicit in algorithmic literature with different terminology."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the edge parameter and gives a maximum-cardinality tree formula, without a complete all-tree counting polynomial",
+        "evidence": "arXiv:2105.04292, Theorem 3.3: the edge general-position number of a tree is its leaf count.",
+        "identifier_or_url": "arXiv:2105.04292",
+        "material_read": "Full publicly accessible HTML-text rendering, including Introduction, Preliminaries, Section 3 Theorem 3.3 and Section 4, plus conclusions",
+        "method": "Read theorem, proof and surrounding mathematical statements; compared scope and coefficients",
+        "title": "The edge general position problem",
+        "trigger": "Foundational definition and arbitrary-tree extremal result"
+      },
+      {
+        "assessment": "Addresses maximal subsets of particular partial cubes and not the all-tree cardinality enumerator",
+        "evidence": "Klavžar–Tan (2023), Sections 3–4.",
+        "identifier_or_url": "doi:10.1007/s40840-023-01517-y",
+        "material_read": "Open-access HTML, Sections 1–4 with Theorems 4.3, 4.6 and relevant Section 3 propositions",
+        "method": "Read original mathematical results and compare to unrestricted tree counting",
+        "title": "Edge general position sets in Fibonacci and Lucas cubes",
+        "trigger": "Highly related maximum-set and partial-cube technique"
+      },
+      {
+        "assessment": "Provides extremal results and block-graph inequalities but not a general exact coefficient polynomial algorithm",
+        "evidence": "Tian–Klavžar–Tan (2024), Proposition 1.1, Section 3 Theorem 3.2.",
+        "identifier_or_url": "doi:10.1007/s00373-024-02770-z",
+        "material_read": "Open-access HTML: Introduction, extremal-number characterizations, Section 3 block-graph bounds, references",
+        "method": "Compared claimed extremal and tree/block-graph bounds to new all-coefficient counting algorithm",
+        "title": "Extremal edge general position sets in some graphs",
+        "trigger": "Potential general coverage through block graphs (trees included)"
+      },
+      {
+        "assessment": "The exposed claim covers spiders only. Hidden full-text overlap cannot be ruled out and is recorded as residual risk.",
+        "evidence": "Indexed statement: spider enumerator equals product of arm factors plus same-arm pairs, with a maximal-set classification.",
+        "identifier_or_url": "published_record:96369ffaa123",
+        "material_read": "Public indexed title and substantive summary only; full record unavailable in this retrieval",
+        "method": "Compared stated domain and closed polynomial with all-tree recurrence; withheld whole-document negative conclusion",
+        "title": "All edge general-position sets of spider trees",
+        "trigger": "Closest semantic mathematical-record search hit about exact edge general-position subsets"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f67a45aa-bbe7-451e-b414-83666dba7249",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Published extremal edge-GP numbers tell only the largest feasible size; a complete distribution is a separate natural invariant that otherwise involves up to \\(2^{n-1}\\) subsets. The result supplies an exact polynomial-time coefficient algorithm on every tree, independent of branch-count or topology, with an explicit three-state criterion and provable quadratic arithmetic bound. Spider-tree formulas do not handle the interaction between several branching vertices, which is handled by the merge rule. The theorem is substantially more than a minor numeric increment; the double-star calculation provides an illustrative non-spider application.",
+    "status": "PASS"
+  }
+}
