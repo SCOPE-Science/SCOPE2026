@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Conditioned on error e, N~Bin(T,z) and e′=((1-beta N)u,(1-beta(T-N))v) exactly. Binomial second moments yield Q=(1-beta T)^2+z(1-z)beta T[4-beta(3T-1)]. The maximum is at z=0 or 1/2. Comparing the two attained quadratics establishes the unique minimax optimizer and T=3 phase transition. The contraction criterion and fixed uniform comparator follow directly; 120482 independent exact-rational assertions passed, with analytical proof covering the infinite quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Moorman et al. hold a fixed sampling distribution; Coleman provides experimental stability thresholds; Steinerberger uses sequential correction."
+      ],
+      "reasoning": "General convergence bounds for all matrices can cover sufficient step restrictions but do not supply this exact sharp minimax formula unless their assumptions allow conditional residual-dependent probabilities and shared-snapshot duplicate updates. The inspected results do not furnish that implication.",
+      "searches": [
+        "Moorman et al. arXiv:2002.04126v1 Section 2 convergence hypotheses and Section 5 suggested relaxation",
+        "Coleman arXiv:2607.08313v1 results on residual exponent and worker count",
+        "Steinerberger arXiv:2007.02910v3 convergence of residual-biased Kaczmarz"
+      ]
+    },
+    "checked_sources": [
+      "E. Coleman, arXiv:2607.08313v1 (2026-07-09)",
+      "J. D. Moorman et al., arXiv:2002.04126v1 (2020)",
+      "S. Steinerberger, arXiv:2007.02910v3 (2020)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Target statement optimizes a worst-direction conditional second moment with a probability distribution recomputed from each current error; direct moment and scalar branch analysis are required."
+      ],
+      "reasoning": "Sequential weighted sampling does not determine duplicate collisions across concurrent workers, and fixed distribution averaging does not optimize the envelope over all state-dependent z. Coleman motivates rather than proves the sharp two-row analytic benchmark.",
+      "searches": [
+        "arXiv:2002.04126v1 fixed sampling distribution D and q-sample averaging",
+        "arXiv:2007.02910v3 residual-weighted sequential update",
+        "arXiv:2607.08313v1 shared-memory experiments and mitigation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "State-dependent conditional binomial multiplicity is the central mathematical object; fixed-probability averaged and sequential schemes have different conditional error envelopes."
+      ],
+      "reasoning": "The same physical concurrent updates could be written as a minibatch stochastic coordinate method, and a fixed-distribution moment identity is elementary. But the inspected sources do not identify its complete state-dependent minimax over residual directions, the concurrency-three parameter switch, or the exact limiting floor. Equivalence in uninspected historical literature remains a residual risk.",
+      "searches": [
+        "arXiv full text: 2607.08313v1, parallel stale snapshots and residual-weighted sampling",
+        "arXiv full text: 2002.04126v1, randomized Kaczmarz with averaging",
+        "arXiv full text: 2007.02910v3, weighted randomized Kaczmarz",
+        "Literature query: adaptive Kaczmarz snapshot workers residual minibatch relaxation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest records treat cyclic Kaczmarz overrelaxation, coherence of greedy sequential selections, or fixed probability stale updates, none the explicit probability z=u²/(u²+v²) combined with N~Binomial(T,z)."
+      ],
+      "reasoning": "No checked exact table/result gives the all-T optimizing parameter or plateau. Negative retrieval is not proof of global novelty; unindexed equivalent formulas remain possible.",
+      "searches": [
+        "Published mathematical findings semantic search: frozen snapshot residual weighted two-row Kaczmarz optimal beta 4/(3T-1)",
+        "Published mathematical findings semantic search: parallel adaptive minimax squared error 1/9 plateau",
+        "Web literature search: simultaneous residual Kaczmarz batch optimal relaxation"
+      ]
+    },
+    "rationale": "Inspected three complete primary works with matching row-sampling concepts, and compared relevant named published claims and accessible previous findings by mathematical hypotheses and implications. No checked result entails the state-dependent frozen-snapshot all-T minimax or saturation law. Residual literature risk retained.",
+    "residual_risks": [
+      "A similar exact minimax formula may be embedded in earlier coordinate-descent or minibatch sampling analyses under different terminology.",
+      "Results for fixed minibatch sampling may produce specialized inequalities but were not seen to imply the state-dependent directionwise envelope."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Empirical asynchronous study; does not establish the exact conditional shared-snapshot two-coordinate binomial envelope or optimizer.",
+        "evidence": "Studies residual-power selection and asynchrony; tuning/cliff observations are experimental, with no all-T exact analytic minimax result.",
+        "identifier_or_url": "arXiv:2607.08313v1 | https://arxiv.org/html/2607.08313",
+        "material_read": "Full HTML body: experimental methodology, definitions of power-weighted sampling, asynchrony/read policies, results discussing concurrency cliff and relaxation.",
+        "method": "Read source sections and compared mathematical update rules and absence of exact orthogonal two-row minimax theorem.",
+        "title": "Adaptive Row Selection Meets Asynchrony in Randomized Kaczmarz",
+        "trigger": "Primary motivating recent source: adaptive residual-weighted sampling under concurrency."
+      },
+      {
+        "assessment": "Uses fixed row sampling distribution and averaged weighted corrections; does not imply state-dependent residual-squared sampling worst-direction minimax formula.",
+        "evidence": "Their Algorithm 1 uses a fixed distribution D and weights w_i/q for q iid samples; our law is conditional on changing z=u²/(u²+v²) with unaveraged additions.",
+        "identifier_or_url": "arXiv:2002.04126v1 | https://arxiv.org/html/2002.04126v1",
+        "material_read": "Full HTML, sections 1.1–1.5, algorithm, sections 2–5 theoretical statements, fixed probability assumptions.",
+        "method": "Checked iid batch rule, averaging normalization, probability distribution, weight/probability coupling, and convergence hypotheses.",
+        "title": "Randomized Kaczmarz with Averaging",
+        "trigger": "Closest published parallel independent-row averaging design."
+      },
+      {
+        "assessment": "Analyzes adaptive residual sampling with one update per step, not concurrent collision counts or optimized batch relaxation.",
+        "evidence": "Sequential row choice refreshes the residual; the random batch count N with simultaneous repeated-row corrections has no analogue in that one-step update.",
+        "identifier_or_url": "arXiv:2007.02910v3 | https://arxiv.org/html/2007.02910v3",
+        "material_read": "Full HTML including problem formulation, proposed weighted sequential sampler and convergence discussion.",
+        "method": "Compared the sequential single-row iteration against simultaneous iid repeated selection from one unchanged snapshot.",
+        "title": "A Weighted Randomized Kaczmarz Method for Solving Linear Systems",
+        "trigger": "Source for sampling probability proportional to residual powers."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3a196be2-a758-456c-9319-c2add716f163",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp phase boundary T=3, unaveraged duplicate-collision stability criterion beta<2/T, and nonzero 1/9 optimal squared-error floor identify a rigorous high-concurrency limitation of squared-residual adaptivity absent for fixed uniform sampling. This is a natural complete minimax benchmark for recent empirical asynchrony/row-choice research, not merely a parameter substitution. Its controlled orthogonal model deliberately separates collisions from matrix conditioning.",
+    "status": "PASS"
+  }
+}
