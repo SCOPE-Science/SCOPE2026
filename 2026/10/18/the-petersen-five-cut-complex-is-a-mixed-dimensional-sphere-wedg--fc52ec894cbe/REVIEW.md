@@ -1,0 +1,12 @@
+# Scientific review of the Petersen five-cut homotopy classification
+
+## Correctness — PASS
+The ten vertices are lexicographically indexed two-subsets of a five-element set, adjacent when disjoint; connectedness of all \(252\) induced five-vertex subgraphs is exhaustively tested. The \(120\) disconnected complements yield \(495\) nonempty faces, independently cross-checked. A deterministic, exhaustively acyclicity-tested discrete-Morse matching has \(237\) pairs and critical dimensions \((0:1,3:8,4:12)\). All cancellations use integral unit pivots, and the remaining \(8\)-by-\(12\) attaching matrix has rank seven with a rank-seven minor of determinant one. This establishes its Smith form, and the absence of dimensions one and two upgrades the result to a homotopy equivalence. The finite-field checker is corroborative, not the basis of the integral conclusion.
+
+## Originality — PASS, with stated search limits
+The relevant primary preprints were inspected for the same objects and possible stronger implications. *Topology of Cut Complexes of Graphs* proves the Petersen two-cut case and gives general results not covering this five-cut case; in particular, the requisite complete codimension-one skeleton fails (\(200<210\)). *Topology of Cut Complexes II* treats disjoint unions, squared paths and grids. Results for total cut complexes or for a five-cut grid are not equivalent to the ordinary Petersen five-cut computation. The high-girth ordinary cut-complex result requiring girth at least \(k+2\) is inapplicable to girth five when \(k=5\). Searches of the mathematical research index and the accessible preceding findings did not identify the identical homotopy classification. Unindexed equivalent work and inaccessible linked records remain residual risks; an unsuccessful search is not proof of uniqueness.
+
+## Mathematical value — PASS
+The Petersen graph is a standard vertex-transitive, five-girth test object; the cut threshold five is its first cycle-length threshold and also halves its vertex count. The new classification gives **both** integral homotopy degrees, not merely the Euler characteristic. The nontrivial homology below the top dimension demonstrates nonshellability in a natural symmetric graph cut complex and gives a benchmark outside published one-dimensional-wedge and high-girth families. The result is finite and does not claim a general-family theorem.
+
+Self-review: passed. Independent audit: not yet performed.
