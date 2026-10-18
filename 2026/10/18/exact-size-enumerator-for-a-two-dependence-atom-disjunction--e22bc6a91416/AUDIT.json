@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "The proof derives a fiberwise iff criterion from lax-split semantics. Its generating polynomial follows from correcting the sum of all crosses by a complete classification of intersections of two crosses: empty, singleton, common-row subsets, common-column subsets, and diagonal pairs. No other multiple coverings are possible. Fiber choices give the power m; direct Bernoulli weighting gives the probability identity. Every quantifier is m,r,s>=1 and team is a labeled set of triples. The checker exhaustively compares polynomial coefficients with actual subsets of all 16 rectangles at sizes <=4 and directly checks every lax split of each of 256 teams on the binary 3-variable universe.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fröhlich, Kolaitis and Meier, Disjunctions of Two Dependence Atoms (arXiv:2508.16146v1; CSL 2026), Theorem 22 and Theorem 26 establishes exact model-checking complexity and four-coherence, which do not output coefficient counts.",
+        "Meier–Reinbold, Enumeration Complexity of Poor Man’s Propositional Dependence Logic, arXiv:1704.03292, abstract: algorithms to enumerate satisfying teams with complexity/delay guarantees."
+      ],
+      "reasoning": "Decision complexity and algorithmic enumeration do not supply the all-size coefficients. An older generalized rook-cover generating function might cover the polynomial, but no identified reference currently gives a decisive implication.",
+      "searches": [
+        "Research-record semantic query: disjunction functional dependency row column cross cover enumerator rectangular team cardinalities binomial polynomial",
+        "Web: team semantics number of teams satisfying disjunction functional dependence atoms enumeration generating polynomial"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2508.16146",
+      "https://drops.dagstuhl.de/storage/00lipics/lipics-vol363-csl2026/html/LIPIcs.CSL.2026.10/LIPIcs.CSL.2026.10.html",
+      "https://arxiv.org/abs/1704.03292"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fröhlich, Kolaitis and Meier, Disjunctions of Two Dependence Atoms (arXiv:2508.16146v1; CSL 2026), Theorem 22 and Theorem 26 characterizes four-coherence and first-order decision complexity; the full original text has been examined, including proof of Theorem 22.",
+        "Weighted cross-intersection analysis required for the claimed explicit polynomial is absent from the cited primary theorem statements."
+      ],
+      "reasoning": "A four-element non-satisfaction certificate does not determine the number of satisfying teams of each size. The proof of the source provides a semantic characterization used here, but the new weighted enumeration requires an additional overcount classification across all 2^rs possible fibers. The formula does not follow merely by substituting parameters in a published counting theorem identified in the search.",
+      "searches": [
+        "Research-record semantic query: exact number of teams satisfying dep(x,y) disjunction dep(x,z) on q element structure, covering subsets of q x q grid by a row and a column",
+        "Primary: arXiv:2508.16146v1 Theorem 4.1 / CSL 2026 Theorem 22 and Theorem 26"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fröhlich, Kolaitis and Meier, Disjunctions of Two Dependence Atoms (arXiv:2508.16146v1; CSL 2026), Theorem 22 and Theorem 26 provides the cross-style semantic criterion without size enumeration.",
+        "Direct equivalent graph statement: a bipartite edge set lies in the union of stars at one vertex of each bipartition class; weighted classification computes its edge-set enumerator."
+      ],
+      "reasoning": "The graph-theoretic row-plus-column statement is mathematically equivalent to a single fiber, and possible implicit graph enumeration is the material priority risk. Checked references and closest search results did not exhibit the explicit weighted rectangular polynomial.",
+      "searches": [
+        "Research-record semantic query: exact full team size-generating polynomial of dep(x,y) OR dep(x,z) under lax split dependence logic finite sorted alphabets rectangular cross cover",
+        "Web: enumeration subsets of n by n matrix contained in union of one row and one column generating polynomial",
+        "Web: number of binary matrices ones in a single row or single column union cross exactly count"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source primary paper supplies a model-checking/coherence table for this formula but no cardinality-weighted census.",
+        "Independent finite counts of cross-coverable square fibers of orders 1..4 are 2, 15, 178, 1601; the proof derives all rectangular coefficients, not a finite database lookup."
+      ],
+      "reasoning": "The claimed object is the complete polynomial in arbitrary r,s, not a specific table. No matching database sequence or exact formula was returned; this nonmatch is not a novelty certificate.",
+      "searches": [
+        "Research-record semantic query: counting Bernoulli-random teams satisfying dep(x,y) or dep(x,z) finite domain exact",
+        "Web: lax disjunction dependence atoms exact enumeration teams dep(x,y) dep(x,z) cardinality generating function"
+      ]
+    },
+    "rationale": "The fully inspected 2025/2026 primary paper proves the specific disjunction has coherence level four and is first-order decidable, but neither states an exact generating polynomial across all team cardinalities, nor the rectangular family and Bernoulli law. The 2017 enumeration-complexity paper studies algorithmic generation of satisfying teams, based on the available abstract. Targeted research-record searches, own earlier-claim comparisons and targeted literature searches found no statement that implies the complete weighted enumeration. Distinctive content lies in the five-category weighted multiplicity count, not in the previously published splitting/coherence criterion. Priority relative to standard graph-cover polynomials and inaccessible full text is a stated residual risk.",
+    "residual_risks": [
+      "The exact generating function could occur under a graph-theoretic row/column vertex-cover formulation outside terminology searched.",
+      "The full 2017 enumeration-complexity paper was not materially inspected, only its abstract.",
+      "Negative search results and finite tests cannot certify novelty; independent priority checking remains advisable."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the specific formula’s semantic decision/coherence theory but not the complete size enumerator or random-team probability.",
+        "evidence": [
+          "https://arxiv.org/abs/2508.16146",
+          "https://drops.dagstuhl.de/storage/00lipics/lipics-vol363-csl2026/html/LIPIcs.CSL.2026.10/LIPIcs.CSL.2026.10.html#sec4"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2508.16146",
+        "material_read": "Full accessible HTML/text: definitions of team semantics, introductory contributions/table, Theorem 4.1 (CSL Theorem 22), proof and complexity trichotomy",
+        "method": "Opened primary arXiv HTML and Dagstuhl full HTML text; compared object, parameters, quantitative conclusions, and the proof of the four-coherence theorem",
+        "title": "Disjunctions of Two Dependence Atoms",
+        "trigger": "Same formula and general disjunction theory"
+      },
+      {
+        "assessment": "No direct implication established from available material. Full-text access gap recorded as a real historical-priority risk.",
+        "evidence": [
+          "https://arxiv.org/abs/1704.03292"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1704.03292",
+        "material_read": "Accessible primary abstract; full text was not successfully opened in the available HTML view",
+        "method": "Read abstract and compared stated enumeration problems and algorithmic conclusions to explicit all-size coefficient formulas",
+        "title": "Enumeration Complexity of Poor Man’s Propositional Dependence Logic",
+        "trigger": "Potential stronger coverage of counting or enumerating satisfying teams"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e22bc6a9-1416-4be3-956d-6f204a9bb5a0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact polynomial determines the entire size distribution of a newly studied natural disjunction of functional-dependence constraints, across heterogeneous finite attribute domains, not merely a finite sample. It yields exact size-conditioned and independent-inclusion probabilities directly, supplying quantitative semantics beyond the existing four-coherence and decision-complexity characterization; the precise invariant is naturally motivated by counting the database relations that satisfy the stated integrity constraint.",
+    "status": "PASS"
+  }
+}
