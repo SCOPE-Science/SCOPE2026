@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,71 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Let
-\[
-M=\operatorname{span}\{e_1\}\subset\mathbb C^2,
-\qquad
-K=P_M,
-\qquad
-W_1=M,
-\qquad
-\omega_1=1,
-\qquad
-C=C'=I.
-\]
-For
-\[
-f=(f_1,f_2),
-\]
-one has
-\[
-\sum_i\omega_i^2\langle\pi_{W_i}Cf,\pi_{W_i}C'f\rangle
-=
-|f_1|^2
-=
-\|K^*f\|^2.
-\]
-Therefore the controlled \(K\)-fusion bounds are exactly
-\[
-A=B=1.
-\]
+# Independent mathematical audit
 
-The source coefficient space is
-\[
-M,
-\]
-and the analysis operator is
-\[
-T_{C,C'}=P_M:H\to M.
-\]
-For every \(x\in M\),
-\[
-\langle P_Mf,x\rangle_M=\langle f,x\rangle_H,
-\]
-so
-\[
-T_{C,C'}^*x=x.
-\]
-Hence
-\[
-R(T_{C,C'}^*)=M\ne H.
-\]
-The synthesis operator is not surjective, disproving the necessity direction of Theorem 10.
+## correctness
 
-For the repair, the controlled lower frame inequality is
-\[
-A\|K^*f\|^2\le\|T_{C,C'}f\|^2,
-\]
-which is equivalent to
-\[
-A K K^*\le T_{C,C'}^*T_{C,C'}.
-\]
-Douglas range inclusion gives
-\[
-R(K)\subseteq R(T_{C,C'}^*).
-\]
-Conversely, this range inclusion gives the required operator domination and hence a positive lower controlled \(K\)-fusion bound.
+PASS
 
-The complete source theorem and proof, the operator definitions immediately preceding it, and the relevant primary range-inclusion literature were inspected. The earliest verified public version is arXiv:2007.05110v1, posted 9 July 2020.
+For H=C², M=span e1, K=P_M, one weighted block W=M, C=C′=I, controlled energy ||P_M f||²=||K*f||². Analysis T:H→M is P_M and synthesis T*:M→H is proper inclusion, not surjective. A K K*≤T*T iff Ran K⊆Ran T* follows by Douglas factorization (for Bessel T). Exact 2x2 projection computation independently checked; no nonclosed range issue.
+
+## originality
+
+PASS
+
+The full original Theorem 10 explicitly asserts onto synthesis from closed-range K; the derivation only controls Ran K. Douglas range inclusion is classical, but the source-specific false necessity and concrete within-hypothesis counterexample are not established in inspected source or neighboring published corrections.
+
+## value
+
+PASS
+
+A concrete counterexample to a printed characterization and the precise valid replacement prevent misuse of reconstruction/surjectivity in controlled K-fusion theory. It is a bounded source-specific theorem correction, not a claim that Douglas lemma is new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

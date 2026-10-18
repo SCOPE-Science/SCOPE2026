@@ -1,42 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. For
-\[
-H=\mathbb C^2,
-\qquad
-K=P_{\operatorname{span}\{e_1\}},
-\qquad
-W_1=\operatorname{span}\{e_1\},
-\qquad
-\omega_1=1,
-\qquad
-C=C'=I,
-\]
-the controlled fusion energy is exactly
-\[
-\|K^*f\|^2.
-\]
-Thus the family is a Parseval controlled \(K\)-fusion frame. The source-defined analysis operator is the projection onto the one-dimensional coefficient space, so its adjoint is the proper inclusion into \(H\) and is not surjective.
+## correctness
 
-The corrected criterion follows from
-\[
-A K K^*\le T_{C,C'}^*T_{C,C'}
-\]
-and Douglas range inclusion:
-\[
-R(K)\subseteq R(T_{C,C'}^*).
-\]
+PASS
 
-## Originality
-PASS. Exact source identifiers, Theorem 10, synthesis-surjectivity wording, range-inclusion aliases, Douglas-factorization aliases, and correction terms were compared with the nearest published frame results.
+For H=C², M=span e1, K=P_M, one weighted block W=M, C=C′=I, controlled energy ||P_M f||²=||K*f||². Analysis T:H→M is P_M and synthesis T*:M→H is proper inclusion, not surjective. A K K*≤T*T iff Ran K⊆Ran T* follows by Douglas factorization (for Bessel T). Exact 2x2 projection computation independently checked; no nonclosed range issue.
 
-Prior \(K\)-frame and \(K\)-\(g\)-fusion literature contains the general range-inclusion mechanism, but the checked sources do not identify this controlled \(K\)-fusion theorem as false or give the one-block projection counterexample and exact source-specific repair.
+## originality
 
-## Value
-PASS. The disputed statement is an if-and-only-if characterization. Its surjectivity requirement is not a harmless strengthening: it excludes the basic model where \(K\) is a proper projection and the fusion family exactly resolves \(R(K)\). The replacement criterion is exact and also shows that closed range of \(K\) is unnecessary.
+PASS
 
-## Limitations
-The result addresses Theorem 10 only. The corrected range condition is asserted for the source's well-defined controlled analysis/synthesis setup; the counterexample itself has no domain or closure ambiguity.
+The full original Theorem 10 explicitly asserts onto synthesis from closed-range K; the derivation only controls Ran K. Douglas range inclusion is classical, but the source-specific false necessity and concrete within-hypothesis counterexample are not established in inspected source or neighboring published corrections.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A concrete counterexample to a printed characterization and the precise valid replacement prevent misuse of reconstruction/surjectivity in controlled K-fusion theory. It is a bounded source-specific theorem correction, not a claim that Douglas lemma is new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
