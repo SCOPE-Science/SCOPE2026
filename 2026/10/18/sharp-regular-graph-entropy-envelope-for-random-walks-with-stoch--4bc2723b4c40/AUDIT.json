@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Each non-root-neighbor row has k+1 distinct destinations, while each root-neighbor row merges the reset and unique root-hop masses, giving exactly Delta. Finite resolvent and tree covering-return injection yield strict bound; shortest-cycle argument establishes return Green strictness; girth locality plus tail bound gives uniform convergence. Near-zero expansion proves every finite maximum exceeds log(k). Exact-rational stationary distributions and direct entropy formula agree in 240 tested cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:0810.4113: maximal-entropy walk is based on eigenvector-weighted edge transition probabilities, not a reset transition to a distinguished root.",
+        "arxiv:2208.05665: the graph entropy claim based on B_k does not compare universal covers or high-girth extrema."
+      ],
+      "reasoning": "General stationarity/entropy identities imply how to calculate the loss, but do not include the explicit strict comparison, infinite-tree Green profile, or uniform high-girth envelope as stated. There remains a risk of independent derivation elsewhere.",
+      "searches": [
+        "\"Wang\" \"Chen\" 2022 \"entropy rate\" \"regular\" correction resetting",
+        "Entropy rate reset random walk on regular graph stationarity weight neighbors of reset vertex, high girth regular graph universal tree limit entropy rate",
+        "Entropy resetting simple random walk on large girth graphs asymptotic root Green function local limit degree k maximum rate"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2208.05665",
+      "arxiv:0810.4113",
+      "arxiv:2105.08323",
+      "Published research-record semantic queries on entropy of reset walks and high girth"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2208.05665 uses the same random walk and a purported universal maximum log(k+1); the actual vertex-state entropy has positive collision loss.",
+        "arxiv:0810.4113 concerns maximal-entropy transition kernels supported on original edges, and cannot imply reset-root collision or girth behavior."
+      ],
+      "reasoning": "The new theorem contradicts the source specialization when it is interpreted as vertex-state entropy; the general Markov entropy identity from that paper is retained and used as a premise. The sharp high-girth maximization requires an additional covering-tree comparison and cannot be read as the prior upper bound alone.",
+      "searches": [
+        "\"Entropy rate of random walks on complex networks under stochastic resetting\" correction erratum",
+        "Random walk stochastic resetting to a vertex on k-regular graph Shannon entropy rate corrected when reset target is also a neighbor, collisions merged, strictly less log(k+1), exact return Green function",
+        "Entropy rate reset random walk on regular graph stationarity weight neighbors of reset vertex, high girth regular graph universal tree limit entropy rate"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2208.05665 equations for regular-network entropy and optimal reset rate; inspected full HTML and PDF page; their row labels overlap for a neighbor of the reset root.",
+        "arxiv:2105.08323 treats renewal quantities, with no entropy-rate classification in its accessible primary text."
+      ],
+      "reasoning": "The entropy of tagged reset and hop actions equals B_k, but the observed Markov transition to the root merges two actions when standing at a root neighbor. This distinction cannot be eliminated by a change of parameters. No equivalent root-neighbor Green correction was found.",
+      "searches": [
+        "\"Entropy rate of random walks on complex networks under stochastic resetting\" correction erratum",
+        "\"reset\" \"entropy rate\" \"neighbor\" \"collision\" random walks graph",
+        "Random walk stochastic resetting to a vertex on k-regular graph Shannon entropy rate corrected when reset target is also a neighbor, collisions merged, strictly less log(k+1), exact return Green function"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic research-record search returned a graph-flow entropy law and graph-indexed random-walk range results, neither of which computes root-reset state entropy.",
+        "The primary papers examined contain no exact k-dependent universal tree entropy table."
+      ],
+      "reasoning": "The theorem concerns a function indexed by all k>=2 and all regular graphs, not recomputation of a finite numerical table. No table or record giving this exact formula was identified.",
+      "searches": [
+        "\"entropy rate\" \"resetting\" \"neighbor\" network Markov",
+        "Wang Chen 2022 entropy resetting random walk regular graph equation (19) correction entropy collision merging reset and hop, strict logarithm k+1"
+      ]
+    },
+    "rationale": "The fully inspected 2022 primary paper states the general Markov entropy rate correctly but its homogeneous-regular specialization omits the reset-neighbor collision. The new result gives both the correction and a strict sharp high-girth tree envelope. Tested directly against literature and research-record searches, without assuming failed searches prove novelty.",
+    "residual_risks": [
+      "Searches cannot exclude a differently titled result in information theory or random walk literature.",
+      "Classical high-girth existence is used, not reproved.",
+      "No independent verification of the novel attribution was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General entropy-rate definition applies, but its regular-graph state-entropy simplification omits the overlapping reset and ordinary neighbor transition",
+        "evidence": [
+          "Markov entropy rate and formulae in sections II–IV, specifically regular-network equations 17, 19, 22."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2208.05665",
+        "material_read": "Full primary HTML article with entropy-rate definitions, stationary calculations, regular-network equations and concluding optimized entropy; examined PDF page containing the specialized formula",
+        "method": "Full-text inspection and comparison of transition destinations against mathematical formula",
+        "title": "Entropy rate of random walks on complex networks under stochastic resetting",
+        "trigger": "Exact same reset Markov chain and entropy observable"
+      },
+      {
+        "assessment": "Studies eigenvector-based entropy-maximizing nearest-neighbor transitions without resets; does not determine root-reset state entropy",
+        "evidence": [
+          "The allowed transitions and the optimization class differ from the reset kernel."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0810.4113",
+        "material_read": "Accessible primary HTML with transition construction and maximum entropy discussion",
+        "method": "Read substantive theoretical sections and transition definitions",
+        "title": "Localization of maximal entropy random walk",
+        "trigger": "Possible dominating graph entropy maximization"
+      },
+      {
+        "assessment": "Treats stationary resetting and first-passage observables rather than sharp conditional Shannon entropy on regular graphs",
+        "evidence": [
+          "Model and renewal-based stationary quantities, no claimed entropy envelope."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2105.08323",
+        "material_read": "Accessible primary HTML summary and substantive text including renewal/stationarity results; searched entropy terminology",
+        "method": "Section and term examination",
+        "title": "Random walks on complex networks with multiple resetting nodes: a renewal approach",
+        "trigger": "Broader resetting process potentially implying the formula"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4bc2723b-4c40-4d75-922f-8e79f8611b1e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source formula predicts attainable log(k+1) state entropy, while the correctly observed walk has a strict deficit; an exact universal-cover Green envelope quantifies the sharp attainable supremum and its high-girth asymptotic mechanism. The result is a natural complete degree-wise extremal entropy solution, not merely a numerical counterexample.",
+    "status": "PASS"
+  }
+}
