@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T18:16:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=4, 2<=k<=n-2, b collapses exactly H=[n-k,n-1] to 0 while fixing the remaining L=n-k points; a rotates the cycle. Inverse b sends S to S∪H when 0∈S, otherwise removes H. The first productive expansion from singleton {0} leaves missing interval [1,L-1]. Every later productive inverse b removes at most k missing states. With that anchored interval, fewer than L inverse rotations either avoid H or hit 0, so cannot produce a productive b; after at least L rotations, removal leaves the same anchored-interval form. This implies >=1+t(L+1), t=ceil((L-1)/k)=floor((n-2)/k), and explicit inverse phases/reversed forward witness b(a^L b)^t attain it. Independent BFS over every reachable image subset for all 45 admitted n,k pairs through n=12 matched formula. Infinite statement follows from interval obstruction, not tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Volkov arXiv:2306.13317 Thm 1 gives primitive/unimodal synchronizability, not exact shortest-length equality.",
+          "Rystsov–Szykuła arXiv:2307.01302 Thm 25 and arXiv:2309.08321 supply general class bounds, but none supplies the candidate's exact floor((n-2)/k)."
+        ],
+        "reasoning": "The candidate computes a full exact numerical threshold, which is stronger than the inspected existence and nonmatching general bounds.",
+        "searches": [
+          "Resultary semantic: cyclic automata consecutive block collapse to zero reset shortest word threshold",
+          "Resultary semantic: consecutive terminal k states collapse circle reset threshold floor((n-2)/k)",
+          "arXiv:2306.13317 Theorem 1",
+          "arXiv:2307.01302 Theorem 25",
+          "Resultary/2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f"
+        ]
+      },
+      "checked_sources": [
+        "Assigned frozen Git tree d675c5e160b4268b0fbd8d3d8408601800a1f63f: RESULT.md, AUDIT.json, METADATA.json, REVIEW.md, SLOGAN.txt, VERIFICATION.md, verify.py",
+        "Resultary semantic: cyclic automata consecutive block collapse to zero reset shortest word threshold",
+        "Resultary semantic: consecutive terminal k states collapse circle reset threshold floor((n-2)/k)",
+        "arXiv:2306.13317 Theorem 1",
+        "arXiv:2307.01302 Theorem 25",
+        "Resultary/2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Candidate proof makes every necessary inverse collapse cost L+1 letters after initial step.",
+          "Generic synchronized/unimodal conditions do not imply the inverse interval phase lower bound."
+        ],
+        "reasoning": "The displayed general prior theorems establish existence or broad bound only, so the formula for this particular collapsed block is not an immediate corollary.",
+        "searches": [
+          "Resultary semantic: cyclic automata consecutive block collapse to zero reset shortest word threshold",
+          "Resultary semantic: consecutive terminal k states collapse circle reset threshold floor((n-2)/k)",
+          "arXiv:2306.13317 Theorem 1",
+          "arXiv:2307.01302 Theorem 25",
+          "Resultary/2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cerny has a rank n-1 single merge; current letter has rank n-k and merges all final k+1 states onto 0.",
+          "Resultary Cerny avoidance targets omission of k points, not the reset condition of the present collapsed terminal block."
+        ],
+        "reasoning": "The discrepancy in image rank and transition graph precludes conjugating this to a single-merge automaton when k>=2. Reflecting the cycle may change which end is collapsed but not turn the k-collapse into known subset avoidance.",
+        "searches": [
+          "Resultary semantic: cyclic automata consecutive block collapse to zero reset shortest word threshold",
+          "Resultary semantic: consecutive terminal k states collapse circle reset threshold floor((n-2)/k)",
+          "arXiv:2306.13317 Theorem 1",
+          "arXiv:2307.01302 Theorem 25",
+          "Resultary/2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary exact Bactrian/Wielandt deficiency profiles have distinct transition maps and rank targets.",
+          "No same-map n,k exact table was returned by two specialized searches."
+        ],
+        "reasoning": "Existing online catalogs of exact small automata thresholds could in principle encode specific cases; no identified exact prior result entails the candidate's all-parameter formula.",
+        "searches": [
+          "Resultary semantic: cyclic automata consecutive block collapse to zero reset shortest word threshold",
+          "Resultary semantic: consecutive terminal k states collapse circle reset threshold floor((n-2)/k)",
+          "arXiv:2306.13317 Theorem 1",
+          "arXiv:2307.01302 Theorem 25",
+          "Resultary/2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f"
+        ]
+      },
+      "rationale": "The full n,k reset threshold of a consecutive multi-state collapse is not determined by the referenced primitive/unimodal/semiconstant synchronizability results nor general rank bounds. Its letter has rank n-k, unlike classical single-deficiency Cerny; the exact collapse and rotation interval lower bound appears genuinely new under searched names, subject to older circular automata literature.",
+      "residual_risks": [
+        "Equivalent consecutive-block collapse automata may appear under a different canonical family name or as a semiautomaton special case.",
+        "The inverse missing-interval induction is the essential unrestricted argument; finite enumeration to n=12 only corroborates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem proves structural synchronization, not exact optimized reset length in inspected material",
+          "evidence": "A general existence criterion cannot itself give 1+floor((n-2)/k)(n-k+1).",
+          "identifier_or_url": "arXiv:2306.13317",
+          "material_read": "Theorem 1 and relevant definition in rendered arXiv PDF",
+          "method": "Public arXiv primary PDF and theorem page inspection",
+          "title": "Synchronization of Primitive Automata",
+          "trigger": "Unimodal letter theorem might cover consecutive collapsed blocks"
+        },
+        {
+          "assessment": "Not an exact consecutive-block collapse reset formula in read portion",
+          "evidence": "Addresses synchronizability, not matching shortest words.",
+          "identifier_or_url": "arXiv:2307.01302",
+          "material_read": "Theorem 25 and §4.3 relevant discussion in primary PDF",
+          "method": "Public arXiv PDF relevant pages",
+          "title": "Primitive Automata that are Synchronizing",
+          "trigger": "Semiconstant and primitive conditions for cyclic letters"
+        },
+        {
+          "assessment": "Distinct optimization domain and state transformation",
+          "evidence": "Its b has one merge and computes avoiding k targets, not this multi-collapse reset length.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f/RESULT.md",
+          "material_read": "Whole published RESULT.md, definitions and constructive proof",
+          "method": "GitHub published primary full source",
+          "title": "Exact k-avoiding thresholds of the Černý automata",
+          "trigger": "Near-name Resultary exact reset/avoiding threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural family of one-cluster cyclic automata interpolates synchronization length quadratically and linearly with collapsed-block size. Exact global shortest reset length across all words, with a sharp inverse interval obstruction, answers a core synchronization invariant and is mathematically useful beyond a small test instance.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned frozen Git tree d675c5e160b4268b0fbd8d3d8408601800a1f63f: RESULT.md, AUDIT.json, METADATA.json, REVIEW.md, SLOGAN.txt, VERIFICATION.md, verify.py",
+    "Resultary semantic: cyclic automata consecutive block collapse to zero reset shortest word threshold",
+    "Resultary semantic: consecutive terminal k states collapse circle reset threshold floor((n-2)/k)",
+    "arXiv:2306.13317 Theorem 1",
+    "arXiv:2307.01302 Theorem 25",
+    "Resultary/2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Equivalent consecutive-block collapse automata may appear under a different canonical family name or as a semiautomaton special case.",
+    "The inverse missing-interval induction is the essential unrestricted argument; finite enumeration to n=12 only corroborates."
+  ],
+  "residual_risks": [
+    "Equivalent consecutive-block collapse automata may appear under a different canonical family name or as a semiautomaton special case.",
+    "The inverse missing-interval induction is the essential unrestricted argument; finite enumeration to n=12 only corroborates."
+  ],
+  "schema_version": 1
+}

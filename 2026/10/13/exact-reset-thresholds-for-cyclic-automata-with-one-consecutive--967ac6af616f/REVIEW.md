@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The inverse-image proof treats every possible reset word, not just the displayed witness. A shortest inverse route omits nonexpanding reverse-collapse steps because set preimages are monotone. After its first useful collapse, the missing interval is \([1,n-k-1]\). A subsequent useful collapse necessarily follows at least \(n-k\) inverse rotations; it removes at most \(k\) missing states. Those two independent lower bounds yield \(1+\lfloor(n-2)/k\rfloor(n-k+1)\). The proposed word attains equality by successively advancing the missing interval's lower endpoint by \(k\). The proof covers the boundary \(k=n-2\) and all larger parameters without a computation cutoff. Executable finite tests use subset BFS and exhaustive interval cases but are not treated as infinite proof.
+## correctness
 
-## Originality — PASS (limited bibliographic claim)
-The closest inspected material includes Volkov's 2023 unimodal-letter results (synchronizability for one large kernel class), Rystsov–Szykuła's 2023 semiconstant primitivity/synchronization result, and their 2023 generic quadratic one-point bound. The exact threshold for the designated cyclic permutation and a simultaneously collapsing *consecutive* block is not entailed by those statements. The classical Černý single-merge family has only one moved state. Published finite automaton censuses and Černý avoidance studies concern different transition structures or different optimization objectives. A preexisting unindexed equivalent formula remains possible; the review is not a priority certificate.
+PASS
 
-## Value — PASS
-This provides a closed-form optimal reset threshold and explicit shortest word for an infinite, structurally natural rank-deficiency family, not just an example, an upper bound, or a finite census. It gives a transparent transition from quadratic to linear synchronization cost as the consecutive collapsed block grows. The proof identifies the exact cyclic-interval bottleneck controlling all competing words, a reusable idea for related circular synchronization questions.
+For n>=4, 2<=k<=n-2, b collapses exactly H=[n-k,n-1] to 0 while fixing the remaining L=n-k points; a rotates the cycle. Inverse b sends S to S∪H when 0∈S, otherwise removes H. The first productive expansion from singleton {0} leaves missing interval [1,L-1]. Every later productive inverse b removes at most k missing states. With that anchored interval, fewer than L inverse rotations either avoid H or hit 0, so cannot produce a productive b; after at least L rotations, removal leaves the same anchored-interval form. This implies >=1+t(L+1), t=ceil((L-1)/k)=floor((n-2)/k), and explicit inverse phases/reversed forward witness b(a^L b)^t attain it. Independent BFS over every reachable image subset for all 45 admitted n,k pairs through n=12 matched formula. Infinite statement follows from interval obstruction, not tests.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The full n,k reset threshold of a consecutive multi-state collapse is not determined by the referenced primitive/unimodal/semiconstant synchronizability results nor general rank bounds. Its letter has rank n-k, unlike classical single-deficiency Cerny; the exact collapse and rotation interval lower bound appears genuinely new under searched names, subject to older circular automata literature.
+
+## value
+
+PASS
+
+A natural family of one-cluster cyclic automata interpolates synchronization length quadratically and linearly with collapsed-block size. Exact global shortest reset length across all words, with a sharp inverse interval obstruction, answers a core synchronization invariant and is mathematically useful beyond a small test instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
