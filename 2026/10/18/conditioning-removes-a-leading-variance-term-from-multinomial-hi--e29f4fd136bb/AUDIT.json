@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "An exact multinomial marginal-to-Poisson first-order expansion for k=2,3,4 is justified by tail-truncated Taylor bounds. Every nonadjacent pair contributes -c^2/(lambda n)+o(1/n), and there are asymptotically n^2/2 unordered such pairs, giving the claimed nonvanishing correction after dividing Var by n. Exact Hoeffding projections prove strict positivity, and Poisson power series and correlated-Gaussian moments prove the endpoint scales. Executed the packaged standard-library checker: 175 checks passed; finite checks do not establish limits.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2606.01465, Comb Test, computes finite null distribution through dynamic programming and uses a simulated gamma approximation",
+        "arxiv:2610.13366, Part 1, publishes an exact expectation and fixed-n and sparse-limit expectation expansions"
+      ],
+      "reasoning": "Exact finite null laws determine moments numerically but do not, from the material actually accessible, establish the analytic simultaneous n,N→∞ variance coefficient or the global distant-edge correction. Could be implicit in inaccessible full text; this is a residual risk, not an asserted proof of non-coverage.",
+      "searches": [
+        "Banic Elezovic DTV multinomial variance 2026 fixed load Poissonized distribution",
+        "Banic Elezovic Discrete total variation under multinomial Part 2 variance asymptotic distribution 2026",
+        "Poisson occupancy sequence local absolute difference statistics sparse dense variance n sample conditioning central limit limit"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.13366v1 (abstract)",
+      "arxiv:2606.01465 (abstract)",
+      "arxiv:2012.11574 (abstract)",
+      "published research-record semantic searches on aliases and conditioning"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The motivating 2026 paper proves expectations, not an accessible variance theorem",
+        "The May 2026 Comb Test work has a complete finite sampling-law algorithm, but its abstract reports empirical gamma fitting at large sizes"
+      ],
+      "reasoning": "No checked abstract states a result implying the exact order-n variance limit with its conditioning correction and sparse/dense coefficients. A full distribution for every fixed n,N formally specifies finite moments but extracting the joint asymptotic entails a new nonlocal covariance calculation; the distinction is between finite computability and the proved analytic limit, not a special case of a stated stronger asymptotic theorem.",
+      "searches": [
+        "Discrete total variation under multinomial Banić Elezović Part 2 variance asymptotic distribution 2026",
+        "multinomial histogram discrete total variation D=sum adjacent absolute count differences large n and N/n fixed Poisson λ asymptotic variance conditional Poissonization formula Skellam covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.13366 studies the same DTV statistic primarily through its expectation",
+        "Published related multinomial-mode profile work addresses the mode, not absolute adjacent differences"
+      ],
+      "reasoning": "Checked aliases histogram roughness, absolute adjacent-count differences, Skellam differences, and conditional Poisson occupancy. Found no stated analytic fixed-load variance profile.",
+      "searches": [
+        "multinomial histogram discrete total variation D=sum adjacent absolute count differences large n and N/n fixed Poisson λ asymptotic variance conditional Poissonization formula Skellam covariance",
+        "uniform multinomial adjacent-bin absolute difference histogram total variation asymptotic variance fixed occupancy density n,N→∞ conditioning correction",
+        "multinomial histogram discrete total variation adjacent bin difference asymptotic variance n bins N samples Skellam covariance CLT"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:2606.01465 reports computational exact finite null distributions; no asymptotic variance table identified in accessible description"
+      ],
+      "reasoning": "No exact table was located stating the continuum coefficient V(lambda) in the positive fixed-load limit. The exact finite distribution algorithm is explicitly credited and not relabeled as novel.",
+      "searches": [
+        "Comb Test Histogram Uniformity Testing Based on Discrete Total Variation variance std deviation moment discrete variation",
+        "multinomial histogram discrete total variation adjacent bin difference asymptotic variance n bins N samples Skellam covariance CLT"
+      ]
+    },
+    "rationale": "The explicit fixed-load asymptotic variance and its negative global fixed-sample correction are mathematically distinct from expectation formulas, fixed-category large deviations, or finite distribution tabulation. Search of published research records and arXiv bibliography identified no stated equivalent analytical profile, subject to documented unavailable-full-text risk.",
+    "residual_risks": [
+      "Highly relevant full texts could not be materially examined. An equivalent asymptotic in those manuscripts remains possible.",
+      "The earlier exact finite sampling-law algorithm mathematically determines finite moments. If it or related work already proves the same joint asymptotic, the originality claim would fail.",
+      "Published research-record search is incomplete evidence; lack of a hit does not establish global uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Expectation formulas and fixed-n or complementary sparse mean regimes stated; full text cannot be ruled out",
+        "evidence": "arXiv:2610.13366; first public date 2026-10-09",
+        "identifier_or_url": "https://arxiv.org/abs/2610.13366",
+        "material_read": "Full abstract and public bibliographic descriptions; manuscript PDF and HTML inaccessible",
+        "method": "Public abstract and search-index record",
+        "title": "Discrete total variation under the multinomial, Part 1: expectation under the uniform null",
+        "trigger": "Same statistic and contemporaneous expectation asymptotics"
+      },
+      {
+        "assessment": "Finite null law computed by dynamic programming and large-size gamma approximated from simulation. Risk of implicit variance limit remains",
+        "evidence": "arXiv:2606.01465; first public date 2026-05-31",
+        "identifier_or_url": "https://arxiv.org/abs/2606.01465",
+        "material_read": "Full abstract; manuscript full text inaccessible",
+        "method": "Public abstract",
+        "title": "Comb Test: Histogram Uniformity Testing Based on Discrete Total Variation",
+        "trigger": "Same statistic, finite exact null distribution"
+      },
+      {
+        "assessment": "Models expectation and outlier detection, not an identified fixed-load variance profile",
+        "evidence": "arXiv:2012.11574",
+        "identifier_or_url": "https://arxiv.org/abs/2012.11574",
+        "material_read": "Full abstract",
+        "method": "Public abstract",
+        "title": "TVOR: Finding Discrete Total Variation Outliers among Histograms",
+        "trigger": "Prior histogram-roughness baseline"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e29f4fd1-36bb-4393-884d-2e3cb03c2e70",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The null variance is directly needed to calibrate histogram-smoothness statistics. The fixed-sample constraint creates a macroscopic negative correction from individually vanishing correlations of distant edges, invisible to independent Poissonization; the formula supplies a positive function across all positive finite occupancy loads and distinct rigorous sparse and dense scales. It is not a textbook moment formula for independent counts or an arbitrary small table.",
+    "status": "PASS"
+  }
+}
