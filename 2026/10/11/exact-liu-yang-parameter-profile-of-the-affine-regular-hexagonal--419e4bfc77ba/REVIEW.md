@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source definition and parameter symmetry are reconstructed explicitly. For fixed \(m\), the objective is jointly convex on every product of two unit-sphere edges, so the continuum supremum reduces rigorously to the \(36\) ordered vertex pairs. Exact facet analysis yields the three active quadratic branches
-\[
-1,\qquad 1+m-m^2,\qquad 1+2m-3m^2,
-\]
-and the last dominates on \(0\le m\le1/2\). The pair \(x=(1,1)\), \(y=(0,-1)\) attains equality for every \(m\) in that interval. The bundled verifier reconstructs the finite branch decomposition with exact arithmetic.
+## correctness
 
-## Originality
-PASS. Searches covered both names used by the defining source, the explicit hexagonal norm, exact polynomial/value queries, same-space restricted variants, and same-type results on other spaces. The first public source does not compute this hexagon. The current revision treats the same hexagonal norm only for the different isosceles-restricted constant \(C''_{\mathrm{NJ}}\). Closest indexed research records concern either that restricted invariant or a regular-octagonal space. A 2023 bulletin paper on classical modified von Neumann–Jordan constants is retained as a possible overlap for the balanced specialization only; its repository full text was inaccessible, so novelty is not claimed for \(5/4\) in isolation.
+PASS
 
-## Value
-PASS. The affine-regular hexagon is a canonical non-Hilbert plane, and the Liu–Yang parameter was introduced to quantify departure from a generalized parallelogram identity. The exact continuum profile reveals two off-center maxima at \(1/3\) and \(2/3\), a feature not visible from the classical balanced modified von Neumann–Jordan constant. The convex-edge reduction is reusable for other polygonal norms.
+For N(s,t)=max(|s|,|t|,|s−t|), the compact unit sphere consists of six edges; for each pair of edges the objective N(mx+(1−m)y)^2+m(1−m)N(x−y)^2 is jointly convex in the pair, so its global maximum occurs at 36 ordered vertex pairs. Independent exact Fraction arithmetic formed all three absolute facet functionals, all switching parameters, and 48 open parameter intervals over m∈[0,1/2], with candidate polynomial set exactly {1,1+m−m²,1+2m−3m²}; every difference from the last was checked nonnegative at interval endpoints and its quadratic critical point. The uniform witness x=(1,1), y=(0,-1) has norms 1, N(mx+(1−m)y)=1−m and N(x−y)=2. Symmetry completes full lambda∈[0,1], maximal value 4/3 exactly m=1/3 and balanced value 5/4. This is a finite rigorous reduction followed by exhaustive exact rational algebra, not sampled-grid inference.
 
-## Closest literature and limitations
-The defining source is arXiv:2110.15741v1, first public on 29 October 2021, with MSC 46B20. Its current revision renames the unrestricted invariant and introduces nearby restricted constants. The result here is limited to one hexagonal plane and does not classify arbitrary hexagonal norms. The literature search cannot prove global uniqueness, and the inaccessible 2023 bulletin source remains a balanced-value overlap risk only.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for the complete unrestricted Liu–Yang parameter profile of the same canonical hexagon. The primary v2 paper defines the unrestricted C'_NJ and distinct isosceles-restricted C''_NJ; its same-hexagon computation is for the restricted admissible-pair class and cannot imply the unrestricted formula. Published October restricted-hexagon and other generalized von Neumann–Jordan studies have differing definitions; a 2023 plausible extreme-normalized-plane paper may cover the one balanced point 5/4 but not shown to cover the complete lambda profile or off-centre extremizers. Access to that 2023 full text failed; this is a named residual risk, not grounds alone to fail O. No searched stronger all-parameter result matched.
+
+## value
+
+PASS
+
+PASS: the full parameter-dependent invariant of a canonical non-Hilbert two-dimensional hexagonal norm is a natural exact polyhedral geometry classification, including nontrivial off-balanced sharp maxima at lambda 1/3,2/3. This precise profile fills a gap distinct from the prior isosceles-restricted profile and the potentially known single balanced specialization. A finite 36-vertex solution is a complete natural classification, not arbitrary small sampled instances or table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
