@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T00:10:42.772514Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://proceedings.mlr.press/v70/bello17a/bello17a.pdf",
+        "Independent exact bounded checks in independent_1783_checks.py and independent_1783_results.txt; frozen RESULT.md Git blob"
+      ],
+      "rationale": "Solve the two-step EMA recurrence: m_(2n)=(beta A-B)/(1+beta)*(1-beta^(2n)), m_(2n-1)=(A-beta B)/(1+beta)-(beta A-B)*beta^(2n-1)/(1+beta). These give exact sign thresholds beta<=r<1/beta for all-step agreement, zero even EMA at r=1/beta, alternating odd agreement/even disagreement for r>1/beta, and a unique transient odd sign crossing for r<beta with first strictly negative odd index 2N-1, N=floor((1+log((beta-r)/(1-beta*r))/log beta)/2)+1. Direct rational-arithmetic recurrence checked 2520 parameter/time cases and separately exact-zero odd boundaries; beta=0.9 window [0.9,10/9) holds. The base PowerSign/AddSign multipliers follow by source substitution.",
+      "residual_risks": [
+        "The statement concerns a scalar coordinate with prescribed input and base rules; sign(0)=0 and bias correction positive. The transient logarithmic formula has strict inequality at exact zero crossings."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://proceedings.mlr.press/v70/bello17a/bello17a.pdf",
+          "Bello et al. ICML 2017 present general neural optimizer search, original PowerSign/AddSign rules, and qualitative sign-agreement factor.",
+          "Resultary search for periodic sign algorithms returned Signum and EMA-momentum SAM phenomena with different update laws."
+        ],
+        "reasoning": "The originating optimizer framework is much broader, but its theorem statements or experiments do not imply the sharp scalar alternating gate classification as an explicit output property.",
+        "searches": [
+          "PowerSign AddSign alternating gradient exponential moving average sign agreement amplitude threshold"
+        ]
+      },
+      "checked_sources": [
+        "https://proceedings.mlr.press/v70/bello17a/bello17a.pdf",
+        "Resultary semantic query: PowerSign AddSign alternating gradient exponential moving average sign agreement amplitude threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://proceedings.mlr.press/v70/bello17a/bello17a.pdf",
+          "Section 4 presents e^{sign(g)sign(m)}g and (1+sign(g)sign(m))g with interpretation; calculating the two alternating EMA subsequences, boundary equality and transient is absent."
+        ],
+        "reasoning": "The base EMA recurrence is standard, but the classifier’s blindness to every-step maximal sign alternation for beta<=r<1/beta and its sharp switch index require solving and interpreting that recurrence. No decisive published implication-equivalent result was identified.",
+        "searches": [
+          "PowerSign AddSign alternating gradient exponential moving average sign agreement amplitude threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://proceedings.mlr.press/v70/bello17a/bello17a.pdf",
+          "Equivalent question: signs of a first-order EMA filter driven by a deterministic two-cycle A,-B; Nyquist-frequency signal response and transient switch time."
+        ],
+        "reasoning": "Filter/eigenmode language is a plausible alias; search and source comparison identify the same simple EMA recurrence as a known ingredient, not an earlier statement of its exact thresholded optimizer interpretation.",
+        "searches": [
+          "PowerSign AddSign alternating gradient exponential moving average sign agreement amplitude threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact finite database/table is capable of covering the all-beta, all-positive A/B and all-step inequalities. Source experiments at default beta=0.9 give one parameter but no exact threshold table.",
+          "https://proceedings.mlr.press/v70/bello17a/bello17a.pdf"
+        ],
+        "reasoning": "The exact phase window is analytical and depends continuously on beta and r, so finite empirical optimizer tables cannot substitute for the new threshold formula.",
+        "searches": [
+          "PowerSign AddSign alternating gradient exponential moving average sign agreement amplitude threshold"
+        ]
+      },
+      "rationale": "Bello et al. introduced sign(g)sign(m) as an agreement gate for PowerSign/AddSign and state multipliers; their inspected experimental and motivation sections do not solve the persistent two-amplitude alternating input recurrence or identify the precise all-step agreement window. Adjacent Signum/EMA-periodic Resultary hits concern different algorithms. Best-of-knowledge new statement is a complete diagnostic gate phase diagram, not the primitive itself.",
+      "residual_risks": [
+        "EMA frequency-response and periodic-signal folklore may contain the same sign thresholds without the optimizer names.",
+        "This is diagnostic input-response of a scalar primitive, not a convergence theorem on any objective or claim of observed alternating gradients."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original defines sign-based agreement and e/2 multipliers; does not state alternating-amplitude beta-to-reciprocal window, endpoint zero parity or transient crossing",
+          "evidence": [
+            "Equation e^{sign(g)sign(m)}g and textual interpretation at pp.5-6; beta1=0.9 experimental setting"
+          ],
+          "identifier_or_url": "https://proceedings.mlr.press/v70/bello17a/bello17a.pdf",
+          "material_read": "Read primary ten-page ICML/PMLR manuscript, especially §4 discovery and rule definition, §5 family and transfer discussions; inspected PDF pp.4-5 and rendered pages",
+          "method": "Read freely available full-text sections and surrounding arguments, including rendered PDF pages where applicable",
+          "title": "Irwan Bello et al., Neural Optimizer Search with Reinforcement Learning",
+          "trigger": "Exact same PowerSign and AddSign rules and EMA beta=0.9"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://proceedings.mlr.press/v70/bello17a/bello17a.pdf"
+      ],
+      "rationale": "The sign-agreement gate is the interpretable mechanism of these optimizers. A maximally reversing balanced gradient can nonetheless be classified as agreement at every step and amplified, an exact blind window of practical mathematical interest; its sharp amplitude boundaries and finite transient beyond them distinguish response regimes. This is motivated by the actual method rather than an arbitrary EMA algebra exercise.",
+      "residual_risks": [
+        "Does not imply beneficial or harmful generalization nor the behavior of full neural optimizer dynamics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The statement concerns a scalar coordinate with prescribed input and base rules; sign(0)=0 and bias correction positive. The transient logarithmic formula has strict inequality at exact zero crossings.",
+    "EMA frequency-response and periodic-signal folklore may contain the same sign thresholds without the optimizer names.",
+    "This is diagnostic input-response of a scalar primitive, not a convergence theorem on any objective or claim of observed alternating gradients.",
+    "Does not imply beneficial or harmful generalization nor the behavior of full neural optimizer dynamics."
+  ],
+  "schema_version": 1
+}
