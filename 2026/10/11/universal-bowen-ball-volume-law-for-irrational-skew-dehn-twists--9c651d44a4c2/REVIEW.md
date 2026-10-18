@@ -1,12 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The asserted exact asymptotic follows from the real lifted displacement identity, uniformly vanishing normalized Birkhoff sums of the mean-zero continuous derivative, the explicit no-integer-winding radius, and a uniform rescaled-domain squeeze. Fourier approximation verifies the nonstandard uniform estimate without arithmetic rate assumptions. The limiting parallelogram has the stated exact Haar area; independent covering estimates verify the polynomial-entropy corollary. Neither experiments nor unverified external software serve as a proof.
+## correctness
 
-## Originality — PASS
-The nearest full-text references are H. Corrêa (2026), J. Correa and E. R. Pujals (2020 preprint/2023 publication), and F. Grycan-Gérard and J.-P. Marco (2023). They give polynomial-entropy lower bounds, generalized growth-class statements, or fiber torsion exponents, not a normalized Haar Bowen-ball coefficient for an irrational-base, nonzero-winding shear. A related rational-base, winding-zero polynomial-entropy classification has different hypotheses and does not imply the local area law. Residual risk: an unindexed treatment under metric slow-entropy or skew-shift terminology could contain an equivalent result.
+PASS
 
-## Mathematical value — PASS
-The exact coefficient and its universal parallelogram geometry refine known linear entropy growth by a sharp, fixed-resolution orbit-ball measure, robust under arbitrary \(C^1\) periodic perturbations and independent of the irrational rotation's approximation rate. The degree-dependent coefficient gives quantitative orbit-distinguishability information; the topological exponent alone could not recover it. No claim is made about arbitrary metrics, optimal finite-time errors, rational rotations or merely continuous perturbations.
+C PASS: Reconstructed the lifted orbit difference v_j=eta+j k delta+delta*int_0^1 S_j psi'(x+s delta)ds. For C1 periodic psi the derivative is continuous with zero circle mean; uniform Fourier approximation and irrational geometric sums give sup_{u,j<n}|S_j psi'(u)|=o(n), including all prefixes. With epsilon<min(1/8,1/(8L)) each one-step lifted increment is under 1/8 while distinct integer-neighborhood bands are separated by over 3/4, precluding winding. End-index constraints bound n delta; the full sampled discrepancy converges uniformly to eta+k a t. Interior/exterior parallelogram sandwiches prove uniform center-independent n-area limit 4 epsilon^2/|k|, and Haar lower/grid upper entropy bounds give exponent one. No finite simulation is an infinite proof.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS: Earlier skew Dehn-twist and toral polynomial-entropy literature determines linear orbit-growth classes or entropy exponents, whereas the candidate determines a full fixed-resolution, center-uniform Haar Bowen-ball asymptotic with exact metric-dependent coefficient and limiting local parallelogram for every irrational rotation and C1 periodic perturbation. None of the materially read original growth/classification theorems implies this area coefficient or perturbation universality. No exact Bowen-ball volume predecessor identified in targeted skew-shift and metric slow-entropy searches; unindexed sources remain a risk.
+
+## value
+
+PASS
+
+V PASS: The exact constant 4 epsilon^2/|k|, not just entropy exponent one, measures finite-resolution orbit distinguishability and is robust under every C1 periodic perturbation and any irrational base with no Diophantine assumption. The universal limiting parallelogram supplies a natural structural local limit; it is quantitatively meaningful even though coefficient depends on metric choice and no general theorem beyond the skew family is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

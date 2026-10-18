@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Analytic verification
+# Independent mathematical audit
 
-The exact fiber discrepancy is
-\[
-v_j=\eta+jk\delta+\delta\int_0^1\sum_{\ell=0}^{j-1}\psi'(x+s\delta+\ell\alpha)\,ds.
-\]
-The one-step difference satisfies \(|v_{j+1}-v_j|\le(|k|+\|\psi'\|_\infty)|\delta|<1/8\). Since \(\varepsilon<1/8\), the gap between distinct admissible integer-lift neighborhoods is \(1-2\varepsilon>3/4\), so no shift to another lift is possible. Every Bowen point therefore satisfies the real constraints \(|v_j|<\varepsilon\).
+## correctness
 
-A trigonometric zero-mean approximation to \(\psi'\), together with irrationality of \(\alpha\), proves
-\[
-\frac1n\sup_u\max_{0\le j<n}\left|\sum_{\ell=0}^{j-1}\psi'(u+\ell\alpha)\right|\to0.
-\]
-The final displacement forces \(|n\delta|\le4\varepsilon/|k|\) for sufficiently large \(n\). Write \(a=n\delta\). The rescaled orbit difference approximates the affine path \(\eta+kat\) uniformly in \(t\in[0,1]\) and all centers. Its strict maximum constraint is equivalent, except for a zero-area boundary, to \(|\eta|<\varepsilon\) and \(|\eta+ka|<\varepsilon\). Integrating the interval of allowed \(a\) for each \(\eta\) gives \((2\varepsilon)(2\varepsilon/|k|)=4\varepsilon^2/|k|\). The coordinate change \(a=n\delta\) supplies exactly the factor \(n\) in the measured Bowen-ball limit.
+PASS
 
-The independent polynomial-entropy check uses covering measure for a lower bound proportional to \(n\), and an explicit base-by-fiber grid of sizes \(O(n)\) and \(O(1)\) for an upper bound. This establishes the exponent \(1\) but no metric-independent coefficient. No computer-assisted enumeration, numerical fit, independent external review or unavailable external certificate was relied upon.
+C PASS: Reconstructed the lifted orbit difference v_j=eta+j k delta+delta*int_0^1 S_j psi'(x+s delta)ds. For C1 periodic psi the derivative is continuous with zero circle mean; uniform Fourier approximation and irrational geometric sums give sup_{u,j<n}|S_j psi'(u)|=o(n), including all prefixes. With epsilon<min(1/8,1/(8L)) each one-step lifted increment is under 1/8 while distinct integer-neighborhood bands are separated by over 3/4, precluding winding. End-index constraints bound n delta; the full sampled discrepancy converges uniformly to eta+k a t. Interior/exterior parallelogram sandwiches prove uniform center-independent n-area limit 4 epsilon^2/|k|, and Haar lower/grid upper entropy bounds give exponent one. No finite simulation is an infinite proof.
+
+## originality
+
+PASS
+
+PASS: Earlier skew Dehn-twist and toral polynomial-entropy literature determines linear orbit-growth classes or entropy exponents, whereas the candidate determines a full fixed-resolution, center-uniform Haar Bowen-ball asymptotic with exact metric-dependent coefficient and limiting local parallelogram for every irrational rotation and C1 periodic perturbation. None of the materially read original growth/classification theorems implies this area coefficient or perturbation universality. No exact Bowen-ball volume predecessor identified in targeted skew-shift and metric slow-entropy searches; unindexed sources remain a risk.
+
+## value
+
+PASS
+
+V PASS: The exact constant 4 epsilon^2/|k|, not just entropy exponent one, measures finite-resolution orbit distinguishability and is robust under every C1 periodic perturbation and any irrational base with no Diophantine assumption. The universal limiting parallelogram supplies a natural structural local limit; it is quantitatively meaningful even though coefficient depends on metric choice and no general theorem beyond the skew family is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
