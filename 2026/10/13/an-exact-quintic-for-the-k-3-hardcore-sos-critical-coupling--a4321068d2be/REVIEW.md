@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The branch equations, tangency condition, hypotheses, and normalization were reconstructed from the primary source. The exact checker verifies a single root of the quintic in \((23/100,6/25)\), verifies both reconstructed tangency equations modulo that quintic, and certifies \(\eta>24/5\) and \(w>1/2\) on the isolating interval. Decimal bisection is supplementary and not used as an infinite proof.
+## correctness
 
-## Originality
-PASS. The primary source gives \(\widehat\theta_c\approx0.4812\) and explicitly says that its exact value requires solving a displayed tangency system; it does not state the quintic or rational reconstruction. Searches by source identifier, numerical value, model aliases, tangency language, and exact polynomial found no covering statement. The closest same-author predecessor concerns the binary tree and does not imply the \(k=3\) result. Residual risk remains for weakly indexed equivalent calculations.
+PASS
 
-## Value
-PASS. The result resolves an exact-value problem attached to a phase boundary emphasized by the source. The isolating quintic and branch reconstruction provide structural algebraic information, not merely extra decimal digits.
+The source ∞-SOS Cayley-tree recursion at order k=3 reduces the physical upper branch to a(w)=w²+3w+1/w=b(η)=(η³+7)/((η−1)(η+2)), w=z(η−1), z=θ², with tangency (η−1)b′(η)=w a′(w). Independent polynomial division verifies the rational reconstruction η=−(6044868z⁴−6966324z³+4037567z²−1053986z+68606)/5814 satisfies both equations modulo H(z)=2187z⁵−2916z⁴+1940z³−660z²+96z−4. Sturm root counting isolates exactly one real z in (23/100,6/25); rational sign analysis in the package certifies η>24/5 and w>1/2 throughout, choosing the physical upper branch. Separate symbolic/numerical checks corroborate θ=0.481232824041... . No assertion beyond the k=3 translation-invariant threshold or an independent phase-count proof.
 
-## Closest literature and limitations
-The closest source is Jahnel--Rozikov, arXiv:2404.03297v1, which supplies the model, the implicit tangency characterization, and the phase-count theorem. The present result is restricted to the exact value of the second critical coupling in the \(k=3\), \(p=\infty\) translation-invariant sector and does not address extremality or nontranslation-invariant states.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original Jahnel–Rozikov same-model paper explicitly gives the second k=3 critical point numerically and formulates an implicit tangency system in Remark 1; it does not state the exact minimal-polynomial candidate, isolating interval and physical-branch rational reconstruction. The binary-tree predecessor concerns k=2. Direct Resultary exact-value/author/degree-5 searches found no covering published result.
+
+## value
+
+PASS
+
+The exact second phase-transition coupling is a natural mathematical invariant explicitly singled out by the primary paper as requiring solution. Obtaining a degree-five algebraic characterization with Sturm isolation and certified physical branch is a substantive exact resolution, even absent a larger theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
