@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,24 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The universal arguments are analytic and appear in `RESULT.md`.
+# Independent mathematical audit
 
-The proof distinguishes local mismatch number \(d(P,Q)\), not only global commutation. A pair with \(d=0\) is locally diagonal, while \(d=1\) reduces to positive one-qubit conditional blocks. For even \(d\ge2\), the global strings commute and the Gibbs expansion has Pauli coefficients with absolute sum \(s+t+st\). A one-site partial transpose has an eigenvalue
-\[
-2^{-k}(1-s-t-st).
-\]
-This certifies necessity as well as the Pauli-mixture sufficiency.
+## correctness
 
-For odd \(d\ge3\), global anticommutation yields
-\[
-\rho=2^{-k}\left(I-\tanh(\beta r)(aP+bQ)/r\right),\qquad r=\sqrt{a^2+b^2}.
-\]
-The sum of the absolute two Pauli expectations is \((|a|+|b|)\tanh(\beta r)/r\). It cannot exceed one in any fully separable state because two incompatible sites already enforce the sharp two-site Cauchy–Schwarz bound. Together with the Pauli-mixture construction this proves both directions.
+PASS
 
-The three-qubit witness \(H=-J(XXX+ZZZ)\) is unchanged by partial transposition on any subset, since \(X\) and \(Z\) are real symmetric at every site. Nevertheless its two Pauli expectations violate the full-separability bound above the claimed critical inverse temperature.
+A term-overlap graph of maximum degree one decomposes into physically disjoint Pauli components, so the thermal state factorizes. For a two-term pair with zero local anticommutations choose local product joint eigenbases; with exactly one, condition on commuting sites and diagonalize the remaining single qubit. With even d>=2 the Pauli strings commute, and rho=2^-k(I+sP+tQ+stPQ), after coefficient-sign normalization. The coefficient-l1 Pauli mixture proves sufficiency s+t+st<=1, while a one-site partial transpose has eigenvalue 2^-k(1-s-t-st) on a common (-,-) eigenspace, proving necessity. With odd d>=3 the global strings anticommute; exact exponentiation gives rho=2^-k(I+uP+vQ), and the same l1 lemma suffices, whereas a two-locally-incompatible-site Bloch-ball/Cauchy–Schwarz witness bounds |<P>|+|<Q>|<=1 for every fully separable state, proving necessity. The three-qubit XXX/ZZZ Gibbs example violates this witness above atan h(1/sqrt2)/sqrt2 yet all its partial transposes equal rho. Independent small matrix PT eigenvalues and witness checks confirm signs, with the unrestricted argument wholly algebraic.
 
-The bundled verifier replays explicit matrices in representative two- and three-/four-qubit cases and the exact scalar boundaries. It does not infer infinite-size results from finite experiments. It requires Python 3 with NumPy for numerical matrix checks.
+## originality
 
-No theorem is claimed for higher-overlap interaction graphs, or for bipartition-specific entanglement of the all-cut-PPT example.
+PASS
+
+Best-of-knowledge PASS with Kiani full-text access risk. The published Resultary exact degree-one result gives one sharp UNIFORM coefficient-capped threshold beta J<=0.440686..., witnessed by XX+ZZ, and does not distinguish individual pair parity or unequal couplings. The present necessary-and-sufficient all-beta component diagram and odd-d all-PPT counterexample are additional statements. The relevant Kiani preprint abstract describes sharp high-temperature conditions for a different maximum-degree regime; its full text was inaccessible via available arXiv/OA routes and authorized Oxford access returned vpn_disconnected, which is recorded rather than bypassed.
+
+## value
+
+PASS
+
+PASS. The theorem sharpens a meaningful known universal high-temperature separability threshold into a complete physical phase diagram for every matching Pauli interaction Hamiltonian, including never-entangled, NPT-transition and all-cut-PPT but non-fully-separable regimes. It identifies the exact obstruction by local incompatibility parity and coefficient ratio, with a nontrivial multipartite witness invisible to PPT. This structural classification is not a routine recitation of the uniform XX+ZZ example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

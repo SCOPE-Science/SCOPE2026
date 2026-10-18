@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T15:06:05.616481Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md blob 9af254524007980d4904553ad10d1d96f47e1db9",
+        "Assigned artifacts/verify.py blob b0b547aae50873731e11087085f5ac5e01b8a770",
+        "New matrix checks of XX/ZZ partial transpose and XXX/ZZZ witness",
+        "Complete published Resultary proof of uniform degree-one threshold"
+      ],
+      "rationale": "A term-overlap graph of maximum degree one decomposes into physically disjoint Pauli components, so the thermal state factorizes. For a two-term pair with zero local anticommutations choose local product joint eigenbases; with exactly one, condition on commuting sites and diagonalize the remaining single qubit. With even d>=2 the Pauli strings commute, and rho=2^-k(I+sP+tQ+stPQ), after coefficient-sign normalization. The coefficient-l1 Pauli mixture proves sufficiency s+t+st<=1, while a one-site partial transpose has eigenvalue 2^-k(1-s-t-st) on a common (-,-) eigenspace, proving necessity. With odd d>=3 the global strings anticommute; exact exponentiation gives rho=2^-k(I+uP+vQ), and the same l1 lemma suffices, whereas a two-locally-incompatible-site Bloch-ball/Cauchy–Schwarz witness bounds |<P>|+|<Q>|<=1 for every fully separable state, proving necessity. The three-qubit XXX/ZZZ Gibbs example violates this witness above atan h(1/sqrt2)/sqrt2 yet all its partial transposes equal rho. Independent small matrix PT eigenvalues and witness checks confirm signs, with the unrestricted argument wholly algebraic.",
+      "residual_risks": [
+        "The result addresses full separability, not all cut-by-cut bipartite separabilities; PPT example is not proof of PPT-bound entanglement under each bipartition.",
+        "Proof uses each pair’s specified nonzero Pauli terms and actual local incompatibility count; not applicable to three-or-more-term overlap components."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kiani work establishes degree/temperature sufficient conditions; matched pair-specific conditions were not verified from full primary text due access failure.",
+          "Two-qubit thermal entanglement analysis cannot establish the 3+-site full-separability witness class for arbitrary Pauli tensor products."
+        ],
+        "reasoning": "No inspected broader theorem implies both even and odd local-incompatibility sectors for all coefficient ratios and arbitrary qubit support; inaccessible primary remains an explicit potential risk.",
+        "searches": [
+          "Kiani sharp universal death of entanglement threshold for Pauli Hamiltonians arXiv:2609.30149",
+          "Berry Dowling Two qubits entangled in two distinct temperature regions quant-ph/0605176",
+          "Resultary published degree-one threshold"
+        ]
+      },
+      "checked_sources": [
+        "Full Resultary degree-one prior RESULT.md",
+        "arXiv:2609.30149 accessible abstract, full PDF unavailable",
+        "Berry–Dowling quant-ph/0605176 abstract/background",
+        "Resultary semantic search Pauli Gibbs matching"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior all-instance assertion is only beta J below fixed bound; it expressly does not derive optimal unequal-coefficient weighted analogue.",
+          "Current criterion depends on d(P,Q) and A,B; odd d>=3 can remain separable past the uniform threshold and later lose it while PPT."
+        ],
+        "reasoning": "The known uniform theorem is a special consequence, not a dominating parameter theorem proving an instance-wise iff criterion.",
+        "searches": [
+          "Published Resultary 2026/10/4/SCOPE-exact-degree-one-separability-threshold-for-bounded-coefficient--c145342499dd full RESULT.md",
+          "Kiani 2609.30149 accessible abstract and OA text-access attempt"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniform worst-case inequality beta J<=atanh(sqrt2-1) is contained as a corollary of the even case but does not characterize any specific mismatched pair above that bound.",
+          "Odd three-incompatible-site pair gives a different critical inverse temperature and a full-separability witness undetected by any partial transpose."
+        ],
+        "reasoning": "The full graph-matching all-temperature phase diagram is stronger than and not equivalent to a single sharp universal coefficient-bound guarantee.",
+        "searches": [
+          "Resultary: Pauli Hamiltonians matching overlap graph maximum degree one full separability two Pauli strings odd anticommuting commuting PPT all bipartitions thermal",
+          "Resultary exact degree-one separability threshold c145342499dd",
+          "arXiv:2609.30149 Pauli Gibbs separability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two-qubit XX+ZZ sharp threshold 0.4406867935 is already published by Resultary.",
+          "The separate XXX/ZZZ threshold 0.6232252401 and complete all-PPT/full-separability distinction are established by source algebra and checked small matrices."
+        ],
+        "reasoning": "No discrete database could substitute for an exact all-instance phase boundary. Recovered XX+ZZ boundary alone is not the claimed novelty.",
+        "searches": [
+          "Pauli matching components XX ZZ thermal PPT threshold exact",
+          "three qubit XXX ZZZ Gibbs PPT all cuts separability",
+          "Resultary degree-one sharp coefficient table"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS with Kiani full-text access risk. The published Resultary exact degree-one result gives one sharp UNIFORM coefficient-capped threshold beta J<=0.440686..., witnessed by XX+ZZ, and does not distinguish individual pair parity or unequal couplings. The present necessary-and-sufficient all-beta component diagram and odd-d all-PPT counterexample are additional statements. The relevant Kiani preprint abstract describes sharp high-temperature conditions for a different maximum-degree regime; its full text was inaccessible via available arXiv/OA routes and authorized Oxford access returned vpn_disconnected, which is recorded rather than bypassed.",
+      "residual_risks": [
+        "Kiani full text not accessible through lawful attempts; possible matching-pair result inside inaccessible source remains originality risk.",
+        "Older two-qubit separability literature may have individual commuting component transition; claim of novelty restricted to complete matching-overlap all-temperature and odd-d witness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior worst-case threshold genuinely precedes; does not give all-temperature per-pair parity iff or the multipartite all-PPT example.",
+          "evidence": [
+            "Theorem covers every matching graph uniformly when beta J<=atanh(sqrt2-1); sharpness from XX+ZZ."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-degree-one-separability-threshold-for-bounded-coefficient--c145342499dd",
+          "material_read": "Entire prior RESULT.md including proof, exact universal threshold, and stated limitations",
+          "method": "Connected GitHub full file read and comparison of quantifiers over graph family and coefficient intervals",
+          "title": "Exact degree-one separability threshold for bounded-coefficient Pauli Gibbs states",
+          "trigger": "Direct strongest published same overlap-degree class"
+        },
+        {
+          "assessment": "NOT asserted whole-document noncoverage; additional exact degree-one detail in inaccessible sections cannot be excluded.",
+          "evidence": [
+            "Primary access failure: Oxford vpn_disconnected; public abstract describes universal high-temperature criteria."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.30149",
+          "material_read": "Accessible abstract and bibliographic scope only; no verified full-text reading",
+          "method": "Tried lawful arXiv and open-access retrieval, then authorized Oxford paper tool; Oxford returned vpn_disconnected",
+          "title": "Sharp universal death of entanglement threshold for Pauli Hamiltonians",
+          "trigger": "Underlying anchor on Pauli matching degree and Gibbs separability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Prior exact universal Resultary matching threshold",
+        "New algebraic even/odd exact necessity+sufficiency proof",
+        "Independent all-cut PPT and full-separability witness calculations"
+      ],
+      "rationale": "PASS. The theorem sharpens a meaningful known universal high-temperature separability threshold into a complete physical phase diagram for every matching Pauli interaction Hamiltonian, including never-entangled, NPT-transition and all-cut-PPT but non-fully-separable regimes. It identifies the exact obstruction by local incompatibility parity and coefficient ratio, with a nontrivial multipartite witness invisible to PPT. This structural classification is not a routine recitation of the uniform XX+ZZ example.",
+      "residual_risks": [
+        "No claim for arbitrary degree>=2 overlap graphs or separability across each single bipartition."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Originality is a best-of-knowledge literature comparison, not an exhaustive priority certificate.",
+    "Kiani full text not accessible through lawful attempts; possible matching-pair result inside inaccessible source remains originality risk.",
+    "Older two-qubit separability literature may have individual commuting component transition; claim of novelty restricted to complete matching-overlap all-temperature and odd-d witness.",
+    "The result addresses full separability, not all cut-by-cut bipartite separabilities; PPT example is not proof of PPT-bound entanglement under each bipartition.",
+    "Proof uses each pair’s specified nonzero Pauli terms and actual local incompatibility count; not applicable to three-or-more-term overlap components."
+  ],
+  "schema_version": 1
+}
