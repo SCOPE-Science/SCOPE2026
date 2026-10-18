@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-The standalone standard-library Python script `verify.py` was executed from the accompanying package. It independently constructs the full closure of sample generating tuples under coordinatewise MV negation and truncated addition and the global minimum/maximum quantifiers, rather than merely testing the proposed structural criterion. It checks every ordered tuple across 25 finite parameter combinations, compares the gcd-and-word criterion with actual algebra generation, and compares the totals with the Möbius formula.
+# Independent mathematical audit
 
-Observed output:
+## correctness
 
-```
-VERIFY_OK direct_mv_generation_tuples 5968 direct_parameter_cases 25 independent_signature_censuses 53
-samples (6, 480, 228, 528, 2)
-PEAK_TERMS_OK 14 BIRTHDAY_SAMPLES [(8, 81, 0.60905), (10, 243, 0.60736), (12, 729, 0.60681)] limit 0.60653
-```
+PASS
 
-The `PEAK_TERMS_OK` tests separately construct unary term-function closures and find the Boolean peaks at every truth-chain value up to a five-element chain. The birthday calculations illustrate convergence for the three-valued chain. They are finite checks and do not prove the general interpolation or asymptotic theorems. The general proof is given in `RESULT.md`, citing the classical McNaughton theorem for unary term interpolation.
+Equal coordinate words and gcd of all truth numerators with m are term invariants even under global max/min. For distinct coordinate words, unary McNaughton integer-affine peak term h_a takes value 1 at chosen finite truth a/m and 0 at all other chain points, producing coordinate selectors. Global existential quantifier of a selected generator extracts its value as a constant; finite-chain Euclidean truncated subtraction and sum generate all truth constants iff gcd content=1; selector masking reconstructs every target tuple. Möbius inversion over divisors of m counts injections with gcd one and yields the falling-factorial expression. An injected word with a numerator 1 attains minimum rank; union bound over prime factors of fixed m makes primitive-content failure negligible, leaving birthday collision threshold. Independently compared direct generated closure versus formula for nine small (m,n,r) parameter sets, including r=0 and m=1, and checked finite census.
 
-Reproduce with `python3 verify.py`. The script imports only Python standard-library modules, does not use network resources, and reports an assertion failure on any discrepancy.
+## originality
+
+PASS
+
+A prior logical completeness study defines the exact powers and studies quasivariety generation, while another monadic MV paper considers existence of bounds on generators of powers. Neither inspected result provides the if-and-only-if ordered tuple/gcd criterion, full Möbius count, or fixed-m birthday threshold.
+
+## value
+
+PASS
+
+The precise minimum generators, complete labeled ordered-tuple census and sharp iid birthday transition describe a natural finite monadic algebra from modal Łukasiewicz logic, resolving its exact elementwise generator structure rather than merely restating a known variety-generation property.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
