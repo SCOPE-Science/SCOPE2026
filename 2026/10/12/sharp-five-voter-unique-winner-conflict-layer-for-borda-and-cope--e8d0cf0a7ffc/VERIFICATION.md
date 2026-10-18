@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_borda_copeland_unique_conflict.py` performs an exact finite replay using only the Python standard library.
 
-Borda is independently computed from \(2,1,0\) positional scores and from pairwise-support totals. Copeland is independently computed from \(1,1/2,0\) contest scores and from pairwise-margin signs.
+# Independent mathematical audit
 
-The verifier exhausts every labeled three-candidate profile with one through five voters. It confirms no different unique winners through four voters, exactly \(60\) conflicts at five voters, incidence \(5/648\), an independent anonymous count of \(6\) among \(252\), incidence \(1/42\), one candidate-relabeling class, and one combined candidate/voter orbit containing all \(60\) labeled conflicts.
+## correctness
 
-It also checks the representative `3 BCA + 2 CAB`, Borda scores \((2,6,7)\), pairwise margins \((-1,-5,1)\), unique Borda winner \(C\), and unique Copeland/Condorcet winner \(B\).
+PASS
 
-Run:
+Enumerated every one of 6^n labeled complete strict three-candidate profiles for n=1..5 independently by positional Borda and pairwise-majority Copeland scoring. No different singleton outcomes occur through n=4; at n=5 precisely 60 of 7776 profiles conflict. Reconstructed the 3 BCA +2 CAB witness with Borda vector (2,6,7), pairwise margins (A-B,A-C,B-C)=(-1,-5,1), and unique Copeland winner B versus Borda C. The six anonymous conflicts each have multinomial weight 10 and constitute one six-profile candidate orbit, yielding anonymous incidence 1/42 and labeled incidence 5/648. The finite exhaustive proof only claims n<=5 under no external tiebreak.
 
-`python3 verify_borda_copeland_unique_conflict.py`
+## originality
 
-The first output line must be:
+PASS
 
-`VERIFY_OK`
+A classic five-voter Borda/Condorcet counterexample is prior and explicitly not claimed as novel. The assessed claim is the complete first different-unique-winner layer: strict lower-bound exclusion, exact 60/7776 incidence, six anonymous profiles, and exactly one orbit. Author-shared full text of Favardin-Lepelley-Serais treats manipulation under fixed tie-breaking, not this count. A highly relevant inaccessible older coincidence-probability source remains a material originality risk rather than an automatic failure.
 
-The computation proves only the stated three-candidate finite boundary through five voters.
+## value
+
+PASS
+
+First disagreement between two canonical aggregation principles, conditional on genuinely unique outcomes, is mathematically natural and eliminates artifacts of tie breaking. Exact finite electorate incidence and complete one-orbit explanation are useful small-instance structural benchmarks even though existence of a five-voter counterexample is standard. Coverage is restricted to three candidates and at most five voters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
