@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,37 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof in `RESULT.md` is uniform and does not depend on exhaustive computation.
+# Independent mathematical audit
 
-The attached `verify.py` checks the exact reduction
-\[
-p^{\ell^2}+1=q(p+p^\ell-1)
-\]
-over a finite stress-test range, verifies the modular remainder identity
-\[
-p^{\ell^2}+1\equiv1-(p-1)^\ell\pmod{p+p^\ell-1},
-\]
-and checks the strict bound
-\[
-0<\left|1-(p-1)^\ell\right|<p+p^\ell-1
-\]
-for tested odd primes.
+## correctness
 
-For \(p=2\), it verifies exact divisibility by \(2^\ell+1\). It checks
-\[
-\frac{2^9+1}{2^3+1}=57=3\cdot19,
-\]
-\[
-\frac{2^{25}+1}{2^5+1}=1016801=251\cdot4051,
-\]
-and deterministically verifies that
-\[
-\frac{2^{49}+1}{2^7+1}=4363953127297
-\]
-is prime.
+PASS
 
-Finally it evaluates both divisor-sum formulas for the exponent-\(49\) example and confirms equality.
+Both divisor sums are multiplicative, with σ*(p^a)=1+p^a, σ^(e)(p^a)=sum_{d|a}p^d. For a=ℓ² this becomes (1+p^a)(1+q)=q(p+p^ℓ+p^a), hence q(p+p^ℓ−1)=p^a+1. Let D=p+p^ℓ−1; if p>2, odd ℓ gives p^a+1 mod D =1−(p−1)^ℓ, a nonzero residue whose absolute value is strictly below D, impossible to divide. For p=2, x^ℓ+1 divides x^(ℓ²)+1 (x=2), and quotient Φ_(2ℓ²)(2) must be prime, with converse immediate. Independently computed small quotient values and primality for ℓ=3,5,7; uniform proof is elementary congruence, not a finite test.
 
-Finite checks are corroborative only. The universal result follows from the modular proof.
+## originality
+
+PASS
+
+The Trudgian paper and OEIS A236474 already list the exponent-49 example. A published Resultary finite theorem handles exponents 2..49, so the example itself and finite checking are not new. The genuine contribution is an unbounded prime-square exponent classification and uniform reduction to one cyclotomic prime candidate for all odd primes ℓ; no prior cited result implies these exponent layers beyond 49.
+
+## value
+
+PASS
+
+The result explains why the largest highlighted known equality example has exponent 49 and isolates a natural infinite subfamily of a published infinitude problem, with precise structural obstruction for all odd p. It does not claim infinitely many cyclotomic primes or settle the full equality problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
