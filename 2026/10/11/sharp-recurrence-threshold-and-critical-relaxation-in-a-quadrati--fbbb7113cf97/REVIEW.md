@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The identity \(\frac{d}{dt}(z-cy)=\Delta/(4c)-c(z-d/(2c))^2\) is checked symbolically and yields the exact strict exclusion and the critical LaSalle argument. The equilibrium solutions are direct substitutions. The invariant-measure formula follows by integrating an exact derivative under a compact invariant measure. The critical Jacobian factors as \(\lambda(\lambda^2-d\lambda-a)\) with a two-dimensional stable factor for \(a,d<0\). The displayed center-manifold graph satisfies its quadratic invariance equations; stable-foliation tracking and scalar asymptotics give the rate. A finite symbolic check alone would not establish global convergence, so the analytic argument is essential. Risk: application of the classical stable-foliation theorem is a standard external theorem rather than a fully reproduced proof.
+## correctness
 
-**Originality — PASS.** The full open-access 2014 introducing paper, DOI 10.1155/2014/328143, gives the same vector field and equilibrium discriminant but does not establish the compact-invariant-set equivalence, unique critical stationary measure, or the exact rate. Its discussion of numerical boundedness does not imply these conclusions. Searches for the exact vector-field equations, title plus boundedness/invariant measures, derivative-observable aliases, saddle-node collapse, and related chaotic-flow bounds did not reveal a stronger theorem for this system. Scientifically similar discriminant criteria in the Rössler and error-function jerk models are distinct vector fields; their claims cannot logically cover this one without additional reduction. Residual risk: an unindexed equivalent stability/recurrence paper or general normal-form theorem could partly cover the result. Search absence alone is not claimed as novelty proof.
+PASS
 
-**Value — PASS.** In a flow whose 2014 study explicitly said global boundedness had not been proved, locating the exact existence boundary of compact dynamics resolves an intrinsic parameter-space question; moreover, the equality case distinguishes a whole-system rigidity statement from an equilibrium count. The stationary mean-square shell and the parameter-exact, trajectory-independent critical rate make the boundary quantitatively useful for testing and analyzing bifurcations. These are a motivated global dynamical classification and sharp boundary asymptotic, not an arbitrary sample parameter calculation.
+The actual system is xdot=a*y, ydot=x+z^2, zdot=b+c*x+d*z with a,d<0, c!=0. Direct independent SymPy differentiation confirms Q=z-c*y satisfies Qdot=Delta/(4c)-c(z-d/(2c))^2. For Delta<0 it drifts at nonzero uniform speed, impossible on any bounded forward-complete orbit; for Delta>=0 equilibrium roots z=(d±sqrtDelta)/(2c) produce compact singletons. At Delta=0, monotonic bounded Q on a bounded forward orbit and the invariant zero-derivative locus z=z* force x=-z*^2, y=0, yielding global-on-bounded-orbits convergence and unique compact two-sided invariant set. Invariant measures satisfy E[(z-z*)^2]=Delta/(4c^2). Linearization at equality has lambda(lambda^2-d lambda-a) with two strictly stable roots. Quadratic center graph v=-(d/c)u-u^2+O(u^3), w=(d/a)u^2+O(u^3) yields udot=-c u^2+O(u^3); one-sided convergent center trajectories obey t*u ->1/c, and standard stable-foliation tracking transfers this to all bounded convergent orbits except the strong-stable set. Boundary case c<0 and strong-stable exponential decay handled. No claim about solutions escaping to infinity.
 
-**Scientific scope and residual risk.** No conclusion about unbounded initial data continuing for all time, nor about which nontrivial compact sets exist when \(\Delta>0\). Literature indexing may be incomplete. The included checker certifies the indicated algebra only, not the standard center-manifold theorem or global analytic reasoning.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison against the same primary mathematical object, stronger theorems, equivalent reductions, exact tables and indexed related results finds no previously established result implying the full final statement. Searches alone are not novelty proof. Most relevant full primary texts were read where accessible; restricted sources and mathematical priority uncertainties are named below.
+
+## value
+
+PASS
+
+For a well-known numerical bifurcation model where the source distinguishes equilibria from unproved solution boundedness, identifying the exact discriminant threshold for any compact dynamics, rather than merely the number of equilibria, is mathematically informative. The unique critical stationary law and universal trajectory-level 1/t relaxation outside a codimension-one center direction describe the phase boundary and are meaningful in bifurcation theory. Both sharpness and scope are natural; no general chaos existence is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

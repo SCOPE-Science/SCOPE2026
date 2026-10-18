@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-10-14",
+  "audited_at_utc": "2026-10-14T23:53:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The actual system is xdot=a*y, ydot=x+z^2, zdot=b+c*x+d*z with a,d<0, c!=0. Direct independent SymPy differentiation confirms Q=z-c*y satisfies Qdot=Delta/(4c)-c(z-d/(2c))^2. For Delta<0 it drifts at nonzero uniform speed, impossible on any bounded forward-complete orbit; for Delta>=0 equilibrium roots z=(d±sqrtDelta)/(2c) produce compact singletons. At Delta=0, monotonic bounded Q on a bounded forward orbit and the invariant zero-derivative locus z=z* force x=-z*^2, y=0, yielding global-on-bounded-orbits convergence and unique compact two-sided invariant set. Invariant measures satisfy E[(z-z*)^2]=Delta/(4c^2). Linearization at equality has lambda(lambda^2-d lambda-a) with two strictly stable roots. Quadratic center graph v=-(d/c)u-u^2+O(u^3), w=(d/a)u^2+O(u^3) yields udot=-c u^2+O(u^3); one-sided convergent center trajectories obey t*u ->1/c, and standard stable-foliation tracking transfers this to all bounded convergent orbits except the strong-stable set. Boundary case c<0 and strong-stable exponential decay handled. No claim about solutions escaping to infinity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Similar SCOPE recurrence-threshold results hold for an error-function jerk family with different nonlinearities and discriminant.",
+          "General center-manifold normal forms guarantee local asymptotics once coefficients are computed but do not supply this global bound-orbit exclusion or the model-specific coefficient 1/c."
+        ],
+        "reasoning": "No general published result identified whose hypotheses directly supply this Q identity and full Delta criterion for the Zhao–Lin–Dai vector field.",
+        "searches": [
+          "Zhao Lin Dai modified Sprott N dx=a y dy=x+z^2 dz=b+c x+d z discriminant sharp recurrence invariant compact sets center manifold critical relaxation",
+          "Zhao Lin Dai quadratic flow exact critical discriminant recurrence compact invariant measure saddle-node decay 1/t",
+          "SCOPE error-function jerk threshold Resultary ID 2026/10/4/SCOPE-exact-compact-recurrence-threshold-and-stationary-variance-defec--fda64cdfe7ca"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1155/2014/328143",
+        "Resultary mathematical records; searches Zhao Lin Dai modified Sprott N dx=a y dy=x+z^2 dz=b+c x+d z discriminant sharp recurrence invariant compact sets center manifold critical relaxation",
+        "Resultary targeted comparison Zhao Lin Dai quadratic flow exact critical discriminant recurrence compact invariant measure saddle-node decay 1/t"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source analytic Theorem 3 handles Hopf points and local equilibrium stability for Delta>0; the numerical section describes an attractor.",
+          "The new proof derives the global derivative Qdot=Delta/(4c)-c(z-z*)^2."
+        ],
+        "reasoning": "Equilibrium discriminant is already known and thus not independently novel; the *extension* to all compact invariant sets, unique critical invariant measure and global-bounded critical decay is not implied by that count or Hopf theorem.",
+        "searches": [
+          "Zhao Lin Dai modified Sprott N dx=a y dy=x+z^2 dz=b+c x+d z discriminant sharp recurrence invariant compact sets center manifold critical relaxation",
+          "DOI:10.1155/2014/328143 Sections 3.1–3.3",
+          "Zhao Lin Dai quadratic flow exact critical discriminant recurrence compact invariant measure saddle-node decay 1/t"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhao–Lin–Dai (2014) Section 3.2 establishes discriminant-controlled equilibrium count and stability, not exclusion of *non-equilibrium* compact sets when Delta<0.",
+          "The same source Section 3.1 explicitly says numerical simulations suggest boundedness but that boundedness is not proven."
+        ],
+        "reasoning": "A statement on zero/no equilibria alone is weaker than compact recurrence exclusion, since compact periodic orbits need not contain equilibria; no statement there yields the equality case strong-stable versus 1/t asymptotics.",
+        "searches": [
+          "Zhao Lin Dai modified Sprott N dx=a y dy=x+z^2 dz=b+c x+d z discriminant sharp recurrence invariant compact sets center manifold critical relaxation",
+          "Zhao Lin Dai quadratic flow exact critical discriminant recurrence compact invariant measure saddle-node decay 1/t",
+          "DOI:10.1155/2014/328143 Sections 2–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source 2014 Table 1 reports numerical Lyapunov exponents/equilibria for finitely many parameter choices."
+        ],
+        "reasoning": "Finite bifurcation tables do not give a theorem over all a,d<0, c!=0, b real, nor universal critical asymptotic across bounded initial conditions.",
+        "searches": [
+          "Zhao Lin Dai modified Sprott N dx=a y dy=x+z^2 dz=b+c x+d z discriminant sharp recurrence invariant compact sets center manifold critical relaxation",
+          "Zhao Lin Dai 2014 Table 1 bifurcation parameters"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison against the same primary mathematical object, stronger theorems, equivalent reductions, exact tables and indexed related results finds no previously established result implying the full final statement. Searches alone are not novelty proof. Most relevant full primary texts were read where accessible; restricted sources and mathematical priority uncertainties are named below.",
+      "residual_risks": [
+        "Unindexed model-specific compact-dynamics or saddle-node asymptotics could overlap.",
+        "Stable-foliation/center-manifold tracking uses a standard external theorem whose global applicability is via eventual entry into a neighborhood; not a finite symbolic certificate.",
+        "No assertion of global existence for all initial data or classification of Delta>0 recurrence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Only equilibrium bifurcations, numerics and local assertions; no global compact exclusion or critical 1/t theorem",
+          "evidence": "Section 3.1: numerical boundedness is suggested but unproved. Sec.3.3 Theorem 3 is local Hopf.",
+          "identifier_or_url": "https://doi.org/10.1155/2014/328143",
+          "material_read": "Full openly accessible article, Sections 1–5, especially Sec.2 system, 3.1 boundedness discussion, Sec.3.2 equilibria, 3.3 Hopf, Sec.4 tables and conclusions",
+          "method": "publisher open-access full HTML text",
+          "title": "A New Feigenbaum-Like Chaotic 3D System",
+          "trigger": "Same exact vector field and discriminant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a well-known numerical bifurcation model where the source distinguishes equilibria from unproved solution boundedness, identifying the exact discriminant threshold for any compact dynamics, rather than merely the number of equilibria, is mathematically informative. The unique critical stationary law and universal trajectory-level 1/t relaxation outside a codimension-one center direction describe the phase boundary and are meaningful in bifurcation theory. Both sharpness and scope are natural; no general chaos existence is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed model-specific compact-dynamics or saddle-node asymptotics could overlap.",
+    "Stable-foliation/center-manifold tracking uses a standard external theorem whose global applicability is via eventual entry into a neighborhood; not a finite symbolic certificate.",
+    "No assertion of global existence for all initial data or classification of Delta>0 recurrence."
+  ],
+  "schema_version": 1
+}
