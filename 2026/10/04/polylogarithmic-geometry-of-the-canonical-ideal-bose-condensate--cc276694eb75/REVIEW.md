@@ -1,15 +1,21 @@
-# Review: Polylogarithmic geometry of the canonical ideal-Bose condensate right tail
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim starts from the right-tail exponent and admissible parameter interval proved in arXiv:2608.26378v2. Termwise integration of the logarithmic series gives the polylogarithm identity with the correct sign. The normalization \(b_c^\alpha=L\alpha\Gamma(\alpha)\zeta(\alpha)\) converts the prefactor to \(r/\zeta(\alpha)\). The unique saddle equation follows by differentiating with respect to \(s=\log z\); the source's strict convexity makes that saddle the global minimizer. Envelope differentiation gives the first derivative, implicit differentiation gives the positive second derivative, and elementary limits give the endpoint cost. Standard expansions of \(\operatorname{Li}_\alpha(e^{-t})\) at \(t=0\) yield the three local regimes. The bundled verifier checks representative cases and the sign convention. The exact threshold event and uniform moderate deviations are explicitly excluded.
+## correctness
 
-## Originality
-**PASS.** The closest source, arXiv:2608.26378v2, supplies the variational exponent, strict convexity, and an implicit saddle equation, but inspection of its theorem, proof around the saddle characterization, remarks on the endpoint, and searchable full text found no polylogarithmic rewrite, no derivative formulas, no three-regime local expansion, and no universal one-sided endpoint value. Chatterjee--Diaconis (2014) treats condensate fluctuation orders and limiting laws rather than this fixed-deviation rate. Rademacher (2024/2025) concerns weakly interacting ground-state large deviations, not the canonical ideal-gas condensate number. Targeted searches for the source identifier together with “polylogarithm,” “endpoint rate,” and the critical \(\eta^2/|\log\eta|\) behavior did not locate an equivalent or stronger statement.
+PASS
 
-## Value
-**PASS.** The result turns an implicit variational formula into an explicit one-parameter rate geometry and identifies a structural transition at \(\alpha=2\). The distinction between anomalous power-law, logarithmically weakened quadratic, and quadratic local costs is mathematically motivated by the known change in canonical condensate fluctuation behavior across spectral exponents. The finite endpoint cost together with divergent slope also clarifies how the universal interior large-deviation law approaches the threshold where the source warns that finer spectral data take over. This is more than a numerical re-evaluation or a parameter substitution: it identifies the exact special-function coordinate, global shape, endpoint geometry, and local universality classes.
+From the exact Deuchert–Li canonical ideal-Bose right-tail exponent, the Bose integral equals Gamma(alpha)[Li_{alpha+1}(z)−zeta(alpha+1)] at z=e^s. The source normalization bc^alpha=L alpha Gamma(alpha) zeta(alpha) gives prefactor r/zeta(alpha); strict convexity of the source exponent makes the fugacity equation Li_alpha(z)=zeta(alpha)[1−(1−r)eta/r] the unique global saddle on 0<eta<r/(1−r). Envelope and implicit derivatives yield J'=−(1−r)log z>0 and J''=(1−r)^2 zeta(alpha)/(r Li_{alpha−1}(z))>0. The eta upper endpoint has finite cost r*zeta(alpha+1)/zeta(alpha) and infinite slope; z=e^{-t} polylogarithm expansions give the three constants at alpha<2, alpha=2, alpha>2. Independent high-precision inversions at alpha=1.5,2,3 with r=0.4, eta=0.15 reproduced positive J,J',J''; the analytic expansion, not finite checks, establishes all alpha.
 
-## Closest literature and limitations
-The primary comparison is Deuchert--Li, arXiv:2608.26378v2. Chatterjee--Diaconis, doi:10.1088/1751-8113/47/8/085201, is the closest canonical ideal-gas fluctuation reference. Rademacher, doi:10.1007/s00023-024-01463-w, is a nearby large-deviation result in a different interacting ground-state setting. The present theorem does not cover the left tail, \(\alpha=1\), the exact endpoint event, or a uniform moderate-deviation limit. A residual literature risk is that the same special-function reduction may exist under thermodynamic “fugacity” terminology not surfaced by the targeted searches.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary Deuchert–Li theorem gives the infimum and strict-convex saddle integral (Theorem 1(b), equation 1.10, proof around 2.44–2.50), not the explicit inverse-polylogarithm rate and local phase diagram. Chatterjee–Diaconis examines canonical fluctuations, not this fixed-deviation rate; other interacting Bose-gas LDPs have different observables. Same-claim Resultary hit was excluded as circular evidence. Residual risk: thermodynamic fugacity literature may contain an equivalent parametrization.
+
+## value
+
+PASS
+
+Identifies a natural structural transition at spectral exponent alpha=2 between anomalous power, logarithmically softened quadratic, and quadratic small-right-tail rate geometry, and the finite-cost/infinite-slope boundary where the parent theorem warns of nonuniversal exact-threshold behavior. These motivated shapes extract more than a restatement of the variational infimum and may guide comparisons with canonical fluctuation regimes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
