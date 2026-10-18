@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T04:50:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Use φ(ψ(n))/n=[φ(ψ(n))/ψ(n)]∏_{p|n}(1+1/p). If n even but not 2, 6|ψ(n), so first factor≤1/3, and five-prime product≤(3/2)(4/3)(6/5)(8/7)(12/11)=1152/385<3. If n odd, 2|ψ(n); if 5∤n the product≤(4/3)(8/7)(12/11)(14/13)(18/17)=4608/2431<2. If 5|n, 6|ψ(n) and product≤(4/3)(6/5)(8/7)(12/11)(14/13)=1536/715<3. These exhaustive cases yield strictness except n=2; n=2 gives equality. Independently factored n=39270=2·3·5·7·11·17, ψ=124416 and φ(ψ)=41472>39270. Bounds apply to arbitrary prime exponents; source finite sieve through 200000 is not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sándor Theorem 3.27 proves that large φψ(n)/n occurs on density-zero set, which can still include infinitely many ω≤5 inputs."
+        ],
+        "reasoning": "Asymptotic density domination does not imply pointwise finite-support constraints.",
+        "searches": [
+          "Dedekind psi Euler totient composition phi(psi(n)) upper bound number of distinct prime factors minimal counterexample",
+          "https://www.maths.tcd.ie/EMIS/journals/JIPAM/images/146_05_JIPAM/146_05.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://www.maths.tcd.ie/EMIS/journals/JIPAM/images/146_05_JIPAM/146_05.pdf",
+        "https://oeis.org/A196200",
+        "https://doi.org/10.54290/spect/2023.v10.1.0002",
+        "Resultary semantic published-results search: Dedekind psi Euler totient composition phi(psi(n)) upper bound number of distinct prime factors minimal counterexample"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known six-prime witness gives only upper bound min ω≤6. Exact forcing-factor bounds give lower bound ω≥6, not implied by finite first occurrence."
+        ],
+        "reasoning": "The first numerical violation cannot prove minimum support, because numbers with five primes may occur arbitrarily far out.",
+        "searches": [
+          "Dedekind psi Euler totient composition phi(psi(n)) upper bound number of distinct prime factors minimal counterexample",
+          "https://www.maths.tcd.ie/EMIS/journals/JIPAM/images/146_05_JIPAM/146_05.pdf",
+          "https://oeis.org/A196200"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sándor Theorem 3.23 is an exact squarefree reduction, preserving support ω; it leaves infinitely many squarefree five-prime products to decide."
+        ],
+        "reasoning": "Reduction is equivalent in the same problem but not logically the desired five-support exclusion.",
+        "searches": [
+          "Dedekind psi Euler totient composition phi(psi(n)) upper bound number of distinct prime factors minimal counterexample",
+          "https://www.maths.tcd.ie/EMIS/journals/JIPAM/images/146_05_JIPAM/146_05.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS lists 39270 first and further failures; its numeric table contains no universal proof for arbitrarily large supports of size 5."
+        ],
+        "reasoning": "Exact counterexample itself is known; novel component, if any, must be infinite lower-support exclusion.",
+        "searches": [
+          "Dedekind psi Euler totient composition phi(psi(n)) upper bound number of distinct prime factors minimal counterexample",
+          "https://oeis.org/A196200"
+        ]
+      },
+      "rationale": "Sándor 2005 exact primary full text Theorem 3.23 proves reduction to squarefree kernel and Remark 3.26 records counterexample 39270; this does not imply that no infinitely large five-prime-support n can fail. The new five-prime uniform bound closes that gap, not discovery of 39270. OEIS A196200 tabulates numerical counterexamples only, and asymptotic density results do not imply minimal support.",
+      "residual_risks": [
+        "An unindexed later theorem or exact table may already establish the same sharp prime-support threshold.",
+        "The result does not classify all ω=6 failures or measure their density."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers squarefree kernel and specific 39270, NOT the bounded-five-prime uniform theorem in inspected primary paper",
+          "evidence": "Theorem 3.23 establishes φψ(n)/n≤φψ(rad n)/rad n; Remark 3.26 lists 39270 among failures; Theorem 3.27 proves density-zero bound.",
+          "identifier_or_url": "https://www.maths.tcd.ie/EMIS/journals/JIPAM/images/146_05_JIPAM/146_05.pdf",
+          "material_read": "Read 17-page original PDF mathematical text, Theorem 3.23 pp.12, Remarks 3.25-3.26 pp.13, Theorem 3.27 pp.13-14, introduction and other same-composition theorems",
+          "method": "Read primary PDF/HTML mathematical text and compared relevant definitions, theorem statements, and formulas",
+          "title": "On the Composition of Some Arithmetic Functions, II",
+          "trigger": "Exact same φ∘ψ(n) inequality and historical six-prime counterexample"
+        },
+        {
+          "assessment": "Covers numerical fact that 39270 is the first listed failure; cannot establish all ω≤5 are safe",
+          "evidence": "OEIS list begins 39270,53130,...; a sorted finite list is not an infinite prime-support barrier.",
+          "identifier_or_url": "https://oeis.org/A196200",
+          "material_read": "Read sequence definition, initial terms and cited historical references",
+          "method": "Read primary PDF/HTML mathematical text and compared relevant definitions, theorem statements, and formulas",
+          "title": "A196200: Numbers k such that Euler phi(Dedekind psi(k)) > k",
+          "trigger": "Exact numerical counterexample database"
+        },
+        {
+          "assessment": "Potentially related restricted family; no whole-document noncoverage inference based on this access",
+          "evidence": "The publication is specifically about Sándor inequality; residual risk retained.",
+          "identifier_or_url": "https://doi.org/10.54290/spect/2023.v10.1.0002",
+          "material_read": "Available bibliographic and scope description; a complete new full-text check was not established for this run",
+          "method": "Inspected bibliographic/scope material; did not claim full document reading.",
+          "title": "On Sandor’s conjecture",
+          "trigger": "Later same-composition sufficient families"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The least prime-support number of a counterexample to a historically conjectured multiplicative-function inequality is a natural structural invariant. Establishing exactly six by ruling out infinitely many lower-support inputs has mathematical significance beyond verifying a first numerical counterexample.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.maths.tcd.ie/EMIS/journals/JIPAM/images/146_05_JIPAM/146_05.pdf",
+    "https://oeis.org/A196200",
+    "https://doi.org/10.54290/spect/2023.v10.1.0002",
+    "Resultary semantic published-results search: Dedekind psi Euler totient composition phi(psi(n)) upper bound number of distinct prime factors minimal counterexample"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An unindexed later theorem or exact table may already establish the same sharp prime-support threshold.",
+    "The result does not classify all ω=6 failures or measure their density."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "Covers squarefree kernel and specific 39270, NOT the bounded-five-prime uniform theorem in inspected primary paper",
+      "evidence": "Theorem 3.23 establishes φψ(n)/n≤φψ(rad n)/rad n; Remark 3.26 lists 39270 among failures; Theorem 3.27 proves density-zero bound.",
+      "identifier_or_url": "https://www.maths.tcd.ie/EMIS/journals/JIPAM/images/146_05_JIPAM/146_05.pdf",
+      "material_read": "Read 17-page original PDF mathematical text, Theorem 3.23 pp.12, Remarks 3.25-3.26 pp.13, Theorem 3.27 pp.13-14, introduction and other same-composition theorems",
+      "method": "Read primary PDF/HTML mathematical text and compared relevant definitions, theorem statements, and formulas",
+      "title": "On the Composition of Some Arithmetic Functions, II",
+      "trigger": "Exact same φ∘ψ(n) inequality and historical six-prime counterexample"
+    },
+    {
+      "assessment": "Covers numerical fact that 39270 is the first listed failure; cannot establish all ω≤5 are safe",
+      "evidence": "OEIS list begins 39270,53130,...; a sorted finite list is not an infinite prime-support barrier.",
+      "identifier_or_url": "https://oeis.org/A196200",
+      "material_read": "Read sequence definition, initial terms and cited historical references",
+      "method": "Read primary PDF/HTML mathematical text and compared relevant definitions, theorem statements, and formulas",
+      "title": "A196200: Numbers k such that Euler phi(Dedekind psi(k)) > k",
+      "trigger": "Exact numerical counterexample database"
+    },
+    {
+      "assessment": "Potentially related restricted family; no whole-document noncoverage inference based on this access",
+      "evidence": "The publication is specifically about Sándor inequality; residual risk retained.",
+      "identifier_or_url": "https://doi.org/10.54290/spect/2023.v10.1.0002",
+      "material_read": "Available bibliographic and scope description; a complete new full-text check was not established for this run",
+      "method": "Inspected bibliographic/scope material; did not claim full document reading.",
+      "title": "On Sandor’s conjecture",
+      "trigger": "Later same-composition sufficient families"
+    }
+  ]
+}
