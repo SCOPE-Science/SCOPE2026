@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T09:53:17.098675Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under g=-G on the pre-hit interval, the published DoG denominator is sqrt((t+1)G^2), so x_1=r_eps and x_n/r_eps=prod_{j=2}^n(1+j^-1/2). Summing log(1+1/sqrt j) yields 2sqrt n-(1/2)log n+O(1), hence tau_DoG=(log R)^2/4+O(log R loglog R). In DoWG, v_t=G^2 r_eps^2(1+sum_{1<=k<=t} y_k^2); p=y/sqrt S obeys F(p)=p(1+p)/sqrt(1+p^2(1+p)^2), a monotone increasing orbit from 1/sqrt 2 to the unique root p^3+2p^2-2=0. F_prime(p*)=(1+2p*)/(1+p*)^3<1 ensures exponentially summable deviations; product y_t=C*(1+p*)^(t-1)(1+o(1)). Independent numerical iteration gave Tribonacci lambda=1.839286755214161 (lambda^3-lambda^2-lambda-1=0). The analytic estimates justify the asymptotic first-hit count and do not assert post-hit behavior.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "DoWG source states more aggressive distance adaptation and cautions that different trajectories preclude ordering from step-size comparison alone.",
+          "Resultary returned target and related optimizer startup results for different algorithms."
+        ],
+        "reasoning": "General complexity or pointwise stepsize dominance does not imply the exact same-trajectory growth-ratio fixed point or sharp first-hit asymptotic constants.",
+        "searches": [
+          "DoWG Unleashed arXiv:2305.16284, Algorithm 1",
+          "Resultary query: distance over weighted gradients DoWG constant subgradient geometric growth Tribonacci first hitting time DoG product"
+        ]
+      },
+      "checked_sources": [
+        "Assigned Git RESULT.md/verify.py at source tree 97bc6d59201c317203dd25a11ba9e5d39f17fd20",
+        "arXiv:2305.16284 primary DoWG algorithm",
+        "arXiv:2302.12022 original DoG source identification",
+        "Resultary query distance over weighted gradients DoWG constant subgradient geometric growth Tribonacci first hitting time DoG product"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary DoWG source includes distance-squared weighting and explicitly discusses aggressive adaptation.",
+          "Audited fixed-point map F and normalized state p_t yield a new exact asymptotic claim not stated by update definitions."
+        ],
+        "reasoning": "The stronger prior algorithmic convergence theorems can coexist with these startup trajectories; no prior statement mathematically subsumes both first-hit asymptotics in the inspected sources.",
+        "searches": [
+          "arXiv:2302.12022 DoG update",
+          "arXiv:2305.16284 Algorithm 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "DoG uses rbar/sqrt(sum g^2); DoWG uses squared radius weight in both v_t and eta_t.",
+          "The ratio lambda satisfies the Tribonacci polynomial due to normalized weighted gradient accumulation."
+        ],
+        "reasoning": "The algorithms are identical at the source level, but their original analyses concern general optimization guarantees, not the derived exact pre-hit scalar recurrence. A known recurrence analysis without DoWG naming is a remaining search limitation.",
+        "searches": [
+          "distance over weighted gradients DoWG constant subgradient geometric growth Tribonacci first hitting time DoG product",
+          "arXiv:2302.12022",
+          "arXiv:2305.16284"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Tribonacci constant is a known algebraic number, but its appearance as this algorithm's exact trajectory ratio is not a known table lookup.",
+          "First-hit laws depend on the entire algorithm recurrence, not an enumerated fixed corpus."
+        ],
+        "reasoning": "The value of lambda alone is classical; originality is the established mathematical connection to DoWG recurrence and the DoG comparison, not the number itself.",
+        "searches": [
+          "distance over weighted gradients DoWG constant subgradient geometric growth Tribonacci first hitting time DoG product",
+          "DoWG Tribonacci constant growth ratio constant subgradient"
+        ]
+      },
+      "rationale": "The defining papers provide the precise DoG/DoWG algorithms and relative aggressive weighting motivation, with convergence bounds but not the constant-subgradient exact coherent trajectory or Tribonacci fixed point. The comparison goes beyond their pointwise stepsize statements because paths diverge. Resultary nearby startup-latency work concerns dual-averaging D-Adaptation/Prodigy rather than these trajectories. No stronger implication-equivalent prior was identified after actual source-method comparison; equivalent unindexed optimizer-notes remain possible.",
+      "residual_risks": [
+        "Full mathematical source of DoG was not comprehensively inspected beyond source-form rule; similar scalar calculation might be present in longer appendix or notes.",
+        "Only initial pre-hit deterministic constant-subgradient dynamics; no post-hit generalization.",
+        "Asymptotic statements are in the regime R->infinity and require consistent step-count indexing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_METHOD_NO_REPORTED_TRIBONACCI_STARTUP",
+          "evidence": [
+            "Algorithm 1 uses v_t weighted by rbar_t^2 |g_t|^2; source does not present the fixed-point polynomial or claimed coherent-gradient first-hit constants in inspected material."
+          ],
+          "identifier_or_url": "arXiv:2305.16284",
+          "material_read": "Full-text algorithm definitions (including initialization and weighted denominator), introductory motivation and source discussion of stepsize dominance versus different trajectories.",
+          "method": "Read relevant primary full-text sections with equations; compared theorem hypotheses and conclusions, not just titles or abstracts.",
+          "title": "DoWG Unleashed: An Efficient Universal Parameter-Free Gradient Descent Method",
+          "trigger": "Exactly same DoWG v_t and rbar_t update"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Distance adaptation from a conservative initial radius is central to parameter-free optimization. Exact pre-hit laws on a canonical convex Lipschitz signal isolate an intrinsic qualitative startup difference—stretched exponential versus geometric and quadratic-log versus linear-log first-hit latency—without overclaiming global optimization dominance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "One-dimensional compact interval [0,D], deterministic convex Lipschitz f=G|x-D| with x0=0.",
+    "Only first-hit startup under initial radius r_eps; no stochastic, averaged or post-hit behavior.",
+    "Finite replay confirms forms but does not prove infinite asymptotics."
+  ],
+  "schema_version": 1
+}
