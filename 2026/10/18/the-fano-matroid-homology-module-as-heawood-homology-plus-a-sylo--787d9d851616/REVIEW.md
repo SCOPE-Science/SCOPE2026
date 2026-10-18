@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The Fano matroid independence complex is a 2-dimensional simply connected complex with chain-face vector \((7,21,28)\), and reduced integral homology \(\mathbb Z^{13}\) in degree two. Its all-group-element signed Lefschetz trace is \((13,-3,1,1,-1,-1)\). The full binary boundary calculation for the Heawood independence complex forces its reduced rational homology to degree three of rank six; its signed fixed-face character is \((6,-2,0,2,-1,-1)\). An exact enumeration of the eight Sylow-seven subgroups gives the remaining augmentation character \((7,-1,1,-1,0,0)\). The characters agree identically and semisimplicity proves the rational-module isomorphism. All essential finite computations are independently reproducible using the bundled standard-library checker.
+
+**Originality — PASS, with residual risk.** The exact known six-dimensional Heawood module is credited. Previously indexed Heawood matching-complex representations, known order-seven Singer restrictions, and character tables do not imply the full Fano matroid 168-group action. The general Moci–Pezzoli equivariant matroid theory has been inspected for possible coverage and supplies important context, but the inspected applications did not yield the explicit Fano/Heawood/Sylow module identification. The full Björner chapter and some underlying indexed results were not accessible, so equivalence elsewhere remains an identifiable bibliographic risk.
+
+**Mathematical value — PASS.** The Fano matroid is the smallest binary projective-plane matroid and carries a distinguished 168-element automorphism group. Its complete 13-dimensional homology representation is a natural invariant beyond Betti numbers. Identifying that module with Heawood homology and the augmentation on eight Sylow-seven subgroups is an exact structural bridge between matroid and graph independence topology. It determines all irreducible constituents and the absence of invariant classes, without claiming a generalization or an integral splitting.
+
+**Scientific limits.** The module isomorphism is rational and abstract. No explicit equivariant chain map, integral splitting, or result for larger projective geometries is established. Bibliographic checking cannot rule out all unindexed equivalent statements.
+
+Self-review: passed. Independent audit: not yet performed.
