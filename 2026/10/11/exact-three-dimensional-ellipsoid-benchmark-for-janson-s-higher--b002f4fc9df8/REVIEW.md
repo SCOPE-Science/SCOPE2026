@@ -1,19 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The normalization was reconstructed from the zonoid representation \(K(X)=\mathbb E\,\frac12[-X,X]\). Uniform \(\Theta\in S^2\) satisfies \(\mathbb E|\langle u,\Theta\rangle|=\|u\|/2\), so the unit ball corresponds to \(X=4\Theta\). The six-dimensional determinant reduces exactly to a scalar triple product of three cross products. Rotational invariance separates its expectation into four factors \(\pi/4\) and one factor \(1/2\), giving \(\pi^4/512\) before the \(4^6/6!\) normalization. The resulting ball value \(\pi^4/90\), normalized ellipsoid value \(\pi^2/160\), and fraction \(\pi^2/48\) of the Janson bound are algebraically consistent. Affine covariance uses \(\det(T\oplus T)=(\det T)^2\).
+PASS
 
-## Originality
+For p=2, n=3 and (j0,j1,j2)=(1,1,1), six-dimensional mixed volume equals 4^6/6! times a six-vector determinant expectation. Multilinear determinant is exactly a scalar triple product of pairwise cross products, exhaustively checked on 3^6=729 basis tuples. Uniform spherical cross magnitudes give (pi/4)^3, angular sine another pi/4, and absolute cosine 1/2, yielding pi^4/90 for the unit ball. Block-diagonal affine scaling by T direct-sum T yields W=(pi^2/160)|E|^2 for every full ellipsoid. Universal Janson bound 3/10 leads to ratio pi^2/48. No sampling is used to establish the angular integrals.
 
-PASS. The lead 2026 paper defines the coefficient and proves the universal Janson upper bound but explicitly leaves equality analysis open; full-text searches show no ellipsoid discussion or \(\pi\)-valued evaluation. Kotrbatý’s 2025 precursor introduces the higher-order conjecture but likewise contains no ball, ellipsoid, zonoid, or Janson evaluation of this coefficient. The 2022 zonoid-algebra paper supplies a general mixed-volume/random-determinant identity; it does not evaluate this structured six-dimensional determinant. Targeted semantic-database and exact-expression searches found no prior statement of \(\pi^4/90\) or \(\pi^2/160\) for \(W_{2,K}(1,1,1)\). The nearest same-source internal result concerns a simplex profile for a different higher-order difference-body functional and does not imply the ellipsoid coefficient.
+## originality
 
-## Value
+PASS
 
-PASS. In dimension three, \((1,1,1)\) is the only nontrivial higher-order coefficient after the reductions in the lead paper. Ellipsoids are the canonical affine comparison class, so an exact normalized value supplies a natural calibration for the open simplex-extremizer/equality problem rather than an arbitrary parameter slice. The value quantifies the substantial gap between this smooth affine class and the universal upper bound.
+Fryš–Kotrbatý 2026 identifies W_{2,K}(1,1,1), gives Janson upper bound and general special-case inequalities; no exact ball/ellipsoid coefficient appears in inspected pages 1-13, but the remaining pages were not all read and are a residual risk. The newer Fryš–Kotrbatý–Mouamine–Wang arXiv:2610.06806v2 proves the higher-order inequality and simplex-only equality, not a numerical ellipsoid mixed-volume evaluation. Breiding–Bürgisser–Lerario–Mathis zonoid-algebra formula supplies a general determinant representation, not the special block expectation.
 
-## Closest literature and limitations
+## value
 
-The closest literature consists of Fryš--Kotrbatý’s Janson inequality, Kotrbatý’s higher-order Godbersen framework, and the general zonoid random-determinant representation of Breiding--Bürgisser--Lerario--Mathis. The calculation does not establish a new universal inequality or an equality classification. An unindexed special computation of the same structured random determinant remains the principal originality risk.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The ellipsoid class is the canonical affine comparison for mixed-volume extremal coefficients, and (1,1,1) is the sole nontrivial dimension-three higher-order index. The exact normalized value remains a useful calibration now that the general inequality and simplex equality have been proved; the record’s obsolete 2026 claim of an unresolved equality problem must not be disseminated unchanged.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
