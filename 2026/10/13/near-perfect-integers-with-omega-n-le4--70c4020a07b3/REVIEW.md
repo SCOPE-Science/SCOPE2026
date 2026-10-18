@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof exhausts all exponent partitions of \(\Omega(n)\le4\), uses exact formulas for \(d=\sigma(n)-2n\), and distinguishes symbolic exhaustiveness from finite regression checks. Every survivor is directly verified with a proper redundant divisor. The packaged checker reproduces the list and all critical branch calculations.
+## correctness
 
-## Originality
-**PASS.** The closest primary theorem, Ren--Chen (2013), classifies near-perfect integers with exactly two distinct prime factors. That theorem does not imply the three-support part of the present result and explicitly lists \(234\) and \(650\) only as examples. Hasanalizade (2022/2023) states that the general even classification remains open. published-finding corpus searches for low multiplicity, aliases, the defining equation, and the two three-support values found no theorem implying the full \(\Omega(n)\le4\) classification. The closest published-finding corpus near-perfect theorem concerns a single congruence class; another close hit uses the distinct notion of \(2\)-near-perfect numbers.
+PASS
 
-## Value
-**PASS.** Total prime-factor multiplicity is a standard and natural complexity measure. Closing the complete first four layers supplies a sharp, reusable boundary theorem and identifies the first three-support near-perfect cases. This is structurally stronger than merely recomputing the initial terms of a sequence.
+A near-perfect integer has σ(n)=2n+d for a proper positive divisor d. Partitioning Ω(n)≤4 into exponent shapes (single prime powers; 2+1; 1+1+1; 3+1; 2+2; 2+1+1; 1+1+1+1), the proof excludes deficiency and forces finite prime ranges using positivity and d|n. The delicate squarefree 2pqr shape has v₂(σ(n)−2n)=2 while v₂(n)=1; the 4rs and 2r²s branches are discharged by exact divisibility and finite inequalities, not a scan cutoff. Independently computed divisor sums and Ω over every n≤250000 and recovered precisely n=12,18,20,24,40,56,88,104,196,234,650 and the eleven stated d values. The analytic branch proof, not the scan, establishes infinity-bound exhaustion; no Ω>4 classification.
 
-## Closest literature and limitations
-Ren--Chen completely solve the two-distinct-prime-support problem, so the two-support members here are not new individually. The new content is the exact total-multiplicity boundary and the proof that no other three- or four-support shapes occur. The theorem makes no claim for \(\Omega(n)\ge5\). OEIS A181595 is consistent with the list but is not an exhaustiveness proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ren–Chen 2013 explicitly lists 234 and 650 among examples with three distinct primes and proves a complete two-DISTINCT-prime classification for arbitrary exponents. Their theorem neither classifies the mixed ω=3, Ω≤4 slice nor organizes all Ω≤4 even shapes; the eleven cases are thus not new examples, but the total-multiplicity exhaustion appears to be a new classification on the inspected record. Hasanalizade gives context about remaining even cases. Earlier bounded list or unindexed Ω threshold theorem is a risk.
+
+## value
+
+PASS
+
+Total prime-factor multiplicity Ω is a natural arithmetic complexity scale distinct from number of prime supports ω. The proved complete Ω≤4 classification crosses both two-support and three-support families and isolates the first rare three-support cases, useful as a sharp baseline for broader near-perfect classification. This is not just known-term reenumeration because symbolic arguments bound all integers at this multiplicity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
