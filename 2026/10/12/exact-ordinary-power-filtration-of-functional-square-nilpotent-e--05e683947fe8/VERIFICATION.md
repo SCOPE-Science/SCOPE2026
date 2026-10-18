@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was reconstructed from the definitions of ordinary powers and evolution-algebra multiplication. The critical support identity is that the product of two coordinate subspaces is spanned by squares of basis vectors in their support intersection. Under the functional-square assumption those squares each have one target, so ordinary powers remain coordinate subspaces and the induction is exact.
+# Independent mathematical audit
 
-`verify.py` independently enumerates all acyclic partial functions on labeled vertex sets of sizes one through six, interprets them as functional-square support digraphs, builds ordinary-power supports directly from the defining recurrence, and compares them with the path-depth prediction. The completed run reports `VERIFY_OK cases=18248`.
+## correctness
 
-The finite enumeration does not establish the theorem in arbitrary dimension; it stress-tests the support recurrence, boundary powers, branching, merging, disconnected components, and isolated vertices. The arbitrary-dimensional proof in `RESULT.md` is the actual proof.
+PASS
 
-Literature checks used full primary texts where the comparison was decisive. The 2012 exact-index paper and the 2013 graph paper are the closest predecessors; the 2015 annihilator-extension paper and the 2016 nilpotent-classification paper were inspected as plausible broader sources. No independent audit has been performed.
+For coordinate subspaces U=span(e_S),W=span(e_T), evolution multiplication gives UW=span{e_u²:u∈S∩T}; functional-single-target squares make UW coordinate again. Thus supports obey S1=V and S_k=∪_{a+b=k}σ(S_a∩S_b). Induction over incoming maximum path depth d: sources have only k=1; for target at depth d, some predecessor has depth d−1 and for every 2≤k≤2^d one can split k=a+b with 1≤a,b≤2^(d−1) giving membership; conversely any producing predecessor has depth≤d−1 so k≤2^d. This proves full filtration and terminal 2^L+1, independent of coefficients/characteristic. Independent branching/merging example f=(2,2,3,None) yielded S1={0,1,2,3}, S2={2,3}, S3=S4={3}, S5=empty; sampled graph is not infinite proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS: relevant Casas maximal index theorem and Elduque/Labra acyclicity theorem cover boundary cases/qualitative conditions but not exact powers and dimensions on all acyclic functional-square digraphs. Related annihilator extensions and upper-annihilating series are different invariants; uninspected full papers remain residual O risk.
+
+## value
+
+PASS
+
+Graph-theoretic exact classification of every ordinary power for a natural family with merging, branching and disconnected components. Gives all dimensions, nilpotency index and weight invariance rather than only chain maximum, a motivated structural invariant a researcher can use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
