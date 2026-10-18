@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Each two-column one-pivot residual is rank one with loss D/u or D/v. The Gaussian quadratic-form difference diagonalizes to two opposite signed eigenvalues and independent chi-square sums, giving the exact Beta law. For s>=2, the symmetric Beta density is nondecreasing on its lower half, so I_q(s/2,s/2)<=q<=v/(u+v); this yields 2D/(u+v). The balanced-column family approaches factor 2. With s=1 a diagonal family gives an exact Cauchy mispivot probability and risk diverging linearly. Gaussian sketch normalization and strict full rank are treated. Reproduction checker passed 21092 tests, used only as corroboration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Grigori–Xue, arXiv:2503.18496v1, section 4: strong RRQR guarantees conditioned on a subspace embedding holding with high probability, for general matrix dimensions.",
+        "The 2017 randomized pivoted QR source is relevant to Gaussian sketches and may contain other bounds but its full text could not be verified."
+      ],
+      "reasoning": "A conditional high-probability epsilon-embedding theorem does not imply the exact unconditional expected loss at the undersampled dimension s=2 or prove that s=1 has unbounded worst-case expected squared error. Broader generality in matrix dimensions alone is not stronger coverage of this expectation/threshold theorem; complete 2017 coverage remains a risk.",
+      "searches": [
+        "Gaussian sketch row space column-pivoting exact misselection probability rank two pivoted QR sharp angle confidence",
+        "Gaussian sketched QR pivot two-column squared spectral approximation risk infinite for one sketch row bounded factor 2 for two rows",
+        "arxiv:2503.18496v1 sections 2.3 and 4, Theorems 4.1–4.3",
+        "doi:10.1137/15M1044680 bibliographic and available abstract"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2503.18496v1, sections 2.3 and 4, full-text snippets plus first-page visual inspection",
+      "doi:10.1137/15M1044680, accessible abstract/bibliography only",
+      "2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee, published statement",
+      "2026/9/19/SCOPE-sharp-frobenius-growth-complete-pivot-aca--71dd3abf0659, published statement",
+      "2026/9/19/SCOPE-deflation-history-weighted-mass-aca--f46330fd3a80, published statement"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For squared-norm-proportional sampling of two columns, direct algebra yields baseline expected loss 2D/(u+v), but its choice probability v/(u+v) differs from the Gaussian sketched maximum norm mispivot probability I_q(s/2,s/2).",
+        "The motivating manuscript gives OSE-based high-probability spectral properties for selected columns, with no inspected exact CDF or unconditional two-row expected square error theorem."
+      ],
+      "reasoning": "The new result is an algorithm-specific risk domination and minimum sketch-row threshold. It is not obtained by rewriting the adaptive randomized pivoting bounds, by relabeling deterministic complete pivoting, or by specializing the conditional OSE guarantee; it requires the chi-square eigenvalue law and beta-CDF comparison. A stronger uninspected earlier theorem may yet exist.",
+      "searches": [
+        "Randomized column subset selection using Gaussian sketch pivoted QR rank one exact wrong pivot probability closed form Cauchy two columns norms, sharp oversampling",
+        "rank-one column subset selection randomized norm pivot Gaussian sketch dimension two sharp square root two approximation expected spectral error",
+        "Gaussian sketched QR pivot two-column squared spectral approximation risk infinite for one sketch row bounded factor 2 for two rows",
+        "arxiv:2503.18496v1 full PDF theorem statements",
+        "2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For two-column rank-one residuals, Frobenius and operator residual norms coincide; this equivalent formulation was covered by searches.",
+        "The Gaussian mispivot probability has the regularized symmetric beta-CDF formulation, and the s=1 diagonal specialization has a Cauchy-tail formulation; searches included correlated-column misranking and pivot failure."
+      ],
+      "reasoning": "No inspected record stated the same Gaussian maximum-sketch-norm pivot distribution, universal s>=2 risk, and unbounded s=1 expected squared ratio. The known normalized-squared-norm randomized selection risk is equal to the s>=2 upper expression but is not equivalent to the Gaussian norm-max algorithm.",
+      "searches": [
+        "Randomized column subset selection using Gaussian sketch pivoted QR rank one exact wrong pivot probability closed form Cauchy two columns norms, sharp oversampling",
+        "Gaussian sketched pivoted QR two-column one-step expected spectral approximation factor sqrt(2) two sketch rows versus one row",
+        "correlated column Gaussian sketch misrank beta distribution two-row threshold low rank approximation",
+        "\"Gaussian sketch\" \"pivot\" \"beta distribution\" two columns"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public record 2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee gives sharp products for adaptive randomized pivoting, not the Gaussian sketch row threshold.",
+        "Public record 2026/9/19/SCOPE-sharp-frobenius-growth-complete-pivot-aca--71dd3abf0659 treats complete-pivot ACA."
+      ],
+      "reasoning": "No relevant checked exact table or searchable published claim supplies a two-column Gaussian norm-pivot finite-s probability law or exact uniform s>=2 versus s=1 phase boundary. Absence of a hit is not used as proof of uniqueness.",
+      "searches": [
+        "Gaussian sketched pivoted QR two-column one-step expected spectral approximation factor sqrt(2) two sketch rows versus one row",
+        "two column Gaussian sketch first pivot norm squared sampling stochastic dominance chi-square beta exact expected squared low rank error",
+        "sharp two-row threshold for Gaussian randomized column subset selection square error universal constant two",
+        "published adaptive randomized pivoting and complete-pivot ACA findings, named public identifiers"
+      ]
+    },
+    "rationale": "Direct full-text inspection of the motivating 2025 article found high-probability embedding-based RRQR bounds, not the exact unconditional two-column Gaussian norm-pivot beta law or the sharp s=1 versus s>=2 mean-square transition. Public findings on norm-squared randomized adaptive pivoting give the comparison baseline 2D/(u+v) but apply a different pivot sampling rule; the stochastic dominance of Gaussian maximum-sketch-norm selection at s>=2 is not implied by their method. The 2017 randomized-QR paper remains a specifically acknowledged full-text access risk.",
+    "residual_risks": [
+      "The 2017 foundational randomized-QR paper was not available for full-text comparison; an equivalent risk theorem in it is possible.",
+      "A search index and selected passages from a 22-page motivating preprint cannot establish bibliographic uniqueness.",
+      "Older two-column QR pivot probability results may be formulated in statistics literature under correlated quadratic-form comparison terminology."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Inspected conditional OSE/high-probability strong RRQR results do not state the exact unconditional two-column Gaussian norm-pivot squared-risk law and sharp row threshold. Unread portions cannot be conclusively excluded.",
+        "evidence": [
+          "arXiv:2503.18496v1 initial public upload 2025-03-24 09:52:06 UTC.",
+          "Section 4, Theorems 4.1–4.3 use epsilon-embedding or OSE assumptions; section 2.3 permits rescaled Gaussian sketches."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2503.18496",
+        "material_read": "ArXiv metadata and actual full-text PDF passages, including introduction, Gaussian OSE discussion in section 2.3, section 4 algorithms and Theorems 4.1–4.3 with assumptions/proof portions; visually inspected PDF first page.",
+        "method": "Direct full-text PDF reading, text find and page inspection",
+        "title": "Randomized strong rank-revealing QR for column subset selection and low-rank matrix approximation",
+        "trigger": "Same Gaussian sketch column selection framework and natural 2025 primary motivation"
+      },
+      {
+        "assessment": "Plausible risk of an uninspected stronger finite-dimensional Gaussian pivot theorem. No full-text noncoverage assertion.",
+        "evidence": [
+          "The work concerns randomized QR with column pivoting; DOI 10.1137/15M1044680."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/15M1044680",
+        "material_read": "Accessible bibliographic description and abstract only. ArXiv/open-access full-text attempts unsuccessful, institutional retrieval unavailable.",
+        "method": "Bibliographic search and bounded institutional-download fallback",
+        "title": "Randomized QR with Column Pivoting",
+        "trigger": "Foundational randomized pivoted-QR sampling literature"
+      },
+      {
+        "assessment": "Sharp expected-error products for a different adaptive norm-mass pivot rule; not the Gaussian max-sketched-norm row-count threshold.",
+        "evidence": [
+          "The described bound is a product of per-stage factors for adaptive randomized pivoting and is sharp for orthogonal projection error."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee",
+        "material_read": "Searchable published title and abstract-level mathematical claim; no assertion about uninspected full text",
+        "method": "Semantic publication-record retrieval and statement-level implication comparison",
+        "title": "Worst-case sharpness of multistage adaptive randomized pivoting",
+        "trigger": "Closest related published expected column-subset projection-error bound"
+      },
+      {
+        "assessment": "Different deterministic entrywise ACA update and Frobenius growth; cannot imply Gaussian two-column orthogonal CSS risk bound from its stated claim.",
+        "evidence": [
+          "Known sharp complete-pivot ACA Frobenius-growth law has no Gaussian sampling variable."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/19/SCOPE-sharp-frobenius-growth-complete-pivot-aca--71dd3abf0659",
+        "material_read": "Published searchable statement and summary only",
+        "method": "Statement-level comparison",
+        "title": "Sharp one-step Frobenius growth under complete-pivot ACA",
+        "trigger": "Search hits share one-step column pivot and error metrics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3196dbc3-660a-411b-acc1-deb97e5182cf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The minimum Gaussian sketch row count needed for a uniform finite mean-square first-pivot projection guarantee is a natural quantitative design question. The exact law and sharp factor isolate a heavy-tailed risk that is invisible from isotropic unbiasedness or a generic embedding guarantee, and rigorously compare a common deterministic max-pivot heuristic applied to sketches with the established norm-squared sampling baseline. The small two-column setting is the first nontrivial CSS instance and exposes a dimension threshold; no unsupported downstream improvement is claimed.",
+    "status": "PASS"
+  }
+}
