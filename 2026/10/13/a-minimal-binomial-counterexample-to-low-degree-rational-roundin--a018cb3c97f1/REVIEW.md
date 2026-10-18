@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For \(X\sim\operatorname{Bin}(3,p)\), direct pushforward under \(x\mapsto\lfloor3x/2\rfloor\) gives positive masses at \(0,1,3,4\) and zero mass at \(2\). If its PGF factored into degree-at-most-three nonnegative-coefficient PGFs, positivity of the constant term and vanishing of the quadratic coefficient force the only nonconstant support pattern to be \({0,1}+{0,3}\). Such a product satisfies \(a_0a_4=a_1a_3\), while the exact binomial coefficients satisfy \(a_1a_3=9a_0a_4\). The contradiction is uniform for every \(0<p<1\). The \(n\le2\) minimality statement follows because the rounded variable then has maximum at most \(3\) and can itself serve as the single summand.
+PASS
 
-## Originality
+The pushforward of Bin(3,p) under 0,1,2,3→0,1,3,4 gives PGF a0+a1 z+a3 z^3+a4 z^4 with a2=0, all other coefficients positive. If any factor has degree 2 with positive leading coefficient, its positive constant gives a forbidden z^2 term. Exactly one nontrivial factor has a positive linear coefficient, and any other cannot have z or z^2 support; total degree 4 with every factor degree<=3 forces factors C(1+uz)(1+vz^3). Such factors give a0 a4=a1 a3. Actual binomial coefficients give a1 a3=9 a0 a4 for all 0<p<1. Independently calculated exact p=1/3: a0a4=8/729, a1a3=8/81, ratio9. n<=2 trivially one bounded variable. Correct original exact coefficient proof is valid, not a numerical-root heuristic.
 
-PASS, with an explicit unpublished-source risk. The public Tang--Tang preprint was inspected at Corollary 4.2, Theorem 4.7, Conjecture 4.8, and the immediately following comparison of the polynomial classes \(P_3\) and \(Q_3\). It formulates the universal factorization claim after noting that the ambient classes are incomparable, but does not state the special rounded-binomial counterexample above. Candidate-specific published-finding corpus and web searches for Conjecture 4.8, \(\lfloor3X/2\rfloor\), \(\operatorname{Bin}(3,p)\), and the coefficient pattern returned no covering statement. The unpublished Liggett manuscript cited by the source could not be inspected directly and is retained as residual risk.
+## originality
 
-## Value
+PASS
 
-PASS. The source presents \(j=1\) and \(j=2\) as the positive low-degree cases and explicitly conjectures the extension to all \(j\). The counterexample occurs at the first new numerator \(j=3\), uses the canonical binomial subfamily of strongly Rayleigh laws, is minimal in the binomial trial count for \((j,k)=(3,2)\), and works for every nondegenerate success probability. It therefore gives a substantive boundary for the rational-rounding program rather than an arbitrary isolated computation.
+Conjecture 4.8 is explicitly printed by Tang--Tang following a positive j=2 result and general P_3/Q_3 incomparability. That ambient incomparability does not establish a counterexample within the restricted rounded strongly-Rayleigh class. The present minimal binomial example tests exactly the conjecture, with a uniform-in-p obstruction. Earlier unpublished Liggett material cited by Tang--Tang remains unavailable and a residual priority risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+An explicit unconditional counterexample to a published universal probability-factorization conjecture at the first new numerator j=3 with the smallest possible binomial trial size is mathematically decisive, even though the proof is short. It distinguishes ambient nonnegative-PGF factorization failures from the conjecture's rounded-strongly-Rayleigh subclass and maps the sharp earliest failure boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
