@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-## Reproduction
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.9 or later from the extracted package directory. No third-party libraries, downloads, network access, or external datasets are required. The script uses exact integers and `fractions.Fraction` to reconstruct the characteristic polynomial of each tested tree via its matching expansion, and prints its summary only after all assertions succeed.
+## correctness
 
-Expected output:
+PASS
 
-```
-VERIFY_OK tree_cases=34 parity_probes=2788 derivative_and_endpoint_identities=102
-```
+For any n-even tree n>=4, integer F(z)=det(zD-L) has derivative F_prime(0)=(-1)^(n-1)*2(n-1), by matrix-tree theorem. Rational-root theorem on F/z makes numerator p divide 2(n-1); for a reduced interior 0<p/q<2 even p would be 2 (mod 4) and reflected 2-p/q has numerator divisible by four, impossible. PST at distinct a,b forces equal degrees and eta=1 via the positive zero eigenvector. Opposite bipartition forces t=(2h+1)pi/2, and every interior supported eigenvalue would have an even reduced numerator, hence only endpoint supports; d_a=d_b=n-1 impossible. Same bipartition forces t=h pi; any negative supported rational p/q admits primitive integer generalized eigenvector qLw=pDw, leaf-stripping mod p makes every entry congruent to one unit mod p, while w_a=-w_b imposes p|2, hence p=1. Reflection of a negative eigenvalue then forces 2q-1=1, so theta=1. The resulting E1 identity makes a,b sibling leaves; endpoint+E1 projection mass 1/(n-1)+1/2<1 implies another interior positive-sign eigenvalue, whose phase would require forbidden even numerator. This proves nontransfer at all real times; n=2 P2 has PST at pi/2. The finite matching-polynomial verifier probes 34 sample even trees and 2788 rational candidates, not universal proof.
 
-## What was checked
+## originality
 
-Thirty-four constructed even-order trees from four structural families were used. In each case, the generalized characteristic determinant is zero at eigenvalues \(0\) and \(2\); the integer coefficient of its linear term is exactly \(-2(n-1)\), and no evaluated reduced even-numerator/odd-denominator rational interior candidate is an eigenvalue. A total of 2,788 exact interior rational evaluations were performed.
+PASS
 
-## Boundary of verification
+Coutinho–Baptista 2022 gives spectral-sign/twin leaf necessary conditions and explicitly conjectures absence on all trees besides P2/P3, but does not establish the even-tree exclusion. Prior path results concern a strict subfamily and weighted/general Laplacian constructions use different Hamiltonians. New parity of rational normalized eigenvalues on even trees closes a full parity subcase of the published open question.
 
-This code does not exhaust arbitrary tree orders or possible rational eigenvalues, and does not numerically simulate perfect state transfer over unbounded time. The unrestricted no-transfer result follows from the independent analytical chain in `RESULT.md`: matrix-tree derivative, rational-root and bipartition symmetry, integer-vector congruence via leaf stripping, and the strong-cospectrality phase contradiction. Verification is an aid to detecting arithmetic mistakes, not an independent audit or an infinite proof.
+## value
+
+PASS
+
+Perfect state transfer on trees for normalized Laplacian is an explicit structural open boundary. A theorem excluding every even-order tree using a two-adic normalized-eigenvalue obstruction is a motivated infinite-class advance, stronger than any finite computer census or special path-family result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

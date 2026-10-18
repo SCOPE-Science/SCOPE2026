@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T20:18:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any n-even tree n>=4, integer F(z)=det(zD-L) has derivative F_prime(0)=(-1)^(n-1)*2(n-1), by matrix-tree theorem. Rational-root theorem on F/z makes numerator p divide 2(n-1); for a reduced interior 0<p/q<2 even p would be 2 (mod 4) and reflected 2-p/q has numerator divisible by four, impossible. PST at distinct a,b forces equal degrees and eta=1 via the positive zero eigenvector. Opposite bipartition forces t=(2h+1)pi/2, and every interior supported eigenvalue would have an even reduced numerator, hence only endpoint supports; d_a=d_b=n-1 impossible. Same bipartition forces t=h pi; any negative supported rational p/q admits primitive integer generalized eigenvector qLw=pDw, leaf-stripping mod p makes every entry congruent to one unit mod p, while w_a=-w_b imposes p|2, hence p=1. Reflection of a negative eigenvalue then forces 2q-1=1, so theta=1. The resulting E1 identity makes a,b sibling leaves; endpoint+E1 projection mass 1/(n-1)+1/2<1 implies another interior positive-sign eigenvalue, whose phase would require forbidden even numerator. This proves nontransfer at all real times; n=2 P2 has PST at pi/2. The finite matching-polynomial verifier probes 34 sample even trees and 2788 rational candidates, not universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known same-class restriction to twins leaves conditions without excluding all of them.",
+          "The earlier path-specific exclusion handles only paths, not all even trees; parity of integer F/z supplies a missing global obstruction."
+        ],
+        "reasoning": "Neither broader generic PST spectral characterization evaluates required number-theoretic exclusion for arbitrary even trees.",
+        "searches": [
+          "Coutinho Baptista arXiv:2209.04668 Theorem 7 and Corollaries 8,9",
+          "Alvir et al arXiv:1409.5840 Section 6.2"
+        ]
+      },
+      "checked_sources": [
+        "GitHub RESULT.md blob 00753c1a4344da6a59eb30b9148dee075bfd55aa",
+        "GitHub verify.py blob 6201bf4b3ebc4630ad33bd83834d20a0e55c1f69",
+        "arXiv:2209.04668 Theorem 7, Corollaries 8–9, tree conjecture",
+        "arXiv:1409.5840",
+        "arXiv:1406.7769",
+        "Resultary semantic search: normalized Laplacian perfect state transfer even order trees rational eigenvalue parity obstruction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2022 conjectural exclusion of trees of order >=4, with P2,P3 exceptions, remains a conjecture in original reference.",
+          "The new proof treats every even order n>=4 and leaves odd n>=5 explicitly unresolved."
+        ],
+        "reasoning": "Prior spectral preliminaries imply the result only with the new parity reflection / mod-p leaf-reduction steps; their conjecture demonstrates they did not previously conclude it.",
+        "searches": [
+          "Coutinho Baptista arXiv:2209.04668 Section 5 conclusion",
+          "Banerjee Mehatari arXiv:1406.7769"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Coutinho–Baptista proves necessary support/twin-leaf restrictions and asks whether only P2/P3 trees permit PST.",
+          "Pinned theorem excludes even n>=4 using a new parity obstruction."
+        ],
+        "reasoning": "Normalized-Laplacian PST, as opposed to ordinary Laplacian PST, is fixed throughout; earlier necessary conditions are ingredients not equivalent to the all-even-tree theorem.",
+        "searches": [
+          "Resultary semantic search: normalized Laplacian perfect state transfer even order trees rational eigenvalue parity obstruction",
+          "Coutinho Baptista arXiv:2209.04668 Section 4 and final conjecture",
+          "Alvir et al arXiv:1409.5840"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published matching polynomial supplies formulae for coefficients, not transfer feasibility.",
+          "Sample finite trees verified a rational-root parity property but no exhaustive theorem table is claimed."
+        ],
+        "reasoning": "No exact published all-even-tree no-PST table/formula identified; sample nontransfer could never prove all tree orders.",
+        "searches": [
+          "Resultary semantic search: normalized Laplacian perfect state transfer even order trees rational eigenvalue parity obstruction",
+          "Banerjee Mehatari arXiv:1406.7769 normalized Laplacian tree characteristic polynomials"
+        ]
+      },
+      "rationale": "Coutinho–Baptista 2022 gives spectral-sign/twin leaf necessary conditions and explicitly conjectures absence on all trees besides P2/P3, but does not establish the even-tree exclusion. Prior path results concern a strict subfamily and weighted/general Laplacian constructions use different Hamiltonians. New parity of rational normalized eigenvalues on even trees closes a full parity subcase of the published open question.",
+      "residual_risks": [
+        "An independent newer solution of the same even-order subcase after the 2022 conjecture could be unindexed; semantic search is not proof of priority.",
+        "No claim for odd n>=5, pretty-good transfer, weighted trees, or arbitrary state superpositions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides necessary same-class twin-leaf condition, and explicitly leaves tree-family exclusion conjectural",
+          "evidence": [
+            "Section 4 Theorem 7 and Corollaries 8–9; Section 5 final conjecture."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2209.04668",
+          "material_read": "Preprint introduction and normalized support analysis, Theorem 7, Corollaries 8–9 and concluding tree conjecture in Section 5",
+          "method": "Full-text arXiv PDF sections and page images",
+          "title": "Quantum Walks in the Normalized Laplacian",
+          "trigger": "Exact normalized-Laplacian PST on trees and open conjecture"
+        },
+        {
+          "assessment": "Does not prove all even trees; normalized path theorem is a proper subclass",
+          "evidence": [
+            "Section 6.2 normalized-Laplacian path exclusion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1409.5840",
+          "material_read": "Section 6.2 path-specific normalized-Laplacian statement and context as quoted in supplied references",
+          "method": "arXiv primary paper sections",
+          "title": "Perfect State Transfer in Laplacian Quantum Walk",
+          "trigger": "Path cases and normalized-Laplacian special setting"
+        },
+        {
+          "assessment": "Supplies characteristic-polynomial machinery but no PST conclusion",
+          "evidence": [
+            "Weighted matching expansion and no same even-order PST assertion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1406.7769",
+          "material_read": "Theorem 2.1 polynomial/matching formulation and introductory scope as identified in supplied RESULT.md",
+          "method": "arXiv article mathematics referenced by assigned proof",
+          "title": "Characteristics polynomial of normalized Laplacian for trees",
+          "trigger": "Same rational spectral polynomial ingredient"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Perfect state transfer on trees for normalized Laplacian is an explicit structural open boundary. A theorem excluding every even-order tree using a two-adic normalized-eigenvalue obstruction is a motivated infinite-class advance, stronger than any finite computer census or special path-family result.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "GitHub RESULT.md blob 00753c1a4344da6a59eb30b9148dee075bfd55aa",
+    "GitHub verify.py blob 6201bf4b3ebc4630ad33bd83834d20a0e55c1f69",
+    "arXiv:2209.04668 Theorem 7, Corollaries 8–9, tree conjecture",
+    "arXiv:1409.5840",
+    "arXiv:1406.7769",
+    "Resultary semantic search: normalized Laplacian perfect state transfer even order trees rational eigenvalue parity obstruction"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge originality only; absence of search hits is not proof of priority.",
+    "Public source privacy needs sanitized replacements, so complete science assessment does not authorize publication or an accepted import.",
+    "All mathematical hypotheses, normalizations and bounded/infinite scope are as stated in reconstructed correctness rationale."
+  ],
+  "residual_risks": [
+    "An independent newer solution of the same even-order subcase after the 2022 conjecture could be unindexed; semantic search is not proof of priority.",
+    "No claim for odd n>=5, pretty-good transfer, weighted trees, or arbitrary state superpositions."
+  ],
+  "schema_version": 1
+}

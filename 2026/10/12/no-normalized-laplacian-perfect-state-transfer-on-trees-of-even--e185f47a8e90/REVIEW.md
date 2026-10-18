@@ -1,19 +1,21 @@
-# Scientific review: even-order trees and normalized-Laplacian transfer
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The domain comprises all finite simple unweighted trees with even order at least four. The generalized characteristic polynomial is integral; its first nonzero coefficient is determined independently of the graph shape by Kirchhoff cofactors. For even order, the coefficient has exactly one factor of two. Rational-root divisibility plus bipartite spectral reflection excludes every interior rational eigenvalue whose reduced numerator is even. The transfer analysis then separates opposite and equal bipartition classes. Opposite-class transfer forces such a forbidden rational phase; equal-class transfer forces a unique negative eigenvalue at one, sibling leaves, and an additional positively signed forbidden rational phase. The argument covers repeated eigenvalues through projectors, not individual eigenvectors. The \(P_2\) exception and all quantifiers are explicit. The standard-library checker passes 34 independently constructed finite examples, without being used as an infinite proof.
+PASS
 
-## Originality
+For any n-even tree n>=4, integer F(z)=det(zD-L) has derivative F_prime(0)=(-1)^(n-1)*2(n-1), by matrix-tree theorem. Rational-root theorem on F/z makes numerator p divide 2(n-1); for a reduced interior 0<p/q<2 even p would be 2 (mod 4) and reflected 2-p/q has numerator divisible by four, impossible. PST at distinct a,b forces equal degrees and eta=1 via the positive zero eigenvector. Opposite bipartition forces t=(2h+1)pi/2, and every interior supported eigenvalue would have an even reduced numerator, hence only endpoint supports; d_a=d_b=n-1 impossible. Same bipartition forces t=h pi; any negative supported rational p/q admits primitive integer generalized eigenvector qLw=pDw, leaf-stripping mod p makes every entry congruent to one unit mod p, while w_a=-w_b imposes p|2, hence p=1. Reflection of a negative eigenvalue then forces 2q-1=1, so theta=1. The resulting E1 identity makes a,b sibling leaves; endpoint+E1 projection mass 1/(n-1)+1/2<1 implies another interior positive-sign eigenvalue, whose phase would require forbidden even numerator. This proves nontransfer at all real times; n=2 P2 has PST at pi/2. The finite matching-polynomial verifier probes 34 sample even trees and 2788 rational candidates, not universal proof.
 
-PASS, with the limited literature-access risk below. The primary 2022 article explicitly leaves the general normalized-Laplacian tree exclusion open and proves only necessary conditions. The earlier 2014 normalized-Laplacian path theorem is restricted to paths; the 2014/2015 matching-polynomial paper supplies a spectral formula but not the resulting transfer prohibition. The new statement covers all even-order trees, including branched, asymmetric, arbitrary-depth examples, and uses the two-adic invariant absent from the inspected transfer results. Existing mathematical claims on particular tree families are special cases, not equivalent universal coverage; previously studied depth-two trees also include odd-order examples and therefore are incomparable in their complete domains. Searching exact phrasings, aliases, spectral parity, transfer-phase and cofactor formulations identified no stronger covering theorem. This is evidence of noncoverage in checked sources, not proof that an unlocated work cannot exist.
+## originality
 
-## Value
+PASS
 
-PASS. The original source conjectures no normalized-Laplacian perfect state transfer on trees except the paths on two and three vertices. The theorem resolves the complete even-order half of this problem, not an arbitrary finite slice, and isolates a reusable parity obstruction connected to the number of spanning trees. Its proof avoids spectral enumeration, regularity, symmetry or bounded-degree assumptions. Both the exact theorem and its mechanism are motivated by the published gap.
+Coutinho–Baptista 2022 gives spectral-sign/twin leaf necessary conditions and explicitly conjectures absence on all trees besides P2/P3, but does not establish the even-tree exclusion. Prior path results concern a strict subfamily and weighted/general Laplacian constructions use different Hamiltonians. New parity of rational normalized eigenvalues on even trees closes a full parity subcase of the published open question.
 
-## Sources and remaining risks
+## value
 
-Coutinho--Baptista, arXiv:2209.04668v1, Sections 3--5 and closing conjecture; Alvir et al., arXiv:1409.5840, normalized-Laplacian paths and products; Banerjee--Mehatari, arXiv:1406.7769, Theorem 2.1 and tree characteristic-polynomial treatment. A closely related 2022 dissertation by Baptista was identified and snippets of its tree chapter and conclusion were inspected, but its full PDF could not be obtained during this review. The excerpts describe necessary conditions and an unfinished global tree question; remaining uninspected pages are a residual overlap risk. Independent audit has not been performed; possible unlocated stronger transfer or normalized-Laplacian spectral-divisibility results remain risks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Perfect state transfer on trees for normalized Laplacian is an explicit structural open boundary. A theorem excluding every even-order tree using a two-adic normalized-eigenvalue obstruction is a motivated infinite-class advance, stronger than any finite computer census or special path-family result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
