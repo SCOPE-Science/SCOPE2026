@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "A Gaussian in the zero-sum subspace has uniform coordinate ordering; maximizing independent edge segments yields an orientation. Because missing edges form a matching, the only incomparable elements are consecutive deleted pairs, so each orientation class has exactly 2^s permutations. Binomial inversion counts exact s-layers and summing squared cone masses gives the collision identity. Local uniform convergence of the generating function follows from coefficient bound (2k/n)^t/t!<=1/t!, giving both Poisson limits and asymptotic constants. A standalone standard-library exact rational checker passed every k at n=2,...,8 (23 cases); the n=2 case is only boundary testing. Finite enumerations are corroboration, not the proof of the universal limits.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chapoton--Pilaud, arXiv:2201.06896, Propositions 36--39, 48--50 and 98--100, gives complete-multipartite vertex combinatorics and the coarsening by ordered partitions; its exact vertex count is prior, but no angular collision/Poisson law is given in those results.",
+        "The complete multipartite class includes graphs with all part sizes 2 or 1, so Proposition 50 is a genuinely broader vertex-count theorem."
+      ],
+      "reasoning": "The broad vertex-enumeration theorem subsumes the finite total vertex count, which is excluded from originality, but neither it nor the deformation cone theorem supplies Gaussian cone-angle multiplicities or the collision and Poisson laws. The present result refines their known unoriented counts rather than presenting a special case of a stronger angular statement.",
+      "searches": [
+        "complete multipartite graph permutahedron acyclic orientations normal cone solid-angle distribution",
+        "Shuffles of deformed permutahedra 2201.06896 Propositions 48 50 complete multipartite graphical zonotopes",
+        "collision probability of acyclic orientations induced by two independent random linear orders of vertices graph complement matching"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2111.12422",
+      "arxiv:2201.06896",
+      "OEIS:A033815",
+      "OEIS:A334279",
+      "Published research: Complete multipartite graphical zonotopes have cubic-moment circumspheres",
+      "Published research: Factorial acyclic signatures for complete graphs minus a matching",
+      "Published research: Exact Löwner ellipsoid and contact vertices of complete-bipartite graphical zonotopes"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Padrol--Pilaud--Poullot, arXiv:2111.12422, Proposition 1.3 and Section 1.3, relates acyclic orientations, braid chambers and graphical normal cones; it does not state matching-deletion angular multiplicities.",
+        "Chapoton--Pilaud, arXiv:2201.06896, Propositions 36--39, 48--50 and 98--100, gives complete-multipartite vertex combinatorics and the coarsening by ordered partitions; its exact vertex count is prior, but no angular collision/Poisson law is given in those results.",
+        "OEIS A033815 explicitly identifies the perfect-matching graph acyclic-orientation sequence and the signed factorial sum for total vertex count; the total count is known, not the claimed stratified normal-cone probabilities.",
+        "Published research: Complete multipartite graphical zonotopes have cubic-moment circumspheres: cubic-moment circumsphere and farthest vertices only.",
+        "Published research: Factorial acyclic signatures for complete graphs minus a matching: parity imbalance of acyclic-signature orientation graph only."
+      ],
+      "reasoning": "Orientation parity-imbalance and farthest-point Euclidean norm cannot determine individual normal-cone measures. The previously recorded double-star/bipartite zonotope angular collisions involve graph families not containing the all-dimensional matching-deleted complete graph subclass (apart from small n=4); the previously recorded matching-deletion mean-width result concerns symmetric edge polytopes, not the present graphical zonotopes. The new exact layer census and asymptotic tilt are not corollaries of these compared statements.",
+      "searches": [
+        "Gaussian angular collision probability graphical zonotope complete graph minus matching deleted edges permutation linear extensions adjacent pairs",
+        "Acyclic orientations probability two random permutations agree on edges complete graph minus matching exponential binomial factorial sum",
+        "collision probability of acyclic orientations induced by two independent random linear orders of vertices graph complement matching",
+        "published-finding corpus complete multipartite graphical zonotope cubic-moment circumsphere",
+        "published-finding corpus factorial acyclic signatures complete graphs minus matching"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Padrol--Pilaud--Poullot, arXiv:2111.12422, Proposition 1.3 and Section 1.3, relates acyclic orientations, braid chambers and graphical normal cones; it does not state matching-deletion angular multiplicities.",
+        "Chapoton--Pilaud, arXiv:2201.06896, Propositions 36--39, 48--50 and 98--100, gives complete-multipartite vertex combinatorics and the coarsening by ordered partitions; its exact vertex count is prior, but no angular collision/Poisson law is given in those results.",
+        "Targeted complete-multipartite and cocktail-party searches returned no normal-cone layer spectrum or collision result."
+      ],
+      "reasoning": "The equivalences checked were graphical braid chambers, acyclic-orientation classes, adjacent transpositions of nonedges, random linear extensions, and Gaussian exposed vertices. These convert the proposed angles into the distribution of adjacent removed matching pairs, which is not present in the inspected general fan/face theory.",
+      "searches": [
+        "graphical zonotope complete multipartite graph K_{2,2,...,2} permutation class sizes normal cone Gaussian solid angle Poisson adjacency",
+        "cocktail party permutohedron zonotope angular spectrum acyclic orientation class size 2^r",
+        "Gaussian angular collision probability graphical zonotope complete graph minus matching deleted edges permutation linear extensions adjacent pairs",
+        "Normal cone solid angles of graphical zonotope complement of a matching orientation classes adjacent commuting swaps",
+        "graphical zonotope \"solid angle\" \"linear extensions\" acyclic orientation",
+        "cocktail party graphical zonotope acyclic orientation chambers missing matching permutation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A033815 explicitly identifies the perfect-matching graph acyclic-orientation sequence and the signed factorial sum for total vertex count; the total count is known, not the claimed stratified normal-cone probabilities.",
+        "OEIS A334279 records the chromatic polynomial of the crosspolytope graph; this determines acyclic-orientation totals, not individual Gaussian cone masses."
+      ],
+      "reasoning": "The perfect matching case has a known complete total-count sequence, and a general complete-multipartite face count is known. We do not claim either as new. No exact table or series checked lists the 2^s/n! angle spectrum or its squared-mass collision moment; this is a statement about absence in the inspected entries, not proof of global uniqueness.",
+      "searches": [
+        "OEIS A033815 Number of acyclic orientations Turan graph T(2n,n)",
+        "OEIS A334279 chromatic polynomial of crosspolytope graph",
+        "cocktail party permutohedron zonotope angular spectrum acyclic orientation class size 2^r"
+      ]
+    },
+    "rationale": "The general normal fan, orientation classes and matching-deleted acyclic orientation total counts are established previously and credited. The exact all-k Gaussian angle multiplicities, squared-angle collision probability and distinct Poisson parameters for direction/vertex sampling are mathematically stronger data than these prior counts; no covering statement was found in the inspected primary claims, relevant published records or exact database entries. An unindexed equivalent refined orientation enumeration remains a bounded risk.",
+    "residual_risks": [
+      "Refined adjacency-block enumerations or sampling-bias identities might have appeared in permutation, hyperplane-arrangement, or random-ranking literature under terminology not retrieved.",
+      "A title/snippet-level bibliographic result can be more general than its visible summary; the close primary PDF claims were materially read, but no exhaustive literature database can prove uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General fan/orientation/linear extension background, no claimed Gaussian angular spectrum or collision measure in inspected sections",
+        "evidence": [
+          "Proposition 1.3 identifies the normal fan/acyclic orientations; Lemma 2.3(iii) identifies permutation linear extensions.",
+          "PDF text contains no occurrence of angle or probabil in searched extracted text."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2111.12422",
+        "material_read": "PDF pages 1, 2, 4, 5, 6 and 7, including the graphical fan/linear-extension material in Section 1.3 and Section 2.1; full-text searches for angle, probability and acyclic orientation",
+        "method": "Lawful arXiv full-text reading and PDF page inspection",
+        "title": "Deformed graphical zonotopes",
+        "trigger": "Foundational graphical normal fan, possible broader coverage"
+      },
+      {
+        "assessment": "Contains broader exact total vertex counts and normal-fan combinatorics but not the claimed weighted angle distribution/Poisson laws in inspected results",
+        "evidence": [
+          "Propositions 37--39 identify the graph fan as coarsening of braid fan, with elementary nonedge swaps.",
+          "Proposition 50 gives complete-multipartite total vertex count, and Proposition 100 applies it to shuffles."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2201.06896",
+        "material_read": "PDF introduction/contents, Section 1.4 pages 9--12, Section 2.4 pages 18--19, plus full-text searches for Gaussian, solid angle and linear extension",
+        "method": "Lawful arXiv full-text reading and direct comparison of Propositions 36--39, 48--50, 98--100",
+        "title": "Shuffles of deformed permutahedra, multiplihedra, constrainahedra, and biassociahedra",
+        "trigger": "Complete multipartite graph specialization and likely dominating vertex-census theorem"
+      },
+      {
+        "assessment": "Total acyclic orientation count covered; angular refinement not listed in examined entry",
+        "evidence": [
+          "Comment identifies count as acyclic orientations of Turán graph T(2n,n).",
+          "Formula gives sum of alternating matching factorials for perfect-match deletion."
+        ],
+        "identifier_or_url": "https://oeis.org/A033815",
+        "material_read": "Title, comments, references, formulas, examples and cross-references",
+        "method": "Direct primary database record reading",
+        "title": "OEIS A033815",
+        "trigger": "Potential exact-table coverage for perfect matching graph"
+      },
+      {
+        "assessment": "Chromatic polynomial/acyclic total, not cone angles",
+        "evidence": [
+          "Cross-polytope graph chromatic polynomial tabulated, with A033815 cited as its -1 evaluation."
+        ],
+        "identifier_or_url": "https://oeis.org/A334279",
+        "material_read": "Definition, comments, coefficients and cross-references in index record",
+        "method": "Direct sequence record inspection",
+        "title": "OEIS A334279",
+        "trigger": "Broader chromatic-polynomial exact table for cocktail-party graph"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7a211bcc-14eb-4078-a97d-78ca50e4c10a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact Gaussian cone-angle census is a complete geometric observable for a natural infinite family of dense graphical zonotopes. The two different Poisson limits exhibit a genuine discrepancy between random supporting-direction and uniform-vertex sampling, quantified by the sharp nontrivial factor e^rho for collision above the uniform baseline. These stochastic-geometric data are not determined by the already-known aggregate vertex count. The full-angle classification and scaling limit, rather than a small reparametrization or isolated finite table entry, motivate the precise invariant.",
+    "status": "PASS"
+  }
+}
