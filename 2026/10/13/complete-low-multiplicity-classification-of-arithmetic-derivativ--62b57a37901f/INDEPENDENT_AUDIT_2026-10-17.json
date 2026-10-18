@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T05:15:15.258321Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With E(n)=sigma(n)-n-D(n) and D(n)=n sum e_p/p, prime inputs give E=0. For squarefree composites E is the sum of divisor-expansion terms of at least two missing primes and is positive; for p^a (a>=2) it is sum_{j=0}^{a-1}p^j-a p^{a-1}<0. The remaining exponent partitions at Omega<=4 are p^2 q (E=(p+1)-(p-1)q, yielding 12 and 18), p^3 q (forcing q<2), p^2 q^2 (strictly negative for p<q), and p^2qr (odd p parity obstruction, p=2 gives (q-3)(r-3)=16 with distinct odd primes q=5,r=11, hence 220). Every partition exhausted, n=1 explicitly outside scope. Independently verified all symbolic E formulas via SymPy and enumerated admissible 2<=n<=60000: composite solutions 12,18,220. Checked Omega(396)=5 and D(396)=s(396)=696, showing boundary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The different SCOPE theorem treats D(n)-(n-phi(n)); this is not D(n)-s(n) because sigma(n)-n differs from n-phi(n).",
+          "Ufnarovski–Ahlander Theorem 1 derives arithmetic-derivative factorization and studies D(n)=a, not the new cutoff equation."
+        ],
+        "reasoning": "Neither source yields the low-multiplicity all-zero classification without separate prime-pattern work.",
+        "searches": [
+          "Resultary semantic: arithmetic derivative equals aliquot proper divisor sum low prime factor number Omega 4 solutions 12 18 220",
+          "2026/10/4/SCOPE-sharp-support-thresholds-for-the-arithmetic-derivative-cototient--b2439d05e1a7",
+          "Journal of Integer Sequences 6 (2003), 03.3.4"
+        ]
+      },
+      "checked_sources": [
+        "https://cs.uwaterloo.ca/journals/JIS/VOL6/Ufnarovski/ufnarovski.pdf",
+        "https://oeis.org/A212127",
+        "https://oeis.org/A211991",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-support-thresholds-for-the-arithmetic-derivative-cototient--b2439d05e1a7",
+        "Resultary semantic: arithmetic derivative equals aliquot proper divisor sum low prime factor number Omega 4 solutions 12 18 220"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1 gives D(n)=n sum e_p/p but does not constrain sigma(n) or classify the zeros.",
+          "Finite OEIS entries include 220 but not a proof concerning all n with <=4 prime factors."
+        ],
+        "reasoning": "The new quantifier-complete conclusion needs exhaustive exponent cases and positivity/negativity; none of the retrieved prior statements implies the biconditional.",
+        "searches": [
+          "Ufnarovski Ahlander How to Differentiate a Number Theorem 1",
+          "OEIS:A212127",
+          "Resultary semantic: arithmetic derivative equals aliquot proper divisor sum low prime factor number Omega 4 solutions 12 18 220"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "D(n) is also A003415 and s(n)=sigma(n)-n is A001065.",
+          "A212127 exactly indexes zeros of A211991, the signed difference D(n)-s(n)."
+        ],
+        "reasoning": "Equation aliases and sign conventions identified; the theorem is a complete Omega<=4 stratum, not a new equation or new numeric zeros.",
+        "searches": [
+          "Resultary semantic: arithmetic derivative equals aliquot proper divisor sum low prime factor number Omega 4 solutions 12 18 220",
+          "https://oeis.org/A212127",
+          "https://cs.uwaterloo.ca/journals/JIS/VOL6/Ufnarovski/ufnarovski.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A212127 comments nonprime members 1,12,18,220,... and provides a limited search program.",
+          "A344586 is a sign-inequality membership sequence, not proof of complete four-factor zero set."
+        ],
+        "reasoning": "Exact examples and count prefixes are preexisting, but there is no documented theorem in those database entries excluding a distant composite with Omega<=4.",
+        "searches": [
+          "https://oeis.org/A212127",
+          "https://oeis.org/A211991",
+          "https://oeis.org/A344586"
+        ]
+      },
+      "rationale": "The equation and all displayed small composite witnesses 12,18,220 are already explicitly in OEIS A212127; discovery of those numbers is not novel. Ufnarovski–Ahlander 2003 gives foundational arithmetic-derivative formulas and differential equations D(n)=a, but its full text does not establish the all-integers classification conditional on Omega(n)<=4 for D(n)=sigma(n)-n. A distinct published SCOPE result studies D(n)-(n-phi(n)), not this aliquot difference. The universal four-factor support theorem is not entailed by a finite OEIS list or generic derivative definition. Residual risk is an obscure earlier minimal-support classification or a trivial reformulation in OEIS comments.",
+      "residual_risks": [
+        "Small solution values are preexisting in OEIS and should not be credited as original.",
+        "A non-indexed low-Omega proof or strong classification in broader arithmetic derivative literature could preempt novelty.",
+        "The result is an elementary narrow factor-count boundary; scientific value is the exact natural stratum, not a claimed global breakthrough."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes D(n)=n sum e_p/p and equations D(n)=a; no comparable all-Omega<=4 arithmetic-derivative/aliquot classification located.",
+          "evidence": [
+            "Theorem 1 formula, Sections 1 and 3; no proper-divisors or 220 matches in full indexed text."
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL6/Ufnarovski/ufnarovski.pdf",
+          "material_read": "24-page primary Journal of Integer Sequences PDF: Theorem 1, derivative equations and other sections checked, searched proper divisors / 220",
+          "method": "Read rendered first page and full searchable PDF text, inspected theorem and differential equation sections",
+          "title": "How to Differentiate a Number",
+          "trigger": "Primary source for arithmetic derivative and possible stronger general equality statement"
+        },
+        {
+          "assessment": "Records composite witnesses 12,18,220, but does not prove absence of farther solutions within Omega<=4.",
+          "evidence": [
+            "Explicit nonprime list 1,12,18,220,...; Mathematica Select Range[300]."
+          ],
+          "identifier_or_url": "https://oeis.org/A212127",
+          "material_read": "Complete accessible public OEIS entry including comments, examples and search code",
+          "method": "Read line-by-line entry, checked members and formula",
+          "title": "OEIS A212127, derivative equals proper-divisor sum",
+          "trigger": "The exact target equality may be tabulated or characterized"
+        },
+        {
+          "assessment": "Different second function, so the indexed statement alone does not cover the present equality; no claim about uninspected appendices.",
+          "evidence": [
+            "Summary describes sharp 8 and 9 thresholds for D(n)-(n-phi(n)), not aliquot sum."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-support-thresholds-for-the-arithmetic-derivative-cototient--b2439d05e1a7",
+          "material_read": "Title and indexed complete claim summary returned by semantic mathematical search; full proof not inspected",
+          "method": "Compared exact gap D(n)-(n-phi(n)) to D(n)-(sigma(n)-n)",
+          "title": "Sharp support thresholds for the arithmetic-derivative cototient gap",
+          "trigger": "Potential SCOPE stronger support classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Arithmetic derivative versus aliquot sum is a naturally recorded number-theoretic coincidence equation. Classifying the entire first four prime-factor multiplicities requires treating all exponent partitions and identifies the first mixed-support composite zeros; Omega=5 admits new witness 396, making the cutoff a natural sharp boundary rather than a random interval of integers. The elementary proof does not turn a known numerical table into new examples; it establishes unbounded exclusion under a structural invariant. Modest standalone value, not a claim to solve the full equation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://cs.uwaterloo.ca/journals/JIS/VOL6/Ufnarovski/ufnarovski.pdf",
+    "https://oeis.org/A212127",
+    "https://oeis.org/A211991",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-support-thresholds-for-the-arithmetic-derivative-cototient--b2439d05e1a7",
+    "Resultary semantic: arithmetic derivative equals aliquot proper divisor sum low prime factor number Omega 4 solutions 12 18 220"
+  ],
+  "disposition": "passed",
+  "limitations": "The equation is not classified for Omega(n)>=5; 396 is a counterexample to extending the three-composite set one layer farther.",
+  "residual_risks": [
+    "Small solution values are preexisting in OEIS and should not be credited as original.",
+    "A non-indexed low-Omega proof or strong classification in broader arithmetic derivative literature could preempt novelty.",
+    "The result is an elementary narrow factor-count boundary; scientific value is the exact natural stratum, not a claimed global breakthrough."
+  ],
+  "schema_version": 1
+}
