@@ -1,24 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Conditioning on the uniformly distributed first-key rank gives two independent random binary search subtrees. Total covariance separates the recursive covariance contribution from a between-split term. The expected leaf count is constant across all interior split sizes and changes by only \(\pm1/3\) at four boundary splits, reducing the between-split covariance to one difference of consecutive expected path lengths. The resulting harmonic term cancels exactly against the harmonic part of the accumulated induction sum.
+PASS
 
-The leaf-variance recurrence uses the same four boundary deviations and independently yields \(2(n+1)/45\) for \(n\ge4\). Exhaustive permutation enumeration and a separate exact recurrence replay reproduce every displayed finite identity.
+In a BST built from a uniformly random permutation, root split K is uniform on 0..n−1 and left/right subtrees independently distributed. For n≥2 L_n=L_K+L_R and P_n=P_K+P_R+n−1. Total covariance gives c_n=(2/n)Σ_{k<n}c_k+Cov_K(ℓ_K+ℓ_R,p_K+p_R+n−1). The leaf-mean deviations (relative to (n+1)/3) vanish except four endpoint split types with ±1/3; then the between-split covariance is −4(H_{n−1}−1)/(3n), whose harmonic term cancels the inductive Σc_k. Thus c_n=−(n−2)(n+3)/(9n), including c_2=0,c_3=−2/9. The analogous total-variance recurrence gives Var L_3=2/9, Var L_n=2(n+1)/45 n≥4. Regression slope follows by exact division, limit −5/2. Independently constructed each BST for all 5912 insertion permutations at n=2..7 using exact rational moments; all covariances and variances matched.
 
-## Originality
+## originality
 
-PASS, with a concrete residual risk from older analysis-of-algorithms literature. Flajolet--Gourdon--Martínez give detailed fringe-pattern theory and explicitly place leaves and path length among standard random-BST parameters, but the inspected paper does not state their mixed covariance. Kapur gives a broad additive-functional framework and treats internal path length, but the inspected dissertation does not state a leaf/path mixed moment.
+PASS
 
-Drmota--Hwang develop covariance theory for level profiles and total path length in the same random-BST model. Their full paper has no leaf statistic in the inspected text, so those results do not imply the accepted formula. Published-record searches under leaf, terminal-node, search-cost, internal-path-length, covariance, and the exact rational formula found no matching statement.
+Classical exact marginal moments and additive-functional recurrences are prior mathematics. Kapur 119-page arXiv dissertation gives internal path length and generic moments; its text search did not find leaf, and inspected §2 examples/§3 theory do not state the mixed leaf/path covariance. Flajolet et al. focus fringe-pattern frequencies, and Drmota–Hwang covariance between *level-profile* populations, a different statistic; latter two available mostly abstract. Resultary nearest random-BST mixed covariance uses root-split imbalance, not leaf count. An equivalent old exercise or generating-function specialization remains possible.
 
-## Value
+## value
 
-PASS. Leaf abundance and total internal path length are canonical global summaries of random search-tree shape: terminal branching versus aggregate search depth. Their exact interaction is therefore naturally motivated rather than an arbitrary mixed moment.
+PASS
 
-The formula gives more than a sign. It identifies a simple all-size rational covariance and a stable regression scale: after normalizing by the exact leaf variance, the best linear search-cost slope converges to \(-5/2\). This quantifies how fringe-rich fluctuations align with shallower search trees.
+Key leaf count and total internal path length are canonical shape summaries with clear algorithmic interpretation (terminal branching vs total search depth). The exact all-n rational mixed moment, sign change at n=2, and stable best-linear-predictor slope −5/2 are mathematically natural and non-obvious from either marginal or generic covariance framework; not an arbitrary isolated small table.
 
-Self-review: passed. Independent audit: not yet performed.
-
-
-Exact replay: `VERIFY_OK permutations_checked=409113 mean_checks=18 covariance_checks=9 variance_checks=9 slope_checks=6 recurrence_checks=598`.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
