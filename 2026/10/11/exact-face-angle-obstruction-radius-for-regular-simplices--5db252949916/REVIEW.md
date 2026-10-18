@@ -1,41 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The regular-simplex face-direction spaces have an explicit Gram structure. Two positive-dimensional face-direction spaces intersect trivially exactly when the faces share at most one vertex. Disjoint pairs are orthogonal. For a shared-vertex pair of dimensions \(r\) and \(s\), the normalized cross-Gram optimization is
-\[
-\sqrt{\frac r{r+1}}\sqrt{\frac s{s+1}}.
-\]
-The source's admissibility condition gives \(r+s\le n\); strict monotonicity forces \(r+s=n\), and balancing gives
-\[
-r=\left\lfloor\frac n2\right\rfloor,
-\qquad
-s=\left\lceil\frac n2\right\rceil.
-\]
-Substitution into the source's exact formula for \(M\) gives the claimed \(M_n\). The bundled exact checker verifies every face pair through dimension \(12\).
+PASS
 
-## Originality
+Represent the centered simplex vertices by coordinate differences. Two faces I,J have trivial direction-space intersection exactly if |I∩J|≤1 (by affine independence); disjoint face spaces are orthogonal. For |I∩J|=1 their basis Gram blocks, after common scaling, equal I_r+J_r, I_s+J_s and cross block all ones. Since (I_r+J_r)^−1=I_r−J_r/(r+1), the largest cosine is √[r/(r+1)]√[s/(s+1)]. The permissible r+s≤n maximizes at r+s=n; balancing the positive integers uniquely maximizes rs/((r+1)(s+1)), proving all n≥2 and equality cases. Algebra gives 1−c²=(n+1)/((r+1)(s+1)), and insertion into the source M formula yields the stated radius. Inspected all actual proof and verifier code, including finite exact rank n≤6 and dimension comparisons n≤100, auxiliary only.
 
-PASS. The primary source leaves \(c\) as an abstract finite maximum and does not specialize Proposition 4.3 to regular simplices. Searches for arbitrary regular-simplex face angles, principal and Friedrichs angles, shared-vertex face subspaces, and source-specific specializations found no covering formula or equality classification. Nearby published results concern other simplex functionals.
+## originality
 
-## Value
+PASS
 
-PASS. The result turns an implicit constant in a recent general theorem into an explicit all-dimensional regular-simplex benchmark and identifies the unique worst combinatorial face type. The resulting far-observer radius is a natural quantitative cutoff attached directly to the source theorem.
+The original far-observer theorem defines an abstract angular maximum for polytopes; it does not compute the all-dimensional regular-simplex value or classify its balanced-face maximizers. Standard facet dihedral-angle formula is a different optimization.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
 
-## Closest literature and limitations
+PASS
 
-The closest result is Proposition 4.3 of Kenderov--Mushkarov--Nikolov, which defines
-\[
-c
-\]
-and
-\[
-M=\frac12\left(1+\frac1{\sqrt{1-c^2}}\right)
-\]
-for an arbitrary polytope but does not evaluate \(c\) for regular simplices.
+Turns the naturally required but implicit worst-face-angle constant in a general geometric theorem into a closed all-dimensional simplex benchmark and identifies its exact extremal face type. The explicit sufficient radius is motivated by the parent observer theorem, not an arbitrary sample.
 
-Standard regular-simplex formulas for facet dihedral angles do not imply the required maximum over all pairs of face-direction spaces. The main residual bibliographic risk is an older equivalent formula under principal-angle or Friedrichs-angle terminology.
-
-The theorem does not claim that the sufficient radius \(M_n\) is the smallest possible radius for the local-maximizer conclusion.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

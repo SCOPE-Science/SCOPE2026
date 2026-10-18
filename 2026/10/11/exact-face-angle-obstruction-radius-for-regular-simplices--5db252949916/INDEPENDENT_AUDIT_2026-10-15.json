@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T06:46:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 2a165af66f25954674b0a9d659cc15f6608f9353",
+        "verify.py blob c16cc9d9cdead72cf1120d1909512e890af3432d",
+        "Kenderov–Mushkarov–Nikolov arXiv:2506.07252v1 Proposition 30"
+      ],
+      "rationale": "Represent the centered simplex vertices by coordinate differences. Two faces I,J have trivial direction-space intersection exactly if |I∩J|≤1 (by affine independence); disjoint face spaces are orthogonal. For |I∩J|=1 their basis Gram blocks, after common scaling, equal I_r+J_r, I_s+J_s and cross block all ones. Since (I_r+J_r)^−1=I_r−J_r/(r+1), the largest cosine is √[r/(r+1)]√[s/(s+1)]. The permissible r+s≤n maximizes at r+s=n; balancing the positive integers uniquely maximizes rs/((r+1)(s+1)), proving all n≥2 and equality cases. Algebra gives 1−c²=(n+1)/((r+1)(s+1)), and insertion into the source M formula yields the stated radius. Inspected all actual proof and verifier code, including finite exact rank n≤6 and dimension comparisons n≤100, auxiliary only.",
+      "residual_risks": [
+        "Source sufficient M formula is not asserted as globally optimal.",
+        "Vertex faces have zero direction spaces and cannot supply unit vectors."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General theorem covers all polytopes but leaves its numerical constant c implicit."
+        ],
+        "reasoning": "Broader objects but less explicit quantification do not mathematically imply the computed sharp face-pair maximum without Gram work.",
+        "searches": [
+          "Resultary: regular simplex face subspace principal angle angular constant Kenderov Mushkarov Nikolov",
+          "Kenderov Mushkarov Nikolov far observer convex polytope theorem"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: regular simplex face subspace principal angle angular constant Kenderov Mushkarov Nikolov",
+        "arXiv:2506.07252 full primary PDF",
+        "frozen tree dac728a5499a05edea4c0263717cf9eba3715d52"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inherited theorem yields a radius once c is known; it does not supply the present c_n nor balanced equality classification."
+        ],
+        "reasoning": "Prior theorem plus newly evaluated cosine yields the sufficient-radius corollary; the actual new structural statement is the exact cosine and maximizers.",
+        "searches": [
+          "Resultary: regular simplex face subspace principal angle angular constant Kenderov Mushkarov Nikolov",
+          "arXiv:2506.07252 Proposition 30 M=1/2(1+1/sqrt(1-c²))"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primary theorem c is an implicit finite maximum over L_F∩L_G={0}; no regular-simplex c_n or equality types printed."
+        ],
+        "reasoning": "The exact all-face principal cosine is not just the familiar facet dihedral angle.",
+        "searches": [
+          "Resultary: regular simplex face subspace principal angle angular constant Kenderov Mushkarov Nikolov",
+          "arXiv:2506.07252v1 Proposition 30 face direction angular c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest Resultary hit is the audited finding; related regular-simplex central-section results concern distinct invariants."
+        ],
+        "reasoning": "No indexed exact face-angle table found, not a proof of universal absence.",
+        "searches": [
+          "Resultary: regular simplex face subspace principal angle angular constant Kenderov Mushkarov Nikolov",
+          "Resultary: regular simplex face subspace principal angle"
+        ]
+      },
+      "rationale": "The original far-observer theorem defines an abstract angular maximum for polytopes; it does not compute the all-dimensional regular-simplex value or classify its balanced-face maximizers. Standard facet dihedral-angle formula is a different optimization.",
+      "residual_risks": [
+        "An older principal/Friedrichs angle paper might derive the same shared-vertex subspace formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not provide regular-simplex formula; provides generic far-observer implication",
+          "evidence": "c defined as maximum over pairs with trivial L_F∩L_G; M=1/2(1+(1-c²)^−1/2).",
+          "identifier_or_url": "arXiv:2506.07252v1",
+          "material_read": "Full arXiv PDF relevant definitions, Proposition 30, angular constant, M bound",
+          "method": "Inspected PDF text and theorem page image",
+          "title": "A Generalization of a Classical Geometric Extremum Problem",
+          "trigger": "Exact parent polytope theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Full primary polytope theorem",
+        "Audited Gram proof"
+      ],
+      "rationale": "Turns the naturally required but implicit worst-face-angle constant in a general geometric theorem into a closed all-dimensional simplex benchmark and identifies its exact extremal face type. The explicit sufficient radius is motivated by the parent observer theorem, not an arbitrary sample.",
+      "residual_risks": [
+        "Does not improve or establish minimality of the sufficient observer radius."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a regular Euclidean n-simplex (n≥2), its maximum principal cosine over nonintersecting positive-dimensional face-direction spaces is √[rs/((r+1)(s+1))] with r=⌊n/2⌋, s=⌈n/2⌉, uniquely at balanced shared-vertex face pairs exhausting n+1 vertices. The inherited sufficient exceptional radius is (1+√[(r+1)(s+1)/(n+1)])/2, without a minimal-radius assertion.",
+  "limitations": [
+    "Only Euclidean regular simplices and source-inherited sufficient cutoff."
+  ],
+  "schema_version": 1
+}

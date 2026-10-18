@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,55 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Represent a regular simplex by the \(n+1\) standard coordinate points in their affine hyperplane. Face-direction spaces are spanned by coordinate differences.
+# Independent mathematical audit
 
-For two positive-dimensional faces \(I,J\), exact rank calculations give
-\[
-L_I\cap L_J=\{0\}
-\quad\Longleftrightarrow\quad
-|I\cap J|\le1.
-\]
+## correctness
 
-If \(I\cap J=\varnothing\), the two direction spaces are orthogonal. If \(I\cap J=\{p\}\) and the face dimensions are \(r,s\), bases anchored at \(p\) have Gram blocks
-\[
-I_r+J_r,\qquad I_s+J_s
-\]
-and cross block
-\[
-J_{r\times s}.
-\]
-Since
-\[
-(I_r+J_r)^{-1}=I_r-\frac1{r+1}J_r,
-\]
-the largest squared normalized inner product is
-\[
-\frac{rs}{(r+1)(s+1)}.
-\]
+PASS
 
-The exact checker exhaustively enumerates every positive-dimensional face pair for
-\[
-2\le n\le6,
-\]
-using integer matrix rank to verify the intersection criterion. It then compares every admissible dimension pair \((r,s)\) with the closed formula by exact rational arithmetic for
-\[
-2\le n\le100.
-\] It confirms that the maximum is attained exactly at
-\[
-r+s=n,
-\qquad
-|r-s|\le1.
-\]
-It also checks
-\[
-1-c_n^2
-=
-\frac{n+1}{(r+1)(s+1)}
-\]
-and the resulting formula for \(M_n\).
+Represent the centered simplex vertices by coordinate differences. Two faces I,J have trivial direction-space intersection exactly if |I∩J|≤1 (by affine independence); disjoint face spaces are orthogonal. For |I∩J|=1 their basis Gram blocks, after common scaling, equal I_r+J_r, I_s+J_s and cross block all ones. Since (I_r+J_r)^−1=I_r−J_r/(r+1), the largest cosine is √[r/(r+1)]√[s/(s+1)]. The permissible r+s≤n maximizes at r+s=n; balancing the positive integers uniquely maximizes rs/((r+1)(s+1)), proving all n≥2 and equality cases. Algebra gives 1−c²=(n+1)/((r+1)(s+1)), and insertion into the source M formula yields the stated radius. Inspected all actual proof and verifier code, including finite exact rank n≤6 and dimension comparisons n≤100, auxiliary only.
 
-The finite enumeration is not the proof of the all-dimensional claim; it is a replayable check of the analytic argument.
+## originality
 
-The verification does not test whether the sufficient radius inherited from Proposition 4.3 is globally minimal, because no such minimality claim is made.
+PASS
+
+The original far-observer theorem defines an abstract angular maximum for polytopes; it does not compute the all-dimensional regular-simplex value or classify its balanced-face maximizers. Standard facet dihedral-angle formula is a different optimization.
+
+## value
+
+PASS
+
+Turns the naturally required but implicit worst-face-angle constant in a general geometric theorem into a closed all-dimensional simplex benchmark and identifies its exact extremal face type. The explicit sufficient radius is motivated by the parent observer theorem, not an arbitrary sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
