@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-Both critical equations are required, not merely the zero linear invasion eigenvalue. The exact multiplier identity forces absence of coexistence equilibria; logistic bounds give completeness and a predator lower limit; the planar index argument excludes cycles; center-manifold and strong-stable geometry give the sharp cubic asymptotics. The coefficient is \(\gamma=P/u\), and all terms in \(P\) are positive. The supplementary symbolic check confirms the critical algebra and the exact rational witness. The global theorem and asymptotic rate do not follow from numerical experiments alone.
+## correctness
 
-## Originality — PASS
-The closest paper is Yao–Yang–Yuan (2024), DOI 10.3934/mbe.2024249, particularly Section 3.1 and Theorem 3.2. Its strict-eigenvalue discussion does not establish stability at the doubly tangent zero eigenvalue, global attraction or algebraic rates. Yu (2012), DOI 10.1155/2012/208167, treats a different, fear-free model and predominantly globally stable *positive* equilibria. Published-findings searches under the model, exact tangency, cubic reduction, global attraction and power-law aliases returned analogous but different systems, not an implication to this theorem. A literature search is not exhaustive and cannot certify uniqueness.
+PASS
 
-## Value — PASS
-The two equalities are the natural codimension-two degeneracy of the predator-only invasion function: they are defined by vanishing of its value and slope, rather than an arbitrary numerical slice. The global basin for all strictly positive densities and exact initial-condition-independent cubic slowing resolve qualitative information inaccessible to linear stability at the zero eigenvalue. Distinguishing algebraic extinction from exponential relaxation matters to the model's threshold interpretation, without asserting a general delay theorem.
+Under r=u(d1+ab), b(qa−n)=d2+rkn/u² and u=1+ka, direct symbolic reduction along the predator nullcline y=a+nx gives G(x)=−x²(P+Qx)/[(u+knx)(1+qx)], where P=d1knq+d2(uq+kn)+bkn²>0 and Q=d2knq>0. This excludes all interior equilibria. Logistic comparisons bound every positive global trajectory and give liminf y≥a. An interior omega-limit without equilibria would contain a periodic orbit, ruled out by planar index because the positive quadrant is convex and contains no interior equilibria; a bounded complete boundary orbit with y≥a must equal (0,a). Local center dynamics have x′=−(P/u)x³+O(x⁴), z=y−a−nx=(nP/(su))x³+O(x⁴), with strong-stable manifold x=0. Positive orbits cannot follow that exceptional boundary manifold; exponential tracking yields t x(t)²→u/(2P), (y−a)/x→n. Independently reconstructed the exact rational identity with SymPy and a positive witness a=n=k=b=d1=d2=s=1, r=4,q=3,P=11,Q=3. The symbolic test does not prove the omega-limit or asymptotic steps, which are supplied analytically.
 
-## Closest literature and limits
-Theorem 3.2 of the motivating source explicitly handles strict inequalities in its proof. The no-delay critical situation is excluded from its settled conclusions. The related modified Leslie–Gower papers without the fear term are not algebraically the same system. The open-access Yu (2012) full text was examined in Sections 1–3. The older Aziz-Alaoui–Daher Okiye (2003) article was only available here at abstract level; a stronger undiscovered theorem or later publication remains a residual originality risk. No stability or exact extinction rate for nonzero delays is established here. Independent verification has not been performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best of knowledge PASS: Yao–Yang–Yuan (2024) defines the same delayed fear–Leslie–Gower model and its predator-only equilibrium. Its zero-delay specialization and strict linear invasion criteria do not resolve simultaneous zero linear invasion and quadratic drift, the cubic critical coefficient, or global attraction. Yu (2012) treats a different fear-free coexistence regime. The new result is the exact all-positive-orbit critical decay, not merely the familiar local center-manifold principle. Access to related degenerate predator–prey threshold papers cannot be exhaustive.
+
+## value
+
+PASS
+
+The double-tangency boundary is a natural codimension-two stability transition at which linearized threshold criteria fail. The result supplies a strict global classification and universal algebraic extinction coefficient at the parameter boundary for every positive trajectory, repairing an actual gap in the source model rather than being a routine linear stability check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
