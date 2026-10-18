@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof independently reconstructs the given normalized ellipse coefficients and both derivative identities from exact rational data in the primary paper. A Cayley transformation and strict quartic Routh–Hurwitz inequalities exclude zeros of the common analytic denominator throughout the closed unit disk. An exact monotonicity argument proves the existence and uniqueness of the negative-real candidate radius in its rational bracket. Six degree-five Bernstein coefficients, derived algebraically from the complex boundary expression, are each certified positive over an interval containing that root; thus the real part of the analytic quotient is nonnegative on the whole critical circle and positive inside by the harmonic minimum principle. The resulting Jacobian identity and Lewy's theorem prove the claimed sharp **local-univalence** radius. The bundled standalone exact-rational script was run successfully. No numerical grid is treated as a proof.
+PASS
 
-## Originality — PASS, with residual literature risk
+PASS: The exact rational tails of the fixed normalized Wang–Zhong ellipse yield p',q' and factorizations p'−q'∝P4/[(z−1936)²(100z−121)²], p'+q'∝P6/[(z−1936)²(5z+242)²(100z−121)²]. The direct frozen exact arithmetic verifier was read, and an independent from-scratch rational polynomial checker run from the source constants verified both rational factorizations. Cayley-transformed P4 has positive quartic Hurwitz coefficients satisfying both strict determinants, so p'−q' has no zero in the closed unit disk. P6(−r) increases on [0,1] and has its sole radial root rho in (0.961916078016035,0.961916078016036). For |z|=rho, form T(r,x)=Re(P6(z) conj(P4(z)(5z+242)²)) with x=cos θ. The divided difference [T(r,x)−T(r,−1)]/(x+1) has six strictly positive Bernstein coefficients throughout the exact rational root bracket. Independent exact rational reconstruction verified positivity of all six lower margins, with lower margins scaled by 10^49 approximately [4.282,3.820,3.319,2.777,2.193,1.566]. Thus Re[(p'+q')/(p'−q')]>0 inside |z|<rho and is nonnegative with the sole first-circle zero z=−rho. Since J=|p'−q'|² Re[(p'+q')/(p'−q')], local sense-preserving univalence holds precisely on that maximal centered open disk. Lewy's theorem blocks all larger centered disks; the result does not assert global injectivity.
 
-The original Wang–Zhong source shows only a real witness of negative Jacobian and hence some failure; it does not establish first radial failure. The closest published mathematical record, *Unique real-axis fold point in the Dorff ellipse counterexample* (identifier `8f1ef438e553`), was examined in full and explicitly restricts its claim to the real diameter, leaving nonreal zeros unclassified. The new circle-wise Bernstein–Hurwitz argument proves nonreal exclusion up to the sharp critical radius, which neither predecessor implies. Searches on the source identifier, real and nonreal folds, global radial thresholds, harmonic-convolution dilatations, and critical-circle positivity disclosed no mathematically dominating theorem. Abstract-level access to two older papers and potentially unindexed work remain residual risks, rather than being misrepresented as exhaustive clearance.
+## originality
 
-## Value — PASS
+PASS
 
-The first known bounded convex ellipse counterexample to the classical harmonic self-convolution question has a natural quantitative invariant: the largest centered disk on which its self-convolution stays locally univalent. A sole real-diameter critical-point count cannot determine it, since a nonreal Jacobian zero could occur at smaller radius. Showing that the first loss of orientation occurs exactly at the known real fold answers this genuinely two-dimensional geometric question, supplies a reproducible sharp radius, and gives a structural boundary-positivity method. The claim is restricted to this natural canonical example; no unsupported global-injectivity or universal-radius consequence is suggested.
+PASS (best knowledge): The full earlier published same-object real-axis fold result counts precisely one real critical root and explicitly leaves possible closer nonreal critical points open. Wang–Zhong's original abstract establishes existence of some critical point, not absence of all nonreal points before that modulus. The Bernstein-circle and Hurwitz certificates resolve this strictly stronger disk-wide first-contact question. Original Wang–Zhong full article could not be downloaded; its public abstract and the full previous real-axis result were inspected and residual risk retained.
 
-## Sources and limitations
+## value
 
-Primary scientific premise: Wang and Zhong, arXiv:2609.11556v1, full mathematical text, including the exact ellipse tails and self-convolution formulas. Closest published record: *Unique real-axis fold point in the Dorff ellipse counterexample* (2026), full RESULT.md. Related background: Dorff (2001), Boyd et al. (2014), and Ahuja–Jahangiri (2017). Only sense-preserving local univalence on the centered disk is proved, not global injectivity or outside-disk zero classification. Independent audit has not occurred.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS: Determining the actual largest disk of local sense-preserving univalence is a natural and quantitatively sharp invariant of a notable explicit counterexample. The certificate excludes all nonreal earlier Jacobian failures on a continuum, an obstruction not decided by the existing real-diameter root calculation. The exact algebraic radius is useful independently of a general convolution theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
