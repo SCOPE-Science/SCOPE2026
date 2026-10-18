@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The gradient's common monic quadratic bounds every critical point to two coordinate values; their multiplicities and the cubic coefficient of the block generating function produce the exhaustive modulo-nine classification. Hessian ranks, a locally smooth critical line, and a triple restriction yield the reduced nodes and curvilinear length-three singular schemes. Irreducibility and normality are proved for all integers \(n\ge4\) in characteristic three. Exhaustive projective \(\mathbb F_3\) checks through \(n=11\) independently corroborate the formulas without being treated as an infinite proof.
+
+**Originality — PASS, qualified.** Cafure--Matera--Privitelli supply symmetric partition-space methods; Orzel supplies general order-two dimension bounds; Xie supplies exact all-degree dimensions, extremal components and generic coordinate multiplicities. These covered contributions are excluded from the asserted increment. The increment is the complete degree-three/characteristic-three reduced singular-component classification, noncoordinate signed-point strata, all singular-point counts and exhaustive local lengths, with the global common-point geometry of the line regime. Xie's explicit statement that lower-dimensional components are not classified is material evidence; it does not prove no other source contains this specialization. Mathematical-literature index comparisons and accessible earlier claims showed no covering item; unindexed equivalent treatments remain a risk.
+
+**Mathematical value — PASS.** The classification resolves a natural geometric gap in a fundamental symmetric family, identifies an unexpectedly large noncoordinate singular stratum (35 additional points already at \(n=8\)), and distinguishes reduced nodes from length-three infinitesimal singularities and highly intersecting one-dimensional supports by a sharp residue criterion. These are geometrically and arithmetically meaningful invariants, not a generic restatement of dimension bounds.
+
+The nonreduced scheme at the common diagonal point in the positive-dimensional cases has not been classified. No independent verification is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
