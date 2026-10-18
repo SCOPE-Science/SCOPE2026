@@ -1,11 +1,21 @@
-# Scientific review: the reciprocal-cube divisor-sum closure
+# Independent mathematical audit
 
-**Correctness — PASS.** The tail interval follows from Sanna's published greedy interval lemma after five checked exact small-prime inequalities and Nagura's theorem for every prime at least \(29\). The four remaining primes lead to twenty-four exponent cells. A self-contained exact rational certificate proves all interval separations and mergers and all density weights. The infinite reduction and the finite certificate were checked separately; experiments alone would not suffice.
+## correctness
 
-**Originality — PASS, qualified.** Defant gives the disconnectedness threshold, and Sanna gives a finite algorithm for all \(r>1\) plus the explicit value \(r=2\). Achenjang–Berger identify only a plotted lower bound of fourteen components at \(r=3\). The fourteen *exact* intervals, matching upper bound and individual rational densities here were not found in the closely related literature or semantic published-finding search. This is a mathematically significant exact instance of a known general method, not a new general existence theorem. Residual risk: an unindexed worked-out instance could precede this calculation.
+PASS
 
-**Value — PASS.** This resolves the complete component structure and measure for the next simple integer parameter after Sanna's explicit \(r=2\) example, upgrading a graphical fourteen-component lower bound to a rigorous equality with endpoints and frequencies. It records a natural exact topological invariant and a full distribution, rather than a finite or arbitrary parameter slice.
+The proof decomposes σ_{-3} into factors at 2,3,5,7 and the primes ≥11. The five exceptional tail-prime rational inequalities and Nagura's >25 prime-gap theorem bound the tail by each successive Euler factor; Sanna Lemma 2.3 then gives a full interval [1,T], not merely a sampled set. Exponent cutoffs (2,2),(3,1),(5,1),(7,1) reduce the complete infinite small-prime exponent choices to 24 exact interval states. An independently written Fraction-based calculation verified all four cutoff inequalities, 5 tail-start comparisons, the strict ζ(3) enclosure (100 terms), all 24 states, every one of 14 asserted rational endpoint pairs and density masses, 13 strict gaps, and mass one. CRT valuation frequencies give natural densities; the finite certificate is not used for the infinite tail. The closure includes all endpoints as accumulation points; the 14 components are genuinely disjoint.
 
-**Closest literature and limitations.** Sanna (2015, arXiv:1507.08091), Defant (2015, arXiv:1506.05432), Zubrilina (2017, arXiv:1711.02871), Achenjang–Berger (2018, arXiv:1808.07550). The proof depends on established prime-gap and greedy-interval lemmas. No claim of independent verification, novelty certification, or extension to other exponents is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A complete exact 14-component closure and per-component rational density table at the ordinary reciprocal-cube exponent was not found in the material inspected. Existing papers supply the interval-decomposition procedure and a plot/lower bound, not this exact complete endpoint-and-density classification.
+
+## value
+
+PASS
+
+This is a natural fixed-exponent classification of a classical multiplicative arithmetic function, including every exact component boundary and natural density. A plot/lower bound does not determine the upper count and weights; the full rational separation certificate resolves a mathematically meaningful gap without demanding an all-exponent formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

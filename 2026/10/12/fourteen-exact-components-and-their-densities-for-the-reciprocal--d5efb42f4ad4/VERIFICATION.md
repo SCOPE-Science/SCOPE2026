@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-For the claim of exactly fourteen components of the closure of \(\sigma_{-3}(\mathbb N)\), the accompanying `verify_components.py` is executable by `python3 verify_components.py` and requires no external packages. It constructs all twenty-four rational candidate intervals, bounds \(T\) using exactly one hundred terms and integral-test tails, proves the needed four prime-exponent cutoff inequalities with rational arithmetic, proves the five exceptional prime-tail comparisons, groups all candidate intervals using interval bounds, checks the fourteen exact endpoint pairs and density weights, and asserts their total density equals one.
+## correctness
 
-The successful terminal indicator is `CERTIFICATE_OK ordinary_sigma_minus_three components=14 candidates=24 tail_threshold=11 rational_density_total=1`.
+PASS
 
-The unbounded parts of the proof are mathematical: Nagura's prime-interval theorem, Sanna's greedy tail interval lemma, and Chinese-remainder limiting densities. They are not certified by a finite program or a truncated numerical search. The matched finite rows are complete for the stated symbolic reduction, not a bound on direct enumeration of integers. The exact component classification and density computations have undergone self-review; independent audit has not been performed.
+The proof decomposes σ_{-3} into factors at 2,3,5,7 and the primes ≥11. The five exceptional tail-prime rational inequalities and Nagura's >25 prime-gap theorem bound the tail by each successive Euler factor; Sanna Lemma 2.3 then gives a full interval [1,T], not merely a sampled set. Exponent cutoffs (2,2),(3,1),(5,1),(7,1) reduce the complete infinite small-prime exponent choices to 24 exact interval states. An independently written Fraction-based calculation verified all four cutoff inequalities, 5 tail-start comparisons, the strict ζ(3) enclosure (100 terms), all 24 states, every one of 14 asserted rational endpoint pairs and density masses, 13 strict gaps, and mass one. CRT valuation frequencies give natural densities; the finite certificate is not used for the infinite tail. The closure includes all endpoints as accumulation points; the 14 components are genuinely disjoint.
+
+## originality
+
+PASS
+
+A complete exact 14-component closure and per-component rational density table at the ordinary reciprocal-cube exponent was not found in the material inspected. Existing papers supply the interval-decomposition procedure and a plot/lower bound, not this exact complete endpoint-and-density classification.
+
+## value
+
+PASS
+
+This is a natural fixed-exponent classification of a classical multiplicative arithmetic function, including every exact component boundary and natural density. A plot/lower bound does not determine the upper count and weights; the full rational separation certificate resolves a mathematically meaningful gap without demanding an all-exponent formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
