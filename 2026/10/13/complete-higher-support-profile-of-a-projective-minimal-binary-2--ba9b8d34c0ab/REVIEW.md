@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The defining trace set is reconstructed exactly over \(\mathbb F_8\), has \(24\) coordinates, and the six evaluation rows have binary rank \(6\). The complete \(64\)-word census exactly reproduces the source enumerator. Every positive-dimensional message subspace is then enumerated once in reduced-row-echelon form; the totals \(63,651,1395,651,63,1\) agree with the Gaussian binomial coefficients. Exact support unions give the complete histograms and hierarchy.
+PASS
 
-## Originality
+Over F8=F2[X]/(X³+X+1) reconstruct D1={(x,y):x nonzero,Tr(x²y+xy+x)=0}, |D1|=24. Six linear trace-evaluation generators from (a,b) in F8² have rank 6; all 64 codewords yield ordinary enumerator 1+24z10+12z12+24z14+3z16 exactly matching primary Table 4. Every r-dimensional message space has a unique binary reduced row echelon matrix. Independently enumerate all Gaussian-binomial counts (63,651,1395,651,63,1), 2824 total, and take bitwise OR of generator-row codeword supports for each subspace. This independently reproduces every six support histogram in RESULT.md, minima (10,15,19,21,23,24) and minimizer multiplicities (24,32,144,32,24,1). Actual artifacts/verify.py and certificate.json inspected and agreed; enumeration is exhaustive within exact 6-dim message space.
 
-PASS. The primary article contains no generalized-Hamming-weight or complete subcode-support analysis. The closest dedicated SSWD literature treats different simplex-derived constructions, and no exact specialization to this trace code was located. A published parameter-matching binary self-orthogonal \([24,6,10]\) code has a different ordinary weight enumerator, so it is inequivalent and does not cover the claim. Exact construction, spectrum, hierarchy, and support-distribution searches found no prior same-object profile.
+## originality
 
-## Value
+PASS
 
-PASS. The source highlights projectivity and minimal-support geometry as central structural properties of the family. The complete higher-support census is a natural all-dimensional refinement that determines every support layer and exact generalized-weight minimizer multiplicity for its first concrete \([24,6,10]\) member.
+The code construction and ordinary enumerator for the projective minimal [24,6,10] D1 trace code are exactly prior Liao–Zhang–Zheng. The new complete SSWD and generalized hierarchy involve support intersections in 2–6 dimensional subcodes; neither prior enumerator nor projectivity/minimality fixes these. Pan et al solve other simplex-derived families; an older parameter-matching self-orthogonal [24,6,10] code has an inequivalent ordinary enumerator.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Generalized Hamming weights and full subcode-support weight distributions are canonical higher-order invariants of a projective minimal code, important for generalized support properties. The complete exact 2824-subspace census fills a meaningful all-dimensional data gap for the first explicitly highlighted D1 code, and is not a routine extraction of its ordinary weight enumerator.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

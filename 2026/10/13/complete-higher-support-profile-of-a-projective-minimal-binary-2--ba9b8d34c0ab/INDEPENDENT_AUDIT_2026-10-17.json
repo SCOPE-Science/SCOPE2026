@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T06:13:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Over F8=F2[X]/(X³+X+1) reconstruct D1={(x,y):x nonzero,Tr(x²y+xy+x)=0}, |D1|=24. Six linear trace-evaluation generators from (a,b) in F8² have rank 6; all 64 codewords yield ordinary enumerator 1+24z10+12z12+24z14+3z16 exactly matching primary Table 4. Every r-dimensional message space has a unique binary reduced row echelon matrix. Independently enumerate all Gaussian-binomial counts (63,651,1395,651,63,1), 2824 total, and take bitwise OR of generator-row codeword supports for each subspace. This independently reproduces every six support histogram in RESULT.md, minima (10,15,19,21,23,24) and minimizer multiplicities (24,32,144,32,24,1). Actual artifacts/verify.py and certificate.json inspected and agreed; enumeration is exhaustive within exact 6-dim message space.",
+      "risk": [
+        "Finite complete proof applies to this generator only and depends on exact defining trace convention; matching source enumerator helps but does not itself certify the higher histograms."
+      ],
+      "sources": [
+        "Liao–Zhang–Zheng, Several classes of three-weight or four-weight linear codes, arXiv:2511.01309v1 Theorem 4.1 Table 4",
+        "assigned RESULT.md, artifacts/verify.py and artifacts/certificate.json",
+        "independent_audit1603_checks.py",
+        "Git immutable tree 8e8f4be51622e83cc91bfd061bcb566473639d3f"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pan–Chen–Liu–Liu, Optimal Few-GHW Linear Codes and Their Subcode Support Weight Distributions, arXiv:2408.10005v1 constructs simplex, modified Solomon–Stiffler and simplex-complement-type code families with complete SSWDs; their published specializations have distinct generator incidence geometry."
+        ],
+        "reasoning": "The generic support-counting formula for a given generator is not an already evaluated profile for this trace code, and no established equivalence to Pan families was found.",
+        "searches": [
+          "arXiv:2408.10005 Sections 2–5 and Theorem 3.3",
+          "arXiv:2511.01309 §4"
+        ]
+      },
+      "checked_sources": [
+        "Liao–Zhang–Zheng, Several classes of three-weight or four-weight linear codes, arXiv:2511.01309v1",
+        "Pan–Chen–Liu–Liu, Optimal Few-GHW Linear Codes and Their Subcode Support Weight Distributions, arXiv:2408.10005v1",
+        "Historical binary self-orthogonal [24,6,10] with nonmatching ordinary enumerator (indexed parameter table)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published ordinary weights determine r=1 counts only; for r>=2 support union sizes depend on pairwise/higher codeword incidence not encoded by those five ordinary coefficients."
+        ],
+        "reasoning": "The complete r=2..6 histograms and minimizer multiplicities do not follow from the explicitly published primary result without an additional incidence computation; the complete 2824-subspace census supplies precisely that missing invariant.",
+        "searches": [
+          "arXiv:2511.01309 Theorems 4.1–4.3",
+          "arXiv:2408.10005 Theorem 3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liao–Zhang–Zheng, Several classes of three-weight or four-weight linear codes, arXiv:2511.01309v1 Theorem 4.1 and Table 4 record this exact code and weight enumerator, not all higher-support distributions."
+        ],
+        "reasoning": "Exact trace-definition aliases and hierarchical weights (10,15,19,21,23,24) were compared. The new output is the full vector of subcode support histograms for every dimension; a matching parameter triple alone cannot imply identity.",
+        "searches": [
+          "Resultary semantic: [24,6,10] binary trace code Liao Zhang Zheng generalized Hamming weights subcode support distributions",
+          "web: [24,6,10] binary trace code Liao Zhang Zheng generalized Hamming weights subcode support distributions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 4 [24,6,10] ordinary enumerator is 1+24z^10+12z^12+24z^14+3z^16; a historical [24,6,10] self-orthogonal entry uses 1+18z^10+28z^12+12z^14+3z^16+2z^18."
+        ],
+        "reasoning": "Distinct ordinary enumerators exclude monomial/permutation equivalence to the historical code; parameter coincidence alone is not coverage. Source Table 4 has no SSWD columns.",
+        "searches": [
+          "Resultary semantic: [24,6,10] binary trace code Liao Zhang Zheng generalized Hamming weights subcode support distributions",
+          "arXiv:2511.01309 Table 4 m=3",
+          "arXiv:2408.10005 tabulated examples"
+        ]
+      },
+      "rationale": "The code construction and ordinary enumerator for the projective minimal [24,6,10] D1 trace code are exactly prior Liao–Zhang–Zheng. The new complete SSWD and generalized hierarchy involve support intersections in 2–6 dimensional subcodes; neither prior enumerator nor projectivity/minimality fixes these. Pan et al solve other simplex-derived families; an older parameter-matching self-orthogonal [24,6,10] code has an inequivalent ordinary enumerator.",
+      "residual_risks": [
+        "An unindexed equivalent code or an unpublished finite subcode census could have the same profile.",
+        "No general m,d family theorem or automorphism-orbit classification; result is complete only for the highlighted m=3,d=1 member.",
+        "Source self-reviews were not used as independent originality proof; bounded current primary literature comparisons are recorded here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ORDINARY_DISTRIBUTION_ONLY",
+          "evidence": "Table 4 m=3 confirms [24,6,10] and exactly 1+24z10+12z12+24z14+3z16, not higher subcode support distributions.",
+          "identifier_or_url": "https://arxiv.org/html/2511.01309v1",
+          "material_read": "Full primary arXiv HTML, D1 equation and Theorem 4.1, Table 4 m=3, related projectivity/minimality statements and terminology searches.",
+          "method": "Open full-text HTML; theorem/table inspected.",
+          "title": "Several classes of three-weight or four-weight linear codes",
+          "trigger": "Defines the exact D1 trace code and may contain same subcode-support values."
+        },
+        {
+          "assessment": "OTHER_FAMILIES",
+          "evidence": "SSWD formulas apply to particular simplex-deletion constructions; no demonstrated equivalence with this exact D1 trace generator or its weights.",
+          "identifier_or_url": "https://arxiv.org/html/2408.10005v1",
+          "material_read": "Full arXiv HTML, Lemma 2.3, Theorem 3.3, examples in §3, later solved families and conclusions.",
+          "method": "Open full-text HTML, inspected theorem statements and example parameters.",
+          "title": "Optimal Few-GHW Linear Codes and Their Subcode Support Weight Distributions",
+          "trigger": "Closest strong complete-SSWD paper could dominate by specialization."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Generalized Hamming weights and full subcode-support weight distributions are canonical higher-order invariants of a projective minimal code, important for generalized support properties. The complete exact 2824-subspace census fills a meaningful all-dimensional data gap for the first explicitly highlighted D1 code, and is not a routine extraction of its ordinary weight enumerator.",
+      "risk": [
+        "Value is finite, self-contained, and code-specific; no uniform family theorem claimed."
+      ],
+      "sources": [
+        "Liao–Zhang–Zheng, Several classes of three-weight or four-weight linear codes, arXiv:2511.01309v1",
+        "Pan–Chen–Liu–Liu, Optimal Few-GHW Linear Codes and Their Subcode Support Weight Distributions, arXiv:2408.10005v1"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact D1 code m=3,d=1 only; 24 coordinates, dimension six.",
+    "No classification up to code automorphism, no formula for arbitrary m,d.",
+    "No independent formal proof or expert certificate; code enumeration can be independently replayed from delivered source.",
+    "The reviewed Git source contains operational provenance in metadata; not_ready is a publication/transport state, not a scientific C/O/V failure."
+  ],
+  "schema_version": 1
+}
