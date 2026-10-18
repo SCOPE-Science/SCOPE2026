@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T10:59:55Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/moore-family-semantic-quotient-of-union-closed-team-logics--b28870404f78/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/moore-family-semantic-quotient-of-union-closed-team-logics--b28870404f78/VERIFICATION.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/moore-family-semantic-quotient-of-union-closed-team-logics--b28870404f78/METADATA.json",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/moore-family-semantic-quotient-of-union-closed-team-logics--b28870404f78/AUDIT.json"
+      ],
+      "rationale": "For each finite N, Yang Thm 3.7 identifies formula denotations with all union-closed families F subset P(V) containing empty, V=2^N, for exactly the stated five lax team logics. Complement every member X subset V to V\\X: F maps bijectively and inclusion-preservingly to intersection-closed families containing V, i.e. Moore families. Therefore the quotient poset is isomorphic and q_n=M_(2^n). Independent exhaustive enumeration of all set families on m<=4 yields M1=2,M2=7,M3=61,M4=2480, confirming q0=2,q1=7,q2=2480; the general mapping is an immediate De Morgan identity. The claimed asymptotic is inherited from classical log2 M_m~binom(m,floor(m/2)) and Stirling, not established by enumeration. The restriction to lax semantics/locality and fixed variable set matters.",
+      "residual_risks": [
+        "The absolute full original proofs of the classical asymptotic were not independently reproduced; this is a cited prior theorem.",
+        "No Lean or expert-attested verification claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The expressive completeness theorem covers all formulas and all finite variable sets in the specified five logics, which is as broad as the new theorem. Moore-family enumeration is for all labeled finite carrier sizes m, not just powers of two."
+        ],
+        "reasoning": "Combining these stronger general results directly yields each claimed fixed-variable quotient and count; no unproved broadening remains.",
+        "searches": [
+          "arXiv:2008.10324 Theorem 3.7 and its five logics",
+          "OEIS A102896 closure operator correspondence"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/moore-family-semantic-quotient-of-union-closed-team-logics--b28870404f78/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/moore-family-semantic-quotient-of-union-closed-team-logics--b28870404f78/VERIFICATION.md",
+        "https://arxiv.org/abs/2008.10324",
+        "https://oeis.org/A102896",
+        "https://oeis.org/A102897",
+        "Resultary: union closed propositional team logics semantic equivalence classes Moore families closure systems Yang formula q_n"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Yang => all ∅-containing union-closed team families => De Morgan complement => all Moore families => q_n=M_(2^n); classical M_m enumeration => small q and the claimed asymptotic by substitution."
+        ],
+        "reasoning": "Every asserted output is logically implied by prior statements plus an elementary standard duality; the converse does not supply any new information about the prior classes.",
+        "searches": [
+          "arXiv:2008.10324 Theorem 3.7",
+          "OEIS A102896 Moore/union duality",
+          "OEIS A102897"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yang proves semantic expressive completeness exactly for union-closed families with empty team for each fixed finite N; complement converts a union-closed family of subsets of V into an intersection-closed one containing V. OEIS calls these the same Moore systems up to duality."
+        ],
+        "reasoning": "The asserted semantic quotient is simply the known full semantic class characterized by Yang, under the established standard order-preserving complementation isomorphism. It is covered by direct implication, even without identical terms.",
+        "searches": [
+          "Resultary: union closed propositional team logics semantic equivalence classes Moore families closure systems Yang formula q_n",
+          "Yang arXiv:2008.10324 Theorem 3.7",
+          "OEIS A102896"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A102896 gives M1=2,M2=7,M4=2480; A102897 records log2 Moore count asymptotic. The only specialization is m=2^n."
+        ],
+        "reasoning": "The claimed exact numeric small table is known; a relabeling of its index as number of valuations does not create a new database result.",
+        "searches": [
+          "OEIS A102896 entries 1,2,4",
+          "OEIS A102897 asymptotic",
+          "Resultary query Resultary: union closed propositional team logics semantic equivalence classes Moore families closure systems Yang formula q_n"
+        ]
+      },
+      "rationale": "Decisive prior implication: Yang Thm 3.7 already states that *every* union-closed family of finite teams containing empty is definable; standard pointwise complementation bijects these with the previously enumerated Moore families. OEIS A102896 already identifies Moore-family counts with union-closed set systems and provides 2,7,61,2480; A102897 records the standard leading logarithmic asymptotic. All new cardinalities/order identification follow by one De Morgan relabeling and m=2^n substitution. Neither absence of the words Moore family from Yang nor missing exact combined sentence establishes independence. Accordingly O FAIL, notwithstanding correct synthesis and a distinct application label.",
+      "residual_risks": [
+        "Rejection assesses mathematical originality and value of this final claim, not usefulness of a pedagogical explanatory note.",
+        "The absolute full original proofs of the classical asymptotic were not independently reproduced; this is a cited prior theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct decisive general prior coverage; no need for Yang to mention Moore by name",
+          "evidence": "Thm3.7 describes all union-closed empty-containing team classes over finite variable sets.",
+          "identifier_or_url": "https://arxiv.org/abs/2008.10324",
+          "material_read": "Accessible full 47-page PDF, especially Theorem 3.7 and finite N semantics",
+          "method": "read primary PDF text and checked relevant theorem pages",
+          "title": "Propositional union closed team logics, Fan Yang",
+          "trigger": "Exactly the five logics and expressive completeness"
+        },
+        {
+          "assessment": "Known table and standard duality already give small class counts",
+          "evidence": "M1=2,M2=7,M4=2480; closure-system/union-closed dual descriptions.",
+          "identifier_or_url": "https://oeis.org/A102896",
+          "material_read": "Sequence page, initial terms and comments defining Moore families and union-closed systems",
+          "method": "read OEIS sequence page",
+          "title": "OEIS A102896 – Moore families",
+          "trigger": "Exact table and set-system equivalence"
+        },
+        {
+          "assessment": "The leading asymptotic is pre-existing, not a new result",
+          "evidence": "The logged asymptotic for M_m and factor of two for unrestricted families.",
+          "identifier_or_url": "https://oeis.org/A102897",
+          "material_read": "Sequence entry and asymptotic comment, not underlying classical original proof",
+          "method": "read sequence page",
+          "title": "OEIS A102897 – intersection-closed set families",
+          "trigger": "Claimed logarithmic asymptotic"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/moore-family-semantic-quotient-of-union-closed-team-logics--b28870404f78/RESULT.md",
+        "https://oeis.org/A102896",
+        "https://oeis.org/A102897",
+        "Resultary: union closed propositional team logics semantic equivalence classes Moore families closure systems Yang formula q_n"
+      ],
+      "rationale": "The fixed-variable semantic class count is a natural object, but under the submitted scope its q_n identity, tiny examples, lattice order, and asymptotic are immediate textbook consequences of expressive completeness plus classical Moore-family duality; no new difficult bound, structural separation, classification beyond known closure families, or motivated nontrivial residual lemma is supplied. A cross-field renaming and substitution alone fall below the stated value bar.",
+      "residual_risks": [
+        "Rejection assesses mathematical originality and value of this final claim, not usefulness of a pedagogical explanatory note.",
+        "The absolute full original proofs of the classical asymptotic were not independently reproduced; this is a cited prior theorem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Rejection assesses mathematical originality and value of this final claim, not usefulness of a pedagogical explanatory note.",
+    "The absolute full original proofs of the classical asymptotic were not independently reproduced; this is a cited prior theorem."
+  ],
+  "schema_version": 1
+}
