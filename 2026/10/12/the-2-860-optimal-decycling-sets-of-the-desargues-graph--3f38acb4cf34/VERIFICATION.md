@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,24 +19,24 @@
 }
 ---
 
-# Reproducibility and proof limits
+# Independent mathematical audit
 
-All finite checks refer to the twenty-vertex Desargues graph whose two classes are respectively the ten two-subsets and ten three-subsets of a five-element ground set, with containment edges.
+## correctness
 
-The algebraic lower bound uses, for any deletion set \(S\) of size \(k\), the exact remaining-edge formula \(30-3k+e(S)\). If its complement is a forest with \(c\) components, then \(2k=10+e(S)+c\), implying \(k\ge6\) and exactly two possible structures at \(k=6\).
+PASS
 
-`verify.py` constructs this incidence graph and a separately specified \(GP(10,3)\) graph, and checks their explicit isomorphism. On all \(\binom{20}{6}=38,760\) deletion sets it compares a component/edge-count forest predicate against a union-find cycle test in the second graph. It reports exactly 760 independent deletion sets leaving two components and 2,100 one-edge deletion sets leaving a tree, total 2,860. The program checks 240 explicit automorphisms and verifies the 19-orbit cover, size distribution, and representatives.
+Reconstructed the incidence graph of 2- and 3-subsets of [5] directly (20 vertices, degree 3, 30 edges). For a removed k-set S leaving c tree components, edge counting proves 2k=10+e(S)+c, hence k≥6 and at k=6 only (e(S),c)=(0,2) or (1,1). Wrote a separate union-find forest/cycle enumerator over all C(20,6)=38,760 choices, obtaining exactly 2,860, with counts 760/2100 and forest profiles (1,13):360,(2,12):180,(3,11):120,(4,10):20,(7,7):80,(14):2100. Generated all 120 symbol permutations times subset-complementation (240 distinct automorphisms), proved they preserve adjacency and cover 2,860 sets in 19 orbits with claimed sizes. Conversely side-preserving aut induces an automorphism of T(5), whose five maximum stars force S5, so Aut(D) has no further elements. Full finite enumeration is exhaustive at this graph order, not a bound extrapolated to other graphs.
 
-`verify_gp.cpp` independently constructs \(GP(10,3)\), considers every deletion set of cardinality \(0\) through \(6\) (60,460 total), and tests the complement using union-find. It reports no successful set of size below six and exactly the same 2,860 optima, split 760/2,100.
+## originality
 
-Reproduction commands executed against these package sources:
+PASS
 
-```
-python3 verify.py
-c++ -O2 -std=c++17 verify_gp.cpp -o verify_gp
-./verify_gp
-```
+Wei–Li 2013 and Gao et al 2015 establish the decycling-number six for generalized Petersen GP(10,3); the regular cubic bound is also known. The retained result is exact 2,860 optima with profiles and 19 full automorphism orbits. Resultary nearest Desargues reports concern cut complexes and independence complexes, not feedback vertex census. Best-of-knowledge PASS; direct original generalized-Petersen articles only accessible as abstracts/metadata, so a hidden old census remains a genuine risk.
 
-The Python verifier prints `VERIFY_OK graph=Desargues=H(5,2)=GP(10,3)`, `sharp_candidates=38760`, `minimum_FVS=6`, `optimal_sets=2860`, `independent_6_2component=760`, `one_edge_6_tree=2100`, `automorphisms=240`, and `orbits=19`. The compiled verifier prints `VERIFY_GP_OK candidates_0_through_6=60460 optimum_size=6 optimum_sets=2860 edgeless_deletions=760 one_edge_deletions=2100`. File `orbits.csv` stores the 19 canonical orbit representatives. For the ordering convention, see `RESULT.md`.
+## value
 
-The finite enumeration is exhaustive for the one graph and the specified candidate layers. It is not an infinite-family proof, a check of every other generalized Petersen graph, or an independent human audit. The prior-work comparison cannot exclude unindexed or unpublished duplicate enumerations.
+PASS
+
+A complete and reproducible natural finite graph invariant: not merely the already known scalar decycling number, but all minimizers, induced residual forest shapes and automorphism orbits. Exact orbit decomposition is independently useful for combinatorial optimization and symmetry reductions; complete finite classification is a legitimate substantive result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

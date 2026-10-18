@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T13:47:35Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the incidence graph of 2- and 3-subsets of [5] directly (20 vertices, degree 3, 30 edges). For a removed k-set S leaving c tree components, edge counting proves 2k=10+e(S)+c, hence k≥6 and at k=6 only (e(S),c)=(0,2) or (1,1). Wrote a separate union-find forest/cycle enumerator over all C(20,6)=38,760 choices, obtaining exactly 2,860, with counts 760/2100 and forest profiles (1,13):360,(2,12):180,(3,11):120,(4,10):20,(7,7):80,(14):2100. Generated all 120 symbol permutations times subset-complementation (240 distinct automorphisms), proved they preserve adjacency and cover 2,860 sets in 19 orbits with claimed sizes. Conversely side-preserving aut induces an automorphism of T(5), whose five maximum stars force S5, so Aut(D) has no further elements. Full finite enumeration is exhaustive at this graph order, not a bound extrapolated to other graphs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known generalized Petersen theorems imply minimum FVS size six for this graph.",
+          "General cubic counting relation 2k=10+e(S)+c is a specialization of known regular-graph identities."
+        ],
+        "reasoning": "Knowing the minimum or a generic bound does not provide the number, component-profile distribution or complete symmetry orbits of all optimum six-vertex sets.",
+        "searches": [
+          "Wei Li 2013 doi:10.12386/A2013sxxb0022",
+          "Gao Xu Wang Zhu Yang 2015 doi:10.1016/j.dam.2014.09.005",
+          "Yang Ren 2019 doi:10.7151/dmgt.2064"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.12386/A2013sxxb0022",
+        "doi:10.1016/j.dam.2014.09.005",
+        "doi:10.7151/dmgt.2064",
+        "doi:10.7155/jgaa.00567",
+        "Resultary semantic Desargues decycling"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier scalar minimum six and regular-graph counting identity are explicitly prior.",
+          "Neither the known minimum nor the equation e(S)+c=2 alone determines the 760 and 2100 valid sets; exhaustive graph-specific checks establish them."
+        ],
+        "reasoning": "The same graph/invariant is covered only at minimum-cardinality level in accessible descriptions; exact symmetry and topology census is a strictly stronger additional statement.",
+        "searches": [
+          "GP(10,3) decycling Wei and Li 2013",
+          "Gao et al 2015 decycling generalized Petersen",
+          "Desargues H(5,2) optimal induced forests exact orbit count"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Checked aliases Desargues, generalized Petersen GP(10,3) and bipartite Kneser H(5,2).",
+          "Resultary nearest same-graph findings report independence and 3-cut-complex topology, not the 2860 optimum feedback vertex sets."
+        ],
+        "reasoning": "The graph names are genuinely equivalent; the searches explicitly compare same invariant (FVS/decycling/maximum induced forests) rather than dissimilar graph topics.",
+        "searches": [
+          "Resultary semantic: Desargues graph decycling feedback vertex sets exact count orbits",
+          "web: GP(10,3) H(5,2) minimum decycling feedback vertex set number of minimizers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No source in retrieved indices enumerated the 2860 optimal sets/19 orbits.",
+          "Hertz treats other bipartite graph families, and Resultary lists Desargues cut/independence complexes rather than FVS tables."
+        ],
+        "reasoning": "An exact finite census of a natural graph object is not equivalent to a scalar optimum table; lack of accessible exact table is qualified as best-knowledge rather than proof of novelty.",
+        "searches": [
+          "web: Desargues graph 2860 feedback vertex sets orbits",
+          "Resultary: Desargues graph decycling feedback vertex sets exact count orbits",
+          "Hertz 2021 doi:10.7155/jgaa.00567"
+        ]
+      },
+      "rationale": "Wei–Li 2013 and Gao et al 2015 establish the decycling-number six for generalized Petersen GP(10,3); the regular cubic bound is also known. The retained result is exact 2,860 optima with profiles and 19 full automorphism orbits. Resultary nearest Desargues reports concern cut complexes and independence complexes, not feedback vertex census. Best-of-knowledge PASS; direct original generalized-Petersen articles only accessible as abstracts/metadata, so a hidden old census remains a genuine risk.",
+      "residual_risks": [
+        "Highly relevant 2013 and 2015 generalized-Petersen decycling original full texts could not be independently inspected; older exact tables may be hidden.",
+        "One finite graph only, no generalized Petersen family theorem or complete induced-forest polynomial asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partially covering: size-six minimum credited; inability to inspect hidden full tables remains risk for multiplicities.",
+          "evidence": "Source establishes generalized-Petersen decycling topic and scalar results, not an accessible 2860-set/orbit statement.",
+          "identifier_or_url": "doi:10.12386/A2013sxxb0022",
+          "material_read": "Published abstract and bibliographic metadata, including 2013 priority for scalar minimum; full 2013 proof/tables were not accessible this run.",
+          "method": "Bibliographic/statement comparison to precise finite-count theorem.",
+          "title": "Decycling Number and Upper-Embeddibility of Generalized Petersen Graphs",
+          "trigger": "Direct predecessor on minimum decycling number of same GP(10,3)"
+        },
+        {
+          "assessment": "Scalar minimum already known, but full-document noncoverage of exact classification not asserted.",
+          "evidence": "The paper treats minimum size across generalized Petersen family; no accessible table of Desargues optimum sets or orbits.",
+          "identifier_or_url": "doi:10.1016/j.dam.2014.09.005",
+          "material_read": "Article metadata and abstract-level available description, not complete publisher PDF.",
+          "method": "Compared invariant and special graph to claimed optimal set census.",
+          "title": "The decycling number of generalized Petersen graphs",
+          "trigger": "Direct 2015 decycling source, most plausible hidden enumeration"
+        },
+        {
+          "assessment": "Not same invariant: homotopy of cut complex does not directly tabulate optimum decycling sets.",
+          "evidence": "Published result concerns 3-cut complex homotopy, not feedback vertex enumeration.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-ordinary-3-cut-complex-of-the-desargues-graph-is-a-wedge-of--563b8ac951a0",
+          "material_read": "Published search record title and summary only, not full text.",
+          "method": "Resultary semantic comparison of mathematical invariants.",
+          "title": "The ordinary 3-cut complex of the Desargues graph is a wedge of 111 sixteen-spheres",
+          "trigger": "Same graph appears in published mathematical corpus"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete and reproducible natural finite graph invariant: not merely the already known scalar decycling number, but all minimizers, induced residual forest shapes and automorphism orbits. Exact orbit decomposition is independently useful for combinatorial optimization and symmetry reductions; complete finite classification is a legitimate substantive result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the 20-vertex Desargues graph D≅GP(10,3)≅H(5,2), its feedback vertex number is the known value six, and exactly 2,860 six-vertex sets are optimal: 760 span no deleted edge and leave two forest components, 2,100 span one edge and leave a fourteen-vertex tree. There are 19 Aut(D)-orbits under the full 240-element group, with orbit sizes 20×2,60×3,120×6,240×8 and the six claimed forest-component order profiles.",
+  "limitations": [
+    "Only Desargues graph (20 vertices) is classified, and known optimum cardinality is prior.",
+    "Direct older relevant decycling literature full-text access remains unresolved and is a priority risk."
+  ],
+  "schema_version": 1
+}

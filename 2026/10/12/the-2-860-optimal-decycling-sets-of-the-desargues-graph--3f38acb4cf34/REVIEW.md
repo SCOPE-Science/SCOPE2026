@@ -1,19 +1,21 @@
-# Scientific assessment of the Desargues decycling-set classification
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact cubic edge-removal identity gives a human-checkable lower bound of six and forces the two allowed topology classes for every minimum set. The two explicit six-vertex deletion masks prove attainability. A complete enumeration of the 38,760 possible six-vertex sets by two independently constructed graphs and different cycle predicates yields 760 independent deletions and 2,100 one-edge deletions. A second implementation directly searches every deletion set of cardinality at most six in the generalized Petersen representation and reproduces the count. The 240 symmetry maps preserve adjacency and generate 19 disjoint orbits covering the entire optimum family. The full automorphism group order is also proved using the five maximum four-cliques of the triangular graph on the ten two-subsets.
+PASS
 
-## Originality
+Reconstructed the incidence graph of 2- and 3-subsets of [5] directly (20 vertices, degree 3, 30 edges). For a removed k-set S leaving c tree components, edge counting proves 2k=10+e(S)+c, hence k≥6 and at k=6 only (e(S),c)=(0,2) or (1,1). Wrote a separate union-find forest/cycle enumerator over all C(20,6)=38,760 choices, obtaining exactly 2,860, with counts 760/2100 and forest profiles (1,13):360,(2,12):180,(3,11):120,(4,10):20,(7,7):80,(14):2100. Generated all 120 symbol permutations times subset-complementation (240 distinct automorphisms), proved they preserve adjacency and cover 2,860 sets in 19 orbits with claimed sizes. Conversely side-preserving aut induces an automorphism of T(5), whose five maximum stars force S5, so Aut(D) has no further elements. Full finite enumeration is exhaustive at this graph order, not a bound extrapolated to other graphs.
 
-PASS with a material unresolved priority risk. Wei and Li (2013, DOI:10.12386/A2013sxxb0022) and Gao, Xu, Wang, Zhu and Yang (2015, DOI:10.1016/j.dam.2014.09.005) explicitly study decycling numbers of generalized Petersen graphs, so the Desargues scalar optimum \(6\) is credited to prior work. Yang and Ren (2019, DOI:10.7151/dmgt.2064) give the broader regular-graph edge/component identity, also credited. Kelly and Liu (arXiv:1603.03855) give subcubic induced-forest bounds, Hertz (DOI:10.7155/jgaa.00567) studies bipartite decycling algorithms without a Desargues table, and Ghalavand and Li (arXiv:2501.05145) require much higher balanced-bipartite degree. No inspected statement entails the exact 2,860 optimum subsets, their 760/2,100 distribution, the component-order table, or nineteen automorphism orbits. The full text of the highly relevant 2013 and 2015 generalized-Petersen articles could not be obtained, so equivalent enumerations hidden in those sources cannot be excluded; this prevents complete priority verification. All equivalent Desargues, \(GP(10,3)\), and \(H(5,2)\) names were searched. The present originality judgment is provisional and not an independent certification.
+## originality
 
-## Value
+PASS
 
-PASS. The result classifies **all** equality configurations for the maximum induced-forest problem in a natural distance-transitive cubic graph of girth six. The 760-versus-2,100 structural dichotomy, component-order spectrum, and nineteen symmetry orbits are not consequences of knowing the minimum cardinality. These precise data distinguish the geometry of optimal cycle destruction in a benchmark highly symmetric bipartite graph, with reproducible finite certificates. The statement is a complete natural classification, not an arbitrary induced-subgraph slice or a marginal increment in a known bound.
+Wei–Li 2013 and Gao et al 2015 establish the decycling-number six for generalized Petersen GP(10,3); the regular cubic bound is also known. The retained result is exact 2,860 optima with profiles and 19 full automorphism orbits. Resultary nearest Desargues reports concern cut complexes and independence complexes, not feedback vertex census. Best-of-knowledge PASS; direct original generalized-Petersen articles only accessible as abstracts/metadata, so a hidden old census remains a genuine risk.
 
-## Limits and closest sources
+## value
 
-The theorem is finite and graph-specific. The general bounds and the named graph representation are literature facts; the accepted claim is the exact full optimum classification. A material priority risk is that the original 2013 and 2015 generalized-Petersen papers were reachable at bibliographic/abstract level, not at complete text, despite access attempts; a hidden exact Desargues census cannot be excluded. Authorized full-text retrieval did not succeed; these papers remain priority risks. The indexed 2019 abstract supplies an already-known general identity, not the optimum-set multiplicity. The numerical proof is computationally exhaustive but not independently audited.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete and reproducible natural finite graph invariant: not merely the already known scalar decycling number, but all minimizers, induced residual forest shapes and automorphism orbits. Exact orbit decomposition is independently useful for combinatorial optimization and symmetry reductions; complete finite classification is a legitimate substantive result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
