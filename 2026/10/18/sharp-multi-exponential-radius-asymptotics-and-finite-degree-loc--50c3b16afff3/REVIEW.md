@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The weighted Jacobi identification is reconstructed from the coefficient quadratic form, with the source's reduction from all optimal-approximant zeros to linear approximants made explicit. Splitting off the first two Jacobi coordinates yields an isolated positive spectral root and a resolvent whose even-walk expansion gives a uniform analytic remainder. The two exact finite-section optima and concentration estimates follow from the same operator. A program checking large-parameter tridiagonal spectra, finite truncations, and the published Bergman special value completed all 25 assertions. The numerical tests alone do not prove the asymptotics; the uniform tail bound does.
+
+**Originality — PASS (best knowledge).** The 2016 primary paper provides the reduction and a lower bound, but its relevant Sections 4 and 5.3 do not contain the high-negative-index multi-exponential expansion, quadratic-generator gap, or parameter-dependent concentration. The 2021 survey (Section 4.1, Open Question 1) states the general radius and extremal-generator question as open. Search comparisons against indexed Fourier/Dirichlet polynomial records and older arXiv literature did not reveal a stronger result implying the precise formula. This is a best-knowledge assessment, not a uniqueness or independent novelty certificate.
+
+**Mathematical value — PASS.** The precise leading factor of two improves the earlier uniform zero-free bound in a natural singular weight regime, while the ordered corrections distinguish the influence of successive Jacobi edges. The sharp first-degree optimal-approximant gap for quadratic generators gives a quantitative finite-versus-infinite extremization cutoff. The eigenvector localization describes how near-extremal generating functions are organized. This is a limited asymptotic partial answer, not a global solution for every Dirichlet exponent.
+
+Closest literature: Bénéteau--Khavinson--Liaw--Seco--Simanek, arXiv:1606.08615, Sections 4 and 5.3; Bénéteau--Centner, arXiv:2102.01725v1, Section 4.1, Open Question 1. Residual priority risks include equivalent spectral perturbation asymptotics in older Jacobi-matrix literature and unindexed work on optimal approximants.
+
+Self-review: passed. Independent audit: not yet performed.
