@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "For both run lengths >=2, all six subgroups of S3 give exactly two factor-orbit counts, with one missing integer. When a run length is one, every factor is either all-zero/one-hot or a one-hot phase repeated in full blocks with an optional partial block. A diagonal subgroup with prescribed orbit counts realizes all intermediate values. Exact-boundary proofs and subgroup embeddings were reconstructed. Running verify.py from its actual supplied path tested 1,662 positive instances plus all six subgroups at 49 negative parameter pairs. Finite checks are not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Charlier–Puzynina–Zamboni (2015), Theorems 1-2, focus on Morse–Hedlund bounds and Sturmian factors; Launer–Puzynina–Voloshinova (2026), Corollary 4, gives a finite algorithmic test for each eventually periodic word."
+      ],
+      "reasoning": "The general 2026 decision criterion is applicable instance-by-instance, but it neither states nor supplies a uniform parameter condition and constructive phase-subgroup witnesses for this entire family. No broader theorem in the inspected source explicitly subsumes the claim.",
+      "searches": [
+        "\"universal group complexity\" periodic binary one-hot necklace all intermediate group orbit counts",
+        "\"universal group complexity\" \"periodic\" \"0^{n-1}1\"",
+        "arXiv:1505.03848 Sections 1-2",
+        "arXiv:2607.07620v1 Section 6"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2607.07620v1",
+      "https://arxiv.org/abs/1505.03848",
+      "https://orbi.uliege.be/handle/2268/192556"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For each fixed period the 2026 criterion reduces infinitely many lengths to finitely many checks; the 2015 example shows group orbits of some one-hot sets. Neither supplies the all-a,b if-and-only-if statement or the length-three two-run obstruction."
+      ],
+      "reasoning": "The present proof yields a closed uniform dichotomy and explicit witness subgroups, strictly more specific information than merely knowing each instance is decidable. It does not claim novelty for the concept of group complexity or for basic group orbit counts.",
+      "searches": [
+        "arXiv:2607.07620v1 Section 6 Lemma 12, Corollary 4, and Remark 4",
+        "arXiv:1505.03848 Section 2 Example on one-hot factors"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2026 definition asks for all orbit counts between abelian and ordinary factor complexity, equivalent to all targets in the stated result; Section 6 gives algorithmic checks but no closed two-run parameter criterion."
+      ],
+      "reasoning": "The asserted equivalence is stated using the exact original group complexity definition, not a renamed statistic. The primary source discusses the general criterion for eventually periodic words but does not state this family-wide dichotomy.",
+      "searches": [
+        "\"universal group complexity\" \"two runs\"",
+        "\"universal group complexity\" binary periodic two blocks theorem",
+        "On possible values of the group complexity function of infinite words, arXiv:2607.07620v1, Sections 2 and 6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2026 paper tabulates a single ternary example of period six and describes a finite periodicity test, rather than enumerating all two-run binary periods."
+      ],
+      "reasoning": "There is no exact two-run binary classification table in the examined primary material. Targeted external searches did not uncover another, which is not itself a uniqueness proof.",
+      "searches": [
+        "\"universal group complexity\" binary periodic two blocks theorem",
+        "\"universal group complexity\" \"two runs\"",
+        "arXiv:2607.07620v1 Section 6 Example 3"
+      ]
+    },
+    "rationale": "The 2026 paper introduces the universality property and Section 6 gives a finite decision criterion for individually fixed eventually periodic words, but its examined text contains no uniform if-and-only-if classification of the complete two-run binary family. The 2015 paper gives the underlying group action and a one-hot example, not the universal-all-length dichotomy. Targeted scholarly and research-record searches found no dominating published result; this assessment admits unindexed prior work.",
+    "residual_risks": [
+      "An unindexed or differently stated prior classification of two-run periodic words could exist.",
+      "The 2026 finite periodicity criterion implies each fixed instance can be decided algorithmically; novelty is assessed only for the uniform closed classification and constructive all-length proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the uniform two-run classification; establishes a general instance-by-instance periodic decision criterion.",
+        "evidence": [
+          "Section 6 Corollary 4 and Example 3; Section 7 Open problems 1 and 2."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2607.07620v1",
+        "material_read": "Sections 1–3, Section 6 (Lemma 12, Corollary 4, Example 3, Remark 4), Section 7 open questions; accessible complete HTML used to inspect these passages.",
+        "method": "Primary arXiv open HTML; read theorems, hypotheses, example, and conclusion.",
+        "title": "On possible values of the group complexity function of infinite words",
+        "trigger": "Introduces the precise universal group complexity property and treats periodic words."
+      },
+      {
+        "assessment": "NOT_COVERING the universal-all-length criterion for two-run periodic words; the main results concern aperiodicity/Sturmian words.",
+        "evidence": [
+          "Section 2 Theorems 1–2 and the example with length-four one-hot factors."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1505.03848",
+        "material_read": "Primary arXiv full HTML Sections 1–2, including Theorems 1 and 2 and the one-hot-factor example.",
+        "method": "Direct reading of open full-text rendering and its main hypotheses.",
+        "title": "On a group theoretic generalization of the Morse–Hedlund theorem",
+        "trigger": "Foundational group-complexity result; potential implication through group action on one-hot words."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6bac2b24-7ce6-44a5-90cc-92bcdb3f2158",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural complete classification for every binary necklace with exactly two circular monochromatic runs, as opposed to isolated numerical cases. The theorem identifies a sharp combinatorial boundary between singleton and nonsingleton runs and constructs group witnesses for every factor length in the positive case, while the negative case has an exact three-letter obstruction. This gives uniform mathematical structure absent from the fixed-input finite criterion and contributes a nontrivial family to the recently posed classification problem.",
+    "status": "PASS"
+  }
+}
