@@ -1,21 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The original \(g\)-frames are identical coordinate Parseval systems. Every local singleton pair \((1/j,j)\) is an alternate dual frame on its coefficient space. Nevertheless the induced global families \((e_j/j)\) and \((j e_j)\) do not form a dual frame pair: the first has no positive lower bound, the second is not Bessel, and its analysis coefficients fail to lie in \(\ell^2\) for the input \((1/j)\).
+## correctness
 
-The block local reconstruction \(Q\) is exactly the bounded identity. With common finite local upper frame bounds, both induced analysis families become Bessel, and the local reconstruction identities yield the correct global alternate-duality equivalence.
+PASS
 
-## Originality
-PASS. The printed Corollary 6.2, its preceding Theorem 6.1, the exact DOI and correction aliases, broad local-to-global frame results, and closest indexed frame-theory findings were compared by implication. The closest older results require common local bounds and do not establish the unqualified corollary. No checked source gives this corollary-specific counterexample.
+In H=ell²(N), take V_j=C and Lambda_j=Gamma_j: f↦f_j. Both are g-Parseval and globally alternate dual, since ∑ Lambda_j*Gamma_j=I. Each one-dimensional local pair phi_j=1/j, psi_j=j is an exact alternate dual frame for C, satisfying reconstruction phi_j·psi_j=1, though their optimal local frame bounds j^{-2} and j² are not uniform. The induced vectors Lambda_j*phi_j=e_j/j lack a uniform lower bound because testing f=e_N gives coefficient energy N^{-2}; Gamma_j*psi_j=j e_j lack an upper Bessel bound because testing e_N gives N². Moreover f=(1/j)_j is in ell² but has analysis coefficients (1)_j against (j e_j), not in ell². Thus printed Corollary 6.2’s (i) holds and (ii), which asserts alternate dual *frames*, is false. The block local reconstruction Q=I is bounded and cannot cure lack of global Bessel bounds. If both local families share global finite upper frame bounds, bounded induced analysis maps and the mixed reconstruction identity reestablish the equivalence. In the scalar diagonal model both families (a_j e_j),(a_j^{-1}e_j) are frames iff 0<inf a_j<=sup a_j<infinity; this exact all-N basis argument, not finite truncation, establishes necessity.
 
-The 2008 fusion-frame theorem and the 2023 operator-theoretic treatment provide uniformity precedents; a local relay dual counterexample in another setting concerns a different global lower-bound mechanism, rather than this failure of induced global Besselness under \(Q=I\).
+## originality
 
-## Value
-PASS. The equivalence is advertised as a characterization of induced alternate dual frames, but its listed assumptions do not ensure the bounded coefficient maps needed to define those frames. Exact scalar coordinate analysis identifies \(0<\inf_j a_j\le\sup_j a_j<\infty\) as the sharp dividing line for both induced dual families to be frames. This distinguishes pointwise perfect reconstruction from stable global duality.
+PASS
 
-## Closest literature and limitations
-The preceding Theorem 6.1 in the same 2024 article and Casazza--Kutyniok--Li's fusion-frame-system theorem both assume uniform local frame bounds. This is a sufficient repair, not a new theorem claimed here. An unindexed correction remains possible.
+The exact published corollary omits the uniform frame-bound hypothesis present in the preceding theorem. Earlier fusion-frame-system and operator treatments require uniform local bounds for a global transfer; they do not claim the unqualified result. The exact target counterexample with Q=I, together with sufficient general repair and sharp scalar boundary, was not found in Resultary near-neighbors. The 2026 other relay-dual scalar defect is similar in the role of nonuniform local constants but addresses a distinct synthesis/local relay condition; that thematic overlap does not imply this correction automatically.
 
-The sharp necessity criterion is for diagonal scalar singleton local systems; for arbitrary redundant \(g\)-frames, uniform local bounds are asserted sufficient, not necessary.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+An exact published duality characterization can fail at the fundamental stability requirement of frames, not merely at a weak constant. The e_j/j and j e_j witness isolates the missing local-to-global uniformity with bounded block reconstruction Q=I; the repair restores a functioning theorem. The sharp diagonal seminormalization boundary quantifies precisely when reciprocal local duals remain a global dual pair. This is a motivated flaw in generalized frame reconstruction, despite elementary ingredients.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

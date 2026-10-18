@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,31 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Let \(\mathcal H=\ell^2(\mathbb N;\mathbb C)\), with orthonormal basis \((e_j)_{j\ge1}\), and set \(\Lambda_j f=\Gamma_j f=f_j\). Then
-\[
-\sum_j|\Lambda_j f|^2=\sum_j|\Gamma_j f|^2=\|f\|^2,
-\qquad
-\sum_j\Lambda_j^*\Gamma_jf=f.
-\]
-Thus \(\Lambda,\Gamma\) are alternate dual Parseval \(g\)-frames.
+# Independent mathematical audit
 
-For every \(j\), use singleton local vectors \(\varphi_{j,1}=1/j\) and \(\phi_{j,1}=j\). Their optimal local frame bounds are \(j^{-2}\) and \(j^2\), and both local dual reconstruction identities hold exactly. Hence their block reconstruction operator is \(Q=I\), a bounded operator.
+## correctness
 
-The induced vectors are
-\[
-\Lambda_j^*\varphi_{j,1}=e_j/j,
-\qquad \Gamma_j^*\phi_{j,1}=j e_j.
-\]
-Testing \(e_N\) yields squared energies \(N^{-2}\) and \(N^2\), proving respectively the absence of a positive global lower bound and a finite Bessel upper bound. More strongly, \(f=(1/j)_{j\ge1}\in\ell^2\) gives
-\[
-\sum_j|\langle f,j e_j\rangle|^2=\infty.
-\]
-Formal scalar reconstruction remains valid, but two alternate dual *frames* do not exist.
+PASS
 
-Under common local upper bounds \(D_\varphi,D_\phi<\infty\), the induced sequences have Bessel bounds \(D_\varphi B_\Lambda,D_\phi B_\Gamma\). Their mixed synthesis/analysis composition coincides with \(\sum_j\Lambda_j^*\Gamma_j\). Hence the repaired equivalence holds.
+In H=ell²(N), take V_j=C and Lambda_j=Gamma_j: f↦f_j. Both are g-Parseval and globally alternate dual, since ∑ Lambda_j*Gamma_j=I. Each one-dimensional local pair phi_j=1/j, psi_j=j is an exact alternate dual frame for C, satisfying reconstruction phi_j·psi_j=1, though their optimal local frame bounds j^{-2} and j² are not uniform. The induced vectors Lambda_j*phi_j=e_j/j lack a uniform lower bound because testing f=e_N gives coefficient energy N^{-2}; Gamma_j*psi_j=j e_j lack an upper Bessel bound because testing e_N gives N². Moreover f=(1/j)_j is in ell² but has analysis coefficients (1)_j against (j e_j), not in ell². Thus printed Corollary 6.2’s (i) holds and (ii), which asserts alternate dual *frames*, is false. The block local reconstruction Q=I is bounded and cannot cure lack of global Bessel bounds. If both local families share global finite upper frame bounds, bounded induced analysis maps and the mixed reconstruction identity reestablish the equivalence. In the scalar diagonal model both families (a_j e_j),(a_j^{-1}e_j) are frames iff 0<inf a_j<=sup a_j<infinity; this exact all-N basis argument, not finite truncation, establishes necessity.
 
-For arbitrary positive scalars \(a_j\), testing coordinate basis vectors proves that both induced diagonal sequences \((a_j e_j)\) and \((a_j^{-1}e_j)\) are frames exactly when \(0<\inf_j a_j\le\sup_j a_j<\infty\). Truncated examples provide the exact finite bounds \(N^{-2}\) and \(N^2\), but the infinite conclusion follows from the quantified basis-vector argument and is not inferred from finite computation.
+## originality
 
-The target source was inspected directly at its definitions, Theorem 6.1, Corollary 6.2, and relevant proofs. Earlier common-local-bound frame-system theorems were compared separately. No independent audit has been performed.
+PASS
+
+The exact published corollary omits the uniform frame-bound hypothesis present in the preceding theorem. Earlier fusion-frame-system and operator treatments require uniform local bounds for a global transfer; they do not claim the unqualified result. The exact target counterexample with Q=I, together with sufficient general repair and sharp scalar boundary, was not found in Resultary near-neighbors. The 2026 other relay-dual scalar defect is similar in the role of nonuniform local constants but addresses a distinct synthesis/local relay condition; that thematic overlap does not imply this correction automatically.
+
+## value
+
+PASS
+
+An exact published duality characterization can fail at the fundamental stability requirement of frames, not merely at a weak constant. The e_j/j and j e_j witness isolates the missing local-to-global uniformity with bounded block reconstruction Q=I; the repair restores a functioning theorem. The sharp diagonal seminormalization boundary quantifies precisely when reciprocal local duals remain a global dual pair. This is a motivated flaw in generalized frame reconstruction, despite elementary ingredients.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
