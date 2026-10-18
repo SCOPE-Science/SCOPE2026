@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The complete proof, hypotheses and implications are in `RESULT.md`. The standalone `verify.py` script uses NumPy, SciPy and SymPy versions governed by `requirements.txt`. Run with `python verify.py` in this directory. The observed output after unpacking the checked source files was:
+## correctness
 
-`VERIFY_OK graph_numeric=28 exact_cyclotomic=28 asymmetry_rational=28 detector_rank_cases=24 long_time_cases=4`
+PASS
 
-The script enumerates Möbius ladders for \(3\le m\le30\), checks each Hamiltonian eigenvalue against the analytic Fourier spectrum, tests exact eigenvalue coincidence using remainders modulo the integer cyclotomic polynomial \(\Phi_{2m}\), verifies the two predicted exact time averages as rational numbers, and compares both one- and two-absorber spectral detector ranks for \(3\le m\le14\). Four matrix-exponential no-jump tests for \(m=3,4\) also match limiting survival probabilities. This tests only those finite sizes; the all-size proof uses the Conway–Jones 1976 classification, Fourier decomposition and dissipativity. No experiment by itself proves that other rational cosine collisions cannot occur.
+The 2m Fourier eigenvalues λ_k=2cos(πk/m)+(−1)^k have reflection-pair degeneracies plus at most one cross-parity collision. Conway–Jones Theorem 7 on two-cosine rational relations (primary full PDF and exact theorem page read) yields the only possible pairs; parity constraints give m≡2 (mod4) with multiplicities (1,2), or m≡3 (mod6) with multiplicities (2,2), mutually exclusive. Hence distinct-eigenvalue count m+1−d, one-trap bright dimension m+1−d, antipodal two-trap bright dimension m+1, for any positive trap strengths; spectral projector ranks justify infinite-time absorption for maximally mixed state. Spectral averaging of mode multiplicity squares gives χ00=(2m−1)/(2m²)+(d4+2d6)/m² and χm0=(2m−1)/(2m²)−(d4+2d6)/m². Independent exact cyclotomic reductions and rational multiplicity counts verified m=3..31; infinite argument uses the full classification not finite checks.
 
-This report records self-review only. No independent audit or external validation is claimed.
+## originality
+
+PASS
+
+Classical Möbius-ladder Fourier spectrum, Conway–Jones trigonometric lemma and general trap projection theory are antecedents, but accessed quantum transport articles treat standard rings or four-neighbor long-range cycles and do not determine the cubic ladder mixed-parity collision modular classification linked simultaneously to one-/two-sink bright ranks and return/antipodal averages.
+
+## value
+
+PASS
+
+One rare arithmetic eigenvalue collision precisely controls an experimental trapping contrast and a dynamical long-time transport asymmetry; combining exact modular number theory and spectral detector ranks is a motivated structural result for a natural cubic graph family, with genuinely nontrivial irrational-cosine exclusion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

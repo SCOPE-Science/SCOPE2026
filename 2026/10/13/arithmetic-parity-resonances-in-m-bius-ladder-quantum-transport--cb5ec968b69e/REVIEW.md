@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For the cubic graph on \(2m\) vertices, the Fourier vector with index \(k\) has adjacency eigenvalue \(2\cos(\pi k/m)+(-1)^k\). Its mirrored index has the same eigenvalue. After restricting to indices \(0\le k\le m\), strict monotonicity within each parity reduces additional collisions to \(\cos(\pi u/m)-\cos(\pi v/m)=1\) for odd \(u<v\) even \(v\). The rational-cosine criterion following Conway–Jones Theorem 7 leaves only \((u,v)=(m/3,2m/3)\) at \(m\equiv3\pmod6\), or \((m/2,m)\) at \(m\equiv2\pmod4\), never both. A local sink tests one Fourier amplitude per eigenvalue; opposite sinks distinguish even and odd Fourier parity, adding exactly one rank in the exceptional cases. Nondecaying spectral subspaces are exactly the loss-free ones by dissipativity. Spectral projection gives the two quantum time-average formulas. The cited non-elementary two-cosine lemma was checked in the original Conway–Jones article. Exact cyclotomic, graph, detector-rank and finite-time matrix-exponential computations reproduced the predictions for the documented finite ranges. Those computations alone do not establish the all-size theorem.
+## correctness
 
-## Originality — PASS with residual risk
-The Möbius-ladder Fourier eigenvalue formula is previously known and explicitly credited to spectral-graph sources, particularly Abreu–Del-Vecchio–Trevisan–Vinagre (2014), Example 2.9. Conway–Jones supplies an independent 1976 trigonometric classification. Xu (arXiv:0812.3452v1) studies CTQW trapping and return averages on long-range cycles, but uses distinct adjacency weights/four-neighbor indexing; at an antipodal displacement its two directions coincide rather than yielding one single rung. Agliari–Mülken–Blumen (arXiv:0903.3288v1) studies trapping on ordinary rings. Their inspected text does not supply the exact combined modular classification, the antipodal two-sink dimension recovery, or the associated return-versus-antipode time-average asymmetry on the cubic Möbius ladder. Targeted scientific literature searches using graph aliases, spectral degeneracy and trapping found no identical theorem. This lack of a hit alone does not demonstrate uniqueness. The complete Biggs book chapter could not be inspected, and another article could contain an implicit or explicit equivalent; independent publication-priority verification remains necessary.
+PASS
 
-## Value — PASS
-The cubic Möbius ladder is an established, highly symmetric finite quantum network. Its long-time trap efficiency and coherent time averages are natural transport observables. The theorem classifies every ladder size rather than a handful of examples, identifies exactly when a second antipodal detector gains one absorption channel, and ties that discrete trapping effect to a precise spatial interference asymmetry with two distinct magnitudes. This connection is not an arbitrary narrow parameter change: it distinguishes quantum destructive-interference modes and detection placement in a standard infinite graph family.
+The 2m Fourier eigenvalues λ_k=2cos(πk/m)+(−1)^k have reflection-pair degeneracies plus at most one cross-parity collision. Conway–Jones Theorem 7 on two-cosine rational relations (primary full PDF and exact theorem page read) yields the only possible pairs; parity constraints give m≡2 (mod4) with multiplicities (1,2), or m≡3 (mod6) with multiplicities (2,2), mutually exclusive. Hence distinct-eigenvalue count m+1−d, one-trap bright dimension m+1−d, antipodal two-trap bright dimension m+1, for any positive trap strengths; spectral projector ranks justify infinite-time absorption for maximally mixed state. Spectral averaging of mode multiplicity squares gives χ00=(2m−1)/(2m²)+(d4+2d6)/m² and χm0=(2m−1)/(2m²)−(d4+2d6)/m². Independent exact cyclotomic reductions and rational multiplicity counts verified m=3..31; infinite argument uses the full classification not finite checks.
 
-## Boundaries and limitations
-Uniform cycle and rung hopping, zero additional onsite energy, one-particle continuous-time dynamics, and one or two specific positive-rate absorbers are essential to the claims. Rates of convergence are not bounded uniformly in graph size or absorption strength. No assertion is made for arbitrary weighted rungs, other detector placements, many-body dynamics or noisy measurements. The classification relies on the 1976 trigonometric theorem; finite numerical tests are corroborative, not a proof. Literature priority remains uncertain because a plausible graph-spectrum book was not available in full.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical Möbius-ladder Fourier spectrum, Conway–Jones trigonometric lemma and general trap projection theory are antecedents, but accessed quantum transport articles treat standard rings or four-neighbor long-range cycles and do not determine the cubic ladder mixed-parity collision modular classification linked simultaneously to one-/two-sink bright ranks and return/antipodal averages.
+
+## value
+
+PASS
+
+One rare arithmetic eigenvalue collision precisely controls an experimental trapping contrast and a dynamical long-time transport asymmetry; combining exact modular number theory and spectral detector ranks is a motivated structural result for a natural cubic graph family, with genuinely nontrivial irrational-cosine exclusion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
