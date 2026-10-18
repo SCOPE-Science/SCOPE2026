@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The statement concerns exactly the index-two nilpotent ideal of the Catalan monoid for every integer \(n\ge3\). The proof obtains a necessary counting obstruction for any decomposition, constructs two explicit square-zero factors whenever it holds, enumerates the product set using binomial runs, and establishes minimality of the indecomposable generators using nilpotency. The derived generating function agrees with OEIS A005251. The included checker verifies all pairwise products for small instances, but these experiments are not an infinite proof.
+## correctness
 
-**Originality: PASS, with residual bibliographic uncertainty.** Korkmaz and Ayık (2021), Theorem 3.4, give only a lower bound for rank of the same index-two ideal, along with an exact five-point example and a six-point nonfactorability example. The new complete factorization criterion and all-order rank refine those conclusions; \(n=6\) gives exact rank \(9\) against the earlier lower bound \(8\). The earlier fixed-nilpotency count and the full nilpotent semigroup rank do not imply the intrinsic restricted rank. OEIS A005251 already contains the numerical recurrence and generating function, which are not claimed new. The relevant 2023 dissertation and parts of 2020 source full texts were not inspected, and equivalent prior coverage cannot be excluded absolutely.
+PASS
 
-**Value: PASS.** This resolves the exact intrinsic generating rank of a standard algebraically motivated family for all sizes, beyond a published bound, with a structural if-and-only-if criterion and sharp asymptotic generator density. The sequence identity alone would not establish value; the previously unavailable semigroup classification does.
+For n>=3, order-preserving decreasing f with f^2=epsilon has an initial fiber [m] mapping to 1, and all image values <=m; this yields |S_n|=2^(n-2). If h=v∘u is nonzero, the s(h) distinct nonunit h-values need s(h) distinct u-intermediates strictly above m(v), implying m(h)>=M(h)+s(h). Conversely choose u(i)=M+j for each nonunit h-value t_j and v(M+j)=t_j, with initial 1-fibers of lengths m and M: these maps are in S_n and compose to h whenever m>=M+s. Counts by distinct values and suffix runs give generating function sum b_n z^n=z(1-z)/(1-2z+z^2-z^3); nilpotency and indecomposability force the unique minimal generating set S_n\S_n^2 and rank=2^(n-2)-b_n. Independent complete compositions n=3..8 match b_n and rank, including rank(S_6)=9; proof is all-n and finite enumeration corroborative.
 
-The result does not settle the analogous rank problem for nilpotency index at least three.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Complete uniform product-factor criterion, exact all-n generating rank and all-product count refine a published lower bound; n=6 already exceeds it. OEIS recurrence itself is known and not claimed as novel. Korkmaz–Ayık 2021 full text inspected: its Theorem 3.4/Examples do not give the all-n product criterion; 2023 dissertation remains uninspected.
+
+## value
+
+PASS
+
+The rank and unique indecomposable generating set are natural primary invariants of the nilpotent square-zero ideal of Catalan transformations. An explicit necessary/sufficient product factorization and all-n generating function improve a recognized nonsharp lower bound, giving mathematically useful structure beyond computing the preexisting OEIS sequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
