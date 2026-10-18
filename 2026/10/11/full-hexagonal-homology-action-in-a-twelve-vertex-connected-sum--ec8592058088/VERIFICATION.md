@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` contains the complete fifty-four-facet presentation and uses only the Python standard library.
+# Independent mathematical audit
 
-It reconstructs the face vector, then collapses a star spanning tree at vertex \(1\) to obtain a \(55\)-coordinate integral graph-cycle lattice. Two explicit integral cocycles are checked against every facial triangle boundary. A fixed \(53\)-by-\(53\) relation minor is recomputed by Bareiss elimination and has determinant \(1\), proving a primitive rank-\(53\) boundary lattice and hence \(H_1\cong\mathbb Z^2\).
+## correctness
 
-The verifier next enumerates the full simplicial automorphism group by backtracking over vertex permutations with triangle and tetrahedron status pruning. Exactly \(24\) automorphisms survive. Their induced actions on two certified homology basis cycles give twelve distinct integral matrices, each with multiplicity two.
+PASS
 
-The quadratic identity for \(q(x,y)=x^2+xy+y^2\) is checked coefficientwise for every action matrix. The full integral isometry group of \(q\) is independently exhausted: a norm-one column must have coordinates in \(\{-1,0,1\}\), leaving a finite search whose twelve isometries coincide exactly with the homology image. Reduction modulo \(2\) is then compared with all of \(GL(2,\mathbf F_2)\).
+The actual 54 listed tetrahedra have f=(12,66,108,54) and complete 1-skeleton. Collapsing the vertex-1 star tree gives 55 cotree coordinates, 108 facial relations and mod-2 rank 53, which I independently reconstructed. The source gives two explicit integer cocycles annihilating every facial boundary and a specified 53×53 minor of determinant 1: hence H1 is torsion-free Z², with the (23),(26) cotree cycles furnishing an integral basis by determinant −1. An exhaustive, incidence-preserving vertex backtracker identifies 24 automorphisms (also independently rerun). Evaluation of both homology classes against the cocycles yields 12 distinct integer 2×2 matrices, each twice. Their q=x²+xy+y² invariance and full count follow by exhausting all q-unit integral columns; reduction yields GL(2,F2), size six. No claim about other triangulations or mapping class groups.
 
-Exact successful output:
+## originality
 
-`VERIFY_OK f=12,66,108,54 aut=24 H1_Z=Z^2 boundary_minor_det=1 H1_image=O(x^2+xy+y^2,Z):12 action_multiplicity=2 kernel_Z=2 mod2_image=GL(2,2):6 kernel_F2=4`
+PASS
 
-The computation is exhaustive for every finite domain used in the claim.
+The facet complex, vertex transitivity, connected-sum homeomorphism and rank-two homology are known from the original Lutz data and Köhler–Lutz enumeration; the actual integral H1 action, its hexagonal-lattice identification and mod-two quotient are an additional representation-level theorem. Matching the manifold name or order 24 does not determine its action on Z². Specific Resultary searches identified related but distinct 12-vertex manifolds and homology systoles, not this group representation. Best-of-knowledge, not absolute novelty certification.
+
+## value
+
+PASS
+
+A rank-two H1 representation is a geometrically motivated invariant of an explicitly catalogued highly symmetric 3-manifold triangulation. Identifying its full dihedral hexagonal lattice image, exact multiplicities, and mod-two surjection distinguishes its homological symmetry from the known Betti number or vertex-transitive permutation action; these are useful exact group-action data, not a relabeling of a known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
