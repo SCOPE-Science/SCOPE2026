@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The defining functional equation \(\psi(u)=u g(\psi(u))\) immediately forces \(\psi(0)=0\). Lagrange inversion gives the source's positive coefficients, and the foundational two-function formula shows that this is the \(f(z)=z\) case, hence zero mass \(f(0)=0\). The generator \(g\) is an offspring PGF, so the positive coefficient sum is the smallest fixed point \(q=g(q)\), equal to one for \(g'(1)\le1\) and strictly below one for \(g'(1)>1\). The bundled checker verifies representative subcritical and supercritical cases.
+## correctness
 
-## Originality
-PASS. The primary full text was inspected at the functional equation, zero-mass claim, normalization paragraph, moment condition, simulation parameters, normalization instruction, and appendix. Five focused published-result searches and exact-source searches found no RPSL correction. The foundational Consul-Shenton formula supplies the comparison theorem but does not identify the new paper's misapplication.
+PASS
 
-Residual risk remains from a very recent unindexed correction.
+The publisher source actually prints psi=u*g(psi) and P(X=0)=psi(0)=g(0). Evaluating u=0 forces psi(0)=0; Lagrange inversion gives p_n=1/n [z^(n-1)]g(z)^n for n>=1. g is a nondegenerate offspring PGF with mean m=(1-c)*gamma*theta/(1-theta). The sum of p_n is the smallest fixed point q=g(q), hence one for m<=1 and q<1 for m>1; the latter has missing mass at infinity and a conditioned finite-progeny law p_n/q. At paper simulation gamma=1.5, theta=.4, c=.3, m=.7 and g(0)=.625330601..., so adding the asserted zero mass yields 1.625330601..., whereas positive coefficients already have total one. This does not determine the simulations implementation.
 
-## Value
-PASS. The defect changes whether the proposed object is a probability distribution at all, whether it has a zero atom, and what happens in the supercritical parameter region. It also directly conflicts with the paper's highlighted zero proportion and mean in its simulation example. The issue therefore affects the model's core probabilistic interpretation and data-generation mechanism.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A general Lagrange/branching identity is of course classical, and the simple psi(0)=0 step is not claimed as a newly discovered universal theorem. The specific published RPSL model asserts a mutually inconsistent zero atom and normality in its own Theorem 1/Section 2, and this audit did not find an earlier RPSL-specific published correction. The model-specific inconsistency and sharp normalization phase are the novel corrective findings, without relabeling classical inversion as novel.
+
+## value
+
+PASS
+
+Although evaluating u=0 is elementary, it detects a consequential error in a currently published count-data model: support, total mass, zero inflation, finite-mean regime, and likely likelihood/fit interpretation change. The specific m=.7 example demonstrates mass 1.6253 if the asserted atom is included. This is not a cosmetic sign check; the exact corrected normalization and extinction phase have direct mathematical/statistical importance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

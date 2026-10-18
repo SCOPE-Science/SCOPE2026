@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T17:05:57Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://www.mdpi.com/2227-7390/14/10/1673",
+        "pinned RESULT.md; Git blob 44fce0e08f8d4e73fd9b215bed8f922452eafe52",
+        "Lagrange inversion and Galton Watson total-progeny fixed-point equation"
+      ],
+      "rationale": "The publisher source actually prints psi=u*g(psi) and P(X=0)=psi(0)=g(0). Evaluating u=0 forces psi(0)=0; Lagrange inversion gives p_n=1/n [z^(n-1)]g(z)^n for n>=1. g is a nondegenerate offspring PGF with mean m=(1-c)*gamma*theta/(1-theta). The sum of p_n is the smallest fixed point q=g(q), hence one for m<=1 and q<1 for m>1; the latter has missing mass at infinity and a conditioned finite-progeny law p_n/q. At paper simulation gamma=1.5, theta=.4, c=.3, m=.7 and g(0)=.625330601..., so adding the asserted zero mass yields 1.625330601..., whereas positive coefficients already have total one. This does not determine the simulations implementation.",
+      "residual_risks": [
+        "Supercritical finite-valued law needs explicit conditioning. Paper simulations may normalize truncated weights rather than use literal proposed PMF."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://doi.org/10.1137/0123026",
+          "https://www.mdpi.com/2227-7390/14/10/1673"
+        ],
+        "reasoning": "The general two-function Lagrange distribution framework and branching extinction theory imply normality criteria. They do not explicitly identify the source paper’s contradictory claims or its highlighted numerical example; distinguish covered tools from particular correction.",
+        "searches": [
+          "\"10.3390/math14101673\" correction \"zero\"",
+          "Lagrangian distributions f(z)=z total progeny extinction probability"
+        ]
+      },
+      "checked_sources": [
+        "https://www.mdpi.com/2227-7390/14/10/1673",
+        "https://doi.org/10.1137/0123026",
+        "Resultary semantic search for RPSL and zero atom"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original section 2: psi=u g(psi), p_n for n>=1, asserted psi(0)=g(0); Section 3: sum positive p_n=1-g0 while simultaneously psi(1)=1"
+        ],
+        "reasoning": "Published RPSL expressions contradict one another; the correction is a specific refutation, not the conclusion of the original paper. The existence of general inversion identities is openly acknowledged as prior machinery.",
+        "searches": [
+          "https://www.mdpi.com/2227-7390/14/10/1673",
+          "https://doi.org/10.1137/0123026"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://www.mdpi.com/2227-7390/14/10/1673",
+          "https://doi.org/10.1137/0123026"
+        ],
+        "reasoning": "Total progeny PGF is an equivalent form of psi=u*g(psi); the RPSL extra zero atom is impossible under either form. Standard Lagrange formulas make the contradiction easy but do not themselves publish a correction identifying this 2026 model.",
+        "searches": [
+          "Rational Power Shifted Lagrangian count distribution RPSL P0 g0 psi=u*g(psi) Lagrange inversion normalization Galton Watson total progeny correction",
+          "\"Rational-Power Shifted Lagrangian\" \"psi(0)\" error"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic results were unrelated probability-model findings; publisher paper prints the conflicting equations"
+        ],
+        "reasoning": "There is no natural external finite table for this analytic inconsistency; search targeted DOI and exact mathematical conflict, not a supposed database of all corrections.",
+        "searches": [
+          "Resultary: Rational Power Shifted Lagrangian count distribution RPSL P0 g0 psi=u*g(psi) Lagrange inversion normalization Galton Watson total progeny correction",
+          "\"Rational-Power Shifted Lagrangian\" \"psi(0)\" error"
+        ]
+      },
+      "rationale": "A general Lagrange/branching identity is of course classical, and the simple psi(0)=0 step is not claimed as a newly discovered universal theorem. The specific published RPSL model asserts a mutually inconsistent zero atom and normality in its own Theorem 1/Section 2, and this audit did not find an earlier RPSL-specific published correction. The model-specific inconsistency and sharp normalization phase are the novel corrective findings, without relabeling classical inversion as novel.",
+      "residual_risks": [
+        "Full original Consul-Shenton 1972 article not independently read; classical formula is standard and explicitly distinguished. No independent recreation of published simulations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly prints contradictory zero-mass and PGF equations; no correction in inspected text",
+          "evidence": [
+            "Section 2 ψ=u g(ψ) and P(X=0)=ψ(0)=g(0)",
+            "Section 3 sum_{x>=1}p_x=1-g(0)",
+            "Appendix A"
+          ],
+          "identifier_or_url": "https://www.mdpi.com/2227-7390/14/10/1673",
+          "material_read": "Sections 2-3 including theorem 1 and PMF normalization, Appendix A, Section 7 simulation discussion and mean formulas",
+          "method": "public open-access HTML mathematical text",
+          "title": "Rational-Power Shifted Lagrangian Distribution for Count Data with Flexible Dispersion",
+          "trigger": "Same exact distribution and contested probability law"
+        },
+        {
+          "assessment": "The general formula is prior theoretical machinery; full primary text not independently inspected",
+          "evidence": [
+            "DOI 10.1137/0123026"
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/0123026",
+          "material_read": "Bibliographic source and classical formula as cited in assigned RESULT, not full 1972 paper",
+          "method": "bibliographic abstract/formula cited by assigned source",
+          "title": "Use of Lagrange Expansion for Generating Discrete Generalized Probability Distributions",
+          "trigger": "Foundational two-function inversion formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://www.mdpi.com/2227-7390/14/10/1673",
+        "pinned RESULT.md mathematical correction"
+      ],
+      "rationale": "Although evaluating u=0 is elementary, it detects a consequential error in a currently published count-data model: support, total mass, zero inflation, finite-mean regime, and likely likelihood/fit interpretation change. The specific m=.7 example demonstrates mass 1.6253 if the asserted atom is included. This is not a cosmetic sign check; the exact corrected normalization and extinction phase have direct mathematical/statistical importance.",
+      "residual_risks": [
+        "No audit of code underlying published regression fit; do not claim its fitted parameter values are invalid without checking implementation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Supercritical finite-valued law needs explicit conditioning. Paper simulations may normalize truncated weights rather than use literal proposed PMF.",
+    "Full original Consul-Shenton 1972 article not independently read; classical formula is standard and explicitly distinguished. No independent recreation of published simulations.",
+    "No audit of code underlying published regression fit; do not claim its fitted parameter values are invalid without checking implementation."
+  ],
+  "schema_version": 1
+}

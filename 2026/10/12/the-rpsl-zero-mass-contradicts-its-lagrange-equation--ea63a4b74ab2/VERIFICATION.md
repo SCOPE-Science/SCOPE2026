@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,38 +18,25 @@
   "schema_version": 1
 }
 ---
-The RPSL construction defines
-\[
-\psi(u)=u g(\psi(u)).
-\]
-At \(u=0\),
-\[
-\psi(0)=0.
-\]
-Thus its generating series has no zero-degree probability.
 
-Lagrange inversion gives
-\[
-p_n=\frac1n[z^{n-1}]g(z)^n,\qquad n\ge1.
-\]
-For
-\[
-g(z)=c+(1-c)\left(\frac{1-\theta}{1-\theta z}\right)^\gamma,
-\]
-the offspring mean is
-\[
-m=g'(1)=\frac{(1-c)\gamma\theta}{1-\theta}.
-\]
-The finite coefficient mass is the smallest fixed point
-\[
-q=g(q).
-\]
-It equals one when \(m\le1\) and is below one when \(m>1\).
+# Independent mathematical audit
 
-At \((\gamma,\theta,c)=(1.5,0.4,0.3)\),
-\[
-m=0.7,\qquad g(0)=0.625331\ldots,
-\]
-so the positive coefficients already have total mass one and the source's added zero atom would raise the total above one.
+## correctness
 
-The included checker computes Lagrange coefficients from the actual generator, accumulates them in a subcritical example, and compares them with the extinction fixed point in a supercritical example. The phase theorem itself is analytic.
+PASS
+
+The publisher source actually prints psi=u*g(psi) and P(X=0)=psi(0)=g(0). Evaluating u=0 forces psi(0)=0; Lagrange inversion gives p_n=1/n [z^(n-1)]g(z)^n for n>=1. g is a nondegenerate offspring PGF with mean m=(1-c)*gamma*theta/(1-theta). The sum of p_n is the smallest fixed point q=g(q), hence one for m<=1 and q<1 for m>1; the latter has missing mass at infinity and a conditioned finite-progeny law p_n/q. At paper simulation gamma=1.5, theta=.4, c=.3, m=.7 and g(0)=.625330601..., so adding the asserted zero mass yields 1.625330601..., whereas positive coefficients already have total one. This does not determine the simulations implementation.
+
+## originality
+
+PASS
+
+A general Lagrange/branching identity is of course classical, and the simple psi(0)=0 step is not claimed as a newly discovered universal theorem. The specific published RPSL model asserts a mutually inconsistent zero atom and normality in its own Theorem 1/Section 2, and this audit did not find an earlier RPSL-specific published correction. The model-specific inconsistency and sharp normalization phase are the novel corrective findings, without relabeling classical inversion as novel.
+
+## value
+
+PASS
+
+Although evaluating u=0 is elementary, it detects a consequential error in a currently published count-data model: support, total mass, zero inflation, finite-mean regime, and likely likelihood/fit interpretation change. The specific m=.7 example demonstrates mass 1.6253 if the asserted atom is included. This is not a cosmetic sign check; the exact corrected normalization and extinction phase have direct mathematical/statistical importance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
