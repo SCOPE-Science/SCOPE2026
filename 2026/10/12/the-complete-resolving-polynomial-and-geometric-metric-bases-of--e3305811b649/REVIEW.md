@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The point-line graph is defined over \(\mathbb F_3\), with explicit adjacency and all three relevant distance formulas. The proof excludes every split below four vertices, derives the necessary two-point/two-line conditions, and proves the geometric conditions sufficient. The resulting count \(27\cdot 2\cdot 2\cdot 2=216\) is independently checked against all \(3060\) four-subsets. The complete polynomial is checked by two distance-resolution predicates over all \(262144\) vertex subsets; the \(216\)-element permutation group is constructed and checked, yielding two orbits of \(108\). Finite exhaustiveness applies only to this fixed eighteen-vertex graph.
+PASS
 
-## Originality — PASS, subject to recorded priority risks
+Source RESULT.md defines the Pappus incidence graph on P(x,y), L(m,b) in F_3, y=mx+b, with point distances 2 versus 4 by vertical class and analogous slope classes; opposite part distances 1 or 3. The two-point/two-line necessity follows incidence-word pigeonhole, missing-slope argument and intersection class; sufficiency separately distinguishes all point and line vertices. Independent Python reimplemented the 18-vertex graph, all-pair shortest paths, 153 distinguishing masks and ALL 2^18=262144 subsets; the 216 four-subset geometric matches coincide exactly with resolution. Independent tallies gave 243834 resolving subsets, exact coefficient sequence as stated, and 108/108 bases distinguished by 0/1 induced incidence edges. The written affine incidence group and duality give the orbit statement; no extrapolation to other q. Metric dimension 4 already known.
 
-Bailey's 2013 source [1] already gives the minimum size \(4\), and the full group order is standard [4]. The present claim is the complete if-and-only-if geometric classification, exact polynomial for all sizes and two-orbit partition, none implied by the scalar minimum, incidence definition or available general bounds. Bailey 2013 and Bailey 2017 were inspected for coverage, and Bartoli et al. 2017 treats higher-order biaffine incidence cases. Comparisons with published related work identify chain-graph resolving-polynomial work and Pappus spectral/homological work with different object classes or invariants. A possibly unindexed prior Pappus enumeration and incomplete access to some generic resolving-polynomial papers remain genuine priority risks. These searches are not a claim of global novelty certification.
+## originality
 
-## Value — PASS
+PASS
 
-The exceptional smallest biaffine graph is a canonical symmetric incidence graph. Exactly describing all minimum distance-landmark placements answers a natural, previously scalar-only optimization question; the two orbit geometries and full feasibility enumerator are structural information not derivable from its metric dimension alone. The explicit criterion is useful for constructing or excluding placements without exhaustive search.
+Best-of-knowledge PASS: the new claim is the full Pappus-graph basis classification and coefficient polynomial, NOT the already published metric dimension. Bailey gives the known scalar optimum; higher-order biaffine bounds and unrelated resolving polynomials do not imply 18-vertex enumeration. An unindexed instance census remains possible.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Pappus is a canonical smallest exceptional biaffine incidence graph. Explicit all-landmark placement criteria, two geometries of bases, and the full feasibility enumerator are natural exact invariants useful independently of the known minimum. This is exhaustive finite mathematics, not a claim for infinite graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
