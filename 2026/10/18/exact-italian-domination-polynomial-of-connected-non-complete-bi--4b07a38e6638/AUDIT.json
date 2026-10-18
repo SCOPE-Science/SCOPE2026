@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "For every labeling, the first A-class with a zero and last B-class with a zero form a unique frontier pair. Nested neighborhoods and nonnegative labels make every zero on each side defensible iff the one critical opposite-side prefix/suffix has weight >=2. The W=U-V factor enforces presence of a zero in the frontier class; V enforces positive labels outside the frontier; truncation T_2 deletes exactly weight-0 and weight-1 failures. Thus the cell polynomials multiply and partition all valid functions, proving the p(p+1)-term identity for all positive class sizes. Boundary frontiers p+1 and 0 are handled without truncation. Independent brute force checked 793620 actual vertex labelings, 76 profiles and all 1143 frontier cells from the current verify.py file; finite tests do not establish the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shao–Zhao, arXiv:2610.00108v1, abstract and contribution list explicitly provide all-weight algorithms for paths, general trees and cycles and high-weight cycle coefficients, not a closed all-weight formula for arbitrary connected chain graphs.",
+        "Das–Santra, arXiv:2607.15026, abstract describes minimization algorithms for Roman {2} on convex bipartite graphs; minimum costs do not determine the distribution of feasible labelings.",
+        "Padamutham–Palagiri 2020, Section 4 / Theorem 7 addresses the minimum Roman {2} domination number on chain graphs.",
+        "published-finding corpus published complete-multipartite Roman {2} enumerator is an intersecting subfamily (complete bipartite), not a theorem on nested noncomplete bipartite graphs."
+      ],
+      "reasoning": "A general optimization algorithm does not yield exact coefficient counts without a counting-preserving argument. The Shao–Zhao tree algorithm covers the tree subcases but not chain graphs with 4-cycles; the cycle algorithm concerns cycle graphs, not all Ferrers bipartite graphs. A connected graph both complete multipartite and bipartite is complete bipartite, excluded by p>=2. No inspected stronger result mathematically implies the full stated polynomial.",
+      "searches": [
+        "published-finding corpus: \"Italian domination polynomial entire weight distribution complete bipartite graphs, complete multipartite graphs, clique windmills, families\"",
+        "published-finding corpus: \"full distribution Roman 2 dominating functions chain graphs coefficients\"",
+        "Web: \"Roman {2} domination\" \"chain graphs\" polynomial counting functions",
+        "Web: \"Italian domination polynomial\" \"Ferrers graph\"",
+        "arXiv:2610.00108v1; arXiv:2607.15026; DOI:10.1016/j.akcej.2020.01.005"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.00108v1 (accessible HTML abstract and introduction)",
+      "DOI:10.1016/j.akcej.2020.01.005 (published indexed §4/Theorem 7)",
+      "arXiv:2607.15026 (indexed abstract)",
+      "published-finding corpus:2026/10/4/SCOPE-roman-domination-polynomial-of-chain-graphs--e846e0fa619b (published record summary)",
+      "published-finding corpus:2026/10/4/SCOPE-weight-enumerator-of-all-roman-2-dominating-functions-on-complet--4a62f97e627e (published record summary)",
+      "published-finding corpus:2026/10/4/SCOPE-exact-domination-polynomial-of-chain-graphs--f5aba0dd8f21 (published record summary)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2020 theorem computes only gamma_{R2}; two six-vertex noncomplete chain graphs with bipartitions of sizes (3,3) both have minimum Italian weight 4, yet the new exact enumerator has coefficients [x^4] of 4 and 6.",
+        "SCOPE chain-graph Roman polynomial enumerates a proper subset of Italian labelings: two neighbors labeled 1 can defend an Italian zero without satisfying ordinary Roman defense.",
+        "SCOPE complete-multipartite Roman {2} enumeration covers only p=1 within the chain family; class profiles with p>=2 have noncomplete nested adjacency.",
+        "Final close-statement searches additionally surfaced restrained and ordinary domination polynomials on chain graphs; their feasible sets are defined by distinct, binary vertex-set constraints rather than numerical Italian defense labels."
+      ],
+      "reasoning": "The prior minimum values cannot determine every coefficient: the explicit equal-minimum unequal-coefficient pair is a constructive separation. The ordinary Roman polynomial counts a different feasible set, and the complete-multipartite Roman {2} formula covers only the excluded boundary. The new statement therefore does not follow as a special case or reformulation of the closest retrieved mathematical results.",
+      "searches": [
+        "published-finding corpus: \"Italian domination polynomial of chain graphs Ferrers bipartite nested neighborhoods exact enumeration\"",
+        "published-finding corpus: \"Roman domination polynomial of block graphs clique bouquets; full coefficients\"",
+        "Web: \"Complexity of Roman {2}-domination and the double Roman domination in graphs\" chain graphs",
+        "Web: \"Italian domination polynomial\" \"chain graph\"",
+        "published-finding corpus: \"Italian domination polynomial of chain graphs with canonical twin class pairs and nested neighborhoods\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "C. Padamutham and V. S. R. Palagiri, DOI:10.1016/j.akcej.2020.01.005, explicitly equate Roman {2} with the numeric 0/1/2 rule for unlabeled zeros; Section 4 treats only minimum weights on chain graphs.",
+        "published-finding corpus record 2026/10/4/SCOPE-roman-domination-polynomial-of-chain-graphs--e846e0fa619b describes Roman domination (each zero requires a 2-neighbor), whereas Italian also allows two 1-neighbors.",
+        "published-finding corpus record 2026/10/4/SCOPE-weight-enumerator-of-all-roman-2-dominating-functions-on-complet--4a62f97e627e is Italian-equivalent but only for complete multipartite graphs.",
+        "Final close-statement queries returned the standard Roman domination polynomial of chain graphs as nearest match, together with unrelated paired, restrained, ordinary, and total domination enumerators; no displayed Italian chain-graph polynomial was found."
+      ],
+      "reasoning": "Roman {2} and Italian are equivalent for the 0/1/2 numerical defense constraint. Standard Roman, Roman {2}, 2-rainbow and ordinary domination must not be conflated. The matched chain-graph all-weight result is for the stricter standard Roman condition, not the same polynomial. The Roman {2} all-weight result concerns complete multipartite graphs and intersects chain graphs only at complete bipartite graphs (the p=1 boundary); the new theorem requires p>=2.",
+      "searches": [
+        "published-finding corpus: \"Roman {2} domination polynomial Ferrers graph chain graph counted by all weights and 0 1 2 assignments\"",
+        "published-finding corpus: \"2-rainbow domination polynomial chain graphs Ferrers bipartite graphs weighted enumeration\"",
+        "published-finding corpus: \"Italian dominating functions exact coefficient formula bipartite chain graph nested neighborhoods zero frontier\"",
+        "Web: \"Italian domination polynomial\" \"chain graph\"",
+        "Web: \"Roman {2} domination\" \"chain graph\" enumeration",
+        "published-finding corpus: \"Exact Italian domination polynomial for connected chain graphs: first zero A-class, last zero B-class, prefix/suffix weight at least two and p(p+1) product formula\"",
+        "published-finding corpus: \"Ferrers bipartite chain graph all weights Roman {2} domination 0 1 2 assignments generating function zero frontiers\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Shao–Zhao, arXiv:2610.00108v1, reports numerical tables for paths, stars and cycles, not a universal parameterized table for all Ferrers chain graphs.",
+        "Published published-finding corpus Roman {2} complete-multipartite enumerator contains the complete-bipartite p=1 boundary.",
+        "A direct independent exhaustive checker verified 76 class-size profiles and 1143 frontier cells; this is a verification of the new formula, not prior art."
+      ],
+      "reasoning": "The p=1 case and some finite tree instances are covered by previous results and are not claimed as original. The new polynomial gives every coefficient for every p>=2 and arbitrary positive class sizes; a finite example table or the complete-bipartite case does not subsume that statement. Search nonhits are recorded as bounded evidence, not uniqueness proof.",
+      "searches": [
+        "published-finding corpus: \"Italian domination polynomial closed forms all coefficients cycle prism ladder graph\"",
+        "published-finding corpus: \"Roman {2} domination polynomial Ferrers graph chain graph counted by all weights and 0 1 2 assignments\"",
+        "Web: \"Italian domination polynomial\" \"chain graphs\" polynomial",
+        "Web: \"Roman {2} domination generating polynomial chain graphs 2026\""
+      ]
+    },
+    "rationale": "The new full Italian/Roman {2} chain-graph polynomial is not mathematically implied by the available primary all-weight algorithms on trees/cycles, previously published chain-graph minimum formulas, ordinary Roman polynomial on chain graphs, or Roman {2} enumeration on complete multipartite graphs. The same-graph standard Roman invariant is strictly more restrictive, and the same-invariant complete-multipartite result intersects the chain class only at excluded p=1. The nearby sources were searched by graph aliases and invariant equivalences. Source-access and priority uncertainty remains explicit, without treating a search miss as proof.",
+    "residual_risks": [
+      "Possible equivalent full enumerator in unindexed literature using Ferrers/chain/bipartite ordering terminology.",
+      "Shao–Zhao deeper full-text sections and the complete Padamutham–Palagiri PDF could not be inspected; indexed content has narrower stated claims.",
+      "Published published-finding corpus record summaries were compared at the level of their documented implications; full repository files were not inspected."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The inspected algorithms and stated scope are paths, trees and cycles, not a chain-graph all-weight closed formula.",
+        "evidence": [
+          "arXiv:2610.00108v1, 2026-09-09, abstract and §1.2; HTML lines 59–109 in the accessible page."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.00108",
+        "material_read": "Accessible full-text HTML excerpt: abstract, Section 1 introduction, related-work survey, statement of contributions, and complete table of contents; subsequent deep-page fetches returned an access error.",
+        "method": "Open-access HTML inspection, not a claim to full-document review or PDF reading.",
+        "title": "Counting Weight-k Italian Dominating Sets on Trees and Cycles",
+        "trigger": "Same 0/1/2 domination counting invariant and first-public date in the recent range."
+      },
+      {
+        "assessment": "The inspected statements determine only minimum cost, with no all-weight generating function. Full-text priority beyond indexed material remains a residual risk.",
+        "evidence": [
+          "DOI:10.1016/j.akcej.2020.01.005, §4/Theorem 7, 2020; published HTML index."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.akcej.2020.01.005",
+        "material_read": "Abstract, indexed Section 4 chain-graph discussion and the text of Theorem 7 with its optimization formula; full OA publisher page and PDF returned access errors.",
+        "method": "Indexed published HTML/search excerpt, partial inspection only; the full article was not accessible.",
+        "title": "Complexity of Roman {2}-domination and the double Roman domination in graphs",
+        "trigger": "Exact same Italian/Roman {2} defense condition on chain graphs, so minimum formulas may subsume part of the claim."
+      },
+      {
+        "assessment": "Different invariant: ordinary Roman defense requires a label-two neighbor for a zero, so its polynomial is not the Italian polynomial.",
+        "evidence": [
+          "Published record ID 2026/10/4/SCOPE-roman-domination-polynomial-of-chain-graphs--e846e0fa619b."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-roman-domination-polynomial-of-chain-graphs--e846e0fa619b",
+        "material_read": "Published semantic record title and full summary returned by the published-finding corpus index; repository body not opened.",
+        "method": "Published record search, not full-paper inspection.",
+        "title": "Roman domination polynomial of chain graphs",
+        "trigger": "Same graph family, a similarly named full weight polynomial."
+      },
+      {
+        "assessment": "Covers complete bipartite chains p=1 only; it cannot imply a chain-graph formula with p>=2.",
+        "evidence": [
+          "Published record ID 2026/10/4/SCOPE-weight-enumerator-of-all-roman-2-dominating-functions-on-complet--4a62f97e627e."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-weight-enumerator-of-all-roman-2-dominating-functions-on-complet--4a62f97e627e",
+        "material_read": "Published semantic record title and full summary returned by the published-finding corpus index; repository body not opened.",
+        "method": "Published record search, not full-paper inspection.",
+        "title": "Weight enumerator of all Roman {2}-dominating functions on complete multipartite graphs",
+        "trigger": "Same invariant and potentially stronger graph-family enumeration."
+      },
+      {
+        "assessment": "Broader algorithmic graph domain but a weaker mathematical output (extremal weight only), not an all-weight formula.",
+        "evidence": [
+          "arXiv:2607.15026, 2026-07-16, abstract."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.15026",
+        "material_read": "Bibliographic abstract specifying Roman {2} minimum-weight DP, not a generating polynomial; full HTML was unavailable.",
+        "method": "Indexed abstract inspection.",
+        "title": "Roman-Type Domination on Convex and Chordal Bipartite Graphs: Algorithms and Hardness",
+        "trigger": "Convex bipartite optimization is a potentially broader graph class containing chain graphs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4b07a38e-6638-46d6-b479-e435c742cf1e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating recent work explicitly studies all-weight Italian domination, while previous chain-graph results give minimum values only. The new theorem is a complete natural-family weight distribution for arbitrary Ferrers/twin-class profiles, expressed by an explicit p(p+1) frontier decomposition and factored polynomial products rather than exponential enumeration. It distinguishes graphs with the same bipartition cardinalities and identical minimum Italian weight (six-vertex examples yield 4 versus 6 weight-four functions), giving genuine information beyond the prior optimum. This is an infinite-class exact enumerator with plausible use for counting feasible defense placements, not an arbitrary finite parameter slice or a formal substitution.",
+    "status": "PASS"
+  }
+}
