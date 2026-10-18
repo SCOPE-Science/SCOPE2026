@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T07:06:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For k,m>=1 set r=k+1, f=(1-x^2)^m, p_minus=sum_{j odd} binom(m,j)x^{2j}, p_plus=sum_{j even,j>=2}binom(m,j)x^{2j}. The radical-square-zero E-bimodule matrix N=p_plus I+p_minus(J-I) has nonnegative coefficients, no degree-zero radical and m positive degree-two arrows between every different pair, hence a connected finite-dimensional graded algebra. Its Cartan matrix I+N=f I+p_minus J is rationally similar to diagonal(f+r p_minus,f,...,f). At x=1+t the first factor has nonzero constant r*2^(m-1), remaining k factors have t-adic order exactly m, so Euler inverse has Smith profile (-m repeated k,0). This uses Q[[t]] for graded dimensions, independent of base-field characteristic. Independent symbolic matrix and determinant checks were performed at k,m=(1,1),(2,2),(3,3),(4,2).",
+      "risk": [
+        "Small symbolic examples are corroboration, not the two-parameter proof; exact rational decomposition supplies the uniform theorem."
+      ],
+      "sources": [
+        "Assigned full RESULT.md",
+        "arXiv:2609.35248v1 Sec.2 and Sec.4.2: square-zero Euler inversion framework",
+        "independent1613_checks.py: Sympy exact factorization and determinant checks"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kaygun Theorem 4.2 realizes every integer profile via products of one-vertex algebras; Sec4.2 explicitly identifies connected realization as residual structure."
+        ],
+        "reasoning": "Arbitrary disconnected product realization is not a connected ring-indecomposable radical-square-zero realization, and the older Calabi-Yau nonnegative setting is different.",
+        "searches": [
+          "arXiv:2609.35248 Theorem 4.2 Complete realization",
+          "arXiv:2608.14057 local Smith profiles twisted CY"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.35248 full HTML Sec.4.1–4.2",
+        "arXiv:2608.14057 abstract/framework",
+        "Resultary semantic: Kaygun connected square-zero Euler Smith arbitrary depth"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior connected families give k=1 or m=1; common shifts preserve differences between entries, and product realizations sacrifice connectedness.",
+          "Current construction f=(1-x^2)^m directly yields arbitrary m on a k-dimensional sum-zero eigenspace while keeping complete off-diagonal radical support."
+        ],
+        "reasoning": "The new formula fills an independent two-parameter grid which is not a corollary of the prior constructions as stated.",
+        "searches": [
+          "Kaygun arXiv:2609.35248 Proposition 4.1, Theorem 4.2, Sec.4.2",
+          "Full source 2026-09-28 revision"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kaygun full HTML Sec.4.2 lines 179–200: negative depth m with k=1; multiplicity k with m=1; isolated (2,2)."
+        ],
+        "reasoning": "Equivalent local Cartan Smith statement has k factors vanishing to order m and one unit. Source gives only one-parameter axes and a single interior example.",
+        "searches": [
+          "Signed Euler–Smith connected (-m,...,-m,0) any k,m",
+          "arXiv:2609.35248 Sec. 4.2 connected realizations",
+          "Cartan Smith exponents (0,m repeated k) radical square zero complete graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Semantic index hits addressed unrelated Euler-geometry or matrix problems; motivating full source gives only two axes plus (2,2)."
+        ],
+        "reasoning": "No inspected database table contains the complete two-parameter connected family.",
+        "searches": [
+          "Resultary semantic: Kaygun connected square zero Euler Smith profiles equal negative multiplicities arbitrary depth",
+          "arXiv:2609.35248 Sec.4.2",
+          "signed Smith profile negative constant multiplicity grid"
+        ]
+      },
+      "rationale": "PASS best of knowledge after direct full Section 4 primary comparison: Kaygun Section 4.2 supplies connected square-zero (-m,0) for all m, (-1 repeated k,0) for all k and one isolated (-2,-2,0) example, but no construction across arbitrary k and m simultaneously. Kaygun Theorem 4.2 realizes every tuple generally by direct products, explicitly leaving connected realization as a separate problem. The new nonnegative matrix f I+p_minus J supplies the missing coupled parameter grid, rather than a shift or product.",
+      "residual_risks": [
+        "This mathematical setup is very recent; contemporaneous unindexed reuse of the classical f I+gJ matrix construction may exist.",
+        "No absolute historical-priority certification is possible, although the closest relevant full source was read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_WEAKER",
+          "evidence": "Theorem 4.2 unrestricted product realizations; Sec4.2 connected (-m,0), (-1^k,0) and (-2,-2,0) but not arbitrary simultaneous k,m.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.35248",
+          "material_read": "Full accessible arXiv rendered HTML, especially Sec. 4.1 complete realization and Sec. 4.2 connected square-zero constructions lines 168–200.",
+          "method": "ArXiv full HTML via web tool; direct theorem-by-theorem comparison; text visible despite failed /html URL.",
+          "title": "Signed Euler–Smith Profiles of Graded Algebras",
+          "trigger": "Exact same profile notion and original motivating source"
+        },
+        {
+          "assessment": "DIFFERENT_SETTING",
+          "evidence": "Twisted CY framework with nonnegative local Smith exponents, not connected square-zero negative realization grid.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.14057",
+          "material_read": "Prior arXiv abstract and scope as identified by author/source, not a full-paper negative reading.",
+          "method": "Abstract and source cross-reference comparison.",
+          "title": "Local Smith Profiles of Twisted Calabi–Yau Algebras",
+          "trigger": "Potential stronger local-Smith theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: the motivating paper explicitly names connected realization as the substantive structured problem once unrestricted realization is settled. Prescribing multiplicity k and negative depth m independently while keeping radical square-zero, connectedness, and arbitrary characteristic is a motivated two-parameter structural construction, not a common-shift substitution.",
+      "risk": [
+        "Only equal negative entries and one terminal zero; neither arbitrary mixed profiles nor minimality of vertex/radical size is claimed."
+      ],
+      "sources": [
+        "Kaygun arXiv:2609.35248 Sec.4.2",
+        "Assigned RESULT.md"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Positive integers k,m only, arbitrary base field; Smith arithmetic performed over rational formal series.",
+    "No general connected realization of arbitrary mixed profiles.",
+    "Institutional download tool call was safety-blocked; the exact same primary paper was nevertheless read through accessible full arXiv rendered HTML, with no access bypass."
+  ],
+  "schema_version": 1
+}
