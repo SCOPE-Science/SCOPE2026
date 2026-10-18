@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** A direct root–leaf state classification proves that total forcing is equivalent to avoiding isolated selected roots and trapped alternating paths. The finite-state transfer counts exactly these cyclic words, except for four falsely closed alternating walks on even cycles. Exact symbolic characteristic-polynomial computation and a formal trace identity give the claimed generating function; a componentwise alternating-path injection gives the sharp lower bound \(n\). The independent direct graph simulation checks 87,360 initial subsets across six lengths, and separate state-peeling checks extend through length eleven. The finite computations corroborate but do not replace the general proof.
+## correctness
 
-**Originality — PASS, with residual risk.** The 2017 total-forcing paper defines and studies the scalar invariant; the 2018 tree paper treats path covers, and the 2018 zero-forcing polynomial paper counts a different (non-total) set family. The 2023 sunlet paper computes ordinary \(k\)-forcing minima, not all total-forcing sets. The 2025 unicyclic study focuses on equality of scalar invariants and is later than the originating source; its abstract and available article metadata were inspected. None of these statements implies the full sunlet cardinality enumerator. Published mathematical-record searches and earlier claims in the same research series identified no equivalent. The possibility of an unindexed or implicit result persists; source absence is not a proof of worldwide novelty.
+PASS
 
-**Value — PASS.** The theorem determines the all-size total-forcing distribution of the standard infinite family of sunlet graphs, rather than merely their minimum. The resulting exact rational generating function and compact recurrence expose a tractable combinatorial structure for a natural unicyclic graph family. The correction at even orders records a genuine cyclic forcing obstruction, rather than a routine parameter substitution.
+Initial selected root/leaf patterns A=(both blue), B=(root only), D=(neither) have weights z²,z,1. Totality prohibits cyclic DBD. White D roots can be forced exactly when each maximal alternating A–D path containing D has an A endpoint; fully alternating even cycles are blocked. A 15-state (previous,current,starting-tag) transfer with explicit local rules counts precisely feasible words except four false persistent-tag cycles on even n. Its exact 15×15 characteristic polynomial is lambda^10[lambda^5−(z+z²)lambda^4−2z²lambda^3+z⁴lambda²+z⁵]; Newton/trace identity yields rational form. Each permitted alternating component has at least as many As as Ds, so size 2a+b=n+a−d≥n; all B realizes n. Independently simulated graph-theoretic total-zero-forcing for every initial subset on n=3..7 and compared all polynomial coefficients against recurrence including even correction; all agreed. Characteristic identity in inspected verification code uses exact integer-polynomial Newton identities, not floating interpolation.
 
-**Closest literature and limits.** Davila–Henning (2017, 2018) provide fundamental total-forcing number theory; Banot–Baldado (2023) treats sunlet \(k\)-forcing; Boyer et al. (2018) treats non-total zero-forcing polynomials; Li–Ji (2025) addresses unicyclic scalar equalities. No claim is made about general coronas, general unicyclic graphs, or public novelty certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original contribution after comparing mathematical implications rather than title matching. Known basic total forcing condition gives definitions, scalar bounds; the all-weight rational series requires new admissibility classification. Neither ordinary zero-forcing nor scalar k-forcing data directly implies it. No absolute novelty certification; see specific full-text access risks.
+
+## value
+
+PASS
+
+The sunlet is the standard infinite unicyclic corona family, and full distribution of feasible initial forcing sets is more informative than scalar total-forcing number. Fifteen-state transfer and a genuine even-cycle correction expose a structural cyclic obstruction and allow exact all-size counts; not a mechanical specialization of ordinary zero-forcing polynomials.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
