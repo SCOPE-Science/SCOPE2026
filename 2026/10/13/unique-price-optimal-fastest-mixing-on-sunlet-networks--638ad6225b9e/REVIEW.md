@@ -1,19 +1,21 @@
-# Scientific assessment: price-optimal mixing on sunlet networks
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof derives the two-by-two Fourier blocks of the ordinary weighted Laplacian, with the smallest nonzero cycle eigenvalue \(4\sin^2(\pi/n)\). A sharp product constraint and arithmetic-geometric mean solve the symmetric budget problem with equality conditions; concavity of the Fiedler eigenvalue then promotes the sharp bound to all allocations. Equality of two first-harmonic Rayleigh quotients at an arbitrary optimizer forces every pendant conductance and both neighboring cycle conductances to equal their symmetric values, proving uniqueness. All parameters require \(n\ge3\), \(t>0\); disconnected boundary allocations have gap zero. The asymptotics follow from the exact formula. The standalone checker supplies exact rational identities and finite matrix comparisons but is not an infinite proof.
+PASS
 
-## Originality — PASS with remaining historical risk
+The continuous-time unnormalized Laplacian gap lambda_2 is concave in nonnegative edge conductances, so rotational averaging shows a symmetric optimum exists. With pendant a, rim b, Fourier mode k has 2x2 matrix [[a+b mu_k,-a],[-a,a]]. The minimum positive mode is mu=4sin^2(pi/n), and gap h=a+mu b/2-sqrt(a^2+(mu b/2)^2). An AM-GM price lower bound for gap r yields n(ta+b)>=n r(t+2/mu+2sqrt(t/mu)); at budget1 equality forces all a=R(1+1/sqrt(mu t)), all b=R(2+sqrt(mu t))/mu with R=mu/[n(2+mu t+2sqrt(mu t))]. For arbitrary maximizing edge allocation, cosine and sine Fiedler modes of its rotational average must be eigenvectors of each rotation: leaf equations force all pendant weights; independent consecutive chord vectors for n>=3 force all rim weights. This establishes global uniqueness, including n=3. mu~4pi^2/n^2 gives all asymptotic scalings. Independent full 2n-by-2n Laplacian eigenspectra at n=3,4,5,7 and prices t=.2,1,3.7 (12 cases) reproduce exact predicted gap within 1e-10; finite numerics do not establish global optimality.
 
-Göring–Helmberg–Wappler (2005) develops general algebraic-connectivity/embedding duality; Sun–Boyd–Xiao–Diaconis (2006) gives the general fastest mixing Markov process optimization and closed forms for paths and plain cycles. Wan et al. (2008) give structural design theorems, especially for trees; the sunlet is unicyclic. Liu–Shao (2022) treats signless and normalized spectra of prescribed weighted corona graphs, not price-optimal ordinary-Laplacian allocation. Du–Zhu–Gao–Li (2022) derive a fixed-weight ordinary-Laplacian characteristic polynomial and analyze coherence rather than optimizing spectral gap by prices. These stronger general algorithms and adjacent spectral formulas were compared at the statement and objective levels. The reviewed materials did not state this arbitrary-price sunlet optimum or its uniqueness under all individual edge variations. Unindexed historical specializations and incomplete accessibility to some material are residual risks; this is not a certification of worldwide novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The problem is a natural resource design on a ring with terminal users, where retaining and strengthening both ring and pendant links competes for one budget. The theorem gives a global, unique all-edge allocation, an exact value, a proof that price alone never deletes edges in this family, and the network-size/price crossover. It avoids numerical semidefinite optimization for an infinite graph family. This is more than a fixed-weight spectral-table entry or a routine finite enumeration.
+Sun–Boyd–Xiao–Diaconis 2006 solves general fastest mixing Markov-process edge-rate design as an SDP and explicitly solves pure cycles, which is a general algorithmic framework but not a closed price-dependent sunlet optimum with complete uniqueness over all individual edges. Weighted corona Laplacian articles compute spectra/coherence for fixed weights, not solve this constrained optimization. The contribution is explicit full sunlet solution, not discovering SDP/concavity/Fourier eigenvalues.
 
-## Scope and limitations
+## value
 
-The result assumes symmetric continuous-time rates, uniform stationary masses, exactly one pendant per cycle vertex, two within-orbit price classes, and a linear budget. Discrete-time mixing and other attachment graphs are not addressed. Independent validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Under a natural two-orbit linear conductance-cost budget, the exact fastest-mixing network and its unique edge allocation quantify a meaningful resource tradeoff; n^-3 optimal gap and t~n^2 crossover are usable benchmark laws for graph design.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

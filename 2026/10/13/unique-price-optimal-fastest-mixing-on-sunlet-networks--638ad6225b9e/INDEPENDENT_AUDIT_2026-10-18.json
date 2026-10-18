@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T13:15:38Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The continuous-time unnormalized Laplacian gap lambda_2 is concave in nonnegative edge conductances, so rotational averaging shows a symmetric optimum exists. With pendant a, rim b, Fourier mode k has 2x2 matrix [[a+b mu_k,-a],[-a,a]]. The minimum positive mode is mu=4sin^2(pi/n), and gap h=a+mu b/2-sqrt(a^2+(mu b/2)^2). An AM-GM price lower bound for gap r yields n(ta+b)>=n r(t+2/mu+2sqrt(t/mu)); at budget1 equality forces all a=R(1+1/sqrt(mu t)), all b=R(2+sqrt(mu t))/mu with R=mu/[n(2+mu t+2sqrt(mu t))]. For arbitrary maximizing edge allocation, cosine and sine Fiedler modes of its rotational average must be eigenvectors of each rotation: leaf equations force all pendant weights; independent consecutive chord vectors for n>=3 force all rim weights. This establishes global uniqueness, including n=3. mu~4pi^2/n^2 gives all asymptotic scalings. Independent full 2n-by-2n Laplacian eigenspectra at n=3,4,5,7 and prices t=.2,1,3.7 (12 cases) reproduce exact predicted gap within 1e-10; finite numerics do not establish global optimality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun et al. full paper formulates general optimal-rate SDP and characterizes pure cycles (Sec 5.3); Du weighted corona characteristic polynomial handles fixed weighted spectra, not price-design uniqueness."
+        ],
+        "reasoning": "A general exact SDP characterization is not the same as explicit analytic all-n,t optimum and optimizer rigidity for a sunlet; if an older symmetry-reduced SDP solution exists, that would be a priority risk.",
+        "searches": [
+          "Sun et al. 2006 SIAM Review DOI:10.1137/S0036144504443821",
+          "Du et al. 2022 Frontiers Physics DOI:10.3389/fphy.2022.948247",
+          "Wan et al. CDC 2008 DOI:10.1109/CDC.2008.4738734"
+        ]
+      },
+      "checked_sources": [
+        "Sun et al. 2006 full PDF DOI:10.1137/S0036144504443821, §1 & §5.3",
+        "Du et al. 2022 DOI:10.3389/fphy.2022.948247",
+        "Wan et al. 2008 DOI:10.1109/CDC.2008.4738734 (bibliographic only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sun et al. Eq(1) exactly general FMMP and Sec5.3 optimal ordinary cycles, no pendant or sunlet section; Du gives fixed-weight corona characteristic polynomial/coherence."
+        ],
+        "reasoning": "Sun et al. supplies the optimization setup and dual certificates, but not closed sunlet R_n(t) nor uniqueness of asymmetric conductances. Fourier + equality proof is substantive specialization beyond direct table lookup.",
+        "searches": [
+          "Sun et al. 2006 Sec1,4,5.3",
+          "Du et al. 2022 fixed weighted corona networks"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Symmetric continuous-time FMMP maximizes unnormalized weighted Laplacian lambda2 at linear edge budget. Sunlet = corona C_n odot K_1."
+        ],
+        "reasoning": "The source and prior use same objective under different graph descriptors, but the closed sunlet case is not a relabeling of the solved pure-cycle model.",
+        "searches": [
+          "sunlet weighted algebraic connectivity optimal edge conductances pendant cycle fastest mixing",
+          "\"sunlet\" \"optimal algebraic connectivity\" cost pendant rim",
+          "Sun et al. 2006 fastest mixing Markov process"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fixed-weight eigenvalue formulas and numerical SDP algorithms can calculate individual samples, but no n/t closed table or all-individual-edge uniqueness appears in inspected material."
+        ],
+        "reasoning": "Numerical solver output for fixed n/t would not classify all rates; absence of a tabulation is not proof of historical originality.",
+        "searches": [
+          "sunlet weighted algebraic connectivity optimal edge conductances pendant cycle fastest mixing",
+          "weighted corona sunlet Laplacian spectral numerical tables"
+        ]
+      },
+      "rationale": "Sun–Boyd–Xiao–Diaconis 2006 solves general fastest mixing Markov-process edge-rate design as an SDP and explicitly solves pure cycles, which is a general algorithmic framework but not a closed price-dependent sunlet optimum with complete uniqueness over all individual edges. Weighted corona Laplacian articles compute spectra/coherence for fixed weights, not solve this constrained optimization. The contribution is explicit full sunlet solution, not discovering SDP/concavity/Fourier eigenvalues.",
+      "residual_risks": [
+        "The full earlier graph-edge-design structural theory may contain an implicit sunlet exact optimum; not exhaustively excluded.",
+        "The assertion is ordinary Laplacian continuous-time with uniform stationary weights, not normalized gap or discrete-time mixing.",
+        "No simultaneous nonuniform within-orbit prices, heterogeneous vertex masses, or arbitrary coronas."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS general FMMP and cycle optimality, not sunlet price-optimal unique individual weights",
+          "evidence": "Eq(1) general optimization; Sec5.3 states pure cycle solution; neither the graph nor price-dependent sunlet formula appears.",
+          "identifier_or_url": "DOI:10.1137/S0036144504443821; https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "material_read": "Complete 19-page publicly available primary PDF, including §1–§5.3 and explicit cycle solution",
+          "method": "Read full text and visually inspected SDP optimality section; searched sunlet, pendant, cycle",
+          "title": "Sun, Boyd, Xiao, and Diaconis, The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "Identical Laplacian optimization with linear price constraint, potentially dominating theorem"
+        },
+        {
+          "assessment": "NOT covering explicit budget-constrained global optimum or uniqueness",
+          "evidence": "Characteristic polynomial/coherence for weighted corona, no optimizer price t classification.",
+          "identifier_or_url": "DOI:10.3389/fphy.2022.948247",
+          "material_read": "Open-access primary article text and its Laplacian/coherence results inspected in literature research; fixed-weight theorem focus",
+          "method": "Compare spectral statements to budget optimization",
+          "title": "Du, Zhu, Gao, and Li, Consensus analysis of weighted corona networks",
+          "trigger": "Sunlet is a cycle-with-leaves graph corona; possible spectral domination"
+        },
+        {
+          "assessment": "NOT FULLY ASSESSED; do not declare unread structural results noncovering",
+          "evidence": "The sunlet has a cycle and repeated Fiedler eigenvalue; source focuses especially on trees.",
+          "identifier_or_url": "DOI:10.1109/CDC.2008.4738734",
+          "material_read": "Primary bibliographic description only, no full text obtained",
+          "method": "Risk-specific comparison of tree versus unicyclic sunlet conditions",
+          "title": "Wan et al., On the Structure of Graph Edge Designs that Optimize the Algebraic Connectivity",
+          "trigger": "Structural graph edge design may imply uniqueness"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Under a natural two-orbit linear conductance-cost budget, the exact fastest-mixing network and its unique edge allocation quantify a meaningful resource tradeoff; n^-3 optimal gap and t~n^2 crossover are usable benchmark laws for graph design.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The full earlier graph-edge-design structural theory may contain an implicit sunlet exact optimum; not exhaustively excluded.",
+    "The assertion is ordinary Laplacian continuous-time with uniform stationary weights, not normalized gap or discrete-time mixing.",
+    "No simultaneous nonuniform within-orbit prices, heterogeneous vertex masses, or arbitrary coronas."
+  ],
+  "schema_version": 1
+}
