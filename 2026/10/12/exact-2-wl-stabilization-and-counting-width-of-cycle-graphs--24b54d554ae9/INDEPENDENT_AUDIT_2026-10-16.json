@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T00:08:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At atomic round 0 the ordered-pair colors of C_n distinguish distances 0,1 and collect >=2 as one class. In round r, all d<=2^r are individually separated while all d>2^r are one far class; exact-exact intermediate-pair witnesses distinguish fresh distances up to 2^(r+1), and for d>2^(r+1) only exact-far, far-exact and far-far counts occur with constant multiplicities by cycle distance symmetry. A far class of cardinality one means stable, yielding r=min{r:floor(n/2)<=2^r+1}; 0 for 3<=n<=5. The C^2 lower bound n>=6 follows because C_n and C_3 disjoint union C_(n-3) have equal order and constant one-dimensional color refinement; C^3 expresses fixed-size connectivity by recursively reusing three variables, and degree 2 and cardinality specify C_n. Independently implemented entire tuple-level refinement for n=3..18, totaling 47 rounds, including distance partitions; all match the formula.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kluge Theorem 1: at most O(d(n)log n) iterations for all n-vertex circulants.",
+          "Pikhurko–Verbitsky discusses k-variable counting equivalence, global logical-complexity bounds and graph classes; inspected sections do not give isolated cycles' exact stabilization-round formula."
+        ],
+        "reasoning": "The larger classes include C_n but statements bound rather than determine exact r. General WL–logic correspondence is a tool, not a stronger closed-form cycle result.",
+        "searches": [
+          "Kluge Combinatorial refinement on circulant graphs arXiv 2204.01054 Theorem 1",
+          "Pikhurko Verbitsky Logical complexity of graphs survey arXiv 1003.4865"
+        ]
+      },
+      "checked_sources": [
+        "L. Kluge, Combinatorial refinement on circulant graphs, arXiv:2204.01054/Theorem 1 and Section 3.2.",
+        "O. Pikhurko and O. Verbitsky, Logical Complexity of Graphs: A Survey, arXiv:1003.4865/sections 3–5.",
+        "Resultary published search 2-dimensional Weisfeiler Leman stabilization exact number of rounds cycle graph C_n distance doubling counting logic width C2 C3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An upper bound of O(d(n) log n) cannot imply ceil(log2(floor(n/2)-1)) with exact round shift.",
+          "Counting width >=3 for n>=6 uses a concrete same-order 2-regular rival; <=3 uses bounded-distance formulas, not directly a corollary of the generic 2-WL stabilization upper bound."
+        ],
+        "reasoning": "The exact formula is not obtained by numerical substitution into the broader bound. The C^2/C^3 argument is elementary and may well be a known folklore corollary; retained as priority risk.",
+        "searches": [
+          "Kluge Theorem 1 and Section 3.2 exact group ring stabilization",
+          "Pikhurko Verbitsky counting logic equivalence and treewidth"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kluge Theorem 1 gives a big-O, whereas the audited stabilization number depends exactly on floor(n/2) and atomic-round convention."
+        ],
+        "reasoning": "Kluge does not state this exact equality; the counting-width 2/3 transition is not the same as its 2-WL running-time theorem.",
+        "searches": [
+          "2-dimensional Weisfeiler Leman stabilization exact number of rounds cycle graph C_n distance doubling counting logic width C2 C3",
+          "Pikhurko Verbitsky Logical complexity of graphs survey C2 cycles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Kluge displays a particular 9-vertex circulant example with connection set {1,3,6,8}, not the degree-two C_n family.",
+          "No explicit sequence of 2-WL exact stabilization numbers for all n found in primary literature or Resultary matches."
+        ],
+        "reasoning": "A finite table of instances could not prove the all-n metric doubling; no covering published exact table was found.",
+        "searches": [
+          "2-dimensional Weisfeiler Leman stabilization exact number of rounds cycle graph C_n distance doubling counting logic width C2 C3",
+          "arXiv 2204.01054 cycle Weisfeiler round examples"
+        ]
+      },
+      "rationale": "Primary Kluge circulant 2-WL theorem is O(d(n) log n), not an exact isolated-cycle formula; the Pikhurko-Verbitsky survey establishes logic/WL correspondences without the exact simultaneous cycle round formula. The explicit distance-class doubling and sharp 0/logarithmic transition are distinct from broad complexity upper bounds. Folklore distance-refinement observations remain an explicit priority risk.",
+      "residual_risks": [
+        "The metric-doubling argument and C^2 2-regular rival are short enough to be known folklore/lecture-note results; no exhaustive absence claim is made.",
+        "The mathematical claim applies only to standard ordered-pair classical 2-WL initialization; different initial color and round-count conventions shift the number.",
+        "Standalone script is at artifacts/verify.py, not the record root; it was located and inspected from the actual Git tree."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BROAD_BUT_NOT_EXACT: proved O(d(n)log n), no exact pure-cycle round formula located",
+          "evidence": [
+            "Theorem 1 (PDF p.2): O(d(n)log n) for circulants; group-ring proof on PDF pp.10-12."
+          ],
+          "identifier_or_url": "arXiv:2204.01054; https://arxiv.org/pdf/2204.01054",
+          "material_read": "Parsed 20-page lawful PDF; examined Introduction and Theorem 1, Section 3.2/Theorem 26 statement and proof, illustrative examples, full-text cycle search; PDF p.3 image checked",
+          "method": "Lawful arXiv full PDF and page image",
+          "title": "Combinatorial refinement on circulant graphs",
+          "trigger": "Exact same 2-WL method, larger circulant graph class"
+        },
+        {
+          "assessment": "BACKGROUND_ONLY: general counting-variable theory, not an exact cycle pair-color stabilization law",
+          "evidence": [
+            "Survey Sections 3–5 explain counting pebble-game / WL correspondence and graph-specific complexity bounds."
+          ],
+          "identifier_or_url": "arXiv:1003.4865; https://arxiv.org/pdf/1003.4865",
+          "material_read": "Parsed full 57-page PDF; inspected counting-WL equivalences, bounded-width expressivity and cycle-related passages using full-text queries",
+          "method": "Lawful arXiv full PDF text",
+          "title": "Logical Complexity of Graphs: A Survey",
+          "trigger": "Counting-variable widths and WL round conventions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Cycles are the most natural connected 2-regular graphs, on which one-dimensional refinement cannot extract vertex information. The exact two-dimensional stabilization complexity benchmarks propagation of geodesic distances within the important circulant class and relates round complexity to the first finite-order failure of two-variable graph identification. It is an all-n structural formula, not an arbitrary tiny case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only finite undirected simple cycles and standard atomic pair initial colors; not a uniform single first-order definition of all cycles.",
+    "Finite direct tests end at n=18 independently (source script checks farther); the all-n result follows from the induction, not experimental extrapolation."
+  ]
+}

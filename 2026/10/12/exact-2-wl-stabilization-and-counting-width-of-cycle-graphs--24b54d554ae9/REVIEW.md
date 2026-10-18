@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Dihedral symmetry reduces each pair color to its cycle distance. The inductive refinement calculation shows that after round \\(r\\), distances through \\(2^r\\) are individually separated and all larger distances share one far color. A pair farther than \\(2^{r+1}\\) has no intermediate vertex simultaneously close to both endpoints, while every distance at most \\(2^{r+1}\\) acquires an exact--exact witness, yielding the sharp doubling step. Stability is therefore equivalent to \\(\\lfloor n/2\\rfloor\\le2^r+1\\). The counting-width lower bound for \\(n\\ge6\\) uses the same-order 2-regular rival \\(C_3\\dot\\cup C_{{n-3}}\\), which one-dimensional WL cannot distinguish; the upper bound uses exact order, degree two, and fixed-order connectedness with three variables. Direct computation independently checks the pair-refinement formula through order 60.
+## correctness
 
-## Originality
-PASS with residual priority risk. The 2010/2011 survey supplies the stabilization and logic correspondences but no exact isolated-cycle round formula was located in the inspected material. Kluge's 2022/2024 paper directly studies 2-WL round complexity on all circulant graphs and proves an \\(O(d(n)\\log n)\\) bound, but its abstract, introduction, theorem statement, and targeted cycle searches did not state the exact degree-two specialization. Kiefer--Neuen 2022 studies stable 2-WL colors on planar graphs and includes cycle structures without presenting this round count in the inspected text. Targeted published-finding corpus searches found no semantically matching cycle-WL stabilization or counting-width finding. A folklore or weakly indexed occurrence remains possible.
+PASS
 
-## Value
-PASS. Cycles are the basic connected regular graphs on which one-dimensional WL is completely inert, while two-dimensional WL succeeds by propagating metric information. The exact formula isolates that mechanism quantitatively: one 2-WL round doubles the resolved radius, giving a clean all-orders benchmark inside the broader circulant round-complexity theory. The width transition at \\(n=6\\) simultaneously marks the first order at which regularity and cardinality cease to characterize a cycle in two-variable counting logic.
+At atomic round 0 the ordered-pair colors of C_n distinguish distances 0,1 and collect >=2 as one class. In round r, all d<=2^r are individually separated while all d>2^r are one far class; exact-exact intermediate-pair witnesses distinguish fresh distances up to 2^(r+1), and for d>2^(r+1) only exact-far, far-exact and far-far counts occur with constant multiplicities by cycle distance symmetry. A far class of cardinality one means stable, yielding r=min{r:floor(n/2)<=2^r+1}; 0 for 3<=n<=5. The C^2 lower bound n>=6 follows because C_n and C_3 disjoint union C_(n-3) have equal order and constant one-dimensional color refinement; C^3 expresses fixed-size connectivity by recursively reusing three variables, and degree 2 and cardinality specify C_n. Independently implemented entire tuple-level refinement for n=3..18, totaling 47 rounds, including distance partitions; all match the formula.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Primary Kluge circulant 2-WL theorem is O(d(n) log n), not an exact isolated-cycle formula; the Pikhurko-Verbitsky survey establishes logic/WL correspondences without the exact simultaneous cycle round formula. The explicit distance-class doubling and sharp 0/logarithmic transition are distinct from broad complexity upper bounds. Folklore distance-refinement observations remain an explicit priority risk.
+
+## value
+
+PASS
+
+Cycles are the most natural connected 2-regular graphs, on which one-dimensional refinement cannot extract vertex information. The exact two-dimensional stabilization complexity benchmarks propagation of geodesic distances within the important circulant class and relates round complexity to the first finite-order failure of two-variable graph identification. It is an all-n structural formula, not an arbitrary tiny case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
