@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "For every nonsingular real A and residual r with r,Ar independent, the TGA(1;1,0) prolongation spans exactly span{r,Ar}; its presmoothed affine space is therefore identical to the length-two Krylov affine space. Positive definiteness of P^T A^T A P provides a unique least-squares correction. Expansion gives det(G)=omega^6(uw-v^2), trace(G)=omega^2(2u-2omega v+omega^2 w); the scalar trace/sqrt(det) is sqrt(kappa)+1/sqrt(kappa) and has an exact nonnegative completed-square penalty w(omega-omega_star)^2/(omega sqrt(Delta)). This proves uniqueness, equality condition, and omega^-2/omega^2 asymptotics. The decoded standalone checker performs 1,242 assertions on 23 explicit 3x3 matrices; no finite experiment is treated as universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2109.14181 analyzes relationships of Anderson acceleration with Krylov methods without the later TGA(1) two-residual extension.",
+        "arxiv:2211.12953 develops general least-squares column filtering and conditioning safeguards, but does not compute the unique positive TGA Richardson conditioning parameter."
+      ],
+      "reasoning": "Broader Krylov and angle/length conditioning results cannot by themselves imply the specific optimal omega_star without substituting the exact TGA basis and solving its Gram optimization. No inspected broader result includes both the method identity and the sharp parameter law. General matrix conditioning facts are excluded from the originality claim.",
+      "searches": [
+        "arxiv:2109.14181 Krylov memory-restart comparison",
+        "arxiv:2211.12953 Anderson conditioning filtering",
+        "Anderson acceleration Gram matrix ill-conditioned nearly parallel residual pre-smoothing normal equations",
+        "preconditioned GMRES 2 restart Anderson acceleration matrix Krylov fixed point equivalent"
+      ]
+    },
+    "checked_sources": [
+      "Adler, He, Hu, Lefebvre, arxiv:2609.13091, full HTML, especially Algorithm 6 and equation (27)",
+      "He, arxiv:2603.25983, relevant NGMRES/Richardson theoretical discussion",
+      "Pollock and Rebholz, arxiv:2211.12953, conditioning and filtering theory",
+      "De Sterck, He, Krzysik, arxiv:2109.14181, Krylov/Anderson theoretical discussion"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 source supplies P and the residual-minimizing two-grid algorithm and discusses numerical convergence of TGA(1;1,0); these imply the starting algebra but do not state a conditioning optimum.",
+        "General GMRES minimal-residual and conditioning theorems cover important constituent steps, but no inspected text gives the exact parameter-sensitive pair of vector columns, unique omega_star, equality case and both sharp extreme penalties."
+      ],
+      "reasoning": "The source equation plus classical least-squares and elementary algebra makes the result derivable; this is not disguised as independence from those antecedents. What is assessed as a distinct structural/quantitative finding is the sharp choice between numerically ill-conditioned exact-equivalent implementations of this concrete new TGA variant. Earlier uninspected specialized reductions remain a risk.",
+      "searches": [
+        "arxiv:2609.13091 §4.1 equation (27); Algorithm 6; §5",
+        "arxiv:2603.25983",
+        "arxiv:2211.12953",
+        "Adler He Hu Lefebvre 2026 A Unified Two-Grid Framework for Anderson Acceleration and Nonlinear GMRES TGA m=1 restarted GMRES(2) equivalence",
+        "Two-grid accelerator TGA(1;1,0), Richardson pre-smoothing, equivalence with restarted GMRES(2), exact unique minimizer of 2-column A^T A coarse Gram condition number omega*=sqrt(2)||Ar||/||A^2 r||"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "In arxiv:2609.13091 the new TGA depth-one columns are (-B r,-B r_pre), whereas its discussion of GMRES identifies NGMRES-type history columns; the two maps are not definitionally identical.",
+        "The scalar B=omega I makes the two TGA columns a basis for span{r,Ar}; no inspected source states its full restarted-GMRES(2) identity."
+      ],
+      "reasoning": "The general GMRES characterization for residual minimization and nonlinear GMRES/Richardson equivalences are known and cover that part of the proof. The exact new TGA scalar-smoother construction and optimized coarse Gram basis are additional restrictions and conclusions; an earlier equivalent specialization is not ruled out merely by titles.",
+      "searches": [
+        "arxiv:2609.13091 §4.1 equation (27)",
+        "arxiv:2603.25983 nonlinear GMRES/Richardson",
+        "\"TGA(1;1,0)\" \"GMRES(2)\" 2026",
+        "\"Adler\" \"Lefebvre\" \"TGA\" \"GMRES(2)\" 2026"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Source numerical tables report cycle counts for several memory lengths and applications; they contain neither a table of coarse Gram condition number minima nor a symbolic omega_star formula.",
+        "No exact published indexed result located for this new two-column optimal-weight identity."
+      ],
+      "reasoning": "An exact analytic function of u,v,w and its unique minimizer, rather than an empirical convergence or condition-number table, is the subject of the result. Search absence is not used as a proof of novelty.",
+      "searches": [
+        "\"two grid\" \"Anderson\" \"restarted GMRES\" extra residual 2026",
+        "\"two-grid accelerator\" \"GMRES(2)\" residual pre-smoothing",
+        "two-grid normal equations Krylov coarse correction minimum condition number scalar omega",
+        "arxiv:2609.13091 §5 numerical results"
+      ]
+    },
+    "rationale": "Novelty is limited to this particular new depth-one two-residual TGA variant under scalar Richardson smoothing: exact restarted-GMRES(2) identity, independent exact cycle output, and the unique positive weight minimizing its two-column normal-matrix condition number with sharp endpoint penalties. The original TGA construction, generic GMRES optimality, and general Anderson conditioning filters are not claimed. Four full-text works and actual related public record queries were compared by their implication for the precise claimed operator/optimizer; no exact matching stronger theorem was identified. An earlier specialized derivation remains a substantive risk.",
+    "residual_risks": [
+      "The exact two-column optimizer may have appeared in generic GMRES basis-conditioning or accelerated fixed-point specialist literature not retrieved in this bounded search.",
+      "The GMRES(2) equivalence is algebraically close to the original source column definition; the distinguishable contribution chiefly rests on the full sharp conditioning classification and its numerical-method interpretation.",
+      "A condition-number reduction is not a demonstrated finite-precision error improvement, and no such improvement is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper supplies the new prolongation and discusses NGMRES/GMRES relationships and iteration counts; no explicit identification of the scalar-smoother depth-one variant with restarted GMRES(2), or exact minimizer of the two-column normal-matrix condition number, was found in the examined material.",
+        "evidence": [
+          "Equation (27) gives P=[-B r^k,-B r^{k+1/3}] for one presmoothing step and m=1.",
+          "Algorithm 6 uses a presmoothing update and an exact coarse projection; Section 4.1 sets the A^T A metric.",
+          "Section 5 compares m=1 iteration counts and contrasts them with NGMRES, but does not optimize Gram conditioning."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.13091",
+        "material_read": "Full accessible HTML scientific text, especially Section 2 definitions, Section 4.1 equation (27), Algorithm 6, Section 5 numerical discussion and references.",
+        "method": "Read arXiv full-text HTML and compared the column formula and normal-equation correction, not just search snippets.",
+        "title": "A Unified Two-Grid Framework for Anderson Acceleration and Nonlinear GMRES",
+        "trigger": "Primary initiating work; exactly the same two-residual prolongation and two-grid algorithm."
+      },
+      {
+        "assessment": "Studies NGMRES and variants rather than the later paper’s novel two-residual depth-one TGA prolongation. General GMRES equivalence is prior knowledge; no matching unique two-grid Gram conditioning weight identified.",
+        "evidence": [
+          "The subject is properties of nonlinear GMRES for preconditioned Richardson fixed-point maps, not the exact two-residual TGA(1;1,0) coarse basis."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2603.25983",
+        "material_read": "Accessible full-text HTML passages on preconditioned Richardson iterations, nonlinear-GMRES variants, and Krylov equivalence.",
+        "method": "Read arXiv full-text HTML and compare iteration maps and admissible trial subspaces.",
+        "title": "Properties of Nonlinear GMRES Applied to the Preconditioned Richardson Iteration",
+        "trigger": "Possible equivalent Krylov/GMRES statement in an earlier 2026 paper by an author of the initiating work."
+      },
+      {
+        "assessment": "Provides general sufficient conditioning safeguards and filtering for Anderson difference matrices, not the exact depth-one TGA scalar pre-smoothing weight optimum or its invariant exact Krylov correction.",
+        "evidence": [
+          "The paper’s filters remove or rescale least-squares columns based on relative length and angle; its optimization is not over the TGA scalar smoother as parametrized in equation (27) of the initiating 2026 paper."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2211.12953",
+        "material_read": "Accessible full-text HTML introduction, column-angle and column-length filtering construction, conditioning discussions and related methods.",
+        "method": "Read full-text HTML scientific sections, compared Gram objects and optimization variables.",
+        "title": "Filtering for Anderson acceleration",
+        "trigger": "Strongest plausible overlap for ill-conditioned residual least-squares bases and their remedies."
+      },
+      {
+        "assessment": "Analyzes Anderson acceleration as a Krylov method and cautions against automatic equivalence to restarted GMRES. It does not contain the 2026 two-residual TGA column construction or its exact Gram condition optimum.",
+        "evidence": [
+          "The equivalence discussion concerns Anderson memory formulations; the present claim depends on two contemporaneous residual columns after one Richardson presmoothing step."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2109.14181",
+        "material_read": "Accessible arXiv full-text passages on Krylov relationships and the distinctions between windowed Anderson acceleration and restarted GMRES.",
+        "method": "Read relevant full-text theoretical discussion and compare algorithm definition.",
+        "title": "Anderson Acceleration as a Krylov Method with Application to Asymptotic Convergence Analysis",
+        "trigger": "Potentially stronger Krylov-equivalence theorem subsuming the asserted TGA(1) identity."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1082617e-d86e-4645-8aec-c53fb51755c3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The originating 2026 method is defined by a presmoother plus a current and presmoothed residual coarse basis, with depth one showing nontrivial performance differences. For this natural scalar-Richardson regime the theorem separates exact mathematical iteration effect (provably no weight dependence) from coarse normal-matrix conditioning (a unique, explicitly calibratable optimum, perfect-conditioning criterion, exact quadratic penalty and unbounded endpoint degradation). The sharp optimum can even leave the stand-alone Richardson stability interval without changing the final cycle, as a 3x3 SPD example demonstrates. These facts are useful for method comparison and parameter choice, rather than a rebranding of an arbitrary statistic. No wall-clock or arithmetic-error guarantee is claimed.",
+    "status": "PASS"
+  }
+}

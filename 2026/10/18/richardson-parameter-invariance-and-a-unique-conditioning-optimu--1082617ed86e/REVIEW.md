@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The residual-minimizing affine space is shown exactly equal to the length-two Krylov space. Independent inner-product expansion yields the positive-definite coarse Gram matrix, its determinant, and the scalar condition-number objective. A nonnegative completed-square identity proves the sole optimum; direct eigenvalue asymptotics prove both sharp degeneration rates. The reproducible program passes 1,242 assertions, as corroboration rather than a substitute for the proof.
+
+**Originality — PASS with residual uncertainty.** The two-grid algorithm, its two-residual columns, and classical Krylov/GMRES residual minimization are already known. The asserted new result concerns the combined explicit GMRES(2) specialization of that newly introduced column choice together with its weight-invariant exact iterate and unique optimal weight for normal-matrix conditioning. The initiating paper, relevant nonlinear-GMRES analysis, and Anderson conditioning literature were compared at the level of mathematical implications. A prior specialist derivation of the same exact two-column formula remains possible; keyword searches are not a uniqueness certificate.
+
+**Value — PASS.** The initiating method exposes a choice of smoother parameter whose effects could be confused with rate acceleration. This theorem separates a provably invariant exact residual reduction from a dramatically varying numerical coarse-system condition number, and supplies the unique scalar calibration, equality case, and sharp endpoint penalties. Such a structural distinction is relevant to implementing and benchmarking the depth-one accelerator without alleging an unproved floating-point error bound.
+
+**Principal limitations.** Nonsingular real linear systems, independent first two Krylov directions, exactly solved residual least squares, one scalar Richardson presmoothing step, and no postsmoothing. Neither finite-precision failure nor runtime improvement is established, and no generic nonsymmetric restarted-GMRES convergence rate is claimed. Classical general conditioning arguments and specialized earlier sources may overlap the result.
+
+Self-review: passed. Independent audit: not yet performed.
