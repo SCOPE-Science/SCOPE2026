@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The Cesàro norm is linearly normalized to the maximum of two positive-definite quadratic norms. The published characterization \(DW=2\sup\mathcal M(x)\) reduces the proof to Birkhoff--James lines. Smooth unit points have a unique tangent and yield \(\mathcal M\le\sqrt5/2\). At a coordinate axis the complete Birkhoff cone is explicit; two exact radical identities give \(\mathcal M\le\sqrt{8/5}\), while directions \((r,1)\) with \(r\downarrow0\) give the matching supremum.
+## correctness
 
-## Originality
-PASS. The archival same-object paper calculates the James constant, not Dunkl--Williams. The primary DW method paper gives the characterization used here and computes a different Day--James plane. A recent compilation of exact two-dimensional DW values did not yield the Cesàro plane in the checked statements. Exact object, transformed norm, invariant, and exact-value searches found no same claim.
+PASS
 
-## Value
-PASS. The Dunkl--Williams constant is a standard Hilbert-deviation invariant, and the two-dimensional Cesàro plane is an established exact benchmark. The result adds its exact DW value and explains why the sharp behavior is concentrated at the nonsmooth axes.
+The norm satisfies 4‖(x,y)‖²=5x²+2|xy|+y². After invertible diagonal normalization M(s,t)²=s²+t²+2|st|/√5, the whole sphere is four smooth elliptical arcs plus four nonsmooth axes. The two-dimensional Mizuguchi–Saito–Tanaka Birkhoff-frame characterization applies. Smooth tangent-line bounds yield frame M(x)≤√5/2. At the axis e=(1,0), one-sided subderivatives give the entire BJ cone |a|≤|b|/√5; normalization y_r=(r,1), 0≤r≤1/√5, covers it. Both exact upper-bound identities 8/5−q−(α+) and 8/5−q+(α−) were independently verified symbolically against their factorizations, with nonnegative numerators on the prescribed interval. Level subinterval containment at large radii for r>0, followed by r↓0, supplies the matching √(8/5) frame supremum. Thus DW=2√(8/5)=√(32/5), including boundary r=0 and nonsmooth axes.
 
-## Closest literature and limitations
-Maligranda--Petrot--Suantai provide the exact finite Cesàro object and its James constant. Mizuguchi--Saito--Tanaka provide the Birkhoff midpoint framework and a different exact Day--James calculation. The theorem does not cover other Cesàro exponents or infinite-dimensional Cesàro spaces. A transformed-norm calculation outside the checked indexes remains a bibliographic risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The prior 2007 paper on the exact same two-coordinate Cesàro norm computes James/B-convexity quantities rather than ordinary DW. The full 2013 BJ frame paper treats a distinct Day–James plane; the complete 2026 Alonso–Martín DW paper treats hexagon and other norms and not this Cesàro plane. Resultary searches recovered the current claim and distinct constants for ces_2 or ces_3, not a mathematical implication of √(32/5). Best-of-knowledge novelty with residual possibility of an older differently notated calculation.
+
+## value
+
+PASS
+
+The two-dimensional Cesàro space is a canonical low-dimensional benchmark in Banach-space geometry. Its exact ordinary Dunkl–Williams constant is a natural sharp norm-invariant absent from the known same-space James calculation; identifying nonsmooth-axis control instead of smooth elliptical maximizers gives a genuinely informative geometric boundary fact. No parameter-family theorem is demanded.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
