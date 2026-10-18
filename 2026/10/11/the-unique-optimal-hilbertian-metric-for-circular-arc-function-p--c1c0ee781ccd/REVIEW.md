@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**C — PASS (correctness).** A direct complex coordinate change reduces the norm to an arc maximum. Fixed-angle complex Cauchy–Schwarz gives the exact upper ratio \(M_s(y)=\max\{1,c^2+h^2/y\}\); the symmetric endpoints give the exact lower ratio \(m_s(y)=\min\{1/(1+y),h^2/y\}\) with explicit equality vectors. Piecewise monotonicity fixes the unique diagonal optimum. Involution averaging and four explicit contact vectors force every Hermitian off-diagonal term to vanish at optimal distortion. The result applies to all proper arcs and all positive Hermitian forms, with no finite-enumeration assumption. A deterministic checker passed; it supplies no infinite proof.
+## correctness
 
-**O — PASS, with material residual risk (originality).** The general distance value \(\sqrt2\) was already implied by Arias–Figiel–Johnson–Schechtman (1994/1995) and is excluded from the novel claim; Maurey's theorem quoted there also provides abstract optimizer uniqueness. Ray (2026, arXiv:2610.04608v1) defines the exact arc spaces, proves operator-space rigidity and pairwise nonisometry, but the available abstract does not announce the optimizing quadratic form. The claim assessed as new is **only the explicit parameter-dependent optimizer and exact semicircle freezing law**, neither an automatic consequence of the maximal-distance theorem nor covered by the closest identified real-plane distance calculations. Nine targeted mathematical-record searches and targeted web literature queries did not return that parameterized result. The full Ray preprint could not be read; possible implicit derivation in its body is explicitly unresolved and should be compared in any independent review. A failed search is not a proof of novelty.
+PASS
 
-**V — PASS (value).** These arc planes provide a continuum of nonisometric, operator-space-rigid complex Banach norms all at the same maximal Hilbert distance. The exact optimal Hilbert geometry is therefore a natural finer invariant. The theorem computes the entire best-conditioned quadratic form for every arc, proves its uniqueness directly, and identifies a sharp transition beyond which it becomes independent of a genuinely varying Banach norm. This separates constant scalar distortion from changing optimal-coordinate geometry, rather than merely restating the known \(\sqrt2\) bound.
+Independently traced the exact complex-linear change u=a+b, v=a-b, s=theta/2: N=F_s(u,v)=max_{|r|<=s}|u cos r-i v sin r|. For diagonal Q_y=|u|²+y|v|², pointwise weighted Cauchy–Schwarz and endpoint-attained real-phase lower pairs give M_s(y)=max(1,cos²s+sin²s/y) and m_s(y)=min(1/(1+y),sin²s/y). Direct piecewise minimax establishes unique y*=min(tan²s,1) and squared distortion exactly 2; transforming gives the claimed H² in original a,b. To exclude arbitrary complex cross terms, average positive Hermitian Q under (u,v)->(u,-v); by diagonal uniqueness the averaged optimum equals the normalized Q_s. Equality at (1,±1) forces Re gamma=0; upper boundary contacts (1,±i cot s) for s<=pi/4 or (1,±i) for s>=pi/4 force Im gamma=0. Thus full, not merely diagonal, uniqueness. Computed exact equality-ratio checks at five angles in both regimes independently; finite numerical checks supplement the all-parameter proof. No theta=0 claim.
 
-**Scientific limitations.** Two-dimensional complex arc spaces only; no quantitative near-minimizer stability or higher-dimensional claim. One relevant recent full text was not accessible; the closest earlier proof is fully compared for its distance and uniqueness implications.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Arias–Figiel–Johnson–Schechtman arXiv:math/9403206 establishes the already-known Banach–Mazur distance sqrt2 for such two-dimensional complex unimodular-function subspaces and points to abstract optimal ellipsoid uniqueness; neither is claimed new. The candidate supplies the explicit coefficient max(cos theta,0) and sharp angular freezing threshold, not a generic scalar value or uniqueness assertion. The motivating Ray 2026 manuscript treats precisely E_theta but only its abstract was accessible, stating operator-space uniqueness and pairwise nonisometry; it could imply the precise optimizer implicitly, a material publication-priority risk. arXiv/OA routes for full text unsuccessful; authorized Oxford yielded vpn_disconnected. Other Resultary norm-ellipsoid records are for different real spaces or structures. PASS is bounded best-of-knowledge and must not be represented as complete clearance of Ray body.
+
+## value
+
+PASS
+
+A family of pairwise nonisometric complex Banach planes shares the same maximal Hilbertian Banach–Mazur distance, so the *identifiable optimizing metric* is a finer natural invariant distinguishing their Banach norm geometry. Its exact angular dependence and unexpectedly constant optimizer beyond a sharp semicircle provide a nontrivial geometric classification, with all Hermitian off-diagonal competitors handled. The value is not the previously-known scalar sqrt2 or abstract uniqueness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
