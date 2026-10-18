@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** After translation, every Fourier block is rank-equivalent to \(aI+b\rho(g)^*\). Kernel loss can occur only at an \(m\)-th root of unity. The left regular representation restricted to \(\langle g\rangle\) is exactly \(N/m\) copies of the cyclic regular representation, so every resonant eigenvalue has total multiplicity \(N/m\). This proves the block-rank sum exactly, including all coefficient phases and all finite nonabelian groups.
+## correctness
 
-## Originality
-**PASS.** The closest primary source inspected in full is Alagic--Russell, which proves the global rank-support uncertainty inequality and discusses subgroup tightness but does not state the two-point coefficient-sensitive law. Kaniuth treats a different dual-support measure. Searches for two-point, two-spike, rank-support, nonabelian uncertainty, cyclic-subgroup restriction, and involution equality found no statement implying the claimed formula. The closest published record located concerns two-point spectrality invariants only in finite abelian groups and does not use the rank-weighted nonabelian dual measure. Residual risk remains that an equivalent rank computation occurs under older group-algebra terminology.
+PASS
 
-## Value
-**PASS.** Two-point signals are the first nontrivial sparse stratum of the nonabelian uncertainty problem. The theorem gives a complete coefficient-sensitive classification on every finite group, identifies the exact sharp gap from the global inequality through the least prime divisor, and characterizes precisely when two spikes can saturate the global bound. This is a structural refinement rather than a numerical instance or a renaming of the global theorem.
+The left regular G-module has N/m cyclic regular H-modules under restriction to H=<g> of order m, because the left H-orbits are the RIGHT cosets Hx. Each m-th-root eigenvalue of g therefore has multiplicity N/m, identical to ∑dρ nullity of aI+bρ(g)* at resonance −a/b. Nonresonance gives rank N, and Cauchy’s theorem supplies the least-order p sharp two-point minimum. Caught and corrected a concrete source proof nomenclature bug: original RESULT.md incorrectly called Hx “left cosets”; the corrected complete RESULT.md says “right cosets Hx”, preserving all statement/proof/scope elsewhere. No direct numerical test substitutes for the exact representation restriction.
 
-## Closest literature and limitations
-Kaniuth's minimizing-function theorem concerns the measure of the set of nonzero Fourier blocks and can be sharp on finite nonabelian groups; it does not determine the sum of individual block ranks. Alagic--Russell's rank-weighted inequality is the directly relevant framework. The present result is limited to exact two-point support.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality PASS after comparison of statements/implications in inspected primary literature, accounting for explicit known subcases and broader baseline results. The unsuccessful Resultary lookup is NOT positive novelty evidence; its outage and any uninspected papers remain disclosed risks.
+
+## value
+
+PASS
+
+Exact two-spike functions are the smallest nontrivial sparsity stratum for rank-weighted nonabelian uncertainty. The theorem completely characterizes dependence on coefficient ratio and element order for every finite group, finds the sharp least-prime factor, and delineates equality at involutions; the involution subgroup example alone is already known and not claimed as independently original.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

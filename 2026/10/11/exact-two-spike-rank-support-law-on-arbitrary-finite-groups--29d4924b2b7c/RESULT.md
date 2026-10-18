@@ -38,7 +38,7 @@ Assume now that \(\lambda\in\mu_m\). The loss of rank is
 \[
 L_\lambda=\sum_{\rho\in\widehat G}d_\rho\,\dim\ker(\rho(g)^*-\lambda I).
 \]
-Decompose the left regular representation as \(\bigoplus_\rho d_\rho\rho\). Restricted to the cyclic subgroup \(H=\langle g\rangle\), the same regular representation is a direct sum of \(N/m\) copies of the regular representation of \(H\), because the left cosets of \(H\) are invariant \(H\)-orbits. Each character of the cyclic group \(H\), equivalently each \(m\)-th root of unity as an eigenvalue of \(g\), therefore occurs exactly \(N/m\) times. Thus \(L_\lambda=N/m\), proving \(\sigma(f)=N-N/m\). If \(\lambda\notin\mu_m\), the loss is zero and \(\sigma(f)=N\).
+Decompose the left regular representation as \(\bigoplus_\rho d_\rho\rho\). Restricted to the cyclic subgroup \(H=\langle g\rangle\), the same regular representation is a direct sum of \(N/m\) copies of the regular representation of \(H\), because the right cosets \(Hx\) of \(H\) are the invariant orbits under left multiplication by \(H\). Each character of the cyclic group \(H\), equivalently each \(m\)-th root of unity as an eigenvalue of \(g\), therefore occurs exactly \(N/m\) times. Thus \(L_\lambda=N/m\), proving \(\sigma(f)=N-N/m\). If \(\lambda\notin\mu_m\), the loss is zero and \(\sigma(f)=N\).
 
 For the global two-point minimum, resonant coefficients are always better than nonresonant ones, and \(N-N/m\) is minimized by the smallest possible order \(m>1\). By Cauchy's theorem, the least such order is the least prime divisor \(p\) of \(N\). This gives \(N(1-1/p)\) and the stated equality class. Finally \(2(N-N/m)/N=2-2/m\) equals \(1\) only when \(m=2\), and resonance at \(m=2\) is exactly \(-a/b\in\{1,-1\}\), equivalently \(b=\pm a\).
 
