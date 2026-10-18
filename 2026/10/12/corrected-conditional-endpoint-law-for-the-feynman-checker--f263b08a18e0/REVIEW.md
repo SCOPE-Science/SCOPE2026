@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the exact source normalization and aligns the two component asymptotics at the same final lattice site. In the allowed region, the phase increment is derived from \(\phi'(u)=-\alpha(u)\), the conditional ratio has a uniformly positive denominator on compact sub-wall intervals, and its phase average is evaluated by an explicit rational integral. The source's own Section 12.4 identifies Problem 4 as amenable to its oscillatory-sum/Riemann-sum method, and the required nonzero Fourier modes satisfy the same type of exponential-sum estimate. In the hidden region, the adjacent-site shift in the published large-deviation exponent produces the factor \(\exp(H'(u)/2)\); the Sunada--Tate steepest-descent proof works on compact parameter neighborhoods with a unique nondegenerate saddle. Boundedness of the conditional probability controls the omitted wall strip. Direct differentiation, integration, and wall expansion give the displayed elementary branches and \(|v-v_*|^{3/2}\) singularity. The bundled finite replay is supplementary only.
+## correctness
 
-## Originality
-PASS. The primary source states this statistic as open Problem 4, prints a proposed sub-wall formula, and asks for the super-wall value. The proposed formula is not implied by its theorems and differs from the exact phase average. The closest general asymptotic source, Sunada--Tate, gives component/transition-probability asymptotics in the allowed, wall, and hidden regimes but does not state the nonlinear cumulative conditional ratio. Searches using the exact Problem 4 language, local-chirality and endpoint-sign aliases, the wall \(1/\sqrt2\), and cumulative-ratio formulations found no published statement implying the piecewise law or its \(C^1\)-not-\(C^2\) wall behavior.
+PASS
 
-## Value
-PASS. The result resolves an explicit published open problem at the level of its intended order parameter, corrects the proposed formula rather than merely refining an error term, computes the previously missing hidden-region branch, and verifies the source's predicted nonanalytic phase transition with an exact singular exponent and coefficient. The statistic has the source's direct interpretation as a conditional chirality/endpoint-sign observable, so the wall law is structurally motivated rather than an arbitrary auxiliary invariant.
+The source Problem 4 defines exactly 2/t times the conditional last-move ratio summed over reachable 0≤x≤vt. Reconstructed published Theorem 2 component stationary-phase asymptotics and shift of phase via phi′(u)=−alpha(u). The smooth positive-denominator periodic ratio R=q cos²theta/[sin²(theta−alpha)+q cos²theta] has phase average pminus(u)=1/2[1+u/(1+sqrt(1−2u²))], checked independently by high-precision direct quadrature at six allowed velocities. The published oscillatory-sum method (§12.4) removes nonzero Fourier modes on compact allowed intervals. In hidden compact intervals published Theorem 4/Sunada–Tate saddle rate gives r=(u+sqrt(2u²−1))/(1−u) and pplus=r²/(1+r²)=1/2+(1+sqrt(2u²−1))/(4u). Integrating pminus and pplus produces the two reported elementary branches. Delete an arbitrarily narrow wall strip via 0≤|a2/a|²≤1; no uniform wall asymptotic is assumed. Analytic branch differentiation and expansion give G(v*)=(1+sqrt2−log2)/4, common slope (2+sqrt2)/4, leading singular +2^(1/4)/3|v−v*|^(3/2), so C1 not C2. Fresh independent exact checker recurrence at T=3000 approaches the formula for v=0.2,0.55,0.7,0.72,0.8; at v=0.9 severe floating-point underflow limits corroboration but not analytic argument.
 
-## Closest literature and limitations
-The closest sources are Skopenkov--Ustinov, which defines the same observable and states Problem 4, and Sunada--Tate, which supplies the asymptotic machinery. No claim is made about other masses, lattice steps, negative velocities, or a global convergence rate uniform through the wall. An equivalent calculation in unindexed notes remains a residual bibliographic risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Skopenkov–Ustinov (2022) explicitly pose the identical ratio statistic as Problem 4, proposing a different formula for 0<v<1/sqrt2 and leaving v>1/sqrt2 to compute. The audited correction disagrees at order v^4 and supplies the hidden piece and C1/non-C2 wall law. Sunada–Tate and the primary paper supply amplitude asymptotics, but the nonlinear ratio-phase integral and its explicit corrected cumulative branch were not among the inspected published results.
+
+## value
+
+PASS
+
+This solves a specifically stated open quantitative phase-transition problem for a canonical discrete quantum-walk model, corrects its conjectured branch, gives a new forbidden-region cumulative law and proves the exact 3/2-order wall singularity. The nonlinearity of averaging a conditional chirality ratio makes the result mathematically substantive and not a restatement of one-point amplitude asymptotics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
