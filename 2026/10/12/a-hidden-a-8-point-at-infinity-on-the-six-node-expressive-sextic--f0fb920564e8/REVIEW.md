@@ -1,15 +1,21 @@
-# Review
-## Correctness
-PASS. The projectivized degree-six parametrization is base-point-free, and because its image is the source's sextic it has generic degree one, so \(\mathbf P^1\) is the normalization. There is one preimage of infinity. In local coordinates, an exact coordinate change gives orders \(2\) and \(9\), with the order-nine coefficient certified by an exact factorization; this yields the Puiseux pair \((2,9)\) and type \(A_8\). The six source-established affine nodes contribute \(6\) to the delta sum and the infinity branch contributes \(4\), exactly the arithmetic genus \(10\) of a sextic. The source's \(L_\infty\)-regularity identity then gives polar multiplicity \(13\).
+# Independent mathematical audit
 
-Risk: the checker reproduces the source's difference-resultant factorization but relies on the source for the assertion that the six affine double points are transverse hyperbolic nodes. This is appropriate because that assertion is an explicit proved ingredient of Example 8.4, not a new premise inferred from numerics.
+## correctness
 
-## Originality
-PASS. Searches used the exact arXiv identifier, Example 8.4, the full parametrization, the phrases “\(A_8\) at infinity,” “Puiseux pair \((2,9)\),” “\(6A_1+A_8\),” and the exact implicit/parametric aliases. The lead full text was inspected around Example 8.4 and the paper's infinity framework. It states the six affine nodes and general \(L_\infty\)-regularity machinery, but no inspected passage gives the infinity germ's analytic type, the pair \((2,9)\), the complete projective basket, or the specialized polar value \(13\). published-finding corpus's closest hits concern different sextics or different hidden ADE singularities and do not imply this statement.
+PASS
 
-Residual risk: an older or poorly indexed computation could identify the same germ after an affine translation or another projective coordinate change.
+The degree-six homogeneous map [X(u,v):Y(u,v):v^6] is base-point-free; at v=0, X=-8u^6 so unique infinity preimage and point [1:0:0]. The source verifies affine six nodes, giving generic degree one of the parametrization of a sextic, hence P1 normalization. In local s=v/u, η=Y/X has order2 and ξ=Z/X+8(Y/X)^3 has order9. Independent exact SymPy expansion reproduced ZX²+8Y³=−s^9(s²+2s−2)(7s^7−2s^6−78s^5−72s^4+96s^3+96s²−32s−32), nonzero order9 coefficient −64. A primitive (2,9) plane branch is analytically A8 over C, delta4 and Milnor8. It intersects L∞ with multiplicity6; six affine nodes add delta6 and genus sextic10 exhausts singularities. Fomin–Shustin L∞-regularity gives polar μ+intersection−1=8+6−1=13. Source-established affine hyperbolic node fact is a premise, not independently derived solely from symbolic resultant.
 
-## Value
-PASS. The paper is explicitly concerned with projective behavior at infinity and \(L_\infty\)-regularity, while Example 8.4 is presented through its six affine nodes. Identifying the unique boundary germ as \(A_8\) is structurally useful: it accounts exactly for the four missing units of sextic genus defect and turns the abstract regularity condition into the concrete polar multiplicity \(13\). This is a natural projective completion of a named example, not an arbitrary slice or a routine table recomputation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complete accessible Fomin–Shustin article was inspected around exact Example 8.4, Theorem 7.17 and the infinity polar framework. Example 8.4 states the parametrization, resultant and six real hyperbolic affine nodes, but no local A8 point, Puiseux pair (2,9), genus-basket completion or specialized polar 13. These require an explicit local projective coordinate change and factorization beyond the cited statement. Resultary search found other sextic ADE classifications but no same parametrization implication. Best-of-knowledge PASS with unindexed computations as risk.
+
+## value
+
+PASS
+
+The unique projective singularity is a natural invariant of a specific worked sextic in a paper concerned with infinity and expressivity. Determining it accounts for all four missing units of arithmetic genus defect, supplies complete singularity basket and a concrete L∞-polar value, not arbitrary or merely cosmetic arithmetic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
