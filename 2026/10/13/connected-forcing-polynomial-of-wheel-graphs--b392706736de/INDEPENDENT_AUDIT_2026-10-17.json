@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T07:06:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For W_n=K1 vee C_n, a hub-containing initial set forces exactly when its rim trace contains an adjacent pair: a blue boundary rim vertex can then extend a run; a rim independent trace has no possible first force. Hub-free connected sets are either a rim arc or the full rim and force exactly when their size is at least 3, since an interior blue rim vertex first forces the hub. Counting hub cases subtracts the cycle independence polynomial from (1+x)^n; rim-only runs add n x^j for 3<=j<=n-1 and x^n. Marked cyclic gaps prove i_{n,k}=n/(n-k)*binom(n-k,k). Independently simulated every subset for n=4,...,10, matching all coefficients and z_c(W_n;3)=2n.",
+      "risk": [
+        "Finite enumeration checks only 4<=n<=10; the analytic cycle/hub case split is essential for all n>=4."
+      ],
+      "sources": [
+        "Assigned RESULT.md and verify.py",
+        "independent1613_checks.py, independently written BFS and standard forcing simulation"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2025 paper gives universal extreme-size counts and the scalar wheel parameter; it does not determine the middle degrees of the wheel enumerator."
+        ],
+        "reasoning": "Neither general top-coefficient theorem nor wheel density implies the explicit independence-polynomial expression.",
+        "searches": [
+          "Brimkov Davila Schuerger connected forcing density Proposition 4 coefficients",
+          "Brimkov 2016 connected forcing number and complexity graphs"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2507.11194",
+        "arXiv:1604.00740",
+        "arXiv:1607.00658",
+        "Resultary: zero forcing polynomial fan graphs",
+        "Resultary: graph cover-free family numbers wheels"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known wheel Z_c=3 and connected forcing density ensure certain minimum sets, but do not imply z_c(W_n;3)=2n or every middle coefficient."
+        ],
+        "reasoning": "The new hub-vs-rim dichotomy and cycle-independent-set subtraction supply the missing all-sizes result.",
+        "searches": [
+          "arXiv:2507.11194 Definition 1 and Propositions 4,8",
+          "arXiv:1604.00740",
+          "arXiv:1607.00658"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brimkov–Davila–Schuerger 2025, Proposition 8: Z_c(W_n)=3 and wheel is connected forcing dense."
+        ],
+        "reasoning": "The same object is considered, but the older proposition does not classify which hub-free arcs and hub-containing sets work at arbitrary sizes.",
+        "searches": [
+          "wheel graph connected forcing polynomial connected zero forcing all cardinalities",
+          "arXiv:2507.11194 Proposition 8 wheel CF-density",
+          "wheel K1 join Cn connected forcing set enumeration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest Resultary fan-graph polynomial is ordinary zero forcing for K1 vee P_n (different graph and connectedness); cover-free wheel sequence is a different graph invariant."
+        ],
+        "reasoning": "No exact database table inspected contains all cardinality connected zero forcing counts for wheels.",
+        "searches": [
+          "Resultary semantic: wheel graph connected zero forcing sets exact counts connected forcing polynomial independence polynomial",
+          "Resultary: zero-forcing polynomial of fan graphs f3b2c94da283",
+          "Resultary: cover-free-family numbers paths cycles wheels d0cab96518f2"
+        ]
+      },
+      "rationale": "PASS best of knowledge: the 2025 Brimkov–Davila–Schuerger wheel proposition states Z_c(W_n)=3 and connected-forcing density, but not the complete structural classification nor its all-cardinality polynomial; general extremal coefficient formulas determine only some degrees. Earlier connected-forcing papers give definitions and other families.",
+      "residual_risks": [
+        "A poorly indexed independent wheel-counting source might already print an equivalent polynomial."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_OBJECT_WEAKER",
+          "evidence": "Proposition 8 proves Z_c(W_n)=3/density but neither all-set classification nor C_n independence-polynomial enumerator.",
+          "identifier_or_url": "https://arxiv.org/abs/2507.11194",
+          "material_read": "Primary full paper material: Definition 1; Proposition 4 on extreme-cardinality coefficients; Proposition 8 and proof for wheel density and connected forcing number.",
+          "method": "ArXiv accessible full document sections and exact statement comparison.",
+          "title": "Connected forcing density and related problems",
+          "trigger": "Exact same wheel object and z_c(G;i) cardinality notation"
+        },
+        {
+          "assessment": "BACKGROUND",
+          "evidence": "Defines connected forcing but supplies no competing wheel all-cardinality statement.",
+          "identifier_or_url": "https://arxiv.org/abs/1604.00740",
+          "material_read": "Full accessible introduction, definitions and covered graph-family results.",
+          "method": "Full-text browsing and comparison with wheel family.",
+          "title": "Characterizations of the Connected Forcing Number of a Graph",
+          "trigger": "Foundational concept and graph families"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: z_c(G;j) is an explicitly studied all-cardinality connected-forcing invariant. The polynomial gives a complete uniform classification for a standard infinite graph family and reveals a nontrivial link to the rim independence polynomial; it is not merely the known scalar forcing number.",
+      "risk": [
+        "Only wheels indexed by rim order n; no formula for arbitrary cones or joins."
+      ],
+      "sources": [
+        "Brimkov–Davila–Schuerger 2025, arXiv:2507.11194",
+        "Assigned RESULT.md"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "W_n uses rim order n>=4 rather than total vertex order.",
+    "Finite checker only n=4..10; unrestricted proof is by force classification.",
+    "The scalar Z_c=3 is prior work and is not part of originality acceptance."
+  ],
+  "schema_version": 1
+}

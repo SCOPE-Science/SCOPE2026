@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic verification is the two-case proof in `RESULT.md`. The finite checker `verify.py` is supplementary: it builds each wheel directly for rim orders \(4\le n\le11\), exhaustively enumerates every vertex subset, checks induced connectivity, simulates the standard zero forcing rule, compares the result with the structural criterion, and compares the entire cardinality histogram with the closed coefficient formula.
+# Independent mathematical audit
 
-The checker does not extrapolate from finite data. Its role is to catch boundary, indexing, and counting errors in the theorem statement and formulas. In particular, it independently checks the boundary wheel with rim order \(4\), the minimum coefficient \(z_c(W_n;3)=2n\), all intermediate coefficients in the tested range, and the total count.
+## correctness
 
-The proof remains necessary for all \(n\ge4\). Literature novelty is not established by the checker and is assessed separately in the self-review.
+PASS
+
+For W_n=K1 vee C_n, a hub-containing initial set forces exactly when its rim trace contains an adjacent pair: a blue boundary rim vertex can then extend a run; a rim independent trace has no possible first force. Hub-free connected sets are either a rim arc or the full rim and force exactly when their size is at least 3, since an interior blue rim vertex first forces the hub. Counting hub cases subtracts the cycle independence polynomial from (1+x)^n; rim-only runs add n x^j for 3<=j<=n-1 and x^n. Marked cyclic gaps prove i_{n,k}=n/(n-k)*binom(n-k,k). Independently simulated every subset for n=4,...,10, matching all coefficients and z_c(W_n;3)=2n.
+
+## originality
+
+PASS
+
+PASS best of knowledge: the 2025 Brimkov–Davila–Schuerger wheel proposition states Z_c(W_n)=3 and connected-forcing density, but not the complete structural classification nor its all-cardinality polynomial; general extremal coefficient formulas determine only some degrees. Earlier connected-forcing papers give definitions and other families.
+
+## value
+
+PASS
+
+PASS: z_c(G;j) is an explicitly studied all-cardinality connected-forcing invariant. The polynomial gives a complete uniform classification for a standard infinite graph family and reveals a nontrivial link to the rim independence polynomial; it is not merely the known scalar forcing number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
