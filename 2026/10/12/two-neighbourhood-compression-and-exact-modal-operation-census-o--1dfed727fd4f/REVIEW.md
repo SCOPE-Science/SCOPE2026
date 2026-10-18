@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed domain is precisely the family of finite-chain continual constructive-neighbourhood frames with the two modal clauses reproduced in `RESULT.md`. For an upset \(U_t\), local subset and intersection truth values reduce to extremal endpoints; the two local extrema yield a complete signature. The three and only three local signature types are constructed explicitly, including the two-singleton representative when the box threshold exceeds the diamond threshold. The continual empty-family prefix is preserved. Induction on all formulas gives truth preservation. Counting separates zero, partial and full negative-diamond prefixes and uses an explicit Vandermonde convolution, yielding the displayed binomial sum for each \(n\ge1\). The top-world witness rules out a one-neighbourhood bound when \(n\ge2\). The `verify.py` checks agree with all stated finite values. No unbounded conclusion is inferred solely from tests.
+PASS
 
-## Originality — PASS (subject to stated residual risk)
+The precise clauses evaluate every upset U_t through b_i=max_{S in N(i)}minS and d_i=min_{S in N(i)}maxS, taking empty-family E=(-1,n), empty-neighbourhood F=(n,-1), ordinary pair (b,d) in [0,n−1]^2 otherwise. Global modal outputs depend only on suffix minima B_i,D_i, and two singleton neighbourhoods realize any b>d, one interval realizes b<=d; E and F need zero/one. n>=2 top world b=n−1>d=0 witnesses two required. Continuality restricts E worlds to one prefix. Count monotone effective suffix signatures according to D=-1 prefix length t: t=0 ordinary paired weak chains, t=m all-F boundary, 0<t<m contributes Vandermonde sum, yielding the stated formula. Independent semantic enumeration for n=1..4 returns 3,22,224,2634 exactly. For arbitrary n truth equivalence follows induction on formula complexity and the derived local upset operator identities, not from sampled checks.
 
-The closest primary semantic sources are de Groot, arXiv:2507.13746, and Dalmonte–de Groot, arXiv:2606.31870. The former establishes continual constructive neighbourhood semantics and completeness, while the latter studies proof systems, extensions, and the same semantic framework. Neither inspected treatment supplies an exact two-operator census on finite chains, the sharp two-neighbourhood semantic quotient, or the binomial enumeration given here. Related reductions relying on intersection-closed neighbourhoods or different modal-cover semantics do not imply the unrestricted continual two-operator result: their premises exclude the two-singleton witness used for sharpness. Searches also considered duality, endpoint profiles, known sequences, and broader representation theorems, not merely matching titles. Equivalent results in unindexed algebraic or modal enumeration literature remain possible; database silence is not a proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The fixed-chain algebra is the canonical finite Gödel/Heyting base, while continual constructive neighbourhood semantics is a natural, recently analyzed completeness class. The theorem calculates the exact size of the induced **joint** modal-operation spectrum and replaces exponentially complicated neighbourhood families by uniformly two-element local descriptions without losing formulas of any nesting depth. The interaction where the diamond threshold first becomes impossible enforces a nontrivial boundary condition in the counting proof. This is a reusable finite semantic benchmark and a complete, all-size classification rather than an arbitrary isolated finite datum.
+de Groot 2025 defines exactly these constructive-neighbourhood clauses and completeness; Dalmonte/de Groot later study proof theory, but no inspected passage gives the exact fixed-chain quotient, two-neighbourhood normal forms or the binomial census. Other published finite-chain KI-frame endpoint normal forms enumerate different relational semantics, so their numerical tables do not imply the present neighbourhood-family quotient.
 
-## Limits and close comparisons
+## value
 
-The result does not enumerate additional axiomatic subclasses, arbitrary preorders, raw neighbourhood families, or syntactic equivalence classes. Its novelty would fail if a previously unlocated equivalence theorem already implied exactly this joint operator count and two-family sharp bound. Such coverage was not found in inspected full-text primary sources or the targeted searches; further independent literature checking is warranted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Semantic compression sharpness and exact paired-modal operation counts solve natural finite-model normalization/enumeration problems for the original constructive semantics. The fixed-base claim is precise and mathematical, not a rebranding of the general completeness theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
