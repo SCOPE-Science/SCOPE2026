@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is symbolic and valid for every finite field. The computational artifact is a regression check, not an exhaustive proof over all field sizes or dimensions.
+# Independent mathematical audit
 
-`verify.py` performs three independent checks: it exhausts all linear maps on the four-dimensional vector space over \(\mathbb F_2\) and recovers exactly \(32\) Lie automorphisms; it confirms that none of these is fixed-point-free; and, for several prime fields and dimensions, it directly enumerates the scalar pairs \((a,b)\) and matches them against the divisor-sum formula.
+## correctness
 
-The output `verify_output.txt` ends with `VERIFY_OK`. Prime-power examples such as \(q=4,8,9,16,25\) are evaluated from the divisor formula only; the infinite theorem for prime powers is justified symbolically by the cyclicity of \(\mathbb F_q^\times\).
+PASS
 
-Unproved limits: no claim is made about nonstandard filiform Lie algebras, conjugacy classes of automorphisms, or exact order distributions within the fixed-point-free locus.
+For standard filiform L_n(F_q), n>=4, [e1,ei]=e_{i+1}, [e2,e3]=0 forces the e1-coordinate of the second generator image to vanish once the e3 coefficient ab-u2*c is invertible. Hence every automorphism is triangular with diagonal a,b,ab,a^2b,...,a^{n-2}b and 2n-3 free additive parameters. Fixed-point-free is equivalent to a!=1 and a^j b!=1 (0<=j<=n-2). For each a of order d, precisely q-1-min(d,n-1) nonzero choices of b survive. Summing Euler phi(d) for d|q-1, d>1 proves the claimed exact count, existence threshold and n=4 parity formulas for ALL finite fields, with no restriction on characteristic. Independently enumerated all allowed scalar pairs for primes 2,3,5,7,11,13,17 and complete F2 4D generator-image automorphisms (32 automorphisms, zero fixed-point-free), rather than trusting the saved verifier.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS. Burde–Dekimpe classify complex-field existence and give the semisimple eigenvalue pattern for the SAME standard filiform objects; their statements do not determine finite-field full automorphism counts or the order-divisor fixed-point-free enumeration. The previously published Resultary three-dimensional Heisenberg count concerns L_3 with a GL_2 quotient action, whereas the n>=4 filiform relations force triangular quotient images; neither implies the other count by substitution.
+
+## value
+
+PASS
+
+PASS. The standard filiform family is a natural infinite family of nonabelian nilpotent Lie algebras. The exact all-q fixed-point-free automorphism count, density, and sharp field-size/dimension existence transition answer a natural group-theoretic enumeration question not supplied by the known complex existence statement. The GL_2-to-triangular structural change at dimension four is mathematically motivated; this is not merely renaming the Heisenberg formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

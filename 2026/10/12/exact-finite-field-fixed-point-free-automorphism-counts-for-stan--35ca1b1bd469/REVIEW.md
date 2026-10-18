@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The automorphism reconstruction uses only the defining brackets of \(L_n\). The key forcing step is that \([e_2,e_3]=0\) while the \(e_3\)-coefficient of \(\phi(e_3)\) is nonzero; hence the \(e_1\)-coefficient of \(\phi(e_2)\) vanishes. This yields a triangular automorphism with diagonal \(a,b,ab,\ldots,a^{n-2}b\), exactly \(2n-3\) additive parameters, and the stated group order. Fixed-point-freeness then becomes an exact cyclic-group counting problem. The finite checker agrees with the symbolic formula and exhaustively verifies the full automorphism group for \(L_4(\mathbb F_2)\).
+## correctness
 
-## Originality
-PASS. The closest recent paper proves complex-field existence and records semisimple eigenvalues but does not enumerate the finite-field automorphism group or its fixed-point-free locus. Targeted searches for finite-field standard-filiform counts, regular automorphisms, and equivalent \(L_4(q)\) formulations found no divisor-sum formula. A recent exact Heisenberg count is not stronger because dimension three permits arbitrary \(\operatorname{GL}_2\)-mixing of the generators, while \(n\ge4\) has the additional relation forcing a triangular generator action.
+PASS
 
-## Value
-PASS. The formula gives an exact density and a sharp arithmetic existence boundary for a canonical family of maximal-class Lie algebras. In particular, when \(q\le n\), existence is equivalent to compositeness of \(q-1\), revealing systematic finite-field obstructions invisible over \(\mathbb C\).
+For standard filiform L_n(F_q), n>=4, [e1,ei]=e_{i+1}, [e2,e3]=0 forces the e1-coordinate of the second generator image to vanish once the e3 coefficient ab-u2*c is invertible. Hence every automorphism is triangular with diagonal a,b,ab,a^2b,...,a^{n-2}b and 2n-3 free additive parameters. Fixed-point-free is equivalent to a!=1 and a^j b!=1 (0<=j<=n-2). For each a of order d, precisely q-1-min(d,n-1) nonzero choices of b survive. Summing Euler phi(d) for d|q-1, d>1 proves the claimed exact count, existence threshold and n=4 parity formulas for ALL finite fields, with no restriction on characteristic. Independently enumerated all allowed scalar pairs for primes 2,3,5,7,11,13,17 and complete F2 4D generator-image automorphisms (32 automorphisms, zero fixed-point-free), rather than trusting the saved verifier.
 
-## Closest literature and limitations
-The closest primary source is Burde--Dekimpe, arXiv:2604.27916v1. It establishes the complex theory and the standard filiform notation. The present result is restricted to the standard family and does not address conjugacy classes, automorphism orders, or arbitrary filiform deformations. An equivalent older formula under different notation remains the main residual originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS. Burde–Dekimpe classify complex-field existence and give the semisimple eigenvalue pattern for the SAME standard filiform objects; their statements do not determine finite-field full automorphism counts or the order-divisor fixed-point-free enumeration. The previously published Resultary three-dimensional Heisenberg count concerns L_3 with a GL_2 quotient action, whereas the n>=4 filiform relations force triangular quotient images; neither implies the other count by substitution.
+
+## value
+
+PASS
+
+PASS. The standard filiform family is a natural infinite family of nonabelian nilpotent Lie algebras. The exact all-q fixed-point-free automorphism count, density, and sharp field-size/dimension existence transition answer a natural group-theoretic enumeration question not supplied by the known complex existence statement. The GL_2-to-triangular structural change at dimension four is mathematically motivated; this is not merely renaming the Heisenberg formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
