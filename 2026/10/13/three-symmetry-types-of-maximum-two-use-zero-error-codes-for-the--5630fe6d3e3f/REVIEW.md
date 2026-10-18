@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The finite claim is verified in two independent ways. A row-state transfer computation reconstructs the complete independence polynomial of \(C_7\boxtimes C_7\), giving maximum \(10\) and exactly \(980\) maxima. A separate branch-and-bound search finds all \(200\) maxima through \(00\), whose translation closure is exactly the same \(980\)-set census and satisfies the incidence identity \(980\cdot10=200\cdot49\). Exhaustive action by the explicit order-\(392\) natural symmetry group then gives three orbits of sizes \(392,392,196\), with stabilizers \(1,1,2\). The proposed fingerprints and coordinate multiplicity profiles are checked on every maximum.
+## correctness
 
-Risk: the equality classification is finite and computational, but the full standard-library verifier is supplied and independently reconstructs the extremal census before performing the orbit calculation.
+PASS
 
-## Originality
-**PASS.** Hales proves the classical size-\(10\) optimum for the strong square of the \(7\)-cycle, while a recent transfer-operator paper publishes the complete independence polynomial and the count \(980\). The latter compresses the \(29\) single-cycle row states by dihedral symmetry, not the \(980\) maximum two-dimensional codes. Full-text comparison and exact-parameter searches found no source stating or implying the three natural-symmetry orbits or their \((u,v)\) fingerprints.
+PASS: For independent sets in C7 strong square, every row is one of 29 independent C7 masks and successive cyclic layers are compatible iff their selected second-coordinate residues have cyclic distance >=2. An independently implemented 7-layer integer-polynomial DP has degree 10 and leading coefficient 980. Three displayed 10-point representatives were independently checked pairwise nonconfusable; their full orbits under all 392 maps (x,y)->(s_x x+a,s_y y+b) and coordinate swap have sizes 392,392,196. The three orbits are disjoint, so their 980 members exhaust ALL maximum sets by the separately counted leading coefficient; stabilizers 1,1,2. Fingerprints independently recomputed as (0,2),(1,1),(1,2), with the coordinate multiplicity profile from the complete orbit union. This establishes the finite orbit classification without relying on the package verifier's exit code. No claim is made that the natural group is the entire graph automorphism group, nor concerning higher strong powers.
 
-Risk: an obscure or unindexed historical equality-case classification may remain undiscovered; the claim is restricted to the explicitly defined natural group.
+## originality
 
-## Value
-**PASS.** This is a complete equality-case classification for a classical zero-error benchmark. It upgrades a known optimum and a recently published raw count into a compact structural statement: exactly three extremal symmetry types, one with a nontrivial stabilizer, distinguished by a two-number distance invariant. The result is directly usable as benchmark data for symmetry-aware searches in higher strong powers.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS best-of-knowledge: existing strongest directly relevant 2026 primary paper gives α(C7 strong square)=10 and 980 maximum sets, and its dihedral five-orbit result concerns 29 SINGLE-LAYER independent C7 states, not maximum independent sets of the 49-vertex square. The audited 392/392/196 orbits, stabilizers, and distinguishing pair-distance invariants do not follow from the scalar leading coefficient without an equality-case analysis. Searches across aliases and Resultary found no earlier exact full-code orbit classification. Older obscure code catalogues remain a residual risk.
+
+## value
+
+PASS
+
+PASS: The explicit natural channel symmetry group and its action on the complete set of maximum two-use zero-error codes are motivated equality-structure invariants. The result separates three inequivalent optimal designs even though all have the same size and row/column multiplicity profile, so it supplies a useful classification not implied by the known total count. It is finite but complete and naturally chosen (C7 strong square is a classical Shannon-capacity benchmark).
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

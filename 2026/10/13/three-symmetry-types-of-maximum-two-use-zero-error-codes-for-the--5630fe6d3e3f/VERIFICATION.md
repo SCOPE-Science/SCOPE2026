@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` with a standard Python 3 interpreter.
+# Independent mathematical audit
 
-The verifier first enumerates the \(29\) independent subsets of one \(7\)-cycle and uses them as row states in an independent transfer computation for the seven-row toroidal strong square. This regenerates the entire independence polynomial and therefore proves that the maximum size is \(10\) and that exactly \(980\) maxima exist.
+## correctness
 
-A separate branch-and-bound procedure works in the 49-vertex compatibility graph. It enumerates every size-\(10\) code containing \(00\), finding \(200\), and expands these by all \(49\) translations to obtain exactly \(980\) distinct labeled maxima. The equality \(980\cdot10=200\cdot49\) is checked.
+PASS
 
-The verifier then generates all \(392\) elements of the natural group \((D_{14}\times D_{14})\rtimes S_2\), partitions the complete maximum-code census into orbits, checks stabilizers, and recomputes the \((u,v)\) fingerprints and coordinate multiplicity profile for every maximum.
+PASS: For independent sets in C7 strong square, every row is one of 29 independent C7 masks and successive cyclic layers are compatible iff their selected second-coordinate residues have cyclic distance >=2. An independently implemented 7-layer integer-polynomial DP has degree 10 and leading coefficient 980. Three displayed 10-point representatives were independently checked pairwise nonconfusable; their full orbits under all 392 maps (x,y)->(s_x x+a,s_y y+b) and coordinate swap have sizes 392,392,196. The three orbits are disjoint, so their 980 members exhaust ALL maximum sets by the separately counted leading coefficient; stabilizers 1,1,2. Fingerprints independently recomputed as (0,2),(1,1),(1,2), with the coordinate multiplicity profile from the complete orbit union. This establishes the finite orbit classification without relying on the package verifier's exit code. No claim is made that the natural group is the entire graph automorphism group, nor concerning higher strong powers.
 
-The verifier does not attempt to determine the full abstract automorphism group of \(C_7\boxtimes C_7\).
+## originality
 
-Expected first terminal line:
+PASS
 
-`VERIFY_OK vertices=49 layer_states=29 maximum=10 maxima=980 normalized_origin=200 natural_group=392 orbits=3 orbit_sizes=196,392,392 stabilizers=2,1,1 orbit_fingerprints=(0,2):392;(1,1):392;(1,2):196 row_col_profile=2,2,2,1,1,1,1 normalized_sha256=2e8d95cfc42c76a63db408aa2c68122678e83dd8f3ec0e4190e605cc810f2675 maxima_sha256=91a218e8c389d722d411f23ba32fee36aecf2072afb12619c7954b2d31f15bc5`
+PASS best-of-knowledge: existing strongest directly relevant 2026 primary paper gives α(C7 strong square)=10 and 980 maximum sets, and its dihedral five-orbit result concerns 29 SINGLE-LAYER independent C7 states, not maximum independent sets of the 49-vertex square. The audited 392/392/196 orbits, stabilizers, and distinguishing pair-distance invariants do not follow from the scalar leading coefficient without an equality-case analysis. Searches across aliases and Resultary found no earlier exact full-code orbit classification. Older obscure code catalogues remain a residual risk.
+
+## value
+
+PASS
+
+PASS: The explicit natural channel symmetry group and its action on the complete set of maximum two-use zero-error codes are motivated equality-structure invariants. The result separates three inequivalent optimal designs even though all have the same size and row/column multiplicity profile, so it supplies a useful classification not implied by the known total count. It is finite but complete and naturally chosen (C7 strong square is a classical Shannon-capacity benchmark).
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
