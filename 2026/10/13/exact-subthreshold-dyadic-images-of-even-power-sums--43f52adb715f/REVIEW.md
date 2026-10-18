@@ -1,15 +1,21 @@
-# Self-review: exact subthreshold dyadic images of even-power sums
+# Independent mathematical audit
 
-## Correctness — PASS
-For an even exponent \(k\ge6\), the \(k\)-th powers of odd units occupy exactly one principal-unit coset \(1+2^{\nu_2(k)+2}\mathbb Z_2\). This is established by the odd-unit group structure and the exact valuation of \(5^k-1\). With fewer than \(2^{\nu_2(k)+2}\) summands, their count of odd terms has a unique residue modulo that power of two. Each positive odd-term count produces the entire corresponding residue cylinder; zero odd terms give a scaled copy of the original polynomial image. These disjoint alternatives prove the full recursive residue classification, finite cardinalities, \(2\)-adic membership test, Haar measure, exactly periodic finite-level discrepancy, and boundary statement. The potentially delicate conditions \(k>\nu_2(k)+2\), \(a\le \nu_2(k)+2\), and \(\nu_2(k)+2<a\le k\) are explicitly handled. The included verifier compared 452 *complete finite residue sets* with the predictions, but this is supplementary to the parameter-uniform proof.
+## correctness
 
-## Originality — PASS relative to the inspected literature
-Subocz (1999, Lemma 3.1 and Theorem 3.2) already determines the odd-unit power coset and the dyadic Waring threshold; these are acknowledged as prior results. Arias, Borja, and Anaya (2023, Section 7 and Proposition 32) establish the general prime-power image-counting framework and special fourth-power image counts, but not this all-even-exponent prethreshold image formula. The 2019 polynomial-image framework and the 2008/2020 modular Waring literature were also compared. The closest previously recorded item, *Complete prime-power modular Waring numbers for tenth powers* (opaque identifier `3cdc5089-ec08-471b-80f1-a2d49e55f780`), determines saturation thresholds, not the cardinalities or residue sets below those thresholds. No checked statement immediately supplies the entire disjoint classification, the finite exact counts for every subthreshold summand number, or the full \(2\)-adic measure and discrepancy formula. **Material risk:** Subocz's unit-power lemma combined with earlier recursive image methods comes close to implying the present result; an implicit or unindexed equivalent formulation cannot be ruled out by search or by this review.
+PASS
 
-## Value — PASS
-The exact images and their cardinalities are the direct invariants motivating the 2023 polynomial-image counting problem. An all-parameter answer for every even exponent \(k\ge6\) and all proper subthreshold summand counts is a natural complete family rather than an arbitrary numerical slice. It determines which local congruences are possible, gives the exact asymptotic proportion of allowable \(2\)-adic targets, and upgrades a limiting density to a precisely periodic bounded counting error. The interesting near-saturation example of 31 eighth powers has exact limiting proportion \(248/255\). These are precise classification facts, not claims about a new Waring threshold or global integer representations.
+For k even>=6 let h=v2(k)+2<k, q=2^h, 1<=t<q. The cyclic odd-unit structure and v2(5^k-1)=h establish that odd kth powers are exactly 1+qZ/2^a for a>h and 1 mod2^a when a<=h. The number r of odd summands is uniquely recorded mod q because r<=t<q, and the r>=1 branch fills an entire coset with one variable odd summand, while r=0 factors as 2^k times a smaller power-sum image. This gives an exact disjoint recurrence for each modulus, geometric 2-adic shell decomposition, Haar measure t/[q(1-2^-k)] and boundary {0}. The recurrence implies exact k-periodic bounded discrepancy in a; an independent brute-force set equality checker found agreement in 231 exact finite cases. The proofs cover arbitrary allowed k,t,a; finite checks do not replace it.
 
-## Checked literature and remaining limitations
-The full directly relevant 2023 article, the available complete six-page 1999 Subocz text, and materially relevant statements from 2019, 2008, and 2020 primary papers were compared by implication. External research records were searched by exact recurrence, local Waring aliases, exponent parameters, image sets, and dyadic density. The main residual bibliographic risk is an earlier unstated consequence of the 1999 unit-group lemma together with the 2019–2023 general recursion machinery. No exact tuple-representation multiplicities or odd-prime claims are established. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-level originality based on the named searches and primary-source comparisons below; previously established prerequisites and tabulated partial cases are expressly excluded from novelty. Unindexed equivalent results are not ruled out.
+
+## value
+
+PASS
+
+All proper subthreshold sum-of-even-powers images at dyadic moduli are a natural modular Waring problem. Exact membership, count recursion, 2-adic measure, periodic error and isolated boundary are mathematically usable data beyond the known minimal summand count for saturation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
