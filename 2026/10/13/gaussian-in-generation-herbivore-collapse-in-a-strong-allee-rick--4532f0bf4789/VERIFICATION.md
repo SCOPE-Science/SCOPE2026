@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python verify.py` in the directory containing this file. The checker uses only Python 3 standard-library arithmetic and prints `VERIFY_OK` on success. The checker has been executed on the packaged source and produced `VERIFY_OK` for three distinct positive parameter sets.
+## correctness
 
-The script checks the biomass-partition update against the original two-component recurrence for the first twelve positive iterates. It then follows the exact logarithmic recurrence without prematurely treating extremely small herbivore biomasses as zero and computes the finite partial sums defining the constants \(C,D\). At generations 100, 160 and 230 it compares the normalized plant and herbivore logarithms to their asymptotic constants. The sample runs involve \((r,b,a,x_0,y_0)=(1,0.25,1.3,0.12,0.14)\), \((2,0.2,0.8,0.07,0.4)\), and \((1.5,0.3,2,0.22,0.03)\).
+PASS
 
-**Mathematical scope.** The verifier is a finite numerical consistency check; it does not certify an infinite-time statement. The proof requires (i) positive eventual contraction \(f(x)\le\rho<1\), (ii) the weighted absolute convergence of \(\delta_j\), (iii) convergence of the analytic correction \(\phi_j\), and (iv) the exact logarithmic product identity. Each step is supplied independently in RESULT.md. The essential assumptions are strict positivity, \(q=f(0)\in(0,1)\), and eventual extinction. Neither coordinate-axis data nor the boundary \(q=1\) are covered.
+Assume strictly positive orbit tending to (0,0), f C1 near zero and q=f(0) strictly between 0 and 1. Eventual x contraction x_{n+1}<=rho x_n and y_{n+1}<=rho x_n yields exponential decay. Thus sum (j+1)|delta_j|<infinity, sum |phi_j|<infinity, giving exact positive finite C and D by weighted logarithmic telescoping. Exact identity y_{n+1}=x_{n+1}(e^{a y_n}-1) leads to log y_n=log D+n log(aC)+n(n+1)log(q)/2+o(1). For Ricker f(x)=exp(r(1-x)(x-b)), 0<x0<b is invariant, strictly contracting; log rates and first eta-hitting clocks follow with O(1) integer effects. Independent numerical logarithmic iteration checked finite constants; proof rests on summable errors, not finite runs.
+
+## originality
+
+PASS
+
+Same-model Bešo et al paper treats invariant regions, extinction basins and stability, not positive prefactors or the quadratic-log herbivore asymptotics. Related host-parasitoid versions attack before plant growth and the q>1 literature has different extinction linearization.
+
+## value
+
+PASS
+
+The leading plant geometric scale and herbivore super-geometric q^(n²/2) scale, including orbit-dependent finite positive prefactors and different detection-time clocks, are exact information a dynamical-systems or ecological-model analyst needs beyond stability/existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

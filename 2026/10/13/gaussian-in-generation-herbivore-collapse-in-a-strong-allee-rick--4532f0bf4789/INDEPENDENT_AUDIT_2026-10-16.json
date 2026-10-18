@@ -1,0 +1,85 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T16:13:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Assume strictly positive orbit tending to (0,0), f C1 near zero and q=f(0) strictly between 0 and 1. Eventual x contraction x_{n+1}<=rho x_n and y_{n+1}<=rho x_n yields exponential decay. Thus sum (j+1)|delta_j|<infinity, sum |phi_j|<infinity, giving exact positive finite C and D by weighted logarithmic telescoping. Exact identity y_{n+1}=x_{n+1}(e^{a y_n}-1) leads to log y_n=log D+n log(aC)+n(n+1)log(q)/2+o(1). For Ricker f(x)=exp(r(1-x)(x-b)), 0<x0<b is invariant, strictly contracting; log rates and first eta-hitting clocks follow with O(1) integer effects. Independent numerical logarithmic iteration checked finite constants; proof rests on summable errors, not finite runs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Same-model paper establishes attraction basins, not the weighted summability nor positive prefactors; generic hyperbolic linearization has a zero herbivore multiplier."
+        ],
+        "reasoning": "The nonhyperbolic zero-eigenvalue direction prevents ordinary two-exponential linearization from directly yielding the strong n² rate.",
+        "searches": [
+          "Bešo et al 2024 Lemmas 3.1-3.4 and conclusion",
+          "Resultary searches for strong Allee extinction rates and predator-prey maps"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3934/dcdsb.2023108 same-model full article §§3.1 and conclusion",
+        "arXiv:1404.5555 host-parasitoid preprint comparison",
+        "Resultary same-model Gaussian/Allee semantic searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source basin can be combined with a new weighted logarithmic recurrence to give sharp rates; that recurrence is not supplied in source."
+        ],
+        "reasoning": "The result is a nontrivial extension rather than a restatement of asymptotic stability; it does not assert stochastic extinction times.",
+        "searches": [
+          "Bešo et al DOI:10.3934/dcdsb.2023108 §3.1",
+          "Chow-Jang 2014 arXiv:1404.5555"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original map uses biomass sharing after plant growth; related host-parasitoid map attacks in a different sequence."
+        ],
+        "reasoning": "A mere statement of local extinction/stability is not equivalent to simultaneous sharp prefactors and n(n+1)/2 herbivore exponent; model order must be held fixed.",
+        "searches": [
+          "Resultary: plant herbivore Ricker Allee Gaussian quadratic extinction rate",
+          "Bešo et al 2024 same-model paper §3.1",
+          "Chow-Jang arXiv:1404.5555"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact n(n+1)/2 herbivore prefactor table in inspected original §§3.1 or conclusions."
+        ],
+        "reasoning": "Numerical trajectory plots or basin tables cannot imply the orbit-dependent D in (2). No covering exact table found.",
+        "searches": [
+          "Bešo et al DCDS-B 2024 PDF/full HTML text",
+          "Resultary: Gaussian-in-generation herbivore collapse sharp extinction asymptotic"
+        ]
+      },
+      "rationale": "Same-model Bešo et al paper treats invariant regions, extinction basins and stability, not positive prefactors or the quadratic-log herbivore asymptotics. Related host-parasitoid versions attack before plant growth and the q>1 literature has different extinction linearization.",
+      "residual_risks": [
+        "Analogous nonhyperbolic extinction asymptotics for other maps may provide general lemmas, though a same-map joint C,D theorem was not located.",
+        "Extinction assumption outside x0<b is conditional; axes and q=1 excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Published basin/local stability results; no complete sharp two-scale C,D prefactor theorem",
+          "evidence": "Model (5), §3.1 Lemmas 3.1-3.4, concluding discussion",
+          "identifier_or_url": "https://doi.org/10.3934/dcdsb.2023108",
+          "material_read": "Accessible author-uploaded full paper textual content including model (5), Lemmas 3.1-3.4 in §3.1 and conclusion",
+          "method": "Read accessible full author-uploaded text and publication record",
+          "title": "Dynamics of a plant-herbivore system with Ricker plant growth and the strong Allee effects on plant population",
+          "trigger": "Exact same map and parameters"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The leading plant geometric scale and herbivore super-geometric q^(n²/2) scale, including orbit-dependent finite positive prefactors and different detection-time clocks, are exact information a dynamical-systems or ecological-model analyst needs beyond stability/existence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Analogous nonhyperbolic extinction asymptotics for other maps may provide general lemmas, though a same-map joint C,D theorem was not located.",
+    "Extinction assumption outside x0<b is conditional; axes and q=1 excluded."
+  ]
+}
