@@ -1,13 +1,21 @@
-# Review
-## Correctness
-PASS. The fold relation is algebraically equivalent to the source's equation (2.37); its two exact roots coalesce at \(x=(k+1)/(k-1)\). On that fold, equation (2.40) reduces exactly to the stated rational-power function \(A(x)\). The first three derivatives of \(\log A(x)\) at the coalescence point give the nonzero \(\varepsilon^{3/2}\) branch difference, and the analytic change of variable from \(b-b_c\) to \(\theta-\theta_c\) gives the claimed coefficient. All denominators are positive in the stated domain, and \(\theta_c>1\), so \(C_{k,q}>0\). The packaged replay checks representative source-formula evaluations but is not used to infer the infinite statement.
+# Independent mathematical audit
 
-## Originality
-PASS. The primary full text was inspected at equations (2.35)--(2.41), Theorem 2.8, Figure 6, and Proposition 6.17. It names the meeting point a cusp and plots the two curves but does not give a \(3/2\) fold-width law or an amplitude. For \(q=2\), its own local calculation stops at \(\alpha_\pm(\theta)=o(\theta-\theta_c)\), whereas the present claim gives the first nonzero term. Targeted published-record searches using the source identifier, cusp/fold aliases, and the proposed asymptotic found no covering statement. A prior result concerning a different auxiliary function in the same paper does not imply this fold-width asymptotic.
+## correctness
 
-## Value
-PASS. The width \(\alpha_+-\alpha_-\) is exactly the external-field interval in which the source's scalar equation has three positive solutions, so its rate of collapse is a natural phase-boundary invariant rather than an arbitrary local coefficient. The result quantifies the cusp explicitly for all \(k,q\ge2\) and strictly sharpens the source's endpoint statement in the \(q=2\) case.
+PASS
 
-The closest literature remains the source itself. The result is deliberately local and branch-specific; it does not settle the source's global counting or monotonicity conjectures, and an equivalent weakly indexed calculation remains a residual originality risk.
+Verified against Bogachev–Rozikov primary equations (2.35)-(2.41), viewed rendered pages 18 and 58: set b=theta(theta+q-2)/(q-1), b_c=((k+1)/(k-1))^2, roots x_±=rho+(k-1)(b-b_c)/2 ±sqrt(k(b-b_c)+(k-1)^2(b-b_c)^2/4). On folds log a(x)=k log((k-1)x-1)-k log k-(k+1)log x. At rho=(k+1)/(k-1), Lprime=0, Ldoubleprime=-(k-1)^2/[k(k+1)] and Ltripleprime=2(k-1)^3(2k+1)/[k^2(k+1)^2]. The symmetric root difference cancels order sqrt epsilon and yields (k-1)^4/(3 sqrt k (k+1)^2) epsilon^(3/2), and bprime(theta_c)=(2theta_c+q-2)/(q-1). Dividing by log theta_c yields stated C>0 for all k,q>=2. Independent symbolic differentiation and numerical k,q examples corroborated; remainder O(delta^2) is valid (weaker than next order), q=2 halves use source antisymmetry. Not a statement about other multi-colour Gibbs phases.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Bogachev–Rozikov 2019 primary text provides *exact* fold functions and identifies cusp, and Proposition 6.17 obtains only derivative zero (little-o linear) at q=2. The primary source does not state the exact first nonzero 3/2 width term or all-(k,q) amplitude. The proposed calculation is a natural quantitative refinement of the known fold curves, and contains a cancellation requiring a third derivative; prior exact formulas are acknowledged completely. Best-of-knowledge PASS for the explicit normalized leading cusp invariant, with a substantive implication risk that an editor may regard expansion of known closed folds as a routine derivation.
+
+## value
+
+PASS
+
+The fold separation is the exact width of the three-positive-root field strip studied in the original phase diagram. Its critical exponent 3/2 and positive all-parameter amplitude quantify a physically natural cusp degeneracy and sharpen the original q=2 little-o bound. The source motivated this local invariant before computation; no global Gibbs-measure count is suggested.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
