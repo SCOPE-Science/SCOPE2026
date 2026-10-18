@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The proof is analytic. For \(G_{a,b,t}\), the four contributions are:
 
-1. \(ab-t\) surviving cross edges, each with one geodesic.
-2. \(t\) deleted cross pairs, each with \((a-1)(b-1)-t+1\) length-three geodesics.
-3. Same-side pairs in the \(a\)-part, totaling \(b\binom{a}{2}-t(a-1)\).
-4. Same-side pairs in the \(b\)-part, totaling \(a\binom{b}{2}-t(b-1)\).
+# Independent mathematical audit
 
-Adding these terms and the \(a+b\) zero-length geodesics gives the claimed formula. The difference from the \(t=0\) case is exactly \(t(C-t)\), so the optimizer is the nearest allowed integer to \(C/2\).
+## correctness
 
-The attached verifier independently constructs each graph, performs breadth-first search from every vertex, counts shortest paths dynamically, and sums over unordered pairs. It checks every \(3\le a,b\le8\) and every \(0\le t\le\min\{a,b\}\), plus the balanced transition through \(n=8\). A successful replay prints:
+PASS
 
-`ALL CHECKS PASSED; parameter_cases=199; a,b_range=3..8; balanced_n_range=3..8`
+For K_{a,b} with a,b>=3 and t deleted independent cross edges, enumerated shortest paths by pair class: ab-t intact cross pairs contribute one; each removed x_i y_i has exactly (b-1)(a-1)-(t-1) length-three geodesics (choices of two middle indices except the t-1 blocked ones); left-internal pairs contribute b*C(a,2)-t(a-1), right-internal a*C(b,2)-t(b-1), and a+b vertex-length-zero paths are included by definition. Summation simplifies to a+b+ab(a+b)/2+t(ab-2a-2b+3)-t², for the whole connected family. Concavity of t(C-t) proves integer argmax nearest C/2 clipped to permitted interval. For a=b=n, direct substitution yields n=3 maximum t=0, n=4 tie t=1,2, n=5 t=4, and t=n for n>=6. The crown difference n(n²-5n+3) is positive n>=5. Independent BFS path-multiplicity computations corroborated 130 parameter cases (3<=a,b<=7), not used in place of the pairwise proof.
 
-The finite replay is a stress test only; no finite enumeration is used to justify the universal quantifiers.
+## originality
+
+PASS
+
+The 2026 introducing paper defines geodesic subpath number, observes that deleting perfect matchings can improve it, and poses a broader bipartite extremal problem. The assessed all-a,b,t exact matching-deletion polynomial and maximizers resolve that motivated family, while a nearby diameter-two extremum excludes the t>0 diameter-three cases. No earlier covering identity found in published database queries.
+
+## value
+
+PASS
+
+The geodesic subpath number is a newly studied invariant with an explicit proposed matching-removal phenomenon. This resolves the entire natural one-parameter deletion family, discovers a clean concave optimization and sharp balanced-order phase transitions, addressing a concrete structural question rather than a tiny arbitrary instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

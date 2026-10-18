@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T19:49:28.671561Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For K_{a,b} with a,b>=3 and t deleted independent cross edges, enumerated shortest paths by pair class: ab-t intact cross pairs contribute one; each removed x_i y_i has exactly (b-1)(a-1)-(t-1) length-three geodesics (choices of two middle indices except the t-1 blocked ones); left-internal pairs contribute b*C(a,2)-t(a-1), right-internal a*C(b,2)-t(b-1), and a+b vertex-length-zero paths are included by definition. Summation simplifies to a+b+ab(a+b)/2+t(ab-2a-2b+3)-t², for the whole connected family. Concavity of t(C-t) proves integer argmax nearest C/2 clipped to permitted interval. For a=b=n, direct substitution yields n=3 maximum t=0, n=4 tie t=1,2, n=5 t=4, and t=n for n>=6. The crown difference n(n²-5n+3) is positive n>=5. Independent BFS path-multiplicity computations corroborated 130 parameter cases (3<=a,b<=7), not used in place of the pairwise proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The diameter-two extremal theorem applies to graphs of diameter 2, whereas every G_{a,b,t} with t>0 has distance 3 between deleted endpoint pairs.",
+          "The original article considers all graphs, but poses rather than solves the familywise extremum."
+        ],
+        "reasoning": "Broader object classes in a question or in a restricted diameter-two theorem do not entail the new exact formula in diameter-three graphs.",
+        "searches": [
+          "Knor--Sedlar--Škrekovski--Zhang arXiv:2604.04907 introduction/conclusion",
+          "Resultary record 2026/9/17/SCOPE-diameter-two-geodesic-subpath-extremum--d8fd04cc9d21"
+        ]
+      },
+      "checked_sources": [
+        "Knor et al. arXiv:2604.04907 and DOI:10.1007/s00009-026-03159-3",
+        "Resultary matching-deleted biclique and diameter-two records",
+        "Independent BFS geodesic multiplicities for 130 parameters"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original paper identifies crown graphs as potentially improving examples without quantifying every a,b,t.",
+          "The diameter-two optimization gives no bound for matching-deleted pairs at distance three."
+        ],
+        "reasoning": "The exact surplus and integer maximizing transition require the four pair-class geodesic count; they are not corollaries of the cited results.",
+        "searches": [
+          "Knor et al., Counting geodesic paths in graphs, arXiv:2604.04907v1",
+          "Resultary diameter-two record d8fd04cc9d21"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Knor et al. explicitly suggest removing a perfect matching as a possible increase and pose unrestricted bipartite extremal questions; they do not give the polynomial in arbitrary matching size.",
+          "Resultary near hit counting non-CIS pairs on matching-deleted bicliques is a different graph invariant."
+        ],
+        "reasoning": "Crown-graph, biclique-minus-matching and diameter-three aliases were compared. A suggestive example does not imply the exact t-quadratic classification.",
+        "searches": [
+          "Resultary query: geodesic subpath matching deletion K a b crown graphs n(n squared -5n+3)",
+          "arXiv:2604.04907 Knor et al. complete bipartite matching deletion",
+          "web: crown graph geodesic subpath number formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The top exact hit is the present record; independent nearby records concern diameter-two extrema, edge metric bases, non-CIS pair counts and unrelated path-blowup bounds."
+        ],
+        "reasoning": "No matching all-parameter geodesic-count table or stronger enumeration was exposed; the claim is symbolic for all a,b,t rather than a finite table.",
+        "searches": [
+          "Resultary published geodesic subpath number matching deletion crown graph",
+          "Resultary global diameter-two geodesic subpath extremum"
+        ]
+      },
+      "rationale": "The 2026 introducing paper defines geodesic subpath number, observes that deleting perfect matchings can improve it, and poses a broader bipartite extremal problem. The assessed all-a,b,t exact matching-deletion polynomial and maximizers resolve that motivated family, while a nearby diameter-two extremum excludes the t>0 diameter-three cases. No earlier covering identity found in published database queries.",
+      "residual_risks": [
+        "An exact crown-graph geodesic path formula may exist under earlier shortest-path enumeration terminology.",
+        "Only this fixed complete bipartite matching-deletion family is optimized; the global bipartite maximum remains open."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MOTIVATING_NOT_FORMULA",
+          "evidence": "Defines paths with zero-length singletons; discusses matching removal and asks for bipartite extrema without enumerating all matching sizes.",
+          "identifier_or_url": "arXiv:2604.04907v1; DOI:10.1007/s00009-026-03159-3",
+          "material_read": "Open-access full HTML definition, graph examples, conclusion and research problems materially read",
+          "method": "Lawful arXiv HTML primary paper",
+          "title": "Counting geodesic paths in graphs",
+          "trigger": "Introduces exact same geodesic subpath invariant"
+        },
+        {
+          "assessment": "DOMAIN_EXCLUDES_t_POSITIVE",
+          "evidence": "Diameter-two only, but every t>0 permitted matching deletion has a pair at distance three.",
+          "identifier_or_url": "Resultary 2026/9/17/SCOPE-diameter-two-geodesic-subpath-extremum--d8fd04cc9d21",
+          "material_read": "Published finding summary and domain statement (not complete article text)",
+          "method": "Resultary semantic record",
+          "title": "Balanced complete bipartite graphs uniquely maximize geodesic subpaths at diameter two",
+          "trigger": "Potential stronger graph-class upper bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The geodesic subpath number is a newly studied invariant with an explicit proposed matching-removal phenomenon. This resolves the entire natural one-parameter deletion family, discovers a clean concave optimization and sharp balanced-order phase transitions, addressing a concrete structural question rather than a tiny arbitrary instance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Requires a,b>=3, matching deletion only, zero-length geodesics included; no global bipartite extremal claim.",
+    "Finite path-count stress tests merely corroborate the symbolic proof.",
+    "Research files and public package remain unchanged; independent scientific PASS does not constitute external certification or publication.",
+    "Public operational metadata requires sanitization before publication; plan status not_ready."
+  ],
+  "schema_version": 1
+}
