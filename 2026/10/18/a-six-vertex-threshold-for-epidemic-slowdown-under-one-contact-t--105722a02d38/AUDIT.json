@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "The finite Bellman recurrence is exact and terminates by strict growth of the ever-infected set. The four initial-position survival probabilities give the closed rational formulas and a sign condition valid for every integer m>=1. Exact independent path-weight and recurrence algorithms agree on every labelled connected graph of orders 2 through 5 and every corresponding edge insertion, 3227 complete comparisons; both also reproduce all m=1..16 formulas. The six-vertex strict negative difference is exactly -1/150. Finite test m<=16 is not asserted as an infinite proof, and the census beyond five vertices is not claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kenah–Robins proves general mathematical representation of finite SIR epidemics; it does not supply a theorem making one-out contact allocation monotone as edges are added.",
+        "Enright–Kao computes expected outbreak sizes exactly for acyclic time-expanded, outbreak-invariant contagion networks. Their general algorithms do not assert the specific sign threshold on book graphs or the global sharp first size.",
+        "Closest result 2026/9/14/SCOPE021 concerns a universal two-patch SEIR reproduction-number bound, which is neither cumulative final outbreak nor a single-contact random walk."
+      ],
+      "reasoning": "A framework capable of expressing or computing the quantity for a particular input is not a published assertion of every exact identity obtained from it. The inspected broader theorems do not imply the stated first-order obstruction or integer sign threshold without the fresh analytic computation and complete bounded census.",
+      "searches": [
+        "degree normalized network SIR epidemic adding a contact reduces outbreak size one contact per infectious individual per step finite graphs",
+        "contact-limited epidemics edge addition can reduce epidemic final size random neighbor one contact SIR",
+        "arXiv:q-bio/0610057, sections 2-3 and Appendix A",
+        "doi:10.1016/j.epidem.2016.05.002, sections 1-4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:q-bio/0610057 (full-text epidemic-percolation SIR)",
+      "arXiv:0907.1313 (full-text one-contact SIS dynamics)",
+      "doi:10.1016/j.epidem.2016.05.002 (full primary PDF)",
+      "doi:10.1038/srep14462 (full-text SIR contact representations)",
+      "2026/9/14/SCOPE021 (ranked scientific-result summary and mathematical objective comparison)",
+      "2026/9/16/SCOPE013 (ranked scientific-result summary and mathematical objective comparison)",
+      "2026/10/4/SCOPE-the-finite-population-contact-law-in-a-stochastic-covid-model-is--d78b1ebd8fb7 (ranked summary, distinct sampling question)",
+      "2026/10/11/SCOPE-a-sharp-l-wner-ellipsoid-edge-invisibility-threshold-for-book-gr--87e035ae5886 (ranked summary, exact graph family but unrelated invariant)",
+      "2026/9/20/SCOPE-quantitative-path-stability-graph-indexed-ranges--fc2d9220df63 (ranked summary, distinct stochastic range)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Closest 2026/9/16/SCOPE013 establishes nonmonotonicity for a deterministic two-neighbor burning source optimum, not for the stochastic final size of one-contact epidemic transmission.",
+        "Closest 2026/10/4/SCOPE-the-finite-population-contact-law-in-a-stochastic-covid-model-is--d78b1ebd8fb7 critiques competing finite contact-selection distributions; it has no graph edge-addition threshold or exact \\(K_{2,m}\\) outbreak formula.",
+        "Holme evaluates SIR outbreak predictability under contact-pattern representations, without an assertion about adding an edge in a static graph with one contact before removal."
+      ],
+      "reasoning": "The submitted claim is the conjunction of an analytic sign formula on a specific infinite family and the nonexistence of decreases for any connected graph smaller than six. The closest results differ in objective (thresholds, game costs, graph geometry) or in epidemic dynamics (SIS reinfection, multiple independent contacts), so they do not imply either part. No mere mismatch of title or parameter is treated as the sole evidence of novelty.",
+      "searches": [
+        "degree normalized network SIR epidemic adding a contact reduces outbreak size one contact per infectious individual per step finite graphs",
+        "one-contact rumor spreading random neighbor SIR epidemic expected cascade edge addition smaller graph",
+        "One-shot SIR epidemic with one uniformly random neighbor contacted per infected vertex: Adding hub-to-hub edge to complete bipartite K_{2,m} reduces mean final outbreak from (4m+3)/(m+2), six-vertex smallest counterexample",
+        "doi:10.1038/srep14462",
+        "arXiv:0907.1313"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kenah–Robins connects finite SIR to directed epidemic percolation, which permits the present one-out case but does not compute the book-graph exact sign law.",
+        "Gómez et al. normalize one-neighbor infection trials by node degree and use an SIS model with reinfection; their critical-threshold expressions do not determine the first-repeat stopped walk statistic.",
+        "Closest stochastic walk range item 2026/9/20/SCOPE-quantitative-path-stability-graph-indexed-ranges--fc2d9220df63 studies graph-indexed, rather than first-repetition, ranges."
+      ],
+      "reasoning": "The process can be rephrased as a uniform-root nearest-neighbor random walk stopped immediately before repeating a vertex, or as the one-out functional-digraph out-component from the seed. These are equivalent descriptions and were included in searches. They do not by themselves give the derived exact formula or minimality; the cited random-walk range setting differs in underlying stochastic object.",
+      "searches": [
+        "one-out random mapping epidemic out component functional digraph graph completion adding edges monotonicity expected reachable set exact smallest counterexample",
+        "self-avoiding random walk terminated on first revisited vertex: expected length decreases under edge insertion complete bipartite K2m six vertices",
+        "arXiv:q-bio/0610057, sections 2 and Appendix A",
+        "arXiv:0907.1313, section 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Scientific-result searches produced no table of all labelled graphs on up to five vertices for this exact random-contact SIR quantity.",
+        "The program recomputes all 3227 labelled edge insertions from graph edge masks, using two exact algorithms, without reliance on pretabulated outbreak values.",
+        "Closest book-graph result 2026/10/11/SCOPE-a-sharp-l-wner-ellipsoid-edge-invisibility-threshold-for-book-gr--87e035ae5886 addresses a minimum-volume ellipsoid under the same hub-join, not infection final size."
+      ],
+      "reasoning": "No searched exact database or table supplies the expected-size identities or sharp threshold. The finite census is direct and complete for its announced bound, not a mere selective query of known graph values.",
+      "searches": [
+        "One-shot SIR epidemic with one uniformly random neighbor contacted per infected vertex: Adding hub-to-hub edge to complete bipartite K_{2,m} reduces mean final outbreak from (4m+3)/(m+2), six-vertex smallest counterexample",
+        "one-contact rumor spreading random neighbor SIR epidemic expected cascade edge addition smaller graph",
+        "self-avoiding random walk terminated on first revisited vertex: expected length decreases under edge insertion complete bipartite K2m six vertices"
+      ]
+    },
+    "rationale": "Claims of general SIR epidemic percolation, degree-normalized one-contact SIS kernels, exact DAG outbreak-size algorithms, and empirical effects of contact representations were tested for implication; no inspected primary source states or implies the exact single-contact SIR uniform-seed book-family sign criterion and the sharp six-vertex edge-insertion minimum. Seven targeted scientific-record queries returned results, and relevant nearest hits concern different dynamics or invariants. The risk of an unindexed equivalent is expressly retained.",
+    "residual_risks": [
+      "A mathematically equivalent first-repeat random-walk edge-insertion example may exist in unindexed work or in a table under a different terminology; negative searches are not proof of uniqueness.",
+      "One potential 2006 equal-infectivity scale-free network paper was identifiable but its full text was not obtained; no claim of document-level noncoverage is made for that source.",
+      "The SIR process requires a fixed single contact before permanent removal; results for conventional independent-across-edges transmission must not be transferred without checking mechanisms."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General epidemic-percolation representation, not this degree-normalized budget, book-graph identity, or smallest-edge counterexample",
+        "evidence": [
+          "https://arxiv.org/abs/q-bio/0610057",
+          "https://arxiv.org/html/q-bio/0610057v5#S2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/q-bio/0610057v5",
+        "material_read": "Full accessible HTML: abstract, sections 1-3, first part of section 4, and Appendix A model and infection-network definitions",
+        "method": "Read actual primary-text model assumptions and outcomes, compared conditional contact mechanisms and mathematical claims",
+        "title": "Second look at the spread of epidemics on networks",
+        "trigger": "General SIR process may contain a one-out coupling implying the present theorem"
+      },
+      {
+        "assessment": "Correct precursor for the contact kernel; different disease-state dynamics and objective, so no direct coverage of the sharp SIR final-size theorem",
+        "evidence": [
+          "https://arxiv.org/abs/0907.1313",
+          "https://arxiv.org/html/0907.1313v2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/0907.1313v2",
+        "material_read": "Full accessible HTML: abstract, sections 1-3, section 5 conclusions",
+        "method": "Compared the explicitly stated SIS re-infection assumption, the one-contact random walk probability matrix, and critical-threshold results to permanent-immunity final size",
+        "title": "Discrete-time Markov chain approach to contact-based disease spreading in complex networks",
+        "trigger": "Direct one-neighbor selection normalization and its possible monotonicity consequences"
+      },
+      {
+        "assessment": "Computational context for exact final-size work; neither explicit formula nor minimum six-vertex decrease is provided",
+        "evidence": [
+          "https://eprints.gla.ac.uk/131522/",
+          "doi:10.1016/j.epidem.2016.05.002"
+        ],
+        "identifier_or_url": "https://eprints.gla.ac.uk/131522/1/131522.pdf",
+        "material_read": "Seven-page lawfully available primary PDF: introduction, model, calculation method, examples and concluding scope",
+        "method": "Read PDF extracted text and inspected the rendered first page; compared DAG outbreak-invariant graph assumption and independent transmission mechanism to finite one-out undirected contact choices",
+        "title": "A fast algorithm for calculating an expected outbreak size on dynamic contagion networks",
+        "trigger": "Exact outbreak-size work could subsume a special graph family"
+      },
+      {
+        "assessment": "Model sensitivity context rather than an analytic degree-budget edge addition theorem",
+        "evidence": [
+          "https://www.nature.com/articles/srep14462",
+          "doi:10.1038/srep14462"
+        ],
+        "identifier_or_url": "https://www.nature.com/articles/srep14462",
+        "material_read": "Open primary article HTML, results and Methods sections including SIR final-size model",
+        "method": "Inspected epidemic outcome definitions, contact-pattern representations and reported prediction tasks",
+        "title": "Information content of contact-pattern representations and predictability of epidemic outbreaks",
+        "trigger": "Effect of structural contact changes on SIR cumulative outbreak size"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "105722a0-2d38-43fc-8200-a73af11f28ea",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A fixed one-contact budget means increasing degree dilutes existing encounter probabilities, unlike independent transmission opportunities. The exact K_{2,m} family proves a qualitative sign reversal with a sharp threshold at m=4, while a complete lower-order census proves six vertices is the global first possibility under explicit natural uniform-root assumptions. This supplies a precisely motivated, reproducible boundary for network-intervention interpretation; the small magnitude in the first example is disclosed, and no practical population-scale effect is claimed.",
+    "status": "PASS"
+  }
+}
