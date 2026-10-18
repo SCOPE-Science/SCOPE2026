@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-This package contains a frozen Graph Atlas graph6 list, a complete exact integral-homology torsion checker, an independently written finite-field checker, and an explicit integral cycle and chain certificate. All inputs are ordinary UTF-8 or graph6 text. The results concern all simple graphs with at most seven underlying vertices.
+## correctness
 
-Install Python with the packages listed in `requirements.txt`. In one directory containing all the supplied files, execute:
+PASS
 
-```bash
-python verify_exact.py
-python verify_modular.py
-```
+For every simple graph with at most seven vertices, no matching has four edges, so its matching complex has dimension <=2 and all H1 torsion equals torsion of coker(boundary_2), as im(boundary_1) is free. Independently reconstructed every one of the 1,253 networkx Graph Atlas representatives (orders 0 through 7), enumerated all disjoint pairs/triples of graph edges, built the actual signed integer second boundary and ran exact SymPy Smith normal form on every matrix. Exactly 40 graphs have SNF nonunit invariants, each a single 3; histogram edges 13:1,14:3,15:9,16:10,17:8,18:5,19:2,20:1,21:1. The unique 13-edge G1105 has f=(13,42,30), SNF (1^29,3), and the original explicit integral certificate independently satisfies boundary_2(c)=3z. This census is exhaustive conditional on published Graph Atlas completeness; modular rank alone would not certify the integer torsion. Only up-to-7 graph order is proved.
 
-The exact checker parses each graph6 entry without NetworkX, builds every matching of sizes one through three, constructs the signed second simplicial boundary and computes integral Smith normal form using SymPy. It checks the canonical 1,253-graph order distribution, all forty torsion indices and the complete edge histogram. For `G1105` it also reconstructs the signed certificate `torsion_certificate.json` and checks \(\partial_1 z=0\), \(\partial_2 c=3z\), rank of the second boundary, and nondivisibility of a chain coefficient by three.
+## originality
 
-The second checker independently constructs the disjointness graph as the complement of the line graph, enumerates triangles of that graph, forms its boundary matrix, and performs separate modular elimination in characteristics three and five for every atlas graph. It compares graph6 inputs with the canonical NetworkX graph atlas. For the sparse witness it additionally checks characteristics two, seven and 101.
+PASS
 
-Both commands completed successfully on the packaged source files and produced `EXACT_OK` and `MODULAR_OK`. The integral Smith computation, not the modular rank comparison alone, establishes the exact torsion classification. Reproduction presumes completeness of the published Graph Atlas and correctness of installed mathematical software; it is not independent external scientific auditing.
+The earliest underlying graph order and 13-edge threshold, unique sparse witness, and exact census of all forty seven-vertex torsion-bearing unlabeled graphs are additional to the known complete-graph K7 torsion and to flag complexes on at most twelve simplicial vertices. Reproducing a known K7 torsion value alone would not qualify; the sparse threshold and complete edge-distribution genuinely remain. No matching published exact census found in scoped searches, but unindexed catalogs remain possible.
+
+## value
+
+PASS
+
+Finding the first graph order at which matching-complex 3-torsion occurs, sharp sparsest edge threshold, a unique sparse witness, and the complete finite classification are natural extremal/homological boundary questions. The 40-case integer torsion table is not a repetition of known K7 torsion and offers concrete data for edge-deletion phenomena. The 7-vertex cutoff is a complete finite invariant, not an arbitrary case slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

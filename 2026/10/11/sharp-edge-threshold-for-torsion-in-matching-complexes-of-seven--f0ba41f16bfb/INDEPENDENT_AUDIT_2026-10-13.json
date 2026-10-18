@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T22:57:20Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen verify_exact.py, verify_modular.py, torsion_cases.json, torsion_certificate.json, Graph Atlas dataset",
+        "independent exact Smith computation on 1253 networkx.graph_atlas_g() representatives, 0.73 seconds",
+        "Shareshian--Wachs arxiv:math/0409054 Theorem 1.3",
+        "Adamaszek arxiv:1208.3892 Theorem 1"
+      ],
+      "rationale": "For every simple graph with at most seven vertices, no matching has four edges, so its matching complex has dimension <=2 and all H1 torsion equals torsion of coker(boundary_2), as im(boundary_1) is free. Independently reconstructed every one of the 1,253 networkx Graph Atlas representatives (orders 0 through 7), enumerated all disjoint pairs/triples of graph edges, built the actual signed integer second boundary and ran exact SymPy Smith normal form on every matrix. Exactly 40 graphs have SNF nonunit invariants, each a single 3; histogram edges 13:1,14:3,15:9,16:10,17:8,18:5,19:2,20:1,21:1. The unique 13-edge G1105 has f=(13,42,30), SNF (1^29,3), and the original explicit integral certificate independently satisfies boundary_2(c)=3z. This census is exhaustive conditional on published Graph Atlas completeness; modular rank alone would not certify the integer torsion. Only up-to-7 graph order is proved.",
+      "residual_risks": [
+        "The independent enumeration used the standard Graph Atlas provider rather than byte-diffing packaged atlas.g6; atlas completeness is an external input."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bouc/Shareshian--Wachs establish 3-torsion for K7 and larger complete graphs; Buchsbaum topology concerns different property."
+        ],
+        "reasoning": "None of these broader theorems yields 40 exact graph isomorphism classes by deletion count or the unique sparsest graph at 13 edges.",
+        "searches": [
+          "arxiv:math/0409054 Theorem 1.3",
+          "arxiv:1208.3892 Theorem 1",
+          "arxiv:2110.11302 Buchsbaum matching complexes"
+        ]
+      },
+      "checked_sources": [
+        "Shareshian--Wachs arxiv:math/0409054 (full primary theorem)",
+        "Adamaszek arxiv:1208.3892 (theorem and scope)",
+        "Goeckner et al. arxiv:2110.11302",
+        "Graph Atlas 1998 and frozen cert"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Torsion at K7 is a stronger ambient graph but graph matching complexes do not preserve homology torsion monotonically under deleting edges."
+        ],
+        "reasoning": "Existence at 21 edges does not prove the 13-edge threshold, all 40 cases, or uniqueness; the claimed cutoff is not a logical corollary of earlier complete-graph results.",
+        "searches": [
+          "arxiv:math/0409054",
+          "arxiv:1208.3892",
+          "Graph Atlas complete seven-vertex graph"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The general flag complex alias is the clique complex of the complement of the line graph; matching-complex simplicial vertices are original graph edges, not graph vertices."
+        ],
+        "reasoning": "Adamaszek bounds 12 simplicial vertices, while sparse G1105 matching complex has 13 vertices. Known complete K7 torsion is the special 21-edge endpoint but does not classify its proper subgraphs.",
+        "searches": [
+          "Resultary query: matching complexes graph order seven edge threshold three torsion 13 edges atlas exhaustive",
+          "arxiv:math/0409054 (Shareshian--Wachs)",
+          "arxiv:1208.3892 (Adamaszek)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The atlas supplies graphs, not their first-homology Smith invariants.",
+          "Original torsion_cases.json lists all 40 indices; independent Smith calculation reproduced list."
+        ],
+        "reasoning": "Source result is a new computation on a known finite catalog, not a known torsion table recomputation; no earlier equivalently annotated atlas was identified.",
+        "searches": [
+          "Read--Wilson An Atlas of Graphs, 1998",
+          "networkx graph_atlas_g canonical 1253 graphs",
+          "Resultary thematic search matching torsion edge census"
+        ]
+      },
+      "rationale": "The earliest underlying graph order and 13-edge threshold, unique sparse witness, and exact census of all forty seven-vertex torsion-bearing unlabeled graphs are additional to the known complete-graph K7 torsion and to flag complexes on at most twelve simplicial vertices. Reproducing a known K7 torsion value alone would not qualify; the sparse threshold and complete edge-distribution genuinely remain. No matching published exact census found in scoped searches, but unindexed catalogs remain possible.",
+      "residual_risks": [
+        "An unindexed earlier graph matching torsion census may exist; priority is best-of-knowledge.",
+        "Relies on standard Graph Atlas enumerating unlabeled graphs <=7; independence of input catalog not asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "prior complete-graph torsion; no sparse graph census observed",
+          "evidence": [
+            "The published result includes K7 matching complex, not edge-minimal K7 subgraphs."
+          ],
+          "identifier_or_url": "arxiv:math/0409054",
+          "material_read": "Main theorem, introduction, section statements on K7 torsion",
+          "method": "arXiv full PDF text and page images",
+          "title": "Torsion in the Matching Complex and Chessboard Complex",
+          "trigger": "3-torsion in seven-vertex complete matching complex"
+        },
+        {
+          "assessment": "12 simplicial-vertex boundary excludes this 13-edge witness",
+          "evidence": [
+            "G1105 gives 13 matching-complex vertices."
+          ],
+          "identifier_or_url": "arxiv:1208.3892",
+          "material_read": "Published theorem abstract/scope and flag vertex-bound",
+          "method": "primary theorem-level comparison",
+          "title": "Small Flag Complexes with Torsion",
+          "trigger": "possible flag-complex umbrella coverage"
+        },
+        {
+          "assessment": "reference catalog supports exhaustive finite input only, no homology table",
+          "evidence": [
+            "All 1253 representatives were independently processed with signed integer SNF."
+          ],
+          "identifier_or_url": "Read--Wilson 1998; https://networkx.org/documentation/stable/reference/generated/networkx.generators.atlas.graph_atlas_g.html",
+          "material_read": "Index counts 1253, NetworkX 7-vertex representatives, G1105 graph6 and exact edge list",
+          "method": "documented canonical graph atlas plus independently executed enumeration",
+          "title": "An Atlas of Graphs",
+          "trigger": "exhaustive unlabeled input universe"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Shareshian--Wachs torsion phenomenon",
+        "Graph Atlas exact census",
+        "integral torsion chain certificate"
+      ],
+      "rationale": "Finding the first graph order at which matching-complex 3-torsion occurs, sharp sparsest edge threshold, a unique sparse witness, and the complete finite classification are natural extremal/homological boundary questions. The 40-case integer torsion table is not a repetition of known K7 torsion and offers concrete data for edge-deletion phenomena. The 7-vertex cutoff is a complete finite invariant, not an arbitrary case slice.",
+      "residual_risks": [
+        "Cannot infer minimum edge count for graphs on eight or more vertices; no global matching-complex torsion theorem is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Conclusions apply to graph order <=7, not larger graphs or arbitrary flag complexes.",
+    "Smith over integers, rather than mod-3 rank alone, is the decisive exhaustive test."
+  ],
+  "schema_version": 1
+}
