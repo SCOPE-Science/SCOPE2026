@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof conditions on the sole shared arc of an in-degree and an out-degree at different vertices. It derives the full joint covariance entrywise, then orthogonalizes two binomial score vectors to obtain exactly three zero directions, one doubled eigenvalue, and the Pearson-contrast expectation. Explicit boundaries \(n\ge2\) and \(0<p<1\) are respected. Exhaustive exact-rational enumeration for \(n=2,3,4\) and two probabilities verifies all matrix entries, with the infinite range supplied by the proof.
+## correctness
 
-**Originality — PASS (provisional historical priority).** Inspection of the material in Chen–Olvera-Cravioto (arXiv:1207.2475v1, Introduction, model definition, central asymptotic results and proof sections) identifies a prescribed-degree configuration model, not independent directed Bernoulli arcs. Inspection of the material in Wang–Resnick (arXiv:1510.00290v1, problem statement, martingale array covariance and conclusions) identifies preferential attachment and joint (in,out) degree-pair counts, not the pair of marginal histograms or the finite covariance spectrum. McKay–Wormald 1997 concerns asymptotic undirected degree-sequence approximation. A tournament-style single-histogram calculation would involve mutually exclusive dyad outcomes instead of the present independent reciprocal arcs. The remaining risk is implicit coverage in older Bernoulli row/column-frequency literature; no independent priority certification is asserted.
+PASS
 
-**Value — PASS.** The complete degree-histogram covariance is a natural finite-sample object for directed-network goodness-of-fit. The universal \(p\)-independent spectrum separates two fixed histogram totals, their shared total-arc constraint, an amplified common degree-score mode, and ordinary contrasts. The exact expectation \(n-2\) of the in/out Pearson discrepancy gives a concrete calibration not furnished by separate multinomial marginals. This is a structural statement about the full pair of histograms, not an arbitrarily chosen degree cell.
+Because distinct vertices incoming directed-arc collections are disjoint, each in-degree histogram is multinomial with binomial cell probabilities; likewise for outgoing. An in-degree at i and out-degree at j share exactly one Bernoulli arc j->i if i!=j (none when i=j). Law of total covariance yields mixed entries n(n-1)p(1-p)(h_{k-1}-h_k)(h_{l-1}-h_l). Binomial score identity converts to rank-one n v v^T after whitening. u=sqrt(b) and v=standardized binomial score are orthonormal; in the 2n space, (u,0),(0,u),(v,-v) are three zeros; (v,v) has 2n; orthocomplement has n with multiplicity 2n-4. The whitened in-minus-out difference has covariance 2n(Id-uu^T-vv^T), so the mean Pearson contrast is n-2 exactly. Independently enumerated every directed loopless graph for n=2,3 at p=1/3,2/3 using exact rational probabilities, matching each covariance entry; the all-n proof uses the one-shared-arc lemma, not enumeration.
 
-**Limitations.** Not a chi-square distribution theorem; assumptions exclude loops, reciprocal-arc dependence, edge-count conditioning, and preferential attachment. Source priority remains subject to independent assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novel exact finite covariance eigenspectrum and Pearson-contrast expectation for joint in-/out-degree histograms under independent directed arcs; models in the most relevant published papers differ materially.
+
+## value
+
+PASS
+
+An exact p-independent whitened eigenvalue classification isolates all deterministic linear constraints and provides a finite-sample mean Pearson discrepancy for two natural directed-degree histograms. The whole matrix identity applies to every graph order and Bernoulli probability, providing a reusable covariance object beyond textbook separate-binomial variance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
