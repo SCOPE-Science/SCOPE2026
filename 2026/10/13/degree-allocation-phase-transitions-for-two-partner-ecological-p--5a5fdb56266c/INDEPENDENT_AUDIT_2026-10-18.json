@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T08:54:07.842782Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The binomial survival reward f_q(d)=1-q^d-d(1-q)q^(d-1) has exact discrete derivative Δ_d=d(1-q)^2 q^(d-1) and gain ratio Δ_(d+1)/Δ_d=q(d+1)/d. This yields strict concavity for q<1/2 and strict convexity for q>(m-2)/(m-1), hence unique balanced and concentrated degree multisets by elementary transfers; equality boundaries correctly allow ties. In the middle regime, an improving transfer excludes two degrees in [2,R], and another forces the high degrees >=R+1 to differ by ≤1; enumerating degree-one count, optional middle degree and high-degree floor yields all global maximizers among O(nm²) candidates. Cyclic primary-label block allocation realizes every legal degree sequence while covering every primary (E>=m). A uniform random extinction order and cut makes the removed count among d partners uniform 0..d, giving (d-1)/(d+1), whose discrete marginal is strictly decreasing. Independent Fraction-based enumeration confirmed 1,862 feasible (m,n,E,q) optimization instances including intermediate cases, ties and boundaries. The enumeration cannot replace the all-size transfers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier partial-loss models allow dependence strengths/cascades; they do not fix identical iid primary extinction and optimize under an exact two-survivor threshold."
+        ],
+        "reasoning": "Changing model assumptions is not a formal contradiction or corollary: previously known degree balancing for all-neighbors-lost cannot dominate the present phase diagram; general discrete convexity exchanges are acknowledged as established technique.",
+        "searches": [
+          "two partner species persistence independent primary extinction probability bipartite graph degree allocation balanced concentrated phase transition",
+          "DOI:10.1111/ele.12394 coextinction model",
+          "DOI:10.1002/ecm.1601 threshold and degree equality"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1002/ecm.1601 direct full HTML equations 3-13",
+        "DOI:10.1098/rspb.2004.2909 bibliographic/context",
+        "DOI:10.1111/ele.12394 bibliographic/abstract",
+        "Resultary Search semantic publication index (2026-10-18 UTC): two partner species persistence independent primary extinction probability bipartite graph degree allocation balanced concentrated phase transition",
+        "assigned RESULT.md, verification script and complete frozen Git tree"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Jones et al. explicitly base their equal-degree result on loss of all partner species, while this exact f_q(d) has a convex increasing-gain region for q near 1."
+        ],
+        "reasoning": "The earlier maximum-over-all-stages balancing objective cannot imply the separate fixed-probability high-q concentration; indeed both opposite conclusions coexist in this two-survivor theorem.",
+        "searches": [
+          "Jones, Zurell and Wiesner 2024 Sections on degree-equality optimization",
+          "Memmott, Waser, Price 2004",
+          "Vieira and Almeida-Neto 2015",
+          "two partner species persistence independent primary extinction probability bipartite graph degree allocation balanced concentrated phase transition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2024 hypergeometric loss-threshold expression can calculate survival at a fixed threshold, but its optimizing result uses extinction after losing all neighbors.",
+          "Here f_q(d) is a particular binomial tail requiring at least 2 extant partners."
+        ],
+        "reasoning": "A generic survival formula is not an optimizer theorem; its second marginal changes sign across degree and yields non-balanced maxima for q>1/2, unlike the older concave objective.",
+        "searches": [
+          "two partner species persistence independent primary extinction probability bipartite graph degree allocation balanced concentrated phase transition",
+          "Jones, Zurell, Wiesner (2024), DOI:10.1002/ecm.1601 equations (3)-(13)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For q=3/5 the unique optimum (1,3,3) beats (2,2,3) and (1,2,4); independent exact enumeration checks all competing profiles for small ranges."
+        ],
+        "reasoning": "This is a graph-class all-parameter theorem and exact finite candidate reduction, not a recovery of a known empirical ecology table; no equivalent data table appeared in the actual search.",
+        "searches": [
+          "two partner species persistence independent primary extinction probability bipartite graph degree allocation balanced concentrated phase transition",
+          "m=4 n=3 E=7 q=3/5 1,3,3 exact allocation"
+        ]
+      },
+      "rationale": "Two-partner persistence differs from the all-neighbors-lost topological convention. The closest 2024 paper includes general threshold/hypergeometric survival probabilities but its degree-equality optimization in the inspected equations (8)-(13) is under the all-partners-lost assumption, not this two-survivor fixed-Bernoulli extinction objective. The mathematical boundary q=1/2 and q=(m-2)/(m-1), the intermediate normal form, and contrast with uniformly stage-averaged two-survivor robustness are not implied by that theorem. Abstract single-inflection allocation results or omitted supplements are residual risks.",
+      "residual_risks": [
+        "General separable one-inflection resource allocation theorems could subsume part of the transfer classification; omitted ecological supplementary derivations may overlap.",
+        "The model assumes iid identical extinction probabilities, no cascades, binary links, expectation not joint-survival probabilities; tied optimizers at transition boundaries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "gives general threshold models and all-neighbors-lost degree-equality optimum but not the two-survivor fixed-q optimizer phase diagram",
+          "evidence": "Eqs. 8–13 optimize expected robustness using a model in which a plant disappears after loss of all partners",
+          "identifier_or_url": "DOI:10.1002/ecm.1601",
+          "material_read": "lawfully accessible full HTML primary text; mortality assumptions and equations (3)-(6) and optimizing equations (8)-(13)",
+          "method": "direct publisher-hosted full article HTML read via web",
+          "title": "Novel analytic methods for predicting extinctions in ecological networks",
+          "trigger": "same ecology network, threshold survival and degree optimization"
+        },
+        {
+          "assessment": "prior simulation motivation and all-partner-loss convention, not evidence of the claimed two-partner optimization",
+          "evidence": "Original random pollinator-removal robustness model",
+          "identifier_or_url": "DOI:10.1098/rspb.2004.2909",
+          "material_read": "citation, abstract and source-context statement; full-text comparison not claimed",
+          "method": "bibliographic search and paper context",
+          "title": "Tolerance of pollination networks to species extinctions",
+          "trigger": "foundational ecological mutualist extinction model"
+        },
+        {
+          "assessment": "partial-loss stochastic model; exact all-parameter degree-maximizing theorem not established by inspected material",
+          "evidence": "Stochastic dependence and complexity, rather than deterministic two-live-neighbor degree allocation",
+          "identifier_or_url": "DOI:10.1111/ele.12394",
+          "material_read": "bibliographic abstract and source-context statements; full text not attested in this execution",
+          "method": "abstract/citation lookup and scientific model comparison",
+          "title": "A simple stochastic model for complex coextinctions in mutualistic networks",
+          "trigger": "possible stronger threshold extinction model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Allocation of finite bipartite interaction budgets is natural in persistence/ecological-network design. The result identifies a true qualitative reversal between balanced and concentrated connections as species-extinction probability rises, gives exact constrained optimization beyond a few examples, and distinguishes snapshot survival from full-removal-trajectory robustness under the same two-partner rule. These are mathematically motivated phase boundaries, not arbitrary simulations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.1002/ecm.1601 direct full HTML equations 3-13",
+    "DOI:10.1098/rspb.2004.2909 bibliographic/context",
+    "DOI:10.1111/ele.12394 bibliographic/abstract",
+    "Resultary Search semantic publication index (2026-10-18 UTC): two partner species persistence independent primary extinction probability bipartite graph degree allocation balanced concentrated phase transition",
+    "assigned RESULT.md, verification script and complete frozen Git tree"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "General separable one-inflection resource allocation theorems could subsume part of the transfer classification; omitted ecological supplementary derivations may overlap.",
+    "The model assumes iid identical extinction probabilities, no cascades, binary links, expectation not joint-survival probabilities; tied optimizers at transition boundaries."
+  ]
+}

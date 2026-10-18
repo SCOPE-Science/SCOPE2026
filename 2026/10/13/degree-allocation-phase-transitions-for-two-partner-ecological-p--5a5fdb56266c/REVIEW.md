@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof derives the two-partner survival probability from independent Bernoulli losses, obtains the exact degree gain \(\Delta_d=d(1-q)^2q^{d-1}\), and proves its monotonic regimes and single-peak intermediate structure. Exchange arguments establish the unique balanced and concentrated maximizing multisets in their respective strict probability ranges. The cyclic construction realizes every feasible degree multiset with no isolated vertex on either guild. Two strict exchange inequalities prove the necessary intermediate normal form, and counting its candidate parameters yields an exact globally exhaustive optimization procedure. Averaging a random extinction permutation over every cut position gives \((d-1)/(d+1)\) and strict concavity, proving the trajectory result. Exact-fraction tests from the packaged source verify the critical formulas, boundary cases, and 3,605 small optimization instances; an independent incidence-matrix census checks realizability. Finite checks do not replace universal proof.
+## correctness
 
-Scientific risks: independence, common extinction probability, equal interaction strengths, and two-partner persistence are stipulated. The result is about expectation only; no uncertainty or cascade predictions are claimed. Ties occur at probability boundaries.
+PASS
 
-## Originality — PASS
-The 2004 ecological-network simulation work takes disappearance after loss of all partners as the topological rule. The 2015 stochastic extension allows partial-loss extinction and dependence variation, but does not optimize degree allocation under a two-live-partner rule. The 2024 full-text optimizing result expressly covers trajectory-averaged robustness with extinction after losing all neighbors; its general threshold formula does not state or imply the present probability-dependent extremal classification, intermediate shape, or contrast with a two-survivor trajectory average. Semantic scientific-record searches and exact-expression searches found no closer covering claim; comparisons concern theorem implication, not matching titles.
+The binomial survival reward f_q(d)=1-q^d-d(1-q)q^(d-1) has exact discrete derivative Δ_d=d(1-q)^2 q^(d-1) and gain ratio Δ_(d+1)/Δ_d=q(d+1)/d. This yields strict concavity for q<1/2 and strict convexity for q>(m-2)/(m-1), hence unique balanced and concentrated degree multisets by elementary transfers; equality boundaries correctly allow ties. In the middle regime, an improving transfer excludes two degrees in [2,R], and another forces the high degrees >=R+1 to differ by ≤1; enumerating degree-one count, optional middle degree and high-degree floor yields all global maximizers among O(nm²) candidates. Cyclic primary-label block allocation realizes every legal degree sequence while covering every primary (E>=m). A uniform random extinction order and cut makes the removed count among d partners uniform 0..d, giving (d-1)/(d+1), whose discrete marginal is strictly decreasing. Independent Fraction-based enumeration confirmed 1,862 feasible (m,n,E,q) optimization instances including intermediate cases, ties and boundaries. The enumeration cannot replace the all-size transfers.
 
-Originality risks: some discrete single-inflection allocation structure could be known abstractly under other terminology, and supplementary derivations unexamined in full could contain related special cases. No independence or external certification is asserted.
+## originality
 
-## Value — PASS
-Conservation-network robustness optimization is a motivated ecological problem. Prior work proves balanced degrees favorable for an all-partners-lost threshold, while ecologically meaningful reliance on redundant surviving partners changes the fixed-probability reward from concave to initially convex and ultimately concave. The sharp balance-versus-concentration probability transitions explain when degree equalization can become decisively suboptimal under exactly the same link budget. The intermediate normal form limits the search to \(O(nm^2)\) candidates, and the opposing all-stages result prevents confusing instantaneous persistence with an integrated robustness index.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Two-partner persistence differs from the all-neighbors-lost topological convention. The closest 2024 paper includes general threshold/hypergeometric survival probabilities but its degree-equality optimization in the inspected equations (8)-(13) is under the all-partners-lost assumption, not this two-survivor fixed-Bernoulli extinction objective. The mathematical boundary q=1/2 and q=(m-2)/(m-1), the intermediate normal form, and contrast with uniformly stage-averaged two-survivor robustness are not implied by that theorem. Abstract single-inflection allocation results or omitted supplements are residual risks.
+
+## value
+
+PASS
+
+Allocation of finite bipartite interaction budgets is natural in persistence/ecological-network design. The result identifies a true qualitative reversal between balanced and concentrated connections as species-extinction probability rises, gives exact constrained optimization beyond a few examples, and distinguishes snapshot survival from full-removal-trajectory robustness under the same two-partner rule. These are mathematically motivated phase boundaries, not arbitrary simulations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
