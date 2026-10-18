@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "For common shape \\(\\alpha\\) and slow/fast rates \\(a<b\\), the exact curvature identity is \\((\\log f)\\prime\\prime(x)/(b-a)^2=-(\\alpha-1)/t^2+1/[4\\cosh^2((t-\\log r)/2)]\\), where \\(t=(b-a)x\\) and \\(r=wb^\\alpha/((1-w)a^\\alpha)\\). For \\(\\alpha\\le1\\) curvature is strictly positive. For \\(\\alpha>1\\), nonpositivity at every positive argument is equivalent to \\(\\sup_{t>0} t/[2\\cosh((t-c)/2)]\\le\\sqrt{\\alpha-1}\\), where \\(c=\\log r\\). This function is strictly log-concave, has a unique maximum and tends to zero at both positive-line endpoints; its maximum strictly increases with \\(c\\), tending to zero and infinity at opposite parameter limits. The unique maximum/tangency equations yield \\(t=2\\sqrt\\alpha\\) and \\(c=2\\sqrt\\alpha-2\\operatorname{arsinh}(1/\\sqrt{\\alpha-1})\\), the exact threshold. A single positive-curvature interval exists precisely above threshold. The separate degenerate Gamma cases are log-concave exactly for \\(\\alpha\\ge1\\). The extracted executable performs 196 finite checks, while the analytic argument, not finite samples, proves the universal statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yu (2009), doi:10.1239/jap/1238592127, full paper, proves stochastic order comparisons for mixtures of one-parameter exponential-family laws; no full-density second-derivative boundary for two Gamma rates.",
+        "Boedihardjo--Xie, arxiv:2607.17368, broad mixture and separation study, available abstract-level comparison only.",
+        "The published note Quantile curvature and endpoint rates for two-gamma sums addresses quantiles of sums, not density log-concavity of alternative rate components."
+      ],
+      "reasoning": "An arbitrary-component or general log-concave-mixture theorem would dominate the two-rate condition if it entailed the exact threshold. The checked complete Gamma mixture source establishes different, reference-dependent stochastic orders. The broader 2026 mixture-separation paper was not available for decisive full-text coverage; no proof of its inapplicability is claimed.",
+      "searches": [
+        "gamma mixture scale shape log-concavity condition",
+        "\"mixtures of gamma\" \"log concave\" fixed shape",
+        "Yu stochastic order relative logconcavity exponential family Gamma mixture no ordinary logconcavity classification",
+        "mixture and separation of log-concave measures arxiv:2607.17368",
+        "hyper-Erlang 2 identical stage count distinct rate mixture log Hessian positive one interval or threshold"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1239/jap/1238592127",
+      "arxiv:2006.12428",
+      "arxiv:1312.2166",
+      "doi:10.1145/3545839.3545840 (abstract only)",
+      "arxiv:2607.17368 (abstract only)",
+      "Quantile curvature and endpoint rates for two-gamma sums (published summary)",
+      "Laplace-transform gaps and metric lower certificates for Satterthwaite Gamma approximation (published summary)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yu (2009) stochastic ordering of Gamma mixtures does not assert the ordinary Gamma-mixture density is log-concave.",
+        "Levy (arxiv:2006.12428) derives convolutions of independent Gamma/Erlang variables; mixture density is a sum of alternative densities, not convolution of random summands.",
+        "A common-rate/two-shape Gamma density is proportional to \\(x^{\\alpha-1}e^{-\\lambda x}(A+Bx^d)\\); the present rate mixture is proportional to \\(x^{\\alpha-1}(Ae^{-ax}+Be^{-bx})\\). The two unequal-parameter families neither subsume each other."
+      ],
+      "reasoning": "The conclusion cannot be recovered as a corollary of the checked relative log-concavity, convolution-density, or common-rate shape-gap criteria. Any unpublished or unread stronger exact scale-mixture result remains outside this verified comparison.",
+      "searches": [
+        "two-component Erlang-2 gamma-shape-two mixture differing exponential rates sharp log-concavity threshold mixing weight",
+        "Yu stochastic order relative logconcavity exponential family Gamma mixture no ordinary logconcavity classification",
+        "gamma two point common rate shape mixture logconcavity",
+        "gamma rate mixture density f(x)=x^(a-1)[u exp(-lambda x)+v exp(-mu x)] sharp condition globally log-concave"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The law is a two-point scale mixture of Gamma distributions with fixed shape, equivalently a two-branch fixed-stage hyper-Erlang density at integral shape. The ratio is a normalized coefficient ratio, not the mixing probability.",
+        "Y. Yu (2009), doi:10.1239/jap/1238592127, Section 2 Example 5, studies Gamma mixture stochastic orders and relative log-concavity.",
+        "2022 hyper-Erlang conference article doi:10.1145/3545839.3545840, abstract, treats convolutions; the rest was not accessible."
+      ],
+      "reasoning": "Equivalent Gamma scale mixture, fixed-stage hyper-Erlang, Pólya-frequency order-two density, and logarithmic-Hessian formulations were compared. Yu’s reference-relative log-concavity controls the logarithm of a density ratio; its reference term has nonzero curvature and thus the comparison does not imply the sharp ordinary log-concavity criterion. The accessible conference material addresses the sum of random variables rather than the mixture density itself; possible coverage inside its unread body remains a residual risk.",
+      "searches": [
+        "two-component Erlang-2 gamma-shape-two mixture differing exponential rates sharp log-concavity threshold mixing weight",
+        "gamma rate mixture density f(x)=x^(a-1)[u exp(-lambda x)+v exp(-mu x)] sharp condition globally log-concave",
+        "two point scale mixing gamma density log-concavity sharp ratio exp(2 sqrt(shape)-2 asinh(1/sqrt(shape-1)))",
+        "\"mixture of Erlang\" \"log-concave\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published Quantile curvature and endpoint rates for two-gamma sums addresses quantile expansions for convolutions.",
+        "Published Laplace-transform gaps and metric lower certificates for Satterthwaite Gamma approximation addresses Laplace gaps for sums.",
+        "Neither inspected law/table records a global log-curvature versus fast-amplitude threshold in the equal-shape two-rate family."
+      ],
+      "reasoning": "The target is a continuous exact parameter boundary and exact number of positive-curvature intervals, not a lookup numerical invariant. Semantic searches for hyper-Erlang/Gamma tables did not expose an exact table; search absence does not establish uniqueness.",
+      "searches": [
+        "hyper-Erlang mixture two second-order Erlang phases different rates unimodality log-concavity curvature",
+        "phase type mixture Erlang distribution log concavity characterization shape 2",
+        "hyper Erlang 2 shape mixtures log curvature table",
+        "gamma rate mixture density f(x)=x^(a-1)[u exp(-lambda x)+v exp(-mu x)] sharp condition globally log-concave"
+      ]
+    },
+    "rationale": "Primary textual comparisons separate rate alternatives from convolution and from shape mixtures. Yu (2009, Section 2 Example 5) compares Gamma mixtures to reference distributions in relative log-concavity/stochastic order, not the ordinary log-Hessian of a two-rate mixture. Levy (2020, Sections 2-4) computes densities of independent sums, and Mu (2013) characterizes Beta-mixture log-concavity. The identified conference article studies hyper-Erlang convolution; abstract-level material does not give the stated threshold, but its full text was inaccessible and no negative full-text conclusion is asserted. Focused published searches and semantic result searches did not reveal exact, equivalent or stronger coverage; non-detection is not itself proof of novelty.",
+    "residual_risks": [
+      "Complete 2022 hyper-Erlang conference article was not available; an uninspected result could cover the criterion.",
+      "Complete general 2026 paper on mixture and separation of log-concave measures was unavailable; abstract alone does not settle implication.",
+      "Alternative terminology, unindexed historical priority, and unpublished work are not excluded. Independence and expert validation are not claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different theorem; relative log-concavity and stochastic orders do not yield the required exact ordinary log-density curvature criterion",
+        "evidence": [
+          "Section 2, Example 5 identifies Gamma scale mixtures; surrounding results state comparisons relative to reference Gamma family, not the exact threshold R_alpha."
+        ],
+        "identifier_or_url": "https://doi.org/10.1239/jap/1238592127",
+        "material_read": "11-page primary PDF, especially Section 2 Example 5 and surrounding comparison theorems; primary conclusions inspected.",
+        "method": "Direct text and page inspection of the article PDF",
+        "title": "Stochastic Ordering of Exponential Family Distributions and Their Mixtures",
+        "trigger": "Gamma scale mixtures and logarithmic comparisons; highly relevant potentially dominating primary literature"
+      },
+      {
+        "assessment": "Convolution rather than convex mixtures; no implication of log-concavity threshold for alternatives",
+        "evidence": [
+          "arxiv:2006.12428 gives sums of independent variables, unlike the weighted two-component rate mixture."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2006.12428",
+        "material_read": "PDF introduction and main formula sections on sums and convolutions (Sections 2-4)",
+        "method": "Primary 21-page PDF text and page inspection",
+        "title": "On the density for sums of independent exponential, Erlang and gamma variates",
+        "trigger": "Gamma and Erlang densities of mixed/heterogeneous rates"
+      },
+      {
+        "assessment": "Beta-family mixture statement; no containment or direct implication for Gamma rate mixture",
+        "evidence": [
+          "arxiv:1312.2166 treats Beta densities with bounded support, not common-shape Gamma rates."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1312.2166",
+        "material_read": "Primary Beta-mixture PDF text and proof sections",
+        "method": "Primary PDF textual and page inspection",
+        "title": "Log-concavity of a Mixture of Beta Distributions",
+        "trigger": "Possibility of stronger two-component mixture shape theorem"
+      },
+      {
+        "assessment": "Unresolved full-text risk, not declared not covering. Abstract describes convolved hyper-Erlang and hyper-exponential laws, not an intrinsic sharp log-concavity mixture theorem.",
+        "evidence": [
+          "University publication record https://cris.fau.de/publications/281834710/ describes efficient linear algebra for convolution probabilities; PDF unavailable for review."
+        ],
+        "identifier_or_url": "https://doi.org/10.1145/3545839.3545840",
+        "material_read": "Publisher/author indexing and abstract; complete article not accessible",
+        "method": "Arxiv/preprint and open-access retrieval attempted; publisher/full article not obtained",
+        "title": "Convolving Hyper-Erlang with Hyper-Exponential Distributions Using Linear Algebra",
+        "trigger": "Hyper-Erlang mixture and distribution identity, possible closest original result"
+      },
+      {
+        "assessment": "Unresolved plausible broader coverage; no full-text negative claim",
+        "evidence": [
+          "arxiv:2607.17368 abstract describes mixture and separation; exact Gamma rate subfamily criterion not available for comparison."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.17368",
+        "material_read": "Abstract-level material only, complete preprint not obtained",
+        "method": "Open archive availability and abstract inspection",
+        "title": "Mixture and separation of log-concave measures",
+        "trigger": "Possible stronger general mixing/separation theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e45ac4ab-94e8-48b9-ac52-96e882b6104f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is the complete necessary/sufficient classification for equal-shape, two-rate Gamma and fixed-stage two-branch hyper-Erlang mixtures, natural distributional alternatives in reliability modeling. It produces a sharp normalized amplitude threshold depending only on shape rather than absolute rate difference, identifies exactly one positive-log-curvature interval when the condition fails, and shows arbitrary rate closeness can still destroy global log-concavity in remote tails despite convergence in total variation to a log-concave Gamma law. No larger-component generalization or statistical optimality is asserted.",
+    "status": "PASS"
+  }
+}
