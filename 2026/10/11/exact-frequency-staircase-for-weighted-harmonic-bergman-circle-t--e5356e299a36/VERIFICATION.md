@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,88 +19,24 @@
 }
 ---
 
-For
-\[
-f(z)=c_0+\sum_{n\ge1}(c_nz^n+d_n\overline z^n),
-\]
-orthogonality gives
-\[
-I_\alpha(f)
-=
-B(1,\alpha+1)|c_0|^2
-+
-\sum_{n\ge1}
-B(n+1,\alpha+1)
-\left(
-|c_n|^2+|d_n|^2
-\right)
-\]
-and
-\[
-J_{\alpha,r}(f)
-=
-2\pi r(1-r^2)^{\alpha+1}
-\left[
-|c_0|^2+
-\sum_{n\ge1}
-r^{2n}
-\left(
-|c_n|^2+|d_n|^2
-\right)
-\right].
-\]
+# Independent mathematical audit
 
-Thus the optimal coefficient is the largest diagonal ratio
-\[
-2\pi r(1-r^2)^{\alpha+1}
-\max_{n\ge0}
-\frac{r^{2n}}{B(n+1,\alpha+1)}.
-\]
+## correctness
 
-Writing
-\[
-T_n=\frac{r^{2n}}{B(n+1,\alpha+1)},
-\]
-the beta recurrence gives
-\[
-\frac{T_{n+1}}{T_n}
-=
-r^2\frac{n+\alpha+2}{n+1}.
-\]
-Hence the sequence increases until
-\[
-n+1
-\]
-crosses
-\[
-s_{\alpha,r}
-=
-\frac{(\alpha+1)r^2}{1-r^2},
-\]
-with exactly one adjacent tie when this number is an integer.
+PASS
 
-The complete equality space is therefore the direct sum of the maximizing harmonic Fourier eigenspaces. Solving
-\[
-s_{\alpha,r}=m
-\]
-gives
-\[
-r_m^2=\frac{m}{m+\alpha+1}.
-\]
+For alpha>-1 and 0<r<1, Fourier modes of a harmonic Bergman function are orthogonal on the disk and centered circle. Recomputed disk moment as beta B(n+1,alpha+1), trace moment as 2 pi r(1-r^2)^(alpha+1)r^(2n), giving exact sharp diagonal quotient and equality subspaces. The beta recurrence T(n+1)/T(n)=r^2(n+alpha+2)/(n+1) crosses 1 exactly at n+1=s=(alpha+1)r^2/(1-r^2); hence a unique maximizing floor(s) when s is noninteger, or adjacent m-1,m tie when s=m>=1. Source-normalized coefficient divides by alpha+1; at r>0 it is strictly below 2 pi r, yet ratio tends to1 as r->0 by n=0 extremizer. Infinite sequence control is algebraic, not numerical sampling.
 
-For the source-normalized norm,
-\[
-\|f\|_{a_\alpha^2}^2=(\alpha+1)I_\alpha(f).
-\]
-When the constant mode is maximal,
-\[
-\frac{C_\alpha(r)}{2\pi r}
-=
-(1-r^2)^{\alpha+1},
-\]
-so the source coefficient is approached as
-\[
-r\downarrow0.
-\]
+## originality
 
-No numerical computation or finite enumeration is used.
+PASS
+
+Best-of-knowledge original specific exact claim after theorem-level comparisons; detailed four checks and non-fabricated primary-source inspections follow. Search absence is not proof of priority, and significant prior-specialization risks are recorded.
+
+## value
+
+PASS
+
+The fixed-radius best constant and COMPLETE extremizer classification sharpen a fresh centered-circle theorem at the natural Hilbert exponent. The frequency-transition radii form a natural exact phase diagram and explain why a uniform coefficient can be asymptotically optimal while pointwise suboptimal. The construction is short and uses standard Fourier diagonalization, but the exact spectral fact is a natural benchmark for circle traces.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

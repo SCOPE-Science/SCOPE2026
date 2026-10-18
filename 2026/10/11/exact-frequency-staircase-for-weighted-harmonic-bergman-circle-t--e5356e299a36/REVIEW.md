@@ -1,41 +1,21 @@
-# Review of Exact frequency staircase for weighted harmonic Bergman circle traces
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. With normalized area,
-\[
-\int_{\mathbb D}|z|^{2n}(1-|z|^2)^\alpha\,dA
-=
-B(n+1,\alpha+1).
-\]
-The weighted area norm and circle trace are therefore diagonal in the harmonic Fourier decomposition. The sharp comparison constant is exactly the largest diagonal ratio.
+PASS
 
-For
-\[
-T_n=\frac{r^{2n}}{B(n+1,\alpha+1)},
-\]
-the exact recurrence
-\[
-\frac{T_{n+1}}{T_n}
-=
-r^2\frac{n+\alpha+2}{n+1}
-\]
-makes the maximizing index and all ties explicit. Equality in a diagonal quadratic-form comparison occurs precisely on the direct sum of maximizing eigenspaces, yielding the stated complete extremizer classification.
+For alpha>-1 and 0<r<1, Fourier modes of a harmonic Bergman function are orthogonal on the disk and centered circle. Recomputed disk moment as beta B(n+1,alpha+1), trace moment as 2 pi r(1-r^2)^(alpha+1)r^(2n), giving exact sharp diagonal quotient and equality subspaces. The beta recurrence T(n+1)/T(n)=r^2(n+alpha+2)/(n+1) crosses 1 exactly at n+1=s=(alpha+1)r^2/(1-r^2); hence a unique maximizing floor(s) when s is noninteger, or adjacent m-1,m tie when s=m>=1. Source-normalized coefficient divides by alpha+1; at r>0 it is strictly below 2 pi r, yet ratio tends to1 as r->0 by n=0 extremizer. Infinite sequence control is algebraic, not numerical sampling.
 
-The normalization conversion to the source norm is exact. The fixed-radius strict improvement and the small-radius limiting ratio follow directly from the same formula.
+## originality
 
-## Originality
+PASS
 
-PASS. The July 2026 primary source proves the centered-circle estimate for all positive exponents but does not claim a fixed-radius best constant or characterize extremizers. Its Hilbert-case argument uses monotonicity of radial integral means rather than Fourier diagonalization.
+Best-of-knowledge original specific exact claim after theorem-level comparisons; detailed four checks and non-fabricated primary-source inspections follow. Search absence is not proof of priority, and significant prior-specialization risks are recorded.
 
-Candidate-specific searches did not locate the beta-function maximum, the transition radii, or the complete harmonic extremizer staircase. The closest modern radial-measure Toeplitz paper establishes a general diagonal framework for analytic Bergman spaces, but does not state this weighted harmonic singular-circle norm or its phase diagram.
+## value
 
-A residual risk remains that the formula appears as an unstated or unindexed corollary of general radial operator theory.
+PASS
 
-## Value
+The fixed-radius best constant and COMPLETE extremizer classification sharpen a fresh centered-circle theorem at the natural Hilbert exponent. The frequency-transition radii form a natural exact phase diagram and explain why a uniform coefficient can be asymptotically optimal while pointwise suboptimal. The construction is short and uses standard Fourier diagonalization, but the exact spectral fact is a natural benchmark for circle traces.
 
-PASS. The centered-circle theorem is one of the explicit Frazer-type conclusions of the fresh paper. At the natural Hilbert exponent, the exact constant is a canonical spectral invariant, and the complete equality classification exposes a genuine radius-dependent change of extremizing frequency.
-
-The result also clarifies the status of the source coefficient: it is never optimal at a fixed positive radius, yet no radius-independent multiplicative improvement is possible near the origin. This is a meaningful sharpness statement rather than a routine substitution into the source inequality.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
