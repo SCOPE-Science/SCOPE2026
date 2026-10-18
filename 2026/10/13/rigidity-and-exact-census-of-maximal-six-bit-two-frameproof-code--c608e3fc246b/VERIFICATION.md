@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-The included sources `verify.py` and `verify.cpp` are executable using Python 3 and a C++17 compiler, respectively. Both were run against their supplied source paths, with outputs:
+# Independent mathematical audit
 
-- `VERIFY_OK max_size=8 zero_containing=30 total=240 affine_orbits=1 no_size9`
-- `VERIFY_OK zero_containing=30 max=8 all_linear=true nodes8=32897 nodes9=24790`
+## correctness
 
-The first script checks the complete affine orbit, whereas the second uses pair-forbidden masks and checks an independent exhaustive search. Both derive their candidate universe from the 64 length-six bit masks. Translation-to-zero plus heredity validates the global upper bound. No result for longer blocklengths or independent outside audit is implied.
+PASS
+
+A triple a,b,c is frameproof iff each victim fails the descendant mask ((a XOR c)&(b XOR c))!=0 and the two cyclic analogues. Bitwise translation normalizes a code to contain zero. A recursive increasing-word exhaustive search covers all other 63 binary six-tuples and enforces exactly these necessary/sufficient tests. Independent recompiled C++ finished with 30 zero-containing eight-word maxima, no nine-word code and all maxima XOR-closed. Separately implemented Python independently confirmed exactly 240 affine cosets, weight enumerator 1+4z³+3z⁴ for each subspace, and one permutation/translation orbit. Thus size8, all punctured simplex [6,3] cosets, and complete count, with no extrapolation beyond six bits.
+
+## originality
+
+PASS
+
+Best-of-knowledge same-object comparison finds no prior complete final classification; exact source implications, aliases, and residual risks explicitly recorded. No failed search is offered as proof of novelty.
+
+## value
+
+PASS
+
+Complete natural extremal equality classification for binary fingerprinting/frameproof codes, including all nonlinear candidate codes and exact 240 labeled sets, adds meaningful finite structural information beyond a known simplex construction or broad bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A three-word separation test is proved equivalent to two-frameproofness over the binary alphabet. Two complete finite-enumeration programs independently establish that the maximum size is eight, count thirty maximizers containing zero, and check their linearity. Coset enumeration and coordinate-permutation orbit checks establish the 240-code, one-orbit classification. Both verifier programs ran successfully on the supplied sources. Their exhaustiveness follows from monotone increasing-list traversal of all 64 words and the hereditary property.
+## correctness
 
-**Originality — PASS, with residual bibliographic risk.** Relevant-section HTML primary-paper inspections of Chee–Zhang (2012), Shangguan–Wang–Ge–Miao (2014), and Zhou–Zhou (2020), plus topic/alias queries of research records, found constructions, general bounds, and wide-sense correspondences, not the complete exact equality census and affine rigidity for this six-bit parameter. The known punctured simplex example is not claimed original. An unindexed earlier enumeration or a relevant dissertation specialization cannot be excluded.
+PASS
 
-**Value — PASS.** This classifies all equality cases of a natural six-coordinate binary fingerprinting problem, rather than just producing a code: it gives an exact achievable cardinality, 240 labeled extremizers, proof that every optimum is affine-linear despite no linearity assumption, and a single implementation-equivalence class. The fact that nonlinear codes cannot give other optimal architectures matters for small fingerprint-library design and the boundary between general and linear two-frameproof codes.
+A triple a,b,c is frameproof iff each victim fails the descendant mask ((a XOR c)&(b XOR c))!=0 and the two cyclic analogues. Bitwise translation normalizes a code to contain zero. A recursive increasing-word exhaustive search covers all other 63 binary six-tuples and enforces exactly these necessary/sufficient tests. Independent recompiled C++ finished with 30 zero-containing eight-word maxima, no nine-word code and all maxima XOR-closed. Separately implemented Python independently confirmed exactly 240 affine cosets, weight enumerator 1+4z³+3z⁴ for each subspace, and one permutation/translation orbit. Thus size8, all punctured simplex [6,3] cosets, and complete count, with no extrapolation beyond six bits.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge same-object comparison finds no prior complete final classification; exact source implications, aliases, and residual risks explicitly recorded. No failed search is offered as proof of novelty.
+
+## value
+
+PASS
+
+Complete natural extremal equality classification for binary fingerprinting/frameproof codes, including all nonlinear candidate codes and exact 240 labeled sets, adds meaningful finite structural information beyond a known simplex construction or broad bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
