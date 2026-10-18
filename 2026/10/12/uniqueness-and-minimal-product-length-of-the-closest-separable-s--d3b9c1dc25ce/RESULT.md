@@ -1,164 +1,120 @@
 # Uniqueness and minimal product length of the closest separable state on the one-zero Dicke edge
+
 ## Finding
-For every integer \(n\ge 2\) and every \(0<s<1\), let
+Let \(n\ge2\) be an integer, let \(0<s<1\), and define
 \[
-\rho_{n,s}=s\lvert1\rangle^{\otimes n}\!\langle1\rvert^{\otimes n}+(1-s)\lvert D_{n,1}\rangle\!\langle D_{n,1}\rvert,
+\rho_{n,s}=s|1\rangle^{\otimes n}\!\langle1|^{\otimes n}+(1-s)|D_{n,1}\rangle\!\langle D_{n,1}|,
+\quad p=\frac{1-s}{n},\quad q=1-p.
 \]
-where \(\lvert D_{n,1}\rangle\) is the normalized symmetric Dicke state with exactly one \(0\) and \(n-1\) entries equal to \(1\). Put
+Here \(|D_{n,k}\rangle\) is the normalized symmetric Dicke vector with exactly \(k\) zeros. Set
 \[
-p=\frac{1-s}{n},\qquad q=\frac{n-1+s}{n},
+|\phi_\theta\rangle=\sqrt p\,e^{i\theta}|0\rangle+\sqrt q\,|1\rangle,
+\qquad
+\sigma_{n,s}=\int_0^{2\pi}|\phi_\theta\rangle^{\otimes n}\!\langle\phi_\theta|^{\otimes n}\,\frac{d\theta}{2\pi}.
 \]
-and
-\[
-\lvert\phi_\varphi\rangle=\sqrt p\,e^{i\varphi}\lvert0\rangle+\sqrt q\,\lvert1\rangle.
-\]
-The separable state
-\[
-\sigma_{n,s}=\int_0^{2\pi}\frac{d\varphi}{2\pi}\,
-\lvert\phi_\varphi\rangle^{\otimes n}\!\langle\phi_\varphi\rvert^{\otimes n}
-\]
-is the unique closest fully separable state to \(\rho_{n,s}\) in relative entropy. Moreover its minimum number of pure product terms in any convex decomposition is exactly \(n+1\), and the minimum is attained by the finite roots-of-unity ensemble
+Then \(\sigma_{n,s}\) is the **unique** fully separable minimizer of the quantum relative entropy \(D(\rho_{n,s}\Vert\tau)\). Its minimum length as a convex combination of *pure product states* is exactly \(n+1\); the minimum is realized by
 \[
 \sigma_{n,s}=\frac1{n+1}\sum_{j=0}^{n}
-\lvert\phi_{2\pi j/(n+1)}\rangle^{\otimes n}
-\!\langle\phi_{2\pi j/(n+1)}\rvert^{\otimes n}.
+|\phi_{2\pi j/(n+1)}\rangle^{\otimes n}\!\langle\phi_{2\pi j/(n+1)}|^{\otimes n}.
 \]
-Thus an optimizer that was previously supplied as a continuous phase average is rigid in the interior of this edge: the closest separable density operator is unique, while an optimal finite product ensemble needs and suffices to have \(n+1\) terms.
+The relative-entropy value and the existence of a phase-averaged optimizer are prior results. The new claims here are the uniqueness of that *density operator* in this rank-two edge family and the exact minimum finite pure-product length; uniqueness of an ensemble is not claimed.
 
-## Assumptions and scope
-The relative entropy of entanglement is minimized over the full set of fully separable \(n\)-qubit density operators. The parameter interval is strictly interior, \(0<s<1\). Both endpoint cases are excluded because the rank and equality structure change there. Logarithms in the relative entropy may be taken in any fixed base; base two is used below to match the cited formulas.
-
-The Dicke convention is the one used in the cited symmetric-state literature: \(\lvert D_{n,k}\rangle\) has exactly \(k\) zeros. With
-\[
-B_k=\binom nk p^kq^{n-k},
-\]
-the phase average is diagonal in the Dicke basis with eigenvalues \(B_0,\ldots,B_n\). Since \(p,q>0\), all \(B_k\) are positive.
+## Assumptions and normalization
+The minimization is over all fully separable \(n\)-qubit density matrices, not only symmetric or Dicke-diagonal matrices. The interval \(0<s<1\) is essential. Write \(P_k=|D_{n,k}\rangle\langle D_{n,k}|\) and \(B_k=\binom nk p^kq^{n-k}\). The phase average has Dicke eigenvalues \(B_0,\ldots,B_n>0\), so its rank is \(n+1\). In particular \(B_0=q^n\), \(B_1=(1-s)q^{n-1}\). Logarithms may use any fixed base, with the same base throughout.
 
 ## Proof
-Let
-\[
-P_0=\lvert D_{n,0}\rangle\!\langle D_{n,0}\rvert,
-\qquad
-P_1=\lvert D_{n,1}\rangle\!\langle D_{n,1}\rvert,
-\]
-and define the positive operator
+### 1. A supporting witness and all equality cases
+Consider the positive operator
 \[
 A=\frac{s}{q^n}P_0+\frac1{q^{n-1}}P_1.
 \]
-We first characterize exactly the product vectors saturating the support inequality \(\langle A\rangle\le1\).
+We show that \(\operatorname{Tr}(A\tau)\le1\) for every fully separable \(\tau\), with a complete description of the pure product equality cases.
 
-Write a normalized product vector, away from harmless coordinate-boundary cases handled by continuity, as
+Take a normalized pure product vector
 \[
-\lvert\Psi\rangle=\bigotimes_{j=1}^n
-\frac{x_j\lvert0\rangle+\lvert1\rangle}{\sqrt{1+\lvert x_j\rvert^2}}.
+|\Psi\rangle=\bigotimes_{j=1}^n
+\bigl(\sqrt{r_j}e^{i\theta_j}|0\rangle+\sqrt{1-r_j}|1\rangle\bigr),
+\qquad 0\le r_j\le1,
 \]
-Set
+and write \(u=n^{-1}\sum_j r_j\). Arithmetic-geometric mean yields
 \[
-t=\frac pq=\frac{1-s}{n-1+s},
-\qquad
-Q=\frac1{n^2}\left\lvert\sum_{j=1}^n x_j\right\rvert^2.
+|\langle D_{n,0}|\Psi\rangle|^2=\prod_{j=1}^n(1-r_j)\le(1-u)^n.\tag{1}
 \]
-A direct overlap calculation gives
+For the one-zero Dicke overlap, the triangle inequality and Cauchy--Schwarz give
 \[
-\langle\Psi\rvert A\lvert\Psi\rangle
-=
-\frac{(1+t)^{n-1}\bigl(1-(n-1)t+nQ\bigr)}
-{\prod_{j=1}^n(1+\lvert x_j\rvert^2)}.
+\begin{split}
+|\langle D_{n,1}|\Psi\rangle|^2
+&\le\frac1n\left(\sum_j\sqrt{r_j}\prod_{\ell\ne j}\sqrt{1-r_\ell}\right)^2\\
+&\le\frac1n\left(\sum_j r_j\right)
+\left(\sum_j\prod_{\ell\ne j}(1-r_\ell)\right).
+\end{split}
 \]
-Arithmetic-geometric mean followed by Cauchy gives
+The normalized elementary symmetric mean of degree \(n-1\) in the nonnegative variables \(1-r_1,\ldots,1-r_n\) is at most their arithmetic mean to the \((n-1)\)-st power (Maclaurin's inequality); hence
 \[
-\prod_{j=1}^n(1+\lvert x_j\rvert^2)
-\ge
-\left(1+\frac1n\sum_{j=1}^n\lvert x_j\rvert^2\right)^n
-\ge(1+Q)^n.
+\frac1n\sum_j\prod_{\ell\ne j}(1-r_\ell)\le(1-u)^{n-1},
 \]
-Since \(u\mapsto(1+u)^n\) is strictly convex for \(n\ge2\), its tangent at \(u=t\) yields
+and therefore
 \[
-(1+Q)^n\ge
-(1+t)^{n-1}\bigl(1-(n-1)t+nQ\bigr).
+|\langle D_{n,1}|\Psi\rangle|^2\le n u(1-u)^{n-1}.\tag{2}
 \]
-Hence \(\langle A\rangle\le1\) on every product state and therefore \(\operatorname{Tr}(A\tau)\le1\) on every fully separable state \(\tau\).
+The inequalities include all boundary cases \(r_j=0,1\) by continuity. Notice that (1) uses the **correct direction** of arithmetic-geometric mean, applied to \(1-r_j\), not to the reciprocal product.
 
-All three inequalities are equalities simultaneously exactly when
+Combining (1) and (2) gives
 \[
-x_1=\cdots=x_n=\sqrt t\,e^{i\varphi}
+\langle\Psi|A|\Psi\rangle\le
+q^{-n}(1-u)^{n-1}\left[s(1-u)+nqu\right]=:f(u).
 \]
-for some phase \(\varphi\). Consequently the pure product states saturating \(\langle A\rangle=1\) are precisely
+Put \(t=u/(1-u)\) for \(0\le u<1\). Then
 \[
-\lvert\phi_\varphi\rangle^{\otimes n}.
+f(u)=\frac{s+nqt}{q^n(1+t)^n},\qquad
+\operatorname{sgn}\left(\frac{df}{dt}\right)
+=\operatorname{sgn}\left(q-s-(n-1)qt\right).
 \]
+Since \(q-s=(n-1)p\), the only maximum occurs at \(t=p/q\), equivalently \(u=p\), where \(f(p)=1\). At \(u=1\) the witness expectation is zero, so this is the global maximum.
 
-Now let \(\tau\) be any fully separable state for which the relative entropy \(D(\rho_{n,s}\Vert\tau)\) is finite, and set
-\[
-r_j=\operatorname{Tr}(P_j\tau),\qquad j\in\{0,1\}.
-\]
-Vector-state Jensen for the concave logarithm gives
+If equality \(\langle\Psi|A|\Psi\rangle=1\) holds, then \(u=p\in(0,1)\), and because \(s>0\) equation (1) must be an equality. Strict arithmetic-geometric-mean equality forces \(r_1=\cdots=r_n=p\). The triangle inequality in the Dicke-one overlap (with all amplitudes nonzero) then forces every \(e^{i\theta_j}\) to have the same phase. Conversely every \(|\phi_\theta\rangle^{\otimes n}\) saturates. Consequently the pure product saturation set is **exactly** that common-phase one-parameter orbit, and linearity extends \(\operatorname{Tr}(A\tau)\le1\) to all separable \(\tau\).
+
+### 2. Optimality among all separable density matrices
+Let \(\tau\) be fully separable and suppose \(D(\rho_{n,s}\Vert\tau)<\infty\) (otherwise it cannot improve on \(\sigma_{n,s}\)). Write \(a_j=\langle D_{n,j}|\tau|D_{n,j}\rangle\), \(j=0,1\). Jensen's inequality for the strictly concave logarithm gives
 \[
 \operatorname{Tr}(\rho_{n,s}\log\tau)
-\le s\log r_0+(1-s)\log r_1.
+\le s\log a_0+(1-s)\log a_1.
 \]
-Because \(B_0=q^n\) and \(B_1=(1-s)q^{n-1}\), weighted arithmetic-geometric mean and the support inequality give
+With \(B_0=q^n\) and \(B_1=(1-s)q^{n-1}\), weighted arithmetic-geometric mean and the supporting witness imply
 \[
-\left(\frac{r_0}{B_0}\right)^s
-\left(\frac{r_1}{B_1}\right)^{1-s}
-\le
-s\frac{r_0}{B_0}+(1-s)\frac{r_1}{B_1}
-=
-\operatorname{Tr}(A\tau)
-\le1.
+\left(\frac{a_0}{B_0}\right)^s
+\left(\frac{a_1}{B_1}\right)^{1-s}
+\le s\frac{a_0}{B_0}+(1-s)\frac{a_1}{B_1}
+=\operatorname{Tr}(A\tau)\le1.
 \]
-Combining these inequalities yields
+Thus \(\operatorname{Tr}(\rho_{n,s}\log\tau)
+\le s\log B_0+(1-s)\log B_1
+=\operatorname{Tr}(\rho_{n,s}\log\sigma_{n,s})\), proving optimality of \(\sigma_{n,s}\) and reproducing the previously known relative-entropy value.
+
+### 3. Rigidity of the minimizing density operator
+If \(\tau\) is any minimizer, equality holds throughout the preceding chain, in particular \(\operatorname{Tr}(A\tau)=1\). Every pure product component of any separable decomposition must therefore saturate the witness. Section 1 forces
 \[
-D(\rho_{n,s}\Vert\tau)\ge D(\rho_{n,s}\Vert\sigma_{n,s}).
+\tau=\int |\phi_\theta\rangle^{\otimes n}\!\langle\phi_\theta|^{\otimes n}\,d\mu(\theta)
 \]
-This reproduces, by a self-contained supporting-hyperplane argument, the already known optimal value and the fact that \(\sigma_{n,s}\) is a closest separable state.
+for a probability measure on the circle (a finite mixture is included). Equality in logarithmic vector-state Jensen for \(P_0\), whose weight \(s\) is positive, forces \(|D_{n,0}\rangle\) to be an eigenvector of \(\tau\).
 
-It remains to prove uniqueness. If \(\tau\) is any closest separable state, equality must hold throughout the chain above. In particular \(\operatorname{Tr}(A\tau)=1\). Decompose \(\tau\) into pure product states. Each component has expectation at most one against \(A\), so every component of positive weight must itself saturate the bound. The equality classification therefore forces
+In the Dicke basis,
 \[
-\tau=\int
-\lvert\phi_\varphi\rangle^{\otimes n}\!\langle\phi_\varphi\rvert^{\otimes n}
-\,d\mu(\varphi)
+\langle D_{n,k}|\tau|D_{n,\ell}\rangle
+=\sqrt{B_kB_\ell}\int e^{i(k-\ell)\theta}\,d\mu(\theta),
 \]
-for some probability measure \(\mu\) on the circle.
+with all \(B_k>0\). The eigenvector condition at \(k=0\) forces \(\int e^{im\theta}\,d\mu(\theta)=0\) for \(m=1,\ldots,n\). Every nonzero Dicke-basis index difference has magnitude at most \(n\), so *all* off-diagonal entries of \(\tau\) vanish. Its diagonal entries equal \(B_k\). Hence \(\tau=\sigma_{n,s}\); the closest fully separable state is unique even without restricting the competitor to symmetric states.
 
-Equality in vector-state Jensen for the \(P_0\) term, whose coefficient \(s\) is positive, implies that \(\lvert D_{n,0}\rangle\) is an eigenvector of \(\tau\). In the Dicke basis the orbit mixture has entries
-\[
-\langle D_{n,k}\rvert\tau\lvert D_{n,\ell}\rangle
-=
-\sqrt{B_kB_\ell}\int e^{i(k-\ell)\varphi}\,d\mu(\varphi).
-\]
-Because all \(B_k>0\), the eigenvector condition at \(k=0\) forces
-\[
-\int e^{im\varphi}\,d\mu(\varphi)=0,
-\qquad m=1,\ldots,n.
-\]
-Every nonzero difference \(k-\ell\) lies between \(-n\) and \(n\), so all off-diagonal Dicke entries vanish. The diagonal entries are already fixed at \(B_k\). Hence \(\tau=\sigma_{n,s}\), proving uniqueness.
+### 4. Minimum number of pure product terms
+The Dicke eigenvalues \(B_0,\ldots,B_n\) are all positive, so \(\operatorname{rank}\sigma_{n,s}=n+1\). A convex mixture of \(L\) rank-one projectors has rank at most \(L\), giving \(L\ge n+1\) for any pure-product decomposition. For the \((n+1)\)-st roots of unity, the average \(\frac1{n+1}\sum_{j=0}^ne^{2\pi i jm/(n+1)}\) is zero for each \(1\le|m|\le n\), so the claimed \((n+1)\)-term pure product ensemble reproduces \(\sigma_{n,s}\) exactly. It attains the lower bound.
 
-Finally, \(\sigma_{n,s}\) has rank \(n+1\), since all \(B_k\) are positive. Any pure-state convex decomposition, and therefore any pure-product decomposition, needs at least \(n+1\) terms. The uniform \((n+1)\)-st roots of unity obey
-\[
-\frac1{n+1}\sum_{j=0}^{n}e^{2\pi i jm/(n+1)}=0,
-\qquad m=1,\ldots,n,
-\]
-so the displayed roots-of-unity ensemble reproduces exactly the same Dicke-diagonal state. Thus the lower bound is attained, and the minimum product length is \(n+1\).
+## Verification and limitations
+The new proof uses the correct-direction Maclaurin--Cauchy bound (1)--(2). The original displayed product inequality in the earlier proof had the wrong direction and is **not** used. The argument holds for every integer \(n\ge2\) and every real \(0<s<1\), with no extrapolation from finite numerical samples. It does not address the two endpoints or larger Dicke mixtures. Neither uniqueness of a phase measure nor uniqueness of a finite minimizing ensemble is asserted. The existing numerical verifier checks parameter identities and phase quadrature but is supplementary to this analytic proof.
 
-## Verification
-The accompanying `verify.py` checks the coefficient identities entering the witness, exact binomial normalization for several rational interior parameters, the convex tangent inequality on rational test grids, and the vanishing of the first \(n\) Fourier moments for the \((n+1)\)-st roots of unity. It prints `VERIFY_OK` on success.
-
-Those computations are supplementary. The theorem for all integers \(n\ge2\) and all real \(0<s<1\) follows from the analytic inequalities and equality conditions above, not from finite enumeration.
-
-## Relationship to prior work
-Wei, Ericsson, Goldbart, and Munro introduced this permutation-invariant Dicke-mixture family and in 2004 gave a phase-averaged separable candidate together with a conjectural relative-entropy formula supported numerically. Wei's 2008 theorem subsequently proved the relative-entropy formula for the broader symmetric family and constructed a closest separable state by the same phase-twirling mechanism. Those results establish the optimum value and existence of an optimizer; they do not supply the uniqueness statement or the minimum finite product length proved here.
-
-A broader uniqueness theorem of Friedland and Gour proves uniqueness of the closest separable state when the entangled density operator is full rank. That hypothesis does not apply here: \(\rho_{n,s}\) has rank two while the ambient Hilbert space has dimension \(2^n\). Their treatment also notes that uniqueness can fail for semipositive states, so the rank-deficient case requires additional structure rather than following from the full-rank theorem.
-
-The new ingredient is the equality classification for the supporting operator \(A\). It confines every closest separable decomposition to one common-modulus phase orbit. Equality in logarithmic Jensen then annihilates the first \(n\) Fourier moments, which simultaneously proves uniqueness of the density operator and identifies an optimal \((n+1)\)-point quadrature.
-
-## Limitations
-The theorem concerns only the interior one-zero Dicke edge \(0<s<1\). It does not claim uniqueness at either endpoint, nor does it classify closest separable states for arbitrary mixtures involving more than the two Dicke levels \(k=0\) and \(k=1\).
-
-The roots-of-unity construction proves the minimum number of pure product states needed to decompose this particular closest separable state. It does not assert uniqueness of the minimizing ensemble itself; many probability measures or finite phase sets can share the required first \(n\) vanishing Fourier moments.
+## Comparison to previous results
+Wei, Ericsson, Goldbart and Munro introduced the symmetric Dicke mixtures and phase-averaged relative-entropy candidate (2004). Wei's 2008 treatment proves optimality for the broader symmetric family and uses the triangle/Cauchy/Maclaurin bounds for the overlaps with symmetric Dicke states; that *known mathematical ingredient* is explicitly reused here. The further equality-case classification of the witness, Jensen equality and Fourier-moment rigidity prove uniqueness of the density operator and exact minimal finite pure-product length on the interior one-zero edge. Friedland and Gour give a general uniqueness theorem in a full-rank regime, inapplicable to the present rank-two state; that is not a claim that every rank-deficient state is nonunique.
 
 ## References
-1. T.-C. Wei, M. Ericsson, P. M. Goldbart, W. J. Munro, “Connections between relative entropy of entanglement and geometric measure of entanglement,” *Quantum Information and Computation* 4 (2004), arXiv:quant-ph/0405002v1, DOI: 10.26421/QIC4.4-2.
-2. T.-C. Wei, “Relative entropy of entanglement for multipartite mixed states: Permutation-invariant states and Dür states,” *Physical Review A* 78 (2008), 012327, arXiv:0805.1090v1, DOI: 10.1103/PhysRevA.78.012327.
-3. S. Friedland, G. Gour, “Closed formula for the relative entropy of entanglement in all dimensions,” *Physical Review Letters* 106 (2011), 130401, arXiv:1007.4544v1.
+1. T.-C. Wei, M. Ericsson, P. M. Goldbart, and W. J. Munro, *Connections between relative entropy of entanglement and geometric measure of entanglement*, Quantum Information and Computation **4** (2004), arXiv:quant-ph/0405002.
+2. T.-C. Wei, *Relative entropy of entanglement for multipartite mixed states: Permutation-invariant states and Dür states*, Physical Review A **78** (2008), 012327, arXiv:0805.1090; especially the Dicke overlap bound in the proof of the symmetric-state result.
+3. S. Friedland and G. Gour, *Closed formula for the relative entropy of entanglement in all dimensions*, Physical Review Letters **106** (2011), 130401, arXiv:1007.4544.

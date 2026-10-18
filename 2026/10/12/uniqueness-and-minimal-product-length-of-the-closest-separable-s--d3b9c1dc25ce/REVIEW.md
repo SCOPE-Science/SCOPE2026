@@ -1,15 +1,15 @@
-# Self-review
+# Scientific self-review: interior one-zero Dicke edge
 
 ## Correctness
-PASS. The support operator \(A\) is bounded by one on every product state through arithmetic-geometric mean, Cauchy, and the strict tangent inequality for \((1+u)^n\). Its equality states are exactly the common-phase fixed-modulus products. The relative-entropy lower bound then follows from vector-state Jensen and weighted arithmetic-geometric mean. Any optimizer must saturate all steps, so every product component lies on the phase orbit. Equality in logarithmic Jensen makes \(\lvert D_{n,0}\rangle\) an eigenvector; the resulting vanishing Fourier moments force all Dicke off-diagonal entries to vanish and hence force the optimizer to equal \(\sigma_{n,s}\). Positivity of all Dicke weights gives rank \(n+1\), while the uniform roots-of-unity ensemble supplies exactly \(n+1\) product terms.
+The original RESULT.md proof used the false inequality
+\[\prod_j(1+|x_j|^2)\ge(1+\tfrac1n\sum_j|x_j|^2)^n.\]
+It has been replaced by a complete correct proof. If \(u=n^{-1}\sum_j r_j\) is the mean probability of local zero outcomes of a product state, the Dicke zero overlap is at most \((1-u)^n\) by arithmetic-geometric mean, and the Dicke one-zero overlap is at most \(nu(1-u)^{n-1}\) by triangle, Cauchy--Schwarz and Maclaurin's inequality. The witness expectation thus has a uniquely maximizing common local modulus \(u=p\), and equality forces common phase. Vector-state logarithmic Jensen and weighted arithmetic-geometric mean establish global relative-entropy optimality; saturation and Fourier-moment annihilation force every minimizing density operator to equal the original phase-twirled candidate. Rank \(n+1\) and an \((n+1)\)-point roots-of-unity ensemble give the exact minimum number of pure-product terms. All statements hold for integers \(n\ge2\) and \(0<s<1\), not by extrapolation from finite numerical checks.
 
 ## Originality
-PASS with residual indexing risk. The 2004 source introduced the family and conjectured the value; the 2008 source proved the value and exhibited a closest separable state. Full-text inspection did not locate a uniqueness theorem, a Fourier-moment rigidity statement, or a minimum finite product-length result. The closest broader uniqueness theorem located, Friedland--Gour, assumes the entangled state is full rank and therefore does not imply the present rank-two result. Targeted searches for unique closest separable states, the family notation, phase-orbit formulations, and separable length did not locate an implication-equivalent result.
+Wei's 2008 symmetric-state theorem proves the optimum value and constructs the phase average and supplies the classical Dicke overlap bound. Those are not claimed new. The equality-orbit rigidity, uniqueness for this rank-two mixed state and exact minimum pure-product length are the additional findings. Friedland--Gour full-rank uniqueness does not imply the rank-deficient case. Possible unindexed equivalent proofs remain a bibliographic limitation.
 
-## Value
-PASS. Closest-separable-state nonuniqueness is a genuine issue for rank-deficient states, so uniqueness here is not automatic from general relative-entropy theory. The theorem identifies the entire exposed equality orbit, converts a continuous phase twirl into a provably minimal finite product ensemble, and gives an exact structural certificate for a canonical family already used to connect geometric and relative-entropy entanglement.
+## Mathematical value and scope
+Uniqueness of a closest separable optimizer in a rank-deficient entangled family is a nonautomatic structural problem. The exact minimum pure-product ensemble length is a natural preparation invariant. The result does not address endpoints, more general mixtures, or uniqueness of the phase ensemble itself.
 
-## Closest literature and limitations
-Wei's 2008 theorem is the closest direct source: it proves the relative-entropy value and constructs a closest separable phase average, so those parts are treated as prior results. Friedland--Gour supplies a broader full-rank uniqueness result, but the present \(\rho_{n,s}\) has rank two. The theorem here is limited to \(0<s<1\) and to the two-level Dicke edge; endpoint and broader-mixture optimizer geometry are not claimed.
-
-Self-review: passed. Independent audit: not yet performed.
+## Verification and integrity
+The earlier reversed arithmetic-geometric mean step must not be used; only the fully corrected RESULT.md supplies the final proof. The accompanying finite verifier checks formulas and roots of unity but does not prove the universal quantifiers. No formal-machine proof or external expert attestation is claimed.

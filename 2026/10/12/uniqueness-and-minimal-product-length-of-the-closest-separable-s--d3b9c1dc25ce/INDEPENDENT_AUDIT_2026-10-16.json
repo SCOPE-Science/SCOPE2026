@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T09:00:59Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/a7f06178efe0f614c062d1d573fb692b831692a4/2026/10/12/uniqueness-and-minimal-product-length-of-the-closest-separable-s--d3b9c1dc25ce",
+        "Git blob RESULT.md b7b91185f6c30831bc09c772d79a75d52ab2b709",
+        "Wei, Relative entropy of entanglement for multipartite mixed states: Permutation-invariant states and Dür states, Phys Rev A 78 (2008) 012327, arXiv:0805.1090, Section V.2.2 inequalities (95)-(100)"
+      ],
+      "rationale": "The original source RESULT.md incorrectly claimed prod_j(1+|x_j|^2)>= (1+average |x_j|^2)^n, the reverse of AM-GM, so the original proof cannot pass unmodified. The supplied full replacement RESULT.md repairs this with correct inequalities in probabilities r_j: prod(1-r_j)<=(1-u)^n; the D_{n,1} overlap is at most n u(1-u)^{n-1} by triangle, Cauchy and Maclaurin. Witness expectation <= (s+nq t)/(q^n(1+t)^n) has unique maximum=1 at t=p/q; equality forces all r_j=p and phases equal. Strict log-Jensen and weighted AM-GM then establish global relative-entropy optimality. Any optimizer saturates the witness, hence is a common-phase mixture. Equality in log-Jensen at D0 annihilates phase Fourier moments m=1..n, making the density matrix exactly the phase twirl. Rank n+1 and roots-of-unity quadrature prove exact product length. All real n,s domain conditions and endpoint exclusions explicitly handled.",
+      "residual_risks": [
+        "The initial source proof had a reversed AM-GM inequality; PASS applies ONLY to the fully supplied repaired RESULT.md."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The named primary theorem hypotheses and conclusions were checked for strict implication or inapplicability.",
+          "Wei, Relative entropy of entanglement for multipartite mixed states: Permutation-invariant states and Dür states, Phys Rev A 78 (2008) 012327, arXiv:0805.1090, Section V.2.2 inequalities (95)-(100)"
+        ],
+        "reasoning": "The 2008 symmetric-state optimum gives existence but not uniqueness; general full-rank uniqueness excludes this rank-two state. Thus no inspected theorem dominates both uniqueness and product length.",
+        "searches": [
+          "Resultary semantic query: Dicke edge rank two unique closest separable state minimum phase twirl product decomposition",
+          "https://arxiv.org/abs/0805.1090",
+          "https://arxiv.org/abs/1007.4544"
+        ]
+      },
+      "checked_sources": [
+        "Wei, Relative entropy of entanglement for multipartite mixed states: Permutation-invariant states and Dür states, Phys Rev A 78 (2008) 012327, arXiv:0805.1090, Section V.2.2 inequalities (95)-(100)",
+        "Friedland and Gour, Closed formula for the relative entropy of entanglement in all dimensions, PRL 106 (2011) 130401, arXiv:1007.4544"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Established components have been expressly excluded from the originality assertion; the remaining claim needs the stated argument.",
+          "Wei, Relative entropy of entanglement for multipartite mixed states: Permutation-invariant states and Dür states, Phys Rev A 78 (2008) 012327, arXiv:0805.1090, Section V.2.2 inequalities (95)-(100)"
+        ],
+        "reasoning": "Known existence plus rank(sigma)=n+1 alone shows a lower bound and one upper bound, but does not imply no other separable optimizer; witness saturation and log-Jensen Fourier rigidity supply the new uniqueness step.",
+        "searches": [
+          "Resultary semantic query: Dicke edge rank two unique closest separable state minimum phase twirl product decomposition",
+          "https://arxiv.org/abs/0805.1090",
+          "https://arxiv.org/abs/1007.4544"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The assigned theorem and listed related invariant were compared by their defining objects and quantified domains.",
+          "Wei, Relative entropy of entanglement for multipartite mixed states: Permutation-invariant states and Dür states, Phys Rev A 78 (2008) 012327, arXiv:0805.1090, Section V.2.2 inequalities (95)-(100)"
+        ],
+        "reasoning": "The minimizer is a density operator, not a phase-measure: numerous probability measures can share the first n vanishing Fourier moments, so ensemble uniqueness is not claimed.",
+        "searches": [
+          "Resultary semantic query: Dicke edge rank two unique closest separable state minimum phase twirl product decomposition",
+          "https://arxiv.org/abs/0805.1090",
+          "https://arxiv.org/abs/1007.4544"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact object, parameter, support-count and/or domain distinctions were compared, not titles alone.",
+          "Wei, Relative entropy of entanglement for multipartite mixed states: Permutation-invariant states and Dür states, Phys Rev A 78 (2008) 012327, arXiv:0805.1090, Section V.2.2 inequalities (95)-(100)"
+        ],
+        "reasoning": "Rank and n+1 roots-of-unity quadrature are exact for all n, not a finite table or a numerical observation; targeted Resultary search found other entanglement settings but no matching complete product-length formula.",
+        "searches": [
+          "Resultary semantic query: Dicke edge rank two unique closest separable state minimum phase twirl product decomposition",
+          "https://arxiv.org/abs/0805.1090",
+          "https://arxiv.org/abs/1007.4544"
+        ]
+      },
+      "rationale": "The optimal relative-entropy value and existence of a symmetric phase-twirled optimizer are established by Wei 2008; its overlap bounds supply the Maclaurin inequality. The corrected claim adds equality rigidity, uniqueness for a rank-two edge state and exact optimal finite pure-product length. Friedland-Gour full-rank uniqueness theorem is inapplicable because rho has rank two in dimension 2^n, and no checked Resultary item proves same rank-deficient conclusion.",
+      "residual_risks": [
+        "A specialized uniqueness theorem for the same symmetric rank-two edge may be hidden in later geometric entanglement literature; this novelty conclusion remains best of knowledge.",
+        "Searches do not establish universal absence from literature; novelty is a best-of-knowledge, claim-vs-prior implication conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers existence/optimal value and supplies a known overlap inequality, but inspected passage does not show uniqueness of rank-two optimizer or exact n+1 product length",
+          "evidence": "Original classical overlap proof bounds each Dicke projection by the binomial coefficient at average local excitation, which is a correct replacement for the reversed product inequality",
+          "identifier_or_url": "https://arxiv.org/abs/0805.1090",
+          "material_read": "Full relevant proof of symmetric Dicke overlap bound in Section V.2.2 including Maclaurin inequalities, and phase-twirl optimizer construction",
+          "method": "Read author arXiv full text; independently derived equality and supporting operator bound for k=0,1",
+          "title": "Relative entropy of entanglement for multipartite mixed states: Permutation-invariant states and Dür states",
+          "trigger": "Authoritative proof of separable optimum and crucial Dicke overlap inequality"
+        },
+        {
+          "assessment": "Does not cover this rank-deficient rho under the cited full-rank uniqueness hypothesis",
+          "evidence": "rank rho=2 while dim ambient=2^n>=4",
+          "identifier_or_url": "https://arxiv.org/abs/1007.4544",
+          "material_read": "Relevant statement and hypotheses about uniqueness under full-rank assumptions",
+          "method": "Compared rank hypotheses to rho rank 2 and ambient dimension 2^n",
+          "title": "Closed formula for the relative entropy of entanglement in all dimensions",
+          "trigger": "Possible stronger general uniqueness theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Wei, Relative entropy of entanglement for multipartite mixed states: Permutation-invariant states and Dür states, Phys Rev A 78 (2008) 012327, arXiv:0805.1090, Section V.2.2 inequalities (95)-(100)",
+        "Friedland and Gour, Closed formula for the relative entropy of entanglement in all dimensions, PRL 106 (2011) 130401, arXiv:1007.4544"
+      ],
+      "rationale": "A complete equality-case theorem for a natural entangled rank-deficient family resolves optimizer uniqueness and exact product decomposition complexity, which the numerical optimum value alone does not determine.",
+      "residual_risks": [
+        "A specialized uniqueness theorem for the same symmetric rank-two edge may be hidden in later geometric entanglement literature; this novelty conclusion remains best of knowledge."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Wei, Relative entropy of entanglement for multipartite mixed states: Permutation-invariant states and Dür states, Phys Rev A 78 (2008) 012327, arXiv:0805.1090, Section V.2.2 inequalities (95)-(100)",
+    "Friedland and Gour, Closed formula for the relative entropy of entanglement in all dimensions, PRL 106 (2011) 130401, arXiv:1007.4544"
+  ],
+  "disposition": "repaired",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "A specialized uniqueness theorem for the same symmetric rank-two edge may be hidden in later geometric entanglement literature; this novelty conclusion remains best of knowledge.",
+    "No external expert/formal certificate implied.",
+    "Repaired claim is the completely supplied corrected RESULT.md; the original flawed inequality cannot justify original theorem."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "Covers existence/optimal value and supplies a known overlap inequality, but inspected passage does not show uniqueness of rank-two optimizer or exact n+1 product length",
+      "evidence": "Original classical overlap proof bounds each Dicke projection by the binomial coefficient at average local excitation, which is a correct replacement for the reversed product inequality",
+      "identifier_or_url": "https://arxiv.org/abs/0805.1090",
+      "material_read": "Full relevant proof of symmetric Dicke overlap bound in Section V.2.2 including Maclaurin inequalities, and phase-twirl optimizer construction",
+      "method": "Read author arXiv full text; independently derived equality and supporting operator bound for k=0,1",
+      "title": "Relative entropy of entanglement for multipartite mixed states: Permutation-invariant states and Dür states",
+      "trigger": "Authoritative proof of separable optimum and crucial Dicke overlap inequality"
+    },
+    {
+      "assessment": "Does not cover this rank-deficient rho under the cited full-rank uniqueness hypothesis",
+      "evidence": "rank rho=2 while dim ambient=2^n>=4",
+      "identifier_or_url": "https://arxiv.org/abs/1007.4544",
+      "material_read": "Relevant statement and hypotheses about uniqueness under full-rank assumptions",
+      "method": "Compared rank hypotheses to rho rank 2 and ambient dimension 2^n",
+      "title": "Closed formula for the relative entropy of entanglement in all dimensions",
+      "trigger": "Possible stronger general uniqueness theorem"
+    }
+  ]
+}
