@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For a fixed response \(a\), optimization over the other response reduces the classical bias to the \(L^1\)-norm of the hemisphere transform \(h_a\). The transform is odd and has sharp geodesic Lipschitz constant at most \(2/\pi\), because two hemispherical sign kernels at angular separation \(\delta\) disagree on normalized area \(\delta/\pi\). Lévy spherical isoperimetry applied to positive superlevel sets of an odd Lipschitz function gives the sharp tail bound \(\sigma(h>t)\le(1-\sin(t/L))/2\), whose layer-cake integral is \(L(\pi/2-1)\). This yields classical bias at most \(1-2/\pi\). The hemispherical strategy attains equality. The singlet value \(3/4\) follows independently from \(\mathbb E|x\cdot y|=1/2\).
+PASS
 
-## Originality
+For arbitrary measurable a,b:S^2 -> {±1}, the classical bias is B=-∬sgn(x·y)a(x)b(y), optimized in b to ∫|h_a(y)|. Independently verified the oddness h_a(-y)=-h_a(y), and spherical-lune measure gives sharp geodesic Lipschitz 2/π. For any odd L-Lipschitz function, antipodal superlevel sets A_t and -A_t are 2t/L-separated. Lévy isoperimetry for cap metric neighborhoods implies σ(|h|>t)≤1−sin(t/L) for 0≤t≤Lπ/2; integration gives ∫|h|≤L(π/2−1). At L=2/π this yields maximum bias 1−2/π, reached exactly by opposite hemispherical responses. Therefore P_cl=1−1/π; uniform dot product and singlet correlation give P_singlet=3/4 and positive gap 1/π−1/4. No assumption of antipodal response functions was used. Sympy verified exact integral and gap, separate from source verifier Monte Carlo. This proves classical optimality but not globally optimal quantum value.
 
-PASS. The defining paper computes \(1-1/\pi\) for the hemispherical strategy but describes its optimality only as likely and leaves the third game's quantum advantage conjectural. The closest later literature inspected, Kent--Pitalúa-García, studies fixed angular separation and antipodal Bloch-sphere colourings; it formulates rather than settles hemispherical maximality in that setting and does not imply the integrated arbitrary-response game solved here. Exact-title, exact-constant, transform, alias, and implication searches located no equivalent statement. Previously recorded scientific findings were also compared and none covers this game.
+## originality
 
-Residual bibliographic risk remains that an obscure or poorly indexed later note proves the same exact value. No such source was located in the targeted searches.
+PASS
 
-## Value
+At claim/implication level, no inspected prior source states or entails the precise final result; closest frameworks, partial results and source gaps are explicitly distinguished. No failed search is treated as proof of absolute priority.
 
-PASS. The result resolves an explicit open optimality point in a published continuous-input nonlocal game and turns the paper's conjectured third-game quantum advantage into an exact theorem. The proof is structural rather than a numerical improvement: it identifies the relevant hemisphere transform, a sharp odd-Lipschitz inequality on the sphere, and an equality strategy.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original continuous-input nonlocal-game paper calculates hemispherical performance but leaves its global classical optimality and exact quantum advantage conjectural. A sharp infinite-dimensional geometric optimization over all measurable local responses resolves that natural missing comparison with an exact constant and rigorous quantum/classical separation. The spherical-isoperimetric bound is independently motivated, not a finite numerical fit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
