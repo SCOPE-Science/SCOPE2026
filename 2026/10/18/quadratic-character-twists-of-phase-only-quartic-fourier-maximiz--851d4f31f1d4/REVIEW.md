@@ -1,0 +1,19 @@
+# Scientific review
+
+## Correctness — PASS
+Fourier character orthogonality gives the exact moment-fiber identity; triangle equality characterizes the phase products on each unordered collision class. The quartic power-sum identity reduces nontrivial collisions to an involution of pair products. The complete exhaustive finite-field certificate verifies the two dilation orbits, all 36 nontrivial equal-sum comparisons, 991 energy, and that all equalities avoid the origin. Quadratic-character and additive-character twists preserve both seeds and hence every relation. The explicit 17-by-17 integer matrix has determinant of absolute value 722 by exact Bareiss arithmetic; deleting one coordinate identifies the degree-zero lattice with a rank-17 free group, so the quotient has order 722. There are exactly 722 distinct constructed relative-phase patterns, which therefore exhaust the annihilator. The origin phase is free. This proves the claimed 722 disjoint two-tori for the specified field; no extrapolation is involved. The exact checker and output are embedded.
+
+## Originality — PASS, best knowledge
+The prior general quartic-graph additive-energy theorem already gives the value 991; this numerical value is **not** an originality claim. The two inspected complete prime-specific equality classifications apply to Sidon fourth-power images at 5 and 13 (one treats 13 only). Their statements explicitly do not classify maximizers at 19. The 2024 primary extension article concerns parabolas, paraboloids, and related conics rather than the quartic Fourier graph. In the non-Sidon 19-element case, the complete index-722 phase subgroup and non-additive quadratic-character twist are not implied by those works. Searches for equivalent F_19 quartic phase characterization, Legendre-twisted equality functions, finite-field quartic optimizer relation lattices and related additive equations returned no covering primary result. An unindexed earlier equivalent finite-additive-relation-lattice classification remains possible; no absolute priority claim is made.
+
+## Mathematical value — PASS
+The sharp unimodular fourth-moment *number* alone was already known; the previously undetermined full equality phase space is a natural next invariant in Fourier extension. A non-Sidon prime gives a new sign-torsion phenomenon: a quadratic character multiplier is not obtainable from additive graph characters, and the origin carries an independent phase. An exact 722-component topology and finite-lattice index explain the optimizer structure, rather than simply enumerating coefficient examples. This exact classification is useful when characterizing all constant-envelope Fourier equality inputs and when comparing phase rigidity between Sidon and non-Sidon quartic graphs. Its restriction to a natural individual prime field is explicit, and it makes no unsupported infinite-family or robustness claims.
+
+## Closest work and risks
+- *Exact additive energy of the finite-field quartic graph* gives the energy 991 but not equality phase structure.
+- *Sidon quartic-power images and the complete phase-only fourth-moment equality groups* classifies only the Sidon primes 5 and 13, which exclude 19.
+- *Quartic-image Singer geometry and all unimodular Fourier fourth-moment maximizers over thirteen elements* treats 13, not 19.
+- González-Riquelme and Oliveira e Silva, *Sharp extension inequalities on finite fields*, arXiv:2405.16647v1 (2024), supplies the extension motivation but not the 19-element quartic classification.
+- Residual bibliographic risk: differently indexed Freiman-character, character-table, or relation-lattice work might contain an equivalent special-field calculation. Independent mathematical audit has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
