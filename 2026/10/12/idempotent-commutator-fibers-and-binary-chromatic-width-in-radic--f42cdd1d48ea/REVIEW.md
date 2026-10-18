@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed full fiber count follows arrow by arrow from the exact idempotent equation \((p_u+p_v-1)p_a=0\) and the commutator coefficient \((p_u-p_v)r_a-(r_u-r_v)p_a\). Every possible paired vertex-bit pattern is accounted for: local multiplicity \(1\) for no bit change, \(q\) for one bit change at zero target, and \(q\) for every target when both bits change. The graph obstruction and its converse are proved constructively, as is the sharp logarithmic coloring width. Direct finite multiplication-matrix enumeration over ten cases and the \(\mathbb F_2\) triangle width test passed. These finite tests support but do not replace the proof.
+PASS
 
-## Originality — PASS (subject to explicit historical uncertainty)
+For A=kQ/J^2 the idempotent vertex coefficients are 0/1 and an arrow coefficient is free precisely when endpoint bits differ. The commutator arrow coordinate (p_u-p_v)r_a-(r_u-r_v)p_a then has q choices at each paired vertex-label change and supports a nonzero prescribed z_a only if BOTH bits change. Multiplying over arrows gives the four-state exact fiber polynomial for all loopless multiquivers and finite fields, including repeated/opposite arrows. The nonzero target support requires a vertex 2-coloring, and conversely one such coloring constructs a single idempotent commutator. For sums of h, a nonzero target arrow must be separated by at least one of h vertex bits, giving chi<=2^h; binary encodings of proper chi-colorings attain h=ceil(log2 chi). Zero target has width 0 and edges outside J do not occur. Independently enumerated complete GF(2) and GF(3) triangle fibers (35 exact target checks), confirmed GF(2) 26 idempotents, zero fiber 340, full support zero single-fiber; this is corroboration, not proof of arbitrary quivers.
 
-The relevant 2002 ring characterization is general but was accessible only by abstract; it may bear on existence, and its full text remains a residual bibliographic risk. The 2018 full-text Khurana–Lam investigation addresses invertible idempotent commutators, whereas every quiver commutator considered here is radical and nilpotent. The 2016 full-text radical-square-zero quiver article addresses singular equivalence, not constrained commutator multiplicities. Earlier exact arbitrary-element quiver commutator fibers give a \(q^2\)-colorability test, not a four-state idempotent count or a binary width; the difference is strict already on a triangle over \(\mathbb F_2\). A previous incidence-algebra idempotent cut polynomial counts single idempotents and does not imply the present two-idempotent target distribution. Direct database/alias, stronger-implication, published-multiplicity, and source comparisons revealed no dominating enumerator. This is a qualified self-review, not a guarantee of publication novelty.
+## originality
 
-## Value — PASS
+PASS
 
-Prescribed fibers of commutators of *two idempotents* form a natural invariant because it asks how far a classical ring-element commutator representation persists under a stringent algebraic constraint. The four-state formula gives all multiplicities on arbitrary finite quivers and the exact field-independent image obstruction. The binary graph-coloring width theorem shows an unbounded gap from ordinary commutator width at fixed field size. These are structural assertions over a motivated complete family rather than isolated small counts or a routine restatement of the unrestricted formula.
+The exact target fibers restricted to pairs of idempotents and sharp binary chromatic width are not implied by the older unrestricted q^2 chromatic bound, nor by results about invertible idempotent commutators in matrix rings. The triangle over F2 strictly separates restricted and unrestricted conditions. The 2002 general ring characterization of single commutators may specialize to the bipartiteness subclaim, but the full source was inaccessible, so priority of that portion remains a specifically named risk; exact all-fiber counts and sharp additive widths remain plausible distinct contributions.
 
-## Sources and limitations
+## value
 
-See the references in `RESULT.md` and the explicitly differentiated full-text/abstract-only source inspections in `AUDIT.json`. Both comparisons to broader ring identities and to previous unconstrained quiver commutators are based on statement implications, not title similarity. The inaccessible 2002 paper remains a bibliographic risk. Loop arrows and non-square-zero relations are outside the theorem; the enumerator itself requires a finite field.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Prescribed commutator fibers of *restricted* factors form a natural algebraic invariant; the four-state formula provides every fiber, not merely existence. The sharp field-independent chromatic obstruction and unbounded gap from unrestricted commutator width on complete graphs are structural and useful for comparing algebraic constraints to graph colorings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
