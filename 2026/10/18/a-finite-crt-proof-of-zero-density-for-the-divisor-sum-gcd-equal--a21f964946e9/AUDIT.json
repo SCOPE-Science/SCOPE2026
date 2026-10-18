@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For every fixed prime \\(p\\equiv1\\pmod6\\), an order-three unit \\(r\\) exists. For finite sets \\(Q\\) of primes \\(q\\equiv r\\pmod p\\), exact CRT counts make the events \\(p\\parallel m\\) and \\(q\\parallel m\\) independent Bernoulli events with probabilities \\(\\delta_q=(q-1)/q^2\\). The count \\(Z_Q\\) has mean \\(\\mu_Q\\to\\infty\\) by reciprocal-prime divergence and variance at most \\(\\mu_Q\\). Chebyshev yields \\(\\Pr(Z_Q\\le1)\\le\\mu_Q/(\\mu_Q-1)^2\\), tending to zero. Two distinct witnesses force \\(p^2\\mid\\sigma(m^2)\\), contradicting the equality when \\(p\\parallel m\\). Thus \\(\\mathscr A\\cap\\{p\\parallel m\\}\\) has density zero. For every finite set \\(P\\) of primes \\(p\\equiv1\\pmod6\\), the set \\(\\mathscr A\\), up to a zero-density subset, avoids all \\(p\\parallel m\\) and has upper density at most \\(\\prod_{p\\in P}(1-\\delta_p)\\). This product tends to zero as \\(P\\) grows, since \\(\\sum_{p\\equiv1\\pmod6}\\delta_p=\\infty\\). Both finite-modulus and infinite limits are performed in the correct order; finite regression tests are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 squarefree subfamily yields C X/sqrt(log X) members, not density of all members",
+        "Dirichlet prime reciprocal divergence controls obstructions at all fixed primes"
+      ],
+      "reasoning": "The established lower bound of order \\(X/\\sqrt{\\log X}\\) for one subfamily cannot imply zero density of the full set. Other retrieved GCD and divisor-sum results concern other equations, prime-pair support, or divisor-sum divisibility and do not imply the all-integer theorem.",
+      "searches": [
+        "arithmetic function sigma(n squared) gcd(n sigma(n squared)) density zero",
+        "For almost all integers n, exists prime p with v_p(n)=1 and p^2 divides sigma(n^2)",
+        "published-finding corpus closest a-squarefree-2-bmod-3-subfamily-in-dris-s-gcd-set"
+      ]
+    },
+    "checked_sources": [
+      "https://math.stackexchange.com/questions/3131818/on-gcds-and-odd-perfect-numbers",
+      "https://mathoverflow.net/questions/369441/is-the-asymptotic-density-of-positive-integers-n-satisfying-gcdn-sigman",
+      "https://arxiv.org/abs/2202.08116",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-a-squarefree-2-bmod-3-subfamily-in-dris-s-gcd-set--3181e476c480/RESULT.md",
+      "https://arxiv.org/abs/0906.2132"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Meyerowitz writes: If we can argue ... then that asymptotic density is 0",
+        "Dris formalizes the desired statement as a conjecture in 2022"
+      ],
+      "reasoning": "The local conditional-probability-one observation plus finite prime truncations suggests the conclusion; Meyerowitz neither establishes these finite bounds nor invokes finite union over p. The new argument rigorously proves both limits in a safe order. It credits the precursor idea rather than claiming an independent mechanism.",
+      "searches": [
+        "Conjecture 5.1 Jose Arnaldo Bebita Dris resolution primes congruent 1 mod 6 density zero",
+        "Meyerowitz MathOverflow 369441 formal proof Euler product local obstructions sigma(n squared)",
+        "MathOverflow Meyerowitz answer Aug 18 2020",
+        "arXiv:2202.08116v1 Conjecture 5.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Identical gcd identity and density-zero question in MathOverflow 369441",
+        "Dris Conjecture 5.1 in arXiv:2202.08116v1"
+      ],
+      "reasoning": "Expressing the GCD equality through prime valuations, or as simultaneous avoidance of prime-square divisibilities in \\(\\sigma(m^2)\\), produces the same mathematical question. The inspected 2020 MathOverflow answer uses the same cubic-root obstruction but stops at a conditional infinite-product statement. Finite CRT truncation and a variance estimate are supplied here to complete that statement.",
+      "searches": [
+        "Dris conjecture density zero gcd(m sigma(m squared)) gcd(m squared sigma(m squared))",
+        "The set of integers n satisfying gcd(n, sigma(n^2)) = gcd(n^2, sigma(n^2)) has natural density zero",
+        "MathOverflow question 369441",
+        "arXiv:2202.08116v1 Section 5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus hit 3181e476c480 describes C X/sqrt(log X) solution subfamily",
+        "The original computational percentages in Dris source approach neither an exact density nor a proof"
+      ],
+      "reasoning": "Finite numerical tables, even beyond \\(10^6\\), and constraints on restricted prime supports do not establish natural density. The candidate asserts a full infinite-density conclusion derived by proof, not a table recomputation.",
+      "searches": [
+        "prime factor divisors q^2+q+1 equal gcd sigma squares density",
+        "Divisor sum square gcd n^2 coincidence asymptotic density 2020 2022",
+        "published-finding corpus Search closest IDs 3181e476c480 and 15a95ebe2dc2"
+      ]
+    },
+    "rationale": "Primary source arXiv:2202.08116v1 labels density zero an open conjecture. Meyerowitz (MathOverflow 369441) gave a conditional product heuristic with the same local obstruction, but not a proof of the infinite intersection. The new finite-CRT plus Chebyshev lemma resolves this gap without exchanging nonuniform limits, establishing the full density-zero theorem. The closest public squarefree-family result gives only a lower bound and explicitly leaves the density question untouched. Publication priority remains subject to unindexed literature.",
+    "residual_risks": [
+      "The 2020 MathOverflow answer anticipates the central local obstruction and Euler-product conclusion, narrowing novelty to completing the missing rigor.",
+      "Unindexed or more recent number-theory writing may contain the same finite-truncation proof or a stronger general density theorem.",
+      "The arithmetic-progression reciprocal prime divergence is standard and not independently proved in this note."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Question describes conjecture, answer supplies local p-root obstruction and conditional infinite-product suggestion but no finite CRT/variance proof",
+        "evidence": "Meyerowitz answer dated Aug 18--19 2020: If we can argue ... the product ... then that asymptotic density is 0.",
+        "identifier_or_url": "https://mathoverflow.net/questions/369441/is-the-asymptotic-density-of-positive-integers-n-satisfying-gcdn-sigman",
+        "material_read": "Question, full answer, and displayed comments",
+        "method": "Full public HTML page reading and direct implication comparison",
+        "title": "Is the asymptotic density of positive integers ... equal to zero?",
+        "trigger": "Identical target statement and Meyerowitz precursor argument"
+      },
+      {
+        "assessment": "Section 5 establishes density strictly below 1 and conjectures, without proving, density zero",
+        "evidence": "arXiv:2202.08116v1, posted February 10, 2022, Conjecture 5.1.",
+        "identifier_or_url": "https://arxiv.org/abs/2202.08116",
+        "material_read": "Full HTML-text rendering including Section 5 theorem, conjecture, and discussion",
+        "method": "Public arXiv text reading with direct theorem/claim comparison",
+        "title": "A new approach to odd perfect numbers via GCDs",
+        "trigger": "Original published conjecture with identical set definition"
+      },
+      {
+        "assessment": "Shows a solution subfamily asymptotic to C X/sqrt(log X), lower bound compatible with zero density, expressly does not prove conjecture",
+        "evidence": "Its Finding and Limitations sections expressly distinguish lower bound from unknown full density.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-a-squarefree-2-bmod-3-subfamily-in-dris-s-gcd-set--3181e476c480/RESULT.md",
+        "material_read": "Complete RESULT.md, including theorem, proof, relationship, and limitations",
+        "method": "Full reading of the public mathematical-record result text",
+        "title": "A squarefree (2 mod 3) subfamily in Dris GCD set",
+        "trigger": "Highest-similarity public mathematical-record overlap"
+      },
+      {
+        "assessment": "Contains equality as an equivalence in an odd-perfect-number setting but not a density theorem",
+        "evidence": "Answer dated April 15, 2020 explicitly writes the two gcds.",
+        "identifier_or_url": "https://math.stackexchange.com/questions/3131818/on-gcds-and-odd-perfect-numbers",
+        "material_read": "Full question, answer, and dated metadata",
+        "method": "Public StackExchange HTML reading",
+        "title": "On GCDs and odd perfect numbers",
+        "trigger": "Earliest dated public statement of exact equality"
+      },
+      {
+        "assessment": "Background reference only; the invoked reciprocal-prime divergence is a classical theorem, not an original result claimed here",
+        "evidence": "Languasco and Zaccagnini 2009, arithmetic progression Mertens estimates.",
+        "identifier_or_url": "https://arxiv.org/abs/0906.2132",
+        "material_read": "Bibliographic/abstract material, not full text",
+        "method": "Open-access bibliographic search",
+        "title": "Computing the Mertens and Meissel-Mertens constants for sums over arithmetic progressions",
+        "trigger": "Classical analytic ingredient, arithmetic-progression prime harmonic divergence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a21f9649-46e9-4d16-9b88-03bf72db54cb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An explicit 2022 divisor-sum GCD density conjecture and 2020 MathOverflow question are settled for all positive integers. This closes a mathematically motivated limit-exchange gap in a closely related earlier argument and supplies a general finite-CRT template for turning infinitely many local prime obstructions into density-zero proofs. Neither an arbitrary finite slice nor a mere computational improvement.",
+    "status": "PASS"
+  }
+}
