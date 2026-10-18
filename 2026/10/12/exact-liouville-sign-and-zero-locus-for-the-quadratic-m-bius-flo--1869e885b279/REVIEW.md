@@ -1,15 +1,21 @@
-# Scientific review: quadratic Möbius-floor recurrence
+# Independent mathematical audit
 
-## Correctness — PASS
-The defining floor recurrence is transformed exactly into a Dirichlet convolution using first differences. Euler's \(\operatorname{id}=u*\varphi\) identity yields a convolution-inverse representation. Under Liouville sign twisting, its multivariate Euler expansion has a numerator with nonnegative coefficients and denominator \(1-K\), where every nonzero coefficient of \(K\) is strictly positive. A constructive monomial argument establishes the exact support threshold. The squarefree-divisor convolution then proves the sign, zero, parity, and exact prime fiber for **all** integers in scope. The proof explicitly covers \(n=1\) as the recurrence base, \(2\)-powers, odd integers, and squarefree/nonsquarefree boundaries. An independently coded original recurrence, divisor recurrence, and convolution inverse agree on the recorded finite test domains. Finite experiments are corroboration rather than proof.
+## correctness
 
-## Originality — PASS, with residual literature risk
-The September 2026 source conjectures the numerical power specialization, while its claimed arbitrary-fixed-function converse is not valid and its argument shifts quantifiers. The accessible published constant-function counterexample proves a negative fact for \(f\equiv1\), not the proposed positive quadratic theorem. Full-text comparison with that counterexample and a separate Dirichlet-inverse/Jordan-totient prime criterion found neither the present sign/zero classification nor a statement logically implying it. Targeted searches covered the exact recurrence, its quadratic specialization, the Liouville-sign transform, zero threshold, coefficient positivity, and all aliases/reductions. A failed search is not a proof of global novelty: an unindexed or implicit equivalent statement remains a genuine residual risk.
+PASS
 
-## Mathematical value — PASS
-This proves a concrete unresolved specialization of a new arithmetic recurrence and, more significantly, supplies a complete global sign theorem, an exact infinite family of zero positions with a sharp exponent cutoff, and a parity law. These are structural consequences not just small computations or a superficial restatement of a conjecture. The explicit two-adic threshold and formal positive-coefficient mechanism allow further questions about higher powers and coefficient magnitude, without promising their resolution.
+Taking first differences of the floor-square transform gives s*(2 id−u)=2 id−2u+δ. Since id=u*φ and u^{-1}=μ, inversion yields s=δ+(μ−δ)*H with H=(2φ−δ)^{-1}. Twisting H by the completely multiplicative λ produces ∏(1+px_p)/(1−K), where K=Σ_{∅≠S}(∏_{p∈S}p−2)∏x_p; all coefficients nonnegative and the singleton {2} is exactly zero. For n=2^a m, m odd, the twisted coefficient h(n)>0 iff a≤Ω(m)+1: necessity counts 2's against odd prime occurrences, and sufficiency takes one numerator x2 and a−1 positive x2 x_p factors. The squarefree-divisor convolution λ(n)s(n)=Σ_{d|n,d>1, μ(d)≠0}h(n/d) gives exact sign and zero threshold a≥Ω(m)+3. Modulo 2, H≡δ so s≡μ. Prime n gives −1; squarefree composite has at least two positive contributions and nonsquarefree n has even s, ruling out additional |s|=1. Boundaries n=1, powers of two, odd n, and repeated prime factors were explicitly checked. Independently regenerated the original recurrence through 1000 and tested every sign, zero, parity and prime case; no extrapolation relied on.
 
-## Scientific limitations
-The claim is restricted to the quadratic case; it neither certifies the general conjecture nor rehabilitates the unrestricted false fixed-function claim. No nonzero magnitude formula, complexity bound, or priority guarantee is asserted. External audit has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The precise quantified final claim was compared against primary sources, semantic published-result searches, equivalent mathematical formulations and stronger possible implications. No decisive coverage was found on the actually read material; sources not fully read remain recorded as risks, not represented as full-text negatives.
+
+## value
+
+PASS
+
+This resolves a natural fixed quadratic specialization of a recent Möbius-type floor-transform prime criterion with a full multiplicative sign pattern, an exact 2-adic support/zero boundary and a parity law. The nonnegative formal Dirichlet inverse and its monomial support are substantive arithmetic structure, not merely the already-proposed prime test or finite table extension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

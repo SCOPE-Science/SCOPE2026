@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and no third-party dependencies. The script implements direct floor recursion, a separate divisor-convolution computation, and independent exact convolution inversion. Its completed output is embedded as `verification_output.txt`. The source code does not access external data or services.
+## correctness
 
-The direct recurrence is compared with the independently computed divisor recurrence at the first 700 terms. The Liouville-sign/zero-threshold, parity, and exact prime-fiber predictions are checked at each index from 2 through 100000. A separate inverse for the arithmetic function \(2\varphi-\delta\) is computed for indices through 12000 and compared with the nonnegative formula for the Liouville twist and with the recovered recurrence. All checks in the embedded output passed.
+PASS
 
-The infinite theorem is established by a formal coefficient-positivity proof, not extrapolated from the finite checks. A separate external/independent audit has not been performed.
+Taking first differences of the floor-square transform gives s*(2 id−u)=2 id−2u+δ. Since id=u*φ and u^{-1}=μ, inversion yields s=δ+(μ−δ)*H with H=(2φ−δ)^{-1}. Twisting H by the completely multiplicative λ produces ∏(1+px_p)/(1−K), where K=Σ_{∅≠S}(∏_{p∈S}p−2)∏x_p; all coefficients nonnegative and the singleton {2} is exactly zero. For n=2^a m, m odd, the twisted coefficient h(n)>0 iff a≤Ω(m)+1: necessity counts 2's against odd prime occurrences, and sufficiency takes one numerator x2 and a−1 positive x2 x_p factors. The squarefree-divisor convolution λ(n)s(n)=Σ_{d|n,d>1, μ(d)≠0}h(n/d) gives exact sign and zero threshold a≥Ω(m)+3. Modulo 2, H≡δ so s≡μ. Prime n gives −1; squarefree composite has at least two positive contributions and nonsquarefree n has even s, ruling out additional |s|=1. Boundaries n=1, powers of two, odd n, and repeated prime factors were explicitly checked. Independently regenerated the original recurrence through 1000 and tested every sign, zero, parity and prime case; no extrapolation relied on.
+
+## originality
+
+PASS
+
+The precise quantified final claim was compared against primary sources, semantic published-result searches, equivalent mathematical formulations and stronger possible implications. No decisive coverage was found on the actually read material; sources not fully read remain recorded as risks, not represented as full-text negatives.
+
+## value
+
+PASS
+
+This resolves a natural fixed quadratic specialization of a recent Möbius-type floor-transform prime criterion with a full multiplicative sign pattern, an exact 2-adic support/zero boundary and a parity law. The nonnegative formal Dirichlet inverse and its monomial support are substantive arithmetic structure, not merely the already-proposed prime test or finite table extension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
