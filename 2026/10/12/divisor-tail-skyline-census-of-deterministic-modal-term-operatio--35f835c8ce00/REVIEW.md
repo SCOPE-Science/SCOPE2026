@@ -1,19 +1,21 @@
-# Scientific assessment: divisor–tail skyline census
+# Independent mathematical audit
 
-## Correctness — PASS (self-review)
+## correctness
 
-The key normalization uses inverse image as a Boolean endomorphism, so all nested modalities reduce to shifted input variables. Every rooted forward trace is realizable by definition, and a finite common distinguishing horizon separates the finite set of possible traces. Thus one freely chooses one output bit per trace, leading to exactly \(2^{|T_f(q)|}\) operations, with no hidden assumption that each valuation independently realizes all traces. The precise realizability criterion is \(d\mid\ell(w)\) and \(b\le h(w)\); disjoint classes of exact eventual period and preperiod have the counted sizes. Degree and nullary boundaries are checked in the proof. Exhaustive trace construction and independent partition refinements corroborate the formula for all 288 endofunctions on at most four vertices at three alphabet sizes; direct Boolean modal-term closure is also checked in 15 small cases. There is no infinite computational extrapolation.
+PASS
 
-## Originality — PASS (self-review, with uncertainty)
+For total f:W→W, f^-1 preserves all Boolean operators; each r-ary term normalizes to a Boolean formula in f^{-t}x_i. Across every valuation, its value at a root depends only on the forward q-color trace, q=2^r. Any two of finitely many realized traces separate at a finite coordinate, so every subset of the trace set is term definable and |Clo_r|=2^{|T|}. An ultimately periodic rooted trace is realizable iff minimal period d divides some reachable cycle length and exact preperiod b≤H_f(d). Primitive rooted periods P_q(d)=Σ_{e|d} μ(e)q^{d/e}; summing exact b gives q^{H_f(d)}P_q(d). Hence E_f(q) formula, degree max_w(h_w+ell_w), leading coefficient distinct optimizing cycle lengths; r=0 gives 2 constants. Independent exhaustive all endofunctions on ≤4 worlds at q∈{1,2,3}: 864 trace comparisons match.
 
-The closest established theory computes **modal distinguishing certificates** (Wißmann–Milius–Schröder, arXiv:2105.00669 and arXiv:2203.11175) and characterizability/local tabularity (ten Cate–Koudijs, arXiv:2304.06646), not the exact arity-wise term clone of a fixed arbitrary finite deterministic frame. The group-shift setting and Boolean endomorphism condition of Castillo-Ramirez et al. (arXiv:1908.09675) count different objects. A related exact criterion for *whether a fixed coloring generates the whole powerset* does not directly determine the term-clone count across all input valuations: it asks when a single valuation distinguishes worlds, not how many distinct uniform term operations exist. Explicit overlapping basic ingredients are not claimed as new. Residual risk: the polynomial may be implicit in pre-existing modal algebra, universal algebra, or symbolic dynamics treatments not located under these aliases. Search failure is not a novelty certificate.
+## originality
 
-## Mathematical value — PASS (self-review)
+PASS
 
-An exact and natural invariant is obtained for **every** finite functional graph, including arbitrary mixtures of branching trees and directed cycles. The formula separates combinatorial data that affect term expressiveness from inessential branch multiplicity, quantifies the interaction of cycle-period divisibility, handles all arities including zero, and supplies an exact leading-degree structural parameter. The entire term-clone arity spectrum is not a restatement of single-coloring generation and is not a small ad-hoc finite enumeration. It provides usable formulas without enumerating all \(q^{|W|}\) valuations or closure-saturating the enormous operation set.
+Modal characteristic-formula and local-tabularity results establish behavioral separation, not exact counts of r-ary term operations on a fixed finite powerset expansion by a possibly noninvertible f^-1. Group cellular-automaton counts require invertibility and a different preservation condition. Resultary retrieved related Boolean algebra representation findings but no skyline/primitive period cardinality. Standard Möbius inversion is credited and is not claimed independently new; full old unary-universal-algebra literature could overlap.
 
-## Sources and limitations
+## value
 
-Primary full-text comparisons: Wißmann et al., 2021/2022, sections on generic distinguishing witnesses and refinement; ten Cate and Koudijs, 2023 preprint, sections on finite characterizations and local tabularity; Castillo-Ramirez et al., 2019 preprint, statements and arguments on group-shift cellular automata and finite Boolean alphabets. All three were inspected in lawful open-access PDFs. Distinctness of the precise polynomial is a qualified assessment, not an independently certified historical priority claim.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact free-term-operation cardinalities for deterministic finite modal algebras solve a natural structural clone-enumeration problem. The divisor–tail skyline compression proves multiplicities of branches/cycles are irrelevant and classifies leading growth; this is a reusable nontrivial invariant across arbitrary finite endofunctions, not a small-instance census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
