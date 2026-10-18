@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T13:06:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For iid Exp(lambda) data, exponential spacings E_j=(n-j+1)(X_(j)-X_(j-1)) are iid exponential, T=sum E_j and P_j=E_j/T are independent Dirichlet(1,...,1) proportions. Q_{n,k}=n sum_{j<=k}P_j/(n-j+1) is independent of T/n; exact first and second Dirichlet moments yield EQ=H_n-H_{n-k} and VarQ=[n(H_n^(2)-H_{n-k}^(2))-(H_n-H_{n-k})^2]/(n+1), with n=1 constant, odd median and asymptotic consequences. Independent exact rational examples including n=2,3,10 matched.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Holst gives E[S_(i)^r]=E[X_(i)^r] Gamma(n)/Gamma(n+r) for every nonnegative real/integer moment order r (as specified in theorem), hence all normalized exponential order-statistic moments."
+        ],
+        "reasoning": "The published theorem strictly dominates both submitted finite first/second moments for every n,k; this is decisive prior mathematical coverage.",
+        "searches": [
+          "Holst 1980 Theorem 2.2 full text",
+          "Renyi exponential order-statistic spacing representation"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md blob ace9111b25de3be75d6f1eed84a6afc537e55d05",
+        "Holst (1980) complete published paper Theorem 2.2 and normalization",
+        "classical Renyi exponential spacing identity",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With r=1, E[Q]=n E[X_(k)]/n=A_{n,k}; with r=2, E[Q^2]=n^2 E[X_(k)^2]/[n(n+1)]=n(A_{n,k}^2+B_{n,k})/(n+1); subtract A^2 for submitted variance. Holst also has independence of normalized vector from total."
+        ],
+        "reasoning": "Prior theorem directly yields every originality-bearing quantitative assertion. The remainder consists of elementary substitutions, median specializations and Riemann-sum limits.",
+        "searches": [
+          "Holst 1980 Theorem 2.2 E[S_(i)^r]=E[X_(i)^r]Gamma(n)/Gamma(n+r)",
+          "classical exponential spacings for X_(k)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Holst defines normalized order statistics of iid exponential variables as ordered uniform-simplex spacings and identifies their independence from the total; Q_{n,k}=n times that normalized order statistic."
+        ],
+        "reasoning": "The exact same random variable is studied in broken-stick coordinates, not merely a similar distribution; the translation is equality in distribution and scale normalization.",
+        "searches": [
+          "Lars Holst 1980 On the Lengths of the Pieces of a Stick Broken at Random, Theorem 2.2",
+          "Resultary: exponential order statistics divided by sample mean exact finite sample variance harmonic Dirichlet"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact symbolic moments, rather than just a numerical table, are present as a general expression in Holst 1980. Scannell et al plotted a corresponding median expectation curve."
+        ],
+        "reasoning": "The explicit harmonic simplification might not be verbatim in Holst, but is mechanically implied by the universal formula and classical order-statistic moments; no database absence can overturn that implication.",
+        "searches": [
+          "Holst 1980 published moment identity, pp.625ff",
+          "Scannell et al 2000 median-to-mean application cited in source RESULT.md"
+        ]
+      },
+      "rationale": "FAIL: Lars Holst (1980), On the Lengths of the Pieces of a Stick Broken at Random, Theorem 2.2 explicitly gives normalized exponential order-statistic/spacings equivalence and E[S_(i)^r]=E[X_(i)^r] Gamma(n)/Gamma(n+r) for every positive integer r. Putting S_(i)=X_(i)/sum X_j and Q=nS_(k), the published r=1 and r=2 identities imply exactly the submitted first and second moments for all n,k. Independence from total is also recorded. Harmonic E[X_(k)] and Var[X_(k)] are classical Renyi spacing formulas. Thus the claimed new identity is a direct corollary of a much stronger prior result; failure is scientific coverage, not an access block.",
+      "residual_risks": [
+        "No scientific originality remains for the first/second moment formulas given Holst 1980 stronger theorem; alternative formulations and simpler expressions do not reverse implication.",
+        "This is a completed scientific FAIL, not an operational incomplete review or access failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING: previously published stronger all-moments theorem",
+          "evidence": "Theorem 2.2 E[S_(i)^r]=E[X_(i)^r]Gamma(n)/Gamma(n+r), S_(i)=X_(i)/sum_j X_j; normalized fractions independent of total.",
+          "identifier_or_url": "https://doi.org/10.2307/3212968",
+          "material_read": "Public complete 13-page paper, in particular Theorem 2.2 and normalization discussion around page 625",
+          "method": "Read full original primary PDF and theorem on moment equivalence",
+          "title": "On the Lengths of the Pieces of a Stick Broken at Random",
+          "trigger": "Same normalized exponential order statistics under broken-stick alias, potentially dominating theorem"
+        },
+        {
+          "assessment": "INDETERMINATE full-paper coverage; not relied on for scientific FAIL",
+          "evidence": "Frozen source acknowledges plotted finite-sample median-to-mean expectation; decisive rejection instead rests on Holst full text.",
+          "identifier_or_url": "https://doi.org/10.1098/rstb.2000.0547",
+          "material_read": "Cited figure description in frozen RESULT.md; original whole paper not independently examined in this run",
+          "method": "Read frozen source citation context only",
+          "title": "On variability in the density of corticocortical and thalamocortical connections",
+          "trigger": "The cited earlier exponential median-to-mean application"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: Although the formulas are correct and statistically interpretable, the submitted all-n exact moments are immediate r=1,2 specializations of Holst’s published all-moments theorem plus elementary harmonic spacing identities, and the finite median-to-mean trend was previously plotted. No distinct sharp obstruction, structural classification or unknown invariant survives to justify treating the submission as a new scientific contribution.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "frozen RESULT.md blob ace9111b25de3be75d6f1eed84a6afc537e55d05",
+    "Holst (1980) complete published paper Theorem 2.2 and normalization",
+    "classical Renyi exponential spacing identity",
+    "Resultary semantic search"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "No scientific originality remains for the first/second moment formulas given Holst 1980 stronger theorem; alternative formulations and simpler expressions do not reverse implication.",
+    "This is a completed scientific FAIL, not an operational incomplete review or access failure.",
+    "Not publication-ready because operational provenance was found in metadata and full source-tree/neutral-content guards were not independently verified.",
+    "Best-of-knowledge mathematical judgment, not certification, formal proof, or external attestation."
+  ],
+  "residual_risks": [
+    "No scientific originality remains for the first/second moment formulas given Holst 1980 stronger theorem; alternative formulations and simpler expressions do not reverse implication.",
+    "This is a completed scientific FAIL, not an operational incomplete review or access failure."
+  ],
+  "schema_version": 1
+}
