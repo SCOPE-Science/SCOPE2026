@@ -1,11 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph and Morse complex are unambiguous. The reconstructed \(575\) simplices and \(1808\) Hasse covers, deterministic \(255\)-pair acyclic matching, and critical-cell profile establish the 64-sphere homotopy type from an exhaustive certificate. The independent finite-field ranks are consistent. Complete signed Lefschetz traces for all eight dihedral maps give the character \(64\) on the identity and \(0\) otherwise. Rational character theory yields precisely eight regular representations. The claim does not infer infinite results from finite testing.
+## correctness
 
-**Originality — PASS.** The directly relevant public wheel computation already proves \(\mathcal M(W)\simeq\bigvee^{64}S^3\); this is acknowledged and not claimed as new. Lin–Scoville identify the full abstract automorphism group, and Donovan–Scoville prove related graph-Morse results. Full primary/source inspections and published-record queries do not yield the wheel's degree-three character. Neither the homotopy type nor the abstract symmetry group implies the new character; a 64-dimensional trivial representation would have the same dimensions but not these traces. Unindexed equivalent work remains a literature risk.
+PASS
 
-**Value — PASS.** The answer determines every rational isotypic multiplicity for the complete natural symmetry group, not merely the total rank. Regularity of the action is structurally informative: the eight-dimensional invariant space and zero trace of all nonidentity automorphisms are new natural symmetry invariants for a canonical wheel. This offers a reproducible nontrivial example against which broader equivariant graph-Morse analyses can be compared. The narrow five-vertex and rational-coefficient scope is explicit.
+Rebuilt the five-vertex rim+hub wheel, 16 oriented gradient arrows and all admissible acyclic partial arrow sets: face vector (16,94,240,225), 575 nonempty faces. Independently reproduced the prescribed ordered Morse pairing: exactly 255 disjoint pairs and one critical 0-cell plus 64 critical 3-cells, with all 1808 directed Hasse covers forming a DAG. This establishes integral homotopy wedge of 64 three-spheres. Independently computed all 8 dihedral vertex permutations and signed chain traces: identity (16,94,240,225), quarter-turn (0,0,0,-1), half-turn (0,-6,0,5), 2-fixed reflections (4,0,-12,-9), 0-fixed (0,-4,0,3). Lefschetz-Hopf gives degree-three homology character (64,0,0,0,0,0,0,0), so by rational semisimplicity H3=Q[D4]^8. This is an action on rational homology, not equivariant Morse collapse or integral lattice decomposition.
 
-**Sources and scope.** Lin–Scoville, arXiv:1904.10907v1, first public 2019-04-24; Donovan–Scoville, arXiv:2207.13780v1; published five-vertex-wheel result `c2f501a8-bea1-4b65-b88a-27b6a7ff118e`. No claim is made about all wheels, integral module decomposition, or unpublished literature.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original content is the complete rational D4-representation in reduced H3, not the already known 64-sphere nonequivariant homotopy type or the well-known D4 automorphism group. Neither the total rank nor abstract group determines the seven nonidentity character values; exact 8 regular summands require the new signed simplicial trace computation.
+
+## value
+
+PASS
+
+Complete rational isotypic decomposition of a natural D4 action on the wheel Morse complex is a motivated exact structural invariant, not a trivial inference from the previously known Betti rank. The vanishing traces for every nonidentity symmetry and invariant multiplicity eight are useful standalone test cases for equivariant Morse complexes. Scope and coefficient field are narrowly but naturally fixed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

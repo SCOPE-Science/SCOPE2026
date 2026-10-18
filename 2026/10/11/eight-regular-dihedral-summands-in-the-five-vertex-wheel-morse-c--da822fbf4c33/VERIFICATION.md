@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and evidence
+# Independent mathematical audit
 
-Run `python3 verify_wheel.py` from the extracted directory. Python 3 standard library suffices. It must terminate with `VERIFY_OK` and print a face vector, Hasse-cover count, matching/critical profile, five modular boundary-rank cross-checks, and the eight symmetry-specific signed simplex trace vectors. The expected key values are \((16,94,240,225)\) faces, \(1808\) Hasse covers, \(255\) matched pairs, one critical vertex and \(64\) critical three-cells, and boundary ranks \((15,79,161)\) over each of the primes \(2,3,5,7,101\).
+## correctness
 
-The signed traces for the identity, quarter-turn, half-turn, two-rim-fixed reflection and no-rim-fixed reflection classes are respectively \((16,94,240,225)\), \((0,0,0,-1)\), \((0,-6,0,5)\), \((4,0,-12,-9)\), and \((0,-4,0,3)\). The program tests every automorphism, not merely a representative class, and verifies all nonidentity \(H_3\)-traces vanish. The acyclic matching certificate establishes the wedge homotopy type over the integers; modular ranks are supplemental consistency checks only. The Hopf trace/Lefschetz theorem transfers the signed chain traces to rational homology, and the regular-character identification is a standard semisimple representation argument.
+PASS
 
-The existing nonequivariant \(64\)-sphere result is prior work. This verification supports only the new equivariant rational module statement; it neither checks all wheels nor constructs an integral lattice decomposition.
+Rebuilt the five-vertex rim+hub wheel, 16 oriented gradient arrows and all admissible acyclic partial arrow sets: face vector (16,94,240,225), 575 nonempty faces. Independently reproduced the prescribed ordered Morse pairing: exactly 255 disjoint pairs and one critical 0-cell plus 64 critical 3-cells, with all 1808 directed Hasse covers forming a DAG. This establishes integral homotopy wedge of 64 three-spheres. Independently computed all 8 dihedral vertex permutations and signed chain traces: identity (16,94,240,225), quarter-turn (0,0,0,-1), half-turn (0,-6,0,5), 2-fixed reflections (4,0,-12,-9), 0-fixed (0,-4,0,3). Lefschetz-Hopf gives degree-three homology character (64,0,0,0,0,0,0,0), so by rational semisimplicity H3=Q[D4]^8. This is an action on rational homology, not equivariant Morse collapse or integral lattice decomposition.
+
+## originality
+
+PASS
+
+Best-of-knowledge original content is the complete rational D4-representation in reduced H3, not the already known 64-sphere nonequivariant homotopy type or the well-known D4 automorphism group. Neither the total rank nor abstract group determines the seven nonidentity character values; exact 8 regular summands require the new signed simplicial trace computation.
+
+## value
+
+PASS
+
+Complete rational isotypic decomposition of a natural D4 action on the wheel Morse complex is a motivated exact structural invariant, not a trivial inference from the previously known Betti rank. The vanishing traces for every nonidentity symmetry and invariant multiplicity eight are useful standalone test cases for equivariant Morse complexes. Scope and coefficient field are narrowly but naturally fixed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
