@@ -1,0 +1,170 @@
+{
+  "correctness": {
+    "rationale": "Derive an absolutely convergent cyclic generating function from the exact rational stability map and obtain a closed entry formula. All entries are nonnegative iff H_n is. For n=2,3,4 every degree-n Bernstein coefficient on two half intervals is exactly positive; the standalone checker verifies all coefficients. For n>=5 Descartes gives at most two positive roots, while H_n(0)=1, H_n(1)=n and an exact negative common witness prove two simple roots and the exact disconnected step set. Fixed-parameter and boundary-scale limits rigorously give the stated two asymptotics. The 367 exact checker assertions have been replayed; no infinite assertion rests on finite sampling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bonaventura-Della Rocca compute the general absolute-monotonicity radius about 2.414 and analyze a 100-point periodic upwind problem.",
+        "The theorem here proves fixed-graph positivity beyond that generic sufficient threshold, with a second all-large-steps window."
+      ],
+      "reasoning": "General SSP radii are worst-case sufficient bounds and cannot yield a necessary-and-sufficient graph-specific reentrance law. The closest uninspected broad work is named rather than misreported as a whole-document noncoverage proof.",
+      "searches": [
+        "Exactly nonnegative timestep set Alexander L-stable two-stage SDIRK2 Runge Kutta TR-BDF2 uniform directed cycle positivity n=5 two windows",
+        "Sharp five-state dimension positivity barrier TR-BDF2 upwind one-way periodic semidiscrete advection positivity loss and large timestep recovery",
+        "two disjoint intervals for positive time-step matrices rational integrators diagonal recurrence, periodic Markov generator",
+        "https://arxiv.org/pdf/1510.04303",
+        "https://doi.org/10.1016/S0168-9274(98)00050-6"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1510.04303v1 full text (38 pp), Sections 3 and 6.2",
+      "Alexander 1977 publisher abstract DOI 10.1137/0714068",
+      "Horvath 1998 publisher/research portal abstract DOI 10.1016/S0168-9274(98)00050-6",
+      "Horvath 2005 publisher-indexed abstract DOI 10.1016/j.apnum.2004.08.026",
+      "Published two-state SSP-SDIRK2(2) RESULT.md full text",
+      "Published Crank-Nicolson resolvent positivity RESULT.md full text",
+      "Published eight-state [2/2] Pade positivity RESULT.md full text"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Square of implicit midpoint: \\(((1+z/4)/(1-z/4))^2\\); Crank-Nicolson: \\((1+z/2)/(1-z/2)\\); fourth-order Pade: \\((12+6z+z^2)/(12-6z+z^2)\\), none equal the L-stable second-order \\((1+(\\sqrt2-1)z)/(1-(1-1/\\sqrt2)z)^2\\).",
+        "2015 full text derives a method-level SSP radius and provides fixed-grid experiments, not this complete all-grid positivity classification."
+      ],
+      "reasoning": "Implication comparison turns on identical method, full matrix nonnegativity quantifiers, exact necessary/sufficient step sets and cycle lengths. The direct 2015 antecedent shares the method and model but gives no all-size exact cyclic kernel or two-root proof. The three retrieved full published mathematical results use different rational maps; choosing graph parameters cannot turn their different maps into this theorem. Full-text inaccessible sources are residual risks.",
+      "searches": [
+        "Alexander two-stage L-stable SDIRK positivity preserving directed cycles Markov semigroups nonnegative update steps",
+        "two-stage diagonally implicit Runge Kutta finite periodic Markov chains all-step positivity and rank one cyclic shift",
+        "published two-state immunity result ID 46bf11cc19c7",
+        "published CN return-law result ID d475df91cd2a",
+        "published [2/2] Pade result ID 4aad2a3f58ab",
+        "arxiv:1510.04303v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The rational function coincides with linear L-stable TR-BDF2, whose periodic upwind example has the same oriented-cycle operator.",
+        "The 2015 paper uses a generic SSP sufficiency coefficient and numerical profile tests, not a full cyclic-kernel sign equivalence or disconnected exact step sets."
+      ],
+      "reasoning": "We normalized the L-stable function to the cyclic variable, thereby searching aliases TR-BDF2, Alexander SDIRK, upwind periodic grid, SSP and stochastic Markov update. The highly relevant full paper shares the method and stencil, but its stated general conditional bound and empirical finite-grid tests do not imply the exact each-n necessary-and-sufficient positivity set or reentrance. The remaining historic texts are not fully available and are recorded as risk.",
+      "searches": [
+        "Alexander two-stage L-stable SDIRK positivity preserving directed cycles Markov semigroups nonnegative update steps",
+        "Exactly nonnegative timestep set Alexander L-stable two-stage SDIRK2 Runge Kutta TR-BDF2 uniform directed cycle positivity n=5 two windows",
+        "two-stage diagonally implicit Runge Kutta finite periodic Markov chains all-step positivity and rank one cyclic shift",
+        "arxiv:1510.04303v1 (Sections 3 and 6.2)",
+        "Horvath 1998 DOI 10.1016/S0168-9274(98)00050-6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible indexed mathematical records concern distinct rational methods and do not tabulate the exact \\(H_n\\) and \\(r_\\pm(n)\\) for the Alexander map.",
+        "2015 full paper experimental example fixes a 100-point upwind periodic grid and does not give the five-state cutoff or all-size root classification."
+      ],
+      "reasoning": "Searched possible exact cyclic coefficient formula, negative diagonal, two disjoint positivity intervals, five-state witness and asymptotic threshold. Neither matching tables nor stronger exact classifications appeared in searched sources; a missing index cannot certify uniqueness.",
+      "searches": [
+        "Exactly nonnegative timestep set Alexander L-stable two-stage SDIRK2 Runge Kutta TR-BDF2 uniform directed cycle positivity n=5 two windows",
+        "Sharp five-state dimension positivity barrier TR-BDF2 upwind one-way periodic semidiscrete advection positivity loss and large timestep recovery",
+        "two disjoint intervals for positive time-step matrices rational integrators diagonal recurrence, periodic Markov generator",
+        "published two-state SSP-SDIRK2(2) RESULT.md",
+        "published Crank-Nicolson resolvent law RESULT.md"
+      ]
+    },
+    "rationale": "Compared implication strength against the full 2015 Bonaventura-Della Rocca TR-BDF2 paper, including its same-stencil n=100 periodic upwind case, and complete published close-result texts for distinct implicit methods. Method-wide SSP sufficiency and sample numerical profiles do not imply sharp necessary/sufficient positivity across every cyclic dimension, its two disconnected intervals, the five-state threshold or asymptotic upper boundary. No equivalent or dominating statement found in searched accessible sources. Historic inaccessible sources remain explicit risks.",
+    "residual_risks": [
+      "An exact cyclic-matrix reentrance classification could appear as an implicit specialization in unindexed literature.",
+      "The 1977 Alexander article was not available in full via lawful sources in this run.",
+      "Full text of Horvath 1998 and 2005 articles was not acquired; abstract-only comparisons cannot justify whole-document noncoverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "RELATED_NOT_COVERING: derived absolute-monotonicity radius and tested 100-point periodic first-order upwind discretization, but did not classify full matrix nonnegativity for every cycle and timestep, two roots, or reentrant large-step positivity.",
+        "evidence": [
+          "arXiv cover confirms v1 date 2015-10-14 and AMS 65L06; section 3 supplies L-stable TR-BDF2 stability function; section 6.2 uses periodic upwind semidiscretization with 100 grid points and empirical profile diagnostics."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1510.04303 (arXiv:1510.04303v1)",
+        "material_read": "Full 38-page public PDF; material sections 3, 6.2; numerical experiments and positivity/SSP analysis, equations and table/figures.",
+        "method": "Inspected searchable PDF and rendered pages 11 and 21; checked formulas and numerical section against the exact candidate statement.",
+        "title": "Monotonicity, positivity and strong stability of the TR-BDF2 method and of its SSP extensions",
+        "trigger": "Same scalar L-stable rational function, positivity question and cyclic upwind spatial operator"
+      },
+      {
+        "assessment": "Original method and stability background are prior work. Full paper unavailable, so exact cycle claims cannot be excluded from unseen text by the abstract alone.",
+        "evidence": [
+          "SIAM Journal on Numerical Analysis 14 (1977) 1006-1021; abstract describes strongly stable second-order two-stage diagonally implicit formulae."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0714068",
+        "material_read": "Publisher abstract and bibliographic record, not full paper.",
+        "method": "Read publisher abstract after bounded OA/arXiv attempts; institutional full text could not be accessed; no full-text not-covering assertion.",
+        "title": "Diagonally Implicit Runge-Kutta Methods for Stiff O.D.E.s",
+        "trigger": "Original two-stage strongly stable SDIRK method underlying rational map"
+      },
+      {
+        "assessment": "Broader absolute-monotonicity/positivity-radius framework does not, from accessible material, furnish sharp fixed directed-cycle reentrant windows; possible unseen specialization is residual risk.",
+        "evidence": [
+          "Abstract studies general positive initial-value problems and step-size restrictions for Runge-Kutta methods, including maximal positivity radii."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/S0168-9274(98)00050-6",
+        "material_read": "Public research portal abstract and metadata, not original full text.",
+        "method": "Read archival abstract; searched for positivity-radius implications and direct cycle classifications.",
+        "title": "Positivity of Runge-Kutta and diagonally split Runge-Kutta methods",
+        "trigger": "Plausible stronger general positivity framework"
+      },
+      {
+        "assessment": "No verified implication-equivalent directed-cycle theorem from accessible text; an uninspected article remains a named originality risk.",
+        "evidence": [
+          "Applied Numerical Mathematics 53 (2005), 341-356; subject is positivity stepsize thresholds."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.apnum.2004.08.026",
+        "material_read": "Publisher-indexed public abstract/metadata, not full article.",
+        "method": "Searched primary literature and accessible bibliographic material under positivity-step-size aliases.",
+        "title": "On the positivity step size threshold of Runge-Kutta methods",
+        "trigger": "Plausible prior step-size positivity classification"
+      },
+      {
+        "assessment": "Different method and pure-birth witness; it does not imply positive windows for the present directed cycles.",
+        "evidence": [
+          "Published theorem covers the square of implicit-midpoint, two-state immunity and three-state pure birth, with a single step boundary at four."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7",
+        "material_read": "Complete published RESULT.md retrieved and read, including the theorem, stability rational function and proof.",
+        "method": "Compared stability function \\(((1+z/4)/(1-z/4))^2\\) algebraically against the present unequal numerator/denominator L-stable map.",
+        "title": "Two-state immunity and three-state sharpness for endpoint positivity of SSP-SDIRK2(2)",
+        "trigger": "Same general end-step positivity class and related diagonally implicit second-order family"
+      },
+      {
+        "assessment": "Does not dominate the claim because the rational function and hypotheses differ; its single-threshold reversible theorem cannot prove reentrance here.",
+        "evidence": [
+          "Theorem uses \\(2(I-hQ/2)^{-1}-I\\), a different rational update."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+        "material_read": "Complete published RESULT.md retrieved and read.",
+        "method": "Checked the exact Cayley rational function and reversible-chain hypothesis against the L-stable map and nonreversible oriented cycle.",
+        "title": "A resolvent-return law for Crank-Nicolson positivity on reversible Markov chains",
+        "trigger": "Matrix-entry positivity via a rational stability function and spectral/resolvent tests"
+      },
+      {
+        "assessment": "Noncovering: different order, rational function, generator and failure behavior.",
+        "evidence": [
+          "Prior work concerns \\((12+6z+z^2)/(12-6z+z^2)\\), eight-state birth chain and small-step positivity failure."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "material_read": "Complete published RESULT.md retrieved and read.",
+        "method": "Compared the distinct fourth-order \\([2/2]\\) Pade rational function and pure-birth witness against second-order L-stable cyclic update.",
+        "title": "Eight-state barrier for Markov positivity of the [2/2] Pade map",
+        "trigger": "Minimal-state Markov positivity failures for classical implicit integration"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "33e824af-5785-4d95-97a5-57130d2e31f0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The discrete periodic upwind operator is a canonical transport semidiscretization. An exact nonmonotone step interval for a classical L-stable second-order method clarifies the meaning and limitations of general SSP sufficient restrictions. The five-state cutoff, all-cycle necessary-and-sufficient two-root classification, exact all-size negative witness and linear asymptotic upper boundary constitute a motivated structural answer rather than a routine parameter substitution or isolated computation.",
+    "status": "PASS"
+  }
+}
