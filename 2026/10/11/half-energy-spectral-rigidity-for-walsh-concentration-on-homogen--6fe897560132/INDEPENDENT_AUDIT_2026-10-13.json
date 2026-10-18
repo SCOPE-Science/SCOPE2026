@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T04:03:15Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/half-energy-spectral-rigidity-for-walsh-concentration-on-homogen--6fe897560132/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/half-energy-spectral-rigidity-for-walsh-concentration-on-homogen--6fe897560132/verify.py"
+      ],
+      "rationale": "For strict homogeneous halfspace sigma(x)=sgn(a·x), antisymmetry sigma(-x)=-sigma(x) splits the centered Walsh-lowpass projection into even/odd off-diagonal blocks. Alternating binomial sum gives dimensions difference (-1)^L binom(n-1,L). The smaller parity sector includes only degrees ≤L−1; multiplying its g by ell=a·x switches parity and lies in the larger sector even after Walsh x_i²=1 reductions. Hence <ell g,P_L sigma P_L g>=E[|ell||g|²]≥m||g||² and ||ell g||≤M||g||. Cauchy–Schwarz forces every singular value ≥m/M, hence exactly binom(n-1,L) centered zero modes and complementary paired eigenvalues at least m/(2M) from 1/2. Checked n=1, L=0 and L=n, zero individual a_j and no-tie requirement. Independently formed Walsh matrices for (n,L,a)=(3,2,(1,1,1)),(3,1,(1,3,5)),(4,3,(1,2,4,8)); nullities and bounds agree. Finite tests do not prove all n.",
+      "residual_risks": [
+        "If the hyperplane hits a cube vertex, sigma is no longer odd and the proof and statement may fail; excluded.",
+        "No optimality of margin lower bound or translated halfspaces claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published Boolean Slepian results localize to Hamming balls and use adjacency-invariant sectors, a narrower spatial class.",
+          "A strict equal-weight majority is a Hamming ball after a coordinate-sign transformation only in a special case, not for arbitrary positive weights."
+        ],
+        "reasoning": "The stronger ball-eigenspace analysis is not logically a covering theorem for all oriented weighted halfspaces, and its reported eigenspaces do not contain this weight-margin inequality.",
+        "searches": [
+          "Resultary semantic search: Boolean cube homogeneous halfspace Walsh low-pass time-frequency limiting transition midpoint binomial multiplicity",
+          "DOI:10.1007/s00041-018-09654-w",
+          "arXiv:1812.08905v1 Corollary 9",
+          "Resultary first-Walsh-band Hamming-ball record ID a2f5ddac5a0f"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1812.08905 full PDF, §4 Corollary 9",
+        "DOI:10.1007/s00041-018-09654-w scope",
+        "arXiv:1311.3179 FKN scope",
+        "Resultary semantic search: Boolean cube homogeneous halfspace Walsh low-pass time-frequency limiting transition midpoint binomial multiplicity",
+        "Resultary ID a2f5ddac5a0f and ID 0284b88cef7a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nayar proves FKN/Walsh-level approximation rather than concentration eigenvalue statements.",
+          "Hogan–Lakey §4 formula diagonalizes Hamming-ball cutoffs, and hemispherical Slepian results act on spherical harmonics rather than the Boolean cube."
+        ],
+        "reasoning": "None implies universal no-tie weighted halfspace compressed sign full rank or lower singular gap. A priori dimension imbalance only bounds the nullity below, and does not force equality.",
+        "searches": [
+          "Resultary semantic search: Boolean cube homogeneous halfspace Walsh low-pass time-frequency limiting transition midpoint binomial multiplicity",
+          "Nayar arXiv:1311.3179v1",
+          "Hogan–Lakey arXiv:1812.08905v1 §4",
+          "Resultary hemispherical Slepian arbitrary-degree mask record ID 0284b88cef7a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "T=2C-I is the parity-offdiagonal compression of sign(a·x).",
+          "Hogan–Lakey Q_K is multiplication by Hamming-ball indicator, and Corollary 9 reduces that radial operator to principal adjacency-block minors."
+        ],
+        "reasoning": "Antipodal symmetry yields pairing only; universal injectivity and min-singular-value lower bound require the linear defining form, not obtained from the compared ball construction.",
+        "searches": [
+          "Resultary semantic search: Boolean cube homogeneous halfspace Walsh low-pass time-frequency limiting transition midpoint binomial multiplicity",
+          "Hogan–Lakey arXiv:1812.08905v1 pp3–4 and Corollary 9 p13",
+          "weighted linear-threshold truncated sign multiplier Boolean cube spectral rank"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table of example ball concentration eigenvalues is not a statement of binom(n-1,L) exact central multiplicity for arbitrary weights.",
+          "Indexed finite Walsh support-pattern results concern coefficient support or a fixed Hamming shell, not these spectral threshold values."
+        ],
+        "reasoning": "Natural all-n all-cutoff classification is not a known-parameter table or small instance recomputation; a negative indexed search remains limited evidence.",
+        "searches": [
+          "Resultary semantic search: Boolean cube homogeneous halfspace Walsh low-pass time-frequency limiting transition midpoint binomial multiplicity",
+          "Hogan–Lakey 2019 Table 2 / arXiv:1812.08905"
+        ]
+      },
+      "rationale": "The key distinction is not simple antipodal spectral pairing but universal FULL rectangular rank and weight-controlled gap for every real no-tie homogeneous threshold. Directly inspected Hogan–Lakey has Walsh lowpass but Hamming-ball spatial truncation; strict equal-weight majority is just one special symmetric halfspace, not all tilted weight vectors. Nayar FKN concerns approximation of cube functions rather than the joint concentration spectrum. Resultary neighboring Walsh/Hamming/spherical results do not imply this threshold-sign pairing. A hidden older linear-threshold positivity theorem remains an explicitly identified originality risk.",
+      "residual_risks": [
+        "An older threshold-sign compression full-rank lemma could be hidden under linear-threshold positivity or discrete Toeplitz terminology.",
+        "Published full journal article and FKN article not fully reread; do not claim exhaustive absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING arbitrary weighted halfspace",
+          "evidence": "Q_K is ball B(0,K); Corollary 9 concerns adjacency-derived principal minors, not weighted sign(a·x).",
+          "identifier_or_url": "https://arxiv.org/pdf/1812.08905",
+          "material_read": "Full 18-page PDF available; explicitly read setup pp2–4, action and eigenspace reduction §4 pp11–14 incl. Corollary 9, targeted Hamming-ball descriptions.",
+          "method": "Open arXiv PDF textual and page-image inspection",
+          "title": "Spatio-spectral limiting on hypercubes: eigenspaces",
+          "trigger": "Most directly relevant Boolean Slepian analysis"
+        },
+        {
+          "assessment": "SAME_LINE_OF_WORK_BALL_ONLY_ON_MATERIAL_READ",
+          "evidence": "The article and companion preprint address Hamming ball concentration; no whole-journal-document NOT_COVERING assertion.",
+          "identifier_or_url": "https://doi.org/10.1007/s00041-018-09654-w",
+          "material_read": "Journal scope and bibliography plus referenced arXiv primary detailed preprint; current run did not independently read all 17 journal pages.",
+          "method": "Cross-checked published result and companion open preprint",
+          "title": "An Analogue of Slepian Vectors on Boolean Hypercubes",
+          "trigger": "Journal counterpart with exact cube localization"
+        },
+        {
+          "assessment": "RELATED_NOT_SPECTRAL_IN_READ_MATERIAL",
+          "evidence": "FKN low-degree Boolean approximation does not state weighted halfspace spectral rank from accessible material.",
+          "identifier_or_url": "https://arxiv.org/abs/1311.3179",
+          "material_read": "Open primary abstract and scope/intro as cited; full paper not reread in this run.",
+          "method": "Primary subject and theorem-level comparison; limited material",
+          "title": "FKN Theorem on the biased cube",
+          "trigger": "Walsh-level generality and potential theorem coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Hogan–Lakey Boolean Slepian motivation arXiv:1812.08905",
+        "Inspected strict-threshold positivity lemma"
+      ],
+      "rationale": "The Boolean cube is a canonical finite Fourier domain; all homogeneous weighted halfspaces and Walsh-degree cutoffs are a natural family, including nonradial tilted separating hyperplanes. Universal binomial midpoint multiplicity is a nontrivial rank-rigidity law beyond symmetry, with an explicit geometric margin gap robust under perturbation that does not cross cube vertices. This motivated spectral structural statement is not a routine substitution in a ball theorem or a finite rank table.",
+      "residual_risks": [
+        "The inequality may not be sharp for any given weights, and the theorem restricts to uniform cube measure."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge scientific assessment only; neither independence certification nor publication authorization.",
+    "Publication withheld pending authorized provenance sanitization and cross-file privacy/math checks.",
+    "No GitHub write or dispatcher closeout performed."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof reconstructs the normalizations on the uniform Boolean cube, the exact parity decomposition and the full-rank argument. For the smaller parity space, multiplication by the defining linear polynomial remains in the opposite subspace and gives the strictly positive quadratic pairing \(\mathbb E[|\ell_a||g|^2]\). The inequality \(\|Tg\|_2\ge(m/M)\|g\|_2\) proves all nonzero singular values are bounded below. The half-energy multiplicity is the parity dimension difference \(\binom{n-1}{L}\). The special cutoffs \(L=0,n\) and zero individual coordinate weights are explicitly covered. The 443 finite exact checks support, but do not prove, the general theorem.
+## correctness
 
-## Originality — PASS
-Full-text source comparisons distinguish this result from Nayar's 2013 Walsh-level FKN analysis and Hogan–Lakey's Boolean-cube Slepian analyses (2018 preprint; 2019 full paper), which restrict spatial concentration to Hamming balls. The latter paper's Table 2 and commutator appendix do not imply rank or margin bounds for arbitrarily tilted weighted hyperplanes. A prior spherical-hemisphere half-energy result involves spherical harmonics, not this Walsh sign-multiplier pairing. Searches of published mathematical records under weighted halfspace, compressed sign operator, parity-rank, and half-energy Slepian aliases returned no covering statement. Hidden equivalent linear-threshold terminology remains an acknowledged originality risk, not affirmative evidence of novelty.
+PASS
 
-## Value — PASS
-The theorem classifies the exact transition spectral multiplicity and quantitatively separates every other mode for a natural entire family of spatial regions and Walsh bands. Both weight-independence of the central eigenspace dimension and the geometric margin gap convey substantial structural information not obtained from generic antipodal symmetry alone.
+For strict homogeneous halfspace sigma(x)=sgn(a·x), antisymmetry sigma(-x)=-sigma(x) splits the centered Walsh-lowpass projection into even/odd off-diagonal blocks. Alternating binomial sum gives dimensions difference (-1)^L binom(n-1,L). The smaller parity sector includes only degrees ≤L−1; multiplying its g by ell=a·x switches parity and lies in the larger sector even after Walsh x_i²=1 reductions. Hence <ell g,P_L sigma P_L g>=E[|ell||g|²]≥m||g||² and ||ell g||≤M||g||. Cauchy–Schwarz forces every singular value ≥m/M, hence exactly binom(n-1,L) centered zero modes and complementary paired eigenvalues at least m/(2M) from 1/2. Checked n=1, L=0 and L=n, zero individual a_j and no-tie requirement. Independently formed Walsh matrices for (n,L,a)=(3,2,(1,1,1)),(3,1,(1,3,5)),(4,3,(1,2,4,8)); nullities and bounds agree. Finite tests do not prove all n.
 
-## Closest literature and limitations
-Nayar, arXiv:1311.3179v1 (2013; primary MSC 42C10); Hogan–Lakey, doi:10.1007/s00041-018-09654-w (2019, complete text inspected); Hogan–Lakey, arXiv:1812.08905v1 (2018). Only strict homogeneous no-tie real halfspaces with uniform cube measure are covered. No exact off-center eigenvalues or optimality claim for the margin coefficient is asserted. The review is not an independent audit.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The key distinction is not simple antipodal spectral pairing but universal FULL rectangular rank and weight-controlled gap for every real no-tie homogeneous threshold. Directly inspected Hogan–Lakey has Walsh lowpass but Hamming-ball spatial truncation; strict equal-weight majority is just one special symmetric halfspace, not all tilted weight vectors. Nayar FKN concerns approximation of cube functions rather than the joint concentration spectrum. Resultary neighboring Walsh/Hamming/spherical results do not imply this threshold-sign pairing. A hidden older linear-threshold positivity theorem remains an explicitly identified originality risk.
+
+## value
+
+PASS
+
+The Boolean cube is a canonical finite Fourier domain; all homogeneous weighted halfspaces and Walsh-degree cutoffs are a natural family, including nonradial tilted separating hyperplanes. Universal binomial midpoint multiplicity is a nontrivial rank-rigidity law beyond symmetry, with an explicit geometric margin gap robust under perturbation that does not cross cube vertices. This motivated spectral structural statement is not a routine substitution in a ball theorem or a finite rank table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
