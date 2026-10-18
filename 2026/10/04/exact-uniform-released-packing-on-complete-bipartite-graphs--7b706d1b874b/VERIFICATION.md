@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The theorem is analytic. For a function on \(K_{a,b}\), let \(X\) and \(Y\) be the total assigned weights on the two sides. If a side contains a vertex at the upper bound \(u\), then every saturated vertex on that side imposes the same constraint on the opposite-side total: \(u+Y\le k\) for saturation in the \(a\)-side and \(u+X\le k\) for saturation in the \(b\)-side. If a side has no saturated vertex, every value there is at most \(u-1\). These observations yield four exhaustive cases and the four displayed maxima.
+# Independent mathematical audit
 
-The bundled `verify.py` independently enumerates all assignments for \(1\le a,b\le3\), \(1\le u\le3\), and \(0\le k\le u(a+b+1)\), evaluates the released condition directly from closed neighborhoods, and compares the brute-force optimum with the formula. It also checks the \(K_{3,1}\), \(u=k=2\) witness.
+## correctness
 
-The finite enumeration is a stress test and not evidence for the universal quantifier beyond the tested range. The universal statement rests on the exhaustive analytic case split.
+PASS
+
+PASS: For K_{a,b}, a,b>=1, integer 0<=f(v)<=u, constrain closed neighborhood only when f(v)=u. Separating four exhaustive side-saturation patterns gives T0=(a+b)(u-1), TA=au+min(b(u-1),k-u) and TB=bu+min(a(u-1),k-u) if k>=u, and TAB=min(au,k-u)+min(bu,k-u) if k>=2u; the overall optimum is the maximum of available terms. In each pattern the upper bounds are exactly saturated-side sum constraints and attainable by distributing allowed integer mass, with at least one saturated vertex where required. For example a=3,b=1,k=u=2 achieves 6 by (2,2,2;0). Independently exhaustive direct feasibility tests covered 297 parameter combinations for 1<=a,b,u<=3, arbitrary bounded k. The proof, rather than those tests, establishes all positive sizes and capacities.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS: initiating paper defines conditional-at-upper-bound packing and studies graph examples, ILP and complexity; an existing review already finds a counterexample to a flawed observation, so novelty is not assigned to that falsity. The contribution is the exact uniform K_{a,b} classification. No parameter-dominating released biclique theorem located.
+
+## value
+
+PASS
+
+PASS: The newly introduced released packing invariant has a nontrivial saturation-dependent optimization unlike ordinary packing. Complete bipartite graphs are a fundamental infinite dense graph family, and the exact four-pattern phase diagram both organizes parameter behavior and produces robust counterexamples to an initial global optimality heuristic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

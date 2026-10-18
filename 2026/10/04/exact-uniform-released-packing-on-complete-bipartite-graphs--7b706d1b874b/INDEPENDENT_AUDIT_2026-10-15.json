@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T16:53:04.402071Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For K_{a,b}, a,b>=1, integer 0<=f(v)<=u, constrain closed neighborhood only when f(v)=u. Separating four exhaustive side-saturation patterns gives T0=(a+b)(u-1), TA=au+min(b(u-1),k-u) and TB=bu+min(a(u-1),k-u) if k>=u, and TAB=min(au,k-u)+min(bu,k-u) if k>=2u; the overall optimum is the maximum of available terms. In each pattern the upper bounds are exactly saturated-side sum constraints and attainable by distributing allowed integer mass, with at least one saturated vertex where required. For example a=3,b=1,k=u=2 achieves 6 by (2,2,2;0). Independently exhaustive direct feasibility tests covered 297 parameter combinations for 1<=a,b,u<=3, arbitrary bounded k. The proof, rather than those tests, establishes all positive sizes and capacities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The initiating paper gives a generic integer-programming model; a separate Resultary result concerns all k-limited packings where capacity constraints apply at all vertices, not just saturated vertices."
+        ],
+        "reasoning": "An optimization formulation or a different standard packing invariant does not supply a closed exact max for arbitrary biclique sizes, capacities and upper bound.",
+        "searches": [
+          "Resultary search: released packing complete bipartite graph uniform (k 1, 0, u 1) exact formula",
+          "released packing functions general integer programming polyhedral Fekete 2026",
+          "Resultary all k-limited packings complete multipartite graphs"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.11169v1 (Fekete–Hinrichsen–Leoni–Lopez Pujato 2026)",
+        "pith:6OPKYP2C (review of Released packing functions in graphs)",
+        "Resultary search: released packing complete bipartite graph uniform (k 1, 0, u 1) exact formula",
+        "Resultary all k-limited packings of complete multipartite graphs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The review states Observation 2.2(iii) fails for P3; source Proposition 3.3 is u=1. The finding derives four exact saturation patterns for all a,b,k,u."
+        ],
+        "reasoning": "Neither an existence of a counterexample nor the u=1 equivalent model implies all four terms or their attainable competition.",
+        "searches": [
+          "arXiv:2608.11169v1 (Fekete–Hinrichsen–Leoni–Lopez Pujato 2026)",
+          "pith:6OPKYP2C (review of Released packing functions in graphs)",
+          "Resultary search: released packing complete bipartite graph uniform (k 1, 0, u 1) exact formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The u=1 specialization can be formulated as a dependent-set problem (preprint Proposition 3.3), but a u=1 characterization is not the claimed formula across all upper bounds u>=1."
+        ],
+        "reasoning": "The four-case saturation-geometry formula contains the one-level specialization but is not implied by an ordinary limited-packing theorem that constrains every vertex.",
+        "searches": [
+          "Resultary search: released packing complete bipartite graph uniform (k 1, 0, u 1) exact formula",
+          "released packing biclique K_{a,b} all k,u conditional-saturation",
+          "Fekete 2608.11169u=1 dependent set"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source examples focus on paths/cycles/wheels and particular parameter settings. Review records P3 counterexample, not a K_{a,b} all-parameter table."
+        ],
+        "reasoning": "The evaluated expression is a four-parameter exact formula, and is neither re-tabulation of the cited small examples nor the known single counterexample.",
+        "searches": [
+          "Resultary search: released packing complete bipartite graph uniform (k 1, 0, u 1) exact formula",
+          "released (k1 0 u1) packing paths cycles wheels biclique exact values",
+          "pith:6OPKYP2C (review of Released packing functions in graphs)"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: initiating paper defines conditional-at-upper-bound packing and studies graph examples, ILP and complexity; an existing review already finds a counterexample to a flawed observation, so novelty is not assigned to that falsity. The contribution is the exact uniform K_{a,b} classification. No parameter-dominating released biclique theorem located.",
+      "residual_risks": [
+        "Initiating preprint full PDF not freshly obtained in this audit, so an uninspected appendix could contain relevant biclique exact cases; older conditional-capacity models under different terminology are an additional residual risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "High relevance; no whole-document noncoverage claimed from abstract alone",
+          "evidence": "Conditional capacity is activated only at f(v)=u; u=1 dependent-set equivalence in source.",
+          "identifier_or_url": "arXiv:2608.11169v1 (Fekete–Hinrichsen–Leoni–Lopez Pujato 2026)",
+          "material_read": "ArXiv abstract, named Definition 2.1, Proposition 3.3 and examples as reported in inspected target RESULT.md; separate full primary article not freshly retrieved",
+          "method": "Indexed arXiv metadata and mathematical comparison to extracted source claims; arXiv HTML access failed",
+          "title": "Released packing functions in graphs",
+          "trigger": "Introduces precisely the released-packing definition and claims needing comparison"
+        },
+        {
+          "assessment": "Previously identified counterexample not treated as new; does not independently compute uniform biclique four-phase formula",
+          "evidence": "All-(u-1) assignment need not be optimal.",
+          "identifier_or_url": "pith:6OPKYP2C (review of Released packing functions in graphs)",
+          "material_read": "Public review summary identifying P3 counterexample to Observation 2.2(iii)",
+          "method": "Published review indexing",
+          "title": "Pith review of Released packing functions in graphs",
+          "trigger": "Potential prior detection of wrong claimed optimum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The newly introduced released packing invariant has a nontrivial saturation-dependent optimization unlike ordinary packing. Complete bipartite graphs are a fundamental infinite dense graph family, and the exact four-pattern phase diagram both organizes parameter behavior and produces robust counterexamples to an initial global optimality heuristic.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Initiating preprint full PDF not freshly obtained in this audit, so an uninspected appendix could contain relevant biclique exact cases; older conditional-capacity models under different terminology are an additional residual risk."
+  ],
+  "schema_version": 1
+}
