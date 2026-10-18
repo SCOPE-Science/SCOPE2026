@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Computational verification and mathematical limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with a standard Python 3 interpreter. The script has no third-party dependencies, reads no external files, and constructs each graph from rim and antipodal edges.
+## correctness
 
-The verifier exhaustively enumerates all bounded-independence faces of size up to five at each integer parameter \(5\le n\le14\). It tests the exact expected face counts, absence of five-vertex simplices, and all mod-two simplicial boundary ranks (reduced homology only in degree three, with multiplicities \(16,22,29,37,46,56,67,79,92,106\)). For each parameter it independently builds the path spanning tree and verifies the relative three-chain telescopes for every two-simplex not belonging to its bounded-independence subcomplex. Finally, it constructs the full Alexander-dual total three-cut complexes at \(n=5,6\) from independent triples and verifies all their mod-two boundary ranks; the only reduced ranks are \(16\) in degree four and \(22\) in degree six.
+PASS
 
-Expected final output: `VERIFY_OK`. These finite checks cannot prove the asserted theorem for arbitrary \(n\). The written proof establishes two-connectivity integrally, exact symbolic face counts and the integral homotopy type for every \(n\ge5\). No independent audit has been performed.
+The full RESULT.md gives the common 2-skeleton argument, a spanning-tree contractible subcomplex and integral relative 3-chain telescoping proving H_2(BI_3)=0 (not merely mod-two vanishing). For triangle/5-cycle-free M_{2n}, n>=5, the exact BI_3 face vector is (2n, C(2n,2), 6n(n-2), C(3n,2)-7n), dimension 3. Reduced Euler rank is 1+C(n+1,2). The 2-connected three-dimensional CW complex has free H_3; Hurewicz/Whitehead give its 3-sphere wedge. Alexander duality shifts degree to 2n-6, and the dual has complete 2-skeleton by max-degree-three greedy bound for n>=6, or bipartite n=5; resulting simply connected complex with one free reduced homology group is the claimed sphere wedge. Separately recomputed full GF(2) boundary ranks for n=5,6,7: reduced Betti_3=16,22,29 respectively; finite ranks do not prove the all-n theorem. Checked 4-cycle correction in f_3 and degree-bound endpoints.
+
+## originality
+
+PASS
+
+The proof obtains a new explicit all-n integral homotopy classification for the total (rather than ordinary) 3-cut complexes of Möbius ladders; same graph in other complex functors is not coverage.
+
+## value
+
+PASS
+
+This solves the natural infinitely-parameterized homotopy classification of a named cubic graph family for a natural total-three-cut complex. Integral wedge type is more information than Euler characteristic or mod-two Betti numbers; the spanning-tree 2-connectivity method is structurally reusable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
