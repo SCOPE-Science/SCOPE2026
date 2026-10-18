@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the domination condition to the exact matched-index inequalities \(W_B-f(b_i)\ge2\) and \(W_A-f(a_i)\ge2\) for zero vertices. These inequalities give the lower bounds, all exceptional small cases, and the complete support classification at the minimum weight. The finite verifier independently checks every labeling of weight at most \(4\) through order \(24\), matching the proof boundary without substituting finite search for the infinite argument.
+## correctness
 
-## Originality
-PASS. Targeted published-finding corpus queries, the current and prior ledgers, the foundational Roman \({2}\)-domination source, a broad 2024 survey, and alias searches for crown graphs, complete bipartite graphs minus a perfect matching, and bipartite Kneser \(H(n,1)\) did not locate an equivalent statement. The closest exact published-finding corpus finding is for complete multipartite graphs, which excludes crown graphs after the matching deletion and does not imply the index-support alignment proved here. The inaccessible remainder of the foundational publisher PDF and poorly indexed older literature remain explicit residual risks.
+PASS
 
-## Value
-PASS. The result classifies every optimum function on a standard extremal bipartite family and explains how deleting one perfect matching changes optimum Roman \({2}\)-labelings. The support-alignment phenomenon is structurally informative and is stronger than reporting only \(\gamma_I\).
+Zero a_i requires W_B−y_i>=2, zero b_i requires W_A−x_i>=2: these are exact open-neighborhood sums. For total weight <=2 at n=3 or <=3 at n>=4, one side has sum <=1 and forces every vertex of the opposite side positive, contradicting the target weight. At weight 3 (n=3) only the two all-one-side functions work. At weight 4 (n>=4), any side weight <=1 forces a full opposite side, possible only for n=4 with two all-one-side functions. Otherwise both sides have weight two. Every positive label on one side must be at a positive matched index on the opposite side since a zero excludes exactly its matched opposite; supports coincide, and weight-two support has size one with each label 2 or size two with four labels 1. Hence n+binom(n,2), plus two when n=4. Independently enumerated every labeling of total weight <=4 for n=3..10; minima counts 2,12,15,21,28,36,45,55 and minima weights 3,4,...,4. The infinite result comes from the support argument, not enumeration.
 
-## Closest literature and limitations
-Chellali et al. introduced Roman \({2}\)-domination in 2016. The 2024 survey is broad over the subsequent literature, while the closest exact database result concerns complete multipartite graphs. No covering crown statement was located, but literature absence cannot be certified and the 2016 publisher PDF was not fully accessible through the inspected path. The theorem concerns only minimum-weight ordinary Italian/Roman \({2}\)-dominating functions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: specifically minimum-function count and deleted-pair support alignment on crowns; published complete-multipartite Roman-{2} enumerators do not apply after removing a perfect matching. Distinct nearby perfect Roman and ordinary Roman parameters are not equivalent.
+
+## value
+
+PASS
+
+On the natural crown graph, deleting one perfect matching changes domination constraints in a precisely measurable way; the theorem classifies every minimum Italian labeling, not just gamma=4. It proves an integer transition at n=4 and exact n+binom(n,2) optimizer counts after n=5, potentially useful for extremal enumeration/algorithm tests. This is an exact structural family classification beyond a textbook bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
