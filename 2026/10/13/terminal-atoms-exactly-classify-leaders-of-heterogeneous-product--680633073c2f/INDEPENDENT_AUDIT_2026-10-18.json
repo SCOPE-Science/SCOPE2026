@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T04:47:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the three exhaustive cases for iid vectors with independent heterogeneous coordinates. All positive top-atom masses p_j give an atom at the joint top vector and a_n≥1−(1−∏p_j)^n→1. Exactly one missing top atom: select measurable marginal maximizing index I_n independent of all remaining coordinate samples, which is top in remaining coordinates with probability p_*=∏_{i≠j}p_i, so a_n≥p_*; with atomless exceptional marginal the unique argmax and an endpoint-absence union bound show a_n→p_*, with d=2 Bernoulli exact a_n=p+(1−p)^n. For ≥2 missing top atoms, projection to two coordinates and g_Y(n)=E[F_Y(Y_1)^{n−1}]→0 yield a_n≤(1−q)^n+nq g_Y(n) for any q=P(X>t)>0. Choose q_k→0 below min(1/k,k/N_k), n_k=ceil(k/q_k), g_Y(n)≤k−2 for n≥N_k, giving a_{n_k}≤e^{−k}+(k+q_k)/k²→0. All tie cases and infinite essential suprema handled. This proves only positive liminf dichotomy, NOT full convergence in the two-missing case.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The max-tie theorem provides a general two-dimensional probabilistic criterion and explicitly leaves the infinite-support product conjecture open; the oscillation example has liminf zero with limsup positive."
+        ],
+        "reasoning": "Even a broader finite-n identity does not logically supply a distribution-level necessary-and-sufficient endpoint-mass test without further asymptotic estimates; published oscillation prevents conflating liminf with limit.",
+        "searches": [
+          "Resultary published maximum-tie criterion 2026-10-04",
+          "Resultary oscillating leader probabilities 2026-10-04",
+          "Răducan et al. 2022 Mathematics 10 1623"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob 6d7fe229387fa137653d7068449cdfecfcf8300e",
+        "2022 Răducan et al. DOI 10.3390/math10101623 full public HTML",
+        "Resultary exact maximum-tie theorem complete RESULT.md",
+        "Resultary oscillating leader result summary",
+        "Frozen verify.py blob 688595f68139d4c43d2dee856c0f1664895cb190"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For d=2, the old tie formula bounds a_n via maximizing multiplicities but does not itself prove that two marginals without top atoms force liminf=0. The submitted rare-tail diagonal and projection argument establish that implication in all dimensions."
+        ],
+        "reasoning": "The new necessary condition is not a direct corollary without proving K_X K_Y/n can be small along some sequence for arbitrary no-top-atom marginals.",
+        "searches": [
+          "Resultary maximum-tie full theorem",
+          "Răducan original 2022 product-law propositions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary tie criterion represents leader event by intersections of marginal sample-maximum index sets, but stops at K_X K_Y/n and does not characterize laws by terminal atoms."
+        ],
+        "reasoning": "Argmax-intersection representation is equivalent at finite n and logically consistent, but extracting the iff terminal-atom distributional criterion requires new tail analysis.",
+        "searches": [
+          "Resultary: leader property iid heterogeneous independent coordinate product sample componentwise maximum terminal atoms essential supremum probability liminf positive",
+          "Resultary 2026-10-04 maximum-tie criterion",
+          "Răducan et al. 2022 DOI 10.3390/math10101623"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Two close Resultary results were retrieved and their full RESULT.md read; neither records the p_j terminal-atom iff classification."
+        ],
+        "reasoning": "These are direct mathematical comparisons, not absence-of-match evidence; exact index formulas and oscillating constructions are acknowledged.",
+        "searches": [
+          "Resultary semantic query terminal atoms leaders heterogeneous product",
+          "Published Resultary maximum-tie and oscillation RESULT.md"
+        ]
+      },
+      "rationale": "Prior leader-property papers contain product examples and a related maximizing-index-set intersection criterion but do not in their inspected theorems translate it into the necessary-and-sufficient terminal-atom classification across all heterogeneous dimensions. The published Resultary tie criterion is more general samplewise but explicitly leaves one-dimensional distribution conditions open; its oscillation example supports the need for liminf rather than full-limit statement. This is a nontrivial additional distribution-level result, not a restatement of the sample-index formula.",
+      "residual_risks": [
+        "Equivalent endpoint-atom theorem may exist under multivariate common-argmax, occupancy or random-index-intersection terminology outside inspected publications.",
+        "Independence of coordinate arrays is essential; in the absence of top atoms only zero liminf, not full vanishing, is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Poses the original product leader problem; no terminal-atom iff theorem in inspected sections",
+          "evidence": [
+            "Uses liminf positivity and tests finite/infinite support, motivating more precise endpoint condition."
+          ],
+          "identifier_or_url": "doi:10.3390/math10101623",
+          "material_read": "Public full HTML original paper: leader property definition, product-law examples and questions",
+          "method": "open publisher primary-text reading",
+          "title": "On the Probability of Finding Extremes in a Random Set",
+          "trigger": "Definition of leader property and direct product-law questions"
+        },
+        {
+          "assessment": "Sample-index representation and K_X K_Y/n criterion do not classify marginal laws by endpoint atoms",
+          "evidence": [
+            "a_n=E[1−C(n−K_X,K_Y)/C(n,K_Y)] and liminf criterion; authors explicitly say infinite-support conjecture not resolved."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-an-exact-maximum-tie-criterion-for-leaders-in-two-dimensional-pr--996b67664456",
+          "material_read": "Complete public RESULT.md including theorem, proof, prior work and limitation",
+          "method": "read GitHub RESULT.md",
+          "title": "An exact maximum-tie criterion for leaders in two-dimensional product samples",
+          "trigger": "Highly similar same probability and maximizing index sets"
+        },
+        {
+          "assessment": "Confirms the need to claim liminf only; not broader endpoint iff coverage",
+          "evidence": [
+            "Explicit example with liminf a_n=0 but limsup a_n≥e^(−2)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-oscillating-leader-probabilities-from-an-infinite-support-produc--3f46def64238",
+          "material_read": "Published finding summary and public repository listing; full proof not read",
+          "method": "semantic search and GitHub directory listing",
+          "title": "Oscillating leader probabilities from an infinite-support product law",
+          "trigger": "Possible contradiction to full-limit claims"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural complete classification of which independent-coordinate laws retain a positive probability of a joint observed leader as sample size grows; resolves a concrete distribution-level question while distinguishing endpoint atoms from cardinality and excluding false full-limit conclusions.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob 6d7fe229387fa137653d7068449cdfecfcf8300e",
+    "2022 Răducan et al. DOI 10.3390/math10101623 full public HTML",
+    "Resultary exact maximum-tie theorem complete RESULT.md",
+    "Resultary oscillating leader result summary",
+    "Frozen verify.py blob 688595f68139d4c43d2dee856c0f1664895cb190"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Equivalent endpoint-atom theorem may exist under multivariate common-argmax, occupancy or random-index-intersection terminology outside inspected publications.",
+    "Independence of coordinate arrays is essential; in the absence of top atoms only zero liminf, not full vanishing, is established."
+  ],
+  "schema_version": 1
+}
