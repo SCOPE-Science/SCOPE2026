@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T09:12:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/13/exact-modal-staircase-and-arithmetic-sign-reversals-in-the-discr--ac6451e8a978/RESULT.md",
+        "2026/10/13/exact-modal-staircase-and-arithmetic-sign-reversals-in-the-discr--ac6451e8a978/verify_modes.py"
+      ],
+      "rationale": "The source DADL mass function is Cτ(1+t)exp(-θt) with t=τj for j>=0 and t=k/τ for negative label -k. Merging the two locally finite positive lattices into sites 0=s0<s1<... reduces global mode selection to maximizing strictly concave log(1+t)-θt. Consecutive secant slopes β_i strictly decrease from positive β0 to zero: θ∈(β_i,β_{i-1}) uniquely maximizes site s_i; θ=β_i ties only consecutive sites. Coincident positive/negative labels arise iff τ²=a/b rational, with exact positive/negative lattice support a|m,b|m. Both sign-only sites recur unbounded iff a,b>1 or τ² irrational; therefore infinitely many reversals of unique modal sign near θ=0 exactly when neither τ² nor its reciprocal is a positive integer. Independent direct-PMF finite scans checked six τ regimes including 1,2,1/2,sqrt(3/2),sqrt(2),sqrt(pi), and interior modes and threshold numerics matched; strict concavity and divisibility prove the infinite assertion.",
+      "residual_risks": [
+        "Finite validation is not a proof for unbounded parameter ranges."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Symmetric integer distributions and skew discrete Laplace are related families with different support penalties."
+        ],
+        "reasoning": "Neither inspected family subsumes the DADL two-grid linear-geometric kernel, so their unimodality results do not directly imply the arithmetic modal phase classification.",
+        "searches": [
+          "DOI:10.3390/sym17122148",
+          "DOI:10.1007/s10463-005-0029-1"
+        ]
+      },
+      "checked_sources": [
+        "Salinas, Bakouch, Bapat, Daghestani, Aloufi, Discrete Asymmetric Double Lindley Distribution on Z: Theory, Likelihood Inference, and Applications, Symmetry 18 (2026) 533, DOI:10.3390/sym18030533, Section 2.1 and 2.4.6",
+        "Alyami et al., Symmetric Discrete Distributions on the Integer Line, Symmetry 17 (2025) 2148, DOI:10.3390/sym17122148",
+        "Kozubowski and Inusah, A skew Laplace distribution on integers (2006), DOI:10.1007/s10463-005-0029-1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior half-line unimodality ensures each sign side has a best candidate; it does not decide infinite alternation as concentration tends to zero."
+        ],
+        "reasoning": "An exact global phase ordering and persistent arithmetic ties are genuinely stronger model-specific consequences requiring new merged-lattice and number-theoretic comparison.",
+        "searches": [
+          "DOI:10.3390/sym18030533 Section 2.4.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pmf exactly reduces to a concave log-score on the union of two real arithmetic progressions; each side known unimodal."
+        ],
+        "reasoning": "The common-score formulation is an algebraic reduction, but Section2.4.6 provides candidate comparison only, not the parameter-wise exact staircase or grid collision sign theorem.",
+        "searches": [
+          "Resultary semantic query: discrete asymmetric double Lindley global mode theta tau phase staircase sign switching",
+          "DOI:10.3390/sym18030533 Section 2.4.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original DADL article plots pmf for finitely many θ,τ and recommends evaluating modal candidates; no infinite staircase tables or a/b divisibility recurrence reported."
+        ],
+        "reasoning": "Finite-mode plots cannot encode the entire θ>0 classification or sharp infinite sign-reversal criterion.",
+        "searches": [
+          "DOI:10.3390/sym18030533 Figures 1-2 and Section 2.4.6",
+          "Resultary semantic query: discrete asymmetric double Lindley global mode theta tau phase staircase sign switching"
+        ]
+      },
+      "rationale": "Detailed implication comparison to primary prior work, using all four separate originality checks. No identified prior theorem or table implies the exact newly stated invariant; findings are best-of-knowledge with residual risks.",
+      "residual_risks": [
+        "General discrete concave score maximization is elementary and may exist as an abstract lemma; originality rests on its exact deployment across the two asymmetric Lindley grids and arithmetic recurrence.",
+        "A specialized distribution follow-up with equivalent global modal phase analysis could be unindexed; no such source identified in searched material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR_COVERAGE: half-line unimodality and candidate reduction, not a parameter staircase.",
+          "evidence": "Section2.4.6 says global mode can be found comparing half-line candidates for a given theta,tau; it does not give all beta thresholds, the infinite sign-reversal theorem or rational lattice ties.",
+          "identifier_or_url": "https://doi.org/10.3390/sym18030533",
+          "material_read": "Complete open-access 24-page article text available through ResearchGate; detailed reading of Section2.1 pmf, Section2.4.6 half-line unimodality and mode candidate comparison, adjacent Sections2.4.1-5, other article sections/results.",
+          "method": "ResearchGate hosted publisher full-text, 4794 lines; direct original section quotations/line inspections.",
+          "title": "Salinas et al., Discrete Asymmetric Double Lindley Distribution on Z: Theory, Likelihood Inference, and Applications",
+          "trigger": "Original same precise statistical model and modes."
+        },
+        {
+          "assessment": "DIFFERENT_FAMILY; not shown to imply DADL parameter staircase.",
+          "evidence": "Symmetric submodel lacks independently varying asymmetric positive/negative site lattices.",
+          "identifier_or_url": "https://doi.org/10.3390/sym17122148",
+          "material_read": "Bibliographic description and symmetric-family model scope as cited in pinned literature review.",
+          "method": "Targeted title/abstract scope comparison, not whole-document noncoverage.",
+          "title": "Alyami et al., Symmetric Discrete Distributions on the Integer Line",
+          "trigger": "Another two-sided discrete distribution might dominate modality analysis."
+        },
+        {
+          "assessment": "DIFFERENT_KERNEL.",
+          "evidence": "Skew geometric tails lack DADL linear-geometric factor (1+t) giving the strict log-secant thresholds.",
+          "identifier_or_url": "https://doi.org/10.1007/s10463-005-0029-1",
+          "material_read": "Published model description and tail shape comparison.",
+          "method": "Targeted primary-result scope comparison.",
+          "title": "Kozubowski and Inusah, A skew Laplace distribution on integers",
+          "trigger": "Closest asymmetric two-sided geometric distribution."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Salinas, Bakouch, Bapat, Daghestani, Aloufi, Discrete Asymmetric Double Lindley Distribution on Z: Theory, Likelihood Inference, and Applications, Symmetry 18 (2026) 533, DOI:10.3390/sym18030533, Section 2.1 and 2.4.6",
+        "Alyami et al., Symmetric Discrete Distributions on the Integer Line, Symmetry 17 (2025) 2148, DOI:10.3390/sym17122148",
+        "Kozubowski and Inusah, A skew Laplace distribution on integers (2006), DOI:10.1007/s10463-005-0029-1"
+      ],
+      "rationale": "For an actual two-sided discrete statistical distribution, exact global mode locations and tie multiplicities as parameters vary matter for likelihood interpretation and modal phase regimes. The ordered infinite staircase and sharp number-theoretic criterion for indefinitely alternating modal signs reveal structure obscured by half-line unimodality and finite plots. The result is a motivated model-specific classification rather than an arbitrary substitution of an unrelated lattice.",
+      "residual_risks": [
+        "General discrete concave score maximization is elementary and may exist as an abstract lemma; originality rests on its exact deployment across the two asymmetric Lindley grids and arithmetic recurrence.",
+        "A specialized distribution follow-up with equivalent global modal phase analysis could be unindexed; no such source identified in searched material."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Population modes only, theta>0 fixed tau>0; no statements about finite-sample estimators, means or approximate rationality of tau²."
+  ]
+}
