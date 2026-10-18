@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T09:00:48.443478Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen Git result 2026/10/13/tadam-has-a-sharp-block-size-outlier-response-law--57f3afff740c/RESULT.md (32e08c958eba9c6958add805f7ad4300d1ef80f4) at 40d46a820f74fdf355c691812bdc426ec204bde7",
+        "https://arxiv.org/pdf/2003.00179",
+        "doi:10.1109/TNNLS.2020.3041755",
+        "Frozen RESULT.md 32e08c958eba9c6958add805f7ad4300d1ef80f4"
+      ],
+      "rationale": "Original TAdam Algorithm 1 and equations (8)–(10) use w(D)=(nu+d)/(nu+D) and W^+=((2beta-1)/beta)W+w. Set D=0 repeatedly: fixed point is W*=beta(nu+d)/[nu(1-beta)]. Substituting into w/(W*+w) cancels nu+d and yields exact (1-beta)nu/(nu+beta D). The displacement in V^-1 norm is (1-beta)nu sqrt(D)/(nu+beta D); derivative wrt sqrt(D) changes sign only at D=nu/beta. Default nu=d and D=kz² gives the half-threshold. Independent exact fraction substitutions gave blending 4/85 for beta=9/10,nu=2,d=10,D=5/2; 1/11 for beta=3/4,nu=3,d=2,D=7; and 3/8 for beta=5/8,nu=d=1,D=0. No full-optimizer stability claim.",
+      "residual_risks": [
+        "Finite computations are only corroboration; general statement rests on analytic proof and stated hypotheses."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original TAdam paper recommends nu=d and notes qualitative outlier downweighting",
+          "Journal follow-up cites block-wise vs whole-vector TAdam robustness and possible sparse-under-detection, as acknowledged in the source package"
+        ],
+        "reasoning": "Prior coverage is qualitatively broad: it motivates exactly this question. It does not in accessible material provide the calibrated sharp formula or support-dependent crossover. If an appendix does, novelty would vanish; full journal comparison remains a residual risk.",
+        "searches": [
+          "Robust Stochastic Gradient Descent With Student-t Distribution Based First-Order Momentum IEEE 2021 block-wise",
+          "TAdam robust stochastic gradient optimizer arxiv 2003.00179v1 and v2"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2003.00179",
+        "doi:10.1109/TNNLS.2020.3041755",
+        "Frozen RESULT.md 32e08c958eba9c6958add805f7ad4300d1ef80f4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equations 8–10 directly entail the rational attenuation after plugging the inlier pseudo-count fixed point",
+          "Calculus yields the unique extremum D=nu/beta and a dimension/sparsity dependence which the source discusses only qualitatively"
+        ],
+        "reasoning": "All scientific mathematics follows transparently from known equations, so this is a sharp motivated quantitative analysis rather than a fundamentally new algorithm. Whether that is too routine for originality/value is the principal caveat; the precise actionable boundary is the retained contribution.",
+        "searches": [
+          "Ilboudo Kobayashi Sugimoto TAdam Algorithm 1 equations 8 9 10 2020",
+          "TAdam block sparse outlier under detection dimensionality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source TAdam arxiv:2003.00179, algorithm lines w_t=(nu+d)/(nu+D) and W_t=((2beta-1)/beta) W_(t-1)+w_t",
+          "Resultary near neighbors report AdaX impulse and SM3 cross-coordinate robustness, not this TAdam equilibrium response"
+        ],
+        "reasoning": "The claimed influence curve is a special fixed-point consequence of the original recurrence and shares its variables. The new exact maximizer and half-attenuation threshold do not require new stochastic analysis, but were not explicitly supplied in inspected source discussion.",
+        "searches": [
+          "TAdam outlier relative attenuation nu/(nu+beta D) block size k threshold",
+          "Resultary search: TAdam Student t optimizer outlier response influence function block dimension sparse gradient robust momentum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The independently computed fractions and stationary formula agree with the inspected Algorithm 1 update",
+          "No published index record found with the exact block-scale half-threshold or sharp displacement ceiling"
+        ],
+        "reasoning": "The small tests verify arithmetic, not priority. Exact sharp constants are not known from the inspected original text beyond direct algebraic deduction.",
+        "searches": [
+          "Resultary TAdam Mahalanobis response law sparse k d",
+          "TAdam influence gross displacement maximum nu beta nu over beta"
+        ]
+      },
+      "rationale": "Original Ilboudo–Kobayashi–Sugimoto TAdam arxiv2003.00179, Algorithm 1, states precisely the weight and pseudo-count recurrence, and discusses downweighting large Mahalanobis anomalies and coarse block limitations. The calculated fixed-point influence profile, sharp maximizing distance and k-versus-d threshold are not explicitly stated in inspected relevant pages. This is a quantitative sharpening of the published qualitative behavior, not a new optimizer. It is algebraically derivable from the published equations and may have been worked out in follow-up robustness work; originality is qualified.",
+      "residual_risks": [
+        "Very short algebraic consequence of published equations: another explicit fixed-point influence-function analysis would defeat originality; avoid claiming novel source update.",
+        "Full IEEE follow-up inaccessible; it may give a mathematically equivalent threshold in an appendix.",
+        "Single exact-inlier equilibrium and frozen V; no full TAdam iterate or training convergence claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original equations imply the result with one fixed-point substitution; inspected portion does not state the displacement maximum or the k-sparsity crossover as formulas",
+          "evidence": "Algorithm 1 uses W_t= (2beta-1)/beta W_(t-1)+w_t and w_t=(nu+d)/(nu+D_t)",
+          "identifier_or_url": "https://arxiv.org/pdf/2003.00179",
+          "material_read": "Open-access 9-page arXiv text: abstract, sections outlining Student-t weights and Algorithm 1, rendered p.3 with equations (8)–(10); original v1 not separately retrieved",
+          "method": "Read searchable arXiv PDF and rendered original algorithm/derivation page",
+          "title": "TAdam: A Robust Stochastic Gradient Optimizer",
+          "trigger": "Same algorithm, necessary normalization and potential dominating prior formula"
+        },
+        {
+          "assessment": "Possible broader coverage retained; no whole-document NOT_COVERING assertion",
+          "evidence": "Reports block-wise and whole-vector implementations and qualitative sparse aberration issue",
+          "identifier_or_url": "doi:10.1109/TNNLS.2020.3041755",
+          "material_read": "Bibliographic/abstract material and source package description of block variant; complete article not obtained",
+          "method": "Search and accessible description, not full text",
+          "title": "Robust Stochastic Gradient Descent With Student-t Distribution Based First-Order Momentum",
+          "trigger": "Published follow-up with block/whole vector robustness"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Git result 2026/10/13/tadam-has-a-sharp-block-size-outlier-response-law--57f3afff740c/RESULT.md (32e08c958eba9c6958add805f7ad4300d1ef80f4) at 40d46a820f74fdf355c691812bdc426ec204bde7",
+        "https://arxiv.org/pdf/2003.00179",
+        "doi:10.1109/TNNLS.2020.3041755",
+        "Frozen RESULT.md 32e08c958eba9c6958add805f7ad4300d1ef80f4"
+      ],
+      "rationale": "Robustness against sparse outlier coordinates is a central design question when parameter blocks are large. The sharp redescending gross-displacement bound and sqrt(d/k) detection threshold show quantitatively why sparse corruptions can escape a whole-vector Student-t gate while dense aberrations are downweighted; these are interpretable sensitivity diagnostics, not just re-labeled update equations.",
+      "residual_risks": [
+        "Very short algebraic consequence of published equations: another explicit fixed-point influence-function analysis would defeat originality; avoid claiming novel source update.",
+        "Full IEEE follow-up inaccessible; it may give a mathematically equivalent threshold in an appendix.",
+        "Single exact-inlier equilibrium and frozen V; no full TAdam iterate or training convergence claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git result 2026/10/13/tadam-has-a-sharp-block-size-outlier-response-law--57f3afff740c/RESULT.md (32e08c958eba9c6958add805f7ad4300d1ef80f4) at 40d46a820f74fdf355c691812bdc426ec204bde7",
+    "https://arxiv.org/pdf/2003.00179",
+    "doi:10.1109/TNNLS.2020.3041755",
+    "Frozen RESULT.md 32e08c958eba9c6958add805f7ad4300d1ef80f4"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Very short algebraic consequence of published equations: another explicit fixed-point influence-function analysis would defeat originality; avoid claiming novel source update.",
+    "Full IEEE follow-up inaccessible; it may give a mathematically equivalent threshold in an appendix.",
+    "Single exact-inlier equilibrium and frozen V; no full TAdam iterate or training convergence claim.",
+    "Scientific assessment does not certify formal verification, independent external human attestation or exhaustive priority.",
+    "No repository write or public publication performed; privacy clearance is not complete."
+  ],
+  "residual_risks": [
+    "Very short algebraic consequence of published equations: another explicit fixed-point influence-function analysis would defeat originality; avoid claiming novel source update.",
+    "Full IEEE follow-up inaccessible; it may give a mathematically equivalent threshold in an appendix.",
+    "Single exact-inlier equilibrium and frozen V; no full TAdam iterate or training convergence claim."
+  ],
+  "schema_version": 1
+}
