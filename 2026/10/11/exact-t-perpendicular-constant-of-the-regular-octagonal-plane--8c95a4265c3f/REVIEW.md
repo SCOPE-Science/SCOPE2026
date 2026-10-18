@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source definition and all quantifiers are reproduced. Birkhoff orthogonality is converted to the existence of an annihilating norming functional. Dihedral symmetry leaves exactly two support types for the first octagonal unit vector: edge interior and vertex. The edge case forces the second vector to two points and gives explicit one-variable branches. The vertex case reduces to four boundary segments and four explicit quadratics. Their exact maxima give the sharp squared value \((12+11\sqrt2)/8\), and the displayed pair attains it. The bundled symbolic checker verifies every branch maximum and comparison used after the analytical support reduction.
+## correctness
 
-## Originality
-PASS. The defining paper, symbolic and verbal aliases, exact radical, same-space records, same-invariant records, and broader polygonal/Birkhoff formulations were checked. The primary full text does not compute the regular octagon and explicitly leaves further specific-space values for future investigation. The nearest same-space result is for \(T_G\), whose admissibility condition differs, and the nearest same-invariant exact result is for \(\ell_3^2\). No checked stronger statement implies this formula.
+PASS
 
-## Value
-PASS. The regular octagon is a canonical polyhedral Banach plane, while the source presents exact specific-space evaluation as a motivating unresolved direction for \(T_{\perp}\). The value separates the octagon from both the Hilbert benchmark and the square endpoint, and the optimizer occurs inside an admissible support arc rather than at a vertex pair. The calculation therefore exposes a structural effect of nonsmooth Birkhoff geometry and supplies a reusable benchmark.
+For the real octagonal norm max(|s|,|t|,(|s|+|t|)/sqrt(2)), Birkhoff orthogonality has exactly the edge-interior and vertex norming-support cases. The edge case gives squared bounds 49/16 and 2+sqrt(2); the vertex case has four complete admissible arcs and quadratics, two attaining (12+11sqrt(2))/8. The pair x=(1,sqrt(2)-1), y=(-(sqrt(2)-1)/2,1) is a unit orthogonal equality pair. Analytic support reduction covers every direction and branch endpoints. Independently evaluated 128064 octagonal boundary trial pairs and reproduced the sharp value; discrete grid alone is not global proof.
 
-## Closest literature and limitations
-The primary source is Ahmad, Xie and Li, Advances in Fixed Point Theory 12 (2022), Article 9, doi:10.28919/afpt/7588, published 25 August 2022 with primary classification 46B20. The closest checked computations concern \(T_G\) on the regular octagon and \(T_{\perp}\) on \(\ell_3^2\). The result here does not classify all regular polygonal norms, and literature search cannot establish absolute uniqueness.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The defining 2022 Ahmad–Xie–Li article introduces T_perp, establishes Hilbert and square examples and general bounds, but the regular octagon with its Birkhoff constraint is not evaluated there. Prior same-space exact T_G and Joly rectangular constants use different objectives/admissible pairs and do not imply this asymmetric product. Resultary semantic lookup returned the assigned record and the different-invariant octagonal records, with no identified dominating T_perp theorem.
+
+## value
+
+PASS
+
+The regular octagon is a standard polyhedral Banach-plane test case for the newly introduced Birkhoff-orthogonal constant. An exact extremal value and its interior support-arc optimizer expose nonsmooth orthogonality geometry beyond the Hilbert and square cases; the exact benchmark is a natural standalone unknown.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-The verification target is
-\[
-T_{\perp}(X_8)^2=\frac{12+11\sqrt2}{8}
-\]
-for the regular octagonal norm
-\[
-N(s,t)=\max\left\{|s|,|t|,\frac{|s|+|t|}{\sqrt2}\right\}.
-\]
 
-The analytical reduction in `RESULT.md` uses the norming-functional criterion for Birkhoff orthogonality and the dihedral symmetry of the unit octagon. It reduces all admissible pairs to two edge-interior branches and four vertex-arc branches.
+# Independent mathematical audit
 
-`verify.py` checks the exact algebra of those branches. In particular it verifies the edge maxima \(49/16\) and \(2+\sqrt2\), the two sharp vertex critical points, the common value \((12+11\sqrt2)/8\), the admissible parameter intervals, and the strict domination of all subsidiary maxima.
+## correctness
 
-The checker does not replace the continuum reduction: completeness of the case split is the support-functional argument in `RESULT.md`. No numerical sampling is used as proof.
+PASS
 
-No independent audit or independent validation has been performed.
+For the real octagonal norm max(|s|,|t|,(|s|+|t|)/sqrt(2)), Birkhoff orthogonality has exactly the edge-interior and vertex norming-support cases. The edge case gives squared bounds 49/16 and 2+sqrt(2); the vertex case has four complete admissible arcs and quadratics, two attaining (12+11sqrt(2))/8. The pair x=(1,sqrt(2)-1), y=(-(sqrt(2)-1)/2,1) is a unit orthogonal equality pair. Analytic support reduction covers every direction and branch endpoints. Independently evaluated 128064 octagonal boundary trial pairs and reproduced the sharp value; discrete grid alone is not global proof.
+
+## originality
+
+PASS
+
+The defining 2022 Ahmad–Xie–Li article introduces T_perp, establishes Hilbert and square examples and general bounds, but the regular octagon with its Birkhoff constraint is not evaluated there. Prior same-space exact T_G and Joly rectangular constants use different objectives/admissible pairs and do not imply this asymmetric product. Resultary semantic lookup returned the assigned record and the different-invariant octagonal records, with no identified dominating T_perp theorem.
+
+## value
+
+PASS
+
+The regular octagon is a standard polyhedral Banach-plane test case for the newly introduced Birkhoff-orthogonal constant. An exact extremal value and its interior support-arc optimizer expose nonsmooth orthogonality geometry beyond the Hilbert and square cases; the exact benchmark is a natural standalone unknown.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
