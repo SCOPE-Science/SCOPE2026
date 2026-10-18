@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For \(b\ne0\), exact polynomial differentiation proves \(\dot H=-H\) at \(a=-1/2\), and an invertible polynomial change of coordinates reduces all bounded complete dynamics to a planar damped cubic oscillator. The proof establishes the exact energy identity, bounded-forward convergence via square-integrable velocity, a unique bounded left unstable branch of the saddle, and the heteroclinic dissipation \(4|b|^3/3\). The singular case \(b=0\) is proved separately by variation of constants and Gronwall. The attached symbolic checker independently recomputes critical algebraic identities; it does not substitute for the global analytic proof.
+PASS
 
-## Originality — PASS with historical risk
+At a=−1/2 and b≠0, direct derivatives give H=y−x²/(2b), H_dot=−H and global invertible map (x,y,z)→(x,v=−x/2+bz,h=H) with Jacobian −b. Exact transformed system x_dot=v, v_dot=−v/2−bx+x²/2+bh, h_dot=−h. Bounded complete trajectories require h=0 by backward exponential blow-up. On h=0, E=v²/2+b x²/2−x³/6 gives E_dot=−v²/2; planar saddles/sinks at x=0,2b identified by determinants b and −b. For bounded forward-complete h≠0, E_dot≤−v²/4+b²h² and h∈L² yield v∈L², v→0, v_dot→0 and x(x−2b)→0, hence convergence to one equilibrium. The left-going saddle unstable branch is trapped and tends to sink; right-going branch cannot remain bounded. All nonconstant bounded complete orbits therefore lie on its unique heteroclinic up to translation; ∫v² dt=2ΔU=4|b|³/3. Invariant measures supported on equilibria by invariance of h and E. b=0 solved x=e^(−t/2)x0; linear Volterra/Gronwall gives global forward boundedness, y→0 and z-limit, while bounded complete implies x=y=0. Exact symbolic checker polynomial identities inspected (it alone does not prove global dynamics).
 
-The introducing paper (Sprott, 1994) provides the model and numerical chaos diagnostics, not a classification on \(a=-1/2\). Sprott's 2013 parameter atlas is numerical, while Chen et al. (2013) treat a different Sprott G parameter slice in their spectral table. Mendes–Lainscsek–Letellier (2021) examine jerk equivalences and chaotic dynamics near positive \(a\), rather than an exact negative-parameter global gradient reduction. No inspected primary source establishes the specific polynomial conjugacy, two-sided bounded orbit classification, unique connecting trajectory and its exact dissipation. Unindexed earlier work or a disguised equivalent oscillator treatment could change priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The parameter condition is structurally selected by cancellation in a natural quadratic observable, rather than chosen for numerical convenience. It identifies a global codimension-one no-recurrence regime within a classical chaotic-flow family, resolves all compact complete trajectories and invariant probabilities there, and determines the unique connecting orbit's exact mechanical loss. The result is self-contained and provides an analytic reference for numerical bifurcation maps.
+Sprott case G itself is known, chaotic parameter plots and equilibrium spectra have extensive prior coverage. The special a=−1/2 exact polynomial Darboux contraction, global planar damped conjugacy, complete classification for every real b (including b=0), unique heteroclinic/action and all invariant compactly supported measures are not implied by the inspected chaotic-regime atlas or positive-a linearization results. Best-of-knowledge priority risk persists for unindexed negative-a classifications.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A rigorous complete bounded-dynamics theorem on a precisely distinguished codimension-one model parameter plane replaces numerical chaos-region diagrams with a global invariant manifold, a unique connecting orbit and exact dissipation. This is structurally significant within a standard chaotic-flow benchmark; the b=0 degeneracy is a natural boundary of the conjugacy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

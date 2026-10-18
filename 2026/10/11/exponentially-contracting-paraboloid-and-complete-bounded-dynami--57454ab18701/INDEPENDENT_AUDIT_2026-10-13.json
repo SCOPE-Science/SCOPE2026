@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T16:59:57Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Dynamic Regions in Simple Chaotic Flows (https://sprott.physics.wisc.edu/technote/regions.htm)",
+        "Some simple chaotic flows (https://doi.org/10.1103/PhysRevE.50.R647)"
+      ],
+      "rationale": "At a=−1/2 and b≠0, direct derivatives give H=y−x²/(2b), H_dot=−H and global invertible map (x,y,z)→(x,v=−x/2+bz,h=H) with Jacobian −b. Exact transformed system x_dot=v, v_dot=−v/2−bx+x²/2+bh, h_dot=−h. Bounded complete trajectories require h=0 by backward exponential blow-up. On h=0, E=v²/2+b x²/2−x³/6 gives E_dot=−v²/2; planar saddles/sinks at x=0,2b identified by determinants b and −b. For bounded forward-complete h≠0, E_dot≤−v²/4+b²h² and h∈L² yield v∈L², v→0, v_dot→0 and x(x−2b)→0, hence convergence to one equilibrium. The left-going saddle unstable branch is trapped and tends to sink; right-going branch cannot remain bounded. All nonconstant bounded complete orbits therefore lie on its unique heteroclinic up to translation; ∫v² dt=2ΔU=4|b|³/3. Invariant measures supported on equilibria by invariance of h and E. b=0 solved x=e^(−t/2)x0; linear Volterra/Gronwall gives global forward boundedness, y→0 and z-limit, while bounded complete implies x=y=0. Exact symbolic checker polynomial identities inspected (it alone does not prove global dynamics).",
+      "residual_risks": [
+        "Possible unindexed equivalent exact global negative-parameter Sprott-G study.",
+        "Resultary search returned internal failure.",
+        "No assertion that unbounded orbits are globally forward-complete; the bounded hypotheses are essential."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sprott 2013 parameter atlas; Chen 2013 Shilnikov study DOI 10.1155/2013/287123"
+        ],
+        "reasoning": "An atlas of observed attractors and a=+1/2 saddle spectra do not imply a proof for all bounded forward/complete a=−1/2 orbits. General Lyapunov theory is a method, not a case-G-specific classification.",
+        "searches": [
+          "Global dynamic regions and general dissipative flow methods; https://sprott.physics.wisc.edu/technote/regions.htm",
+          "Global dynamic regions and general dissipative flow methods; https://doi.org/10.1103/PhysRevE.50.R647"
+        ]
+      },
+      "checked_sources": [
+        "Dynamic Regions in Simple Chaotic Flows | https://sprott.physics.wisc.edu/technote/regions.htm | Full publicly accessible 2013 article/atlas page, case G parameter diagrams and descriptions.",
+        "Some simple chaotic flows | https://doi.org/10.1103/PhysRevE.50.R647 | Accessible abstract and primary model identification; complete publisher full text not obtained in this check."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sprott 1994 & 2013, Mendes et al. (2021), Chen (2013)"
+        ],
+        "reasoning": "Chaotic examples in other parameter regions and known equilibria are covered. They do not state the invariant paraboloid h=0, singular b=0 treatment, uniqueness of all bounded complete nonconstant orbits or measure classification on the chosen plane.",
+        "searches": [
+          "Prior chaotic existence/equilibria versus current classification; https://sprott.physics.wisc.edu/technote/regions.htm",
+          "Prior chaotic existence/equilibria versus current classification; https://doi.org/10.1103/PhysRevE.50.R647"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sprott 1994 DOI 10.1103/PhysRevE.50.R647; Mendes–Lainscsek–Letellier Chaos31 (2021) DOI 10.1063/5.0058330"
+        ],
+        "reasoning": "Case-G equation is the same underlying flow; jerk equivalence at chaotic parameters near (a,b)=(0.406,0.9) does not prove the negative-half-a Darboux invariant or heteroclinic theorem.",
+        "searches": [
+          "Sprott case G and equivalent differential/jerk formulations; https://sprott.physics.wisc.edu/technote/regions.htm",
+          "Sprott case G and equivalent differential/jerk formulations; https://doi.org/10.1103/PhysRevE.50.R647"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Sprott 2013 tables/plots, a=−1/2 exact algebra"
+        ],
+        "reasoning": "The claimed H_dot=−H is a polynomial Darboux identity and global orbit result; a numerical parameter atlas/table cannot serve as an exact classification or supply the action 4|b|³/3.",
+        "searches": [
+          "No finite table for exact invariant manifolds and complete dynamics; https://sprott.physics.wisc.edu/technote/regions.htm",
+          "No finite table for exact invariant manifolds and complete dynamics; https://doi.org/10.1103/PhysRevE.50.R647"
+        ]
+      },
+      "rationale": "Sprott case G itself is known, chaotic parameter plots and equilibrium spectra have extensive prior coverage. The special a=−1/2 exact polynomial Darboux contraction, global planar damped conjugacy, complete classification for every real b (including b=0), unique heteroclinic/action and all invariant compactly supported measures are not implied by the inspected chaotic-regime atlas or positive-a linearization results. Best-of-knowledge priority risk persists for unindexed negative-a classifications.",
+      "residual_risks": [
+        "Possible unindexed equivalent exact global negative-parameter Sprott-G study.",
+        "Resultary search returned internal failure.",
+        "No assertion that unbounded orbits are globally forward-complete; the bounded hypotheses are essential."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Numerical parameter-region diagnostics and attractor classifications; no global polynomial invariant H or complete bounded-orbit classification on a=-1/2 identified.",
+          "evidence": [
+            "J. C. Sprott (2013) case G parameter-region analysis"
+          ],
+          "identifier_or_url": "https://sprott.physics.wisc.edu/technote/regions.htm",
+          "material_read": "Full publicly accessible 2013 article/atlas page, case G parameter diagrams and descriptions.",
+          "method": "Open primary HTML text.",
+          "title": "Dynamic Regions in Simple Chaotic Flows",
+          "trigger": "Original Sprott model parameter atlas might cover negative a=-1/2."
+        },
+        {
+          "assessment": "Original chaotic example, not a documented negative-a exact global theorem in the material inspected.",
+          "evidence": [
+            "Sprott (1994), Phys. Rev. E 50, R647"
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.50.R647",
+          "material_read": "Accessible abstract and primary model identification; complete publisher full text not obtained in this check.",
+          "method": "Journal abstract; explicit limited access.",
+          "title": "Some simple chaotic flows",
+          "trigger": "Primary introduction of Sprott case G."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Dynamic Regions in Simple Chaotic Flows (https://sprott.physics.wisc.edu/technote/regions.htm)",
+        "Some simple chaotic flows (https://doi.org/10.1103/PhysRevE.50.R647)"
+      ],
+      "rationale": "A rigorous complete bounded-dynamics theorem on a precisely distinguished codimension-one model parameter plane replaces numerical chaos-region diagrams with a global invariant manifold, a unique connecting orbit and exact dissipation. This is structurally significant within a standard chaotic-flow benchmark; the b=0 degeneracy is a natural boundary of the conjugacy.",
+      "residual_risks": [
+        "Possible unindexed equivalent exact global negative-parameter Sprott-G study.",
+        "Resultary search returned internal failure.",
+        "No assertion that unbounded orbits are globally forward-complete; the bounded hypotheses are essential."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only a=−1/2 and real b; no nearby-a robustness or complete classification of unbounded escape.",
+    "Invariant measures assumed compact support."
+  ],
+  "schema_version": 1
+}
