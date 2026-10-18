@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** In the explicit Cayley model, a two-element independent set covers exactly twelve of sixteen vertices, ruling out order two. The eighteen independent origin-containing triples are fully enumerated; exactly six dominate and generate precisely two translation orbits of sixteen, giving thirty-two minimum configurations. Coordinate comparisons establish all forty-eight legal slides and construct a bijection to the thirty-two triangular faces via the invertible matrix with rows \((2,3)\) and \((1,1)\). Independent exhaustive vertex-set and orbit/face-dual implementations agree, including all-source distances with radius and diameter five. The certificate is finite and complete for the stated graph.
+
+**Originality — PASS, with residual risk.** Bonsma's 2014 work addresses cographs, and Brewster–Mynhardt–Teshima's 2023 work develops general \(i\)-graph theory; neither inspected text gives the Shrikhande-to-Dyck instance. A graph profile already states that the triangle dual is Dyck, and the independent domination number three is a previously tabulated fact. The new claim links the *minimum independent dominating reconfiguration space* to that known dual and gives an explicit equivariant identification plus the sharp move diameter. Query comparisons against published mathematical findings, online graph databases, and relevant literature returned no broader implication covering that assertion. Residual risk: unindexed graph catalogues, unpublished notes, or supplementary independent-domination tables could contain the same graph-specific reconfiguration structure; absence of a search result is not a uniqueness proof.
+
+**Value — PASS.** The optimum-set exchange graph is a natural invariant in independent domination, and obtaining a classical symmetric cubic toroidal dual from a different configuration space exposes a structural connection not implied by the domination number or by the graph's ordinary parameters. Exact five-move diameter controls global mobility of all optimal configurations. The result is a complete self-contained classification for the natural symmetric graph, with no unsupported extrapolation.
+
+The science has been checked in the specified finite model and remains subject to independent review.
+
+Self-review: passed. Independent audit: not yet performed.
