@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T22:07:26.939981Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/12/adjacent-changes-recover-latent-gini-simpson-diversity-in-symmet--0de239baeb07/RESULT.md",
+        "2026/10/12/adjacent-changes-recover-latent-gini-simpson-diversity-in-symmet--0de239baeb07/VERIFICATION.md",
+        "scope_worker_08_1283_checks.py"
+      ],
+      "rationale": "For a de Finetti mixture with P~Dirichlet(alpha,...,alpha), alpha>0, m>=2, n>=2, conditional iid categorical observations yield E[1_{Xi!=Xi+1}|P]=1-sum_j P_j^2=D. Hence A_n=T_n/(n-1) is conditionally unbiased for latent D and Cov(A_n,D)=Var(D). Dirichlet rising-factorial moments for exponents (2),(4),(2,2),(3) give Var(D)=2alpha(alpha+1)(m-1)/((m alpha+1)^2(m alpha+2)(m alpha+3)). Pair-covariance splits overlapping adjacent edges (1-2S2+S3 conditional) and disjoint edges (conditional independence, unconditional Var(D)), leading to exact Var(T_n) and Corr(A_n,D)=sqrt(2)(n-1)/sqrt(c^2(n-1)+c(7n-9)+2n^2+2n-6), c=m alpha. Algebraic expansion gives Corr=1-(c+1)(c+6)/(4n)+O(n^-2). Independently enumerated exactly 45 cases (m 2,3,4; alpha 1/2,1,3/2; n=2..6) and 20007 sequence states with exact rational posterior moments, confirming formulas. The universal conditional unbiasedness holds for any random finite directing distribution, while closed expressions require symmetric Dirichlet. Decoded public RESULT.md and VERIFICATION.md contain literal ASCII BEL before 'lpha' where '\\alpha' should appear, a real source-rendering corruption; no fabricated correction or publication is supplied.",
+      "residual_risks": [
+        "Decoded public scientific files have ASCII BEL replacing backslash-alpha; they must be corrected with exact protected guards before any publication."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Multicolor urn paper abstract announces joint distributions of run statistics under Pólya sampling, which can imply Var(T_n), not a random D mixed moment absent additional coupling information.",
+          "Exchangeable multistate paper abstract announces complete marginal total-runs distribution with Pólya applications.",
+          "Different 2007 binary-runs full paper provides conditional exchangeability and run-marginal formulas, not a latent Gini-Simpson covariance."
+        ],
+        "reasoning": "These are strong coverage for run marginals; this review does not claim originality of Var(T_n) alone. A general conditional mixture identity implies Cov(A,D)=Var(D), but previously published direct full latent-D correlation coverage remains unverified.",
+        "searches": [
+          "Eryilmaz DOI:10.1239/jap/1231340230",
+          "Eryilmaz DOI:10.1016/j.spl.2008.01.002",
+          "Eryilmaz & Demir DOI:10.1016/j.jspi.2006.10.015"
+        ]
+      },
+      "checked_sources": [
+        "verified assigned complete recursive tree a97c576ee1abe557b2b258270be691f490c42aaa, RESULT/REVIEW/VERIFICATION/METADATA source blobs",
+        "Eryilmaz Journal of Applied Probability 45(2008) 1007-1023 publisher abstract",
+        "Eryilmaz Statistics & Probability Letters 78(2008) 1505-1513 abstract; full text blocked",
+        "Eryilmaz/Demir Journal Statistical Planning Inference 137(2007) 2954-2963 first six pages authorized full text",
+        "Resultary 18-hit transition/Gini-Simpson semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Marginal run distributions determine E[T], Var(T); they do not generally determine Cov(T,D) without the latent mixing law and conditional coupling.",
+          "Dirichlet moments and the elementary tower property do imply the mixed covariance once P is retained as a random variable."
+        ],
+        "reasoning": "The claim is a short further exact calculation in a model already studied. The independent contribution, if new, is finite-n latent diversity correlation and its asymptotic expansion, not the general Dirichlet/run framework or conditional iid formula itself.",
+        "searches": [
+          "Eryilmaz 2008 Joint multicolor urn runs DOI:10.1239/jap/1231340230",
+          "Eryilmaz 2008 multistate trials DOI:10.1016/j.spl.2008.01.002",
+          "classic Dirichlet moment identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Observable total run count equals T_n+1; Eryilmaz derives its distribution under an exchangeable Dirichlet/Polya model.",
+          "Conditional change rate E[A|P]=1-sum P_j^2, so latent D covariance is different from marginal T distribution."
+        ],
+        "reasoning": "The observable run statistic is not novel as a distribution; the explicit joint covariance/correlation with unobserved random diversity is a different object and was not located in inspected statements. Simple conditional-unbiasedness alone would be routine, so value rests on exact nontrivial finite-n calibration.",
+        "searches": [
+          "Resultary semantic search: Polya urn Dirichlet de Finetti latent Gini Simpson diversity consecutive adjacent changes number runs covariance correlation",
+          "Dirichlet Pólya de Finetti latent homozygosity transition rate number of runs covariance",
+          "Eryilmaz 2008 exchangeable multistate total runs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact Dirichlet formulas obtained by elementary moments; no prior table giving Corr(A_n,D) at arbitrary m,alpha,n was located."
+        ],
+        "reasoning": "This is an exact invariant of a natural estimator-latent target pair, not an arbitrary fixed numerical census. It might be implicitly extractable from a sufficiently strong published joint mixing law; residual overlap remains.",
+        "searches": [
+          "Resultary semantic search: Polya urn Dirichlet de Finetti latent Gini Simpson diversity consecutive adjacent changes number runs covariance correlation",
+          "Pólya urn number of color changes and Simpson diversity covariance exact expression table"
+        ]
+      },
+      "rationale": "Earlier Eryilmaz 2008 multicolor Polya and exchangeable multistate run theorems give marginal/joint distributions of observable run statistics, so the full marginal Var(T_n) is in principle derivable from their stronger marginal laws and is not claimed as priority. Their accessible statements concern observed run counts, not mixed covariance with latent directing vector diversity D. The identity E[A|P]=D follows a basic conditional expectation calculation, but the exact positive finite-sample latent covariance, correlation and 1/n calibration are separately motivated and not identified as explicit earlier formulas. Full 2008 articles were not materially read; overlap is a genuine high-priority residual risk, and generic probabilistic identities alone are not a literature negative proof.",
+      "residual_risks": [
+        "HIGH: both directly relevant Eryilmaz 2008 papers not read in full; run marginal variance is already mathematically implied by known distribution, so do not attribute its novelty.",
+        "A conditional-expectation identity itself is routine; mathematical value assigned only to natural exact latent-correlation calibration.",
+        "Decoded public scientific files have ASCII BEL replacing backslash-alpha; they must be corrected with exact protected guards before any publication.",
+        "No claim of statistical efficiency, inference optimality or nonsymmetric explicit correlation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONG_RUN_MARGINAL_COVERAGE_LATENT_COVARIANCE_UNKNOWN",
+          "evidence": "Abstract covers joint run-statistic distributions, not an observed transition-vs-latent Gini-Simpson covariance.",
+          "identifier_or_url": "DOI:10.1239/jap/1231340230; https://www.cambridge.org/core/journals/journal-of-applied-probability/article/run-statistics-defined-on-the-multicolor-urn-model/F863F78C31086D3F9C4D80477BBE1291",
+          "material_read": "Publisher abstract, keywords, bibliography and full statement of investigated observable joint run distributions; complete PDF not read",
+          "method": "Cambridge publisher public HTML",
+          "title": "Run Statistics Defined on the Multicolor URN Model",
+          "trigger": "Same multicolor Pólya sequence and run statistics"
+        },
+        {
+          "assessment": "POTENTIALLY_RELEVANT_FULL_TEXT_INACCESSIBLE",
+          "evidence": "Abstract explicitly says total runs, longest and shortest runs have exact distributions and Pólya applications; whole-document absence of latent-D covariance cannot be asserted.",
+          "identifier_or_url": "DOI:10.1016/j.spl.2008.01.002",
+          "material_read": "Published abstract and bibliographic/author manuscript notices; complete paper unavailable",
+          "method": "publisher/ResearchGate/RePEc abstracts; authorized paper request",
+          "title": "Distribution of runs in a sequence of exchangeable multi-state trials",
+          "trigger": "Same exchangeable multicolor model and total changes"
+        },
+        {
+          "assessment": "DIFFERENT_BINARY_RUN_MARGINAL_THEORY",
+          "evidence": "Conditional-on-count exchangeable run law is stated; not a substitute for a full read of the requested 2008 multistate paper.",
+          "identifier_or_url": "DOI:10.1016/j.jspi.2006.10.015",
+          "material_read": "Actually retrieved and read pages 1-6 of 10 including Definition 2.1, Lemma 2.2 and Corollary 2.1; it is a DIFFERENT 2007 binary paper",
+          "method": "authorized extracted institutional PDF text (wrong article returned for target DOI)",
+          "title": "Success runs in a sequence of exchangeable binary trials",
+          "trigger": "Exchangeable-run results and institutional paper retrieval mismatch"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/12/adjacent-changes-recover-latent-gini-simpson-diversity-in-symmet--0de239baeb07/RESULT.md",
+        "Resultary 18-hit transition/Gini-Simpson semantic query"
+      ],
+      "rationale": "Gini-Simpson diversity is a canonical latent measure and adjacent-change frequency is a natural sparse local statistic of an exchangeable color sequence. Exact finite-n correlation and limiting error quantify how a statistic computable without seeing the directing proportions tracks latent diversity despite reinforced dependence. Existing observable-run marginal distributions do not determine joint dependence with unobserved D by themselves. The exact covariance is elementary from the tower property; the full explicit calibrated correlation is the substantive narrow natural fact, not a sweeping inference or optimal-estimation claim.",
+      "residual_risks": [
+        "HIGH: both directly relevant Eryilmaz 2008 papers not read in full; run marginal variance is already mathematically implied by known distribution, so do not attribute its novelty.",
+        "A conditional-expectation identity itself is routine; mathematical value assigned only to natural exact latent-correlation calibration.",
+        "Decoded public scientific files have ASCII BEL replacing backslash-alpha; they must be corrected with exact protected guards before any publication.",
+        "No claim of statistical efficiency, inference optimality or nonsymmetric explicit correlation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "HIGH: both directly relevant Eryilmaz 2008 papers not read in full; run marginal variance is already mathematically implied by known distribution, so do not attribute its novelty.",
+    "A conditional-expectation identity itself is routine; mathematical value assigned only to natural exact latent-correlation calibration.",
+    "Decoded public scientific files have ASCII BEL replacing backslash-alpha; they must be corrected with exact protected guards before any publication.",
+    "No claim of statistical efficiency, inference optimality or nonsymmetric explicit correlation."
+  ],
+  "schema_version": 1
+}
