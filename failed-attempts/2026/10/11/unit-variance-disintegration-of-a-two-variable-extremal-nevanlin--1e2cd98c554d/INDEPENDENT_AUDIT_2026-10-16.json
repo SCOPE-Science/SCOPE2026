@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T17:43:06Z",
+  "axes": {
+    "correctness": {
+      "rationale": "C PASS: Inspected Fagrell-Luger Theorem 3.1 part 1 and structure formula: g+g-=-phi, g+g-=-1, alpha_j=g_j^2/(1+g_j^2), sum weights 1. Independently evaluated algebraic two-point moments: m0=1, m1=-phi, m2=1+phi^2, m3=-phi^3-2phi, variance 1, centered cubic phi. Root equation yields m_k=-phi m_{k-1}+m_{k-2}. Rational partial fractions give the conditional Cauchy transform -w/(w^2+phi w-1). Exceptional t are null; global mu generally infinite, only the conditional kernels have mass one.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/html/2610.02476v1 Theorem 2.9 and Theorem 3.1 give the complete graph-supported measure for every nonconstant phi, not just first three moments."
+        ],
+        "reasoning": "The prior full representing-measure classification dominates the entire proposed kernel and all its conditional moments; computing finitely many low moments is an elementary corollary.",
+        "searches": [
+          "Resultary semantic: Fagrell Luger extremal two-variable Nevanlinna measure disintegration conditional unit variance Cauchy kernel moments",
+          "Fagrell Luger Nevanlinna measure structure theorem 2.9 bidegree (m,2)",
+          "Resultary exact second-coordinate marginals rational Nevanlinna extremals"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.02476v1",
+        "https://doi.org/10.1007/s12220-020-00368-4",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-second-coordinate-marginals-and-equivalence-classes-of-rat--1b488da05107"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/html/2610.02476v1 equations (21),(22),(24) and structure formula, all directly inspected."
+        ],
+        "reasoning": "The source graph sum and normalized weights imply mu=pi dt*kappa_t; its quadratic root identity directly implies E Y=-phi, E Y^2=1+phi^2 and Var=1; multiplying by Y^(k-2) gives the displayed recurrence; partial fractions recover h(t,w). No independent problem remains unresolved.",
+        "searches": [
+          "arxiv:2610.02476 Theorem 3.1 and 2.9 graph weights variance moment recurrence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/html/2610.02476v1 Theorem 3.1 part 1 establishes g1+g2=-phi, g1*g2=-1, alpha1+alpha2=1, alpha_j=g_j^2/(1+g_j^2)."
+        ],
+        "reasoning": "Writing the already explicit graph-weight measure as pi dt times a two-point law is measure-theoretically identical to the original formula.",
+        "searches": [
+          "Resultary semantic: Fagrell Luger extremal two-variable Nevanlinna measure disintegration conditional unit variance Cauchy kernel moments",
+          "Fagrell Luger 2610.02476v1 Theorem 3.1 equations 21 22 24",
+          "Nevanlinna Clark measures conditional moments roots quadratic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/html/2610.02476v1 equations (21),(22),(24) printed explicitly in the original primary theorem."
+        ],
+        "reasoning": "No separate prior variance table is needed: the explicit complete atomic measure determines all moments exactly; the lack of printed variance is not independent novelty.",
+        "searches": [
+          "Resultary semantic: Fagrell Luger extremal two-variable Nevanlinna measure disintegration conditional unit variance Cauchy kernel moments",
+          "arxiv 2610.02476 alpha weights sum one product minus one"
+        ]
+      },
+      "rationale": "FAIL: Fagrell-Luger Theorem 3.1 and its complete proof already derive the exact two graph branches, their reciprocal product, sum, and weights summing one; their Theorem 2.9 states the complete representing measure. The proposed probability disintegration is just rewriting that explicit sum using alpha1+alpha2=1. The unit variance, centered third moment, recurrence and fiber Cauchy transform follow by single-line substitution into y^2+phi*y-1=0 or partial fractions. The original structural measure is already fully determined, so the repackaging does not define an independently new extremal family or solve an unknown moment invariant.",
+      "residual_risks": [
+        "The conditional variance observation may be a useful expository note but introduces no independent structural result beyond the explicit prior measure.",
+        "No independent claim about new extremal measures, new parameter regime, or new moment theorem under weaker hypotheses survives."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVELY_IMPLIES",
+          "evidence": [
+            "Source already states alpha1+alpha2=1 and the exact roots/weights; the candidate is an algebraic marginalization of complete measure."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.02476v1",
+          "material_read": "Full arXiv HTML: sections 2.4 and 3.2, original Theorem 3.1 complete part 1 and relevant proof, equations (19)-(25), reducibility characterizations",
+          "method": "lawful open arXiv full primary HTML",
+          "title": "Real rational Herglotz-Nevanlinna functions in two variables and a class of extremals",
+          "trigger": "same class h(z,w), exact same graph formula"
+        },
+        {
+          "assessment": "BACKGROUND_ONLY",
+          "evidence": [
+            "More general geometry not needed once the precise source theorem covers the proposed re-expression."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s12220-020-00368-4",
+          "material_read": "Accessible published background on multivariate Nevanlinna measures and representation theory",
+          "method": "open-access published HTML",
+          "title": "Geometric Properties of Measures Related to Holomorphic Functions Having Positive Imaginary or Real Part",
+          "trigger": "general Nevanlinna measure structure"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "V FAIL: The primary paper already gives the entire atomic graph-supported measure including normalized weights; rewriting it as a kernel and computing elementary two-point moments or partial fractions amounts to routine deductions from printed formulas. The observation that every fiber has variance one is clear and expository, but there is no uncomputed natural invariant, new extremality criterion, independent classification, or genuine mathematical gap addressed beyond the complete prior description.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "The exact Fagrell-Luger two-graph representing measure can be written as pi dt times two-point conditional probability kernels of variance one, with prescribed conditional moments and fiberwise Cauchy transform.",
+  "limitations": [
+    "Global representing measure is sigma-finite/infinite, not a probability measure; probability interpretation is only fiberwise.",
+    "Exceptional real poles/finite set are excluded a.e.",
+    "Moment statements are simple substitutions into already known graph data."
+  ],
+  "schema_version": 1
+}
