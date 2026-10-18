@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The closed radial Toeplitz form diagonalizes into beta moments with exact degree multiplicities. The beta-to-gamma endpoint scaling gives uniform logarithmic integrability for any fixed moment, justifying expansion of fractional and integral powers alike. Summing over degree shells yields the next coefficient, and the independently expanded hyperbolic filling integral cancels the leading term; a strict Jensen argument proves positivity. Finite spot checks from `numeric_check.py` are supplemental, not replacements for the infinite proof.
+## correctness
 
-**Originality — PASS, with residual literature risk.** The closest direct article, Alvarez–Camper–Mitkovski, arXiv:2610.02484v1, Proposition 5.2 and Corollary 3.6, establishes the exact lower integral and only first-order equivalence; it does not state or force the positive second-order constant. Grudsky–Karapetyants–Vasilevski (2003) and García–Vasilevski (2015) provide radial spectral diagonalization, but the inspected relevant portions concern spectra and boundedness/algebra, not this quantified difference from hyperbolic volume filling. The 2014 Bauer–Herrera Yañez–Vasilevski characterization was compared from its abstract only and is retained as a risk rather than declared noncovering from snippets. Targeted searches for equivalent gamma/digamma expansions and for dominating spectral-sum theorems returned no covering same-object result; lack of indexing is not proof of uniqueness.
+PASS
 
-**Value — PASS.** The quantified gap answers the natural higher-precision version of a freshly proven spectral-filling inequality. Its exact positive constant measures nonattainment of the continuum filling ideal by discrete holomorphic levels, distinguishes weights hidden by the universal leading term, and covers every power \(p>0\), including the delicate fractional range. The proof uses a meaningful interaction between boundary-layer beta moments, holomorphic degree multiplicities, and hyperbolic volume geometry; the result is not just the old leading asymptotic restated.
+PASS. Exact weighted-ball monomial decomposition gives radial T=|z|^2 distributed Beta(k+d,b), b=alpha+1; shell multiplicity binomial(k+d-1,d-1). Strict stochastic monotonicity orders eigenvalues. Scaling W=(k+d)(1-T) and domination of all logarithmic moments gives E log W=psi(b)+O(1/k), with exact log identity arctanh sqrt(T)=(log(k+d))/2+log(1+sqrt(T))-(log W)/2. Tail moments justify the two-term expansion for every p>0 including 0<p<1. Shell-weight log distribution contributes -1/d and partial-shell error is negligible; independently expanding arsinh filling and subtracting yields p/(2d)^p[log Gamma(b+d)/Gamma(b)-d psi(b)]. Strict Jensen psi(b)<log b plus Gamma(b+d)/Gamma(b)>=b^d proves positivity. Independent coefficient calculations for (d,alpha,p)=(1,0,1),(2,0,1),(2,1.5,2),(3,-.5,.5), and inspection of finite-N quadrature diagnostics, corroborate but do not prove asymptotic.
 
-**Scope and limitations.** Fixed weight, complex dimension, and exponent; no uniform double scaling or finite-\(N\) certified error bounds, no claim for general costs. Classical diagonalization and beta/gamma asymptotics are ingredients; an unindexed earlier exact gap formulation remains possible.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best-of-knowledge and with explicit high-relevance access risk. Alvarez–Camper–Mitkovski, Orthogonality, Spectral Filling, and Uncertainty, arXiv:2610.02484, establishes exact filling lower bound I_N and the leading asymptotic, whereas the assessed result is the NEW explicit strictly positive coefficient at scale N(log N)^(p-1) from a Beta-to-gamma boundary layer and shell-count correction. Resultary searches for equivalent coefficient, beta/digamma and nonradial aliases found only assigned finding and unrelated Bergman results; general radial Toeplitz diagonalizations by Grudsky et al. and Bauer et al. are not themselves this second-order defect. Full Alvarez paper unavailable despite arXiv and OA mirror attempts; authorized institutional request returned VPN disconnected, so an implicit corollary or appendix remains a genuine priority risk and no whole-document NOT_COVERING claim is made.
+
+## value
+
+PASS
+
+PASS. The sharp second-order difference between spectral accumulation and hyperbolic-volume filling is a natural quantitative invariant of a known inequality, not mere diagonalization or a chosen arbitrary parameter. A positive exact coefficient for all complex dimensions, weights alpha>-1 and fractional p>0 distinguishes an asymptotically strict gap hidden by leading order and may guide precise Toeplitz spectral estimates. Bounded-fixed-parameter regime stated honestly; no inflated claim of a semiclassical or nonradial theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

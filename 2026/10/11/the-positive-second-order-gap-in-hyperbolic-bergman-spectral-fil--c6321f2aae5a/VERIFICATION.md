@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytic checks are: (i) the monomial eigenvalue equals the beta integral with parameters \(k+d\) and \(\alpha+1\), with multiplicity \(\binom{k+d-1}{d-1}\); (ii) monotone likelihood ratio orders the eigenvalues by degree; (iii) uniformly dominated rescaled beta densities provide all needed logarithmic moments and the digamma expectation; (iv) summation over shells contributes the \(-1/d\) weighted logarithmic shift; (v) the exact hyperbolic filling-radius integral has its own second-order expansion; and (vi) strict Jensen proves a positive difference coefficient. These are infinite proofs with exact domains, rather than inferences from a finite experiment.
+## correctness
 
-`numeric_check.py` is a supplementary reproducible finite-\(N\) check using Gauss–Jacobi quadrature and direct integration. Executed with NumPy and SciPy, it printed:
+PASS
 
-```
-d=2, alpha=0, p=1, N=2016: scaled finite-N gap=0.4657778; predicted limit=0.4618946
-d=2, alpha=1.5, p=2, N=2016: scaled finite-N gap=0.1232278; predicted limit=0.0953426
-```
+PASS. Exact weighted-ball monomial decomposition gives radial T=|z|^2 distributed Beta(k+d,b), b=alpha+1; shell multiplicity binomial(k+d-1,d-1). Strict stochastic monotonicity orders eigenvalues. Scaling W=(k+d)(1-T) and domination of all logarithmic moments gives E log W=psi(b)+O(1/k), with exact log identity arctanh sqrt(T)=(log(k+d))/2+log(1+sqrt(T))-(log W)/2. Tail moments justify the two-term expansion for every p>0 including 0<p<1. Shell-weight log distribution contributes -1/d and partial-shell error is negligible; independently expanding arsinh filling and subtracting yields p/(2d)^p[log Gamma(b+d)/Gamma(b)-d psi(b)]. Strict Jensen psi(b)<log b plus Gamma(b+d)/Gamma(b)>=b^d proves positivity. Independent coefficient calculations for (d,alpha,p)=(1,0,1),(2,0,1),(2,1.5,2),(3,-.5,.5), and inspection of finite-N quadrature diagnostics, corroborate but do not prove asymptotic.
 
-These finite and approximate outputs demonstrate consistency only; they do not constitute certified error bounds or proof of asymptotic convergence. The theorem states a pointwise limit for every fixed \(d\ge1\), \(\alpha>-1\), \(p>0\) and neither uniformity in parameters nor independent external verification.
+## originality
+
+PASS
+
+PASS, best-of-knowledge and with explicit high-relevance access risk. Alvarez–Camper–Mitkovski, Orthogonality, Spectral Filling, and Uncertainty, arXiv:2610.02484, establishes exact filling lower bound I_N and the leading asymptotic, whereas the assessed result is the NEW explicit strictly positive coefficient at scale N(log N)^(p-1) from a Beta-to-gamma boundary layer and shell-count correction. Resultary searches for equivalent coefficient, beta/digamma and nonradial aliases found only assigned finding and unrelated Bergman results; general radial Toeplitz diagonalizations by Grudsky et al. and Bauer et al. are not themselves this second-order defect. Full Alvarez paper unavailable despite arXiv and OA mirror attempts; authorized institutional request returned VPN disconnected, so an implicit corollary or appendix remains a genuine priority risk and no whole-document NOT_COVERING claim is made.
+
+## value
+
+PASS
+
+PASS. The sharp second-order difference between spectral accumulation and hyperbolic-volume filling is a natural quantitative invariant of a known inequality, not mere diagonalization or a chosen arbitrary parameter. A positive exact coefficient for all complex dimensions, weights alpha>-1 and fractional p>0 distinguishes an asymptotically strict gap hidden by leading order and may guide precise Toeplitz spectral estimates. Bounded-fixed-parameter regime stated honestly; no inflated claim of a semiclassical or nonradial theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
