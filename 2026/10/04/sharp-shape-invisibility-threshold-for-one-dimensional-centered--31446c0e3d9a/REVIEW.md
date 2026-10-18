@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The claim was reconstructed from definitions rather than inferred from numerical experiments. The proof partitions centered intervals into all possible geometric regimes. In the inner gap, the critical amplitude condition is exactly what keeps every short-radius average below the fixed-mass candidate. Outside the support, the numerator is bounded by the affine chord joining the two endpoint masses; the inequalities \(\rho_c\le(1+m)/(1+2\delta)<1\) follow exactly from \(0<m<2\delta\). The crossover radius and sharpness witness were recomputed independently. The supplementary exact-rational verifier agrees with the formulas on representative step functions.
+PASS
 
-## Originality
+For all 0<δ<1/2 and 0<m<2δ, the actual RESULT.md radius analysis has four regimes. On |x|≤δ the candidate r=1+δ-|x| dominates since the cap ρc=1-2δ+m bounds every shorter radius by (1+ρc)/2 and later regimes decrease. Tower interiors have maximal average 1; for |x|≥1+δ a numerator bound N(r)≤1+k(r-(|x|-δ)) with k=(1+m)/(1+2δ) and k-ρc=2δ(2δ-m)/(1+2δ)>0 forces one of two endpoint radii. Their crossover gives x*=(1+3δ+mδ)/(1+m). The above-cap witness concentrates density ρ immediately inside the right gap edge, making the limiting boundary average (1+ρ)/2 exceed the below-cap profile. The mass-feasibility inequality m/(2δ)<ρc is strict; zero-mean bounded perturbations give infinitely many shapes. Independently recomputed exact rational centered critical-radius averages at δ=1/4,m=1/16 for two distinct mass-matched piecewise-constant h at ten centers; both equal the asserted profile. Step checks corroborate but do not establish the universal case.
 
-PASS with residual literature risk. The closest source, Solyanik's arXiv:2609.27687v1, proves a one-dimensional movable indicator-bump formula for \(0<\epsilon\le1/4\), and separately notes arbitrary same-mass perturbation invariance in a planar construction under a sufficiently small, non-sharp bound. It does not state the one-dimensional arbitrary-shape two-parameter formula, the threshold \(\rho_c=1-2\delta+m\), or the matching above-threshold obstruction. Searches using the aliases “centered maximal noninjectivity”, “fixed-mass perturbation”, “same maximal function”, “shape invariance”, and “sharp amplitude threshold” did not return an equivalent result. The nearest indexed records concern maximal-operator norm rigidity rather than inverse fibers.
+## originality
 
-## Value
+PASS
 
-PASS. The recent work changes the injectivity question from open to negative by exhibiting pairs. The present theorem quantifies how severe that failure is in the first explicit one-dimensional geometry: a whole infinite-dimensional convex fixed-mass family collapses to one maximal profile, and the largest universal pointwise-amplitude cap for this phenomenon is determined exactly. The threshold also enlarges the parameter range covered by the source's one-dimensional mechanism in the corresponding fixed-mass regime.
+The inspected Solyanik Theorem 2 has a translated indicator bump of height ε and mass ε² with ε≤1/4; its equality profile does not classify arbitrary L∞ gap profiles with freely specified m or identify the exact universal cap 1-2δ+m and converse above-cap obstruction. No source found that implies this two-parameter threshold. The one-dimensional source mechanism is correctly credited.
 
-## Closest literature and limitations
+## value
 
-The primary comparison is A. Solyanik, *On the Central Maximal Function in \(\mathbb R^n\)*, arXiv:2609.27687v1. The earlier uniqueness reference is L. Ephremidze, *On the Uniqueness Property of Various Maximal Operators*, RIMS Kôkyûroku Bessatsu B22 (2010), 137--144. The theorem here is restricted to the two-tower background and does not classify all fibers or all above-threshold exceptional shapes.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+A sharp boundary between an infinite-dimensional constant fiber of a nonlinear centered maximal operator and a regime where universal same-mass invariance fails is a structural theorem, not just another translated-bump example. Its pointwise formula and sharp converse answer a natural injectivity/fiber question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,29 +18,25 @@
   "schema_version": 1
 }
 ---
-The general theorem was checked by reconstructing every radius regime in the proof.
 
-For \(0\le x\le\delta\), the critical radii are \(\delta+x\), \(1+\delta-x\), and \(1+\delta+x\). The cap \(\rho_c=1-2\delta+m\) is exactly the value that makes the small-radius bound \((1+\rho_c)/2\) equal to the smallest candidate maximum \(1-\delta+m/2\).
+# Independent mathematical audit
 
-For \(x\ge1+\delta\), the endpoint interpolation slope is
-\[
-k=\frac{1+m}{1+2\delta}.
-\]
-The identity
-\[
-k-\rho_c=\frac{2\delta(2\delta-m)}{1+2\delta}>0
-\]
-controls partial perturbation mass, while \(k<1\) controls the interval after the whole perturbation has entered. The endpoint crossover occurs at
-\[
-x_{\delta,m}=\frac{1+3\delta+m\delta}{1+m},
-\]
-and
-\[
-x_{\delta,m}-(1+\delta)=\frac{2\delta-m}{1+m}>0.
-\]
+## correctness
 
-The sharpness construction was checked directly at \(x=\delta\): a perturbation equal to \(\rho\) immediately to the left of the tower boundary forces small-radius averages to equal \((1+\rho)/2\), which exceeds the below-threshold value when \(\rho>\rho_c\).
+PASS
 
-`verify_shape_threshold.py` additionally performs exact finite checks for several rational step perturbations and for one above-threshold witness. Its output is stored in `verification_output.txt`.
+For all 0<δ<1/2 and 0<m<2δ, the actual RESULT.md radius analysis has four regimes. On |x|≤δ the candidate r=1+δ-|x| dominates since the cap ρc=1-2δ+m bounds every shorter radius by (1+ρc)/2 and later regimes decrease. Tower interiors have maximal average 1; for |x|≥1+δ a numerator bound N(r)≤1+k(r-(|x|-δ)) with k=(1+m)/(1+2δ) and k-ρc=2δ(2δ-m)/(1+2δ)>0 forces one of two endpoint radii. Their crossover gives x*=(1+3δ+mδ)/(1+m). The above-cap witness concentrates density ρ immediately inside the right gap edge, making the limiting boundary average (1+ρ)/2 exceed the below-cap profile. The mass-feasibility inequality m/(2δ)<ρc is strict; zero-mean bounded perturbations give infinitely many shapes. Independently recomputed exact rational centered critical-radius averages at δ=1/4,m=1/16 for two distinct mass-matched piecewise-constant h at ten centers; both equal the asserted profile. Step checks corroborate but do not establish the universal case.
 
-Same-model review status: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The inspected Solyanik Theorem 2 has a translated indicator bump of height ε and mass ε² with ε≤1/4; its equality profile does not classify arbitrary L∞ gap profiles with freely specified m or identify the exact universal cap 1-2δ+m and converse above-cap obstruction. No source found that implies this two-parameter threshold. The one-dimensional source mechanism is correctly credited.
+
+## value
+
+PASS
+
+A sharp boundary between an infinite-dimensional constant fiber of a nonlinear centered maximal operator and a regime where universal same-mass invariance fails is a structural theorem, not just another translated-bump example. Its pointwise formula and sharp converse answer a natural injectivity/fiber question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
