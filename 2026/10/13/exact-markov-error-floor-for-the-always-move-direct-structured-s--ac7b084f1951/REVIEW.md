@@ -1,16 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source algorithm was reconstructed from its printed score, selection rule, and fixed-radius update. On the stated scalar quadratic the score is exactly \(w\xi+h/2\), so the common finite-difference term cancels from every comparison. The resulting transition probabilities follow directly. Nonconvergence follows from the constant nonzero increment. For \(q=1\), the process is exactly simple symmetric random walk. For \(q\ge2\), the displayed invariant probability satisfies exact detailed balance and normalization; its second moment is finite and yields the claimed Cesaro objective limit through the irreducible positive-recurrent Markov-chain ergodic theorem. Exact rational replay independently checks the algebraic identities.
+## correctness
 
-Risk: the source does not prescribe a unique candidate-vector distribution, so the theorem fixes a valid Rademacher specialization rather than claiming universal behavior across all samplers. The tie rule is also fixed explicitly at \(w=0\).
+PASS
 
-## Originality
-PASS. The primary source already notes qualitatively that the always-move rule can accept positive scores and may need an acceptance test, but it does not derive a stochastic transition law, an invariant distribution, a \(q=1\) random-walk boundary, or a candidate-count-dependent objective floor. Targeted published-finding searches under direct structured search, always-move, fixed-step, rank-one, Rademacher, birth--death, invariant-law, and error-floor aliases returned no implication-equivalent statement. The closest direct-search predecessor inspected in full uses sufficient-decrease acceptance and step shrinkage, which removes the defining always-move mechanism.
+The source Algorithm 5 with f(w)=w^2/2, h>0, fixed eta>0, q i.i.d. Rademacher rank-one candidates, and first-sampled minimizer tie rule has candidate score w*xi+h/2. From each positive lattice site n=w/eta, the inward probability is 1-2^{-q}, outward probability p=2^{-q}; reflect at negatives, with unbiased departure from zero. For q=1 this is simple random walk and E f(w_t)=eta^2*t/2. For q>=2 detailed balance gives pi_0=(1-2p)/[2(1-p)] and pi_{+/-n}=(1-2p)[p/(1-p)]^{n-1}/[4(1-p)^2]; summing the second moment yields E_pi[N^2]=1/[2(1-2p)^2], hence a.s. objective Cesaro mean eta^2/[4(1-2p)^2]. Finite q yields irreducible positive recurrence; period 2 precludes claiming pointwise law convergence from zero. Constant nonzero increment precludes sample-path iterate convergence. Independent exact-rational detailed-balance, normalization and second-moment checks q=2..10 corroborated the algebra; the infinity-time statements rest on Markov recurrence and ergodic theory, not finite replay.
 
-Residual risk: an exact equivalent analysis may exist under substantially different terminology outside the inspected sources, but no decisive covering source was found.
+## originality
 
-## Value
-PASS. The source itself identifies the fixed-step always-move rule as a practical weakness but leaves its asymptotic consequence unresolved. The theorem isolates that mechanism on an exact-oracle, strongly convex scalar problem and quantifies a nonvanishing floor that cannot be repaired by increasing the number of candidates alone. This distinguishes the effects of candidate quality from the separate need for acceptance or step-size decay, which is directly useful when modifying or analyzing the proposed method.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The source explicitly observes that fixed-step always-move direct structured search need not decrease its objective and proposes acceptance control. This theorem is a distinct exact specialization: invariant birth-death distribution and sharp nonvanishing ergodic objective level on a strongly convex scalar quadratic. The Roberts–Royer probabilistic descent algorithm uses rejection and step shrinkage, hence does not entail the same chain. Closely related Markov counterexamples under other terms remain a residual priority risk.
+
+## value
+
+PASS
+
+A naturally motivated defect of an actually printed always-move search rule is quantified completely, beyond the immediate fact that nonzero constant increments prevent convergence: the exact ergodic floor, dependence on q, q=1 random-walk regime, and limit eta^2/4 distinguish directional-sampling improvements from step-size stabilization. Source specificity is explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

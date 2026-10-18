@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T13:59:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The source Algorithm 5 with f(w)=w^2/2, h>0, fixed eta>0, q i.i.d. Rademacher rank-one candidates, and first-sampled minimizer tie rule has candidate score w*xi+h/2. From each positive lattice site n=w/eta, the inward probability is 1-2^{-q}, outward probability p=2^{-q}; reflect at negatives, with unbiased departure from zero. For q=1 this is simple random walk and E f(w_t)=eta^2*t/2. For q>=2 detailed balance gives pi_0=(1-2p)/[2(1-p)] and pi_{+/-n}=(1-2p)[p/(1-p)]^{n-1}/[4(1-p)^2]; summing the second moment yields E_pi[N^2]=1/[2(1-2p)^2], hence a.s. objective Cesaro mean eta^2/[4(1-2p)^2]. Finite q yields irreducible positive recurrence; period 2 precludes claiming pointwise law convergence from zero. Constant nonzero increment precludes sample-path iterate convergence. Independent exact-rational detailed-balance, normalization and second-moment checks q=2..10 corroborated the algebra; the infinity-time statements rest on Markov recurrence and ergodic theory, not finite replay.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The probabilistic-descent direct-search method accepts steps only on sufficient decrease and reduces the search parameter on rejection."
+        ],
+        "reasoning": "Those convergence and complexity statements concern a distinct rejection-and-shrink process, and neither dominates an always-accept fixed-step chain.",
+        "searches": [
+          "Roberts and Royer arXiv:2204.01275v2 Algorithm 1",
+          "Gratton et al DOI:10.1137/140961602"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2609.17759v1",
+        "https://arxiv.org/html/2204.01275v2",
+        "Resultary semantic search: exact invariant distribution time-average error floor always-move fixed-step randomized derivative free direct structured search strongly convex quadratic Rademacher candidate search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Xie defines the update and allows candidates/ties but does not compute the resulting Markov invariant law. Roberts–Royer rejects unsuccessful steps."
+        ],
+        "reasoning": "The source update plus elementary Markov theory yields the present theorem, but a qualitative warning by itself neither states nor mathematically entails the exact q-dependent distribution without the new specialized derivation. Novelty is limited to that quantified application; it is not a new general Markov-chain law.",
+        "searches": [
+          "Xie arXiv:2609.17759v1 Sections 2.4 and 3.8",
+          "Roberts–Royer arXiv:2204.01275v2 Algorithm 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Score difference equals w*xi and produces a reflected biased birth–death chain on eta*Z."
+        ],
+        "reasoning": "Compared direct-search/derivative-free optimization names with birth–death Markov-chain and fixed-step stochastic recurrence formulations; the classical chain solution is a proof ingredient, not a prior statement about this precise algorithm.",
+        "searches": [
+          "Resultary semantic search: exact invariant distribution time-average error floor always-move fixed-step randomized derivative free direct structured search strongly convex quadratic Rademacher candidate search",
+          "Xie arXiv:2609.17759v1 Algorithm 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source gives qualitative non-descent warning and empirical behavior; no explicit p=2^-q stationary table or eta^2/[4(1-2p)^2] limit in inspected sections."
+        ],
+        "reasoning": "The standard geometric stationary law of a birth–death chain is mathematical background. No retrieved numerical table was shown to encode this exact algorithmic invariant.",
+        "searches": [
+          "Resultary semantic search: exact invariant distribution time-average error floor always-move fixed-step randomized derivative free direct structured search strongly convex quadratic Rademacher candidate search",
+          "Xie arXiv:2609.17759v1 Section 3.8"
+        ]
+      },
+      "rationale": "The source explicitly observes that fixed-step always-move direct structured search need not decrease its objective and proposes acceptance control. This theorem is a distinct exact specialization: invariant birth-death distribution and sharp nonvanishing ergodic objective level on a strongly convex scalar quadratic. The Roberts–Royer probabilistic descent algorithm uses rejection and step shrinkage, hence does not entail the same chain. Closely related Markov counterexamples under other terms remain a residual priority risk.",
+      "residual_risks": [
+        "Earlier constant-step randomized direct-search counterexamples may already derive an equivalent reflected-walk invariant law under Markov or stochastic-approximation terminology.",
+        "At q=1 expectation grows but this statement does not give a finite invariant law; q>=2 has periodicity, so stationary law must not be confused with distributional convergence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model and qualitative warning; no exact fixed-step Markov stationary law identified in inspected material",
+          "evidence": "Algorithm 5 always updates; the text acknowledges insufficient descent and mentions an acceptance test.",
+          "identifier_or_url": "https://arxiv.org/html/2609.17759v1",
+          "material_read": "Algorithm 5, the direct-structured candidate-selection formula, remarks about fixed moves and acceptance, relevant experiments/limitations",
+          "method": "Full accessible HTML: direct inspection of relevant sections and algorithm",
+          "title": "Derivative-Free Structured Updates for Muon",
+          "trigger": "Identical source algorithm and fixed-step caveat"
+        },
+        {
+          "assessment": "DIFFERENT_PROCESS",
+          "evidence": "The source reduces step size and leaves iterate unchanged following unsuccessful trials, preventing the asserted Markov transitions.",
+          "identifier_or_url": "https://arxiv.org/html/2204.01275v2",
+          "material_read": "Algorithm 1 and sufficient-decrease/backtracking conditions, convergence discussion",
+          "method": "Full accessible preprint HTML: read algorithm and relevant proof setup",
+          "title": "Direct Search Based on Probabilistic Descent in Reduced Spaces",
+          "trigger": "Most relevant strong convergence framework for related randomized derivative-free methods"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A naturally motivated defect of an actually printed always-move search rule is quantified completely, beyond the immediate fact that nonzero constant increments prevent convergence: the exact ergodic floor, dependence on q, q=1 random-walk regime, and limit eta^2/4 distinguish directional-sampling improvements from step-size stabilization. Source specificity is explicit.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2609.17759v1",
+    "https://arxiv.org/html/2204.01275v2",
+    "2026/10/13/exact-markov-error-floor-for-the-always-move-direct-structured-s--ac7b084f1951/RESULT.md",
+    "Resultary semantic search: exact invariant distribution time-average error floor always-move fixed-step randomized derivative free direct structured search strongly convex quadratic Rademacher candidate search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Earlier constant-step randomized direct-search counterexamples may already derive an equivalent reflected-walk invariant law under Markov or stochastic-approximation terminology.",
+    "At q=1 expectation grows but this statement does not give a finite invariant law; q>=2 has periodicity, so stationary law must not be confused with distributional convergence.",
+    "No whole-package public semantic privacy clearance or full neutral replacement files; not publication-ready.",
+    "The completed review is an independently reconstructed best-of-knowledge C/O/V assessment, not external proof certification."
+  ],
+  "residual_risks": [
+    "Earlier constant-step randomized direct-search counterexamples may already derive an equivalent reflected-walk invariant law under Markov or stochastic-approximation terminology.",
+    "At q=1 expectation grows but this statement does not give a finite invariant law; q>=2 has periodicity, so stationary law must not be confused with distributional convergence."
+  ],
+  "schema_version": 1
+}
