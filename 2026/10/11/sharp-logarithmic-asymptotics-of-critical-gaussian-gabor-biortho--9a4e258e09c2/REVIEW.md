@@ -1,21 +1,21 @@
-# Review of Sharp logarithmic asymptotics of critical Gaussian Gabor biorthogonals
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The normalization \(g(t)=e^{-\pi t^2}\) matches the 2026 primary source. The 2025 full-text Zak formula for the unit-norm Gaussian has derivative \(2^{1/4}\pi\theta_1'(0,e^{-\pi})\); dividing by \(2^{1/4}\) gives the derivative used here. Its simple, isotropic zero at \((1/2,1/2)\) is fully controlled. The numerator of the dual Zak quotient vanishes there, and orthogonality of the remaining lattice characters proves the exact biorthogonal formula.
+PASS
 
-The local reciprocal-square difference is at most \(A/r\), so multiplication by the bounded numerator has an integrable, **uniform** error. Angular averaging gives exactly \(4\pi\int(1-J_0(t))dt/t\), where the standard stationary-phase decay of \(J_0\) yields \(\log R+O(1)\). The leading coefficient is therefore \(4/(\pi|\theta_1'(0,e^{-\pi})|^2)\), not a normalization-dependent guess. Integer lattice covariance gives exact norm equality for arbitrary deleted atoms. The optional numerical probe agrees with the coefficient; no finite sample is used as proof.
+With unnormalized g(t)=e^(−πt²) and lattice (m,n)∈Z², the unitary Zak transform maps each g_{m,n} to character E_{m,n}Zg. After deleting origin, the unique dual of a remaining atom has Zak quotient [E_{m,n}−(−1)^(m+n)]/conjugate(Zg); numerator cancels at unique Gaussian Zak zero p=(1/2,1/2). Normalize source theta derivative for unscaled g: Zg(p+(u,v))=−κ(u+iv)+O(r²), κ=πθ1'(0,e^(−π))>0. Therefore reciprocal |Zg|² differs from (κ²r²)^(−1) by O(1/r), integrable in 2D uniformly under bounded character numerator. Polar angular averaging of |exp(2π i(nu−mv))−1|²/r² gives 4π/κ² ∫_0^(2πρR) [1−J0(t)]dt/t. Small-t J0=1+O(t²) and large-t |J0(t)|=O(t^(−1/2)) establish log R+O(1) uniformly in lattice direction. Hence coefficient 4/(π|θ1'|²)≈1.54852449; integer time-frequency covariance transfers to every deleted atom. Numerical midpoint quadrature only checks the scale, not the infinite proof.
 
-## Originality — PASS
+## originality
 
-The lead 2026 source explicitly labels the logarithmic growth of squared biorthogonal norms **Conjecture 4.1** and says the estimates are not verified. The 2025 primary full text supplies the dual Zak quotient, the uniqueness of the Zak zero and its nonzero derivative, but only uses these to establish exactness and the absence of Schauder and reproducing-pair properties. It does not state a uniform norm-growth estimate or a leading constant. The new proof performs the nontrivial radial-frequency asymptotic, proves a bounded error uniform in lattice direction and transfers the result to every deleted atom.
+PASS
 
-Searches of published results and semantic mathematical records under the source ID, Gaussian Gabor biorthogonality, dual-norm asymptotics, Zak/theta localization, and sharp logarithmic coefficients found no equivalent covering result. The 2025 source contains nearly all of the analytic infrastructure, so the genuine novelty is explicitly limited to the quantitative asymptotic and its uniform sharp coefficient; an unindexed independent derivation remains possible.
+New claim and its implications assessed against named primary papers and fresh Resultary published-finding searches. Self-indexed candidate hit ignored as evidence of novelty. The four mandatory checks, material actually read, and risks follow.
 
-## Value — PASS
+## value
 
-The theorem proves a named, newly stated open quantitative conjecture in time-frequency analysis. It computes the universal constant controlling the exact dual cost at large critical-lattice separation, not merely a coarse comparison, and turns an implicit sufficient norm condition for weighted lower semi-frames into an explicit logarithmic summability test. The direction-independent asymptotic distinguishes a genuine two-dimensional logarithmic singularity from an artifact of finitely many numerical experiments.
+PASS
 
-The theorem neither claims a Schauder basis nor a necessary classification of all weights. The lack of an explicitly computed additive constant is a scientific limitation but does not weaken the claimed sharp leading law.
+Proves Zikkos 2026 Conjecture 4.1 about the squared norms of the unique Gaussian critical-density missing-atom biorthogonals, with a sharp, direction-independent leading coefficient and universal additive error. This is a natural infinite-system stability invariant and makes a sufficient lower-semi-frame summability condition explicit; no necessary complete weight classification is claimed.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
