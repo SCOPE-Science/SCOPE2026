@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness: PASS
+The open-chain Hamiltonian is Hermitian except for strictly negative imaginary diagonal loss on the second sublattice. The sine modes with phases \(i^j\) diagonalize the first sublattice matrix with pairwise distinct eigenvalues, and their coupling into the lossy sector is nonzero. Therefore all finite-loss eigenvalues have strictly negative imaginary parts and integrated loss is normalized. At fixed dimension, the Schur complement and simple-eigenvalue perturbation yield modal decay rates \(\langle u_k,WD^{-1}Wu_k\rangle/\Gamma\) and their channel weights. Off-diagonal modal integrals vanish at leading order due to the nonzero frequency gaps. Exact reflection identities then prove weighted mirror reciprocity. The harmonic-weight normalization has a Dirichlet-sum interior limit and an endpoint-uniform lower bound; hence Riemann-sum convergence establishes the sharp logarithmic coefficient. Reproducible finite-matrix calculations independently reconstruct both modal representations and approximate finite-loss probabilities. These calculations are not substituted for the proof.
+
+## Originality: PASS
+The closest studied object is the graded-loss two-sublattice chain in Yuce and Ramezani (2022, arXiv:2212.02879), which demonstrates edge accumulation numerically, including a linear loss gradient. The 2020 Wang–Liu–Zhang study and 2023 Hu–Xue–Song–Wang study focus on uniform loss and associated edge-burst mechanisms, though the latter derives general resolvent formulas. Inspection of these primary accounts found no claim giving an arbitrary-positive-weight strong-loss escape distribution, its weighted mirror identity, or the coefficient of the sequential \(1/\log N\) escape law. Generic fast–slow perturbation theory supplies an ingredient, not the evaluated sitewise consequences. Residual possibility of unlocated overlapping literature remains; the review is not independent priority certification.
+
+## Value: PASS
+The source literature highlights unexpectedly large remote-edge loss in nonuniformly absorbing quantum walks, but numerical finite-loss pictures do not identify its strong-absorption distribution. The exact reciprocal-weight mirror identity yields the parameter-free endpoint contrast \(N\) for linear loss and applies to every initial injection site. The sharp logarithmic law quantifies how strongly edge accumulation persists as a chain grows, with a nontrivial coefficient depending on competing hopping amplitudes. These structural laws supply meaningful, testable consequences beyond a general statement that an adiabatic-elimination approximation exists.
+
+## Sources and limits
+Yuce and Ramezani, arXiv:2212.02879v1; Wang, Liu, and Zhang, arXiv:2011.07441; Hu et al., arXiv:2306.08676; Xue et al., arXiv:2109.14628. The proof is sequential in strong-loss strength and chain length; no arbitrary coupled limit, finite-loss global optimum or time-resolved escape law is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
