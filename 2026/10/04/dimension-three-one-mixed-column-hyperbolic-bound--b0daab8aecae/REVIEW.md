@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. After removing zero columns by geometric thinning, the unique mixed column can be normalized to \(e_1+w\). In dimension two, a pure-file sample fails to span \(w\) exactly when it avoids \(\langle w\rangle\) and remains on at most one other projective line. This gives the displayed exact formulas for \(E_1\) and \(E_2\). Their multiplicity corrections are superadditive, so replacing each non-\(\langle w\rangle\) multiplicity by unit parts can only lower both expectations. The resulting rational inequality is certified for the entire integer parameter domain by two exhaustive nonnegative-coefficient substitutions. A standalone exact-arithmetic verifier reconstructs that parametric certificate and independently matches the expectation formulas against sampled-span Markov chains over three finite fields.
+## correctness
 
-## Originality
-PASS, with residual literature risk. The March 2026 source states the universal hyperbolic conjecture and proves it for codes with no mixed columns. The September 2026 follow-up proves the conjecture under \(k\ge2m_{\mathrm{mix}}+2\); with one mixed column this begins at total dimension four and therefore does not imply the present total-dimension-three case. Targeted searches for dimension-three, \((1,2)\)-file, and one-mixed-column formulations found no result implying this theorem. The nearest indexed records concern unrelated dimension-three code problems.
+PASS
 
-## Value
-PASS. The claim settles the smallest genuinely mixed instance of the block-retrieval hyperbolic conjecture in which one file has dimension at least two. It sits exactly below the later general mixed-column threshold for one mixed column, so it closes a natural boundary case rather than an arbitrary parameter slice. The proof also supplies exact expectation formulas in terms of projective multiplicities, which can be reused in further low-dimensional analysis.
+The unique mixed nonzero column can be normalized to e1+w. For pure F2 lines L0=<w> count c and other occupied lines with positive counts x_j (d=sum x_j>=1), the two exact failure-event enumerations lead to the E1,E2 rational expressions in the actual RESULT.md. Superadditivity of phi and psi follows termwise from nonnegative convex sequences with zero constant, giving lower bounds E1*=n/(a+1)+1/(n-1)+2d/[(n-2)(n-1)] and E2*=n/d+d[2/((n-2)(n-1))+n/(b(b+1))]. Independently re-expanded the cleared integer polynomial with u=A-2,v=d-1,w=b-d>=0: exhaustive domains u>=v and v>=u yield 143 and 148 nonzero monomials respectively, each coefficient strictly positive (minimum 1). Thus E1* E2* - E2* -2E1* >=0 for all parameters, not merely sampled instances. Geometric thinning covers zero columns. Inspected stand-alone verifier also constructs finite-field sampled-span Markov checks, which are corroborative only.
 
-## Limitations and residual risks
-The argument is dimension-specific and relies on projective-line structure inside a two-dimensional file. It does not address two mixed columns at total dimension three. The later mixed-column preprint was inspected at the theorem/abstract level and its stated parameter condition excludes this case; a hidden equivalent special-case argument elsewhere remains a literature risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The March Bar-Lev hyperbolic conjecture was proved for unmixed codes; September Vlachos–Bar-Lev theorem with m_mix=1 starts at total dimension k>=4. The exact k=3 and one-mixed arbitrary-length boundary is not entailed by that theorem, though the later preprint notes a small n=4 case without furnishing the arbitrary-n result.
+
+## value
+
+PASS
+
+The lowest genuinely mixed (1,2)-file instance is a motivated missing boundary below the known mixed-column k>=2m+2 theorem. The exact multiplicity formulas and parametric nonnegativity certificate provide reusable structural information, beyond small numerical tests.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

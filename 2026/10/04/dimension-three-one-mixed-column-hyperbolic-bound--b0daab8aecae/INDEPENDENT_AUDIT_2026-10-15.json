@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T02:51:42.452654Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The unique mixed nonzero column can be normalized to e1+w. For pure F2 lines L0=<w> count c and other occupied lines with positive counts x_j (d=sum x_j>=1), the two exact failure-event enumerations lead to the E1,E2 rational expressions in the actual RESULT.md. Superadditivity of phi and psi follows termwise from nonnegative convex sequences with zero constant, giving lower bounds E1*=n/(a+1)+1/(n-1)+2d/[(n-2)(n-1)] and E2*=n/d+d[2/((n-2)(n-1))+n/(b(b+1))]. Independently re-expanded the cleared integer polynomial with u=A-2,v=d-1,w=b-d>=0: exhaustive domains u>=v and v>=u yield 143 and 148 nonzero monomials respectively, each coefficient strictly positive (minimum 1). Thus E1* E2* - E2* -2E1* >=0 for all parameters, not merely sampled instances. Geometric thinning covers zero columns. Inspected stand-alone verifier also constructs finite-field sampled-span Markov checks, which are corroborative only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Vlachos–Bar-Lev 2026 Theorem 3: k>=2m_mix+2. For k=3,m_mix=1 this criterion is 3>=4, false. Bar-Lev 2026 original covers no mixed column."
+        ],
+        "reasoning": "No stronger theorem checked includes arbitrary-length k=3,m_mix=1. The September author text mentions some boundary n=4 separately but not the claimed universal parameter case.",
+        "searches": [
+          "Resultary semantic query: dimension three two-file systematic linear code one mixed column expected retrieval time hyperbolic inequality inverse E1 plus two inverse E2",
+          "primary source read: arXiv:2609.36067v1 Theorem 3",
+          "primary source read: arXiv:2603.17154v1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.36067v1",
+        "arXiv:2603.17154v1",
+        "Resultary 2026/10/4/SCOPE-dimension-three-one-mixed-column-hyperbolic-bound--b0daab8aecae"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "March zero-mixed bound excludes the unique mixed column; September k>=2m+2 includes k>=4 for m=1, excluding k=3."
+        ],
+        "reasoning": "Neither source theorem logically gives the target as a special case; the current parametric algebra is needed to prove the boundary.",
+        "searches": [
+          "Resultary semantic query: dimension three two-file systematic linear code one mixed column expected retrieval time hyperbolic inequality inverse E1 plus two inverse E2",
+          "primary source read: arXiv:2609.36067v1",
+          "primary source read: arXiv:2603.17154v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "One mixed coordinate in a systematic [n,3] code; reciprocal expected retrieval time inequality 1/E1+2/E2<=1; normalized projective-line multiplicity representation."
+        ],
+        "reasoning": "Normalized forms and file-order reversal encode the same conjecture. The existing higher-k theorem does not imply this case by exchanging files or adding pure columns, which alters sampling probabilities.",
+        "searches": [
+          "Resultary semantic query: dimension three two-file systematic linear code one mixed column expected retrieval time hyperbolic inequality inverse E1 plus two inverse E2",
+          "primary source read: arXiv:2609.36067v1 Theorem 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary subject search returns the exact assigned record first; other hits have unrelated linear algebra, not one-mixed code-census tables."
+        ],
+        "reasoning": "A table of finitely many fields cannot prove all finite fields/all code lengths; no exhaustive published table seen.",
+        "searches": [
+          "Resultary semantic query: dimension three two-file systematic linear code one mixed column expected retrieval time hyperbolic inequality inverse E1 plus two inverse E2"
+        ]
+      },
+      "rationale": "The March Bar-Lev hyperbolic conjecture was proved for unmixed codes; September Vlachos–Bar-Lev theorem with m_mix=1 starts at total dimension k>=4. The exact k=3 and one-mixed arbitrary-length boundary is not entailed by that theorem, though the later preprint notes a small n=4 case without furnishing the arbitrary-n result.",
+      "residual_risks": [
+        "The full March paper, and potential very recent revisions of the September preprint, were not wholly re-inspected; an unindexed equivalent boundary lemma remains possible.",
+        "Certificate relies on exact symbolic expression for E1/E2, which was separately checked against the inspected code’s small Markov examples rather than assumed from a VERIFY_OK line."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING arbitrary length total dimension k=3, one mixed column",
+          "evidence": "Criterion reduces to k>=4; text mentions n=4 as a boundary without full arbitrary-length theorem",
+          "identifier_or_url": "arXiv:2609.36067v1",
+          "material_read": "Main theorem k>=2m_mix+2 and discussion of low-dimensional boundary example",
+          "method": "Read accessible primary preprint theorem and surrounding discussion",
+          "title": "A Hyperbolic Bound for File Retrieval in DNA-Based Data Storage",
+          "trigger": "The closest 2026 published/preprint stronger coverage"
+        },
+        {
+          "assessment": "Conjecture not prior proof for one mixed column",
+          "evidence": "Conjectural inequality and established no-mixed special case do not imply one mixed",
+          "identifier_or_url": "arXiv:2603.17154v1",
+          "material_read": "Accessible abstract/statement of proposed universal hyperbolic bound and no-mixed scope",
+          "method": "Primary arXiv abstract and theorem-level comparison; full paper not read in this run",
+          "title": "Coded Information Retrieval for Block-Structured DNA-Based Data Storage",
+          "trigger": "Original conjecture and no-mixed theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The lowest genuinely mixed (1,2)-file instance is a motivated missing boundary below the known mixed-column k>=2m+2 theorem. The exact multiplicity formulas and parametric nonnegativity certificate provide reusable structural information, beyond small numerical tests.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exactly one mixed nonzero column with systematic file split (1,2); two mixed columns not covered.",
+    "Finite-field Markov examples are corroborative, while positive polynomial coefficients prove the infinite integer parameter range."
+  ],
+  "schema_version": 1
+}

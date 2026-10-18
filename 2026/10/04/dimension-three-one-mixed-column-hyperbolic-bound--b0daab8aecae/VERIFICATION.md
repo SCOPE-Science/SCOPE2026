@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked in three layers.
+# Independent mathematical audit
 
-1. **Parametric algebraic certificate.** `verify_one_mixed.py` builds the cleared numerator of \(E_1^*E_2^*-E_2^*-2E_1^*\) using a small integer multivariate-polynomial implementation. With \(A=u+2\), \(d=v+1\), and \(b=v+w+1\), the whole domain is split into the exhaustive cases \(u\ge v\) and \(v\ge u\). The substitutions \(u=v+z\) and \(v=u+z\) respectively produce 143 and 148 monomials, all with strictly positive integer coefficients. This verifies the inequality for infinitely many integer parameters by symbolic coefficient positivity; it is not a bounded enumeration.
+## correctness
 
-2. **Exact-rational multiplicity checks.** The script evaluates the closed formulas for many patterns \((a,c;x_1,\ldots,x_r)\), confirms \(E_i\ge E_i^*\), and checks \(1/E_1+2/E_2\le1\) with `Fraction` arithmetic.
+PASS
 
-3. **Independent sampled-span Markov chains.** For five representative systematic one-mixed-column codes over \(\mathbb F_2\), \(\mathbb F_3\), and \(\mathbb F_5\), the script computes the stopping expectations directly from the finite subspace Markov chain. Each exactly equals the derived closed formula.
+The unique mixed nonzero column can be normalized to e1+w. For pure F2 lines L0=<w> count c and other occupied lines with positive counts x_j (d=sum x_j>=1), the two exact failure-event enumerations lead to the E1,E2 rational expressions in the actual RESULT.md. Superadditivity of phi and psi follows termwise from nonnegative convex sequences with zero constant, giving lower bounds E1*=n/(a+1)+1/(n-1)+2d/[(n-2)(n-1)] and E2*=n/d+d[2/((n-2)(n-1))+n/(b(b+1))]. Independently re-expanded the cleared integer polynomial with u=A-2,v=d-1,w=b-d>=0: exhaustive domains u>=v and v>=u yield 143 and 148 nonzero monomials respectively, each coefficient strictly positive (minimum 1). Thus E1* E2* - E2* -2E1* >=0 for all parameters, not merely sampled instances. Geometric thinning covers zero columns. Inspected stand-alone verifier also constructs finite-field sampled-span Markov checks, which are corroborative only.
 
-Running `python3 verify_one_mixed.py` returns `VERIFY_OK`, with certificate term counts 143 and 148 and minimum coefficient 1 in both cases.
+## originality
 
-The computational checks do not certify literature originality and do not replace the analytic derivation of the stopping-time formulas or superadditivity. No independent external audit has been performed.
+PASS
+
+The March Bar-Lev hyperbolic conjecture was proved for unmixed codes; September Vlachos–Bar-Lev theorem with m_mix=1 starts at total dimension k>=4. The exact k=3 and one-mixed arbitrary-length boundary is not entailed by that theorem, though the later preprint notes a small n=4 case without furnishing the arbitrary-n result.
+
+## value
+
+PASS
+
+The lowest genuinely mixed (1,2)-file instance is a motivated missing boundary below the known mixed-column k>=2m+2 theorem. The exact multiplicity formulas and parametric nonnegativity certificate provide reusable structural information, beyond small numerical tests.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
