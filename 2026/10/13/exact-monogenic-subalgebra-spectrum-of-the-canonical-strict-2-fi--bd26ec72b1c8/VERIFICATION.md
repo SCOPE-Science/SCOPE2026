@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The verification has a finite exact part and an infinite structural part.
+# Independent mathematical audit
 
-For the exact part, `verify_monogenic_x2.py` implements the five-point levels of \(X_2\), the order from Definition 4.1, and the Esakia operation \(A\to B=(\downarrow(A\setminus B))^c\). For finite nonempty \(A\setminus B\), only finitely many top levels can remain outside its downset, so the implementation is exact rather than a truncation. It enumerates all \(31\) nonempty rank-0 upsets and all \(35\) rank-1 upsets and computes their generated closures. The distributions are
-\[
-\text{rank 0}:\quad 1\text{ of size }3,26\text{ of size }5,4\text{ of size }9,
-\]
-\[
-\text{rank 1}:\quad 31\text{ of size }3,4\text{ of size }5.
-\]
-It also verifies that the four 9-element generators are exactly \(L_2^0\setminus\{x_0^j\}\) for \(1\le j\le4\), and for each one checks all three binary operations on its nine explicitly generated terms. The script returns `VERIFY_OK 1300 exact assertions`.
+## correctness
 
-For the infinite part, no enumeration is used. If an upset contains a point at level \(r\ge2\), the defining order places that point below every maximal point in \(L_2^0\), so the upset contains all of \(L_2^0\). Every point of \(X_2\) lies below a maximal point; hence the upset has full downset and is dense. Any nonzero proper dense element generates exactly \(\{0,a,1\}\). This proves the size-3 conclusion uniformly at every deeper level.
+PASS
 
-The verifier is a consistency and exhaustiveness check for the bounded low-rank cases; the uniform mathematical argument is what covers infinitely many deeper generators.
+Reconstruct Definition 4.1: five points per level, x_i^l≤x_j^m when i≥j+2 or adjacent i=j+1 with m≠l+1; x∞ is minimum. Proper clopen upsets are finite, operation A→B is complement of ↓(A\B). Every upset meeting level≥2 contains the five maximal level-0 points and hence is dense (negation zero); nonzero proper dense generator closes to {0,a,1}. Exactly 31 nonempty rank-0 and 35 rank-1 upsets remain. Independent 8-level bitmask downset model, different from supplied set verifier, enumerates complete low-rank upset sets and closes under ∧,∨,→: rank0 (3:1,5:26,9:4), rank1 (3:31,5:4), and 0/1 size2. Four size-9 generators are L0\{x0^j}, j=1..4. The infinite conclusion uses deep-rank density lemma, not truncation.
+
+## originality
+
+PASS
+
+Best-of-knowledge novelty assessment compares identical mathematical statements and implications, not titles or a lack of search hits. The specific object-level complete spectrum is not implied by the source construction or abstract one-variable classifications. Comparison risks remain explicitly recorded; noncoverage is not asserted from abstracts of unread whole papers.
+
+## value
+
+PASS
+
+The source construction is motivated by sharp bounds on finitely generated subalgebras; exact size spectrum at the first lower arity in its canonical X_2* is therefore a natural mathematical invariant. Exact generator multiplicities and explicit nine-element closures distinguish behavior invisible from the general finiteness bound. No need to settle two-generated spectrum to value this self-contained classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
