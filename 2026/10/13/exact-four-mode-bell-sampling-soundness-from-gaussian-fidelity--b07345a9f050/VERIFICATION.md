@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof has two external mathematical inputs: the standard Bell-sampling Gaussianity test defined by the zero eigenspace of the Majorana bridge operator, and the four-mode positive-parity Gaussian-fidelity normal form. Both were checked against their primary literature.
+# Independent mathematical audit
 
-The only new finite-dimensional spectral calculation is replayed by `artifacts/verify.py` using exact rational arithmetic. In the four-cube representation, the zero eigenspace consists of the six Walsh characters indexed by two-element subsets. The endpoint sum has coefficient \(1/2\) in each of those six normalized characters, so its kernel-projection norm squared is exactly \(6/4=3/2\). Since the endpoint sum has norm squared \(2\), the rejecting projection has norm squared \(1/2\).
+## correctness
 
-The script also checks the resulting formula \(r_4=f(1-f)/2\) for representative rational values and the algebraic monotonicity identity
-\[
-\frac12y(1-y)-\frac12x(1-x)=\frac12(y-x)(1-x-y)
-\]
-for \(0\le x\le y\le1/2\), which justifies placing the worst case at the distance boundary.
+PASS
 
-The script is corroborative only. It does not establish the global four-mode normal form, and no finite enumeration is used as evidence for an infinite or continuous classification.
+Dias--Koenig Theorems 5.4 and 5.6 give Gaussian-unitary normal form sqrt(f)|0000>+sqrt(1-f)|1111>, f=F_G in [1/2,1]. Majorana bridge on the total-occupation-four cross sector gauges to 2 times four-cube adjacency. Six zero-eigenvalue Walsh characters have overlap 1/2 with the endpoint sum, so kernel norm=3/2, reject norm=1/2. The diagonal two-copy terms are in the kernel and orthogonal to this cross sector, yielding r=f(1-f)/2. Independently constructed the 8-Majorana 256x256 Jordan--Wigner bridge matrix and spectral projector: zero eigenvalue multiplicity 70 and r values 0, .045, .09375, .125 at f=1,.9,.75,.5; all agree to 1e-15. Since x=1-f<=1/2, x(1-x)/2 is monotone and threshold sharp; independent rounds multiply acceptance probabilities. No mixed-state or higher-mode claim.
+
+## originality
+
+PASS
+
+Earlier West--Larocca provides a mode-independent lower bound r>=F_G(1-F_G)/2 and r>=epsilon^2/8 for pure states; an inequality in arbitrary n does not imply equality for n=4. Dias--Koenig provides the four-mode canonical family but does not evaluate this bridge test. The exact attained law and finite-R count synthesize these structures; best-of-knowledge not located as a prior theorem.
+
+## value
+
+PASS
+
+The exact finite-mode false-acceptance curve is a motivated sharp quantification of an operational Gaussianity tester: general bounds prove only a floor. The first nontrivial four-mode case determines optimal constants for the specified test and is useful for finite-sample calibration, not merely a numerical example or a renamed inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces every normalized positive-parity pure four-mode state to the independently established Gaussian-fidelity normal form \(\sqrt f|0000\rangle+\sqrt{1-f}|1111\rangle\), with \(f=F_{\mathrm G}\). The only potentially rejecting part of two copies lies in the sector with one fermion across the two copies in each mode. There the bridge operator is gauge-equivalent to the four-cube adjacency operator. Its zero eigenspace has the six weight-two Walsh characters, whose exact overlap with the endpoint sum yields rejecting squared norm \(1/2\). This gives \(r_4=F_{\mathrm G}(1-F_{\mathrm G})/2\) with all normalizations fixed. The distance and repeated-round statements then follow exactly.
+## correctness
 
-Risk: the proof depends on the standard convention that pure-state trace distance to the Gaussian set equals \(\sqrt{1-F_{\mathrm G}}\), and is restricted to positive parity. Both conventions are stated explicitly in the result.
+PASS
 
-## Originality
-PASS. The closest recent primary paper proves a mode-independent lower bound for the same Bell test, while the four-mode normal-form paper supplies the orbit reduction but does not evaluate the Bell-test kernel. The closest bridge-spectrum paper supplies the measurement framework and testing algorithms but, in the inspected article text and targeted searches, does not state the four-mode pointwise fidelity/rejection identity or the exact confidence curve. Searches over exact formulas, canonical-state aliases, bridge-operator language, and four-mode Gaussianity terminology did not locate a covering statement.
+Dias--Koenig Theorems 5.4 and 5.6 give Gaussian-unitary normal form sqrt(f)|0000>+sqrt(1-f)|1111>, f=F_G in [1/2,1]. Majorana bridge on the total-occupation-four cross sector gauges to 2 times four-cube adjacency. Six zero-eigenvalue Walsh characters have overlap 1/2 with the endpoint sum, so kernel norm=3/2, reject norm=1/2. The diagonal two-copy terms are in the kernel and orthogonal to this cross sector, yielding r=f(1-f)/2. Independently constructed the 8-Majorana 256x256 Jordan--Wigner bridge matrix and spectral projector: zero eigenvalue multiplicity 70 and r values 0, .045, .09375, .125 at f=1,.9,.75,.5; all agree to 1e-15. Since x=1-f<=1/2, x(1-x)/2 is monotone and threshold sharp; independent rounds multiply acceptance probabilities. No mixed-state or higher-mode claim.
 
-Risk: because the anchor is only days old and bridge-sampling literature is active, a contemporaneous equivalent observation may be poorly indexed.
+## originality
 
-## Value
-PASS. The four-mode positive-parity space is the first nontrivial pure fermionic setting, and Bell sampling is a central experimentally simple Gaussianity tester. An exact attained soundness curve is materially stronger than a generic constant-factor inequality: it gives the precise finite-sample confidence cost and exposes how the canonical Gaussian-fidelity coordinate controls the operational test. The result does not claim higher-mode exactness or optimality against arbitrary collective finite-sample protocols.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Earlier West--Larocca provides a mode-independent lower bound r>=F_G(1-F_G)/2 and r>=epsilon^2/8 for pure states; an inequality in arbitrary n does not imply equality for n=4. Dias--Koenig provides the four-mode canonical family but does not evaluate this bridge test. The exact attained law and finite-R count synthesize these structures; best-of-knowledge not located as a prior theorem.
+
+## value
+
+PASS
+
+The exact finite-mode false-acceptance curve is a motivated sharp quantification of an operational Gaussianity tester: general bounds prove only a floor. The first nontrivial four-mode case determines optimal constants for the specified test and is useful for finite-sample calibration, not merely a numerical example or a renamed inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
