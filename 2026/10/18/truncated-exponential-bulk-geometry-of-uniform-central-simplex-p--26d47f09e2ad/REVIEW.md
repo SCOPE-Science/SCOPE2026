@@ -1,0 +1,15 @@
+# Scientific comparison and review
+
+## Correctness — PASS
+The conditioning event is scale invariant, so normalizing independent exponentials gives exactly uniform relative volume in the required central simplex polytope. A direct change of variables computes the conditional minimum transform as \(\mathrm{Beta}(m/(c-1),m)\), including its exact variance; this yields concentration at \(a_c=\log(c)/(c-1)\). Conditional on the minimum, the remaining coordinates are independent truncated exponentials, giving an empirical weak law; independence of the gamma sum from the simplex proportions justifies normalization. Exchangeability plus the with-/without-replacement coupling proves finite-coordinate asymptotic independence. Moment integration and deterministic bounded support prove the precise radial constant and \(L^q\) convergence. The proof verifies all normalization conventions and is independent of finite experiments.
+
+## Originality — PASS, with qualifications
+Kazakov (2026), arXiv:2606.02087, Sections 2–5 and appendices, determines the edge-trisection polytope, its volume fraction, and its face structure. The exponential representation is expressly prior work. A prior central-simplex result covers volume fractions and Hausdorff distances even at a growing coordinate ratio, but does not imply the uniform-volume conditional marginal limit, endpoint concentration, or the typical squared radius. Searches under Marion/ratio-constrained simplex, truncated-exponential conditioning, beta minimum, and Euclidean thin-shell aliases did not reveal a published covering theorem. The title/statement comparison, not the absence of keyword matches, supports originality. A different derivation in general conditioned-order-statistics literature remains a plausible priority risk.
+
+## Mathematical value — PASS
+Kazakov's central-simplex construction supplies a natural family whose volume is explicitly known, while its high-dimensional typical point geometry remains different information from face counts or total volume. The theorem identifies the full typical-coordinate distribution, its support endpoints, and a nontrivial exact Euclidean concentration coefficient for every fixed ratio, including the canonical edge-trisection case. It turns a qualitative rescaling question into explicit values without requiring a universal or paper-sized theorem. The result makes no claim about all convex bodies or whole-polytope Hausdorff shape.
+
+## Closest literature and limits
+The main manuscript's full public text was reviewed for its central-polytope inequalities, exponential-volume argument, combinatorial classification and future questions. The Fried simplex-extreme paper was compared from its abstract only; it does not condition on all coordinate ratios. The previous central-simplex volume/Hausdorff finding was compared by mathematical implication but not independently re-reviewed. An unlocated equivalent elementary conditional-sample theorem remains the chief originality risk.
+
+Self-review: passed. Independent audit: not yet performed.
