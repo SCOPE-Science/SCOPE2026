@@ -1,11 +1,21 @@
-# Scientific review: exact binary-digit valuations and denominators
+# Independent mathematical audit
 
-**Correctness — PASS.** Cooper's published modular identity provides an integral square with odd first coefficient. The proof reconstructs the formal binomial coefficient valuation using Legendre's factorial formula, shows the unique lowest-valuation contribution for every index, and checks the next contribution before claiming a congruence modulo two additional powers. Index one and the initial value are handled explicitly. Exact recurrence arithmetic through index 350 and rational square coefficients through degree six were checked from the packaged verifier; finite tests do not substitute for the all-index argument.
+## correctness
 
-**Originality — PASS relative to checked sources.** Cooper (2023, Section 6 and Theorem 6.1) proves integer scaling and explicitly asks for number-theoretic properties of this sequence; he does not state its exact binary valuation, the modulo-four Catalan unit, or the minimal powers of two in the rational coefficients' denominators. Gorodetsky's exact and lower congruence studies concern 15 earlier three-term sporadic sequences; Ulas's publicly accessible abstract concerns integer powers of other series. Searches for recurrence coefficients, initial terms, exact valuations, denominator duals and square-root aliases revealed no equivalent. The **principal priority risk** is that Cooper's existing expansion makes the present claim a relatively short corollary once the elementary valuation dominance lemma is recognized; equivalent unpublished work is possible.
+PASS
 
-**Value — PASS.** The result determines a natural exact arithmetic invariant at every index for a specific integer sequence whose congruence arithmetic was posed as a motivating open direction. It also sharpens a previously known integrality bound to the exact reduced 2-primary denominator, identifies the leading odd factor modulo four, and gives the complete index-frequency distribution. These conclusions are not a mere recomputation of the small published table. They do not assert any odd-prime congruence or prove a wider modular theorem.
+Cooper's level-13 modular formula supplies Z(X)^2=F(X) in Z[[X]], F(0)=1 and linear coefficient a=3. Expanding sqrt(1+I), 4^n binom(1/2,k) for the k-th term has v2=2(n-k)+s2(k); the inequality s2(n)<=s2(k)+(n-k) puts all k<n contributions above the k=n valuation s2(n). The unique k=n term has odd a^n, proving v2(S_n)=s2(n) for every n>=1. Terms k<=n-2 vanish modulo 2^{s2(n)+2}; the k=n-1 factor (n-1)a^{n-2}b has sufficient 2-adic valuation, yielding the exact Catalan congruence. Division by 4^n gives denominator 2^{2n-s2(n)}; binomial distribution of popcounts yields frequency C(m,k). Checked exact integer recurrence and congruence independently through n=121 plus source checker structure. The all-n theorem depends on Cooper's true modular square identity, not finite evidence.
 
-**Scientific limits and source coverage.** Primary source: Cooper, arXiv:2302.00757 (2023), Section 6. Closest related investigations: Gorodetsky, arXiv:2102.11839 (2021), and Ulas, DOI 10.1142/S1793042119500386 (2019). The Ulas comparison was limited to its accessible abstract; search omissions remain possible. The arithmetic argument is a short consequence of a published q-series identity rather than an independent modular construction.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published square identity + general elementary valuation comparison IMPLIES the claim after an additional proof; no identical theorem found in read prior source. Significance is an exact arithmetic specialization, not a new modular relation. The valuation is a short but nontrivial formal square-root consequence of Cooper's identities. No primary source inspected that states this popcount identity or modulo-four Catalan odd part as an equivalent formulation. Material priority limits are recorded separately.
+
+## value
+
+PASS
+
+This gives the exact arithmetic of a natural Apéry-like integer sequence at every index in response to arithmetic questions from the originating modular-parametrization paper: precise binary valuation, two extra powers of unit precision, reduced denominator valuation, and full frequency. The small amount of additional proof does not make the all-index explicit invariant a mere published-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
