@@ -1,17 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof reconstructs the PNE1 vector field and the exact identity \(d(x^2+y^2)/(2dt)=y^2z\). Compact-support invariance makes its mean zero. The strictness argument was checked at both possible degeneracies: a sign-fixed interval forces \(x=y=0\) and hence unbounded affine \(z\) when \(c\ne0\); an orbit trapped in \(z=0\) would have to be harmonic while satisfying \(x(1+a y)=c\), which is impossible for nonzero \(c\). The symbolic checker confirms the two algebraic steps used in this rigidity argument.
+## correctness
 
-## Originality — PASS
-The defining article was inspected at the PNE1 equations, no-equilibrium statement, bifurcation discussion, and periodic-orbit discussion. Targeted scientific database searches covered invariant-measure, stationary-moment, weighted-height, exact-equation, recurrence-barrier, and alias formulations. The closest full comparison record has an exact \(y^2z\)-balance for a different quadratic flow with an equilibrium line; it neither specializes to PNE1 nor implies the strict two-sided-height conclusion. No inspected same-object source states or dominates the final claim.
+PASS
 
-Residual risk remains from unindexed source-specific occupation-measure literature, and the earliest exact public date located is 28 May 2014 rather than an independently located preprint date.
+Frozen RESULT.md blob 422445f5aadf6a21f7a134746c2c1fabe1a19788 uses the exact Pham PNE1 vector field (x'=y, y'=−x+yz, z'=−x−axy−bxz+c). Direct differentiation E=(x²+y²)/2 gives E'=y²z. Generator invariance on compact support forces ∫y²z=0. If its positive and negative weighted parts both vanish, y²|z|=0 continuously on invariant support. If z is nonzero on any interval then y=0 there, hence x=0 and uniqueness extends x=y=0, while z'=c produces an unbounded complete orbit, impossible. Otherwise z≡0, x,y execute a harmonic circle but z'=0 imposes x(1+ay)=c for all time; its nonzero constant −c Fourier coefficient makes this impossible for c≠0. Therefore both weighted half-space integrals are equal and strictly positive for every compactly supported invariant μ. Every nonempty compact invariant set carries a time-average invariant measure, so it meets both z signs; periodic continuity forces plane crossings. Recomputed E' exactly and checked the harmonic constraint, not the numerical chaos evidence. At c=0 an equilibrium line defeats strictness; no recurrence existence is asserted.
 
-## Value — PASS
-The result is a structural constraint on every compact recurrent regime of the no-equilibrium PNE1 family. It upgrades a simple energy coboundary into a topological sign-straddling theorem and an exact positive weighted-exposure law, thereby constraining all periodic windows and compact chaotic regimes of the motivating family without relying on numerical simulation. The restriction \(c\ne0\) is mathematically essential rather than an arbitrary slice.
+## originality
 
-## Closest literature and limitations
-Pham et al. provide the exact system and numerical dynamical context. The closest checked stationary-balance record concerns a distinct quadratic line-equilibrium flow. The theorem does not prove existence or chaos, does not identify a physical measure, and does not quantify residence time or excursion depth in either half-space.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS on bounded comparison: source-defining PNE1 paper describes dynamics numerically but does not in the directly inspected text establish a universal invariant-measure sign-straddling theorem. Structurally similar published Resultary balance for an equilibrium-line flow has a different third equation and does not imply the strict c≠0 law.
+
+## value
+
+PASS
+
+For a named naturally studied no-equilibrium quadratic chaotic-flow family, the explicit strict two-sided weighted height law excludes every compact invariant set trapped on one side of z=0 for every real a,b and nonzero c. It replaces sample-orbit plots with a universal recurrence barrier and identifies exactly why the no-equilibrium perturbation matters; the c=0 boundary is a motivated failure mode.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

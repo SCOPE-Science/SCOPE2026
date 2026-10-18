@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T18:14:00.960787Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/strict-two-sided-height-recurrence-in-the-pham-no-equilibrium-pn--2bffb9e7188f/RESULT.md [Git blob 422445f5aadf6a21f7a134746c2c1fabe1a19788]"
+      ],
+      "rationale": "Frozen RESULT.md blob 422445f5aadf6a21f7a134746c2c1fabe1a19788 uses the exact Pham PNE1 vector field (x'=y, y'=−x+yz, z'=−x−axy−bxz+c). Direct differentiation E=(x²+y²)/2 gives E'=y²z. Generator invariance on compact support forces ∫y²z=0. If its positive and negative weighted parts both vanish, y²|z|=0 continuously on invariant support. If z is nonzero on any interval then y=0 there, hence x=0 and uniqueness extends x=y=0, while z'=c produces an unbounded complete orbit, impossible. Otherwise z≡0, x,y execute a harmonic circle but z'=0 imposes x(1+ay)=c for all time; its nonzero constant −c Fourier coefficient makes this impossible for c≠0. Therefore both weighted half-space integrals are equal and strictly positive for every compactly supported invariant μ. Every nonempty compact invariant set carries a time-average invariant measure, so it meets both z signs; periodic continuity forces plane crossings. Recomputed E' exactly and checked the harmonic constraint, not the numerical chaos evidence. At c=0 an equilibrium line defeats strictness; no recurrence existence is asserted.",
+      "residual_risks": [
+        "Conditional on existence of a nonempty compact invariant set; does not give a lower bound on mass or crossing frequency.",
+        "Not a certification that any reported numerical attractor is chaotic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The defining Pham paper prints the PNE1 equations and numerical periodic/chaotic regimes; these do not imply every compact invariant set crosses z=0.",
+          "The published line-equilibrium system has z' = x²−by², and has equilibrium measures, so its E[y²z]=0 cannot entail strict sign-straddling for PNE1."
+        ],
+        "reasoning": "The closest stronger-looking theorem is on a different vector field with equilibria; logical substitution of its hypotheses is unavailable.",
+        "searches": [
+          "DOI 10.1142/S0218127414500734",
+          "Resultary/2026/2026/10/4/SCOPE-exact-phase-volume-rates-and-invariant-measure-balance-in-a-line--4d3e05f1d42b/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1142/S0218127414500734",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-phase-volume-rates-and-invariant-measure-balance-in-a-line--4d3e05f1d42b/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "PNE1 has no equilibrium for c≠0; together with radial derivative, that nonexistence is crucial for positive strictness.",
+          "The earlier line-equilibrium result permits y=0, so its equality case is qualitatively different."
+        ],
+        "reasoning": "Source no-equilibrium observation and source numerical plots do not, without the new invariant-support argument, establish weighted strictness; prior different-model identity does not imply it.",
+        "searches": [
+          "DOI 10.1142/S0218127414500734",
+          "Resultary 2026/10/4 exact phase-volume/invariant-balance theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent formulations: y²z is an exact derivative of radial planar energy; its zero mean forces equality of positive and negative y²|z|-weighted residence, with a strict-support argument.",
+          "The PNE1 source has c≠0, unlike line-equilibrium models."
+        ],
+        "reasoning": "Searched algebraic coboundary, invariant occupation measure and height sign-crossing aliases, not only attractor names.",
+        "searches": [
+          "Pham Volos Jafari Wei Wang PNE1 no-equilibrium chaotic system invariant measure y² z sign crossing z=0 all compact invariant sets",
+          "DOI 10.1142/S0218127414500734",
+          "GitHub SCOPE code query: PNE1 invariant measure sign straddling [no matches]"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source bibliographic database reports numerical parameter choices, not an exact occupation-measure table or all-compact-set theorem.",
+          "Both search channels lack usable positive covering results, but index failure/no matches do not prove absence."
+        ],
+        "reasoning": "No exact table can imply the claimed universal crossing unless it includes all parameter triples and invariant sets; no such actual source evidence found.",
+        "searches": [
+          "Resultary semantic query: Pham Volos Jafari Wei Wang PNE1 no-equilibrium chaotic system invariant measure y² z sign crossing z=0 all compact invariant sets [internal error]",
+          "GitHub SCOPE code query: PNE1 invariant measure sign straddling [no matches]",
+          "MaRDI:Q2920780"
+        ]
+      },
+      "rationale": "PASS on bounded comparison: source-defining PNE1 paper describes dynamics numerically but does not in the directly inspected text establish a universal invariant-measure sign-straddling theorem. Structurally similar published Resultary balance for an equilibrium-line flow has a different third equation and does not imply the strict c≠0 law.",
+      "residual_risks": [
+        "A PNE1-specific unindexed invariant-measure/occupation theorem may exist.",
+        "Resultary semantic query failed; absence in SCOPE code search is not proof of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defining source appears to discuss numerical regimes without the universal stationary integral plus strict half-space recurrence; risk of other documents remains",
+          "evidence": [
+            "PNE1 y dot = −x+yz and z dot = −x−axy−bxz+c; numerical period doubling not measure proof."
+          ],
+          "identifier_or_url": "doi:10.1142/S0218127414500734",
+          "material_read": "Author-shared full-text preview: model equations, c≠0 no-equilibria statement, Lyapunov and periodic/chaotic numerical sections",
+          "method": "Direct full-text equation and conclusion comparison",
+          "title": "Constructing a Novel No-Equilibrium Chaotic System",
+          "trigger": "Exact first printed PNE1 equations and dynamical behavior"
+        },
+        {
+          "assessment": "Different quadratic vector field; stationary balance is analogous but has an entire equilibrium line and does not imply PNE1 strict crossing",
+          "evidence": [
+            "z dot = x²−by² for the published flow, unlike PNE1 with constant perturbation c."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-phase-volume-rates-and-invariant-measure-balance-in-a-line--4d3e05f1d42b/RESULT.md",
+          "material_read": "Complete GitHub RESULT.md at blob 3f52a7cbe12eb6e13b73f85b79e92cfa8907fc08: theorem, equations, proof, limitations",
+          "method": "Full published finding and proof-level implication comparison",
+          "title": "Exact phase-volume rates and invariant-measure balance in a line-equilibrium quadratic flow",
+          "trigger": "Closest previously published Resultary invariant-y²z statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/strict-two-sided-height-recurrence-in-the-pham-no-equilibrium-pn--2bffb9e7188f/RESULT.md"
+      ],
+      "rationale": "For a named naturally studied no-equilibrium quadratic chaotic-flow family, the explicit strict two-sided weighted height law excludes every compact invariant set trapped on one side of z=0 for every real a,b and nonzero c. It replaces sample-orbit plots with a universal recurrence barrier and identifies exactly why the no-equilibrium perturbation matters; the c=0 boundary is a motivated failure mode.",
+      "residual_risks": [
+        "The coboundary alone is elementary; the substantive content is invariant-support rigidity and universal all-compact-set crossing."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/strict-two-sided-height-recurrence-in-the-pham-no-equilibrium-pn--2bffb9e7188f/RESULT.md",
+    "doi:10.1142/S0218127414500734",
+    "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-phase-volume-rates-and-invariant-measure-balance-in-a-line--4d3e05f1d42b/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Resultary semantic search failed internally for this record; no negative semantic-result claim is made.",
+    "GitHub code search with exact-topic wording returned no hits, not proof of absence.",
+    "This is a bounded independent mathematical reading of the assigned source, not formal proof, expert attestation, or a publication.",
+    "Public-facing source metadata contains internal operational provenance and the publication plan is not_ready; no scientific or administrative file was changed."
+  ],
+  "residual_risks": [
+    "Conditional on existence of a nonempty compact invariant set; does not give a lower bound on mass or crossing frequency.",
+    "Not a certification that any reported numerical attractor is chaotic.",
+    "A PNE1-specific unindexed invariant-measure/occupation theorem may exist.",
+    "Resultary semantic query failed; absence in SCOPE code search is not proof of novelty.",
+    "The coboundary alone is elementary; the substantive content is invariant-support rigidity and universal all-compact-set crossing."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Defining source appears to discuss numerical regimes without the universal stationary integral plus strict half-space recurrence; risk of other documents remains",
+      "evidence": [
+        "PNE1 y dot = −x+yz and z dot = −x−axy−bxz+c; numerical period doubling not measure proof."
+      ],
+      "identifier_or_url": "doi:10.1142/S0218127414500734",
+      "material_read": "Author-shared full-text preview: model equations, c≠0 no-equilibria statement, Lyapunov and periodic/chaotic numerical sections",
+      "method": "Direct full-text equation and conclusion comparison",
+      "title": "Constructing a Novel No-Equilibrium Chaotic System",
+      "trigger": "Exact first printed PNE1 equations and dynamical behavior"
+    },
+    {
+      "assessment": "Different quadratic vector field; stationary balance is analogous but has an entire equilibrium line and does not imply PNE1 strict crossing",
+      "evidence": [
+        "z dot = x²−by² for the published flow, unlike PNE1 with constant perturbation c."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-phase-volume-rates-and-invariant-measure-balance-in-a-line--4d3e05f1d42b/RESULT.md",
+      "material_read": "Complete GitHub RESULT.md at blob 3f52a7cbe12eb6e13b73f85b79e92cfa8907fc08: theorem, equations, proof, limitations",
+      "method": "Full published finding and proof-level implication comparison",
+      "title": "Exact phase-volume rates and invariant-measure balance in a line-equilibrium quadratic flow",
+      "trigger": "Closest previously published Resultary invariant-y²z statement"
+    }
+  ]
+}
