@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,28 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The bundled program `verify.py` uses the standard library only and reads no external inputs. It enumerates all restricted-growth strings of length \(2n\) for core sizes \(2\le n\le5\), thus enumerating each unordered set partition once. It tests the four-block coalition-partition criterion and verifies the incidence support types and the exact number
-\[
-2^{n-3}(4^n-5\cdot2^n+6).
-\]
-For every such partition it also compares the private-leaf-pair domination test with actual adjacency-based domination on empty, complete, and path base graphs. It checks a four-block construction for every \(2\le n\le50\).
+# Independent mathematical audit
 
-Execute `python3 verify.py` from the extracted files. The recorded output from an actual execution of that bundled code is:
+## correctness
 
-```text
-VERIFY_OK
-n=2: partitions_checked=15, max_coalition_blocks=4, optimal_partitions=1, supporting_edge_type_counts={2: 1}
-n=3: partitions_checked=203, max_coalition_blocks=4, optimal_partitions=30, supporting_edge_type_counts={2: 6, 3: 24}
-n=4: partitions_checked=4140, max_coalition_blocks=4, optimal_partitions=364, supporting_edge_type_counts={2: 28, 3: 288, 4: 48}
-n=5: partitions_checked=115975, max_coalition_blocks=4, optimal_partitions=3480, supporting_edge_type_counts={2: 120, 3: 2400, 4: 960}
-all direct graph-domination equivalence checks passed for empty, complete and path bases n=2..5
-four-block construction checked through n=50
-```
+PASS
 
-The exhaustive cases comprise
-\[
-15+203+4140+115975=120333
-\]
-distinct partitions. Finite enumeration supports but does not prove the general statement: the infinite proof is the exact vertex-cover reduction, its universal four-vertex bound, three-support classification and automorphism-quotiented surjection count in `RESULT.md`.
+For X=G∘K1 with n>=2, D dominates iff D intersects every private core/leaf pair (because each leaf has only its core neighbor). For any partition, this translates coalition partners into 2-vertex covers of the labeled block-incidence multigraph; there are no singleton dominating vertices. If k>=5, choosing cover {a,b} leaves >=3 vertices in independent remainder; at least one cover vertex has >=2 neighbors in that remainder, forcing all other vertices covers with it, which would make it a forbidden one-cover. For k=4, cover combinatorics exclude loops and characterize exactly 2K2, P4, C4 supports. Surjective assignment of each labeled private pair to an abstract support edge with two orientations and free quotient by automorphisms 8,2,8 gives Nn=2^(n-3)(4^n-5·2^n+6). Independently enumerated all set partitions for n=2,3,4 (respectively 15,203,4140 Bell cases) checking raw incidence coalition predicate; maxima k4 counts 1,30,364 agree. Infinite statement rests on cover proof, not finite census.
+
+## originality
+
+PASS
+
+Ordinary coalition number and coalition partner structures differ from connected coalition number CC(G∘K1)=2 known in connected-corona work. The 2021 tree coalition paper handles extremal tree thresholds and coalition graphs of paths, not all core graphs or unlabeled support-orbit enumerations. The recent May 2026 coalition-count note computes the maximum number of coalition partners in a partition, not the number of maximum partitions; its full eight-page paper contains no corona claim. The 2026 k-coalition preprint assumes k>=2, so its corona cases do not settle ordinary k=1. Resultary leaf-corona superdomination count is different invariant. No primary inspected source implies the universal all-G C=4 and Nn.
+
+## value
+
+PASS
+
+A corona operation makes ordinary domination wholly private-pair-local, unexpectedly erasing all dependence on base edges. This yields a natural complete optimal-partition classification and exact exponential count for every base graph; the incidence types and count distinguish ordinary versus connected coalitions and are independently useful graph-partition invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
