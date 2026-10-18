@@ -1,0 +1,179 @@
+{
+  "correctness": {
+    "rationale": "Direct payoff comparison proves Nash sets are maximal independent sets for every 0<T<1; social optimality follows by monotonicity of adjacency spectral radius under deletion. Three disjoint edges and an explicit 3-cover fix alpha=2k-1. Complete case analysis proves i(G_k)=2 and i(H_k)=k+1 for every k≥2. A universal-vertex or path/cycle argument proves the connected five-vertex lower cutoff. Actual standalone exact subset enumeration verified k=2..6 and exhaustive edge additions on every connected labelled graph on 2..5 vertices; no finite test is invoked as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Saha et al. 2014, Secs. 3–5: arbitrary/power-law/random graph cost and price-of-anarchy bounds; no fixed-edge comparative statics.",
+        "Zhu et al. 2021, Secs. 5–6: star/complete/path cases and small-threshold ILP, with an algorithm solving particular input graphs.",
+        "Aspnes–Chang–Yampolskiy 2004, TR-1295, Sec. 3: expected infection loss proportional to insecure component size rather than a spectral cutoff.",
+        "Kavitha–David 2015, p. 191, Theorem 27: support chord changes equitable independent domination on paths, whereas the present theorem concerns ordinary maximal independent sets and invariance of the epidemic game social optimum."
+      ],
+      "reasoning": "The general algorithm can compute costs for each fixed k but does not assert the one-edge unbounded reduction with invariant optimum. The random-graph bounds concern different quantifiers and do not dominate this construction. The older component-size risk game is not equivalent. The 2015 equitable result is a close operation and witness overlap, but its constrained dominating sets can be absent and hence cannot provide the claimed ordinary minimum sizes or equilibrium costs.",
+      "searches": [
+        "Spectral threshold epidemic containment game, zero-to-one threshold, edge addition lowers worst Nash equilibrium vaccination costs while social optimum constant",
+        "In Saha Adiga Vullikanti 2014 epidemic containment game for threshold below one, adding one contact edge reduces worst Nash vaccination number without bound while best Nash remains constant",
+        "epidemic containment game maximum Nash equilibrium cost decreases when an edge is added spectral radius vaccination",
+        "\"independent domination\" \"addition of an edge\" increase"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1609/aaai.v28i1.8819",
+      "doi:10.3390/sym13020156",
+      "doi:10.1016/j.disc.2012.11.031",
+      "https://www.cs.yale.edu/publications/techreports/tr1295.pdf",
+      "https://dblp.org/rec/conf/icccn/XuWCRDC18",
+      "doi:10.1155/2013/595210",
+      "https://combinatorialpress.com/article/jcmcc/Volume%20092/vol-092-paper%2019.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Saha et al. 2014 Observation 1 and Zhu et al. 2021 equations (2)–(3) imply the low-threshold vertex-cover/minimal-cover correspondence, not the unbounded perturbation bound.",
+        "Goddard–Henning 2013 survey discusses parameter inequalities and families without the explicit added-hub-edge comparison.",
+        "published-finding corpus ID 2026/9/16/SCOPE013 concerns an unbounded edge-addition change in 2-burning, a different invariant.",
+        "published-finding corpus ID 2026/10/11/SCOPE-a-sharp-connected-unicyclic-obstruction-to-neighborhood-homology--a4c7fe85092a concerns neighborhood-deletion homology rather than containment-game cost.",
+        "Xu 2013, Sec. 8.4: the independence bondage concept uses edge deletion; no implication for the added-edge family.",
+        "Kavitha–David 2015, Theorem 27: support-chord insertion on P6 concerns equitable independent domination, with nonexistence on the six-vertex augmented graph rather than the finite ordinary independent domination value 3."
+      ],
+      "reasoning": "The asserted result is not the generic statement that equilibria equal minimal vertex covers. It requires a quantified one-edge pair of graphs with i jumping linearly while alpha remains fixed, plus the six-vertex lower cutoff. Neither generic characterization nor unrelated edge-sensitivity claims logically supplies these conclusions without additional lemmas. The six-vertex chord is noted in the related equitable literature, but the central theorem is the unbounded ordinary-equilibrium comparative static with invariant optimum, not mere discovery of a six-vertex chord.",
+      "searches": [
+        "In Saha Adiga Vullikanti 2014 epidemic containment game for threshold below one, adding one contact edge reduces worst Nash vaccination number without bound while best Nash remains constant",
+        "Spectral threshold epidemic containment game, zero-to-one threshold, edge addition lowers worst Nash equilibrium vaccination costs while social optimum constant",
+        "One-edge perturbation of minimum maximal independent set size, independence domination edge addition sensitivity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Goddard–Henning 2013, DOI 10.1016/j.disc.2012.11.031, Secs. 1–3: i(G) is the minimum maximal-independent-set size.",
+        "Saha–Adiga–Vullikanti 2014, DOI 10.1609/aaai.v28i1.8819, Observation 1: equilibria are minimal spectral-threshold deletion sets.",
+        "2021 Zhu et al., DOI 10.3390/sym13020156, Sec. 6.1: exact low-threshold minimum/maximum Nash ILP.",
+        "J.-M. Xu (2013), DOI 10.1155/2013/595210, Sec. 8.4 defines independence bondage via edge deletion and independent-domination increase; its operation is the reverse of the added-edge comparative static.",
+        "K. Kavitha and N. G. David (2015), JCMCC 92, Theorem 27 and Proposition 29, consider adding an edge between path supports for equitable independent domination, a stricter invariant than ordinary i(G), and note no equitable dominating set on chorded P6."
+      ],
+      "reasoning": "The equivalent combinatorial statement is i(G_k)=2, i(G_k+uv)=k+1 while alpha stays 2k-1, together with an order-six cutoff. The cited sources give the invariants and instance-wise characterization; none of the inspected relevant sections states this quantified edge perturbation, nor a theorem immediately implying it without the new construction. Xu defines an edge-deletion threshold b_I, not the one-edge insertion increase of i; reversing his operation would correspond to an edge deletion DECREASE in i, not to b_I. Kavitha–David impose extra degree-difference constraints, so their path-chord counterexample does not compute ordinary i(H_k), nor the infinite k construction.",
+      "searches": [
+        "Independence number unchanged, independent domination number jumps by unbounded amount upon adding one edge, tree to unicyclic graph, six vertex minimum",
+        "One-edge perturbation of minimum maximal independent set size, independence domination edge addition sensitivity",
+        "independent domination i(G+uv)-i(G) arbitrarily large one edge tree two stars connected through leaves",
+        "\"independent domination\" \"addition of an edge\" increase",
+        "\"independent domination number\" \"adding an edge\" arbitrarily large"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Zhu et al. 2021: examples on finite graphs and exact ILP, rather than tabulated one-edge family.",
+        "Direct exhaustive enumeration of connected labelled graphs at orders 2–5 and all single-edge insertions; explicit certificate for 6 vertices."
+      ],
+      "reasoning": "The order cutoff is proved analytically and independently checked computationally; no relevant examined source gives a table or classified dataset that already contains its strict one-edge onset. Finite database absence by itself would not establish novelty.",
+      "searches": [
+        "Independence number unchanged, independent domination number jumps by unbounded amount upon adding one edge, tree to unicyclic graph, six vertex minimum",
+        "One-edge perturbation of minimum maximal independent set size, independence domination edge addition sensitivity",
+        "upper vertex cover number decreases edge addition maximal minimal vertex cover independent domination network security"
+      ]
+    },
+    "rationale": "Source-specific primary comparisons distinguish the explicit unbounded one-edge equilibrium drop with invariant optimum and sharp six-vertex onset from established equilibrium characterizations, independent-domination theory, and finite-instance optimization; no retrieved source was found to imply that full quantified conclusion. Residual technical-report and terminology risks are explicitly retained.",
+    "residual_risks": [
+      "Potential earlier independent-domination edge-perturbation theorem under terminology absent from inspected works.",
+      "Extended 2014 technical report referenced in Saha et al. at staff.vbi.vt.edu could not be retrieved; it may discuss additional special graph classes.",
+      "Full Xu et al. (2018) follow-up was not accessible; 2021 follow-up characterizes it as a heuristic study, but its full scientific coverage was not established.",
+      "The Goddard–Henning survey was read from a full-text transcript rather than the original redirected author PDF.",
+      "No independent human or external mathematical audit has yet been performed.",
+      "The 2015 equitable independent-domination literature already uses the six-vertex path support chord, although its invariant and conclusion differ; other independent-domination edge-perturbation extensions may exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the model and equilibrium characterization but does not state one-edge worst-equilibrium comparative statics or the explicit construction.",
+        "evidence": [
+          "Published 2014-06-21, DOI 10.1609/aaai.v28i1.8819",
+          "Observation 1 on p. 779; Secs. 3–7"
+        ],
+        "identifier_or_url": "https://ojs.aaai.org/index.php/AAAI/article/view/8819/8678",
+        "material_read": "Full publisher article, seven pages, including the game, Observation 1, general/random-graph analyses, related work, and references",
+        "method": "Publisher open-access PDF text and visual inspection of the central theorem page",
+        "title": "Equilibria in Epidemic Containment Games",
+        "trigger": "Defines exact game and nearest direct equilibrium characterization"
+      },
+      {
+        "assessment": "The nearest extension provides exact low-threshold ILPs and individual star, complete and path results; no explicit one-edge unbounded drop with optimum fixed.",
+        "evidence": [
+          "Zhu et al., Symmetry 13(2), 156 (2021), DOI 10.3390/sym13020156",
+          "Secs. 5.1–5.3 and 6.1, equations (2)–(3)"
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/sym13020156",
+        "material_read": "Original 12-page article reproduced in readable full-text form: abstract, introduction, Sec. 5 special graphs, and Sec. 6.1 optimization formulations examined",
+        "method": "Accessible full-text reproduction; publisher domain returned a rate-limit response",
+        "title": "Secure the IoT Networks as Epidemic Containment Game",
+        "trigger": "Exact MaxNE and MinNE on special networks at low threshold"
+      },
+      {
+        "assessment": "Supports the graph-parameter reduction and standard inequalities. The inspected relevant content does not state this particular one-edge sharp family.",
+        "evidence": [
+          "Goddard and Henning, Discrete Mathematics 313 (2013), pp. 839–854",
+          "Secs. 1–3 and conclusion"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.disc.2012.11.031",
+        "material_read": "Accessible full-text transcript including definitions, bounds, typical graph families, and concluding questions; original author-hosted PDF redirected to inaccessible endpoint",
+        "method": "Text inspection of independently hosted reproduction, corroborated by publisher bibliographic record",
+        "title": "Independent Domination in Graphs: A Survey and Recent Results",
+        "trigger": "Likely stronger coverage under the equivalent independent-domination invariant"
+      },
+      {
+        "assessment": "This earlier game uses infection probabilities driven by insecure connected-component sizes, not the binary spectral-risk threshold; it does not imply the claimed costs.",
+        "evidence": [
+          "Aspnes et al., YALEU/DCS/TR-1295 (July 2004), Sec. 3"
+        ],
+        "identifier_or_url": "https://www.cs.yale.edu/publications/techreports/tr1295.pdf",
+        "material_read": "Technical-report abstract, model and costs in original pages 1–4, and overview of its theorems",
+        "method": "Open-access institutional technical report, PDF textual/visual inspection",
+        "title": "Inoculation Strategies for Victims of Viruses and the Sum-of-Squares Partition Problem",
+        "trigger": "Earlier strategic-protection model could dominate the new result under equivalence"
+      },
+      {
+        "assessment": "Insufficient full text to assert this source does not cover the claim; specifically retained as a residual risk.",
+        "evidence": [
+          "Xu et al., ICCCN (2018), 1–7, as referenced in Zhu et al. 2021"
+        ],
+        "identifier_or_url": "https://dblp.org/rec/conf/icccn/XuWCRDC18",
+        "material_read": "Bibliographic title and follow-up characterization in Zhu et al. 2021 introduction; full 2018 article not located",
+        "method": "Bibliographic lookup and citation-context review",
+        "title": "An Extended Exploration to the Epidemic Containment Game",
+        "trigger": "Close follow-up on exact epidemic-containment equilibrium algorithms"
+      },
+      {
+        "assessment": "Defines a minimum number of edge DELETIONS to increase independent domination, which differs from the present one-edge ADDITION increasing independent domination. Does not state the constructed family or inverse social optimum stability.",
+        "evidence": [
+          "Xu, International Journal of Combinatorics (2013), Article 595210, Sec. 8.4, independent-bondage definition and reference to Zhang et al. (2003)."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2013/595210",
+        "material_read": "Accessible full-text original publisher HTML, Sec. 8.4 including definition and theorem of independence bondage, and its references",
+        "method": "Publisher full-text HTML inspection of Sec. 8.4",
+        "title": "On Bondage Numbers of Graphs: A Survey with Some Comments",
+        "trigger": "Relevant terminology for how edge operations change the independent domination number"
+      },
+      {
+        "assessment": "Theorem 27 is about the equitable independent domination number, not ordinary independent domination. It explicitly notes that adding the support chord to P6 destroys existence of an equitable independent dominating set, while the present unweighted graph has ordinary i(H2)=3. It does not imply the unbounded k-family or social-cost invariance.",
+        "evidence": [
+          "Kavitha–David, JCMCC 92 (2015), 185–194, Definition 20 p. 190 and Theorem 27 p. 191."
+        ],
+        "identifier_or_url": "https://combinatorialpress.com/article/jcmcc/Volume%20092/vol-092-paper%2019.pdf",
+        "material_read": "Original publisher-hosted PDF, title and introduction p. 185, equitable independent-domination definition and results pp. 190–192, especially Theorem 27 on p. 191",
+        "method": "Visual inspection of full PDF page images at relevant section",
+        "title": "Equitable Total Domination Edge Addition Stable Graphs",
+        "trigger": "Very close path support-chord perturbation and sharp six-vertex example, but involving equitable independent domination"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "06da55dc-a1ec-497d-8e81-72e9c2658120",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A single contact increase makes worst Nash protection cost decline linearly while the best equilibrium and central optimum remain at three, yielding an unbounded comparative-statics and price-of-anarchy effect in the original graph-based epidemic-containment game. The proof gives an exact structural mechanism through minimum maximal independent sets and a sharp connected order-six boundary; neither mere parameter substitution nor a numerical microexample.",
+    "status": "PASS"
+  }
+}
