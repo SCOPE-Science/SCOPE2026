@@ -1,15 +1,21 @@
-# Review: Sharp radial profile for the sum of vertex distances in a regular tetrahedron
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof gives an exact tight-frame parametrization of all directions, classifies every smooth constrained critical point, separates minimum/maximum/saddle by the constrained Hessian, uses compactness for globality, continuity at the single nonsmooth radius, and connectedness for the complete interval. The zero-radius case is explicit. The finite checker is supplementary.
+## correctness
 
-## Originality
-PASS with residual historical risk. The official 1966 problem gives only the unconstrained center minimum. Meskhishvili's full regular-tetrahedron section gives radial identities for the second and fourth powers but not fixed-radius extrema for the first power. Exact-formula, fixed-radius, geometric-median, majorization, and symmetry-alias searches did not locate the two-sided profile or equality classification. Negative searches are not treated as proof of absence.
+PASS
 
-## Value
-PASS. Fixing the radius from the center is the canonical quantitative refinement of the classical problem. The result solves every radial shell completely, including both extrema, all equality rays, and every intermediate value, and it complements known radial even-power identities by quantifying the first-power anisotropy.
+Use tetrahedral tight-frame sphere constraints and f_x(t)=sqrt(1+x²-2xt), with strictly concave f'_x for x>0, x≠1. Lagrange intersections at most two t-values; 1+3, 3+1, 2+2 multiplicities are all possible. Tangent Hessian signs show vertex-ray strict min, opposite-ray strict max, 2+2 saddle. x=1 follows continuity and explicit strict saddle comparison, x=0 trivial; connected sphere gives full interval. Independently sampled 25,000 directions across positive radii; no violation, but finite checks do not prove bounds.
 
-## Closest literature and limitations
-The closest classical source is IMO 1966 Problem 3. The closest inspected modern full text is Meskhishvili's 2020 distance-power study for regular polygons and Platonic solids. Neither inspected source implies the present shellwise first-power profile. The theorem does not address nonregular tetrahedra, weights, or other powers.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+IMO 1966 provides global minimization of sum of tetrahedral vertex distances, while Meskhishvili records fixed-radius second/fourth moments; neither statement determines both first-moment shellwise extrema and complete interval. Neighboring same-date SCOPE product profile treats a different objective. Independent semantic searches returned the identical October 4 finding as first hit (self-match, not external prior evidence); no stronger implication identified among actually inspected competing sources. This is a qualified best-of-knowledge judgment.
+
+## value
+
+PASS
+
+The first-power sum of tetrahedral vertex distances is a natural Fermat–Weber distance functional. The full fixed-radius sharp profile goes beyond the classical global circumcenter minimum and beyond known even-moment identities; exact directional equality geometry is independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

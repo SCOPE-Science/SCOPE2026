@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The universal claim is established analytically in `RESULT.md`. The finite checker `verify.py` is supplementary. It verifies the tetrahedral frame relations and direction reconstruction, checks both endpoint formulas on the extremal rays, and samples deterministic random directions on a radius grid spanning several orders of magnitude.
+# Independent mathematical audit
 
-Finite floating-point sampling cannot certify the continuum of directions or radii. Those quantifiers come from the proof's critical-point classification, compactness, continuity, and connectedness.
+## correctness
 
-Actual deterministic replay output:
+PASS
 
-```text
-VERIFY_OK
-checks=23496
-frame_error=4.441e-16
-reconstruction_error=1.110e-15
-max_bound_violation=8.882e-16
-endpoint_error=1.776e-15
-```
+Use tetrahedral tight-frame sphere constraints and f_x(t)=sqrt(1+x²-2xt), with strictly concave f'_x for x>0, x≠1. Lagrange intersections at most two t-values; 1+3, 3+1, 2+2 multiplicities are all possible. Tangent Hessian signs show vertex-ray strict min, opposite-ray strict max, 2+2 saddle. x=1 follows continuity and explicit strict saddle comparison, x=0 trivial; connected sphere gives full interval. Independently sampled 25,000 directions across positive radii; no violation, but finite checks do not prove bounds.
+
+## originality
+
+PASS
+
+IMO 1966 provides global minimization of sum of tetrahedral vertex distances, while Meskhishvili records fixed-radius second/fourth moments; neither statement determines both first-moment shellwise extrema and complete interval. Neighboring same-date SCOPE product profile treats a different objective. Independent semantic searches returned the identical October 4 finding as first hit (self-match, not external prior evidence); no stronger implication identified among actually inspected competing sources. This is a qualified best-of-knowledge judgment.
+
+## value
+
+PASS
+
+The first-power sum of tetrahedral vertex distances is a natural Fermat–Weber distance functional. The full fixed-radius sharp profile goes beyond the classical global circumcenter minimum and beyond known even-moment identities; exact directional equality geometry is independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
