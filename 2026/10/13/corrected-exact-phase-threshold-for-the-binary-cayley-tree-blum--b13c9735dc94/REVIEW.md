@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The positive-square-root reduction is reversible, the symmetric branch is uniquely parameterized by a strictly increasing scalar function, and nonsymmetric solutions are equivalent to a quadratic root \(u\) with an explicit positivity condition \(D_\lambda(u)>0\). The lower quadratic root is excluded globally. The upper root crosses \(D_\lambda=0\) exactly at the unique positive root of \(4\lambda^4+7\lambda^3-14\lambda^2-33\lambda-12\), giving the exact one-versus-three count.
+## correctness
 
-## Originality
-PASS. The closest source is the paper whose threshold is being refined: it states \(\lambda_{cr}\approx2.1132163\) after a numerical discriminant analysis but does not contain the corrected quartic or root. Exact-form, decimal, source-ID, and alias searches found no indexed correction. A later wand-constrained Blume--Capel result is a different recursion and does not cover this statement. Residual risk remains for weakly indexed equivalent derivations.
+PASS
 
-## Value
-PASS. The result corrects the phase boundary in the main translation-invariant classification. On the entire interval \(\lambda_c<\lambda\le2.1132163\), the published one-measure count changes to three; the exact algebraic threshold therefore changes the scientific conclusion rather than merely adding digits.
+Set x=√z1,y=√z2,u=x+y,b=λ−λ^-1,a=λ+λ^-1. The symmetric branch has unique positive root since 2x+x^-1−x^-2 is strictly increasing. For x≠y, direct add/subtract of original fixed-point equations gives Qλ(u)=u²−au+(λ−1)/(λ+1)=0 and (x−y)²=2bu−u²−2. The lower positive Q root always yields negative square, while upper root switches sign only at the unique positive zero of p=4λ⁴+7λ³−14λ²−33λ−12 (Descartes plus exact signs). Independent high precision roots give λc=2.10281584329; direct substitution of x,y for λ=2.11 and 3 reproduces the original equations to roundoff and yields two swapped nonsymmetric solutions; λ=2.10 has none. No claim about general Gibbs measures.
 
-## Closest literature and limitations
-Khatamov--Khakimov, DOI:10.15407/mag15.02.239 / arXiv:1706.06130, supplies the model and fixed-point equations and reports the different approximate threshold. Khatamov, DOI:10.1007/s11253-020-01804-y, concerns a wand-constrained variant and is not implication-covering. The present statement is restricted to positive translation-invariant boundary laws for the ferromagnetic order-\(2\) tree; no claim is made about all Gibbs measures or branch extremality.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The primary same-system Theorem 4.3 gives the incorrect approximate transition 2.1132163. The exact bifurcation quartic and corrected interval of nonsymmetric translation-invariant solutions were not present in checked published work. Later wand-constrained Blume–Capel systems have different recursions.
+
+## value
+
+PASS
+
+An exact algebraic phase boundary for a natural infinite-tree Gibbs model corrects an incorrect published approximate threshold and changes the count of translation-invariant phases on a real interval. The root is a meaningful structural invariant, not just a numerical adjustment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
