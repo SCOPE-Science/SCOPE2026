@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The unilateral-shift witness satisfies the theorem's left-inverse and perturbation hypotheses exactly but sends the standard orthonormal basis to an incomplete orthonormal sequence. The repaired theorem is proved independently: a right inverse gives a quantitative lower bound for \(U_k^*\), the frame upper inequality controls the direct-sum perturbation error, and the reverse triangle inequality supplies a positive uniform lower weaving bound under exactly the displayed threshold.
+## correctness
 
-## Originality
-PASS for the source-specific correction. The general statement that \(UF\) is a frame for the same ambient Hilbert space exactly when \(U\) is surjective is prior operator-frame theory and is not claimed as new. Searches covered the exact title, DOI, arXiv identifier, theorem number, left/right inverse aliases, unilateral-shift witness, surjectivity formulation, and the repaired threshold. The closest operator-weaving literature inspected in full corrects different \(g\)-frame results and does not imply this theorem-specific repair.
+PASS
 
-## Value
-PASS. The published construction theorem fails even when all involved operators are identical, so the issue precedes any delicate weaving phenomenon. Replacing left invertibility by right invertibility recovers the same quantitative threshold and gives explicit valid frame bounds, making the correction directly reusable.
+The unilateral right shift S on ℓ² has S*S=I and non-surjective range, and S* is a norm-one LEFT inverse. For ONB and U1=U2=S, δ=0<1 yet <e1,Sej>=0 all j: not even a frame. Repair: U_k V=I implies ||U_k*f||≥||V||^{-1}||f||; the baseline woven analysis has lower √A/||V||. By Bessel bound the error direct-sum norm ≤√(B(m−1))δ||f||. Reverse triangle gives positive uniform lower frame bound and triangle gives B(||U_k||+√(m−1)δ)² upper. All partitions covered. Does not claim threshold necessary.
 
-## Limitations
-The sufficient threshold is not claimed to be necessary or optimal. No classification of all operator tuples preserving wovenness is attempted, and an unindexed source-specific correction remains a residual literature risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+General surjective frame-image characterization is known, but the exact wrong one-sided assumption in Li–Jiang–Xu Theorem 4 and the source-specific unchanged numerical threshold correction are distinct; the inspected later 2025 Xiang–Lin results correct different weaving operator statements rather than this theorem. Best-of-knowledge priority, subject to unindexed errata.
+
+## value
+
+PASS
+
+An exact counterexample to a published quantitatively stated theorem at zero perturbation, paired with a complete same-threshold repair, is a motivated structural boundary useful to frame-theory applications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
