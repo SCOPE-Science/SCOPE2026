@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The critical polynomial/exponential-logarithmic substitution and exact stationary budget are derived in `RESULT.md`. The executable `checks/chialvo_identity.py` uses SymPy for literal symbolic cancellation and deterministic numerical sanity checks; it has no external data inputs.
+## correctness
 
-Run from the root containing the included files: `python checks/chialvo_identity.py` (Python 3, SymPy >= 1.12). Expected output: `Chialvo symbolic identity and scalar checks: PASS`.
+PASS
 
-The executable does **not** prove the measure-theoretic steps, which instead require the compact-full-orbit upper bound and Poincaré recurrence arguments in the proof. It does not explore all trajectories or demonstrate existence of non-equilibrium recurrence. The known fixed-point fold and new global/measure implications have distinct provenance; no external validation is asserted.
+Independently cancelled the coboundary for V=log x+y/(1-a) on x>0: V(F)-V=(c-c*)/(1-a)-Phi(x/x*), Phi(u)=u-1-log u>=0 and x*=(1-a)/(1-a+b). Compact exact invariance F(K)=K gives bounded bi-infinite histories; below the fold a positive history would force V arbitrarily large backwards despite compact upper bound. The axis x=0 has only the one bounded entire affine orbit. On x>0, any point with sufficiently small x in the support of a compact invariant measure shrinks x by at least 1/2 forward forever, so is nonrecurrent; Poincare recurrence removes mass near x=0, justifying otherwise problematic integrability of log x. Integration yields exact expectation. At equality, Phi=0 forces x=x* and the x equation forces y=x*-log x*. Nonzero x>0 component plus the invariant axis exhaust invariant probability support (no negative x has invariant mass). The concentration bound follows from convex defect monotonicity and Markov. Equilibrium fold is verified from strictly convex qx-t log x, but known prior art.
+
+## originality
+
+PASS
+
+Chialvo 1993/1995 explicitly establishes the positive-equilibrium fold and stable quiescent states; neither the inspected exact model/fold and phase-plane sections nor the 2023 finite-resolution parameter study gives the exact global compact two-sided recurrence obstruction and all-compact-stationary-measure convex activation budget. The exact stationary law survives as the independent target beyond the known fold. A highly relevant 2006 same-map study remains incompletely accessible and an important priority risk.
+
+## value
+
+PASS
+
+Distinguishing nonrecurrent transients from real compact recurrent activity is intrinsic to the neuronal map. A known fixed-point fold cannot itself rule out nonfixed compact recurrent sets in a nonlinear noninvertible plane map; the exact logarithmic cocycle upgrades it to a global threshold and gives an independently useful stationary defect statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

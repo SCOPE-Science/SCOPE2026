@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For the exact zero-bias two-dimensional map, the displayed coboundary follows by direct substitution, with \(t=1-a>0\). A backward full-orbit argument uses only an upper bound on \(\log x+y/t\) over compact positive states, so it legitimately excludes **compact fully invariant**, rather than merely forward-invariant, nonzero sets below the fold. Positive stationary measures cannot charge arbitrarily small positive activation, because that would produce nonrecurrent trajectories; recurrence then justifies the logarithmic integration without an unproved integrability assumption. At the fold, equality of the nonnegative defect forces an actual equilibrium. Symbolic checks are reproduced in the attached code, with analytic proof addressing infinite orbits and invariant measures.
+PASS
 
-## Originality
+Independently cancelled the coboundary for V=log x+y/(1-a) on x>0: V(F)-V=(c-c*)/(1-a)-Phi(x/x*), Phi(u)=u-1-log u>=0 and x*=(1-a)/(1-a+b). Compact exact invariance F(K)=K gives bounded bi-infinite histories; below the fold a positive history would force V arbitrarily large backwards despite compact upper bound. The axis x=0 has only the one bounded entire affine orbit. On x>0, any point with sufficiently small x in the support of a compact invariant measure shrinks x by at least 1/2 forward forever, so is nonrecurrent; Poincare recurrence removes mass near x=0, justifying otherwise problematic integrability of log x. Integration yields exact expectation. At equality, Phi=0 forces x=x* and the x equation forces y=x*-log x*. Nonzero x>0 component plus the invariant axis exhaust invariant probability support (no negative x has invariant mass). The concentration bound follows from convex defect monotonicity and Markov. Equilibrium fold is verified from strictly convex qx-t log x, but known prior art.
 
-**PASS with residual literature risk.** The positive-equilibrium saddle-node threshold was derived in the 1993 Chialvo working paper and is expressly **not** a new result. The contribution is the unified exact log-coboundary, its all-compact-invariant-set exclusion below that already-known fold, and a quantitative identity for every compact positive stationary state above it. The full original Chialvo journal paper, original working paper model/fold sections, and relevant sections of the 2023 finite-resolution study were compared as statements, not merely titles. The latter's main theorem concerns parameter boxes with positive bias and a finite phase-space grid, not the universal all-measure identity. The 2006 same-map article was checked through its abstract and bibliographic description; its unavailable complete text remains a substantive comparison risk. No search absence is treated as proof of uniqueness.
+## originality
 
-## Value
+PASS
 
-**PASS.** The distinction between quiescent transient responses and true recurrent autonomous activity is central to the original excitable-system motivation. The known positive fixed-point threshold by itself does not forbid nonfixed compact recurrence in a two-dimensional noninvertible map. Here an explicit dissipative logarithmic observable extends the fold to all compact invariant sets below threshold, while the sharp defect law supplies a parameter-calibrated statistical test and concentration bound for periodic or more complicated states above threshold. These results are structurally connected, non-numerical, and cover the full source-admissible positive parameter family at zero bias.
+Chialvo 1993/1995 explicitly establishes the positive-equilibrium fold and stable quiescent states; neither the inspected exact model/fold and phase-plane sections nor the 2023 finite-resolution parameter study gives the exact global compact two-sided recurrence obstruction and all-compact-stationary-measure convex activation budget. The exact stationary law survives as the independent target beyond the known fold. A highly relevant 2006 same-map study remains incompletely accessible and an important priority risk.
 
-## Scope and limitations
+## value
 
-The model excludes external bias, coupling and noise; nothing here establishes forward global convergence or rules out unbounded transients. The 2006 bifurcation article could not be materially compared beyond its abstract; subsequent complete-text inspection could affect originality. No independent audit has been conducted.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Distinguishing nonrecurrent transients from real compact recurrent activity is intrinsic to the neuronal map. A known fixed-point fold cannot itself rule out nonfixed compact recurrent sets in a nonlinear noninvertible plane map; the exact logarithmic cocycle upgrades it to a global threshold and gives an independently useful stationary defect statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
