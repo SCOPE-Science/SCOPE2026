@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For each source length \(2\le n\le8\), the lower certificate is an explicit code whose exact-two descendant sets are pairwise disjoint. The upper certificate partitions the entire binary word space into exactly the same number of cliques in the exact-two confusability graph. Therefore no independent set, hence no correcting code, can be larger. The verifier reconstructs all descendant sets directly from the channel rule. The published exact/at-most equivalence and even-length PAL/RC conjugacy justify the two stated channel transfers.
+PASS
 
-## Originality
+A length-two PAL duplication of ab inserts ba after ab, and every second operation is allowed to overlap newly inserted symbols. The two-step descendant confusability graph is exact by direct set intersection. I fetched the actual source certificate.json and independently regenerated descendant sets for every binary word of each length n=2,...,8 with a fresh JavaScript implementation. For EACH n, the stored size-M witness consisted of pairwise nonconfusable words and the stored M conflict cliques partitioned all 2^n source words, with pairwise confusability in every clique. Both directions independently passed for M=4,8,14,20,28,42,66; hence this is an exact matching independence-number lower and upper certificate, not a solver log. Current full primary paper establishes exact-two/at-most-two equivalence and even-length PAL/RC conjugacy, permitting the same values for RC2.
 
-PASS. The closest 2026 paper defines this graph, determines the maximum two-error sphere, and derives a general maximum-degree coloring bound, but it does not give finite independence numbers. Exact-value, graph-equivalence, small-length, palindromic-duplication, and reverse-complement-duplication searches did not locate the table \(4,8,14,20,28,42,66\). Nearby earlier work treats different error-count or duplication-length regimes. Residual risk remains that an unindexed finite computation under different terminology contains overlapping values.
+## originality
 
-## Value
+PASS
 
-PASS. Binary two-error coding at even duplication length is explicitly left with a factor-two asymptotic gap in the recent literature, and the length-\(2\) channel is singled out as structurally special. Exact optima for the first five nontrivial source lengths are useful finite benchmarks for constructions and conjectures in that open problem. Matching clique-cover and code certificates make each benchmark independently reusable rather than a solver-only datum.
+Zabokritskiy’s 33-page primary paper defines the exact same sequential PAL/RC channel and its confusability graph, proves even-length conjugacy, gives general sphere and code bounds, and explicitly retains binary two-error questions; it does not state the exact finite length-2 code table through n=8 in its principal theorems or appendix. Exact PAL/RC equality comes from that source, not novelty. The distinct result is exact graph independence numbers certified from new finite cliques/witnesses.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The two-error binary PAL2 channel is a natural explicitly motivated finite-error coding problem with a nontrivial confusability graph and open general optimal redundancy bounds. Matching lower code witnesses and upper clique covers through the first nontrivial lengths provide independent exact benchmark invariants, not arbitrary list entries. Finite scope n≤8 is stated without extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
