@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The mathematical verification is proof-based rather than experimental.
+# Independent mathematical audit
 
-1. **Operator calculation.** In the countably infinite indiscrete space the only open neighbourhood of every point is the whole space. Therefore \(x\in\omega(A)\) for one, hence every, \(x\) exactly when \(A\) is infinite. The dual box tests cofiniteness.
+## correctness
 
-2. **Soundness.** The cofinite/infinite tests directly validate \(D\), \(4\), and \(5\), while normality is inherited from the halo semantics.
+PASS
 
-3. **Relational structure lemma.** In any serial, transitive, Euclidean countermodel, if \(S=R(r)\), then \(S\ne\varnothing\) and \(R(u)=S\) for each \(u\in S\). Both inclusions follow directly from Euclideanness and transitivity.
+On a countably infinite indiscrete space every point's only neighbourhood is N; consequently the omega-accumulation diamond of a subset is N iff the set is infinite and empty iff finite, while box is the cofinite test. Modal normality follows from cofinite filter closure; D, 4 and 5 follow by direct set tests. For any KD45 countermodel, choose a root r in a serial transitive Euclidean frame and S=R(r). Euclideanness and transitivity prove every u in S has R(u)=S. A counterformula uses finitely many atoms, so partition N into a finite family of infinite blocks indexed by the realized S atom-types, and if r∉S reserve a singleton with r's atoms. Induction on subformulas identifies truth on each block with its type in S and at the selected singleton/root; the diamond test is existence of an infinite satisfying block and box is all S-types satisfying (finite exceptional singleton is harmless). Thus every KD45-invalid formula fails in the fixed space. Non-Kripke representability also follows immediately since the operator fails arbitrary-union preservation: each singleton maps to empty but their union N maps to N. No finite-model shortcut or T1 hypothesis is used.
 
-4. **Completeness coding.** A counterformula contains finitely many propositional variables, so its successor cluster realizes only finitely many atomic types. Each realized type is assigned an infinite block. Infinitude of a truth set is then equivalent to existence of a satisfying successor type; cofiniteness is equivalent to satisfaction by every successor type. If the root lies outside the cluster, its reserved point is a singleton and cannot change either test. Structural induction therefore transfers falsity of the counterformula.
+## originality
 
-5. **Non-representability boundary.** The operator is nontrivial because \(\omega(\mathbb N)=\mathbb N\); the published non-representability proposition consequently applies.
+PASS
 
-No finite enumeration or numerical experiment is used to justify the infinite theorem.
+Montacute's halo paper proves omega accumulation semantics, non-Kripke representability and K4 completeness over an entire class of infinite spaces, but does not provide the exact logic KD45 of this fixed indiscrete space. Standard Kripke KD45 completeness alone is insufficient: the countably infinite block coding supplies the missing semantic simulation. Direct primary-text sections were inspected, and targeted Resultary search found the candidate but no covering fixed-space theorem.
 
-## Limits
+## value
 
-The verification covers the ordinary unimodal language, arbitrary subset valuations, and the countably infinite indiscrete topology. It does not establish analogous classifications for other non-\(T_1\) spaces.
+PASS
+
+A fixed non-T1 topological structure realizing exactly KD45 while its actual modal operator admits no binary-relation representation demonstrates the distinction between modal validity coincidence and pointwise relational semantics. The explicit block simulation is substantive and adapts to other cardinality-based modalities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
