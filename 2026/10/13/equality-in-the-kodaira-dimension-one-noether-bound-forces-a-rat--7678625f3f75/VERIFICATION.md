@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,28 +18,25 @@
   "schema_version": 1
 }
 ---
-The verification reconstructs the equality chain rather than inferring it from examples.
 
-For \(r=p_g(V)-1>0\), Setting 2.4 and Remark 2.6 of arXiv:2610.02689v1 give a Stein-base line bundle of degree \(a\) with
-\[
-a\ge r.
-\]
-Lemma 2.8 gives
-\[
-\operatorname{Ivol}(V)=\deg L\ge a.
-\]
-Under equality \(\operatorname{Ivol}(V)=r\), both inequalities are equalities and Remark 2.6 forces the Stein curve to have genus zero.
+# Independent mathematical audit
 
-Writing \(e\) for the finite degree from the Stein curve to the canonical image \(T\), one has
-\[
-a=e\deg T.
-\]
-Nondegeneracy of \(T\subset\mathbf P^r\) gives \(\deg T\ge r\). Hence
-\[
-r=a=e\deg T\ge er,
-\]
-so \(e=1\) and \(\deg T=r\). The classical minimal-degree classification then identifies \(T\) as the rational normal curve. The effective divisor measuring the difference in Lemma 2.8 has degree zero, so it is zero; on \(\mathbf P^1\), the resulting degree-\(r\) line bundle is \(\mathcal O_{\mathbf P^1}(r)\).
+## correctness
 
-The initiating source was checked at its definition of Iitaka volume, Setting 2.4, Remark 2.6, Lemmas 2.7--2.8, Theorem 1.2, and Example 4.5. A full-text search found no 'rational normal' statement. No computation, finite enumeration, or inaccessible certificate is used.
+PASS
 
-Limits: characteristic zero over \(\mathbf C\), dimension three, \(\kappa=1\), and \(p_g\ge2\). The result identifies the resolved canonical map and Iitaka base but does not classify the fibers.
+Let r=pg(V)-1>0. In the source canonical Stein factorization, canonical sections give a degree-a line bundle on a smooth curve Gamma with a>=h0-1>=r; curve Riemann-Roch/minimal degree forces genus zero when a=r. The base divisor inequality Ivol(V)=deg L>=a gives a=r under Ivol=r. If e=deg(Gamma -> canonical image T), then r=a=e*deg(T), while a nondegenerate integral curve T in P^r has deg(T)>=r: e=1 and deg(T)=r. Minimal-degree integral nondegenerate curve is the rational normal curve. On P1, degree of L is r, yielding L~Q O(r); the resolved canonical map factors as claimed. The pg>=2 boundary avoids r=0. Checked source Lemma 2.8 and Remark 2.6 assumptions against the actual RESULT and primary article.
+
+## originality
+
+PASS
+
+Chen–Hu–Jiang–Liu arXiv:2610.02689 gives sharp volume bound Ivol>=pg-1 for kappa=1 and examples. Its explicit equality theorem concerns the kappa=2 case. The nondiagonal Stein degree-one and rational-normal-image geometry is a further equality deduction from source proof ingredients, not part of the printed inequality. No exact prior equality normal form located in checked targeted search; a standard minimal-degree curve argument may be tacit known to algebraic geometers.
+
+## value
+
+PASS
+
+It identifies the entire canonical image and Iitaka base at the sharp boundary of a natural threefold Noether-type inequality, giving a geometric normal form rather than merely one equality example. It neither classifies fibers nor all equality threefolds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

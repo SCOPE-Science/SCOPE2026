@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Put \(r=p_g(V)-1>0\). The source's Stein-factor construction gives \(a=\deg A\ge r\), while Lemma 2.8 gives \(\operatorname{Ivol}(V)=\deg L\ge a\). Equality therefore forces \(a=r\) and genus zero for the Stein curve. Since \(a=e\deg T\) and every nondegenerate integral curve \(T\subset\mathbf P^r\) has \(\deg T\ge r\), one gets \(e=1\) and \(\deg T=r\), hence the rational normal curve. The remaining degree-zero effective discrepancy vanishes, giving the stated Iitaka line bundle on \(\mathbf P^1\).
+## correctness
 
-## Originality
-PASS. The initiating paper was inspected through its full proof ingredients and equality examples. It states the numerical \(\kappa=1\) inequality but does not state the degree-one Stein factor or rational-normal canonical image; its explicit equality-classification theorem is for \(\kappa=2\). Targeted exact, alias, minimal-degree, and source-identifier searches found no implication-equivalent published finding. The current and prior own ledgers contain neither the initiating source nor this claim.
+PASS
 
-## Value
-PASS. Equality cases of a sharp Noether-type inequality are structurally important. Here equality rigidifies the entire canonical base geometry: the Iitaka base is rational, the canonical image is the unique minimal-degree curve in its ambient projective space, and the Iitaka line bundle is determined. This materially strengthens the newly proved numerical bound without requiring a larger downstream theorem.
+Let r=pg(V)-1>0. In the source canonical Stein factorization, canonical sections give a degree-a line bundle on a smooth curve Gamma with a>=h0-1>=r; curve Riemann-Roch/minimal degree forces genus zero when a=r. The base divisor inequality Ivol(V)=deg L>=a gives a=r under Ivol=r. If e=deg(Gamma -> canonical image T), then r=a=e*deg(T), while a nondegenerate integral curve T in P^r has deg(T)>=r: e=1 and deg(T)=r. Minimal-degree integral nondegenerate curve is the rational normal curve. On P1, degree of L is r, yielding L~Q O(r); the resolved canonical map factors as claimed. The pg>=2 boundary avoids r=0. Checked source Lemma 2.8 and Remark 2.6 assumptions against the actual RESULT and primary article.
 
-## Closest literature and limitations
-The closest source is Chen--Hu--Jiang--Liu, arXiv:2610.02689v1, which proves the sharp inequality and supplies the exact intermediate degree estimates used here. The claim is restricted to smooth projective complex threefolds with \(\kappa=1\) and \(p_g\ge2\); it does not classify fibers or the moduli of equality examples. A differently phrased classical observation remains a residual bibliographic risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Chen–Hu–Jiang–Liu arXiv:2610.02689 gives sharp volume bound Ivol>=pg-1 for kappa=1 and examples. Its explicit equality theorem concerns the kappa=2 case. The nondiagonal Stein degree-one and rational-normal-image geometry is a further equality deduction from source proof ingredients, not part of the printed inequality. No exact prior equality normal form located in checked targeted search; a standard minimal-degree curve argument may be tacit known to algebraic geometers.
+
+## value
+
+PASS
+
+It identifies the entire canonical image and Iitaka base at the sharp boundary of a natural threefold Noether-type inequality, giving a geometric normal form rather than merely one equality example. It neither classifies fibers nor all equality threefolds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
