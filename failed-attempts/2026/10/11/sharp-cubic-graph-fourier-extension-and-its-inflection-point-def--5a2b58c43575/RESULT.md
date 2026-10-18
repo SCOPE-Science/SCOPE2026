@@ -122,7 +122,7 @@ The mechanism differs from the quadratic planar parabola: the odd cubic has a un
 
 ## Limitations
 
-This is a same-model mathematical review, not an independent audit or a certified claim of bibliographic priority. The norm, exact deficit and equality cases are proved only for characteristic greater than three. The coefficient of any derived global stability distance to the extremizer set is not asserted optimal; no such global distance inequality is claimed. Test cases are finite and cannot substitute for the all-field proof. The literature inspection compared specified principal theorems and relevant proof material, not every historical article in finite harmonic analysis.
+This is a self-review, not an independent audit or a certified claim of bibliographic priority. The norm, exact deficit and equality cases are proved only for characteristic greater than three. The coefficient of any derived global stability distance to the extremizer set is not asserted optimal; no such global distance inequality is claimed. Test cases are finite and cannot substitute for the all-field proof. The literature inspection compared specified principal theorems and relevant proof material, not every historical article in finite harmonic analysis.
 
 ## References
 
