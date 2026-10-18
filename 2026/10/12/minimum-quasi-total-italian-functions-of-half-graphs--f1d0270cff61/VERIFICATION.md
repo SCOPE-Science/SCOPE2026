@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,41 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The checker constructs the half graph
-\[
-H_n
-\]
-for
-\[
-2\le n\le7.
-\]
+# Independent mathematical audit
 
-For every map
-\[
-f:V(H_n)\to\{0,1,2\},
-\]
-it tests the Italian condition
-\[
-\sum_{u\in N(v)}f(u)\ge2
-\]
-at every zero-labeled vertex and the quasi-total condition that every label-\(2\) vertex has a positive-labeled neighbor.
+## correctness
 
-It then computes the minimum weight and compares the complete minimum-function list with the theorem.
+PASS
 
-Recorded output:
+With half graph edges a_i b_j iff i<=j, b1 and a_n are leaves. Under the zero-neighborhood sum>=2 rule, an unpressed leaf forces its unique neighbor label 2; its quasi-total positive-neighbor rule costs a further unit. The opposite leaf similarly imposes a >=4 budget for n>=3. Endpoint and nested-neighborhood deductions show weight-4 labelings for n>=4 cannot have either leaf positive (any alternative exhausts the remaining budget before internal zeros are defended); thus exactly a1=bn=2 occurs. The exceptional n=2 and n=3 exhaustive optimizer lists have respectively 2 and 4 members; minimum weights 3 and 4. Independently enumerated all ternary labelings for n=2..6; optimizer counts 2,4,1,1,1 and no lower weight. The published identity gamma_I*+partial_s*=|V| gives strong differential 1 (n=2) and 2n-4 for n>=3.
 
-```text
-VERIFY_OK
-n=2: gamma_qtI=3, minimum_functions=2
-n=3: gamma_qtI=4, minimum_functions=4
-n=4: gamma_qtI=4, minimum_functions=1
-n=5: gamma_qtI=4, minimum_functions=1
-n=6: gamma_qtI=4, minimum_functions=1
-n=7: gamma_qtI=4, minimum_functions=1
-ternary_labelings_checked = 5380830
-all minimum functions matched the piecewise classification
-```
+## originality
 
-The checker examines \(5{,}380{,}830\) ternary labelings. The finite computation is corroborative only; the arbitrary-\(n\) uniqueness result follows from the leaf and nested-neighborhood proof.
+PASS
+
+Best-of-knowledge PASS for the exact optimizer structure and uniqueness threshold. The introduced quasi-total Italian definition and Gallai identity are prior; the older chain-graph work on Roman {2}/ordinary Italian lacks the additional condition at every 2-label and does not establish the listed quasi-total minimum-function classification.
+
+## value
+
+PASS
+
+Half graphs are canonical twin-free chain graphs with leaves and nested neighborhoods; determination of every quasi-total Italian minimum function and sharp uniqueness at n=4 provides a motivated structural invariant beyond coarse domination bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

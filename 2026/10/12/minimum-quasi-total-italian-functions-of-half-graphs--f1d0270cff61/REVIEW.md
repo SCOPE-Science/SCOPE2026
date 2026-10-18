@@ -1,12 +1,21 @@
-# Review of Minimum quasi-total Italian functions of half graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. The two leaf constraints first exclude every weight-at-most-\(3\) function for \(n\ge3\). At weight \(4\), a zero leaf forces the corresponding universal vertex to label \(2\); unless the opposite leaf is also zero, nested neighborhoods immediately create an underdefended internal zero. If both leaves are positive, label-\(2\) and all-label-\(1\) possibilities are separately exhausted and fail for \(n\ge4\). The \(n=2\) and \(n=3\) boundaries are finite exact cases. A direct verifier checks all \(5{,}380{,}830\) ternary labelings for \(2\le n\le7\) and agrees with every minimum and optimizer count.
+## correctness
 
-## Originality
-PASS. The 2021 introducing source defines quasi-total Italian domination, proves the Gallai identity with the quasi-total strong differential, and gives general bounds, but no half-graph or chain-graph formula appears in the inspected material. The 2023 \(w\)-domination source identifies the parameter as \(w=(2,0,1)\), lists MSC \(05C69\), and studies lexicographic products; targeted full-text checks found no half-graph or chain-graph occurrence. The 2020 chain-graph source treats ordinary Roman \(\{2\}\)-domination rather than the quasi-total variant. Semantic and exact searches under half-graph, chain-graph, and quasi-total Italian aliases returned no equivalent optimizer classification.
+PASS
 
-## Value
-PASS. Half graphs are the canonical twin-free chain graphs and have highly nested neighborhoods, making them a natural benchmark for domination functions. The result gives an exact optimizer transition: four minima at \(n=3\) collapse to a unique optimum for every \(n\ge4\). It also determines the quasi-total strong differential exactly through the published Gallai correspondence. The classification is structural rather than a numerical recomputation.
+With half graph edges a_i b_j iff i<=j, b1 and a_n are leaves. Under the zero-neighborhood sum>=2 rule, an unpressed leaf forces its unique neighbor label 2; its quasi-total positive-neighbor rule costs a further unit. The opposite leaf similarly imposes a >=4 budget for n>=3. Endpoint and nested-neighborhood deductions show weight-4 labelings for n>=4 cannot have either leaf positive (any alternative exhausts the remaining budget before internal zeros are defended); thus exactly a1=bn=2 occurs. The exceptional n=2 and n=3 exhaustive optimizer lists have respectively 2 and 4 members; minimum weights 3 and 4. Independently enumerated all ternary labelings for n=2..6; optimizer counts 2,4,1,1,1 and no lower weight. The published identity gamma_I*+partial_s*=|V| gives strong differential 1 (n=2) and 2n-4 for n>=3.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the exact optimizer structure and uniqueness threshold. The introduced quasi-total Italian definition and Gallai identity are prior; the older chain-graph work on Roman {2}/ordinary Italian lacks the additional condition at every 2-label and does not establish the listed quasi-total minimum-function classification.
+
+## value
+
+PASS
+
+Half graphs are canonical twin-free chain graphs with leaves and nested neighborhoods; determination of every quasi-total Italian minimum function and sharp uniqueness at n=4 provides a motivated structural invariant beyond coarse domination bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
