@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T02:49:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "55c09f99143c611097813f756e475c3cc24fd4c6",
+        "a6786d4ba5d2d0753adf7c77452876d38bdd4339",
+        "Independent exact modular order and zero-sum enumeration e<=1000"
+      ],
+      "rationale": "Classify all 3-multisets of residues mod 4 up to simultaneous shift/permutation into five patterns. Three patterns force modulus dividing 3 or order less than 4. Remaining patterns imply q=-2 mod e or 2q=-1 mod e, whence q^4=1 gives e|15 via exact integer identities. Only e=5,15 support order 4; at e=5 q²=-1 and m=2, at e=15 q7,13 give three-term witnesses with no two-term -1, while q2,8 yield no three-term sum. Independent enumeration for every modulus 2<=e<=1000 and all order-four unit residues found exactly (15,7),(15,13). The universal exclusion uses identities, not bounded search.",
+      "residual_risks": [
+        "Classification is only m=3 at order 4, not all m-values or larger orders."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General inequalities m(q,e) <= ceil(e/ord_e(q)) and conditional large-m lists do not imply unrestricted ord4,m3 necessity e|15."
+        ],
+        "reasoning": "Finite or large-m conditions do not cover all e; proof excludes all e>=16 unconditionally.",
+        "searches": [
+          "Resultary semantic query: minimum m(q,e) three order four modulo 15 sums of powers Breuer Külshammer",
+          "arxiv:2204.09403v1 Theorem 1 Corollary 8",
+          "Breuer et al Part II Section 2 Corollary 8.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query: minimum m(q,e) three order four modulo 15 sums of powers Breuer Külshammer",
+        "arxiv:2204.09403v1 full primary PDF",
+        "Breuer Part I J.Algebra 558 (2020)",
+        "Breuer Part II IEJA 30 (2021)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": "Breuer m=2 occurs iff -1 belongs to <q>, which eliminates q mod5 but says nothing universal about length 3.",
+        "reasoning": "New five-pattern congruence identities force e|15, which cannot follow from small-tables or m2 statement alone.",
+        "searches": [
+          "Resultary semantic query: minimum m(q,e) three order four modulo 15 sums of powers Breuer Külshammer",
+          "Breuer Part I Lemma 6.3 m2 criterion",
+          "Jacob Külshammer arxiv:2204.09403v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent formulations: least additive zero-sum length in subgroup <q> and minimum base-q digit-sum of multiples of e."
+        ],
+        "reasoning": "The residue classification is invariant under exchanging order-four generators; previous general introductions define invariant without this global order-four fiber.",
+        "searches": [
+          "Resultary semantic query: minimum m(q,e) three order four modulo 15 sums of powers Breuer Külshammer",
+          "arxiv:2204.09403v1 three term power sums",
+          "Breuer et al m(q,e) q-adic digit sum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Small e=15, q7 or13 examples may be derivable from prior cases; no table decides unbounded composite moduli."
+        ],
+        "reasoning": "The novelty is exclusion of all larger moduli at exact multiplicative order four, not finding the two entries.",
+        "searches": [
+          "Resultary semantic query: minimum m(q,e) three order four modulo 15 sums of powers Breuer Külshammer",
+          "Breuer et al Part II Tables e<=100",
+          "Jacob Külshammer 2022 Corollary 8 e15"
+        ]
+      },
+      "rationale": "Breuer et al Part I gives digit-sum interpretation and m=2 criterion; Part II gives bounded tables and different conditional congruences; Jacob–Külshammer 2022 asks structural m=3 question and gives bounds/cases not implying unbounded ord4->e|15 theorem. Explicit witnesses at e=15 may be recognized by their prior Corollary 8 after specialization, but their existence is not new; the all-modulus exclusion e|15 is the new quantified content.",
+      "residual_risks": [
+        "An older alternative arithmetic proof of the e|15 rigidity may be unindexed; e15 witness itself is not new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_BOUNDS_NOT_GLOBAL_ORDER4",
+          "evidence": "Corollary 8 can include the explicit e15 q7,13 witnesses, but does not give unbounded m3,ord4 iff.",
+          "identifier_or_url": "arxiv:2204.09403v1",
+          "material_read": "Full arXiv PDF: pp1-8 introduction, bounds and Corollary 8 including rendered page examination",
+          "method": "PDF text plus web screenshot",
+          "title": "Congruences for Sums of Powers of an Integer",
+          "trigger": "same m(q,e) invariant and m=3 problem"
+        },
+        {
+          "assessment": "PRIOR_DEFINITION_AND_M2",
+          "evidence": "No universal order-four three-term classification in inspected source material.",
+          "identifier_or_url": "https://www.math.rwth-aachen.de/~Thomas.Breuer/gapdays2021/BHHK20.pdf",
+          "material_read": "Author-hosted PDF Section 6 and related m2 statement; compared source-provided primary citations",
+          "method": "PDF section theorem comparison",
+          "title": "The Loewy Structure of Certain Fixpoint Algebras, Part I",
+          "trigger": "original definition m and m2 criterion"
+        },
+        {
+          "assessment": "FINITE_TABLE_NOT_UNBOUNDED",
+          "evidence": "Finite table entries do not logically imply e divides 15 for arbitrary e.",
+          "identifier_or_url": "https://www.ieja.net/files/papers/volume-30/2-V30-2021.pdf",
+          "material_read": "Primary open-access PDF Section 2, tables and concluding remarks as available in primary-source reading",
+          "method": "Full-text sections and table comparison",
+          "title": "The Loewy Structure of Certain Fixpoint Algebras, Part II",
+          "trigger": "relevant m tables and structural results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary semantic query: minimum m(q,e) three order four modulo 15 sums of powers Breuer Külshammer",
+        "arxiv:2204.09403v1 full primary PDF",
+        "Breuer Part I J.Algebra 558 (2020)",
+        "Breuer Part II IEJA 30 (2021)"
+      ],
+      "rationale": "The unbounded exact classification of first nontrivial zero-sum length on a natural order-four stratum addresses published m=3 structural problem; all other moduli are ruled out by a sharp arithmetic obstruction.",
+      "residual_risks": [
+        "A short structural proof, not a classification of arbitrary order."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For coprime integers q,e>=2 with ord_e(q)=4, shortest positive zero-sum length of powers of q equals 3 exactly when e=15 and q mod15 is 7 or 13.",
+  "limitations": [
+    "Classification is only m=3 at order 4, not all m-values or larger orders.",
+    "An older alternative arithmetic proof of the e|15 rigidity may be unindexed; e15 witness itself is not new.",
+    "A short structural proof, not a classification of arbitrary order.",
+    "No GitHub write or private/public certificate claimed. Positive judgments are bounded best-of-knowledge; private publication restrictions separately not_ready."
+  ],
+  "schema_version": 1
+}

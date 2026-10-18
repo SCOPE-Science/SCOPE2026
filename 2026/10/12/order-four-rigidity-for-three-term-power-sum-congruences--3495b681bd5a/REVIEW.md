@@ -1,11 +1,21 @@
-# Self-review: order-four three-term power sums
+# Independent mathematical audit
 
-**Correctness (C): PASS.** For multiplicative order four, every exponent is reduced modulo four, and cyclic translation of all exponents preserves vanishing. The five complete three-multiset types are enumerated; three are excluded by forcing an order contradiction, while the other two imply \(e\mid15\) by exact polynomial congruences. The only admissible moduli are \(5\) and \(15\); the former has two-term cancellation and the latter is exhaustively classified by its four order-four residues. The witnesses \(1+7+7=15\) and \(1+1+13=15\) are explicit. The standalone finite checker reproduces the exceptional locus for all moduli through \(3000\), but the symbolic proof alone establishes universality. Critical caveat: multiplicative order four does **not** universally bound \(m(q,e)\) by four; that stronger and unnecessary statement is not made.
+## correctness
 
-**Originality (O): PASS relative to inspected literature.** Breuer et al., Part I §6 establishes the setup, digit sums, and two-term criterion, but not the full three-term order-four classification. Part II §2 and tables record small-modulus values but no global exclusion of all other moduli. Jacob–Külshammer (2022), introduction, asks for a general description of the three-term case; Corollary 8 treats a different size condition and does not imply the present necessary restriction \(e\mid15\). In particular the displayed finite exceptional list at modulus \(15\) does not enumerate the two explicit three-term examples. Published research-record searches and deduplication comparisons produced no logically dominating claim. Bibliographic risk remains for unindexed equivalent results.
+PASS
 
-**Value (V): PASS.** This is a natural and unrestricted complete solution to the published three-term zero-sum question at the first 2-power multiplicative order not structurally precluded from needing three terms. It isolates one residue ring and one cyclic subgroup, rather than adding a single computational witness. The proof supplies a useful five-pattern obstruction and a modulus-divisibility mechanism; no larger or general critical-length theorem is claimed. The exceptional modulus also provides a concrete test case for the interpretation of a displayed small-modulus list in the motivating paper.
+Classify all 3-multisets of residues mod 4 up to simultaneous shift/permutation into five patterns. Three patterns force modulus dividing 3 or order less than 4. Remaining patterns imply q=-2 mod e or 2q=-1 mod e, whence q^4=1 gives e|15 via exact integer identities. Only e=5,15 support order 4; at e=5 q²=-1 and m=2, at e=15 q7,13 give three-term witnesses with no two-term -1, while q2,8 yield no three-term sum. Independent enumeration for every modulus 2<=e<=1000 and all order-four unit residues found exactly (15,7),(15,13). The universal exclusion uses identities, not bounded search.
 
-**Closest sources.** Breuer–Héthelyi–Horváth–Külshammer, Part I, §6, DOI for published Journal of Algebra article as in references; Part II (2021), §2 and tabulations, DOI 10.24330/ieja.969577; Jacob–Külshammer, arXiv:2204.09403v1 (2022), introduction and Corollary 8. The result does not classify values \(m(q,e)\ge4\) or multiplicative orders other than four. Searches cannot certify complete bibliographic novelty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Breuer et al Part I gives digit-sum interpretation and m=2 criterion; Part II gives bounded tables and different conditional congruences; Jacob–Külshammer 2022 asks structural m=3 question and gives bounds/cases not implying unbounded ord4->e|15 theorem. Explicit witnesses at e=15 may be recognized by their prior Corollary 8 after specialization, but their existence is not new; the all-modulus exclusion e|15 is the new quantified content.
+
+## value
+
+PASS
+
+The unbounded exact classification of first nontrivial zero-sum length on a natural order-four stratum addresses published m=3 structural problem; all other moduli are ruled out by a sharp arithmetic obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
