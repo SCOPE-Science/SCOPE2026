@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked at the level of definitions, boundary degrees, and exact sequences.
+# Independent mathematical audit
 
-For the ring structure, \(N=0\ltimes(Q/D)\) has square zero and quotient \(D\). Divisibility of \(Q/D\) gives \(N\subsetneq xR\) for every \(x\notin N\), while a nonzero nonunit \(d\in D\) gives the explicit nonnil zero-divisor \((d,0)\), annihilating \((0,1/d+D)\). Thus the hypotheses of the local non-strong \(\phi\)-Prüfer self-Tor theorem are met.
+## correctness
 
-For the kernel identification, the published inclusion \(K\subseteq N\) is combined with the elementary reverse inclusion: every nonzero class in \(Q/D\) has a nonzero nonunit annihilator in \(D\), producing a zero-divisor outside \(N\) that kills it. Hence \(K=N\).
+PASS
 
-For the only new homological input over \(D\), the exact sequence
-\[
-0\to D\to Q\to Q/D\to0
-\]
-is a length-one flat resolution. Localizing the torsion module \(Q/D\) gives \(Q\otimes_D(Q/D)=0\), and divisibility versus torsion gives \((Q/D)\otimes_D(Q/D)=0\). The long exact Tor sequence therefore gives \(\operatorname{Tor}^{D}_{1}(Q/D,Q/D)\cong Q/D\), with higher groups zero.
+R is local non-strong φ-Prüfer: N is divided square-zero and D a valuation quotient; every nonzero nilradical element is annihilated by a zero-divisor outside N, identifying canonical K=N. The exact flat D-resolution 0→D→Q→E→0 gives E⊗_D E=0 and Tor_1^D(E,E)≅E; higher D-Tor vanishes. Applying Zhang–Qi’s proven recurrence to K=N inductively gives the exact self-Tor parity table. Two long exact Tor sequences from 0→N→R→D→0 yield the mixed and reduced-quotient tables; products of two positive odd degrees land in vanished positive even degree. No Noetherian assumption is slipped in.
 
-The published recurrence was then replayed symbolically: \(T_1\cong\operatorname{Tor}^{D}_{1}(N,N)\cong N\), \(T_2=0\), and \(T_{2m+1}\cong\operatorname{Tor}^{D}_{1}(T_{2m-1},N)\) while \(T_{2m+2}=0\). Induction gives the claimed self-Tor pattern. Applying the long exact Tor sequence twice to \(0\to N\to R\to D\to0\) yields the mixed and reduced-quotient patterns, with \(n=0\) and \(n=1\) checked separately.
+## originality
 
-No finite computation is used to infer any infinite-degree statement. Independent audit has not been performed.
+PASS
+
+Best-of-knowledge PASS for complete module-valued parity and graded algebra in the valuation idealization; Zhang–Qi already proved general nonzero/zero parity and recurrence, not these precise modules.
+
+## value
+
+PASS
+
+This is a complete, infinite, natural homological invariant of a canonical non-Noetherian square-zero idealization, clarifying actual module types rather than only nonvanishing and giving a reusable explicit test algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
