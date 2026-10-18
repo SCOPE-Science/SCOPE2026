@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For each nonidentity permutation, all five consecutive four-term equations \\(E_s=0\\) and fifteen valid weak-order/nonnegativity inequalities \\(I_j\\le0\\) on two blocks are explicitly constructed. The 23 included exact rational Farkas identities express the sum of the first block as a nonnegative combination of inequalities modulo equalities, so that nonnegative first block is zero; this forces all later terms to zero. A standard-library validator recomputes all 23 identities coefficientwise with fractions, and separately tests identity-branch examples. The identity case follows from the Padovan recurrence and a direct induction giving precisely \\(0\\le u\\le v\\le w\\le u+v\\). No infinite conclusion is inferred from finite enumeration of terms.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The explicit closing paragraph of Nacin article restricts its exhaustive permutation statement to degree three or less.",
+        "Nacin Proposition 5 has nontrivial (2,3,1)-ordered blocks of length three, highlighting that the new four-block obstruction is not implied by a general rigidity assertion."
+      ],
+      "reasoning": "A theorem encompassing all pattern lengths at once would dominate this claim; none was found in the inspected primary source or corresponding published searches. Literature-coverage limitations remain.",
+      "searches": [
+        "JIS:26:23.1.2",
+        "\"Van der Laan\" \"permutation\" Padovan 2023 2024 sequence theorem",
+        "Padovan Fibonacci recurrence with blockwise permutation patterns increasing"
+      ]
+    },
+    "checked_sources": [
+      "https://cs.uwaterloo.ca/journals/JIS/VOL26/Nacin/nacin5.pdf",
+      "https://cs.uwaterloo.ca/journals/JIS/VOL26/Nacin/nacin5.html",
+      "https://oeis.org/A000931"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Nacin Proposition 3 implies the identity-permutation initial-triple classification; this part is expressly attributed.",
+        "Nacin Propositions 5-7 classify lengths two and three, not all four-term-block permutations.",
+        "The first-two-block nonnegative-dual obstruction is established by the new exact certificates."
+      ],
+      "reasoning": "The prior increasing-sequence result applies only after global monotonicity is known, whereas the novel statement proves that all 23 other consistent fixed local rankings force zero. A three-block classification does not imply the four-block one by simple specialization because blocks and window alignments differ.",
+      "searches": [
+        "JIS:26:23.1.2",
+        "\"Van der Laan\" \"four blocks\" nondecreasing only zero",
+        "Van der Laan sequence, Padovan property: largest of any four consecutive terms is sum of two smallest; permutation ordered blocks and length four"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nacin Proposition 3 covers only globally nondecreasing sequences; Propositions 5-7 and the conclusion cover pattern lengths at most three.",
+        "OEIS A000931 contains the basic window relation and examples but no fixed four-block classification."
+      ],
+      "reasoning": "The new nonidentity branch cannot follow merely from the Padovan recurrence characterization, since that assumes global monotonicity; its hypothesis instead permits a priori nonmonotone ordering inside every four-term block. Alternative terminology such as weakly rank-ordered blocks was considered.",
+      "searches": [
+        "\"Van der Laan\" \"permutation\" \"four\" sequence 2024 2025 Nacin",
+        "\"Van der Laan sequences\" \"length four\" permutation",
+        "\"permutation-increasing\" \"Van der Laan\" \"four\" classification",
+        "Van der Laan sequence, Padovan property: largest of any four consecutive terms is sum of two smallest; permutation ordered blocks and length four",
+        "JIS:26:23.1.2",
+        "OEIS:A000931"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A000931 comments document the Padovan four-term property, including nonperiodic and period-four counterexamples to an older conjecture.",
+        "The OEIS entry does not list an exhaustive table of all 24 fixed four-block ordering patterns."
+      ],
+      "reasoning": "The database supplies known examples and recurrence context but no equivalent universal theorem with the new ordering quantifiers.",
+      "searches": [
+        "OEIS:A000931",
+        "\"Van der Laan\" \"4-increasing\" Padovan",
+        "\"Van der Laan\" \"permutation pattern\" 4"
+      ]
+    },
+    "rationale": "The inspected 2022-original article by Nacin determines permutation-pattern ordered Van der Laan sequences for block lengths up to three, while the present full four-block rigidity is outside the earlier quantified scope. The known monotone Padovan branch is explicitly credited and is not independently claimed novel. OEIS A000931 records the underlying four-consecutive-term property and nonmonotone examples, but not the fixed four-block rigidity dichotomy. Broad and exact-alias bibliographic searches and the published mathematical-results index produced no covering statement; equivalent unindexed results remain a risk.",
+    "residual_risks": [
+      "A mathematically equivalent rank-four rigidity result may exist in unindexed work or under distinct terminology.",
+      "The comparison is not an exhaustive survey of all publications or all database records."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for fixed permutation block length four; covers monotone sequences and sizes two/three, which are credited.",
+        "evidence": [
+          "Article p. 7-8 concludes its permutation theorem only for degree three or less.",
+          "Article Proposition 3 handles increasing sequences, Proposition 5 handles (2,3,1), and Proposition 7 handles (3,2,1)."
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Nacin/nacin5.pdf",
+        "material_read": "All nine PDF pages, including the full proof sections, propositions 2-7, concluding degree limitation, MSC, references, and journal publication statement.",
+        "method": "Full-PDF text reading with an image rendering of page 5 checked for the formula and order diagram.",
+        "title": "Van der Laan Sequences and a Conjecture on Padovan Numbers",
+        "trigger": "Same four-term max=sum-two-minima recurrence and permutation-block problem; decisive closest article."
+      },
+      {
+        "assessment": "NOT_COVERING for the complete weak rank-order dichotomy.",
+        "evidence": [
+          "OEIS comments explicitly record that largest of any four consecutive Padovan terms equals sum of the two smallest.",
+          "The record lists examples that refute a broader conjecture, not a classification of every ordered rank-four block pattern."
+        ],
+        "identifier_or_url": "https://oeis.org/A000931",
+        "material_read": "Entry introduction, terms, relevant comments on the four-term condition, and the displayed Nacin counterexamples and references.",
+        "method": "Read online OEIS record, including comments and linked literature metadata.",
+        "title": "Padovan sequence (A000931)",
+        "trigger": "Exact sequence database with four-consecutive-term property and conjecture history."
+      },
+      {
+        "assessment": "Confirms December 30, 2022 public release and scope of the main article.",
+        "evidence": [
+          "Journal abstract page states Published December 30 2022.",
+          "Summary mentions linear combinations of Padovan and Fibonacci sequences."
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Nacin/nacin5.html",
+        "material_read": "Complete journal abstract and publication metadata.",
+        "method": "Read journal HTML abstract page.",
+        "title": "Van der Laan Sequences and a Conjecture on Padovan Numbers (journal abstract and metadata)",
+        "trigger": "First verified public date and precise statement of subject."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "54032fde-c657-4745-95ad-4e4894b86358",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The fixed permutation-block ordering question is explicit in the originating article and its classification through degree three. Classifying the first missing degree four gives a natural complete infinite-sequence theorem with a qualitative phase change: nonzero nonmonotone Fibonacci-derived patterns of length three disappear at length four. The result is not a mere isolated small numerical case: the finite 23-case rational dual computation proves a uniform statement for unbounded sequences, with an exact closed cone of initial triples in the only surviving pattern. It also supplies a finite obstruction mechanism for related rank-controlled local recurrences.",
+    "status": "PASS"
+  }
+}
