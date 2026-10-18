@@ -1,12 +1,21 @@
-# Scientific review: exact seven-adic orders of a three-power sum
+# Independent mathematical audit
 
-## Correctness — PASS
-The stated theorem has one domain, namely all positive integer exponents. The proof checks each of the six exponent classes modulo \(6\). For the two classes that vanish modulo \(7\), it constructs integral restricted power series by dividing the interpolated exponential sums by the correct powers, \(7\) and \(49\). The exact reduced coefficients are \(2+6t\) and \(2+6t^2\) modulo \(7\); the factorial valuation inequalities control all omitted binomial degrees, for every \(7\)-adic argument. Explicit roots \(-1/3\), \(-1/2\), and \(-2/3\) are reconstructed using cubic and square roots of unity, and the simple-root divided-difference argument proves the exact unrestricted valuation, not merely a lower bound. The common-period count follows by elementary lifting and Chinese remaindering. The standalone exact modular checks agree through exponent \(5000\) and through level \(5\) for complete-period enumerations; these finite tests do not substitute for the proof.
+## correctness
 
-## Originality — PASS relative to inspected literature
-The directly relevant 2022 Bayarmagnai–Delger article was inspected across its primary eight-page PDF, in particular Theorem 1 and Remark 10. Its explicit known result \(\nu_7(1+2^{4\cdot7^j}+3^{4\cdot7^j})=j+2\) is recovered, not claimed as novel. That one-dimensional subfamily does not determine the orders at arbitrary exponents, the second \(\nu_7(n-1)\) lift branch, or the exact counts \(2,8,15\). Its general sufficient unboundedness criterion is not an exact-valuation classification. Relevant research-record searches for aliases, \(7\)-adic zero branches, and exponential-power sums found no implication-equivalent result. Bell's general work on valuations of polynomials and regularity addresses a different object and does not supply these constants and residue classes. Searches cannot rule out an unindexed equivalent computation, and the Bell comparison was based on its abstract, not its complete paper.
+PASS
 
-## Value — PASS
-The primary paper singles out exactly this atypical three-term exponential sum to exhibit behavior outside its usual sufficient criterion. Determining all valuations addresses its natural unexplained arithmetic structure, rather than manufacturing an arbitrary slice. The result discovers a second precise root branch, provides complete divisibility tests for every index, and proves that the count of roots in the common prime-power period stabilizes exactly at fifteen from the third level onward. These are useful arithmetic invariants at all levels, not isolated small computations. No extension to other primes or other bases is asserted.
+For n=6t+r, powers 64^t and 729^t interpolate to restricted Z_7 series. Direct residue calculation gives 1+2^r+3^r congruent 3,6,0,1,0,3 mod7, so only r=2,4 matter. Dividing F_2 by 7 gives reduced H_2=2+6t mod7 with exact root t=-1/3 (nontrivial 7-adic cube roots sum to -1); uniform integral divided differences force v7(F_2)=1+v7(n). Dividing F_4 by 49 gives reduced H_4=2+6t²=6(t-3)(t-4) mod7 and exact distinct lifted roots t=-1/2 and -2/3, producing 2+v7(n-1)+v7(n). Coefficient divisibility bounds ensure reductions apply to ALL Z_7 arguments, and 7-adic Hensel simple-root factorization covers all n, not just sampled n. Period L_k=6*7^(k-1) follows from 64,729 congruent 1 mod7 and lifting; CRT gives counts R1=2,R2=8,Rk=15 (k>=3). Independent exact modular checks n=1..6999 and full periods k=1..5 matched; all-k result relies on proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Bayarmagnai–Delger 2022 Remark 10 explicitly records only the exceptional subfamily v7(1+2^(4*7^j)+3^(4*7^j))=j+2. Their general sufficient unboundedness theorem does not give the other n classes, the n−1 valuation branch, or stable per-period counts. General interpolation/regularity results are methodological tools, not the exact three-power formula in the inspected text. Relevant Resultary 7-adic entries concern different sums, not this one.
+
+## value
+
+PASS
+
+A published exceptional three-power valuation problem is closed in every exponent residue class, with all prime-power lifting multiplicities and a persistent exact root count. The distinct simple-root branches and stabilized 15-count provide a concrete natural p-adic exponential-divisibility classification, independently useful as a sharp analogue of isolated published examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

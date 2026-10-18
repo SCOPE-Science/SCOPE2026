@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T11:00:11.327735Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n=6t+r, powers 64^t and 729^t interpolate to restricted Z_7 series. Direct residue calculation gives 1+2^r+3^r congruent 3,6,0,1,0,3 mod7, so only r=2,4 matter. Dividing F_2 by 7 gives reduced H_2=2+6t mod7 with exact root t=-1/3 (nontrivial 7-adic cube roots sum to -1); uniform integral divided differences force v7(F_2)=1+v7(n). Dividing F_4 by 49 gives reduced H_4=2+6t²=6(t-3)(t-4) mod7 and exact distinct lifted roots t=-1/2 and -2/3, producing 2+v7(n-1)+v7(n). Coefficient divisibility bounds ensure reductions apply to ALL Z_7 arguments, and 7-adic Hensel simple-root factorization covers all n, not just sampled n. Period L_k=6*7^(k-1) follows from 64,729 congruent 1 mod7 and lifting; CRT gives counts R1=2,R2=8,Rk=15 (k>=3). Independent exact modular checks n=1..6999 and full periods k=1..5 matched; all-k result relies on proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bayarmagnai–Delger Theorem 1 supplies sufficient conditions for unbounded valuations of sums of powers. Bell 2007 treats p-adic valuation regularity in polynomial/sequence settings."
+        ],
+        "reasoning": "Unboundedness/regularity statements do not mathematically entail the specified two simple-root lift identities and numerical R_k without substantial new p-adic analysis.",
+        "searches": [
+          "https://cs.uwaterloo.ca/journals/JIS/VOL25/Bayarmagnai/bayar10.pdf",
+          "Bell p-adic valuations k-regular sequences 2007",
+          "p-adic 7 valuation 1+2^n+3^n exact formula residue counts"
+        ]
+      },
+      "checked_sources": [
+        "https://cs.uwaterloo.ca/journals/JIS/VOL25/Bayarmagnai/bayar10.pdf",
+        "https://doi.org/10.1016/j.disc.2007.03.009",
+        "Resultary semantic query: p-adic 7 valuation 1+2^n+3^n exact formula residue counts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original theorem describes a sufficient unboundedness criterion, and Remark 10 gives the 4*7^j example."
+        ],
+        "reasoning": "The strong all-n valuation and stable periodic root count are not a quoted corollary: proof needs interpolation into residue r=2 and distinct 7-adic lifts of r=4 and CRT at all powers.",
+        "searches": [
+          "https://cs.uwaterloo.ca/journals/JIS/VOL25/Bayarmagnai/bayar10.pdf",
+          "Bayarmagnai Delger 2022 Remark 10",
+          "p-adic 7 valuation 1+2^n+3^n exact formula residue counts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bayarmagnai–Delger Remark 10 identifies v7(S(4*7^j))=j+2 only; it is one specialization of the submitted r=4 formula."
+        ],
+        "reasoning": "The old family corresponds to a proper restricted exponent subset, not an equivalent formula over all positive n or full modulo-7^k root counts.",
+        "searches": [
+          "p-adic 7 valuation 1+2^n+3^n exact formula residue counts",
+          "https://cs.uwaterloo.ca/journals/JIS/VOL25/Bayarmagnai/bayar10.pdf",
+          "1+2^n+3^n v_7 n modulo6 valuations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published 2022 special-subfamily valuation is known and credited. Resultary search returned other 7-adic counting contexts but no exact full residue table for this S(n)."
+        ],
+        "reasoning": "One could compute finite k tables by modular exponentiation; these do not establish the uniform count 15 for all k>=3 or closed valuation for every integer n.",
+        "searches": [
+          "p-adic 7 valuation 1+2^n+3^n exact formula residue counts",
+          "S(n)=1+2^n+3^n 7-adic OEIS table",
+          "Resultary semantic query: p-adic 7 valuation 1+2^n+3^n exact formula residue counts"
+        ]
+      },
+      "rationale": "Bayarmagnai–Delger 2022 Remark 10 explicitly records only the exceptional subfamily v7(1+2^(4*7^j)+3^(4*7^j))=j+2. Their general sufficient unboundedness theorem does not give the other n classes, the n−1 valuation branch, or stable per-period counts. General interpolation/regularity results are methodological tools, not the exact three-power formula in the inspected text. Relevant Resultary 7-adic entries concern different sums, not this one.",
+      "residual_risks": [
+        "A differently indexed elementary 7-adic interpolation computation for the same sum might pre-exist; search failures alone do not certify novelty.",
+        "The claimed L_k is only a common period, not proved minimal."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known subfamily credited; complete valuation and stable counts not stated",
+          "evidence": "Remark 10 gives n=4·7^j and v7=j+2; Theorem 1 is sufficient unboundedness, not all-exponent identity.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL25/Bayarmagnai/bayar10.pdf",
+          "material_read": "Complete eight-page Journal of Integer Sequences PDF including Theorem 1, examples and Remark 10",
+          "method": "read PDF text and checked relevant rendered page",
+          "title": "On the p-Adic Valuations of Sums of Powers of Integers",
+          "trigger": "Original same sum and same prime 7"
+        },
+        {
+          "assessment": "Cannot conclude full-source noncoverage from abstract; residual potential general method",
+          "evidence": "General valuations/regularity literature checked as method, not evidence of exact S(n) constants.",
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2007.03.009",
+          "material_read": "Abstract and bibliographic scope; complete paper not verified",
+          "method": "abstract-only scope comparison",
+          "title": "p-adic valuations and k-regular sequences",
+          "trigger": "Related general regularity could dominate exact valuation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A published exceptional three-power valuation problem is closed in every exponent residue class, with all prime-power lifting multiplicities and a persistent exact root count. The distinct simple-root branches and stabilized 15-count provide a concrete natural p-adic exponential-divisibility classification, independently useful as a sharp analogue of isolated published examples.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite period enumeration through k5 does not establish stabilization for all k; CRT and simple-root proof evaluated.",
+    "Individual Git blobs pinned, not recursive assigned tree SHA reconstruction."
+  ],
+  "schema_version": 1
+}
