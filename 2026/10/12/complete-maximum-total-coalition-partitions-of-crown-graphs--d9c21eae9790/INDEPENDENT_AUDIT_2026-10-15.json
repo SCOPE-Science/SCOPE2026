@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T21:56:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Write the crown H_n=K_{n,n}-M on opposite size-n sides A,B. For n>=5 and any S, every vertex (including those in S) has a selected neighbor iff |S∩A|>=2 and |S∩B|>=2: with at least two selected opposite vertices at most one is the deleted partner, and if at most one opposite selected vertex its own matching mate has no selected neighbor. In a total-coalition partition P, each block alone fails this predicate but has a distinct partner meeting both inequalities jointly. Let deficit s=2n-|P|=sum_B(|B|-1) and let non-singleton-vertex total <=2s. The standard two opposing mixed triple construction yields 2n-4 blocks, hence optimal P has s<=4, and for n>=5 some singleton exists. If one side had no singleton, a singleton on the other forces a partner with at least two vertices on the missing-singleton side; saturating the <=4 deficit with its own partners and a pure block leaves a forced singleton on the first side, contradiction. Therefore both sides have singletons; their partners must be distinct blocks of respective mixed occupancies (2,1) and (1,2), each costing >=2 deficit, so s>=4. Equality forces exactly two triple blocks, all others singleton, with n-3 singleton blocks of each color. Choice count C(n,2)*n*(n-2)*C(n-1,2), no double-counting because the triple profiles distinguish them. Coalition edges connect opposite-profile triple hubs to each other and n-3 singleton leaves each, and no others: a double-star. Independent arithmetic gives 900,3600,11025 for n=5,6,7; actual embedded verifier exhaustively checks n=5 all partitions and candidate-size partitions for n<=7, but those bounded tests are not the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.3 for k=2,s=t=n>=5 computes TC_2(K_nn)=2n-4 and displays two block triples as extremizer",
+          "Target proves every extremizer must be exactly such a pair and counts them"
+        ],
+        "reasoning": "Prior is broader on scalar TC_k and graph family but neither states nor forces the target all-extremizers theorem: a single exhibited construction plus upper bound does not entail uniqueness of structure or number.",
+        "searches": [
+          "Brešar Henning Samadi 2025 Theorem 5.3 TC_k(K_{s,t})",
+          "crown graph K n n minus perfect matching total coalition all extremal partitions exact count double star total 2 coalition",
+          "Golmohammadi Alikhani Bakhshesh double total coalitions 2024"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2507.18306v1 full HTML primary Sec 5 Theorem 5.3",
+        "2024-12-24 double total coalitions manuscript as cited by the 2025 primary",
+        "Resultary query: crown graph K n n minus perfect matching total coalition all extremal partitions exact count double star total 2 coalition",
+        "Frozen RESULT blob 722cc859e88fa31bf28b4188053e0c7326d5a554 and verifier 74989e48d3971a7be68061faa9fb3e7bad8433c9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier lower-bound construction A’=(k A,k−1 B), B’=(k−1 A,k B); at k=2 yields opposing triples",
+          "Its proof establishes cardinality bound but does not restrict all possible maximum partitions to those triples"
+        ],
+        "reasoning": "Strict nonimplication: knowing scalar maximum and one extremizer cannot yield all-extremizer rigidity/count or graph uniqueness. No source found with broader classification that would dominate the new result.",
+        "searches": [
+          "arXiv:2507.18306v1 Sec 5 Theorem5.3 and construction",
+          "crown graph K n n minus perfect matching total coalition all extremal partitions exact count double star total 2 coalition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For H_n, total domination of a union demands >=2 chosen vertices from each side",
+          "For K_{n,n}, total 2 domination has exactly the same union condition"
+        ],
+        "reasoning": "The feasibility equivalence transfers scalar-optimum results and examples; it does not automatically transfer or classify ALL equality cases.",
+        "searches": [
+          "crown graph K n n minus perfect matching total coalition all extremal partitions exact count double star total 2 coalition",
+          "total 2 coalition complete bipartite graphs n n total coalition crown K n n minus matching",
+          "double-total-coalition Proposition 3.3 bipartite total 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent formula n=5→900,n=6→3600,n=7→11025; code enumerates corresponding optimum partitions",
+          "Published prior gives scalar 2n-4 only with construction"
+        ],
+        "reasoning": "No matching published labeled-partition census or coalition-graph type table found in Resultary or inspected full prior; finite examples corroborate, not justify infinitely many n.",
+        "searches": [
+          "\"total-coalition\" \"crown\" \"900\" \"3600\" \"11025\"",
+          "\"double star\" \"maximum total-coalition partitions\" crown",
+          "crown graph K n n minus perfect matching total coalition all extremal partitions exact count double star total 2 coalition"
+        ]
+      },
+      "rationale": "The scalar optimum 2n−4 and a two-mixed-triple construction already follow from 2025 Brešar–Henning–Samadi Theorem 5.3 for total k=2 coalitions of complete bipartite K_{n,n}, whose feasibility predicate agrees with ordinary total domination of the crown. The source’s proof exhibits an extremal example but does not enumerate all extremizers or force the shape/coalition graph in that case; thus it does not imply the number C(n,2)n(n−2)C(n−1,2) or unique double-star partnership. Another 2024 double-total-coalition article gives same scalar/prototype. Broader crown domination papers found by Resultary concern different invariants; the full equality classification/graph and labeled count are not found. Possible unindexed extremizer classifications remain a residual risk.",
+      "residual_risks": [
+        "An unpublished or unindexed crown extremizer classification could exist.",
+        "The 2024 manuscript was not independently re-read in full this run; its precise appendix detail remains a bounded originality risk.",
+        "Finite n<=7 enumeration cannot replace all-n singleton deficit proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers 2n−4 and one example, not all maxima or their count",
+          "evidence": "Theorem 5.3 with k=2,s=t=n, n>=5 gives 2n−4; displayed A’,B’ have (2,1),(1,2) color profiles.",
+          "identifier_or_url": "arXiv:2507.18306v1; https://arxiv.org/html/2507.18306v1",
+          "material_read": "Read full arXiv HTML Sec 5, definitions of total k-coalition, Theorem 5.3 and proof including explicit construction",
+          "method": "Full primary theorem and equality-case implication check",
+          "title": "On k-coalition in graphs: bounds and exact values (Brešar–Henning–Samadi)",
+          "trigger": "Most relevant dominant scalar theorem under equivalent total-2 condition"
+        },
+        {
+          "assessment": "Only scalar and one candidate verified; no claim of whole-document absence given indirect read",
+          "evidence": "Residual risk if full original manuscript includes equality-case census.",
+          "identifier_or_url": "2024-12-24 manuscript (Proposition 3.3), author-posted primary text metadata; see cited arXiv:2507.18306",
+          "material_read": "Prior proposition and its equivalence cited in frozen source and 2025 paper; full standalone manuscript not re-opened in this run",
+          "method": "Indirect implication comparison with primary secondary cross-reference",
+          "title": "Double total coalitions and coalition partitions (Golmohammadi–Alikhani–Bakhshesh)",
+          "trigger": "Earlier scalar and prototype possibly dominating current theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Classifying all optima of a natural perfect-matching-deleted complete bipartite graph is a mathematically motivated equality case, beyond recalculating the known scalar. It gives exact labeled optimizer entropy/polynomial count and the rigidity of the associated coalition graph despite multiple distinct partitions, natural invariants in the existing total-coalition graph literature. A complete all-n classification need not prove a downstream theorem to be valuable.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only n>=5 labeled crown graphs and open-neighborhood total domination, not other coalition variants.",
+    "The earlier scalar optimum and canonical construction explicitly not novel."
+  ],
+  "schema_version": 1
+}

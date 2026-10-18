@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The total-domination predicate on the crown graph is equivalently \(a(D),b(D)\ge2\), including selected vertices; the proof checks both directions. With deficit \(s=2n-|\mathcal P|\le4\), at most \(2s\) vertices are in nonsingleton classes. If a bipartition side lacks a singleton, a singleton on the other side forces a \((r,1)\) partner; an additional pure block and its partner saturate the deficit and leave at most four vertices on the supposedly singleton-free side. Hence both sides contain singletons. Their necessarily distinct nonsingleton partners each cost at least two deficit units, yielding the exact two opposing triples. Counting them has no quotient by block exchange because profiles differ. The construction meets every required partnership, and its only partnership edges form a double star. A standalone adjacency checker and exhaustive small-instance enumeration corroborate the proof, not replace it.
+PASS
 
-## Originality — PASS, with explicitly bounded risk
+Write the crown H_n=K_{n,n}-M on opposite size-n sides A,B. For n>=5 and any S, every vertex (including those in S) has a selected neighbor iff |S∩A|>=2 and |S∩B|>=2: with at least two selected opposite vertices at most one is the deleted partner, and if at most one opposite selected vertex its own matching mate has no selected neighbor. In a total-coalition partition P, each block alone fails this predicate but has a distinct partner meeting both inequalities jointly. Let deficit s=2n-|P|=sum_B(|B|-1) and let non-singleton-vertex total <=2s. The standard two opposing mixed triple construction yields 2n-4 blocks, hence optimal P has s<=4, and for n>=5 some singleton exists. If one side had no singleton, a singleton on the other forces a partner with at least two vertices on the missing-singleton side; saturating the <=4 deficit with its own partners and a pure block leaves a forced singleton on the first side, contradiction. Therefore both sides have singletons; their partners must be distinct blocks of respective mixed occupancies (2,1) and (1,2), each costing >=2 deficit, so s>=4. Equality forces exactly two triple blocks, all others singleton, with n-3 singleton blocks of each color. Choice count C(n,2)*n*(n-2)*C(n-1,2), no double-counting because the triple profiles distinguish them. Coalition edges connect opposite-profile triple hubs to each other and n-3 singleton leaves each, and no others: a double-star. Independent arithmetic gives 900,3600,11025 for n=5,6,7; actual embedded verifier exhaustively checks n=5 all partitions and candidate-size partitions for n<=7, but those bounded tests are not the universal proof.
 
-The scalar \(TC(K_{n,n}-M)=2n-4\) is **already covered**: the total-coalition feasibility condition coincides with total \(2\)-coalition in \(K_{n,n}\). Golmohammadi–Alikhani–Bakhshesh, Proposition 3.3 (2024 public manuscript), and Brešar–Henning–Samadi, Theorem 5.3 (arXiv:2507.18306), obtain exactly that scalar and show an instance of the two-triple construction. Those original proofs and source text were inspected; neither establishes the enumeration, proves all extremizers have this shape, or establishes their unique coalition graph. Barát–Blázsik's sharp-upper-bound coalition graph uniqueness theorem assumes equality in a far larger maximum-degree bound, absent here. Searches for the crown and complete-bipartite aliases, double-total/total-2 terminology, exact extremizer counts, and equivalent double-star assertions did not reveal the classification. Possible unindexed literature is a residual risk; no absent search hit is offered as proof of originality.
+## originality
 
-## Value — PASS
+PASS
 
-This is an exact, all-extremizer classification for a natural family arising from deletion of a perfect matching, together with a labeled partition count and a unique associated total-coalition graph. The structural rigidity is not recoverable merely from the pre-existing scalar optimum or one exhibited construction. Exact maximum-partition and partnership-graph information is a distinct natural invariant motivated by the original papers' focus on total-coalition graphs, with polynomially many distinct optimizers despite a unique graph type. It is not a marginal numerical bound or arbitrary small-order slice.
+The scalar optimum 2n−4 and a two-mixed-triple construction already follow from 2025 Brešar–Henning–Samadi Theorem 5.3 for total k=2 coalitions of complete bipartite K_{n,n}, whose feasibility predicate agrees with ordinary total domination of the crown. The source’s proof exhibits an extremal example but does not enumerate all extremizers or force the shape/coalition graph in that case; thus it does not imply the number C(n,2)n(n−2)C(n−1,2) or unique double-star partnership. Another 2024 double-total-coalition article gives same scalar/prototype. Broader crown domination papers found by Resultary concern different invariants; the full equality classification/graph and labeled count are not found. Possible unindexed extremizer classifications remain a residual risk.
 
-## Limits and closest literature
+## value
 
-The argument requires \(n\ge5\) and open-neighborhood total domination. It does not claim novelty for the scalar, the transfer of that scalar, or an example optimal construction. Relevant complete primary text includes arXiv:2211.11590v2, arXiv:2301.09979v3, the 2024-12-24 publicly supplied double-total-coalition manuscript, arXiv:2502.07310v3, and arXiv:2507.18306v1. Computer tests are bounded. Independent assessment remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Classifying all optima of a natural perfect-matching-deleted complete bipartite graph is a mathematically motivated equality case, beyond recalculating the known scalar. It gives exact labeled optimizer entropy/polynomial count and the rigidity of the associated coalition graph despite multiple distinct partitions, natural invariants in the existing total-coalition graph literature. A complete all-n classification need not prove a downstream theorem to be valuable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
