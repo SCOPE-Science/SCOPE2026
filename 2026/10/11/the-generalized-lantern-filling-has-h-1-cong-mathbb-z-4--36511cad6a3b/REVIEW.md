@@ -1,14 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The six published vanishing-cycle classes give the displayed \(5\times6\) integer matrix. Its determinantal divisors are \(1,1,1,1,4\), so its Smith form is \(\operatorname{diag}(1,1,1,1,4)\). The PALF handle complex therefore gives \(H_1\cong\mathbb Z/4\) and \(H_2\cong\mathbb Z\), while the transposed cochain complex gives \(H^2\cong\mathbb Z\oplus\mathbb Z/4\). Mori represents \(c_1\) by \(\mathbf 1_6\), proves that it is nonzero, and gives an integral vector mapping to \(2\mathbf 1_6\); hence it has order two and must be the unique order-two element of the cyclic four-torsion summand.
+## correctness
 
-## Originality
-PASS. Baykur's source proves the six-factor generalized lantern relation but computes homology only for a different five-factor family. Mori's source uses the six-factor relation to exhibit a nonzero order-two \(c_1\) and records \(\ker V\), but it does not state the Smith form, \(H_1\cong\mathbb Z/4\), the full \(H^2\) decomposition, or \(c_1=2\tau\). Exact-claim, Smith-form, first-homology, and torsion searches found no covering statement. The closest published planar-Calabi--Yau result concerns factorization-length defect and does not imply this exact homology computation.
+PASS
 
-## Value
-PASS. Mori introduces this example specifically to show that relation-only tests can miss integral torsion. Determining the entire torsion group resolves the natural ambiguity left by the order-two obstruction: the hidden group is cyclic of order four, not merely an unspecified group containing two-torsion, and \(c_1\) occupies its unique order-two class. This gives a precise topological explanation of the integrality failure in the named generalized-lantern example.
+The six published vanishing cycles e23,e245,e135,e14,e12,e34 in Mori’s basis give the pinned 5×6 integer handle map V. Independent exact SymPy Smith-normal-form recomputation gives diagonal (1,1,1,1,4); the kernel rank is one and kernel vector (-1,0,0,-1,1,1), yielding H1=Z/4 and H2=Z for the PALF handle complex. Transposition yields H²=Z⊕Z/4. Vᵀ(1,1,1,1,0)ᵀ=2·1_6, while Mori’s inspected Remark 3.4 shows [1_6]≠0, so c1 is the unique order-two element of the Z/4 subgroup, equal to 2τ. Integer algebra was independently recomputed; handle and Chern identifications explicitly rely on primary geometric source.
 
-The main residual risk is an unindexed computation of the same Smith form in notes or later revisions.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS: exact Smith factors and the complete Z/4 torsion are not stated in accessible relevant Mori/Baykur source theorems. Mori’s order-two c1 is a weaker property: only the additional full integral cokernel calculation yields c1=2τ in a cyclic four-group. Relevant full primary sources and semantic index compared.
+
+## value
+
+PASS
+
+Mori highlights the generalized lantern as a case where first-Chern integrality is subtle. Computing the exact cyclic Z/4 torsion group and locating the known nonzero order-two obstruction as its midpoint resolves the natural finite homology ambiguity of that canonical six-factor filling, distinguishing it from fillings with mere Z/2 torsion. The exact invariant is useful despite being a 5×6 Smith computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
