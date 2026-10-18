@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T00:14:27Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md git blob 7ed8f6f4f317a21cf8c62fbacd2d140d821906e7",
+        "verify.py git blob 257639b4c26b5ff6c5b85af3aa6a8c6b88f56779",
+        "Independent partition-DP over 4856 full-support word/case combinations and analytic refinement argument"
+      ],
+      "rationale": "Proved I_k(w)=qk-C_k(w) by partitioning original symbols among k universal arches and inserting missing symbols, with reverse lower bound from any arch factorization. A full-support word has C_k>=min(n,q+k-1): refine a segment containing a repeated symbol so its symbol contributes to two blocks, increasing coverage at least one until k blocks or n positions. The heavy-first-symbol word a0^(n-q+1)a1..a_(q-1) attains equality. Independent dynamic programming checked full-support layers q=2,3,4 over n up to 8/7/6 with multiple k and found all predicted radii, but all-parameter validity follows from the combinatorial proof.",
+      "residual_risks": [
+        "No unsupported infinite extrapolation from finite replay."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior method covers multiple edit operations and arbitrary words; no fixed-length radius theorem identified in the inspected insertion section."
+        ],
+        "reasoning": "Algorithmic generality in allowed edits or input words is not a logical implication of the universal max formula absent the extremal partition-refinement lemma.",
+        "searches": [
+          "STACS 2021 theorem statements: The Edit Distance to k-Subsequence Universality",
+          "2025 journal DOI:10.1016/j.jcss.2025.103681"
+        ]
+      },
+      "checked_sources": [
+        "Git tree c2496dd545718dee8b646371b1e73f19365ebab4; RESULT.md 7ed8f6f4f317a21cf8c62fbacd2d140d821906e7",
+        "arXiv:2007.09192",
+        "DOI:10.4230/LIPIcs.STACS.2021.25",
+        "DOI:10.1016/j.jcss.2025.103681"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known per-word DP maximizes segment alphabet coverage C_k(w); this claim proves min_w C_k(w)=min(n,q+k-1) via a refinement lemma and single-heavy-symbol witness."
+        ],
+        "reasoning": "Additional universal lower bound and matching construction are necessary; not simply the old DP with parameters substituted.",
+        "searches": [
+          "DOI:10.4230/LIPIcs.STACS.2021.25 Section 4.1 insertion-only recurrence",
+          "arXiv:2007.09192 theorem statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "STACS paper treats minimum edits/insertion distance for each given word using missing-symbol block costs."
+        ],
+        "reasoning": "A per-word algorithm is equivalent to optimizing C_k(w) for fixed w but does not state maximum over all full-support w or explicit all-parameter formula.",
+        "searches": [
+          "DOI:10.4230/LIPIcs.STACS.2021.25 section 4.1",
+          "arXiv:2007.09192",
+          "Resultary semantic full-support insertion radius (temporarily unavailable)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact all-q,n,k formula R=max(qk-n,(q-1)(k-1)) depends on a nontrivial full-support extremal construction."
+        ],
+        "reasoning": "No published finite table could itself imply this all-parameter phase transition; inaccessible semantic index remains a priority risk.",
+        "searches": [
+          "Resultary exact qk-n (q-1)(k-1) search (temporarily unavailable)",
+          "STACS 2021 segment cost formula"
+        ]
+      },
+      "rationale": "The extremal fixed-length full-support insertion-radius formula is a genuinely different quantified statement from the established per-input-word dynamic program; the sharp bound and extremizer do not appear in inspected STACS theorem claims.",
+      "residual_risks": [
+        "An unpublished note could state the same extremal consequence of the known insertion DP.",
+        "2025 journal full text was not separately read; its additional corollaries might differ from conference version.",
+        "Resultary temporarily unavailable, not a completed negative search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CLOSEST_ALGORITHM_NOT_EXTREMAL_RADIUS: no qk-n versus (q-1)(k-1) fixed-length maximization in the inspected statements",
+          "evidence": "Segment missing-alphabet cost for a fixed input string supports qk-C_k(w) but not sharp min C",
+          "identifier_or_url": "DOI:10.4230/LIPIcs.STACS.2021.25",
+          "material_read": "Open-access STACS full PDF abstract, Section 4.1 insertion-only dynamic programming and concluding scope",
+          "method": "Direct full-PDF reading and statement-level comparison",
+          "title": "The Edit Distance to k-Subsequence Universality",
+          "trigger": "Exact same k-subsequence universal target language and insertion operation"
+        },
+        {
+          "assessment": "DATE_SCOPE_ANCHOR: full conference result same object but no located extremal theorem",
+          "evidence": "First arXiv preprint in July 2020",
+          "identifier_or_url": "arXiv:2007.09192",
+          "material_read": "ArXiv abstract and record/history; mathematical comparison with corresponding STACS text",
+          "method": "Open arXiv metadata plus full conference paper",
+          "title": "The Edit Distance to k-Subsequence Universality",
+          "trigger": "Earliest public source and aliases"
+        },
+        {
+          "assessment": "UNREAD_FULL_JOURNAL: cannot rule out an added extremal corollary; residual risk",
+          "evidence": "Corresponding journal bibliographic record exists",
+          "identifier_or_url": "DOI:10.1016/j.jcss.2025.103681",
+          "material_read": "Bibliographic metadata only, not journal full text",
+          "method": "Bibliographic access",
+          "title": "The edit distance to k-subsequence universality",
+          "trigger": "More recent journal version potentially stronger"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cd76f0b741a81ebc64b2fc7846361df5d730832d/2026/10/04/exact-full-support-insertion-radius-of-subsequence-universality--967f04fec949",
+        "RESULT.md git blob 7ed8f6f4f317a21cf8c62fbacd2d140d821906e7"
+      ],
+      "rationale": "The insertion covering radius over the natural full-support layer is a sharp extremal companion to the established per-word algorithm. It gives an all-parameter closed form, explicit extremizer, and meaningful length-to-distribution transition; not a routine tabulation.",
+      "residual_risks": [
+        "Judgment limited to the exact stated invariant or linearized claim; no general theorem claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only insertion and words of full support; does not classify every extremizer. Later journal full text uninspected. Resultary index outage and potential unindexed extremal formulas remain risks.",
+    "An unpublished note could state the same extremal consequence of the known insertion DP.",
+    "2025 journal full text was not separately read; its additional corollaries might differ from conference version.",
+    "Resultary temporarily unavailable, not a completed negative search."
+  ],
+  "schema_version": 1
+}

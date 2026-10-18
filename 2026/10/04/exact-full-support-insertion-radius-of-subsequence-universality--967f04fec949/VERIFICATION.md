@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is all-parameter and does not depend on computational extrapolation. The accompanying `verify.py` performs three independent finite checks of its definitions and boundary behavior.
+# Independent mathematical audit
 
-First, it computes the partition expression \(qk-C_k(w)\) and compares it with a literal search over supersequences, with universality tested by enumerating all length-\(k\) subsequences. This covers 240 full-support tiny instances.
+## correctness
 
-Second, for \(q=2,3,4\) over bounded ranges through \(n=9\), it exhaustively checks every full-support word, verifies the objectwise coverage lower bound \(C_k(w)\ge\min\{n,q+k-1\}\), and confirms that the maximum insertion distance equals \(\max\{qk-n,(q-1)(k-1)\}\). This comprises 69 parameter triples and 20,644 word checks aggregated across their tested \(k\)-values.
+PASS
 
-Third, it evaluates the stated extremal family directly on 2,376 further parameter triples through \(q=12\), \(n=q+17\), and \(k=12\).
+Proved I_k(w)=qk-C_k(w) by partitioning original symbols among k universal arches and inserting missing symbols, with reverse lower bound from any arch factorization. A full-support word has C_k>=min(n,q+k-1): refine a segment containing a repeated symbol so its symbol contributes to two blocks, increasing coverage at least one until k blocks or n positions. The heavy-first-symbol word a0^(n-q+1)a1..a_(q-1) attains equality. Independent dynamic programming checked full-support layers q=2,3,4 over n up to 8/7/6 with multiple k and found all predicted radii, but all-parameter validity follows from the combinatorial proof.
 
-A replay of the supplied file produced:
+## originality
 
-`VERIFY_OK literal_cases=240 exhaustive_parameter_cases=69 full_support_words_checked=20644 witness_grid_cases=2376`
+PASS
 
-Limits: these computations are finite and are not an exhaustive proof for unbounded parameters. The infinite claim is justified by the partition identity, the refinement lemma, and the matching extremal family in `RESULT.md`.
+The extremal fixed-length full-support insertion-radius formula is a genuinely different quantified statement from the established per-input-word dynamic program; the sharp bound and extremizer do not appear in inspected STACS theorem claims.
+
+## value
+
+PASS
+
+The insertion covering radius over the natural full-support layer is a sharp extremal companion to the established per-word algorithm. It gives an all-parameter closed form, explicit extremizer, and meaningful length-to-distribution transition; not a routine tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
