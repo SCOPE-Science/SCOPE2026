@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "Stationary Laplace perpetuity is correct by exponential Poisson ages and L2 convergence; its exact mgf is a q-product. Uniform Euler–Maclaurin with derivatives gives log M=Lambda/delta+(f(0)-Lambda)/2+O(delta). Under exact exponential tilt at the unique positive saddlepoint, characteristic factors satisfy an explicit (1+e^{-1}delta u²)^(-N/2) bound for N~1/(2delta), yielding L1 Fourier and uniform Gaussian density convergence. The exponential tail-inversion integral then contributes sqrt(delta)/(t sqrt(2pi Lambda second)), with the mgf boundary factor exp(B). This proves the relative-error ratio pointwise for every fixed y>0. Checker supplies 484 finite exact-rational/numerical assertions, not a substitute for infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Vysotsky 2021 §6 and Theorem 6.1 cover logarithmic LDP but contain no exact multiplicative tail prefactor.",
+        "Van Leeuwaarden–Temme 2011 gives uniform sharp expansions, but only finite polynomial weights of positive exponentials.",
+        "A generic saddlepoint theorem might cover the tail after nontrivial moment and q-grid corrections."
+      ],
+      "reasoning": "Identified the directly stronger LDP and explicitly excluded the covered large-deviation principle from the originality claim. General precise-deviation results are acknowledged, but the examined closest sharp primary text has different signs, weights and limit. The full model-specific constant is not implied by a logarithmic LDP alone.",
+      "searches": [
+        "kernel-weighted sums iid LDP Vysotsky Najim 2002",
+        "sharp Bahadur Rao prefactor near transparent Brownian partial resets stationary tail q-Pochhammer dilogarithm Euler Maclaurin",
+        "A uniform asymptotic expansion for weighted sums of exponentials van Leeuwaarden Temme"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.01363",
+      "https://arxiv.org/abs/2305.13722",
+      "https://arxiv.org/abs/2412.15626",
+      "https://doi.org/10.1112/blms.70314",
+      "https://alea.impa.br/articles/v18/18-42.pdf",
+      "https://ir.cwi.nl/pub/18559/18559B.pdf",
+      "Najim (2002), Electron. J. Probab. 7 paper 4 (bibliographic and implication via Vysotsky, not directly full inspected)",
+      "Kiesel–Stadtmüller (2000), J. Math. Anal. Appl. 251 (bibliographic/abstract only)",
+      "Barbe–Broniatowski (2005), Theory Probab. Appl. 49 (abstract only, iid sharp deviations)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kernel-weighted LDP fixes only delta log P -> -I and cannot recover e^{B(t)} sqrt(delta) and Gaussian curvature.",
+        "Known stationary transform is a necessary input but not, as a stated theorem, a relative-error saddlepoint asymptotic.",
+        "Van Leeuwaarden–Temme 2011 discusses finite sums with polynomial weights and no symmetric-Laplace q-grid."
+      ],
+      "reasoning": "The new statement strictly strengthens the source model-level and rate-level results in the precision of asymptotics. A generic strong-deviation theorem could subsume the form if it applies and its subleading constants are computed; this is an acknowledged residual priority risk and no unique-first claim is made.",
+      "searches": [
+        "Vysotsky 2021 theorem 6.1 weighted sums large deviation kernel",
+        "Najim 2002 Cramér type theorem weighted random variables",
+        "van Leeuwaarden Temme 2011 saddlepoint power weights",
+        "Brownian stationary partial resetting product Laplace asymptotic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Di Bello et al. 2023 gives the exact stationary transform, but not the sharp c-up-to-one tail evaluation.",
+        "Vysotsky 2021 Theorem 6.1 provides a general LDP, not the relative-error correction."
+      ],
+      "reasoning": "Checked geometric Laplace perpetuities, q-Pochhammer products, contraction renewal variables, and weighted iid-sum formulations. The stationary transform and first exponential rate are equivalent to known expressions; the order-one B(theta) and sharp probability ratio go beyond those particular statements.",
+      "searches": [
+        "large deviations nearly transparent partial resetting Brownian stationary distribution contraction approaches one dilogarithm rate",
+        "q Pochhammer infinite Laplace convolutions dilogarithm stationary contraction large deviations",
+        "discounted perpetuity triangular array large-deviation Legendre dilogarithm",
+        "sharp Bahadur Rao prefactor near transparent Brownian partial resets stationary tail q-Pochhammer dilogarithm Euler Maclaurin",
+        "exact rare tail prefactor for geometrically discounted Laplace perpetuity c tends one",
+        "saddlepoint expansion stationary proportional Brownian resetting prefactor theta dilogarithm",
+        "stationary q-product partial Brownian reset dilogarithm saddlepoint"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Known q-product and stationary density are available in Di Bello 2023 and Grzywny 2024; neither is represented as a new table or new identity.",
+        "Literature did not disclose a table with the proposed sharp prefactor evaluated for c-up-to-one stationary large deviations."
+      ],
+      "reasoning": "The exact transform and its coefficients are historical known data, while the new asserted fact is an asymptotically exact continuum of upper-tail probabilities with a nontrivial threshold-dependent q-grid factor; no closed published table/evaluation directly entails that relative-error ratio.",
+      "searches": [
+        "partial resetting stationary density exact product formula",
+        "dilogarithm weighted Laplace q Pochhammer stationary tail asymptotic",
+        "stationary law infinite convolution geometric weighted Laplace Edgeworth expansion normal approximation sharp total variation constant"
+      ]
+    },
+    "rationale": "The exact stationary product and logarithmic kernel-weighted LDP are prior results, and are not part of the assessed novelty. The specific evaluated sharp relative-error prefactor with the order-one geometric-grid correction is not present in inspected closely relevant model papers or weighted-LDP theorem, and requires a tilted Fourier local limit plus Euler–Maclaurin endpoint analysis. Broader precise-deviation literature may still imply it, explicitly noted as residual risk.",
+    "residual_risks": [
+      "Generic strong large-deviation, mod-phi convergence, q-special-function or saddlepoint literature not completely exhaustively checked may imply the model-specific formula after routine calculations.",
+      "Original full papers by Najim (2002) and Kiesel–Stadtmüller (2000) not directly available in full text; the broader LDP coverage is accurately attributed and priority for the evaluated prefactor remains somewhat uncertain.",
+      "No human independent verification performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides affine-resetting moment framework, not the displayed sharp fixed-stationary-level rare tail.",
+        "evidence": "Abstract and treatment of Poisson resets and proportional Brownian motion; arXiv:2610.01363v1.",
+        "identifier_or_url": "https://arxiv.org/abs/2610.01363",
+        "material_read": "arXiv manuscript, reset model and moment results",
+        "method": "read arXiv manuscript and submission record",
+        "title": "Moments of polynomial processes under affine resetting",
+        "trigger": "recent motivating paper 2026-10-01"
+      },
+      {
+        "assessment": "Strong overlap in exact fixed-c transform, expressly credited; no c-up-to-one relative-error tail formula in the examined stationary analysis.",
+        "evidence": "arXiv:2305.13722, stationary-distribution section; exact product is used as prior input.",
+        "identifier_or_url": "https://arxiv.org/abs/2305.13722",
+        "material_read": "OA full text, invariant characteristic transform / stationary representation",
+        "method": "read primary OA manuscript focusing on stationary Fourier factorization",
+        "title": "Time-dependent probability density function for partial resetting dynamics",
+        "trigger": "same Brownian partial-reset model and invariant distribution"
+      },
+      {
+        "assessment": "Treats invariant density, moments and large-time approach to stationarity; the asymptotic parameter is chiefly time, not contraction c near one at threshold y/(1-c^2).",
+        "evidence": "arXiv:2412.15626v1, main theorems and stationary density.",
+        "identifier_or_url": "https://arxiv.org/abs/2412.15626",
+        "material_read": "OA full manuscript, introduction and main statements including asymptotic transition-density theorems",
+        "method": "read primary full text and compared asymptotic variables",
+        "title": "Stationary states for stable processes with partial resetting",
+        "trigger": "same stationary density / asymptotics"
+      },
+      {
+        "assessment": "The known independent-Laplace stationary perpetuity is credited; no displayed sharp near-transparent stationary tail in the material reviewed.",
+        "evidence": "doi:10.1112/blms.70314.",
+        "identifier_or_url": "https://doi.org/10.1112/blms.70314",
+        "material_read": "publisher article text, stationary sum and main conditioned-process results",
+        "method": "read article text focusing on stationary series and theorem claims",
+        "title": "Brownian Motion With Partial Resetting Conditioned to Stay Positive",
+        "trigger": "same stationary perpetuity, spectral and conditioned laws"
+      },
+      {
+        "assessment": "Its theorem establishes general logarithmic LDP and covers the rate-level phenomenon; it does not provide a sharp relative-error prefactor or order-one q-grid correction.",
+        "evidence": "doi:10.30757/ALEA.v18-42, pp. 1120–1121, Theorem 6.1. Paper explicitly credits Najim 2002 stronger LDP.",
+        "identifier_or_url": "https://alea.impa.br/articles/v18/18-42.pdf",
+        "material_read": "full primary ALEA PDF, introduction, Theorem 6.1 and references",
+        "method": "read entire research theorem and cross-checked the weighted-sum implication",
+        "title": "Contraction principle for trajectories of random walks and Cramér’s theorem for kernel-weighted sums",
+        "trigger": "general theorem potentially dominating claimed logarithmic LDP"
+      },
+      {
+        "assessment": "Deals with finite power weights j^alpha applied to positive exponential sums, not bilateral Laplace geometrically discounted infinite perpetuity; method nevertheless creates genuine general-method priority risk.",
+        "evidence": "CWI author OA manuscript, equations (1), (2), (15) and sections 1–3.",
+        "identifier_or_url": "https://ir.cwi.nl/pub/18559/18559B.pdf",
+        "material_read": "full 14-page author manuscript, introduction, distribution and saddlepoint framework",
+        "method": "read full primary PDF, especially pp.1–4, definitions and scope",
+        "title": "A uniform asymptotic expansion for weighted sums of exponentials",
+        "trigger": "highly relevant sharp nonidentical exponential-weight distribution"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7a671775-7994-45c7-8322-c997fc36dde2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "In partial resetting the natural stationary typical scale is delta^-1/2, while relevant rare fluctuations have scale delta^-1. Logarithmic LDP misses both the polynomial sqrt(delta) normalization and the threshold-dependent Euler–Maclaurin grid correction; this result supplies both explicitly at all fixed positive scaled thresholds, with a Fourier-integrable tilted local limit ensuring genuine relative-error accuracy. This is a specific motivated quantitative refinement, not merely another expression for a known rate function.",
+    "status": "PASS"
+  }
+}
