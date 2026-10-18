@@ -1,0 +1,159 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed both bipartition signature types: edge-vertex signatures are distinct/nonempty iff at most one original vertex is omitted; original signatures are distinct/nonempty iff the selected-edge graph has no order-one or order-two connected component. The equivalence yields an all-code polynomial. Labelled exponential formula removes components K1 and K2 exactly. A c-component selected-edge graph with all components order>=3 has c<=floor(n/3), edges >=n-c, with equality precisely a forest of floor(n/3) tree components. Cayley and multinomial counting give every minimum profile. Direct exhaustive checks cover all codes for n=3..5 and all selected-edge graphs for n=3..6 and independently verify coefficients.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2407.09692v2 proves a maximum-degree bound on 4-cycle-free graphs and treats fully subdivided *stars*, not the exact current complete-graph family.",
+        "Published result titled Near-extremal identifying open codes from twice-subdivided skeletons replaces original edges with paths of length three and adds pendant length-two arms, so the construction is not a one-subdivided clique.",
+        "Published result titled Exact vertex-cover formula for total domination of central graphs yields γ_t(S(K_n)) = n-1+ceil(n/2), whereas the asserted identifying-open code number is n-1+ceil(2n/3).",
+        "Argiroffo et al. 2019 Sections 2–4 consider universal-vertex additions, generalized coronas and squares of paths/cycles."
+      ],
+      "reasoning": "The strongest related degree/order upper bound does not determine an exact count or minimizers; the twice-subdivided skeleton result has different edges and code structures; ordinary central-graph total domination ignores distinct signatures. No compared broader statement logically entails this theorem, its polynomial, or minimum multiplicities.",
+      "searches": [
+        "open-locating-dominating number of full subdivision graph of complete graph K_n; identical to incidence graph of K_n; gamma_OLD(S(K_n))=n-1+ceil(2n/3), all codes, exponential generating function for edge graphs with no K1 or K2 components",
+        "complete subdivision incidence graph total identifying open codes spanning graph without isolated edges isolated vertices counting minimum forests with vertex components at least size 3",
+        "identifying open code \"subdivision\" \"complete graph\" exact",
+        "\"open locating dominating\" \"central graph\" \"complete graph\" exact"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2412.17469v1",
+      "arXiv:2407.09692v2",
+      "DOI:10.1016/j.entcs.2019.08.013",
+      "Full primary statement: Near-extremal identifying open codes from twice-subdivided skeletons",
+      "Full primary statement: Exact vertex-cover formula for total domination of central graphs",
+      "DOI:10.22108/toc.2025.143773.2228 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chakraborty–Wagler arXiv:2412.17469v1 Theorems 3–5 address extremal logarithmic densities and do not imply the current linear-in-n minimum or polynomial.",
+        "Chakraborty–Foucaud–Henning arXiv:2407.09692v2 bounds the optimum via maximum degree but neither determines equality profiles nor code multiplicities for full clique subdivision.",
+        "Mirasheh–Abbasi–Vatandoost DOI:10.22108/toc.2025.143773.2228 refers to closed-neighborhood identifying codes of graph subdivisions, a different parameter.",
+        "The central-graph total domination formula gives a smaller minimum and no separation constraint."
+      ],
+      "reasoning": "Compared the logical conclusions for the same graph rather than matching words: closed codes do not give open signatures; ordinary total domination permits equal signatures; extremal logarithmic bounds do not imply the exact polynomial. The claimed full all-code classification, minimum forest profiles and counts remain outside the inspected implications.",
+      "searches": [
+        "closed identifying code number S(G) = |V(G)| Mirasheh Abbasi Vatandoost distinguish open neighborhood total domination",
+        "\"Proof of a conjecture for the identifying code number of the subdivision of graphs\" formula complete graph 2026",
+        "\"subdivision\" \"complete graph\" \"open-locating-dominating\" number",
+        "\"open neighborhood locating-dominating\" \"incidence graphs\" edges"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chakraborty–Wagler, arXiv:2412.17469v1, Section 1 gives the open-separating total-dominating (OTD) definition.",
+        "Chakraborty–Foucaud–Henning, arXiv:2407.09692v2, introduction equates identifying open codes and OLD codes.",
+        "Argiroffo et al., DOI:10.1016/j.entcs.2019.08.013, explicitly distinguishes open-locating-dominating from closed identifying and ordinary locating-total domination."
+      ],
+      "reasoning": "Open-locating-dominating, identifying open code, OLD and OTD mean the same nonempty pairwise-distinct open signatures. All were searched. Ordinary closed identifying codes and locating-total dominating sets are not equivalent, and literature on them cannot imply this complete open-code count without an additional theorem.",
+      "searches": [
+        "\"open neighborhood locating-dominating\" \"subdivision\" complete graphs",
+        "\"incidence graph\" \"open locating dominating\" complete",
+        "Open identifying code subdivision graph complete graph edge domination identification complete graph subdivision all minimizers",
+        "Identifying open codes in incidence graph of complete graph subdivided K_n gamma n-1+ceil(2n/3) counts optimal codes forests P3 P4 P5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Specific one-subdivided clique all-code or minimum-code table was not identified by the recorded mathematical-literature and semantic record searches.",
+        "Direct finite enumeration on the actual incidence graph gave 9, 64, 625 minimum codes for n=3,4,5; independent selected-edge enumeration gave 540 for n=6. These computations are independent checks, not literature novelty certificates."
+      ],
+      "reasoning": "A finite table of low-order cases, even if discovered, would not imply the all-n polynomial and exhaustive forest structure without a general theorem. The search did not locate such a table; this is negative search evidence only, not uniqueness proof.",
+      "searches": [
+        "identifying open code \"subdivision\" \"complete graph\" exact",
+        "\"open neighborhood locating-dominating\" \"subdivision\" complete graphs",
+        "\"incidence graph\" \"open locating dominating\" complete",
+        "open-locating-dominating number of full subdivision graph of complete graph K_n; identical to incidence graph of K_n; gamma_OLD(S(K_n))=n-1+ceil(2n/3), all codes, exponential generating function for edge graphs with no K1 or K2 components",
+        "Identifying open codes in incidence graph of complete graph subdivided K_n gamma n-1+ceil(2n/3) counts optimal codes forests P3 P4 P5"
+      ]
+    },
+    "rationale": "A statement-level comparison of terminology, broader bounds, central-graph total domination, closed identifying codes, graph-operation results, and prior published double-subdivision constructions did not identify any implication establishing the exact polynomial, minimum-code structure or count for full subdivisions of cliques. A global priority guarantee cannot be made, and abstract-only source access is a residual risk.",
+    "residual_risks": [
+      "Bibliographic searches and available records cannot certify global priority under every alias.",
+      "Full text of the 2026 closed-identifying-code subdivision article was not accessible; the compared abstract covers a different invariant.",
+      "Some older specialized open-code literature beyond the closely related complete primary papers was not read in full."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL BOUNDS ONLY, not a covering statement: characterizes code-size extremals for general graphs, not codes of the full subdivision of complete graphs.",
+        "evidence": [
+          "arXiv:2412.17469v1, Section 1 definition and Section 2.2 Theorems 3–5, Section 3."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2412.17469",
+        "material_read": "Accessible full scholarly HTML: Introduction, Sections 2.1–2.4 (especially 2.2 Theorems 3–5), conclusion and family table; targeted checks for subdivision and incidence terminology.",
+        "method": "Direct full-text reading and section/keyword comparison on the open arXiv page.",
+        "title": "On lower bounds for cardinalities of several separating-dominating codes in graphs",
+        "trigger": "Recent paper covering the identical OTD definition and structural extremal-code results."
+      },
+      {
+        "assessment": "NOT COVERING the exact optimum, full polynomial or minimizer count. Applies a general upper bound but its specialized subdivision construction is a star, not a clique.",
+        "evidence": [
+          "arXiv:2407.09692v2, Sections 1.3 and main theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2407.09692v2",
+        "material_read": "Complete accessible primary HTML, including introductory scope, main theorem, subdivided-star cases, proof section and prior-work review.",
+        "method": "Open arXiv full text, read principal theorem and constructions, targeted text searches for complete-graph and incidence-graph specializations.",
+        "title": "Identifying open codes in trees and 4-cycle-free graphs of given maximum degree",
+        "trigger": "Strongest natural broader maximum-degree theorem for a graph family including subdivisions of cliques."
+      },
+      {
+        "assessment": "NOT COVERING: universal vertices, coronae and graph squares, not full edge subdivision of cliques.",
+        "evidence": [
+          "Argiroffo et al. (2019), Sections 2–4; theorem statements and conclusion."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.entcs.2019.08.013",
+        "material_read": "Lawfully open full PDF text, including introduction, theorem statements in Sections 2–4, and conclusions; file contained no stated edge-subdivision result.",
+        "method": "Section-by-section full-text inspection from authorized open institutional PDF text; visual screenshot could not be fetched for this host.",
+        "title": "The Identifying Code, the Locating-dominating, the Open Locating-dominating and the Locating Total-dominating Problems Under Some Graph Operations",
+        "trigger": "Primary earlier exact OLD theorems under graph operations, potentially overlapping subdivision."
+      },
+      {
+        "assessment": "NOT COVERING: a double subdivision (each edge becomes a length-three path) with pendant arms; the claimed object here is single subdivision of a clique and gives a complete polynomial.",
+        "evidence": [
+          "Its construction explicitly attaches support-leaf paths and replaces each edge twice; its theorem determines a different graph family and minimum, not every code."
+        ],
+        "identifier_or_url": "Published mathematical result, September 2026, title as stated",
+        "material_read": "Full primary RESULT.md theorem, proof, verification scope and limitations.",
+        "method": "Direct public research-result content read, mathematical reduction comparison.",
+        "title": "Near-extremal identifying open codes from twice-subdivided skeletons",
+        "trigger": "Closest semantically retrieved exact identifying-open-code construction."
+      },
+      {
+        "assessment": "NOT COVERING: same graph but weaker total-domination condition; its optimum n-1+ceil(n/2) differs from identifying-open-code optimum n-1+ceil(2n/3).",
+        "evidence": [
+          "Complete graph specialization and proof of partial-edge-cover formula in the primary mathematical result."
+        ],
+        "identifier_or_url": "Published mathematical result, September 2026, title as stated",
+        "material_read": "Full primary RESULT.md theorem, proof and specialization to complete graphs.",
+        "method": "Direct public research-result content read, graph equivalence checked.",
+        "title": "Exact vertex-cover formula for total domination of central graphs",
+        "trigger": "A central graph of a complete graph equals its full edge subdivision, so exact graph overlap requires comparison."
+      },
+      {
+        "assessment": "Potential bibliographic gap noted. Available abstract concerns closed-neighborhood identifying codes, not open-separating total domination; no stated implication of the present polynomial.",
+        "evidence": [
+          "Available abstract states the closed identifying-code number of a subdivision equals original graph order."
+        ],
+        "identifier_or_url": "DOI:10.22108/toc.2025.143773.2228",
+        "material_read": "Publisher bibliographic abstract and research catalog summaries only; complete primary theorem text not accessed.",
+        "method": "Bibliographic result/abstract comparison; checked closed versus open signature convention using independently inspected definitions.",
+        "title": "Proof of a conjecture for the identifying code number of the subdivision of graphs",
+        "trigger": "Highly plausible subdivision title with exact identifying-code statement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "078f1db5-2295-4ee7-a1d1-96fa77a40fe2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The infinite family of one-subdivided cliques is a natural incidence-graph test case for open sensor identification. The theorem describes every feasible code and every polynomial coefficient, gives an exact sharp minimum, classifies equality as forest components of orders 3–5, and counts all optimal placements in explicit residue classes. Comparison to known ordinary total domination on the same graphs exhibits a real separation-cost gap, making this a substantive structural refinement rather than a routine isolated number.",
+    "status": "PASS"
+  }
+}
