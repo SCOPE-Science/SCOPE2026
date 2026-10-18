@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness: PASS
+The stated domain is every *existing* generalized quadrangle of order \((q,q)\), \(q\ge2\); no existence is assumed for unsupported parameters. The proof identifies the exact centered Green-kernel shell differences from a finite Poisson equation, partitions an edge-rooted girth-eight Moore cage into two radius-three trees and \(q^4\) cross edges, computes all transfer-current levels, and derives both induced endpoint norms from absolute column sums. The matrix identities, positivity of the diagonal correction, degree-dependent transition, monotonicity and asymptotic bounds follow algebraically. The finite-field checker reconstructs independently the symplectic point–line incidence graphs, computes grounded inverse Laplacians over exact rationals, and tests all 205 edge columns at orders two and three. Its finite checks are not substituted for the all-order proof.
+
+## Originality: PASS, with residual risk
+The exact statements were compared against the cut/cycle projection and Hamming/tori results of Dilworth–Kutzarova–Ostrovskii (arXiv:2305.12582), the general localization bounds of Schild–Rao–Srivastava (arXiv:1708.01632), the incidence-graph structural description of Sorgun–Ertaş (doi:10.22061/jdma.2024.10798.1070), and the generalized-quadrangle section of the Exoo–Jajcay cage survey (EJC DS16, 2011). The general sources do not give the exact pair of order-dependent endpoint norms. Earlier exact projective-plane and symmetric-block-design formulas concern girth-six/diameter-three incidence graphs, not the girth-eight/diameter-four quadrangles, and their parameters cannot specialize to the present graph family. Public research-record searches for the edge-current and projection formulations did not identify a covering result. Unindexed equivalent electrical-current formulas may exist; the searches do not prove universal novelty.
+
+## Mathematical value: PASS
+The two norms are natural finite-dimensional Banach-space complementability benchmarks on an infinite family of incidence geometries and encode maximal \(\ell_1\) localization of unit-edge electrical flows. The sharp constants seven and eight, their explicit rates of approach, the comparison identity \(\|Q\|=1+3\|C\|/4\), and the cut/cycle dominance reversal at \(q=3\) provide exact structural information unavailable from general localization bounds and not obtained by substituting parameters into the symmetric-block-design result. The uniform formula does not require edge-transitivity, so it covers geometries beyond a single symmetric model.
+
+## Closest literature and limits
+References and precise scope are in `RESULT.md`. The theorem does **not** assert optimality among all projections, values for intermediate exponents, existence at every non-prime-power order, or independent scientific validation. The originality conclusion is limited to the inspected primary material and recorded searches.
+
+Self-review: passed. Independent audit: not yet performed.
