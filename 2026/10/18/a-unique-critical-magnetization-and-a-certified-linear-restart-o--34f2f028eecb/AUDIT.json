@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For the absorbing diffusion with L=(1-m^2)d^2/dm^2, its Green operator gives all hitting moments, the renewal identity gives R=(1-Phi)/(r Phi), and a full derivative argument K'(m)=atanh(m)[5-4m atanh(m)] proves the weak-reset slope has exactly one interior zero. A standalone pure-Python 40-digit rational-enclosure program bounds series tails, proves the first-coefficient signs on an interval, and bounds the second coefficient B>0 there. An implicit-function argument proves precisely one small positive strict local minimizer and linear coefficient C, without claiming global optimality or finite-population transfer.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pal–Prasad 2019 establishes a generic Landau-like expansion and exponent one when a first-order restart coefficient changes sign and the second-order coefficient is positive; its detailed displayed formulas are prior work.",
+        "Its worked diffusion example has constant diffusivity with drift and absorbing interval endpoints, not the voter diffusion with state-dependent diffusivity.",
+        "The model-specific theorem establishes uniqueness of the root of the first restart coefficient and rigorously verifies positivity at that unique root, which generic Landau arguments do not decide for a given generator."
+      ],
+      "reasoning": "The general formula for the scaling exponent is broader prior coverage and is expressly excluded from the novelty claim. What remains is a model-specific uniqueness and verified nondegeneracy/slope, not automatic from a general Landau formalism.",
+      "searches": [
+        "Voter model geometric stochastic resetting to initial opinion state, optimal reset rate near coefficient variation first passage moments, analytical linear scaling",
+        "stochastic resetting optimal resetting rate continuous phase transition exponent 1 first passage coefficient variation skewness Landau expansion",
+        "arxiv:1904.07590",
+        "arxiv:1812.03009"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2609.39858",
+      "https://www.researchgate.net/publication/336486689_Landau-like_expansion_for_phase_transitions_in_stochastic_resetting",
+      "https://arxiv.org/abs/1812.03009",
+      "https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.1.032001"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 source reports m near 0.630 with a fitted exponent around 0.996 and says analytical scaling remains open.",
+        "The 2019 Landau source proves the universal mechanism from moments; its generic theorem alone does not establish the unique sign-change of this voter moment combination or nondegeneracy at the crossing.",
+        "The supplied independent integer interval certificate verifies model-specific signs, coefficients, and slope interval."
+      ],
+      "reasoning": "Neither a fitted empirical exponent nor the generic expansion entails the specific unique threshold and positive quadratic term without solving this diffusion’s absorption moment equations. The new proof supplies the missing generator-specific input; the exponent itself is not separately original.",
+      "searches": [
+        "arxiv:2609.39858v1",
+        "arxiv:1904.07590",
+        "arxiv 2609.39858 exact critical magnetization 0.630597 Wright Fisher voter resetting unique threshold local optimal reset rate slope 34.3863"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2026 first-passage section (near equations 11–14) gives the same reset-to-initial-state voter mechanism and the numerical change around magnetization 0.630; it explicitly leaves an analytical derivation of near-threshold scaling open.",
+        "The new result addresses the diffusion weak-shock limit, supplies a unique analytical threshold, and certifies a local slope; no inspected 2026 passage supplied these."
+      ],
+      "reasoning": "Resetting the full voter chain versus a Wright–Fisher diffusion are equivalent only after the specified population/time/rate scaling, whose optimization error is not claimed. The same numerical critical phenomenon occurs, but no matching proof or coefficient was found in the inspected primary material.",
+      "searches": [
+        "Wright-Fisher neutral allele frequency diffusion consensus fixation time optimally reset to initial frequency, exact critical reset threshold and linear prefactor",
+        "Opinion dynamics under large-scale exogenous events Gerard Argany Herrera Alvarez-Zuzek Artime voter reset optimal probability 0.630",
+        "voter model exogenous events magnetization 0.630 analytic optimal reset rate 2026 opinion dynamics large scale exogenous events",
+        "arxiv:2609.39858v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-result search hits included a generic restarting variance-envelope claim and several unrelated critical-threshold results; no matching Wright–Fisher voter reset onset was returned.",
+        "Previously accessible result claims were searched for resets, voter dynamics, magnetization and first-passage topics; a prior incremental-voter spectral result and a separate diffusion relocation result do not imply the reset-onset claim."
+      ],
+      "reasoning": "The searchable record indices did not exhibit an exact table or formula already giving this certified threshold and slope. Retrieval failure is not a uniqueness proof; mathematical novelty remains relative to inspected claims.",
+      "searches": [
+        "arxiv 2609.39858 exact critical magnetization 0.630597 Wright Fisher voter resetting unique threshold local optimal reset rate slope 34.3863",
+        "Wright-Fisher neutral allele frequency diffusion consensus fixation time optimally reset to initial frequency, exact critical reset threshold and linear prefactor",
+        "Wright Fisher fixation time under stochastic restart analytic sign M1 squared minus M2/2 unique critical initial allele frequency near 0.6306"
+      ]
+    },
+    "rationale": "The 2026 motivating article gives the reset model and an empirical m≈0.630 threshold while leaving its scaling analytical. Pal–Prasad 2019 already gives the generic exponent one and moment expansion; these are properly treated as covered. New claim is the Wright–Fisher voter-diffusion uniqueness of the moment threshold and certified nondegenerate model-specific linear coefficient. Relevant public-result and prior-literature searches did not find matching implication; priority remains subject to historical risks.",
+    "residual_risks": [
+      "A broader prior theorem on restart onset for state-dependent-diffusion fixation could imply the exact model-specific comparison despite targeted searches.",
+      "A 2019 absorbing-interval restart paper was available only at abstract level during this examination.",
+      "The source first-passage process is originally discrete-time; the present theorem is strictly for its diffusion weak-shock scaling, not the same finite-N numerical optimization."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source covers renewal matrix framework and numerical location but the inspected material does not prove the unique diffusion threshold or model-specific local slope. No whole-document noncoverage certification is inferred.",
+        "evidence": [
+          "Original arXiv HTML v1 submitted 2026-09-30; reset matrix Eq.10, threshold condition Eq.13 and scaling fit Eq.14 with open-problem sentence."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.39858",
+        "material_read": "Abstract, model and transition equations 1–14, figures/discussion of the reset-rate crossover and declaration of the analytical-scaling open problem; additional network approximation passage through equations 21–26.",
+        "method": "Read accessible HTML text and compared process, initial-state resets, critical parameter, and exact claimed output.",
+        "title": "Opinion dynamics under large-scale exogenous events",
+        "trigger": "Same voter-with-shocks model, numerical critical magnetization, stated open scaling calculation"
+      },
+      {
+        "assessment": "Generic moment expansion and exponent one are covered; they are credited as prior and not asserted new. The particular Wright–Fisher generator threshold and certified coefficient are not an instantiated result in the inspected sections.",
+        "evidence": [
+          "Phys Rev Research 1, 032001(R), 2019; body near equations 1–5 and the section beginning Diffusion under restart."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/336486689_Landau-like_expansion_for_phase_transitions_in_stochastic_resetting",
+        "material_read": "Full-text transcription including Landau polynomial equations 1–5, moment coefficient identities, continuous transition r proportional to |a1|, and drifted Brownian interval example.",
+        "method": "Compared the exact weak-rate expansion and implication of general exponent-one formula against the voter-specific uniqueness and positivity statements.",
+        "title": "Landau-like expansion for phase transitions in stochastic resetting",
+        "trigger": "Possibly dominating generic optimal-restart scaling theorem"
+      },
+      {
+        "assessment": "Described as a constant-diffusivity Brownian interval process; cannot exclude a general result whose hypotheses include the present model.",
+        "evidence": [
+          "Pal and Prasad, Phys Rev E 99, 032123 (2019), public abstract."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1812.03009",
+        "material_read": "Metadata and abstract only; full primary text was not inspected.",
+        "method": "Compared abstract-level object and generator description, not a full-document noncoverage judgment.",
+        "title": "First passage under stochastic resetting in an interval",
+        "trigger": "Potentially similar absorbing interval reset optimization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "34f2f028-eecb-4d24-a622-c8f7053f7e7c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The new object is the neutral voter-diffusion consensus time under rare system-wide resetting, a direct mathematical limit of the fresh 2026 social-dynamics model. The unique analytically characterized m_c and certified positive nondegeneracy turn a numerical transition and an explicitly posed scaling challenge into a precise local model-specific theorem. The certified slope is needed to quantify the onset and is not an arbitrary parameter slice. The scope is local, so it does not overstate control optimality.",
+    "status": "PASS"
+  }
+}
