@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` embeds the complete forty-eight-facet presentation and uses only the Python standard library.
+# Independent mathematical audit
 
-It reconstructs the face vector \((12,60,120,120,48)\) and the six antipodal missing edges. It enumerates all three-vertex cliques, obtaining exactly \(40\) nonfacial triangles, and verifies that every one is nonzero in the one-dimensional mod-two first homology.
+## correctness
 
-For the integral certificate, the script checks the displayed integer one-cocycle on all \(120\) facial triangles and obtains zero every time. It then evaluates the same cocycle on every increasing nonfacial triangle and obtains exactly \(+1\) in all \(40\) cases.
+PASS
 
-Finally, because every simplicial automorphism must preserve the missing-edge matching, the script exhausts all \(2^6\cdot6!\) pair-preserving vertex permutations, retains exactly \(24\) automorphisms, and recomputes the three carrier orbits.
+Read the exact 48 four-simplex facets from frozen verify.py. An independently written JS combinatorial enumeration rebuilt f=(12,60,120,120,48), all six antipodal nonedges, and 40 nonfacial triangles. The specified integer cocycle has 15 positive increasingly oriented edges, evaluates zero on ALL 120 triangular facets and +1 on EACH of the 40 nonfacial triangles. Published topology identifies H1≅Z, hence unit evaluation proves each triangle is a common primitive generator, not just nonzero mod2. Exhausted ALL 2^6×6! permutations preserving the mandatory nonedge matching and found exactly 24 simplicial automorphisms, and carrier orbits 4,12,24 with representatives (1,5,9),(1,3,8),(1,4,8); each vertex occurs ten times. Exhaustion is complete because any automorphism must preserve missing edges.
 
-Exact successful output:
+## originality
 
-`VERIFY_OK f=12,60,120,120,48 H1_F2_dim=1 empty3=40 all_empty3_nonzero=yes integral_pairings=+1:40 aut=24 carrier_orbits=4,12,24 reps=159|138|148 carrier_vertex_degree=10`
+PASS
 
-The only external mathematical input to the integral identification is the published topological type \(S^3\times S^1\), hence \(H_1\cong\mathbb Z\).
+Lutz’s exact-object census already supplies the 12-vertex S³×S¹ triangulation, crosspolytope one-skeleton, 48 facets, f-vector and dihedral presentation. These are not claimed original. The checked published source does NOT classify the integral homology of all 40 nonfacial triangles, coherent sign, or full carrier-orbit decomposition. Resultary’s other triangular-systole findings concern nonisomorphic manifolds, including a 12-vertex twisted S³ bundle with 76 triangles, 14-vertex S4×S1 with 70, and S²×S² H2 cycles; these do not imply this result.
+
+## value
+
+PASS
+
+The shortest nontrivial integral H1 carriers of a canonical small vertex-transitive triangulated S³×S¹ are a natural discrete systolic invariant. Unit cocycle pairings simultaneously settle primitivity and coherent orientation of the complete shortest layer, beyond the raw f-vector, mod2 rank, or enumeration of nonfaces. Their full symmetry orbit profile is an exact natural finite classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
