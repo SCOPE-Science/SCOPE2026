@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The proof specifies all integer dimensions, positive parameters, Gaussian normalization and independent deterministic regularizer. Rotational invariance plus Sherman–Morrison give exact two-eigenvalue expectations. The unique unbiasedness candidate is forced algebraically; strict gamma-Stein/Cauchy–Schwarz shows this candidate has negative signal and positive null bias for every m>=2. Dominated convergence establishes the sharp opposite-order coefficients. Actual direct-matrix, quadrature and Monte Carlo checks total 893 PASS; these support but do not replace the quantified proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2410.01374v1 Theorem 3 and Section 3 are asymptotic and Gaussian error analyses; Appendix I expresses generic diagonal elements and bounds them without the sharp finite-rank-one signed theorem.",
+        "Zhang and Pilanci (PMLR 202, 2023) study shrinkage of covariance resolvents and applications to iterative Hessian sketching."
+      ],
+      "reasoning": "The closest broader models are not stronger exact statements. Their asymptotic guarantees do not imply finite-sample exact unbiasedness, impossibility, opposed signs, or leading directional coefficients for this fixed-ridge estimator.",
+      "searches": [
+        "arxiv:2410.01374v1 Theorems 3, 6, 7 Appendix I",
+        "PMLR:202-v202-zhang23ah Theorems 2.2, 2.3 Section 5.4",
+        "\"ridge\" \"simultaneously unbiased\" \"sketch\" \"eigenspaces\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2410.01374v1, original effective-dimension Gaussian right sketch",
+      "PMLR:202-v202-zhang23ah, prior shrinkage theory",
+      "arxiv:2211.03751, regularized sketched pseudoinverse",
+      "published-finding corpus semantic research index, four actual queries",
+      "Accessible previous mathematical findings, claim-level comparisons for 54 records"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Romanov–Zhang–Pilanci define the exact sketch family and scalar correction, and bound the estimation error.",
+        "LeJeune et al. derive asymptotic equivalence rather than exact signed finite-sketch-size bias.",
+        "Zhang–Pilanci provide asymptotic shrinkage of a related covariance resolvent."
+      ],
+      "reasoning": "Neither a finite error bound nor an asymptotic equivalent entails the exact sign and coefficient of each finite-m spectral bias. The source appendix has algebraic identities that can support but do not already state the additional gamma comparison.",
+      "searches": [
+        "arxiv:2410.01374v1 equation (7), equation (9), Appendix I equation (73)",
+        "arxiv:2211.03751 Theorem 4.1 and Section 5.4",
+        "PMLR:202-v202-zhang23ah Theorem 2.2 and Section 5.4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2211.03751 sections 4.1, 4.2 and 5.4.1 establish asymptotic pseudoinverse equivalences, including rank-deficient spectra.",
+        "arxiv:2410.01374v1 equation (7) specifies exactly the sketched operator examined here."
+      ],
+      "reasoning": "Prior asymptotic resolvent equivalence and its isotropic examples do not establish exact finite-m signed eigenmean biases or simultaneous unbiasedness impossibility. The stated conclusion would require a finite-sample gamma inequality not supplied by these results.",
+      "searches": [
+        "\"rank-one\" \"debias\" \"Hessian sketch\" \"finite\" Gaussian",
+        "\"Gaussian sample covariance resolvent\" finite-dimensional exact debias simultaneous eigenspace",
+        "\"S^T\" \"(S H S^T\" finite sample biased rank one Gaussian correction nullspace",
+        "arXiv:2211.03751 Section 5.4.1 isotropic rank-deficient matrix"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Returned mathematical findings on sparse stochastic subspace descent, random-matrix spectra, and unrelated Hessian methods do not identify this two-eigenspace Gaussian inverse-Hessian expectation.",
+        "The primary literature supplies the debiasing method and asymptotic comparisons, but no identified finite-m rank-one correction impossibility."
+      ],
+      "reasoning": "A returned title or isolated parameter match is not treated as original coverage. The closest returned claims use distinct sketches, objectives, or random operators. Search absence alone is not proof of novelty, and no statement of uniqueness is made.",
+      "searches": [
+        "published-finding corpus: \"exact finite Gaussian right sketch inverse Hessian regularization rank-one spike opposite signed bias nullspace impossibility scalar debiasing\"",
+        "published-finding corpus: \"Marchenko Pastur effective dimension scalar ridge correction finite-sample underestimation signal overestimation null directions Gaussian sketch\"",
+        "published-finding corpus: \"Hessian sketch S transpose inverse S rank one nullspace finite sample bias Marchenko-Pastur correction\"",
+        "published-finding corpus: \"Gaussian sample covariance resolvent finite-dimensional exact debias simultaneous eigenspace eigenvalue rank one spike\"",
+        "Published source index: arxiv:2410.01374v1, arxiv:2211.03751, PMLR:202-v202-zhang23ah"
+      ]
+    },
+    "rationale": "The result is an exact finite-sample spectral-sign and impossibility theorem for the specific deterministic-ridge Gaussian inverse-Hessian sketch. Inspected original 2024 work provides the construction, correction and concentration, but not the result, while inspected 2023/2022 shrinkage work gives different estimators or asymptotic equivalences. Actual published-finding corpus and primary-literature searches found no dominating claim, with the risk that older resolvent identities could encode an equivalent statement.",
+    "residual_risks": [
+      "An equivalent exact finite-sample spectral inequality may exist in older Gaussian-Wishart resolvent literature or inaccessible appendices.",
+      "Algebraic identities in prior work could support a derivation, although their published theorem statements do not imply the present signed quantitative result.",
+      "Search coverage does not establish global novelty; independent literature audit has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The estimator and correction are prior work; the exact deterministic-scalar simultaneous-unbiasedness obstruction and opposed finite-sample spectral bias laws were not located.",
+        "evidence": [
+          "arxiv:2410.01374v1 equations (7), (9), (16), (21), (73)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2410.01374v1",
+        "material_read": "Introduction equations (7)–(9), Sections 2–3, Theorems 3 and 5–7, Algorithm 2, Appendix I eigenbasis formulas and their conclusions",
+        "method": "Primary lawful arXiv full-text HTML; targeted inspection of main statements and appendix",
+        "title": "Newton Meets Marchenko–Pastur: Massively Parallel Second-Order Optimization with Hessian Sketching and Debiasing",
+        "trigger": "Exact inverse-Hessian sketch and effective-dimension ridge under study"
+      },
+      {
+        "assessment": "Asymptotic covariance-resolvent shrinkage and isotropic convergence rates are not the signed finite rank-one expectation of the precise right sketch studied here.",
+        "evidence": [
+          "PMLR 202 (2023), pp. 41523–41549, Theorems 2.2–2.3, Section 5.4"
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v202/zhang23ah/zhang23ah.pdf",
+        "material_read": "Abstract and introduction, Theorems 2.2–2.5, Sections 5.2–5.4, numerical sketch application and listed appendix results",
+        "method": "Authorized openly accessible primary full-text PDF; statements, proof context and numerical application inspected",
+        "title": "Optimal Shrinkage for Distributed Second-Order Optimization",
+        "trigger": "Earlier shrinkage method and possible stronger finite-sample regularization result"
+      },
+      {
+        "assessment": "No exact Gaussian finite-m two-eigenspace bias sign or no-scalar-unbiasedness theorem located; primary theorems concern asymptotic equivalences.",
+        "evidence": [
+          "arxiv:2211.03751, Theorem 4.1, Section 5.4.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2211.03751",
+        "material_read": "Abstract, introduction and comparisons, Theorems 4.1/4.8, Section 5.4.1 rank-deficient isotropic spectrum, and relevant statements in Section 5",
+        "method": "Lawful arXiv primary full-text PDF; source theorem and rank-deficient illustrative example inspected",
+        "title": "Asymptotics of the Sketched Pseudoinverse",
+        "trigger": "Closest operator-equivalence paper with isotropic rank-deficient examples"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6be07e90-07d1-47ac-ba62-cf8674f70e98",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The determinant of Newton-step systematic bias is an algorithm-design question, not a routine matrix identity. The theorem exhibits a structural impossibility of exact finite-sample debiasing by a single deterministic scalar ridge parameter while quantifying residual signal and null errors with sharp, different orders. Hence averaging arbitrarily many independent workers cannot remove that fixed-m bias; non-scalar corrections are needed for exact unbiasedness. It does not allege failure of adaptive estimators or solvers.",
+    "status": "PASS"
+  }
+}
