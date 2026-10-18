@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "The proof shows that two initially white universal vertices permanently block every first force. A set of at most s vertices cannot start forcing: with all s universal vertices initially blue, at least four path vertices are white; with s-1 universal vertices, any initial path vertex still sees the uncolored universal and a white path neighbor. The two s+1-vertex cases are exhausted, leading to exactly 2s+2 explicit minimum sets. Symmetric-difference-two checks give precisely the two K_(s+1) blocks and single bridge. These arguments hold for every integer s>=2,n>=4. An independent implementation checks 261879 initial sets and 1062 candidate reconfiguration edges across 54 small instances; finite checks corroborate but do not establish the universal result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Menon–Singh (https://arxiv.org/html/2405.01423v1), §3.2, gives cone/graph-operation coefficient bounds, not adjacency of minimum sets.",
+        "Geneson–Haas–Hogben (https://arxiv.org/html/2009.00220v1) studies general operations and examples but no all-s,n result of this form in examined text."
+      ],
+      "reasoning": "An exact general reconfiguration theorem for clique joins, apex true-twin expansions or universal-vertex graph operations would dominate the present result. The investigated broad theorems either concern cardinality/coefficient bounds or different graph constructions, and were not found to entail the asserted unique bridge and two complete blocks.",
+      "searches": [
+        "minimum zero forcing sets fan graph K1 join Pn and token jumping reconfiguration graph barbell two complete graphs joined by edge",
+        "zero forcing graph barbell graph realizable as reconfiguration zero forcing",
+        "all minimum zero forcing sets of K_r join P_n barbell reconfiguration",
+        "zero forcing graphs two cliques connected by bridge realizable 2020 Geneson Haas Hogben",
+        "arxiv:2405.01423v1 §3.2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2009.00220v1",
+      "arxiv:1801.08910v1",
+      "arxiv:2405.01423v1",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-zero-forcing-polynomial-of-fan-graphs--f3b2c94da283/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-zero-forcing-polynomial-of-bridge-barbells--5431b532d7f2/RESULT.md",
+      "Published mathematical result records searched by structural aliases and exact graph parameters."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Geneson–Haas–Hogben (https://arxiv.org/html/2009.00220v1) provides general definitions and examples, without a stated clique-path-join construction in relevant sections.",
+        "Boyer et al. (https://arxiv.org/html/1801.08910v1) count ordinary zero-forcing sets but do not encode token-jumping edges.",
+        "Published fan case (https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-zero-forcing-polynomial-of-fan-graphs--f3b2c94da283/RESULT.md) covers s=1 only."
+      ],
+      "reasoning": "Neither knowledge of the zero-forcing number nor the number of minimum sets determines their swap adjacency; two large complete blocks plus one bridge require classification of selected sets and cross-swaps. Prior cone coefficient inequalities are too weak to imply this structure. The s=1 case corresponds to a four-vertex path and is excluded from novelty, while s>=2 yields arbitrarily large barbell blocks.",
+      "searches": [
+        "zero forcing graph reconfiguration of complete graph join path K_s vee P_n, fan graph generalized fan minimum zero forcing sets two cliques bridge",
+        "The zero forcing graph of a generalized fan K_r join P_n consists of two cliques K_{r+1} joined by one bridge",
+        "zero forcing graph K_m join P_n reconfiguration 2020 2023",
+        "zero forcing number join clique path K_m vee P_n minimum sets",
+        "\"zero forcing\" \"complete join\" \"path\" minimum sets",
+        "arxiv:2009.00220v1",
+        "arxiv:1801.08910v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Geneson–Haas–Hogben, Reconfiguration graphs of zero forcing sets (https://arxiv.org/html/2009.00220v1), definitions and family classifications; no statement on K_s join P_n found in inspected text.",
+        "Published fan result (https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-zero-forcing-polynomial-of-fan-graphs--f3b2c94da283/RESULT.md) treats K_1 join P_n, with four minimum sets and a P_4 reconfiguration boundary."
+      ],
+      "reasoning": "Equivalent descriptions include generalized fans, joining a universal clique to a path, complete true-twin expansion of a fan apex, token-jumping minimum-zero-forcing graph and equal-clique barbell graph. The s=1 boundary is covered, but does not identify the s>=2 clique-block adjacencies or prove them for unbounded clique size.",
+      "searches": [
+        "zero forcing graph reconfiguration of complete graph join path K_s vee P_n, fan graph generalized fan minimum zero forcing sets two cliques bridge",
+        "The zero forcing graph of a generalized fan K_r join P_n consists of two cliques K_{r+1} joined by one bridge",
+        "zero forcing reconfiguration of universal clique blow-ups and true twin expansion graph",
+        "\"zero forcing graph\" \"fan\" \"join\" \"path\"",
+        "arxiv:2009.00220v1, Sections 2–4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The fan result (https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-zero-forcing-polynomial-of-fan-graphs--f3b2c94da283/RESULT.md) explicitly enumerates the four boundary minimum sets at s=1.",
+        "The bridge-barbell result (https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-zero-forcing-polynomial-of-bridge-barbells--5431b532d7f2/RESULT.md) enumerates zero-forcing sets ON the barbell graph, with a different underlying graph and invariant."
+      ],
+      "reasoning": "The closest exact tables concern the fan polynomial and a polynomial on barbell graphs. The claim here concerns the graph whose vertices are the minimum forcing sets of K_s join P_n and whose edges are swaps; neither exact table yields the target construction as a recorded case. No matching exact instance or table was recovered.",
+      "searches": [
+        "zero forcing graph barbell graph realizable as reconfiguration zero forcing",
+        "The zero forcing graph of a generalized fan K_r join P_n consists of two cliques K_{r+1} joined by one bridge",
+        "all minimum zero forcing sets of K_r join P_n barbell reconfiguration",
+        "\"zero forcing graph\" \"barbell\" \"cliques\"",
+        "published-result ID 2026/10/4/SCOPE-zero-forcing-polynomial-of-fan-graphs--f3b2c94da283",
+        "published-result ID 2026/10/4/SCOPE-zero-forcing-polynomial-of-bridge-barbells--5431b532d7f2"
+      ]
+    },
+    "rationale": "The inspected primary study introduces the token-jumping zero forcing graph and treats basic families but contains no reconfiguration graph for the whole clique-path-join family. The fan result identifies the s=1 minimum sets only; the barbell enumeration counts forcing sets on barbell base graphs, a distinct implication direction. Enumeration of forcing sets and cone coefficient bounds do not imply the complete minimum-set swap graph here. Searches by structural aliases and equivalent realizations found no dominating statement, subject to unindexed-priority risk.",
+    "residual_risks": [
+      "An equivalent or stronger result may be present in an unindexed paper or under a different definition of generalized fan, clique-join, true-twin expansion, or reconfiguration graph.",
+      "No independent bibliographic priority certification or independent proof review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Primary source supplies the model and general context but no stated complete clique-path-join barbell realization in inspected text.",
+        "evidence": [
+          "arxiv:2009.00220v1; original public version 2020-09-01",
+          "https://arxiv.org/html/2009.00220v1"
+        ],
+        "identifier_or_url": "arxiv:2009.00220v1",
+        "material_read": "Full accessible manuscript, including definitions and substantive Sections 2–4 on reconfiguration adjacency, paths, cliques and related families.",
+        "method": "Read accessible arXiv text and compare graph families and implications.",
+        "title": "Reconfiguration graphs of zero forcing sets",
+        "trigger": "Directly defines same reconfiguration invariant and discusses realizable graphs."
+      },
+      {
+        "assessment": "Counting coefficients does not specify the reconfiguration graph; no matching clique-path join token-jumping theorem found.",
+        "evidence": [
+          "https://arxiv.org/html/1801.08910v1"
+        ],
+        "identifier_or_url": "arxiv:1801.08910v1",
+        "material_read": "Accessible full manuscript, especially zero-forcing polynomial definitions and enumerative examples.",
+        "method": "Read arXiv full text and compare invariant output to minimum-set token swaps.",
+        "title": "The zero forcing polynomial of a graph",
+        "trigger": "Possible stronger complete enumeration of the same minimum sets."
+      },
+      {
+        "assessment": "The cone lemma gives coefficient estimates and does not imply the claimed structural all-parameter token-jumping barbell.",
+        "evidence": [
+          "https://arxiv.org/html/2405.01423v1"
+        ],
+        "identifier_or_url": "arxiv:2405.01423v1",
+        "material_read": "Accessible full manuscript, including Section 3.2 on adding universal vertices.",
+        "method": "Read complete arXiv HTML article and inspect cone bounds for implication.",
+        "title": "Exploring the Influence of Graph Operations on Zero Forcing Sets",
+        "trigger": "Cone/join operations could imply a broader theorem."
+      },
+      {
+        "assessment": "Covers K_1 join P_n and four minimum sets; not two growing cliques for s>=2.",
+        "evidence": [
+          "2026/10/4/SCOPE-zero-forcing-polynomial-of-fan-graphs--f3b2c94da283",
+          "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-zero-forcing-polynomial-of-fan-graphs--f3b2c94da283/RESULT.md"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-zero-forcing-polynomial-of-fan-graphs--f3b2c94da283/RESULT.md",
+        "material_read": "Entire publicly accessible RESULT.md including proof, verification and literature comparison.",
+        "method": "Direct full document read and mathematical comparison of minimum-set families.",
+        "title": "Zero forcing polynomial of fan graphs",
+        "trigger": "Same graph construction in s=1 boundary."
+      },
+      {
+        "assessment": "Determines zero-forcing sets of a barbell as input graph; does not realize a barbell as the reconfiguration graph of a clique-path join.",
+        "evidence": [
+          "2026/10/4/SCOPE-zero-forcing-polynomial-of-bridge-barbells--5431b532d7f2",
+          "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-zero-forcing-polynomial-of-bridge-barbells--5431b532d7f2/RESULT.md"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-zero-forcing-polynomial-of-bridge-barbells--5431b532d7f2/RESULT.md",
+        "material_read": "Entire publicly accessible RESULT.md including the complete base-graph forcing-set characterization.",
+        "method": "Direct full document read and direction-of-invariant comparison.",
+        "title": "Zero forcing polynomial of bridge barbells",
+        "trigger": "Same target graph shape, potentially equivalent via reconfiguration."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a18e8712-b70c-46f3-89aa-f68ebef69907",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural clique-path join family realizes every equal-sized two-clique barbell with clique size at least three as an ordinary zero-forcing token-jumping graph. The exact construction isolates a single reconfiguration bottleneck between arbitrarily large complete blocks while input path length varies freely, and fully classifies all minimum sets; this advances the structural graph-realizability problem beyond scalar forcing numbers or ordinary zero-forcing-set counts.",
+    "status": "PASS"
+  }
+}
