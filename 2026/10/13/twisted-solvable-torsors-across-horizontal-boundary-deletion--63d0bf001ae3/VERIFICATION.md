@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The geometric premise was checked in N. Yamaguchi, arXiv:2610.02948v1, Theorem 2.5: under condition \((\dagger)\), the natural surjection from the étale fundamental group of the divisor complement to that of the ambient scheme has topologically perfect kernel.
+# Independent mathematical audit
 
-The coefficient dictionary was checked in the Stacks Project, Tag 0DV4: finite locally constant sheaves on a connected scheme correspond to finite continuous fundamental-group actions. The torsor interpretation was checked against Tags 03AG and 03AJ.
+## correctness
 
-For a cocycle \(z:G\to A\), the kernel \(K\) acts trivially on \(A\), so \(z|_K\) is a homomorphism. Its finite image is perfect because it is a quotient of the topologically perfect group \(K\), and solvable because it lies in the solvable coefficient group \(A\). Therefore the image is trivial. The cocycle descends uniquely to \(G/K\), and the same elementwise coboundary relation descends, proving bijectivity on torsor classes.
+PASS
 
-Limits checked: no higher-degree cohomology statement is inferred; no nonsolvable fiber is admitted; no coefficient sheaf defined solely on the complement is claimed to extend.
+Assuming Yamaguchi Theorem 2.5 exactly as stated under condition (dagger), G=pi1_et(U)→H=pi1_et(X) is a continuous surjection with topologically perfect kernel K. For finite locally constant solvable group sheaf A on X, K acts trivially on its stalk. A continuous crossed cocycle z:G→A restricts to a homomorphism K→A; its finite image is simultaneously a perfect quotient of K and a solvable subgroup of A, hence trivial. The cocycle descends uniquely to H; coboundaries descend using the common action, proving bijection on nonabelian pointed H¹ and a group isomorphism if A abelian. No assumption that Aut(A) or ambient monodromy is solvable. The geometric premise is accepted from the named theorem, not invented from computational tests.
+
+## originality
+
+PASS
+
+The cited theorem establishes perfect kernel and prosolvable-cover invariance; the reviewed consequence handles genuinely twisted finite solvable coefficients with potentially nonsolvable monodromy. No direct literature equivalent was found; author manuscript inaccessible in full, so residual risk is material, not scientific rejection by access alone.
+
+## value
+
+PASS
+
+Twisted solvable torsor invariance across an arithmetic horizontal divisor has mathematical value beyond constant-cover classification: coefficient groups may be solvable while monodromy in Aut(A) is nonsolvable. It gives a natural cohomological extension property and states precise geometric/coefficients restrictions, albeit via a concise formal argument.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

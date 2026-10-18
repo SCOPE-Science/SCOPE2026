@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Yamaguchi's Theorem 2.5 gives a surjective map of étale fundamental groups with topologically perfect kernel under the stated horizontal-divisor hypotheses. For a finite locally constant solvable group sheaf pulled back from the ambient scheme, that kernel acts trivially. Restricting a nonabelian cocycle to the kernel gives a continuous homomorphism into the solvable fiber; its image is both perfect and solvable, hence trivial. Descent of cocycles and coboundaries then gives the claimed bijection.
+## correctness
 
-## Originality
-PASS. The initiating source was inspected at the exact perfect-kernel theorem and its immediate corollary. It states maximal-prosolvable quotient invariance and a residual criterion for linear representations, but not torsor or \(H^1\) invariance. Exact, alias, broader-coverage, and implication searches found no covering statement. The main residual risk is that this concise perfect-kernel consequence may be implicit in unindexed folklore.
+PASS
 
-## Value
-PASS. The result handles twisted finite solvable coefficient groups with arbitrary ambient monodromy, including cases where \(\operatorname{Aut}(A)\) is nonsolvable. That feature makes it a genuine structural extension principle rather than a constant-coefficient rephrasing of prosolvable-quotient invariance.
+Assuming Yamaguchi Theorem 2.5 exactly as stated under condition (dagger), G=pi1_et(U)→H=pi1_et(X) is a continuous surjection with topologically perfect kernel K. For finite locally constant solvable group sheaf A on X, K acts trivially on its stalk. A continuous crossed cocycle z:G→A restricts to a homomorphism K→A; its finite image is simultaneously a perfect quotient of K and a solvable subgroup of A, hence trivial. The cocycle descends uniquely to H; coboundaries descend using the common action, proving bijection on nonabelian pointed H¹ and a group isomorphism if A abelian. No assumption that Aut(A) or ambient monodromy is solvable. The geometric premise is accepted from the named theorem, not invented from computational tests.
 
-The statement does not claim higher-cohomology invariance, nonsolvable coefficient fibers, or extension for local systems existing only on the complement.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The cited theorem establishes perfect kernel and prosolvable-cover invariance; the reviewed consequence handles genuinely twisted finite solvable coefficients with potentially nonsolvable monodromy. No direct literature equivalent was found; author manuscript inaccessible in full, so residual risk is material, not scientific rejection by access alone.
+
+## value
+
+PASS
+
+Twisted solvable torsor invariance across an arithmetic horizontal divisor has mathematical value beyond constant-cover classification: coefficient groups may be solvable while monodromy in Aut(A) is nonsolvable. It gives a natural cohomological extension property and states precise geometric/coefficients restrictions, albeit via a concise formal argument.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
