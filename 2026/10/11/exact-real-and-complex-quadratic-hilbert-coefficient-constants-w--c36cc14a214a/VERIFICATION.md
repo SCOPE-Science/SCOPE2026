@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The algebraic proof is self-contained in RESULT.md. The coefficient dictionary is \(b_{ij}=2A_{ij}\), giving \(E=2\|A\|_F^2-\sum_i|A_{ii}|^2\); Takagi factorization and real spectral diagonalization show \(\sup_{\|z\|_2=1}|z^TAz|=\|A\|_{\mathrm{op}}\). Symmetric orthogonal/unitary extreme contractions are sufficient by explicit sign-mixture decompositions. The real Fourier projection example has diagonal \((n+1)/(2n)\), so its reflection has diagonal \(1/n\) and the predicted sharp energy. The complex three-dimensional cofactor relation is checked directly from \(\operatorname{adj}U=(\det U)U^*\); it yields the optimal lower bound \(\delta\ge1/3\). The 5-point Fourier construction is exact because \(1+4\cos\theta=0\), and the reflected eigenvalue sequence makes the unitary symmetric.
+## correctness
 
-As a supplementary finite check, numerical matrix calculations in dimensions one through nine confirmed the expected squared coefficient values, with symmetry/unitarity residuals under \(2\times10^{-14}\); these floating-point observations do not certify the general theorem. The formula is not extended to other polynomial degrees, other domain exponents, or alternate coefficient normalizations. The focal full text was unavailable, so novelty retains the specific literature risk identified in REVIEW.md. No external audit has been performed.
+PASS
+
+Reconstructed P(z)=zᵀAz with b_ij=2A_ij and E=2||A||_F²−Σ|A_ii|², and verified spectral/Takagi op-norm identity and convexity reduction to symmetric real orthogonal / complex unitary matrices. Odd real trace |tr U|≥1 forces δ≥1/n, attained by constant-diagonal Fourier projection; even dimensions have transposition blocks. In complex n=3 the cofactor/row-orthogonality inequality (3−δ)/2≤√(3δ)+δ forces δ≥1/3 and Householder attains it. Symmetric zero-diagonal 5-point Fourier unitary with cosθ=−1/4 and 2×2 sums attain δ=0 in every other n≥2. n=1 agrees with both fields. These arguments cover all n analytically; no reliance on numerical sampling.
+
+## originality
+
+PASS
+
+Independent statement-and-implication comparisons checked relevant original theorems rather than titles. The mirrored current record was excluded as an independent priority source. No inspected stronger theorem determines the entire audited final result; specific residual access/priority risks are retained.
+
+## value
+
+PASS
+
+The coefficient ℓ₂ norm with one occurrence of each quadratic monomial is a natural finite-dimensional operator-polynomial invariant. Sharp exact constants for both fields, odd trace obstruction and isolated complex dimension-three failure supply a useful complete classification, not just routine growth-rate substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
