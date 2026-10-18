@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Stable OU covariance from a nilpotent shift; exact Itô-isometry variance sum S_m, endpoint-lag semigroup formula, unique maximum by a decreasing ratio, bounded root expansion, and three central-binomial asymptotic regimes. Independent finite Lyapunov/matrix-exponential checks: 105 samples; exact peak and asymptotic numerical samples reproduce constants. Full analytical proof in RESULT.md.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General OU covariance formula, 2024 Eq. (8): https://people.maths.ox.ac.uk/maini/PKM%20publications/528.pdf",
+        "Random strictly lower-triangular OU family, 2012 Sec. IV: https://cbl.eng.cam.ac.uk/publications/hennequin-pre-2012.pdf",
+        "2026 exceptional-point model abstract: https://arxiv.org/abs/2609.05391"
+      ],
+      "reasoning": "A multivariate Gaussian OU covariance expression is a general computational prerequisite but does not supply the nontrivial endpoint normalization asymptotics. The 2012 triangular network has random all-to-all edges rather than deterministic homogeneous nearest-neighbor edges; the 2024 one-input model lacks downstream noises. The full 2026 source was unavailable, so implicit broader coverage remains a reported risk.",
+      "searches": [
+        "stationary cross covariance maximal directional lag unidirectional Gaussian feedforward cascade order n Poisson truncated exponential",
+        "critical threshold g equals damping for endpoint correlation amplitude scaling n minus three quarters Ornstein Uhlenbeck chain",
+        "stochastic linear feedforward chain Poisson cumulative cross-covariance lag optimum 2n-2"
+      ]
+    },
+    "checked_sources": [
+      "https://cbl.eng.cam.ac.uk/publications/hennequin-pre-2012.pdf",
+      "https://people.maths.ox.ac.uk/maini/PKM%20publications/528.pdf",
+      "https://arxiv.org/abs/2609.05391"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2012 Eq. (1) and Appendix A: https://cbl.eng.cam.ac.uk/publications/hennequin-pre-2012.pdf",
+        "2024 Eqs. (1)-(3), (8)-(13): https://people.maths.ox.ac.uk/maini/PKM%20publications/528.pdf",
+        "2026 abstract: https://arxiv.org/abs/2609.05391"
+      ],
+      "reasoning": "2012 establishes qualitative nonnormal noise amplification and averaged random-matrix recursion, not the deterministic one-way normalized endpoint lag peak. 2024 supplies joint stationary Gaussian identities, but uses one noisy input; replacing its noise covariance by full-rank noise and then doing an independent asymptotic analysis are extra steps. The 2026 abstract discusses polynomially dressed covariance relaxation but not a depth-dependent three-regime endpoint peak; full-text coverage cannot be excluded.",
+      "searches": [
+        "one way Ornstein Uhlenbeck cross correlation maximum cascade"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2012 paper, Sec. IV and Appendix A: https://cbl.eng.cam.ac.uk/publications/hennequin-pre-2012.pdf",
+        "2024 paper, Eqs. (1), (3), (8), (11)-(14): https://people.maths.ox.ac.uk/maini/PKM%20publications/528.pdf"
+      ],
+      "reasoning": "Checked the two plausible formulations, triangular OU feedforward variance and multicompartment OU time lag. Neither inspected paper asserts the complete maximizer and three-regime normalized endpoint peak law with independent noise at every site; no returned research-record claim matched those hypotheses and conclusions.",
+      "searches": [
+        "one-way linear Ornstein Uhlenbeck cascade optimal time lag cross correlation truncated exponential exceptional point unidirectional chain",
+        "nonnormal Hatano Nelson stochastic chain one way nearest neighbor covariance time lag peak Erlang polynomial universal delay",
+        "Ornstein Uhlenbeck chain exact stationary covariance binomial central coefficients noise amplification transition g over a"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact covariance recurrence in 2012 Appendix A: https://cbl.eng.cam.ac.uk/publications/hennequin-pre-2012.pdf",
+        "One-input covariance in 2024 Sec. III.B: https://people.maths.ox.ac.uk/maini/PKM%20publications/528.pdf"
+      ],
+      "reasoning": "No inspected exact table or formula gives the optimizing lag together with the sharp three-regime normalized peak constants and finite-size critical window for this particular equal-intensity independent-noise chain. The earlier formulas are compared as mathematical implications, not by title alone.",
+      "searches": [
+        "feedforward Ornstein-Uhlenbeck non-normal variance chain",
+        "unidirectional linear stochastic covariance binomial chain"
+      ]
+    },
+    "rationale": "The sharp all-depth lag-peak transition and its critical window do not follow as a previously stated equivalent or stronger theorem from the inspected primary papers. The known Gaussian semigroup/Lyapunov framework is correctly attributed. General nonnormal OU results and possible unindexed implicit prior derivations remain risks, especially because the 2026 full manuscript was inaccessible.",
+    "residual_risks": [
+      "Full text of arXiv:2609.05391v1 could not be inspected; a hidden special case or full implication is possible.",
+      "Known general Gaussian OU semigroup equations could make components straightforward; the claimed contribution is their sharp normalized endpoint-peak asymptotic classification.",
+      "Unindexed literature on deterministic feedforward Gaussian chains and temporal sensing could give equivalent bounds."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the deterministic nearest-neighbor lag-maximizer and phase law, though its Lyapunov approach is a prerequisite",
+        "evidence": [
+          "https://cbl.eng.cam.ac.uk/publications/hennequin-pre-2012.pdf",
+          "Sec. IV and Appendix A, Eq. (A1)–(A3)"
+        ],
+        "identifier_or_url": "DOI:10.1103/PhysRevE.86.011909",
+        "material_read": "Full original article, including Sec. IV and Appendix A (variance recursion; qualitative memory discussion)",
+        "method": "Accessible publisher-author PDF text and page layout, equations and discussion",
+        "title": "Non-normal amplification in random balanced neuronal networks",
+        "trigger": "Random feedforward OU noise amplification may subsume the proposed effect"
+      },
+      {
+        "assessment": "NOT_COVERING because stochastic noise enters only at upstream input, while the new normalized-peak transition depends on fresh independent noise in all compartments",
+        "evidence": [
+          "https://people.maths.ox.ac.uk/maini/PKM%20publications/528.pdf",
+          "Sec. II Eq. (1), Sec. III Eqs. (8)–(13)"
+        ],
+        "identifier_or_url": "DOI:10.1103/PhysRevE.109.054405",
+        "material_read": "Original 12-page article, with model equations and covariance/autocorrelation analysis",
+        "method": "Open university-hosted PDF; text extraction and visual equation inspection",
+        "title": "Smoothing in linear multicompartment biological processes subject to stochastic input",
+        "trigger": "Unidirectional OU compartments and explicit covariance formulas could cover this model"
+      },
+      {
+        "assessment": "UNRESOLVED_FULL_TEXT; abstract states polynomial covariance relaxation but not normalized peak depth law; residual implicit-coverage risk",
+        "evidence": [
+          "https://arxiv.org/abs/2609.05391",
+          "arXiv first submitted 2026-09-04"
+        ],
+        "identifier_or_url": "arXiv:2609.05391v1",
+        "material_read": "Original abstract and bibliographic record only; original full text not accessible",
+        "method": "arXiv public abstract mirrors; preprint and OA full-text retrieval attempts unsuccessful, institutional PDF access unavailable",
+        "title": "Non-reciprocally interacting Ornstein-Uhlenbeck processes: Exceptional points, Anomalous relaxation, Pseudo-equilibrium and Boundary refrigeration",
+        "trigger": "Recent motivating exceptional-point OU chain might contain endpoint temporal covariance results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4ab77cf4-eb67-4284-be9a-bb8553f40ebc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Stochastic signal transport across feedforward networks is sensitive to observation lag and to variance accumulated from noise introduced at each site. Exact unique lag and a sharp detectability transition, with scaling coefficients and critical window, quantify a structurally motivated observable beyond the usual nonnormal variance amplification. No speculative downstream theorem is needed for this quantitative law.",
+    "status": "PASS"
+  }
+}
