@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The quantitative log-product estimate follows from Taylor expansion plus Abel summation of two zero-mean periodic sequences. Uniform estimates hold for all start indices and all horizons, and convergence of the normalized products follows from convergence of the correction series. The orthogonal-coordinate orbit formula proves all three regimes with a separate witness disproving strong asymptotic expansivity for negative drift. Compact perturbation, Fredholm index and explicit approximate boundary eigenvectors yield the spectral sets. Finite checks in the accompanying script passed and are not asserted to prove infinite statements.
+## correctness
 
-**Originality — PASS, with stated residual risk.** Bag--Mandal--Das define the hierarchy and exhibit one shift-spectrum comparison; that prior spectral-blindness observation is acknowledged. Bernardes et al. already give the positive-expansivity product criterion; the positive branch agrees with it but requires the new all-period variance-drift estimate. Inspected relevant primary literature and published-record searches did not reveal the explicit \(\alpha-v/2\) threshold or the full strong/asymptotic/critical classification. An unindexed equivalent weighted-shift result remains possible, and a nearby norm-profile record was readable at summary level only.
+PASS
 
-**Mathematical value — PASS.** The square-root oscillation is a natural critical scale: its first-order contribution cancels over a period but its second-order logarithmic contribution does not. The exact period-variance law gives a complete dynamical classification, demonstrates different behavior despite fixed full/point/approximate spectra, and identifies a sharp boundary valid for every finite periodic waveform. The statement is limited to unilateral shifts on the specified Hilbert space, rather than arbitrary operators or noises.
+For w_j=1+α/j+c_j/√j with 0≤α≤1 and bounded zero-mean periodic |c_j|≤1/2, weights are positive. Taylor expansion gives log w_j=c_j j^{−1/2}+(α−c_j²/2)/j+O(j^{−3/2}) uniformly in j large. Periodicity and zero mean make the c and c²−v partial sums uniformly bounded, so Abel summation yields uniform all-start/all-length log product δ log((k+n)/k)+O(k^{−1/2}), δ=α−v/2, plus finite positive correction limit L_k. The orbit identity ||Tⁿx||²=Σ|x_k|²P_{k,n}² and dominated convergence give δ>0 divergence of every nonzero orbit, δ<0 strong convergence to 0 but failure of uniform decay on any fixed bounded-orbit ball by far-out e_k, and δ=0 strictly positive finite norms. T is a compact perturbation of the unilateral shift; Fredholm index −1 inside the disk, absence of eigenvectors, growth-bound spectral radius 1 and long approximate unit-circle blocks give σ=closed disk, σ_point=∅, σ_approx=unit circle. Independently recomputed logarithmic drift/residual stabilization for alternating perturbations across δ signs; these finite diagnostics are not proofs. Exact comparison of imported named strong/super asymptotic definitions limited by inaccessible Bag–Mandal–Das full text.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Bernardes et al. establish positive expansivity iff unbounded forward weight products; the δ>0 implication is an application once the new uniform product law is known. Bag–Mandal–Das introduce the refined definitions, equivalence of super asymptotic expansivity and hyperbolicity, and a spectrum-blind pair of examples, but no documented all-period critical j^−1/2 perturbation law. The distinct mean-square correction and quantitative uniform estimate create the new three-branch phase portrait; O best-of-knowledge with source full-text access residual risk.
+
+## value
+
+PASS
+
+Periodic zero-mean fluctuations at the critical j^−1/2 scale produce a deterministic variance correction of −mean(c²)/2, changing orbital stability and sharp phase boundaries while spectrum stays fixed. The quantified all-start/all-time product bound and three distinct dynamical outcomes provide a meaningful perturbation threshold, not a routine positive-expansivity criterion alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
