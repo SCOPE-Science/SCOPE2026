@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For any two-date Brownian stopping rule the decision is an F_a-measurable event A of probability 1-q. Conditional future maximum gain is (S_h-D_a)_+ with independent half-normal S_h and half-normal D_a. Strict rearrangement uniquely selects lower/upper drawdown quantiles; direct differentiation gives H prime = f_a G_h and endpoints H(0)=C_a,H(infinity)=C_b. Uniform quantile sliding fills all intermediate expectations, and inverse-quantile calculus proves signed second derivatives and a symmetric strictly concave width with sole peak at q=1/2. Standalone mpmath code passed 291 independent high-precision identity checks and 42 positive inequalities; finite checks supplement analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Beiglböck et al. (2018) Corollary 1.2 applies to general stopping-time distributions, and Section 7 studies maximization using reflected drawdown.",
+        "Deng–Zhang (2026) prove barrier optimality in an atomless setting.",
+        "Bayraktar–Miller (2016) treat finite-atomic laws but with terminal position reward."
+      ],
+      "reasoning": "The 2018 maximizer barrier theorem strongly covers the optimizer structure and implies that the maximizing two-date stopping law can be organized through drawdown; it does NOT automatically furnish the exact evaluated upper and lower extrema or the half-mass uniqueness of maximal range. These sharper numerical assertions are the surviving claim, not a claimed new general barrier theorem.",
+      "searches": [
+        "Deng Zhang 2026 distribution-constrained maximum stopping binary law closed form drawdown",
+        "Brownian maximum time-distribution constraint atoms upper lower payoff frontier",
+        "two point distribution constrained running maximum Brownian optimal stopping explicit",
+        "Beiglböck Eder Elgert Schmock 2018 Corollary 1.2 and Remark 7.1",
+        "Bayraktar Miller arXiv 1604.03042 finite atomic stopping"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.01585v1 (full HTML; Oct 1 2026)",
+      "doi:10.1007/s00440-017-0805-x (publisher OA full HTML, Cor.1.2, Sect.7, Remark 7.1)",
+      "arXiv:1604.03042 (full arXiv text, Section 2.1–2.4 and reference/applications)",
+      "Research index semantic comparisons for: distribution constrained stopping Brownian running maximum two point law discrete times drawdown threshold explicit formula optimal; two-atom prescribed stopping distribution maximal Brownian running supremum optimal drawdown policy; Deng Zhang 2026 distribution-constrained maximum stopping binary law closed form drawdown; Brownian running supremum stopping at one of two deterministic times with prescribed probability sharp maximum minimum attainable expected running maximum interval erfc quantile; drawdown threshold two-date constrained Brownian lookback extremal mean maximum lower upper tail selection strict symmetric spread concavity; Brownian maximum time-distribution constraint atoms upper lower payoff frontier"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Beiglböck et al., Cor. 1.2: maximizer is drawdown-barrier stopping for prescribed law; Remark 7.1: minimizing maximum is structurally different in general.",
+        "Deng–Zhang, Eq. (1.1): same maximization cost but atomless prescribed law; their contribution is a variational boundary.",
+        "Bayraktar–Miller, Eq. (2.2): finite atomic law with position payoff f(X_tau)."
+      ],
+      "reasoning": "The maximal two-date threshold principle is implied by the foundational monotonicity geometry and is not claimed as original. The exact function H, its simultaneous minimum counterpart, attainability of the full interval without external randomization and strict concavity/symmetry with unique q=1/2 width maximum are not statements found in these sources. Deriving them requires integrating a half-normal stop-loss gain and analyzing its entire mass allocation; they remain the specific assessed extension. Independent check for otherwise unlocated direct corollaries is required.",
+      "searches": [
+        "arXiv:2610.01585v1 Introduction assumption and Section 5 discrete arguments",
+        "doi:10.1007/s00440-017-0805-x Cor. 1.2/Remark 7.1",
+        "arXiv:1604.03042 Section 2.1 Eq. (2.2)",
+        "distribution constrained stopping Brownian running maximum two point law discrete times drawdown threshold explicit formula optimal",
+        "binary time law Brownian running supremum stopping maximum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The two-date stopping choice is exactly a measurable continuation set of mass 1-q; established drawdown barrier criterion of Beiglböck et al. (2018) is applicable.",
+        "Deng and Zhang (2026), Sect. 1, restrict the stated variational formulation to atomless laws."
+      ],
+      "reasoning": "Equivalent descriptions as binary stopping with a fixed continuation mass, rearrangement of expected future maximum gain, or a terminal drawdown threshold all describe the same selection geometry. Broad threshold geometry is acknowledged as prior, while the claim being tested includes the explicit two-sided values, full range, and width optimum; these were not identified as equivalent statements already calculated in the inspected sources.",
+      "searches": [
+        "distribution constrained stopping Brownian running maximum two point law discrete times drawdown threshold explicit formula optimal",
+        "two-atom prescribed stopping distribution maximal Brownian running supremum optimal drawdown policy",
+        "Brownian running supremum stopping at one of two deterministic times with prescribed probability sharp maximum minimum attainable expected running maximum interval erfc quantile",
+        "drawdown threshold two-date constrained Brownian lookback extremal mean maximum lower upper tail selection strict symmetric spread concavity",
+        "arXiv:2610.01585v1 Section 1 and Section 5",
+        "doi:10.1007/s00440-017-0805-x Section 7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A closest indexed study on fixed atom profiles for expected sample maxima concerns extrema of iid finite-support distributions, not Brownian stopping.",
+        "A closest indexed study on bounded stopping bias for limited-independent Rademacher increments concerns discrete walks, not Brownian running-maximum control."
+      ],
+      "reasoning": "No same-claim evaluation or tabulated exact two-date frontier was found in actual queried research records. This absence is only search evidence, never proof of uniqueness; an obscure tabulation or exercise remains a priority risk.",
+      "searches": [
+        "Brownian running supremum stopping at one of two deterministic times with prescribed probability sharp maximum minimum attainable expected running maximum interval erfc quantile",
+        "Brownian maximum time-distribution constraint atoms upper lower payoff frontier",
+        "Brownian maximum time-distribution constraint atoms upper lower payoff frontier",
+        "two-atom prescribed stopping distribution maximal Brownian running supremum optimal drawdown policy"
+      ]
+    },
+    "rationale": "Inspected motivating and closest foundational full texts and actual semantic research results. Prior drawdown maximizing geometry explicitly acknowledged; no explicit complete two-date two-sided erfc value frontier and universal half-probability width theorem was located. This is best-knowledge originality, not independent certification.",
+    "residual_risks": [
+      "Other evaluations of the binary atomic case may exist under different terminology or in textbook exercises.",
+      "The known broader monotonicity principle may permit a short corollary covering some threshold geometry, which is intentionally not claimed as new.",
+      "Independent expert literature verification has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Prior general optimizer for atomless law and related barrier reasoning; no two-date explicit upper/lower error-function interval or width maximizer identified.",
+        "evidence": [
+          "Deng–Zhang arXiv:2610.01585v1, introduction Eq. (1.1) and explicit atomless restriction at lines 49–69; Sections 2–5, https://arxiv.org/html/2610.01585v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.01585v1",
+        "material_read": "Abstract, Introduction including the explicit atomless assumption (lines 38–80), Sections 2.1–2.4, main results, and Sections 3–5 including its discrete-time Snell-envelope argument.",
+        "method": "Accessible full arXiv HTML; comparison of objective, assumptions and derived results rather than just abstract metadata.",
+        "title": "Distribution-constrained Maximum Stopping of Maximum Type",
+        "trigger": "Identical expected-running-maximum objective and optimal drawdown boundary, directly motivating the present binary-law valuation."
+      },
+      {
+        "assessment": "Strong prior coverage of maximizing structural barrier. It does not display the evaluated two-date erfc pair, the complete two-sided attainable range or universal width-maximizing half allocation in inspected material.",
+        "evidence": [
+          "Beiglböck–Eder–Elgert–Schmock (2018), Cor. 1.2 and Section 7/Remark 7.1, DOI 10.1007/s00440-017-0805-x"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00440-017-0805-x",
+        "material_read": "Full legally accessible publisher HTML; Corollary 1.2, its proof in Section 7, and Remark 7.1 (also introduction and general monotonicity statements).",
+        "method": "Compared explicit mathematical statements and the drawdown formula in its proof with proposed quantitative two-date interval.",
+        "title": "Geometry of distribution-constrained optimal stopping problems",
+        "trigger": "Foundational broad theorem on the same payoff, plausible stronger coverage and issue of minimization."
+      },
+      {
+        "assessment": "Its main payoff is a Lipschitz function of stopped Brownian *position*, not expected running maximum; supplies a distribution-constrained framework but not this explicit lookback frontier.",
+        "evidence": [
+          "Bayraktar–Miller arXiv:1604.03042, Section 2.1 (problem uses f(X_tau)), Section 2.2 partition lemma; https://arxiv.org/abs/1604.03042"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1604.03042",
+        "material_read": "Full accessible arXiv text, introductory scope and Sections 2.1–2.4: Eq. (2.2), Lemma 1, and finite-atomic control formulation; also application and appendices checked for running-supremum optimization.",
+        "method": "Compared its state/payoff definition with the path functional considered here.",
+        "title": "Distribution-Constrained Optimal Stopping",
+        "trigger": "Foundational finite-atomic stopping-law dynamic program could dominate binary-date valuation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "45ddc57b-db22-49d3-914d-76fb0ec2ac75",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The naturally first nontrivial atomic law in a major distribution-constrained stopping problem admits a complete solvable two-sided benchmark not present as an evaluated result in inspected primary papers. Full exact attainable interval, constructive nonrandomized rules and a universal optimal weight for the maximal uncertainty range are mathematical information beyond the known implicit barrier principle. The theorem is not asserted to solve atomless or multitime problems.",
+    "status": "PASS"
+  }
+}
