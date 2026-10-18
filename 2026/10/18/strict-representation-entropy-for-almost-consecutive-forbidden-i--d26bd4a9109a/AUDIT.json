@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Exact combinatorial d_n recurrence follows by disjoint inclusion/exclusion of n and n-k+c with 2c<k. The k-bit admissible-word transfer graph is strongly connected and aperiodic, giving a simple Perron root and positive leading coefficient without characteristic-root assumptions. The known eventual a_n recurrence has primitive nonnegative companion matrix and positive leading coefficient. Strict root separation is P(lambda)=-(lambda-1)lambda^c<0. Fixed-L truncation proves d_(n-L)<=sum_{m<a_n}R(m)<=d_(n-1), yielding exact n-th-root exponential base. For fixed c, u=lambda-1 with ku~W(k); mean-value expansion of P near lambda yields rho-lambda~u^2/(1+ku), hence log ratio~W(k)/k^2. Verified 18 finite parameter tests using exact independent-set enumeration and automaton count; finite tests are not general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2210.10577v2 gives a_n recurrence for admissible k,c and d_n recurrence without strict root comparison.",
+        "arXiv:1606.09312v2 proves an exponential growth bound for the separate Fibonacci quilt sequence."
+      ],
+      "reasoning": "The published recurrence inputs are weaker than the statement about mean representation multiplicity and strict entropy gap; the Fibonacci quilt legal-pair graph is not the forbidden-gap family. The present result does not claim those inputs as new.",
+      "searches": [
+        "arXiv:2210.10577v2 Theorem 3.10 and Lemma 4.1",
+        "arXiv:1606.09312v2 Theorem 1.11 and Section 3"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2210.10577v2",
+      "https://arxiv.org/html/1606.09312v2",
+      "https://arxiv.org/abs/2210.10577",
+      "https://arxiv.org/abs/1606.09312"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The S-LID paper says conditional dominance assumptions can be checked case by case and leaves the family classification for future work.",
+        "The 2016 analog uses an upper/lower truncation sandwich in a different decomposition rule."
+      ],
+      "reasoning": "The new proof supplements the known recurrence pair with previously unstated uniform strict Perron inequality P(lambda)<0, primitive automaton dominance for every admissible pair, and the independent fixed-c asymptotic. It proves rather than assumes the exponential scenario; the known conditional template alone does not assert it.",
+      "searches": [
+        "arXiv:2210.10577v2 Section 4 paragraph after Lemma 4.1",
+        "arXiv:1606.09312v2 Section 3 proof of Theorem 1.11"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2210.10577v2, Section 4, equations (4.4)-(4.5): hypothetical exponential forms; inequality rho>lambda and root dominance not supplied."
+      ],
+      "reasoning": "Reformulating average multiplicity as truncated legal-subset counts leads to the same potential exponential ratio discussed hypothetically in the source. The claimed unconditional strict inequality and fixed-c sharp k-asymptotic are not asserted there.",
+      "searches": [
+        "arXiv:2210.10577v2 Section 4 Question 5 exact S-LID decomposition average",
+        "\"S-LID\" \"average\" \"decompositions\" exponential",
+        "\"S-legal index difference sequences\" \"growth\" 2026"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2210.10577v2 contains finite recurrence examples and initial sequence examples but no exact infinite-family table of average growth exponents."
+      ],
+      "reasoning": "A finite table of examples would not dominate the all-k spectral comparison, proof of root simplicity by primitivity, or k-infinity asymptotic. No directly matching exact-rate database was found in the inspected sources.",
+      "searches": [
+        "\"S-LID\" \"exponential\" \"average\" \"Moura\"",
+        "\"S-legal index difference sequences\" 2025 2026 average",
+        "arXiv:2210.10577 representation count root c k table"
+      ]
+    },
+    "rationale": "The 2022/2023 primary S-LID paper proves the greedy recurrence and the subset-count recurrence, but presents the average representation rate only conditionally upon spectral assumptions and explicitly leaves Question 5 open. The new claim proves strict entropy separation for the entire eventually recurrent [k]\\{k-c} family by a primitive transfer matrix, proves exact exponential n-th-root growth for truncated representation counts, and computes the fixed-c sharp W(k)/k^2 scale. The 2016 Fibonacci quilt analog covers a different legal-index family. Targeted published-literature and accessible mathematical-record searches disclosed no equivalent statement; this is qualified, not a uniqueness proof.",
+    "residual_risks": [
+      "Unindexed or differently titled studies of the same S-LID roots may exist.",
+      "The theorem for small k,c requires independent verification of eventual a-recurrence; no blanket unconditional claim is made.",
+      "The two prior recurrence formulas are published and any novelty assessment concerns only their new uniform spectral consequence and k-asymptotic."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The published a and d recurrence inputs and conditional growth discussion do not provide the unconditional strict root gap or large-k entropy law.",
+        "evidence": [
+          "Theorem 3.10 gives recurrence when its hypotheses hold",
+          "Example 3.11 obtains k>=11 for c=1",
+          "Lemma 4.1 gives d recurrence",
+          "Section 4 explicitly discusses unresolved average multiplicity and assumes dominant roots"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2210.10577v2",
+        "material_read": "Definition 1.9; Proposition 1.11; Theorem 3.10 and Example 3.11; complete Section 4 incl. Question 5, Lemma 4.1 and conditional root discussion; Sections 2-3 recurrence context",
+        "method": "Accessible arXiv HTML original paper, read statements and proof arguments",
+        "title": "Recurrence Relations for S-Legal Index Difference Sequences",
+        "trigger": "Identical S-legal objects and same representation multiplicity question"
+      },
+      {
+        "assessment": "The theorem concerns Fibonacci quilt rather than [k] minus one exception, and does not establish the new root family.",
+        "evidence": [
+          "Theorem 1.11 growth base approximately 1.05459 for FQ",
+          "Section 3 truncation sandwich motivates a method but does not imply a specific new family without its root comparison"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1606.09312v2",
+        "material_read": "Theorem 1.11, Remark 1.12, related definitions and Section 3 growth proof; abstract and recurrence comparisons",
+        "method": "Accessible arXiv HTML original paper",
+        "title": "Legal Decompositions Arising from Non-positive Linear Recurrences",
+        "trigger": "Potentially stronger earlier average-multiplicity theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d26bd4a9-109a-483f-84ca-2671822955a1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Provides an unconditional quantitative answer to the originating paper's Question 5 in a nontrivial infinite family of greedy integer-decomposition systems and extends to every pair satisfying the proved recurrence property. Unlike conditional informal discussion, it proves strict exponential ambiguity and its exact spectral growth rate; the W(k)/k^2 scale quantifies how the effect vanishes for increasingly dense forbidden-distance sets. The natural object and rate are independently motivated by the published question, not an arbitrary slice.",
+    "status": "PASS"
+  }
+}
