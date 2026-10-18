@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The published profile ODE and endpoint data are expanded at both ends, then transported through the exact projective sublevel-radius formula. The \(t=-1\) expansion follows from two integrations of the ODE; the \(t=1\) expansion follows from the blow-up equation for \(q=-r_n'\). Exact inversion yields the displayed functional coefficients. Convexity and elementary Legendre duality then give the Lipschitz, slope, zero-set and exact effective-domain conclusions.
+PASS
 
-## Originality
+Using the claimed sharp-slab canonical radial equality profile, reconstruct the left-end profile ODE: with a=k_n^{-1/n}, s=t+1, r=as-a^(2n+1)s^(n+1)/(n(n+1))+o(s^(n+1)). The projective sublevel-radius transform R(z)=(1+z)r((z-1)/(z+1))/sqrt(2) gives the small-radius inverse with coefficient 1/[n(n+1)c_0^(n-1)]. At t=1 put q=-r'; q'/q^(n+2)->b^(n-1) with b=k_n^(1/n). Integrating and inverting gives the claimed large-radius exponent 1/(n+1), negative correction and stated coefficient. Direct algebra checks c_0*c_infinity=1. Convex radiality makes the limiting slope the global Lipschitz constant; if slopes were equal the profile would be affine, contradicting r'(1-)=-infinity. Conjugate zero ball is the origin subgradient and the open effective-domain ball follows from the negative unbounded sublinear correction on its boundary. These are analytic deductions, not inferred from the n=2..40 verifier. Caveat: exact ODE and endpoint data are source-dependent premises not independently cross-checked against primary full text during this run because primary extraction was unavailable.
 
-PASS. The lead paper states the profile ODE, endpoint values, projective sublevel-set formula and the coarse fact that the two equality orientations have respectively a point or a full-dimensional zero set. It does not state the two-term functional asymptotics, the correction exponents \(n+1\) and \(1/(n+1)\), the exact global Lipschitz constant, the exact effective domain, or the strict bound on \(a_n\). Targeted literature and statement-level overlap searches found no equivalent statement. The closest same-source comparison concerns only the high-dimensional growth of the sharp constant.
+## originality
 
-## Value
+PASS
 
-PASS. The equality functions are a central new object of the 2026 theorem and are otherwise specified implicitly. Exact two-end asymptotics give a usable analytic model of their singularity at the origin and approach to their asymptotic cone, while simultaneously identifying the geometry of the Legendre-dual zero set and domain. The resulting scalar-parameter constraint is a nontrivial consequence of this structure.
+Best-of-knowledge comparison of mathematical statements and implications against named primary sources, published findings and exact source-object searches. The current Resultary hit for the very assignment under audit is not independent novelty evidence. A mirror of this assigned 2026-10-11 finding returned as the highest-ranked Resultary hit is not counted as independent prior art.
 
-## Closest literature and limitations
+## value
 
-The closest source is Shiri Artstein-Avidan, arXiv:2609.38041v1, especially Proposition 7.1 and Remark 8.1. The result is restricted to exact equality functions and supplies no stability theorem. It identifies the dual effective domain exactly, but does not quantify the blow-up rate of the dual as its boundary is approached.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Exact local and large-radius nonlinear corrections describe a natural implicit nonquadratic extremizer of a sharp functional inequality and determine the dual zero region and its precise open boundary. The dimension-dependent singular exponents and reciprocal cones give mathematical geometry and nontrivial information on the scalar maximizer; not just substituting constants into a known norm bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
