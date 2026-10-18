@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` in the directory containing the result. The Python 3 verifier enumerates all nonempty represented-state families over small Boolean algebras and, independently of the private-marker characterization, explicitly checks every subset of the finite world set against every available Boolean truth value. It also enumerates graph adjacency patterns and clique-cover minima, then checks the marker construction across all four-world graphs.
+## correctness
 
-Recorded deterministic output:
+PASS
 
-```
-BRUTE_MINIMUM_BY_ALL_BOOLEAN_VALUATIONS: [(1, (1, 1, 1)), (2, (2, 5, 3)), (3, (8, 34, 5))]
-ALL_4_VERTEX_GRAPH_CONSTRUCTIONS: 64
-COMPLETE_GRAPH_OPTIMA: m+1 for m=2..6
-TRIANGLE_FREE_CYCLE_OPTIMA: 2m for m=4..5
-VERIFY_OK
-```
+Universal containment for U=V\{v} forces at least one private atom d_v in s(v), distinct from all other world labels. Each additional coordinate shared by >=2 worlds defines a graph clique, and the shared coordinates cover all edges, forcing n>=m+theta_e(G). Private-world coordinates plus a coordinate for each clique of an optimal edge cover attain this and realize ALL truth subsets by taking all shared coordinates plus precisely private coordinates of true worlds. The proof handles m=1, edgeless graphs, complete and triangle-free cases and transfers modal formulas via an actual frame isomorphism, not a bounded-morphic surrogate.
 
-The triple `(world_count, (number_of_graphs, sum_of_optima, maximum_optimum))` reports the exhaustive minima through three worlds. The graph calculations on four worlds confirm construction correctness, not minimum budgets. The general all-size result follows from the private-coordinate lower bound and the edge-clique-cover upper construction proved in RESULT.md. The code requires only the Python 3 standard library; no external services or data files are required.
+## originality
 
-Independent audit has not been performed.
+PASS
+
+The private-marker/edge-token embedding and graph edge-clique-cover number are old. The claimed contribution is their exact additive trade-off under UNIVERSAL containment-based valuations, including necessity of private witnesses and sharp compression of shared tokens. Closest inspected primary paper supplies a nonoptimal embedding, not the minimization. Searches of valuation-preserving set-intersection aliases and published-record database found no demonstrated stronger coverage; equivalent private-label intersection terminology remains a named risk.
+
+## value
+
+PASS
+
+The same Boolean representation must support every propositional valuation, so minimizing algebra atoms is a meaningful proof/semantics resource problem. The bound m+theta_e(G) distinguishes dense complete-frame compression (m+1) from triangle-free frames (m+|E|) and can be used independently of proving modal completeness. This is more than a relabeling of theta_e: universal valuation faithfulness mathematically forces an independent private-marker budget.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

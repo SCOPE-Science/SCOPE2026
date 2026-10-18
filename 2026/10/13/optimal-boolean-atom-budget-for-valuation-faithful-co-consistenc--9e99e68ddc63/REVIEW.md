@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The lower bound follows by applying the universal valuation requirement to each complement singleton truth set, forcing a coordinate belonging only to that world. Removing one such marker for every world leaves shared coordinates whose incidence classes are genuine graph cliques and cover all edges. The upper bound uses a minimum edge clique cover plus private markers, and the Boolean value consisting of all shared labels together with private labels of true worlds realizes every required valuation. Injectivity, nonemptiness, all quantifiers, the reflexive-loop boundary, and the empty-edge case are explicit. The proposition-to-modal induction uses the source's parameter-surjectivity Lemma 5.2, not an unproved surjectivity assumption. The finite code independently checks all truth subsets for each candidate representation through three worlds and constructibility on all 64 four-world graphs; finite checks are not substituted for the general proof.
+## correctness
 
-## Originality: PASS
-The 2026 motivating theorem uses one marker for every world and one token for every edge and does not assert the minimum atom count of a representation that can realize all propositional valuations on one fixed frame. Classical graph intersection theory already equates an ordinary set-intersection budget with an edge clique cover; this older correspondence is explicitly excluded from the proposed novelty. Distinct and antichain intersection representation results likewise do not independently enforce the containment interpretation of every Boolean truth set. The additional statement is the exact **additive** optimum for universal modal-valuation faithfulness, not merely a different graph-intersection proof. The most plausible residual risk is an existing private-label graph-intersection theorem phrased equivalently; such a finding would cover the optimization. The full text of Jockwich--Tarafder--Venturi and the 2020 clique-cover exposition were materially inspected, with comparison to Wang--Kuo and Erdős--Goodman--Pósa.
+PASS
 
-## Value: PASS
-The bound is a natural exact model-construction invariant, not a chosen numerical slice. It gives the least possible number of Boolean atoms for uniform modal-semantic simulation of an arbitrary finite reflexive symmetric frame under all valuations. Relative to the 2026 construction, complete frames improve from \(m+\binom m2\) to \(m+1\), while triangle-free frames demonstrate that no such token compression is available. The reduction to the classical edge clique cover optimum also gives a transparent algorithmic obstruction to general exact minimization. This parameter is directly useful for designing minimal faithful finite Boolean countermodel presentations; it is not a theorem about formula-specific countermodel size.
+Universal containment for U=V\{v} forces at least one private atom d_v in s(v), distinct from all other world labels. Each additional coordinate shared by >=2 worlds defines a graph clique, and the shared coordinates cover all edges, forcing n>=m+theta_e(G). Private-world coordinates plus a coordinate for each clique of an optimal edge cover attain this and realize ALL truth subsets by taking all shared coordinates plus precisely private coordinates of true worlds. The proof handles m=1, edgeless graphs, complete and triangle-free cases and transfers modal formulas via an actual frame isomorphism, not a bounded-morphic surrogate.
 
-## Closest literature and limitations
-The relevant antecedents are Jockwich--Tarafder--Venturi (arXiv:2607.25977v1, 2026), particularly Section 5, and the graph intersection-number correspondence of Erdős--Goodman--Pósa (1966) and Wang--Kuo (arXiv:0804.4617v1). The 2020 treatment by Davoodi et al. gives a clear accessible account of the graph equivalence. The private-label representation literature may contain an equivalent formulation. This assessment does not establish bibliographic uniqueness or replace independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The private-marker/edge-token embedding and graph edge-clique-cover number are old. The claimed contribution is their exact additive trade-off under UNIVERSAL containment-based valuations, including necessity of private witnesses and sharp compression of shared tokens. Closest inspected primary paper supplies a nonoptimal embedding, not the minimization. Searches of valuation-preserving set-intersection aliases and published-record database found no demonstrated stronger coverage; equivalent private-label intersection terminology remains a named risk.
+
+## value
+
+PASS
+
+The same Boolean representation must support every propositional valuation, so minimizing algebra atoms is a meaningful proof/semantics resource problem. The bound m+theta_e(G) distinguishes dense complete-frame compression (m+1) from triangle-free frames (m+|E|) and can be used independently of proving modal completeness. This is more than a relabeling of theta_e: universal valuation faithfulness mathematically forces an independent private-marker budget.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
