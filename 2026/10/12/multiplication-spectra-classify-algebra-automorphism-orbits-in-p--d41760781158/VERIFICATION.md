@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,26 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is symbolic and valid for every prime \(\ell\) and prime power \(q\) with \(\ell\nmid q\). The accompanying `verify.py` is a bounded independent stress check of the finite cases below; it is not used to infer the universal theorem.
+# Independent mathematical audit
 
-It explicitly constructs binary extension fields and the full product of Frobenius actions with coordinate permutations for
-\[
-(\ell,q,f,m)=(3,2,2,1),\ (5,2,4,1),\ (7,2,3,2).
-\]
-For every element in those cases it computes the factorization signature of the multiplication characteristic polynomial and checks that the signature is constant on each algebra-automorphism orbit and distinct for distinct orbits. It also checks both element-orbit and unit-orbit formulas. The split case \((\ell,q)=(2,3)\) is exhaustively checked under the full coordinate-permutation action.
+## correctness
 
-A fresh replay of the packaged checker produced:
+PASS
 
-`non_split l=3 q=2 f=2 m=1 H=3 orbits=6 unit_orbits=2`
+For ℓ prime, ℓ∤q, f=ord_ℓ(q), the separable group algebra is F_q×F_(q^f)^m for f>1, m=(ℓ−1)/f, and Aut_(F_q-alg)=Gal(F_(q^f)/F_q)^m⋊S_m. The characteristic polynomial of multiplication by (c,α_j) is (T−c)∏p_(α_j)(T)^(f/deg p). Irreducible factors of degree>1 recover each Frobenius-coordinate orbit multiplicity; among linear factors exactly the scalar c exponent is 1 mod f. Thus the polynomial classifies the full automorphism orbit. Burnside gives H_f(q)=f^-1∑q^gcd(f,i), and multiset counting gives the stated element/unit formulas. For f=1 the polynomial determines an ℓ-multiset in F_q. The packaged full finite-field enumerator was inspected, not used to infer universal proof.
 
-`non_split l=5 q=2 f=4 m=1 H=6 orbits=12 unit_orbits=5`
+## originality
 
-`non_split l=7 q=2 f=3 m=2 H=4 orbits=20 unit_orbits=6`
+PASS
 
-`split l=2 q=3 orbits=6 unit_orbits=3`
+Standard finite étale/Wedderburn decomposition is prior art, but the exact separation by regular multiplication characteristic polynomial and explicit element/unit orbit enumerations for all prime ℓ nonmodular q are not located in the compared cyclic-algebra work. Distinguish ordinary algebra automorphism from Hopf/twisted automorphism. Best-of-knowledge priority risk for general finite étale trace-polynomial orbit classification.
 
-`VERIFY_OK`
+## value
 
-Unproved by computation: no finite replay establishes the all-parameter statement. The universal step is instead the exact factorization and automorphism-group argument in `RESULT.md`.
+PASS
+
+A complete invariant and exact finite orbit counts for a natural semisimple group algebra directly solve a meaningful classification problem, including the field-splitting dichotomy. The scope is prime order and nonmodular, not a mere lookup of the number of group-algebra units.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

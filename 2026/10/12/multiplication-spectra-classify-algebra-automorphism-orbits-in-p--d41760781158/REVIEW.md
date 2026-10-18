@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof determines the exact product decomposition, the full base-field algebra automorphism group, the resulting orbit data, and how the characteristic polynomial of regular multiplication recovers that data. The key nonsplit step is that nonlinear minimal-polynomial exponents recover Frobenius-orbit multiplicities, while a linear-factor exponent modulo \(f\) identifies the unique scalar coordinate. Burnside's lemma then gives the stated formulas. The packaged checker exhausts representative finite cases, but the proof—not the finite enumeration—carries the universal quantifiers.
+## correctness
 
-## Originality — PASS
-The closest inspected same-object source, Brochero Martínez (arXiv:1405.3716), provides the cyclic group algebra quotient and Chinese-remainder/Wedderburn decomposition but not the ordinary algebra-automorphism orbit theorem or the multiplication-characteristic-polynomial completeness criterion. Davydov (arXiv:0708.2758) studies twisted automorphisms, which is a different equivalence notion. Makhijani--Sharma--Srivastava determine unit-group structure for finite dihedral/quaternion group algebras rather than automorphism orbits of elements. Targeted searches using aliases for cyclic group algebra, Frobenius wreath actions, multiplication operators, characteristic polynomials, and unit orbits did not locate a statement implying the claim.
+PASS
 
-Residual risk remains that a general finite-étale-algebra or invariant-theory source states an equivalent product-of-fields orbit theorem under different terminology. The literature check therefore supports originality of the present statement but is not an exhaustive impossibility claim.
+For ℓ prime, ℓ∤q, f=ord_ℓ(q), the separable group algebra is F_q×F_(q^f)^m for f>1, m=(ℓ−1)/f, and Aut_(F_q-alg)=Gal(F_(q^f)/F_q)^m⋊S_m. The characteristic polynomial of multiplication by (c,α_j) is (T−c)∏p_(α_j)(T)^(f/deg p). Irreducible factors of degree>1 recover each Frobenius-coordinate orbit multiplicity; among linear factors exactly the scalar c exponent is 1 mod f. Thus the polynomial classifies the full automorphism orbit. Burnside gives H_f(q)=f^-1∑q^gcd(f,i), and multiset counting gives the stated element/unit formulas. For f=1 the polynomial determines an ℓ-multiset in F_q. The packaged full finite-field enumerator was inspected, not used to infer universal proof.
 
-## Value — PASS
-This is a complete structural classification for a natural infinite family of semisimple group algebras. The characteristic polynomial is an intrinsic and readily computed invariant, and proving it complete under the full algebra automorphism group is stronger and more reusable than a raw orbit total. The formulas expose the arithmetic dependence on \(\operatorname{ord}_\ell(q)\) and simultaneously classify all elements and units.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Standard finite étale/Wedderburn decomposition is prior art, but the exact separation by regular multiplication characteristic polynomial and explicit element/unit orbit enumerations for all prime ℓ nonmodular q are not located in the compared cyclic-algebra work. Distinguish ordinary algebra automorphism from Hopf/twisted automorphism. Best-of-knowledge priority risk for general finite étale trace-polynomial orbit classification.
+
+## value
+
+PASS
+
+A complete invariant and exact finite orbit counts for a natural semisimple group algebra directly solve a meaningful classification problem, including the field-splitting dichotomy. The scope is prime order and nonmodular, not a mere lookup of the number of group-algebra units.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
