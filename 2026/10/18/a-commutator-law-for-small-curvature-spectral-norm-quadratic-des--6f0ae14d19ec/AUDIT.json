@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "The normal-cone/duality test is exact for scaled orthogonal feasible matrices; the skew-part implicit-function derivative is invertible because every singular-value sum is positive; positivity persists near zero, making the analytic branch the unique GLOBAL optimum. Differentiation yields the Sylvester commutator law; third-order-controlled Taylor expansion yields precisely the sharp value coefficient. At the original matrix sign, the exact necessary/sufficient PSD normal certificate yields the commuting criterion and positive-definite generalized eigenvalue threshold. A concrete exact planar series and reproducible 2D/3D numerical certificate checks corroborate but are not substituted for these proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zhang, Sun, Liu, arXiv:2609.07597; first public 2026-09-07; primary abstract explicitly states spectral-norm quadratic optimization, general optimality certificate, and curvature-induced singular changes. Accessible overview summarizes Propositions 4.1–4.3; no specific small-curvature commutator coefficient was identified in accessible material.",
+        "Chen–Li–Liu, arXiv:2506.15054, accessible primary abstract: Muon and spectral-norm regularization/constraint connection, not curvature perturbation.",
+        "Existing global surrogate dominance only establishes nonnegative improvement. The new assertion gives a strictly positive quadratic coefficient exactly when the rotated Kronecker factors fail to commute, and determines the precise zero-response regime."
+      ],
+      "reasoning": "The motivating source provides the same feasible set and broad fact of curvature-induced changes; those broader descriptions do not mathematically imply the explicit perturbation coefficient without further nontrivial analysis. Because its full text was inaccessible, detailed-appendix overlap remains an acknowledged risk rather than an assumed absence.",
+      "searches": [
+        "Quadratic Spectral Descent spectral norm ball curvature singular vectors 2x2 trust region optimal rotations",
+        "spectral norm constrained quadratic minimization matrix variable anisotropic curvature noncommuting optimizer sharp threshold",
+        "Quadratic Spectral Descent spectral ball perturbation small curvature commutator left right covariances leading second order optimality gap Sylvester singular values",
+        "arXiv:2609.07597",
+        "arXiv:2506.15054"
+      ]
+    },
+    "checked_sources": [
+      "Zhang, Sun, Liu, arXiv:2609.07597; first public 2026-09-07; primary abstract explicitly states spectral-norm quadratic optimization, general optimality certificate, and curvature-induced singular changes. Accessible overview summarizes Propositions 4.1–4.3; no specific small-curvature commutator coefficient was identified in accessible material.",
+      "Higham, doi:10.1137/0907079, accessible complete paper, Sections 2.2 and 2.4 (particularly Theorems 2.2, 2.5 and the Sylvester derivative equation (2.13)): a fixed-matrix polar factor has best approximation and perturbation laws, not the self-consistent two-sided quadratic spectral-ball minimizer or its second-order value gain.",
+      "Bhatia–Mukherjea, doi:10.1137/S0895479892243237, accessible abstract: derivatives of the unitary factors of fixed-matrix polar and QR factorizations, not a Kronecker surrogate value coefficient.",
+      "Chen–Li–Liu, arXiv:2506.15054, accessible primary abstract: Muon and spectral-norm regularization/constraint connection, not curvature perturbation.",
+      "Published-results searches returned closest nonmatching scalar trust-region and SOAP-stale-eigenbasis results: 2026/10/4/SCOPE-exact-stale-basis-singular-value-collapse-in-soap--91a933b03a1c, 2026/9/20/SCOPE-cauchy-trust-region-optimal-decrease-ratio--0eec6412acfe, 2026/10/4/SCOPE-sharp-condition-number-frontier-for-objective-descent-in-core-la--70b4a7c981f6, 2026/9/19/SCOPE-row-coherence-defect-pdnqp-diagonal-steps--30698826464a, 2026/10/11/SCOPE-a-two-dimensional-noncommuting-controller-obstruction-to-a-contr--76cbb0927862, 2026/9/18/SCOPE-hellmann-feynman-hermite-penalty-extrapolation--a3a87ccd7379"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zhang, Sun, Liu, arXiv:2609.07597; first public 2026-09-07; primary abstract explicitly states spectral-norm quadratic optimization, general optimality certificate, and curvature-induced singular changes. Accessible overview summarizes Propositions 4.1–4.3; no specific small-curvature commutator coefficient was identified in accessible material.",
+        "Higham, doi:10.1137/0907079, accessible complete paper, Sections 2.2 and 2.4 (particularly Theorems 2.2, 2.5 and the Sylvester derivative equation (2.13)): a fixed-matrix polar factor has best approximation and perturbation laws, not the self-consistent two-sided quadratic spectral-ball minimizer or its second-order value gain.",
+        "The exact all-curvature optimality equivalence is derivable using convex normal-cone conditions; the distinctive new portion is the small-curvature analytic optimizer and sharp coefficient.",
+        "Related public findings optimize scalar trust radii or condition-number thresholds on vector quadratics and do not imply a matrix commutator coefficient."
+      ],
+      "reasoning": "The known first-order optimality certificate alone implies a yes/no condition at the matrix-sign point, but not the analytic branch, Sylvester solution and ε-squared improvement coefficient. Existing polar perturbation results also require a newly derived curvature-induced forcing term and second-order objective analysis. No retrieved source asserts or subsumes the complete combined theorem.",
+      "searches": [
+        "Quadratic Spectral Descent spectral norm ball curvature singular vectors 2x2 trust region optimal rotations",
+        "spectral norm ball matrix quadratic min trace G transpose X plus trace X transpose B X A matrix sign KKT matrix polar factor optimality",
+        "Quadratic Spectral Descent spectral ball perturbation small curvature commutator left right covariances leading second order optimality gap Sylvester singular values",
+        "Perturbation of optimizer over spectral norm ball commutator M N polar correction order epsilon squared value function",
+        "2026/9/20/SCOPE-cauchy-trust-region-optimal-decrease-ratio--0eec6412acfe",
+        "2026/10/4/SCOPE-sharp-condition-number-frontier-for-objective-descent-in-core-la--70b4a7c981f6",
+        "doi:10.1137/0907079",
+        "arXiv:2609.07597"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Higham, doi:10.1137/0907079, accessible complete paper, Sections 2.2 and 2.4 (particularly Theorems 2.2, 2.5 and the Sylvester derivative equation (2.13)): a fixed-matrix polar factor has best approximation and perturbation laws, not the self-consistent two-sided quadratic spectral-ball minimizer or its second-order value gain.",
+        "Bhatia–Mukherjea, doi:10.1137/S0895479892243237, accessible abstract: derivatives of the unitary factors of fixed-matrix polar and QR factorizations, not a Kronecker surrogate value coefficient.",
+        "The model can be represented as a two-sided Kronecker-regularized orthogonal Procrustes problem while the optimum remains a flat-spectrum boundary point. The Sylvester denominators are familiar, but the commutator-constrained perturbation and optimal value coefficient concern a different implicit variational problem."
+      ],
+      "reasoning": "The polar derivative of a prescribed input matrix and the first-order conditions for an orthogonal Procrustes problem do not directly state the constrained self-consistency equation, the all-dimensional sharp quadratic gain coefficient, or the exact commuting threshold. The correspondence was examined at the level of mathematical statements, not by title.",
+      "searches": [
+        "Kronecker factored spectral norm quadratic trust region Muon update optimal iff covariance factors commute and singular gradient dominates product",
+        "Perturbation of optimizer over spectral norm ball commutator M N polar correction order epsilon squared value function",
+        "first order rotation of orthogonal Procrustes quadratic regularization Kronecker matrix spectral ball implicit function",
+        "doi:10.1137/0907079",
+        "doi:10.1137/S0895479892243237"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved published finding/table supplied the operator-ball Kronecker commutator coefficient. The closest numerical-optimization findings addressed SOAP stale-basis rank collapse and general spectral-ball quadratic curvature bounds, rather than the same objective and exact value coefficient.",
+        "The coefficient is symbolic for all finite real dimensions; no finite table or sample cases are used to assert uniqueness."
+      ],
+      "reasoning": "The claim is not a numerical lookup or special finite table. Queries compared its defining constraint, two-sided factors, Sylvester response, and second-order value invariant; retrieved items did not contain an equivalent symbolic theorem.",
+      "searches": [
+        "Quadratic Spectral Descent spectral ball perturbation small curvature commutator left right covariances leading second order optimality gap Sylvester singular values",
+        "Muon matrix sign Kronecker factors noncommuting exact second order asymptotic rotation gain",
+        "Perturbation of optimizer over spectral norm ball commutator M N polar correction order epsilon squared value function",
+        "2026/10/4/SCOPE-exact-stale-basis-singular-value-collapse-in-soap--91a933b03a1c",
+        "2026/9/19/SCOPE-row-coherence-defect-pdnqp-diagonal-steps--30698826464a"
+      ]
+    },
+    "rationale": "Searches compared the actual two-sided spectral-ball quadratic, commutator forcing, all-dimensional polar response and sharp value coefficient with previously published results, not just matching titles. The source introducing quadratic spectral descent states broader qualitative rotation and surrogate dominance, but the inspected accessible material does not state this exact small-curvature value invariant; general polar derivatives and linear Muon theory are not sufficient without solving the new self-consistent curvature equation. A genuinely plausible inaccessible QSD appendix remains a recorded limitation, not fabricated negative evidence.",
+    "residual_risks": [
+      "Full original manuscript and appendices for arXiv:2609.07597 were not accessible; a proposition or appendix could contain the exact coefficient, despite the available descriptions not asserting it.",
+      "Only the publisher abstract of Bhatia–Mukherjea was accessible; a specialized perturbation corollary could be related.",
+      "Search results do not certify uniqueness of a mathematical fact, and no independent expert literature audit was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivating general theory overlaps in object, but accessible claims do not state the proposed exact asymptotic coefficient or commuting threshold; inability to examine technical appendices is material residual risk.",
+        "evidence": [
+          "Zhang, Sun, Liu, arXiv:2609.07597; first public 2026-09-07; primary abstract explicitly states spectral-norm quadratic optimization, general optimality certificate, and curvature-induced singular changes. Accessible overview summarizes Propositions 4.1–4.3; no specific small-curvature commutator coefficient was identified in accessible material."
+        ],
+        "identifier_or_url": "arXiv:2609.07597; https://www.alphaxiv.org/abs/2609.07597",
+        "material_read": "Primary arXiv abstract and posted date; accessible article overview and publicly available external detailed assessment of the stated Propositions 4.1–4.3. Full primary manuscript unavailable.",
+        "method": "Compared the model, stated general singular-direction results, optimality certificate and solver guarantees to the exact local commutator and squared-parameter value claim.",
+        "title": "Beyond the Matrix Sign: Quadratic Spectral Descent",
+        "trigger": "Same constrained quadratic objective and two-sided Kronecker curvature; possible direct coverage."
+      },
+      {
+        "assessment": "Provides foundational tools but not the specific two-sided curvature response and value coefficient.",
+        "evidence": [
+          "Higham, doi:10.1137/0907079, accessible complete paper, Sections 2.2 and 2.4 (particularly Theorems 2.2, 2.5 and the Sylvester derivative equation (2.13)): a fixed-matrix polar factor has best approximation and perturbation laws, not the self-consistent two-sided quadratic spectral-ball minimizer or its second-order value gain."
+        ],
+        "identifier_or_url": "doi:10.1137/0907079; https://eprints.maths.manchester.ac.uk/694/1/high86p.pdf",
+        "material_read": "Primary complete 16-page open PDF; relevant Sections 2.2 and 2.4, theorems and proofs, including displayed equation (2.13).",
+        "method": "Read primary material and contrasted fixed-matrix polar sensitivity to self-consistent Kronecker-variational sensitivity and optimized objective value.",
+        "title": "Computing the Polar Decomposition—with Applications",
+        "trigger": "The polar perturbation derivative produces the same singular-value denominators."
+      },
+      {
+        "assessment": "Related mathematical techniques; no indicated quadratic spectral-norm optimization or value coefficient; full-text access gap remains.",
+        "evidence": [
+          "Bhatia–Mukherjea, doi:10.1137/S0895479892243237, accessible abstract: derivatives of the unitary factors of fixed-matrix polar and QR factorizations, not a Kronecker surrogate value coefficient."
+        ],
+        "identifier_or_url": "doi:10.1137/S0895479892243237",
+        "material_read": "Primary publisher abstract and bibliographic record only; full manuscript not accessible.",
+        "method": "Compared abstracted derivative theorem about input-matrix polar factors to the optimization value-function claim.",
+        "title": "Variation of the Unitary Part of a Matrix",
+        "trigger": "A more direct prior on the derivative of the orthogonal polar factor."
+      },
+      {
+        "assessment": "Establishes first-order context, no stated curvature-induced commutator or value expansion.",
+        "evidence": [
+          "Chen–Li–Liu, arXiv:2506.15054, accessible primary abstract: Muon and spectral-norm regularization/constraint connection, not curvature perturbation."
+        ],
+        "identifier_or_url": "arXiv:2506.15054",
+        "material_read": "Primary abstract, dates and online summary; not the full primary manuscript.",
+        "method": "Separated the established spectral-norm constrained first-order update from the new two-sided curvature asymptotics.",
+        "title": "Muon Optimizes Under Spectral Norm Constraints",
+        "trigger": "The first-order matrix-sign/spectral-ball baseline may already imply parts of the statement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6f0ae14d-19ec-433c-a1e7-40a6a91ef94a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This treats the natural, practically used Kronecker two-sided quadratic extension of the matrix-sign spectral-norm step. The commutator and singular-value weighting quantify exactly whether there is any local benefit to solving the curvature model and how much (quadratic in curvature), while the commuting threshold identifies a finite non-improvement regime. These are invariant all-dimensional structural diagnostics rather than arbitrary small test cases, and no downstream training-loss theorem is claimed.",
+    "status": "PASS"
+  }
+}
