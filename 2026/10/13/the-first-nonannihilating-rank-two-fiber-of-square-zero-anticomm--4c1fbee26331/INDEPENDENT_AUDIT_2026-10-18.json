@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T09:10:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For X^2=0 with rank X=2 and n>=4, a basis gives X with a single 2x2 identity superblock. Solving XY+YX=0 gives Y blocks P,Q,R,W,Z with P^2=Z^2=0 and PR+RZ=0, ZW-WP=0, PQ-QP+RW=0. Nonzero XY implies P is a nonzero square-zero 2x2 (q^2-1 choices and rank1). For any square-zero s=n-4 block Z, each R and W intertwiner space has dimension s, and the commutator map Q->PQ-QP has image the P-anticommutant, so q^2 solutions. Thus |F_X|=(q^2-1)q^(2n-6)S_{n-4}(q), with S_s the exact Gaussian image/kernel/isomorphism sum. Rank X=1 forces P=0. Independent direct finite-field block enumeration gave 12 for (q,n)=(2,4), 72 for (3,4), 48 for (2,5), without using the formula to accept Y. Characteristic two sign conventions were included.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Wang describe an unconstrained linear anticommutant and complex geometry; Schröer imposes XY=YX=0."
+        ],
+        "reasoning": "Removing Y^2=0 or excluding XY!=0 prevents the cited broader families from furnishing this precise finite-field count.",
+        "searches": [
+          "Chen Wang Anti-commuting varieties arXiv:1805.00378 Proposition 2.2",
+          "Schröer Varieties of pairs of nilpotent matrices annihilating each other arXiv:math/0211293"
+        ]
+      },
+      "checked_sources": [
+        "Anti-commuting varieties — https://arxiv.org/abs/1805.00378",
+        "Varieties of pairs of nilpotent matrices annihilating each other — https://arxiv.org/abs/math/0211293",
+        "Mutually annihilating matrices, and a Cohen–Lenstra series for the nodal singularity — https://arxiv.org/abs/2110.15566"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An unrestricted anticommutator linear parametrization lacks the nonlinear Y²=0 count; both mutually annihilating works require product zero."
+        ],
+        "reasoning": "The rank-two nonzero-product count needs new intertwiner and commutator solvability analysis beyond those statements.",
+        "searches": [
+          "arXiv:1805.00378 Proposition 2.2",
+          "arXiv:2110.15566 Huang mutually annihilating matrices",
+          "arXiv:math/0211293"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The constraints are equivalent to modules for the exterior algebra of two square-zero anticommuting generators, including characteristic two as commuting."
+        ],
+        "reasoning": "No retrieved representation count was shown to imply the first rank-two XY!=0 fixed-Jordan fibre; this equivalent language remains the principal priority risk.",
+        "searches": [
+          "Resultary: nilpotent anticommuting matrices square zero rank two nonannihilating finite fields count exterior algebra",
+          "representations exterior algebra radical-square nilpotents XY anti-commute"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned related nilpotent and factorization counts but no same fixed-X fibre series or table."
+        ],
+        "reasoning": "No exact table located; the absence of a returned hit is not proof of novelty, especially for exterior-algebra representations.",
+        "searches": [
+          "Resultary: nonannihilating nilpotent rank two square zero finite-field fibre q^2-1",
+          "finite field anti commuting matrices exact multiplicities q^(2n-6)"
+        ]
+      },
+      "rationale": "Schröer and Huang constrain XY=YX=0 and so exclude the claimed XY!=0 locus. Chen–Wang supply linear anticommuting normal forms and complex geometric varieties but do not count simultaneous square-zero nonannihilating fixed-X fibres over every finite field with first-rank criterion. The exterior algebra A=k<x,y>/(x²,y²,xy+yx) gives a plausible equivalent module-theoretic index not exhaustively ruled out.",
+      "residual_risks": [
+        "An equivalent rank-two exterior-algebra module count may be present under representation-theoretic terminology.",
+        "The closed formula does not determine the XY=0 branch or ranks of Y."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior linear anticommutant structure, not finite-field square-zero nonzero-product counting",
+          "evidence": "Proposition 2.2 describes anticommuting block structure, before imposing the simultaneous square-zero and XY!=0 cut.",
+          "identifier_or_url": "https://arxiv.org/abs/1805.00378",
+          "material_read": "Full relevant primary Sections 2 and 6 including Proposition 2.2 and geometric setup",
+          "method": "arXiv full-text PDF with text and page-image examination",
+          "title": "Anti-commuting varieties",
+          "trigger": "Same anticommutator, fixed nilpotent Jordan form"
+        },
+        {
+          "assessment": "Mutually annihilating constraint disjoint from XY!=0",
+          "evidence": "Variety in question imposes XY=YX=0.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0211293",
+          "material_read": "Primary abstract and setup/defining equations",
+          "method": "arXiv primary preprint text inspection",
+          "title": "Varieties of pairs of nilpotent matrices annihilating each other",
+          "trigger": "Closest nilpotent pair variety"
+        },
+        {
+          "assessment": "Counts mutual annihilation; does not directly cover nonzero-product first fibre",
+          "evidence": "The algebra imposes XY=YX=0.",
+          "identifier_or_url": "https://arxiv.org/abs/2110.15566",
+          "material_read": "Primary introductory statements and defining relation, not every part of full manuscript",
+          "method": "arXiv primary excerpt inspection",
+          "title": "Mutually annihilating matrices, and a Cohen–Lenstra series for the nodal singularity",
+          "trigger": "Finite-field counts under similar matrix constraints"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Rank two is precisely the first possible nonzero product with two square-zero anticommuting generators; the exact uniform finite-field fibre factorization for all n and q isolates the first genuinely nonannihilating representation stratum, with nonobvious Jordan-type independence. This is a natural exact invariant with meaningful structural interpretation, not a tiny arbitrary matrix case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed first matrix X square-zero rank2, n>=4 over all finite fields.",
+    "No classification for higher rank X or non-square-zero Y."
+  ],
+  "schema_version": 1
+}

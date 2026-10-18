@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness: PASS.** The block normal form follows from the full anticommutator equation; squaring it gives five simultaneous and exhaustive equations. A nonzero \(2\times2\) square-zero block \(P\) has exactly \(q^2-1\) choices. Each of the two independent intertwiner blocks has \(q^s\) choices for an arbitrary square-zero \(s\times s\) block, and the final commutator equation has \(q^2\) solutions because its right-hand side automatically anticommutes with \(P\). The image/kernel/isomorphism count yields the exact square-zero factor \(S_s(q)\). Explicit small-field enumeration independently reproduces the first three dimension cases. Main risks checked: the dimensions of the module homomorphism spaces, the sign in the block equations, the characteristic-two case, and the zero-size quotient.
+## correctness
 
-**Originality: PASS, with literature risk.** Chen–Wang's general anti-commuting normal-form proposition is relevant background but lacks the finite-field square-zero and nonzero-product multiplicity. Schröer and Huang impose mutual annihilation and therefore cannot directly count this disjoint stratum. Source and equivalence searches did not reveal an exact nonzero-product rank-two fixed-target count. This is not a uniqueness certificate; differently indexed exterior-algebra representation literature remains a residual risk.
+PASS
 
-**Value: PASS.** This is the first nontrivial product-rank fiber in representations with two square-zero anticommuting generators: first-generator rank one forces the product to vanish, while rank two supports it in every dimension at least four and every characteristic. The nonobvious independence of the count from the remaining nilpotent Jordan type yields a uniform exact factorization by the whole square-zero matrix population and an exact count of all corresponding ordered representations. A direct rank-one parameter substitution would give zero and would not yield this result.
+For X^2=0 with rank X=2 and n>=4, a basis gives X with a single 2x2 identity superblock. Solving XY+YX=0 gives Y blocks P,Q,R,W,Z with P^2=Z^2=0 and PR+RZ=0, ZW-WP=0, PQ-QP+RW=0. Nonzero XY implies P is a nonzero square-zero 2x2 (q^2-1 choices and rank1). For any square-zero s=n-4 block Z, each R and W intertwiner space has dimension s, and the commutator map Q->PQ-QP has image the P-anticommutant, so q^2 solutions. Thus |F_X|=(q^2-1)q^(2n-6)S_{n-4}(q), with S_s the exact Gaussian image/kernel/isomorphism sum. Rank X=1 forces P=0. Independent direct finite-field block enumeration gave 12 for (q,n)=(2,4), 72 for (3,4), 48 for (2,5), without using the formula to accept Y. Characteristic two sign conventions were included.
 
-**Limits and closest literature.** The theorem does not count the mutually annihilating branch, higher fixed rank, or the distribution of second-matrix ranks. Chen–Wang's Proposition 2.2 describes the unrestricted linear anticommutant, not the constrained finite-field locus. Independently established publication priority is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Schröer and Huang constrain XY=YX=0 and so exclude the claimed XY!=0 locus. Chen–Wang supply linear anticommuting normal forms and complex geometric varieties but do not count simultaneous square-zero nonannihilating fixed-X fibres over every finite field with first-rank criterion. The exterior algebra A=k<x,y>/(x²,y²,xy+yx) gives a plausible equivalent module-theoretic index not exhaustively ruled out.
+
+## value
+
+PASS
+
+Rank two is precisely the first possible nonzero product with two square-zero anticommuting generators; the exact uniform finite-field fibre factorization for all n and q isolates the first genuinely nonannihilating representation stratum, with nonobvious Jordan-type independence. This is a natural exact invariant with meaningful structural interpretation, not a tiny arbitrary matrix case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
