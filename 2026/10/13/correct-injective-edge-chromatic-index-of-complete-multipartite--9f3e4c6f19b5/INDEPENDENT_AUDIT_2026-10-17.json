@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T06:17:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Any distinct edges within the same V_i−V_j cut conflict iff they are disjoint (complement of the line graph of K_ni,nj). Any edges from different cuts conflict, yielding conflict graph join over all i<j. Each cut factor has chromatic number min(n_i,n_j), attained uniquely by stars on its strictly smaller shore, with two alternative shores iff equal sizes at least 2. Thus χinj=sum min(n_i,n_j); all unlabeled optimal color partitions number 2^t and labeled k-colorings 2^t k!. Direct small graph edge-pair conflict testing corroborates but the argument proves all part sizes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2015 foundation proves χinj(Kab)=min(a,b); 2026 work gives broad maximum-degree bounds; 2023 exact multipartite statement is wrong."
+        ],
+        "reasoning": "Known bipartite theorem is one component. No inspected dominating general theorem supplies simultaneous join decomposition across all cuts and 2^t unlabeled optimizer count.",
+        "searches": [
+          "arXiv:1510.02626 complete bipartite value",
+          "arXiv:2610.04891 general maximum degree injective index",
+          "doi:10.2298/FIL2312963K complete multipartite"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.2298/FIL2312963K",
+        "arXiv:1510.02626",
+        "arXiv:2610.04891v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 2.7 predicts χ=2 on K2,2,2; theorem gives χ=2+2+2=6 by three joined cut conflict factors.",
+          "Known r=2 case is recovered exactly, optimizer count chooses complete smaller shores."
+        ],
+        "reasoning": "The two-part prior supplies necessary building blocks but does not state or directly imply the r-part optimizer classification without the new cross-cut conflict proof.",
+        "searches": [
+          "doi:10.2298/FIL2312963K Proposition 2.7",
+          "arXiv:1510.02626 exact K_ab",
+          "arXiv:2610.04891 upper bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The conflict graph factors as the join over unordered class pairs of complement line graphs of K_ni,nj; different cuts must use disjoint palettes."
+        ],
+        "reasoning": "Induced-star-forest cover and conflict graph coloring are equivalent definitions. The cut-wise sum and optimizer count are stronger than the previously known bipartite factor chi=min.",
+        "searches": [
+          "injective edge coloring complete multipartite K t1 t2 t3 chi index sum min shore 2023",
+          "injective edge coloring induced star forests complete multipartite",
+          "doi:10.2298/FIL2312963K"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The directly relevant 2023 Proposition 2.7 states an incompatible value, and Resultary semantic search for the same invariant did not locate an equivalent exact sum; other multipartite coloring invariants have different constraints."
+        ],
+        "reasoning": "The formula cannot be inferred from an unrelated coloring invariant table. Missing hits alone are not proof of priority; primary theorem comparison supplies source-specific novelty.",
+        "searches": [
+          "injective edge coloring complete multipartite K t1 t2 t3 chi index sum min shore 2023",
+          "injective chromatic index complete multipartite sum min(n_i,n_j) all colorings",
+          "injective edge coloring K2,2,2 6"
+        ]
+      },
+      "rationale": "The complete-bipartite cut value is known and fully credited; the earlier multi-part proposition is false. The complete cut-join exact formula and all-optimal-colorings count are additional new structural statements not covered by checked general bounds.",
+      "residual_risks": [
+        "An unindexed erratum or independent exact multipartite classification may have appeared.",
+        "Colors are not proper edge colors; the injective constraint is specific to line-distance-two or shared-triangle conflicts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_INCORRECT_MULTIPARTITE_FORMULA",
+          "evidence": "Proposition 2.7 states chi inj = min n_i for complete multipartite, giving 2 on K2,2,2. Direct conflict join factorization forces 6.",
+          "identifier_or_url": "doi:10.2298/FIL2312963K",
+          "material_read": "Primary PDF explicit Proposition 2.7 and its identification of complete multipartite join, definitions of injective edge coloring; proposition page visually inspected",
+          "method": "Open publisher paper and page inspection",
+          "title": "Injective edge coloring of product graphs and some complexity results",
+          "trigger": "The earlier exact complete-multipartite Proposition 2.7 being corrected"
+        },
+        {
+          "assessment": "COVERS_BIPARTITE_CASE_ONLY",
+          "evidence": "Bipartite min(a,b) covers r=2 but does not entail global joined cut palettes or equality-case optimizer count by direct statement.",
+          "identifier_or_url": "arXiv:1510.02626",
+          "material_read": "Relevant definition, induced-star-forest equivalence and exact complete bipartite result referenced in full assigned review; not newly claiming entire full-text verification",
+          "method": "Preprint mathematical definitions/results comparison",
+          "title": "Injective Edge Chromatic Index of a Graph",
+          "trigger": "Foundational same invariant and exact complete-bipartite values"
+        },
+        {
+          "assessment": "GENERAL_BOUND_NOT_SHARP_CLASSIFICATION",
+          "evidence": "General Δ bounds do not determine the complete multipartite exact sum or all optimizers.",
+          "identifier_or_url": "arXiv:2610.04891v1",
+          "material_read": "Relevant abstract/theorems and scope in accessible preprint; matching exact formula absent from identified relevant results",
+          "method": "ArXiv preprint relevant sections",
+          "title": "A note on the injective edge coloring of graphs with bounded maximum degree",
+          "trigger": "Recent same invariant under general maximum-degree bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Corrects an explicit published infinite-family erroneous theorem, gives exact chromatic indices in a natural graph family, and classifies all optimal colorings structurally. K2,2,2 yields a decisive 6-vs-2 counterexample; exact optimizers extend beyond simple correction.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "doi:10.2298/FIL2312963K",
+    "arXiv:1510.02626",
+    "arXiv:2610.04891v1"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Graph family complete multipartite only.",
+    "Optimizer partitions for fixed labeled graph, palettes exactly k colors; not unlabeled graphs modulo automorphisms."
+  ],
+  "residual_risks": [
+    "An unindexed erratum or independent exact multipartite classification may have appeared.",
+    "Colors are not proper edge colors; the injective constraint is specific to line-distance-two or shared-triangle conflicts."
+  ],
+  "schema_version": 1
+}
