@@ -1,11 +1,21 @@
-# Scientific review: cube–octahedron tetrahedral-volume profile
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is over all real parameters \(c\in[1,3]\) and all contained tetrahedra, including those with nonvertex points. The vertex classification and separate affinity of the signed determinant reduce this infinite optimization to exact polynomial inequalities. The supplied standard-library checker reconstructs and verifies all 63,756 Bernstein positivity assertions over continuous intervals and supplies sharp witness quadruples. The volume expressions follow by exact cap subtraction; polynomial factorizations establish uniqueness of the global normalized minimum. The derivative calculation establishes the secondary local minimum without numerical optimization assumptions.
+## correctness
 
-**Originality — PASS, subject to historical risk.** The primary works by Horváth–Lángi and Akopyan–Glazyrin were inspected in full and do not determine this fixed-polytope, parameter-dependent optimum. Related indexed work on the same intersection family addresses illumination or graph distance rather than maximal tetrahedral volumes. Searches for the exact parameter profile, its truncated-octahedron equality parameter, and its determinant reformulations did not uncover an implication proving this complete result. This search is not proof of historical priority; material on the indexed same-family source was limited to its public abstract, and earlier unindexed or differently worded treatments remain possible.
+PASS
 
-**Value — PASS.** The question is geometrically natural: the family continuously connects the octahedron, regular truncated octahedron, cuboctahedron, and cube. The result determines a continuous sharp extremal profile, a unique globally least efficient shape for enclosing its largest tetrahedron, explicit witness phase transitions, and a nonmonotone secondary local extremum. These are not consequences of a routine special-case substitution into the cited results.
+The polytope has exactly 24 signed-permutation vertices of (1,t,0) for 1<c<2 and (1,1,u) for 2<c<3; degeneracies at c=1,2,3 are limits of valid vertices. The signed four-point tetrahedron determinant is separately affine in its vertices, so its absolute maximum occurs on vertex quadruples. Independently reconstructed all 10,626 quadruples per branch as exact affine-coordinate polynomials (109 distinct in the lower branch, 97 in the upper) and verified all degree-three rational Bernstein coefficients of each E±p on [0,1/2],[1/2,1],[0,1] nonnegative, with actual matching determinant polynomials. This proves a CONTINUOUS all-parameter bound, not finite parameter sampling. Direct cap subtraction gives Vol(K_c)=4/3(1+3t+3t²−2t³) for c≤2, and 4/3[6−(1−u)^3] for c≥2. Independently verified factorizations 6(1+t+2t²)−4F=2(t+1)(2t−1)^2, 6t−F=(2t−1)(t²−t+1), and derivative sign for last ratio as −(u^4−16u+3)/(u³−3u²+3u+5)^2. Together prove unique global 1/6 minimum at c=3/2, second higher local minimum at unique u∈(0,1) solving u^4−16u+3=0, and witnesses in source. Checker source inspected but independent certificate computation implemented in independent_checks.py, not trust in saved VERIFY_OK.
 
-**Scope and limitations.** This review does not classify every maximizing tetrahedron, assert a global inequality for all centrally symmetric convex bodies, or establish priority independently. Exact finite symbolic verification relies on the integrity of the accompanying source code; a separate independent audit has not occurred.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The result gives an exact parameter-uniform three-phase maximal tetrahedron determinant and normalized-volume minimizer for the entire clipped-cube K_c. Akopyan–Glazyrin gives a general center-containment condition, not these determinant extremal profiles; Horváth–Lángi treat maximal polytopes inscribed in spheres, not tetrahedra inside K_c. Resultary same-object hits about Mahler products and illumination treat different invariants; the exact same-result index is this very record and is not independent earlier coverage. No stronger prior theorem deriving the three sharp pieces was identified in the actual bounded searches and primary comparisons; this is best-of-knowledge rather than a universal negative search proof.
+
+## value
+
+PASS
+
+Maximal simplices of a polytope are a standard, nontrivial affine extremal invariant. The K_c family connects two classical symmetric polytopes with combinatorial changes, and the exact three regimes, exceptional global minimizing truncated octahedron at c=3/2, and secondary local minimum resolve a natural full-parameter volume-fraction question. This is not merely an arbitrary single instance or recomputation from a known value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

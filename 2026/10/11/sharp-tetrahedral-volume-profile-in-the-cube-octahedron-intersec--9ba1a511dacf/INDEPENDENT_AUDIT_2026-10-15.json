@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T11:03:07Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The polytope has exactly 24 signed-permutation vertices of (1,t,0) for 1<c<2 and (1,1,u) for 2<c<3; degeneracies at c=1,2,3 are limits of valid vertices. The signed four-point tetrahedron determinant is separately affine in its vertices, so its absolute maximum occurs on vertex quadruples. Independently reconstructed all 10,626 quadruples per branch as exact affine-coordinate polynomials (109 distinct in the lower branch, 97 in the upper) and verified all degree-three rational Bernstein coefficients of each E±p on [0,1/2],[1/2,1],[0,1] nonnegative, with actual matching determinant polynomials. This proves a CONTINUOUS all-parameter bound, not finite parameter sampling. Direct cap subtraction gives Vol(K_c)=4/3(1+3t+3t²−2t³) for c≤2, and 4/3[6−(1−u)^3] for c≥2. Independently verified factorizations 6(1+t+2t²)−4F=2(t+1)(2t−1)^2, 6t−F=(2t−1)(t²−t+1), and derivative sign for last ratio as −(u^4−16u+3)/(u³−3u²+3u+5)^2. Together prove unique global 1/6 minimum at c=3/2, second higher local minimum at unique u∈(0,1) solving u^4−16u+3=0, and witnesses in source. Checker source inspected but independent certificate computation implemented in independent_checks.py, not trust in saved VERIFY_OK.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Horváth–Lángi maximize polytopes on a fixed sphere, not tet volume inside K_c.",
+          "Akopyan–Glazyrin study general maximum simplex structure and prisms/parallelotopes, no K_c parameter profile.",
+          "Resultary separate records for K_c Mahler product and illumination count compute different quantities."
+        ],
+        "reasoning": "None of those broader geometric settings supplies the three determinant envelopes as a special case; generic simplex existence and center containment remain compatible with many numerical maxima.",
+        "searches": [
+          "Resultary:maximal volume tetrahedron cube octahedron intersection clipped cube l1 ball c maximal simplex determinant volume ratio truncated octahedron",
+          "arXiv:1402.6496",
+          "DOI:10.1007/s10998-014-0051-2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query: maximal volume tetrahedron cube octahedron intersection clipped cube l1 ball c maximal simplex determinant volume ratio truncated octahedron",
+        "Resultary self-index https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-tetrahedral-volume-profile-in-the-cube-octahedron-intersec--9ba1a511dacf",
+        "https://users.mccme.ru/akopyan/papers/Akopyan-Glazyrin-Maximum-Volume.pdf",
+        "https://arxiv.org/abs/1402.6496"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The tested claim is D(c)=2(1+t+2t²), 8t, 8(1+u²) on the three intervals; Corollary 2.3 supplies only center of maximizing simplex.",
+          "The full-interval rational Bernstein certificate and attaining quadruples are independent additional data not in the inspected primary theorems."
+        ],
+        "reasoning": "The mentioned prior structural conclusion is necessary but not sufficient to compute the determinants or normalized phase diagram; prior implication to claim fails on mathematical specificity.",
+        "searches": [
+          "arXiv:1402.6496",
+          "DOI:10.1007/s10998-014-0051-2",
+          "Resultary:maximal volume tetrahedron cube octahedron intersection clipped cube l1 ball c maximal simplex determinant volume ratio truncated octahedron"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Akopyan–Glazyrin Corollary 2.3 says a maximum-volume inscribed simplex in centrally symmetric convex body contains its center; no determinant size is given.",
+          "The K_c family is also a cube∩cross-polytope family; equivalence of body naming does not imply the new full tetrahedral profile."
+        ],
+        "reasoning": "Volume/determinant and unit-normalized tetrahedral ratios were compared with the actual known center property; a qualitative necessary condition does not yield the exact piecewise optimum.",
+        "searches": [
+          "Resultary:maximal volume tetrahedron cube octahedron intersection clipped cube l1 ball c maximal simplex determinant volume ratio truncated octahedron",
+          "arXiv:1402.6496",
+          "DOI:10.1007/s10998-014-0051-2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact self-index matched original claim but excluded as independent prior; same family Mahler/illumination entries have no tetrahedral-volume table.",
+          "External searches did not turn up a known determinant table with all three variable intervals."
+        ],
+        "reasoning": "An isolated polytope entry or combinatorial table at c=3/2 would not entail continuous c-profile or unique minima; no matching exhaustive prior table was identified.",
+        "searches": [
+          "Resultary:maximal volume tetrahedron cube octahedron intersection clipped cube l1 ball c maximal simplex determinant volume ratio truncated octahedron",
+          "Resultary: cube–octahedron intersections Mahler products exact illumination",
+          "web: largest tetrahedron regular truncated octahedron volume"
+        ]
+      },
+      "rationale": "The result gives an exact parameter-uniform three-phase maximal tetrahedron determinant and normalized-volume minimizer for the entire clipped-cube K_c. Akopyan–Glazyrin gives a general center-containment condition, not these determinant extremal profiles; Horváth–Lángi treat maximal polytopes inscribed in spheres, not tetrahedra inside K_c. Resultary same-object hits about Mahler products and illumination treat different invariants; the exact same-result index is this very record and is not independent earlier coverage. No stronger prior theorem deriving the three sharp pieces was identified in the actual bounded searches and primary comparisons; this is best-of-knowledge rather than a universal negative search proof.",
+      "residual_risks": [
+        "Related unindexed maximum-simplex tables for truncated polyhedra might cover isolated points or a parameter family not surfaced by searches; no guarantee of complete historic priority.",
+        "Exact symbolic certificate counts distinct polynomials but verifies all possible because enumeration explicitly exhausts every 4-subset at both branches; verification script integrity remains a reproducibility dependence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING exact K_c maximal determinant; supplies general center condition.",
+          "evidence": "Corollary 2.3: maximal inscribed simplex contains center; no parametrized cube–octahedron determinant.",
+          "identifier_or_url": "https://users.mccme.ru/akopyan/papers/Akopyan-Glazyrin-Maximum-Volume.pdf",
+          "material_read": "Primary 2014 author-hosted PDF, abstract, Lemma 2.1, Corollary 2.3, discussion of prism and parallelotope settings, pp.251–256.",
+          "method": "Accessible PDF text and page inspection",
+          "title": "On maximum volume simplices in polytopes",
+          "trigger": "Closest structural theorem about maximum simplices in centrally symmetric convex sets."
+        },
+        {
+          "assessment": "NOT_APPLICABLE to interior tetrahedron maximization along K_c; limited scope inspection.",
+          "evidence": "Sphere inscription is an external constraint on full polytopes, rather than simplex containment inside a c-dependent clipped cube.",
+          "identifier_or_url": "https://arxiv.org/abs/1402.6496",
+          "material_read": "Primary arXiv bibliographic statement and scope of sphere-constrained, vertex-count maximization.",
+          "method": "arXiv abstract/source examination",
+          "title": "Maximum volume polytopes inscribed in the unit sphere",
+          "trigger": "Shared maximal volume language and polytope/symmetry context."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Maximal simplices of a polytope are a standard, nontrivial affine extremal invariant. The K_c family connects two classical symmetric polytopes with combinatorial changes, and the exact three regimes, exceptional global minimizing truncated octahedron at c=3/2, and secondary local minimum resolve a natural full-parameter volume-fraction question. This is not merely an arbitrary single instance or recomputation from a known value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only real 3D family 1≤c≤3; not all convex bodies or higher dimensions.",
+    "Does not classify entire continuum of maximizing tetrahedra; certificate relies on exhaustive exact rational arithmetic, not on a handwritten list.",
+    "Related unindexed maximum-simplex tables for truncated polyhedra might cover isolated points or a parameter family not surfaced by searches; no guarantee of complete historic priority.",
+    "Exact symbolic certificate counts distinct polynomials but verifies all possible because enumeration explicitly exhausts every 4-subset at both branches; verification script integrity remains a reproducibility dependence."
+  ],
+  "schema_version": 1
+}
