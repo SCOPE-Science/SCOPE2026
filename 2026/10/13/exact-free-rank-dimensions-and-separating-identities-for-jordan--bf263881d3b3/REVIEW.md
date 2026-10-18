@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The operator-bracket normal form follows directly from \([at+u,bt+v]=J_s(av-bu)\) and the abelian derived ideal. For each nonzero \(a\in\mathbb F_q^n\), polynomial functional calculus on \(a_iJ_s\) surjects onto the faithful \(s\)-dimensional local algebra \(\mathbb F_q[J_s]\); the evaluation kernels are comaximal because their radicals are distinct rational-point maximal ideals. This establishes independent interpolation of the derived coefficient fibers, each a free module of rank \(n-1\) over the local algebra. The generators have independent quotient projections, so the dimension formula holds for every \(n\ge1\), \(s\ge2\), and prime power \(q\). The adjoint-polynomial separator uses \(J_s^q-J_s=N_s^q-N_s\), a nilpotent element of exact index \(s\); it vanishes at level \(s\) but not at level \(s+1\). Seven direct exact term-function computations and eight separating-identity checks corroborate boundary cases. No finite computation is substituted for the general proof.
+## correctness
 
-## Originality — PASS, with residual historical risk
-The closest exact formula found concerns the two-dimensional affine Lie algebra, corresponding to Jordan length one. That prior formula alone does not imply the nonsemisimple operator-valued coefficient fibers, the linear dependence on arbitrary Jordan length, or the explicit separating identities. The motivating Bahturin–Olshanskii work considers arbitrarily large **irreducible** modules but proves the free-dimension **exponent**, not this exact formula for indecomposable Jordan modules; Olshanskii gives another exponent construction for the two-dimensional case. Searches for Jordan-block Lie varieties, metabelian polynomial identities, jet interpolation, and exact free-rank dimensions did not find an equivalent published statement. The 1979 Bahturin paper on free polynilpotent Lie identities could not be inspected in full; possible implicit coverage remains a material residual risk, not a declaration of exhaustive uniqueness.
+PASS
 
-## Value — PASS
-Free-dimension growth and the potential of locally finite varieties are explicit research targets of the motivating literature. The theorem shows that a nilpotent Jordan extension changes every nontrivial free-rank dimension by a completely determined amount and yields infinitely many strictly nested Lie varieties with the **same** growth potential. An explicit polynomial identity distinguishes consecutive levels independently of the counting formula. The nonsemisimple interpolation mechanism is necessary to explain why a one-eigenvalue action still carries \(s\) independent coefficients at each nonzero evaluation point. These are natural structural invariants, not an arbitrary numerical slice.
+For finite g_s, relatively free algebra equals coordinate-generated term-function algebra on g_s^n. Every bracket term is linear in ideal inputs u_i; polynomially varying action is P(a_i J_s) on J_s(a_i u_j-a_j u_i). The ring B_s=F_q[J_s]=F_q[eta]/(eta^s) is dimension s and faithful on the ideal. For nonzero a, some a_i !=0 makes polynomial evaluation onto B_s. Its kernel has radical the distinct rational point maximal ideal m_a, so CRT interpolates all nonzero fibers independently even when s>q. Basic scalar syzygies form a free B_s-module of rank n-1 at each a !=0, zero at a=0, yielding derived dimension s(n-1)(q^n-1); n independent t-coordinate functions give full formula, including n=1. Identity follows (aJ_s)^q-aJ_s=-aN_s(1-N_s^(q-1)), exact nilpotency index s for nonzero a; it fails for s+1 using top Jordan vector. Thus strict varieties and exponent q. Reconstructed a **separate** GF(2) term-function Lie-bracket closure algorithm: ranks (s,n)=(1,2)->5,(2,2)->8,(3,2)->11,(2,3)->31, agreeing with theorem; not an all-field proof.
 
-## Closest literature and limitations
-Bahturin–Olshanskii, arXiv:2603.09655v1, Example 7, establishes the exponent for an irreducible-module semidirect product; Olshanskii, arXiv:2606.04577v3, Example 4, establishes a growth lower bound in the affine two-dimensional case. *Exact free-algebra growth for the two-dimensional affine Lie algebra over finite fields* (2026) determines the already-known Jordan-length-one free-rank formula. The present theorem is restricted to one invertible unipotent Jordan block and finite fields. Bahturin (1979), DOI:10.1112/jlms/s2-20.1.39, remains an unresolved historical full-text comparison. Computational checks were limited to the specified small prime fields.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published exact affine 2-dimensional Lie free-rank dimension n+(n-1)(q^n-1) is precisely s=1; nonsemisimple indecomposable Jordan blocks require a local nilpotent operator-valued CRT interpolation rather than mere scalar pointwise interpolation. Bahturin--Olshanskii Example 7 considers arbitrary-dimensional **irreducible** modules and only q exponential growth, not indecomposable unipotent Jordan length s nor separating adjoint identities. Existing same-growth claims are credited. Old Bahturin 1979 identities literature is potentially relevant and unread in full.
+
+## value
+
+PASS
+
+A natural exact invariant and explicit ascending identity hierarchy for indecomposable nonsemisimple Lie extensions over arbitrary finite fields. It distinguishes Jordan lengths that growth exponent alone cannot, determines all rank-n dimensions and derived sections, and extends published s=1 result substantively rather than scalar renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
