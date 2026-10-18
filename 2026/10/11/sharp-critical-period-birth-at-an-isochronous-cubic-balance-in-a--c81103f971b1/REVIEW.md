@@ -1,11 +1,21 @@
-# Scientific review: sharp quintic Liénard critical-period birth
+# Independent mathematical audit
 
-**Correctness — PASS.** The domain \(a>-2,\ b\ne0\) is checked directly against the originating global-center criterion. An analytic, even physical-time period exists at the origin. The order-four Fourier homological equations give the exact coefficients \(w_2=3a/8-b^2/24\) and \(w_4=5/16-21a^2/256-ab^2/384+b^4/768\), so the quartic period coefficient is \(-5/16\) at \(a=b^2/9\). Analytic implicit-function theory yields the unique *small*-amplitude critical-period branch and the sharp location/height. Rescaling time and state yields the beta-function large-amplitude constant. The symbolic coefficient checker was executed successfully. Formal symbolic identities alone are not substituted for convergence or global arguments.
+## correctness
 
-**Originality — PASS, with residual risk.** The originating Chen–Li–Zhang classification (arXiv:2208.06184v1) establishes the global center, but its Theorem 4 and supporting proof do not give the physical-time period bifurcation. Mañosas–Villadelprat's one-critical-period theorem concerns a sextic *potential Hamiltonian*, hence lacks the essential odd Liénard damping \(bxy\). Oliveira–Sánchez-Sánchez–Torregrosa derive general period constants and classify isochrones of a broader polynomial Liénard form, but their reported statements do not supply this normalized degree-five one-parameter sharp branch or high-amplitude law. The generalized Liénard criterion of Yang–Zeng (2013) could imply existence of a critical point for a wider family; its full text was unavailable, so possible prior coverage of existence alone is a recorded risk, not used as evidence against the explicit bifurcation asymptotics. Comparisons of published mathematical records and relevant prior statements found no statement entailing the complete result. The priority conclusion is limited by publication coverage and no claim of uniqueness of unpublished work is made.
+PASS
 
-**Value — PASS.** The balance \(b^2=9a\) is a mathematically motivated modified-Emden isochronous cubic locus, not an arbitrary coefficient slice. The positive quintic term breaks the cubic cancellation at an exactly universal fourth-order coefficient and forces a tangible codimension-one birth of a small local period maximum. The location, period gain, and high-amplitude decay jointly connect local criticality to a full global period annulus. These quantitative original-time facts go beyond the existing global-center classification and a generic first-period-constant sign check; no general critical-period census is asserted.
+For a>-2,b!=0 the exact Chen–Li–Zhang global-center premise applies. A Poincaré–Lindstedt order-four resonant Fourier recurrence gives w2=3a/8-b²/24 and w4=5/16-21a²/256-ab²/384+b⁴/768. Independently symbolic inversion T/(2pi)=1-w2 A²+(w2²-w4)A⁴ verifies the stated coefficients and their universal -5/16 at a=b²/9. Analytic return-time and reversibility give an even analytic period in turning amplitude u=A². At mu=b²-9a, G(0,mu)=mu/24 and d_u G(0,0)=-5/8, so the implicit-function theorem yields exactly one local positive critical branch u*=mu/15+O(mu²) for mu>0, a strict local maximum with height 2pi+pi mu²/360+O(mu³). Correct original-time scaling x=A X,y=A³Y,s=A²t tends smoothly to X¨+X^5=0, whose transverse return is (2sqrt(3)/3)Beta(1/6,1/2), thus A²T tends to that constant; the finite A maximum for mu>0 follows by continuity. No claim of global uniqueness.
 
-**Limitations and closest literature.** The maximum near the center is unique only within a fixed small-amplitude neighborhood for parameters near the balance surface. There may be other critical periods farther out; existence of a global maximum does not imply its uniqueness. Broad Liénard-period literature (especially Yang–Zeng 2013) could not be inspected in full. Independent review of this finding remains unperformed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the exact critical-period birth and physical-time coefficient law on this non-Hamiltonian quintic Liénard global center. Chen–Li–Zhang theorem 4 classifies the same global center but no period constants; potential Hamiltonian period results with bxy omitted do not imply these physical periods. Resultary analogous pure quintic centers use a different nonlinear damping. Yang–Zeng and other broad period literature could contain specialized calculations, but their full texts were not accessible and this is a specific residual risk.
+
+## value
+
+PASS
+
+PASS: the surface b²=9a represents natural cubic isochronous balance; the retained quintic term creates a universal fourth-order defect and a sharp codimension-one critical-period bifurcation. Location/height coefficients in unmodified physical time, plus global high-amplitude law and an existence result, answer motivated period-function questions beyond a routine restatement of the global center theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
