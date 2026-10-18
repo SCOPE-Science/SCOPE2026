@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-The all-signed-poset proof is given in `RESULT.md`.
 
-Critical checks:
-- the irredundant facets are exactly the minimal roots and the signed-maximal box facets;
-- a unit root has Euclidean normal length \(1\), while a two-coordinate type-B root has length \(\sqrt2\);
-- every root facet is represented by two antipodally paired arcs with the same physical clearance;
-- positive and negative signed maxima are exactly nonzero literal sinks;
-- the doubled graph is acyclic because its arcs are generating relations of the Fischer representation;
-- every source-to-sink path gives \(rW\le2-2r\);
-- longest-source-path potentials satisfy all arc and endpoint inequalities at \(r=2/(2+H)\);
-- antipodal averaging produces a genuine point of \(\mathbb R^n\) without weakening feasibility;
-- every maximum path has zero total slack and therefore forces all of its physical facets to be tangent.
+# Independent mathematical audit
 
-`verify.py` constructs the doubled graph for deterministic minimal signed-root systems and independently solves the complete Chebyshev linear program by generic active-set enumeration. It compares the LP optimum with the longest-path formula and checks the canonical center. Finite computation is corroborative only and does not assess originality.
+## correctness
+
+PASS
+
+PASS. Reconstructed signed-poset facet clearance from Beck–Hlavacek irredundant minimal-root inequalities and terminal signed box facets. Unit roots give doubled arcs of weight 1; two-coordinate roots weight sqrt(2). In the acyclic antipodal graph, each source-to-sink path of weight W bounds radius by rW <= 2-2r. At r=2/(2+H), longest-path lower potentials satisfy every arc and source/sink bound; averaging with the antipodal transform enforces z(-v)=-z(v), z(0)=0 without losing feasibility. The center formula and forced tangencies then follow by complementary slackness; empty signed poset H=0 gives r=1. Eight-case pinned active-set script inspected, not substituted for the all-poset proof.
+
+## originality
+
+PASS
+
+PASS best of knowledge. Original Beck–Hlavacek facet/Fischer results provide combinatorial hypotheses but neither a Euclidean Chebyshev-radius theorem nor the antisymmetric weighted-longest-path optimization. Ordinary, enriched and marked order-polytope metric formulas differ in their irredundant facet systems and are not direct implications for all signed posets. Residual risk: a general antitone doubled-difference-constraint Chebyshev theorem could imply the statement under another formulation.
+
+## value
+
+PASS
+
+PASS. Signed order polytopes form a natural type-B polytope class; exact metric inradius, canonical incenter, full incenter system and forced tangencies solve natural geometric questions not supplied by their Ehrhart/combinatorial theory. Weighted path algorithm exploits the source’s signed symmetry and handles unit/two-root facet normalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

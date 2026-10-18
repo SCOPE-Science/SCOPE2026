@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Every minimal signed root is an actual facet. After Euclidean normalization, unit roots become paired literal arcs of weight \(1\) and two-coordinate roots become paired arcs of weight \(\sqrt2\). Signed maximal elements are exactly nonzero literal sinks, whose antipodes are sources. Summing along any source-to-sink path gives \(rW\le2-2r\). Conversely, longest-path lower potentials are feasible at \(r=2/(2+H)\); averaging such a potential with its antipodal transform enforces the literal identities \(z_{-v}=-z_v\) and \(z_0=0\) while preserving every inequality. This proves the radius and canonical center. Equality along a longest path forces every constituent facet slack to vanish.
+## correctness
 
-## Originality
-PASS. The primary full text was inspected at the signed-order definition, minimal representation, irredundant facet theorem, and Fischer representation. It contains no inradius, Chebyshev-center, Euclidean-radius, or inscribed-ball treatment. Candidate-specific published-result and literature searches covered signed-order, type-B order-polytope, Fischer-representation, largest-inscribed-ball, and weighted-path formulations. No covering statement was located. Existing ordinary, lecture-hall, and marked-order formulas use different facet systems and do not imply the antipodally doubled type-B graph.
+PASS
 
-## Value
-PASS. Signed order polytopes are a natural recent type-B extension of Stanley's order polytopes. The theorem works for every signed poset and replaces a continuous Euclidean optimization with a canonical longest-path invariant. It also gives an explicit incenter, all optimal centers, and forced tangent paths. The mixed root lengths and antipodal symmetrization encode genuinely signed geometry rather than a notational substitution into the ordinary height formula.
+PASS. Reconstructed signed-poset facet clearance from Beck–Hlavacek irredundant minimal-root inequalities and terminal signed box facets. Unit roots give doubled arcs of weight 1; two-coordinate roots weight sqrt(2). In the acyclic antipodal graph, each source-to-sink path of weight W bounds radius by rW <= 2-2r. At r=2/(2+H), longest-path lower potentials satisfy every arc and source/sink bound; averaging with the antipodal transform enforces z(-v)=-z(v), z(0)=0 without losing feasibility. The center formula and forced tangencies then follow by complementary slackness; empty signed poset H=0 gives r=1. Eight-case pinned active-set script inspected, not substituted for the all-poset proof.
 
-## Closest literature and limitations
-The source supplies the irredundant facets and Fischer representation but does not normalize them metrically. Generic difference-constraint theory motivates longest-path feasibility but does not state the signed-order endpoint pairing or the closed radius. The theorem is realization-sensitive and does not classify incenter uniqueness or enclosing spheres.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge. Original Beck–Hlavacek facet/Fischer results provide combinatorial hypotheses but neither a Euclidean Chebyshev-radius theorem nor the antisymmetric weighted-longest-path optimization. Ordinary, enriched and marked order-polytope metric formulas differ in their irredundant facet systems and are not direct implications for all signed posets. Residual risk: a general antitone doubled-difference-constraint Chebyshev theorem could imply the statement under another formulation.
+
+## value
+
+PASS
+
+PASS. Signed order polytopes form a natural type-B polytope class; exact metric inradius, canonical incenter, full incenter system and forced tangencies solve natural geometric questions not supplied by their Ehrhart/combinatorial theory. Weighted path algorithm exploits the source’s signed symmetry and handles unit/two-root facet normalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
