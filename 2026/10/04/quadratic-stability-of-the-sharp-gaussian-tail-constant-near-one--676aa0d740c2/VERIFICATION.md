@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was replayed from the exact conditional law of the dominant uniform summand. When \(t<a_1-r(a)\), every conditional central interval lies strictly inside \([-a_1,a_1]\), so its probability is exactly \(t/a_1\), independently of the residual weights. A coupling bound gives uniform convergence of the full tail ratio to the one-uniform ratio as \(r(a)\to0\), allowing the prior uniqueness of \(t_0\) to localize the global maximizer.
+# Independent mathematical audit
 
-For the localized ratio, differentiating gives the critical equation \(a_1=t+h(t)\). The standard-normal Mills-ratio derivative yields \(h'(t)=3t h(t)-1\), hence \((t+h(t))'=3t h(t)>0\). The implicit-function and envelope derivatives then give the displayed threshold and sharp-constant expansions.
+## correctness
 
-The standalone `verify.py` uses only the Python standard library. It returns `VERIFY_OK`, reproduces \(t_0=0.6429083350319993\), \(C_*=1.3451182120491867\), \(\kappa=1.2108763588856895\), and the threshold-shift coefficient \(0.7259721828638812\). It also compares the local formula with exact inclusion-exclusion CDFs for several three- and four-summand weighted-uniform laws. These computations stress-test the formulas but are not substitutes for the analytic localization proof.
+PASS
 
-The scientific comparison inspected the lead arXiv full text, the full available text of the distributional-stability article, and the full PDF of the \(\ell_p\)-section stability paper, together with targeted searches. No independent validation has been performed.
+For |R|<=r=sum_{j>1}|a_j|, conditioning on R gives P(|a1*U1+R|>t)=1-t/a1 whenever 0<t<a1-r: exactly flat uniform density on all shifted central intervals. The coupling sup difference from U1 is <=|1-a1|+r and compact support plus positive Q(t) localize ALL global maximizing cutoffs near the source’s unique t0 as r→0. Within that plateau, F=(a1-t)/(a1*Q(t)) and the sign of derivative is a1-t-h(t), with (t+h(t))’=3t*h(t)>0; hence unique optimizer. With a1=sqrt(1-s), implicit derivative gives dt/ds=-1/[6t0(1-t0)]; envelope gives dK/ds=-t0/[2Q(t0)]. Independent numeric root gave t0=0.64290833503198, C*=1.34511821204919, kappa=1.21087635888558. Finite numeric checks are not proof of dimension-free eta.
+
+## originality
+
+PASS
+
+He–Tkocz–Wyczesany establish the best GLOBAL Gaussian comparison constant and unique extremal one-uniform cutoff. They do not state the local optimized Hessian in coefficient space, exact direction-independent plateau reduction, or the kappa deficit. Barthe–Koldobsky supply central thin-slab extremal geometry, not this threshold-optimized coefficient, while related cube-slicing stability bounds cover a different functional or exclude a1 near 1. No dominating statement found in Resultary semantic search.
+
+## value
+
+PASS
+
+Sharp global inequalities naturally invite near-extremizer stability. This yields a dimension-free local structural theorem, an exact dependence of optimized tail ratio on dominant weight, and a computable tangent-space quadratic deficit for all finite dimensions. The analysis is substantive because the maximum ranges over thresholds and global localization is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

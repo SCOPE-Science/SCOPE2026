@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof separates the only nonstandard local step from the prior global theorem. If the residual support radius is smaller than the gap between the dominant coefficient and the threshold, conditioning on the residual sum makes the two-sided central interval have constant length, so the exact tail is \(1-t/a_1\). Uniform coupling to a single uniform variable and the prior uniqueness of \(t_0\) localize the global optimizer into that plateau. The derivative equation is then one-dimensional; the Mills-ratio identity gives strict monotonicity, uniqueness, and the implicit-function expansion. The optimized-value derivative correctly uses the envelope condition. `verify.py` reproduces the constants and independently stress-checks finite weighted-uniform convolutions.
+## correctness
 
-## Originality
-PASS, with residual historical risk. The lead sharp-tail paper states the global bound and the unique one-uniform threshold but gives no coefficient-space deficit or local Hessian for the optimized comparison constant. The inspected central-section stability papers concern different functionals; the closest distributional-stability theorem also imposes \(\|a\|_\infty\le1/\sqrt2\), excluding the one-sparse regime. Targeted indexed-record and web searches for the exact constants, aliases, one-sparse stability, weighted-uniform Gaussian comparison, and deficit formulations returned no equivalent statement. The calculation is elementary once the relevant localization is recognized, so an older differently phrased cube-slab or convolution result remains a genuine residual risk.
+PASS
 
-## Value
-PASS. The sharp constant in the lead theorem is attained only in the sparse one-uniform geometry. Quantifying how that extremum deteriorates under desparsification is therefore a natural stability question, not an arbitrary slice. The result identifies the exact second-order loss \(\kappa\varepsilon^2\), shows that the tangent-space quadratic term is isotropic, and proves an exact local collapse from all residual coordinates to the single parameter \(a_1\). This supplies a quantitative near-equality law for a sharp probability inequality whose extremizer is otherwise only identified qualitatively.
+For |R|<=r=sum_{j>1}|a_j|, conditioning on R gives P(|a1*U1+R|>t)=1-t/a1 whenever 0<t<a1-r: exactly flat uniform density on all shifted central intervals. The coupling sup difference from U1 is <=|1-a1|+r and compact support plus positive Q(t) localize ALL global maximizing cutoffs near the source’s unique t0 as r→0. Within that plateau, F=(a1-t)/(a1*Q(t)) and the sign of derivative is a1-t-h(t), with (t+h(t))’=3t*h(t)>0; hence unique optimizer. With a1=sqrt(1-s), implicit derivative gives dt/ds=-1/[6t0(1-t0)]; envelope gives dK/ds=-t0/[2Q(t0)]. Independent numeric root gave t0=0.64290833503198, C*=1.34511821204919, kappa=1.21087635888558. Finite numeric checks are not proof of dimension-free eta.
 
-## Closest literature and limitations
-The closest inspected sources are arXiv:2305.06235v1, DOI:10.1214/22-AOP1584, DOI:10.1007/s00208-023-02669-9, DOI:10.1112/mtk.12225, and the Barthe--Koldobsky slab theorem DOI:10.1016/S0001-8708(02)00055-5. The result is local and does not give a global stability inequality or address the lead paper's higher-threshold extremizer conjectures.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+He–Tkocz–Wyczesany establish the best GLOBAL Gaussian comparison constant and unique extremal one-uniform cutoff. They do not state the local optimized Hessian in coefficient space, exact direction-independent plateau reduction, or the kappa deficit. Barthe–Koldobsky supply central thin-slab extremal geometry, not this threshold-optimized coefficient, while related cube-slicing stability bounds cover a different functional or exclude a1 near 1. No dominating statement found in Resultary semantic search.
+
+## value
+
+PASS
+
+Sharp global inequalities naturally invite near-extremizer stability. This yields a dimension-free local structural theorem, an exact dependence of optimized tail ratio on dominant weight, and a computable tangent-space quadratic deficit for all finite dimensions. The analysis is substantive because the maximum ranges over thresholds and global localization is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
