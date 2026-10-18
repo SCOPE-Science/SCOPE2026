@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A missing edge is exactly a cyclic \(01\) transition; counting transitions yields \(\mathbb E M=np(1-p)\), \(\Pr(M=0)=p^n+(1-p)^n\), and the single-run formula for \(\Pr(M=1)\). Every coupling incurs at least \(|M-1|\) edge disagreements; the rotation-equivariant coupling attains this exactly with the correct uniform spanning-tree marginal. Exact total variation follows from the conditional uniformity on the tree-support event. A binomial-to-Poisson argument and uniform control of all other bias regimes prove the two globally optimal asymptotic values and their different necessary scales. The checker confirms 1,936 exact finite assertions but proves no infinite assertion by itself.
+## correctness
 
-**Originality — PASS, with stated residual risk.** Nachmias–Peled (arXiv:2510.19563v1) addresses determinantal local limits with degree growing to infinity; it does not contain these finite-cycle optimal transport or total-variation expressions. The later Mészáros–Peled paper (arXiv:2610.11554v1) proves an order upper bound for general graphs, not the exact cycle law, and specifies unbiased one-out choices. Frieze–Johansson addresses connectivity of other random-out models. Published mathematical-record and primary-literature comparisons revealed no implication that covers the theorem. An older cyclic-run, rotation-equivariant coupling, or random mapping result may contain an equivalent formulation.
+PASS
 
-**Value — PASS.** The exact discrepancy at bounded degree distinguishes the high-degree approximation regime from its smallest regular-degree counterpoint. Optimizing over a natural orientation bias reveals a nonzero irreducible transport error and two *different* sharp Poisson-scale optimizers for two standard probability metrics. The result explains how rare doubled-edge selections and missed edges affect optimal distributional approximation, not only an isolated finite numeric case.
+A cyclic orientation string has missing edges exactly at transitions (B_i,B_{i+1})=(0,1); M has mean np(1-p), P(M=0)=p^n+(1-p)^n and P(M=1)=n∑_{j=1}^{n-1}p^j(1-p)^{n-j}. Any spanning-tree edge set omits exactly one edge, so symmetric difference >=|M-1|. Uniformly deleting a missing edge, or any edge for M=0, is rotation-equivariant and has uniform tree marginal; equality holds pointwise. Therefore W1=E|M-1|=npq-1+2(p^n+q^n), and TV=1-P(M=1) because the M=1 component is uniform and other components disjoint. For p=λ/n, rare ones form asymptotic isolated transitions, M→Poisson(λ); exact formulas yield f(λ)=λ-1+2e^-λ and TV=1-λe^-λ. Convexity gives unique minimizers log2 and 1; finite-p optimizing sequences cannot stay nonsparse by W1 bound and exponential P(M=1) bound. The edge metric is unnormalized, including n=3 and p endpoints.
 
-The result concerns only homogeneous cycles and does not generalize the optimal coupling to arbitrary graphs.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS with residual older run/transport risk. Earlier general uniform-spanning-tree/determinantal approximation statements treat high minimum degree or different randomness and supply neither the exact biased 1-out cycle distributional distances nor the incompatible log2/1 sparse scales. The event M=1 is the one-run cyclic-word event, a classical counting identity; the joint exact optimal coupling and global bias optimization are not shown by the examined prior statements.
+
+## value
+
+PASS
+
+PASS: the cycle is the first nontrivial sparse graph benchmark for comparing locally selected random edges with the uniform spanning tree law. Exact optimal unnormalized transport and total variation exhibit different minimizing sparse biases and nonvanishing sharp limits; this supplies an interpretable boundary to high-degree approximation results, not a merely rescaled probability table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

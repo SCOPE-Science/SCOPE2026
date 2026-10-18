@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T03:11:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A cyclic orientation string has missing edges exactly at transitions (B_i,B_{i+1})=(0,1); M has mean np(1-p), P(M=0)=p^n+(1-p)^n and P(M=1)=n∑_{j=1}^{n-1}p^j(1-p)^{n-j}. Any spanning-tree edge set omits exactly one edge, so symmetric difference >=|M-1|. Uniformly deleting a missing edge, or any edge for M=0, is rotation-equivariant and has uniform tree marginal; equality holds pointwise. Therefore W1=E|M-1|=npq-1+2(p^n+q^n), and TV=1-P(M=1) because the M=1 component is uniform and other components disjoint. For p=λ/n, rare ones form asymptotic isolated transitions, M→Poisson(λ); exact formulas yield f(λ)=λ-1+2e^-λ and TV=1-λe^-λ. Convexity gives unique minimizers log2 and 1; finite-p optimizing sequences cannot stay nonsparse by W1 bound and exponential P(M=1) bound. The edge metric is unnormalized, including n=3 and p endpoints.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mészáros–Peled give O(n log k/sqrt(k)) high-min-degree expected coupling bound, not exact cycle k=2 costs.",
+          "Nachmias–Peled address local limits under a different degree regime."
+        ],
+        "reasoning": "An upper bound at k=2 cannot force exact W1, TV or the two optimized sparse scales.",
+        "searches": [
+          "arXiv:2610.11554 product approximations for uniform spanning trees and determinantal processes",
+          "arXiv:2510.19563 local limits determinantal processes"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.11554",
+        "arXiv:2510.19563",
+        "Resultary query: random 1-out cycle uniform spanning tree Wasserstein distance Hamming exact coupling orientation bias Poisson sparse limits"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published general determinantal-process work estimates the distance to suitable independent approximations, not this rotation-equivariant fixed-tree coupling.",
+          "Neither high-degree bound nor connectivity theorem supplies necessity of sparse p≈(log2)/n vs p≈1/n."
+        ],
+        "reasoning": "The same edge-marginal setting does not imply this particular optimal-coupling theorem and sharp extremizers.",
+        "searches": [
+          "Resultary random 1-out cycle uniform spanning tree Wasserstein distance Hamming exact coupling orientation bias Poisson sparse limits",
+          "arXiv:2610.11554 theorem k minimum degree"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "M=# cyclic 01 transitions; P(M=1) is probability of one occupied cyclic run and target tree means exactly one missing edge.",
+          "The run-count identity alone does not identify a sharp coupling cost and global two-metric bias minima."
+        ],
+        "reasoning": "Classical runs give a useful equivalent counting formulation, but no located formula package with these distances and minimizers.",
+        "searches": [
+          "cyclic binary words 01 transitions run count Wasserstein one-out spanning tree",
+          "random 1-out cycle uniform spanning tree total variation coupling"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected exact table for the complete biased orientation n-cycle metrics; simple cyclic-run counts can reproduce only marginal ingredients."
+        ],
+        "reasoning": "No exact database/table covering both global metric minima located.",
+        "searches": [
+          "Resultary random 1-out cycle uniform spanning tree Wasserstein distance Hamming exact coupling orientation bias Poisson sparse limits",
+          "Frieze Johansson random k-out subgraphs connectivity"
+        ]
+      },
+      "rationale": "PASS with residual older run/transport risk. Earlier general uniform-spanning-tree/determinantal approximation statements treat high minimum degree or different randomness and supply neither the exact biased 1-out cycle distributional distances nor the incompatible log2/1 sparse scales. The event M=1 is the one-run cyclic-word event, a classical counting identity; the joint exact optimal coupling and global bias optimization are not shown by the examined prior statements.",
+      "residual_risks": [
+        "Classical cyclic-run and optimal transitive coupling identities could occur in specialized unindexed probability notes.",
+        "The theorem is special to homogeneous cycles and unnormalized symmetric-difference cost; no general graph extension."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING: general bound not exact cycle distance or biased sparse optimizer.",
+          "evidence": [
+            "General O(n log k/sqrt(k)) coupling, not n-cycle exact W1/TV with p varying."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.11554",
+          "material_read": "Read original full accessible HTML abstract, setup and theorems on general min-degree k coupling; checked scope around k=2.",
+          "method": "Compare edge metric, graph and quantifiers with exact formula.",
+          "title": "Product approximations for uniform spanning trees and determinantal processes",
+          "trigger": "Directly analogous UST versus independent local selection"
+        },
+        {
+          "assessment": "DIFFERENT: high-degree local limits, not finite biased cycles.",
+          "evidence": [
+            "Local-limit theorem does not provide the pointwise |M-1| optimal coupling."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2510.19563",
+          "material_read": "Read publication abstract/statement and assigned references; did not rely on full PDF.",
+          "method": "Compare target limits and degree hypotheses.",
+          "title": "Local limits of determinantal processes",
+          "trigger": "Nearby UST local comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: the cycle is the first nontrivial sparse graph benchmark for comparing locally selected random edges with the uniform spanning tree law. Exact optimal unnormalized transport and total variation exhibit different minimizing sparse biases and nonvanishing sharp limits; this supplies an interpretable boundary to high-degree approximation results, not a merely rescaled probability table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Classical cyclic-run and optimal transitive coupling identities could occur in specialized unindexed probability notes.",
+    "The theorem is special to homogeneous cycles and unnormalized symmetric-difference cost; no general graph extension."
+  ]
+}
