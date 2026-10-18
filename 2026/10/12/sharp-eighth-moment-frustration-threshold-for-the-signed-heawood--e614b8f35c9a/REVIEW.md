@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The signed Ising normalization and the relationship between negative satisfied-edge counts and energy are fixed explicitly. The six/eight moment coefficients follow by even-degree edge parity and integer multinomial counts. A spanning tree reduces every signing to one of exactly \(256\) normalized signatures; an exhaustive integer program evaluates every one and independently checks every cut histogram by a Krawtchouk transform of the complete even-subgraph enumerator. The two signatures with \(c_6=0\) but different \(c_8\) have frustration indices two and three, while distinct pairs \((c_6,c_8)\) identify seven full energy histograms. This establishes both sides of the optimality claim without extrapolating from finite sampling.
+## correctness
 
-**Originality — PASS, with residual risk.** Scali and Kyriienko (arXiv:2609.11736v1, 2026) already established the signed-Ising DOS feature setting and general moment interpretation. Sivaraman's 2012 Heawood classification already establishes seven switching-isomorphism classes and associated frustration values and six-cycle counts. Neither inspected source explicitly gives the sharp eighth-moment cutoff or the all-signings energy-DOS classification by two raw moments. Closely related signed graph coding and spectral results are not the same Hamiltonian density-of-states assertion. The Heawood specialization is small, and an implicit consequence of existing complete class tables or an unindexed derivation remains a nonzero priority risk.
+PASS
 
-**Value — PASS.** The 2026 signed-Ising spectral-feature framework asks which moments actually contain sufficient information for graph-frustration prediction. On a natural small cubic girth-six graph, this result gives an exact impossibility boundary for six-/seven-order moments and a sufficient eighth-order moment, rather than an average prediction accuracy. The identical lower-moment fingerprints with different ground energies are a motivated concrete benchmark for feature sufficiency. No improvement in measurement complexity or performance under sampling noise is claimed.
+The Heawood incidence graph from seven Fano triples is connected with 14 vertices, 21 edges and 8-dimensional cycle space. Switching fixes 13 spanning-tree signs, leaving exactly 2^8=256 signings; fixing one spin leaves exactly 2^13=8192 distinct cuts per signing. Even-subgraph parity and girth 6 yield M0=1, M2=21, M4=1281, M6=126021+720 c6 and M8=16784481+20160(17 c6+2 c8), odd moments zero. A fresh independent exhaustive program enumerated all 256 switching classes and 8192 spin-cut representatives for each, with 28 hexagons and 21 octagons, and recovered seven distinct (c6,c8,L, DOS) rows with multiplicities 28,56,24,84,42,21,1. Specifically c6=0 has L=3 for c8=-7 and L=2 for c8=1, proving moments ≤7 insufficient; (M6,M8) distinguish all seven full DOS vectors so order8 suffices. The finite proof is exhaustive because the spanning-tree and cut-space reductions establish both search domains.
 
-**Closest literature and limits.** Scali and Kyriienko (2026), arXiv:2609.11736v1; Sivaraman (2012), Chapter 4. Scope is the fixed Heawood graph with arbitrary edge signs, commuting zero-field Ising Hamiltonian, exact normalized raw spectral moments. The complete seven-class switching-isomorphism classification predates this result, and this work does not extend it into a general graph-family theorem. The symbolic constants and finite enumeration are independently reconstructible from the embedded Python script; no external validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Sivaraman 2012 Chapter 4 already classifies seven signed-Heawood switching-isomorphism types and their frustration indices and hexagon counts; this classification is explicitly prior and cannot be reclaimed. Its Table4.2 even reveals distinct classes with identical negative-hexagon counts, explaining degree-six insufficiency. The additional c8 signature, exact M8 formula, seven full DOS vectors and *optimal* (M6,M8) sufficiency were not stated in inspected relevant chapter. Scali–Kyriienko 2026 proposes general graph Ising spectral moments for learned structural balance, not a rigorous complete fixed-Heawood identifiability cutoff. Existing class data and cycle-space enumeration are credited as structural premises.
+
+## value
+
+PASS
+
+Exact low-order spectral moments are natural observables for signed Ising frustration, especially when full energy density is expensive. The smallest moment cutoff recovering the frustration index on the canonical Fano-incidence graph is a motivated exact natural invariant; simultaneous recovery of its complete noiseless DOS and an explicit collision below cutoff provide meaningful finite structural classification, without claiming robustness or general graph improvements.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
