@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T22:10:22Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/13/absolute-and-relative-risk-reduction-first-reverse-at-six-patien--b021d5e0e91d/RESULT.md",
+        "2026/10/13/absolute-and-relative-risk-reduction-first-reverse-at-six-patien--b021d5e0e91d/verify_arr_rrr_minimal_reversal.py"
+      ],
+      "rationale": "PASS: For balanced arms and strictly positive 2×2 cells, 1≤t<c≤m−1, write d=c−t; ARR=d/m, NNT=m/d and RRR=d/c. Strict reversal ⇔ (d1−d2)(d1/c1−d2/c2)<0. Independent exhaustive exact Fraction enumeration yields for m=2..6 admissible counts 0,1,3,6,10 and reversal-pair counts 0,0,0,0,2. Both pairs at m=6 are (1,2) vs (3,5) and (1,3) vs (2,5). Explicit (1,2) vs (m−3,m−1) persists all m≥6, since 1/m<2/m but 1/2>2/(m−1). The all-m conclusion is analytic, not inferred from finite sample replay.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schechtman 2002 gives conceptual and numerical differences across ARR/RRR/NNT, but examples include equal ranks split by ties, not a proof of minimal m under all-positive equal-arm tables."
+        ],
+        "reasoning": "General baseline-dependence does not imply the sharp minimal sample-size cutoff and number of first-layer reversing pairs without integer enumeration; conceptual coverage is credited.",
+        "searches": [
+          "https://doi.org/10.1046/j.1524-4733.2002.55150.x",
+          "https://doi.org/10.1136/bmj.310.6977.452"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1136/bmj.310.6977.452",
+        "https://doi.org/10.1046/j.1524-4733.2002.55150.x",
+        "https://www.cebm.ox.ac.uk/resources/ebm-tools/number-needed-to-treat-nnt/",
+        "Resultary semantic search: absolute relative risk reduction order reversal smallest balanced two-arm trial m=6 positive cells"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "ARR and RRR formulas imply sign criterion but do not state its integer positive-cell first occurrence."
+        ],
+        "reasoning": "The exact m=6 boundary follows by independent complete small search plus a symbolic family, a narrow additional fact rather than a new risk measure.",
+        "searches": [
+          "Schechtman 2002 Table examples",
+          "https://www.cebm.ox.ac.uk/resources/ebm-tools/number-needed-to-treat-nnt/"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cook-Sackett 1995 and Oxford CEBM definitions: RRR=ARR/CER, NNT=1/ARR."
+        ],
+        "reasoning": "The reversal criterion is the ratio/difference ordering on integer 2×2 tables. The distinction between absolute and relative effects is prior, so only the minimal discrete strict-reversal result is assessed.",
+        "searches": [
+          "Resultary: absolute relative risk reduction order reversal smallest balanced two-arm trial m=6 positive cells",
+          "absolute risk reduction relative risk reduction 2/5 1/2 reversing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No indexed exact minimum m=6 or first-layer census found; integer exhaustive test covers all ten m=6 admissible tables and lower sizes."
+        ],
+        "reasoning": "These are natural finite lattice enumeration invariants; there is no known prior table establishing the exact two pairs in the consulted literature. Failed searches alone are not proof of originality.",
+        "searches": [
+          "Resultary: absolute relative risk reduction order reversal smallest balanced two-arm trial m=6 positive cells",
+          "number needed to treat relative risk reduction six patients opposite ranking"
+        ]
+      },
+      "rationale": "PASS: Best-of-knowledge PASS narrowly: standard clinical literature gives ARR, RRR, NNT and baseline-risk dependence and examples of discordant impressions, but did not establish the sharp minimal positive-cell balanced-arm strict-reversal threshold m=6, its two reversing pairs, or the persistent integer family. The result is an exact finite boundary of known metrics rather than a new statistical decision theorem; teaching texts or unindexed examples may precede it.",
+      "residual_risks": [
+        "The two m=6 witness pairs or the cutoff may appear in teaching exercises/software tests not indexed by conceptual searches.",
+        "Balanced equal arm size and all four positive cells are essential; point estimates only, no confidence intervals or clinical inference."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ARR, RRR and NNT identities and baseline-risk dependence are existing knowledge; no small-positive-cell integer threshold in inspected material.",
+          "evidence": "Cook and Sackett, BMJ 310 (1995) 452-454: NNT=1/ARR, RRR=ARR/CER.",
+          "identifier_or_url": "https://doi.org/10.1136/bmj.310.6977.452",
+          "material_read": "Available abstract and primary bibliographic/clinical example material; complete printed PDF not inspected",
+          "method": "PubMed/PMC abstract and source-context inspection",
+          "title": "The number needed to treat: a clinically useful measure of treatment effect",
+          "trigger": "Original exact metric definitions and baseline-risk dependence"
+        },
+        {
+          "assessment": "Examples show differences, including ties in one metric with non-ties in another; inspected treatment does not supply equal-arm positive-cell minimal strict-reversal m=6 or first-layer pair count.",
+          "evidence": "Schechtman, Value in Health 5 (2002), 431-436, comparison examples.",
+          "identifier_or_url": "https://doi.org/10.1046/j.1524-4733.2002.55150.x",
+          "material_read": "Available full Wiley article text in search-index rendering, including definitions, examples and comparative results; direct DOI landing page intermittently inaccessible",
+          "method": "publisher-index full-text inspection and direct URL access attempt",
+          "title": "Odds Ratio, Relative Risk, Absolute Risk Reduction, and the Number Needed to Treat—Which of These Should We Use?",
+          "trigger": "Highly relevant prior comparisons among exact same clinical metrics"
+        },
+        {
+          "assessment": "The extract corroborates the natural relevance of NNT and its inverse-ARR identity; full-page noncoverage cannot be concluded from the extract.",
+          "evidence": "University of Oxford CEBM NNT teaching resource, NNT=1/ARR.",
+          "identifier_or_url": "https://www.cebm.ox.ac.uk/resources/ebm-tools/number-needed-to-treat-nnt/",
+          "material_read": "Search-engine extract of public Oxford CEBM teaching page, not the full page (direct page returned 403)",
+          "method": "search extract and direct-page access attempt",
+          "title": "Number Needed to Treat",
+          "trigger": "Contemporary primary teaching description for the natural relevance of NNT"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/13/absolute-and-relative-risk-reduction-first-reverse-at-six-patien--b021d5e0e91d/RESULT.md",
+        "https://doi.org/10.1136/bmj.310.6977.452"
+      ],
+      "rationale": "PASS: The strict-reversal phenomenon matters to comparison of clinical effect sizes: the integer minimum m=6 with all four cells positive rules out misleading degenerate zero-event examples and gives the earliest complete, exact two-witness classification plus persistent family. The exact cutoff is a motivated small-instance invariant for pedagogy and benchmark design; no claim of clinical significance at sample size six or inferential treatment superiority.",
+      "residual_risks": [
+        "Balanced equal arm size and all four positive cells are essential; point estimates only, no confidence intervals or clinical inference."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": "Equal arms, t<c, no zero cells; estimates only, no sampling uncertainty, no statistical inference, no claim that one risk metric is clinically always preferable."
+}

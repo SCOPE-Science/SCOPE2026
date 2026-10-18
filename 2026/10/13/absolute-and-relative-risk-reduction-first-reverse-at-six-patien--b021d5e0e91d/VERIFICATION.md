@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,66 +18,25 @@
   "schema_version": 1
 }
 ---
-For balanced arm size \(m\), each admissible table is an integer pair
-\[
-(t,c)
-\]
-with
-\[
-1\le t<c\le m-1.
-\]
 
-The embedded `verify_arr_rrr_minimal_reversal.py` computes
-\[
-\mathrm{ARR}=\frac{c-t}{m},
-\qquad
-\mathrm{RRR}=\frac{c-t}{c},
-\qquad
-\mathrm{NNT}=\frac{m}{c-t}
-\]
-using exact rational arithmetic.
+# Independent mathematical audit
 
-It verifies admissible-table counts
-\[
-0,\ 1,\ 3,\ 6,\ 10
-\]
-for arm sizes
-\[
-2,\ldots,6
-\]
-and strict-reversal counts
-\[
-0,\ 0,\ 0,\ 0,\ 2.
-\]
+## correctness
 
-The first-layer reversing pairs are exactly
-\[
-(1,2)\ \text{versus}\ (3,5)
-\]
-and
-\[
-(1,3)\ \text{versus}\ (2,5).
-\]
+PASS
 
-For the displayed witness,
-\[
-\mathrm{ARR}=\frac16,\frac13,
-\qquad
-\mathrm{RRR}=\frac12,\frac25,
-\qquad
-\mathrm{NNT}=6,3.
-\]
+PASS: For balanced arms and strictly positive 2×2 cells, 1≤t<c≤m−1, write d=c−t; ARR=d/m, NNT=m/d and RRR=d/c. Strict reversal ⇔ (d1−d2)(d1/c1−d2/c2)<0. Independent exhaustive exact Fraction enumeration yields for m=2..6 admissible counts 0,1,3,6,10 and reversal-pair counts 0,0,0,0,2. Both pairs at m=6 are (1,2) vs (3,5) and (1,3) vs (2,5). Explicit (1,2) vs (m−3,m−1) persists all m≥6, since 1/m<2/m but 1/2>2/(m−1). The all-m conclusion is analytic, not inferred from finite sample replay.
 
-Run:
+## originality
 
-`python3 verify_arr_rrr_minimal_reversal.py`
+PASS
 
-The first output line must be:
+PASS: Best-of-knowledge PASS narrowly: standard clinical literature gives ARR, RRR, NNT and baseline-risk dependence and examples of discordant impressions, but did not establish the sharp minimal positive-cell balanced-arm strict-reversal threshold m=6, its two reversing pairs, or the persistent integer family. The result is an exact finite boundary of known metrics rather than a new statistical decision theorem; teaching texts or unindexed examples may precede it.
 
-`VERIFY_OK`
+## value
 
-The persistent all-\(m\) family is also replayed through \(m=500\), while its universal validity follows from the symbolic inequality
-\[
-\frac2{m-1}<\frac12
-\]
-for every integer \(m\ge6\).
+PASS
+
+PASS: The strict-reversal phenomenon matters to comparison of clinical effect sizes: the integer minimum m=6 with all four cells positive rules out misleading degenerate zero-event examples and gives the earliest complete, exact two-witness classification plus persistent family. The exact cutoff is a motivated small-instance invariant for pedagogy and benchmark design; no claim of clinical significance at sample size six or inferential treatment superiority.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

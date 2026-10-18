@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** At fixed equal arm size \(m\), ARR is exactly \(d/m\) with \(d=c-t\), while RRR is \(d/c\). Thus the exact reversal criterion is immediate. Exhaustive enumeration of all positive-cell beneficial tables proves zero strict reversals through \(m=5\) and exactly two at \(m=6\). The displayed witness and persistent family are verified both algebraically and by the packaged exact-rational script, which returns `VERIFY_OK`.
+## correctness
 
-Risk: the sharp cutoff changes if zero cells or unequal arm sizes are allowed.
+PASS
 
-## Originality
-**PASS.** Cook and Sackett already give the formulas and show that equal RRR can correspond to very different ARR/NNT because baseline risks differ. Schechtman more broadly shows that absolute and relative effect measures can give different impressions, including ties under one measure split by another. Those results own the qualitative phenomenon. The accepted claim is narrower: the exact positive-cell equal-arm lattice boundary, the complete first reversal layer, and an all-larger-size integer family. Targeted published-result and web searches did not locate that theorem.
+PASS: For balanced arms and strictly positive 2×2 cells, 1≤t<c≤m−1, write d=c−t; ARR=d/m, NNT=m/d and RRR=d/c. Strict reversal ⇔ (d1−d2)(d1/c1−d2/c2)<0. Independent exhaustive exact Fraction enumeration yields for m=2..6 admissible counts 0,1,3,6,10 and reversal-pair counts 0,0,0,0,2. Both pairs at m=6 are (1,2) vs (3,5) and (1,3) vs (2,5). Explicit (1,2) vs (m−3,m−1) persists all m≥6, since 1/m<2/m but 1/2>2/(m−1). The all-m conclusion is analytic, not inferred from finite sample replay.
 
-Risk: the result is elementary enough that an unindexed teaching problem or software test could contain the same small witness. Search failure is not proof of bibliographic uniqueness.
+## originality
 
-## Value
-**PASS.** ARR/NNT and RRR are standard competing summaries of binary treatment benefit, and the literature emphasizes that they answer different clinical questions because RRR standardizes by baseline risk. The theorem isolates the smallest nondegenerate equal-arm trial in which that distinction changes the strict ordering of two treatments, rather than merely changing magnitudes or breaking a tie. The persistent family shows the disagreement is structural.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Best-of-knowledge PASS narrowly: standard clinical literature gives ARR, RRR, NNT and baseline-risk dependence and examples of discordant impressions, but did not establish the sharp minimal positive-cell balanced-arm strict-reversal threshold m=6, its two reversing pairs, or the persistent integer family. The result is an exact finite boundary of known metrics rather than a new statistical decision theorem; teaching texts or unindexed examples may precede it.
+
+## value
+
+PASS
+
+PASS: The strict-reversal phenomenon matters to comparison of clinical effect sizes: the integer minimum m=6 with all four cells positive rules out misleading degenerate zero-event examples and gives the earliest complete, exact two-witness classification plus persistent family. The exact cutoff is a motivated small-instance invariant for pedagogy and benchmark design; no claim of clinical significance at sample size six or inferential treatment superiority.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
