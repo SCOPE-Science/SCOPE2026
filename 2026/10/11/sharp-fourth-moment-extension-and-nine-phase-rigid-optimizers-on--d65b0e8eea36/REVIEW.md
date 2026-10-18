@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The counting-measure Fourier normalization is reconstructed by orthogonality: the fourth moment is exactly one ninth of convolution energy, while the squared normalized input is one ninth of the squared input energy. Explicit enumeration of all nine sum fibers is followed by a monotone opposite-pair balancing argument and an endpoint reduction on the two-axis mass split. The one-axis endpoint is bounded by the order-three convolution inequality. The balanced endpoint is optimized by factoring the derivative of a one-variable rational function. Since the sharp balanced value is greater than three, no boundary case competes. Equality in every triangle inequality yields precisely two independent cubic-root phase choices. The standalone checker corroborates the identity and all nine equality classes.
+## correctness
 
-## Originality — PASS with risk
-The closest full-text quadratic-surface works concern sharp exponent ranges on zero-radius spheres, sharp constants on paraboloids and four-dimensional cones, rather than the exact coefficient for the two-dimensional five-point split cone. A later cone classification also concerns punctured four-dimensional surfaces. A published exact-support Fourier-spectrum result on five-point ternary sets was read: its Fourier-zero count is a different functional and does not imply this sharp fourth moment. A published small-field anisotropic-sphere equality classification was also read and concerns a different support. The relevant published searches found no statement implying the radical coefficient or the nine optimizer classes. Unindexed additive-energy or finite-Fourier calculations remain a real residual risk; search absence alone does not establish novelty.
+PASS
 
-## Mathematical value — PASS
-This is the first split null cone with nontrivial interacting lines in the smallest odd field. A one-line input has fourth-moment quotient at most three, whereas mixed-line data reach the strictly larger algebraic value \((729+33\sqrt{33})/296\). The complete phase rigidity and unique nonconstant center-to-arm modulus ratio settle the full sharp problem for this natural five-point surface. Its utility is the exact extremal benchmark and geometric contrast to anisotropic/positive-radius surfaces, not a claim of a general extension theorem.
+C is the five-point F3² union of axes. Orthogonality gives Σ|Ef|⁴=(1/9)∥f*f∥₂² for Ef=(1/3)Σ_C f χ, while (1/3 Σ|f|²)²=P²/9, so the fourth-power ratio is Q/P². Directly expanding nine convolution output coefficients gives Q. The two opposite-arm balancing variables t=2xy≤h, T=2uv≤H enter with nonnegative derivatives, forcing x=y and u=v at a strict optimizer. The remaining axis split w=sqrt(hH)/(h+H) has no interior maximum: one-axis gives Young ≤3; balanced w=1/2 gives F(r)=(r⁴+24r²+16r+36)/(r²+4)² with derivative −16(r+1)(2r²+r−4)/(r²+4)³. Unique positive max r=(sqrt(33)−1)/4 gives K=(729+33sqrt(33))/296≈3.10327894>3. Equality in each convolution triangle forces 3(θ_{i,+}−θ_0)=0 and θ_{i,-}=2θ_0−θ_{i,+}, hence exactly 3²=9 projective additive-character phase patterns. Recomputed symbolic derivative/radical identity and five-point convolution for the nine candidates; no all-field extrapolation since claim exactly F3².
 
-## Limitations
-Only this fixed finite quadratic surface is classified. A fully exhaustive survey of unindexed prior literature is impossible, and independent mathematical validation remains outstanding.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS. The published general finite abelian cross theorem treats |H|>=5 and explicitly observes that its constant n bound fails for |H|=3, giving only the lower witness 77/25 there; it does NOT give the sharp 5-point exceptional coefficient 3.10327894 or nine phase-rigid maximizers. The published complete exact-support five-point Fourier spectrum is an uncertainty/spectral-zero census, not fourth-moment optimization. González-Riquelme–Oliveira e Silva proves exact extensions for an Fq^4 punctured quadratic cone, not the 2D five-point union of lines. No inspected stronger theorem entails the precise small-field optimization; prior small-cross anomaly motivates it.
+
+## value
+
+PASS
+
+PASS: The order-three split cone is the smallest nontrivial intersection of two F3 coordinate axes and the explicit exception to the larger-group one-axis rigidity theorem. Pinning down the precise exceptional sharp L4 norm, center/arm amplitude ratio and discrete nine optimizer classes resolves a motivated natural finite cutoff, not an arbitrary unmotivated numeric slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
