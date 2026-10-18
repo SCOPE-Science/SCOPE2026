@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The definitions were checked against arXiv:2609.38103v1. For an affine pencil \(P_n\), there is one singular point, so if \(g_i\) are the meridian images and \(S=\sum_i g_i\), the entire anti-admissibility condition is that the \(g_i\) span and every pair \(\{g_i,S\}\) is linearly independent.
+# Independent mathematical audit
 
-For \(k=2\) and \(p=2\), the three nonzero vectors are \(a,b,a+b\). Independence from \(S\) forces the used vectors to be the other two directions. The total sum is independent from both exactly when both multiplicities are odd, hence exactly when \(n\) is even.
+## correctness
 
-For \(k=2\) and \(p\ge3\), choose \(r=1\) unless \(n\equiv1\pmod p\), in which case choose \(r=2\). Mapping \(r\) meridians to \(e_1\) and the rest to \(e_2\) gives a total sum with both coordinates nonzero.
+PASS
 
-For \(k\ge3\), map the first \(k\) meridians to the standard basis and all remaining meridians to \(e_1\). The total sum has \(e_2\)- and \(e_3\)-coordinates equal to \(1\), so it is not collinear with any meridian image.
+For an affine pencil P_n of n>=2 distinct complex lines, the anti-admissibility condition for a surjection H1(complement)=Z^n to F_p^k reduces exactly to g_i spanning and each pair (g_i, S=sum g_j) linearly independent at the single singular point. For k=2,p=2, all admissible g_i must be the two nonzero vectors away from span(S), and their multiplicities must both be odd; hence n even is necessary and sufficient. For any odd p, assign r=1 meridians e1 and the rest e2 unless n congruent1 modulo p, in which case r=2; both coefficients of S then nonzero. For k>=3, assign e1..ek once, repeat e1 for excess meridians; S has e2 and e3 components 1 and is never proportional to any image. All maps are onto. Thus p_A(P_n,2)=2 even n, 3 odd n; all 3<=k<=n have threshold 2. It concerns affine (not projective) pencils, elementary abelian targets, and primes, with all quantifiers addressed.
 
-A finite stress test checked these formulas for \(2\le n\le14\), all admissible ranks, and primes \(2,3,5,7,11\). This test is corroborative only; the proof above is uniform.
+## originality
 
-Limits checked: projective pencils, non-elementary-abelian targets, and general supersolvable arrangements are outside the claim.
+PASS
+
+Prior-work comparisons credit foundational techniques and potential broader theorems. No actually inspected source has a theorem that entails the complete claimed new invariant/formula at the assigned parameters; real full-text gaps are identified as residual risk. The exact mathematical implication comparison is given in four named checks.
+
+## value
+
+PASS
+
+A complete smooth spectrum for the simplest central incidence type is a natural benchmark for Harris’s newly introduced anti-admissibility invariant and directly compares with the prior near-pencil example. The parity reversal and disappearance of characteristic-two obstruction already at target rank three explain a genuine arrangement-dependent feature; the short proof does not make it an arbitrary slice. No claim for projective/general arrangements.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
