@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction instructions
 
-Run `python verify.py` with Python 3 and no third-party packages. The script operates entirely on integer-coefficient polynomial lists and performs independent checks of the fiber formula, transfer-matrix traces, recurrence, and boundary coefficients. It does not access networks or external datasets.
+# Independent mathematical audit
 
-The exhaustive literal \(\{0,1,2\}\)-assignment checks cover every assignment on the \(2n\) labeled vertices for \(3\le n\le6\), totaling \(597780\) assignments, including invalid assignments. The separate subset formula is checked for every subset of each cycle for \(3\le n\le12\). Matrix traces are computed exactly for orders up to \(14\), the recurrence is tested for \(4\le n\le14\), and minimum multiplicities are checked for \(3\le n\le14\).
+## correctness
 
-Successful output is exactly:
+PASS
 
-`VERIFY_OK brute_orders=3..6 assignments=597780 subset_orders=3..12 trace_orders=3..14 polynomial_recurrence_orders=4..14 minimum_counts=3..14`
+For any set T of cycle vertices labeled 2, the leaf/core local feasible pairs are exactly A=z²(1+z+z²) at T, B=z(1+z)² at non-T vertices neighboring T, and C=z²(2+z) otherwise. The full labeled weighted sum over T and trace of the four-state cyclic transfer matrix are identical; the determinant is D(u,z)=1−(A+C)u−Azu²−ABzu³. The formal logarithmic trace/determinant identity establishes the all-n generating function and characteristic recurrence without convergence assumptions. The lowest exponent is n+|T|+q(T), bounded by n+ceil(n/3), and cyclic gap sizes ≤3, plus one uncovered length-4 gap for n≡1 (mod3), yield the claimed multiplicities. Independently enumerated all 3^(2n) labelings for n=3,4,5; they equal the separate mask fiber polynomial (minimum coefficients 3,14,5). Independently checked the n+ceil(n/3) and closed coefficient formula by full T-mask enumeration for n=6..11. These finite tests do not replace the general gap/transfer proof.
 
-These are finite checks, not a proof for every \(n\). The general proof is provided in `RESULT.md`, including the local classification, the cyclic transfer, the characteristic polynomial, and a complete extremal gap count. No independent audit was performed.
+## originality
+
+PASS
+
+Prior corona work determines only the Roman domination number; published related path/cycle/complete-base corona and minimal-RDF enumerators have different objects or predicates. No all-n all-weight C_n corona K1 polynomial or exact minimum-label multiplicities were located; the uninspected older primary body is recorded as priority risk.
+
+## value
+
+PASS
+
+A natural parameter for Roman domination on a standard attached-cycle graph family: the all-weight polynomial, rational generating function, third-order recurrence, and exact residue-dependent number of optimum functions, beyond the known minimum weight. The specific full census is meaningful despite the standard transfer-matrix method and a previously known scalar invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
