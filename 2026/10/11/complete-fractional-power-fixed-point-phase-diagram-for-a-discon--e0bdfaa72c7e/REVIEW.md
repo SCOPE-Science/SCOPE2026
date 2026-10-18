@@ -1,11 +1,21 @@
-# Scientific review: fractional-power fixed-point classification
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof reduces the original map's fixed-point equations to a strictly convex left expression and a strictly concave right expression. Exact tangency conditions give the two closed parameter thresholds, and all endpoint inequalities, switches, equality cases and multipliers are checked. The exact-rational four-fixed-point witness verifies sharpness without using a numerical root count. The theorem covers all parameters in its stated open box; no dynamical claim beyond fixed points and their local stability is made.
+## correctness
 
-**Originality — PASS, subject to publication-priority uncertainty.** The originating paper's Equation (15) and Remark 4 are directly compared with the claim. Its Lemma 1 addresses the disjoint regime \(d\ge1\), while its discussion for \(\(d<1\)\) gives qualitative dependence and numerical examples, not the exact threshold functions, all five possible counts, saddle-node locations and local types. Closest accessible prior papers employ different constructions. The same authors' 2024 follow-up has a relevant title, but its available abstract describes a different construction and its full text could not be inspected. Its full contents therefore remain a specific residual novelty risk. Matching broad terminology does not establish equivalence, and a failed database search is not a proof of global novelty.
+PASS
 
-**Value — PASS.** The original paper explicitly identifies analytical parameter dependence for \(\(d<1\)\) as difficult and presents examples instead of a classification. The result gives a natural, complete answer for that unresolved part of the very same four-parameter dynamical family, sharp phase-transition surfaces, the otherwise unexpected possibility of four equilibria, and stability types relevant to avoiding attracting fixed points. This goes beyond a generic fixed-point existence test or arbitrary parameter sampling.
+Read RESULT.md at frozen commit and reconstructed separate fixed-point equations. With \(u=(b-x)/b\), \(H_L(u)=1-b+bu-(1-a)u^d\) is strictly convex with positive endpoints; with \(v=(x-b)/(1-b)\), \(H_R(v)=cv^d-b-(1-b)v\) is strictly concave with negative endpoints. Weighted concavity gives exclusion when \(b\le d\) or \(b\ge1-d\); solving \(H=H' =0\) yields exact \(L(b,d)\), \(R(b,d)\) and interior x coordinates. Endpoint signs force precisely 0, 1, or 2 roots per permitted branch; derivative monotonicity gives the local types and generic one-parameter folds. Joint strict branch conditions give sharp four-root regime \(d<1/2,d<b<1-d\). Independently checked the exact \(a=1/20,b=1/2,c=19/20,d=1/4\) witness via the quartic signs at \(0,3/4,1\). Source verify.py also presents exact witness fractions, but witness alone is not a universal proof.
 
-**Scope and residual limitations.** The conclusion is confined to fixed points, not all attractors or chaoticity. The full text of the closely related 2024 follow-up was inaccessible, leaving publication-priority uncertainty. The exact rational checker verifies a witness, while the full proof is analytical.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+This particular final statement and its implications were checked against the named primary sources; the returned primary literature supports the stated best-of-knowledge comparison, while incomplete/full-text risks are expressly recorded. The Resultary semantic query returned temporarily_unavailable (search_completed=false), not a negative hit; no absence or external certification is inferred.
+
+## value
+
+PASS
+
+A full natural analytic solution of the fractional regime explicitly left example-based in the original paper. It identifies exact saddle-node hypersurfaces, the sharp otherwise unobvious four-fixed-point phase, and local attracting/repelling order throughout the continuous parameter box. These are reusable structural facts about the motivating map, not isolated numerical witnesses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
