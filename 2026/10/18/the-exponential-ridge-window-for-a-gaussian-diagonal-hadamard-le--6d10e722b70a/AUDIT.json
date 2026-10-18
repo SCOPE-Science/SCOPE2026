@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Direct normal-equation reduction, exact angular change of variables, hypergeometric/binomial sign-count probabilities, Cauchy moment cutoff, and the singular Gaussian ridge integral supply a complete finite proof. The simultaneous limit isolates the extreme event of mass 2^(1-m) and controls all other events by bounded ratios plus exponential concentration. The code reproduces 2292 finite identities and numerical checks; those are supplementary, not substitutes for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Price–Song–Woodruff analyze the conventional random-sign SRHT and high-probability coordinate error.",
+        "The sketched-pseudoinverse study addresses general ridge deterministic equivalents, not Gaussian-diagonal two-column rare collisions."
+      ],
+      "reasoning": "The stronger looking general guarantees concern different random matrix ensembles, normalizations and asymptotic domains. Their hypotheses do not cover the structured rare-singular-sector squared-risk constant.",
+      "searches": [
+        "\"Gaussian diagonal\" \"Hadamard\" \"ridge\" \"moments\" random regression",
+        "\"infinite variance\" \"sketched least squares\" \"ridge\"",
+        "arxiv:1705.10723 Sections 1,3",
+        "DOI:10.1137/22M1530264"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2608.26552v1 §3 and §4",
+      "arxiv:1705.10723 Sections 1 and 3",
+      "arxiv:2302.00248v1 Appendix D",
+      "DOI:10.1137/22M1530264 introduction and theorem overview",
+      "Indexed mathematical research records on Gaussian sketching and tail-moment obstructions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Parent Eq. (3) identifies the unregularized quotient, and its high-probability nonvanishing error is prior work.",
+        "The ridge penalty changes the denominator; the singular-sector risk scales as the inverse square root of that new parameter and produces a 4^{-m} phase boundary."
+      ],
+      "reasoning": "Although the parent ratio makes the choice of test input nonoriginal, neither the exact ridge-dependent risk assertion nor its simultaneous phase transition is a special case of a theorem in the inspected sources. The with/without-replacement distinction is likewise not their hypothesis. Any implicit derivation in uninspected literature remains a residual risk.",
+      "searches": [
+        "arxiv:2608.26552v1 Eq. (3), Section 3",
+        "arxiv:2302.00248v1",
+        "arxiv:1705.10723",
+        "DOI:10.1137/22M1530264"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Parent equation (3) is an unregularized random-ratio representation; for nonzero ridge it is not the proposed estimator.",
+        "Standard arcsine and Cauchy laws yield conditional components, not the ridge-window conclusion."
+      ],
+      "reasoning": "The original random ratio fixes the denominator without a ridge parameter. The theorem here requires Gaussian small-denominator integration and simultaneous vanishing ridge/sample-size scaling; these are not obtained merely by relabeling an arcsine or Cauchy distribution.",
+      "searches": [
+        "\"generalized arcsine\" \"cos\" \"1+\" distribution Cauchy ratio",
+        "arxiv:2608.26552v1 §3",
+        "search: exact mixture generalized arcsine Cauchy finite moment cutoff Gaussian weighted Hadamard regression sampling with replacement"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The finite mixing weights are ordinary binomial/hypergeometric laws; these ingredients are acknowledged as standard.",
+        "No cited primary paper or identified exact database table gives the regularized moment or critical-window law for this estimator."
+      ],
+      "reasoning": "A table of sign-count probabilities alone does not tabulate the ridge estimator risk. No database uniqueness is inferred from failure to find a table.",
+      "searches": [
+        "\"Hadamard\" \"Gaussian diagonal\" \"Cauchy\" \"least squares\" moments sketch",
+        "\"row sampling\" Hadamard with replacement Cauchy risk ridge singularity",
+        "search: exact sample-size cutoff N/2 hypergeometric singularity in gaussian-weighted subsampled orthogonal Hadamard regression inverse Gram"
+      ]
+    },
+    "rationale": "The parent paper supplies the unregularized scalar ratio and a high-probability obstruction, which are credited; it does not state the changed ridge estimator or its exact squared-risk singularity and simultaneous 4^{-m} threshold. The sharp without-replacement moment cutoff extends to a distinct sampling protocol. Inspected older Gaussian and SRHT regression sources provide high-probability or general asymptotic bounds, not the presented fixed-Hadamard rare-event ridge limit. Meaningful residual bibliographic uncertainty remains.",
+    "residual_risks": [
+      "The parent paper already presents an explicit unregularized random ratio; some components of the finite CDF are short consequences of it and are not independently prioritized.",
+      "Unindexed notes or differently described structured Gaussian sketch regularization could contain an equivalent critical-window calculation.",
+      "The finding is a deliberately structured benchmark and does not imply a general matrix sketch risk law."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest and indispensable antecedent; unregularized ratio explicitly prior, regularized square-risk scale and sampling cutoff not presented",
+        "evidence": [
+          "Section 3 equation (3) gives the basic two-Gaussian quotient.",
+          "Section 3 establishes a constant-probability error lower bound but no ridge-parameter risk limit."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.26552",
+        "material_read": "Full-text HTML presentation, especially Introduction, Section 2, Section 3 equation (3), and Section 4 sketch definition; checked for ridge, infinite variance, arcsine, and Cauchy terms",
+        "method": "Direct mathematical comparison of scalar ratio and announced high-probability conclusion with the changed ridge estimator and sampling-model extension",
+        "title": "Hadamard Flattening and Gaussian Pooling Sketch for Least Squares with Coordinate-wise Guarantee",
+        "trigger": "Exact same Gaussian diagonal before Hadamard row sampling and scalar residual/design ratio"
+      },
+      {
+        "assessment": "Different sign-sketch ensemble with high-probability guarantees, not ridge risk in the Gaussian diagonal counterexample",
+        "evidence": [
+          "Section 3 handles an SRHT via subspace embeddings and Neumann arguments."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1705.10723",
+        "material_read": "HTML introduction and Section 3 SRHT analysis including Theorem 10 proof neighborhood",
+        "method": "Compared randomness, quantifiers and target loss",
+        "title": "Fast Regression with an ell-infinity Guarantee",
+        "trigger": "Classical directionwise SRHT regression error and sampling conventions"
+      },
+      {
+        "assessment": "No supplied finite Gaussian-diagonal rare-collision ridge moment formula",
+        "evidence": [
+          "Appendix D focuses on Gaussian and AMS OCE bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.00248",
+        "material_read": "Abstract and full-text HTML Gaussian/OCE lemma material in Appendix D",
+        "method": "Compared embedding assumptions, error criterion and random matrix placement",
+        "title": "A Nearly-Optimal Bound for Fast Regression with ell-infinity Guarantee",
+        "trigger": "Prior coordinatewise embedding claim critiqued by the motivating paper"
+      },
+      {
+        "assessment": "Broad background on regularization equivalents, not an exact result for the claimed Hadamard diagonal-placement counterexample",
+        "evidence": [
+          "Main theorem concerns asymptotic equivalence for sketched pseudoinverses."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/22M1530264",
+        "material_read": "Accessible theorem overview, contributions, and related-work discussion",
+        "method": "Compared random sketch ensemble and fixed-dimensional asymptotic regimes",
+        "title": "Asymptotics of the Sketched Pseudoinverse",
+        "trigger": "Ridge regularization and moment analysis of sketched inverse matrices"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6d10e722-b70a-4b3c-ac96-ce1f72acfd24",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Squared-risk integrability and required regularization are natural safety and design metrics for a randomized numerical solver. The theorem establishes a previously unquantified sharp exponential 4^(-m) ridge window and explicit critical-window coefficient even when the unregularized estimator converges to a bounded limit in distribution. The with/without replacement cutoff isolates a concrete sampling decision that removes the singular events. The result is restricted to a motivated counterexample family and does not claim universal algorithmic optimality.",
+    "status": "PASS"
+  }
+}
