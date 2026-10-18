@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-14.md",
+      "INDEPENDENT_AUDIT_2026-10-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is symbolic.
+# Independent mathematical audit
 
-For each finite binary string \(\sigma\), the cylinder \([\sigma]\) is compact, computably closed, and has positive Lebesgue measure. It therefore qualifies as an initial condition in the dense-set construction used in the proof of Corollary 3.19 of the source.
+## correctness
 
-Running that construction below \([\sigma]\) yields a \(\Pi^0_n\)-generic point inside \([\sigma]\). Hence the generic class is dense. The weakly generic class contains it and is dense as well.
+PASS
 
-At scale \(2^{-k}\), the length-\(k\) cylinders form a cover of size \(2^k\). Because each genericity class is dense, every cylinder contains a class member. Because the metric is ultrametric, a set of diameter at most \(2^{-k}\) cannot meet two distinct length-\(k\) cylinders. Thus every such cover has at least \(2^k\) members.
+For each n>=2 and oracle A, each finite binary cylinder [sigma] is a positive-measure computable Pi^0_1(A^(n-2)) forcing condition. The dense decision construction of Veltri Lemma 3.18/Cor. 3.19 can start below [sigma], giving a Pi^0_n(A)-generic point there. Inclusion makes the weak class dense too. At each k, the 2^k dyadic cylinders of diameter 2^-k cover; points in two distinct cylinders have distance >2^-k, so any cover by sets of that diameter needs >=2^k sets. Hence exact N_k=2^k and both box dimensions 1, while Veltri Cor. 3.24 and inclusion give Hausdorff dimension 0. All k,n,A from proof, not experiments.
 
-Therefore the exact covering number is \(2^k\) at every dyadic scale, giving lower and upper box-counting dimensions equal to \(1\).
+## originality
 
-The source independently proves Hausdorff dimension \(0\) for the weakly \(\Pi^0_n\)-generic class; the strong generic class is a subset and therefore also has Hausdorff dimension \(0\).
+PASS
 
-## Limits
+Application of localizable source forcing to the full-class Minkowski profile was not independently located; the elementary density-to-full-box property is acknowledged as background.
 
-The argument concerns classical dimensions of the whole classes. It does not infer effective dimension of individual points. Full box dimension is sensitive to density and closure, so no packing- or Assouad-dimension conclusion is inferred.
+## value
+
+PASS
+
+The paper explicitly asks for meaningful largeness beyond cardinality after proving null/meagre/Hausdorff-zero behavior; maximal classical box dimension with exact dyadic counts answers that question in a canonical geometric sense. The statement transparently acknowledges that closure-sensitive box dimension is a weak notion of largeness, not a new deep density-dimension theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
