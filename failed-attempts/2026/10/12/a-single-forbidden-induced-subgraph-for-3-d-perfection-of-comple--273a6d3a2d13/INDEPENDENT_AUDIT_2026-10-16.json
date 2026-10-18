@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T04:08:18.701475Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned immutable RESULT.md and graph verification script",
+        "Independent checker MULTIPARTITE_HEREDITARY_COROLLARY_RECHECK_OK 36",
+        "Published exact chromatic and clique invariants independently inspected"
+      ],
+      "rationale": "For finite connected complete multipartite graphs, geodesic 3-vertex sets at d>=2 are exactly part multiplicity 2+1; diameter <=2 makes this independent of d. Three-uniform clique maximum is 2 if no part has >=2, 3 if exactly one part has >=2, and 4 if at least two do. Monochromatic 2+1 avoidance gives chi=1 in the trivial all-singleton/edgeless cases; in two parts or with <=one nonsingleton part or max part<=2, explicit two-colorings work. K_(3,2,1) cannot use two colors because a pair must repeat in the three-part and forces a 2+1 triple in the remaining color; its omega is 4. Hereditary closure and the part-profile embedding show that any r>=3 with max>=3 and >=2 nonsingleton parts contains K_(3,2,1), and every smaller deletion avoids it. Independently enumerated 36 complete multipartite profiles through seven vertices and all induced profiles, corroborating the proof.",
+      "residual_risks": [
+        "Scope is connected multipartite r>=3, k=3, d>=2; finite checker is not infinite proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chandran theorem handles ALL complete multipartite chromatic part profiles (including relevant induced subgraphs)",
+          "SCOPE formula handles ALL complete multipartite clique part profiles with r>=2, stronger than mere failure/equality classification"
+        ],
+        "reasoning": "The conjunction of these broader exact invariants controls every induced subgraph and yields the single minimal forbidden profile. An open problem remaining in the original Cody–Detore version does not invalidate already published implication of later papers.",
+        "searches": [
+          "Published entire Chandran et al arXiv:2408.13494v2 Theorem 5.1",
+          "Resultary 2026/10/4 exact-3-2-clique ...5e4b0acc88e9",
+          "Cody Detore arXiv:2601.04351 definitions and Question 6.1"
+        ]
+      },
+      "checked_sources": [
+        "Chandran et al arXiv:2408.13494v2 complete primary theorem",
+        "Resultary published complete 3,2-clique formula full RESULT",
+        "Cody and Detore arXiv:2601.04351 definitions",
+        "Original assigned RESULT.md and verifier"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For s=0: chi=1 and ceil(omega/2)=1. For s>0: omega is 3 or4, so ceil(omega/2)=2. Chandran chi=2 iff at most one nonsingleton part or all parts size<=2 (for r>=3); when both fail K3,2,1 is induced. Each induced H remains multipartite."
+        ],
+        "reasoning": "This direct calculation from existing published exact invariants reproduces the whole claimed iff, heredity and unique minimal forbidden graph. Therefore original O cannot PASS even if Cody–Detore Question 6.1 does not phrase this corollary.",
+        "searches": [
+          "Chandran 2025 Theorem 5.1; published Oct 4 clique theorem",
+          "Cody–Detore k3,d≥2 perfection definition and diameter2 identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published Theorem 5.1 gives exact gp coloring for complete multipartite part profiles; for all d>=2, chi^3_d equals gp chromatic because path triples are exactly 2+1",
+          "Published exact (3,2)-clique formula omega=2+min(2,s) supplies missing side"
+        ],
+        "reasoning": "The claimed hereditary perfection obstruction is not a different invariant after translating the source definitions: it is the condition that previously calculated chi_gp equal ceiling of previously calculated omega/2 for every induced part profile.",
+        "searches": [
+          "Chandran Di Stefano Haritha Thomas Tuite Colouring a graph with position sets arXiv:2408.13494v2 Theorem 5.1",
+          "Cody Detore Metric general position extensions arXiv:2601.04351 k,d chromatic clique perfection definition",
+          "Resultary: k d perfection geodesic chromatic clique complete multipartite graphs forbidden induced K3,2,1 general position"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact clique invariant omega=2+min(2,s) is publicly recorded; exact chi_gp part-size formula published separately; necessary inputs are not missing data"
+        ],
+        "reasoning": "This is decisive coverage by published analytic tables/formulas rather than a mere entry matching K_(3,2,1). The forbidden graph itself is obtained by one minimal part-profile check.",
+        "searches": [
+          "Resultary exact 3,2 clique number complete multipartite",
+          "Published Resultary SCOPE-exact-3-2-clique-and-3-2-domination-numbers-of-complete-multipar--5e4b0acc88e9 full RESULT",
+          "Chandran Theorem 5.1 part-size formula"
+        ]
+      },
+      "rationale": "The exact result follows directly from two already published exact formulas: Chandran et al. (2025) Theorem 5.1 gives chi_gp for EVERY complete multipartite part-size profile; by the 2+1 geodesic identity this equals chi_d^3 for d>=2. Published Oct 4 SCOPE clique theorem gives omega_d^3=2+min(2,s), s=#n_i>=2. Their inequalities imply chi=ceil(omega/2) for every induced multipartite subgraph iff max part<=2 or s<=1 (or <=2 parts). The unique forbidden K_(3,2,1) is the elementary minimal failing part profile. New perfection vocabulary and the number-independent-of-d statement do not create mathematical novelty from this known combined implication.",
+      "residual_risks": [
+        "None material to coverage: these full published formulas suffice for logical implication.",
+        "Computer tests check small cases only; general proof stands independently as a corollary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING chromatic side for every part profile; combined with existing clique theorem covers submitted classification",
+          "evidence": "Chandran et al. Theorem 5.1",
+          "identifier_or_url": "https://arxiv.org/abs/2408.13494",
+          "material_read": "Primary full paper and Theorem 5.1 complete multipartite chromatic calculation, version v2",
+          "method": "Full primary text open publication",
+          "title": "Colouring a graph with position sets",
+          "trigger": "Exact gp chromatic formula on the same complete multipartite class"
+        },
+        {
+          "assessment": "COVERING clique side; together with Chandran chromatic theorem implies submitted obstruction",
+          "evidence": "Published Oct 4 RESULT.md Finding/Proof",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-3-2-clique-and-3-2-domination-numbers-of-complete-multipar--5e4b0acc88e9",
+          "material_read": "Entire published RESULT.md: theorem omega=2+min(2,s), geodesic hyperedge definition and proof",
+          "method": "Resultary GitHub published full RESULT text",
+          "title": "Exact (3,2)-clique and (3,2)-domination numbers of complete multipartite graphs",
+          "trigger": "Exact missing clique invariant on same class"
+        },
+        {
+          "assessment": "Defines framework; current open-problem wording is not evidence against later coverage from two published exact formulas",
+          "evidence": "Cody and Detore 2026 Definitions and Question 6.1",
+          "identifier_or_url": "https://arxiv.org/abs/2601.04351",
+          "material_read": "Primary article definitions of k,d clique/chromatic/perfection and Question 6.1 open complete multipartite direction",
+          "method": "Primary full text inspected for definitions and cited question",
+          "title": "Metric general position extensions of classical graph invariants and perfection",
+          "trigger": "Definitions, perfection equality and source Question 6.1"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Chandran et al Theorem 5.1 full part-profile coloring classification",
+        "Published Oct 4 SCOPE exact clique formula",
+        "Cody–Detore definition of (3,d) perfection"
+      ],
+      "rationale": "The proposed obstruction characterization is true but is a short direct arithmetic combination of the existing exact chromatic and clique formulas for the same natural class, with one minimal forbidden profile check. Under the required value bar this is a routine corollary/known-formula recombination, not a fresh valuable unknown invariant or motivated new structural result. It cannot be accepted under changed terminology merely because an older initiating article poses an open question.",
+      "residual_risks": [
+        "A genuinely new k>=4 or nonmultipartite structural result would be a separate future claim, not a rescue for this covered original."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The original is scientifically correct but logically implied by combined prior primary results; failed (not an access failure)."
+  ],
+  "schema_version": 1
+}
