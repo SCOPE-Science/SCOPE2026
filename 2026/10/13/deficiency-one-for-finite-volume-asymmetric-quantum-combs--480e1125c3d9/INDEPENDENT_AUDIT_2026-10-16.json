@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T20:03:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Use the Exner-Kostenko-Malamud-Neidhardt Theorem 3.5 correspondence from minimal Kirchhoff quantum Laplacian to weighted discrete h0 with m(v)=sum incident edge lengths and b=1/edge length. At z=+i and -i terminal tooth equation gives f_leaf=f_k/(1-z*a^2), |denominator|>=1. The spine flux p_k=(f_k-f_(k+1))/ell_k obeys p1=z*q1*f1 and p_k-p_(k-1)=z*q_k*f_k, with |q_k|<=m(c_k)+a_(k,+)+a_(k,-) summable. All solutions determined by single f1 (dim <=1); summable transfer coefficients imply bounded solution for f1=1; total vertex weight =2 sum lengths finite implies it belongs to ell2(m) (dim >=1). Thus n_+(H0)=n_-(H0)=1 for arbitrary asymmetric tooth lengths. The actual package finite exact-rational checker was read; that check only supports the recurrence, not the infinite tail.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "DOI:10.1112/jlms.12539, Theorem 4.1, Corollary 4.3, Remark 4.12"
+        ],
+        "reasoning": "Kostenko-Mugnolo-Nicolussi lower bounds n_±>=number of finite-volume ends and separate equality under maximal-domain H1 property or family-preserving conditions. Arbitrary paired asymmetric tooth lengths do not satisfy the cited family-preserving symmetry as stated.",
+        "searches": [
+          "infinite quantum graph finite volume asymmetric comb Kirchhoff Laplacian deficiency indices one",
+          "\"quantum comb\" \"deficiency indices\" asymmetric finite volume",
+          "DOI:10.1112/jlms.12539, Theorem 4.1, Corollary 4.3, Remark 4.12"
+        ]
+      },
+      "checked_sources": [
+        "Exner-Kostenko-Malamud-Neidhardt, Spectral Theory of Infinite Quantum Graphs (arXiv:1705.01831), Theorem 3.5, Example 4.18",
+        "Kostenko-Mugnolo-Nicolussi, Self-adjoint and Markovian extensions of infinite quantum graphs (DOI:10.1112/jlms.12539), Theorem 4.1, Corollary 4.3, Remark 4.12",
+        "Breuer-Levi, On the Decomposition of the Laplacian on Metric Graphs (arXiv:1901.00349), family-preserving hypothesis"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kostenko-Mugnolo-Nicolussi 2022 and source proof"
+        ],
+        "reasoning": "Prior finite-volume one-end results provide at most lower bound absent extra maximal-domain regularity; the new summable recurrence gives an explicit independent upper bound and matches the natural lower bound.",
+        "searches": [
+          "infinite quantum graph finite volume asymmetric comb Kirchhoff Laplacian deficiency indices one",
+          "\"quantum comb\" \"deficiency indices\" asymmetric finite volume",
+          "Kostenko-Mugnolo-Nicolussi 2022 and source proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1705.01831, Theorem 3.5 and Example 4.18"
+        ],
+        "reasoning": "Unique incomplete finite-volume comb end with two teeth is exactly the geometry discussed by Exner et al.; weighted-discrete index correspondence is prior, while the bound n_+<=1 and n_-<=1 by asymmetric scalar recurrence is supplied here.",
+        "searches": [
+          "infinite quantum graph finite volume asymmetric comb Kirchhoff Laplacian deficiency indices one",
+          "\"quantum comb\" \"deficiency indices\" asymmetric finite volume",
+          "arXiv:1705.01831, Theorem 3.5 and Example 4.18"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "arXiv:1705.01831 Example 4.18; indexed Resultary finite volume and comb queries"
+        ],
+        "reasoning": "The exact deficiency vector (1,1) for fully asymmetric finite-volume two-tooth combs was not located in searched quantum-graph/Jacobi-deficiency sources; Example 4.18 itself calls it an expectation.",
+        "searches": [
+          "infinite quantum graph finite volume asymmetric comb Kirchhoff Laplacian deficiency indices one",
+          "\"quantum comb\" \"deficiency indices\" asymmetric finite volume",
+          "arXiv:1705.01831 Example 4.18; indexed Resultary finite volume and comb queries"
+        ]
+      },
+      "rationale": "Exner et al., arXiv:1705.01831, Theorem 3.5 and Example 4.18, discuss precisely finite-length shrinking combs and explicitly leave index=1 as an expectation while establishing non-self-adjointness. Kostenko-Mugnolo-Nicolussi (2022), Theorem 4.1, Corollary 4.3, Remark 4.12, give general one-finite-volume-end lower bound and some symmetry-dependent equality conclusions, not the upper bound for arbitrarily unequal paired teeth. The direct scalar spine recurrence removes that extra symmetry condition. A weakly indexed decorated Jacobi formulation may already derive the same equality.",
+      "residual_risks": [
+        "An unindexed Jacobi-operator/finite-decoration derivation of the same asymmetric comb deficiency count may exist.",
+        "Uses exact finite total metric length and the Kirchhoff/weighted-discrete index correspondence; not all one-ended finite-volume graphs have deficiency one."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 3.5 is a valid conditional reduction; Example 4.18 remarks index one expected rather than proved.",
+          "evidence": [
+            "Theorem 3.5 minimal quantum vs discrete deficiency index equality",
+            "Example 4.18 shrinking comb finite-volume non-self-adjointness, expected index one"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1705.01831",
+          "material_read": "Primary full accessible PDF relevant sections including Theorem 3.5, Example 4.18, weighted discrete measures and local graph hypotheses; page images inspected.",
+          "method": "Lawful arXiv original PDF text and relevant page screenshots",
+          "title": "Spectral Theory of Infinite Quantum Graphs",
+          "trigger": "Exact finite-length comb, index correspondence, prior explicit conjectural index one"
+        },
+        {
+          "assessment": "One end implies a lower bound; equality for symmetric family-preserving subclasses does not remove need for asymmetric recurrence.",
+          "evidence": [
+            "Theorem 4.1 one-end lower bound and equality criterion",
+            "Remark 4.12 family-preserving symmetry dependence"
+          ],
+          "identifier_or_url": "https://doi.org/10.1112/jlms.12539",
+          "material_read": "Open manuscript major statements Theorem 4.1, Corollary 4.3 and Remark 4.12 with relevant page image/conditions.",
+          "method": "Lawful OA manuscript arXiv:1911.04735 with PDF page screenshots",
+          "title": "Self-adjoint and Markovian extensions of infinite quantum graphs",
+          "trigger": "Potential general one-end deficiency theorem dominating special comb claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The deficiency index is the precise natural number of self-adjoint extension boundary degrees of freedom at the incomplete comb end, expressly left open as an expectation by the main source. Resolving its exact (1,1) value without metric symmetry is mathematically useful and not a routine restatement of general finite-volume one-end theory.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Exner-Kostenko-Malamud-Neidhardt, Spectral Theory of Infinite Quantum Graphs (arXiv:1705.01831), Theorem 3.5, Example 4.18",
+    "Kostenko-Mugnolo-Nicolussi, Self-adjoint and Markovian extensions of infinite quantum graphs (DOI:10.1112/jlms.12539), Theorem 4.1, Corollary 4.3, Remark 4.12",
+    "Breuer-Levi, On the Decomposition of the Laplacian on Metric Graphs (arXiv:1901.00349), family-preserving hypothesis"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed Jacobi-operator/finite-decoration derivation of the same asymmetric comb deficiency count may exist.",
+    "Uses exact finite total metric length and the Kirchhoff/weighted-discrete index correspondence; not all one-ended finite-volume graphs have deficiency one."
+  ],
+  "residual_risks": [
+    "An unindexed Jacobi-operator/finite-decoration derivation of the same asymmetric comb deficiency count may exist.",
+    "Uses exact finite total metric length and the Kirchhoff/weighted-discrete index correspondence; not all one-ended finite-volume graphs have deficiency one."
+  ],
+  "schema_version": 1
+}
