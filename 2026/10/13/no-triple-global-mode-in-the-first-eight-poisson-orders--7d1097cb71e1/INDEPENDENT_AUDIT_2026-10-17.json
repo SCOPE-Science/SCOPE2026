@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T22:11:19.212617Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Exact frozen RESULT.md blob f95b69ec573ac15c18bb76fa2286e635bd0c45de",
+        "Independent 1763 verifier checks relevant equations/finite ranges",
+        "Original package verifier verify.py blob 88ebebe63ba485ba27b351f35f86b833b7efd273, inspected as source not presumed sufficient"
+      ],
+      "rationale": "For independent equal-rate Poisson components on jumps 1,...,k, h_{k,n}(t)=[z^n]exp(t sum_j z^j) has the exact Panjer derivative recurrence. Any global mode m satisfies m<=t*k(k+1)/2, so t<=2 reduces to 0<=m<=k(k+1). Reconstructed factorial-normalized integer polynomials and 109,943 triple difference gcds modulo prime 1000003; all had gcd 1 except (1,3,4) for k=4..8 with gcd t+6, and the exact characteristic-zero shared root there is -6. Leading coefficients are units modulo p, hence any positive-characteristic-zero common factor would reduce nontrivially: modular gcd exclusion is rigorous, not floating point. For t>2, Q uniform on jumps 1..k, total Poisson jump rate kt, Q#(j) proportional to j+1 strictly log-concave and (kt)*Q(1)^2>2Q(2); Hansen/JKM gives strict log concavity, preventing three maxima. Endpoints t=2 and mode zero included. The independent checker rebuilt polynomials/gcds from exact coefficient recurrence, with 35+286+1330+4495+12341+29260+62196=109943 triple tests.",
+      "residual_risks": [
+        "Exact modular gcd relies on independently reexecuted finite procedure and the Gauss-lemma leading-coefficient argument, not formal machine-checked source code.",
+        "Finite checking establishes only the enumerated finite cases, not any all-n assertion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "JKM Theorem 5.5 gives log-concavity for Lambda Q(1)^2>=2Q(2) and strict at >; here Lambda=kt so it covers t>2 only.",
+          "Mane 2023 opens three-global-mode existence for all orders."
+        ],
+        "reasoning": "The dominating log-concavity implication does not reach 0<t<=2, exactly where the new algebraic certificate is necessary.",
+        "searches": [
+          "Poisson distribution order k three simultaneous global modes first eight orders log concavity mode",
+          "arxiv:0912.0581 Theorem 5.5 and Section 7"
+        ]
+      },
+      "checked_sources": [
+        "Assigned actual source RESULT.md Git blob f95b69ec573ac15c18bb76fa2286e635bd0c45de; manifest at tree e62dd2fcb5f482d97c37fe55d09953e696467ac4",
+        "Independent checker /mnt/data/scope08_1763_checks.py (bounded, fresh) and output scope08_1763_checks.txt",
+        "Resultary semantic search (fresh; no direct match among 15 leading hits) query: Poisson distribution order k three simultaneous global modes first eight orders log concavity mode",
+        "https://arxiv.org/pdf/2309.13493",
+        "https://arxiv.org/pdf/0912.0581",
+        "https://doi.org/10.3390/e25040699"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mane PDF pp.2-3 labels existence of three or more joint modes open; JKM Theorem 5.5 supplies only the high-rate input explicitly credited."
+        ],
+        "reasoning": "The prior strongest assertions plus arithmetic upper bounds do not imply the low-rate noncoincidence: it is established by a new all-triples finite-field gcd calculation.",
+        "searches": [
+          "Poisson distribution order k three simultaneous global modes first eight orders log concavity mode",
+          "Mane 2023 numerical no three joint modes Poisson"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mane Definition 1.1 and PDF p.3 distinguish global joint modes from multiple local peaks; its Section 6 concludes numerical nonexistence evidence.",
+          "The package proves absence of triple equality among every low-rate relevant h_n, stronger locally than mere no three global maxima."
+        ],
+        "reasoning": "Equivalent formulation as compound-Poisson uniform jumps and polynomial common-root locus was tested; known descriptions of pmf peaks are not the exact triple-result.",
+        "searches": [
+          "Poisson distribution order k three simultaneous global modes first eight orders log concavity mode",
+          "arxiv:2309.13493 Section 2 joint global modes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Kwon--Philippou Entropy 25 (2023) 699 provides selected exact small-order modes and tables, not full k<=8 all-rate exact triple-polynomial gcd certificate."
+        ],
+        "reasoning": "Finite tables of selected actual modal locations, even when correct, cannot establish absence of all real-parameter triple roots through k=8.",
+        "searches": [
+          "Poisson distribution order k three simultaneous global modes first eight orders log concavity mode",
+          "Kwon Philippou 2023 Poisson order 3 4 mode tables intensity 0 to 2"
+        ]
+      },
+      "rationale": "Scientific best-of-knowledge assessment after independently reading the frozen RESULT.md and recreating relevant proof/calculation, checking Resultary and named primary source statements. The 2023 Mane primary paper explicitly poses three or more joint global modes as open and provides numerical evidence; Kwon--Philippou give limited small-order exact mode information and rate tables. The JKM/Hansen theorem covers the t>2 large-rate portion but cannot settle low t. The exact low-rate algebraic elimination through k=8 is not implied by those published mode statements or generic log concavity.",
+      "residual_risks": [
+        "Exact modular gcd relies on independently reexecuted finite procedure and the Gauss-lemma leading-coefficient argument, not formal machine-checked source code.",
+        "All-orders k>=9 question remains unsettled; an older unindexed algebraic exclusion could affect historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Open question and numerical evidence; no asserted theorem eliminating triple global modes for the first eight orders",
+          "evidence": "PDF p.3 says existence of >=3 joint modes is open; conclusion gives numerical evidence.",
+          "identifier_or_url": "https://arxiv.org/pdf/2309.13493",
+          "material_read": "33-page public arXiv PDF: definition and mode versus peaks pp.1-3, structure discussion, conclusion p.22, numerical-evidence wording",
+          "method": "Full PDF text and page-image inspection of key mode-definition page",
+          "title": "Structure of the probability mass function of the Poisson distribution of order k",
+          "trigger": "Primary paper posing triple-mode existence as open"
+        },
+        {
+          "assessment": "Strict log concavity for t>2 legitimately used; no t<2 coverage",
+          "evidence": "Theorem 5.5 requires Lambda Q(1)^2>=2Q(2), which is t>=2 here.",
+          "identifier_or_url": "https://arxiv.org/pdf/0912.0581",
+          "material_read": "Full 30-page PDF, Section 5 Theorem 5.5 at PDF p.20 and Hansen induction proof, Section 7 background",
+          "method": "Primary full-text and inspected page image",
+          "title": "Log-concavity, ultra-log-concavity, and a maximum entropy property of discrete compound Poisson measures",
+          "trigger": "Potential stronger covering theorem for all rates"
+        },
+        {
+          "assessment": "Strong finite/low-order comparison, but entire work not independently read this run",
+          "evidence": "Modes for orders 3 and 4, discrete interval tables; no demonstrated all-order implication for k through 8.",
+          "identifier_or_url": "https://doi.org/10.3390/e25040699",
+          "material_read": "Publisher abstract, indexed Table 2 description and bibliographic data; direct publisher text returned HTTP 429 during this run",
+          "method": "OA publisher search and attempted direct full text; only excerpt materially read",
+          "title": "The Modes of the Poisson Distribution of Order 3 and 4",
+          "trigger": "Exact special-order mode classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/2309.13493",
+        "https://arxiv.org/pdf/0912.0581",
+        "https://doi.org/10.3390/e25040699",
+        "Fresh mathematical argument and bounded checker for record 2026/10/13/no-triple-global-mode-in-the-first-eight-poisson-orders--7d1097cb71e1"
+      ],
+      "rationale": "The possibility of three tied global maxima is a specific open structural question in higher-order Poisson probability laws. Resolving the first seven nontrivial orders for every continuous rate (rather than sampling a table) is a motivated substantive finite-order boundary; the 109,943 exact algebraic exclusions are logically exhaustive after a proved support cut. The result does not answer k>=9 or classify all two-mode transitions.",
+      "residual_risks": [
+        "Exact modular gcd relies on independently reexecuted finite procedure and the Gauss-lemma leading-coefficient argument, not formal machine-checked source code.",
+        "All-orders k>=9 question remains unsettled; an older unindexed algebraic exclusion could affect historical priority."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact modular gcd relies on independently reexecuted finite procedure and the Gauss-lemma leading-coefficient argument, not formal machine-checked source code.",
+    "All-orders k>=9 question remains unsettled; an older unindexed algebraic exclusion could affect historical priority."
+  ],
+  "schema_version": 1
+}
