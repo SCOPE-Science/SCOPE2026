@@ -1,15 +1,21 @@
-# Review: sharp Schwarzian phase boundary for quadratic subordination targets
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The defining subordination gives \(f''/f'=v+czv^2\) with \(|v|\le1\). Differentiation yields an exact four-term Schwarzian identity. For nonnegative \(c\), the majorant is convex in the parameter and its two endpoint defects have explicit positive decompositions. For negative \(c=-d\), the majorant defect has a sum-of-squares decomposition whose only potentially negative coefficient is \(1/2-d-d^2\). This proves the bound exactly through \(d=(\sqrt3-1)/2\). The maximum principle for analytic disk maps and compactness of the defect away from the origin force every equality case to have \(v(z)=e^{i\theta}z\). Beyond the threshold, a real disk automorphism saturates the Schwarz--Pick derivative estimate and all triangle phases simultaneously; the explicit second-order expansion is positive. The algebra was replayed from `verify.py` in the actual package. Ahlfors--Weill yields the stated sufficient \(3\)-quasiconformal extension.
+PASS
 
-## Originality
+For c in [-1/2,1/2], use omega(z)=z v(z) to express preSchwarzian(z)=v+c z v² and S_f=(1+2czv)v' +(c-1/2)v²-czv³-(1/2)c²z²v^4. Apply Schwarz–Pick |v'|<=(1-|v|²)/(1-|z|²). With r=|z|,s=|v|,u=1-r², for c>=0 the upper envelope F_+(c,r,s) is convex quadratic in c, with explicit nonnegative 1-F_+(0,r,s) and 1-F_+(1/2,r,s) polynomial decompositions. For c=-d the exact 1-F_- identity is (r-dus)²+us²(1/2-d-d²)+ur²s²(d²+d+1/2)+drus³(1+r²-(drus)/2); all terms nonnegative iff d<=d_*=(sqrt3-1)/2 in the demonstrated interval. Equality/uniform gap forces z->0,v(0)=0 and |v'(0)|=1; Schwarz equality then v=e^{i theta}z, yielding exactly normalized rotation family and norm 1. For d>d_* choose disk automorphism with v(r)=-s and r=ds; alignment makes F_- exact and its s² coefficient d²+d-1/2 positive, establishing a counterexample for sufficiently small s. Ahlfors–Weill then supplies K<=3 as sufficient, not optimal. Independent SymPy verified the full F_- SOS identity and critical expansion exactly.
 
-**PASS.** Allu--Kumar (arXiv:2604.16833v1) studies the positive quadratic target and sharp Hankel determinants, not signed-parameter Schwarzian phases. Kanas--Sugawa (DOI:10.4064/ap101-1-8) supplies the closest and strongest general comparison: its Theorem 2.1 reduces Schwarzian norms for *arbitrary* analytic targets to an exact variational optimization. The general reduction must be acknowledged, but its investigated text does not solve the signed quadratic-target optimization, display the radical boundary, or classify all rotation extremizers. The present square-completion and matching automorphism obstruction evaluate a parameter phase not explicitly determined by that theorem. Janowski-convex norm estimates use rational targets, and known pre-Schwarzian estimates address a different invariant. Semantic overlap searches located no covering evaluated result. There is residual risk that an unindexed paper or an unnoticed corollary of the general variational framework already evaluates precisely this case.
+## originality
 
-## Value
+PASS
 
-**PASS.** The source family occupies one half of a *natural maximal real univalence interval* of quadratic targets. Extending to the other half reveals a nontrivial, sharp quadratic radical transition for a global geometric control quantity and supplies an explicit univalent/quasiconformally extendible zone even after the positive-real target hypothesis has failed. The equality classification and matching counterexamples delimit the sharp norm-one certificate rather than merely report an isolated bound. No optimal quasiconformal dilatation beyond the sufficient Ahlfors--Weill bound is claimed.
+Best-knowledge novel signed-quadratic explicit radical phase boundary and complete norm-one extremizer classification. Highly relevant general 2011 Kanas–Sugawa variational framework is recognized as underlying the optimization, but reading its theorem and proof did not show an already evaluated signed quadratic target or equality rigidity. The source defining positive targets treats Hankel determinants only.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The entire real univalence parameter range of the natural quadratic subordination target has a sharp Schwarzian norm-one threshold, with explicit counterexamples on the other side and complete equality rigidity. This is a motivated analytic phase diagram, not a parameter renaming or an unsupported quasiconformal optimality claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

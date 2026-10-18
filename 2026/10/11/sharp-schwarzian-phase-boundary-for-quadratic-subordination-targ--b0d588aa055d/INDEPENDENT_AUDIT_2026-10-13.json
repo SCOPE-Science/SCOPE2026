@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T19:11:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For c in [-1/2,1/2], use omega(z)=z v(z) to express preSchwarzian(z)=v+c z v² and S_f=(1+2czv)v' +(c-1/2)v²-czv³-(1/2)c²z²v^4. Apply Schwarz–Pick |v'|<=(1-|v|²)/(1-|z|²). With r=|z|,s=|v|,u=1-r², for c>=0 the upper envelope F_+(c,r,s) is convex quadratic in c, with explicit nonnegative 1-F_+(0,r,s) and 1-F_+(1/2,r,s) polynomial decompositions. For c=-d the exact 1-F_- identity is (r-dus)²+us²(1/2-d-d²)+ur²s²(d²+d+1/2)+drus³(1+r²-(drus)/2); all terms nonnegative iff d<=d_*=(sqrt3-1)/2 in the demonstrated interval. Equality/uniform gap forces z->0,v(0)=0 and |v'(0)|=1; Schwarz equality then v=e^{i theta}z, yielding exactly normalized rotation family and norm 1. For d>d_* choose disk automorphism with v(r)=-s and r=ds; alignment makes F_- exact and its s² coefficient d²+d-1/2 positive, establishing a counterexample for sufficiently small s. Ahlfors–Weill then supplies K<=3 as sufficient, not optimal. Independent SymPy verified the full F_- SOS identity and critical expansion exactly.",
+      "risks": [
+        "Finite algebraic identity checks do not themselves prove the uniform hyperbolic bound; the sign, boundary compactness and Schwarz rigidity arguments provide analytic proof.",
+        "Negative c targets need not be positive-real-part Ma–Minda convex targets; claim is subordination only.",
+        "K<=3 is sufficient; failure of S bound below cutoff says nothing about optimal quasiconformal dilatation."
+      ],
+      "sources": [
+        "Frozen RESULT.md blob 423b0545cbfc01c2dadaf86894c01e9760e0f999, complete signed parameter proof",
+        "Independent exact SymPy SOS check and expansion in sanity.py",
+        "Ahlfors–Weill classical sufficient extension theorem"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kanas–Sugawa gives a general target-dependent sharp supremum expression derived via Dieudonné/Schwarz–Pick, but not its signed quadratic evaluation.",
+          "Janowski rational targets are different analytic functions and do not generally coincide with signed quadratic phi_c."
+        ],
+        "reasoning": "General variational coverage makes the setup known and the calculation a specialization, but exact radical cutoff and unique rotation equality case are not immediate stated consequences without nontrivial global optimization.",
+        "searches": [
+          "Schwarzian norm Ma Minda convex quadratic target 1+z+c z^2 sharp bound phase negative parameter Kanas Sugawa",
+          "\"Schwarzian\" \"1+z+az^2\" exact norm",
+          "Kanas Sugawa Schwarzian norm sharp 2011 quadratic phi 1+z+c z squared",
+          "arXiv:2604.16833v1",
+          "doi:10.4064/ap101-1-8"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.4064/ap101-1-8",
+        "arXiv:2604.16833v1",
+        "Frozen RESULT.md exact SOS identity and equality argument"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kanas–Sugawa general formula represents the required supremum, but exact cutoff c_* depends on solving a separate signed-polynomial inequality and proving tightness.",
+          "Allu–Kumar Theorems 3.1 and 3.2 bound coefficient Hankel determinants, which do not imply hyperbolic Schwarzian all-disk estimate."
+        ],
+        "reasoning": "Prior results provide the framework and motivating target but neither asserted theorem yields the precise iff interval and equality maps by statement alone.",
+        "searches": [
+          "Schwarzian norm Ma Minda convex quadratic target 1+z+c z^2 sharp bound phase negative parameter Kanas Sugawa",
+          "\"Schwarzian\" \"1+z+az^2\" exact norm",
+          "Kanas Sugawa Schwarzian norm sharp 2011 quadratic phi 1+z+c z squared",
+          "arXiv:2604.16833v1",
+          "doi:10.4064/ap101-1-8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Allu–Kumar 2026 defines positive 1+z+(m/n)z² but its main results are H2(2) and H3(1), not Schwarzian norm.",
+          "The new iff ||S_f||<=1 boundary includes negative real c where Ma–Minda convexity may fail."
+        ],
+        "reasoning": "The equivalent sharp inclusion of the class in the hyperbolic Schwarzian ball and an Ahlfors–Weill K=3 sufficient interval are absent from the explicit source; negative parameter extension changes the class.",
+        "searches": [
+          "Schwarzian norm Ma Minda convex quadratic target 1+z+c z^2 sharp bound phase negative parameter Kanas Sugawa",
+          "\"Schwarzian\" \"1+z+az^2\" exact norm",
+          "Kanas Sugawa Schwarzian norm sharp 2011 quadratic phi 1+z+c z squared",
+          "arXiv:2604.16833v1",
+          "doi:10.4064/ap101-1-8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact signed quadratic numerical phase was in inspected 2011 applications to strongly/uniformly convex targets.",
+          "Allu–Kumar gives parameterized Hankel determinants, not a Schwarzian norm table.",
+          "Resultary semantic queries failed internally."
+        ],
+        "reasoning": "Not a finite table recomputation: a continuum threshold with matching explicit obstruction and full rigidity is proved by analytic sign certificates. No absence-of-search proof of novelty.",
+        "searches": [
+          "Schwarzian norm Ma Minda convex quadratic target 1+z+c z^2 sharp bound phase negative parameter Kanas Sugawa",
+          "\"Schwarzian\" \"1+z+az^2\" exact norm",
+          "Kanas Sugawa Schwarzian norm sharp 2011 quadratic phi 1+z+c z squared",
+          "arXiv:2604.16833v1",
+          "doi:10.4064/ap101-1-8"
+        ]
+      },
+      "rationale": "Best-knowledge novel signed-quadratic explicit radical phase boundary and complete norm-one extremizer classification. Highly relevant general 2011 Kanas–Sugawa variational framework is recognized as underlying the optimization, but reading its theorem and proof did not show an already evaluated signed quadratic target or equality rigidity. The source defining positive targets treats Hankel determinants only.",
+      "residual_risks": [
+        "Unindexed explicit quadratic specialization of Kanas–Sugawa might exist or phase evaluation might be considered an immediately deducible special case.",
+        "Nearby Janowski Schwarzian and other polynomial pre-Schwarzian works were title/abstract scoped but not all full texts inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_VARIATIONAL_FRAMEWORK_NOT_EXPLICIT_QUADRATIC_PHASE: covers functional implicitly, no evaluated radical cutoff nor asserted rotation-only equality classification.",
+          "evidence": [
+            "2011 Main Theorem 2.1 sharp general norm supremum; applications to strongly and uniformly convex targets"
+          ],
+          "identifier_or_url": "doi:10.4064/ap101-1-8; https://www.impan.pl/shop/en/publication/transaction/download/product/85401",
+          "material_read": "Publisher primary paper full-text inspected at Theorem 1.1, Main Theorem 2.1, target-dependent variational formula, Dieudonné-based proof and its named applications on pages 75–80",
+          "method": "Read original theorem, mathematical formulas, and relevant proof, with primary PDF render inspection",
+          "title": "Sharp norm estimate of Schwarzian derivative for a class of convex functions",
+          "trigger": "Closest general published sharp Schwarzian norm theorem"
+        },
+        {
+          "assessment": "SAME_POSITIVE_TARGET_DIFFERENT_INVARIANT: exact Hankel determinant extremals do not cover Schwarzian phase interval.",
+          "evidence": [
+            "2026 Theorem 3.1 H2(2), Theorem 3.2 H3(1), no Schwarzian occurrence"
+          ],
+          "identifier_or_url": "arXiv:2604.16833v1; https://arxiv.org/html/2604.16833v1",
+          "material_read": "Complete open arXiv HTML examined at definition and sections 2,3; Theorems 3.1 and 3.2 and their coefficient formulas; full-document search for Schwarzian yielded no match",
+          "method": "Read original article sections and full-text exact term search",
+          "title": "Sharp Estimates of Hankel Determinants for certain classes of convex univalent functions",
+          "trigger": "Exactly same polynomial target for positive parameters and contemporaneous primary literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The entire real univalence parameter range of the natural quadratic subordination target has a sharp Schwarzian norm-one threshold, with explicit counterexamples on the other side and complete equality rigidity. This is a motivated analytic phase diagram, not a parameter renaming or an unsupported quasiconformal optimality claim.",
+      "risks": [
+        "Unindexed explicit quadratic specialization of Kanas–Sugawa might exist or phase evaluation might be considered an immediately deducible special case.",
+        "Nearby Janowski Schwarzian and other polynomial pre-Schwarzian works were title/abstract scoped but not all full texts inspected."
+      ],
+      "sources": [
+        "doi:10.4064/ap101-1-8",
+        "arXiv:2604.16833v1"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "c real only and target-univalent range |c|<=1/2.",
+    "Does not evaluate norm below c_* or claim optimal QC K.",
+    "Negative c do not automatically generate Ma–Minda convex images."
+  ]
+}

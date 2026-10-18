@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,46 +19,24 @@
 }
 ---
 
-The verification applies to normalized maps whose logarithmic derivative is
-\[
-\frac{f''}{f'}=v+czv^2,
-\]
-where \(v\) maps the disk into the closed unit disk. Schwarz--Pick bounds its derivative by \((1-|v|^2)/(1-|z|^2)\).
+# Independent mathematical audit
 
-For \(0\le c\le1/2\), the real quadratic majorant \(F_+(c,r,s)\) is convex in \(c\). The independently expanded endpoint defects are
-\[
-1-F_+(0,r,s)=r^2+us^2(1-u/2)
-\]
-and
-\[
-1-F_+(1/2,r,s)=r^2(1-u/4)+u(s-r/2)^2+rus^3((1+r^2)/2-rus/8).
-\]
-All factors have proved signs for \(0\le r,s\le1\), \(u=1-r^2\).
+## correctness
 
-For \(c=-d\), \(0\le d\le(\sqrt3-1)/2\), symbolic expansion of the *negative-parameter majorant* gives
-\[
-\begin{aligned}
-1-F_-={}&(r-dus)^2+us^2(1/2-d-d^2)\\
-&+ur^2s^2(d^2+d+1/2)\\
-&+drus^3(1+r^2-drus/2).
-\end{aligned}
-\]
-Every displayed term is nonnegative, with equality only at \(r=s=0\). The normalized Schwarzian extremizer is therefore uniquely determined by equality in Schwarz's lemma.
+PASS
 
-Beyond the threshold, the disk automorphism
-\[
-v(z)=\frac{a-z}{1-az},\qquad a=\frac{r-s}{1-rs},\qquad r=ds,
-\]
-attains Schwarz--Pick equality at \(z=r\), has \(v(r)=-s\), and aligns all Schwarzian terms. The exact expansion is
-\[
-F_-(d,ds,s)=1+(d^2+d-1/2)s^2+O_d(s^4),
-\]
-so sufficiently small \(s>0\) yields strict violation whenever \(d>(\sqrt3-1)/2\).
+For c in [-1/2,1/2], use omega(z)=z v(z) to express preSchwarzian(z)=v+c z v² and S_f=(1+2czv)v' +(c-1/2)v²-czv³-(1/2)c²z²v^4. Apply Schwarz–Pick |v'|<=(1-|v|²)/(1-|z|²). With r=|z|,s=|v|,u=1-r², for c>=0 the upper envelope F_+(c,r,s) is convex quadratic in c, with explicit nonnegative 1-F_+(0,r,s) and 1-F_+(1/2,r,s) polynomial decompositions. For c=-d the exact 1-F_- identity is (r-dus)²+us²(1/2-d-d²)+ur²s²(d²+d+1/2)+drus³(1+r²-(drus)/2); all terms nonnegative iff d<=d_*=(sqrt3-1)/2 in the demonstrated interval. Equality/uniform gap forces z->0,v(0)=0 and |v'(0)|=1; Schwarz equality then v=e^{i theta}z, yielding exactly normalized rotation family and norm 1. For d>d_* choose disk automorphism with v(r)=-s and r=ds; alignment makes F_- exact and its s² coefficient d²+d-1/2 positive, establishing a counterexample for sufficiently small s. Ahlfors–Weill then supplies K<=3 as sufficient, not optimal. Independent SymPy verified the full F_- SOS identity and critical expansion exactly.
 
-The embedded `verify.py` was executed with SymPy against its actual package path. It checks the polynomial identities, the automorphism derivative, the asymptotic coefficient, and the positive rational witness
-\[
-F_-(2/5,1/25,1/10)-1=2159560547/3814697265625>0.
-\]
-These finite symbolic checks support the algebra only; the infinite-dimensional theorem rests on the analytic argument and sign decompositions in RESULT.md.
+## originality
 
-The proof does not determine the sharp Schwarzian norm below the phase boundary or the best quasiconformal extension dilatation. Ahlfors--Weill guarantees the extension with maximal dilatation at most \(3\) in the stated phase, but the violation of its norm certificate outside the phase does not disprove such an extension.
+PASS
+
+Best-knowledge novel signed-quadratic explicit radical phase boundary and complete norm-one extremizer classification. Highly relevant general 2011 Kanas–Sugawa variational framework is recognized as underlying the optimization, but reading its theorem and proof did not show an already evaluated signed quadratic target or equality rigidity. The source defining positive targets treats Hankel determinants only.
+
+## value
+
+PASS
+
+The entire real univalence parameter range of the natural quadratic subordination target has a sharp Schwarzian norm-one threshold, with explicit counterexamples on the other side and complete equality rigidity. This is a motivated analytic phase diagram, not a parameter renaming or an unsupported quasiconformal optimality claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
