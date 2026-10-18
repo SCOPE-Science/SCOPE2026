@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T22:09:15.511869Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md 904e83f92336b4004ba564968002d397b7b06975",
+        "frozen verify.py 52d4e8a0b233e76d637ae7d66dab61a883735b01 read, not executed as opaque code",
+        "local independent numerical spherical and lens quadrature in independent_checks.py",
+        "spherical cap area 2pi(1-m) and spherical cosine rule"
+      ],
+      "rationale": "Octahedron O=conv{+-e_i/sqrt2, i=1,2,3} has edges sqrt[(1/2)+(1/2)]=1. Its support function h(u)=max_i|u_i|/sqrt2, so directional width W=sqrt2 M, M=max_i|U_i| for uniform spherical U. From sum Ui²=1, M in [1/sqrt3,1]. Event M<=m is complement of six signed coordinate spherical caps {+-Ui>m}, each area 2pi(1-m). For m>=1/sqrt2, caps are disjoint, so F_M(m)=1-6*2pi(1-m)/(4pi)=3m-2. For m in [1/sqrt3,1/sqrt2], triple-cap positive area is impossible (sum of three squared components would exceed 1); 12 pair intersections of distinct axes remain, giving F_M=3m-2+(3/pi)A2(m). Two cap centers are separated by pi/2, cap radius arccos m. Spherical cosine rule gives alpha=acos[m/sqrt(1-m²)], beta=acos[m²/(1-m²)] where beta=pi-gamma of the isosceles spherical triangle. Sector-minus-triangle lens area A2=2beta-4m alpha, yielding exact lower CDF under m=w/sqrt2. Endpoints F(sqrt(2/3))=0, F(1)=3/sqrt2-2, F(sqrt2)=1 match continuously, with support endpoints determined by vertex/equal-coordinate directions. Independently integrated the spherical-longitude event and lens at interior m=0.6,0.65,0.8,0.95; agreement ~1e-10 is CONSISTENCY only, since rigorous proof uses cap inclusion-exclusion and spherical geometry. No chord distribution inference.",
+      "residual_risks": [
+        "CDF is only for 3D octahedron normalized to unit edge, U uniform spherical direction; not a random chord or arbitrary-dimensional crosspolytope. Numerical checks are not continuum proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abas 2026 gives a general coarea-density framework for convex polyhedra; abstract lists tetrahedron, truncated octahedron/rhombic dodecahedron examples rather than regular crosspolytope 3D. KLZ general crosspolytopes includes moments."
+        ],
+        "reasoning": "These are broader in objects/implicit representation, not demonstrated to explicitly evaluate the particular CDF. A general coarea formula could yield it after work but is not identical to a closed calculation; inaccessible Abas body retains relevant residual risk.",
+        "searches": [
+          "Abas arXiv:2609.26202 random width and brightness polyhedral density",
+          "Kabluchko et al arXiv:1511.08479",
+          "Finch arXiv:1110.0671",
+          "Resultary semantic attempt 2026-10-12: temporarily_unavailable/search_internal_error, search_completed:false; NOT negative evidence"
+        ]
+      },
+      "checked_sources": [
+        "Kabluchko et al original PDF arXiv:1511.08479 relevant full-text sections",
+        "Finch original PDF arXiv:1110.0671 relevant full-text sections",
+        "Abas 2026 original abstract only (body inaccessible)",
+        "Ciccariello original metadata, distinct chord statistic",
+        "frozen RESULT.md, verify.py and independent quadrature"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "KLZ Example3.4 displays higher-order crosspolytope width moments via Gaussian maxima; low-degree moments cannot compute all CDF thresholds directly, yet the full moment sequence determines the compact-support law implicitly. The new proof separately performs 6-cap/12-lens spherical area evaluation."
+        ],
+        "reasoning": "Predecessor implies implicit distribution but not the explicit elementary piecewise formula as a reported theorem. Therefore originality is strictly confined to the explicit 3D evaluation, with overlap risk on differently indexed exact tables.",
+        "searches": [
+          "Kabluchko-Litvak-Zaporozhets 2016 full text Example3.4",
+          "Finch 2011 full text",
+          "Abas 2026 abstract arXiv:2609.26202",
+          "Resultary semantic attempt 2026-10-12: temporarily_unavailable/search_internal_error, search_completed:false; NOT negative evidence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "W=sqrt2 max|Ui|, and crosspolytope higher-moment work derives moments through maxima of Gaussian coordinates; width under random direction is an equivalent geometric reading."
+        ],
+        "reasoning": "Moment/Gaussian representation is equivalent as distribution-characterization in a compact-support setting, but the claimed new FORMULA is explicit elementary n=3 CDF plus transition and exact cap-lens proof, not that the distribution exists. Alias Feret/calliper diameter remains a search risk.",
+        "searches": [
+          "Kabluchko-Litvak-Zaporozhets arXiv:1511.08479 crosspolytope Gaussian max",
+          "Finch arXiv:1110.0671 width distributions",
+          "search regular octahedron width max abs coordinates uniform S2",
+          "Resultary semantic attempt 2026-10-12: temporarily_unavailable/search_internal_error, search_completed:false; NOT negative evidence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finch full text shows tetrahedron and cube width distribution computations, no explicit regular octahedron section. Ciccariello computes random CHORD length density, not directional width."
+        ],
+        "reasoning": "No observed exact 3D octahedral caliper CDF table. A generic polytope density theorem or chord-length table must not be mistaken for the requested spherical direction-width statistic; absence not globally proved.",
+        "searches": [
+          "query octahedron Feret diameter CDF spherical width distribution",
+          "Finch arXiv:1110.0671 full text",
+          "Ciccariello arXiv:1401.7950 regular octahedron chord length",
+          "GitHub SCOPE2026 code search (current default branch): returned zero matches; index limitations, NOT negative novelty evidence"
+        ]
+      },
+      "rationale": "The exact complete elementary CDF for the 3D regular-octahedron directional width is narrower than the general crosspolytope Gaussian maximum/moment representation but more explicit than an implicit law or moments. An arbitrary finite collection of moments would not give this formula; the full moment sequence implicitly determines compact-support distribution but does not state spherical-lens piecewise elementary evaluation. Finch's actual 2011/2016 full source computes cube/tetrahedron widths; a 2026 Abas general polytope density theory covers the TYPE of object and may imply law in principle, but abstract advertises different evaluated examples; its full text was inaccessible. Significant risk of unindexed stereology/calliper/Feret diameter exact table remains.",
+      "residual_risks": [
+        "Resultary unavailable; no completed semantic novelty search.",
+        "Highly relevant Abas 2026 polyhedral density source original full body unavailable, may contain explicit octahedron despite abstract listing others.",
+        "Possible classical stereology under Feret diameter/caliper width names; no global absence assertion.",
+        "Moment representation determines compact law implicitly, so originality limited to elementary explicit closed form."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "IMPLICIT_DISTRIBUTION_NOT_EXPLICIT_3D_CDF",
+          "evidence": "Crosspolytope moments expressed by Gaussian coordinate maxima; the checked material does not display the spherical-lens n=3 piecewise CDF.",
+          "identifier_or_url": "Kabluchko, Litvak, Zaporozhets, arXiv:1511.08479v1",
+          "material_read": "Original full PDF accessible; Example 3.4 and moment/Gaussian maximum treatment plus introductory claim and asymptotic results inspected; first-page screenshot inspected",
+          "method": "Primary full PDF opened and read at critical moment proposition and relevant crosspolytope section",
+          "title": "Mean width of regular polytopes and expected maxima of correlated Gaussian variables",
+          "trigger": "Same crosspolytope/width object and potentially stronger moments"
+        },
+        {
+          "assessment": "NOT_SAME_POLYHEDRON_IN_CHECKED_TEXT",
+          "evidence": "No regular octahedron closed-width CDF located in inspected paper; does not prove absent other literature.",
+          "identifier_or_url": "S. Finch, arXiv:1110.0671v1",
+          "material_read": "Original full PDF accessible, first page rendered and relevant body/text searched including octahedron aliases; examples focus on tetrahedron and cube",
+          "method": "Original PDF full text searched, sections and displayed exemplars checked",
+          "title": "Width distributions for convex regular polyhedra",
+          "trigger": "Close title, regular polyhedron width distribution"
+        },
+        {
+          "assessment": "POTENTIAL_BROADER_COVERAGE_RISK",
+          "evidence": "Abstract describes general coarea polyhedral framework and worked examples tetrahedron and truncated octahedron; cannot make full-text NOT_COVERING judgment.",
+          "identifier_or_url": "O. Abas, arXiv:2609.26202v1",
+          "material_read": "Original abstract and metadata only; original PDF/HTML access failed, full body NOT READ",
+          "method": "Arxiv paper metadata/abstract and attempted lawful full-text route",
+          "title": "Random Width and Brightness: Polyhedral Density Theory, Reconstruction, and Gaussian Identifiability",
+          "trigger": "Potential dominating general 2026 density theorem"
+        },
+        {
+          "assessment": "DIFFERENT_STATISTIC",
+          "evidence": "Distribution of randomly selected chords depends on chord measure and is not CDF of support width for U uniform S².",
+          "identifier_or_url": "S. Ciccariello, arXiv:1401.7950v1",
+          "material_read": "Original metadata/abstract indicating random chord length, not width; body not used for noncoverage",
+          "method": "Compare random-chord and random-direction support width sample spaces",
+          "title": "The chord-length probability density of the regular octahedron",
+          "trigger": "Same solid, possibly confused measurement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "unit-edge normalization and spherical cap derivation",
+        "KLZ 2016 moment treatment indicates implicit law and natural interest",
+        "Finch 2011 regular-polyhedron width program"
+      ],
+      "rationale": "Random-direction width is a standard support-function invariant, and the regular octahedron is a canonical Platonic solid. Its complete elementary finite-dimensional CDF is a natural unknown exact invariant with a real geometrically explained transition at w=1 from disjoint caps to overlapping lenses; it can be needed for calibration, exact moments and stereology. The result supplies a complete classification of the distribution—not merely a numerically sampled histogram—and is not a recomputation of the distinct chord table. It remains valuable as a self-contained specific-shape evaluation even when general integral/coarea theorems exist.",
+      "residual_risks": [
+        "Special dimension three; general crosspolytope moments already known, reducing novelty/utility to an explicit closed distribution."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "CDF is only for 3D octahedron normalized to unit edge, U uniform spherical direction; not a random chord or arbitrary-dimensional crosspolytope. Numerical checks are not continuum proof.",
+    "Resultary unavailable; no completed semantic novelty search.",
+    "Highly relevant Abas 2026 polyhedral density source original full body unavailable, may contain explicit octahedron despite abstract listing others.",
+    "Possible classical stereology under Feret diameter/caliper width names; no global absence assertion.",
+    "Moment representation determines compact law implicitly, so originality limited to elementary explicit closed form.",
+    "Special dimension three; general crosspolytope moments already known, reducing novelty/utility to an explicit closed distribution.",
+    "The complete assessment is not an external attestation or a change to existing Lean/expert-verification channels. The scientific PASS is not an import/publication authorization."
+  ],
+  "schema_version": 1
+}

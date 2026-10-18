@@ -1,16 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The width reduces exactly to
-\[
-W=\sqrt2\max_i|U_i|.
-\]
-For threshold \(m\ge1/\sqrt2\), the six excluded coordinate caps have disjoint interiors, giving the linear branch. For \(1/\sqrt3\le m\le1/\sqrt2\), triple overlaps have zero area and exactly twelve congruent pairwise overlaps remain. The pair overlap is a spherical lens whose area follows from two cap sectors minus two spherical triangles; the spherical cosine rule gives its two required angles. Endpoint identities and branch matching are exact. The packaged verifier independently checks normalization, endpoints, direct spherical-area quadrature, and the lens integral.
+## correctness
 
-## Originality
-**PASS, with an explicit implicit-characterization risk.** The closest older source gives every integer moment of the regular-crosspolytope projection length through a Gaussian-maximum formula, but does not print or derive a finite \(n=3\) CDF. Because compact support makes the moment sequence determining, that source characterizes the law implicitly; the new contribution is the nontrivial closed evaluation of that law. Finch's full paper treats only the tetrahedron and cube. A recent full-length general polytope-density paper proves a universal co-area formula and explicitly evaluates the tetrahedron, truncated octahedron, and rhombic dodecahedron; full-text search finds no crosspolytope occurrence. Exact-object, caliper/Feret, maximum-coordinate, and formula searches found no prior closed octahedral width law.
+PASS
 
-## Value
-**PASS.** The regular octahedron is a canonical Platonic solid and the three-dimensional regular crosspolytope. Its full width law is a natural object in the exact random-projection program represented by the cited literature, and it contains substantially more information than a mean or second moment. The formula isolates the geometric transition where pairwise spherical-cap overlaps disappear, giving a reusable benchmark for both polyhedral width-density methods and probabilistic maximum-coordinate calculations.
+Octahedron O=conv{+-e_i/sqrt2, i=1,2,3} has edges sqrt[(1/2)+(1/2)]=1. Its support function h(u)=max_i|u_i|/sqrt2, so directional width W=sqrt2 M, M=max_i|U_i| for uniform spherical U. From sum Ui²=1, M in [1/sqrt3,1]. Event M<=m is complement of six signed coordinate spherical caps {+-Ui>m}, each area 2pi(1-m). For m>=1/sqrt2, caps are disjoint, so F_M(m)=1-6*2pi(1-m)/(4pi)=3m-2. For m in [1/sqrt3,1/sqrt2], triple-cap positive area is impossible (sum of three squared components would exceed 1); 12 pair intersections of distinct axes remain, giving F_M=3m-2+(3/pi)A2(m). Two cap centers are separated by pi/2, cap radius arccos m. Spherical cosine rule gives alpha=acos[m/sqrt(1-m²)], beta=acos[m²/(1-m²)] where beta=pi-gamma of the isosceles spherical triangle. Sector-minus-triangle lens area A2=2beta-4m alpha, yielding exact lower CDF under m=w/sqrt2. Endpoints F(sqrt(2/3))=0, F(1)=3/sqrt2-2, F(sqrt2)=1 match continuously, with support endpoints determined by vertex/equal-coordinate directions. Independently integrated the spherical-longitude event and lens at interior m=0.6,0.65,0.8,0.95; agreement ~1e-10 is CONSISTENCY only, since rigorous proof uses cap inclusion-exclusion and spherical geometry. No chord distribution inference.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact complete elementary CDF for the 3D regular-octahedron directional width is narrower than the general crosspolytope Gaussian maximum/moment representation but more explicit than an implicit law or moments. An arbitrary finite collection of moments would not give this formula; the full moment sequence implicitly determines compact-support distribution but does not state spherical-lens piecewise elementary evaluation. Finch's actual 2011/2016 full source computes cube/tetrahedron widths; a 2026 Abas general polytope density theory covers the TYPE of object and may imply law in principle, but abstract advertises different evaluated examples; its full text was inaccessible. Significant risk of unindexed stereology/calliper/Feret diameter exact table remains.
+
+## value
+
+PASS
+
+Random-direction width is a standard support-function invariant, and the regular octahedron is a canonical Platonic solid. Its complete elementary finite-dimensional CDF is a natural unknown exact invariant with a real geometrically explained transition at w=1 from disjoint caps to overlapping lenses; it can be needed for calibration, exact moments and stereology. The result supplies a complete classification of the distribution—not merely a numerically sampled histogram—and is not a recomputation of the distinct chord table. It remains valuable as a self-contained specific-shape evaluation even when general integral/coarea theorems exist.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
