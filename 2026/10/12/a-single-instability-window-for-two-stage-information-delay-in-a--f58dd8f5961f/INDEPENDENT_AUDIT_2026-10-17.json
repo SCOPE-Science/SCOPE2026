@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T04:43:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the source’s five equations and Jacobian, eliminating the stable -mu recovered eigenvalue; the feedback factor is (lambda²+A lambda+C)(lambda+b)(1+tau lambda)+D, with A,C,D>0. Independently recomputed all quartic coefficients and Hurwitz determinants symbolically: Delta2>0 and Delta3=A(Ab+C+b²)(1+b tau)(1+A tau+C tau²)-D[1+(A+b)tau]². When Delta3<0 the Routh first column has exactly two sign changes, and positive coefficients preclude positive real roots, so precisely one unstable conjugate pair. Equality factors an imaginary pair plus a stable quadratic. The log derivative K'/K has cubic numerator H=Cb(A+b)tau³+3Cb tau²+(2C-A²-b²)tau-(A+b), with exactly one positive root by Descartes, negative initial and positive leading signs. The rational witness exactly solves every equilibrium equation with (A,b,C,D)=(1,1,1,5/2), Delta3=(6tau³-8tau²-8tau+1)/2; exact sign brackets and tau=0,1,3 match. Independent checks do not replace universal Routh/Descartes proof. At equality only spectral neutrality is asserted, not nonlinear stability.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fang–Liu–Du (2026), §1 pp.2–3, contrasts vaccination of susceptible stock with predecessors vaccinating newborns.",
+          "d’Onofrio et al. (2007) show information-vaccination Hopf/instability in a birth-vaccination single-information-filter model.",
+          "Centrone–Perchiazzo–Salinelli (2026) addresses lagged-incidence one-filter family; Kumar et al. (2023) has two discrete delays rather than an exponential two-stage kernel."
+        ],
+        "reasoning": "Previously known reentrant stability itself is credited. Neither a cubic single-filter condition nor a two-discrete-delay quasi-polynomial dominates a source-specific quartic inequality with an independent convolution mean and memory decay rate.",
+        "searches": [
+          "information dependent vaccination SIRM two stage exponential reporting delay endemic reentrant stability quartic Hurwitz",
+          "d'Onofrio Manfredi Salinelli bifurcation thresholds information dependent vaccination 2007",
+          "Centrone Perchiazzo Salinelli 2026 lagged incidence vaccination"
+        ]
+      },
+      "checked_sources": [
+        "Fang–Liu–Du (2026) DOI 10.3934/dcdsb.2026090 publicly hosted complete 26-page manuscript, §§1–6",
+        "d’Onofrio–Manfredi–Salinelli DOI 10.1051/mmnp:2008009 abstract and Fang paper citation",
+        "Centrone–Perchiazzo–Salinelli DOI 10.17654/0972087126165 abstract",
+        "Resultary 2026/10/4/SCOPE-information-dependent-vaccination-shifts-endemic-burden-at-a-fix--1a0e363384fb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fang–Liu–Du §4 Theorem 4.1 proves persistence of a heteroclinic orbit for sufficiently small tau under extra conditions, not all-delay equilibrium stability.",
+          "Conclusion mentions studying possible Hopf bifurcations and periodic oscillations in suitable regimes as future work.",
+          "2007 reentrant stability involves a different vaccination operator and characteristic dimension."
+        ],
+        "reasoning": "Small-parameter geometric singular perturbation and reduced cubic conditions cannot imply the global-in-tau sharp K(tau), its unique minimum or absence of multiple instability windows. The new result is not proof of Hopf periodic orbits.",
+        "searches": [
+          "information dependent vaccination SIRM two stage exponential reporting delay endemic reentrant stability quartic Hurwitz",
+          "Dynamics multiple time scale SIRM Fang Liu Du full text Theorem 4.1 Hopf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fang–Liu–Du (2026) complete author-accessible text, model eqs. (3), (9), §3 cubic criterion (23)-(24), §4 small-tau heteroclinic continuation.",
+          "The two-filter transfer has factor (lambda+b)(1+tau lambda); the reduced one-filter tau=0 characteristic is cubic."
+        ],
+        "reasoning": "Equivalent distributed-convolution and two-stage linear-chain representations are covered; the exact finite-tau quartic is distinct from the paper’s reduced cubic. An equivalent result must treat full finite tau with both filters.",
+        "searches": [
+          "information dependent vaccination SIRM two stage exponential reporting delay endemic reentrant stability quartic Hurwitz",
+          "Fang Liu Du 10.3934/dcdsb.2026090 two stage exponential filter stability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fang–Liu–Du full manuscript §3 displays cubic characteristic equation (24) at tau=0, not the full-delay K(tau).",
+          "Resultary 2026/10/4/SCOPE-information-dependent-vaccination-shifts-endemic-burden-at-a-fix--1a0e363384fb concerns monotonic endemic burden at a fixed invasion threshold, not the local spectral boundary."
+        ],
+        "reasoning": "No checked source-specific table gives two exact delay roots or all-delay instability bands; the exact rational witness is not simply a tabulation of the reduced equilibrium.",
+        "searches": [
+          "information dependent vaccination SIRM two stage exponential reporting delay endemic reentrant stability quartic Hurwitz",
+          "two-stage information-dependent vaccination SIRM exact Routh Hurwitz K(tau)"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: read the author-accessible complete text of Fang–Liu–Du’s actual paper. It specifies vaccination acting on susceptible stock and a two-stage exponential information filter; its §3 local stability criterion uses reduced tau=0 cubic, and §4 treats heteroclinic persistence for sufficiently small tau. Its conclusion identifies Hopf studies as future work; no all-delay quartic criterion or one-minimum theorem. A 2007 one-filter birth-vaccination model already shows reentrant stability, so only the source-specific sharp two-stage map is novel. Other 2018 saturated-treatment information models may exhibit multiple switches but do not imply the exact same transfer polynomial.",
+      "residual_risks": [
+        "Other parameterized multi-stage immunization models could contain equivalent transfer-polynomial classifications under different normalization.",
+        "Earlier one-filter reentrant stability is prior; the qualitative stable–unstable–stable phenomenon is not new.",
+        "No Lyapunov coefficient, nonlinear Hopf orbit branch or global-attractor result proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The source confines the detailed stability calculation to reduced tau=0 and small-delay perturbation; its full-text results do not provide the exact all-finite-delay quartic K threshold.",
+          "evidence": "Source eq. (3), (9), Lemma 3.6 eq. (24), Theorem 4.1, concluding remarks on possible Hopf bifurcations.",
+          "identifier_or_url": "https://www.researchgate.net/publication/406945942_Dynamics_of_multiple_time_scale_SIRM_model_with_information-dependent_vaccination",
+          "material_read": "The publicly accessible full 26-page manuscript text, including pp.1–5 model equations and comparison with older birth-vaccination models; §3 Lemma 3.6 and its endemic cubic eq. (24); §4 Theorem 4.1 small-tau heteroclinic result; conclusion/future Hopf question.",
+          "method": "lawful author-available CC BY complete text read through public full-text hosting",
+          "title": "Dynamics of multiple time scale SIRM model with information-dependent vaccination",
+          "trigger": "Identical source model and plausible coverage of full-delay stability"
+        },
+        {
+          "assessment": "Qualitative Hopf/reentrant instability is established prior; model vaccinates newborns with fewer information states.",
+          "evidence": "Fang introduction eq. (2): S dot=mu(1-p(M))-mu S-beta S I; the assessed model acts directly on S.",
+          "identifier_or_url": "https://doi.org/10.1051/mmnp:2008009",
+          "material_read": "Article abstract, model comparison description in Fang–Liu–Du pp.2–3 and bibliographic metadata; OA full PDF attempted but returned HTTP403.",
+          "method": "public abstract plus explicit discussion in original full Fang text",
+          "title": "Bifurcation Thresholds in an SIR Model with Information-Dependent Vaccination",
+          "trigger": "Closest qualitative reentrance predecessor"
+        },
+        {
+          "assessment": "Different one-stage filter and birth-vaccination mechanisms, so not identical characteristic polynomial.",
+          "evidence": "Published delayed information-response setting; complete-parameter equivalence not established.",
+          "identifier_or_url": "https://doi.org/10.17654/0972087126165",
+          "material_read": "Public article abstract and mathematical description in source comparisons; complete text not reread this run.",
+          "method": "publisher public bibliographic/abstract",
+          "title": "Bifurcations in an SIR model with vaccinating behaviour based on lagged information depending on the incidence",
+          "trigger": "Contemporary one-filter reentrance analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete local stability regime map for a contemporary two-filter disease-information model resolves an explicit uncertainty left in that model’s source: which positive information delays destabilize and restabilize the endemic state. The all-parameter at-most-one-window theorem, exact threshold and feasible witness are mathematically useful; no claim is made to new qualitative reentrance in general or nonlinear periodic orbit existence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the positive endemic equilibrium in Fang–Liu–Du’s exponential-distributed-delay vaccination SIRM with independent M and Q information filters, all finite-mean-delay linear stability is equivalent to D<K(tau), K=A(Ab+C+b²)(1+b tau)(1+A tau+C tau²)/[1+(A+b)tau]². The threshold K has a unique positive global minimum, hence at most one bounded unstable window; an explicit fully positive rational model is stable for small and large delays and unstable in between.",
+  "limitations": [
+    "Only local equilibrium stability for a single exponential mean-delay filter cascaded with exponential memory; other delay kernels not covered.",
+    "At spectral equality linearization is neutral and does not determine nonlinear stability.",
+    "The tau=0 case is the reduced dynamical system with Q=I, not a singular five-equation ODE."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The two-stage convolution formulation reduces to a four-dimensional feedback Jacobian plus a strictly stable recovered direction. The characteristic polynomial is exactly \((\lambda^2+A\lambda+C)(\lambda+b)(1+\tau\lambda)+D\). All quartic coefficients and the second Hurwitz determinant are positive; the third determinant factors into the positive denominator times \(K(\tau)-D\), proving the if-and-only-if local-stability test. Descartes' rule gives exactly one positive stationary point of \(K\), a minimum, and thus at most two stability crossings. The fully positive witness and two root brackets were checked using exact rational and symbolic arithmetic. There is no extrapolation from finite experiments to the universal claim.
+## correctness
 
-## Originality
-**PASS, with a precise boundary.** Reentrant information-delay stability itself was previously known: d'Onofrio, Manfredi, and Salinelli (2007) prove it for a one-filter three-dimensional model vaccinating births, and Centrone, Perchiazzo, and Salinelli (2026) extend that family to incidence-based information. Those results do **not** cover the two-stage model here, whose vaccination acts on susceptible individuals and whose independently tunable convolution timescale produces a quartic rather than a cubic. The motivating Fang–Liu–Du source treats \(\tau=0\) and small-delay heteroclinic persistence, not this full-delay stability map. Source/formula/equivalence searches of published mathematical findings returned no source-specific equivalent. The novelty is exactly the sharp two-filter criterion, unique-minimum theorem, and positive witness, not priority for the broad biological mechanism.
+PASS
 
-## Value
-**PASS.** The motivating source explicitly leaves possible delay-driven Hopf behavior for further study. The theorem pinpoints every finite-delay local stability regime, excludes multiple separated instability windows, and exhibits a fully feasible stable–unstable–stable transition. This supplies a concrete and useful boundary for how information delay can change disease-management dynamics and avoids interpreting stable endpoints as implying stability at all intervening delays.
+Reconstructed the source’s five equations and Jacobian, eliminating the stable -mu recovered eigenvalue; the feedback factor is (lambda²+A lambda+C)(lambda+b)(1+tau lambda)+D, with A,C,D>0. Independently recomputed all quartic coefficients and Hurwitz determinants symbolically: Delta2>0 and Delta3=A(Ab+C+b²)(1+b tau)(1+A tau+C tau²)-D[1+(A+b)tau]². When Delta3<0 the Routh first column has exactly two sign changes, and positive coefficients preclude positive real roots, so precisely one unstable conjugate pair. Equality factors an imaginary pair plus a stable quadratic. The log derivative K'/K has cubic numerator H=Cb(A+b)tau³+3Cb tau²+(2C-A²-b²)tau-(A+b), with exactly one positive root by Descartes, negative initial and positive leading signs. The rational witness exactly solves every equilibrium equation with (A,b,C,D)=(1,1,1,5/2), Delta3=(6tau³-8tau²-8tau+1)/2; exact sign brackets and tau=0,1,3 match. Independent checks do not replace universal Routh/Descartes proof. At equality only spectral neutrality is asserted, not nonlinear stability.
 
-## Closest literature and limitations
-The closest primary comparison is d'Onofrio, Manfredi, and Salinelli (2007), DOI 10.1051/mmnp:2008009, with its single-stage information state and known two-switch phenomenon. Centrone, Perchiazzo, and Salinelli (2026), DOI 10.17654/0972087126165, similarly analyze a one-filter vaccination-at-birth model with a different information signal; Kumar, Takeuchi, and Srivastava (2023), DOI 10.3934/mbe.2023487, analyze two discrete delays. None of these models has the same two-filter transfer polynomial. No periodic-orbit branch, criticality, or global-attractor theorem follows from the local spectral crossings. Other kernels are not covered.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: read the author-accessible complete text of Fang–Liu–Du’s actual paper. It specifies vaccination acting on susceptible stock and a two-stage exponential information filter; its §3 local stability criterion uses reduced tau=0 cubic, and §4 treats heteroclinic persistence for sufficiently small tau. Its conclusion identifies Hopf studies as future work; no all-delay quartic criterion or one-minimum theorem. A 2007 one-filter birth-vaccination model already shows reentrant stability, so only the source-specific sharp two-stage map is novel. Other 2018 saturated-treatment information models may exhibit multiple switches but do not imply the exact same transfer polynomial.
+
+## value
+
+PASS
+
+A complete local stability regime map for a contemporary two-filter disease-information model resolves an explicit uncertainty left in that model’s source: which positive information delays destabilize and restabilize the endemic state. The all-parameter at-most-one-window theorem, exact threshold and feasible witness are mathematically useful; no claim is made to new qualitative reentrance in general or nonlinear periodic orbit existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
