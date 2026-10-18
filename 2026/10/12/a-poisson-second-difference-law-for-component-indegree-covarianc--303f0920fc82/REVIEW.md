@@ -1,11 +1,21 @@
-# Scientific review: component–indegree covariance profile
+# Independent mathematical audit
 
-**Correctness — PASS.** A cycle-indicator expansion proves the finite entire covariance polynomial by conditioning on prescribed directed cycles. The \(k\)-cycle event fixes exactly \(k\) outgoing images, so each vertex in the cycle gains one sure incoming edge, and the other indegree contributions have binomial marginals. Gaussian domination of cycle lengths, a uniform quadratic binomial expansion, and locally uniform convergence of analytic functions establish the Poisson second-difference limit and the fixed-degree sign classification. Every self-map on \(2\) through \(7\) labeled vertices was enumerated independently; 33 exact-rational mixed covariance comparisons passed. The computer checks do not substitute for the analytic asymptotic proof.
+## correctness
 
-**Originality — PASS, subject to historical uncertainty.** Hansen and Jaworski (arXiv:math/0603529v1; DOI:10.1002/rsa.20187) derive component and cyclic-vertex distributions and a general exchangeable-degree framework, not the stated full mixed immediate-indegree covariance polynomial. Their 2008 companion and 2014 structural-transition work likewise do not explicitly give the joint profile. Kupka's component moments are marginal; Drmota and Soria analyze a different total-predecessor statistic. The classical broad Flajolet–Odlyzko treatment (DOI:10.1007/3-540-46885-4_34) was not available in full, and may imply the result indirectly. An earlier negative association of indegree-zero counts with the cyclic core may imply the zero-degree special case; this special case is included only as part of the unified complete profile, not separately claimed new. Historical priority is not fully established.
+PASS
 
-**Mathematical value — PASS.** The local in-degree count vector and global component count are canonical statistics of functional digraphs. The exact generating-polynomial identity gives the dependence at every finite size, and its compact-uniform limit determines all fixed-degree mixed covariances in one step. The positive/negative sign split and second-difference structure are constrained by, but are not deductions solely from, the two degree-conservation identities. No general central limit theorem or finite-size sign classification is asserted.
+For uniform independent images T:[n]->[n], the components equal the count of directed cycles. Conditioning on each prescribed length-k cycle, k vertices receive one cycle edge and the other n-k outgoing images stay i.i.d.; this yields conditional PGF n(1+k(z-1)/n)(1+(z-1)/n)^(n-k), and the exact finite Q_n sum in RESULT.md. Expanding 1+kw/n-(1+w/n)^k=-C(k,2)w^2/n^2+O(k^3/n^3) and bounding a_{n,k}<exp[-k(k-1)/(2n)] gives uniform compact convergence Q_n->-(1/2)(z-1)^2exp(z-1). Cauchy coefficient extraction yields e^-1(-r^2+3r-1)/(2r!), positive only r=1,2 for fixed r. Separately enumerated ALL n^n self maps for n=2,3,4,5 using undirected component union-find and indegree counts; exact rational coefficients match the derived finite formula; Q(1)=Q'(1)=0.
 
-**Limitations and residual risks.** Results assume independent uniform images and fixed-degree asymptotics. Full text for several historically relevant sources, most notably Flajolet–Odlyzko, remained unavailable. Reproducibility checks are bounded; they are not an independent assessment of the proof or novelty. The exact main-source statements and the derivative/analytic-convergence arguments are recorded in RESULT.md.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared exact joint covariance polynomial and fixed-r limiting coefficient signs with full Hansen–Jaworski 2006/2008 paper and general random-mapping marginal enumeration. Their component-count distributions and conditioned indegree marginal methods are broader machinery, but inspected theorems do not state the entire component–indegree covariance profile or its Poisson second-difference limit. A previously known indegree-zero special case is not counted separately as novel. Flajolet–Odlyzko general framework may implicitly yield the result; its full text was not available and is residual risk.
+
+## value
+
+PASS
+
+Full degree-generating covariance simultaneously resolves the sign and magnitude for every fixed in-degree class, beyond isolated component moments; useful structural dependence statistic in random functional digraphs. Analytic asymptotic proof, not finite census, establishes infinite claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
