@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T19:08:15.157698Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/independent-bit-flip-noise-breaks-the-claimed-perfect-bidirectio--7277d9c04a81/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/independent-bit-flip-noise-breaks-the-claimed-perfect-bidirectio--7277d9c04a81/VERIFICATION.md",
+        "Independent mathematical checker independent_1733_checks.py"
+      ],
+      "rationale": "The six disjoint (H,CNOT) gate pairs prepare Phi+ tensor six. Independent X(p) errors on both ends of a Bell pair give Psi+ with q=2p(1-p), so Bell correction implements X(q) per teleported qubit. Source Eq.(36) factorizes as |+>_2 tensor [a|00>+sqrt(1-a^2)|01>+sqrt(1-a^2)|10>+a|11>]/sqrt(2); the second party at b=1/sqrt(2) is |+>^3. Overlaps of the two entangled qubits with XX equal 1, with a single X equal 2a sqrt(1-a^2). Summing two independent error parities proves F_Bi=1-2q(1-q)(2a^2-1)^2. At (p,a)=(1/2,0) F=1/2. A common Kraus index gives total norm ((1-p)^12+p^12)I, not CPTP in the interior; a separately defined correlated global-X channel differs. Independent exact rational checks on 25 parameter pairs corroborate, not replace, this symbolic proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bowen Bose 2001 generalized Pauli channel theorem",
+          "De et al 2026 Fig.2 bit-flip fidelity claim"
+        ],
+        "reasoning": "The prior general channel formula supplies the key reduction, but does not settle whether this resource, input and noise produce fidelity one; applying it to the primary circuit and inputs gives the contradiction. This is not credited as new channel theory.",
+        "searches": [
+          "generalized teleportation channel Bell diagonal mixed resource",
+          "quant-ph/0107132",
+          "2607.23820v1"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/independent-bit-flip-noise-breaks-the-claimed-perfect-bidirectio--7277d9c04a81/RESULT.md",
+        "https://arxiv.org/abs/2607.23820",
+        "https://pdfs.assets.alphaxiv.org/2607.23820v1.pdf",
+        "https://arxiv.org/abs/quant-ph/0107132"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Product Kraus errors yield q=2p(1-p) for each Bell pair",
+          "Source states perfect fidelity, rather than its negation"
+        ],
+        "reasoning": "The old generalized channel theorem plus a fresh, elementary evaluation of this exact circuit implies the new correction; the original 2026 paper states the opposite. No identified earlier paper expressly gives this source-specific equality and counterexample.",
+        "searches": [
+          "2607.23820 Appendix C K0 sqrt(1-p) K1 sqrt(p) X",
+          "quant-ph/0107132 Pauli teleportation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "De et al arXiv:2607.23820v1 Eq.33, Eq.36, Appendix C",
+          "Bowen Bose quant-ph/0107132 Eq.(1)"
+        ],
+        "reasoning": "Standard Bell teleportation with Bell-diagonal noise is the exact equivalent channel formulation; its general derivation is prior. The resulting source-specific 12-qubit fidelity/counterexample is not a theorem in the 2001 Pauli-channel article.",
+        "searches": [
+          "twelve-qubit bidirectional teleportation Bell pairs independent bit flip noise counterexample fidelity De Ahmed Sharan 2026",
+          "De arXiv:2607.23820 Bell resource six Bell pairs",
+          "Bowen Bose standard teleportation Pauli channel quant-ph/0107132"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search top matches concerns other teleportation channels and Bell-diagonal discord",
+          "De et al Fig.2 displays original claim, not correction"
+        ],
+        "reasoning": "There is no meaningful global exact database/table of arbitrary continuous quantum teleportation protocols. Checked published records did not reveal the same source-specific correction; negative search is not priority proof.",
+        "searches": [
+          "\"2607.23820\" \"bit-flip\" \"fidelity\" correction",
+          "twelve-qubit bidirectional teleportation Bell pairs independent bit flip noise counterexample fidelity De Ahmed Sharan 2026"
+        ]
+      },
+      "rationale": "Best-of-knowledge original source-specific correction: standard generalized Pauli-channel teleportation was proved in 2001, but De et al. 2026 explicitly claim unit fidelity throughout their bit-flip figure; the mathematically derived resource factorization and exact family fidelity show its product-noise claim false. The contribution is the concrete analysis of this particular source protocol, not discovery of Pauli channels or Bell-pair parity.",
+      "residual_risks": [
+        "This refutation assumes independent identical per-qubit CPTP bit flips on the resource before ideal Bell measurements; deliberately correlated global X noise can preserve it.",
+        "Does not address other noise channels or cyclic protocol. A preexisting unindexed correction under different wording cannot be excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The published unit-fidelity assertion conflicts with independent local bit flips on the specified six Bell pairs",
+          "evidence": "12-qubit disjoint preparation, Fig.2 all-parameter fidelity plot, Eq.33, Eq.36 and Kraus operators",
+          "identifier_or_url": "https://arxiv.org/abs/2607.23820",
+          "material_read": "Full-text PDF; circuit/resource equations, Eq.33/36, bit-flip Appendix C, Fig.2, noiseless feed-forward and fidelity discussion",
+          "method": "PDF text and relevant rendered pages (2,10,11,12,17)",
+          "title": "Unified Framework for Bidirectional and Cyclic Teleportation under Noise",
+          "trigger": "same circuit, noise, and claimed fidelity"
+        },
+        {
+          "assessment": "Covers general Pauli-channel correspondence, but not subsequent source-specific claimed fidelity",
+          "evidence": "Bowen–Bose 2001 Eq.(1) and surrounding derivation",
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/0107132",
+          "material_read": "Full arXiv HTML, especially standard teleportation channel Eq.(1) and Bell-diagonal specialization",
+          "method": "primary arXiv full-text HTML",
+          "title": "Teleportation as a Depolarizing Quantum Channel, Relative Entropy and Classical Capacity",
+          "trigger": "general channel identity may imply result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/independent-bit-flip-noise-breaks-the-claimed-perfect-bidirectio--7277d9c04a81/RESULT.md",
+        "https://arxiv.org/abs/2607.23820",
+        "https://pdfs.assets.alphaxiv.org/2607.23820v1.pdf",
+        "https://arxiv.org/abs/quant-ph/0107132"
+      ],
+      "rationale": "An exact, parameter-dependent falsification of a published claimed perfect-noise robustness is important for interpreting teleportation performance. The formula provides a physical counterexample under the source's standard local Kraus model and separates it rigorously from a different correlated-noise interpretation; not merely a cosmetic normalization check.",
+      "residual_risks": [
+        "This refutation assumes independent identical per-qubit CPTP bit flips on the resource before ideal Bell measurements; deliberately correlated global X noise can preserve it."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The exact F_Bi formula applies to source Eq.(36) family with b=1/sqrt(2), a,p in [0,1], and standard independent bit flips.",
+    "Correlated errors, nonstandard correction logic, and other noise models are not covered."
+  ],
+  "schema_version": 1
+}

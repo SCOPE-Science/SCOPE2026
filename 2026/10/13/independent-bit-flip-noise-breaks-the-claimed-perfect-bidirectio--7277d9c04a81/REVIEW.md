@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The resource preparation circuit factors exactly into six Bell pairs. Independent application of the source's one-qubit bit-flip channel to the two halves of each Bell pair produces a Bell-diagonal mixture with odd-parity weight \(q=2p(1-p)\). Standard teleportation through that resource is therefore a bit-flip Pauli channel. For the source's Eq. (36) family, the input factors into a \(|+\rangle\) qubit and a two-qubit state whose single-flip overlap is \(2a\sqrt{1-a^2}\); the exact parity average gives \(F_{\mathrm{Bi}}=1-2q(1-q)(2a^2-1)^2\). The explicit point \((a,p)=(0,1/2)\) has fidelity \(1/2\), so the universal unit-fidelity claim is false. The common-index alternative is also checked separately and is not trace preserving with the displayed one-qubit Kraus prefactors.
+## correctness
 
-## Originality — PASS
-The general Bell-diagonal teleportation-to-Pauli-channel theorem is prior work and is not claimed as new. The accepted claim is the source-specific correction: the 2026 resource factors into six Bell pairs, its stated independent local bit-flip model yields the displayed closed fidelity formula, and this directly contradicts the paper's headline all-input/all-noise unit-fidelity statement. Exact-title, identifier, phrase, alias, and implication searches found no prior correction of this claim. The closest broader theorem supplies a premise but does not contain this later source-specific contradiction.
+PASS
 
-## Value — PASS
-The corrected statement changes a headline robustness conclusion appearing in the abstract and results discussion, not a peripheral normalization. At the source's own parameterization the discrepancy can be macroscopic: fidelity drops to \(1/2\) at \(p=1/2\) and \(a=0\). The analysis also isolates the modeling distinction responsible for the apparent immunity: a correlated global flip can leave every Bell pair invariant, whereas independent local bit flips do not.
+The six disjoint (H,CNOT) gate pairs prepare Phi+ tensor six. Independent X(p) errors on both ends of a Bell pair give Psi+ with q=2p(1-p), so Bell correction implements X(q) per teleported qubit. Source Eq.(36) factorizes as |+>_2 tensor [a|00>+sqrt(1-a^2)|01>+sqrt(1-a^2)|10>+a|11>]/sqrt(2); the second party at b=1/sqrt(2) is |+>^3. Overlaps of the two entangled qubits with XX equal 1, with a single X equal 2a sqrt(1-a^2). Summing two independent error parities proves F_Bi=1-2q(1-q)(2a^2-1)^2. At (p,a)=(1/2,0) F=1/2. A common Kraus index gives total norm ((1-p)^12+p^12)I, not CPTP in the interior; a separately defined correlated global-X channel differs. Independent exact rational checks on 25 parameter pairs corroborate, not replace, this symbolic proof.
 
-## Closest literature and limitations
-The closest general result is Bowen and Bose's theorem identifying standard teleportation through Bell-diagonal resources with Pauli channels. The correction is restricted to the source's bidirectional protocol under independent per-qubit bit-flip noise; it does not assess the cyclic protocol or the other noise models.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original source-specific correction: standard generalized Pauli-channel teleportation was proved in 2001, but De et al. 2026 explicitly claim unit fidelity throughout their bit-flip figure; the mathematically derived resource factorization and exact family fidelity show its product-noise claim false. The contribution is the concrete analysis of this particular source protocol, not discovery of Pauli channels or Bell-pair parity.
+
+## value
+
+PASS
+
+An exact, parameter-dependent falsification of a published claimed perfect-noise robustness is important for interpreting teleportation performance. The formula provides a physical counterexample under the source's standard local Kraus model and separates it rigorously from a different correlated-noise interpretation; not merely a cosmetic normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
