@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The proof reduces Galois closure to perfect matchings in a complete bipartite residual graph with diagonal edges excluded. The explicit Hall argument verifies that for three or more unused rows every optional cell can be avoided; the two-row and one-row cases are completely classified. Inclusion-exclusion independently establishes the closed-intent count, star cliques in a line graph establish all order automorphisms, and an explicit complete sound basis plus a forced-premise example establish the sharp iterative Horn arity. Direct enumeration for orders three through seven corroborates the formulas but is not used as an infinite proof.
+
+**Originality — PASS, with residual risk.** Published research on deranged matchings and partial derangements already covers the underlying bipartite matching model and standard counting formulas; these are credited. The inspected full text of Johnston–Kayll–Palmer (arXiv:2209.11319), Rawson et al. (arXiv:2307.11681), Bucić et al. (arXiv:1906.05908), and Laradji–Umar (DOI:10.12958/adm1793) does not supply the explicit incidence-closure classification, concept-lattice automorphism group, or optimal iterative Horn arity. Related mathematical-record searches returned results about permutation families, matching counts, and other concept lattices rather than a theorem implying this triple of conclusions. An unlocated equivalence in all-different constraint-propagation or partial-permutation lattice literature remains possible; absence from these searches is not a novelty certificate.
+
+**Mathematical value — PASS.** The family is a canonical constraint-incidence formal context rather than a bespoke finite slice. The sharp two-hole boundary identifies where Hall-type freedom fails, which yields a complete closure structure and the exact optimal premise arity for logical inference. The full automorphism group and exact concept enumeration make that mechanism quantitatively testable across all orders. Classical rook counts alone do not settle these logical and lattice invariants.
+
+**Scope and limitations.** Only \(n\ge4\) and the specified derangement-to-offdiagonal-cell incidence are asserted; no minimum total Horn-basis size, publication priority, or independent certification is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
