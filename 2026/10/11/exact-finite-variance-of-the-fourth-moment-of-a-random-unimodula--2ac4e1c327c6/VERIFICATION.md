@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic verification uses three exact ingredients.
+# Independent mathematical audit
 
-1. Parseval gives \(X_n=n^2+2E_n\).
-2. Haar character orthogonality reduces \(\operatorname{Var}(E_n)\) to a sum of squared multiplicities of nontrivial exponent vectors.
-3. Every such vector has multiplicity \(1\) when the two positive offsets coincide and multiplicity \(2\) otherwise; the only collision is the interchange of the two positive offsets.
+## correctness
 
-The accompanying `verify.py` constructs the exponent vectors directly for every \(2\le n\le40\), checks the number of constant terms, checks that all nonconstant multiplicities lie in \(\{1,2\}\), and verifies the exact parity formula for the sum of squared multiplicities.
+PASS
 
-The finite replay is not an exhaustive proof for arbitrary \(n\); the all-\(n\) conclusion rests on the explicit character classification and closed-form counts in `RESULT.md`.
+Parseval gives X_n=n^2+2 E_n for normalized Haar arc measure. Diagonal i=j contributes n(n-1)/2, while each off-diagonal torus character has negative endpoints i,i+d+k and positive multiset {i+d,i+k}; its only collision swaps d and k. Distinct characters have multiplicities 1 (d=k) or 2, with conjugate partners. Orthogonality gives Var(E)=2T-N1, with T=n(n-1)(n-2)/3 and N1=n(n-2)/2 for even n or (n-1)^2/2 for odd n. Independent exact exponent-vector enumeration for n=2..16 reproduced Var(X) and endpoint n=2=0. The counting argument, not enumeration, proves all n.
+
+## originality
+
+PASS
+
+Choi–Mossinghoff 2011 Theorem 3 gives limiting normalized L^4-moment concentration, not this exact parity-sensitive finite-n variance; Schmidt treats deterministic autocorrelation identities. The exact two-polynomial variance count is not a direct corollary of the limit. No matched finite parity formula was found among directly inspected sources; older random-sequence/radar formulations remain a genuine priority risk.
+
+## value
+
+PASS
+
+Fourth-norm finite fluctuations in independent random-phase polynomial/correlation-energy models are a natural quantitative statistic. The exact n-dependent variance, including a real parity correction and n^3 leading scale, sharpens mere concentration and can benchmark finite random phase sequences.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
