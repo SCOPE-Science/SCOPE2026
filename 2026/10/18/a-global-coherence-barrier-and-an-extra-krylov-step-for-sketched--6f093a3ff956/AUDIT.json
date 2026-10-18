@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The exact normal matrix, source-defined block eigenvalues, strict ordering, and generalized-Rayleigh lower bound are proved algebraically for every allowed n,m,s,rho,lambda; exact-rational CG checks reproduce a two-step versus three-step example; floating-point checks are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Demmel (2023), DOI 10.1137/22M1504901, abstract gives general block-Jacobi scaling guarantees, not the source-defined sketched kernel surrogate.",
+        "Southworth–Olivier (2020), arXiv:2001.00711, inspected the complete theorem statement and relevant sections 1–2 describing two-block exact/Schur preconditioning and Krylov effects."
+      ],
+      "reasoning": "The general block-scaling literature dominates the standalone optimization question, not the algorithm-specific eigenvalue formulas. General two-block spectral machinery might specialize to the q=2 case, but it does not expressly cover all q and all source parameters. Residual derivability risk is retained.",
+      "searches": [
+        "Optimal Block Diagonal l2-Scaling of Matrices Shapiro 1985 pdf",
+        "Kolotilina 2002 Optimally conditioned block matrices compound symmetry rank one necessary sufficient optimal",
+        "Nearly Optimal Block-Jacobi Preconditioning Demmel PDF Berkeley 2022"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.13382",
+      "https://arxiv.org/abs/2001.00711",
+      "https://doi.org/10.1016/S0024-3795(01)00412-8",
+      "https://doi.org/10.1137/0722005",
+      "https://doi.org/10.1137/22M1504901"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.13382v1 supplies the *algorithm definition* but no stated exact spectral equality in the inspected method, results and appendices.",
+        "arXiv:2001.00711 provides a spectral analysis for general two-block preconditioning, notably its Theorem 2.1; it predates and does not define the new source block surrogate.",
+        "Kolotilina (2002) has a broad optimality characterization, with full text unavailable for exact implication comparison."
+      ],
+      "reasoning": "The abstract local-block lower bound is plausibly a corollary of older work and is not claimed separately. The assessed BLOKS-specific profile requires inserting its nonstandard squared-kernel surrogate, obtaining the three invariant eigenspaces and ordering, and showing the generic CG penalty. An exact stronger old statement covering these new matrices was not verified; access remains a residual risk.",
+      "searches": [
+        "BLOKS Scaling Kernel Solvers with Sketched Block Preconditioning analytical spectrum exact equicorrelated kernel worst-case preconditioning slowdown",
+        "A note on 2x2 block-diagonal preconditioning Southworth Olivier 2001.00711"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kolotilina (2002), DOI 10.1016/S0024-3795(01)00412-8, abstract states a general characterization of optimally block-scaled SPD matrices.",
+        "Shapiro (1985), DOI 10.1137/0722005, abstract states lower bounds and closed-form special cases of block scaling."
+      ],
+      "reasoning": "Such prior characterizations could imply the auxiliary no-improvement lower bound for compound-symmetric matrices, so that lemma is not claimed as independent novelty. Neither accessible abstract specifies the sketched kernel block factors introduced in 2026 or their three spectral values; unavailable full text remains a risk.",
+      "searches": [
+        "compound symmetry equicorrelation optimal diagonal scaling block diagonal preconditioning",
+        "equicorrelated kernel ridge regression block Jacobi preconditioner three eigenvalues CG"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Vitale et al. arXiv:2610.13382v1, Sections 3 and Appendices B–C inspected: equations (7), (12)–(13) define the matrices; experiments report empirical comparisons without the exact compound-symmetry table.",
+        "Focused searches for equicorrelation/Nyström/sketched-block exact spectrum returned no table of the stated three eigenvalues."
+      ],
+      "reasoning": "No exact database or literature table matching the simultaneous all-parameter formula, condition-number identity, and CG-step count was identified; search failure alone is not proof of novelty.",
+      "searches": [
+        "BLOKS 2610.13382 theory equicorrelation failure preconditioner condition number",
+        "block Jacobi preconditioner compound symmetric matrix exactly three eigenvalues within between blocks convergence"
+      ]
+    },
+    "rationale": "The particular 2026 Nyström block-surrogate spectrum and generic exact-CG iteration penalty are not stated in the inspected motivating article. Classical block-scaling optimality may imply the supporting no-go lower bound, which is explicitly excluded from the independent novelty assertion. The published 2020 two-block theorem concerns different block preconditioners; it does not supply these all-size surrogate block eigenvalues without a new specialization to the 2026 construction. This is a same-model best-knowledge originality assessment, not proof of uniqueness.",
+    "residual_risks": [
+      "The original full text of Kolotilina (2002) was unavailable; its general characterization might imply more of the special case than the abstract makes clear.",
+      "The original full texts of Shapiro (1985) and Demmel (2023) were unavailable; their block-scaling theory could contain unindexed equivalent formulations.",
+      "No negative search establishes worldwide novelty, and general two-block spectral algebra may be specialized to the 2026 surrogate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The exact compound-symmetry three-eigenvalue spectrum, unchanged condition number, and extra-CG-step example are not reported in inspected material.",
+        "evidence": [
+          "arXiv:2610.13382v1, first public 2026-10-09, equations (7), (12), (13), (16), Appendix B/C"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.13382",
+        "material_read": "Accessible full-paper HTML excerpts covering Sections 1–3 through the method equations (7), (12)–(16), plus comparison passages returned from Appendices B–C",
+        "method": "Read the returned method passages and appendix excerpts; searched the available article text for condition number, eigenvalue, equicorrelation and theoretical statements",
+        "title": "BLOKS: Scaling Kernel Solvers with Sketched Block Preconditioning",
+        "trigger": "Direct motivating construction and any possible already-stated spectrum"
+      },
+      {
+        "assessment": "General two-block results and iteration counterexamples are prior; not the exact 2026 sketched kernel-block construction or all q.",
+        "evidence": [
+          "arXiv:2001.00711v1, Theorem 2.1 and Section 2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2001.00711",
+        "material_read": "Accessible arXiv text covering Sections 1–2 through Theorem 2.1 and the surrounding block-spectral discussion",
+        "method": "Read original accessible arXiv text",
+        "title": "A note on 2×2 block-diagonal preconditioning",
+        "trigger": "Possible general implication for two-block spectral profile and Krylov step counts"
+      },
+      {
+        "assessment": "General abstract is plausibly relevant to the auxiliary optimal-block-scaling statement. No document-level NOT_COVERING assertion is made. Specific 2026 surrogate cannot appear by name in 2002 paper but prior general formula could encompass an equivalent special case.",
+        "evidence": [
+          "Kolotilina, Linear Algebra Appl. 340 (2002), 55–67, abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/S0024-3795(01)00412-8",
+        "material_read": "Abstract and bibliographic description only; original full text not accessible via lawful routes checked",
+        "method": "Searched for preprint/open copy and attempted institutionally authorized retrieval, without full text",
+        "title": "Optimally conditioned block matrices",
+        "trigger": "Could dominate the block-local no-go lemma by general necessary/sufficient optimality"
+      },
+      {
+        "assessment": "May cover the standalone optimization statement; not used to establish absence of same mathematical result.",
+        "evidence": [
+          "Shapiro, SIAM J Numer Anal 22 (1985), 81–94, abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0722005",
+        "material_read": "Abstract and bibliographic description, not primary full text",
+        "method": "Search for lawful open text; abstract read",
+        "title": "Optimal Block Diagonal l2-Scaling of Matrices",
+        "trigger": "Older broad optimal SPD block-scaling and special cases"
+      },
+      {
+        "assessment": "General scaling framework may subsume the auxiliary no-go result, but no source-defined BLOKS block surrogate stated in accessible material.",
+        "evidence": [
+          "Demmel, SIAM J Matrix Anal Appl 44 (2023), 408–413, abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/22M1504901",
+        "material_read": "Publisher abstract and author institutional abstract; full text not accessed",
+        "method": "Read institutional/publisher bibliographic abstracts and searched for open preprint",
+        "title": "Nearly Optimal Block-Jacobi Preconditioning",
+        "trigger": "Broad block-Jacobi optimization and conditioning results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6f093a3f-f956-49b7-8254-7031cf4e9b7f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source is motivated by reducing memory without sacrificing Krylov speed; the theorem supplies a normalized Gaussian-kernel stress family on which no nontrivial equal-block split improves conditioning and nontrivial blocks add an exact-CG step, isolating global cross-block coherence as a specific limitation. This is an interpretable structural boundary, not an arbitrary parameter substitution.",
+    "status": "PASS"
+  }
+}
