@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Deterministic caterpillar support-path identity proves the exact floor(k/3) gap cost; geometric iid cycles give (M,R,C) and exact centered reward covariance (72/343,12/49,1). Renewal LLN, multivariate random-time CLT and uniformly bounded moments of geometric residuals yield 2/7 mean, 18/343 variance slope, 3/49 covariance slope, joint normal limit. Independent brute-force inversion-graph dominating-set enumeration through 11 vertices and exact rational moments passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "H. Acan and P. Hitczenko, arXiv:1406.3958 §§2–3.4, especially Eq. (3.8), Theorem 20",
+        "T. Baren et al., arXiv:1810.03409 §§1–7",
+        "Published related records describe uniform Cayley trees, recursive trees or unrelated domination invariants, not a stronger joint limit for the same random graph model."
+      ],
+      "reasoning": "The primary random permutation-tree paper covers the exact diameter and a different edge-covering statistic. The 2018 paper covers standard domination for general permutation graphs but gives finite enumerations and algorithms, not an all-size probabilistic CLT for uniform tree inversion graphs. General domination algorithms do not imply the explicit bivariate limiting covariance without additional probabilistic analysis.",
+      "searches": [
+        "domination number random caterpillar spine independent geometric run lengths 18/343 central limit",
+        "uniform tree permutations caterpillar independent run lengths renewal minimum dominating set asymptotic central limit joint diameter",
+        "arXiv:1810.03409 connected permutation graphs domination enumeration and algorithm",
+        "uniform random tree inversion graph standard domination joint diameter CLT"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1406.3958, 17-page PDF §§2–3.4, including Eq. (3.8) and Theorem 20",
+      "arXiv:1810.03409, 18-page PDF §§1–7, including definition and algorithms",
+      "arXiv:2203.04182, primary text on random-tree permutation pattern counts",
+      "Published result 2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae (Cayley tree endpoint distance, different model)",
+      "Published result 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f (recursive tree, different model)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "H. Acan and P. Hitczenko, arXiv:1406.3958 §§2–3.4, especially Eq. (3.8), Theorem 20",
+        "T. Baren et al., arXiv:1810.03409 §§1–7",
+        "The n/3 edge-incidence mean in the 2014 work differs at order n from the derived 2n/7 ordinary vertex-domination mean; its diameter law alone does not determine joint covariance."
+      ],
+      "reasoning": "The new conclusion cannot be obtained by renaming the source edge-incidence statistic: its exact functional of singleton-run gap length is floor(k/2) rather than floor(k/3). The 2018 extremal and algorithmic statements do not contain the probabilistic renewal moment constants. Standard renewal-reward CLTs imply the Gaussian form after a fresh nontrivial exact gap classification and cycle-moment calculation, both provided here.",
+      "searches": [
+        "standard minimum dominating set size uniformly random tree permutation graph n/7 2/7 joint diameter Gaussian",
+        "uniform tree permutations caterpillar independent run lengths renewal minimum dominating set asymptotic central limit joint diameter",
+        "arXiv:1406.3958 Theorem 20 n/3 13/50",
+        "arXiv:1810.03409 ordinary closed-neighborhood domination"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "H. Acan and P. Hitczenko, arXiv:1406.3958 §§2–3.4, especially Eq. (3.8), Theorem 20",
+        "T. Baren et al., arXiv:1810.03409 §§1–7",
+        "Exact finite gap formula gives floor(k/3), whereas source Eq. (3.8) gives floor(k/2) under edge-incidence definition."
+      ],
+      "reasoning": "Closed-neighborhood domination equals a minimum closed-neighborhood cover and is not the same as minimum vertex cover. The Acan–Hitczenko paper names its statistic domination but explicitly defines it by incidence of every edge, yielding a distinct per-gap cost. Its n/3 law is not a reformulation of the present 2n/7 law.",
+      "searches": [
+        "standard minimum dominating set size uniformly random tree permutation graph n/7 2/7 joint diameter Gaussian",
+        "permutation inversion tree uniform binary sequence standard vertex domination number closed neighborhoods 2/7",
+        "domination number permutation tree 2n/7 18n/343 covariance 3n/49",
+        "arXiv:1406.3958 Eq. (3.8)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "H. Acan and P. Hitczenko, arXiv:1406.3958 §§2–3.4, especially Eq. (3.8), Theorem 20",
+        "T. Baren et al., arXiv:1810.03409 §§1–7",
+        "A separate published record concerns random recursive-tree root degree and leaves: 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f."
+      ],
+      "reasoning": "No inspected primary table gives the exact triple (2/7,18/343,3/49) for ordinary domination and diameter in the uniform permutation-tree model. Closest published search records tabulate different graphs or statistics; the finite-word identity was checked independently instead of asserting tabular uniqueness.",
+      "searches": [
+        "domination number permutation tree 2n/7 18n/343 covariance 3n/49",
+        "random caterpillar minimum dominating set consecutive degree two spine runs 3 geometric",
+        "arxiv:1406.3958 vertex cover floor k/2",
+        "arxiv:1810.03409 domination number permutation graph n/2"
+      ]
+    },
+    "rationale": "Primary Acan–Hitczenko full text studies the same tree model but explicitly defines an edge-incidence/vertex-cover condition and its floor(k/2) gap cost; this does not imply ordinary closed-neighborhood floor(k/3). Baren et al. study ordinary domination on broader permutation graphs, but do not prove the uniform permutation-tree joint renewal law in inspected material. Closest published finding searches concern other models or statistics; historical priority not certified.",
+    "residual_risks": [
+      "An earlier paper on the domination of random caterpillars could derive the same renewal constants implicitly; primary full-text comparisons are substantial but not exhaustive.",
+      "The Acan–Hitczenko paper calls its edge-incidence statistic “domination”; interpreting only its title or abstract would falsely conflate the two statistics.",
+      "Published semantic discovery and sampled source coverage cannot prove historical uniqueness; independent priority review remains outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS permutation-tree enumeration, run/spine correspondence and diameter; Section 3.4 studies incidence of every edge (vertex-cover requirement), not ordinary closed-neighborhood vertex domination; DOES NOT COVER the presented joint limit.",
+        "evidence": [
+          "§2 insertion/binary bijection; Lemmas 8,11,12",
+          "§3.2 diameter binomial law",
+          "§3.4 definition “each edge ... incident” and Eq. (3.8) floor(k/2); Theorem20 n/3,13/50"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1406.3958",
+        "material_read": "Complete 17-page lawful arXiv PDF, concentrating on §§2, 3.1–3.4, pp.3,5–7,10–13, including original formulas and figures.",
+        "method": "Primary arXiv full-text reading with page-image inspection for equations and graph definition.",
+        "title": "On random trees obtained from permutation graphs",
+        "trigger": "Exactly same random permutation-tree distribution; source explicitly discusses domination and diameter."
+      },
+      {
+        "assessment": "USES the same standard vertex-domination definition but its published enumeration/extremal/algorithmic results do not determine the uniform tree submodel joint Gaussian law.",
+        "evidence": [
+          "§1 definition via N[D]=V",
+          "§§2–7 enumeration of domination 1 and n/2, selected other enumerations and algorithms"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1810.03409",
+        "material_read": "18-page lawful arXiv primary PDF, abstract, definitions §1, main theorems and proofs §§2–7, including algorithms in §7.",
+        "method": "Primary arXiv full-text reading and matched-statistic search.",
+        "title": "On the Domination Number of Permutation Graphs and an Application to Strong Fixed Points",
+        "trigger": "Ordinary closed-neighborhood domination of the same ambient permutation-graph class."
+      },
+      {
+        "assessment": "Patterns in random tree permutations rather than graph-theoretic minimum closed-neighborhood dominating set; no implication for the stated nonlinear optimization statistic.",
+        "evidence": [
+          "Permutation pattern count theorems; different observables and parameter class."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2203.04182",
+        "material_read": "Lawful arXiv paper, introductory definitions, main pattern-count theorems and object descriptions.",
+        "method": "Primary full-text reading of central theorem statements and comparison of observables.",
+        "title": "The number of occurrences of patterns in a random tree or forest permutation",
+        "trigger": "Potentially stronger limit theorem on uniform random tree permutations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0d00ea59-acdb-4d36-ab04-bb9f4871ab5d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Ordinary vertex-neighborhood domination is a natural nonlinear optimization invariant. Exact floor(k/3) path gap law resolves the parameter for random permutation trees and yields a new density and bivariate fluctuation covariance with diameter. This is not a routine restatement of the source edge-cover statistic or its known diameter marginal.",
+    "status": "PASS"
+  }
+}
