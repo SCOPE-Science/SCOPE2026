@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The cited source gives the precise nonequivariant premise \(\widetilde H_4\cong\mathbb Q^{39}\) and vanishing of the other reduced degrees in both generalized complexes. The proof identifies all invariant matchings with independent sets of explicitly defined finite orbit-conflict graphs, derives the signed reduced Lefschetz formula, evaluates the orbit-count tables, and converts traces to Specht multiplicities by the ordinary character inner product. A second program independently enumerates the original matching simplices and signs for every tetrahedral permutation. Both programs reproduce all displayed values. Finite enumeration is sufficient here because only two fixed finite complexes are claimed.
+
+**Originality — PASS, with residual risk.** Scoville's full primary text establishes nonequivariant sphere-wedge types but does not determine the tetrahedral action on generalized matching homology. Chari–Joswig and related tetrahedral symmetry records treat the acyclic Morse-matching complex, which has fourth Betti number \(99\), not the generalized complexes with fourth Betti number \(39\). Knudson–Owens-White consider *strong* matchings. The supplied character and resulting equal rational quotient ranks are not implied by the cited nonequivariant equivalences. Targeted mathematical index and literature searches found no equivalent or stronger direct theorem; an unindexed equivalent remains possible.
+
+**Mathematical value — PASS.** The identical nonequivariant homotopy types of the simplex and boundary are a central comparison in Scoville's new study. Their different face counts make agreement of *all* symmetry traces a genuinely additional structural fact. Explicit rational representations and geometric-quotient homology detect equivariant information not determined by ordinary homotopy type. The calculation naturally tests the symmetry refinement of the proposed higher-dimensional generalized-complex comparison, without claiming that the inclusion is equivariantly equivalent.
+
+**Scientific limits.** No integral representation statement, inclusion-induced isomorphism, higher-dimensional formula, or independently certified novelty is claimed. An unindexed overlapping calculation is the remaining originality risk.
+
+Self-review: passed. Independent audit: not yet performed.
