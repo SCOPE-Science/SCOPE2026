@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T14:46:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The polar dynamics are dr/dt=lambda r(1-r²), dtheta/dt=omega+c(1-r²). For r>0, Phi=theta-(c/lambda)log r has exact derivative omega; r=1 is hyperbolically attracting with radial exponent -2lambda and common orbital frequency omega. Its gradient on the unit circle is e_theta-(c/lambda)e_r; the tangent component is fixed and the radial coefficient arbitrary. Thus all exact cycle data coincide while full phase-response curves differ. Independently simplified the phase derivative symbolically to omega and verified on-cycle shear argument. This is a structural non-identifiability claim, not a numerical failure of any particular ML model.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Selecting constant alpha-beta from that stronger family immediately gives exactly the counterexample.",
+          "arXiv:2403.06992v1; doi:10.1063/5.0205718; https://arxiv.org/pdf/2403.06992"
+        ],
+        "reasoning": "Prior paper gives the entire two-parameter oscillator, phase and PRC, broader than the submitted one-parameter isofrequency slice.",
+        "searches": [
+          "Resultary: Stuart Landau exact isochrons phase response radial shear nonidentifiability limit cycle only phase learning",
+          "arXiv:2403.06992 Equations (29)–(31); arXiv:2607.15472",
+          "Stuart-Landau same omega varying beta isochrons phase sensitivity"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2403.06992v1 primary full PDF Equations 29–31 and pages 5–6",
+        "arXiv:2607.15472v1 bibliographic and incomplete source context",
+        "Resultary Stuart–Landau radial shear/PRC identifiability search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Thus prior results cover the essential theorem even if the authors did not use the modern phrase model identifiability.",
+          "arXiv:2403.06992v1; doi:10.1063/5.0205718; https://arxiv.org/pdf/2403.06992"
+        ],
+        "reasoning": "Setting alpha=omega+beta in published equations implies common orbit and distinct gradient.",
+        "searches": [
+          "Resultary: Stuart Landau exact isochrons phase response radial shear nonidentifiability limit cycle only phase learning",
+          "arXiv:2403.06992 Equations (29)–(31); arXiv:2607.15472",
+          "Stuart-Landau same omega varying beta isochrons phase sensitivity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "It prints both Phi=theta-beta log r and radial phase gradient coefficient -beta.",
+          "arXiv:2403.06992v1; doi:10.1063/5.0205718; https://arxiv.org/pdf/2403.06992"
+        ],
+        "reasoning": "Prior paper’s Stuart–Landau form with variable alpha and beta is equivalent after lambda=1,c=beta,alpha=omega+beta.",
+        "searches": [
+          "Resultary: Stuart Landau exact isochrons phase response radial shear nonidentifiability limit cycle only phase learning",
+          "arXiv:2403.06992 Equations (29)–(31); arXiv:2607.15472",
+          "Stuart-Landau same omega varying beta isochrons phase sensitivity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No computation or new data is required to demonstrate that on-cycle observations are independent of beta.",
+          "arXiv:2403.06992v1; doi:10.1063/5.0205718; https://arxiv.org/pdf/2403.06992"
+        ],
+        "reasoning": "Exact database/table not needed: the source analytic formulas in Equations 29–31 resolve each real beta.",
+        "searches": [
+          "Resultary: Stuart Landau exact isochrons phase response radial shear nonidentifiability limit cycle only phase learning",
+          "arXiv:2403.06992 Equations (29)–(31); arXiv:2607.15472",
+          "Stuart-Landau same omega varying beta isochrons phase sensitivity"
+        ]
+      },
+      "rationale": "FAIL: Yawata–Fukami–Taira–Nakao, Chaos 2024, Equations (29)–(31), ALREADY presents the same parametric Stuart–Landau normal form, frequency omega=alpha-beta, global phase theta-beta log r, and explicit phase response vector e_theta-beta e_r. Choosing alpha=omega+beta and varying beta fixes on-cycle states and velocities but varies radial PRC; this is the submitted counterfamily at lambda=1. The full same-orbit/different-PRC conclusion follows immediately from those published equations even without a matching titled theorem. The later Zhang et al. 2026 focal machine-learning paper was not fully accessible, but the older full-text mathematical coverage is decisive.",
+      "residual_risks": [
+        "The focal 2026 Zhang et al. full text was inaccessible; institutional access returned vpn_disconnected, so no full-paper noncoverage is claimed.",
+        "The rejection is established by the accessible 2024 full text independently of the inaccessible 2026 source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONG COVERAGE: varying beta at fixed alpha-beta leaves orbit data unchanged while Eq. (31) varies radially; hence the submitted nonidentifiability witness and its conclusion follow directly from this paper’s parametric formulas",
+          "evidence": "Eq. (29)–(31), pages 5–6; https://arxiv.org/pdf/2403.06992",
+          "identifier_or_url": "arXiv:2403.06992v1; doi:10.1063/5.0205718; https://arxiv.org/pdf/2403.06992",
+          "material_read": "Complete 12-page primary PDF text plus screenshots of pp. 5–6; especially Eq. (29) Stuart–Landau with alpha,beta, omega=alpha-beta, Eq. (30) theta-beta log r, Eq. (31) phase response components",
+          "method": "original primary PDF text and visual page verification; algebraically compared variable alpha=omega+beta",
+          "title": "Phase autoencoder for limit-cycle oscillators",
+          "trigger": "exact same Stuart-Landau family and known analytic phase sensitivity"
+        },
+        {
+          "assessment": "Full-text source comparison unresolved because institutional access returned vpn_disconnected; cannot claim noncoverage from snippets. Pre-existing 2024 full-text coverage already decisive independently",
+          "evidence": "https://arxiv.org/abs/2607.15472; authorized institutional source reported vpn_disconnected",
+          "identifier_or_url": "arXiv:2607.15472v1",
+          "material_read": "Title/abstract and source statements reproduced in the frozen result/review; full article was not obtained in this run",
+          "method": "public bibliographic access then authorized institutional full-text attempt",
+          "title": "Ptolemy’s Equant Equates to a Universal Dynamical Clock via Machine Learning",
+          "trigger": "directly targeted contemporary phase-learning and Neural ODE context"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: The concern about on-cycle identifiability has applied relevance, but its exact witness is a straightforward reparameterization of the published textbook Stuart–Landau phase response formula with alpha-beta fixed. It adds no independent dynamical invariant, nonstandard construction, boundary proof, or new sharpness fact beyond making an already obvious parameter nonidentifiability observation. Motivation alone cannot turn a known normal-form substitution into a distinct valuable mathematical finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The focal 2026 Zhang et al. full text was inaccessible; institutional access returned vpn_disconnected, so no full-paper noncoverage is claimed.",
+    "The rejection is established by the accessible 2024 full text independently of the inaccessible 2026 source.",
+    "Scientific judgment does not authorize publication or constitute expert or Lean verification.",
+    "Signed checkpoint is a task-sequence position, not scientific completion evidence."
+  ],
+  "schema_version": 1
+}
