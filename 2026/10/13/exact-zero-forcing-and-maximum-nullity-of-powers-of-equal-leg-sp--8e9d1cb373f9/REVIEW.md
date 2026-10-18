@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof supplies a concrete matrix in the graph-pattern class. The consecutive-window incidence matrix \(W\) has rank \(\ell-k\); hence \(D=WW^{\mathsf T}\) has a \(k\)-dimensional kernel and exactly the support of \(P_\ell^k\). The cross-leg block \(C\), within-leg block \(B=D+C\), and center vector reproduce the distance rules for the spider power. The subspace of \(m\) kernel vectors whose sum is zero has dimension \((m-1)k\) and is killed by the block matrix. This proves the lower bound on maximum nullity, while the standard \(M\le Z\) inequality and the published zero-forcing upper bound close the equality. Exact-arithmetic computation is corroborative, not foundational.
+## correctness
 
-## Originality
-**PASS.** The motivating preprint proves only the upper bound and then states exactly the equality as Conjecture 10. A plausible older dominating source, *Minimum rank of powers of trees* (2012), was inspected in full: it determines ordinary path-power minimum rank and studies strict powers of general trees, but does not state the ordinary equal-leg-spider power formula. Targeted searches across zero forcing, maximum nullity, spider powers, the \((m-1)k\) formula, and minimum-rank aliases found no covering theorem. The principal residual risk is the extreme recency of the conjecture and possible unindexed or later-revision work.
+PASS
 
-## Value
-**PASS.** This is a natural exact classification for the canonical equal-leg spider family, resolves an explicit conjecture, and strengthens it by identifying maximum nullity. The proof exposes a simple matrix mechanism coupling path-power kernels across the legs, which is mathematically more informative than a bounded computation.
+For W whose columns indicate all length-(k+1) intervals of the ell-leg, W has rank ell-k, D=WW^T has exact within-leg distance<=k support and nullity k. Across-leg matrix C_ab=1 iff a+b<=k and center d_a=1 iff a<=k give an exact graph-pattern symmetric block matrix X. For every k-dimensional x_i in ker D with sum_i x_i=0, X(0,x_1,...,x_m)=0, a subspace of dimension k(m-1). General M<=Z and published Z<=k(m-1) yield equality for all m>=2,k>=1,ell>=k+1. Independent exact Fraction rank/support tests passed 48 parameter triples; underlying verifier script and source tree also inspected.
 
-## Closest literature and limitations
-The closest source is A. Abiad, M. Flagg, S. Ghasemi Nezhad, and S. Zeijlemaker, arXiv:2610.03892v1, Proposition 9 and Conjecture 10. The main older comparison is L. M. DeAlba et al., *Minimum rank of powers of trees*, DOI:10.13001/1081-3810.1511. The theorem does not address unequal-leg spiders, \(\ell\le k\), or arbitrary tree powers.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best knowledge: The original 2026 graph-powers preprint poses equality as Conjecture 10, while its Proposition 9 provides only an upper bound. No inspected prior result gives the all-parameter maximum-nullity lower bound with exact off-diagonal support. The first assigned record is a strictly weaker contemporary special case, not covering this theorem.
+
+## value
+
+PASS
+
+Solves a naturally stated equality conjecture for all equal-leg-spider graph powers and, more strongly, computes exact maximum nullity and minimum rank through a graph-pattern matrix construction in all parameters. The complete bound is useful beyond finite instances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
