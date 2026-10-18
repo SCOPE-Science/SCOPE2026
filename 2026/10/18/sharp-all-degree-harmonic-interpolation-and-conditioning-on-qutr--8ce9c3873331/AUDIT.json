@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The qutrit projective harmonic addition kernel has dimension (q+1)^3 and only three possible overlap values on the four mutually unbiased bases. Three explicit pairwise-orthogonal projectors diagonalize the whole Gram matrix. A standard Legendre recurrence gives exact rational spectra for degrees zero to sixteen; from degree seventeen the provable |P_n(-1/3)|<=1 yields all eigenvalues within 31/[2(q+1)] of one. Consequently the sharp normalized endpoints 2/27 (degree five) and 28/15 (degree four) and the exact maximum condition ratio 63/4 (degree five) follow for every degree, with no extrapolation. The embedded standard-library checker reconstructs 108 exact finite-field overlap comparisons, exact projectors, spectra and certificates.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:quant-ph/0309120, Theorem 2 gives qutrit and general odd-prime-power MUB constructions, with no degree-varying higher harmonic stability theorem.",
+        "arXiv:1104.4692 gives an all-degree Jacobi addition formula, a broader general tool; its specialization to the twelve MUB points supplies the algebraic starting point, while the optimization over all positive degrees is not stated there."
+      ],
+      "reasoning": "General addition theorems and the MUB overlap relations imply the displayed three-sector linear-algebra reduction, which is acknowledged as background. The mathematical claim further establishes a strict all-degree cutoff, sharp uniform lower and upper eigenvalue bounds with different equality degrees, and a unique global condition-number maximizer. No inspected broader theorem directly provides these comparisons across all degrees.",
+      "searches": [
+        "mutually unbiased bases higher harmonic reproducing kernel interpolation rank universal degree",
+        "Roy Suda complex spherical designs Jacobi theorem mutually unbiased basis association scheme",
+        "complete set mutually unbiased bases MUB nine twelve points qutrit projective spherical harmonic interpolation Jacobi polynomial Gram eigenvalues condition number"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:quant-ph/0309120; https://arxiv.org/pdf/quant-ph/0309120",
+      "arXiv:quant-ph/0502031; https://arxiv.org/pdf/quant-ph/0502031",
+      "arXiv:quant-ph/0703025; https://arxiv.org/pdf/quant-ph/0703025",
+      "arXiv:1104.4692; https://arxiv.org/pdf/1104.4692",
+      "Delsarte–Goethals–Seidel, Philips Research Reports 30 (1975), 91–105; https://research.tue.nl/en/publications/bounds-for-systems-of-lines-and-jacobi-polynomials/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Klappenecker–Rötteler 2003 supplies the twelve MUB nodes and pairwise overlaps.",
+        "Klappenecker–Rötteler 2005 and Roy–Scott 2007 identify strength-two design and tomography properties, explaining rank deficiencies at degrees one and two.",
+        "Roy–Suda 2011 gives harmonic Jacobi kernels but does not state the particular sharp interval [2/27,28/15] or the unique worst-degree ratio 63/4."
+      ],
+      "reasoning": "The low-degree design constraints and the three-projector diagonalization are largely applications of earlier tools, rather than claimed as wholly new machinery. The finite rational comparison plus the Legendre tail proof derives the additional uniform minimax assertions. A projective two-design property alone only controls low-degree moments, not positivity and sharp conditioning of every individual higher-degree space.",
+      "searches": [
+        "arxiv:quant-ph/0309120 Theorem 2 Example 1",
+        "arxiv:quant-ph/0502031 Theorem 3",
+        "arxiv:quant-ph/0703025 MUB tomography projective 2-design",
+        "arxiv:1104.4692 Theorem 2.1 complex harmonic Jacobi addition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:quant-ph/0502031, Theorem 3: the twelve points form a projective two-design with overlaps 0 and 1/3.",
+        "arXiv:1104.4692, Theorem 2.1 and pp.4-5: the reproducing kernels are Jacobi polynomials and their evaluation matrices are positive semidefinite."
+      ],
+      "reasoning": "Projective two-design and association-scheme descriptions are equivalent models for the same twelve nodes; they determine the three overlap classes but do not, in the inspected primary statements, optimize the entire sequence of three Jacobi-sector eigenvalues. Exact normalization and the sharp all-degree constants are compared as mathematical implications, not word matches.",
+      "searches": [
+        "complete set mutually unbiased bases MUB nine twelve points qutrit projective spherical harmonic interpolation Jacobi polynomial Gram eigenvalues condition number",
+        "complex projective mutually unbiased bases Jacobi harmonic interpolation sampling ranks",
+        "\"mutually unbiased bases\" \"harmonic\" \"interpolation\" higher degrees"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact comparison target: for all integer degrees at least three, the two normalized Gram endpoints are 2/27 and 28/15, and the condition-number supremum is 63/4 at degree five.",
+        "Searches of mathematical records and primary-literature titles/summaries did not yield a table with those invariants for the four-basis qutrit system.",
+        "A separate nine-line SIC harmonic spectrum has only two overlap sectors and is not a table for twelve MUB nodes."
+      ],
+      "reasoning": "The absence of a search match is not a proof of novelty. The checked exact tables concern different node sets or only projective design strength; no database/table identified here gives the three all-degree sharp constants. The attached exact_table.json is new exact-arithmetic evidence, not an external novelty certificate.",
+      "searches": [
+        "four mutually unbiased bases dimension three degree five complex projective interpolation worst conditioning 63/4",
+        "four mutually unbiased bases qutrit 12 lines Jacobi positive definite kernel interpolation exact spectrum",
+        "projective 2-designs sharp all-degree harmonic sampling rank condition stability constant"
+      ]
+    },
+    "rationale": "The established MUB construction and its projective two-design structure, the Jacobi addition theorem, and their algebraic consequences are credited. The examined primary works do not state sharp all-bidegree qutrit twelve-ray interpolation endpoints or the unique fifth-degree condition maximum. Older Jacobi literature remains a stated residual priority risk; failed searches have not been treated as proof of uniqueness.",
+    "residual_risks": [
+      "The full 1975 Delsarte–Goethals–Seidel text was not accessible: an implicit stronger association-scheme corollary remains possible.",
+      "Search indices and inspected primary papers cannot establish worldwide publication priority, and unusual naming of projective harmonic evaluation operators may hide an equivalent.",
+      "Prior exact two-design analysis establishes low-degree consequences and general Jacobi tools; only the claimed sharp global degree-by-degree constants are advanced as distinct."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers mutually unbiased construction and exact pairwise overlaps; does not give higher harmonic all-degree Gram extrema.",
+        "evidence": "Theorem 2 constructs complete odd-characteristic bases; Example 1 lists the four three-dimensional bases.",
+        "identifier_or_url": "arXiv:quant-ph/0309120; https://arxiv.org/pdf/quant-ph/0309120",
+        "material_read": "Full open-access preprint available; introduction, section 2 Theorem 2, its proof, and Example 1 at pages 1–4 inspected.",
+        "method": "Open-access original PDF text and page image; compare field construction and stated results.",
+        "title": "Constructions of Mutually Unbiased Bases",
+        "trigger": "Same twelve-point object and the earliest date-verified source; possible construction or Gram overlap overlap."
+      },
+      {
+        "assessment": "Establishes projective two-design strength and the angle set; does not establish uniform spectral bounds for all harmonic degrees.",
+        "evidence": "Theorem 3 identifies the two-design, cardinality d(d+1), and angles 0 and 1/d.",
+        "identifier_or_url": "arXiv:quant-ph/0502031; https://arxiv.org/pdf/quant-ph/0502031",
+        "material_read": "Original five-page preprint; section II qutrit example and section VI Theorem 3 inspected, including page images.",
+        "method": "Open-access original PDF full-text targeted inspection.",
+        "title": "Mutually Unbiased Bases are Complex Projective 2-Designs",
+        "trigger": "Same node system and potential stronger design implication."
+      },
+      {
+        "assessment": "Concerns weighted projective two-designs and optimal state determination, not individual high-bidegree interpolation stability.",
+        "evidence": "Introduction distinguishes optimal orthogonal measurements and defines complete MUB overlap property, section 2 defines projective designs.",
+        "identifier_or_url": "arXiv:quant-ph/0703025; https://arxiv.org/pdf/quant-ph/0703025",
+        "material_read": "Open-access 28-page preprint; abstract, introduction, definitions, and relevant discussion of quantum tomography inspected; searched for Jacobi/Gram terminology.",
+        "method": "Original PDF targeted text and page-image inspection.",
+        "title": "Weighted complex projective 2-designs from bases: optimal state determination by orthogonal measurements",
+        "trigger": "Possible coverage of MUB spectral stability by quantum-state tomography."
+      },
+      {
+        "assessment": "Supplies the exact normalized kernel used here and broader design theory. No matching qutrit twelve-line global endpoint or condition number was identified in examined material.",
+        "evidence": "Theorem 2.1 states the addition formula; the projective Jacobi polynomial normalization is given immediately before it; section 12 constructs MUB-related designs.",
+        "identifier_or_url": "arXiv:1104.4692; https://arxiv.org/pdf/1104.4692",
+        "material_read": "Original 45-page preprint; pp.4–5 complete zonal kernel and addition theorem, p.40 MUB section, and targeted searches for Jacobi, interpolation, rank, and mutually unbiased.",
+        "method": "Open-access full-text search and mathematical page-image inspection.",
+        "title": "Complex spherical designs and codes",
+        "trigger": "Most plausible broader coverage: the full Jacobi harmonic addition kernel and MUB examples."
+      },
+      {
+        "assessment": "Material limitation. The general Jacobi framework predates MUB work; an implicit special-case implication cannot be excluded without full text.",
+        "evidence": "Verified bibliographic title, authors, year, pages; no assertion of noncoverage based on unread text.",
+        "identifier_or_url": "Delsarte–Goethals–Seidel, Philips Research Reports 30 (1975), 91–105; https://research.tue.nl/en/publications/bounds-for-systems-of-lines-and-jacobi-polynomials/",
+        "material_read": "Bibliographic and abstract-level record only; complete original paper not obtained.",
+        "method": "Citation-index record and open-access availability search; not a full-text reading.",
+        "title": "Bounds for systems of lines, and Jacobi polynomials",
+        "trigger": "Potential older association-scheme/Jacobi source that may subsume a special case."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8ce9c387-3331-4f3a-bec3-0051fc56252d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete qutrit MUB system is a canonical, naturally motivated projective sampling geometry; extending its strength-two tightness to high harmonic bidegrees is a distinct interpolation and stability problem. A full infinite-degree rank classification and the two exact optimal normalized frame bounds reveal a sharp fifth-degree near-degeneracy and a different fourth-degree maximal eigenvalue. This supplies usable minimum-norm interpolation costs and sharp degree selection data, not an arbitrary finite slice or a normalization check.",
+    "status": "PASS"
+  }
+}
