@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The traceability definition, quantifiers, descendant construction, and nearest-codeword condition were reconstructed directly. A violation is witnessed by two parents and one outside codeword, so the three-subset reduction is exact. The verifier checks every triple and every four-subset, independently reruns the literal definition on all \(27{,}696\) maxima, and completes a target-size-five search. The symmetry classification closes seven generator orbits whose sizes sum to the full census; orbit-stabilizer reproduces every stated stabilizer order.
+## correctness
 
-Risk: the equality census is computational, but the search space is finite and completely traversed by the supplied standard-library verifier; no timeout or partial enumeration is used.
+PASS
 
-## Originality
-**PASS.** The foundational full text gives the object and an odd-alphabet length-three construction; the 2015 follow-up focuses on length four. The closest published exact result from 2026 already proves the maximum value \(4\) at \(q=4\), but its complete public result does not enumerate equality cases or classify them under Hamming isometries. Searches using the standard aliases, exact parameter, exact final count, and orbit-size numbers found no implication-equivalent classification.
+By the literal 2-parent descendant condition, a failure is witnessed by two parents and one other word tied with or closer than the nearest parent. Therefore all triple constraints suffice for any larger code. Reconstructed an independent Python exhaustive algorithm using the 64 quaternary words, literal Hamming metric and descendant generation: exactly 14,016 of 41,664 triples compatible and exactly 27,696 of 635,376 four-subsets valid. Every potential five-code has a sorted four-prefix in that maximum list and a larger fifth vertex; exhaustive extension found none, so optimum is four. Independently closed all maxima under nine adjacent symbol transpositions plus two adjacent coordinate swaps generating S4^3 ⋊ S3: seven disjoint orbits of sizes 48,288,576,2592,3456,10368,10368, which sum to 27,696. Dividing 82,944 by sizes gives stabilizers. The finite universe is exhausted, unlike partial sampling. Source code and its canonical-census digest were inspected, but its digest was not independently reproduced in this audit.
 
-Risk: an obscure or unindexed historical enumeration under different terminology may remain undiscovered.
+## originality
 
-## Value
-**PASS.** Alphabet size \(4\) is the exact transition endpoint where the length-three maximum still equals the alphabet size before the larger branch begins at \(q=5\). The seven inequivalent extremal types show that the diagonal distance-three code is far from structurally unique and that optimal traceability permits minimum distance \(1\), \(2\), or \(3\). This is a natural complete equality classification of a benchmark boundary case.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A published 2026 all-q theorem already proves M_TA(3,4,2)=4, and that scalar maximum is not original. The fresh 27696 literal equality census and seven Hamming-isometry orbit sizes are mathematically stronger equality-structure facts, not implied by the cardinality theorem, with risk of an unindexed exact orbit table.
+
+## value
+
+PASS
+
+Exact natural classification of all equality cases for the first nontrivial quaternary q=4 strength-two length-three traceability optimum, including structurally disparate min-distance-1,2,3 representatives and seven symmetry types. Optimum size was known; full orbit census is a distinct motivated finite invariant with a complete certificate, not arbitrary sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

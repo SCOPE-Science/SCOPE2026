@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` with a standard Python 3 interpreter; no third-party packages are required.
+# Independent mathematical audit
 
-The verifier builds all \(64\) words in \(\{0,1,2,3\}^3\). It evaluates the literal \(2\)-traceability condition for every three-codeword subset, obtaining \(14{,}016\) compatible triples out of \(41{,}664\). Because every violation is witnessed by two parents and one outside codeword, a larger code is valid exactly when each of its three-subsets is compatible.
+## correctness
 
-All \(635{,}376\) four-subsets are then tested, producing exactly \(27{,}696\) maxima. The literal parent/descendant/nearest-codeword definition is replayed again on every enumerated maximum. A complete recursive size-five search rejects every possible extension, so the maximum is exactly \(4\).
+PASS
 
-For equivalence, adjacent symbol transpositions in each coordinate and adjacent coordinate transpositions generate the order-\(82{,}944\) Hamming-isometry group. Orbit closure partitions the full maximum list into sizes \(48,288,576,2592,3456,10368,10368\); no maximum lies outside those seven orbits.
+By the literal 2-parent descendant condition, a failure is witnessed by two parents and one other word tied with or closer than the nearest parent. Therefore all triple constraints suffice for any larger code. Reconstructed an independent Python exhaustive algorithm using the 64 quaternary words, literal Hamming metric and descendant generation: exactly 14,016 of 41,664 triples compatible and exactly 27,696 of 635,376 four-subsets valid. Every potential five-code has a sorted four-prefix in that maximum list and a larger fifth vertex; exhaustive extension found none, so optimum is four. Independently closed all maxima under nine adjacent symbol transpositions plus two adjacent coordinate swaps generating S4^3 ⋊ S3: seven disjoint orbits of sizes 48,288,576,2592,3456,10368,10368, which sum to 27,696. Dividing 82,944 by sizes gives stabilizers. The finite universe is exhausted, unlike partial sampling. Source code and its canonical-census digest were inspected, but its digest was not independently reproduced in this audit.
 
-The canonical newline-terminated census digest is `b22fb6b34d0cca55a2b161541233bcf81435a8d81d55122fc7c8e0c8263c9779`.
+## originality
 
-Expected first output line:
+PASS
 
-`VERIFY_OK vertices=64 good_triples=14016 maximum=4 labeled_maxima=27696 natural_group=82944 orbits=7 orbit_sizes=48,288,576,2592,3456,10368,10368 stabilizers=1728,288,144,32,24,8,8 maxima_sha256=b22fb6b34d0cca55a2b161541233bcf81435a8d81d55122fc7c8e0c8263c9779`
+A published 2026 all-q theorem already proves M_TA(3,4,2)=4, and that scalar maximum is not original. The fresh 27696 literal equality census and seven Hamming-isometry orbit sizes are mathematically stronger equality-structure facts, not implied by the cardinality theorem, with risk of an unindexed exact orbit table.
+
+## value
+
+PASS
+
+Exact natural classification of all equality cases for the first nontrivial quaternary q=4 strength-two length-three traceability optimum, including structurally disparate min-distance-1,2,3 representatives and seven symmetry types. Optimum size was known; full orbit census is a distinct motivated finite invariant with a complete certificate, not arbitrary sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
