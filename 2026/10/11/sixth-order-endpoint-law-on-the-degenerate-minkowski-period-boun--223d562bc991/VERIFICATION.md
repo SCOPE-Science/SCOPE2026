@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,55 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The packaged checker begins only with
-\[
-U'(y)=\frac{e^y-1}{qe^y-p},
-\qquad d=q-p,
-\qquad s=p+q,
-\]
-and the source convolution
-\[
-\Theta(E)=\frac1d\int_0^E\frac{W'(x)}{\sqrt{e^{2(E-x)}-1}}\,dx.
-\]
-It expands \(U\), solves \(U(y(t))=t^2\) recursively through the coefficient of \(t^7\), and forms
-\[
-W(x)=y(\sqrt x)-y(-\sqrt x).
-\]
-It then expands the kernel and performs the convolution using exact beta values.
+# Independent mathematical audit
 
-The replay verifies
-\[
-[ E ]\Theta
-=
-\frac{\pi(3d^2-12d+s^2)}{48d^{3/2}},
-\]
-\[
-[ E^2 ]\Theta
-=
-\frac{\pi(3d^2-12d+s^2)^2}{9216d^{5/2}},
-\]
-and, after imposing \(s^2=12d-3d^2\),
-\[
-[ E^3 ]\Theta
-=
-\frac{\pi(d-4)(d-1)^2}{720\sqrt d}.
-\]
+## correctness
 
-It also checks the consistency identity
-\[
-\frac d8[ E ]\Theta
-=
-\frac{\pi A}{96\sqrt d},
-\]
-which is the published quadratic coefficient after using \(\log r\sim r-1\).
+PASS
 
-Finally it verifies
-\[
-\frac{d^3}{512}[E^3]\Theta
-=
-\frac{\pi d^{5/2}(d-4)(d-1)^2}{368640}.
-\]
+The analytic source inverse U(y) has U′=(exp(y)-1)/(qexp(y)-p), U′′(0)=1/d. Odd Puiseux coefficients of its local inverse through t^7, and the exact convolution kernel 1/sqrt(exp(2z)-1), yield c1=πA/(12d^(3/2)), c2=πA²/(576d^(5/2)), and, on A=0, c3=π(d-4)(d-1)²/(720sqrt(d)). W(E)=d log r gives E=d(log r)^2/8+O((log r)^4). A separate independent symbolic expansion at (p,q)=(0,3) reproduced c1=c2=0 and c3=-πsqrt(3)/540; source verifier symbolically checks all d,s. 0<d<=4 from s²=3d(4-d), with coefficient zero only at the three quoted constant-period points.
 
-The proof uses exact symbolic algebra and analytic series identities; finite numerical sampling is not used as evidence for the asymptotic theorem.
+## originality
+
+PASS
+
+Tao arXiv:2609.39636 proves the global monotonicity boundary and uses the Li-Wan quadratic endpoint coefficient. Its inspected proof does not identify the sixth-order coefficient on A=0. This explicit first nonzero boundary law is stronger local quantitative information than strict monotonicity alone.
+
+## value
+
+PASS
+
+The first nonvanishing perturbation order at a degenerate parameter boundary and exceptional isochronous points is natural for period-function bifurcation. A complete exact sixth-order coefficient resolves the previous quadratic test’s blind spot without overstating the global theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
