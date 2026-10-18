@@ -1,14 +1,21 @@
-# Review of Lower moment thresholds for independent-coordinate high-dimensional random walks
+# Independent mathematical audit
 
-## Correctness
-PASS. For fixed times, scalar \(p\)-moment convergence implies uniform integrability of \(n^{-p/2}|\sum_{j\le nt}\xi_j|^p\); independence across coordinates then gives a triangular weak law by truncation for every \(d(n)\to\infty\), with no \(2p\)-moment. Jin's monotone-plus-martingale decomposition remains valid. Squaring its martingale term requires the partial-sum moment of order \(2p-2\), and the dimension factors yield \(\mathbb E|Q_n|^2=O(n^p/d)\). Doob's inequality and Jin's grid/block argument then give the uniform metric limit and the Gromov--Hausdorff conclusion.
+## correctness
 
-## Originality
-PASS. The motivating theorem assumes a finite \(2p\)-moment under pairwise uncorrelated coordinates and explicitly notes the stronger-than-known fourth moment at \(p=2\). Kabluchko--Marynych cover the Hilbert \(p=2\) iid-coordinate case under finite variance, but not non-Hilbert \(p\ne2\). Targeted searches for the independent-coordinate non-Hilbert theorem with a finite \(\max\{2,2p-2\}\)-moment, its finite-variance \(1<p<2\) specialization, and its \((2p-2)\)-moment \(p>2\) specialization did not identify a source implying the final claim.
+PASS
 
-## Value
-PASS. The result isolates where Jin's \(2p\)-moment is spent and shows a natural structural tradeoff: full coordinate independence removes the bivariate \(2p\)-moment bottleneck, leaving only the lower martingale moment. This materially enlarges the admissible tail class for every non-Hilbert \(p>1\), including a finite-variance theorem throughout \(1<p<2\), while retaining arbitrary relative growth of time and dimension.
+PASS. The scalar p-th moment CLT holds for p<2 under Var xi<infinity and for p>=2 under finite p-moment (implied by r=max(2,2p−2)). Hence Y_n(t)=n^(−p/2)|sum_{j<=nt}xi_j|^p are uniformly integrable for each t; iid independent coordinates permit a triangular coordinate WLLN by fixed truncation, variance <=K²/d, then K->infinity. For the published convexity decomposition ||S_m||_p^p=T_m+Q_m, T nondecreasing and Q martingale, quadratic variation has d × d^(−2/p) × d^(−(2p−2)/p)=d^(−1); MZ or Lyapunov bound E|sum_{j<=m}xi|^(2p−2)<=C m^(p−1) proves E Q_n²<=C n^p/d. Doob, finite-grid monotonicity and translated-block controls give uniform pairwise metric convergence, hence GH. No relation d vs n other than d->infinity; 1<p<infinity. The p=2 specialization is explicitly prior.
 
-The main limitation is that the threshold is sufficient rather than proved optimal, and the theorem does not improve the moment assumption under mere pairwise uncorrelatedness.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best-of-knowledge for p!=2. Jin Theorem 1.1 establishes the same GH limit for merely uncorrelated coordinates but assumes a 2p moment; the paper uses bivariate 2p estimates. Stronger coordinate independence here permits triangular WLLN and only max(2,2p−2) moments; this is not a theorem under Jin’s existing hypotheses, and is not implied by the Hilbert-only p=2 finite-variance Wiener spiral. Primary proof read and no equivalent non-Hilbert lower-moment theorem identified.
+
+## value
+
+PASS
+
+PASS. Lowering integrability threshold while keeping arbitrary d(n)->infinity and full uniform metric convergence changes which heavy-tailed coordinate laws are covered; moment 2p−2 has a transparent mechanism from squared derivative in the martingale term. This is a natural meaningful analytic extension, not mere renaming or finite sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

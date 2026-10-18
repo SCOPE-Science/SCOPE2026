@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,34 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked at the two places where Jin's published \(2p\)-moment enters.
+# Independent mathematical audit
 
-For fixed \(t\), define
-\[
-Y_n(t)=n^{-p/2}\left|\sum_{j=1}^{\lfloor nt\rfloor}\xi_j\right|^p.
-\]
-Scalar \(p\)-moment convergence gives \(Y_n(t)\Rightarrow t^{p/2}\sigma^p|N(0,1)|^p\) and convergence of expectations, hence uniform integrability. If \(Y_{n,1},\ldots,Y_{n,d(n)}\) are iid copies, then for every fixed truncation level \(K\), the truncated empirical mean has variance at most \(K^2/d(n)\), while the expected tail is uniformly small as \(K\to\infty\). This proves the required triangular weak law without assuming \(\mathbb E Y_n(t)^2<\infty\).
+## correctness
 
-For the uniform-in-time part, the martingale term satisfies
-\[
-\mathbb E|Q_n^{(d)}|^2
-=p^2d\,\mathbb E|X_{1,1}^{(d)}|^2\sum_{j=1}^n
-\mathbb E|S_{j-1,1}^{(d)}|^{2p-2}.
-\]
-The scaling powers are
-\[
-d\cdot d^{-2/p}\cdot d^{-(2p-2)/p}=d^{-1}.
-\]
-Under a finite \((2p-2)\)-moment when \(p>2\), or finite variance when \(1<p\le2\),
-\[
-\mathbb E|S_{j-1,1}^{(d)}|^{2p-2}\le C_p d^{-(2p-2)/p}j^{p-1},
-\]
-so
-\[
-\mathbb E|Q_n^{(d)}|^2\le C_p n^p/d.
-\]
-Doob's inequality therefore makes the normalized martingale negligible for every \(d(n)\to\infty\). The remaining monotonicity and finite-grid argument is the same deterministic/probabilistic reduction as in the published uniform metric proof.
+PASS
 
-Limits: the argument proves sufficiency, not necessity, of the moment order \(\max\{2,2p-2\}\). It materially uses independence across coordinates. The \(p=2\) finite-variance specialization is prior work and is not part of the originality claim.
+PASS. The scalar p-th moment CLT holds for p<2 under Var xi<infinity and for p>=2 under finite p-moment (implied by r=max(2,2p−2)). Hence Y_n(t)=n^(−p/2)|sum_{j<=nt}xi_j|^p are uniformly integrable for each t; iid independent coordinates permit a triangular coordinate WLLN by fixed truncation, variance <=K²/d, then K->infinity. For the published convexity decomposition ||S_m||_p^p=T_m+Q_m, T nondecreasing and Q martingale, quadratic variation has d × d^(−2/p) × d^(−(2p−2)/p)=d^(−1); MZ or Lyapunov bound E|sum_{j<=m}xi|^(2p−2)<=C m^(p−1) proves E Q_n²<=C n^p/d. Doob, finite-grid monotonicity and translated-block controls give uniform pairwise metric convergence, hence GH. No relation d vs n other than d->infinity; 1<p<infinity. The p=2 specialization is explicitly prior.
+
+## originality
+
+PASS
+
+PASS, best-of-knowledge for p!=2. Jin Theorem 1.1 establishes the same GH limit for merely uncorrelated coordinates but assumes a 2p moment; the paper uses bivariate 2p estimates. Stronger coordinate independence here permits triangular WLLN and only max(2,2p−2) moments; this is not a theorem under Jin’s existing hypotheses, and is not implied by the Hilbert-only p=2 finite-variance Wiener spiral. Primary proof read and no equivalent non-Hilbert lower-moment theorem identified.
+
+## value
+
+PASS
+
+PASS. Lowering integrability threshold while keeping arbitrary d(n)->infinity and full uniform metric convergence changes which heavy-tailed coordinate laws are covered; moment 2p−2 has a transparent mechanism from squared derivative in the martingale term. This is a natural meaningful analytic extension, not mere renaming or finite sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

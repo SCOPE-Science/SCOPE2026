@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T00:17:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. The scalar p-th moment CLT holds for p<2 under Var xi<infinity and for p>=2 under finite p-moment (implied by r=max(2,2p−2)). Hence Y_n(t)=n^(−p/2)|sum_{j<=nt}xi_j|^p are uniformly integrable for each t; iid independent coordinates permit a triangular coordinate WLLN by fixed truncation, variance <=K²/d, then K->infinity. For the published convexity decomposition ||S_m||_p^p=T_m+Q_m, T nondecreasing and Q martingale, quadratic variation has d × d^(−2/p) × d^(−(2p−2)/p)=d^(−1); MZ or Lyapunov bound E|sum_{j<=m}xi|^(2p−2)<=C m^(p−1) proves E Q_n²<=C n^p/d. Doob, finite-grid monotonicity and translated-block controls give uniform pairwise metric convergence, hence GH. No relation d vs n other than d->infinity; 1<p<infinity. The p=2 specialization is explicitly prior.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior non-Hilbert theorem covers a larger dependence class but only under strictly higher 2p moment; Hilbert theorem covers weaker moments only when p=2."
+        ],
+        "reasoning": "Neither source dominates the conjunctive regime independent coordinates and finite r_p moments with p!=2; in particular heavy tails with finite r_p but infinite 2p moment fall outside Jin.",
+        "searches": [
+          "Jin arXiv:2512.03873 Theorem 1.1 and proof",
+          "Kabluchko–Marynych arXiv:2211.08538"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2512.03873v2 full 11-page PDF",
+        "arXiv:2211.08538 p=2 Wiener spiral comparison",
+        "Resultary semantic: high dimensional independent-coordinate random walk l_p Gromov Hausdorff Wiener spiral moment 2p-2 finite variance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Jin assumes E|xi|^(2p)<infinity; this result assumes E|xi|^max(2,2p−2)<infinity, with coordinate independence and p!=2."
+        ],
+        "reasoning": "Because r_p<2p for every p>1, Jin alone does not imply the assertion for distributions with infinite 2p moment. The p=2 result is prior and not counted as original; no implication to p!=2 via isometry, whose rigidity differs.",
+        "searches": [
+          "Jin arXiv:2512.03873 sections 2,3",
+          "Kabluchko–Marynych arXiv:2211.08538"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jin gives l_p GH limit under 2p moment for pairwise uncorrelated coordinates; Kabluchko–Marynych Hilbert p=2 requires second moment."
+        ],
+        "reasoning": "For p!=2, random metric-space convergence and the reduced moment hypothesis on iid independent coordinates are not equivalent to the p=2 theorem or the 2p hypothesis; coordinate independence is a genuine strengthened structure.",
+        "searches": [
+          "Resultary semantic: high dimensional independent-coordinate random walk l_p Gromov Hausdorff Wiener spiral moment 2p-2 finite variance",
+          "arXiv:2512.03873v2 theorem 1.1",
+          "arXiv:2211.08538 Wiener spiral"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No numerical invariant/table is claimed; the claimed novelty is a full asymptotic theorem with reduced sufficient assumptions."
+        ],
+        "reasoning": "Exact-database/table comparison is not mathematically applicable as an enumeration check; the meaningful exact comparator is the source moment exponent, explicitly examined.",
+        "searches": [
+          "Resultary semantic: high dimensional independent-coordinate random walk l_p Gromov Hausdorff Wiener spiral moment 2p-2 finite variance",
+          "arXiv:2512.03873 finite-order moment assumptions",
+          "arXiv:2211.08538 p=2 theorem"
+        ]
+      },
+      "rationale": "PASS, best-of-knowledge for p!=2. Jin Theorem 1.1 establishes the same GH limit for merely uncorrelated coordinates but assumes a 2p moment; the paper uses bivariate 2p estimates. Stronger coordinate independence here permits triangular WLLN and only max(2,2p−2) moments; this is not a theorem under Jin’s existing hypotheses, and is not implied by the Hilbert-only p=2 finite-variance Wiener spiral. Primary proof read and no equivalent non-Hilbert lower-moment theorem identified.",
+      "residual_risks": [
+        "The proof adopts the published monotone-plus-martingale decomposition and fixed-grid short-block lemma, whose exact admissible p range and edge endpoints depend on the Jin source; verified here for 1<p<infinity, not p=1.",
+        "The sufficiency exponent may be improvable or known under a non-obvious alternate formulation; optimality is not claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The source requires finite 2p moment and uncorrelated coordinates; independent-coordinate lower-moment extension is not stated or proved there",
+          "evidence": [
+            "Theorem 1.1 p∈[1,infinity), d(n)->infinity, E|xi|^2p<infinity; Theorem 2.1 p-th moment convergence; Section 3 convexity argument"
+          ],
+          "identifier_or_url": "arXiv:2512.03873v2, Theorem 1.1 and Sections 2–3",
+          "material_read": "Full 11-page primary PDF: Theorem 1.1, univariate moment convergence, bivariate assumptions, convexity martingale and uniform-time proof, including the dimensional second-moment estimate",
+          "method": "Direct arXiv PDF reading and page 2 visual cross-check",
+          "title": "Convergence of Random Walks in l_p-Spaces of Growing Dimension",
+          "trigger": "Identical metric-space limit with stronger published moment assumption"
+        },
+        {
+          "assessment": "Covers p=2 finite-variance regime but does not imply p!=2",
+          "evidence": [
+            "Jin introduction and Theorem 1.1 refer to earlier Hilbertian Wiener spiral"
+          ],
+          "identifier_or_url": "arXiv:2211.08538; DOI:10.1214/23-AIHP1406",
+          "material_read": "The p=2 prior result was checked from Jin introduction and bibliographic abstract/associated source description; no new full-primary text claim",
+          "method": "Read citation and treatment of p=2 in Jin primary PDF; bibliographic check",
+          "title": "Random Walks in the High-Dimensional Limit I: The Wiener Spiral",
+          "trigger": "p=2 overlap and potential stronger theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Lowering integrability threshold while keeping arbitrary d(n)->infinity and full uniform metric convergence changes which heavy-tailed coordinate laws are covered; moment 2p−2 has a transparent mechanism from squared derivative in the martingale term. This is a natural meaningful analytic extension, not mere renaming or finite sampling.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full coordinate independence and iid scalar law are essential to the triangular WLLN, not merely pairwise uncorrelated coordinates.",
+    "Moment r_p is a sufficient, not proved sharp, threshold; p=2 is earlier work."
+  ],
+  "schema_version": 1
+}
