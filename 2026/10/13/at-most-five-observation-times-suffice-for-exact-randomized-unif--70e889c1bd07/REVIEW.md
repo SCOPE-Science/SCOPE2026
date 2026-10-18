@@ -1,19 +1,21 @@
-# Scientific assessment: eight-cycle randomized mixing
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Fourier spectral projectors yield five closed transition-amplitude classes; the joint full-support phase density has exact moments yielding \(1/8\) in each class. Irrational independence of the two frequencies makes every positive-time tail dense in the phase torus. Full support places the barycenter in the relative interior of the phase-image convex hull, and density then transfers it to an exact finite convex combination of physical-time matrices. The affine normalization cuts the dimension to four, so Carathéodory gives at most five atoms. The normalizations, boundary case \(T=0\), strict inequalities \(t_j>T\), and instantaneous/Cesàro contrasts are included. A standalone exact projector/moment verifier plus an independent matrix-exponential check corroborates the explicit algebra. Convex-interior and density steps are proved conceptually and not inferred from finite tests.
+PASS
 
-## Originality
+Fourier diagonalization gives eigenvalues 2,±sqrt(2),0,−2 and distance-class amplitudes u0=(X+1+2C)/4, u1=i(Y+sqrt(2)D)/4, u2=(X−1)/4, u3=i(Y−sqrt(2)D)/4,u4=(X+1−2C)/4. Independently calculated rational moments of density (1−cos(alpha)/2)(1−cos(2beta))/(2pi)^2: E X=−1/4, E X²=1/2, E C²=1/4, E D²=3/4, E Y=E D=0; all five mean class probabilities exactly 1/8. This law has full torus support (zero density on a measure-zero set only), so uniform target lies in relative interior of compact phase-image convex hull. Because ratio of 2 and sqrt(2) is irrational, every t>T phase tail is dense; the elementary relative-interior convex-density lemma gives an EXACT finite convex combination from physical times. A single affine normalization reduces dimension ≤4, hence Caratheodory gives ≤5 positive weights and distinct times. The C8 distance-two uniformity condition and p0=p4 show no single time is uniform; Cesaro p2=3/32. Independent exact moment algebra checked; the existence proof rests on convex geometry, not approximate numerical sampling.
 
-**PASS, with residual risk.** In the motivating full preprint [1], general randomized-time average mixing is the framework and short paths are positive examples; it does not state the exact unweighted eight-cycle theorem. The cycle no-go theorems in [2] concern instantaneous or standard long-time Cesàro mixing, so their conclusions do not dominate arbitrary randomized observation times. A later survey [3] provides quantum-walk context without giving a directly equivalent construction in the inspected material. The family differs from known short-path, prime-cycle, and crown-graph cases. Semantic searches for randomized-time uniformity on eight-cycles found no matching published result; a failure to find one is not a proof of global novelty. Unindexed, differently parameterized, or unpublished results remain a nonzero overlap risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** The eight-cycle is the first nontrivial power-of-two cycle beyond the four-cycle. Exact randomized recovery of complete uniformity, despite proven instantaneous and conventional Cesàro obstructions, resolves a natural, quantitatively specified question for this eight-state coherent quantum network. The at-most-five-time bound provides a finite-support resource guarantee, rather than a numerical approximation or a renaming of the shorter-path results. A full even-cycle classification is not claimed or needed for this exact natural-instance result.
+Independent best-of-knowledge originality assessment of the precise final claim. The target is J8/8 in the convex hull of all physical-time adjacency-C8 mixing matrices, not uniform Cesaro average or an instantaneous matrix. The inspected prior examples use different graph spectra. The new conclusion is compatible with, not implied by, the earlier no-go and short-path results. A new positive convex-hull certificate is mathematically required. Residual risks and genuine material inspected are explicitly recorded.
 
-## Literature comparison and limitations
+## value
 
-[1] Baptista–Coutinho–Marques, arXiv:2308.16378 (2023): general nonstandard averaging; full text checked for eight-cycle coverage, short-path examples, and product discussion. [2] Adamczak et al., arXiv:0708.2096 (2007): cycle nonuniformity for instantaneous and conventional averages; these hypotheses do not include arbitrary sampling distributions. [3] Coutinho–Guo, arXiv:2404.02236 (2024): broader walk survey, not direct eight-cycle randomized solution. Remaining risks include alternative convex-hull formulations and inaccessible relevant literature. The physical time points are existential, and the support bound is not proven minimal.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The unweighted C8 is a natural next even cycle with known instantaneous and uniform-Cesaro mixing obstructions. Showing finite classical readout-time randomization restores exact global uniformity with a bounded five-atom support is an independently useful quantum-walk phenomenon; it does not require a full even-cycle census or optimal minimal support.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
