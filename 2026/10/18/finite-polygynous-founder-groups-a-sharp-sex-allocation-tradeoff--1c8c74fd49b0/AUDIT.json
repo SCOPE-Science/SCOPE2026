@@ -1,0 +1,164 @@
+{
+  "correctness": {
+    "rationale": "For all integers n>=3,h>=2, the concave discrete sequence g(k)=min(k,h(n-k)) has a strict negative second difference, making its Bernstein expectation strictly concave for 0<p<1; endpoint derivatives force a unique optimum. Binomial reflection at p=1/2 proves positive derivative for n>=3,h>=2, but zero for h=1 or n=2; feasibility S=1-p^n-(1-p)^n uniquely peaks at half. Uniform Lipschitz bounds imply p_n -> h/(h+1) and the claimed linear relative gain for fixed h. For n divisible by h+1, discrete slopes yield exact binomial CDF quantile and the moving-parameter CLT yields the stated positive n^-1/2 displacement. When h>=n-1, g(k)=k for k<n, leading to R=np-np^n, exact p_n=n^-1/(n-1), expected male reserve log n+o(1) and failure 1/n+o(1/n). The embedded standard-library checker passed exact and numerical verification; finite tests are not universal proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tongen et al. (2016) study harem matrix-model asymptotic growth, stage structure and harem size, not independent finite-group sex allocation optimization.",
+        "Leach et al. (2020) implement Binomial(N,z) and stochastic group formation but set z=0.5 for sex-assignment experiments; their plotted outcomes are not all-n/all-h optimization.",
+        "Lindström (1998) gives optimal deterministic adult sex ratio for growth/harvesting; Bessa-Gomes et al. (2004) show the deterministic optimum h/(h+1), and describe random sex-ratio mating inefficiency."
+      ],
+      "reasoning": "Known deterministic optima and the published binomial expected-birth functional cover the modelling antecedents. Their statements do not logically imply a globally unique finite stochastic optimum, exact binomial inverse-quantile equation, or logarithmic reserves without further arguments. The new proof supplies those arguments. A plausible inaccessible 2010 follow-up is listed under residual risks.",
+      "searches": [
+        "doi:10.3934/mbe.2016031 full PDF (16 pages), harem-size and sex-ratio sections",
+        "doi:10.1002/ecs2.3038 full HTML, equations 4, 8, 9 and figures 5–6",
+        "doi:10.2981/wlb.1998.024 full HTML, model and optimal adult sex-ratio sections",
+        "doi:10.1111/j.1461-0248.2004.00632.x original PDF model and results"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1111/j.1461-0248.2004.00632.x",
+      "doi:10.3934/mbe.2016031",
+      "doi:10.2981/wlb.1998.024",
+      "doi:10.1002/ecs2.3038",
+      "doi:10.1890/02-0123 (abstract only)",
+      "doi:10.1016/j.actao.2010.02.010 (abstract/first page only)",
+      "published-finding corpus: 2026/10/11/SCOPE-global-periodic-asymptotic-phase-for-cyclic-two-sex-volterra-flo--a2bc26c3ba7a",
+      "published-finding corpus: 2026/10/4/SCOPE-exact-centering-in-the-smallest-nontrivial-balanced-binomial-top--63504aac5006"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known: number of mating pairs is min(F,hM); published birth-rate functional is R/n; deterministic balanced operational sex ratio is h/(h+1).",
+        "Additional: strict R double-derivative and reflection certify unique p_n>1/2, while S maximum is 1/2; when n divisible h+1, R derivative gives exact inverse-binomial CDF; at h≥n-1, R=np−np^n forces p_n=n^{-1/(n-1)} and n(1−p_n)~log n."
+      ],
+      "reasoning": "The exact expectation and deterministic optimum are a substantial closest antecedent, so novelty is narrower than an invention of the model. No inspected prior theorem proves the global finite optimum and both scaling regimes; finite examples do not substitute for this implication comparison.",
+      "searches": [
+        "2004 Bessa-Gomes et al. Eqs 3, 6, 9, Figures 2–6",
+        "2016 Tongen et al. model/harem matrix sections",
+        "2020 Leach et al. stochastic sex-assignment section",
+        "published-finding corpus semantic queries listed in equivalent_formulations"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bessa-Gomes et al. (2004), Eq. 9: per-capita expected births are exactly the same binomial expectation of min(F,h(n-F)) multiplied by a fecundity factor; their Eq. 6 averages female mating rates and is a distinct quantity.",
+        "Their deterministic best operational ratio h/(h+1) is the fixed-capacity limit and is prior knowledge, not a new discovery.",
+        "No examined section expresses the all-n unique stochastic optimum or the asymptotic reserve."
+      ],
+      "reasoning": "The probability model and its exact expected-mating formula are prior art under demographic-stochasticity/Allee-effect language. The analytic discrete-concavity optimum, difference of competing objectives, inverse binomial CDF, and capacity-saturation logarithmic scaling are additional statements; rewording the known expectation alone would not qualify.",
+      "searches": [
+        "finite stochastic founding groups with harem capacity and binomial sex composition: optimize expected mating pairs versus probability both sexes present, exact inverse-binomial-quantile optimum and finite-size shift",
+        "stochastic polygyny harem capacity finite founding population binomial female count optimal offspring sex ratio and risk of single-sex founder pool",
+        "optimal sex allocation maximizing expected min(female count, h times male count) binomial concavity asymptotic normal quantile correction",
+        "Web: binomial harem mating capacity optimal sex ratio finite group",
+        "doi:10.1111/j.1461-0248.2004.00632.x PDF Eq. 9"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest biology hit: 2026/10/11/SCOPE-global-periodic-asymptotic-phase-for-cyclic-two-sex-volterra-flo--a2bc26c3ba7a, concerns deterministic three-type cyclic heredity rather than stochastic harem founder groups.",
+        "published-finding corpus closest binomial hit: 2026/10/4/SCOPE-exact-centering-in-the-smallest-nontrivial-balanced-binomial-top--63504aac5006, concerns four-population top-selection probability, not mating capacity.",
+        "Bessa-Gomes et al. (2004) Eq. 9 and Figures 2–6 give the exact input polynomial and low-dimensional plotted sex-ratio dependence, not an exact formula or table of finite optimum points for all n,h or the limiting logarithmic law."
+      ],
+      "reasoning": "Actual semantic record searches found no exact theorem or table subsuming the claim. The input polynomial is already tabulated as a published formula, and is explicitly excluded from novelty. This check does not purport to prove global uniqueness; the partition and ranked retrieval are not proofs of priority.",
+      "searches": [
+        "finite stochastic founding groups with harem capacity and binomial sex composition: optimize expected mating pairs versus probability both sexes present, exact inverse-binomial-quantile optimum and finite-size shift",
+        "stochastic polygyny harem capacity finite founding population binomial female count optimal offspring sex ratio and risk of single-sex founder pool",
+        "optimal sex allocation maximizing expected min(female count, h times male count) binomial concavity asymptotic normal quantile correction",
+        "2004 Ecology Letters Figures 2–6, binomial expected-birth Eq. 9",
+        "2020 Ecosphere Figures 5–6"
+      ]
+    },
+    "rationale": "The exact mating function and binomial expectation are already published by Bessa-Gomes, Legendre & Clobert (2004), Eq. 9. They are not new. The final original claim is the full strict allocation optimum versus feasibility dichotomy, explicit binomial-quantile characterization, and two sharp scaling regimes, including logarithmic male reserve. Full-text comparisons of that publication and closely relevant 2016/2020 studies do not supply these theorems. Missing full text of the 2010 Bessa-Gomes follow-up is recorded as a residual risk.",
+    "residual_risks": [
+      "Bessa-Gomes et al. (2010) full text inaccessible; its mating-function treatment could contain an equivalent finite sex-ratio optimization.",
+      "The 2004 paper already has the same expected-breeding polynomial and sex-ratio dependence; priority is restricted to the exact theorem, discrete-derivative classification, and asymptotic laws, not their known inputs.",
+      "Older sex-allocation literature outside inspected primary texts might contain a mathematically equivalent finite clutch optimization.",
+      "published-finding corpus semantic results are not exhaustive and several transient query attempts failed before succeeding; the searches cannot demonstrate uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Eq. 9 is the identical stochastic expected-breeder expression, so known. Source gives qualitative and graphed ratio effects, but no all-integer strict optimizer or inverse quantile / logarithmic reserve theorem in examined material.",
+        "evidence": [
+          "Publisher first published 2004-07-28",
+          "PDF Eq. 9 and accompanying Figure 2 show min(F,hM); the analysis of n0.95 concerns normalized female mating rate rather than maximizing expected breeders",
+          "Figures 5–6 examine time to extinction, a separate objective"
+        ],
+        "identifier_or_url": "doi:10.1111/j.1461-0248.2004.00632.x",
+        "material_read": "Publisher article abstract and open full PDF text, model equations 2–9, discussion and sex-ratio Figures 2–6 (PDF pp. 2–7)",
+        "method": "Publisher full HTML/text and lawful author-archive PDF textual extraction; attempted visual PDF rendering was unavailable",
+        "title": "Allee effects, mating systems and the extinction risk in populations with two sexes",
+        "trigger": "Direct exact mating-capacity and binomial expected-birth antecedent"
+      },
+      {
+        "assessment": "Stage-structured deterministic matrix population model, not one-generation binomial random founder sex choice; it does not imply the exact finite stochastic optimizer.",
+        "evidence": [
+          "Publisher 2016-07-01 date, MSC Primary 92D25,92D50",
+          "Paper pp. 1077–1092 identifies explicit harem structure and stage dynamics"
+        ],
+        "identifier_or_url": "doi:10.3934/mbe.2016031",
+        "material_read": "Open PDF full-text sections, including setup, harem-size and growth-rate equations, and article metadata",
+        "method": "Publisher lawful open PDF and metadata text",
+        "title": "A two-sex matrix population model to represent harem structure",
+        "trigger": "Age-structured polygynous sex-ratio motivation, confirmed primary MSC 92D25"
+      },
+      {
+        "assessment": "Prior deterministic sex-ratio/growth and harvest optimization; does not optimize expected min of finite binomial sexes or compare it with any-mating feasibility.",
+        "evidence": [
+          "1998 article gives deterministic growth-optimal adult sex-ratio and culling recommendations"
+        ],
+        "identifier_or_url": "doi:10.2981/wlb.1998.024",
+        "material_read": "Full HTML model, optimal adult sex-ratio and harvesting results sections",
+        "method": "Publisher HTML full text",
+        "title": "Harvesting and sex differences in demography",
+        "trigger": "Possible broader sex-ratio optimization"
+      },
+      {
+        "assessment": "Includes Binomial(N,z) sex assignment, but z=0.5 in sex-determination experiments; no all-n/h sex-parameter optimum, binomial-quantile law or logarithmic reserve.",
+        "evidence": [
+          "HTML paragraphs describe Eq. 9 binomial sex determination and Figure 6 experiments fixing z=0.5"
+        ],
+        "identifier_or_url": "doi:10.1002/ecs2.3038",
+        "material_read": "Full HTML model equations 4–9 and results/discussion Figures 4–6",
+        "method": "Publisher full HTML, including sex-ratio experiment parameters",
+        "title": "Stochasticity in social structure and mating system drive extinction risk",
+        "trigger": "Explicit stochastic sex determination and group formation"
+      },
+      {
+        "assessment": "Addresses demographic variance, sex-ratio fluctuations and Allee effects, not decisive for absence of exact finite allocation optimizer.",
+        "evidence": [
+          "2003 article abstract states effect of sex ratio fluctuations on demographic variance"
+        ],
+        "identifier_or_url": "doi:10.1890/02-0123",
+        "material_read": "Published abstract and publication metadata",
+        "method": "Publisher abstract only; full article not read",
+        "title": "Demographic stochasticity and Allee effects in populations with two sexes",
+        "trigger": "Foundational stochastic-sex-ratio modelling"
+      },
+      {
+        "assessment": "Known mating function (minimum, harmonic and modified harmonic); cannot exclude equivalent optimization in body. Explicit residual originality risk.",
+        "evidence": [
+          "Indexed abstract explicitly compares the minimum, harmonic and modified harmonic mating functions"
+        ],
+        "identifier_or_url": "doi:10.1016/j.actao.2010.02.010",
+        "material_read": "Title, abstract, first-page indexed source text and bibliographic metadata; complete full text inaccessible",
+        "method": "Searched author archival PDF and attempted retrieval; full text returned inaccessible",
+        "title": "Discrete two-sex models of population dynamics: On modelling the mating function",
+        "trigger": "Same minimum mating function; plausible stronger coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1c8c74fd-49b0-4fa1-9bf3-bcb0b7f1333d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The objective mismatch arises directly from two natural finite founding-group questions: maximize expected reproductively active females or maximize the probability the group can mate at all. The theorem establishes sharp parameter boundaries for their incompatibility, and an exact finite binomial-quantile calibration. The fixed-capacity normal correction versus maximally polygynous logarithmic male-reserve scaling are structural differences useful when finite male scarcity matters. Neither the known minimum mating function nor elementary finite enumeration is presented as the contribution.",
+    "status": "PASS"
+  }
+}
