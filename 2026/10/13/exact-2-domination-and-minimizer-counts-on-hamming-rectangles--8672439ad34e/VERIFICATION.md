@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The theorem is proved analytically in `RESULT.md`. The bundled checker is a finite stress test only.
+# Independent mathematical audit
 
-`verify.py` constructs \(K_m\mathbin{\Box}K_n\) directly and checks ordinary 2-domination from adjacency. For every \(1\le m\le n\le4\), it enumerates every vertex subset, finds the exact minimum, counts all minimum sets, and compares both quantities with the formulas in the finding. It also verifies the explicit constructions and their domination property for every \(1\le m\le n\le40\).
+## correctness
 
-The finite enumeration is not used to infer the result for arbitrary dimensions. The infinite claim rests on the row/column-count dichotomy in the proof: no empty column forces at least \(n\) choices; an empty column forces at least two choices in every row and hence at least \(2m\).
+PASS
 
-The literature comparison has a stated access limit: the 2009 square-rook predecessor was inspected only through its abstract/metadata and citation context, not full text. This remains a residual originality risk.
+The unselected (i,j) has exactly r_i+c_j selected neighbors, so feasibility iff r_i+c_j>=2. Every column occupied forces >=n; any empty column forces all m row degrees >=2 and >=2m. Explicit feasible constructions achieve min(n,2m); equality forces precisely surjective singleton columns or degree-two rows. The n=2m intersection is 2-regular rows and one-per-column, counted (2m)!/2^m, proving the counting formula incl. m=n=1. A separately written neighborhood brute force over all 10 m<=n<=4 matrices exactly reproduced size and counts (e.g. 44 at (2,4)). This finite check corroborates but is not the universal proof.
 
-Actual replay from the bundled path:
+## originality
 
-`ALL CHECKS PASSED; exhaustive_cases=10; subset_candidates=3681; construction_cases=820; exhaustive_range=1<=m<=n<=4; construction_range=1<=m<=n<=40`
+PASS
+
+Best-of-knowledge originality only for the exact full finding and domain; prior same-invariant and general sources were compared by statement and mathematical implication, and the listed unresolved literature risks remain. Square gamma2 and total domination are insufficient to imply the full ordinary rectangular phase crossover, including the 2m branch and exact minimizer counts.
+
+## value
+
+PASS
+
+Unbalanced Hamming products are a canonical two-parameter domination family. The exact n=2m phase switch changes combinatorial type of all minima, and the complete Stirling/choose enumerator describes sharp extremizers rather than a routine substitute of the known square value. Such precise equality data are reusable in domination and extremal-array work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

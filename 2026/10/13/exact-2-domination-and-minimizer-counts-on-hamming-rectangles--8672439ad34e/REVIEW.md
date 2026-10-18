@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. For an unchosen cell \((i,j)\), direct adjacency in \(K_m\mathbin{\Box}K_n\) gives exactly \(r_i+c_j\) chosen neighbors. The lower bound is an exhaustive dichotomy: either every column is nonempty, giving at least \(n\) chosen cells, or some column is empty, forcing every row count to be at least two and hence at least \(2m\) chosen cells. Both bounds have explicit constructions. Equality in each branch gives the stated minimizer classification, and the counting formulas follow from surjections, independent row-pair choices, and inclusion-exclusion at the boundary. The verifier independently exhausts all subsets for small rectangles and agrees with both the value and count formulas.
+## correctness
 
-## Originality
-PASS, with residual risk stated below. The recent full-text source arXiv:2501.03788 identifies triangular Young domination at latency one with ordinary \(a\)-domination, but its exact triangular theorem is restricted to equal factor orders; at \(a=2\) it gives only the square specialization \(\gamma_2(K_n\mathbin{\Box}K_n)=n\). Targeted searches for rectangular rook/Hamming 2-domination and minimizer counts found no statement implying the two-parameter formula or its classification. The 2020/2023 Carballosa--Wisby work concerns total 2-domination, which is strictly a different requirement because selected vertices must also have two selected neighbors. The 2009 Burchett--Lane--Lachniet predecessor is described by both its abstract and the recent paper as square-rook work; its full text was not available in the inspected open sources, so unadvertised overlap remains a residual risk rather than being declared impossible.
+PASS
 
-## Value
-PASS. The result closes the first nontrivial unbalanced case left outside the recent exact triangular Young-domination theorem. It is a natural complete two-parameter classification, not an arbitrary finite slice: the aspect ratio creates a genuine threshold at \(n=2m\), the extremal configurations change type across that threshold, and the theorem gives exact enumeration of all minimum configurations. These facts are directly reusable as a base case for higher ordinary \(k\)-domination on Hamming rectangles and as a sharp comparison point against the substantially more complicated total 2-domination parameter.
+The unselected (i,j) has exactly r_i+c_j selected neighbors, so feasibility iff r_i+c_j>=2. Every column occupied forces >=n; any empty column forces all m row degrees >=2 and >=2m. Explicit feasible constructions achieve min(n,2m); equality forces precisely surjective singleton columns or degree-two rows. The n=2m intersection is 2-regular rows and one-per-column, counted (2m)!/2^m, proving the counting formula incl. m=n=1. A separately written neighborhood brute force over all 10 m<=n<=4 matrices exactly reproduced size and counts (e.g. 44 at (2,4)). This finite check corroborates but is not the universal proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality only for the exact full finding and domain; prior same-invariant and general sources were compared by statement and mathematical implication, and the listed unresolved literature risks remain. Square gamma2 and total domination are insufficient to imply the full ordinary rectangular phase crossover, including the 2m branch and exact minimizer counts.
+
+## value
+
+PASS
+
+Unbalanced Hamming products are a canonical two-parameter domination family. The exact n=2m phase switch changes combinatorial type of all minima, and the complete Stirling/choose enumerator describes sharp extremizers rather than a routine substitute of the known square value. Such precise equality data are reusable in domination and extremal-array work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
