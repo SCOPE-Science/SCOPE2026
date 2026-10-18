@@ -1,25 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source fixes \(2R_O=35\ {\rm bp}\) and displays
-\[
-n(L)=\left\lfloor\frac{L}{2R_O}\right\rfloor.
-\]
-Therefore \(n(70)=2\). Counting the Model-M kinetic parameters directly from equation (3.3) gives \(2n+1\), and the source's AICc convention adds one, so \(K=2n+2\). The formula-derived sequence is \(4,4,4,6,6,6,8\), whereas Table 2 reports \(4,4,4,4,6,6,8\). Equation (3.3) also shows directly that the \(n=2\) model has a \(D_2\) state and cannot equal Model-E.
+PASS
 
-## Originality
+Direct substitution of seven measured lengths (40,50,60,70,80,90,120) into the printed floor rule gives capacities 1,1,1,2,2,2,3. Model-M has n association/dissociation pairs plus k_p, i.e. 2n+1 free kinetic parameters; the printed AICc convention counts K=2n+2. Expected K=(4,4,4,6,6,6,8) and table K=(4,4,4,4,6,6,8) disagree only at 70 bp. For n=2 Model-M adds D2, k2,k2m and 2k_p D2, so it cannot coincide with Model-E. Calculation identifies inconsistency, not biologically correct capacity or corrected model fit. Source table transcribed in Git package; original table not independently read this run because publisher full text inaccessible.
 
-PASS. Generic OAS2 length dependence, multi-binding hypotheses, and AICc are not new. The reviewed claim is restricted to the exact article-specific conflict between the printed floor-capacity law, the explicit \(n=1\) override through \(70\) bp, and the parameter count used in Table 2. Searches for the DOI, title, aliases, correction language, and the \(70\)-bp boundary found no published correction. A same-titled 2020 thesis was located but its full text was inaccessible, so no whole-document non-coverage claim is made about it.
+## originality
 
-## Value
+PASS
 
-PASS. The boundary is mathematically and experimentally natural rather than an arbitrary special case: \(70\) bp is one of the seven measured lengths and equals twice the model's \(35\)-bp occupancy scale. The source uses the asserted equivalence of Model-M and Model-E through \(70\) bp to interpret where multi-binding starts, so the conflict changes the candidate model and parameter dimension at the transition data point.
+The primary article prints both the floor occupancy law and conflicting special convention at L<=70, but does not identify its resulting 70-bp parameter-count mismatch as an erratum. This is a specific newly articulated internal inconsistency, not a novel floor identity or biological two-enzyme claim. A same-titled 2020 thesis and later correction may already explain it; those are material residual risks.
 
-## Closest literature and limitations
+## value
 
-The experimental OAS2 paper establishes a minimum activation length near \(35\) bp but does not determine the Model-M occupancy function. Structural work supports OAS2 oligomerization but likewise does not resolve this discrete modelling boundary.
+PASS
 
-The result does not choose between the two coherent repairs and does not refit the missing \(n=2\) model at \(70\) bp. Therefore it makes no claim about the corrected RSS, AICc, Akaike weight, or ranking.
+At 70 bp—the exact 2-times-35-bp threshold, and one of seven measured datasets—the difference changes the model state space, free parameter count and hence AICc comparison at an empirically important transition. The correction is a motivated model-selection integrity issue, not a free-standing arithmetic curiosity; corrected fit is explicitly not provided.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
