@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T17:15:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For octahedron conv±e_i and E=u⊥ with u Haar-uniform up to sign, projection polarity gives (P_E O)^polar=[-1,1]^3∩E; center symmetry guarantees unrestricted inradius equals inverse farthest cube-section radius. Sorting |u| into a≥b≥c≥0 and examining cube-section vertices with two fixed signs gives R²=2+((b+c)/a)² when a≥b+c, else 2+((a-c)/b)². The competing cases satisfy the inequalities in RESULT.md, meeting continuously at a=b+c. At threshold R²≤2+s² (0≤s≤1), each branch is a simplicial cone in one positive sorted chamber, rays ((1,0,0),(1,s,0),(2,s,s)) and ((1,1,1-s),(1,1,1),(1+s,1,1)). Each determinant has absolute value s². The known solid-angle formula, multiplied by 48/(4π), yields exactly 24/π times the sum of two arctans, with stated denominators D1,D2, G(0)=0,G(1)=1 and support [1/√3,1/√2]. Smooth spherical level boundaries have measure zero. Independent double-precision cone determinant/angle checks at s∈{0,.1,.25,.5,.75,1} passed; the source exact-rational verifier independently enumerates section vertices and projected polygons, and was inspected for its sampling-vs-proof distinction.",
+      "residual_risks": [
+        "Spherical identities are analytic; Monte Carlo does not prove the distribution.",
+        "Endpoint ties/degenerated sections have spherical measure zero, not positive-probability atoms."
+      ],
+      "sources": [
+        "RESULT.md Git blob 81ef6224c70193d66578983faf41a2596f6b28c3",
+        "verify.py Git blob 3e43bb63393b92b3401ede7f70d82c3f7c042be3",
+        "Local independent_checks.py cone determinant/endpoint calculations",
+        "van Oosterom–Strackee DOI:10.1109/TBME.1983.325207 solid-angle identity"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guédon et al abstract offers high-probability upper/lower bounds and p-ellipsoid estimates, not an explicit CDF in the inspected abstract.",
+          "Böröczky–Henk theorem gives expected f-vectors of projections; §4 six-vertex probability ≈0.35095.",
+          "Abas studies linear widths W(u), not reciprocal random-section circumradius."
+        ],
+        "reasoning": "Asymptotic face counts or tail bounds do not themselves determine the complete finite-dimensional CDF. However full Guédon text was NOT read and might include the specialization; remain cautious.",
+        "searches": [
+          "arXiv:2609.24131 abstract random diameters",
+          "Böröczky–Henk 1997 Theorem 1.1 and §4",
+          "Abas arXiv:2608.06348 directional width"
+        ]
+      },
+      "checked_sources": [
+        "Böröczky–Henk 1997 primary full 11-page PDF",
+        "arXiv:2609.24131 abstract only, institutional access blocked",
+        "arXiv:2608.06348 source and abstract description",
+        "Git tree RESULT.md and verification code"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A face count is coarser than the metric radius; polygon classes retain nontrivial inradius variation.",
+          "Width of a fixed body in a random direction differs from the nonlinear maximal Euclidean radius of random cube sections.",
+          "Probability bounds, even sharp in order, are not an identity of all quantiles."
+        ],
+        "reasoning": "No accessed prior statement yields both active-vertex cases, the solid-angle cones and their full exact CDF.",
+        "searches": [
+          "Böröczky Henk §4 P6=1-6β≈0.35095",
+          "Guédon 2026 abstract high-probability diameter bounds",
+          "Abas 2026 width law"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "(Projection of octahedron) polar = (cube ∩ perpendicular plane), so projected inradius = inverse cube-section circumradius.",
+          "In sorted normal chamber, the statistic is max section norm, rather than a support width in a fixed direction."
+        ],
+        "reasoning": "Compared projection and dual section statistics, including the full distribution, not merely matching polytope name; no accessed source supplies the pair of exact cone probabilities.",
+        "searches": [
+          "regular octahedron Haar planar orthogonal projection inradius exact distribution random cube central section circumradius",
+          "regular octahedron uniformly random planar projection inradius distribution",
+          "cube central planar Haar random section Euclidean circumradius exact"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Böröczky–Henk Table 1 contains expected projected face counts and §4 six-vertex probability; no inradius table in examined 11-page manuscript.",
+          "No exact matching CDF table found in searched materials, with nonexhaustive coverage acknowledged."
+        ],
+        "reasoning": "An exact cube-section circumradius table would imply G(s); the inspected nearest numerical table pertains to different face counts, so does not.",
+        "searches": [
+          "\"inradius\" \"random projections\" \"octahedron\" distribution cube sections",
+          "regular octahedron random projection inradius arctangent law",
+          "Böröczky Henk Table 1 expected face counts"
+        ]
+      },
+      "rationale": "The exact observable is the random-plane inradius of a three-dimensional crosspolytope, equivalently reciprocal circumradius of a random central cube section. The inspected primary Böröczky–Henk paper gives projected face-number expectations and probability of six vertices, not metric-radius CDF. The 2026 Abas paper studies directional widths, a distinct functional. The extremely pertinent Guédon–Litvak–Tatarko–Vritsiou 2026 paper concerns random section diameters but only its abstract was accessible: cannot make whole-document noncoverage claim. Its arXiv formats were inaccessible, OA searches located abstracts alone, and Oxford institutional access returned vpn_disconnected; do not override authentication. Best-of-knowledge no demonstrated covering theorem, with material overlap risk and Resultary outage explicitly retained.",
+      "residual_risks": [
+        "Resultary temporarily_unavailable/search_completed:false; no indexed originality clearance.",
+        "Guédon et al 2026 full text inaccessible after arXiv/OA/Oxford authorized attempts; its random-section metric focus could conceal an exact low-dimensional special case.",
+        "Other unindexed laws of random central cube-section radii may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "§4 evaluates six-vertex probability about 0.35095 and table of expected face counts, not inradius distribution.",
+          "evidence": [
+            "§4 equation (4.2) P6 and Table 1."
+          ],
+          "identifier_or_url": "https://page.math.tu-berlin.de/~henk/preprints/boeroeczky%20henk%26random%20projections%20of%20regular%20polytopes.pdf",
+          "material_read": "Full 11-page lawful 1997 primary PDF; introduction, Theorem 1.1, §4 p.8–9 and Table 1, with rendered §4 image.",
+          "method": "Read PDF text and key rendered page.",
+          "title": "Random Projections of Regular Polytopes",
+          "trigger": "Exact same octahedron projected randomly"
+        },
+        {
+          "assessment": "Material full text NOT READ; overlap remains unresolved access risk, abstract on high-probability bounds cannot justify NOT_COVERING.",
+          "evidence": [
+            "arXiv 2609.24131 abstract; Oxford VPN disconnected job 0698d3fd5a5f5e9be23030b31feec2da."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.24131",
+          "material_read": "Published September 21 2026 abstract only; arXiv PDF, HTML and abs inaccessible, lawful OA search gave abstract only.",
+          "method": "Attempted arXiv formats/open-access search, then authorized Oxford (vpn_disconnected); no publisher bypass.",
+          "title": "On random diameters of convex bodies",
+          "trigger": "Same dual random cube-section diameter observable"
+        },
+        {
+          "assessment": "Width W(u) is distinct from random planar projection inradius; a possible indirect implication was not established.",
+          "evidence": [
+            "arXiv:2608.06348; width-distribution formulation quoted in frozen RESULT.md."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.06348",
+          "material_read": "Title, author/abstract and source-package specific quotation of width setup; full source not independently opened here.",
+          "method": "Compared available source description; no full-text noncoverage claim.",
+          "title": "Width Laws and Spectral Geometry",
+          "trigger": "Possible random width-law implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact complete law of a natural metric projection invariant for the smallest nontrivial regular crosspolytope gives quantiles and geometric benchmarks inaccessible from face counts alone. The analytic two-regime cube-section geometry and explicit trihedral solid angles identify a substantive distributional structure, not an arbitrary isolated sample or parameter slice.",
+      "residual_risks": [
+        "Only three dimensions and Haar orthogonal projections; no broad random-body result."
+      ],
+      "sources": [
+        "RESULT.md polar and spherical-cone decomposition",
+        "Böröczky–Henk 1997 projected face-count study for context",
+        "Guédon et al arXiv:2609.24131 abstract establishes live interest in random-section diameters"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": "Only the Euclidean unit octahedron and Haar Gr(2,3) plane law; inaccessible directly relevant random diameter source and Resultary failure retained."
+}

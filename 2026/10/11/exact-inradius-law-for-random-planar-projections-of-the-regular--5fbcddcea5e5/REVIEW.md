@@ -1,15 +1,21 @@
-# Review of the exact octahedral projection-inradius law
+# Independent mathematical audit
 
-## Correctness — PASS
-The precise object is the regular octahedron with vertices at the six unit coordinate vectors, sampled by Haar-random two-planes in three-dimensional Euclidean space. The probability threshold is parametrized by \(0\le s\le1\). Origin symmetry and polarity identify the inradius of the projected octahedron with the inverse Euclidean circumradius of its polar cube section. Exact enumeration of the cube-section vertices yields a two-case normalized radius formula. In each case the probability event becomes one explicitly described simplicial cone in the sorted nonnegative octant. Their ray determinants are \(s^2\); the standard solid-angle formula and the 48 equal signed-permutation chambers give the arctangent law with exact normalization and endpoints. The verification code separately checks 1,329 rational sections, 500 geometrically projected planar hulls and 80,000 sampled directions. The proof, not those finite checks, establishes the continuum claim. Degenerate normals and shared cone faces form null sets and are covered by continuity.
+## correctness
 
-## Originality — PASS, with identified uncertainty
-Abas (arXiv:2608.06348v1), including its full publicly posted text and Theorem 8.1, treats distributions of directional *width* and reconstructive and spectral data; its width observables are not the projected inradius. Böröczky–Henk (1997), inspected in its full preprint including §4, computes expected projected face counts and the probability of six projected octahedral vertices, not the distribution of an inradius. Relevant prior work on random cube-section diameters (Guédon–Litvak–Tatarko–Vritsiou, arXiv:2609.24131v1) could be assessed only through the abstract, which describes high-probability bounds and sharp estimates and does not state the present finite-dimensional exact law. That full text remains an important residual comparison risk: it may contain an unrecognized specialized computation. No stronger accessible theorem with the same object, normalization, and complete distribution has been established. An unsuccessful literature search alone is not treated as proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The inradius is a fundamental metric invariant of a convex projection and the regular octahedron is the first nontrivial three-dimensional crosspolytope. The formula is a complete, all-threshold distribution for a natural Haar projection experiment rather than a selected derivative or isolated numerical constant. Polarity links it to random central cube sections, and the proof identifies a genuine two-regime geometry separated by an ordered-coordinate triangle inequality. It complements established face-count and width laws and gives exact quantiles and statistical benchmarks without suggesting a theorem for arbitrary bodies or dimensions.
+For octahedron conv±e_i and E=u⊥ with u Haar-uniform up to sign, projection polarity gives (P_E O)^polar=[-1,1]^3∩E; center symmetry guarantees unrestricted inradius equals inverse farthest cube-section radius. Sorting |u| into a≥b≥c≥0 and examining cube-section vertices with two fixed signs gives R²=2+((b+c)/a)² when a≥b+c, else 2+((a-c)/b)². The competing cases satisfy the inequalities in RESULT.md, meeting continuously at a=b+c. At threshold R²≤2+s² (0≤s≤1), each branch is a simplicial cone in one positive sorted chamber, rays ((1,0,0),(1,s,0),(2,s,s)) and ((1,1,1-s),(1,1,1),(1+s,1,1)). Each determinant has absolute value s². The known solid-angle formula, multiplied by 48/(4π), yields exactly 24/π times the sum of two arctans, with stated denominators D1,D2, G(0)=0,G(1)=1 and support [1/√3,1/√2]. Smooth spherical level boundaries have measure zero. Independent double-precision cone determinant/angle checks at s∈{0,.1,.25,.5,.75,1} passed; the source exact-rational verifier independently enumerates section vertices and projected polygons, and was inspected for its sampling-vs-proof distinction.
 
-## Limitations and literature
-The closed law is specific to three dimensions, Haar-distributed projection planes, the regular octahedron with unit coordinate vertices, and Euclidean disks. The inaccessible full text of the 2026 random-diameter work is a residual overlap risk, not a claim of negative coverage. Computation and sampling are auxiliary checks, not independent certification.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The exact observable is the random-plane inradius of a three-dimensional crosspolytope, equivalently reciprocal circumradius of a random central cube section. The inspected primary Böröczky–Henk paper gives projected face-number expectations and probability of six vertices, not metric-radius CDF. The 2026 Abas paper studies directional widths, a distinct functional. The extremely pertinent Guédon–Litvak–Tatarko–Vritsiou 2026 paper concerns random section diameters but only its abstract was accessible: cannot make whole-document noncoverage claim. Its arXiv formats were inaccessible, OA searches located abstracts alone, and Oxford institutional access returned vpn_disconnected; do not override authentication. Best-of-knowledge no demonstrated covering theorem, with material overlap risk and Resultary outage explicitly retained.
+
+## value
+
+PASS
+
+An exact complete law of a natural metric projection invariant for the smallest nontrivial regular crosspolytope gives quantiles and geometric benchmarks inaccessible from face counts alone. The analytic two-regime cube-section geometry and explicit trihedral solid angles identify a substantive distributional structure, not an arbitrary isolated sample or parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
