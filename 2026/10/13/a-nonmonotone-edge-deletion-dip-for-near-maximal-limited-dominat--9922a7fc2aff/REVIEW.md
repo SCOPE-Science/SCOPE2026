@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Direct case analysis rules out zero, one, and two selected vertices. A three-vertex set must have the \(1+2\) profile: the singleton is forced to an unmatched position and the opposite pair to distinct deleted-matching positions. The converse construction gives every such set, proving both thresholds and the exact count. Any two-plus-two selection works, and a complementary case check excludes other four-vertex minimizers at \(t=0,1,n\). Finite independent adjacency enumeration over 39 profiles and 757248 candidate subsets confirms minima and counts but is not used to prove the universal claim.
+## correctness
 
-**Originality — PASS, subject to residual literature risk.** Božović et al. (arXiv:2606.22422) provide the intact complete-bipartite boundary and the definition, not the partial matching-deletion profile. The full-matching crown endpoint is a previously known special case; the result does not present it as new. The structural all-intermediate profile, nonmonotone jump at the second and final matching-edge deletions, and counts of every optimizer are not implied by the endpoint results. Published-literature searches for aliases \((0,k)\)-pitchfork and \((1,t)\)-domination, and comparisons to near graph-family results found no covering classification. The full texts of some recent related preprints were inaccessible, leaving an unindexed-equivalence risk.
+PASS
 
-**Value — PASS.** This is a sharp counterexample to monotonicity under a nested sequence of individual edge deletions in a newly introduced capacity-constrained domination invariant. The same parameter is maintained across all graphs; the proof identifies precisely how matched and unmatched vertices produce the dip, classifies all minimizers, and counts them for every family member. The nonmonotone interior behavior is not a routine corollary of intact/final endpoint values.
+Reconstructed all vertex and capacity inequalities for k-limited domination: a singleton shore cannot dominate omitted neighbors; any two vertices fail either chosen load or an omitted paired vertex. A three-vertex candidate with one L_i and two R vertices forces i>t and both opposite indices <=t; conversely each such configuration works and has selected outside-neighbor count n-2. The mirrored types exhaust |D|=3. Every 2+2 set works for |D|=4; at endpoint t=0,1,n no 1+3 can work and one-shore sets fail, so these are exactly all minima. An independent adjacency/bitset enumeration (not executing package checker) exhaustively confirmed every case n=3..8, all t (39 profiles), agreeing with both counts; universal conclusion follows from the case proof, not finite tests.
 
-**Limits.** Only this motivated near-maximal capacity and matched-edge deletion sequence are proved. Independent external review has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bozovic et al. Proposition 1(iv) gives the intact complete-bipartite t=0 case and k-limited definition; matched and unmatched vertices at 0<t<n create two degree classes outside the statement of the complete multipartite formula. Resultary neighboring crown-graph records concern different domination notions. The exact dip, its two transitions, full minimizer classification and multiplicities are not implied by intact endpoint values.
+
+## value
+
+PASS
+
+Edge removal can either decrease or increase the minimum under a fixed near-maximum local omission capacity, disproving both monotonicity intuitions for this natural nested graph family. Exact minimizer geometry/counts can be used as sharp test cases for nonregular limited domination bounds. The capacity n-2 has a structural role, not an arbitrary numerically selected slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
