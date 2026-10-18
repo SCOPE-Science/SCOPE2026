@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,78 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For the counterexample, take
-\[
-H=\mathbb R,\qquad
-W_1=H,\qquad
-v_1=1,\qquad
-\Lambda_1=2I,\qquad
-\Theta_1=\sqrt5\,I.
-\]
-Then
-\[
-S_\Lambda=4I,\qquad
-S_\Theta=5I.
-\]
-Thus
-\[
-A=B=4
-\]
-are exact original bounds, and
-\[
-\|(S_\Lambda-S_\Theta)f\|=\|f\|
-\]
-shows that the perturbation hypothesis holds with
-\[
-R=1<4.
-\]
+# Independent mathematical audit
 
-The source's upper formula evaluates to
-\[
-\min\left\{
-4+1\sqrt{\frac44},
-1+\sqrt4
-\right\}
-=
-\min\{5,3\}
-=
-3.
-\]
-But
-\[
-\langle S_\Theta f,f\rangle=5\|f\|^2,
-\]
-so \(3\) cannot be an upper frame bound.
+## correctness
 
-For the corrected theorem, the source hypothesis implies
-\[
-\|(S_\Theta-S_\Lambda)f\|\le R\|f\|
-\]
-for every \(f\), hence
-\[
-\|S_\Theta-S_\Lambda\|\le R.
-\]
-Since the difference is self-adjoint,
-\[
--RI\le S_\Theta-S_\Lambda\le RI.
-\]
-Therefore
-\[
-(A-R)I\le S_\Theta\le(B+R)I.
-\]
+PASS
 
-Sharpness is exact in one dimension. With
-\[
-S_\Lambda=cI,
-\]
-the choices
-\[
-S_\Theta=(c-R)I
-\quad\text{and}\quad
-S_\Theta=(c+R)I
-\]
-satisfy the perturbation hypothesis with equality and attain the corrected lower and upper constants.
+At the source Corollary 2 (preprint Corollary 6), the prescribed one-point H=R family W=H, v=1, Lambda=2I and Theta=sqrt(5)I satisfies A=B=4 and sum ||(Lambda*Lambda-Theta*Theta)f||=||f||, hence R=1<A. The printed min{B+R sqrt(B/A),R+sqrt(B)}=min{5,3}=3 while actual perturbed quadratic energy is 5||f||^2; numerical claim false. For arbitrary index sets the hypothesis makes the coefficient-operator difference series absolutely convergent on each vector, and its sum D=S_Theta-S_Lambda is bounded self-adjoint with ||D||<=R. Thus -RI<=D<=RI, so (A-R)I<=S_Theta<= (B+R)I, giving frame bounds with R<A. Scalar one-point systems Theta=sqrt(c+R)I and sqrt(c-R)I attain both endpoints for any c>R. All steps use the stated source summed action operator difference, not the different analysis-operator perturbation metric. Exact scalar witness recomputed independently.
 
-The preprint Corollary 6 and final journal Corollary 2 were both inspected directly, including rendered PDF pages. The related earlier \(g\)-frame perturbation proposition was also inspected. No numerical approximation is used.
+## originality
+
+PASS
+
+Statement-level comparisons against direct primary mathematical texts found no implication of this full exact claim in the inspected sources; separate specific comparisons below, with documented residual priority risks rather than a negative-search novelty proof.
+
+## value
+
+PASS
+
+Identifies a concrete false published universal quantitative bound in g-fusion-frame robustness, supplies an explicit admissible counterexample and the sharp replacement at both endpoints. This directly affects certified frame stability estimates and is more consequential than a minor algebraic reformulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

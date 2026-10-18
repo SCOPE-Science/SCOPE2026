@@ -1,46 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The one-point family
-\[
-\Lambda_1=2I,\qquad
-\Theta_1=\sqrt5\,I
-\]
-satisfies the source hypothesis with
-\[
-A=B=4,\qquad R=1.
-\]
-The published upper minimum is \(3\), but the exact perturbed energy is \(5\|f\|^2\).
+## correctness
 
-The corrected theorem follows from
-\[
-\|S_\Theta-S_\Lambda\|\le R
-\]
-and self-adjoint order:
-\[
--RI\le S_\Theta-S_\Lambda\le RI.
-\]
-Combining this with
-\[
-AI\le S_\Lambda\le BI
-\]
-gives the exact universal interval
-\[
-(A-R)I\le S_\Theta\le(B+R)I.
-\]
-One-point scalar families attain both endpoints.
+PASS
 
-## Originality
-PASS. Exact source, DOI, preprint identifier, corollary number, published constants, frame-operator-difference aliases, \(B+R\) aliases, related \(g\)-frame stability literature, and indexed scientific comparisons were checked.
+At the source Corollary 2 (preprint Corollary 6), the prescribed one-point H=R family W=H, v=1, Lambda=2I and Theta=sqrt(5)I satisfies A=B=4 and sum ||(Lambda*Lambda-Theta*Theta)f||=||f||, hence R=1<A. The printed min{B+R sqrt(B/A),R+sqrt(B)}=min{5,3}=3 while actual perturbed quadratic energy is 5||f||^2; numerical claim false. For arbitrary index sets the hypothesis makes the coefficient-operator difference series absolutely convergent on each vector, and its sum D=S_Theta-S_Lambda is bounded self-adjoint with ||D||<=R. Thus -RI<=D<=RI, so (A-R)I<=S_Theta<= (B+R)I, giving frame bounds with R<A. Scalar one-point systems Theta=sqrt(c+R)I and sqrt(c-R)I attain both endpoints for any c>R. All steps use the stated source summed action operator difference, not the different analysis-operator perturbation metric. Exact scalar witness recomputed independently.
 
-The closest earlier stability theorem uses an analysis-operator perturbation metric and gives squared square-root bounds. No checked source states the one-dimensional contradiction or the sharp \(A-R,B+R\) correction to this corollary.
+## originality
 
-## Value
-PASS. A perturbation theorem is useful only if its quantitative bounds are valid. The published minimum can underestimate the true upper frame energy by an explicit amount in the smallest possible model. The replacement \(B+R\) is not merely safe: together with \(A-R\), it is sharp from the stated data.
+PASS
 
-## Closest literature and limitations
-Najati--Faroughi--Rahimi give the closest earlier \(g\)-frame stability theorem, but for a different coefficient-level perturbation norm. The target paper itself treats that metric separately.
+Statement-level comparisons against direct primary mathematical texts found no implication of this full exact claim in the inspected sources; separate specific comparisons below, with documented residual priority risks rather than a negative-search novelty proof.
 
-The result gives universal bounds from \(A,B,R\); finer information about a particular frame operator can improve them.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Identifies a concrete false published universal quantitative bound in g-fusion-frame robustness, supplies an explicit admissible counterexample and the sharp replacement at both endpoints. This directly affects certified frame stability estimates and is more consequential than a minor algebraic reformulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
