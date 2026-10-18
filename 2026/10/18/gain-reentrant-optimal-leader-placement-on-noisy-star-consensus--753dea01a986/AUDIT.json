@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "PASS. The exact model is symmetric positive definite because its quadratic form is a sum of unit-edge differences and strictly positive pinned energies. Its Lyapunov equation yields Sigma=A^{-1}/2 with the stated white-noise normalization. Splitting the hub from the independent leaves and applying the inverse Schur complement gives trace=s1+(1+s2)/tau; tau_C=kappa(kappa+q)/(1+kappa) and tau_L=q*kappa/(1+kappa) are positive for every admissible parameter. Algebraic subtraction exactly yields the displayed rational difference. All q-subsets are covered by two leaf-permutation orbits; positivity of the denominator makes the sign a complete global test. f(kappa)=kappa/(1+kappa)^2 reaches its unique 1/4 maximum at kappa=1 and is invariant under reciprocal gain, establishing every strict/tie phase. n=7 q=3 yields roots 2±sqrt(3), J_C=31/8 and J_L=23/6 at gain one. The packaged standard-library checker directly inverts rational matrices and reproduces 1455 comparisons. It is a finite regression test; the all-n claim relies on the displayed algebra, not enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "[1] supplies general convex lower bounds and greedy upper bounds but no claimed closed-form all-budget star optimality; [3] treats noise-free tree leaders and noise-corrupted cycles; [4] treats a different least-eigenvalue performance objective.",
+        "The reentrant n=7,q=3 gain thresholds are not an instance of [4] grounded smallest-eigenvalue result, because kappa is finite and the scalar objective is a trace inverse."
+      ],
+      "reasoning": "Broader graph domain alone does not imply this exact optimal-placement formula without an optimality theorem. In particular, known spectral pinning rules control a different scalar functional; known finite-feedback graph algorithms do not furnish the two strict gain transitions.",
+      "searches": [
+        "star graph stochastic consensus optimal leader selection trace inverse Laplacian plus diagonal gains k noncentral leaf placement",
+        "Optimal leader selection star graph noisy stochastic consensus finite feedback gain H2 norm trace inverse center leaves q k",
+        "arxiv:1302.0450v2 Sec. 3",
+        "arxiv:1708.06873v1 Sec. IV-C and IV-D",
+        "arxiv:1804.10818v2 Sec. III-C"
+      ]
+    },
+    "checked_sources": [
+      "Lin, Fardad and Jovanović (2013), arXiv:1302.0450v1; complete author-posted HTML v2, Sec. 2.1 equation (2)/LS1, Sec. 3, conclusions",
+      "Fitch and Leonard (2014), arXiv:1407.1569v1; complete author-posted HTML v2, Secs. IV, V-B, V-C, V-E",
+      "Patterson, Yi and Zhang (2017), arXiv:1708.06873v1; full arXiv HTML, Secs. III, IV-C, IV-D",
+      "Liu et al. (2018), arXiv:1804.10818v1; full arXiv HTML v2, Sec. III-C Proposition 1, Sec. IV",
+      "Public mathematical record search results and six actual documented query phrases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "[1] establishes a general variational/algorithmic model, not a solved star optimum; [2] provides up to two finite-gain noisy leaders; [3] solves a two-noisy-leader cycle; [4] pins a single star node and optimizes lambda_min of a grounded operator.",
+        "The proved difference sign depends on the nonlinear kappa/(1+kappa)^2, which forces two gain transitions for n=7,q=3 and cannot follow from a gain-free grounded-eigenvalue comparison."
+      ],
+      "reasoning": "The closest prior statements neither assert the complete finite-gain optimization nor provide a stronger solved class in which the exact claim is a stated special case. They motivate the problem and intermediate tools, not the novel phase conclusion. Hidden historical equivalents remain possible.",
+      "searches": [
+        "exact phase transition in optimal noisy leader placement on star networks, center versus leaves with equal finite pinning gains and q leaders, reentrant switching",
+        "finite gain stochastic pinned star optimal leader placement phase transition inverse Laplacian Schur complement",
+        "arxiv:1302.0450v2 LS1",
+        "arxiv:1407.1569v2 Theorem 2",
+        "arxiv:1708.06873v1 Sec. IV-D",
+        "arxiv:1804.10818v2 Proposition 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The graph problem in [1] is equivalent to minimizing half the inverse pinned Laplacian trace for finite equal gains; [2] uses the same stochastic covariance objective.",
+        "Our theorem adds the exact optimizer among all star vertex subsets for every q and kappa, plus a two-transition gain law."
+      ],
+      "reasoning": "The general objective is not claimed as new. It does not by itself logically settle the star-specific global comparison or its nonmonotone gain phase; the strict two-orbit difference and reciprocal gain thresholds require further derivation. The two-noisy-leader case in [2] is too narrow to dominate the q>=3 reentrant example.",
+      "searches": [
+        "exact phase transition in optimal noisy leader placement on star networks, center versus leaves with equal finite pinning gains and q leaders, reentrant switching",
+        "star noisy leader feedback strength threshold optimal center or leaves nonmonotone robust leader choice",
+        "arxiv:1302.0450v2 Sec. 2.1 eq. (2) / (LS1)",
+        "arxiv:1407.1569v2 Sec. V-B"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published semantic results for the six stated searches returned no substantive all-star finite-gain H2 leader-selection classification. Some closest lexical matches are unrelated nonconsensus reentrance or different network objectives."
+      ],
+      "reasoning": "No exact matching table or prior stored formula was identified; negative database results are only support for a risk assessment, not a proof of novelty. Direct full-text primary comparisons are supplied separately.",
+      "searches": [
+        "exact phase transition in optimal noisy leader placement on star networks, center versus leaves with equal finite pinning gains and q leaders, reentrant switching",
+        "star graph stochastic consensus optimal leader selection trace inverse Laplacian plus diagonal gains k noncentral leaf placement",
+        "star noisy leader feedback strength threshold optimal center or leaves nonmonotone robust leader choice",
+        "Optimal leader selection star graph noisy stochastic consensus finite feedback gain H2 norm trace inverse center leaves q k",
+        "pinning at star hub vs leaves reentrant center node leader selection covariance variance trace inverse",
+        "finite gain stochastic pinned star optimal leader placement phase transition inverse Laplacian Schur complement"
+      ]
+    },
+    "rationale": "PASS with residual historical uncertainty. arXiv:1302.0450v2 exactly formulates the stochastic finite-feedback trace-inverse selection problem and develops generic algorithms, but does not state its exact every-budget star minimizer. arXiv:1407.1569v2 treats one/two noisy leaders and any number of noise-free leaders, not an arbitrary number of finitely pinned star leaders; arXiv:1708.06873v1 likewise solves noisy pairs on cycles and noise-free tree cases. arXiv:1804.10818v2 contains a single-pinned-star proposition but minimizes a grounded smallest eigenvalue, not the full finite-gain trace inverse. The new substantive claim is the complete hub-versus-leaf finite-gain phase classification, including first reentrant 7-node witness and reciprocal transition gains; the stochastic covariance formula and Schur complement are acknowledged as established background. Comparisons with the inspected primary literature and public mathematical records found no equivalent. Priority outside reviewed literature cannot be ruled out.",
+    "residual_risks": [
+      "A historically unindexed paper could have specialized the generic finite-gain objective to stars or derived a mathematically equivalent threshold.",
+      "General trace-inverse leader-selection methods might imply the theorem following additional graph-specific algebra; the explicit classification is not claimed to be a new objective or inversion tool."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the general finite-gain graph problem and gives relaxations/greedy methods, not an all-size unweighted-star closed-form global minimizer or gain-reentrant classification.",
+        "evidence": [
+          "arXiv:1302.0450v2, lines 79-134 give the exact covariance and objective; lines 58-77 explain emphasis on generic upper/lower algorithms and distinguish noise-corrupted from noise-free selection",
+          "arXiv:1302.0450 original submission dated 2013-02-03 UTC"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1302.0450v2",
+        "material_read": "Abstract, Introduction, Sec. 2.1 equations (1), (2), LS1 and distinction from noise-free leaders, Sec. 3 algorithms, Sec. 5 conclusions",
+        "method": "Lawful open arXiv full-text HTML; direct mathematical statement and parameter comparison",
+        "title": "Algorithms for Leader Selection in Stochastically Forced Consensus Networks",
+        "trigger": "Identical stochastic dynamics and trace-inverse finite-feedback objective; plausible original or dominating general claim"
+      },
+      {
+        "assessment": "Finite-gain results developed for one/two noisy leaders, all-budget generality for noise-free leaders; does not give the present q>=3 finite-gain star phase diagram.",
+        "evidence": [
+          "arXiv:1407.1569v2 Sec. V-B Theorem 2 explicitly treats two noise-corrupted leaders",
+          "Sec. V-C concerns antipodal cycle leaders; Sec. V-E only one noisy leader; introduction states one/two noise-corrupted cases"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1407.1569v2",
+        "material_read": "Introduction scope of noise-corrupted models, Secs. IV and V with V-B Theorem 2, V-C cycle corollary, V-E single-leader corollary",
+        "method": "Lawful open arXiv full-text HTML; compare leader count, gain finiteness, and solved graph geometry",
+        "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+        "trigger": "Same noisy leader-selection objective; general centrality reductions could dominate a small-star specialization"
+      },
+      {
+        "assessment": "Specialized exact results examined are noise-free trees and two noise-corrupted leaders on cycles; neither covers arbitrary-q finite-gain stars.",
+        "evidence": [
+          "arXiv:1708.06873v1 Sec. IV-C heading Two Noise-Free Leaders in Trees",
+          "Sec. IV-D heading Two Noise-Corrupted Leaders in a Cycle Graphs"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1708.06873v1",
+        "material_read": "Overview of both leader-noise models and their resistance expressions; Sec. IV-C tree case and Sec. IV-D two noise-corrupted leaders on cycles",
+        "method": "Lawful open arXiv full-text HTML; graph/follower-noise and quantifier comparison",
+        "title": "A Resistance Distance-Based Approach for Optimal Leader Selection in Noisy Consensus Networks",
+        "trigger": "Broad closed forms for noisy leader objective; possibly stronger than the proposed star classification"
+      },
+      {
+        "assessment": "Optimizes the least eigenvalue of the grounded submatrix, with a single-pinned-star proposition, not the trace of the full finite-gain inverse and not the all-budget gain-reentrant phase.",
+        "evidence": [
+          "arXiv:1804.10818v2 Sec. III-C Proposition 1 gives lambda_min for singly pinned star",
+          "Abstract and Sec. IV optimize grounded Laplacian smallest eigenvalue, not steady-state variance trace"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1804.10818v2",
+        "material_read": "Abstract, Sec. III-C Proposition 1 and proof (star hub vs leaf), Sec. IV applications and conclusions",
+        "method": "Lawful open arXiv full-text HTML; compare exact objective and pinned-cardinality/gain parameters",
+        "title": "Optimizing Pinning Control of Complex Dynamical Networks Based on Spectral Properties of Grounded Laplacian Matrices",
+        "trigger": "Explicit star-pinning proposition with hub/leaf comparisons; highly plausible stronger original result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "753dea01-a986-4ead-a16b-f2df412eaf78",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "PASS. Leader location is a central network-design decision in noisy consensus with finite feedback, and an exact optimum is valuable even for a canonical graph family. The result supplies a global placement decision for every star order, leader budget, and feedback gain, identifies a sharp previously nonobvious boundary, and shows that increasing stabilizing feedback can optimally REMOVE then RESTORE hub participation. The smallest concrete realization has n=7, q=3 and algebraic reciprocal thresholds 2±sqrt(3); there is no such reentrance for one or two leaders. This is a meaningful structural phase classification, not an arbitrary numerical slice or general formula restatement. The theorem is limited to homogeneous finite gains, unit stars, and the specified total steady-state variance; no extension to other graph classes or costs is asserted.",
+    "status": "PASS"
+  }
+}
