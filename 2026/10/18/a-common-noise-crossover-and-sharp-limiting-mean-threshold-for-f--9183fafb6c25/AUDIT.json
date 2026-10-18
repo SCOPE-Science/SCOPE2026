@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "For each population size the particle minimum is exactly a common Brownian motion minus a rescaled maximum of N independent Brownian paths. Uniform-on-compact convergence of those normalized maxima to the square-root curve, justified by finite-grid Gaussian tail bounds and reflection-principle moduli, yields the stated two population limits. Brownian boundary regularity makes first hitting continuous almost surely. Under logarithmic time, the limiting survival event is a stationary Ornstein–Uhlenbeck process above a barrier approaching sqrt(2a); spectral squeezing gives a precise polynomial survival exponent. The positive Dirichlet eigenfunction x^2-1 at boundary x=1 has eigenvalue one, so the limiting first moment is finite exactly at a>1/2. The actual finite-system Gaussian quadratures, Brownian trajectory code and discrete OU spectral computations passed, independently of the analytic arguments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bao 2026 bounds independent-noise drift-coupled systems, not shared driving Brownian increments",
+        "Guillaume 2026 treats finite-dimensional ordering and cone survival rather than a critical large-N equicorrelated first-target problem"
+      ],
+      "reasoning": "A generic multidimensional correlated-Brownian survival representation could compute finite-N arrival distributions in principle. No located stronger result supplies the two population limits together with the explicit limiting mean-finiteness boundary. Inapplicability is at the claim implication level, not mere title differences.",
+      "searches": [
+        "extreme first-passage time of Brownian searchers correlated through a common Brownian noise, equicorrelated Brownian particles, crossover when idiosyncratic diffusivity shrinks as one over log N",
+        "first passage of max of many equicorrelated Brownian motions shared noise sqrt time boundary, Gumbel crossover limiting hitting time",
+        "Brownian motion hitting square-root boundary first passage expectation finite iff coefficient exceeds one, killed Ornstein Uhlenbeck spectral eigenvalue threshold",
+        "arXiv:2607.22528v1",
+        "doi:10.3390/appliedmath6030045"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.22528v1",
+      "arXiv:2308.01267",
+      "doi:10.3390/appliedmath6030045",
+      "doi:10.1016/j.spl.2009.11.001",
+      "Classical Brownian Gaussian maxima, reflection principle and stationary Ornstein–Uhlenbeck semigroup"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bao 2026 studies order 1/log N and accelerated regimes with independent Wiener drivers",
+        "Hass–Corwin–Corwin 2023 studies a common random environment but not a single Brownian factor or inverse-log independent variance",
+        "Guillaume 2026 focuses on first exit from ordering cones with finite m, unlike first arrival at a fixed target and m→∞"
+      ],
+      "reasoning": "None of the inspected stated results implies that q_N=(1-rho_N)log N controls all two limiting regimes or that the limit has finite mean precisely for q>1/2. A general square-root barrier tail theorem may imply the OU sublemma, but not the many-particle reduction without an additional pathwise extreme argument.",
+      "searches": [
+        "extreme first-passage time of Brownian searchers correlated through a common Brownian noise, equicorrelated Brownian particles, crossover when idiosyncratic diffusivity shrinks as one over log N",
+        "first passage of max of many equicorrelated Brownian motions shared noise sqrt time boundary, Gumbel crossover limiting hitting time",
+        "strong common noise Brownian searches noise correlation effective sample size extreme hitting times",
+        "Brownian motion hitting square-root boundary first passage expectation finite iff coefficient exceeds one, killed Ornstein Uhlenbeck spectral eigenvalue threshold",
+        "\"common noise\" \"fastest\" \"first passage\" Brownian particles correlations",
+        "arXiv:2607.22528v1",
+        "arXiv:2308.01267",
+        "doi:10.3390/appliedmath6030045"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2607.22528v1: independent Brownian driving noises, bounded interaction forces",
+        "arXiv:2308.01267: common space-time random environment producing KPZ-class fluctuation effects"
+      ],
+      "reasoning": "Equivalent descriptions include the minimum of equicorrelated Brownian paths, a common Brownian path minus independent-path maxima, and first passage across a square-root moving boundary in the limit. The compared papers do not present this N-dependent correlation regime or the resulting OU mean threshold.",
+      "searches": [
+        "extreme first-passage time of Brownian searchers correlated through a common Brownian noise, equicorrelated Brownian particles, crossover when idiosyncratic diffusivity shrinks as one over log N",
+        "first passage of max of many equicorrelated Brownian motions shared noise sqrt time boundary, Gumbel crossover limiting hitting time",
+        "strong common noise Brownian searches noise correlation effective sample size extreme hitting times",
+        "arXiv:2607.22528v1",
+        "arXiv:2308.01267"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Metzler 2010 concerns the minimum of first passages of only two correlated Brownian coordinates; full article was not available for direct comparison",
+        "No located numerical table states the population crossover and OU critical threshold"
+      ],
+      "reasoning": "A finite-dimensional first-passage formula or eigenvalue table is not a tabulation of the N→∞ crossover. The spectral value at boundary one is independently proved using a positive polynomial eigenfunction.",
+      "searches": [
+        "extreme first-passage time of Brownian searchers correlated through a common Brownian noise, equicorrelated Brownian particles, crossover when idiosyncratic diffusivity shrinks as one over log N",
+        "strong common noise Brownian searches noise correlation effective sample size extreme hitting times",
+        "Brownian motion hitting square-root boundary first passage expectation finite iff coefficient exceeds one, killed Ornstein Uhlenbeck spectral eigenvalue threshold",
+        "doi:10.1016/j.spl.2009.11.001"
+      ]
+    },
+    "rationale": "The original 2026 independent-noise interacting-particle paper, the space-time random environment first-passage paper, and pertinent correlated-Brownian first-passage sources were compared by statements and scaling. Their primary results do not give the singular (1-rho_N) log N crossover or its sharply characterized limiting mean. General Gaussian maxima and OU eigenvalue methods are classical, not claimed as novel. A potentially broader unlocated theorem is a documented residual risk.",
+    "residual_risks": [
+      "Metzler 2010 full paper not accessed; it concerns two Brownian motions in its abstract.",
+      "General theorems on equicorrelated Gaussian extreme paths or square-root Brownian first passage may subsume individual proof ingredients.",
+      "No exhaustive uniqueness certification against unlocated literature is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different independent-noise interacting-drift model; the correlated shared-noise crossover is not a direct corollary",
+        "evidence": [
+          "arXiv:2607.22528v1, Eq. (1) independent Brownian motions and Theorem 1 logarithmic lower bound"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2607.22528v1",
+        "material_read": "Full available arXiv HTML main text, model, theorem statements, interactions, assumptions and conclusion; supplementary material not relied upon",
+        "method": "Primary full-text reading and comparison of Langevin driver covariance and asymptotic claims",
+        "title": "Extreme First-Passage Time of Many Interacting Particles",
+        "trigger": "2026 motivating work, direct first-passage multi-particle comparison"
+      },
+      {
+        "assessment": "Correlation comes from a space-time random medium, with KPZ fluctuations; does not directly supply this shared Brownian-factor extreme limit",
+        "evidence": [
+          "arXiv:2308.01267"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2308.01267",
+        "material_read": "Full accessible 16-page PDF including main results and environment/correlation model",
+        "method": "Primary PDF reading and comparison of noise structure and scaling",
+        "title": "First Passage Time for Many Particle Diffusion in Space-Time Random Environments",
+        "trigger": "Strongest plausible source on many-particle correlated arrival via shared random environment"
+      },
+      {
+        "assessment": "Finite-dimensional relative-ordering cone exit, not a growing equicorrelated fixed-target fastest passage with a critical parameter",
+        "evidence": [
+          "doi:10.3390/appliedmath6030045, Sections 1, 3 and 10"
+        ],
+        "identifier_or_url": "https://www.mdpi.com/2673-9909/6/3/45",
+        "material_read": "Open-access article abstract, introduction, mathematical cone reduction, section 10 scope, and conclusions",
+        "method": "Primary publisher full-text sectional comparison, geometric target and population limit",
+        "title": "Survival Probabilities for Correlated Drifted Brownian Motions via Exit from Simplicial Cones",
+        "trigger": "Possible general coverage of correlated Brownian first-passages and arbitrary dimensions"
+      },
+      {
+        "assessment": "Its stated model is a two-coordinate correlated Brownian motion, so likely finite-dimensional background, but unseen full text is an originality risk",
+        "evidence": [
+          "doi:10.1016/j.spl.2009.11.001, 2010 abstract"
+        ],
+        "identifier_or_url": "https://ideas.repec.org/a/eee/stapro/v80y2010i5-6p277-284.html",
+        "material_read": "Bibliographic abstract and publisher availability indication only; full text inaccessible",
+        "method": "Abstract-only comparison, no whole-document noncoverage claim",
+        "title": "On the first passage problem for correlated Brownian motion",
+        "trigger": "Direct matching title, two correlated Brownian hitting times"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9183fafb-6c25-4e6b-8a6e-454e7e4331d7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The shared environmental noise represents a physically motivated many-body correlation with no interaction drift. The precise inverse-logarithmic idiosyncratic-noise window splits a persistent random first-arrival law from deterministic logarithmic acceleration. The limiting finite-mean cutoff is a genuine qualitative transition in aggregate response latency. The result treats all population sizes asymptotically, not an arbitrary small computational slice.",
+    "status": "PASS"
+  }
+}
