@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T03:07:49.536731Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "git:2026/10/13/sharp-condition-q-witness-count-in-two-dimensional-finite-field--8fa64059daf2/RESULT.md at 40d46a820f74fdf355c691812bdc426ec204bde7",
+        "independent_1813_checks.py, recorded finite bounds"
+      ],
+      "rationale": "For odd q and A in M2(Fq), count U in GL2(q) such that A-U and A-U^{-1} are invertible. For invertible nonscalar A, |GL2|=q^4-q^3-q^2+q, each single bad set has cardinality q^3-2q, so w=q^4-3q^3-q^2+5q+I(A). Normalizing A to companion form, and solving both singularity constraints with determinant delta and trace x, reduces intersection I(A) to quadratic-character sums. For nonzero trace and irreducible discriminant, I=q^2-1, giving min q^4-3q^3+5q-1. Remaining discriminant, trace, rank-one, zero and scalar similarity types have larger explicit counts. Independent exhaustive F3 and F5 over all matrices/all units gives minima 14 (12 attaining) and 274 (160 attaining), but the unrestricted finite-field theorem follows from character-sum identities.",
+      "residual_risks": [
+        "Characteristic two excluded: the odd characteristic quadratic discriminant calculation does not apply."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goodearl–Menal strengthens existence for independently chosen ring elements but gives no multiplicity distribution.",
+          "Unit graph parameters capture A-U invertibility only, whereas intersection with inverse condition depends on A and a quadratic discriminant."
+        ],
+        "reasoning": "The stronger existential quantifiers and graph adjacency formulas do not dominate the numerical minimum or equality locus.",
+        "searches": [
+          "Li Wang Zhou rings Goodearl Menal condition two ring elements",
+          "Wang Zhou 2012 correction",
+          "Karabulut Cayley digraphs matrix rings finite fields"
+        ]
+      },
+      "checked_sources": [
+        "Wang & Zhou Bull Aust Math Soc 83 (2011) 256-261 DOI 10.1017/S0004972710001711",
+        "Wang & Zhou correction Bull Aust Math Soc 85 (2012) 172-173",
+        "Li Wang Zhou Commun Algebra 40 (2012) DOI 10.1080/00927872.2011.618856",
+        "Karabulut arXiv:1710.08872",
+        "Călugăreanu arXiv:2104.03994",
+        "Resultary: matrix rings finite field condition Q witness counts A minus U inverse (no covering hit)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior existence gives w(A)>=1, substantially below q^4-3q^3+5q-1.",
+          "Conjugacy and character sum computations are necessary to compute exact worst case, not supplied by qualitative results."
+        ],
+        "reasoning": "Direct mathematical comparison supports a novel quantitative refinement but leaves priority uncertain for unsurveyed intersection-array formulations.",
+        "searches": [
+          "Wang–Zhou Decomposing Linear Transformations Theorem 1 and correction",
+          "Karabulut arXiv:1710.08872",
+          "Călugăreanu arXiv:2104.03994"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wang–Zhou condition (Q): for each A there exists a unit U with A-U and A-U^-1 units.",
+          "Proposed witness count w(A) uses the exact same simultaneous invertibility but counts every U and minimizes over A."
+        ],
+        "reasoning": "A qualitative existential statement is weaker even when it holds over all finite fields; the count is not equivalent to one-difference unit graph degree.",
+        "searches": [
+          "condition Q U A-U A-U^-1 units finite field count",
+          "Goodearl Menal condition in M2 finite field"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent exhaustive F3,F5 full distributions have minima 14,274, consistent with q^4-3q^3+5q-1.",
+          "No inspected table with the all-q polynomial and irreducible-nonzero-trace condition was found."
+        ],
+        "reasoning": "Small finite fields confirm normalization, not universal originality; an algebraic association scheme table might contain the same intersection invariant.",
+        "searches": [
+          "Resultary: matrix rings finite field condition Q witness counts A minus U inverse",
+          "M2 finite field unit graph exact intersection numbers"
+        ]
+      },
+      "rationale": "Wang–Zhou original and 2012 correction prove the qualitative existence condition (Q) for matrix rings over division rings with more than two elements. Li–Wang–Zhou's stronger two-element Goodearl–Menal condition remains existential. Karabulut's one-difference unit-graph parameters are not the inverse-coupled intersection w(A), while Călugăreanu gives qualitative per-matrix unit stable range results. Inspected primary condition-(Q) paper and compared quantifiers and numerical information. Neither qualitative existence nor single adjacency count implies the exact worst-case polynomial or irreducible nonzero-trace equality locus. A hidden equivalent Cayley-graph intersection count remains a risk.",
+      "residual_risks": [
+        "Characteristic two excluded: the odd characteristic quadratic discriminant calculation does not apply.",
+        "An equivalent exact intersection count could be buried in finite matrix-ring association scheme or unit graph literature.",
+        "Finite exact enumeration covers only q=3 and q=5, not all odd prime powers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_EXISTENCE_ONLY",
+          "evidence": "For |D|>2 qualitative condition (Q) in End(V_D), no witness multiplicity or M2 min.",
+          "identifier_or_url": "https://doi.org/10.1017/S0004972710001711",
+          "material_read": "Accessible primary six-page article, definition and main theorem/proof",
+          "method": "Read full accessible PDF including first-page screenshot and (Q) theorem",
+          "title": "Decomposing Linear Transformations",
+          "trigger": "Origin of ring condition (Q)"
+        },
+        {
+          "assessment": "COVERS_EXISTENCE_ONLY",
+          "evidence": "The correction addresses a gap but retains the qualitative existence result.",
+          "identifier_or_url": "https://doi.org/10.1017/S0004972711002644",
+          "material_read": "Publisher correction abstract/record and stated correction (not all PDF independently read)",
+          "method": "Read bibliographic description and compared corrected statement",
+          "title": "Correction to Decomposing Linear Transformations",
+          "trigger": "Correction might change relevant quantifiers"
+        },
+        {
+          "assessment": "NO_DECISIVE_COVERAGE",
+          "evidence": "Single-difference adjacency differs from simultaneous A-U,A-U^-1 counts.",
+          "identifier_or_url": "https://arxiv.org/abs/1710.08872",
+          "material_read": "Accessible abstract/general graph parameters; full text not independently read in this execution",
+          "method": "Semantic source comparison only",
+          "title": "Cayley Digraphs of Matrix Rings over Finite Fields",
+          "trigger": "Possible published matrix-ring unit-graph counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Wang & Zhou Bull Aust Math Soc 83 (2011) 256-261 DOI 10.1017/S0004972710001711",
+        "Wang & Zhou correction Bull Aust Math Soc 85 (2012) 172-173",
+        "Li Wang Zhou Commun Algebra 40 (2012) DOI 10.1080/00927872.2011.618856"
+      ],
+      "rationale": "The source existence theorem asks for one unit witness; the exact minimum across A measures the robustness of that property in the first nontrivial matrix ring. The irreducible-characteristic-polynomial equality classification explains the influence of split versus anisotropic similarity classes. These are natural finite-field counts, not a known-table recomputation or arbitrary sample.",
+      "residual_risks": [
+        "An equivalent exact intersection count could be buried in finite matrix-ring association scheme or unit graph literature.",
+        "Finite exact enumeration covers only q=3 and q=5, not all odd prime powers."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Characteristic two excluded: the odd characteristic quadratic discriminant calculation does not apply.",
+    "An equivalent exact intersection count could be buried in finite matrix-ring association scheme or unit graph literature.",
+    "Finite exact enumeration covers only q=3 and q=5, not all odd prime powers."
+  ],
+  "schema_version": 1
+}
