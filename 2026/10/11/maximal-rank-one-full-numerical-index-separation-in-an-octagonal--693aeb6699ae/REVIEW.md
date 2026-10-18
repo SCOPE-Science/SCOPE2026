@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The two published index formulas were reconstructed and checked on their primary theorem pages. Their quotient is exactly \(1\) on the outer parameter intervals. On \([\sqrt5-2,\sqrt2-1]\), the derivative has a positive denominator and a numerator whose polynomial part is positive and whose radical correction is also positive. On \([\sqrt2-1,(\sqrt5-1)/2]\), the derivative has a positive denominator and a numerator whose polynomial part is negative by convexity and endpoint evaluation, while its radical correction is also negative. Hence the quotient is strictly increasing and then strictly decreasing, with a unique maximum at the regular-octagon parameter. Exact substitution verifies the radical maximum.
+## correctness
 
-## Originality
-PASS. The decisive same-family papers compute the unrestricted and rank-one numerical indices separately, but the inspected statements do not optimize their quotient. Searches using octagonal-family aliases, ratio/gap language, regular-octagon terminology, and the breakpoint \(\sqrt2-1\) found adjacent geometric invariants rather than the same comparison theorem. A 2016 dissertation by the first author remains an explicit access residual because only metadata and the abstract were available through the checked route.
+PASS
 
-## Value
-PASS. The quotient \(n_1(X)/n(X)\) directly measures how much the rank-one restriction can overestimate the unrestricted numerical-index infimum. The source family was built precisely for exact numerical-index comparison, and the new result completes that comparison by locating the equality regimes and the unique worst member. The worst member being exactly the regular octagon gives the conclusion geometric content beyond a routine endpoint substitution.
+Read both original author-posted primary papers and checked the unrestricted two-branch n(X_xi) and rank-one four-branch n1(X_xi) for exactly the same normalization. The ratio equals 1 on [0,sqrt(5)-2] and [(sqrt(5)-1)/2,1]. Independently recomputed both derivatives in SymPy as rational positive denominators times A_- and A_+, and symbolically verified the displayed sextic polynomials, P_-(a)=16(263sqrt(5)-588)>0, P_+(b)=416-296sqrt(2)<0, P_+(c)=32-15sqrt(5)<0, and positive second derivative of P_+ on [b,c]. This proves strict rise and fall, unique b=sqrt(2)-1, and numerical 1.5068785848642205 matching the radical. Algebraic comparisons, not sampling, establish interval-wide signs.
 
-## Closest literature and limitations
-Martín--Merí gives the ordinary numerical-index formula and Chica--Merí gives the rank-one formula on the identical octagonal family. The theorem is a complete optimization of their quotient inside that family only; no universal extremum over Banach planes or all octagonal norms is claimed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2007 and 2015 primary sources already determine the individual full and rank-one index functions for every xi, including the regular-octagon point. This is close pointwise prior coverage; it must not be represented as new index formulas. The final claim is the separate global optimization of their nontrivial quotient and unique maximizer, neither of which is stated in the inspected source Theorem 2, Corollary 3 or older index theorem. Symbolic derivative sign analysis supplies the additional uniform inequality. Targeted searches found no published standalone ratio-optimization theorem, but the fact that both source profiles determine R implicitly is a significant originality limitation.
+
+## value
+
+PASS
+
+The ratio measures the intrinsic multiplicative loss of restricting the operator-infimum to rank-one maps, a motivated quantity in numerical-index theory. Determining its unique worst-case octagonal parameter and sharp radical value distinguishes the regular octagon within a standard one-parameter family; the proof requires two nontrivial global radical monotonicity certificates, not a pointwise substitution alone. The value is bounded to this family and does not claim all Banach planes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

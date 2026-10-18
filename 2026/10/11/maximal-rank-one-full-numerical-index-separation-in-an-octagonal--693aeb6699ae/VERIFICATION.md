@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,56 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The source formulas are
-\[
-n(X_\xi)=
-\max\left\{\xi,\frac{1-\xi}{1+\xi}\right\}
-\]
-and the four-branch expression for \(n_1(X_\xi)\) reproduced in the result.
+# Independent mathematical audit
 
-Let
-\[
-a=\sqrt5-2,\qquad b=\sqrt2-1,\qquad c=\frac{\sqrt5-1}{2}.
-\]
-The quotient is identically \(1\) on \([0,a]\cup[c,1]\).
+## correctness
 
-For \(a<\xi<b\), exact differentiation yields
-\[
-R_-'(\xi)=
-\frac{2A_-(\xi)}
-{\sqrt{Q_-(\xi)}(1-\xi)^2(2+\xi-\xi^2+\sqrt{Q_-(\xi)})^2}.
-\]
-The denominator is positive. The polynomial component satisfies
-\[
-P_-'(\xi)\ge12,
-\qquad
-P_-(a)=16(263\sqrt5-588)>0,
-\]
-and the remaining radical contribution to \(A_-\) is positive. Therefore \(R_-'(\xi)>0\).
+PASS
 
-For \(b<\xi<c\),
-\[
-R_+'(\xi)=
-\frac{2A_+(\xi)}
-{\sqrt{Q_+(\xi)}\,\xi^2(1+3\xi+\sqrt{Q_+(\xi)})^2}.
-\]
-Again the denominator is positive. Here \(P_+''(\xi)>0\), while
-\[
-P_+(b)=416-296\sqrt2<0,
-\qquad
-P_+(c)=32-15\sqrt5<0.
-\]
-Thus \(P_+<0\) throughout the interval, and the radical contribution to \(A_+\) is also negative. Hence \(R_+'(\xi)<0\).
+Read both original author-posted primary papers and checked the unrestricted two-branch n(X_xi) and rank-one four-branch n1(X_xi) for exactly the same normalization. The ratio equals 1 on [0,sqrt(5)-2] and [(sqrt(5)-1)/2,1]. Independently recomputed both derivatives in SymPy as rational positive denominators times A_- and A_+, and symbolically verified the displayed sextic polynomials, P_-(a)=16(263sqrt(5)-588)>0, P_+(b)=416-296sqrt(2)<0, P_+(c)=32-15sqrt(5)<0, and positive second derivative of P_+ on [b,c]. This proves strict rise and fall, unique b=sqrt(2)-1, and numerical 1.5068785848642205 matching the radical. Algebraic comparisons, not sampling, establish interval-wide signs.
 
-Finally,
-\[
-R(b)=
-\frac{4}{3-\sqrt2+\sqrt{10\sqrt2-13}}
-=
-1.506878584864220\ldots,
-\]
-and \(1+b=\sqrt2\), so \(X_b\) is the regular octagonal plane.
+## originality
 
-The derivative identities and exact endpoint simplifications were independently recomputed symbolically. The proof itself uses the displayed exact algebraic identities and sign arguments; finite sampling is not evidentiary.
+PASS
+
+The 2007 and 2015 primary sources already determine the individual full and rank-one index functions for every xi, including the regular-octagon point. This is close pointwise prior coverage; it must not be represented as new index formulas. The final claim is the separate global optimization of their nontrivial quotient and unique maximizer, neither of which is stated in the inspected source Theorem 2, Corollary 3 or older index theorem. Symbolic derivative sign analysis supplies the additional uniform inequality. Targeted searches found no published standalone ratio-optimization theorem, but the fact that both source profiles determine R implicitly is a significant originality limitation.
+
+## value
+
+PASS
+
+The ratio measures the intrinsic multiplicative loss of restricting the operator-infimum to rank-one maps, a motivated quantity in numerical-index theory. Determining its unique worst-case octagonal parameter and sharp radical value distinguishes the regular octagon within a standard one-parameter family; the proof requires two nontrivial global radical monotonicity certificates, not a pointwise substitution alone. The value is bounded to this family and does not claim all Banach planes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
