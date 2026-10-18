@@ -1,0 +1,159 @@
+{
+  "correctness": {
+    "rationale": "For any odd prime p, eliminate the two baseline rows to separate frequency parity. In homogeneous blocks, a three-row prime Fourier minor has rank three. In 3+1 splits the 3-by-3 Vandermonde Fourier minor proves invertibility. In 2+2 splits the Schur complement is a 2-by-2 matrix of cyclotomic differences with determinant equal to two nonzero factors times a factor vanishing exactly when the parity-pair sums agree. This Schur complement has rank at least one, so all singular partners have rank exactly three. For each of p pair sums there are (p−1)/2 distinct unordered pairs per parity, giving p(p−1)^2/4 singular balanced partners, plus 2 C(p,4) homogeneous sets. Exact determinant arithmetic from the packaged checker succeeds for all 4-subsets at p=3,5,7,11,13. Finite checks corroborate but do not prove arbitrary p. The packaged checker also enumerates row and column proportionality via exact parity/sign and residue-phase labels; the nonproportional singular totals are 3,20,63,275,468, exactly p(p−1)^2/4.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Loukaki proves nonsingularity for matching counts in the two residue classes. The centered row aperture has projected-parity counts 3+1, so that theorem applies to partner counts 3+1 (appropriately aligned), not the 2+2 case.",
+        "Caragea–Lee discuss principal minor sizes 2 and 3 for squarefree N; the four-column partner problem is nonprincipal and size 4.",
+        "The explicitly inspected Kronecker construction addresses rank-deficiency patterns without the exact four-column partner census.",
+        "https://doi.org/10.1112/blms.70192",
+        "https://arxiv.org/abs/2409.09793",
+        "https://www.cs.kuleuven.be/publicaties/rapporten/tw/TW477.pdf"
+      ],
+      "reasoning": "A theorem asserting all 2+2 minors nonsingular would contradict the exhibited same-midpoint minors, and is not asserted in the inspected literature. The existing 3+1 theorem covers a proper nonsingular stratum, not the midpoint resonance or complete distribution.",
+      "searches": [
+        "four by four Fourier submatrices of Z2 times Fp parity class 3+1 2+2 rank criterion",
+        "4x4 Fourier minor cyclic semiprime Chebotarev balanced parity midpoint",
+        "https://doi.org/10.1112/blms.70192",
+        "https://arxiv.org/abs/2409.09793",
+        "https://www.cs.kuleuven.be/publicaties/rapporten/tw/TW477.pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2409.09793",
+      "https://doi.org/10.1112/blms.70192",
+      "https://www.cs.kuleuven.be/publicaties/rapporten/tw/TW477.pdf",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-four-point-indicator-fourier-support-trichotomy-on-cyclic-semipr--590958c70885",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-phase-only-fourier-zero-spectrum-of-a-four-point-rectangle-on-cy--b51ecb1779fe"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For 2+2 frequencies, a direct determinant factor is nonzero precisely when the pair sums differ modulo p.",
+        "A fixed indicator Fourier zero set constrains one kernel vector but cannot detect all singular minors with arbitrary complex kernel coefficients.",
+        "Phase-only null vectors restrict magnitudes and cannot rule out singular determinants having non-unimodular null vectors.",
+        "https://doi.org/10.1112/blms.70192",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-four-point-indicator-fourier-support-trichotomy-on-cyclic-semipr--590958c70885",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-phase-only-fourier-zero-spectrum-of-a-four-point-rectangle-on-cy--b51ecb1779fe"
+      ],
+      "reasoning": "The midpoint classification implies a complete rank-three/rank-four partition and multiplicities for every centered support. Existing 3+1 nonsingularity supplies only one component; support/zero theorems under restricted coefficients are logically weaker for unrestricted minor rank. Conversely the present statement does not imply their full four-point indicator/phase-only theorems.",
+      "searches": [
+        "four by four Fourier submatrices of Z2 times Fp parity class 3+1 2+2 rank criterion",
+        "centered four point aperture equal frequency pair sums parity Fourier minor rank three Z2 Fp",
+        "https://arxiv.org/abs/2409.09793",
+        "https://doi.org/10.1112/blms.70192",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-four-point-indicator-fourier-support-trichotomy-on-cyclic-semipr--590958c70885",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-phase-only-fourier-zero-spectrum-of-a-four-point-rectangle-on-cy--b51ecb1779fe"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Prime Fourier-minor nonvanishing reduces homogeneous and three-versus-one partner ranks; balanced partner determinant has a residual equal-sums factor, not a mere proportional-row obstruction.",
+        "Delvaux–Van Barel discuss Kronecker-factor rank-deficient blocks, but the materially read sections do not enumerate rank for four-frequency partners of the centered aperture.",
+        "https://www.cs.kuleuven.be/publicaties/rapporten/tw/TW477.pdf"
+      ],
+      "reasoning": "Transposition exchanges support and frequency but does not remove the two-plus-two midpoint equality condition; Chinese remainder reindexing identifies the product matrix with cyclic order 2p. Searches across both terminologies found no statement with exactly this balanced-parity criterion or counts. General Fourier-minor theorems do not automatically enumerate singular balanced partners.",
+      "searches": [
+        "all singular four by four minors Fourier character matrix cyclic group of order ten Z_10 rank distribution",
+        "four by four complex Fourier minors cyclic semiprime n=2p singularity exact rank and counts",
+        "centered four point aperture equal frequency pair sums parity Fourier minor rank three Z2 Fp",
+        "arxiv:2409.09793",
+        "Delvaux–Van Barel report TW477"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Explicit arithmetic gives 3, 30, 133, 935, 1898 singular partners at primes 3, 5, 7, 11, 13; these numbers arise from a uniform closed formula, not copied entries.",
+        "The two inspected published related computations concern Fourier zeros of a four-point indicator and unimodular coefficients on a rectangular support, not matrices with unrestricted kernel vectors.",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-four-point-indicator-fourier-support-trichotomy-on-cyclic-semipr--590958c70885",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-phase-only-fourier-zero-spectrum-of-a-four-point-rectangle-on-cy--b51ecb1779fe"
+      ],
+      "reasoning": "Neither the inspected literature nor returned indexed results provided a matching fixed-aperture count table. This absence is limited evidence, not proof no historical table exists.",
+      "searches": [
+        "4x4 Fourier minor Z_2p resonant equal midpoint pair sums singular rank without proportional rows",
+        "all singular four by four minors Fourier character matrix cyclic group of order ten Z_10 rank distribution",
+        "four by four Fourier minor Z_2 x Z_p equal pair midpoints singular unbalanced parity"
+      ]
+    },
+    "rationale": "Full comparison of the relevant primary literature and published related statements did not reveal an implication of the exact two-plus-two midpoint criterion and full rank-three counts. The nearest cyclic semiprime nonsingularity result proves only the three-versus-one case for this aperture, whereas balanced parity yields both singular and nonsingular configurations. Exactness and novelty are distinct: unknown equivalent interpolation formulations remain an explicitly stated residual risk.",
+    "residual_risks": [
+      "Possible equivalent four-point interpolation determinant classification in older literature under Vandermonde, aliasing, or sparse sampling terminology. Searches and full-text readings cannot prove global uniqueness.",
+      "The result concerns one symmetry-defined aperture orbit rather than all four-point supports."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Sizes 2 and 3 principal nonsingularity for squarefree N; does not decide four-by-four nonprincipal partner rank",
+        "evidence": [
+          "Theorem treats principal minors, sizes two and three.",
+          "https://arxiv.org/abs/2409.09793"
+        ],
+        "identifier_or_url": "arxiv:2409.09793; https://arxiv.org/abs/2409.09793",
+        "material_read": "Full seven-page preprint, including theorems, proof and references; publication history crosschecked against arXiv v1",
+        "method": "Public arXiv full text and rendered page inspection",
+        "title": "On the principal minors of Fourier matrices",
+        "trigger": "Squarefree Fourier-minor literature, direct size and modulus match"
+      },
+      {
+        "assessment": "Matched count 3+1 case covered; balanced 2+2 no longer matched to the centered aperture, so no midpoint classification",
+        "evidence": [
+          "Cyclic pq theorem uses matched class cardinalities for nonvanishing.",
+          "https://doi.org/10.1112/blms.70192"
+        ],
+        "identifier_or_url": "doi:10.1112/blms.70192; https://doi.org/10.1112/blms.70192",
+        "material_read": "Full public article manuscript including main theorem and hypotheses on residue-class counts",
+        "method": "Public full-text article inspection",
+        "title": "Chebotarev’s theorem for cyclic groups of order pq and an uncertainty principle",
+        "trigger": "Potential broad subsumption in cyclic order 2p"
+      },
+      {
+        "assessment": "Constructs rank-deficient Kronecker blocks and studies maximal rank deficiency/Hamming numbers but does not give fixed centered four-row versus all four-column partner count",
+        "evidence": [
+          "Technical report analyzes subgroup block structure.",
+          "https://www.cs.kuleuven.be/publicaties/rapporten/tw/TW477.pdf"
+        ],
+        "identifier_or_url": "TW477; https://www.cs.kuleuven.be/publicaties/rapporten/tw/TW477.pdf",
+        "material_read": "Complete 23-page technical report, especially constructions and structural rank-deficiency sections",
+        "method": "Lawful open technical report PDF, parsed and rendered sections",
+        "title": "Rank-deficient submatrices of Kronecker products of Fourier matrices",
+        "trigger": "General rank-deficient submatrix constructions for product Fourier matrices"
+      },
+      {
+        "assessment": "Fixed all-one coefficients; its zero-set distribution is not unrestricted Fourier-minor rank",
+        "evidence": [
+          "Indicator restriction and three zero-set strata explicitly stated.",
+          "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-four-point-indicator-fourier-support-trichotomy-on-cyclic-semipr--590958c70885"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-four-point-indicator-fourier-support-trichotomy-on-cyclic-semipr--590958c70885",
+        "material_read": "Full publicly available RESULT.md proof, scope and references",
+        "method": "Published open repository file inspection",
+        "title": "Four-point indicator Fourier-support trichotomy on cyclic semiprime groups",
+        "trigger": "Exact support four and identical cyclic semiprime group"
+      },
+      {
+        "assessment": "Prescribes rectangular support and equal coefficient moduli, does not classify all frequency sets by unrestricted rank for the centered support",
+        "evidence": [
+          "Product rectangle and unimodular cross-phase restriction are explicit.",
+          "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-phase-only-fourier-zero-spectrum-of-a-four-point-rectangle-on-cy--b51ecb1779fe"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-phase-only-fourier-zero-spectrum-of-a-four-point-rectangle-on-cy--b51ecb1779fe",
+        "material_read": "Full publicly available RESULT.md proof, scope and references",
+        "method": "Published open repository file inspection",
+        "title": "Phase-only Fourier-zero spectrum of a four-point rectangle on cyclic product groups",
+        "trigger": "Four-point product-group Fourier zeros and potential coefficient duality"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3ba877f2-d869-4133-8c44-248c3e8cde41",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determines an intrinsically natural exact interpolation rank invariant: all four-frequency choices for each symmetrically centered four-point aperture on a cyclic semiprime. Midpoint resonance gives genuinely nontrivial singular configurations without any proportional row or column, with exact p(p−1)^2/4 count, and general rank frequencies for all odd primes. This complete motivated family classification is not merely a normalization or a routine numerical increment.",
+    "status": "PASS"
+  }
+}
