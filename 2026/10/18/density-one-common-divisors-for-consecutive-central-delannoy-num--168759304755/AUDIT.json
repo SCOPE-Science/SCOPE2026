@@ -1,0 +1,153 @@
+{
+  "correctness": {
+    "rationale": "For every odd prime, Lucas factorization is derived termwise from the binomial sum; D_0=D_(p-1)=1 and the Legendre recurrence exclude adjacent zero digits. The carry digit rule is an iff, yielding the exact geometric count at every p^L. The degree-m hypergeometric differential equation modulo p is invariant under X->1-X; coefficient uniqueness and H_m(1)=(-1)^m imply H_m(1-X)=(-1)^m H_m(X). For p=3 mod 4, odd m implies H_m(-1)=0, so D_m=H_m(2)=0 modulo p. Arbitrary-cutoff monotonicity gives error O(N^alpha) with alpha<1, and infinitely many such primes give gcd growth in density. The packaged standard-library checker returned VERIFY_OK for 24 primes and 70 complete digit blocks; finite checks supplement rather than replace the proof. No unsolved infinite premise or external computational certificate is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rowland–Yassawi, arXiv:1310.8635, introduction: general automatic congruences and Lucas products, with no Delannoy-specific statement located by text search",
+        "Sun, arXiv:1602.00574, main results: polynomial identities, supercongruences, not neighboring gcd counts",
+        "Lengyel, Integers 21 (2021), Theorems 13–14: prime-power indexed p-adic differences, not unbounded gcd of consecutive arbitrary-index numbers"
+      ],
+      "reasoning": "Automaticity and Lucas products are general, but do not alone assert a root at the middle digit for all p=3 mod4 or the exact transition combinatorics. The referenced prime-adic results concern special-index values or differences differences between consecutive prime-power-indexed values, not gcd of consecutive Delannoy numbers. This comparison checks mathematical implication, not merely titles.",
+      "searches": [
+        "Consecutive central Delannoy numbers gcd tends to infinity in density; for each prime p congruent 3 mod 4 p divides both D_n and D_{n+1} for density one n",
+        "Exact p-ary Lucas digit count of central Delannoy consecutive gcd coprime p, Deuring polynomial roots H_(p-1)/2(2), primes p 3 modulo 4",
+        "arXiv:1310.8635 general Lucas congruences automata for diagonals",
+        "arXiv:1602.00574 generalized Delannoy polynomial supercongruences"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1009.2486",
+      "arXiv:1602.00574",
+      "arXiv:1310.8635",
+      "Lengyel, Integers 21 (2021), A86, author-posted PDF",
+      "OEIS:A001850",
+      "Research-record query: five actual semantic query variants",
+      "Prior Delannoy least-period result (different invariant and modulus)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A separate previously recorded theorem concerns least periods of central Delannoy numbers modulo powers of two; the present theorem concerns all odd primes and neighboring gcd",
+        "arXiv:1009.2486 Theorem 1.1 evaluates finite sums of D_k/k and D_k/k^2 modulo odd p; neither implies an adjacent-index gcd distribution",
+        "Lengyel 2021 Theorems 13–14 concern prime-power-indexed Delannoy terms congruences and differences of prime-power towers, not consecutive Delannoy terms for generic n"
+      ],
+      "reasoning": "No inspected antecedent is stronger on the claimed joint object, parameters, and statistic. A prime-power period statement about the single-term sequence and a theorem on reciprocal weighted sums cannot by themselves force all-prime exact neighboring gcd counts. The common Lucas ingredient is acknowledged; the new quantitative result requires the additional local root and adjacency proofs.",
+      "searches": [
+        "For central Delannoy D_n=Sum binom(n,k)^2 2^k, gcd(D_n,D_{n+1}) is divisible by each p=3 mod 4 on a set of density 1; gcd tends to infinity in density.",
+        "Lucas product central Delannoy numbers modulo p; simultaneous zeros of D_n,D_{n+1}; exact residue counts and density",
+        "Consecutive Legendre polynomial evaluations P_n(3), P_{n+1}(3), common prime divisors density, Hasse invariant and Deuring polynomial",
+        "Consecutive central Delannoy numbers gcd tends to infinity in density; for each prime p congruent 3 mod 4 p divides both D_n and D_{n+1} for density one n",
+        "Exact p-ary Lucas digit count of central Delannoy consecutive gcd coprime p, Deuring polynomial roots H_(p-1)/2(2), primes p 3 modulo 4",
+        "central Delannoy gcd consecutive divisibility",
+        "gcd D_n D_{n+1} central Delannoy numbers",
+        "central Delannoy Lucas congruence consecutive gcd density primes 3 modulo 4",
+        "greatest common divisor consecutive central Delannoy numbers prime divides almost all",
+        "Deuring polynomial H_p 2 zero p congruent 3 mod 4 supersingular Legendre lambda 2",
+        "Tamás Lengyel On some p-adic properties and supercongruences of Delannoy and Schröder numbers 2021",
+        "OEIS A001850 central Delannoy numbers gcd consecutive"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1009.2486, pp.1–4: central Delannoy polynomial and single-prime weighted sums, not adjacent gcd",
+        "OEIS:A001850: sequence entries, links and references; no gcd entry on the inspected page",
+        "Lengyel (2021), pp.1–3 and 9–10: individual p-adic special indices and their differences"
+      ],
+      "reasoning": "Equivalent formulations sought were common prime divisibility of consecutive P_n(3), a Delannoy neighbor zero-pair statistic, exact p-ary digit avoidance, and density of gcd of consecutive Delannoy numbers. None of the inspected statements gives the exact E_p(L) or its consequence, though an unindexed equivalent cannot be ruled out.",
+      "searches": [
+        "For central Delannoy D_n=Sum binom(n,k)^2 2^k, gcd(D_n,D_{n+1}) is divisible by each p=3 mod 4 on a set of density 1; gcd tends to infinity in density.",
+        "Lucas product central Delannoy numbers modulo p; simultaneous zeros of D_n,D_{n+1}; exact residue counts and density",
+        "Consecutive Legendre polynomial evaluations P_n(3), P_{n+1}(3), common prime divisors density, Hasse invariant and Deuring polynomial",
+        "central Delannoy \"gcd\" \"consecutive\" divisibility",
+        "gcd D_n D_{n+1} central Delannoy numbers"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A001850 lists central Delannoy sequence and bibliographic connections; inspected entry does not record the gcd count or density",
+        "Retrieved research results include a different generalized gcd-map density result id published record entitled Exact Euler factors for the k-variable gcd-map density, not the central Delannoy sequence"
+      ],
+      "reasoning": "A001850 is the exact sequence database entry, not an exact database for E_p(L). The closest gcd-density database result concerns a k-variable map with a different mathematical object and does not imply this theorem.",
+      "searches": [
+        "OEIS A001850 central Delannoy numbers gcd consecutive",
+        "Research-record query: For central Delannoy D_n=Sum binom(n,k)^2 2^k, gcd(D_n,D_{n+1}) is divisible by each p=3 mod 4 on a set of density 1; gcd tends to infinity in density.",
+        "Research-record query: Consecutive central Delannoy numbers gcd tends to infinity in density; for each prime p congruent 3 mod 4 p divides both D_n and D_{n+1} for density one n"
+      ]
+    },
+    "rationale": "The final claim is the exact all-prime adjacent-Delannoy gcd digit-count formula plus its density-one divergence corollary. Sun (2010) proves reciprocal weighted sums and basic Delannoy congruences; Sun (2016) proves polynomial identities and supercongruences; Lengyel (2021) treats special prime-power-indexed values and differences; Rowland-Yassawi (2013) supplies general automatic/Lucas-congruence methods. OEIS A001850 records sequence data, not the neighboring gcd invariant. Actual exact-claim and alias searches in research records and open literature returned no matching result. Established ingredients are not misrepresented as new. A stronger theorem or unindexed equivalent remains a residual risk, not a proof of uniqueness.",
+    "residual_risks": [
+      "An earlier unindexed paper or equivalent corollary of a more general Lucas/Deuring theorem may already state the final gcd-density result.",
+      "The literature check inspected relevant primary sections and targeted complete-text searches rather than reading every page of every associated paper."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the adjacent gcd formula; establishes arithmetic background and single-index congruences",
+        "evidence": [
+          "PDF p.2 central Delannoy identity; pp.2–3 prime reciprocal sum formulas; no gcd or consecutive occurrence in the searched text"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1009.2486",
+        "material_read": "Full first four pages including abstract, definitions, Theorem 1.1, Corollary 1.1 and conjectures; text search of the full available PDF for gcd and consecutive",
+        "method": "Opened arXiv public PDF and inspected page image and parsed theorem text",
+        "title": "On Delannoy numbers and Schröder numbers",
+        "trigger": "Earliest public archived central Delannoy congruence source and matching series definition"
+      },
+      {
+        "assessment": "NOT_COVERING; supercongruences/polynomial identities do not determine neighboring gcd fiber counts",
+        "evidence": [
+          "PDF pp.2 and 7 include Delannoy identities and Lucas sequence discussion; targeted searches had no gcd or consecutive occurrence"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1602.00574",
+        "material_read": "Introduction and definitions, Theorem sections including Lucas sequence discussion, end references, and full-text searches for gcd and consecutive",
+        "method": "Opened arXiv lawful PDF; inspected page image and relevant text ranges",
+        "title": "Arithmetic properties of Delannoy numbers and Schröder numbers",
+        "trigger": "Later primary same-sequence polynomial generalization"
+      },
+      {
+        "assessment": "GENERAL_TECHNIQUE, no located evaluated adjacent central Delannoy gcd theorem",
+        "evidence": [
+          "PDF p.1 describes generic automatic congruences and Lucas products; no Delannoy name in searched text"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1310.8635",
+        "material_read": "Abstract and introductory description of Lucas products and automatic congruences; searched available PDF for Delannoy",
+        "method": "Opened arXiv PDF and inspected initial page image and text",
+        "title": "Automatic congruences for diagonals of rational functions",
+        "trigger": "Plausible broader Lucas and automatic-sequence machinery"
+      },
+      {
+        "assessment": "NOT_COVERING; all-prime theorems address prime-power-indexed differences rather than neighboring gcd at arbitrary indices",
+        "evidence": [
+          "Theorems 13–14, PDF p.10, concern d(p^r) and differences d(p^(r+1))-d(p^r); gcd appears only in a coprimality notation definition"
+        ],
+        "identifier_or_url": "https://sites.oxy.edu/lengyel/morepapers.html",
+        "material_read": "Abstract, introduction, summary of Theorems 1–14, full statement of Theorems 13–14, checked text for gcd and consecutive",
+        "method": "Opened lawful author-hosted 20-page PDF and inspected text and page image",
+        "title": "On some p-adic properties and supercongruences of Delannoy and Schröder numbers",
+        "trigger": "Highly relevant p-adic primary paper on the exact same sequence"
+      },
+      {
+        "assessment": "NOT_COVERING the gcd distribution; correct sequence identity corroborated",
+        "evidence": [
+          "A001850 entries 1,3,13,63 and formula; no gcd matched in available page search"
+        ],
+        "identifier_or_url": "https://oeis.org/A001850",
+        "material_read": "Entry values, comments, references and links; searched entry for gcd",
+        "method": "Opened public sequence database entry and read entries and bibliography",
+        "title": "OEIS A001850, central Delannoy numbers",
+        "trigger": "Exact natural sequence and associated references; check tabulation overlap"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "16875930-4755-4040-8f27-a7f1b3f3d9e8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The arithmetic invariant gcd of consecutive central Delannoy numbers is naturally motivated by an integer lattice-path counting sequence. Exact exceptional counts at all prime-power digit lengths and explicit power-saving exponents establish fine correlation information. More importantly, common divisors exceed every fixed bound with density one, in sharp qualitative contrast to classical second-order divisibility sequences with coprime neighbors. No artificially chosen cutoff or tiny computational improvement is used.",
+    "status": "PASS"
+  }
+}
