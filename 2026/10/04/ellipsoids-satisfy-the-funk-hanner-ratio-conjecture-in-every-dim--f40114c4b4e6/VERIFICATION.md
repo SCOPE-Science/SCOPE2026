@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,66 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-For a centered ellipsoid, linear invariance reduces the calculation to the Euclidean unit ball. With
-\[
-\rho=1-e^{-R},
-\]
-the Holmes--Thompson volume is
-\[
-V_E(R)
-=
-n\omega_n
-\int_0^\rho
-\frac{t^{n-1}}{(1-t^2)^{(n+1)/2}}\,dt.
-\]
+## correctness
 
-Set
-\[
-z=\operatorname{artanh}\rho
-=
-\frac12\log(2e^R-1).
-\]
-The substitution
-\[
-t=\tanh s
-\]
-gives
-\[
-V_E(R)
-=
-n\omega_n\int_0^z\sinh^{\,n-1}(s)\,ds.
-\]
+PASS
 
-The published Hanner formula is
-\[
-V_H(R)
-=
-\frac{4^n}{n!\,\omega_n}z^n.
-\]
-Hence the quotient differs by a positive constant from
-\[
-G_n(z)
-=
-z^{-n}\int_0^z\sinh^{\,n-1}(s)\,ds
-=
-\int_0^1u^{n-1}
-\left(\frac{\sinh(zu)}{zu}\right)^{n-1}du.
-\]
+For a centered ellipsoid apply linear invariance and evaluate the Euclidean-ball Holmes–Thompson polar-volume integral V_E(R)=n ω_n∫_0^ρ t^{n-1}(1-t²)^(-(n+1)/2)dt with ρ=1−e^(−R). Substitute t=tanh s and z=artanh ρ=0.5 log(2e^R−1), obtaining V_E=n ω_n∫_0^z sinh^(n−1)s ds. Published Hanner formula gives V_H=(4^n/(n!ω_n)) z^n. The quotient is a positive constant times z^(−n)∫_0^z sinh^(n−1)s ds = ∫_0^1 u^(n−1)(sinh(zu)/(zu))^(n−1)du, strictly increasing for n≥2 because d(sinh x/x)/dx=(x cosh x−sinh x)/x²>0. z(R) increases strictly, proving ALL 0<r<R two-radius comparisons, not merely tested radii. For n=1 exponent zero gives equality. Independent high-precision numerical checks for n=2,3,6 at z=0.1,0.3,0.9,2 supported algebra but cannot prove the quantified theorem; actual verifier.py similarly only finite consistency.
 
-For \(n\ge2\), the integrand is strictly increasing in \(z>0\) for every \(u>0\), because
-\[
-\frac{d}{dx}\frac{\sinh x}{x}
-=
-\frac{x\cosh x-\sinh x}{x^2}>0.
-\]
-Thus \(G_n\) is strictly increasing.
+## originality
 
-The embedded `verify.py` was replayed from its actual package path. It numerically evaluates the ellipsoid volume in both the original radial variable and the hyperbolic variable, verifies the exact quotient normalization, stress-tests monotonicity over dimensions \(2\) through \(12\), and checks the small-radius Mahler-product normalization.
+PASS
 
-The replay output was:
+Faifman’s ellipsoid integral and Faifman–Vernicos–Walsh’s Hanner formula are prior ingredients; the latter states the two-radius inequality for arbitrary symmetric convex bodies as explicit Conjecture 10.2. Their one-radius lower bound cannot entail monotonicity of the ellipsoid/Hanner quotient. A separate exact hyperbolic-sine normalization and monotonicity proves the ellipsoid subcase. No covering statement was located in inspected primary passages; the simplicity creates a candid unindexed-notes risk.
 
-`VERIFY_OK Funk ellipsoid Hanner ratio`
+## value
 
-The numerical checks are consistency tests only. The all-dimensional, all-radius result is established by the analytic monotonicity argument.
+PASS
+
+An explicit uniform all-dimensional special case of an open two-radius Funk-volume conjecture is a motivated standalone comparison, not a routine single-value substitution. The strict monotonicity across every radius adds control not supplied by the previously known fixed-radius Hanner bound and is potentially useful for interpreting reversed Bishop–Gromov behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
