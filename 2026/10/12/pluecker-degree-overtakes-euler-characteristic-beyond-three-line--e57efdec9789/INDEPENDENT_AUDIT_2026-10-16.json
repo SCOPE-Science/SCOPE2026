@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T01:58:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For q=min(k,n-k)>=2 and c=n-q>=q, the independently inspected RESULT.md uses the rectangular hook-length count D(q,c)=(qc)! product_{i=1}^{q-1}(i!)/product_{j=c}^{c+q-1}(j!) and the Schubert-cell count E(q,c)=binom(q+c,q). At q=2 the degree is Catalan C_c; c=2,3,4 yield (D,E)=(2,6),(5,10),(14,15), and c=5 gives (42,21). The exact ratio inequality reduces to 3c^2+c-4>0 for c>=5. For q>=3 the q-by-q square admits an injective tableau extension from a 3-by-q rectangle, and the three-row count F_q=2(3q)!/[q!(q+1)!(q+2)!] exceeds binom(2q,q): F_3=42>20, and the ratio inequality reduces to 23q^3+32q^2-q-6>0. For fixed q, the degree side-extension ratio product_{j=1}^q(qc+j)/(c+j) exceeds the Euler extension ratio (c+q+1)/(c+1), because qc>c+q for q,c>=3 and other factors exceed one. Therefore strictly D>E for all q>=3, with no equality. Independently rechecked the ratio polynomial and finite exact hook-degree normalization, and read the actual package verifier; finite checks are not an infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published Resultary RESULT.md (2026-10-04) states an n<=11 degree log-concavity cutoff across k",
+          "Eremenko–Gabrielov arXiv:math/0108133 degree formula"
+        ],
+        "reasoning": "The fixed-n k-log-concavity classification does not imply the pointwise comparison of degree with Euler characteristic and does not contain the three exceptional rectangles.",
+        "searches": [
+          "Grassmannian Plucker degree standard Young tableaux larger than Euler characteristic binomial dimension three exceptions compare saturated chains",
+          "Resultary:2026/10/4/SCOPE-a-sharp-log-concavity-cutoff-for-pl-cker-degrees-of-grassmannian--c053ae15c30e"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/math/0108133",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-sharp-log-concavity-cutoff-for-pl-cker-degrees-of-grassmannian--c053ae15c30e/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published closed hook-degree formula and classical binomial Euler formula are individual inputs",
+          "Three-exception threshold follows from separate Catalan/square-growth inequalities proved in the assigned RESULT.md"
+        ],
+        "reasoning": "The known two exact formulas permit computing individual parameters, but the needed universal inequality is additional content and not a direct identity or special case of the cited published claims.",
+        "searches": [
+          "arXiv:math/0108133",
+          "Grassmannian Plucker degree standard Young tableaux larger than Euler characteristic binomial dimension three exceptions compare saturated chains"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "E_{q,c}=number of partitions in q-by-c box; D_{q,c}=number of standard Young tableaux of its rectangle",
+          "Eremenko–Gabrielov 2002, formula and tableaux interpretation"
+        ],
+        "reasoning": "Bruhat maximal-chain versus element-count is exactly equivalent; examined under both tableaux and Schubert terminology. The sharp order reversal requires extra inequalities not supplied by mere rephrasing.",
+        "searches": [
+          "Grassmannian Plucker degree standard Young tableaux larger than Euler characteristic binomial dimension three exceptions compare saturated chains",
+          "rectangular Young lattice maximal chains elements inequality"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary log-concavity record contains degree formula/threshold but no degree-versus-Euler table",
+          "Current record finite enumerator covers n<=100 as regression, not a pre-existing published exhaustive classification"
+        ],
+        "reasoning": "No matching published exact table was identified in targeted queries. Lack of one is not itself novelty proof; proof and statement comparisons support the outcome.",
+        "searches": [
+          "Grassmannian Plucker degree standard Young tableaux larger than Euler characteristic binomial dimension three exceptions compare saturated chains",
+          "Resultary published Grassmannian-degree corpus"
+        ]
+      },
+      "rationale": "The primary Eremenko–Gabrielov formula identifies degrees and rectangular standard tableaux, while the Euler characteristic is the independent Schubert-cell count. The published Resultary log-concavity cutoff concerns comparing D_{n,k-1},D_{n,k},D_{n,k+1} at fixed n, not comparison with Euler for every (n,k). Their formula plus the cell count alone determines both integers, but neither inspected source gives or mathematically entails without further cross-parameter inequalities the three-exception classification; the proof supplies exactly those strict growth comparisons. This is a best-of-knowledge non-covered global threshold rather than a claim that rectangular-tableau folklore is exhaustively known.",
+      "residual_risks": [
+        "Unindexed Young-tableau/poset literature may already formulate the chain-count versus element-count threshold.",
+        "The source theorem is over complex nonprojective Grassmannians, not arbitrary homogeneous varieties."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_FORMULA_ONLY",
+          "evidence": [
+            "Complex Grassmannian Pluecker degree equals rectangular standard Young tableau count; no degree-versus-Euler threshold found in inspected mathematical results."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0108133",
+          "material_read": "Primary arXiv paper, degree formula, complex enumerative comparison and tableau identification",
+          "method": "full-text PDF text plus page inspection",
+          "title": "Degrees of Real Wronski Maps",
+          "trigger": "Same Grassmannian/Pluecker degree and standard tableaux"
+        },
+        {
+          "assessment": "DIFFERENT_COMPARISON",
+          "evidence": [
+            "Fixed n: degree log-concavity iff n<=11, not D_{n,k} versus Euler."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-sharp-log-concavity-cutoff-for-pl-cker-degrees-of-grassmannian--c053ae15c30e/RESULT.md",
+          "material_read": "Full finding, assumptions, proof and comparison sections",
+          "method": "full GitHub RESULT.md read",
+          "title": "A sharp log-concavity cutoff for Plücker degrees of Grassmannians",
+          "trigger": "Exactly same Pluecker-degree invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two invariants are canonical quantities for the same Grassmannian/Bruhat rectangle: number of Schubert cells versus saturated maximal chains. The exact all-parameter, strict crossover with three smallest line-Grassmannian exceptions and no equality is a natural structural inequality between distinct enumerative invariants, not a mere table row or substitution; the proof gives stable threshold propagation across both rectangle dimensions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed Young-tableau/poset literature may already formulate the chain-count versus element-count threshold.",
+    "The source theorem is over complex nonprojective Grassmannians, not arbitrary homogeneous varieties.",
+    "Frozen public METADATA.json retains operational scope_run_id and is not safe for unchanged publication."
+  ],
+  "schema_version": 1
+}
