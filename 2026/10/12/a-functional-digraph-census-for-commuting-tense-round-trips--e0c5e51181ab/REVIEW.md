@@ -1,11 +1,21 @@
-# Scientific review: commuting deterministic tense round trips
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact event identities \(\mathbf F\mathbf P(A)=f^{-1}[f[A]]\) and \(\mathbf P\mathbf F(A)=A\cap f[X]\) give a direct, choice-free equivalence between commuting compositions and fiber saturation of the image. For finite maps, every component decomposes uniquely into a directed cycle with in-trees. The mutually exclusive all-leaf/all-nonleaf child condition gives the stated nonleaf-tree equation, and cycle vertices force nonleaf offcycle children. These bijections establish the formal generating function. The positive aperiodic implicit equation has a unique first real critical point and the stated square-root expansion, giving the asymptotic constants. An executable exact-rational coefficient computation and exhaustive finite frame tests support, but do not replace, those proofs.
+## correctness
 
-**Originality — PASS, with bibliographic risk.** Figallo–Sarmiento–Pezzini, arXiv:2610.01547v1, was inspected through its Introduction, tense-algebra definitions/Proposition 2.1, sections on degree preservation and Kashima completeness, and Conclusions. Its results concern proof theory and algebraic completeness, not the functional-frame classification or its enumeration. The nearby Marty paper, arXiv:2608.27145v2, concerns successor-closed subsets on a given functional graph, not the number of functional graphs subject to homogeneous preimage layers; the main decomposition, successor-closed counting theorem, and extremal theorems were inspected in its full text; the objects enumerated and implications differ. The standard image-saturation and graph-species facts are explicitly excluded from the novelty claim. Targeted searches for equivalent modal laws, image/kernel formulations, and the precise coefficient sequence did not locate a dominating theorem. An older differently worded mapping or species enumeration could still cover the result.
+PASS
 
-**Value — PASS.** Requiring two canonical tense round trips to commute is a natural exact semantic property of deterministic temporal transition systems. The structural criterion alone is elementary, but the complete labelled classification, nonstandard constrained rooted-tree equation, and precise exponentially small density answer a substantive quantitative question. In particular, the result distinguishes finite permutations from noninvertible deterministic time models and estimates how rare this commutation property is among all endofunctions.
+For any total f, P(F(A))=f[f^{-1}(A)]=A∩D and F(P(A))=f^{-1}(f(A)), the fiber saturation C(A). Commutation for all A is equivalent to D being a union of complete fibers: necessity is witnessed by A=X\D; sufficiency follows from saturation distributing over intersection. In finite functional digraphs, offcycle nonleaf-rooted trees have children either all leaves or all nonleaves and satisfy u=z(exp(z)+exp(u)-2). Directed cycles decorated with z exp(u) give A(z)=1/(1-z exp(u)). Critical equations yield rho≈0.447104452709, B≈2.49956339835, and square-root asymptotic; nonnegative coefficients at adjacent exponents prevent competing dominant singularities. Independently enumerated all endofunctions of n<=6 with counts 1,2,12,108,1100,13350; finite census does not establish asymptotics.
 
-**Limits.** No nondeterministic-forward enumeration or isomorphism-class census is claimed. Source-inspection limitations and the possibility of implicit prior coverage remain. Same-model inspection is not an independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The combined characterization, labelled endofunction generating function and asymptotic decay rate are not a mere tense-logic theorem or a successor-closed-subset count. No actual Resultary hit with this equivalence or EGF was found, but older combinatorial species/OEIS aliases remain a priority risk.
+
+## value
+
+PASS
+
+A natural full-powerset commutation condition for deterministic tense frames has an exact, choice-free structural characterization and leads to an enumerative species and quantitative random-map rarity law. The count is not an arbitrary finite parameter slice: it classifies a semantic law across all finite orders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

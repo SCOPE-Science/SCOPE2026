@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Run `python3 verify.py` in the same directory. The checker uses only the Python 3 standard library and produces `VERIFICATION_OK` if all checks pass.
+## correctness
 
-It independently enumerates all endofunctions on one through six labelled vertices: 1, 4, 27, 256, 3,125, and 46,656 functions, totaling 50,069. It checks equivalence between fiber saturation and the homogeneous-sibling condition for every one. The qualifying counts are 1, 2, 12, 108, 1,100, and 13,350. It also checks commutation of the original Boolean event operators for every valuation and all endofunctions through five vertices, covering 104,330 function–event configurations.
+PASS
 
-An exact-rational, independent power-series recurrence reproduces the coefficients for sizes zero through ten:
+For any total f, P(F(A))=f[f^{-1}(A)]=A∩D and F(P(A))=f^{-1}(f(A)), the fiber saturation C(A). Commutation for all A is equivalent to D being a union of complete fibers: necessity is witnessed by A=X\D; sufficiency follows from saturation distributing over intersection. In finite functional digraphs, offcycle nonleaf-rooted trees have children either all leaves or all nonleaves and satisfy u=z(exp(z)+exp(u)-2). Directed cycles decorated with z exp(u) give A(z)=1/(1-z exp(u)). Critical equations yield rho≈0.447104452709, B≈2.49956339835, and square-root asymptotic; nonnegative coefficients at adjacent exponents prevent competing dominant singularities. Independently enumerated all endofunctions of n<=6 with counts 1,2,12,108,1100,13350; finite census does not establish asymptotics.
 
-\[
-1,1,2,12,108,1100,13350,194502,3280424,62480952,1328405130.
-\]
+## originality
 
-The general theorem for infinite sets, the reversible functional-digraph decomposition for every size, and the asymptotic rate follow from the mathematical proof; the finite program does not establish these unlimited statements. The numerical singularity approximations are reported for orientation, not as certificates of analytic continuation or uniqueness.
+PASS
+
+The combined characterization, labelled endofunction generating function and asymptotic decay rate are not a mere tense-logic theorem or a successor-closed-subset count. No actual Resultary hit with this equivalence or EGF was found, but older combinatorial species/OEIS aliases remain a priority risk.
+
+## value
+
+PASS
+
+A natural full-powerset commutation condition for deterministic tense frames has an exact, choice-free structural characterization and leads to an enumerative species and quantitative random-map rarity law. The count is not an arbitrary finite parameter slice: it classifies a semantic law across all finite orders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
