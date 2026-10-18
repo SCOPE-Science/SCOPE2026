@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification of McGee graph factor census
+# Independent mathematical audit
 
-Run `python3 verify.py` with `matchings.csv` and `orbits.csv` in the same directory. It validates the graph, BFS girth seven and diameter four, exhaustive perfect-matching recurrence, independent memoized count, all 60 complementary cycle partitions, complete group of 32 distance-preserving automorphisms, and the orbit table.
+## correctness
 
-Run `g++ -std=c++17 -O2 verify_independent.cpp -o verify_independent` and `./verify_independent` to replay the separate C++ matching enumeration and cycle decomposition. It uses a distinct minimum-available-neighbors branching criterion and does not read the certificates. Both source files were actually compiled/executed as applicable.
+PASS
 
-Actual assertions printed:
-```
-VERIFY_OK McGee LCF=[-12,7,-7]^8 vertices=24 edges=36 girth=7 diameter=4
-VERIFY_OK independent_matching_dp=60 recursive_matchings=60
-VERIFY_OK two_factor_types=8+8+8:12,12+12:6,24:42
-VERIFY_OK automorphisms=32 perfect_matching_orbits=8 orbit_distribution=2x1+4x2+8x2+16x2
-VERIFY_OK orbits.csv=exact matchings.csv=exact
-VERIFY_INDEPENDENT_OK perfect_matchings=60 two_factor_types=24:42,12+12:6,8+8+8:12
-```
-The verification is an exhaustive finite calculation on the declared 24-vertex graph. This is not a general graph theorem and has not undergone independent external mathematical review.
+For the exact 24-vertex 36-edge LCF [-12,7,-7]^8 model, complement in a cubic graph bijects each perfect matching with one 2-factor. Independent perfect-matching recursion branching on the least unused vertex produces 60 perfect matchings, and cycle tracing on each complement yields 42 type (24), 6 type (12,12), and 12 type (8,8,8). Exhaustive distance-preserving vertex permutation backtracking obtains exactly 32 graph automorphisms; their actions on the 60 matchings split into eight disjoint orbit sizes by type: (24): 2,8,16,16; (12,12): 2,4; (8,8,8): 4,8. For each choice of first named edge color, the even complementary cycles have 2^number_of_cycles alternate colorings, yielding 42*2+6*4+12*8=204 distinct named proper three-edge colorings and 34 modulo the free 3! color action. The independently written checker reconstructs the graph, full matchings, cycle profiles, automorphisms, orbits and coloring sum; enumeration covers *all* matchings by a complete recursion, not a random sample.
+
+## originality
+
+PASS
+
+McGee's four-page 1960 construction proves graph existence and gives a Hamiltonian circuit, while MathWorld contains the standard LCF notation and full automorphism-group order 32. The inspected exact Tutte polynomial appendix is not a cycle-type distribution, and generic cubic 2-factor bounds cannot determine the McGee 60-by-type matching census. Distinguishes new complete spectrum/orbits from known graph, single Hamilton cycle, and known group size. An inaccessible dissertation remains a named originality risk.
+
+## value
+
+PASS
+
+A canonical unique smallest cubic girth-seven cage is intrinsically motivated. Its entire 2-factor cycle-partition spectrum, exact Hamiltonian count, full matching symmetry orbits and edge-coloring number are natural graph invariants that may be reused in coloring, cycle-cover and extremal studies; the exact classification is independently useful even without an infinite-family theorem. The computation is complete rather than a partial count or arbitrary induced slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
