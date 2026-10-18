@@ -1,12 +1,21 @@
-# Self-review of arithmetic descent on Schur's quartic
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem concerns exactly one displayed quartic over \(\mathbb Q\). Rojas and Lira's exhaustive 64-line list has been checked against the original complete paper. The proof gives normalized, recoverable Plücker coordinates for each of the 16+12+12+12+12 lines. Because projective Plücker coordinates are intrinsic to a line, the recovered fields are genuinely minimal fields of definition, and fixed subgroups under each of three exact involutions determine orbit sizes. The standalone symbolic program reconstructed every line, checked containment and uniqueness, each Galois permutation, all fixed and minimal-field counts, and exhaustively checked independence in the six-vertex rational-line intersection graph. The argument does not misinterpret the finite check as a new proof that *no additional geometric lines exist*: that exhaustive premise is supplied by the published mathematical theorem.
+## correctness
 
-## Originality — PASS, with explicit residual risk
-The nearest full-text geometric studies are Rojas–Lira (DOI `10.4171/RSMUP/31`, 2019), which proves existence of all 64 lines and the 16-skew bound, and Bauer–Schmitz (DOI `10.1112/S1461157012001040`, 2012), which computes their complex intersection matrix. Neither states the five-field census, the arithmetic orbit profile, or the sharp rational skew maximum for the given \(\mathbb Q\)-form. The published 64-line spectral and common-transversal study also classifies complex incidences, not Galois descent. A later 24-line subconfiguration over \(\mathbb Q(\sqrt{-3})\) does not imply the complete 64-line census. Targeted mathematical-record searches did not identify an implication-equivalent theorem. The central risk is unexamined older arithmetic literature: Segre (1946), whose full text could not be accessed, may contain relevant implicit information. This prevents any categorical claim that the result has never been observed.
+PASS
 
-## Value — PASS
-The minimal definition fields of *every* line on the maximally lined smooth quartic are a canonical, finitely computable arithmetic invariant of its displayed rational model. Their distribution determines the exact Galois permutation representation on the 64 geometric line classes, and the rational-line incidence graph yields a sharp descent gap between the four-skew rational maximum and the previously established geometric maximum of 16. Both statements address a natural complete geometric configuration rather than an arbitrary sample of lines. The result does not assert a general theorem about quartic K3 surfaces, rational twists, or their whole arithmetic Picard groups.
+Fixed rational quartic x₀⁴−x₀x₁³−x₂⁴+x₂x₃³=0. Published Rojas–Lira complete list gives 16 L(p,q) and 12 each of M₁,M₂,M₃,M₄. Normalized Plücker six-tuples recover Q(p,q), Q(a,b), or Q(√3 a,b,ζ^(k−2)) exactly; stabilizers of sign involutions (i,√3)↦(±i,±√3) give field counts 6 Q, 2 Q(i), 2 Q(√3), 34 Q(√−3), 20 Q(i,√3). They imply six rational, eight real lines and orbit profile 1⁶2¹⁹4⁵. The six rational-line Klein-polar incidence graph has maximum independent set four. No missing lines is established by cited geometric enumeration, NOT simply observing 64 parametrized examples. Verified symbolic script source; checked field-count table, Galois subgroup and skew bounds against the actual formulas.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS. Rojas–Lira classifies 64 geometric lines and max 16 geometrically skew; that complex geometry does not itself list minimal arithmetic fields or max four skew rational lines for the fixed rational form. Resultary record 76e63f54b379 gives intersection spectrum/transversals over the geometric 64 lines, not the rational descent. The inaccessible 1946 Segre paper is a genuine potential equivalent source, not a reason to automatically fail.
+
+## value
+
+PASS
+
+PASS: complete minimal fields, conjugacy orbits, real/rational lines, and maximal rational skew set for a distinguished arithmetic quartic are natural exact arithmetic-geometric invariants, unlike a sample of randomly chosen lines. The rational skew restriction differs sharply from geometric 16.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
