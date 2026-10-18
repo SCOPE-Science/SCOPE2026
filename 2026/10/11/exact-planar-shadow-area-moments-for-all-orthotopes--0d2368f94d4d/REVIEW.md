@@ -1,11 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is exactly the second-order Haar-minor tensor and its induced planar shadow-area moment law for all integer \(d\ge3\) and strictly positive orthotope side lengths. The proof reconstructs the zonotope identity, the diagonal Plücker norm, the spherical one-minor beta integral, the shared-index circular symmetry, and the independent self-dual/anti-self-dual \(S^2\times S^2\) law conditional on the four-coordinate bivector norm. It explicitly handles \(d=3\) and the vanishing four-index class. Triple and quadruple pair counting yields all coefficients. The accompanying actual-path numerical verifier confirms projected convex-hull versus zonotope area and moments, but sampling alone is not the proof.
+## correctness
 
-**Originality — PASS, with specified historical risk.** Paouris–Pivovarov–Zinn (arXiv:1210.7012) and Prochno–Thäle–Tuchel (arXiv:2412.16054) establish cube projection limit theory; the latter already evaluates its leading variance constant. The existing three-cube area-variance case is also known. Kabluchko–Prochno–Thäle (arXiv:1910.02676) study asymptotic projected product measures, while Averkov–von Dichter–Richard–Soprunov (DOI 10.1007/s13366-026-00863-9) characterize absolute-Grassmannian inequalities. Material primary full texts do not state an all-finite-dimensional, arbitrary-side-length second-moment tensor. The new claim is strictly the latter general tensor, its finite correction, and sign change; known special or asymptotic consequences are excluded. An older unindexed equivalent integral-geometric identity remains possible, so independent literature checking is warranted.
+PASS
 
-**Value — PASS.** A complete structurally reduced three-coefficient covariance law determines projected-area variance for the continuum of all rectangular orthotopes, not merely a numerical dimension or known isolated example. The negative disjoint-index correlation and sign reversal of shared-index correlations at dimension five are meaningful features of random geometric dependencies and permit exact anisotropic sensitivity computation.
+The projected zonotope has area sum_{i<j} a_i a_j |u_i v_j-u_j v_i|. Reconstructed E D_ij=1/(d-1) by conditional sphere/Beta integrals, E D_ij^2=2/[d(d-1)] via Cauchy-Binet, shared-index mixed moment 4/[pi d(d-1)] via planar SO(2), and disjoint moment 1/[d(d-1)] via the self-dual/anti-self-dual S²×S² decomposition of oriented Gr_2(R4). Checking the 3+3 pair classes recovers all coefficients 2,8/pi,6 of the exact second moment. Independent Gaussian-Stiefel sampling (40,000 frames each at d=3,4,5,7) reproduced first/second moments and the mixed Plücker correlations to Monte Carlo precision; these diagnostics do not prove general dimensions. d=3 and empty quadruple sums handled; cube var=(d-2)(4/pi-5/4). The higher-dimensional conditional Grassmannian factorization was justified by SO(4) transitivity and its SO(3)×SO(3) action, not by assuming six Plücker coordinates independent.
 
-**Limits.** Neither higher moments, the full shadow-area distribution, nor general skew parallelepipeds are established. Finite random tests are diagnostics, not infinite certificates. Independent validation and audit are not performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The arbitrary side-length finite-d tensor and covariance sign transition at d=5 remain outside the CLT and large-d variance formulas. The cube d=3 instance and leading cube variance coefficient are explicitly credited, not relabeled novel.
+
+## value
+
+PASS
+
+A full explicit second-moment tensor for random planar shadows of every orthotope, with the adjacent-versus-disjoint-minor correlation structure, supports exact geometric variance and anisotropy comparisons; this goes materially beyond a lone small case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

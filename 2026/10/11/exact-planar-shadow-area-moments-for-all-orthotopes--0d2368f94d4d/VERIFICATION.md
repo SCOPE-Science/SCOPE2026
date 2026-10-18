@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and limits
 
-The analytic proof covers all integer dimensions \(d\ge3\) and strictly positive orthotope side lengths. Its four critical identities are the zonotope area expansion, the Cauchy–Binet unit-bivector norm, the circular shared-index absolute product integral, and the \(SO(4)\)-invariant self-dual/anti-self-dual calculation for disjoint indices. The last step requires \(d\ge4\); the disjoint-index term is absent for \(d=3\).
+# Independent mathematical audit
 
-Replay `python verify.py` in an environment with NumPy and SciPy. It uses a documented fixed numerical pseudorandom seed, constructs Haar two-frames by Gaussian Gram–Schmidt, checks convex-hull area independently against the zonotope determinant sum for 120 samples in dimensions \(3\)–\(7\), and checks scalar moments for 120,000 samples per dimension. The recorded run returned `CONVEX_HULL_CHECK_OK` with maximum difference \(2.665\times10^{-15}\), then `VERIFY_OK`, including cube dimensions \(3,4,5,7,12\) and unequal orthotopes of dimensions \(3,4,6,9\).
+## correctness
 
-Monte Carlo agreement is not a rigorous finite-error enclosure and cannot prove the all-dimensional identities. Analytic group invariance, beta/Gamma integration and exact pair indexing establish the theorem. Numerical thresholds in the script are diagnostic tolerances, not mathematical hypotheses or certification.
+PASS
+
+The projected zonotope has area sum_{i<j} a_i a_j |u_i v_j-u_j v_i|. Reconstructed E D_ij=1/(d-1) by conditional sphere/Beta integrals, E D_ij^2=2/[d(d-1)] via Cauchy-Binet, shared-index mixed moment 4/[pi d(d-1)] via planar SO(2), and disjoint moment 1/[d(d-1)] via the self-dual/anti-self-dual S²×S² decomposition of oriented Gr_2(R4). Checking the 3+3 pair classes recovers all coefficients 2,8/pi,6 of the exact second moment. Independent Gaussian-Stiefel sampling (40,000 frames each at d=3,4,5,7) reproduced first/second moments and the mixed Plücker correlations to Monte Carlo precision; these diagnostics do not prove general dimensions. d=3 and empty quadruple sums handled; cube var=(d-2)(4/pi-5/4). The higher-dimensional conditional Grassmannian factorization was justified by SO(4) transitivity and its SO(3)×SO(3) action, not by assuming six Plücker coordinates independent.
+
+## originality
+
+PASS
+
+The arbitrary side-length finite-d tensor and covariance sign transition at d=5 remain outside the CLT and large-d variance formulas. The cube d=3 instance and leading cube variance coefficient are explicitly credited, not relabeled novel.
+
+## value
+
+PASS
+
+A full explicit second-moment tensor for random planar shadows of every orthotope, with the adjacent-versus-disjoint-minor correlation structure, supports exact geometric variance and anisotropy comparisons; this goes materially beyond a lone small case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T12:21:22.306054Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026@026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/exact-planar-shadow-area-moments-for-all-orthotopes--0d2368f94d4d/RESULT.md blob ee7a520ee32e7e66a1e733df402032798648d129",
+        "SCOPE-Science/SCOPE2026@026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/exact-planar-shadow-area-moments-for-all-orthotopes--0d2368f94d4d/verify.py blob e789d6104b7f148b9d94d06e8e821973eddaa090"
+      ],
+      "rationale": "The projected zonotope has area sum_{i<j} a_i a_j |u_i v_j-u_j v_i|. Reconstructed E D_ij=1/(d-1) by conditional sphere/Beta integrals, E D_ij^2=2/[d(d-1)] via Cauchy-Binet, shared-index mixed moment 4/[pi d(d-1)] via planar SO(2), and disjoint moment 1/[d(d-1)] via the self-dual/anti-self-dual S²×S² decomposition of oriented Gr_2(R4). Checking the 3+3 pair classes recovers all coefficients 2,8/pi,6 of the exact second moment. Independent Gaussian-Stiefel sampling (40,000 frames each at d=3,4,5,7) reproduced first/second moments and the mixed Plücker correlations to Monte Carlo precision; these diagnostics do not prove general dimensions. d=3 and empty quadruple sums handled; cube var=(d-2)(4/pi-5/4). The higher-dimensional conditional Grassmannian factorization was justified by SO(4) transitivity and its SO(3)×SO(3) action, not by assuming six Plücker coordinates independent.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published perimeter moments and area–perimeter covariance concern different observables; asymptotic random projections are not a finite-d area second-moment tensor."
+        ],
+        "reasoning": "Changing from perimeter to area changes the determinants and mixed moments; no implication from those formulas without new integration.",
+        "searches": [
+          "Haar random planar projections orthotope second moments Grassmann Plucker absolute minors shadow area",
+          "Resultary: Haar-random planar projection perimeter moments of all orthotopes",
+          "arXiv:1910.02676"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026@026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/exact-planar-shadow-area-moments-for-all-orthotopes--0d2368f94d4d/RESULT.md blob ee7a520ee32e7e66a1e733df402032798648d129",
+        "SCOPE-Science/SCOPE2026@026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/exact-planar-shadow-area-moments-for-all-orthotopes--0d2368f94d4d/verify.py blob e789d6104b7f148b9d94d06e8e821973eddaa090",
+        "https://arxiv.org/pdf/1210.7012",
+        "https://arxiv.org/pdf/2412.16054"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both primary results concern central limit/asymptotic distributional laws with a dimension tending to infinity; their statements do not specify all finite side-length vectors."
+        ],
+        "reasoning": "Taking a limit loses finite correction and independent triple/quadruple correlations; no reverse implication.",
+        "searches": [
+          "arXiv:1210.7012 pp.1–3",
+          "arXiv:2412.16054 pp.1–4, §§4.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Paouris–Pivovarov–Zinn prove fixed-target-dimension Gaussian asymptotics for cubes; Prochno–Thäle–Tuchel derive limit laws for projected ℓ_p balls; no arbitrary-side-length finite-d Plücker tensor is stated in inspected portions."
+        ],
+        "reasoning": "The finite quartic polynomial is not equivalent to an N→infinity CLT or its leading covariance coefficient.",
+        "searches": [
+          "Haar random planar projections orthotope second moments Grassmann Plucker absolute minors shadow area",
+          "arXiv:1210.7012",
+          "arXiv:2412.16054"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known d=3 cube variance and cube large-dimensional asymptotic coefficient are acknowledged in RESULT.md; none yields all unequal-length polynomial coefficients."
+        ],
+        "reasoning": "Existing numerical or special-cube entries are covered; the full symbolic family is not a lookup.",
+        "searches": [
+          "Haar random planar projections orthotope second moments Grassmann Plucker absolute minors shadow area",
+          "exact cube planar shadow area variance orthotope Plücker mixed moments"
+        ]
+      },
+      "rationale": "The arbitrary side-length finite-d tensor and covariance sign transition at d=5 remain outside the CLT and large-d variance formulas. The cube d=3 instance and leading cube variance coefficient are explicitly credited, not relabeled novel.",
+      "residual_risks": [
+        "Full earlier integral-geometric literature on four-index absolute Grassmannian integrals was not exhaustively inspected; possible equivalent tensor identity under zonoid notation.",
+        "Known cube d=3 and asymptotic coefficient are not independently original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial first sections; establishes a CLT for fixed-dimensional projection as ambient N grows, not this finite anisotropic tensor",
+          "evidence": "Theorem scope N→∞ and Gaussian manifold construction.",
+          "identifier_or_url": "https://arxiv.org/pdf/1210.7012",
+          "material_read": "Title, abstract, introduction and main theorem opening pp.1–2",
+          "method": "Public arXiv PDF full-text extraction, selected pages visually checked",
+          "title": "A central limit theorem for projections of the cube",
+          "trigger": "Same random projected cube volume"
+        },
+        {
+          "assessment": "Asymptotic concentration/deviation setup, not a general finite orthotope moment theorem; full-text not exhaustively read",
+          "evidence": "Fixed target m, ambient N→∞; Gaussian q-moment formulas in §4.4.",
+          "identifier_or_url": "https://arxiv.org/pdf/2412.16054",
+          "material_read": "Abstract/introduction pp.1–3, table of contents and §4.4 moment-identity passages pp.20–22",
+          "method": "Public arXiv PDF text and source passages",
+          "title": "Limit Theorems for the Volume of Random Projections and Sections of ℓp-balls",
+          "trigger": "Known cube fluctuation coefficient and wider asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026@026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/exact-planar-shadow-area-moments-for-all-orthotopes--0d2368f94d4d/RESULT.md blob ee7a520ee32e7e66a1e733df402032798648d129",
+        "SCOPE-Science/SCOPE2026@026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/exact-planar-shadow-area-moments-for-all-orthotopes--0d2368f94d4d/verify.py blob e789d6104b7f148b9d94d06e8e821973eddaa090",
+        "https://arxiv.org/pdf/1210.7012",
+        "https://arxiv.org/pdf/2412.16054"
+      ],
+      "rationale": "A full explicit second-moment tensor for random planar shadows of every orthotope, with the adjacent-versus-disjoint-minor correlation structure, supports exact geometric variance and anisotropy comparisons; this goes materially beyond a lone small case.",
+      "residual_risks": [
+        "Full earlier integral-geometric literature on four-index absolute Grassmannian integrals was not exhaustively inspected; possible equivalent tensor identity under zonoid notation.",
+        "Known cube d=3 and asymptotic coefficient are not independently original."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE-Science/SCOPE2026@026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/exact-planar-shadow-area-moments-for-all-orthotopes--0d2368f94d4d/RESULT.md blob ee7a520ee32e7e66a1e733df402032798648d129",
+    "SCOPE-Science/SCOPE2026@026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/exact-planar-shadow-area-moments-for-all-orthotopes--0d2368f94d4d/verify.py blob e789d6104b7f148b9d94d06e8e821973eddaa090",
+    "https://arxiv.org/pdf/1210.7012",
+    "https://arxiv.org/pdf/2412.16054"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Full earlier integral-geometric literature on four-index absolute Grassmannian integrals was not exhaustively inspected; possible equivalent tensor identity under zonoid notation.",
+    "Known cube d=3 and asymptotic coefficient are not independently original."
+  ],
+  "residual_risks": [
+    "Full earlier integral-geometric literature on four-index absolute Grassmannian integrals was not exhaustively inspected; possible equivalent tensor identity under zonoid notation.",
+    "Known cube d=3 and asymptotic coefficient are not independently original."
+  ],
+  "schema_version": 1
+}
