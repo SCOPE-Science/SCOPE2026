@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-Run `python3 artifacts/verify.py` with Python 3 and its standard library. Successful output is:
+## correctness
 
-`VERIFY_OK cases=107 primes=3 direct_fourier=4 exact_fiber_deficit_and_packet_tests=passed`
+PASS
 
-For \(p=3,5,7\), the checker enumerates all ordered parameter pairs \((x,y)\) modulo \(p^2\) and groups them by \((x+y,x^2+y^2)\). It independently groups the same input into residue-class convolution energies. It compares both values for eight deterministic Gaussian-integer test functions per prime; the arithmetic values are integral, so the tiny numerical tolerance serves only to accommodate built-in complex-number representation. The program checks all \(p^2\) character packets in each field and confirms the sharp value, then performs four explicit complex-exponential Fourier-synthesis evaluations at \(p=3,5\). It also verifies the global distance-to-packet estimate for the deterministic examples.
+Character orthogonality over R² identifies the fourth moment with squared pair-sum fiber sums. For odd p, mixed mod-p residue classes have exactly a swapped ordered pair, contributing 4 m_r m_s per unordered class pair; same-residue fibers reduce to additive convolution on F_p. Parseval gives ∑|f_r*f_r|²=(1/p)∑|fhat_r|⁴ and ∑|fhat_r|²=p m_r, proving the displayed nonnegative identity for every complex f. Strict defects imply one residue packet and a single Fourier frequency. For unit inputs, mixed defect ≥(p−2)(1−∑m_r²), and the best Fourier-packet projection proves dist²≤(p−1)/(p−2)δ. Exact pair-fiber consistency program from matching Git blob 43466d... was run: VERIFY_OK cases=107 over p=3,5,7, with four Fourier synthesis tests; those finite tests are corroboration, not an infinite proof.
 
-The checker provides finite consistency evidence; no finite test is asserted to prove a universal infinite family. The universal mathematical verification is the pair-fiber injectivity argument, cyclic Parseval identity, nonnegative deficit factorization, and equality characterization in `RESULT.md`. The distance constant is valid, not asserted best possible.
+## originality
+
+PASS
+
+Best-of-knowledge the main all-input two-component identity and ensuing global distance estimate are not implied by prior broad all-prime-power sharp constants and equality classification. Norm p^(1/4) and packet equality set are explicitly covered by 2026/10/11/SCOPE-exact-fourth-moment-extension-and-all-extremizers-for-parabolas--730a12e98b61 and are NOT independent novelty. Because the central RESULT finding contains a mathematically substantive exact deficit for arbitrary f, the unmodified composite finding retains an original core. Strong residual risk: an unindexed equivalent energy identity in earlier harmonic-analysis literature.
+
+## value
+
+PASS
+
+An exact nonnegative deficit for the first nonfield prime-square parabola identifies two mathematically different losses: between-residue mixing and within-residue Fourier dispersion. Unlike the previously known sharp norm/equality set, this distinguishes near-extremizers quantitatively and proves a global squared-distance bound to the complete packet basis; this is a naturally reusable stability fact with nontrivial analytic content.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
