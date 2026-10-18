@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact four-step affine return gives the first-coordinate formula, and Schur stability requires both determinants \(\det(I-M)\) and \(\det(I+M)\) positive. In the full mixed non-invertible saddle parameter region, the sign of the first-coordinate numerator forces \(K<0\). Splitting according to the boundary value of \(K\), the explicit monotonicity and three exact endpoint identities prove \(\det(I+M)<0\); this is an analytical contradiction for all parameters. The separate rational witnesses were reconstructed using exact matrices and sign tests. Boundaries of the saddle inequalities and switching-line itineraries are explicitly excluded.
+## correctness
 
-## Originality — PASS, with risk
-The most relevant inspected original work is Ghosh–McLachlan–Simpson (2024), arXiv:2402.05393v1, especially Section 9: it discusses *attracting* \(LRRR\) but does not establish the opposite itinerary's universal prohibition. Their 2023 precursor supplies robust-chaos sufficient conditions rather than an exclusion throughout the entire saddle sign region. Searches for alternative orbit words, spectral implications, previous published results, and research records did not produce a theorem covering this exact statement. The 2022 Fatoyinbo–Simpson synopsis was not fully accessible, so an equivalent earlier symbolic consequence remains a material priority risk.
+PASS
 
-## Value — PASS
-A four-cycle's existence and stability are different questions. This is a nonvacuous, parameter-uniform distinction between two shortest asymmetric switching words in the dynamically significant noninvertible sector studied in the originating paper: an \(LLLR\) orbit really exists, yet cannot attract anywhere, whereas an \(LRRR\) orbit does attract. The result constrains the low-period windows and provides a tractable structural boundary for their classification rather than a generic textbook stability test.
+For strict four-branch points the return map is affine, with M=A_R A_L^3 and Schur necessary conditions D=det(I-M)>0 and E=det(I+M)>0. The return fixed point gives x_1=(u+a+1)K/D, so x_1<0 forces K<0 since u+a+1>0 in the full saddle domain. Independently verified E=(u^2-2a)K-(1+ab)[u^2-(a+1)^2]-2a^2-2ab. Setting a=-r, v=-w, E decreases strictly in w>1+b. When K_b>0, the K=0 crossing has E*=-(1-rb)[u^2-(1-r)^2]+2r(b-r)<0; when K_b<=0, E_b(u) is decreasing for u>|1-r| and endpoint identities at 1-r, r-1, u_c=(r+1)(1-b)/(1+b) cover r<=1/r>=1 with the indicated b comparisons. All strict cases force E<0, contradiction. Exact symbolic identities and the two rational itinerary witnesses were recomputed; no finite parameter search replaces the all-parameter inequalities. Strict itinerary excludes switching points; unit-circle multipliers cannot yield asymptotic stability for a locally affine return.
 
-## Limitations
-Only strictly off-switching period-four orbits in the stated sign sector are addressed. Other words and boundary cycles are open to other behavior. Priority versus uninspected specialized symbolic calculations requires independent literature validation.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Exact symbolic LLLR exclusion is distinct from previously published sufficient robust-chaos trapping/expanding-cone regions and documented stable LRRR regions. The indexed identical Resultary entry is a self-index hit; other ranked dynamics entries concern different maps, periods or subsets. The 2024 primary full Section 9 discusses robust attractor components and stable LRRR, not a universal LLLR stability obstruction. Incomplete access to the 2023 paper leaves an acknowledged earlier symbolic-implication risk, not proof of originality.
+
+## value
+
+PASS
+
+It resolves a genuine structural distinction within the natural two-saddle mixed-determinant sector: an LLLR orbit exists but cannot be attracting under any admissible parameters, while LRRR can attract. It excludes an entire low-period stability window rather than merely repeating a local eigenvalue test; the uniform obstruction is useful in symbolic itinerary/bifurcation classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
