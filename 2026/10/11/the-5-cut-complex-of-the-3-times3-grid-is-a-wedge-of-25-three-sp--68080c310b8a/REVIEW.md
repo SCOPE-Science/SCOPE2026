@@ -1,15 +1,21 @@
-# Same-model review of The \(5\)-cut complex of the \(3\times3\) grid is a wedge of \(25\) three-spheres
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The complete finite face poset is reconstructed from the graph definition. The certificate checks all \(77\) facets, all \(203\) faces including the empty face, all \(88\) matching pairs, and every Hasse cover in the acyclicity test. The critical-cell vector is one cell in dimension \(0\), no cells in dimensions \(1\) or \(2\), and \(25\) cells in dimension \(3\). This is sufficient for the stated wedge decomposition. The Euler characteristic gives an independent consistency check.
+## correctness
 
-## Originality
-**PASS.** The closest primary source, arXiv:2407.08158, already records the Betti number \(25\) for this exact grid and parameter, so that number is not claimed as new. Its explicit homotopy theorem covers \(k=4\), while its \(k=5\) result is a face-lattice/Euler analysis. The later arXiv:2408.07646 proves ordinary shellability for \(2	imes n\) grids and separate total-cut results for \(3	imes n\) grids. Searches for the exact grid, parameter, homotopy wording, and equivalent wedge formulation found no statement covering the present ordinary \(5\)-cut homotopy type.
+PASS
 
-## Value
-**PASS.** This is a natural boundary case in the grid-cut program: it upgrades the first published \(k=5\) square-grid Betti entry to a complete homotopy type by an explicit reusable finite Morse certificate. The result is narrower than a shellability theorem and is presented as such.
+For the ordinary (not total) five-cut complex of the nine-vertex 3×3 grid, independently enumerate all C(9,5)=126 five-subsets and test induced connectivity; 77 disconnected subsets yield 77 complementary four-vertex facets. Closure yields 202 nonempty faces and f=(9,36,80,77). The staged row-major-toggle matching has 88 pairs and an acyclic orientation verified over 620 Hasse covers; exactly one critical vertex and 25 critical three-cells remain, no positive cells in dimensions one or two. Forman theory therefore gives an actual wedge of 25 S³, stronger than homology rank. The prior literature's 25 is an existing Betti table entry, not an independent proof of this homotopy type.
 
-## Closest literature and limitations
-The finding does not improve the known Betti number and does not prove Conjecture 5.9 or an all-\(n\) statement. Its contribution is exactly the homotopy upgrade for \(G(3,3)\) at \(k=5\).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge exact statement comparison: The right invariant/parameter already appears in the primary literature. The NEW part is the matching establishing wedge homotopy, not the known count. No known broad result inspected implies pure 25 copies of S³ here; rational Betti 25 alone is insufficient. The accepted claim does not assert discovery of 25; it proves homotopy strengthening beyond the located prior implications. Residual risks explicitly preserved.
+
+## value
+
+PASS
+
+The first nontrivial square-grid k=5 ordinary cut complex is a natural test case in an explicitly open extension of grid cut-complex topology. A complete finite Morse collapse from a known Betti number to an integral homotopy decomposition is substantive because matching Betti ranks do not determine homotopy type or torsion/attaching structure in general. It is a benchmark, not an all-grid classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
