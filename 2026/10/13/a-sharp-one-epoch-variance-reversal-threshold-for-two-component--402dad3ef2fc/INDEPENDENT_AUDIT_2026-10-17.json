@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T18:57:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Recomputed each two-update affine endpoint from T_i(x)=(1−ηλ_i)x∓ηc, namely (1,2):ηc(ηλ2), (2,1):−ηc(ηλ1), (1,1):−ηc(2−ηλ1), (2,2):ηc(2−ηλ2). RR averages mixed pair squares, IID averages all four pair squares; subtraction is η²c²[η(λ1+λ2)−2]. Objective gap is positive factor (λ1+λ2)/4 of x². Setting λi=L witnesses sharp eta=1/L despite each map contracting for eta<2/L. With equal λ the common deterministic r²x0 cancels and both noises mean-zero; difference of variances is 2η²c²(ηL−1) for arbitrary x0. Rational witness λ=3/2,η=c=1 gives RR 9/4,IID 5/4. Algebra covers all parameters; inspected finite-rational verifier source 1000+500 tests as corroboration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liu provides averaged-iterate worst-case rate bounds, De Sa multidimensional long-horizon examples, Domingo-Enrich stationary spectral models."
+        ],
+        "reasoning": "These cover related RR performance measures but none was shown to imply the same finite-horizon instancewise squared-error identity. The extended full Liu appendix remains an explicit access risk.",
+        "searches": [
+          "Liu 2026 Random Reshuffling Dominates Stochastic Gradient Descent PMLR 336",
+          "De Sa NeurIPS 2020 non-dominance",
+          "Domingo-Enrich arXiv:2206.00632"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md 6a3e568f27a0cee5dcd17a9777d1f9ce190d39e3",
+        "Zijian Liu arXiv:2606.32005 and PMLR336 (abstract and rate-level text)",
+        "De Sa NeurIPS 2020 full public PDF",
+        "Domingo-Enrich arXiv:2206.00632"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Expected averaged iterate convergence bound is not an order comparison for a fixed instance single-epoch last iterate. De Sa establishes possibility RR worse in another regime but not this iff frontier."
+        ],
+        "reasoning": "The exact boundary requires keeping two opposite nonzero component gradients at common finite-sum minimizer and averaging all four possible sample paths, which does not follow from general qualitative non-dominance.",
+        "searches": [
+          "Liu rate theorem vs RR IID last iterate after one epoch",
+          "De Sa matrix-product counterexample vs scalar noisy strongly convex components"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior generic counterexamples to RR superiority do not establish the displayed two-scalar noninterpolation threshold and equal-curvature all-start formula."
+        ],
+        "reasoning": "Equivalent scalar affine map/signed two-gradient noise formulations were considered; no exact previous matching equation identified.",
+        "searches": [
+          "Resultary exact one epoch random reshuffling IID squared error scalar two quadratic",
+          "De Sa 2020 Random Reshuffling is Not Always Better"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching exact parameter frontier/table returned by the targeted searches; source verifier enumerates four sample sequences but is new consistency material, not literature."
+        ],
+        "reasoning": "A four-case formula is not a database result; nonretrieval alone does not certify originality and unindexed exact observations remain possible.",
+        "searches": [
+          "Resultary two component scalar quadratic one epoch terminal expected risk",
+          "two-step RR IID variance reversal exact threshold"
+        ]
+      },
+      "rationale": "General RR non-dominance is known (De Sa 2020), credited. Liu 2026 proves worst-case averaged-iterate rate dominance, not pathwise or single-instance last iterate dominance; no contradiction. Domingo-Enrich stationary spectral-noise variance is a different horizon. No same-model exact two-step scalar frontier found in published searches; near-elementary identity could appear implicitly in extended Liu appendix or unindexed stochastic-gradient folklore. The relevant complete Liu paper could not be independently retrieved; this risk is material but insufficient alone to fail O.",
+      "residual_risks": [
+        "Full extended Liu (2026) text including a potentially relevant two-component appendix remained inaccessible, so implicit earlier identical calculation cannot be excluded.",
+        "Single-epoch last iterate, two scalar components and equal-curvature all-start case only; no general long-horizon RR superiority/inferiority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Plausible specific-source access risk; cannot claim full appendix noncoverage",
+          "evidence": "Claimed RR advantage is in upper bounds on averaged-iterate convergence rates, not identical to instancewise terminal risk; full appendix remains unchecked.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.32005",
+          "material_read": "Public paper abstract and published PMLR description of rates/averaged iterate; full primary text/appendix unavailable through current routes",
+          "method": "Public arXiv abstract, PMLR overview and source metadata; authorized institutional attempt returned disconnected VPN",
+          "title": "Random Reshuffling Dominates Stochastic Gradient Descent",
+          "trigger": "Same RR/IID topic and possibly stronger dominating theorem"
+        },
+        {
+          "assessment": "COVERS generic non-dominance, not identified as exact two-step scalar iff",
+          "evidence": "De Sa counterexample has different high-dimensional noiseless/long-run setting, not the displayed four-path scalar formula.",
+          "identifier_or_url": "https://proceedings.neurips.cc/paper/2020/file/42299f06ee419aa5d9d07798b56779e2-Paper.pdf",
+          "material_read": "Full primary published paper inspected, including counterexample setup and comparison objective",
+          "method": "Public primary PDF text and page image inspection",
+          "title": "Random Reshuffling Is Not Always Better",
+          "trigger": "Known non-dominance could subsume example"
+        },
+        {
+          "assessment": "Different stationary asymptotic observable",
+          "evidence": "A spectral stationary variance bound does not directly imply one-epoch terminal second moment.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.00632",
+          "material_read": "Abstract and main stationary variance/spectral noise model description; no exhaustive appendix conclusion",
+          "method": "Public paper summary/model comparison",
+          "title": "Computing the Variance of Shuffling Stochastic Gradient Algorithms via Power Spectral Density Analysis",
+          "trigger": "General shuffled-SGD variance identities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural smallest non-interpolating strongly convex finite-sum model has an exact RR/IID crossover inside individually stable step sizes. Its sharp uniform cutoff is half the per-component stability ceiling and equal-curvature reversal survives every start. This clarifies the precise scope of rate-dominance claims and supplies a meaningful algorithm-comparison boundary even though its algebra uses only four trajectories.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md 6a3e568f27a0cee5dcd17a9777d1f9ce190d39e3",
+    "Zijian Liu arXiv:2606.32005 and PMLR336 (abstract and rate-level text)",
+    "De Sa NeurIPS 2020 full public PDF",
+    "Domingo-Enrich arXiv:2206.00632"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Full extended Liu (2026) text including a potentially relevant two-component appendix remained inaccessible, so implicit earlier identical calculation cannot be excluded.",
+    "Single-epoch last iterate, two scalar components and equal-curvature all-start case only; no general long-horizon RR superiority/inferiority."
+  ]
+}
