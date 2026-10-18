@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T18:49:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read exact Kenyon--Prause Section 3.4 boundary s(R)=avg_i a_i/(R+a_i), t(R)=avg_j R/(R+c_j), a_i=alpha_i^2<c_j=beta_j^-2 (R>0). s strictly decreases from 1 to 0; t increases 0 to 1; a_i<c_j ensures t(R)<1-s(R) so the curve bounds a genuine area against s+t=1. By orientation area=1/2-int_0^1 T(s)ds=1/2-int_0^infty t(R)(-s'(R))dR. Expansion gives ordered pair integrals int_0^infty [R/(R+c_j)] [a_i/(R+a_i)^2] dR. Setting R=a_i x, q=a_i/c_j reduces to I(q)=int_0^infty qx/((1+qx)(1+x)^2) dx = q/(q-1)-q log(q)/(q-1)^2. F(q)=1/2-I(q), matching asserted formula for all m1,m2. Independently evaluated exact integral numerically for q=.01,.1,.5,.9, obtaining F approximately .4631142722,.3268413465,.11370563888,.0175535908, equal to closed form within quadrature precision; analytic separation, not quadrature, proves arbitrary periods.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kenyon--Prause covers all periodic slope boundaries and surface tension, but no integrated all-period coexistence area in Section 3.4 or searchable paper text. Aggarwal addresses pure-state uniqueness not a cellwise area law."
+        ],
+        "reasoning": "Broader phase-diagram classification supplies inputs, but does not explicitly provide or dominate the claimed exact integrated area without the separation/partial fractions argument.",
+        "searches": [
+          "Kenyon--Prause arXiv:2101.04195 Theorem 3.2 all periods",
+          "Aggarwal arXiv:2004.13272 pure states ferroelectric six vertex",
+          "Resultary five-vertex coexistence area query"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2101.04195 Section 3.4/Thm 3.2 (primary full relevant portions)",
+        "arXiv:1812.11934 predecessor abstract",
+        "arXiv:2004.13272 broader pure-state abstract",
+        "Resultary five-vertex area search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior gives parametric curve and phase geometry; converting to area requires oriented integration and pairwise separability."
+        ],
+        "reasoning": "The published boundary plus routine integration derives the new area, but the new observable is not the same quantity as the previously stated boundary and its exact averaging law changes what can be inferred for any period.",
+        "searches": [
+          "Kenyon--Prause arXiv:2101.04195 Section 3.4 rational boundary formulas",
+          "de Gier--Kenyon--Watson arXiv:1812.11934 predecessor",
+          "Resultary five-vertex coexistence area search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source gives nonlinear boundary as averages of rational functions, not the area of the region; simply-periodic source gives one-cell hyperbola boundary."
+        ],
+        "reasoning": "The area average is a new global identity for mixed higher-period parameters, not a reparameterization of the same boundary curve.",
+        "searches": [
+          "Kenyon--Prause arXiv:2101.04195 Section 3.4 coexistence boundary",
+          "de Gier--Kenyon--Watson arXiv:1812.11934 simply-periodic hyperbola",
+          "Resultary: five vertex model small r coexistence region area average period Kenyon Prause"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Figure 11 contains one illustrative m1=m2=2 boundary; no exact numerical area table. The one-cell hyperbola implicitly determines F(q) for m1=m2=1."
+        ],
+        "reasoning": "A one-cell formula or plot does not imply the linear all-cell average for arbitrary independent alpha_i,beta_j periods without the bilinear integral decomposition.",
+        "searches": [
+          "Kenyon--Prause arXiv:2101.04195 Section 3.4 and Figure 11",
+          "de Gier--Kenyon--Watson arXiv:1812.11934 small-r hyperbola",
+          "Resultary: q log q coexistence area pair averaging"
+        ]
+      },
+      "rationale": "Kenyon--Prause published boundary parametrization and simply-periodic predecessor are prior. The newly assessed claim is a different mathematical quantity, integrated total coexistence area, with a nontrivial all-period arithmetic averaging identity not stated in the inspected full source. The outer boundary need not collapse cellwise even though the integral does. Originality remains best-of-knowledge for unindexed notes.",
+      "residual_risks": [
+        "An equivalent area evaluation could occur in unpublished or poorly indexed material; search absence is not novelty proof.",
+        "Other parameter regimes including q>=1 and Gibbs mixture classification not assessed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_BOUNDARY_NOT_AREA",
+          "evidence": "Exact published parameterization s,t(R) supplies integrand; no explicit full-area averaging expression found in relevant section or paper text search.",
+          "identifier_or_url": "https://arxiv.org/pdf/2101.04195",
+          "material_read": "Section 3.4 pp.17-19, Eq. 17 boundary, Figure 11 and Theorem 3.2; PDF searched for the word area",
+          "method": "Primary PDF relevant text and rendered page 19 screenshot",
+          "title": "Limit shapes and surface tension for the five vertex model with periodic weights",
+          "trigger": "Direct small-r higher-period coexistence boundary"
+        },
+        {
+          "assessment": "ONE_CELL_BACKGROUND_NOT_ALL_PERIOD_AREA",
+          "evidence": "Simply-periodic coexistence hyperbola is directly integrable but does not give arbitrary cellwise averaging.",
+          "identifier_or_url": "https://arxiv.org/abs/1812.11934",
+          "material_read": "ArXiv abstract and source comparison in Kenyon--Prause references; full PDF not retrieved in this iteration",
+          "method": "Primary abstract and later full paper contextual references",
+          "title": "Limit shapes for the asymmetric five vertex model",
+          "trigger": "Simply-periodic predecessor and hyperbolic one-cell curve"
+        },
+        {
+          "assessment": "DIFFERENT_OBSERVABLE",
+          "evidence": "Pure-state existence/uniqueness does not calculate geometric area in periodically weighted five-vertex slope space.",
+          "identifier_or_url": "https://arxiv.org/abs/2004.13272",
+          "material_read": "Primary abstract only",
+          "method": "Abstract-level comparison",
+          "title": "Nonexistence and Uniqueness for Pure States of Ferroelectric Six-Vertex Models",
+          "trigger": "Broader ferroelectric phase/pure-state context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The coexistence region has a natural geometric size in the model's physically meaningful slope simplex. Despite nontrivial higher-period boundary dependence, its area reduces exactly to the arithmetic mean of universal one-cell contributions, giving a reusable global invariant across arbitrary periods and a precise way to compare environments without reconstructing the full phase curve. This is more than a cosmetic simplification of a previously evaluated scalar.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a strictly small-r genus-zero m1-by-m2 periodic five-vertex system with alpha_i beta_j<1 for every pair, the Euclidean area in source slope coordinates between diagonal s+t=1 and the Kenyon--Prause small-r coexistence curve is exactly (1/(m1 m2))*sum_{i,j} F((alpha_i beta_j)^2), with F(q)=[1-q^2+2q log q]/[2(1-q)^2]. This gives the all-period cellwise-averaging identity.",
+  "limitations": [
+    "Strict all-products alpha_i beta_j<1 small-r genus-zero setting only, Euclidean slope-coordinate area; no q=1 or large-r assertion.",
+    "Finite quadrature is supporting evidence only; analytic integral proves unrestricted finite-period identity."
+  ],
+  "schema_version": 1
+}
