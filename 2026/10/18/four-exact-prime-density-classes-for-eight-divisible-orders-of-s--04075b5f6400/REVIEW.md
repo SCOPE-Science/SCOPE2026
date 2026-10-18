@@ -1,0 +1,15 @@
+# Scientific review: exact eight-divisibility prime-density spectrum
+
+## Correctness: PASS
+The claimed density is defined for one fixed split elliptic curve over \(\mathbb Q\), varying good odd primes. The proof obtains the correct necessary-and-sufficient quadratic-character condition for an order-four point by applying the standard two-torsion halving criterion to each of the three nontrivial two-torsion points. Its signs are explicitly normalized. The character space is the orthogonal complement of the squareclass-relation space; positivity of the root gaps makes the sign of \(-1\) independent. The relevant quadratic extension is abelian, so Chebotarev establishes ordinary natural density. Exhaustion of all sixteen binary relation subspaces produces precisely four values. The package checker tests all sixteen spaces and \(852\) finite-field point-count/character comparisons; these computations are auxiliary to the infinite proof. The four explicit realization models and the worked \(D(8)\)-curve have checked squareclasses.
+
+## Originality: PASS, with risk
+The closest dated primary source is Chuysurichay, Jaidee, Panraksa, and Sukhonwimolmal, arXiv:2610.03121v1, publicly released 2026-10-02, which provides a finite census of split-cubic reductions and explicitly does not provide asymptotic densities. Bekker--Zarhin, arXiv:1702.02255, proves the two-halving criterion, an input but not the claimed four-value density spectrum. Gekeler's 2006 group-order probability results average over elliptic curves over finite fields, not primes of one fixed rational curve. Targeted exact-formulation and equivalent-implication searches in indexed mathematical records and accessible earlier findings revealed no covering result. Standard two-descent and multiquadratic Chebotarev together make an equivalent unindexed earlier derivation a residual originality risk; no uniqueness of the discovery is claimed.
+
+## Mathematical value: PASS
+The motivating 2026 work gives only a finite set of prime reductions. The new invariant asks for the natural density of **all** primes with order divisible by eight for each fixed split rational elliptic curve. Its exact finite spectrum, all attained, is a full classification in this natural fixed-curve family and an unconditional answer for a worked Diophantine-triple curve. It does not infer cryptographic security or optimality of any higher-power statement. Classification is structurally motivated by the universally present rational two-torsion and is not a recomputation of a known finite table.
+
+## Residual scientific limits
+Results for higher two-adic orders and non-split curves remain open within this analysis. An equivalent classification might appear in literature centered on four-torsion Galois images rather than these particular character-sign parameters. Proof correctness relies on standard finite-field two-descent and Chebotarev; the executable checker is not an infinite proof.
+
+Self-review: passed. Independent audit: not yet performed.
