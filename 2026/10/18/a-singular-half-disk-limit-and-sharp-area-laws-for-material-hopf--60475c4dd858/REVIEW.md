@@ -1,0 +1,11 @@
+# Review of exact material-circle evolution
+
+**Correctness — PASS.** The radial solution is obtained by solving the scalar logistic equation for squared radius and preserves the angular rotation exactly. Its two radial eigenvalues give the Jacobian and the flux integral yields the explicit finite-time area without approximation. The distinct geometrical limits are established by radial projection away from the origin and, at tangency, by monotone radial boundary-layer variation. Perimeter limits are proved by upper and lower arclength bounds, not inferred from Hausdorff convergence. The three asymptotic area expansions are algebraic consequences of the exact expression. The enclosed verifier independently compares flux quadrature and length integrals and checks the diameter profile.
+
+**Originality — PASS, with explicit risk.** Beyn–Kavousanakis–Kevrekidis, arXiv:2607.06536v1, Section 5.1, numerically follow the *same* origin-tangent material circle but study parameterization methods over finite time, not its limit set or its area/perimeter singularity. Related indexed reports on Filiptsov algebraic-cycle area divergence and exact angular returns of homogeneous flows address different dynamical objects and do not imply the half-disk transport theorem. Broad transport and Hopf-normal-form literature could contain an equivalent derivation; this is a nontrivial bibliographic risk. The classical explicit Hopf solution is not claimed as new.
+
+**Value — PASS.** The source's exactly tangential example displays severe material reparameterization distortion and is therefore an independently motivated natural singular case. The new theorem identifies its actual limiting **filled** geometry, explains why the apparent image of the limit-cycle arc misses a diameter, and quantifies the singular difference in area convergence rates. It also classifies both sides of the parameter boundary, including doubling of perimeter in the arc regime; these are useful benchmarks for material-curve discretization beyond a routine radial-solution exercise.
+
+The work is for the isotropic normalized cubic field; it is not asserted to be stable under general vector-field perturbations. Numerical checks are finite corroboration, not proof. Equivalent non-indexed results remain possible.
+
+Self-review: passed. Independent audit: not yet performed.
