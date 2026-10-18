@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,44 +19,24 @@
 }
 ---
 
-For bounded harmonic \(f=P[F]\) with \(|F|\le1\) and \(|c_0|=a\), Parseval gives
-\[
-\sum_{n\ne0}|c_n|^2\le1-a^2.
-\]
-Cauchy--Schwarz with weights \(r^{|n|}\) gives
-\[
-B_f(r)-a\le \sqrt{1-a^2}\left(2\sum_{n\ge1}r^{2n}\right)^{1/2}
-=\sqrt{2(1-a^2)}\frac{r}{\sqrt{1-r^2}}.
-\]
-Solving \(B_f(r)\le1\) yields
-\[
-r^2\le\frac{1-a}{3+a}.
-\]
-This proves the uniform bound for all admissible functions, not just finitely many coefficient samples.
+# Independent mathematical audit
 
-For the explicit smooth unimodular trace
-\[
-F_\varepsilon(e^{it})=e^{i\varepsilon\cos t},
-\]
-Fourier integration and parity give
-\[
-c_0=1-\frac{\varepsilon^2}{4}+O(\varepsilon^4),
-\qquad
-c_1=c_{-1}=\frac{i\varepsilon}{2}+O(\varepsilon^3).
-\]
-The Poisson extension is bounded by one. Thus, with \(a=c_0\) for sufficiently small positive \(\varepsilon\), its majorant fails whenever
-\[
-r>\frac{1-a}{|c_1|+|c_{-1}|}
-=\left(\frac12+o(1)\right)\sqrt{1-a}.
-\]
-The Taylor derivative \(c_0'(\varepsilon)=-\varepsilon/2+O(\varepsilon^3)<0\) shows that the witness covers every center value close enough to one. Together with the universal lower bound, this proves
-\[
-\lim_{a\uparrow1}\frac{R_H(a)}{\sqrt{1-a}}=\frac12.
-\]
-The source formula is strictly smaller for every \(a<1\), since, with \(t=1-a\),
-\[
-(t+4/\pi)^2>(t+1)^2>t(4-t).
-\]
-Finally, the maximum principle forces every map with \(|f(0)|=1\) to be constant, so \(R_H(1)=1\).
+## correctness
 
-Consistency checks evaluated the exact special-function integrals at several small positive parameters and confirmed convergence of the normalized lower and witness upper bounds to \(1/2\). These checks are not used as an infinite proof. The exact \(R_H(a)\) for fixed \(a<1\) remains unresolved here.
+PASS
+
+The final claim is for every complex harmonic f:D→closed D with |f(0)|=a and the two-sided Fourier majorant. Reconstructed L∞ Poisson boundary trace and Parseval: sum over n≠0 |c_n|²≤1−a². Cauchy–Schwarz against weights r^|n| yields B_f(r)−a≤sqrt(2(1−a²))r/sqrt(1−r²), equivalent to admissible r²≤(1−a)/(3+a). Independent Taylor integration of the explicit unimodular even trace exp(i ε cos θ) gives c_0=1−ε²/4+O(ε⁴) and c_{1}=c_{−1}=i ε/2+O(ε³). The first harmonic alone violates the majorant above r=(1−a)/(ε+O(ε³))=(1/2+o(1))sqrt(1−a). The mean is strictly decreasing for small ε>0 so witnesses every nearby a. Harmonic maximum principle at a=1 forces f constant and R_H(1)=1. Hence exact sharp endpoint law but no claim of globally exact R_H(a) for interior a.
+
+## originality
+
+PASS
+
+Best-of-knowledge statement/implication comparison, including direct relevant published Resultary and primary-source reading. Exact assertions are distinguished from weaker bounds/other assumptions. No claim of exhaustive priority certification.
+
+## value
+
+PASS
+
+The center-conditioned radius is a natural extremal invariant. Correcting a recent asserted best-possible linear radius on its actual all-bounded-harmonic class, with both a globally stronger admissible bound and an exact leading asymptotic constant, is mathematically useful; the discontinuity at the constant endpoint clarifies the absence of a center-uniform radius. This is not a reformulation of the older negative uniform-radius statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
