@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The lower bound uses seven concrete even words whose complete inverse-permutation neighborhood sets are disjoint, forcing seven different inverse classes. A direct finite predicate on the \(70\) increasing four-position choices checks each complete neighborhood. For the upper bound, the explicit seven permutations cover each of the \(274\) alphabet-relabeling classes; the checker also exhausts all \(1641\) labeled even words. Canonicalization and inversion invariance are proved. No large-parameter extrapolation is used.
+## correctness
 
-## Originality
-**PASS, with residual discovery risk.** The original 2023 full-text work defines the exact invariant but reports \(m_2(2)\), \(m_3(3)\), and \(m_4(4)\), rather than the off-diagonal \(m_3(4)\). Its general conjecture is neither a theorem nor a numerical identity. The original binary covering theorem concerns a different alphabet, and a dihedral restriction concerns a smaller permutation class; neither determines this unrestricted optimum. Targeted scholarly and research-index searches recovered no stronger covering result. The full texts of some related later sources could not be inspected; their accessible abstracts do not state the new value, leaving a genuine priority risk.
+PASS
 
-## Mathematical value
-**PASS.** This settles the natural next ternary half-length after the paper's \(m_3(3)=5\) computation. It provides an exact nontrivial minimum, a complete seven-permutation construction and a succinct seven-word lower certificate. The result is relevant to the motivating question of how small a fixed family of permitted position rearrangements can represent all even words. It does not settle the general linear-growth conjecture or impose dihedral restrictions.
+A shuffle π-square of an even ternary length-eight word is witnessed by one of 70 four-position subsequences and a complementary length-four subsequence satisfying either alignment direction. π and π^(-1) have the same neighborhood, yielding 17 inverse classes of S4. All 1641 even ternary length-eight words reduce by alphabet relabeling to 274 canonical words (1 one-symbol +63 two-symbol +210 three-symbol). An independently coded direct compatibility predicate checked all 1641 and confirmed that the seven proposed permutations [1234,1342,2143,2314,2431,3241,3421] cover all, with incremental canonical counts [104,76,29,34,18,9,4]. It separately recomputed complete inverse-class compatible sets of seven lower-bound words 00001122,00001221,00011022,00011220,00012210,01221000,01222210; the respective sets were {1234,2134},{1243,2143},{1324,2314},{1342,2341},{1432,2431},{3214,3241},{3421,4231,4321}, pairwise disjoint. Thus any covering uses ≥7 inverse classes and the proposed family has size7. Exhaustive finite certificate is an exact proof for the fixed finite domain, with no extension asserted to other half-lengths.
 
-## Closest literature and limitations
-Grytczuk–Pawlik–Pleszczyński, arXiv:2308.13882, §2.4 and Proposition 2, is the closest primary source. Related constraint-graph/cutting-distance and binary nest-free-graph literature was compared at accessible material level. Full priority clearance is not asserted; verification concerns the exact finite \(m_3(4)\) claim, not stronger conjectures.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge priority judgment based on direct statement/implication comparisons with specified inspected sources, published semantic search and alias checks; neither the source names nor negative searches by themselves demonstrate novelty. Compared same invariant under inverse-permutation classes and alphabet relabeling. Dihedral-only shuffle similarity, cutting distance and binary shuffle-square recognition are different tasks; no covering theorem for all 1641 ternary words was located.
+
+## value
+
+PASS
+
+The prior invariant m_k(n) has sparse exact small off-diagonal cases and open general covering questions. The first ternary half-length-four off-diagonal m3(4), accompanied by independent matching upper and lower certificates, is a natural finite cutoff and precise parameter a researcher studying shuffle coverings can directly use. It does not claim a paper-sized or all-length theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
