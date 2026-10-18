@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T07:21:03.959272Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Marco Fava arXiv:2610.01829v1 Theorem 1.1 explicitly supplies Tate-type Hodge–Euler polynomial for the smooth proper Deligne–Mumford stack Jbar_(2,1): L^6+5L^5+15L^4+20L^3+15L^2+5L+1, so odd cohomology vanishes and the reduced even Betti polynomial is B(t)=1+5t+15t^2+20t^3+15t^4+5t^5+t^6. Modulo 3 it is t^6+2t^5+2t^3+2t+1. The submitted exact checker establishes gcd(B,t^(3^2)-t)=1, gcd(B,t^(3^3)-t)=1 and t^(3^6)=t mod B (Rabin degree-six irreducibility criterion); an independent SymPy irreducibility calculation confirmed irreducibility over F3. Gauss implies Z-irreducibility. If X had the Q-cohomology of a product of connected smooth proper positive-dimensional complex Deligne–Mumford stacks, Kunneth P_X(s)=P_Y(s)P_Z(s) and nonnegative Betti coefficients plus vanishing odd cohomology of X force P_Y,P_Z even-only with b0=1. Positive dimension and top cohomology make both reduced even polynomials nonconstant, contradicting B irreducible. This only rules out actual products or the asserted rational cohomology tensor products, not fibrations, birational maps or motivic splitting.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fava completely computes the Betti numbers; his Lemma 3.1 constructs relative products for separating-node glued curves. Broader classification sources concern compactifications/stability and genus-one cohomology."
+        ],
+        "reasoning": "None of the inspected broader structural results asserts or forces a global product decomposition or indecomposability result for Jbar_2,1 without the new integer-polynomial irreducibility argument.",
+        "searches": [
+          "Fava arXiv:2610.01829v1 Theorem 1.1 and Lemma 3.1",
+          "Pagani–Tommasi 2023 genus-one universal Jacobians",
+          "Fava Pagani Viviani arXiv:2603.05455 modular compactifications"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, verify.py at tree 7a3ef0c9493b2873750375c6b0302b6d502187df",
+        "Marco Fava arXiv:2610.01829v1 full HTML Theorem 1.1 and Lemma 3.1",
+        "Pagani–Tommasi DOI 10.1093/imrn/rnac094 bibliographic scope",
+        "Fava Pagani Viviani arXiv:2603.05455 source context"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1.1 supplies B_X as input, not a global no-product conclusion. Lemma 3.1 is a relative (fiberwise) product and does not contradict the global obstruction."
+        ],
+        "reasoning": "Global indecomposability follows from prior input plus a short new computation and a Kunneth contradiction; it should not be misrepresented as a theorem verbatim in Fava.",
+        "searches": [
+          "Fava Theorem 1.1: Tate-type Hodge–Euler polynomial and proper smoothness",
+          "Fava Lemma 3.1: relative nodal-gluing compactified Jacobian product",
+          "ordinary Kunneth theorem and integer polynomial irreducibility criterion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fava Theorem 1.1 gives the exact vector, but text of the 2026 primary paper read in HTML does not state irreducibility of B or global rational cohomological product obstruction."
+        ],
+        "reasoning": "Aliases cohomological product indecomposability, irreducible reduced Poincare polynomial, Kunneth obstruction and modular Jacobian product were compared, avoiding confusion with irreducibility of the underlying stack as a space.",
+        "searches": [
+          "Fava compactified universal Jacobian J2,1 product indecomposable",
+          "genus two universal compactified Jacobian irreducible Poincare polynomial",
+          "Resultary semantic query genus two compactified universal Jacobian one marked point rationality"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The six-dimensional stack has Betti vector (1,5,15,20,15,5,1) from Theorem 1.1, which is expressly prior; only the factorization property is newly calculated."
+        ],
+        "reasoning": "The existing exact polynomial determines the product obstruction once the irreducibility theorem is proved. Credit Fava for coefficients, do not claim they are new.",
+        "searches": [
+          "Fava arXiv:2610.01829v1 Hodge–Euler and Betti coefficients",
+          "search exact polynomial 1 5 15 20 15 5 1 irreducible product Jacobian"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Fava has explicitly computed the entire source cohomology polynomial, which dominates the numerical Betti input. The additional global product obstruction requires modular irreducibility and Kunneth, not stated by the inspected paper; relative gluing products in Fava Lemma 3.1 are over boundary strata and cannot supply a global X decomposition.",
+      "residual_risks": [
+        "The theorem is a rational cohomological product obstruction only and cannot be promoted to birational, motivic, derived or fiberwise indecomposability.",
+        "Most numerical data are a direct re-use of Fava Theorem 1.1; originality is limited to the new modular irreducibility and geometric Kunneth application; related short observations may be unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source supplies cohomological input and relative boundary product formula; no equivalent global reduced-Betti polynomial irreducibility proposition found in inspected text",
+          "evidence": [
+            "Theorem 1.1 e_HE(Jbar_2,1)=L^6+5L^5+15L^4+20L^3+15L^2+5L+1 and stacks smooth proper; Lemma 3.1 relative separating-node gluing."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.01829v1",
+          "material_read": "Open-access full HTML Theorem 1.1, Introduction smooth/proper/Tate assertion, §3 including Lemma 3.1 nodal gluing products, searches for product and irreducibility",
+          "method": "Read relevant mathematical sections of complete arXiv HTML (not abstract alone)",
+          "title": "Cohomology of the fine compactified universal Jacobians Jbar_2 and Jbar_(2,1)",
+          "trigger": "Exact primary source for entire Betti vector and possible covering product statement"
+        },
+        {
+          "assessment": "Genus-one calculations do not determine exact genus-two one-marked Betti product obstruction",
+          "evidence": [
+            "Object is Jbar_1,n versus the specified Jbar_2,1."
+          ],
+          "identifier_or_url": "DOI:10.1093/imrn/rnac094",
+          "material_read": "Article metadata/related source-level subject and genus-one scope; complete primary text not separately reviewed in current run",
+          "method": "Bibliographic scope and implication comparison only",
+          "title": "Geometry of Genus One Fine Compactified Universal Jacobians",
+          "trigger": "Potential predecessor for analogous low genus cohomology and products"
+        },
+        {
+          "assessment": "Classification of compactifications does not mathematically entail reduced-Poincare irreducibility",
+          "evidence": [
+            "Fava source cites the classification for stability and cohomological independence; no published cohomological product decomposition statement identified."
+          ],
+          "identifier_or_url": "arXiv:2603.05455",
+          "material_read": "Article title/abstract and scope given by Fava full text references",
+          "method": "Referenced primary scientific context and relevant theorem scope, not a full-text exclusion",
+          "title": "A complete classification of modular compactifications of the universal Jacobian",
+          "trigger": "Possible broader general result on universal compactified Jacobian decomposition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The compactified universal genus-two Jacobian is a natural moduli stack; its newly calculated rational cohomology detects a geometrically relevant global obstruction to decomposing it into positive-dimensional proper factors. Although the irreducibility computation is elementary and the Betti vector is prior knowledge, the exact cohomological indecomposability is a motivated structural statement and independent application, not merely a re-tabulation of Betti numbers. The narrow rational/topological scope is essential.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md, verify.py at tree 7a3ef0c9493b2873750375c6b0302b6d502187df",
+    "Marco Fava arXiv:2610.01829v1 full HTML Theorem 1.1 and Lemma 3.1",
+    "Pagani–Tommasi DOI 10.1093/imrn/rnac094 bibliographic scope",
+    "Fava Pagani Viviani arXiv:2603.05455 source context"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "The theorem is a rational cohomological product obstruction only and cannot be promoted to birational, motivic, derived or fiberwise indecomposability.",
+    "Most numerical data are a direct re-use of Fava Theorem 1.1; originality is limited to the new modular irreducibility and geometric Kunneth application; related short observations may be unindexed."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source gives Tate-type Hodge--Euler polynomial \(L^6+5L^5+15L^4+20L^3+15L^2+5L+1\) for the smooth proper stack \(\overline J_{2,1}\), hence odd rational cohomology vanishes and the even Betti vector is exactly \((1,5,15,20,15,5,1)\). The reduced polynomial modulo \(3\) is checked by the standard finite-field irreducibility criterion in exact arithmetic: the degree-six Frobenius congruence holds and the gcd tests for the prime divisors \(2,3\) of the degree are both \(1\). Therefore the reduced polynomial, and hence the integral polynomial, is irreducible. The Künneth argument is valid because Betti coefficients are nonnegative and connected factors have \(b_0=1\); vanishing of odd cohomology for the product forces vanishing of odd cohomology in each factor, after which the reduced even Poincaré polynomial would factor nontrivially. Positive-dimensional smooth proper factors have nonconstant Poincaré polynomials by Poincaré duality.
+## correctness
 
-## Originality
-PASS. The initiating paper was inspected at Theorem 1.1, Lemma 3.1, Propositions 3.3--3.4, and Lemma 3.6. It computes cohomology and gives stratum-wise/relative product constructions, but does not state irreducibility of the global Poincaré polynomial or global rational product-indecomposability. Full-text searches found no “Lefschetz”, “signature”, or “primitive” statement and no implication-equivalent product obstruction. Targeted web searches for fine compactified universal Jacobians together with “product decomposition”, “irreducible Poincaré polynomial”, and “cohomology product indecomposable” returned classification and genus-one background, not this conclusion. Published-finding searches for the exact genus-two one-pointed product obstruction returned unrelated topology and algebraic-geometry findings, with no covering result.
+PASS
 
-## Value
-PASS. Product structures are geometrically natural here: the source's Lemma 3.1 proves that compactified Jacobians split over curves glued along a separating node, and the global computation is assembled from many such strata. The new irreducibility theorem shows that this local/stratified product behavior cannot globalize even at the weakest rational-cohomology product level for the one-pointed genus-two compactification. It is therefore a structural boundary on global geometry, not a recomputation of a listed Betti number.
+Marco Fava arXiv:2610.01829v1 Theorem 1.1 explicitly supplies Tate-type Hodge–Euler polynomial for the smooth proper Deligne–Mumford stack Jbar_(2,1): L^6+5L^5+15L^4+20L^3+15L^2+5L+1, so odd cohomology vanishes and the reduced even Betti polynomial is B(t)=1+5t+15t^2+20t^3+15t^4+5t^5+t^6. Modulo 3 it is t^6+2t^5+2t^3+2t+1. The submitted exact checker establishes gcd(B,t^(3^2)-t)=1, gcd(B,t^(3^3)-t)=1 and t^(3^6)=t mod B (Rabin degree-six irreducibility criterion); an independent SymPy irreducibility calculation confirmed irreducibility over F3. Gauss implies Z-irreducibility. If X had the Q-cohomology of a product of connected smooth proper positive-dimensional complex Deligne–Mumford stacks, Kunneth P_X(s)=P_Y(s)P_Z(s) and nonnegative Betti coefficients plus vanishing odd cohomology of X force P_Y,P_Z even-only with b0=1. Positive dimension and top cohomology make both reduced even polynomials nonconstant, contradicting B irreducible. This only rules out actual products or the asserted rational cohomology tensor products, not fibrations, birational maps or motivic splitting.
 
-## Closest literature and limitations
-The closest source is arXiv:2610.01829v1 itself, which supplies the exact cohomology and the separating-node product lemma but not the global obstruction. Pagani--Tommasi give genus-one cohomology formulas, and Fava--Pagani--Viviani classify modular compactifications; neither implies this exact irreducibility statement. A residual risk is an unindexed observation deriving product-indecomposability from the same newly published polynomial. The result is rational-cohomological only and does not exclude birational, derived, or motivic decompositions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Fava has explicitly computed the entire source cohomology polynomial, which dominates the numerical Betti input. The additional global product obstruction requires modular irreducibility and Kunneth, not stated by the inspected paper; relative gluing products in Fava Lemma 3.1 are over boundary strata and cannot supply a global X decomposition.
+
+## value
+
+PASS
+
+The compactified universal genus-two Jacobian is a natural moduli stack; its newly calculated rational cohomology detects a geometrically relevant global obstruction to decomposing it into positive-dimensional proper factors. Although the irreducibility computation is elementary and the Betti vector is prior knowledge, the exact cohomological indecomposability is a motivated structural statement and independent application, not merely a re-tabulation of Betti numbers. The narrow rational/topological scope is essential.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

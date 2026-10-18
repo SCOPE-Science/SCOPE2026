@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,25 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact source Betti vector used is \((1,5,15,20,15,5,1)\), corresponding to
-\[
-B(t)=1+5t+15t^2+20t^3+15t^4+5t^5+t^6.
-\]
-Modulo \(3\), the checker reconstructs
-\[
-\overline B(t)=t^6+2t^5+2t^3+2t+1.
-\]
+# Independent mathematical audit
 
-For a monic degree-66 polynomial over \(\mathbf F_3\), the Rabin irreducibility criterion requires the degree-six Frobenius congruence and gcd tests for the prime divisors \(2\) and \(3\) of \(6\). `verify.py` performs polynomial modular exponentiation and Euclidean gcd arithmetic over \(\mathbf F_3\) and checks exactly:
+## correctness
 
-- \(t^{3^6}-t\equiv0\pmod{\overline B}\);
-- \(\gcd(\overline B,t^{3^3}-t)=1\);
-- \(\gcd(\overline B,t^{3^2}-t)=1\).
+PASS
 
-These checks prove \(\overline B\) irreducible over \(\mathbf F_3\), hence \(B\) irreducible over \(\mathbf Z\) by Gauss's lemma.
+Marco Fava arXiv:2610.01829v1 Theorem 1.1 explicitly supplies Tate-type Hodge–Euler polynomial for the smooth proper Deligne–Mumford stack Jbar_(2,1): L^6+5L^5+15L^4+20L^3+15L^2+5L+1, so odd cohomology vanishes and the reduced even Betti polynomial is B(t)=1+5t+15t^2+20t^3+15t^4+5t^5+t^6. Modulo 3 it is t^6+2t^5+2t^3+2t+1. The submitted exact checker establishes gcd(B,t^(3^2)-t)=1, gcd(B,t^(3^3)-t)=1 and t^(3^6)=t mod B (Rabin degree-six irreducibility criterion); an independent SymPy irreducibility calculation confirmed irreducibility over F3. Gauss implies Z-irreducibility. If X had the Q-cohomology of a product of connected smooth proper positive-dimensional complex Deligne–Mumford stacks, Kunneth P_X(s)=P_Y(s)P_Z(s) and nonnegative Betti coefficients plus vanishing odd cohomology of X force P_Y,P_Z even-only with b0=1. Positive dimension and top cohomology make both reduced even polynomials nonconstant, contradicting B irreducible. This only rules out actual products or the asserted rational cohomology tensor products, not fibrations, birational maps or motivic splitting.
 
-The Künneth consequence is mathematical rather than experimental: for connected factors, \(b_0=1\); because all Betti numbers are nonnegative, any odd cohomology in either factor would force odd cohomology in the product. Smooth proper positive-dimensional factors also have nonzero top cohomology, so their even Poincaré polynomials are nonconstant. Thus a nontrivial product would factor \(B(t)\), impossible.
+## originality
 
-Limits: the checker verifies the finite-field algebra, not the source's cohomology computation. The result is a rational-cohomological obstruction and does not address birational, fibrational, derived, or motivic decompositions.
+PASS
+
+PASS best-of-knowledge: Fava has explicitly computed the entire source cohomology polynomial, which dominates the numerical Betti input. The additional global product obstruction requires modular irreducibility and Kunneth, not stated by the inspected paper; relative gluing products in Fava Lemma 3.1 are over boundary strata and cannot supply a global X decomposition.
+
+## value
+
+PASS
+
+The compactified universal genus-two Jacobian is a natural moduli stack; its newly calculated rational cohomology detects a geometrically relevant global obstruction to decomposing it into positive-dimensional proper factors. Although the irreducibility computation is elementary and the Betti vector is prior knowledge, the exact cohomological indecomposability is a motivated structural statement and independent application, not merely a re-tabulation of Betti numbers. The narrow rational/topological scope is essential.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
