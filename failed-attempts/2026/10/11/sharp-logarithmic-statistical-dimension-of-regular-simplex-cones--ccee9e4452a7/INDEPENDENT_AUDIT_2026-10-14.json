@@ -1,0 +1,88 @@
+{
+  "audit_date_utc": "2026-10-14",
+  "audited_at_utc": "2026-10-14T22:51:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The D_m generator Gram matrix is 1+δ_ij. Its polar in R^{m+1} is the star inequality cone C_m with one-dimensional lineality; polarity exchanges Gaussian face dimensions, so J_m has the law of active pooled leaves K_m. The unique threshold T solves T+∑(T−G_i)_+=G_0. Setting u_m by m[φ(u_m)−u_m Φbar(u_m)]=u_m gives u_m²∼2log m by Mills expansions. Threshold comparisons −u_m±epsilon/u_m and binomial counts imply K_m/u_m²→1 in probability. The exceptional-event bound using 6u² pooled leaves, Chernoff and G_0>4u yields second moment E K_m²=O(u_m^4), so normalized means converge. No finite simulations establish these infinite limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The stronger Resultary RESULT.md boxed CLT centered 2log m, scaled 2sqrt(log m), and E J_m~2logm.",
+          "Kabluchko–Seidel 2020 Theorem 2.4 supplies exact finite intrinsic volumes for matching equicorrelation parameter r=1."
+        ],
+        "reasoning": "CLT implies J_m/(2logm)→1 by Slutsky since sqrt(logm)/logm→0; prior mean identity explicitly matches. Finite formula is additional prior information but the explicit stronger same-object CLT alone is dispositive.",
+        "searches": [
+          "regular simplex vertex tangent cone intrinsic volume statistical dimension 2 log m polar star cone Gaussian projection"
+        ]
+      },
+      "checked_sources": [
+        "Resultary/2026 2026-10-11 stronger CLT fe945a5ea473",
+        "arxiv:2006.09492 Theorem 2.4",
+        "arxiv:1308.5265 McCoy–Tropp"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Already public Resultary 2026/10/11 Gaussian fluctuations RESULT.md: (J_m−2logm)/(2sqrt(logm))⇒N(0,1), E J_m∼2logm."
+        ],
+        "reasoning": "Let X_m=(J_m−2log m)/(2sqrt(logm)); tightness of X_m implies J_m/(2logm)=1+X_m/sqrt(logm)→1 in probability, while the mean is exactly stated. Thus the claim is a corollary and cannot pass originality.",
+        "searches": [
+          "regular simplex vertex tangent cone intrinsic volume statistical dimension 2 log m polar star cone Gaussian projection"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary published Gaussian fluctuation theorem explicitly defines D_m=pos{e0−ei:1≤i≤m}, J_m intrinsic-volume index as Pr(J_m=k)=v_k(D_m)."
+        ],
+        "reasoning": "The generators, Euclidean metric and intrinsic-volume random variable coincide literally; reflection/isometry is unnecessary.",
+        "searches": [
+          "regular simplex vertex tangent cone intrinsic volume statistical dimension 2 log m polar star cone Gaussian projection"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Kabluchko–Seidel, arXiv:2006.09492 Theorem 2.4 formula (12) for C_n(σ²), and its matching regular-simplex r=1 Gram specialization.",
+          "Resultary published exact finding titled Sharp Gaussian fluctuations of the intrinsic-volume index of a simplex vertex cone."
+        ],
+        "reasoning": "The finite intrinsic-volume data are known, and an existing stronger asymptotic theorem covers the proposed refinement without further derivation.",
+        "searches": [
+          "regular simplex vertex tangent cone intrinsic volume statistical dimension 2 log m polar star cone Gaussian projection"
+        ]
+      },
+      "rationale": "FAIL: already published Resultary theorem Sharp Gaussian fluctuations of the intrinsic-volume index of a simplex vertex cone, 2026/10/11, treats the EXACT SAME D_m=pos(e0−ei) and J_m and states (J_m−2log m)/(2sqrt(log m))⇒N(0,1) together with E J_m∼2log m and Var J_m∼4log m. Its CLT and mean explicitly imply BOTH final claims J_m/(2log m)→1 and δ(D_m)=E J_m∼2log m. This is decisive statement-level stronger prior coverage, not a similar parameter or mere finite formula. Kabluchko–Seidel 2020 Theorem 2.4 independently gave exact finite conic volumes. Scientific rejection for covered result despite C and V passing.",
+      "residual_risks": [
+        "Finite Kabluchko–Seidel formulas alone require nontrivial asymptotic extraction, but the separate already published CLT removes any novelty ambiguity.",
+        "No independent new theorem survives by merely changing emphasis from CLT to LLN or mean."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_AND_STRONGLY_DOMINATES",
+          "evidence": "Same D_m/J_m; central limit, mean and variance asymptotics explicitly include submitted first-order distribution and mean as corollaries.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-gaussian-fluctuations-of-the-intrinsic-volume-index-of-a-s--fe945a5ea473",
+          "material_read": "Complete published RESULT.md including Finding, proof §§1–5, limitations, references",
+          "method": "Read full GitHub source blob a394b9b0740b74ebd5050df11ee641549bab123d",
+          "title": "Sharp Gaussian fluctuations of the intrinsic-volume index of a simplex vertex cone",
+          "trigger": "Exact cone, exact random index and stronger central limit theorem"
+        },
+        {
+          "assessment": "EXACT_FINITE_FORMULAS_PRIOR",
+          "evidence": "C_n(σ²) conic intrinsic volumes for all finite n/k/parameters, matching Gram r=1; later prior CLT already settles asymptotic.",
+          "identifier_or_url": "https://arxiv.org/pdf/2006.09492",
+          "material_read": "PDF introduction and Theorem 2.4 p.7, formula (12), proof pp.17–19",
+          "method": "Full-text PDF reading with page screenshot",
+          "title": "Convex Cones Spanned by Regular Polytopes",
+          "trigger": "Matching equicorrelated simplex cones and exact conic-volume tables"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "PASS as an intrinsically meaningful theorem: sharp logarithmic intrinsic-volume location and statistical dimension of a natural simplex vertex cone are structurally motivated, nontrivial asymptotic information; lack of novelty, not intrinsic triviality, causes overall rejection.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "limitations": "Scientific scope exactly as specified in RESULT.md; Existing dominating published theorem defeats originality and acceptance.",
+  "schema_version": 1
+}
