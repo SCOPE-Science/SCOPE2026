@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,39 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_centrality_unique_boundary.py` performs an exact finite replay using only the Python standard library.
 
-Every connected labeled simple graph through six vertices is generated directly.
+# Independent mathematical audit
 
-All-pairs distances are independently computed by:
-1. breadth-first search from every source;
-2. Floyd--Warshall.
+## correctness
 
-Closeness is reconstructed from both distance matrices.
+PASS
 
-Freeman betweenness is independently computed by:
-1. exact shortest-path counting over unordered endpoint pairs;
-2. the exact Brandes dependency recurrence.
+For every connected simple undirected labeled graph through six vertices, reconstruct degree, closeness (n-1)/distance sum, and unnormalized Freeman betweenness (shortest-path shares over unordered endpoint pairs). An independent complete 2^(n choose 2) graph enumeration, exact-rational shortest-path counting and canonical isomorphism reduction obtains connected counts (1,1,4,38,728,26704), unique degree/betweenness leader disagreements (0,0,0,0,0,720), tie-level set differences 150 at order five, and a single asymmetric six-vertex class of orbit 720. Its edge representative {01,03,05,12,13,14,23,24} has unique degree/closeness leader vertex 1 and betweenness leader vertex 0. Complete finite enumeration proves the bounded claim, no assertion for n>6.
 
-The replay verifies:
-- connected labeled counts \(1,1,4,38,728,26704\);
-- degree-versus-betweenness maximizing-set disagreement counts \(0,0,0,0,150,9150\);
-- distinct unique degree-versus-betweenness maximizer counts \(0,0,0,0,0,720\);
-- distinct unique closeness-versus-betweenness maximizer counts \(0,0,0,0,0,720\);
-- that every first unique conflict has the same unique degree and closeness maximizer;
-- exactly one six-vertex conflict isomorphism class;
-- orbit size \(720\);
-- representative edges \(\{01,03,05,12,13,14,23,24\}\);
-- degree vector \((3,4,3,3,2,1)\);
-- closeness vector \((5/7,5/6,5/8,5/7,5/9,5/11)\);
-- betweenness vector \((4,7/2,1/2,1,0,0)\).
+## originality
 
-Run:
+PASS
 
-`python3 verify_centrality_unique_boundary.py`
+The familiar qualitative inequivalence of degree, closeness and betweenness is classical and not new. Independent comparison considers stronger family formulas and the exact graph-isomorphism boundary: Freeman defines the measures, and Unnithan et al. calculate betweenness in paths, stars, wheels, bipartite graphs and trees without a theorem classifying the least order of distinct unique maximizers. No dominating published exact 720/26704 first-layer classification was found; this is best-of-knowledge originality, not guaranteed novelty.
 
-The first output line must be:
+## value
 
-`VERIFY_OK`
+PASS
 
-The exhaustive classification stops at six vertices.
+The first graph order at which two canonical centrality notions choose different unambiguous leaders is a motivated structural threshold. Its unique isomorphism witness and exact orbit count tell network-centrality researchers how the divergence arises, and clarifying the order-five tie case prevents a misleading threshold statement. Finite classification is a substantive completed natural census, not an arbitrary numerical sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
