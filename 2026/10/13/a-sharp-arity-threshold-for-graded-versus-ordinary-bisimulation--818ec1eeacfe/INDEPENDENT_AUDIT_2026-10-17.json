@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T01:07:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Rooted plain types are (color,set of child types), whereas graded types use child multisets. For constant outdegree two, multiplicities of a two-element child tuple follow from support, so both partitions coincide for all colorings and heights. For fixed q>=3, let t_0=2 and t_(k+1)=2 binom(t_k+q-1,q): the number of graded types possible at height k grows at most exp(C_q q^k). Summing min(q^(h-k),t_k) over residual heights gives G=O_q(N_h/log N_h); B>=h+1 gives ratio O_q(N_h/(log N_h)^2). In the restricted colouring with all internal vertices zero and both leaf colours below every height-one vertex, B=h+2, while g_1=q-1, g_(k+1)=binom(g_k+q-1,q) grows >= exp(c_q q^k) for k>=2. Assigning different height-k types to q^(h-k) disjoint subtrees at k=Theta(log h) gives G=Omega_q(N_h/log N_h), hence sharp ratio. If B=h+1 all heights have a single type and induction gives G=h+1. Independent complete enumerations: q=2,h=0..3 (32906 colourings) no split; q=3,h=0..2 (8210 colourings), exactly 2808 of 8192 height-2 colourings split, minimum B=4.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Otto and Bellas Acosta–Venema establish semantics; Jacobs–Wißmann provide general bisimulation minimization."
+        ],
+        "reasoning": "No inspected general paper implies an Omega(N/log N) graded quotient with only h+2 ordinary classes, which is the new lower bound.",
+        "searches": [
+          "graded modal counting bisimulation ordinary bisimulation q-ary trees minimal quotient ratio colored tree multiset set children compression",
+          "arXiv:2204.12368",
+          "doi:10.1017/S1755020322000247"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1910.00039",
+        "doi:10.1017/S1755020322000247",
+        "arXiv:2204.12368"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Counting and ordinary equivalences are prerequisites; the upper and restricted-family lower recurrences together yield the proposed ratio."
+        ],
+        "reasoning": "The old structural lemmas do not contain the required simultaneous constrained-colouring lower construction in material read.",
+        "searches": [
+          "graded modal counting bisimulation ordinary bisimulation q-ary trees minimal quotient ratio colored tree multiset set children compression",
+          "arXiv:1910.00039"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ordinary rooted support codes vs graded multiset codes; q=2 support determines multiplicity."
+        ],
+        "reasoning": "The syntax/coalgebraic distinction is old; the theorem quantifies a sharp extremal ratio on a specific family, not merely nonequivalence.",
+        "searches": [
+          "graded modal counting bisimulation ordinary bisimulation q-ary trees minimal quotient ratio colored tree multiset set children compression",
+          "arXiv:1910.00039"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Relevant reported methods concern algorithm costs and quotient-size bounds, not a database enumerating all two-colour q-ary trees."
+        ],
+        "reasoning": "No exact table cited that dominates the all-height extremal statement. Absence in targeted search is not a proof of novelty.",
+        "searches": [
+          "graded modal counting bisimulation ordinary bisimulation q-ary trees minimal quotient ratio colored tree multiset set children compression",
+          "arXiv:2204.12368"
+        ]
+      },
+      "rationale": "Best-of-knowledge original sharp q=2 versus q>=3 quotient ratio. Prior counting-bisimulation semantics and generic coalgebraic partition algorithms define the equivalences or compute them but do not by themselves imply a maximum relative quotient-size lower bound attained at ordinary footprint h+2. Real searches did not reveal dominating extremal tree compression theorem. This does not certify priority over unindexed set/multiset tree-compression literature.",
+      "residual_risks": [
+        "Unindexed set-versus-multiset coalgebraic compression theorem could cover the full asymptotic bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SEMANTICS_PRIOR_NOT_COVERING_EXTREMUM",
+          "evidence": [
+            "Defines counting bisimulation and locality; no claim in inspected passages that q=3 is the exact maximal relative-quotient phase boundary."
+          ],
+          "identifier_or_url": "arXiv:1910.00039",
+          "material_read": "Full 10-page lawfully accessible PDF; definitions, graded game characterization and rooted-tree locality sections",
+          "method": "lawful PDF text and page inspection",
+          "title": "Martin Otto, Graded modal logic and counting bisimulation",
+          "trigger": "Same graded modal/ordinary bisimulation equivalences."
+        },
+        {
+          "assessment": "BACKGROUND_NOT_SHARP_QUOTIENT",
+          "evidence": [
+            "Infinite counting expressive power and bisimulation, not same-tree extremal quotient ratio."
+          ],
+          "identifier_or_url": "doi:10.1017/S1755020322000247",
+          "material_read": "Lawful 36-page author PDF; introduction, semantics, bisimulations and relevant structural sections",
+          "method": "lawful author PDF selected section/page inspection",
+          "title": "Ignacio Bellas Acosta and Yde Venema, Counting to Infinity: Graded Modal Logic with an Infinity Diamond",
+          "trigger": "Primary foundational graded modal logic paper."
+        },
+        {
+          "assessment": "RISK_PARTIAL_READ",
+          "evidence": [
+            "Algorithmic complexity alone does not logically bound the particular quotient-ratio lower extremum."
+          ],
+          "identifier_or_url": "arXiv:2204.12368",
+          "material_read": "Public abstract and accessible paper metadata; full proof not systematically read",
+          "method": "arXiv metadata/summary",
+          "title": "Jules Jacobs and Thorsten Wißmann, Fast Coalgebraic Bisimilarity Minimization",
+          "trigger": "Possible dominating generic algorithm."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The phase transition at branching arity three and asymptotically tight near-minimal ordinary footprint quantify a natural loss of multiplicity information in finite-state coalgebraic/tree compression. The construction and rate are mathematically structural, not a routine quotient calculation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1910.00039",
+    "doi:10.1017/S1755020322000247",
+    "arXiv:2204.12368"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Complete fixed-arity outward rooted q-ary trees with one binary valuation, fixed q, unbounded counting modalities. No exact finite-height maximizing colourings or leading asymptotic constant.",
+    "Potential older equivalent descriptions via coalgebraic set/multiset semantics, automata minimization, or unordered tree compression."
+  ],
+  "residual_risks": [
+    "Unindexed set-versus-multiset coalgebraic compression theorem could cover the full asymptotic bound."
+  ],
+  "schema_version": 1
+}

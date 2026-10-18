@@ -1,19 +1,21 @@
-# Mathematical review: counting versus plain bisimulation compression
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem uses the correct bottom-up set and multiset signatures for the two modal equivalences on finite outward-directed trees. When \(q=2\), child-type support uniquely determines its size-two multiset, proving coincidence at all heights. For \(q\ge3\), the restricted family has precisely \(h+2\) ordinary classes and realizes the graded count recurrence \(g_1=q-1\), \(g_{k+1}=\binom{g_k+q-1}{q}\). Its strictly positive doubly exponential growth exponent is justified by \(g_2^{q-1}>q!\), giving enough disjoint subtree types at residual height \(O(\log h)\). A separate unrestricted graded-type census bounds every quotient by \(O_q(N/\log N)\), and at least \(h+1\) distinct heights bound every ordinary quotient from below. The resulting ratio has matching upper and lower bounds. Finite exhaustive and structured verifier checks agree with the argument; the infinite-height conclusion rests on the proof, not on testing.
+PASS
 
-## Originality — PASS with residual priority risk
+Rooted plain types are (color,set of child types), whereas graded types use child multisets. For constant outdegree two, multiplicities of a two-element child tuple follow from support, so both partitions coincide for all colorings and heights. For fixed q>=3, let t_0=2 and t_(k+1)=2 binom(t_k+q-1,q): the number of graded types possible at height k grows at most exp(C_q q^k). Summing min(q^(h-k),t_k) over residual heights gives G=O_q(N_h/log N_h); B>=h+1 gives ratio O_q(N_h/(log N_h)^2). In the restricted colouring with all internal vertices zero and both leaf colours below every height-one vertex, B=h+2, while g_1=q-1, g_(k+1)=binom(g_k+q-1,q) grows >= exp(c_q q^k) for k>=2. Assigning different height-k types to q^(h-k) disjoint subtrees at k=Theta(log h) gives G=Omega_q(N_h/log N_h), hence sharp ratio. If B=h+1 all heights have a single type and induction gives G=h+1. Independent complete enumerations: q=2,h=0..3 (32906 colourings) no split; q=3,h=0..2 (8210 colourings), exactly 2808 of 8192 height-2 colourings split, minimum B=4.
 
-The primary modal-logic papers of Bellas Acosta–Venema and Otto establish the language, bisimulation clauses, and expressive characterization, but the inspected relevant full-text sections do not state the sharp regular-tree arity boundary or the extremal comparison of two quotient cardinalities on the same coloring. Jacobs–Wißmann address minimization algorithms across coalgebra types, not this family-specific separation law. Direct searches for regular trees, set-versus-multiset type spectra, and counting/ordinary quotient gaps did not return an equivalent theorem. A previous ordinary-only complete-tree compression result supplies some background upper-bound methodology but neither the graded constrained-family lower bound nor the simultaneous quotient ratio. An implicit older coalgebraic/tree-minimization antecedent remains possible; the novelty claim is appropriately limited to this combined exact asymptotic tradeoff.
+## originality
 
-## Value — PASS
+PASS
 
-Both plain and graded bisimulation are standard finite-state minimization invariants, and their relative quotient size quantifies a concrete expressiveness and state-space compression cost of enabling successor counting. The theorem determines the sharp fixed-arity boundary at two versus three children and the full asymptotic order of the worst-case quotient-ratio penalty, with a construction attaining it at the smallest possible ordinary footprint. This is not merely a count of isolated small instances or a translation of an already-known single-quotient upper bound. The result may inform separation examples and regression benchmarks for modal and coalgebraic minimization, without asserting unverified broader applications.
+Best-of-knowledge original sharp q=2 versus q>=3 quotient ratio. Prior counting-bisimulation semantics and generic coalgebraic partition algorithms define the equivalences or compute them but do not by themselves imply a maximum relative quotient-size lower bound attained at ordinary footprint h+2. Real searches did not reveal dominating extremal tree compression theorem. This does not certify priority over unindexed set/multiset tree-compression literature.
 
-## Boundaries
+## value
 
-Fixed arity, binary coloring, complete finite directed trees and unrestricted graded counting are essential hypotheses. Exact finite-height maximizers and leading constants are not determined. The cited sources were inspected in relevant full-text sections, not presumed exhausted throughout all published literature. The computational checks are reproducibility evidence, not independent review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The phase transition at branching arity three and asymptotically tight near-minimal ordinary footprint quantify a natural loss of multiplicity information in finite-state coalgebraic/tree compression. The construction and rate are mathematically structural, not a routine quotient calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Standalone verification of the finite signatures and sharp-threshold witnesses
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and its standard library. No external datasets or packages are required. The executable independently builds complete fixed-arity trees, enumerates vertex colorings, computes ordinary versus counting partitions by bottom-up semantic signatures, and periodically checks each with separate global fixed-point partition refinement. It also recursively constructs legal restricted-family graded types and places pairwise different ones at a prescribed tree level.
+## correctness
 
-Successful replay output terminates with:
+PASS
 
-`VERIFY_OK exhaustive_colorings 41116 parameter_cases 7 independent_partition_comparisons 648 structured_witnesses 14 growth_threshold_checks 9`
+Rooted plain types are (color,set of child types), whereas graded types use child multisets. For constant outdegree two, multiplicities of a two-element child tuple follow from support, so both partitions coincide for all colorings and heights. For fixed q>=3, let t_0=2 and t_(k+1)=2 binom(t_k+q-1,q): the number of graded types possible at height k grows at most exp(C_q q^k). Summing min(q^(h-k),t_k) over residual heights gives G=O_q(N_h/log N_h); B>=h+1 gives ratio O_q(N_h/(log N_h)^2). In the restricted colouring with all internal vertices zero and both leaf colours below every height-one vertex, B=h+2, while g_1=q-1, g_(k+1)=binom(g_k+q-1,q) grows >= exp(c_q q^k) for k>=2. Assigning different height-k types to q^(h-k) disjoint subtrees at k=Theta(log h) gives G=Omega_q(N_h/log N_h), hence sharp ratio. If B=h+1 all heights have a single type and induction gives G=h+1. Independent complete enumerations: q=2,h=0..3 (32906 colourings) no split; q=3,h=0..2 (8210 colourings), exactly 2808 of 8192 height-2 colourings split, minimum B=4.
 
-The exhaustive cases comprise binary heights 0,1,2,3 (2, 8, 128, and 32,768 colorings) and ternary heights 0,1,2 (2, 16, and 8,192 colorings). They verify no discrepancy in any binary case and find 2,808 discrepant colorings in the ternary height-two case, none with fewer than four ordinary classes. The 14 explicit witnesses cover ternary heights 3–9, quaternary heights 3–6, and five-ary heights 3–5; each has exactly height-plus-two ordinary classes and the prescribed number of distinct graded types at a middle level. Nine further finite-arity inequalities verify that the type-recurrence growth argument starts above its fixed point.
+## originality
 
-Finite exhaustive enumeration proves those **finite** cases only. The theorem's asymptotic estimates rely on the analytic recurrences, the disjoint-subtree construction, and the level-sum bound given in `RESULT.md`. No independent mathematical or external certification is claimed.
+PASS
+
+Best-of-knowledge original sharp q=2 versus q>=3 quotient ratio. Prior counting-bisimulation semantics and generic coalgebraic partition algorithms define the equivalences or compute them but do not by themselves imply a maximum relative quotient-size lower bound attained at ordinary footprint h+2. Real searches did not reveal dominating extremal tree compression theorem. This does not certify priority over unindexed set/multiset tree-compression literature.
+
+## value
+
+PASS
+
+The phase transition at branching arity three and asymptotically tight near-minimal ordinary footprint quantify a natural loss of multiplicity information in finite-state coalgebraic/tree compression. The construction and rate are mathematically structural, not a routine quotient calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
