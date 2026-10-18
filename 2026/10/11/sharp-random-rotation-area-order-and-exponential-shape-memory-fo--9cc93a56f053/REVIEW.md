@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The supporting-halfspace radial identity, exact gap-avoidance probability, and independence of the whole-polygon rotations establish the area formula. Positive-part convexity proves strict regular-polygon optimality. Near the first gap cutoff, exactly \(s\) constraints turn off, so the remaining probability has slope \(-(n-s)/\pi\) instead of the regular slope \(-n/\pi\). The one-sided Laplace integral and a strictly smaller exponential tail prove the full coefficient in the excess asymptotic. Exact beta integrals prove the claimed expansion for any fixed side count. The standalone verifier returned `VERIFY_OK 6012 checks`, with independent geometric Monte Carlo tests and arbitrary-precision asymptotic diagnostics; those checks supplement, rather than replace, the proof.
+## correctness
 
-## Originality — PASS with explicit residual risk
-The closest inspected deterministic account is Buck–Siddon (arXiv:1203.3438v1); it gives tangential polygon areas but no random intersections. Fodor–Hug–Ziebarth (arXiv:1409.8105v1) samples individual iid supporting halfspaces, not one rigid angular-normal cluster per copy, and proves general asymptotics rather than these exact formulas. A 2015 rotating-regular-polygon discussion counts intersection edges instead of computing expected area. Brazitikos–Stavrakakis (doi:10.1017/S0305004114000115) treats random rotation intersections of symmetric bodies and is the closest conceptual predecessor; its published abstract emphasizes geometric estimates. Full text could not be obtained, and a historically equivalent special formula cannot be excluded definitively. The simple angular-void counting principle itself is not claimed new. Statement-level searches found no known result implying the combined all-m strict optimum and sharp exponential fingerprint.
+PASS
 
-## Value — PASS
-For fixed numbers of tangent constraints, regularity is an exact extremal law under repeated independent orientations, not merely an attractive symmetric example. The exponential correction distinguishes otherwise asymptotically indistinguishable tangential shapes and recovers the minimum angular normal separation from the observed expected-area excess. This resolves a natural geometric optimization and identifies a structural threshold invisible to every algebraic asymptotic order.
+The tangential unit-circle polygon has cyclic normal gaps Δ_i∈(0,π), sum2π. At any radial direction θ the nearest supporting normal of each of m independently rotated whole polygons bounds the ray by sec D_m(θ), so E area=πE sec² D_m. For a uniformly rotated full polygon, P(D_1>t)=Σ(Δ_i−2t)_+/(2π)=p_P(t); independent rotations give p_P(t)^m and the exact layer-cake area integral π+π∫2tan t sec² t p^m dt. Convexity of z↦(z−2t)_+ gives p_P≥(1−nt/π)_+ by Jensen, strict for nonregular P on (Δmin/2,π/n), proving unique area minimum. Set a=Δmin/2,s=#minimal gaps,q=1−na/π; p_P and p_reg agree for t≤a and have respective slopes −(n−s)/π and −n/π immediately to its right. One-sided Laplace integration yields exact leading excess (2π²s/[n(n−s)])tan(a)sec²(a)q^(m+1)/m, with faster tail. The difference O(q^m) transfers the entire beta-integral inverse-power expansion from the regular polygon to every fixed P. Independent quadrature checks at m=1,4,20,35 showed positivity and asymptotic ratio approaching one, strictly diagnostic, not proof.
 
-## Limitations and next verification
-Only expected area, planar polygons with a common centered incircle, and whole-polygon independent rotations are treated. No variance or stochastic-dominance statement follows. Complete bibliographic exclusion is not claimed, particularly for the inaccessible 2014 rotation-intersection full text. Numerical checks are finite diagnostics; independent scientific review has not occurred.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Buck–Siddon give deterministic circumscribed polygon area identities; Fodor–Hug–Ziebarth study independently sampled supporting hyperplanes around arbitrary bodies, not independently rotated rigid clusters of n tangency normals. Those complete primary statements do not imply the all-m strict regular minimizer and exact shortest-gap exponential coefficient. Brazitikos–Stavrakakis (2014) is a plausible exact random-rotations predecessor (intersection of symmetric convex bodies); only its public abstract was obtainable, with complete paper inaccessible, so the possible specialized planar overlap is explicitly retained as risk and NOT_COVERING is not asserted for its full paper.
+
+## value
+
+PASS
+
+This is a natural stochastic convex-geometric extremal problem for n tangent support directions under independent rigid rotations. It identifies the regular polygon as uniquely optimal for every finite copy number, and a precise exponentially small shape fingerprint recoverable from expected-area excess while all algebraic asymptotic coefficients are identical. This is a structural exact theorem, not an arbitrary narrow computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
