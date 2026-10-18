@@ -1,19 +1,21 @@
-# Review of sharp unconditional consensus threshold
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The original model's exclusion of self-action and inclusion of self-opinion are maintained. The undelayed stochastic matrix has uniformly positive action-to-action and own-opinion-to-action coefficients. Every action receives positive two-step weight from every prior coordinate; this forces all actions strictly inside any nonvanishing limiting envelope. Repeatedly updated extreme opinions cannot remain at an envelope endpoint, hence the persistent extreme opinions are isolated leaders. Their cross-action differences sum to exactly \((1+\phi)D_\infty\), contradicting the confidence threshold. Complete-neighborhood entry and a primitive matrix yield geometric convergence. The exact two-agent equilibrium proves sharpness even at the endpoint. Rational checks reconstruct the key finite-dimensional identities. Scope and limits are given in RESULT.md.
+PASS
 
-## Originality
+With the exact sequential opinion-then-action update and exclusions of self-action, z(t+1)=P(t)z(t) is row-stochastic, with every positive entry at least eta=min(phi,1-phi)/n. Each action row of P(t+1)P(t) receives >=eta^2 from every old opinion (through its own intermediate action) and from every old action (through action mixing). Thus if limiting joint diameter D_infty>0, all actions eventually stay a common delta>0 away from both extremes. An opinion interacting with any action thereafter moves permanently into the interior; hence persistent extreme opinions at m and M must be isolated. Their cross-action gaps satisfy [y_b-m]+[M-y_a]=(1+phi)(M-m)>2epsilon, contradicting 2epsilon>=(1+phi)D0. Therefore diameter tends zero. Once D<epsilon every potential confidence link is active and the fixed complete-neighborhood stochastic matrix is primitive, yielding exponential convergence. The two-agent stationary configuration x=(a,a+d), y=(a+(1-phi)d/2,a+(1+phi)d/2) proves sharpness strictly below the boundary. Independent Fraction-based enumeration verified two-step action positivity for all possible directed neighborhood masks and pairs of masks at n=2,3 (16 and 4096 pairs), and the stationary identity.
 
-**PASS, narrowly scoped.** The full accessible arXiv paper [1] states in Theorem 3 and Remark 4 a finite-stabilization assumption that it cannot prove, and explicitly poses the confidence/decision threshold as future work. Here stabilization follows after proving global consensus above an exact worst-case threshold; the two-agent construction shows that the threshold cannot be lowered uniformly over all finite sizes. The earlier model article [2] gives experiments rather than this theorem. Classical opinion-only HK theorems [3] and general stochastic averaging theory do not directly imply the model-specific exact bound; a broader as-yet-unindexed consensus theorem remains a residual literature risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** The primary source identifies parameter thresholds and finite graph stabilization as gaps. The result answers a natural worst-case version with an exact decision-weight law, proves the previously assumed stabilization under a checkable condition, includes equality, and supplies a sharp counterexample. These conditions delineate guaranteed social consensus from feasible persistent polarization without numerical phase diagrams.
+PASS best-of-knowledge for the unconditional sharp uniform population-size threshold and proof of eventual complete-neighborhood stabilization in that domain. The source explicitly leaves graph stabilization unproved in general and does not provide this sharp quantitative sufficient condition.
 
-## Closest literature and limitations
+## value
 
-Source [1] was inspected in its full HTML form including equations, relevant lemmata, main convergence theorem, remarks, and conclusion. Source [2] was compared through accessible abstract/model description and sensitivity discussion. The analytical proof is restricted to full potential contact availability, homogeneous parameters and synchronous deterministic updates. The universal threshold does not classify every initial condition. Related search results do not establish exhaustive novelty; independent audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determining when all trajectories of an opinion-action bounded-confidence dynamical system converge is a natural open question posed by the model authors. The sharp confidence-vs-decision-weight boundary and exact polarized obstruction close a meaningful uniform-guarantee gap, not just a numerical simulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

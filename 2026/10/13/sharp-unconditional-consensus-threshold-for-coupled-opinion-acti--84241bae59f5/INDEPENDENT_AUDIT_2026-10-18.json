@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T09:12:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With the exact sequential opinion-then-action update and exclusions of self-action, z(t+1)=P(t)z(t) is row-stochastic, with every positive entry at least eta=min(phi,1-phi)/n. Each action row of P(t+1)P(t) receives >=eta^2 from every old opinion (through its own intermediate action) and from every old action (through action mixing). Thus if limiting joint diameter D_infty>0, all actions eventually stay a common delta>0 away from both extremes. An opinion interacting with any action thereafter moves permanently into the interior; hence persistent extreme opinions at m and M must be isolated. Their cross-action gaps satisfy [y_b-m]+[M-y_a]=(1+phi)(M-m)>2epsilon, contradicting 2epsilon>=(1+phi)D0. Therefore diameter tends zero. Once D<epsilon every potential confidence link is active and the fixed complete-neighborhood stochastic matrix is primitive, yielding exponential convergence. The two-agent stationary configuration x=(a,a+d), y=(a+(1-phi)d/2,a+(1+phi)d/2) proves sharpness strictly below the boundary. Independent Fraction-based enumeration verified two-step action positivity for all possible directed neighborhood masks and pairs of masks at n=2,3 (16 and 4096 pairs), and the stationary identity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Song Theorem 3 imposes eventual SCC stabilization; Remark 4 says it is unproved in general.",
+          "Classical Hegselmann-Krause consensus uses opinion-only interactions, not updates with mixed public actions y_i."
+        ],
+        "reasoning": "The original stabilization-conditioned convergence theorem and opinion-only bounds do not imply automatic all-agent consensus at 2epsilon>=(1+phi)D0.",
+        "searches": [
+          "Song et al. 2026 arXiv:2604.06140v1 Theorem 3 Remark 4",
+          "Blondel Hendrickx Tsitsiklis 2009 Krause state-dependent connectivity",
+          "Resultary 2026 bounded-confidence switching example"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2604.06140v1",
+        "https://doi.org/10.1109/TCSS.2025.3598697",
+        "https://doi.org/10.1109/TAC.2009.2031213",
+        "Resultary semantic search for Sharp unconditional consensus threshold for coupled opinion-action averaging"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original Theorem 3 explicitly assumes finite digraph stabilization and states no unconditional confidence threshold.",
+          "The two-step positive action rows and isolated-extreme contradiction establish new unconditional connectivity/convergence under the bound."
+        ],
+        "reasoning": "The theorem is a strict sufficient region beyond the prior conditional result; its sharpness uniform over all finite populations follows from a two-agent example, so prior conditional statements do not decide it.",
+        "searches": [
+          "Song et al Theorem 3, Remark 4 and conclusion full HTML",
+          "Resultary 2026 threshold semantic search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The model excludes self-action in N_i while always retaining own opinion; y_i(t+1) is phi*x_i(t+1)+(1-phi)mean_y(t).",
+          "The claimed 2epsilon>=(1+phi)D0 is worst-case *all-n* guarantee, not a phase boundary for an individual graph."
+        ],
+        "reasoning": "Restating as a stochastic averaging matrix does not remove the nonlinear neighborhood filter. Standard consensus criteria require connectivity rather than proving it from the sharp diameter threshold.",
+        "searches": [
+          "Resultary opinion action coevolution bounded confidence Song Fontan Su Hendrickx consensus confidence radius sharp threshold phi",
+          "arXiv:2604.06140v1 Eqs.(3)-(5), Theorem 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original simulations illustrate particular consensus/clustering outcomes at parameter examples but no exact all-initial-data threshold.",
+          "No known finite catalogue can settle the statement over all n and real initial configurations."
+        ],
+        "reasoning": "An exact two-agent polarized equilibrium exhibits sharpness; a finite numerical phase table cannot replace the full global proof.",
+        "searches": [
+          "Resultary sharp opinion action threshold phi epsilon population-uniform",
+          "Song et al Fig. 1-2 simulations and conclusion"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge for the unconditional sharp uniform population-size threshold and proof of eventual complete-neighborhood stabilization in that domain. The source explicitly leaves graph stabilization unproved in general and does not provide this sharp quantitative sufficient condition.",
+      "residual_risks": [
+        "A broadly formulated consensus theorem for heterogeneous row-stochastic switched systems might imply part of this result under an equivalent connectivity condition, but not located with the precise threshold.",
+        "The threshold is sharp uniformly over all population sizes, not a necessary condition for each particular fixed n or initial state.",
+        "Endpoints phi=0,1, heterogeneous confidence, restricted graphs and asynchronous actions fall outside scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_CONDITION_NOT_SHARP_THRESHOLD",
+          "evidence": "Original assumes eventual fixed SCC structure; no unconditional 2epsilon>=(1+phi)D0 theorem.",
+          "identifier_or_url": "https://arxiv.org/html/2604.06140v1",
+          "material_read": "Full HTML: original update equations, stochastic-matrix setup, Theorem 3, Remark 4 on unproved stabilization, numerical examples and conclusion",
+          "method": "primary complete HTML with relevant theorem/problem inspection",
+          "title": "On the Convergence of an Opinion-Action Coevolution Model with Bounded Confidence",
+          "trigger": "Exact source model and closest theorem"
+        },
+        {
+          "assessment": "POSSIBLE_BACKGROUND_ONLY",
+          "evidence": "Earlier work introduces social opinion/action dynamics; the available material does not establish the sharp worst-case confidence theorem.",
+          "identifier_or_url": "https://doi.org/10.1109/TCSS.2025.3598697",
+          "material_read": "Accessible abstract and model description only; complete primary article not read",
+          "method": "abstract-level comparison",
+          "title": "Why Do Opinions and Actions Diverge? A Dynamic Framework to Explore the Impact of Subjective Norms",
+          "trigger": "Earlier version of opinion-action model"
+        },
+        {
+          "assessment": "DIFFERENT_INTERACTION_MODEL",
+          "evidence": "Krause interactions use opinion-to-opinion averaging rather than mixed opinion/action sequential map; cannot directly imply model-specific (1+phi)/2 coefficient.",
+          "identifier_or_url": "https://doi.org/10.1109/TAC.2009.2031213",
+          "material_read": "Classical result/theorem-level summary and literature context, not complete paper",
+          "method": "bibliographic/theorem-comparison",
+          "title": "On Krause's Multi-Agent Consensus Model with State-Dependent Connectivity",
+          "trigger": "Potential stronger generic bounded-confidence convergence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determining when all trajectories of an opinion-action bounded-confidence dynamical system converge is a natural open question posed by the model authors. The sharp confidence-vs-decision-weight boundary and exact polarized obstruction close a meaningful uniform-guarantee gap, not just a numerical simulation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "frozen Git tree f0e3010ebedc11a14b2f699001a59c88e234e97f",
+    "frozen RESULT.md blob cfc96b6950e40b48765162f4958578b8e182889e",
+    "https://arxiv.org/html/2604.06140v1",
+    "https://doi.org/10.1109/TCSS.2025.3598697",
+    "https://doi.org/10.1109/TAC.2009.2031213",
+    "Resultary semantic search for Sharp unconditional consensus threshold for coupled opinion-action averaging",
+    "/mnt/data/run222/independent_checks.py",
+    "/mnt/data/run222/independent_checks_output.txt"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "All-to-all potential contacts; n>=2; homogeneous epsilon and 0<phi<1; deterministic synchronous sequential update.",
+    "Bounded exhaustive stochastic-mask checks do not prove arbitrary n or global asymptotic convergence.",
+    "No claim of formal independent theorem certification; computation is corroborative and literature priority remains best-of-knowledge.",
+    "Public file provenance requires authorized confidentiality sanitization; scientific acceptance does not imply publication readiness."
+  ],
+  "residual_risks": [
+    "A broadly formulated consensus theorem for heterogeneous row-stochastic switched systems might imply part of this result under an equivalent connectivity condition, but not located with the precise threshold.",
+    "The threshold is sharp uniformly over all population sizes, not a necessary condition for each particular fixed n or initial state.",
+    "Endpoints phi=0,1, heterogeneous confidence, restricted graphs and asynchronous actions fall outside scope."
+  ],
+  "schema_version": 1
+}
