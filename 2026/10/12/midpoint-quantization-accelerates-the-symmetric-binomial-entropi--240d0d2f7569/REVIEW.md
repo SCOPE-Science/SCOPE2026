@@ -1,14 +1,21 @@
-# Self-review
-## Correctness
-PASS. The finite-\(n\) phase statement is analytic: Gaussian interval masses are strictly log-concave in their center, and binomial symmetry makes the KL objective even, forcing the unique minimizer \(c=0\). The fixed-phase expansion is reconstructed from the displayed Gaussian-cell Taylor series, exact moments through order six, Stirling expansion, and exponentially small binomial tails. The included checker independently evaluates exact finite sums and matches the asymptotic constants.
+# Independent mathematical audit
 
-## Originality
-PASS. The closest primary source, arXiv:2106.00514v1, fixes boundary-aligned Gaussian cells and proves convergence to zero; its Bernoulli result gives only a coarse finite-\(n\) bound. The closest entropy-expansion source, DOI:10.46298/dmtcs.2993, supplies a general entropy expansion but not the phase-dependent Gaussian cross-entropy or finite-\(n\) midpoint optimizer. Targeted searches under quantized-Gaussian, discretized-normal, midpoint, continuity-correction, and relative-entropy formulations found no covering result.
+## correctness
 
-## Value
-PASS. The phase of Gaussian cells is a natural modeling choice in a discrete entropic CLT. Here it changes the asymptotic order itself: boundary alignment has a leading \(1/(2n)\) penalty, while the uniquely optimal midpoint phase has leading \(1/(9n^2)\). This quantifies a meaningful continuity-correction effect in the first canonical lattice model.
+PASS
 
-## Closest literature and limitations
-The main residual originality risk is that an older refined binomial-normal approximation may contain a mathematically equivalent continuity-correction calculation under different terminology. Older full binomial entropy expansions may contain the entropy coefficient \(-1/12\), but that component does not imply the new phase law. The theorem is restricted to fixed phases and symmetric Bernoulli sums; it does not assert midpoint optimality for general lattice laws.
+The exact finite-n Gaussian cell mass is q_c(z)=∫_{z+(2c−1)/√n}^{z+(2c+1)/√n}φ(u)du. Shifting s=z+2c/√n gives ∂²_s log q_c=−1+Var_s(T)<0 because T has nondegenerate tilted support [−1/√n,1/√n], so the binomial expectation of −log q_c is strictly convex; binomial reflection makes it even, hence c=0 is uniquely optimal for all n≥1. Independently checking the log interval Taylor coefficients through n^−2, EZ²=1, EZ⁴=3−2/n, EZ⁶=15−30/n+16/n² and the symmetric-binomial entropy H(S_n)=.5 log(π e n/2)−1/(12n²)+o(n^−2) yields D_n(c)=2c²/n+[1/9−(2/3)c²]/n²+o(n^−2) for fixed c. Central-window Taylor bounds and Chernoff-controlled tails justify the expectation. An independent numerical summation for n=200,800,3200 recovers limiting n²D_n(0)→1/9 and nD_n(1/2)→1/2; finite checks alone are not an asymptotic proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact all-n phase optimizer and full fixed-phase KL coefficients are stronger than Gavalakis–Kontoyiannis qualitative quantized-normal entropic CLT and not implied by the independent binomial entropy expansion alone. Best-of-knowledge novelty; older refined continuity corrections remain a named risk.
+
+## value
+
+PASS
+
+The discrete entropic CLT normally uses a boundary-aligned cell comparator; the exact midpoint optimizer removes the entire n−1 KL term, improving to the sharp n−2 order. This is a motivated quantitative normalization effect with a rigorously identified optimum, not merely a routine entropy coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
