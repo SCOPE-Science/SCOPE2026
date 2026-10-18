@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T16:03:59Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/d88a3b7e22a88836e8d5b4fb7ea02f6da9f123ec/2026/10/12/sharp-active-face-stepsize-law-for-one-lag-projected-gradient-on--e46367290d14/RESULT.md",
+        "actual Git tree dfc220eff10a3a405fa72034d91ecf564c023c87",
+        "independent replay /mnt/data/scope_worker04_run150/checks.py"
+      ],
+      "rationale": "Coordinatewise scalar recursion y_{k+1}=max(0,y_k−s(y_{k−1}−a)) separates the diagonal problem. For a>=0 and 0<s<1, independently symbolically verified exact Lyapunov decrement E(u−sv,u)−E(u,v)=−s(1−s)u²/(1+s)−s(1−s)v² with E(u,v)=u²−2suv/(1+s)+sv². The projection correction is nonpositive for u>=−a, yielding geometric decay. For a>0,s>=1, eventual interior convergence would obey characteristic roots lambda²−lambda+s=0 with modulus sqrt(s)>=1; only stationary initial pairs can converge, and the exact positive 6-cycle at s=1 witnesses sharpness. For a=0, monotone nonnegative recurrence tends to zero for every s, with y3=y4=0 for s>=1. For a<0, per-step decrease >=s|a| until zero gives the explicit finite cutoff. The proof covers any finite diagonal dimension and arbitrary feasible initial pair, not coupled Hessians.",
+      "residual_risks": [
+        "A classical delay-difference-equation or projected fixed-point source under different terminology may already prove the same scalar trichotomy."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published general stochastic sufficient small-step convergence conditions do not give a necessary and sufficient result for arbitrary deterministic pair or removal of all ceilings on active coordinates."
+        ],
+        "reasoning": "Published general stochastic sufficient small-step convergence conditions do not give a necessary and sufficient result for arbitrary deterministic pair or removal of all ceilings on active coordinates.",
+        "searches": [
+          "one lag delayed projected gradient orthant diagonal quadratic active face stepsize sharp iff eta L<1",
+          "Liu Wright 2015 stochastic proximal coordinate descent convergence under delayed reads",
+          "https://proceedings.mlr.press/v32/liud14.html",
+          "https://epubs.siam.org/doi/abs/10.1137/140961134"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/d88a3b7e22a88836e8d5b4fb7ea02f6da9f123ec/2026/10/12/sharp-active-face-stepsize-law-for-one-lag-projected-gradient-on--e46367290d14/RESULT.md",
+        "https://proceedings.mlr.press/v32/liud14.html",
+        "https://epubs.siam.org/doi/abs/10.1137/140961134"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The spectral criterion implies sharp interior necessity and possible local stability but cannot prove clipping-preserving Lyapunov decrease or finite active-face absorption. Those are established separately."
+        ],
+        "reasoning": "The spectral criterion implies sharp interior necessity and possible local stability but cannot prove clipping-preserving Lyapunov decrease or finite active-face absorption. Those are established separately.",
+        "searches": [
+          "one lag delayed projected gradient orthant diagonal quadratic active face stepsize sharp iff eta L<1",
+          "unconstrained lambda^2-lambda+s root condition and projected fixed point rules",
+          "https://proceedings.mlr.press/v32/liud14.html",
+          "https://epubs.siam.org/doi/abs/10.1137/140961134"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The scalar recurrence is indeed a piecewise-linear delayed map; no equivalent full active/interior phase classification was located, and a conventional unprojected characteristic-root analysis misses a<=0."
+        ],
+        "reasoning": "The scalar recurrence is indeed a piecewise-linear delayed map; no equivalent full active/interior phase classification was located, and a conventional unprojected characteristic-root analysis misses a<=0.",
+        "searches": [
+          "one lag delayed projected gradient orthant diagonal quadratic active face stepsize sharp iff eta L<1",
+          "projected two-step linear complementarity recurrence, delayed gradient stability",
+          "https://proceedings.mlr.press/v32/liud14.html",
+          "https://epubs.siam.org/doi/abs/10.1137/140961134"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "This is an all-positive-s theorem, not a finite table; the six-cycle is a witness at s=1 but does not imply the all-initialization trichotomy."
+        ],
+        "reasoning": "This is an all-positive-s theorem, not a finite table; the six-cycle is a witness at s=1 but does not imply the all-initialization trichotomy.",
+        "searches": [
+          "one lag delayed projected gradient orthant diagonal quadratic active face stepsize sharp iff eta L<1",
+          "one-dimensional projected lag-one quadratic threshold cycle exact table",
+          "https://proceedings.mlr.press/v32/liud14.html",
+          "https://epubs.siam.org/doi/abs/10.1137/140961134"
+        ]
+      },
+      "rationale": "Liu–Wright and collaborators study asynchronous stochastic coordinate descent and proximal updates with stale gradients and general sufficient stepsize/delay conditions. Their indexed primary methods use random coordinate selection/inconsistent updates, not this deterministic simultaneous fixed-lag projected scalar recurrence, and do not provide the if-and-only-if interior-face threshold with unbounded allowed steps on active constraints. No directly matching paper surfaced in Resultary or targeted delayed projection searches. A differently titled deterministic fixed-point recurrence classification could exist; neither stochastic theorem nor a generic spectral bound implies the active-face trichotomy.",
+      "residual_risks": [
+        "A classical delay-difference-equation or projected fixed-point source under different terminology may already prove the same scalar trichotomy.",
+        "Only fixed deterministic lag-one, diagonal Hessian and orthant projection; no coupled or stochastic extension."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stochastic coordinate selection and general sufficient guarantee, unlike deterministic all-coordinate fixed one-step lag.",
+          "evidence": [
+            "Proceedings abstract states stochastic coordinate descent and linear-rate sufficient conditions."
+          ],
+          "identifier_or_url": "https://proceedings.mlr.press/v32/liud14.html",
+          "material_read": "Full publisher HTML abstract/method description and bibliographic records; PDF full text was not read.",
+          "method": "Read indexed proceedings landing page and abstract",
+          "title": "An Asynchronous Parallel Stochastic Coordinate Descent Algorithm",
+          "trigger": "related delayed coordinate steps under separable constraints"
+        },
+        {
+          "assessment": "Sufficient convergence of a stochastic proximal coordinate algorithm is not a covering exact scalar active-face classification.",
+          "evidence": [
+            "Journal abstract identifies stochastic proximal coordinate descent and inconsistent reads."
+          ],
+          "identifier_or_url": "https://epubs.siam.org/doi/abs/10.1137/140961134",
+          "material_read": "Full journal abstract/metadata accessible; full published paper text not inspected.",
+          "method": "Read primary abstract and method characterization",
+          "title": "Asynchronous Stochastic Coordinate Descent: Parallelism and Convergence Properties",
+          "trigger": "proximal projection with inconsistent delayed reads"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/d88a3b7e22a88836e8d5b4fb7ea02f6da9f123ec/2026/10/12/sharp-active-face-stepsize-law-for-one-lag-projected-gradient-on--e46367290d14/RESULT.md",
+        "https://proceedings.mlr.press/v32/liud14.html",
+        "https://epubs.siam.org/doi/abs/10.1137/140961134"
+      ],
+      "rationale": "This exact phase diagram isolates an algorithmically consequential distinction between interior and active minimizers: stability ceiling s<1 is necessary only for strictly interior coordinates, while active faces permit arbitrarily large steps and often finite termination. Sharpness and explicit critical six-cycle make the classification a reusable boundary case for delayed projected methods, not a routine unconstrained eigenvalue calculation.",
+      "residual_risks": [
+        "A classical delay-difference-equation or projected fixed-point source under different terminology may already prove the same scalar trichotomy.",
+        "Only fixed deterministic lag-one, diagonal Hessian and orthant projection; no coupled or stochastic extension."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A classical delay-difference-equation or projected fixed-point source under different terminology may already prove the same scalar trichotomy.",
+    "Only fixed deterministic lag-one, diagonal Hessian and orthant projection; no coupled or stochastic extension."
+  ],
+  "schema_version": 1
+}

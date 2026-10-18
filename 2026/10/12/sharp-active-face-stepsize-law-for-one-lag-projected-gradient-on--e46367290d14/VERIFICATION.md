@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,21 +18,25 @@
   "schema_version": 1
 }
 ---
-The analytic proof is given in `RESULT.md`; the independent finite replay script `verify.py` uses only Python's standard library and exact rational arithmetic.
 
-For \(a=1\), \(s=1\), and \((y_0,y_1)=(3/2,1)\), the exact recurrence runs through
-\[
- \frac32,1,\frac12,\frac12,1,\frac32
-\]
-and repeats. All values are positive, so this is an exact counterexample at the sharp critical step.
+# Independent mathematical audit
 
-At an active boundary \(a=0\), \(s\ge1\), the proof shows \(y_3=y_4=0\) regardless of the feasible initial pair. The checker replays several exact rational instances, including \(s=5/2\).
+## correctness
 
-When \(a=-1\), even a very large step reaches the zero constraint exactly in finite time. The checker tests rational examples and the analytical decrement bound.
+PASS
 
-For the interior stable case, the checker verifies exact rational instances of the quadratic energy expansion
-\[
- E(u-sv,u)-E(u,v)
- =-\frac{s(1-s)}{1+s}u^2-s(1-s)v^2
-\]
-and confirms projection cannot increase that energy on rational grids. These checks are not claimed as a proof over all real parameters: the theorem follows from the symbolic identities, positive definiteness, and the clipping inequality in `RESULT.md`.
+Coordinatewise scalar recursion y_{k+1}=max(0,y_k−s(y_{k−1}−a)) separates the diagonal problem. For a>=0 and 0<s<1, independently symbolically verified exact Lyapunov decrement E(u−sv,u)−E(u,v)=−s(1−s)u²/(1+s)−s(1−s)v² with E(u,v)=u²−2suv/(1+s)+sv². The projection correction is nonpositive for u>=−a, yielding geometric decay. For a>0,s>=1, eventual interior convergence would obey characteristic roots lambda²−lambda+s=0 with modulus sqrt(s)>=1; only stationary initial pairs can converge, and the exact positive 6-cycle at s=1 witnesses sharpness. For a=0, monotone nonnegative recurrence tends to zero for every s, with y3=y4=0 for s>=1. For a<0, per-step decrease >=s|a| until zero gives the explicit finite cutoff. The proof covers any finite diagonal dimension and arbitrary feasible initial pair, not coupled Hessians.
+
+## originality
+
+PASS
+
+Liu–Wright and collaborators study asynchronous stochastic coordinate descent and proximal updates with stale gradients and general sufficient stepsize/delay conditions. Their indexed primary methods use random coordinate selection/inconsistent updates, not this deterministic simultaneous fixed-lag projected scalar recurrence, and do not provide the if-and-only-if interior-face threshold with unbounded allowed steps on active constraints. No directly matching paper surfaced in Resultary or targeted delayed projection searches. A differently titled deterministic fixed-point recurrence classification could exist; neither stochastic theorem nor a generic spectral bound implies the active-face trichotomy.
+
+## value
+
+PASS
+
+This exact phase diagram isolates an algorithmically consequential distinction between interior and active minimizers: stability ceiling s<1 is necessary only for strictly interior coordinates, while active faces permit arbitrarily large steps and often finite termination. Sharpness and explicit critical six-cycle make the classification a reusable boundary case for delayed projected methods, not a routine unconstrained eigenvalue calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The scalar one-lag recurrence is reconstructed from the stated projected-gradient update with two feasible initial states. The positive-definite quadratic energy has an exact decrement for \(0<s<1\), and clipping at the orthant boundary cannot increase that energy. Nonconvergent interior steps are excluded by the characteristic roots and the impossibility of entering a positive stationary pair from a distinct predecessor. Boundary and strictly active optimizers admit monotone and finite-termination arguments, respectively. Independence of the diagonal coordinates proves the all-dimensional equivalence. The rational checker is only corroboration.
+## correctness
 
-## Originality
-PASS subject to the stated risks. The 2014 asynchronous proximal-coordinate paper was inspected in full for its update, stochastic quantifiers, sufficient delay/stepsize conditions, and proof setting. An earlier stochastic asynchronous-coordinate predecessor was also identified. Neither inspected statement implies the sharp deterministic one-lag, all-initialization criterion that depends on which coordinates are active at the optimum. Searches for equivalent recurrences, aliases, six-cycles, support identification, and unrestricted active-face steps did not locate dominating coverage. The earlier full paper and old asynchronous fixed-point literature remain residual risks, not claims of exhaustive exclusion.
+PASS
 
-## Value
-PASS. The theorem supplies a usefully interpretable, exact active-face stepsize law. On the same strongly convex scalar curvature and same one-step delay, a positive optimizer has the sharp ceiling \(s<1\), while an active optimizer has no upper ceiling, with finite absorption under strict complementarity. This identifies a genuine modeling distinction that generic curvature/delay bounds do not express. The separable higher-dimensional version is a single classification, not a disconnected corollary collection.
+Coordinatewise scalar recursion y_{k+1}=max(0,y_k−s(y_{k−1}−a)) separates the diagonal problem. For a>=0 and 0<s<1, independently symbolically verified exact Lyapunov decrement E(u−sv,u)−E(u,v)=−s(1−s)u²/(1+s)−s(1−s)v² with E(u,v)=u²−2suv/(1+s)+sv². The projection correction is nonpositive for u>=−a, yielding geometric decay. For a>0,s>=1, eventual interior convergence would obey characteristic roots lambda²−lambda+s=0 with modulus sqrt(s)>=1; only stationary initial pairs can converge, and the exact positive 6-cycle at s=1 witnesses sharpness. For a=0, monotone nonnegative recurrence tends to zero for every s, with y3=y4=0 for s>=1. For a<0, per-step decrease >=s|a| until zero gives the explicit finite cutoff. The proof covers any finite diagonal dimension and arbitrary feasible initial pair, not coupled Hessians.
 
-## Closest literature and limitations
-Related stochastic asynchronous coordinate methods and bounded-delay proximal updates predate this claim; their stochastic expected-rate guarantees are not the deterministic phase diagram established here. The theorem does not cover coupled Hessians, random coordinate schedules, heterogeneous delay, or floating-point effects. The strict contraction factor displayed in the proof is sufficient rather than rate-optimal.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Liu–Wright and collaborators study asynchronous stochastic coordinate descent and proximal updates with stale gradients and general sufficient stepsize/delay conditions. Their indexed primary methods use random coordinate selection/inconsistent updates, not this deterministic simultaneous fixed-lag projected scalar recurrence, and do not provide the if-and-only-if interior-face threshold with unbounded allowed steps on active constraints. No directly matching paper surfaced in Resultary or targeted delayed projection searches. A differently titled deterministic fixed-point recurrence classification could exist; neither stochastic theorem nor a generic spectral bound implies the active-face trichotomy.
+
+## value
+
+PASS
+
+This exact phase diagram isolates an algorithmically consequential distinction between interior and active minimizers: stability ceiling s<1 is necessary only for strictly interior coordinates, while active faces permit arbitrarily large steps and often finite termination. Sharpness and explicit critical six-cycle make the classification a reusable boundary case for delayed projected methods, not a routine unconstrained eigenvalue calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
