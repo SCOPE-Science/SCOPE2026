@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The fixed-point equations from the defining multiplication give a common quadratic for all coordinates, hence at most two values. Its two-value specialization is an explicit polynomial of degree at most two, with separately checked discriminant and linear-degenerate cases. Exclusion of coincident roots prevents false double counts; complementary labeling accounts for the factor \(1/2\). The roots have degree at most two over the prime field, which proves the extension-field and zeta formulas. Independently, exact direct finite-field enumeration over four odd prime fields and \(\mathbf F_9\) returned `VERIFY_OK`.
+PASS
 
-## Originality — PASS
+From the actual E(K_n) multiplication, x²=x iff each x_i satisfies x_i²+x_i=S with S=sum x_j². Common monic quadratic gives at most two coordinate values. For k selected u positions, v=-1-u, the exact equation (n−1)u²+(2(n−k)−1)u+(n−k)=0 has discriminant 1−4k(n−k). If p∤(n−1) there are 1+χ roots minus the coincident u=−1/2 precisely when p|(n+1); if p|(n−1) the equation is linear and solvable exactly when p∤(2k−1). Every nonconstant vector is double-represented by complementary marked sets, proving the half-sum and c0 constants. All roots have degree ≤2 over F_p, hence q^m parity pattern and zeta formula. Independently enumerated x²=x in 12 small (p,n) cases; examples (3,3):2 and (3,4):5 agree. Finite enumerations corroborate, not replace, all-n proof.
 
-The source's complete-graph example classifies automorphisms of an evolution algebra satisfying \(E^2=E\), not individual elements satisfying \(x^2=x\). The later general idempotent article supplies an existence theorem and universal equations, but no exact graph-specific finite-field count or splitting field. No located equivalent formulation or table subsumes the displayed counts. A result under quadratic-map terminology remains a stated literature risk.
+## originality
 
-## Value — PASS
+PASS
 
-Individual idempotents are natural fixed-point invariants for the quadratic evolution map. The result is a complete all-dimension solution for a canonical connected graph, reveals a characteristic-dependent singular regime, and supplies the uniform quadratic field-of-definition bound and rational-point zeta function. It is not an arbitrary finite census.
+The graph evolution algebra automorphism literature and the general idempotent-equation literature are not element-by-element enumerations of the fixed points x²=x over odd finite fields. The precise discriminant, singular characteristic, quadratic splitting and zeta formula were compared to the actual same-algebra Example 3.1 and related work. No dominating published statement identified; best-of-knowledge with explicit quadratic-map terminology risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Individual idempotent elements of the canonical complete-graph evolution algebra are natural solutions of a quadratic dynamical fixed-point problem. The exact all-n odd-finite-field count, singular-adjacency characteristic branch, common splitting extension and Hasse–Weil-type point-counting zeta constitute a reusable exact arithmetic invariant, not a renaming of the algebra-automorphism problem. The result resolves an unlimited natural family, not an arbitrary tiny case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
