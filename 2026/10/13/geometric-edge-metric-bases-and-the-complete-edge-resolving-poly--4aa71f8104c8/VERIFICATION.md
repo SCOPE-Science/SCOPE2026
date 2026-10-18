@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,24 +19,24 @@
 }
 ---
 
-# Finite verification of the Pappus edge-resolving classification
+# Independent mathematical audit
 
-Run `python3 verify.py` (Python \(\ge3.8\), standard library only). In a separate implementation run `g++ -std=c++17 -O2 verify_independent.cpp -o verify_independent && ./verify_independent`.
+## correctness
 
-The Python verifier reconstructs the \(18\)-vertex, \(27\)-edge affine incidence graph, checks graph distances against explicit field formulas, builds all \(351\) edge-pair distinguishing constraints (\(198\) distinct), and compares the geometric minimum-base classification against **every** four-element subset. It checks every smaller subset, all \(262144\) subsets by two equivalent but separately coded predicates, and exact graph automorphism orbits using \(216\) explicitly constructed maps.
+PASS
 
-Observed output:
+Build the 18-vertex (9 point +9 nonvertical affine-line) Pappus incidence graph over F3, 27 edges; confirm BFS distance formulas (same-part coordinate distinction 2 vs 4, incident/not point-line 1 vs 3). The edge-pair discrimination family has 198 distinct nonempty masks from 351 pairs. Exhaustively assess all 2^18 landmark subsets by edge-distance signatures and masks independently: exactly 254100 resolving, coefficients 540,5976,17106,31392,43704,48620,43758,31824,18564,8568,3060,816,153,18,1 in degrees 4..18; none smaller. Four-subset finite equivalence to geometric two-column/two-slope and mixed affine incidence conditions yields 27+27+486 bases; 216 explicit affine-collineation/point-line dual automorphisms partition them into five orbits 54,54,108,108,216. This is a genuinely exhaustive FINITE proof, not extrapolation.
 
-```text
-VERIFY_OK graph=Pappus(18,27) biaffine_AG(2,3) girth>=6 diam=4 BFS_formula_agree=yes
-VERIFY_OK edge_pairs=351 distinct_separation_masks=198 size_le3_success=0 four_bases=540 geometry_agree_on_3060_four_subsets=yes
-VERIFY_OK 262144_subsets pair_masks_vs_direct_signatures=exact edge_resolving=254100 nonresolving=8044
-VERIFY_OK vertex_resolving_subset_edge_resolving=yes vertex_resolving=243834 edge_only=10266 four_base_overlap=216
-VERIFY_OK polynomial=4:540,5:5976,6:17106,7:31392,8:43704,9:48620,10:43758,11:31824,12:18564,13:8568,14:3060,15:816,16:153,17:18,18:1
-VERIFY_OK automorphisms=216 five_orbits=54,216,108,108,54 basis_types={(0, 0): 27, (2, 0): 108, (2, 1): 324, (2, 2): 54, (4, 0): 27}
-VERIFY_OK representatives=[((0, 1, 3, 4), 54), ((1, 3, 9, 12), 216), ((2, 3, 9, 12), 108), ((1, 5, 9, 12), 108), ((4, 6, 9, 12), 54)]
-VERIFY_CPP_OK all_262144_masks edge_bases=540 metric_bases=216 edge_resolving=254100 vertex_resolving=243834
-VERIFY_CPP_OK polynomial=4:540,5:5976,6:17106,7:31392,8:43704,9:48620,10:43758,11:31824,12:18564,13:8568,14:3060,15:816,16:153,17:18,18:1
-```
+## originality
 
-These exhaustive calculations concern one finite graph. They do not establish the analogous claims for different orders or settle priority against inaccessible or unindexed literature. The five orbit sizes additionally have a direct group-theoretic justification from the explicit affine collineations and incidence duality in `RESULT.md`.
+PASS
+
+Kelenc-Tratnik-Yero introduces edge resolution and examples, Bailey tabulates Pappus ordinary vertex metric dimension 4, Bartoli et al treats biaffine-plane vertex metric bounds with q>=4. None has the Pappus edge-resolving polynomial or orbit decomposition; Resultary found other Pappus magnitude homology and other-graph edge bases, not this census.
+
+## value
+
+PASS
+
+A complete exact all-landmark-subsets invariant of a classical 18-vertex distance-regular incidence graph, with transparent finite-geometric characterization, nontrivial automorphism orbits and quantitative vertex-vs-edge resolution gap, is a motivated useful benchmark for graph metric theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

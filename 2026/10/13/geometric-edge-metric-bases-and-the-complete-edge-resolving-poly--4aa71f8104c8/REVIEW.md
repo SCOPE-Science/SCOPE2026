@@ -1,11 +1,21 @@
-# Review: geometric edge-metric bases of the Pappus graph
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph and vertex-to-edge metric are defined explicitly over \(\mathbb F_3\). The distance table is derived from affine incidence and checked against breadth-first paths. The edge-pair separation formulation is logically equivalent to unique edge signatures. Every four-set (all \(3060\)) was compared with the stated geometric criterion; all \(988\) smaller sets were rejected. The analytic count \(27+27+27\cdot18=540\) follows from the proven criterion. Two independently written exhaustive programs agree on each coefficient over all \(262144\) vertex subsets. The automorphism group is bounded geometrically by \(216\), constructed explicitly with \(216\) distinct edge-preserving permutations, and used to reconstruct the five disjoint base orbits. These checks prove finite exact statements, not extensions to arbitrary affine plane orders.
+## correctness
 
-**Originality — PASS, subject to the stated priority risk.** Kelenc–Tratnik–Yero (arXiv:1602.00291v1) define this edge-distance invariant and analyze other graph classes, without a Pappus enumeration. Bailey (arXiv:1312.4973v1, Table 1) gives ordinary vertex metric dimension \(4\) for the Pappus graph, not its vertex-to-edge resolving sets. Bartoli–Héger–Kiss–Takáts (arXiv:1706.06583v1) cover biaffine geometries but study ordinary vertex resolution, principally at larger order. Published research records on edge-metric bases of half graphs and crown graphs concern different graph families. Comparison of implications, not only titles, finds that none supplies the four-set geometric criterion, the \(540\) count, the \(254100\) total, or the five symmetry types. The source searches cannot rule out an unindexed equivalent table or a differently titled earlier computation.
+PASS
 
-**Value — PASS.** The exact geometric criterion classifies optimal edge-identifying landmark configurations on a classical symmetric cubic incidence graph. This is not a mere repetition of its known ordinary metric dimension: at the same minimum cardinality, edge bases number \(540\) while ordinary metric bases number \(216\), with \(324\) optimal edge configurations unable to identify vertices. The full polynomial and five automorphism orbits clarify that difference, and the explicit affine description provides a reusable structural benchmark.
+Build the 18-vertex (9 point +9 nonvertical affine-line) Pappus incidence graph over F3, 27 edges; confirm BFS distance formulas (same-part coordinate distinction 2 vs 4, incident/not point-line 1 vs 3). The edge-pair discrimination family has 198 distinct nonempty masks from 351 pairs. Exhaustively assess all 2^18 landmark subsets by edge-distance signatures and masks independently: exactly 254100 resolving, coefficients 540,5976,17106,31392,43704,48620,43758,31824,18564,8568,3060,816,153,18,1 in degrees 4..18; none smaller. Four-subset finite equivalence to geometric two-column/two-slope and mixed affine incidence conditions yields 27+27+486 bases; 216 explicit affine-collineation/point-line dual automorphisms partition them into five orbits 54,54,108,108,216. This is a genuinely exhaustive FINITE proof, not extrapolation.
 
-**Limitations and residual risk.** The result is confined to the unique biaffine plane of order \(3\), with edge distances taken from a vertex to the nearer endpoint. Published literature may contain an unindexed equivalent finite census; no wider graph-class theorem or historical uniqueness is claimed. An independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kelenc-Tratnik-Yero introduces edge resolution and examples, Bailey tabulates Pappus ordinary vertex metric dimension 4, Bartoli et al treats biaffine-plane vertex metric bounds with q>=4. None has the Pappus edge-resolving polynomial or orbit decomposition; Resultary found other Pappus magnitude homology and other-graph edge bases, not this census.
+
+## value
+
+PASS
+
+A complete exact all-landmark-subsets invariant of a classical 18-vertex distance-regular incidence graph, with transparent finite-geometric characterization, nontrivial automorphism orbits and quantitative vertex-vs-edge resolution gap, is a motivated useful benchmark for graph metric theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
