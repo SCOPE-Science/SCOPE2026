@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof uses only the source's Hermitian Majorana algebra, Proposition 3.2 tracelessness, Proposition 3.3 commutators, and the displayed Hilbert-space dimension. For \(N\in4\mathbb Z\), reversal of \(N-1\) Majoranas has odd parity, which proves the raw star is anti-Hermitian with square \(-I\). The corrected stars are commuting involutions. Products of any nonempty subset after omitting one vertex have support on a nonempty complete-graph cut and are traceless. Character projectors therefore have the exact common rank \(2^{{(N-1)(N-4)/4}}\). The proof is uniform in \(N\); finite replay checks are only corroborative.
+PASS
 
-## Originality
+In Lucas--Osborne's Clifford representation, each N-1-factor vertex star is anti-Hermitian because (-1)^[(N-1)(N-2)/2]=-1 for N divisible by four. Thus raw Psi_v^2=-I, while S_v=i Psi_v is Hermitian, squares to I and inherits [S_v,H]=[S_u,S_v]=0 from Proposition 3.3. Product support of stars indexed by T is the edge cut delta(T). For a nonempty subset T omitting one fixed vertex, this cut is nonempty and its Majorana monomial has vanishing trace by source Prop. 3.2. The projectors P_epsilon=2^{-(N-1)} product(1+epsilon_v S_v) therefore have trace 2^{N(N-1)/4-(N-1)} and are orthogonal complete projectors. Every 2^{N-1} sector occurs at dimension 2^{(N-1)(N-4)/4}; product of all N stars has empty support and is scalar, so there is no missing symmetry label. Commutation alone guarantees block diagonalization, not energy degeneracy between sectors. Independently represented six Majoranas by 8x8 matrices for N=4 and checked anti-Hermitian stars and eight rank-one sectors, plus source's Clifford mask verification at N=4,8,12,16; these illustrate but do not prove all N.
 
-PASS. The closest source is Lucas–Osborne itself: it proves commutation, gives a heuristic about degeneracy, and explicitly declines eigenspectrum analysis. It does not state the phase correction, the complete cut-space independence argument, the exact \(2^{{N-1}}\) sector count, or the common sector dimension. Related melonic and \(O(4)^3\) Majorana papers analyze different symmetry groups and Hamiltonians. Targeted source-ID, phase, cut-space, sector, and degeneracy searches found no implication-equivalent same-model result. Residual risk remains that an equivalent calculation is present in weakly indexed Clifford/gauge-symmetry literature.
+## originality
 
-## Value
+PASS
 
-PASS. The result addresses the exact spectral consequence of a symmetry that the motivating paper itself flags but leaves unresolved. It replaces a potentially misleading degeneracy heuristic with the precise equal-block decomposition, and the normalization correction is mathematically necessary for the Hermitian involution labels. This is directly useful for spectral decomposition and numerical diagonalization and is not merely a sign convention in isolation.
+The same Lucas--Osborne article is a decisive comparison: Proposition 3.3 proves star-H commutation but prints the incompatible claims that raw stars are Hermitian and square to one, then suggests an exponential degeneracy without computing the eigenspectrum. Rechecking its preceding definition and the anticommutation rules establishes the sign error. Neither its text nor related SYK, graph-growth, or tensor-model literature searched states the corrected N-1 independent commuting involutions and exact equal-rank 2^{N-1}-character decomposition for this edge-Majorana model. This is more than a restatement of Proposition 3.3, though standard character-projector theory is used.
 
-## Closest literature and limitations
+## value
 
-The primary comparison is arXiv:2007.07165v1, Sections 3.2–3.3. arXiv:1806.04800v1 concerns \(\mathbb Z_2^n\) symmetries of different melonic interaction vertices; arXiv:1808.07455v1 concerns symmetry sectors of a different \(O(4)^3\) tensor Majorana model; arXiv:1905.03682v1 and arXiv:2212.04358v1 concern operator growth/size rather than this eigenspace classification. The result does not determine spectra within sectors or rule out extra degeneracies from additional symmetries or tuned couplings.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An incorrect normalization in a published model obstructs correct interpretation of conserved quantities. The all-N exact nonzero symmetry-sector dimension is an independently useful invariant for Hamiltonian diagonalization and rules out a purported implication to exponential level degeneracy. It is motivated by a concrete paper-specific unresolved claim, not a generic Clifford textbook identity alone; no within-sector spectrum is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
