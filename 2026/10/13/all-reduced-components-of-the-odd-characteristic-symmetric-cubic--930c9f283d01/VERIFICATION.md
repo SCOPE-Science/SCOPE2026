@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof reconstructs the gradient of \(e_3\), shows that every critical point has at most two distinct coordinate values, solves the resulting derivative constraints exactly, and checks the all-equal boundary. That yields the set equality for the reduced critical locus over an algebraically closed field. The component count follows from irredundant equal-dimensional linear components, and Hessian ranks prove generic smoothness.
+## correctness
 
-To replay corroborating computations, run `python3 verify.py`. The program uses only the Python standard library. It checks every point of \(\mathbb F_p^n\) in the tested ranges for \(p\in\{3,5,7\}\), compares the direct gradient and the proposed classification, checks component counts, and computes the generic Hessian ranks by modular row reduction. The output ends in `VERIFY_OK`.
+PASS
 
-These finite-field computations do not establish the algebraically closed or arbitrary-dimensional theorem. The exact algebraic proof is in RESULT.md. Computations do not assess nonreduced structure, embedded primes, hypersurface singularities, or originality. No independent audit has been performed.
+For n>=3 over algebraically closed odd characteristic p, ∂_i e3=e2−x_i e1+x_i², so critical-point coordinates lie among two roots of a common quadratic. If a,b are distinct values with multiplicities m,r, subtracting gradients yields (m−1)a+(r−1)b=0, while a direct same-block derivative gives (m−1)a²+(r−1)b²=0. Since a≠b and 2 invertible, obtain (m−1)a=(r−1)b=0. A single nonzero value is allowed exactly at |S|≡1 (mod p), while two nonzero values force n≡2 (mod p) and both block sizes 1 mod p. The resulting unions of equal-coordinate lines or two-block planes are all of V(I), hence their linear-ideal intersections give radical via Nullstellensatz. Distinct equal-dimension subspaces cannot contain one another; number and projective degree equal support/bipartition counts. Hessian blocks have ranks n−1 on generic line points or n−2 on generic planes, establishing generic smoothness of critical scheme. Independent finite-field evaluation for p=3,n=3..6, p=5,n=3..5, p=7,n=3..4 checks critical-point membership/count only; the all-n,p theorem relies on the displayed algebra.
+
+## originality
+
+PASS
+
+Best-of-knowledge original contribution is the explicit line radical and component decomposition for n≢2 (mod p), not the previously characterized extremal two-block planes. Checked same-object full primary source, general structural source, alternative zero-and-gradient formulation, and two Resultary searches; remaining historical equivalence risk is noted.
+
+## value
+
+PASS
+
+A complete radical/minimal-prime decomposition in the previously unclassified one-dimensional regime is a natural structural invariant of a characteristic-dependent Jacobian ideal. It distinguishes the true critical scheme from hypersurface singularities in degree-dividing characteristic and provides component counts, projective degrees and generic smoothness, not a renaming of the known dimension result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

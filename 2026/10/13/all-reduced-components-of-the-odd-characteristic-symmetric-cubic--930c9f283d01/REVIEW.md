@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The critical equations are the roots of one monic quadratic, restricting points to at most two values. Explicit derivative differences force \((m-1)a=(r-1)b=0\), and the one-value boundary is handled separately. The Nullstellensatz then identifies precisely the claimed radical, with no missed set-theoretic branches. Irredundancy gives component counts; a direct Hessian-rank calculation proves generic smoothness. The standalone exact-field checker passes multiple small characteristics and dimensions but does not replace the symbolic proof.
+## correctness
 
-**Originality — PASS, subject to residual risk.** Xie, arXiv:2610.00259v1, §1.3 and §7, provides the two-dimensional extremal plane classification, which is *not claimed as new here*, and says smaller-dimensional components are unclassified. It does not state the complete line decomposition for the complementary congruence regime. Orzel, arXiv:2509.05009v3, treats the zero-and-gradient locus's dimensions, not these reduced critical components; Cafure–Matera–Privitelli, arXiv:1109.2265v1, prove only a partition-space containment in a broader symmetric-hypersurface setting. Searches for equivalent radical decompositions, support congruences and numerical counts found no covering claim in the examined sources. A prior implicit formula is possible; search failure is not proof of novelty.
+PASS
 
-**Value — PASS.** This supplies all irreducible components of the lowest nonlinear elementary-symmetric critical scheme in odd characteristic, including missing smaller-dimensional components that dimensional estimates cannot enumerate. It explains the exact jump in component *type*, count and projective degree and distinguishes the gradient scheme from the singular hypersurface in characteristic three. For example, \(n=6,p=3\) produces \(21\) different critical lines, not merely one dimension-one locus. No unproved global primary-decomposition claim is attached.
+For n>=3 over algebraically closed odd characteristic p, ∂_i e3=e2−x_i e1+x_i², so critical-point coordinates lie among two roots of a common quadratic. If a,b are distinct values with multiplicities m,r, subtracting gradients yields (m−1)a+(r−1)b=0, while a direct same-block derivative gives (m−1)a²+(r−1)b²=0. Since a≠b and 2 invertible, obtain (m−1)a=(r−1)b=0. A single nonzero value is allowed exactly at |S|≡1 (mod p), while two nonzero values force n≡2 (mod p) and both block sizes 1 mod p. The resulting unions of equal-coordinate lines or two-block planes are all of V(I), hence their linear-ideal intersections give radical via Nullstellensatz. Distinct equal-dimension subspaces cannot contain one another; number and projective degree equal support/bipartition counts. Hessian blocks have ranks n−1 on generic line points or n−2 on generic planes, establishing generic smoothness of critical scheme. Independent finite-field evaluation for p=3,n=3..6, p=5,n=3..5, p=7,n=3..4 checks critical-point membership/count only; the all-n,p theorem relies on the displayed algebra.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge original contribution is the explicit line radical and component decomposition for n≢2 (mod p), not the previously characterized extremal two-block planes. Checked same-object full primary source, general structural source, alternative zero-and-gradient formulation, and two Resultary searches; remaining historical equivalence risk is noted.
+
+## value
+
+PASS
+
+A complete radical/minimal-prime decomposition in the previously unclassified one-dimensional regime is a natural structural invariant of a characteristic-dependent Jacobian ideal. It distinguishes the true critical scheme from hypersurface singularities in degree-dividing characteristic and provides component counts, projective degrees and generic smoothness, not a renaming of the known dimension result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
