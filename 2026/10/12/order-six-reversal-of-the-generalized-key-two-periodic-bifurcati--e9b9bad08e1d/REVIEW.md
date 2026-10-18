@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source's three \(I_2\) equations are solved algebraically without discarding positive nontrivial solutions. The resulting geometric-sum formula is checked by direct substitution. Positivity reduces to a scalar function \(\Phi_k\); strict convexity of \(u\coth(us)\) proves that \(\Phi_k\) is strictly decreasing, so its positive domain has one endpoint. The Taylor coefficient is derived from the standard expansion of \(\sinh(ns)/\sinh s\), and its sign is proved exactly. Continuity plus endpoint divergence yields the two-level argument for at least four parity-distinct non-translation-invariant solutions.
+## correctness
 
-## Originality
-PASS. The closest primary source gives the all-\(k\) raw parameterization but only proves the periodic classification for \(k=2,3,4\). The higher-order positivity endpoint, all-order merger expression, exact sign change at \(k=6\), and subcritical four-solution consequence were not found in the inspected primary text, its cited lower-order predecessor, the later different-graph “key” paper, targeted bibliographic searches, published-record semantic searches, or the available prior result ledgers. The main residual risk is an equivalent calculation under the older “pistol” name for the generalized-key graph in weakly indexed literature.
+PASS
 
-## Value
-PASS. The source explicitly makes the generalized-key periodic branch a theorem-level object, so extending its behavior beyond \(k=4\) is mathematically motivated. The result identifies a qualitative bifurcation reversal rather than a routine numerical refinement: beginning at \(k=6\), symmetry-broken two-periodic states already occur below the translation-invariant merger activity and necessarily create a fold with at least four non-translation-invariant branch solutions on a nonempty interval.
+From the actual RESULT.md blob 3c45823b, verified the three generalized-key I2 equations, positive-root quotient t=(z0/z1)^(1/k), t-sum solution z0=t^k/G, z1=1/G, z2=A/G, lambda=A^k/(B^k G), and t<->1/t symmetry. G>0 reduces to Phi_k=log a-k log(c/b)>0. H_s(u)=u coth(us) has H_s>0 for u>0, making Phi_k strictly decreasing from positive at s=0 (k>=4) to -infinity, hence unique finite positivity endpoint. Taylor expansion yields exact lambda_c and curvature coefficient B_k; independent 45-digit evaluation gives B4=14.5712087576985, B5=1.38823505199204, B6=-5.08810841405847, B7=-11.20358. Algebraic inequality gives B_k<0 for all k>=6. Continuity plus divergence at the endpoint gives a strict interior level below lambda_c and two positive-s solutions at each intermediate level, each with a distinct reciprocal partner. This proves AT LEAST four I2 boundary laws, not exactly four, for every integer k>=6; verifier samples alone are not the proof.
 
-## Closest literature and limitations
-The 2024 Khakimov–Tozhiboev paper is the closest source and supplies equations (14)–(15) and the \(k=4\) supercritical result. The 2016 four-state paper covers translation-invariant behavior at lower orders, while the 2025 follow-up treats the different “key” compatibility graph. The present claim is restricted to \(I_2\), gives a lower bound rather than a global exact periodic count for \(k\ge6\), and makes no extremality or free-energy claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Statement-level best-of-knowledge comparison found no stronger prior theorem implying the complete final claim; source-specific exclusions and reading limits documented.
+
+## value
+
+PASS
+
+Identifies a genuine change in bifurcation orientation at the first higher tree order k=6 and proves a nonempty activity interval with four parity-distinct splitting Gibbs measures. This resolves a natural qualitative phase-diagram gap left after the exact k=4 analysis, not a routine restatement of the general parameterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
