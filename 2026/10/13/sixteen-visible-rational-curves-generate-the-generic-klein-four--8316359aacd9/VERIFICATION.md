@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof uses three independent layers.
+# Independent mathematical audit
 
-First, the source quartic restricted to a coordinate line is a binary quartic in the squared ratio. A repeated root would make the source surface singular, so the six discriminants \(b_{ij}^2-4a_i a_j\) are nonzero on the smooth locus. The resulting four fixed points per source coordinate line become two quotient points per quotient coordinate edge.
+## correctness
 
-Second, at such a quotient point the two missing coordinates and \(Q\) give local coordinates with equation analytically equivalent to \(uv+w^2=0\). This proves the \(A_1\) type and shows how the two coordinate-face conics separate on the minimal resolution. The coordinate hyperplane is locally twice one ruling, giving the global relation \(H=2C_i+F_i\).
+PASS
 
-Third, `verify.py` performs exact finite arithmetic on the resulting incidence data. It checks that the four face vectors have binary rank \(3\), so adjoining the four half-hyperplane classes has index \(2^3\) in \(A_1^{\oplus12}\oplus\langle4\rangle\). It obtains discriminant \(2^8\). The same script recomputes from the source's two stated gluing steps that \((M_{2,2}\oplus\langle4\rangle)'\) also has discriminant \(2^8\).
+For the complex very general symplectic (Z/2)^2-invariant quartic K3 of Piroddi family no.3, smoothness forces each binary face discriminant nonzero and a_i!=0. Its quotient S:z0 z1 z2 z3+Q(z)^2=0 has two A1 nodes on each of six coordinate edges. Each face section is 2D_i for a smooth conic D_i; on resolution 12 exceptional (-2) curves and four strict transform (-2) conics form the subdivision of a doubled K4 with each face incident with six exceptional curves. Locally uv+w²=0 shows H=2C_i+F_i. The mod-2 face incidence rank equals three, giving index 2^3 in A1^12⊕<4> and lattice discriminant 2^14/2^6=2^8, rank 13. Piroddi Proposition 2.4.1 plus Theorem 3.2.3 independently identify the very-general NS lattice with exactly same rank/discriminant, hence index one. Independent exact combinatorial lattice replay confirms arithmetic, not analytic smoothness/quotient assertions.
 
-The checker does not replace the analytic quotient argument and does not attempt to certify statements for special members where the Picard rank jumps or a face conic degenerates.
+## originality
+
+PASS
+
+Piroddi 2024 independently establishes the source V4 fixed-point count, quotient model and abstract generic Néron–Severi lattice, receiving full prior credit. The reviewed additional result explicitly realizes and proves generators through four geometrically visible coordinate conics plus twelve node exceptional curves, their doubled-K4 incidence, and index/discriminant saturation; this explicit generator configuration is not stated in the inspected primary Piroddi sections. Schaffler 2017/2018 considers a different family of Klein-four K3 covers with different dimension and geometry. Resultary search found no statement-level matching generator theorem.
+
+## value
+
+PASS
+
+Explicit effective rational (-2)-curve generators of the very-general Néron–Severi lattice, with visible projective equations and incidences, are motivated structural data for K3 lattice geometry and quotient birational models. The construction strengthens an abstract isometry class with concrete geometric basis, which is a meaningful intrinsic invariant rather than a cosmetic restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
