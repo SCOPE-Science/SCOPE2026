@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Each edge has 2(d-1) neighbours, so a strong-majority 2-colouring is exactly an edge-signing with zero sum on each edge neighbourhood. The incidence identity T(x)+T(x+e_i)=2s_i(x) gives (d-2)T+AT=0. Walsh characters diagonalize cube adjacency with eigenvalues d-2|S|, forcing T into the d-dimensional level-(d-1) space. Averaging T across an i-edge retains exactly coefficient a_i, whence s_i=a_i chi_[d]\\{i} and each a_i must be a sign; every sign tuple conversely balances all neighbours. The translation action on tuple exponents has matrix I+J over F2; its rank is d for even d and d-1 for odd d, establishing the orbit count. Brute-force all \\(2^4\\) and \\(2^{12}\\) assignments on Q2 and Q3 gives 4 and 8 valid signings; all formula families were independently checked through d=8. Finite checks are not used in place of the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kalinowski et al. introduce the invariant, give cycle examples and broad regular-graph existence bounds (arXiv:2605.23828).",
+        "Antoniuk et al. prove a five-colour general upper bound (arXiv:2607.00212).",
+        "Pękała and Przybyło prove three colours suffice for all graphs of minimum degree at least five (arXiv:2608.04122, Theorem 4)."
+      ],
+      "reasoning": "Upper bounds of three or more colours cannot yield a complete two-colour classification or enumerate optimal colourings. The cited cycle result concerns dimension two alone. None of these primary sources proves the full cube formula or the orbit split.",
+      "searches": [
+        "strong majority index K3,4 K4,5 K4,7 graph edge coloring exact obstruction",
+        "\"strong majority\" \"complete bipartite\" \"K\" edge colouring 2026",
+        "\"hypercube\" \"strong majority edge\" coloring 2 colors",
+        "arXiv:2605.23828 section Strong majority edge-colorings",
+        "arXiv:2608.04122 Theorem 4"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2605.23828",
+      "https://arxiv.org/html/2607.00212v1",
+      "https://arxiv.org/html/2608.04122v2",
+      "https://doi.org/10.1137/07068014X",
+      "Published research-record summary titled Exact strong majority index of complete graphs (not a full-text inspection)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original paper develops strong-majority edge existence and includes a cycle modulo-four statement and an Eulerian graph upper bound, but no binary hypercube sign classification.",
+        "A later general three-colour minimum-degree theorem is not an optimal two-colour classification.",
+        "Polychromatic colourings of cube subcubes (D. Offner, SIAM J. Discrete Math., DOI 10.1137/07068014X) impose a distinct subcube-colour coverage property, not edge-neighbourhood equality."
+      ],
+      "reasoning": "The new conclusion specifies every permitted edge sign, exact labelled count and automorphism orbits for all dimensions. These cannot be deduced solely from generic existence bounds or the named differently constrained polychromatic property without the new Walsh rigidity argument.",
+      "searches": [
+        "strong majority edge coloring complete bipartite graphs exact number colors K_mn two color three color",
+        "line graph hypercube zero eigenvector ±1 two color neighborhood balanced",
+        "\"line graph\" \"hypercube\" \"zero eigenvalue\" 2 color edge",
+        "arXiv:2605.23828 Observation 11 and Proposition 21",
+        "arXiv:2608.04122 Theorem 4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A strong-majority two-edge-colouring is a +/-1 vector in ker A(L(Q_d)); its local edge balance is B^T B s=2s for the unsigned vertex-edge incidence matrix B.",
+        "Search results about Walsh spectra and other hypercube edge invariants did not state the sign-vector count or colour-orbit classification."
+      ],
+      "reasoning": "The proof explicitly identifies the signed nullvectors and all orbit types. Spectral nullity alone supplies only a real vector-space dimension, and studies of other cube Fourier invariants are not implication-equivalent to the discrete sign classification.",
+      "searches": [
+        "strong majority 2-edge colorings hypercube Q_d all optimal edge colorings Walsh Fourier signs parity coordinates count 2^d",
+        "line graph of hypercube adjacency kernel binary sign eigenvectors exactly 2^d parity edge coloring strong majority",
+        "hypercube graph edge coloring every edge adjacent equal number red blue count"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Results returned for hypercube and Walsh terms concern different invariants (Fourier energies, neighborhood complexes, metric dimensions, polytope spectra).",
+        "A published exact-index result for complete graphs concerns complete graphs rather than Boolean cubes; only its search summary was available."
+      ],
+      "reasoning": "No retrieved exact table or theorem has a statement implying an all-dimensional classification and enumeration of locally balanced cube edge signs. A negative search result is not proof of novelty, and indexed coverage may be incomplete.",
+      "searches": [
+        "optimal edge strong majority colorings hypercubes all 2^n signed Walsh form automorphism orbits",
+        "\"hypercube\" \"majority edge\" \"two\" colorings",
+        "\"Q_d\" \"strong majority\" \"edge\"",
+        "strong majority 2-edge colorings hypercube Q_d all optimal edge colorings Walsh Fourier signs parity coordinates count 2^d"
+      ]
+    },
+    "rationale": "No inspected primary strong-majority paper or focused published index result establishes the precise classification of all two-colour edge signings of Q_d, their exact \\(2^d\\) count, or parity-dependent orbit decomposition. General existence and degree bounds are strictly weaker. A known ordinary zero-eigenspace dimension would also be weaker than the intersection with the sign cube. Search recall is imperfect; equivalent work under signless incidence or line-graph nullspace terminology remains a risk.",
+    "residual_risks": [
+      "An equivalent classification might exist under balanced signed line-graph eigenvectors rather than strong-majority terminology.",
+      "Search index coverage is incomplete and the related hypercube polychromatic paper was assessed from its abstract only."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the full cube classification; it contains the definition and partial existence context.",
+        "evidence": [
+          "No full-text hit for hypercube or cube.",
+          "Its Eulerian/regular results concern bounded color counts, not all two-colour cube edge patterns."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.23828",
+        "material_read": "Accessible full HTML-parsed text, including Motivation, Strong majority edge-colorings, propositions on regular and Eulerian graphs, and references; searched within full text for hypercube and cube.",
+        "method": "Read source text and compared its 2-colour cycle and general sufficient statements to full cube sign enumeration.",
+        "title": "Strong majority colorings of graphs",
+        "trigger": "Original definition and possible hypercube or line-graph two-colour coverage"
+      },
+      {
+        "assessment": "No dominating result on the edge-pattern count or orbit structure.",
+        "evidence": [
+          "General bound five; sufficient four-colour theorem; none enumerates cube 2-colour signings."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2607.00212v1",
+        "material_read": "HTML full text including introduction, three explicit four-colour obstructions and general-five-colour construction.",
+        "method": "Read the named main statements, constructions, and proof summary; checked whether Q_d exact two-colour patterns appear.",
+        "title": "Strong Majority Edge-Coloring",
+        "trigger": "General edge-majority bounds might subsume existence part"
+      },
+      {
+        "assessment": "Theorem 4 gives at most three colours at minimum degree five but does not classify optimal cube 2-colourings or count them.",
+        "evidence": [
+          "Theorem 4: all graphs with minimum degree at least five are strong-majority 3-edge-colourable.",
+          "Observations 9 and Claim 10 describe complete bipartite exceptions, unrelated to hypercube sign rigidity."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2608.04122v2",
+        "material_read": "Full HTML including sections 2–5, proof of Theorem 4, and observations on K3,4 and K4,5.",
+        "method": "Compared quantifiers, graph objects, and implications of the general three-colour theorem with the two-colour cube classification.",
+        "title": "On Strong Majority Edge Colourings with Few Colours",
+        "trigger": "Sharp later minimum-degree theorem and small-graph exceptions"
+      },
+      {
+        "assessment": "Distinct condition in accessible abstract; no full-document noncoverage certification asserted.",
+        "evidence": [
+          "Defines edge colouring for which every lower-dimensional subcube receives every colour, not a half-neighbourhood requirement."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/07068014X",
+        "material_read": "Accessible publisher abstract and problem definition only; no full text inspected.",
+        "method": "Compared the stated subcube coverage condition with edge-neighborhood balanced color counts.",
+        "title": "Polychromatic Colorings of Subcubes of the Hypercube",
+        "trigger": "Alternative terminology: coloured hypercube edges and color coverage of subcubes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8d01eafa-829f-458b-a1d4-518972605906",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a complete exact classification for the natural, unbounded-dimensional family of binary hypercubes, rather than a small numerical special case: it determines the optimum two-colour index, the entire set of colourings, exact counts and parity-dependent automorphism orbits. The Fourier reduction proves strong structural rigidity despite an exponentially increasing edge set, and the odd/even orbit dichotomy identifies a discrete global obstruction not available from generic upper bounds. The same signed-incidence mechanism is potentially reusable for other symmetric graphs, although no such extension is claimed.",
+    "status": "PASS"
+  }
+}
