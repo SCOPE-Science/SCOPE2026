@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The proof eliminates equilibrium stages to obtain the necessary and sufficient balance \(\gamma H/(1+\psi v)=K\), establishes the complete neutral segment and unique positive symmetric equilibrium, then block-diagonalizes the linearized delayed system under strain interchange. Its transcendental characteristic equation uses all three delay survival factors. A modulus bound proves that the unique simple real root is strictly rightmost; implicit differentiation gives the sharp coefficient. The computed finite examples numerically test residuals but are not invoked for the universal proof.
+PASS
 
-## Originality: PASS
+On the pairwise-identical strain-parameter subspace, let r=μ_L+δ, τ=Σω_j, s=exp(−Σα_jω_j)>0 and K=rμ_Iμ_V/(sδθ). The equilibrium stage-chain balances with viral concentration v>0 cancel v to give γH/(1+ψv)=K, while the H equation gives φ−η_HH−K(C+B)=0. If ψ=0, H=K/γ and every C+B=T=(φγ−η_HK)/(γK)>0, including two endpoints, solves all seven equations under R=φγ/(η_H K)>1; if ψ>0 both positive strains force C=B=vψ=(φγ−η_HK)/[K(2γ+η_Hψ)] and H=K(1+ψvψ)/γ, giving unique strict coexistence. Antisymmetric perturbations u=L−E,w=Y−Z,z=C−B have zero H tangent and form a 3-stage linear retarded block; eliminating gives (λ+r)(λ+μ_I)(λ+μ_V)−rμ_Iμ_V exp(−λτ)/(1+ψvψ)=0. For real x>−min rates, the polynomial product increases, delayed term decreases, and real F(x) has one simple zero λψ in (−min,0], λ0=0. Modulus of every complex root gives Re λ≤λψ, with equality only for real root. ψvψ is strictly increasing, so λψ strictly decreases. Implicit-function derivative at ψ=0 yields λψ=−rμ_Iμ_Vv0 ψ/[rμ_I+rμ_V+μ_Iμ_V+rμ_Iμ_V τ]+O(ψ²). This proves only the antisymmetric *linear* decay scale ~ψ^(−1), not nonlinear global stability; zero-delay boundaries included.
 
-The exact delayed characteristic equation, monotonicity in saturation, weak-saturation coefficient, and matching to a full neutral equilibrium segment are not stated in the introducing 2024 paper's equilibrium or global-stability sections. That source's global stability result for saturated coexistence does not imply any quantified exchange-mode spectral rate near zero saturation. The 2014 stochastic SIS/SIR paper already contains neutral lines, so the generic neutrality phenomenon is excluded from the originality claim; its models have no matching three-stage latency/delay characteristic equation. The 2019 mutation model studies distinct mechanisms. Search and full-text comparisons are detailed in AUDIT.json; unexamined literature remains a residual risk.
+## originality
 
-## Value: PASS
+PASS
 
-The parent study attributes coexistence to saturation, making the bilinear limit a natural model boundary. Exact neutral coexistence at equal kinetic parameters and the singular \(\psi^{-1}\) exchange-relaxation scale clarify why even a globally attracting coexistence state can exhibit extremely slow between-strain mixing under weak saturation. The positive delay-dependent coefficient is a reproducible quantitative diagnostic for designing or interpreting delayed model simulations. The result is a motivated boundary classification and quantified mode, not an arbitrary parameter substitution.
+The original seven-state model has saturated-incidence equilibria and Lyapunov stability results; the exact strictly symmetric zero-saturation continuum, exchange-sector real spectral abscissa, and leading small-saturation delay coefficient are not stated in its inspected equations/equilibrium section. General two-strain quasineutral literature treats different stochastic SIS/SIR systems and does not imply this model-specific characteristic root. This is best-of-knowledge subject to specialized bifurcation literature risks.
 
-## Closest literature and limitations
+## value
 
-Primary comparison: Elaiw–Alsaadi–Hobiny (2024), DOI 10.3934/math.2024671, Section 2.3 and Section 6. Related neutral-competition work: Kogan et al. (2014), DOI 10.1103/PhysRevE.90.042149; related different strain model: Nurtay et al. (2019), DOI 10.1098/rsos.181179. The claim does not give a global nonlinear mixing time, does not treat unequal strain parameters, and does not assert novelty of neutral coexistence in general.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The delayed seven-compartment two-virus model is a natural published competition system, and its degenerate identical-strain limit exposes a genuine neutral equilibrium manifold. Exact saturation selection and an all-delay leading real exchange root with explicit singular weak-saturation damping coefficient quantify an otherwise missing slow mode. This is a motivated parameter-boundary statement in an existing model, not merely checking that a known equilibrium satisfies the equations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
