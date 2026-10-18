@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T23:09:16Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Immutable Git RESULT.md at 40d46a820f74fdf355c691812bdc426ec204bde7",
+        "Curtis T. McMullen, Moduli spaces in genus zero and inversion of power series, Corollary 2 (2014)",
+        "Aluffi–Marcolli–Nascimento, Explicit formulas for the Grothendieck class of Mbar0n, 2025 Section 8",
+        "Independent exact checker MODULI_EULER_MOD4_AND_EXACT_INVERSE_COMPOSITION_OK"
+      ],
+      "rationale": "Let b_m=chi(overline M_{0,m+1}), with b_2=1. From Getzler–McMullen inversion and chi(M_{0,n+1})=(-1)^n(n-2)! the formal inverse is f(x)=2x-(1+x)log(1+x). Writing g=f^{-1}=x+h and differentiating yields h'=x+2h+hh', so b_{m+1}=2b_m+sum_{k=2}^{m-1}binom(m,k)b_k b_{m-k+1}. A complete parity-split induction modulo 4 proves b_{2r}=(-1)^{r+1} mod4, b_{2r+1}=2 mod4. Even-row binomial parity follows Lucas; the odd-row contribution uses the exact sum of its even binomial coefficients. Translating m=n-1 gives chi(overline M_{0,n}) mod4 = 1,2,3,2 for n congruent 3,0,1,2 mod4. Independent rational EGF composition checked to order 20 and full integer recurrence residues through b_70. The open spaces are not substituted for the compactified ones.",
+      "residual_risks": [
+        "Proof assumes n>=3, i.e. stable pointed rational curves; does not claim individual Betti-number residues.",
+        "Finite recurrence verification alone is not all-n proof; the separately reconstructed modular induction is required."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aluffi et al 2025 Section 8 derives chi-hat differential equation and full exact Stirling expressions.",
+          "McMullen 2014 Corollary 2 supplies universal generating-series inversion."
+        ],
+        "reasoning": "Exact formulas for individual coefficients theoretically determine residue classes but do not state, or immediately simplify to, the all-n mod-four theorem; the signed Lucas induction is additional structure. General inverse-function theory alone does not imply the periodic residue pattern.",
+        "searches": [
+          "Euler characteristic stable pointed rational curves Mbar0n mod 4 2-adic valuation Getzler McMullen inversion",
+          "explicit Stirling formulas Euler characteristic compactified genus zero modulo four",
+          "DOI:10.1112/mod.2025.10012"
+        ]
+      },
+      "checked_sources": [
+        "McMullen 2014 DOI:10.4171/LEM/60-1/2-2",
+        "Aluffi–Marcolli–Nascimento 2025 DOI:10.1112/mod.2025.10012",
+        "Goulden–Litsyn–Shevelev JIS 8 (2005)",
+        "Drake–Gessel–Xin arXiv:math/0609071",
+        "OEIS:A074059",
+        "Published mathematical-record semantic search Euler characteristic stable pointed rational curves Mbar0n mod 4 2-adic valuation Getzler McMullen inversion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Drake–Gessel–Xin prove oddness of negative Laurent exponents in a different auxiliary coefficient family; not b_m mod4.",
+          "Goulden et al establish a quadratic recurrence, not the residue induction.",
+          "Cambridge 2025 gives formula and Lambert W relation but no dyadic nondivisibility theorem."
+        ],
+        "reasoning": "The closest published theorems provide calculation methods, not congruence. The candidate’s proof isolates and proves the 2-adic pattern rather than claiming the underlying generating function is new.",
+        "searches": [
+          "arXiv:math/0609071 Theorem 1",
+          "Goulden Litsyn Shevelev JIS 8(2005) Theorem 1.1",
+          "Cambridge 2025 Section 8",
+          "McMullen 2014 Corollary 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same coefficients are the dimensions of the genus-zero cohomology ring and the inverse-series coefficients mn in Goulden et al. (2005), up to an index shift.",
+          "The equivalent number-theoretic form is b_{2r} odd with alternating mod-4 sign and b_{2r+1}=2 mod4."
+        ],
+        "reasoning": "Aliases A074059, cohomology dimension, inverse of 2x-(1+x)log(1+x), and Lambert-W coefficients were searched, not just moduli titles. No full alternating residue classification was found.",
+        "searches": [
+          "Euler characteristic stable pointed rational curves Mbar0n mod 4 2-adic valuation Getzler McMullen inversion",
+          "\"A074059\" \"mod 4\" \"parity\"",
+          "OEIS:A074059"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A074059 holds listed coefficients, a reversion identity and references; 2005 article prints first nineteen coefficients."
+        ],
+        "reasoning": "A finite Euler sequence is not proof of the asserted 4-periodic infinite congruence and does not constitute table coverage of the all-n statement.",
+        "searches": [
+          "OEIS:A074059",
+          "Goulden-Litsyn-Shevelev 2005 Table of coefficients",
+          "\"1 2 7 34 213\" \"mod 4\""
+        ]
+      },
+      "rationale": "Getzler/McMullen already establish the compactified Euler inverse-series relationship and its first numerical values. Aluffi–Marcolli–Nascimento 2025 Section 8 gives the same Euler differential equation, Lambert-W expression and Stirling-coefficient formulas, but no complete mod-four valuation classification. Goulden–Litsyn–Shevelev 2005 and Drake–Gessel–Xin 2007 analyze the identical sequence, its quadratic recurrence and Laurent-polynomial auxiliary coefficients, respectively; neither materially read statement is an all-n chi modulo four classification. Official OEIS A074059 has the functional equation and recurrence without such a rule. Exact equivalence, broader coverage, and same-sequence alternate notation were checked. Prior derivations furnish starting identities, not the asserted congruence induction. Best-of-knowledge, not a guarantee against older obscure integer-sequence congruences.",
+      "residual_risks": [
+        "Classical Lagrange-inversion, Ward-number, and sequence congruence sources not indexed under the geometric name might contain the mod-four law.",
+        "The general exact Stirling formulas, while not stating this result, could give a short alternative proof; this does not itself negate independent mathematical significance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INVERSION_COVERED_CONGRUENCE_NOT_STATED",
+          "evidence": [
+            "Corollary 2 attributes inverse relation to Getzler and lists 1,2,7,34,213,..."
+          ],
+          "identifier_or_url": "https://people.math.harvard.edu/~ctm/papers/home/text/papers/euler/euler.pdf",
+          "material_read": "Six-page complete primary PDF, Theorem 1, Corollary 2, Euler sequence and tree construction",
+          "method": "Read original PDF with rendered p. 2",
+          "title": "Moduli spaces in genus zero and inversion of power series",
+          "trigger": "Originating exact Mbar0n inversion theorem"
+        },
+        {
+          "assessment": "GENERAL_EXACT_FORMULAS_NOT_RESIDUE_LAW",
+          "evidence": [
+            "Section 8 states chi-hat'=chi-hat/(2+z-chi-hat) and 1,2,7,34,213 values."
+          ],
+          "identifier_or_url": "https://www.cambridge.org/core/journals/moduli/article/explicit-formulas-for-the-grothendieck-class-of-overline-mathcalm0n/3892A1BF4A1C500B68BE513195360134",
+          "material_read": "Full open access article section 8, equation (8.1), Lambert-W and Stirling forms; introduction and main theorem context",
+          "method": "Read full HTML scientific text and targeted Section 8",
+          "title": "Explicit formulas for the Grothendieck class of Mbar0n",
+          "trigger": "Plausibly dominating 2025 same-object characteristic formulas"
+        },
+        {
+          "assessment": "RECURRENCE_NOT_MOD_FOUR",
+          "evidence": [
+            "Defines identical inverse-functional-equation sequence and quadratic recurrence."
+          ],
+          "identifier_or_url": "https://uwaterloo.ca/math/sites/default/files/uploads/documents/glitshevjis2005.pdf",
+          "material_read": "Nine-page Journal of Integer Sequences article, introduction, Theorem 1.1 and recurrences",
+          "method": "Read full PDF and searched modulo, parity and congruence terminology",
+          "title": "On a Sequence Arising in Algebraic Geometry",
+          "trigger": "Same coefficients in earlier mathematical literature"
+        },
+        {
+          "assessment": "LAURENT_PARITY_NOT_CHI_RESIDUE",
+          "evidence": [
+            "Theorem 1 says negative powers in auxiliary Laurent polynomials are odd; differs from Euler values modulo four."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0609071",
+          "material_read": "Ten-page arXiv primary article, introductory Theorem 1, Laurent-polynomial structure and proof outlines",
+          "method": "Read full PDF and statement at pp. 1–3",
+          "title": "Three Proofs of the Goulden–Litsyn–Shevelev Conjecture",
+          "trigger": "Same sequence and possible stronger combinatorial implication"
+        },
+        {
+          "assessment": "SEQUENCE_RECORDED_NOT_MOD4_THEOREM",
+          "evidence": [
+            "A074059 includes recurrence and listed terms, no 4-residue law."
+          ],
+          "identifier_or_url": "https://oeis.org/A074059",
+          "material_read": "Complete OEIS listing including formulae, references and sequences",
+          "method": "Read official sequence entry",
+          "title": "OEIS A074059",
+          "trigger": "Exact sequence/deduplicated table lookup"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "McMullen/Getzler genus-zero inversion theorem",
+        "2025 all-n Euler characteristic formulas",
+        "Independent symbolic recurrence congruence proof"
+      ],
+      "rationale": "The Euler characteristic of every compactified genus-zero pointed moduli space is a canonical topological invariant. The theorem determines its complete two-primary behavior: it is never divisible by four and even-index values have exact valuation one. The all-size periodic residue pattern is not a restatement of a known numerical table and connects geometric stratification to Lucas parity; a self-contained natural infinite classification is mathematically valuable.",
+      "residual_risks": [
+        "No new geometric Betti-number theorem or higher-adic valuation is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "n>=3 stable pointed genus-zero compactification only.",
+    "The exact congruence is a formal consequence of known inversion machinery but was not identified as a previously stated theorem.",
+    "Public metadata sanitization unavailable; no publication plan ready."
+  ],
+  "schema_version": 1
+}

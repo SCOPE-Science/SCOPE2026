@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,30 +18,25 @@
   "schema_version": 1
 }
 ---
-Let
-\[
-b_m=\chi(\overline{\mathcal M}_{0,m+1}).
-\]
-The checker constructs \(b_m\) exactly from
-\[
-b_{m+1}=2b_m+\sum_{k=2}^{m-1}\binom{m}{k}b_kb_{m-k+1},
-\qquad b_2=1.
-\]
-It verifies through \(m=150\) that
-\[
-b_{2r+1}\equiv2\pmod4,
-\qquad
-b_{2r}\equiv(-1)^{r+1}\pmod4.
-\]
 
-As an independent algebraic check, the package represents the truncated exponential generating series with exact rational coefficients and verifies the formal composition
-\[
-\left(2x-(1+x)\log(1+x)\right)\circ g(x)=x
-\]
-through the full truncation order.
+# Independent mathematical audit
 
-The first compactified Euler values are checked against the published sequence
-\[
-1,2,7,34,213,1630,14747,153946,1821473.
-\]
-Finite computation is regression evidence only; the all-parameter result is the symbolic recurrence induction in RESULT.md.
+## correctness
+
+PASS
+
+Let b_m=chi(overline M_{0,m+1}), with b_2=1. From Getzler–McMullen inversion and chi(M_{0,n+1})=(-1)^n(n-2)! the formal inverse is f(x)=2x-(1+x)log(1+x). Writing g=f^{-1}=x+h and differentiating yields h'=x+2h+hh', so b_{m+1}=2b_m+sum_{k=2}^{m-1}binom(m,k)b_k b_{m-k+1}. A complete parity-split induction modulo 4 proves b_{2r}=(-1)^{r+1} mod4, b_{2r+1}=2 mod4. Even-row binomial parity follows Lucas; the odd-row contribution uses the exact sum of its even binomial coefficients. Translating m=n-1 gives chi(overline M_{0,n}) mod4 = 1,2,3,2 for n congruent 3,0,1,2 mod4. Independent rational EGF composition checked to order 20 and full integer recurrence residues through b_70. The open spaces are not substituted for the compactified ones.
+
+## originality
+
+PASS
+
+Getzler/McMullen already establish the compactified Euler inverse-series relationship and its first numerical values. Aluffi–Marcolli–Nascimento 2025 Section 8 gives the same Euler differential equation, Lambert-W expression and Stirling-coefficient formulas, but no complete mod-four valuation classification. Goulden–Litsyn–Shevelev 2005 and Drake–Gessel–Xin 2007 analyze the identical sequence, its quadratic recurrence and Laurent-polynomial auxiliary coefficients, respectively; neither materially read statement is an all-n chi modulo four classification. Official OEIS A074059 has the functional equation and recurrence without such a rule. Exact equivalence, broader coverage, and same-sequence alternate notation were checked. Prior derivations furnish starting identities, not the asserted congruence induction. Best-of-knowledge, not a guarantee against older obscure integer-sequence congruences.
+
+## value
+
+PASS
+
+The Euler characteristic of every compactified genus-zero pointed moduli space is a canonical topological invariant. The theorem determines its complete two-primary behavior: it is never divisible by four and even-index values have exact valuation one. The all-size periodic residue pattern is not a restatement of a known numerical table and connects geometric stratification to Lucas parity; a self-contained natural infinite classification is mathematically valuable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
