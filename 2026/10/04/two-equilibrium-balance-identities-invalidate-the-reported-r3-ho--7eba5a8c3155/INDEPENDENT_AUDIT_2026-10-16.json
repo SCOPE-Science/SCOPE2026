@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T12:56:11.074575Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Reconstructed exact printed treatment differential equation w_dot=w(beta*z-b-c) and prey differential equation x_dot=r*x*(1-x/K)-m*x*y/(a1+x²)-n*x*z/(a2+x²). For interior equilibrium w>0, beta>0, z=(b+c)/beta; x>0,y,z>0 and positive parameters force 0<x<K, independent of any delay (constant histories). Printed R3 b=1/5,c=1/10,beta=1/10,K=1 forces z=3, but printed E*=(227/1000,1/2,3/2,2/5) has w_dot=-3/50 exactly, and direct full residual check from fraction arithmetic is nonzero. Earlier tuple x=3.36,z=8.85 violates both necessary identities. The exact assertion is that those two printed tuples cannot support the reported local stability/Hopf base-point calculations, NOT that model has no other equilibrium or Hopf bifurcation. Full original 42-page OA paper inspected including equations and numeric tables/figure captions; own check verifies source script fractional reconstruction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mondal et al. analyze distinct three-compartment predation/treatment equations; no separate treatment w and no R3 tuple.",
+          "Original AIMS article gives general symbolic equilibrium criterion but its printed R3 example violates it."
+        ],
+        "reasoning": "No prior theorem on an unrelated model implies the exact source-specific printed-equation inconsistency.",
+        "searches": [
+          "A study of a prey-predator model with disease in predator including gestation delay treatment and linear harvesting Hopf equilibrium 0.227 0.5 1.5 0.4",
+          "Mondal Sarkar Sk treatment infected predators fear refuge 2023"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.3934/math.2025660",
+        "https://doi.org/10.1038/s41598-023-43021-0",
+        "Resultary semantic query: A study of a prey-predator model with disease in predator including gestation delay treatment and linear harvesting Hopf equilibrium 0.227 0.5 1.5 0.4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Paper symbolic z*=(b+c)/beta implies its printed z*=1.5 under its R3 constants cannot be interior equilibrium.",
+          "The prey bound x*<K similarly excludes earlier x*=3.36 with K=1."
+        ],
+        "reasoning": "The error can be logically inferred from the source alone but is not a routine standalone textbook statement: the new finding documents two consequential concrete contradictions and limits the Hopf claim. No proof of impossibility of Hopf itself is asserted.",
+        "searches": [
+          "DOI:10.3934/math.2025660",
+          "A study of a prey-predator model with disease in predator including gestation delay treatment and linear harvesting Hopf equilibrium 0.227 0.5 1.5 0.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original article Eq (1.4)/(1.5) has w_dot=w(beta*z-b-c), while its R3 tuple z=1.5 and beta=0.1,b+c=0.3 have w_dot=-0.06.",
+          "The same source states z*=(b+c)/beta but omits correcting its numerical data."
+        ],
+        "reasoning": "Prior equation identity alone is not equivalent to explicitly identifying non-equilibrium published numerical examples and their invalidated downstream Hopf interpretation.",
+        "searches": [
+          "A study of a prey-predator model with disease in predator including gestation delay treatment and linear harvesting Hopf equilibrium 0.227 0.5 1.5 0.4",
+          "AIMS Mathematics 2025 Almuallem Mollah Sarwardi erratum correction Hopf R3 equilibrium"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published values E*=(0.227,0.5,1.5,0.4) and earlier (3.36,6.97,8.85,1.01) are taken directly from original 42-page PDF and independently checked."
+        ],
+        "reasoning": "This is a new rigorous audit of specific published numerical data; not an unknown free-standing tabulated invariant.",
+        "searches": [
+          "A study of a prey-predator model with disease in predator including gestation delay treatment and linear harvesting Hopf equilibrium 0.227 0.5 1.5 0.4",
+          "R3 0.227 0.5 1.5 0.4 3.36 6.97 8.85 1.01 numerical equilibrium 2025"
+        ]
+      },
+      "rationale": "PASS, qualified: The original source actually PRINTS the equilibrium z=(b+c)/beta symbolically, but subsequently uses incompatible numerical points. The new scientific assertion is the source-specific comparison and exact contradiction at R3 and earlier point, not new algebraic conservation identities in general. Material reading of original AIMS primary PDF and source-specific erratum search did not identify a correction. A different three-compartment treatment model from Mondal et al. is not the same equations.",
+      "residual_risks": [
+        "An erratum or amended computational implementation not found could explain original plots but would not change the printed-equation inconsistency.",
+        "Published symbolic equilibrium identity is known; originality rests only on overlooked contradictory concrete applications."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contradiction established; printed model and claimed base points cannot both be true",
+          "evidence": "Eq (1.4),(1.5) w equation, x equation, earlier equilibrium and R3 Hopf simulation captions",
+          "identifier_or_url": "https://doi.org/10.3934/math.2025660",
+          "material_read": "Complete 42-page OA primary PDF; Eq1.4/1.5 in opening pages, earlier numerical point near page 6, R3 values and diagrams near page20; selected PDF page images viewed",
+          "method": "Full PDF text inspection with visual screenshots of equations/parameter pages",
+          "title": "Almuallem, Mollah, and Sarwardi, A study of a prey-predator model with disease in predator including gestation delay, treatment and linear harvesting of predator species",
+          "trigger": "Exact allegedly inconsistent equations, equilibrium tuple and R3 parameter set"
+        },
+        {
+          "assessment": "Different model; no identical w-compartment balance",
+          "evidence": "Model compartments and governing treatment mechanism",
+          "identifier_or_url": "https://doi.org/10.1038/s41598-023-43021-0",
+          "material_read": "Abstract and model-level description read",
+          "method": "Web primary-article inspection",
+          "title": "Mondal, Sarkar, Sk, Treatment of infected predators under the influence of fear-induced refuge",
+          "trigger": "Potential earlier treatment-model correction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Exposes an exactly demonstrable, quantitatively nonzero defect in the base point used for published local stability and Hopf figures; such a defect breaks the applicability of those calculations to the stated model, a substantive correction to a published biological dynamical analysis. The two necessary identities are elementary, but their contradiction with claimed key numerical outputs gives clear scientific motivation and consequence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The corrected positive equilibrium, if it exists, and its stability/Hopf properties are not determined.",
+    "SOURCE TEXT RENDERING DEFECT: frozen RESULT.md contains decoded incorrect TeX/control characters (missing backslash in not-equal and carriage return before right); must fix with fully guarded corrected bytes before public release."
+  ],
+  "schema_version": 1
+}

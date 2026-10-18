@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The treatment-balance identity \(z^*=(b+c)/\beta\) follows directly from the printed \(w\)-equation whenever \(w^*>0\). The prey balance independently forces \(0<x^*<K\) at an interior equilibrium. Exact-rational substitution verifies the R3 treatment residual \(-3/50\) and a nonzero full residual vector.
+## correctness
 
-## Originality
-PASS. Exact DOI, coordinate, erratum, alias, equilibrium-balance, and semantic searches found no published correction or prior result stating this source-specific inconsistency. The closest inspected treatment-of-infected-predators paper uses a different three-state model without the separate treatment compartment that yields the decisive identity here.
+PASS
 
-## Value
-PASS. The reported R3 point is used as the base state for local-stability and Hopf-bifurcation simulations. Because local stability and Hopf theory require an actual equilibrium, the exact balance failure materially limits those numerical conclusions. The finding also supplies two necessary identities that a corrected equilibrium must satisfy.
+PASS: Reconstructed exact printed treatment differential equation w_dot=w(beta*z-b-c) and prey differential equation x_dot=r*x*(1-x/K)-m*x*y/(a1+x²)-n*x*z/(a2+x²). For interior equilibrium w>0, beta>0, z=(b+c)/beta; x>0,y,z>0 and positive parameters force 0<x<K, independent of any delay (constant histories). Printed R3 b=1/5,c=1/10,beta=1/10,K=1 forces z=3, but printed E*=(227/1000,1/2,3/2,2/5) has w_dot=-3/50 exactly, and direct full residual check from fraction arithmetic is nonzero. Earlier tuple x=3.36,z=8.85 violates both necessary identities. The exact assertion is that those two printed tuples cannot support the reported local stability/Hopf base-point calculations, NOT that model has no other equilibrium or Hopf bifurcation. Full original 42-page OA paper inspected including equations and numeric tables/figure captions; own check verifies source script fractional reconstruction.
 
-## Closest literature and limitations
-The closest inspected literature is Mondal, Sarkar, and Sk (2023), DOI 10.1038/s41598-023-43021-0; it studies infected-predator treatment but has a different compartment structure and does not cover this consistency check. The present result does not rule out a different positive equilibrium or a corrected Hopf bifurcation. A hidden implementation using different equations or parameters could explain the figures but would not validate the printed R3 tuple for system (1.5).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified: The original source actually PRINTS the equilibrium z=(b+c)/beta symbolically, but subsequently uses incompatible numerical points. The new scientific assertion is the source-specific comparison and exact contradiction at R3 and earlier point, not new algebraic conservation identities in general. Material reading of original AIMS primary PDF and source-specific erratum search did not identify a correction. A different three-compartment treatment model from Mondal et al. is not the same equations.
+
+## value
+
+PASS
+
+PASS: Exposes an exactly demonstrable, quantitatively nonzero defect in the base point used for published local stability and Hopf figures; such a defect breaks the applicability of those calculations to the stated model, a substantive correction to a published biological dynamical analysis. The two necessary identities are elementary, but their contradiction with claimed key numerical outputs gives clear scientific motivation and consequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
