@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The global three-two-cycle bound follows from a complete two-branch inverse reduction and a Rolle argument: the derivative of the resulting scalar function has at most two zeros for any exponent other than one. Four exact witness signs prove three distinct cycles. A derivative identity proves two repellers and one attractor, and independent one-sided inequalities exclude every fixed point. The included high-precision program tests the stated exact signs and physical orbit identities, but infinite claims rest on the written analytical proof.
+
+**Originality — PASS, with priority uncertainty.** The originating Lawnik–Moysis–Volos (2023) full-text presentation establishes the family and focuses on fixed points and numerical chaotic behavior; it does not state the global primitive-two bound or the rational triple-coexistence witness. A relevant same-family mathematical finding counts fixed points, which does not imply two-cycle counts. Hogan–Higham–Griffin concerns piecewise-linear gap maps; Gaivão–Nogueira requires contracting branches, contradicted by the witness. Broader antecedents in alternate formulations remain possible. The complete 2007 piecewise-linear paper was not inspected, but its explicit hypotheses do not cover these nonlinear power maps.
+
+**Mathematical value — PASS.** Three is a structurally sharp global cap for a nonlinear discontinuous family. The exhibited open region has no equilibria but does have a stable primitive two-cycle together with two unstable two-cycles, resolving a motivated issue left by analyses centered on fixed-point absence. The exceptional continuum at the linear exponent shows the necessity of the restriction. No claim is made about global chaos, entropy, or cryptographic security.
+
+Self-review: passed. Independent audit: not yet performed.
