@@ -1,15 +1,21 @@
-# Scientific assessment: four-corner normal compression width
+# Independent mathematical audit
 
-## Correctness (C): PASS
-For every pair \(a,b>0\), all objects, quantifiers, normalization and equality cases are spelled out in `RESULT.md`. The proof represents every isometric \(4\times2\) compression by four rank-one qubit effects, derives the universal inequality \(\|\mathbf h+\mathbf k\|+\|\mathbf h-\mathbf k\|\le2\) by direct grouping, and translates the smaller ellipse semiaxis into a positive matrix inequality. It attains the bound using explicit rank-one effects, then reconstructs every equality condition: the Gram-matrix residual must vanish, all four weights equal \(1/4\), the Bloch directions are fixed up to one rotation, and the rows are fixed up to diagonal phases. This proves both the exact value and all-attainer orbit; there are no limiting or unproved infinite-dimensional steps. A standalone exact rational checker, extracted from this package, passes eight Pythagorean parameter cases. Finite tests are not an infinite or continuum proof; the analytic steps are the evidence.
+## correctness
 
-## Originality (O): PASS, with explicit comparison risk
-The inspected 2021 Bourin–Lee paper defines elliptical width and proves a general positive-block inequality but provides no rectangle optimum or equality-orbit theorem. The inspected 2026 Sababheh work identifies the exact positive-block norm defect and treats three-point normal examples; it does not evaluate four-point rectangles. The earlier three-point normal incircle formula applies to at most three spectral values and cannot supply the four-vertex numerical optimum. The most important older overlap is Busch–Heinosaari's necessary unsharp-qubit compatibility inequality, and Yu et al.'s more general compatibility theorem. **These results already imply the key upper bound by a short mathematical reduction**; that bound alone is not claimed novel. The claimed new content is the exact extremal width with a concrete attaining isometry and **all** maximal compression planes in a diagonal-unitary orbit, an equality-case optimization not stated by those papers. Their broad compatibility classifications create a residual risk of an implicit equivalent extremal classification, which remains disclosed; no novelty follows merely from unsuccessful searches.
+PASS
 
-## Value (V): PASS
-This is the first natural four-vertex test after three-eigenvalue normal spectra. The four-point optimum is \(2ab/\sqrt{a^2+b^2}\), strictly smaller than the rectangle's inscribed disk diameter \(2\min(a,b)\); for a square it is \(\sqrt2\) rather than \(2\). The all-maximizer orbit and unique centered disk describe a genuine rigidity phenomenon for a motivated operator-theoretic invariant. The result feeds the recent exact positive-block defect identity without claiming its invention or extending to arbitrary polygons. Its geometry and complete equality-case classification, not merely a reusable inequality, support its value.
+For any a,b>0, every V:C²→C⁴ isometry defines four rank-one effects E_st whose Bloch weights w_st sum to 1 and vectors sum to 0. The compressed numerical range is a translated ellipse with smaller singular value τ of real rows a h,b k. Grouping opposite effect pairs gives ||h+k||+||h−k||≤2. If τ is the smaller semiaxis then the Gram matrix G≽τ² diag(a^−2,b^−2); test on (1,±1) yields 2≥2τ√(a^−2+b^−2), hence τ≤ab/√(a²+b²). Explicit E_st=(I+s(b/r)σx+t(a/r)σz)/4 are rank one, sum to I, and give compressed (ab/r)(σx+iσz), square-zero with centered disk of radius ab/r. At equality the PSD slack G−τ²diag vanishes on spanning (1,±1), forcing h⊥k and norms b/r,a/r. Triangle-equality vectors then force opposite Bloch pairs and all weights 1/4; a qubit rotation fixes them, and row-Gram equality leaves only ambient independent diagonal phases. This proves all maximizers and the same centered disk. Finite rational checks are illustrative, not proof for continuum.
 
-## Sources and limits
-Primary source: Sababheh, arXiv:2610.04377v1 (first posted 2026-10-03). Closest foundational source: Bourin and Lee, arXiv:2111.15180v1. Measurement comparisons: Busch and Heinosaari, arXiv:0706.1415, especially Proposition 5 and equations (39), (50); Yu–Liu–Li–Oh, arXiv:0805.1538, especially Theorem 1. The residual originality risk is implicit reduction via known qubit joint-measurability geometry; no claim of priority or independently certified originality is made. Restriction to strictly nondegenerate rectangles and two-dimensional compressions is material.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge after implication-level comparison. Busch–Heinosaari already prove the binary-qubit compatibility inequality ||h+k||+||h−k||≤2 used for the universal upper bound, and Sababheh Theorem 3.2 already identifies the positive-block defect with elliptical width. Neither gives the numerical optimization for FOUR rectangular spectral corners or the equality rigidity for all optimizing two-planes. The complete published Resultary three-spectral-point normal-compression incircle theorem was read and requires at most three distinct spectral points, a genuinely different case. The new mathematical content is exact δ2(D_ab)=2ab/√(a²+b²), centered disk uniqueness and diagonal-phase classification of all maximizers, not the borrowed compatibility or block-norm identity.
+
+## value
+
+PASS
+
+The rectangular four-point normal spectrum is a minimal natural step beyond triangular three-point spectral compression. Knowing the exact largest minor ellipse semiaxis, its unique optimizing disk, and the full diagonal-phase orbit of attaining planes answers a concrete operator-geometric extremal and rigidity question; the positive-block defect is a useful computed corollary, explicitly credited to Sababheh. It is more than restating qubit compatibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
