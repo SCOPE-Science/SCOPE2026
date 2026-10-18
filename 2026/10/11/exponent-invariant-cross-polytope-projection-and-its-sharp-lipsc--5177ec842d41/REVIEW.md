@@ -1,11 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness — PASS.** Strict convexity and KKT give a unique exponent-invariant soft threshold for every real \(1<p<\infty\). On each exterior affine cell the Jacobian is a signed centering matrix; every active-set size is realized, proving the sharp global modulus. The mean-zero test vector supplies strict expansion outside the Hilbert exponent. A zero-sum quartic identity, a complete stationary-point analysis, and sharp weighted Hölder duality prove the three-coordinate fourth-power constant. The standalone rational and numerical checks passed, but infinite-parameter conclusions rely on the analytic proof.
+## correctness
 
-**Originality — PASS, with limits.** The Euclidean soft-threshold formula is established by Duchi et al. (2008), and the paper by Kobos (2014) concerns optimal linear hyperplane projections. Neither inspected result states the all-exponent nonlinear Lipschitz phase or the exact \(\ell_4^3\) constant. Closest indexed operator-norm and nonlinear order-cone projection results involve different maps and targets, and no searched claim logically implies this one. The elementary KKT formula alone is not claimed as an original discovery. Equivalent historical formulations or exact centering-operator norm calculations outside the inspected sources remain possible.
+PASS
 
-**Value — PASS.** The result gives a sharp, geometrically motivated robustness criterion for best sparse approximation and isolates its first genuine non-Hilbertian failure. The three-coordinate radical is motivated by this minimal failure, not an arbitrary low-dimensional slice. It supplies an exact full-family active-set reduction and precise theorem boundaries.
+Strict convexity and coordinatewise KKT yield a unique threshold soft-shrinkage minimizer with residual tau independent of p for all real 1<p<infinity, r>0; inside the l1-ball it is identity. On each exterior sign/active-set cell, differentiation gives a sign-conjugate of C_k=I-11^T/k. Continuity and finite polyhedral cell decomposition bound the global Lipschitz quotient by max(1,||C_k||_p), while open full-dimensional cells realize every active k and any maximizing direction. C2 is contractive in every p, Ck orthogonal when p=2. The zero-mean vector (1,1,-2) and perturbation by constants gives strict amplification when p!=2 and n>=3. In k=3,p=4 the zero-sum quartic identity reduces maximizing ||C3 x||_4 to a quadratic constrained by sum x_i^4; Lagrange cubic gives only two-equal-coordinate extremizers above 1, then sharp weighted Hölder gives L^4=(1+2^(1/3))^3/9, numerically 1.0641658628581188. Duality covers p=4/3.
 
-**Sources and scientific limits.** Primary comparisons: Kobos, arXiv:1411.6214v1 (linear projection constants); Duchi et al., DOI:10.1145/1390156.1390191 (Euclidean \(\ell_1\)-ball projection). A related optimal-value Lipschitz paper, DOI:10.1007/s10957-021-01948-2, addresses a different quantity. Results are limited to finite-dimensional real \(\ell_p\) with \(1<p<\infty\) and positive ball radii; there is no full elementary closed expression for every dimension and exponent. Independent validation is not claimed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Euclidean Duchi et al. gives p=2 thresholding only; it does not imply exponent independence or non-Hilbertian sharp Lipschitz profiles. The later SCOPE weighted cross-polytope theorem gives a general active-subset norm formula including all equal weights, but its first Git import 13:11:30Z was AFTER this unweighted record at 13:11:22Z. This record is first among the inspected SCOPE versions and additionally evaluates the first expansive fourth-power constant in radicals, not stated in the weighted theorem. Priority outside inspected sources remains unverified.
+
+## value
+
+PASS
+
+This gives a sharp exact stability invariant for a fundamental projection used in approximation and optimization, including a clean first dimension/exponent where Hilbert nonexpansivity fails. The p=4 three-dimensional radical is a motivated nontrivial evaluation of an induced centering norm rather than an arbitrary tiny computation; all-n formula also isolates the exact mechanism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

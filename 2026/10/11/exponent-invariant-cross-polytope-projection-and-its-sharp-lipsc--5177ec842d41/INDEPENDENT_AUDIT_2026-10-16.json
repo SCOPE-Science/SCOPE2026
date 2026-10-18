@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T15:21:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Strict convexity and coordinatewise KKT yield a unique threshold soft-shrinkage minimizer with residual tau independent of p for all real 1<p<infinity, r>0; inside the l1-ball it is identity. On each exterior sign/active-set cell, differentiation gives a sign-conjugate of C_k=I-11^T/k. Continuity and finite polyhedral cell decomposition bound the global Lipschitz quotient by max(1,||C_k||_p), while open full-dimensional cells realize every active k and any maximizing direction. C2 is contractive in every p, Ck orthogonal when p=2. The zero-mean vector (1,1,-2) and perturbation by constants gives strict amplification when p!=2 and n>=3. In k=3,p=4 the zero-sum quartic identity reduces maximizing ||C3 x||_4 to a quadratic constrained by sum x_i^4; Lagrange cubic gives only two-equal-coordinate extremizers above 1, then sharp weighted Hölder gives L^4=(1+2^(1/3))^3/9, numerically 1.0641658628581188. Duality covers p=4/3.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Weighted theorem covers unweighted as special w_i=1 but was imported after this record",
+          "Duchi gives Euclidean target projection"
+        ],
+        "reasoning": "Chronology prevents treating the later weighted result as earlier prior art for this first record; direct same-scope metric projection results from elsewhere remain a risk.",
+        "searches": [
+          "Resultary/SCOPE exact Lipschitz stability and contractivity threshold for weighted cross-polytope projections; RESULT.md, commit 91e79a79d88bf2bba4d611bd332b85390b5e31d2 (2026-10-11T13:11:30Z)",
+          "Duchi et al. 2008"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1145/1390156.1390191",
+        "arXiv:1411.6214",
+        "Resultary/SCOPE exact Lipschitz stability and contractivity threshold for weighted cross-polytope projections; RESULT.md, commit 91e79a79d88bf2bba4d611bd332b85390b5e31d2 (2026-10-11T13:11:30Z)",
+        "Resultary/SCOPE exponent-invariant cross-polytope projection; RESULT.md, commit 62f71f7e87b9a9c308e9fc4d3dc5a52d431a2196 (2026-10-11T13:11:22Z)",
+        "Resultary semantic: normed l_p metric projection onto l1 ball soft threshold Lipschitz centering operator nonexpansive"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original unweighted import 2026-10-11T13:11:22Z; weighted generalization import 13:11:30Z",
+          "Radical for p4 n3 requires additional finite-dimensional Lagrange optimization"
+        ],
+        "reasoning": "Later weighted theorem subsumes most general claims but does not erase earlier independent novelty; Duchi p=2 cannot imply nonexpansive failure for p!=2 or p4 constant.",
+        "searches": [
+          "Git commits 62f71f7 and 91e79a79",
+          "Duchi 2008 ICML"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Later weighted theorem has J_S reducing to C_k for equal weights",
+          "Euclidean Duchi threshold formula uses p=2"
+        ],
+        "reasoning": "The closest general form is a later extension, while earlier Euclidean formula does not yield sharp non-Hilbertian Lipschitz norm.",
+        "searches": [
+          "Resultary semantic: normed l_p metric projection onto l1 ball soft threshold Lipschitz centering operator nonexpansive",
+          "Resultary/SCOPE exact Lipschitz stability and contractivity threshold for weighted cross-polytope projections; RESULT.md, commit 91e79a79d88bf2bba4d611bd332b85390b5e31d2 (2026-10-11T13:11:30Z)",
+          "Duchi et al. ICML 2008"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Simplex and constant-vector line have different feasible sets",
+          "No prior p4,n3 unweighted cross-polytope radical table found before this record"
+        ],
+        "reasoning": "Numerical benchmark is exact analytic expression with derivation; no known preexisting table located, but absence is not proof.",
+        "searches": [
+          "Resultary semantic: normed l_p metric projection onto l1 ball soft threshold Lipschitz centering operator nonexpansive",
+          "Resultary sharp ell4 stability of probability simplex",
+          "Resultary/SCOPE exact Lipschitz stability and contractivity threshold for weighted cross-polytope projections; RESULT.md, commit 91e79a79d88bf2bba4d611bd332b85390b5e31d2 (2026-10-11T13:11:30Z)"
+        ]
+      },
+      "rationale": "Euclidean Duchi et al. gives p=2 thresholding only; it does not imply exponent independence or non-Hilbertian sharp Lipschitz profiles. The later SCOPE weighted cross-polytope theorem gives a general active-subset norm formula including all equal weights, but its first Git import 13:11:30Z was AFTER this unweighted record at 13:11:22Z. This record is first among the inspected SCOPE versions and additionally evaluates the first expansive fourth-power constant in radicals, not stated in the weighted theorem. Priority outside inspected sources remains unverified.",
+      "residual_risks": [
+        "Older nonlinear best-approximation and centering-operator norm literature may contain same all-p modulus under another name.",
+        "Later SCOPE weighted generalization now covers general active-set formula; avoid describing it as currently uncontained.",
+        "Euclidean Duchi primary was not inspected in full; best-of-knowledge originality beyond known sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Euclidean p=2 algorithm, not all-p stability theorem",
+          "evidence": "Abstract discusses Euclidean l1-ball projections",
+          "identifier_or_url": "https://doi.org/10.1145/1390156.1390191",
+          "material_read": "Primary publication abstract and linked author manuscript metadata read, not full body",
+          "method": "ACM/author public metadata",
+          "title": "Efficient Projections onto the l1-Ball for Learning in High Dimensions",
+          "trigger": "original p2 threshold baseline"
+        },
+        {
+          "assessment": "Weighted theorem mathematically generalizes active-subset formula, but chronologically eight seconds later",
+          "evidence": "Finding formula J_S and nonexpansivity classification",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-lipschitz-stability-and-contractivity-threshold-for-weight--c92b6dad1bd0",
+          "material_read": "Entire published RESULT.md read, Git commit sequence checked",
+          "method": "Resultary GitHub source text",
+          "title": "Exact Lipschitz stability and contractivity threshold for weighted cross-polytope projections",
+          "trigger": "same metric projection broader later result"
+        },
+        {
+          "assessment": "KKT, cell Jacobians, Lagrange extremal verification and limitations inspected",
+          "evidence": "RESULT.md Proof steps 1–4",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/exponent-invariant-cross-polytope-projection-and-its-sharp-lipsc--5177ec842d41",
+          "material_read": "Full RESULT.md, SLOGAN and metadata read",
+          "method": "GitHub fixed commit/tree",
+          "title": "Exponent-invariant cross-polytope projection and its sharp Lipschitz threshold",
+          "trigger": "audited final claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives a sharp exact stability invariant for a fundamental projection used in approximation and optimization, including a clean first dimension/exponent where Hilbert nonexpansivity fails. The p=4 three-dimensional radical is a motivated nontrivial evaluation of an induced centering norm rather than an arbitrary tiny computation; all-n formula also isolates the exact mechanism.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.1145/1390156.1390191",
+    "arXiv:1411.6214",
+    "Resultary/SCOPE exact Lipschitz stability and contractivity threshold for weighted cross-polytope projections; RESULT.md, commit 91e79a79d88bf2bba4d611bd332b85390b5e31d2 (2026-10-11T13:11:30Z)",
+    "Resultary/SCOPE exponent-invariant cross-polytope projection; RESULT.md, commit 62f71f7e87b9a9c308e9fc4d3dc5a52d431a2196 (2026-10-11T13:11:22Z)",
+    "Resultary semantic: normed l_p metric projection onto l1 ball soft threshold Lipschitz centering operator nonexpansive"
+  ],
+  "disposition": "passed",
+  "limitations": "Real finite n, 1<p<infinity and r>0; no endpoint p=1/infinity or complex scalar claims; exact all-n formula as induced norm maximum, only p4,n3 elementary radical.",
+  "residual_risks": [
+    "Older nonlinear best-approximation and centering-operator norm literature may contain same all-p modulus under another name.",
+    "Later SCOPE weighted generalization now covers general active-set formula; avoid describing it as currently uncontained.",
+    "Euclidean Duchi primary was not inspected in full; best-of-knowledge originality beyond known sources."
+  ],
+  "schema_version": 1
+}
