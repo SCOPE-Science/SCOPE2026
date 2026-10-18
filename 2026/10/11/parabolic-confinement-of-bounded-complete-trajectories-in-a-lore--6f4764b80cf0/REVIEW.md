@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The transformed variable \(W=z-gx^2/(2a)\) satisfies \(\dot W=-bW+\kappa x^2\) exactly. Bounded completeness and \(b>0\) give the backward convolution formula; strictness follows because equality would force the entire bounded complete trajectory to be the origin. `verify.py` checks the cleared polynomial identity coefficient by coefficient.
+## correctness
 
-## Originality
-PASS. The primary 2021 paper was inspected, as was the complete 2011 parent-system paper. The latter's strongest nearby global theorem assumes \(bg>2a(f+g)\), equivalent to \(\kappa<0\), while the 2018 follow-up highlights \(bg=2a(f+g)\), equivalent to \(\kappa=0\). Targeted formula, alias, title, and DOI searches did not find the present \(\kappa>0\) pointwise confinement statement. Residual risk remains that an equivalent identity appears elsewhere under different notation.
+PASS
 
-## Value
-PASS. A pointwise parabolic constraint on every bounded complete non-equilibrium trajectory is structurally stronger than a mean-balance calculation and is directly usable to delimit or validate compact recurrent sets of the model.
+Direct differentiation of W=z−g x²/(2a) gives dW/dt=−bW+κx² because the mixed gxy cancels the x′ term. Exact independent SymPy polynomial expansion checked the identity. A bounded complete trajectory makes W bounded; variation of constants from t−T to t and b>0 eliminates e^(−bT)W(t−T), yielding the nonnegative backward convolution. Equality at any t implies x vanishes on its entire past, then the first equation forces y=0; the third reduces to z′=−bz and backward boundedness forces z=0. Autonomous uniqueness makes the trajectory identically zero. Every compact invariant point belongs to a bounded complete orbit, proving the set statement. No unsupported assertion of existence of chaotic or other non-equilibrium recurrence.
 
-## Closest literature and limitations
-The closest same-family results are the Li–Ou 2011 convergence theorem in the opposite-sign regime and the Wang–Li 2018 boundary heteroclinic result. The present theorem is only a necessary confinement statement for \(b>0\), \(\kappa>0\); it does not prove recurrence or classify \(\kappa\le0\).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The closest direct parent Lorenz-like theorem in Li–Ou 2011 analyzes the opposite sign bg>2a(f+g), κ<0, and its newer 2021 extension studies bifurcations and global heteroclinics, not the κ>0 backward memory/paraboloid exclusion. The 2018 boundary heteroclinic analysis has κ=0. Related Lorenz-84 exponential memory is for a different equation; it does not imply this exact parabolic transform for the Li–Zhao–Geng system. The elementary stable-filter technique is not claimed as new.
+
+## value
+
+PASS
+
+Exact pointwise parabolic confinement on every bounded complete non-equilibrium trajectory is more informative than a stationary moment balance, and is uniform in the arbitrary y-equation coefficients c,d. It gives a structurally motivated admissibility check for compact attractors on the κ>0 side of a natural parameter boundary; it does not purport to prove attractor existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

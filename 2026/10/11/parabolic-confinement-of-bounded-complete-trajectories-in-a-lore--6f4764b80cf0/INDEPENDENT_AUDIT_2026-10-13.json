@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T01:45:54.490458Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md 222bebdc075960157536ff9f0758b66f6422b783; independent exact differentiation reproduces source verifier identity",
+        "Source 2011 Li–Ou Theorem 3.2 compared in actual accessible primary full text"
+      ],
+      "rationale": "Direct differentiation of W=z−g x²/(2a) gives dW/dt=−bW+κx² because the mixed gxy cancels the x′ term. Exact independent SymPy polynomial expansion checked the identity. A bounded complete trajectory makes W bounded; variation of constants from t−T to t and b>0 eliminates e^(−bT)W(t−T), yielding the nonnegative backward convolution. Equality at any t implies x vanishes on its entire past, then the first equation forces y=0; the third reduces to z′=−bz and backward boundedness forces z=0. Autonomous uniqueness makes the trajectory identically zero. Every compact invariant point belongs to a bounded complete orbit, proving the set statement. No unsupported assertion of existence of chaotic or other non-equilibrium recurrence.",
+      "risks": [
+        "Without bounded two-sided completeness the backward memory is not justified; κ=0 loses strictness and κ<0 reverses the sign."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Ou Thm 3.2 assumes a>d and bg>2a(f+g), exactly κ<0, disjoint from the claim.",
+          "Lorenz-84 eddy memory uses its own eddy-energy state equation and parameters, not the mixed gxy transformed quadratic coordinate."
+        ],
+        "reasoning": "No stronger published coverage of the target κ>0 pointwise region was found; a model-general stable-filter lemma alone requires the nontrivial parameter-specific cancellation.",
+        "searches": [
+          "bounded complete trajectories Lorenz-like z minus g x squared over 2a parabolic confinement invariant sets",
+          "Li–Ou 2011 DOI 10.1007/s11071-010-9887-z Theorem 3.2",
+          "Resultary: 2026/9/20/SCOPE-lorenz84-eddy-memory-and-small-forcing-convergence--9ae03d7abd20"
+        ]
+      },
+      "checked_sources": [
+        "Li–Zhao–Geng 2021 original accessible full-text relevant sections",
+        "Li–Ou 2011 accessible 16-page original Theorem 3.2/3.3",
+        "Resultary: 2026/10/11/SCOPE-parabolic-confinement-of-bounded-complete-trajectories-in-a-lore--6f4764b80cf0 (self, exclude)",
+        "Resultary Lorenz-84 eddy memory (different vector field)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Li–Ou 2011 derives global convergence using a Lyapunov function only under κ<0.",
+          "The 2018 abstract flags the equality threshold bg=2a(f+g) or κ=0; the current κ>0 proof does not follow from it."
+        ],
+        "reasoning": "None of the directly relevant previous hypotheses includes κ>0, so they cannot logically imply the claimed strict confinement. A standard variation-of-constants argument is a method, not a previously established statement about this transformed coordinate.",
+        "searches": [
+          "bounded complete trajectories Lorenz-like z minus g x squared over 2a parabolic confinement invariant sets",
+          "Li–Ou 2011 Theorem 3.2",
+          "Li–Zhao–Geng 2021 DOI 10.1155/2021/6669956",
+          "Wang–Li 2018 DOI 10.11948/2018.1307"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact transformed variable W=z−gx²/(2a) cancels gxy and is a stable linear filter with nonnegative forcing under κ>0.",
+          "The 2021 primary text investigates dynamical stability, Hopf bifurcation and heteroclinics."
+        ],
+        "reasoning": "Equivalent formulations as positively forced stable filter or pointwise one-sided invariant paraboloid were sought; no inspected same-system published theorem presents the resulting complete-orbit confinement.",
+        "searches": [
+          "bounded complete trajectories Lorenz-like z minus g x squared over 2a parabolic confinement invariant sets",
+          "10.1155/2021/6669956",
+          "10.1007/s11071-010-9887-z"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The target is a necessary analytic geometric support law for all bounded complete trajectories, not a numerical bifurcation table or attractor dimension.",
+          "The 2021 local equilibrium tables do not imply positive W for all recurrent trajectories."
+        ],
+        "reasoning": "Closest records tabulate local stability/Hopf/heteroclinic cases; none presents an exact W(t) expression or the all-trajectory exclusion.",
+        "searches": [
+          "bounded complete trajectories Lorenz-like z minus g x squared over 2a parabolic confinement invariant sets",
+          "10.1155/2021/6669956",
+          "10.1007/s11071-010-9887-z"
+        ]
+      },
+      "rationale": "The closest direct parent Lorenz-like theorem in Li–Ou 2011 analyzes the opposite sign bg>2a(f+g), κ<0, and its newer 2021 extension studies bifurcations and global heteroclinics, not the κ>0 backward memory/paraboloid exclusion. The 2018 boundary heteroclinic analysis has κ=0. Related Lorenz-84 exponential memory is for a different equation; it does not imply this exact parabolic transform for the Li–Zhao–Geng system. The elementary stable-filter technique is not claimed as new.",
+      "residual_risks": [
+        "Stable-filter variants may have been stated outside same-system dynamical papers under a different invariant-region terminology.",
+        "The accessible 2018 article body was not read; its abstract is only evidence of its highlighted boundary case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MODEL_NOT_TARGET_CONFINEMENT",
+          "evidence": [
+            "The article establishes the system and analyzes equilibrium, Hopf, dynamics at infinity, heteroclinic behaviors; did not locate the stable-filter W memory or κ>0 strict parabolic theorem."
+          ],
+          "identifier_or_url": "doi:10.1155/2021/6669956; https://www.researchgate.net/publication/350114803_Dynamical_Analysis_and_Simulation_of_a_New_Lorenz-Like_Chaotic_System",
+          "material_read": "Accessible author-shared full article text: introduction/system (5), local behavior and theorem sections, dynamical infinity/heteroclinic discussion and conclusion",
+          "method": "Author-shared primary full-text HTML article (PDF text transcription) and targeted term inspection",
+          "title": "Dynamical Analysis and Simulation of a New Lorenz-Like Chaotic System",
+          "trigger": "The displayed six-parameter target ODE is introduced here"
+        },
+        {
+          "assessment": "OPPOSITE_PARAMETER_REGIME",
+          "evidence": [
+            "Theorem 3.2 assumes a>d and bg>2a(f+g), hence κ<0, and proves convergence/no closed orbits. Its theorem does not apply when κ>0."
+          ],
+          "identifier_or_url": "doi:10.1007/s11071-010-9887-z; https://www.researchgate.net/publication/251299558_Dynamical_properties_and_simulation_of_a_new_Lorenz-like_chaotic_system",
+          "material_read": "Accessible full original 16-page paper: equation (1.1), Lemma 3.1, Theorems 3.2–3.3 and their proofs, concluding limits",
+          "method": "Author-shared publisher-PDF textual primary article",
+          "title": "Dynamical properties and simulation of a new Lorenz-like chaotic system",
+          "trigger": "Same first/third coordinate equations; possible stronger old Lyapunov theory"
+        },
+        {
+          "assessment": "BOUNDARY_ONLY_LIMITED_ACCESS",
+          "evidence": [
+            "Abstract identifies bg=2a(f+g) for new heteroclinic results, corresponding to κ=0; full-paper noncoverage not inferred from abstract."
+          ],
+          "identifier_or_url": "doi:10.11948/2018.1307",
+          "material_read": "Journal abstract and stated boundary condition; body not inspected",
+          "method": "Public abstract only",
+          "title": "Hopf bifurcation and new singular orbits coined in a Lorenz-like system",
+          "trigger": "Same parent vector field and κ=0 boundary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact pointwise parabolic confinement on every bounded complete non-equilibrium trajectory is more informative than a stationary moment balance, and is uniform in the arbitrary y-equation coefficients c,d. It gives a structurally motivated admissibility check for compact attractors on the κ>0 side of a natural parameter boundary; it does not purport to prove attractor existence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a>0, b>0, f,g≥0, f+g>0 and κ=f+g−bg/(2a)>0 in the Li–Zhao–Geng Lorenz-like flow, every bounded two-sided complete non-equilibrium orbit has z(t)>g x(t)²/(2a) for every time, with exact backward memory W(t)=κ∫₀^∞ exp(−bs)x(t−s)² ds; the same necessary strict confinement holds on all non-origin points of compact invariant sets.",
+  "limitations": [
+    "Requires a>0, b>0, κ>0 and bounded completeness; no recurrence existence claim.",
+    "The 2018 boundary paper only abstract-inspected, with corresponding residual risk."
+  ],
+  "schema_version": 1
+}

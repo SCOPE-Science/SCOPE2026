@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact algebraic check is implemented in `verify.py`. It clears the denominator in \(W=z-gx^2/(2a)\) and verifies symbolically, over the integer polynomial ring in the parameters and state variables, that
-\[
-2a\dot W=-b(2az-gx^2)+\bigl(2a(f+g)-bg\bigr)x^2.
-\]
-The checker is finite only because it compares exact polynomial coefficients; it is not being used to infer an infinite-time dynamical statement from samples.
+# Independent mathematical audit
 
-The infinite-time step is proved analytically: for bounded complete trajectories and \(b>0\), variation of constants sends the backward homogeneous term to zero. Positivity of the kernel and \(\kappa>0\) then gives \(W\ge0\); equality at one time forces the origin trajectory by continuity, boundedness backward in the scalar \(z\)-equation, and uniqueness.
+## correctness
 
-The result does not certify existence of chaos, a compact attractor, or any non-equilibrium recurrent trajectory.
+PASS
+
+Direct differentiation of W=z−g x²/(2a) gives dW/dt=−bW+κx² because the mixed gxy cancels the x′ term. Exact independent SymPy polynomial expansion checked the identity. A bounded complete trajectory makes W bounded; variation of constants from t−T to t and b>0 eliminates e^(−bT)W(t−T), yielding the nonnegative backward convolution. Equality at any t implies x vanishes on its entire past, then the first equation forces y=0; the third reduces to z′=−bz and backward boundedness forces z=0. Autonomous uniqueness makes the trajectory identically zero. Every compact invariant point belongs to a bounded complete orbit, proving the set statement. No unsupported assertion of existence of chaotic or other non-equilibrium recurrence.
+
+## originality
+
+PASS
+
+The closest direct parent Lorenz-like theorem in Li–Ou 2011 analyzes the opposite sign bg>2a(f+g), κ<0, and its newer 2021 extension studies bifurcations and global heteroclinics, not the κ>0 backward memory/paraboloid exclusion. The 2018 boundary heteroclinic analysis has κ=0. Related Lorenz-84 exponential memory is for a different equation; it does not imply this exact parabolic transform for the Li–Zhao–Geng system. The elementary stable-filter technique is not claimed as new.
+
+## value
+
+PASS
+
+Exact pointwise parabolic confinement on every bounded complete non-equilibrium trajectory is more informative than a stationary moment balance, and is uniform in the arbitrary y-equation coefficients c,d. It gives a structurally motivated admissibility check for compact attractors on the κ>0 side of a natural parameter boundary; it does not purport to prove attractor existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
