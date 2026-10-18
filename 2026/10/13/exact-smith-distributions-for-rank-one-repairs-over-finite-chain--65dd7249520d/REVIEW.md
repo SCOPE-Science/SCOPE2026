@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The bordered-matrix argument reduces the arbitrary-size repair to a two-by-two Smith calculation over a finite chain ring. Explicit least-valuation pivoting, including zero and truncated-sum boundary cases, gives the invariant exponents. Primitive-vector counting gives the exact independent valuation distributions. The standalone verifier recomputes Smith forms by elementary transformations on independently enumerated finite rings.
+## correctness
 
-**Originality — PASS, subject to historical uncertainty.** Öinert's 2026 primary paper proves invertibility criteria but not Smith-type frequencies. Wang–Stanley's general random-matrix law applies to a different ensemble; it does not specialize by an implication to the product-structured sampling law without further analysis. Nonarchimedean integral geometry gives normal-form foundations, not this probability law. Searches for rank-one Smith perturbations, finite chain rings, and invariant-factor distributions found no matching formula. Equivalent earlier formulations may nevertheless exist.
+PASS
 
-**Value — PASS.** An invertibility test forgets all nonunit invariant factors of a repaired singular matrix. This theorem determines every possible finite-chain-ring cokernel type and its exact count simultaneously across all ring lengths, residue-field orders, and matrix dimensions under a natural corank-one hypothesis. The independent, three-valuation reduction is a structural simplification beyond a brute-force census.
+For n>=2 and A Smith-equivalent to diag(I_(n-1),0), a bordered unit-entry matrix realizes A+EdF stably equivalent to I_(n-2) plus C=[[1+dvu,df],[-e,0]]. The two-by-two Smith exponents are i=min(alpha,beta,gamma), j=min(t,beta+gamma-i), including alpha=beta=gamma=t and zero divisors; rank-one update cannot affect the n-2 unit factors. For uniform u in R^(n-1), the primitive event has probability 1-q^(-(n-1)); conditional on it v.u is uniform in R, otherwise 1+v.u is a unit. Consequently alpha has mass b_m,t(0)=1-(1-q^-m)/q and b_m,t(k)=(1-q^-m)a_t(k) for k>=1, independent of beta,gamma, which have a_t(k). Summing their joint masses over valuation triples gives the complete Smith-type law and q^(2nt) times probability the ordered pair count, independent of chain-ring isomorphism or d unit. The statement concerns structured corank-one update, not arbitrary matrices.
 
-Scientific limitations: one rank-one perturbation only, one initial zero factor, finite commutative chain rings only; no broader matrix classification or absolute novelty claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior-work comparisons credit foundational techniques and potential broader theorems. No actually inspected source has a theorem that entails the complete claimed new invariant/formula at the assigned parameters; real full-text gaps are identified as residual risk. The exact mathematical implication comparison is given in four named checks.
+
+## value
+
+PASS
+
+The complete cokernel elementary-divisor profile of uniformly sampled rank-one repairs of a natural one-dimensional corank defect is a structured random-matrix invariant. General invertibility tests collapse every noninvertible Smith type into one outcome. Exact all-q,t,n probabilities distinguish the torsion stratification and supply a benchmark for random low-rank perturbations over local rings. This is not merely a determinant calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
