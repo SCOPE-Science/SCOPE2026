@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "Geometric smoothness follows from explicitly invertible gradient coefficient matrices since c lies outside F5; a smooth plane quartic has genus three. The 14-by-4 literal point/line certificate verifies 56 distinct rational points, reaching Hasse–Weil upper bound 56; Bezout gives cover lower bound 14. Full 651-line exhaustive enumeration independently verifies section histogram (63,168,196,0,224), uniform point incidences (3,7,16), and two incidence identities. An actual pure-Python checker run passed without third-party dependencies.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Asgarli et al., arXiv:2610.13042v1, Theorem 1.2: (1/4+epsilon)q covering for sufficiently large q; Question 1.1 poses exact value.",
+        "Asgarli et al., Section 3 uses asymptotic hypergraph covering; it does not guarantee an exact cover at q=25, nor the line spectrum.",
+        "Tafazolian arXiv:2609.17611v1 abstract classifies transitive maximal curves but does not state line coverings."
+      ],
+      "reasoning": "A sufficient-large-q bound does not imply a 14-line perfect matching for the particular q=25, |C(k)|=56 extremal curve. Curve identification, transitivity, and arithmetic maximality similarly do not entail a partition by fourteen F25-rational 4-secants.",
+      "searches": [
+        "covering plane curves over finite fields with lines Asgarli Dassarma Ghioca MacLean Stokdyk exact minimal cover quartic 2026",
+        "line cover algebraic plane curve over finite field exact cov(C) quartic Klein maximal curve",
+        "\"Klein quartic\" \"56\" \"14\" lines covering finite field",
+        "\"Klein quartic\" \"56\" \"4-secants\" \"14\" finite field"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.13042v1",
+      "arxiv:2609.17611v1 (abstract only)",
+      "arxiv:2303.16170v2, Section 4.2",
+      "DOI:10.1007/s40687-018-0162-0",
+      "2026/9/7/SCOPE025",
+      "2026/9/11/SCOPE071",
+      "2026/10/4/SCOPE-spectrum-and-common-transversal-profile-of-the-64-schur-lines--76e63f54b379",
+      "K. Coolsaet and H. Sticker (2009), A full classification of the complete k-arcs of PG(2,23) and PG(2,25), DOI:10.1002/jcd.20211 (title/abstract only)",
+      "Z. S. Hamed (2023), New sizes of complete (k,4)-arcs in PG(2,17), DOI:10.21123/bsj.2022.6820 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Asgarli et al. Question 1.1 explicitly asks the invariant; its Theorem 1.2 has an unquantified large-field threshold.",
+        "Dolgachev–Martin Section 4.2 establishes the relevant model and automorphism structure, not the incidence matching.",
+        "Fité–Lorenzo García–Sutherland Section 3.5 treats quartic point counting, not a minimum line cover.",
+        "Closest published result 2026/10/4/SCOPE-spectrum-and-common-transversal-profile-of-the-64-schur-lines--76e63f54b379 concerns 64 lines lying on a quartic SURFACE, not 14 lines covering points on a smooth quartic CURVE."
+      ],
+      "reasoning": "Known point count |C|=56 combined with Bézout only gives the lower bound cov≥14. It cannot provide the upper bound: one must exhibit fourteen four-point rational sections with no shared rational curve points, which is certified here. Likewise automorphism transitivity need not produce a matching in the section hypergraph.",
+      "searches": [
+        "Ciani quartic t square root -7 finite-field projective lines four-point perfect matching covering number 14",
+        "covering plane curves over finite fields with lines Asgarli Dassarma Ghioca MacLean Stokdyk exact minimal cover quartic 2026",
+        "Klein quartic S4 model 56 points over GF(25) 14-line perfect covering secant partition minimum cover"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Queried equivalent descriptions as 4-secant perfect matching, rational-line partition, saturated degree-four cover, finite-plane incidence spectrum.",
+        "Dolgachev–Martin arXiv:2303.16170v2 identifies the same Klein/Ciani pencil; its available relevant Section 4.2 proves automorphism properties, not a 14-line matching."
+      ],
+      "reasoning": "Geometric isomorphism of quartic models does not imply an exact rational 14-line cover; no retrieved same-object exact matching was found among the compared results. The negative query alone is not novelty proof.",
+      "searches": [
+        "The F25 maximal S4 Klein quartic 56 F25 rational points 224 4-secant lines and 14 disjoint 4-secants exact minimum line cover",
+        "Ciani quartic t square root -7 finite-field projective lines four-point perfect matching covering number 14",
+        "Klein maximal quartic finite plane PG(2,25) 56 points 224 four-secants exact incidence spectrum",
+        "Klein quartic over F25 maximal genus-three 56 rational points 14 four-secant lines perfect line cover partition",
+        "Klein quartic F25 maximal genus three 56 point 4-arc projective plane 25 14 disjoint quadrisecants",
+        "complete 56 4 arc PG 2 25 224 four secants perfect partition 14 lines",
+        "incidence distribution 63 168 196 224 of the genus-three maximal Klein quartic over F25"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest visible published incidence records include 2026/9/7/SCOPE025 on PG(2,4), 2026/9/11/SCOPE071 on PG(2,13), and 2026/10/4/SCOPE-spectrum-and-common-transversal-profile-of-the-64-schur-lines--76e63f54b379 on a quartic surface.",
+        "ManYPoints tabulates rational point counts, not this line-section histogram or matching.",
+        "The source on twists of the Klein quartic tabulates arithmetic Frobenius data, not line-cover exact values.",
+        "The literature on complete k-arcs in PG(2,25), e.g. Coolsaet–Sticker (2009), is about sets with no three collinear; the present 56-point set has 224 rational four-secants. Studies of complete (k,4)-arcs in PG(2,17) concern a different projective plane."
+      ],
+      "reasoning": "Counts in unrelated finite planes, quartic surfaces in projective three-space, and point-count/zeta tables do not determine the 651-line spectrum or existence of a perfect 14-line cover on this canonical plane quartic. No matching exact entry was identified. Searches using the (56,4)-arc alias did not return an identical maximal-quartic incidence matching; a table of complete k-arcs (no three collinear) is not a table of these 56 quartic points.",
+      "searches": [
+        "The F25 maximal S4 Klein quartic 56 F25 rational points 224 4-secant lines and 14 disjoint 4-secants exact minimum line cover",
+        "Klein maximal quartic finite plane PG(2,25) 56 points 224 four-secants exact incidence spectrum",
+        "maximal genus 3 curve 56 F25 points Ciani quartic 224 quadrisecants 196 bisecants 168 tangents line spectrum",
+        "\"56,4\"-arc \"PG(2,25)\" Klein",
+        "\"56 points\" \"Klein quartic\" \"secants\" finite field"
+      ]
+    },
+    "rationale": "Scientific comparison of statements, not titles: the new theorem gives the entire 651-line incidence spectrum and an explicit 14-line perfect matching for the genus-three 56-point curve. Current line-cover theory addresses asymptotic sufficiently-large fields; model and twist classification do not imply this finite exact matching. Targeted actual semantic-record queries and web literature searches did not reveal stronger coverage. The inaccessible maximal-curve classification and unindexed finite geometry are expressly retained as residual risks.",
+    "residual_risks": [
+      "The full text of Tafazolian arXiv:2609.17611 was not accessible; an unexamined equivalent finite-geometric calculation is possible.",
+      "A nonindexed classical finite-geometry catalogue may give the same 56-point 4-secant hypergraph or a 14-line parallel class.",
+      "The novelty review is same-model and is not a guarantee of bibliographic completeness.",
+      "Some older (k,4)-arc configurations and fully split section data may not be keyword-indexed under this canonical Klein model; the full catalogue comparison remains incomplete."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DOES_NOT_COVER: asymptotic bound at unspecified sufficiently large field order; no exact instance for the maximal quartic over the field of 25 elements",
+        "evidence": [
+          "Question 1.1 defines cov(C); Theorem 1.2 assumes sufficiently large q; Section 3 uses nearly-regular hypergraph covers; Section 4 treats a distinct nonreflexive family."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.13042v1",
+        "material_read": "Accessible full-text HTML: introduction and questions, theorem, relevant portions of Sections 2, 3, 4, and references inspected directly",
+        "method": "Examined theorem quantifiers and exact nonreflexive example; searched for Klein, quartic and perfect matches",
+        "title": "Covering plane curves over finite fields with lines",
+        "trigger": "Identical definition of rational line-cover invariant and strongest relevant current work"
+      },
+      {
+        "assessment": "DOES_NOT_COVER: proves geometric Klein identity for special pencil parameters and classifies automorphism groups; no exact rational line cover or incidence histogram",
+        "evidence": [
+          "Section 4.2, equation (10): Ciani pencil parameter t=3(-1±sqrt(-7))/2; Corollary 4.6 relates model to Klein quartic."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2303.16170",
+        "material_read": "Full-text PDF Section 4.2, particularly PDF pages 11-12 inspected visually and parsed",
+        "method": "Compared the parameter pencil and automorphism statements to finite rational line-cover invariant",
+        "title": "Automorphisms of del Pezzo surfaces in odd characteristic",
+        "trigger": "Specific Klein/Ciani quartic identification and stronger possible coverage"
+      },
+      {
+        "assessment": "NO IDENTIFIED COVERAGE IN AVAILABLE ABSTRACT; the full text was inaccessible, so a same-object hidden covering statement cannot be excluded",
+        "evidence": [
+          "Abstract describes transitivity classification and maximal Klein quartic, but not rational line-section perfect matchings."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.17611",
+        "material_read": "Title, abstract and publication chronology only; primary PDF and accessible full HTML unavailable",
+        "method": "Compared available classification claim and stated scope with the precise rational line-cover invariant",
+        "title": "Transitive automorphism groups of maximal curves",
+        "trigger": "Direct classification of the unique maximal genus-three curve over the field of 25 elements"
+      },
+      {
+        "assessment": "DOES_NOT_COVER: arithmetic twists and finite-field point counts, not exact disjoint line covers or 651-line spectrum",
+        "evidence": [
+          "Section 3.5.1 counts projective rational points for zeta function checks; no rational-line-cover theorem."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s40687-018-0162-0",
+        "material_read": "Open-access HTML: Klein quartic model, Section 3 discussion and Section 3.5.1 point-counting method examined directly",
+        "method": "Compared Jacobian twist arithmetic and point-count methods against projective secant spectrum and global perfect matching",
+        "title": "Sato–Tate distributions of twists of the Fermat and the Klein quartics",
+        "trigger": "Potential arithmetic characterizations and existing finite-field point counts of Klein quartic twists"
+      },
+      {
+        "assessment": "NOT DIRECT COVERAGE: complete k-arcs use no three collinear, unlike a quartic point set with many four-secants; no exact same-model table was visible",
+        "evidence": [
+          "Coolsaet–Sticker 2009 classifies complete k-arcs in PG(2,25), not rational points on the maximal Klein quartic with four-point sections."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/jcd.20211",
+        "material_read": "Bibliographic title and published abstract/description only",
+        "method": "Matched notion of k-arc and admissible line multiplicities against the present four-secant curve",
+        "title": "A full classification of the complete k-arcs of PG(2,23) and PG(2,25)",
+        "trigger": "Potential finite-plane incidence catalogue at field order 25"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1573c6a7-8ddb-4d83-8fde-027e72a506e9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The unique F25-maximal genus-three Klein canonical curve is singled out by its arithmetic geometry, not parameter convenience. Asgarli et al. explicitly pose exact rational-line covering and provide asymptotic, not small-field perfect, covers. This result proves a saturated four-uniform matching of 56 points into 14 rational line sections and classifies all 651 line-section sizes, supplying a natural sharp finite extremal benchmark; the precise invariant and incidence pattern are relevant to finite-field covering methods rather than a generic mechanical table.",
+    "status": "PASS"
+  }
+}
