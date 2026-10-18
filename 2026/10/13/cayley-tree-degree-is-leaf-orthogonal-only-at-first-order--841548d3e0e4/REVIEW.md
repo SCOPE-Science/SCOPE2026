@@ -1,26 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Under the Prüfer bijection, a uniform labeled tree becomes \(n-2\) iid uniform labels, the degree of a fixed vertex is one plus its occupancy, and the leaves are exactly the empty labels. The mixed generating function follows by separating the distinguished vertex's own empty-box indicator from the other \(n-1\) empty-box indicators.
+PASS
 
-Differentiating at \(z=1\), or equivalently counting ordered marked Prüfer positions, gives the factorial covariance formula exactly. Its first-order bracket is zero, and for every higher order strict positivity follows from \(((n-1)/n)^r<(n-1)/n\). The fixed-order limit is a direct expansion. Exact enumeration through \(n=8\) reproduces all identities.
+The Prüfer bijection makes a uniform Cayley tree an iid uniform word W of length m=n−2 on n labels. A fixed vertex degree equals N_v+1, where N_v is its word occupancy, and total leaves L=Σ_j 1{N_j=0}. The distinguished-own term in E[Lz^{N_v}] is ((n−1)/n)^m; every other label contributes ((n−2+z)/n)^m, giving the exact mixed generating function. Differentiating at z=1 and subtracting E[(N_v)_r] E L yields (m)_r n^(−r) a^(m−r)[(n−1)−na^r]. The bracket is exactly zero for r=1, strictly positive for 2≤r≤n−2, and tends to r−1 for fixed r, yielding the (r−1)/e limit. Conditional occupancy on N_v=k gives the stated strict one-step valley. Independent complete Prüfer enumeration through n=7, including all 16,807 length-five words, verified the generating-function factorial moment consequences, degree-order-one cancellation, and all available higher positive factorial covariances. The all-n result is proved by multinomial factorial moments.
 
-## Originality
+## originality
 
-PASS, with a specific occupancy-literature residual risk. Aldous's full public text was inspected at its leaf and degree sections and at the complete-graph specialization. It treats leaf probabilities and degree distributions, including the known binomial degree law for uniform labeled trees, but does not state the degree/total-leaf mixed covariance or higher factorial hierarchy.
+PASS
 
-Steele's classical leaf-count work was checked at the accessible abstract and bibliographic record. It studies the total leaf count and its central limit behavior, not a distinguished degree jointly with that count.
+Best-of-knowledge original after mathematical claim-versus-prior comparison: The submitted formula follows from new explicit marked-label/empty-label mixed Prüfer expectations, not from marginals alone. Given inaccessible plausible original texts, PASS is best-of-knowledge and qualified rather than claiming definitive exclusion. Explicit unexcluded risks and source-access limits are documented without claiming exhaustive novelty proof.
 
-The closest own occupancy result concerns the total number of occupied boxes against counts of boxes of a specified occupancy. It does not state the covariance of one specified box's factorial occupancy with the number of empty boxes, nor the Cayley-tree interpretation and exact first-order cancellation.
+## value
 
-## Value
+PASS
 
-PASS. Degree and leaf abundance are among the most basic local and global statistics of a random labeled tree. Exact zero covariance would ordinarily suggest weak first-order interaction, but the conditional mean is explicitly nonconstant and nonmonotone: moving from leaf to degree two lowers expected leaf abundance, while further degree increases raise it.
+A fixed degree and global leaf count are canonical random-tree observables; exact uncorrelatedness despite nonindependence is a mathematically motivated statistical phenomenon. The explicit conditional valley, full factorial covariance hierarchy, and nonzero limiting higher-order dependence diagnose precisely why first-order orthogonality is misleading. This is a natural exact invariant and not an arbitrary finite test or only a textbook marginal computation.
 
-The all-order factorial hierarchy isolates the cancellation as genuinely first-order rather than an independence phenomenon. The positive limiting constants \((r-1)/e\) provide a compact local-to-global dependence signature that is useful when comparing tree statistics through Prüfer occupancy.
-
-Self-review: passed. Independent audit: not yet performed.
-
-
-Exact replay: `VERIFY_OK words_checked=280391 leaf_mean_checks=6 first_cov_checks=6 factorial_cov_checks=21 conditional_checks=27 pgf_checks=24 sign_checks=15`.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,21 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. The accompanying checker performs an exact-rational exhaustive replay over every Prüfer word for
-\[
-3\le n\le8.
-\]
+# Independent mathematical audit
 
-For each word it reconstructs the occupancy of the distinguished label and the total number of absent labels, which are exactly the fixed-vertex degree minus one and the tree leaf count.
+## correctness
 
-It verifies the marginal leaf mean, exact zero first covariance, every admissible factorial covariance, the full conditional-mean profile, and the mixed generating identity at several rational values of \(z\).
+PASS
 
-The exhaustive replay covers \(280391\) Prüfer words.
+The Prüfer bijection makes a uniform Cayley tree an iid uniform word W of length m=n−2 on n labels. A fixed vertex degree equals N_v+1, where N_v is its word occupancy, and total leaves L=Σ_j 1{N_j=0}. The distinguished-own term in E[Lz^{N_v}] is ((n−1)/n)^m; every other label contributes ((n−2+z)/n)^m, giving the exact mixed generating function. Differentiating at z=1 and subtracting E[(N_v)_r] E L yields (m)_r n^(−r) a^(m−r)[(n−1)−na^r]. The bracket is exactly zero for r=1, strictly positive for 2≤r≤n−2, and tends to r−1 for fixed r, yielding the (r−1)/e limit. Conditional occupancy on N_v=k gives the stated strict one-step valley. Independent complete Prüfer enumeration through n=7, including all 16,807 length-five words, verified the generating-function factorial moment consequences, degree-order-one cancellation, and all available higher positive factorial covariances. The all-n result is proved by multinomial factorial moments.
 
-Finite enumeration is supplementary. The all-\(n\) theorem is the exact Prüfer/multinomial calculation in `RESULT.md`.
+## originality
 
-Independent audit has not been performed.
+PASS
 
-Exact replay result: `VERIFY_OK words_checked=280391 leaf_mean_checks=6 first_cov_checks=6 factorial_cov_checks=21 conditional_checks=27 pgf_checks=24 sign_checks=15`.
+Best-of-knowledge original after mathematical claim-versus-prior comparison: The submitted formula follows from new explicit marked-label/empty-label mixed Prüfer expectations, not from marginals alone. Given inaccessible plausible original texts, PASS is best-of-knowledge and qualified rather than claiming definitive exclusion. Explicit unexcluded risks and source-access limits are documented without claiming exhaustive novelty proof.
+
+## value
+
+PASS
+
+A fixed degree and global leaf count are canonical random-tree observables; exact uncorrelatedness despite nonindependence is a mathematically motivated statistical phenomenon. The explicit conditional valley, full factorial covariance hierarchy, and nonzero limiting higher-order dependence diagnose precisely why first-order orthogonality is misleading. This is a natural exact invariant and not an arbitrary finite test or only a textbook marginal computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
