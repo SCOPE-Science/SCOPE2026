@@ -1,50 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Every two-plane can be put in the adapted orthonormal form used by the source. In the seven-dimensional quaternionic Heisenberg H-type algebra, orthogonal horizontal vectors satisfy
-\[
-|[X,Y]|^2=|X|^2|Y|^2.
-\]
-The published curvature formula therefore reduces to a two-variable upper envelope
-\[
-F(p,q)
-=
-\frac14(p+q)-\frac54pq
-+\frac32\sqrt{pq(1-p)(1-q)}.
-\]
-With
-\[
-u=\sqrt{pq},
-\qquad
-v=\sqrt{(1-p)(1-q)},
-\]
-one has \(u+v\le1\) and
-\[
-4F=1-4u^2-v^2+6uv.
-\]
-A complete two-case maximization gives the unique equality values
-\[
-u=\frac4{11},
-\qquad
-v=\frac7{11},
-\qquad
-p=q=\frac4{11}.
-\]
-Tracking equality in the two mixed Cauchy--Schwarz bounds gives exactly the two stated \(j\)-alignment identities. Substitution proves the converse.
+PASS
 
-## Originality
+Adapt an orthonormal basis to simultaneously diagonalize horizontal and central Gram matrices; let p=|X|²,q=|Y|². On H-type horizontal four-space the maps j(z)x span x-perp isometrically, giving |[X,Y]|²=pq. Bounding two mixed terms in the source curvature expression gives K≤F=(p+q)/4−5pq/4+(3/2)√(pq(1−p)(1−q)). With u=√pq and v=√((1−p)(1−q)), u+v≤1 and 4F=1−4u²−v²+6uv≤16/11, equality uniquely u=4/11,v=7/11 hence p=q=4/11. Equality in both mixed inner products is precisely j(z)y=j(w)x and j(z)x=−j(w)y; conversely these conditions attain 4/11. Independently verified Clifford matrices from all six brackets and exact parabola maximum; finite checker alone was not used as a proof.
 
-PASS. Tatsuno's 2026 preprint computes \(K_{\max}=4/11\) for exactly this metric and exhibits one maximizing plane. Its inspected Section 5.4 does not classify all maximizing planes. Exact-value, source-specific, H-type, and equality-plane searches found no covering classification. The classical references provide the Lie algebra and curvature framework but were not located as containing the new equality locus.
+## originality
 
-## Value
+PASS
 
-PASS. A complete extremizer classification is the natural rigidity counterpart of a sharp curvature constant. The result shows that all maximizers share a fixed horizontal-central energy split and a precise quaternionic alignment, giving geometric information absent from the source's modified-curvature-operator upper-bound proof.
+Best-of-knowledge novelty in classifying the entire maximizer locus rather than merely the sharp curvature value and one explicit attaining plane. The accessible Tatsuno abstract and related 2-step literature do not establish this equality classification; the primary full text could not be fetched, so possible existing coverage is expressly retained as a priority risk.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
 
-## Closest literature and limitations
+PASS
 
-The closest source is Tomoya Tatsuno, arXiv:2609.13052v1. Eberlein's 1994 paper and Kaplan's H-type work supply classical background.
+A complete intrinsic equality locus for a geometrically distinguished Ricci-soliton metric is a natural differential-geometric object. The exact 4/11 sharp pinching value and one example were already known, but determining ALL maximizing planes and rigid energy split/mixed alignment reveals continuous geometry not recoverable from the value alone. No generalization to arbitrary H-type structures is asserted.
 
-The result is restricted to the standard seven-dimensional quaternionic Heisenberg Ricci-soliton metric. It does not classify maximizers for arbitrary left-invariant metrics, and it does not further identify the quotient of the equality locus by the full isometry group.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
