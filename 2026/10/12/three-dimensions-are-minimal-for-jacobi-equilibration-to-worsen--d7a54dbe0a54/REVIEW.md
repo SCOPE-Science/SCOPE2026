@@ -1,23 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. In dimension two, both condition numbers reduce to monotone Möbius functions and
-\[
-q^2-\rho^2
-=
-\frac{(a-b)^2(ab-c^2)}{ab(a+b)^2}\ge0.
-\]
-For the dimension-three family, the rank-one spectrum is exactly \(\{1,1,\kappa\}\). Exchange symmetry reduces the equilibrated spectrum to one antisymmetric eigenvalue plus a \(2\times2\) symmetric block; the resulting closed eigenvalues prove strict worsening for every \(\kappa>1\). The packaged checker replays the rational identities and the exact \(\kappa=10\) witness.
+## correctness
 
-## Originality
-PASS with stated residual risk. The full van der Sluis paper proves near-optimality of equal-diagonal symmetric scaling within a dimension factor, and Braatz–Morari solve optimal Euclidean diagonal scaling. Neither inspected source states that Jacobi equilibration is condition-safe through dimension two and first fails in dimension three.
+PASS
 
-Targeted searches under Jacobi equilibration, unit-diagonal scaling, fixed condition number, minimal dimension, and the exact witness constant found no implication-equivalent theorem. A residual risk remains because older matrix-scaling literature uses varied terminology and may contain a similar low-dimensional observation.
+For A=[[a,c],[c,b]] SPD set rho=|c|/sqrt(ab), q=sqrt((a−b)^2+4c²)/(a+b). Direct exact algebra gives q²−rho²=(a−b)²(ab−c²)/(ab(a+b)²)≥0, and the increasing function (1+t)/(1−t) proves κ(J(A))≤κ(A), with equality precisely at a=b. In n=3 the rank-one Aκ has eigenvalues (1,1,κ); use interchange symmetry of coordinates 2 and 3 to diagonalize J in antisymmetric and two-dimensional symmetric sectors. The least eigenvalue is 9/(4κ+5), and ratio λmax/λmin equals [2κ+1+2(κ−1)sqrt((κ+2)/(κ+8))]/3. Its excess above κ is (κ−1)(2sqrt((κ+2)/(κ+8))−1)/3>0 for all κ>1; large-κ ratio→4/3. Independently checked symbolic rank-one identities with Sympy and at κ=10 exact equilibrated eigenvalues (1/5,(7±2√6)/5), giving κ(J)=7+2√6>10. The original proof, not finite evaluations, establishes all κ.
 
-## Value
-PASS. Equal-diagonal Jacobi scaling is used because it is cheap and intended to improve conditioning. The theorem gives a clean safety boundary: no two-dimensional SPD example can be harmed, but three dimensions already permit strict harm at every nontrivial condition number. The explicit family also quantifies a persistent asymptotic deterioration.
+## originality
 
-## Closest literature and limitations
-The closest literature establishes near-optimality or computes an optimal diagonal scaling, rather than comparing the fixed Jacobi scaling with the unscaled matrix. The three-dimensional family is not claimed to maximize deterioration at fixed condition number, and the theorem does not address nonsymmetric, one-sided, block, or non-\(2\)-norm scaling.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS with explicit scope. Full van der Sluis 1969 near-optimality theorem for symmetrically scaled SPD equal-diagonal matrices bounds the condition number relative to the *optimally* scaled matrix, not to unscaled A, and thus permits Jacobi to worsen it. Braatz–Morari optimize over diagonal scaling; this does not describe the sharp low-dimensional safe/unsafe boundary for this fixed choice. Targeted searches for minimal dimension and exact fixed-κ family found no implication-equivalent classification; possibility of an older elementary counterexample remains a risk.
+
+## value
+
+PASS
+
+A useful boundary for widely used diagonal preconditioning: universal harmlessness through dimension two versus a quantified failure already in three dimensions, for each given original condition number. The explicit rank-one family and limiting 4/3 factor clarify a practical numerical misconception without claiming globally worst possible inflation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

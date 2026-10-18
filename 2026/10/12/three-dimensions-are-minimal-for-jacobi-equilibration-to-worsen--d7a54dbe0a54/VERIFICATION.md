@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,54 +18,25 @@
   "schema_version": 1
 }
 ---
-The proof is analytic. The checker replays exact special cases and selected consequences.
 
-For
-\[
-A=
-\begin{pmatrix}
-a&c\\
-c&b
-\end{pmatrix}>0,
-\]
-the proof uses
-\[
-q^2-\rho^2
-=
-\frac{(a-b)^2(ab-c^2)}{ab(a+b)^2},
-\qquad
-\rho=\frac{|c|}{\sqrt{ab}}.
-\]
-The embedded `verify.py` checks this identity for several exact rational SPD matrices.
+# Independent mathematical audit
 
-For the three-dimensional family
-\[
-A_\kappa
-=
-I+\frac{\kappa-1}{9}uu^{\mathsf T},
-\qquad
-u=(1,-2,-2)^{\mathsf T},
-\]
-the checker verifies the rank-one spectral identity and evaluates the closed equilibrated condition-number formula at representative values.
+## correctness
 
-At \(\kappa=10\), it uses exact arithmetic for
-\[
-A=
-\begin{pmatrix}
-2&-2&-2\\
--2&5&4\\
--2&4&5
-\end{pmatrix}
-\]
-and confirms the generalized-eigenvalue data corresponding to
-\[
-\frac15,
-\qquad
-\frac{7-2\sqrt6}{5},
-\qquad
-\frac{7+2\sqrt6}{5}.
-\]
+PASS
 
-Finite replay is corroborative only. The universal \(2\times2\) theorem and the all-\(\kappa>1\) counterfamily are established symbolically in `RESULT.md`.
+For A=[[a,c],[c,b]] SPD set rho=|c|/sqrt(ab), q=sqrt((a−b)^2+4c²)/(a+b). Direct exact algebra gives q²−rho²=(a−b)²(ab−c²)/(ab(a+b)²)≥0, and the increasing function (1+t)/(1−t) proves κ(J(A))≤κ(A), with equality precisely at a=b. In n=3 the rank-one Aκ has eigenvalues (1,1,κ); use interchange symmetry of coordinates 2 and 3 to diagonalize J in antisymmetric and two-dimensional symmetric sectors. The least eigenvalue is 9/(4κ+5), and ratio λmax/λmin equals [2κ+1+2(κ−1)sqrt((κ+2)/(κ+8))]/3. Its excess above κ is (κ−1)(2sqrt((κ+2)/(κ+8))−1)/3>0 for all κ>1; large-κ ratio→4/3. Independently checked symbolic rank-one identities with Sympy and at κ=10 exact equilibrated eigenvalues (1/5,(7±2√6)/5), giving κ(J)=7+2√6>10. The original proof, not finite evaluations, establishes all κ.
 
-Unproved limits include the globally largest possible Jacobi-induced condition-number deterioration in three or higher dimensions and analogous questions for other scaling norms.
+## originality
+
+PASS
+
+PASS with explicit scope. Full van der Sluis 1969 near-optimality theorem for symmetrically scaled SPD equal-diagonal matrices bounds the condition number relative to the *optimally* scaled matrix, not to unscaled A, and thus permits Jacobi to worsen it. Braatz–Morari optimize over diagonal scaling; this does not describe the sharp low-dimensional safe/unsafe boundary for this fixed choice. Targeted searches for minimal dimension and exact fixed-κ family found no implication-equivalent classification; possibility of an older elementary counterexample remains a risk.
+
+## value
+
+PASS
+
+A useful boundary for widely used diagonal preconditioning: universal harmlessness through dimension two versus a quantified failure already in three dimensions, for each given original condition number. The explicit rank-one family and limiting 4/3 factor clarify a practical numerical misconception without claiming globally worst possible inflation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

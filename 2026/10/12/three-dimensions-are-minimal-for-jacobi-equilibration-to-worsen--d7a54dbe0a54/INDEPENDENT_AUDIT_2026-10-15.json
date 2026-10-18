@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T04:47:39.875342Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For A=[[a,c],[c,b]] SPD set rho=|c|/sqrt(ab), q=sqrt((a−b)^2+4c²)/(a+b). Direct exact algebra gives q²−rho²=(a−b)²(ab−c²)/(ab(a+b)²)≥0, and the increasing function (1+t)/(1−t) proves κ(J(A))≤κ(A), with equality precisely at a=b. In n=3 the rank-one Aκ has eigenvalues (1,1,κ); use interchange symmetry of coordinates 2 and 3 to diagonalize J in antisymmetric and two-dimensional symmetric sectors. The least eigenvalue is 9/(4κ+5), and ratio λmax/λmin equals [2κ+1+2(κ−1)sqrt((κ+2)/(κ+8))]/3. Its excess above κ is (κ−1)(2sqrt((κ+2)/(κ+8))−1)/3>0 for all κ>1; large-κ ratio→4/3. Independently checked symbolic rank-one identities with Sympy and at κ=10 exact equilibrated eigenvalues (1/5,(7±2√6)/5), giving κ(J)=7+2√6>10. The original proof, not finite evaluations, establishes all κ.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem4.1 makes κ of equal-diagonal SPD scaling at most a dimension factor worse than best symmetric scaling.",
+          "The optimal-scaling result finds a minimizing diagonal transform, not behavior of the particular diagonal derived from A."
+        ],
+        "reasoning": "Near-optimality wrt the best does not force κ(J(A))≤κ(A). A known optimization method cannot imply three is the first dimension of failure without an additional comparison theorem.",
+        "searches": [
+          "Jacobi diagonal equilibration worsen spectral condition number SPD 3x3 2x2 rank-one van der Sluis",
+          "van der Sluis 1969 Theorem4.1",
+          "Braatz–Morari DOI:10.1137/S0363012992238680"
+        ]
+      },
+      "checked_sources": [
+        "van der Sluis, Numer. Math. 14 (1969), DOI:10.1007/BF02165096 (full ten-page PDF)",
+        "Braatz–Morari, SIAM J Control Optim 32 (1994), DOI:10.1137/S0363012992238680",
+        "Near-optimal Block-Jacobi Preconditioning (2023) abstract",
+        "Resultary search: Jacobi diagonal equilibration worsen spectral condition number SPD 3x3 2x2 rank-one van der Sluis"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Scaling optimality compares κ(J(A)) with inf_{S diagonal}κ(SAS), while unscaled A is merely an allowed candidate.",
+          "The inequality κ(J(A))≤n·κ_best does not imply κ(J(A))≤κ(A), even when κ_best≤κ(A)."
+        ],
+        "reasoning": "The 2D comparison and fixed-κ 3D reversal are not logical consequences of near-optimality; therefore no covering implication identified in the full source.",
+        "searches": [
+          "van der Sluis 1969 Theorem4.1",
+          "Jacobi diagonal equilibration worsen spectral condition number SPD 3x3 2x2 rank-one van der Sluis"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jacobi correlation scaling is the symmetric congruence D^(-1/2)AD^(-1/2), not left-only D^-1A or weighted-Jacobi iteration.",
+          "Van der Sluis investigates equal-diagonal symmetric scaling as one choice among positive diagonal congruences."
+        ],
+        "reasoning": "Resolved preconditioning synonyms and distinguished spectral condition number of a scaled SPD matrix from convergence/iteration-matrix estimates under Jacobi nomenclature.",
+        "searches": [
+          "Jacobi diagonal equilibration worsen spectral condition number SPD 3x3 2x2 rank-one van der Sluis",
+          "van der Sluis 1969 DOI:10.1007/BF02165096"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No previously inspected exact κ=10 witness with κ(J)=7+2√6 or all-κ rank-one family is supplied by the two central sources.",
+          "The Resultary closest weighted Jacobi match deals with one-step Euclidean damping on 2×2 systems, which is a different invariant."
+        ],
+        "reasoning": "This is a symbolic, all-κ dimensional threshold, not an arbitrary small-instance condition-number table; a recorded 3×3 example without the universal 2×2 theorem would be strictly weaker.",
+        "searches": [
+          "Jacobi diagonal equilibration worsen spectral condition number SPD 3x3 2x2 rank-one van der Sluis",
+          "van der Sluis 1969",
+          "Braatz–Morari 1994"
+        ]
+      },
+      "rationale": "PASS with explicit scope. Full van der Sluis 1969 near-optimality theorem for symmetrically scaled SPD equal-diagonal matrices bounds the condition number relative to the *optimally* scaled matrix, not to unscaled A, and thus permits Jacobi to worsen it. Braatz–Morari optimize over diagonal scaling; this does not describe the sharp low-dimensional safe/unsafe boundary for this fixed choice. Targeted searches for minimal dimension and exact fixed-κ family found no implication-equivalent classification; possibility of an older elementary counterexample remains a risk.",
+      "residual_risks": [
+        "The 2×2 identity and 3×3 rank-one example are elementary enough that an older underindexed numerical linear algebra note may have stated equivalent minimality.",
+        "4/3 is only the limit of the exhibited family, not a sharp bound for all SPD matrices.",
+        "Matrix comparison restricted to symmetric Jacobi congruence and spectral 2-norm κ, not nonsymmetric/one-sided scaling or other norms."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NEAR_OPTIMALITY_NOT_UNSCALED_SAFETY",
+          "evidence": [
+            "Theorem4.1 concerns dimension-factor near-optimality of equal-diagonal SPD scaling; not an n≤2 universal non-worsening or all-κ 3D counterfamily."
+          ],
+          "identifier_or_url": "DOI:10.1007/BF02165096",
+          "material_read": "Entire publicly accessible 1969 source (ten-page PDF), particularly Theorem4.1 and its definition of optimal scaled κ",
+          "method": "Full original PDF text plus page screenshot examination",
+          "title": "Condition Numbers and Equilibration of Matrices",
+          "trigger": "Classical foundational equal-diagonal SPD scaling result"
+        },
+        {
+          "assessment": "DIFFERENT_OPTIMIZATION",
+          "evidence": [
+            "Global optimization of row/column scaling does not establish behavior of the fixed Jacobi congruence."
+          ],
+          "identifier_or_url": "DOI:10.1137/S0363012992238680",
+          "material_read": "Published abstract/methodological account; complete article not independently read",
+          "method": "Primary DOI/abstract inspection",
+          "title": "Minimizing the Euclidean Condition Number",
+          "trigger": "Known global optimal diagonal conditioning theory"
+        },
+        {
+          "assessment": "NOT_A_MONOTONICITY_THEOREM",
+          "evidence": [
+            "Guarantees near-optimality within factors, which permits strictly worse conditioning than input."
+          ],
+          "identifier_or_url": "Demmel et al., 2023 mathematical preprint",
+          "material_read": "Title and abstract description of block Jacobi near-optimality; complete text not independently inspected",
+          "method": "Preprint abstract search",
+          "title": "Nearly Optimal Block-Jacobi Preconditioning",
+          "trigger": "Possible stronger Jacobi conditioning guarantee"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A useful boundary for widely used diagonal preconditioning: universal harmlessness through dimension two versus a quantified failure already in three dimensions, for each given original condition number. The explicit rank-one family and limiting 4/3 factor clarify a practical numerical misconception without claiming globally worst possible inflation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For real 1×1 and 2×2 SPD matrices, symmetric Jacobi diagonal equilibration never raises κ₂, but dimension 3 permits strict worsening for every prescribed κ>1 via Aκ=I+((κ−1)/9)(1,−2,−2)(1,−2,−2)^T; the Jacobi κ₂ is explicit and its ratio tends to 4/3.",
+  "limitations": [
+    "The 2×2 identity and 3×3 rank-one example are elementary enough that an older underindexed numerical linear algebra note may have stated equivalent minimality.",
+    "4/3 is only the limit of the exhibited family, not a sharp bound for all SPD matrices.",
+    "Matrix comparison restricted to symmetric Jacobi congruence and spectral 2-norm κ, not nonsymmetric/one-sided scaling or other norms."
+  ],
+  "schema_version": 1
+}
