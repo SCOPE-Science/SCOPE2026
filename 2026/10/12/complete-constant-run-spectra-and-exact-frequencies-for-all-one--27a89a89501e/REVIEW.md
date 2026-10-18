@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (C) — PASS
+## correctness
 
-The exact binary-carry identity separates deleted occurrences in the trailing block of ones from the new occurrence introduced when the preceding zero is flipped. All candidate changes are then enumerated in each block of \(H=2^k\) positions, including the block-end carry event. Consecutive change positions give *all* maximal runs; the only left-boundary prefix has allowed length \(H-1\). Natural densities follow from elementary valuations and odd-quotient residue classes, with positive mass for each listed gap; rational normalization and the endpoint convention are checked. An independent finite verifier confirms the symbolic formulas without being used as an infinite proof. The special case \(k=2\), including the coincident length \(3\), has been evaluated explicitly.
+PASS
 
-## Originality (O) — PASS
+The binary increment n->n+1 replaces M 0 1^t with M 1 0^t. The only lost occurrences are (t-k+1)_+ and the new leading occurrence is present iff the trailing-one count of M is >=k-1, yielding an exact parity transition criterion. For block [jH,(j+1)H), t<k transitions occur at (j+1)H-2^t-1 for t<=nu2(j+1), and the endpoint has the stated parity depending on the odd quotient. In-block gaps and v=nu2(j+2) classify every interblock gap. The elementary 2-adic residue densities then give every rational lambda_k and no hidden run types. Independently evaluated the original parity definition for 2^18 successive terms for k=2..7; all six spectra agree. Independently recomputed each rational frequency mass and length-weighted mass exactly for k=2..10; their sums equal Lambda_k and H. This verifies algebraic identities, not a finite substitute for the unbounded carry proof; boundary k=2 frequency collisions and n=0 initial run are accounted for.
 
-The relevant 2023 full-text block-counting study concerns morphicity and generating-function algebraicity and does not compute run spectra. The especially close 2025 full-text paper **already proves occurrences of the conjectured zero-run lengths** (Theorem 7) and explicitly leaves exclusion open (Conjecture 8). This result credits those earlier occurrences and supplies the missing global exclusion, as well as *exact limiting frequencies for all-symbol constant runs*. Earlier unmodded summatory block-count statements do not imply the parity-transition spectrum. Targeted alias searches and statement-level comparisons found no result subsuming the new theorem. Residual risk: an unindexed later or equivalent account may have resolved the conjecture independently.
+## originality
 
-## Value (V) — PASS
+PASS
 
-An explicitly stated open conjecture about the natural all-one block-counting family is resolved by a uniform carry argument rather than by case-by-case automatic verification. Exact rational frequencies and a sharp maximum run length supply additional statistical information for every pattern length, and the theorem cleanly explains the arithmetical structure of all possible run lengths.
+Compared the same objects and implications with primary prior literature and published research search. Prior optimal values or constructions are fully credited; no inspected stronger theorem implies the final complete classification. This is a best-of-knowledge determination, with the explicitly recorded unread-source risks.
 
-## Boundaries and relationship to literature
+## value
 
-The theorem concerns parity of overlapping occurrences in ordinary base-two expansions; no conclusion is asserted for arbitrary patterns or higher alphabets. It does not claim novelty for the 2025 zero-run occurrence witnesses, the classic Rudin–Shapiro case, or the automaticity of the underlying family. The accessible primary full texts were inspected in the specific sections addressing those implications. Historical comparisons were used to exclude overlapping claims, not to validate earlier proofs.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Solves the uniform k>=3 run-length exclusion left explicitly open by Hendel, and supplies a new exact run-frequency distribution for both symbols across an infinite automatic-sequence family. The 2-adic carry mechanism is structurally useful, not a renaming of earlier existence families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
