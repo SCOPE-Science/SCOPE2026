@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T22:19:53.997098Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Actual RESULT.md blob c100b8c3404ab4c772fa56b3d8f1671cc3541968 inspected. For 0<lambda<1, q>1, inverse branches have strictly separated intervals I_n and contraction ratios r_n=lambda*n^(-q)/zeta(q). Finite N>=2 similarity dimension is the unique root of sum_{n<=N}r_n^s=1; full countable dimension equals the root c(q)^s zeta(qs)=1, rigorously by finite-subsystem lower bounds and arbitrarily deep cylinders for the upper bound, without assuming compact finite alphabet. Uniform integral comparison for N=floor(exp(tau/epsilon)), q=1+epsilon and bounded a yields epsilon*sum_{n<=N}n^(-1-(1-a-a*epsilon)*epsilon)=integral_0^tau exp((a-1)t)dt+O(epsilon). With c(q)^(1-a epsilon)=lambda*epsilon*(1+O(epsilon*abs(log epsilon))), pressure error O(epsilon*abs(log epsilon)); the phase derivative lambda*integral_0^tau t*exp((a-1)t)dt>0 transfers to dimension error O(epsilon^2*abs(log epsilon)). Laurent expansion at zeta pole gives full-slope 1-lambda. Evaluate phase at a=1 and 1-lambda for strict crossover and positive gap. Fixed N root tends 0; infinite root tends 1. Independent 65-digit mpmath/Hurwitz-zeta root tests at lambda=.3,.65, tau=.8,1.8 and epsilon=.015 reproduced predicted signs and trend; not proof of limit. Threshold tau=1/lambda correctly excludes a second-order sign.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cunha et al. Appendix B.1 uses geometrically blocked affine contraction lengths; Mauldin-Urbanski establishes dimension=pressure; Das-Simmons studies sets of subsystem dimensions."
+        ],
+        "reasoning": "Neither inspected geometric-block example nor the broad formula fixes the normalized Zipf near-pole exponential-cutoff coefficient; the full general theorem cannot imply this explicit calculation without model-specific analysis.",
+        "searches": [
+          "arXiv:2608.00398 Thm A and Appendix B.1",
+          "Mauldin-Urbanski PLMS 73 (1996)",
+          "Das-Simmons J. Fractal Geom. 9 (2022)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git RESULT.md c100b8c3404ab4c772fa56b3d8f1671cc3541968 and verify_crossover.py 11288dd9803e71989ecd0eabe4b09a64b2af0eed",
+        "Cunha/Novaes/Ponce arXiv:2608.00398 Theorem A Appendix B.1",
+        "Mauldin/Urbanski PLMS 73 (1996) DOI:10.1112/plms/s3-73.1.105",
+        "Das/Simmons DOI:10.4171/JFG/112",
+        "Four independent Hurwitz-zeta numerical checks; Resultary error search_completed=false"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior dimension roots/IFS bounds are premises; epsilon-zeta normalization plus N~exp(tau/epsilon) and positive derivative produce the additional phase root and critical tau=1/lambda."
+        ],
+        "reasoning": "Prior general IFS theorems justify dimensions but do not state nor automatically determine the nonuniform scale, signed threshold, or gap coefficient.",
+        "searches": [
+          "Mauldin-Urbanski pressure formula (1996)",
+          "Cunha-Novaes-Ponce Appendix B.1 (2026)",
+          "Das-Simmons 2022 abstract and construction summaries"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact dimension equations c^s*zeta(qs)=1 and c^s*sum(n^-qs)=1; the new double-scaling phase is lambda*integral_0^tau exp((a-1)t)dt=1."
+        ],
+        "reasoning": "Checked pressure/Bowen equation and survival-set/Moran formulations; general root equalities do not by themselves imply the two-parameter asymptotic or threshold without a separate pole+integral analysis.",
+        "searches": [
+          "Zipf normalized countable iterated function systems exponential alphabet cutoff q near 1 Hausdorff dimension crossover phase integral [Resultary search_internal_error; search_completed=false, not a finding]",
+          "Mauldin-Urbanski 1996 pressure root, DOI:10.1112/plms/s3-73.1.105",
+          "Cunha-Novaes-Ponce arXiv:2608.00398 Appendix B.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No cited exact table for N=floor(exp(tau/epsilon)) or phase a_lambda(tau); general dimension-spectrum databases cover different invariants."
+        ],
+        "reasoning": "A continuous asymptotic crossover in the cutoff/exponent parameters is not a fixed numerical catalogue entry; absent code-search hits are not novelty evidence.",
+        "searches": [
+          "GitHub SCOPE-Science indexed query Zipf cutoff Hausdorff dimension [no matches]",
+          "arXiv:2608.00398 Appendix B.1 concrete examples"
+        ]
+      },
+      "rationale": "PASS on inspected evidence, not exhaustive priority certification. The pressure/dimension principle is established by Mauldin-Urbanski (1996), and arbitrary subsystem dimension spectra are studied by Das-Simmons (2022), but those general results do not state the normalized zeta-pole double scaling for a jointly varying exponent and exponentially growing finite alphabet. Cunha-Novaes-Ponce 2026 studies other countable-branch maps and an Appendix B.1 geometric-block affine model, not the Zipf harmonic pole/finite cutoff law. Thus the substantive first-order phase and noncommuting-order quantification are separately proved rather than credited to standard pressure. Resultary was unavailable, not evidence of novelty.",
+      "residual_risks": [
+        "Specialized earlier literature may have equivalent two-parameter near-pole scaling; no exhaustiveness claimed.",
+        "1996 and 2022 primary full PDFs not read completely; abstract/scope cannot exclude all historical equivalent formulations.",
+        "Resultary unavailable; independent numerical checks are limited parameter tests."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not same Zipf normalization/exponential cutoff; strong general background but no demonstrated direct coverage",
+          "evidence": "Different block-length family and pressure setup; Appendix B.1 lacks q->1 near-harmonic singularity.",
+          "identifier_or_url": "arXiv:2608.00398v1",
+          "material_read": "Theorem A, discussion of piecewise affine models, and Appendix B.1 construction with geometrically blocked contractions",
+          "method": "Primary scholarly document material read via publicly accessible source presentation",
+          "title": "Infinite-Piecewise Expanding Maps: Chaos, Ergodicity and Invariant-Set Complexity",
+          "trigger": "closest countably branched expanding-map model"
+        },
+        {
+          "assessment": "Classical pressure theorem covers dimension-root portion; full original text not claimed read",
+          "evidence": "Abstract explicitly claims dimension formula in terms of pressure.",
+          "identifier_or_url": "DOI:10.1112/plms/s3-73.1.105",
+          "material_read": "Abstract and formula-for-dimension scope; not entire 1996 paper",
+          "method": "Publisher abstract and bibliographic description",
+          "title": "Dimensions and Measures in Infinite Iterated Function Systems",
+          "trigger": "canonical stronger conformal IFS result"
+        },
+        {
+          "assessment": "Subsets and dimension spectrum constructions differ from exponent-dependent Zipf cutoff",
+          "evidence": "Published 2022: constructed nonrealizable/zero-dimensional spectra, not a claimed crossover formula.",
+          "identifier_or_url": "DOI:10.4171/JFG/112",
+          "material_read": "Full publisher abstract, dates, statements of two constructions; not a whole-document negative finding",
+          "method": "Publisher open-archive landing text",
+          "title": "On the dimension spectra of infinite conformal iterated function systems",
+          "trigger": "possible dominating dimension-spectrum result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. A naturally motivated critical boundary q downarrow 1 of a normalized infinite-alphabet similarity model has a singular normalization and nonuniform finite-alphabet approximation. The explicit dimension crossover on scale N~exp(tau/(q-1)), sharp crossing tau=1/lambda, and positive first-order truncation bias are nontrivial uniform asymptotic data potentially needed for symbolic approximations. This goes materially beyond restating the classical pressure equation or reporting a finite experiment.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git RESULT.md c100b8c3404ab4c772fa56b3d8f1671cc3541968 and verify_crossover.py 11288dd9803e71989ecd0eabe4b09a64b2af0eed",
+    "Cunha/Novaes/Ponce arXiv:2608.00398 Theorem A Appendix B.1",
+    "Mauldin/Urbanski PLMS 73 (1996) DOI:10.1112/plms/s3-73.1.105",
+    "Das/Simmons DOI:10.4171/JFG/112",
+    "Four independent Hurwitz-zeta numerical checks; Resultary error search_completed=false"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Not a statement about general nonlinear countable maps, non-Zipf weights, renormalized finite cutoffs, or signed second order at tau=1/lambda.",
+    "No independent proof of global literature priority; finite roots and experiments cannot prove asymptotics."
+  ],
+  "residual_risks": [
+    "Specialized earlier literature may have equivalent two-parameter near-pole scaling; no exhaustiveness claimed.",
+    "1996 and 2022 primary full PDFs not read completely; abstract/scope cannot exclude all historical equivalent formulations.",
+    "Resultary unavailable; independent numerical checks are limited parameter tests."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Not same Zipf normalization/exponential cutoff; strong general background but no demonstrated direct coverage",
+      "evidence": "Different block-length family and pressure setup; Appendix B.1 lacks q->1 near-harmonic singularity.",
+      "identifier_or_url": "arXiv:2608.00398v1",
+      "material_read": "Theorem A, discussion of piecewise affine models, and Appendix B.1 construction with geometrically blocked contractions",
+      "method": "Primary scholarly document material read via publicly accessible source presentation",
+      "title": "Infinite-Piecewise Expanding Maps: Chaos, Ergodicity and Invariant-Set Complexity",
+      "trigger": "closest countably branched expanding-map model"
+    },
+    {
+      "assessment": "Classical pressure theorem covers dimension-root portion; full original text not claimed read",
+      "evidence": "Abstract explicitly claims dimension formula in terms of pressure.",
+      "identifier_or_url": "DOI:10.1112/plms/s3-73.1.105",
+      "material_read": "Abstract and formula-for-dimension scope; not entire 1996 paper",
+      "method": "Publisher abstract and bibliographic description",
+      "title": "Dimensions and Measures in Infinite Iterated Function Systems",
+      "trigger": "canonical stronger conformal IFS result"
+    },
+    {
+      "assessment": "Subsets and dimension spectrum constructions differ from exponent-dependent Zipf cutoff",
+      "evidence": "Published 2022: constructed nonrealizable/zero-dimensional spectra, not a claimed crossover formula.",
+      "identifier_or_url": "DOI:10.4171/JFG/112",
+      "material_read": "Full publisher abstract, dates, statements of two constructions; not a whole-document negative finding",
+      "method": "Publisher open-archive landing text",
+      "title": "On the dimension spectra of infinite conformal iterated function systems",
+      "trigger": "possible dominating dimension-spectrum result"
+    }
+  ]
+}

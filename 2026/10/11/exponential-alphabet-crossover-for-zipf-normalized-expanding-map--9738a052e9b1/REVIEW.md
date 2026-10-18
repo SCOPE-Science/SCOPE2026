@@ -1,19 +1,21 @@
-# Scientific review: exponential-alphabet dimension crossover
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The affine model has strictly positive first-level gaps and contractive inverse branches. Finite Moran roots and the infinite pressure root are uniquely defined and the two dimensions follow from standard separated-similarity arguments plus a direct cover/subsystem sandwich. The key nonstandard step is the uniform double-scaling integral comparison for the truncated harmonic series when \(N=\lfloor e^{\tau/\varepsilon}\rfloor\); its absolute error is controlled by the integral test, and multiplying by the zeta-normalized prefactor gives an \(O(\varepsilon|\log\varepsilon|)\) pressure error. A positive phase derivative converts it to the stated dimension error. The infinite pole argument, strict threshold and fixed-alphabet limit are checked separately. The packaged standalone checker passed 87 numerical diagnostics; those tests are not proofs.
+PASS
 
-## Originality — PASS, with qualification
+PASS. Actual RESULT.md blob c100b8c3404ab4c772fa56b3d8f1671cc3541968 inspected. For 0<lambda<1, q>1, inverse branches have strictly separated intervals I_n and contraction ratios r_n=lambda*n^(-q)/zeta(q). Finite N>=2 similarity dimension is the unique root of sum_{n<=N}r_n^s=1; full countable dimension equals the root c(q)^s zeta(qs)=1, rigorously by finite-subsystem lower bounds and arbitrarily deep cylinders for the upper bound, without assuming compact finite alphabet. Uniform integral comparison for N=floor(exp(tau/epsilon)), q=1+epsilon and bounded a yields epsilon*sum_{n<=N}n^(-1-(1-a-a*epsilon)*epsilon)=integral_0^tau exp((a-1)t)dt+O(epsilon). With c(q)^(1-a epsilon)=lambda*epsilon*(1+O(epsilon*abs(log epsilon))), pressure error O(epsilon*abs(log epsilon)); the phase derivative lambda*integral_0^tau t*exp((a-1)t)dt>0 transfers to dimension error O(epsilon^2*abs(log epsilon)). Laurent expansion at zeta pole gives full-slope 1-lambda. Evaluate phase at a=1 and 1-lambda for strict crossover and positive gap. Fixed N root tends 0; infinite root tends 1. Independent 65-digit mpmath/Hurwitz-zeta root tests at lambda=.3,.65, tau=.8,1.8 and epsilon=.015 reproduced predicted signs and trend; not proof of limit. Threshold tau=1/lambda correctly excludes a second-order sign.
 
-Mauldin–Urbański's general infinite-CIFS pressure formula already encompasses the implicit dimension equations, so the work does not claim that formalism as a discovery. Das–Simmons address dimension spectra, and the August 2026 source by Cunha–Novaes–Ponce concerns countably branched expanding maps and geometric-block examples. The result isolates a distinct normalized power-tail singular limit: the exact exponentially large cutoff threshold and positive first-order dimension deficit. Full material was inspected for the recent source and the relevant classical pressure and dimension-spectrum comparisons. A different, older analysis of this exact double scaling may exist outside the inspected sources; a comprehensive priority claim is not made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The required finite truncation grows exponentially in the reciprocal distance to the borderline summability exponent. Ordinary fixed-alphabet approximations can therefore give a dimension tending to zero while the full system's dimension tends to one, and even a cutoff exponential in \(1/(q-1)\) leaves a computable order-\(q-1\) bias. The sharp phase boundary provides a concrete mathematical criterion for when a finite cutoff reproduces the infinite system's fundamental convergence-exponent inequality. This is a motivated approximation obstruction in an explicit expanding-map family, not a parameter renaming or numerical recomputation of a known table.
+PASS on inspected evidence, not exhaustive priority certification. The pressure/dimension principle is established by Mauldin-Urbanski (1996), and arbitrary subsystem dimension spectra are studied by Das-Simmons (2022), but those general results do not state the normalized zeta-pole double scaling for a jointly varying exponent and exponentially growing finite alphabet. Cunha-Novaes-Ponce 2026 studies other countable-branch maps and an Appendix B.1 geometric-block affine model, not the Zipf harmonic pole/finite cutoff law. Thus the substantive first-order phase and noncommuting-order quantification are separately proved rather than credited to standard pressure. Resultary was unavailable, not evidence of novelty.
 
-## Sources and limitations
+## value
 
-Most relevant comparisons: arXiv:2608.00398v1, DOI:10.1112/plms/s3-73.1.105, and DOI:10.4171/JFG/112. The old pressure principle subsumes the unscaled root identities but does not by itself state the present singular cutoff law. The model uses affine branches, Zipf normalization and fixed \(\lambda\); no universality for arbitrary countable maps or fine sign at the exact threshold is claimed. Independent review remains outstanding.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS. A naturally motivated critical boundary q downarrow 1 of a normalized infinite-alphabet similarity model has a singular normalization and nonuniform finite-alphabet approximation. The explicit dimension crossover on scale N~exp(tau/(q-1)), sharp crossing tau=1/lambda, and positive first-order truncation bias are nontrivial uniform asymptotic data potentially needed for symbolic approximations. This goes materially beyond restating the classical pressure equation or reporting a finite experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
