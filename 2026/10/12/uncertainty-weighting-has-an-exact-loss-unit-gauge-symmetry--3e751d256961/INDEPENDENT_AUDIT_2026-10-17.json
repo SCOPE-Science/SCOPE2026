@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T04:54:55Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For source-form positive fixed task multipliers q_i, F=sum_i(a_i e^(−s_i)L_i(theta)+s_i/2), s_i=log sigma_i², substituting L_iʹ=q_i L_i and s_iʹ=s_i+log q_i cancels q_i in every data term and adds constant 1/2 Σ_i log q_i. Taking gradients in theta and translated s gives equality. Induction over deterministic first-order optimizers whose update maps depend only on gradients and matched state proves identical theta trajectories with fixed s translation, including ordinary SGD, momentum and Adam without absolute-s regularization/constraints. The phase-space conjugacy is NOT asserted for unchanged numerical s initialization, clipping, box constraints, weight decay or the exact non-approximated classification likelihood. Independently verified the weighted data term equalities using rational examples and analytically compared gradient terms; repository verifier source was read but its saved logs are not taken as proof. Squared-error target unit change c gives q=c² and sigmaʹ=c sigma.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2025/26 full text derives pointwise inverse-loss optimal uncertainty weights and shows slow UW uncertainty adaptation and scale-related comparisons.",
+          "ICLR IMTL alternative optimizer scale-invariance is a different objective and does not subsume identical trajectories of Kendall-style jointly trained variances."
+        ],
+        "reasoning": "Prior learning of log variance and stationary inverse-loss weights provide the ingredients but do not by themselves state the full dynamic conjugacy under independent loss rescalings and shifted initial states; implementation-dependent limitations are essential.",
+        "searches": [
+          "Kendall–Gal–Cipolla arxiv:1705.07115, CVPR 2018",
+          "Kirchdorfer et al. DOI 10.1007/s11263-025-02625-x, Springer open HTML",
+          "Liu et al. ICLR 2021 Towards Impartial Multi-task Learning"
+        ]
+      },
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s11263-025-02625-x",
+        "https://arxiv.org/abs/1705.07115",
+        "https://discovery.ucl.ac.uk/id/eprint/10120667/",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/7276e886ed6ed49439d05d36a501e9b2e0169de0/2026/10/12/uncertainty-weighting-has-an-exact-loss-unit-gauge-symmetry--3e751d256961"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original weighted likelihood already gives the static transformation by substitution.",
+          "Extending equality of gradients to a complete optimizer trajectory requires matching initial optimizer states, shifted log-variance initialization and translation-equivariant update; common fixed-initialization practice does not satisfy these hypotheses."
+        ],
+        "reasoning": "The parent expression mechanically implies the static identity, which is openly credited. The tested stronger conclusion is a specific trajectory conjugacy plus its boundary hypotheses, not a new objective or an abstract renaming; no inspected prior proves that full practical statement.",
+        "searches": [
+          "arxiv:1705.07115 source objective",
+          "https://link.springer.com/article/10.1007/s11263-025-02625-x Sections 3, 4.1",
+          "ICLR 2021 IMTL scale-invariance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kendall uses trainable s=log sigma² and inverse-variance weighting; scalar task loss units can be absorbed by translation of s.",
+          "Liu et al. IMTL (ICLR 2021) calls a DIFFERENT balancing algorithm scale invariant, not source-form UW trajectory equivariance."
+        ],
+        "reasoning": "Compared equivalently worded scale invariance to actual operator action/optimizer trajectories, finding none with the exact common shifted initialization; searches are not priority proof.",
+        "searches": [
+          "Resultary: Kendall Gal Cipolla homoscedastic uncertainty weighting loss scale invariance log variance shift reparameterization",
+          "web: Kendall uncertainty weighting loss scaling log variance initialization invariance dynamics exact task units 2024 2025",
+          "web: Kendall multi task homoscedastic uncertainty weighting scale invariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source article provides equations and empirical weighting tables, not a lookup table of transformations or full coupled path equivalence."
+        ],
+        "reasoning": "Exact path identity is an analytic dynamical theorem rather than a parameter database; checked symbolic definitions and equations rather than mere index hits.",
+        "searches": [
+          "Resultary: Kendall Gal Cipolla homoscedastic uncertainty weighting loss scale invariance log variance shift reparameterization",
+          "Kirchdorfer et al Springer 2025 Eq(11)–(16)"
+        ]
+      },
+      "rationale": "The original objective and uncertainty optimum are prior results, and static invariance is a direct algebraic consequence that is not claimed as a new weighting algorithm. The best-of-knowledge novelty is the exact taskwise translation action and coupled optimizer-trajectory conjugacy with the requisite shifted initialization, which was not located in fully read 2025 analytical dynamics treatment or the available original-source material. The strongest parent facts make the derivation elementary but do not in the inspected text explicitly give this dynamical identification.",
+      "residual_risks": [
+        "The defining Kendall 2018 full PDF was unavailable in this execution; an exact transform could be in implementation notes or appendices.",
+        "The static identity is immediate from the published objective, so originality/value hinge on the complete dynamical and initialization statement, not simple resubstitution.",
+        "Absolute-value regularization, clipping, optimizer variants with parameter-dependent updates, or unchanged numerical initialization destroy claimed path equivalence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STATIC_OPTIMUM_AND_INERTIA_PRIOR_NOT_FULL_PATH_CONJUGACY",
+          "evidence": [
+            "§4.1 sets sigma_k=L_k for L1-type case, derives inverse-loss weighting, and §3 explains inertia; does not state transformed full SGD/Adam trajectories."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s11263-025-02625-x",
+          "material_read": "Full openly accessible HTML Sections 2–5, including §3 delayed adaptation, §4.1 Eq(11)–(16) analytical weight optimum and §5 empirical discussion",
+          "method": "Primary open Springer HTML, mathematical equations and surrounding explanatory paragraphs",
+          "title": "Investigating Uncertainty Weighting for Multi-Task Learning: Insights and Analytical Alternative",
+          "trigger": "Closest modern full mathematical UW objective and dynamics analysis"
+        },
+        {
+          "assessment": "PARENT_MODEL_STATIC_COVERAGE",
+          "evidence": [
+            "The defining paper motivates different units/scales and predictive uncertainty; original complete manuscript not claimed read in this run."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1705.07115",
+          "material_read": "Public arXiv abstract/metadata; original CVF PDF returned 403 and full text was not newly obtained. The exact objective also appears verbatim in the assigned RESULT.md but assigned source is not independent primary reading.",
+          "method": "Public metadata and parent-equation cross-check; not whole-text negative claim",
+          "title": "Multi-Task Learning Using Uncertainty to Weigh Losses for Scene Geometry and Semantics",
+          "trigger": "Defining Kendall objective and parameterization"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECTIVE",
+          "evidence": [
+            "IMTL uses gradient projection/balance and claims empirical scale-invariance of a different procedure, not Kendall log-variance translated path conjugacy."
+          ],
+          "identifier_or_url": "https://discovery.ucl.ac.uk/id/eprint/10120667/",
+          "material_read": "Open abstract and repository metadata only",
+          "method": "Abstract/metadata scientific comparison",
+          "title": "Towards Impartial Multi-task Learning",
+          "trigger": "Scale-invariant multi-task learning alternative"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This structural identity resolves a meaningful experimental reproducibility distinction: loss-unit rescaling with shifted uncertainty initialization gives exactly the same entire gradient/optimizer path, whereas the common fixed numerical initialization does not. It supplies an actionable initialization transformation and precise symmetry-breaking conditions, directly relevant to prior reported scale sensitivity and inertia. Its purpose is more than arbitrary notation renaming; no empirical superiority is asserted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The defining Kendall 2018 full PDF was unavailable in this execution; an exact transform could be in implementation notes or appendices.",
+    "The static identity is immediate from the published objective, so originality/value hinge on the complete dynamical and initialization statement, not simple resubstitution.",
+    "Absolute-value regularization, clipping, optimizer variants with parameter-dependent updates, or unchanged numerical initialization destroy claimed path equivalence.",
+    "Prior self-review PASS, verification scripts and printed logs were not treated as independently sufficient for correctness, originality or value.",
+    "Publication remains not_ready due operational-provenance privacy blockers, not a scientific verdict."
+  ],
+  "schema_version": 1
+}
