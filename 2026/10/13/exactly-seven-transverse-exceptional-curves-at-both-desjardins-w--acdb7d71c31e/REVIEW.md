@@ -1,15 +1,21 @@
-# Review: exactly seven transverse exceptional curves at both marked points
+# Independent mathematical audit
 
-## Correctness (PASS)
-For both rational eight-point blowups, the complete degree-one del Pezzo classification has \(240\) exceptional curves. Exact modular full-column-rank checks exclude the marked point from \(225\) of the \(232\) plane-curve classes; the \(8\) exceptional divisors lie over different points. Exact rational one-dimensional kernels of the remaining seven classes show each curve contains the marked point with nonzero distinct tangent gradient. Therefore the full reduced exceptional divisor has exactly seven transverse local branches; standard formulas give \(\delta=21\), \(\mu=36\). The published non-torsion assertion is relied upon, not independently reconfirmed.
+## correctness
 
-## Originality (PASS)
-The closest primary source is Desjardins–Winter (arXiv:2210.11659), Examples 3.1/3.3: it explicitly exhibits seven curves through \(Q\), rather than an exhaustive local census across its Theorem 2.1 list of all 240 geometric exceptional curves. The companion computation and Section 5 examine the seven examples and possible abstract eightfold cliques, respectively, not the stronger complete marked-point exclusion and ordinary local germ. The earlier van Luijk–Winter study concerns global concurrency bounds; no implication-equivalent indexed statement was found under tangency, non-torsion, exceptional-divisor, or ordinary-sevenfold aliases. **Residual risk:** some older/unindexed treatment of the same fixed examples could contain an equivalent coordinate calculation.
+PASS
 
-## Value (PASS)
-This is the complete geometrically natural local-incidence invariant for both explicit non-torsion examples at the known seven-versus-open-eight threshold. It distinguishes exhibiting seven curves from proving that no further geometric exceptional curve meets the marked point, and identifies the entire reduced exceptional divisor germ as ordinary sevenfold. It is not a claim of a global concurrency bound.
+The 240 exceptional classes split into eight blown-up divisors disjoint from Q and 232 unique plane strict-transform classes of degrees 1..6 (counts 28,56,56,56,28,8). Independent modular Taylor-jet rank enumeration at the exact two eight-point inputs returned precisely L1,2 L3,4 L5,6 L7,8 C1,2 C3,4 Q2,6,7 for BOTH examples, and rank n-1 for every admitted base system. Each of the other 225 augmented matrices had full column rank mod 1000003; that proves impossibility of incidence in characteristic zero by nonzero minor. The inspected source also computes exact rational one-dimensional kernels for the seven and gives seven nonproportional nonzero tangent gradients for each. These smooth transverse branches give delta=21, mu=36. Primary source independently supplies non-torsion, not recomputed here.
 
-## Limitations
-Characteristic zero; exactly two explicitly marked points; no global eighth-curve existence claim. The non-torsion property comes from the cited original article. Independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full ordinary-sevenfold local type and exhaustive exclusion of every possible eighth exceptional curve at the two explicit points are not given by the underlying examples (which exhibit seven concurrent curves). The original arithmetic question asks about non-torsion eightfold concurrence, and a separate complete census resolves exactly what those two examples do, not the global open case.
+
+## value
+
+PASS
+
+The precise all-exceptional-class incidence at two canonical rational non-torsion boundary witnesses addresses whether a hidden eighth curve occurs, a live structural question. Exact ordinary-septuple local type supplies delta/mu invariants of the actual reduced exceptional divisor, independently useful for singular geometry. This is a motivated exhaustive classification of natural examples rather than a routine renaming or arbitrary prime test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

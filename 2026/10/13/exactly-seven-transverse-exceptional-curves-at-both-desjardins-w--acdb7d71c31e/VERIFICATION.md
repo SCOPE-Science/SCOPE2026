@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Arithmetic verification
+# Independent mathematical audit
 
-Run `python3 verify.py`. It uses only the standard library, takes the source's exact eight projective points, checks general position, enumerates all 232 plane exceptional classes from the complete degree-one del Pezzo list, checks 225 impossible incidences per example by full column rank modulo 1000003, constructs the seven admissible forms by exact rational linear algebra, and certifies their pairwise distinct first-order tangent gradients. The remaining eight blow-up exceptional divisors are disjoint from Q geometrically. Its final line is:
+## correctness
 
-`VERIFY_OK examples=2 exceptional_curves=240 unique_through_Q=7 each ordinary_sevenfold=2 all_225_plane_exclusions_per_example_mod_1000003=PASS`
+PASS
 
-This is a finite exhaustive class census, not a sample of an infinite family. A nonzero modular determinant implies a nonzero characteristic-zero determinant, but no reduction statement in characteristic 1000003 is claimed. Published non-torsion is a separate referenced input. No independent audit has been performed.
+The 240 exceptional classes split into eight blown-up divisors disjoint from Q and 232 unique plane strict-transform classes of degrees 1..6 (counts 28,56,56,56,28,8). Independent modular Taylor-jet rank enumeration at the exact two eight-point inputs returned precisely L1,2 L3,4 L5,6 L7,8 C1,2 C3,4 Q2,6,7 for BOTH examples, and rank n-1 for every admitted base system. Each of the other 225 augmented matrices had full column rank mod 1000003; that proves impossibility of incidence in characteristic zero by nonzero minor. The inspected source also computes exact rational one-dimensional kernels for the seven and gives seven nonproportional nonzero tangent gradients for each. These smooth transverse branches give delta=21, mu=36. Primary source independently supplies non-torsion, not recomputed here.
+
+## originality
+
+PASS
+
+The full ordinary-sevenfold local type and exhaustive exclusion of every possible eighth exceptional curve at the two explicit points are not given by the underlying examples (which exhibit seven concurrent curves). The original arithmetic question asks about non-torsion eightfold concurrence, and a separate complete census resolves exactly what those two examples do, not the global open case.
+
+## value
+
+PASS
+
+The precise all-exceptional-class incidence at two canonical rational non-torsion boundary witnesses addresses whether a hidden eighth curve occurs, a live structural question. Exact ordinary-septuple local type supplies delta/mu invariants of the actual reduced exceptional divisor, independently useful for singular geometry. This is a motivated exhaustive classification of natural examples rather than a routine renaming or arbitrary prime test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
