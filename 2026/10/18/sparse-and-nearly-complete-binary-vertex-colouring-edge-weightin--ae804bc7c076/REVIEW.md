@@ -1,0 +1,19 @@
+# Scientific review: two-ended binary weighting spectrum of bicliques
+
+## Correctness: PASS
+
+The domain comprises all labelled complete bipartite graphs with part sizes \(1\le m\le n\), and properness compares incident weight sums across every original edge, including edges assigned zero. The equivalence with disjoint row/column degree sets gives an if-and-only-if test. When fewer than \(m\) edges are selected and \(m\ge2\), each side has a zero-degree vertex, proving the lower bound. Equality forces an onto-left degree-one assignment with no singleton right fibres, leading to \(m![x^m](e^x-x)^n\) and the part-reversal factor in the balanced case. Edge complementation is an involution preserving properness exactly for balanced part sizes. For \(n=m+1\), the zero-edge deficit condition \(x_i-y_j\ne1\) rejects deficits one and two and classifies every three-edge deficit as a star centered in the smaller part. The one-vertex side and the graph with two vertices are separately settled. Formal integer combinatorial enumeration and independently enumerated small matrices support the claimed closed formulas. No extrapolation from finite tests is used.
+
+## Originality: PASS, subject to stated access risks
+
+The numerical edge-deletion invariant for balanced bicliques already appears in *Graph Irregularity via Edge Deletions* (2025), Theorem 4.2. The contribution assessed here is not that scalar: it is the labelled and orbit classification of **all** support-minimal binary vertex-sum colourings plus a precise first-allowed perturbation of the full weighting on \(K_{m,m+1}\). The edge-deletion paper checks locally irregular degrees on retained edges, whereas the present condition checks all edges of the original graph. Lu (2016) proves existence under connectivity hypotheses; the cited 2011 work addresses minimal palette size; Aute--Panolan--Philip (2026) and Madarasi--Simon (2026) address complexity and extension, on the accessible material. Their claims do not mathematically imply these multiplicities, orbit formulas, or sharp three-deletion classes. Targeted searches of scholarly statements and published mathematical records found no claim with stronger covering parameters. This is evidence for originality, not a uniqueness certificate or guarantee of bibliographic priority. The full texts of the 2026 works were inaccessible in the available lawful routes, creating a named residual risk.
+
+## Value: PASS
+
+The quantity measures the number and structure of binary assignments with the smallest or largest set of active weighted edges while still distinguishing every adjacent vertex by its incident weight sum. The non-singleton-fibre partition structure gives exact labelled counts and all automorphism types in arbitrary dimensions; it also determines the complete upper extremal distribution in the balanced case. The adjacent-dimension gap is a sharp and somewhat counterintuitive boundary: removing one or two edges from the all-one assignment always destroys properness, but any three-edge deletion supported on one smaller-side vertex succeeds, with an exact multiplicity. This is a natural structural and enumerative extension to the existing existence/edge-deletion literature, not a renamed parameter, arbitrary subcase, or a trivial isolated numeric example.
+
+## Reproducibility and limits
+
+The standalone `verify.py` uses only the Python 3 standard library, iterates all \(2^{mn}\) support masks on 17 small bicliques, and independently checks selected sparse/dense slices on four larger boards and integer-orbit multiplicities. The script reports exact comparisons. The general proof is combinatorial; the program does not establish generality by sampling. This result does not determine the complete support polynomial on every nonsquare biclique. Definitive historical priority and independent audit remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.

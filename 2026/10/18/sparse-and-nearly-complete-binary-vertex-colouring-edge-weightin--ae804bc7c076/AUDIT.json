@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For every labelled biclique the induced-sum criterion is exactly the disjointness of the sets of selected row degrees and selected column degrees, including comparisons at zero-weight edges. Fewer than m selected edges leave degree-zero vertices in both parts; equality forces occupied fibres of size at least 2 on the larger side, giving a coefficient of \\((e^x-x)^n\\). In the balanced case the two star-center orientations are disjoint and complementation preserves all inequalities, yielding the full reciprocal symmetry. On \\(K_{m,m+1}\\), deficit-degree differences \\(x_i-y_j\\ne1\\) exclude all one- and two-edge deletions and force three-edge deletions to be smaller-side stars, including the m=2 boundary. Exact integer brute-force tests on the actual standalone script exhaust 125006 binary masks plus additional extremal slices; the universal proof does not rely on finite data.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2511.14514v1, Theorem 4.2: I_e(K_{n,m})=0 for n!=m and I_e(K_{n,n})=n; proof gives scalar bounds, not the number or orbit types of minimizers.",
+        "doi:10.46298/dmtcs.2162, Theorems 1.2--1.3 and §2 give broad existence conditions, without support-minimization enumerators.",
+        "arXiv:2609.27719 (2026), accessible abstract lists polynomial kernels, fixed-parameter complexity and preweighting extensions, not exact support layers."
+      ],
+      "reasoning": "The 2025 theorem covers the balanced scalar deletion endpoint and already implies no novelty for that number; it does not force counts for proper 0-1 edge-weightings because deleted edges retain adjacency constraints in the latter. The existence theorems cover feasibility but not the optimum mask classification. Abstract-level coverage of 2026 complexity papers remains uncertain and is recorded as a risk.",
+      "searches": [
+        "Graph Irregularity via Edge Deletions Bensmail et al complete bipartite graphs I_e K_n n=n minimum deletion edge-irregulator, versus binary vertex coloring edge weighting where zero edges still impose inequality; enumerate optimal deletion sets and near square K_n,n+1 three edge gap",
+        "minimum edge locally irregular spanning subgraph complete bipartite graph all original edges",
+        "vertex-coloring 2-edge weighting complete bipartite graphs number of colorings degree sequences disjoint"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2511.14514v1, §4, Theorem 4.2 (full relevant HTML)",
+      "doi:10.46298/dmtcs.2162, Theorems 1.2–1.3 and proof of §2 (relevant PDF text)",
+      "arXiv:2609.27719, abstract and submission metadata only",
+      "doi:10.11650/twjm/1500406380, bibliographic abstract only",
+      "arXiv:2609.31205, abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2511.14514v1, Theorem 4.2 establishes an edge-deletion cardinality; the result does not supply full-mask orientation and orbit multiplicities.",
+        "arXiv:2609.27719, abstract gives parameterized-complexity bounds and preweighting algorithms; no exact count is stated.",
+        "doi:10.11650/twjm/1500406380, accessible abstract establishes existence/weight-palette values on graph families, not optimal support census."
+      ],
+      "reasoning": "The already published scalar balanced deletion optimum is explicitly treated as covered and not made the point of originality. Neither a general existence theorem nor an optimal scalar deletion number implies the non-singleton-fibre labelled enumerator, complete orbit sizes, or the sharp 1/2/3-deletion profile on \\(K_{m,m+1}\\). The edge-irregularity theorem concerns a weaker adjacency set; a reduction from its parameter to counts would require a new equivalence that is false in general.",
+      "searches": [
+        "Graph Irregularity via Edge Deletions Theorem 4.2 complete bipartite enumeration of optimal edge irregulators comparison proper {0,1} edge weighting",
+        "Vertex-Coloring Edge-Weighting Kernelization Generalization arXiv 2609.27719 complete bipartite counting minimum number ones",
+        "vertex coloring {0,1} edge weighting complete bipartite K_mn row column degree sums disjoint edge subset"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hongliang Lu, Vertex-Coloring Edge-Weighting of Bipartite Graphs with Two Edge Weights (2016), doi:10.46298/dmtcs.2162, gives the sum-over-incident-weights definition.",
+        "Graph Irregularity via Edge Deletions (2025), arXiv:2511.14514v1, §4 Theorem 4.2, treats deletion to local irregularity of the retained graph, not all original edges."
+      ],
+      "reasoning": "The binary weighting is equivalently a spanning 0-1 incidence matrix whose row-degree and column-degree value sets are disjoint. The phrase locally irregular spanning subgraph can mean degree inequality only along retained edges; such a property is strictly weaker, because edges of weight zero still impose inequalities in the present question. Thus a statement about the ordinary edge-irregulator parameter is not a complete reformulation of the counted object.",
+      "searches": [
+        "vertex coloring {0,1} edge weighting complete bipartite graphs minimum number of weight one edges sparse support enumerator Stirling partitions minimum proper weighting",
+        "proper degree-distinguishing subgraph spanning bipartite graph complete bipartite minimum edges counting configurations",
+        "locally irregular bipartite subgraphs difference row column degree complete bipartite optimum counts"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed records found concerned unrelated complete-multipartite domination weight enumerators and bipartite local-irregularity thresholds, not these binary vertex-sum mask tables.",
+        "arXiv:2511.14514v1, §4 Theorem 4.2 contains minimum cardinality but no table or count of all extremizers; inspected table of contents shows no separate appendix of biclique enumerators."
+      ],
+      "reasoning": "No exhaustive table or database entry containing the same minimum-mask multiplicities, orbit partition counts or three-deletion boundary was located by the actual searches. This is only a negative search result, not proof of uniqueness or of the absence of earlier publications.",
+      "searches": [
+        "exact number of minimum support {0,1} proper vertex coloring edge weightings complete bipartite K_mn partition into non-singleton fibers all minimizers orbits",
+        "zero weighted edges near complete K_m,m+1 only three deletions possible proper sum weighting",
+        "counting number proper 0-1 edge weightings complete bipartite graph fixed number of one edges"
+      ]
+    },
+    "rationale": "The assessed new information is the explicit labelled count, automorphism-orbit classification and sharp three-edge near-full gap for proper binary sum-induced edge weightings, not existence or the already known minimum deletion number for balanced bicliques. Published edge-irregularity deletion theorems check only retained edges and hence do not imply this all-original-edge count; existence algorithms and broad complexity results likewise supply no identified covering counting theorem. Relevant archive and primary-source searches found no claim that implies this precise classification. Inaccessible full texts and possible unindexed earlier work remain residual risks, so priority is not certified.",
+    "residual_risks": [
+      "The full text of the 2026 Aute–Panolan–Philip paper was inaccessible via attempted lawful preprint/OA routes; its abstract alone cannot rule out exact extremal examples within the paper.",
+      "The full text of the 2026 Madarasi–Simon paper and the 2011 Chang–Lu–Wu–Yu paper could not be inspected; potential unobserved support enumeration is unverified.",
+      "A negative search of a mathematical record corpus and scholarly literature cannot prove priority; independent literature verification remains open."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Numerical deletion extremum for balanced bicliques is prior known; the publication does not classify binary all-original-edge weightings or their labelled multiplicities.",
+        "evidence": "Theorem 4.2 says I_e(K_{n,m})=0 if n!=m and n otherwise; it tests degree inequality after deletion only on edges remaining in the graph.",
+        "identifier_or_url": "https://arxiv.org/html/2511.14514v1",
+        "material_read": "Full accessible text for §4 Theorem 4.2 and its proof (paragraphs on complete bipartite graphs), the introductory definition and the article section structure.",
+        "method": "Opened lawful arXiv HTML and inspected exact theorem statement, proof and surrounding definitions.",
+        "title": "Graph Irregularity via Edge Deletions",
+        "trigger": "Direct complete-bipartite edge deletion theorem potentially implies the near-full layer."
+      },
+      {
+        "assessment": "Gives existence classes and factor-based weights, not all minimum masks, labelled counts, or the adjacent-dimension gap.",
+        "evidence": "Theorems 1.2, 1.3 and §2 (construction of a {0,1} edge weighting via a factor).",
+        "identifier_or_url": "https://dmtcs.episciences.org/2162/pdf",
+        "material_read": "PDF introduction, definitions and theorem statements on pages 1–3, technical factor construction and concluding results on pages 9–10, including a page screenshot.",
+        "method": "Read accessible primary PDF text and inspected page image, comparing theorems against support counts and gaps.",
+        "title": "Vertex-Coloring Edge-Weighting of Bipartite Graphs with Two Edge Weights",
+        "trigger": "Exact same additive vertex-colouring edge-weighting notion on bipartite graphs."
+      },
+      {
+        "assessment": "Accessible summary concerns complexity and partial-weight extension, rather than extremal enumerators, but full-text risk remains.",
+        "evidence": "arXiv:2609.27719, submitted 2026-09-23, abstract explicitly identifies the {0,1} induced-sum feasibility setting and polynomial-kernel contributions.",
+        "identifier_or_url": "https://arxiv.org/abs/2609.27719",
+        "material_read": "Abstract, authors, first submission date and listed contributions; complete text was not accessible through attempted arXiv HTML/PDF and lawful alternate page routes.",
+        "method": "Opened arXiv abstract and tried arXiv HTML/PDF and open-access variants; no accessible full-text document for line-level theorem comparison.",
+        "title": "Vertex-Coloring Edge-Weighting: Kernelization and Generalization",
+        "trigger": "Date-eligible motivating paper on the exact same binary weighting feasibility and extension problem."
+      },
+      {
+        "assessment": "Existence and minimum palette size are separate from support-minimum multiplicity and near-full coefficient classification; residual unseen-text risk remains.",
+        "evidence": "Abstract states exact values of the minimum allowed weighting palette for trees and regular bipartite graphs.",
+        "identifier_or_url": "https://doi.org/10.11650/twjm/1500406380",
+        "material_read": "Accessible publisher/repository metadata and abstract only; publisher PDF not available as readable full text.",
+        "method": "Compared accessible abstract and bibliographic classification with the current enumerative claim.",
+        "title": "Vertex-coloring Edge-weightings of Graphs",
+        "trigger": "Foundational study of additive vertex-colouring weight assignments on regular bipartite graphs."
+      },
+      {
+        "assessment": "The abstract concerns hardness, optimization of correctly distinguished edges, and extension complexity; full-text priority not excluded.",
+        "evidence": "arXiv:2609.31205, first submitted 2026-09-25, abstract on edge-weighting complexity and extension.",
+        "identifier_or_url": "https://arxiv.org/abs/2609.31205",
+        "material_read": "Accessible abstract only; no claim of a complete-bipartite support distribution in it.",
+        "method": "Read article abstract and statement of algorithmic scope.",
+        "title": "Complexity, approximation, and extension of proper {a,b}-edge-weightings",
+        "trigger": "Close contemporary work with an explicit extension question, potentially considering near-complete assignments."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ae804bc7-c076-4bd9-b8b4-4c9552f52b85",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The minimum number of active weights and their full labelled and automorphism-type distribution are natural quantities in the binary neighbour-distinguishing edge-weighting problem, where local changes may destroy feasibility. The associated Stirling/partition census gives all optimal shapes across infinitely many bicliques, not a chosen numerical case; balanced complementation determines both extremes, and the consecutive-size family exhibits a sharp three-edge isolation threshold with an exact count. These are structural and enumeration statements beyond known existence and scalar deletion bounds; no general downstream application is asserted or needed.",
+    "status": "PASS"
+  }
+}
