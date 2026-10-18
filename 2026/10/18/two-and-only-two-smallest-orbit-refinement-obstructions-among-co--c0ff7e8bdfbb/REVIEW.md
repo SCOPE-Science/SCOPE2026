@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The exhaustive certificate generates all connected cactus isomorphism types by deleting a non-cut vertex in the completeness argument, prunes isomorphism only by necessary invariants, tests all candidate bijections, exactly computes automorphism orbits, and directly implements counting colour refinement. It establishes the claimed counts through eight vertices. An independent NetworkX/graph-atlas implementation reproduces the classification. The statement is explicitly finite; no finite sample is extrapolated to arbitrary graph order.
+
+**Originality — PASS, with priority uncertainty.** Primary work on colour refinement and refinability explains the invariant but does not imply the exact cutoff among connected cactus graphs or the complete two-exception classification. A previously recorded exceptional line graph of a tree is the nine-edge cactus witness, and does not imply that exactly one additional ten-edge cactus witness exists. Prior unicyclic identification and general cactus enumeration are different claims. Searches did not find a published cactus-wide orbit-refinement census; this is provisional and does not establish priority against inaccessible niche literature.
+
+**Value — PASS.** The natural least-order failure of stable-colour/orbit equality is a structural threshold in a canonical sparse planar graph family. The complete eight-vertex obstruction classification identifies two distinct glued-cycle geometries and separates the refinement invariant from mere degree and automorphism classes. The self-contained certificate supports future boundary tests and classification work; the result is not an arbitrarily chosen isolated graph.
+
+**Closest prior literature and limits.** Arvind–Köbler–Rattan–Verbitsky, arXiv:1502.01255, provides the formal notion of refinability; OEIS A000083 gives cactus graph counts but not the obstruction census. A line-graph-of-a-tree order-eight witness had been established previously in a narrower family, and must not be counted as a wholly new witness. All unbounded-order cactus refinability claims and exact publication priority are excluded.
+
+Self-review: passed. Independent audit: not yet performed.
