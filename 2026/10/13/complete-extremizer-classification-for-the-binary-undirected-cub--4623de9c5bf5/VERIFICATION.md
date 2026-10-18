@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` beside `certificate.json`.
+# Independent mathematical audit
 
-The verifier starts from the empty word and extends every surviving binary prefix by both letters. Since avoidance of \(\mathtt{xxx}\) up to reversal is inherited by factors, every admissible word is reached.
+## correctness
 
-For each appended bit, it checks every suffix of length \(3m\), splits it into \(A,B,C\), and rejects exactly when both \(B\) and \(C\) belong to \(\{A,A^{R}\}\). It regenerates the complete survivor-count vector
-\[
-1,2,4,6,10,16,18,12,10,6,0
-\]
-for lengths \(0\) through \(10\), verifies the exact six words at length \(9\), and verifies that length \(10\) is empty.
+PASS
 
-A separate whole-word procedure scans every factor of each of the six extremizers for every possible block length, avoiding reliance on the incremental-search invariant. The verifier also recomputes the reversal/complement orbits and checks that their sizes are \(2\) and \(4\).
+The forbidden factor ABC has three nonempty equal-length blocks, each of B,C equal to A or reverse(A). Avoidance is factorial. Any new prohibited factor on adding a bit ends at that bit, so checking suffixes of lengths 3m for every possible m is logically exhaustive. A new independent prefix search gave exact surviving counts at lengths 0..10: [1,2,4,6,10,16,18,12,10,6,0] and exact length-9 survivors 001101100, 001101101, 010010011, 101101100, 110010010, 110010011; whole-factor condition and complement/reversal action partition them into orbits of sizes 2 and 4. Zero survivors at 10 proves no longer words, not merely a time-limited search.
 
-The verification establishes only the finite equality classification stated here. Independent audit has not been performed.
+## originality
+
+PASS
+
+Best of knowledge: original Currie–Mol result gives the maximum length 9 but does not enumerate six equality words or reversal/complement orbits in the inspected full text; exact-string and synonymous-pattern searches found no published covering enumeration.
+
+## value
+
+PASS
+
+This finite exact equality classification identifies every extremizing word for a natural, sharp binary obstruction underpinning the undirected unary-pattern avoidability theorem; two inequivalent symmetry types are concrete structural refinement of the published scalar 9. It is bounded but not a gratuitous small-instance table, because it completely resolves the natural maximum-length equality question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

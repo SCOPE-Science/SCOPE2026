@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The avoidance language is factorial, so prefix extension is exhaustive. For each appended bit, every new forbidden instance must be a suffix, and checking every suffix of length \(3m\) against the two possibilities \(A\) and \(A^{R}\) for each repeated block is exactly the definition. The level counts through length \(10\) are \(1,2,4,6,10,16,18,12,10,6,0\). A separate whole-factor scan rechecks all six boundary words, and the symmetry calculation gives orbit sizes \(2\) and \(4\).
+## correctness
 
-## Originality
-PASS. The primary source states the scalar maximum \(9\) and uses it to prove the unary-cube avoidability-index case, but does not list all maximizers or classify their reversal/complement symmetries. The earlier conference version contains only the backtracking lower-bound step. Candidate-specific semantic and exact-string searches did not locate a covering six-word classification.
+PASS
 
-A residual risk is that unpublished source-author backtracking output or an unindexed auxiliary file contains the same boundary list.
+The forbidden factor ABC has three nonempty equal-length blocks, each of B,C equal to A or reverse(A). Avoidance is factorial. Any new prohibited factor on adding a bit ends at that bit, so checking suffixes of lengths 3m for every possible m is logically exhaustive. A new independent prefix search gave exact surviving counts at lengths 0..10: [1,2,4,6,10,16,18,12,10,6,0] and exact length-9 survivors 001101100, 001101101, 010010011, 101101100, 110010010, 110010011; whole-factor condition and complement/reversal action partition them into orbits of sizes 2 and 4. Zero survivors at 10 proves no longer words, not merely a time-limited search.
 
-## Value
-PASS. This is the complete equality classification for the finite binary obstruction that supplies the only nontrivial backtracking step in the source's unary-pattern theorem. It replaces a scalar maximum by the exact boundary objects and shows that two symmetry types occur.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of knowledge: original Currie–Mol result gives the maximum length 9 but does not enumerate six equality words or reversal/complement orbits in the inspected full text; exact-string and synonymous-pattern searches found no published covering enumeration.
+
+## value
+
+PASS
+
+This finite exact equality classification identifies every extremizing word for a natural, sharp binary obstruction underpinning the undirected unary-pattern avoidability theorem; two inequivalent symmetry types are concrete structural refinement of the published scalar 9. It is bounded but not a gratuitous small-instance table, because it completely resolves the natural maximum-length equality question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
