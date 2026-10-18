@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof translates both iid expansions to a common base \(b^{mn}\), where their digit laws are explicit finite products. Unequal common-base laws are singular by disjoint strong-law digit-frequency events, while equal common-base laws yield identical measures. Equality of product laws across length-\(m\) and length-\(n\) partitions forces each primitive block to split independently across every internal cut, using coprimality; Chinese remaindering makes every primitive digit identically distributed. Endpoint ambiguities have measure zero because all digit probabilities lie strictly between zero and one. Positive cylinders prove full topological support. The verifier's exact 64-by-12 logarithmic constraint matrix has rank ten, and five complete rational compatibility cases pass; these are diagnostic, not proofs for infinitely many parameters.
+PASS
 
-## Originality — PASS, with priority risk
+Checked the exact finite common-base Q=b^(mn) block-mass representation. Product Q-digit measures with differing one-letter marginals separate by the strong law on canonical expansions, with ambiguous endpoints null because all digit weights are strictly positive and less than one. If masses agree, independence across both coprime partitions forces every proper split of the m- and n-blocks to factor; induction and CRT force a unique identical b-digit marginal w. Sufficiency is regrouping one b-Bernoulli process. Nonempty cylinders have positive mass, so support is all [0,1]. A separate exact 2-vs-3 binary-block rational test checked every 64 Q-cylinder mass; finite check did not replace the arbitrary-parameter proof.
 
-Pfeffer, Smith, and Severa, *Induced Distributions from Generalized Unfair Dice* (arXiv:2309.07366), Theorem 3.3, prove the fixed-base singularity test; Question 5.1 specifically raises two dice with different numbers of faces. Once the bases share a power, their theorem supplies a corollary when the induced common-base vectors differ. The new contribution is the necessary-and-sufficient primitive-digit **rigidity** description of when those vectors instead coincide, which is absent from their statements and the inspected fixed-base stationary-digit papers arXiv:2001.08492 and arXiv:2201.01521. Targeted searches across alternative iid block and product formulations found no equivalent published claim; priority under different terminology is not independently certified.
+## originality
 
-## Value — PASS
+PASS
 
-This classifies **all** strictly positive iid digit measures for every pair of commensurable, unequal integer bases, a natural complete subclass of the different-base problem posed in the cited paper. Its equality condition is a rigid, uniquely parameterized \((b-1)\)-dimensional family rather than a mere test against a large induced vector, and the complementary measures are mutually singular despite their identical full supports. The conclusion is structural and applies to all admissible bases and probability vectors, not a finite example or an arbitrary numerical refinement.
+Pfeffer–Smith–Severa arXiv:2309.07366 Theorem 3.3 proves fixed-base distinct-law singularity but Question 5.1 explicitly raises different numbers of sides. Kakutani/strong-law product-measure singularity covers one branch after regrouping, not the all-positive cross-base equality classification. Stationary-digit treatments arXiv:2001.08492 and 2201.01521 analyze fixed bases and do not establish the inspected primitive block-compatibility rigidity. Resultary semantic search did not find a covering result. Priority risk persists under symbolic dynamics or commuting-partition formulations.
 
-## Scope and limitations
+## value
 
-The result does not classify multiplicatively independent bases or zero-weight alphabets. Known same-base frequency arguments are explicitly credited; full comparability and external priority review remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This closes a specifically posed different-base problem in an all-positive class, characterizes every equality configuration by a (b-1)-dimensional probability simplex and distinguishes equality from full-support mutual singularity. The coprime partition lemma is a reusable structural fact beyond checking base parameters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

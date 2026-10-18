@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The accompanying `verify_cross_base.py` was run directly and returned `EXACT_CHECKS_OK`. Its exact rational compatibility cases cover \((b,m,n)=(2,1,3),(2,2,3),(2,3,4),(3,2,3),(4,2,3)\), involving 8, 64, 4096, 729, and 4096 common-base symbols, respectively. For each case it checks every common-base cylinder weight. It also checks incompatible all-zero-cylinder weights and the exact rank 10 of the 64-by-12 logarithmic compatibility matrix for bases four and eight.
+## correctness
 
-The analytic proof establishes all infinite-dimensional measure claims: common-base iid regrouping; strong-law separation of unequal common-base digit laws; coprime boundary splitting of each primitive block; Chinese-remainder rigidity of coordinate marginals; and full support from positive cylinders. Exact finite tests are not presented as exhaustive proof of this theorem. Numeric approximations are not required. Historical source priority and external mathematical validation remain unperformed.
+PASS
+
+Checked the exact finite common-base Q=b^(mn) block-mass representation. Product Q-digit measures with differing one-letter marginals separate by the strong law on canonical expansions, with ambiguous endpoints null because all digit weights are strictly positive and less than one. If masses agree, independence across both coprime partitions forces every proper split of the m- and n-blocks to factor; induction and CRT force a unique identical b-digit marginal w. Sufficiency is regrouping one b-Bernoulli process. Nonempty cylinders have positive mass, so support is all [0,1]. A separate exact 2-vs-3 binary-block rational test checked every 64 Q-cylinder mass; finite check did not replace the arbitrary-parameter proof.
+
+## originality
+
+PASS
+
+Pfeffer–Smith–Severa arXiv:2309.07366 Theorem 3.3 proves fixed-base distinct-law singularity but Question 5.1 explicitly raises different numbers of sides. Kakutani/strong-law product-measure singularity covers one branch after regrouping, not the all-positive cross-base equality classification. Stationary-digit treatments arXiv:2001.08492 and 2201.01521 analyze fixed bases and do not establish the inspected primitive block-compatibility rigidity. Resultary semantic search did not find a covering result. Priority risk persists under symbolic dynamics or commuting-partition formulations.
+
+## value
+
+PASS
+
+This closes a specifically posed different-base problem in an all-positive class, characterizes every equality configuration by a (b-1)-dimensional probability simplex and distinguishes equality from full-support mutual singularity. The coprime partition lemma is a reusable structural fact beyond checking base parameters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
