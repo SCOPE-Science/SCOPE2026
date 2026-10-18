@@ -1,0 +1,12 @@
+# Self-review
+
+## Correctness — PASS
+The exact covariance identity follows from species non-detection conditioning and one binomial identity, including the boundary samples. Grouping by distinct abundance values makes the numerator a Pascal transform with zero-sum coefficients. Summation by parts yields consecutive Pascal-column aggregates acting on cumulative trait imbalances. Pascal total nonnegativity, its preservation by ordered interval sums, and classical variation diminution prove the finite and sharpened reversal bounds. A square binomial-Vandermonde interpolation system proves sharpness for arbitrary numbers of abundance levels. Independent labeled-sample enumeration checks all specified finite cases with exact fractions. Remaining scientific limitation: the theorem addresses only the stated sampling law and trait mean.
+
+## Originality — PASS (self-review)
+Comparison was by mathematical implication, not titles. Classical rarefaction concerns richness moments, not this richness–sample-trait cross-covariance sign variation. Ecological trait literature on sampling accuracy and structurally spurious cross-site richness–trait associations motivates but does not, in the technical texts inspected, provide the finite-population Pascal-variation theorem or an unrestricted sharpness construction. Known total positivity is acknowledged as prior theory, not claimed as new. Research-index checks under covariance, rarity, mean trait, abundance level, Pascal kernel and variation diminishing returned related occupancy-frequency/Simpson results rather than equivalent coverage. Residual risks: an inaccessible 2015 trait-sampling manuscript and the abstract-only 1975 original, plus possible older occupancy/survey-sampling equivalent formulations. Absence of a match does not establish uniqueness.
+
+## Value — PASS
+Across random samples from a single fixed community, association between two standard biodiversity summaries need not have stable sign. The new theorem gives an all-population sharp complexity bound from interpretable abundance classes and cumulative trait imbalances; it identifies an important monotone-trait regime where reversals are impossible. Exact four-class and arbitrary-class constructions show the bound is meaningful and can be attained with positive traits, rather than a numerical accident. It is intended as a mathematically checkable caution about finite sampling associations, not a causal ecological model.
+
+Self-review: passed. Independent audit: not yet performed.
