@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T10:52:22Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Git blob 0e2e1ddf3ee8d04e58fc3e9e203ad7c3ba7307d8",
+        "Frozen verify_sampling.py Git blob 85d9cc434c9f7c90b7b51af85d47872f369d2f65",
+        "Direct integration, Riesz Gramian positivity, Fourier multiplier endpoint optimization"
+      ],
+      "rationale": "Reintegrated the autocorrelation C_n over the three t-intervals: for a != b it is (a+b)/(2(a-b))(r^n/b-s^n/a), and for a=b=c it is r^n(n+1/c). The exact Fourier Gramian has numerator u+v cos(theta) and two positive geometric denominators. The Fourier transform (a+b)/((a-iξ)(b+iξ)) is nonzero, so u>v>0; the explicit sinh(t)/t monotonicity yields v>0 also at a=b. Independently split the sample Zak transform into two geometric tails with numerator P_y+Q_y exp(i theta). The sharp multiplier (P²+Q²+2PQ cos(theta))/(u+v cos(theta)) is fractional-linear in cos(theta), so both attained essential extrema are its theta=0,pi values E_±. Strict increase of Q/P from zero to infinity gives exactly two positive constant-multiplier roots and one unstable P=Q phase. Strict convexity of P+Q and monotonicity of P-Q give the unique y=0 lower-bound maximizer; first-order zero of P-Q yields the exact quadratic coefficient. Domain 0<=y<1, all a,b>0, complex coefficients, L2 Fourier normalization and failure of a uniform lower bound (not a nonzero sampling-kernel vector) checked. Packaged independent Fourier/Zak finite checks were inspected, not substituted for this universal argument.",
+      "residual_risks": [
+        "No claim about irregular or weighted samples, other totally positive generators, or Gabor-frame density perturbations.",
+        "A zero multiplier at one frequency gives no positive sampling lower bound but does not by itself produce a nonzero nullvector."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 preprint proves a universal TP-generator admissibility/perturbation theorem, strictly broader in generator class but without explicit optimal phase-dependent constants.",
+          "The 2013/2014 paper computes near-critical Gabor-frame asymptotics for symmetric exponentials, not unit-grid sampling operator norms."
+        ],
+        "reasoning": "A broader qualitative theorem does not logically furnish the numerical best constants, two interior equal-bound phases, unique best-conditioned grid, or exact quadratic coefficient.",
+        "searches": [
+          "sharp shifted lattice sampling two-sided exponential totally positive generator optimal lower upper bounds tight phases",
+          "arXiv:2608.04992v1 Theorem 1.2, Section 5.2",
+          "arXiv:1311.7359v1 Section 5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.04992v1 full lawful ResearchGate manuscript",
+        "arXiv:1311.7359v1 full PDF",
+        "arXiv:2402.03090v1 related qualitative shift-invariant density (original package reference)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2026 Theorem 1.2: unique exceptional shift and stability of perturbations below half-period distance; no sharp constants or two isometries.",
+          "Kloos–Stöckler 2013: even exponential Gabor lower-frame bound decays linearly as alpha beta approaches 1; translated integer sampling is a different functional."
+        ],
+        "reasoning": "Qualitative sampling stability implies neither equality of optimal lower and upper bounds at two shifts nor the global lower-bound optimizer. Gabor density asymptotics involve different operators; no domination established.",
+        "searches": [
+          "sharp shifted lattice sampling two-sided exponential totally positive generator optimal lower upper bounds tight phases",
+          "arXiv:2608.04992v1 Theorems 1.1/1.2",
+          "arXiv:1311.7359v1 Section 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The ratio |Z_y(theta)|²/G(theta) yields all sharp constants; a unique Zak zero does not determine its complete nonzero phase dependence.",
+          "Theorem 1.2 in 2608.04992v1 gives a perturbation-complete-interpolation criterion, not scalar-isometric grids."
+        ],
+        "reasoning": "Equivalent formulations include a sharp sampled/continuous Gramian generalized Rayleigh quotient, precise condition number, and an exact two-phase scalar-isometry criterion. None is a direct consequence of the retrieved qualitative sampling criterion; older cardinal quadrature formulas remain an explicit risk.",
+        "searches": [
+          "sharp shifted lattice sampling two-sided exponential totally positive generator optimal lower upper bounds tight phases",
+          "arXiv:2608.04992v1, full ResearchGate manuscript Sections 1.6,5.1-5.2",
+          "arXiv:1311.7359v1, full PDF Introduction and Sections 3,5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Direct full-text searches in the accessible 2026 manuscript found no complete sharp grid profile or two interior isometry offsets.",
+          "The 2013 paper includes Gabor lower bounds and a Zak zero but no identified exact translated sampling table for arbitrary a,b."
+        ],
+        "reasoning": "No covering exact table/formula was located in the bounded checked sources. This negative check is not bibliographic proof and old exponential-Euler spline formulas are possible.",
+        "searches": [
+          "sharp shifted lattice sampling two-sided exponential totally positive generator optimal lower upper bounds tight phases",
+          "site:ResearchGate.net/publication/411714909 text search for isometry, optimal lower, sharp sampling constants",
+          "arXiv:1311.7359v1 original PDF text, Sections 3,5"
+        ]
+      },
+      "rationale": "Inspected the complete openly available de Dios Pont–Gröchenig–Liehr–Shafkulovska–Taylor manuscript via lawful ResearchGate author manuscript, particularly Theorems 1.1/1.2 and Section 5.2: it determines qualitative complete interpolation and the unique bad Zak phase, not the sharp a,b-dependent two-endpoint ratio, exactly two scalar-isometric phase shifts or quadratic coefficient. Read Kloos–Stöckler original full PDF: the exact same symmetric exponential appears, but its near-critical Gabor bounds optimize a different time-frequency lattice. A classical spline quadrature equivalent formula may still be hidden; accepted only best-of-knowledge.",
+      "residual_risks": [
+        "Classical exponential-spline or cardinal-interpolation quadrature literature may encode this exact phase profile under another normalization.",
+        "The sampled Zak quotient method is classical; originality is solely in the exact complete quantitative classification, not the method."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "QUALITATIVE_PARTIAL: one Zak-zero phase and complete interpolation, not the full sharp numerical phase profile",
+          "evidence": "Theorem 1.2 is a half-period perturbation theorem; Section 5.2 treats invertibility of G_delta without explicit asymmetric exponential endpoint constants.",
+          "identifier_or_url": "arXiv:2608.04992v1; https://www.researchgate.net/publication/411714909_Gabor_Frames_of_Totally_Positive_Functions_A_Complete_Characterization",
+          "material_read": "Full openly displayed author manuscript; introduction Sections 1.6-1.7, Theorem 1.2, detailed Sections 5.1-5.2 proof and sampling definitions, relevant term searches",
+          "method": "Lawful open manuscript HTML full-text reading after arXiv direct HTML/PDF returned access errors",
+          "title": "Gabor Frames of Totally Positive Functions: A Complete Characterization",
+          "trigger": "Same class of continuous totally positive generators and critical translated grids"
+        },
+        {
+          "assessment": "DISTINCT_OPERATOR: Gabor density frame lower bounds and unique Zak-zero; no arbitrary asymmetric two-parameter sharp shifted-grid sampling profile",
+          "evidence": "Abstract and introduction state A~(1-alpha beta), Section 5 addresses alpha beta→1; not translated critical-density sampling constants.",
+          "identifier_or_url": "arXiv:1311.7359v1; https://arxiv.org/pdf/1311.7359",
+          "material_read": "Original full PDF pp.1-4, Section 3 Zak zero framework and Section 5 near-critical exponential Gabor estimates; rendered relevant page",
+          "method": "Lawful arXiv full PDF text and page image",
+          "title": "Zak transforms and Gabor frames of totally positive functions and exponential B-splines",
+          "trigger": "Exact symmetric two-sided exponential and Zak transform"
+        },
+        {
+          "assessment": "INAPPLICABLE: finite Walsh extrema do not concern continuous translated sampling",
+          "evidence": "Support is F2^3 and four Walsh characters rather than an exponential shift-invariant space.",
+          "identifier_or_url": "2026/10/4/SCOPE-sharp-phase-flatness-of-the-four-character-walsh-affine-basis--cd44a812cc6a",
+          "material_read": "Full published RESULT.md for a four-character Walsh phase optimization",
+          "method": "Direct result repository Git blob inspection",
+          "title": "Sharp phase flatness of the four-character Walsh affine basis",
+          "trigger": "Check whether general harmonic exact bounds hide a duplicate shifted sampling formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md and Section 5 of de Dios Pont et al. (2026) for the motivating complete-interpolation problem",
+        "Kloos–Stöckler (2013), asymptotic frame-conditioning motivations"
+      ],
+      "rationale": "One sample per period is the canonical critical grid recovery problem for a principal shift-invariant space. Exactly two scalar-isometric phases, the globally optimal grid and precise quadratic loss at the single bad shift characterize the entire conditioning of a natural asymmetric two-parameter kernel family. Unlike qualitative Zak-zero uniqueness, isometry and best constant require substantial sharp frequency analysis. A complete explicit inverse-problem stability profile is a motivated exact result, not an arbitrary computation.",
+      "residual_risks": [
+        "Specific to unit-density integer-grid samples of this kernel; no arbitrary TP generator extension follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every positive pair a,b, unweighted sampling of the L2 principal shift-invariant space generated by g(t)=exp(at) for t<0 and exp(-bt) for t>=0 on grids Z+y has exact endpoint lower/upper constants E_±(y), exactly two nonzero tight phases, one exceptional unstable phase with quadratic lower-bound collapse, and a unique integer-aligned phase maximizing the lower bound.",
+  "limitations": [
+    "No arbitrary TP or irregular-grid conclusions.",
+    "Finite verifier is corroboration only.",
+    "Literature priority remains best-of-knowledge."
+  ],
+  "schema_version": 1
+}

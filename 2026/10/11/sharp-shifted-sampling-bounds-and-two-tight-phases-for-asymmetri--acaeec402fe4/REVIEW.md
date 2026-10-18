@@ -1,15 +1,21 @@
-# Review of sharp shifted sampling for two-sided exponential generators
+# Independent mathematical audit
 
-## Correctness — PASS
-The continuous translate Gramian is computed by integration of two exponential pieces. The sampled Zak multiplier is a convergent geometric expression. Their quotient is fractional-linear in the cosine frequency; hence its extrema are exactly the two written endpoint constants. Nonzero Fourier transform establishes the required Riesz-basis control, and explicit monotonicity proves exactly two tight offsets and the unique bad offset. Strict convexity proves the unique global lower-bound optimizer; differentiation gives the local quadratic coefficient. A separate standard-library consistency verifier tests six distinct positive parameter choices. Its finite checks are not a replacement for the analytic proof.
+## correctness
 
-## Originality — PASS, with residual risk
-The source arXiv:2608.04992v1 gives general frame membership and qualitative shifted sampling stability. Kloos--Stöckler (arXiv:1311.7359) give Zak-zero facts and near-critical Gabor-frame estimates, which do not imply the present exact translated-grid sampling constants. Ulanovskii--Zlotnikov (arXiv:2402.03090) study density results for different generator classes. Broader published-record searches returned no equivalent exact tight-offset profile. Classical exponential-spline sampling identities might still contain an equivalent characterization, so exhaustive historical uniqueness is not certified.
+PASS
 
-## Value — PASS
-The sharp entire phase dependence of an inverse-problem condition number, an exact pair of isometric grid shifts, and a sharp quadratic stability loss at the single exceptional grid collectively settle a natural two-parameter sampling problem. In particular, qualifying stable shifts alone does not determine the two isometries or best-conditioned phase.
+Reintegrated the autocorrelation C_n over the three t-intervals: for a != b it is (a+b)/(2(a-b))(r^n/b-s^n/a), and for a=b=c it is r^n(n+1/c). The exact Fourier Gramian has numerator u+v cos(theta) and two positive geometric denominators. The Fourier transform (a+b)/((a-iξ)(b+iξ)) is nonzero, so u>v>0; the explicit sinh(t)/t monotonicity yields v>0 also at a=b. Independently split the sample Zak transform into two geometric tails with numerator P_y+Q_y exp(i theta). The sharp multiplier (P²+Q²+2PQ cos(theta))/(u+v cos(theta)) is fractional-linear in cos(theta), so both attained essential extrema are its theta=0,pi values E_±. Strict increase of Q/P from zero to infinity gives exactly two positive constant-multiplier roots and one unstable P=Q phase. Strict convexity of P+Q and monotonicity of P-Q give the unique y=0 lower-bound maximizer; first-order zero of P-Q yields the exact quadratic coefficient. Domain 0<=y<1, all a,b>0, complex coefficients, L2 Fourier normalization and failure of a uniform lower bound (not a nonzero sampling-kernel vector) checked. Packaged independent Fourier/Zak finite checks were inspected, not substituted for this universal argument.
 
-## Scientific scope and limitations
-The theorem applies to unweighted one-point-per-period integer-lattice sampling of the principal shift-invariant space of a continuous two-sided exponential. It does not assert such a result for arbitrary totally positive generators, weighted/nonuniform samples, or Gabor frames at varying density. The bad shift lacks a positive lower bound but is not claimed to have a nontrivial nullvector. No independent validation has occurred.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Inspected the complete openly available de Dios Pont–Gröchenig–Liehr–Shafkulovska–Taylor manuscript via lawful ResearchGate author manuscript, particularly Theorems 1.1/1.2 and Section 5.2: it determines qualitative complete interpolation and the unique bad Zak phase, not the sharp a,b-dependent two-endpoint ratio, exactly two scalar-isometric phase shifts or quadratic coefficient. Read Kloos–Stöckler original full PDF: the exact same symmetric exponential appears, but its near-critical Gabor bounds optimize a different time-frequency lattice. A classical spline quadrature equivalent formula may still be hidden; accepted only best-of-knowledge.
+
+## value
+
+PASS
+
+One sample per period is the canonical critical grid recovery problem for a principal shift-invariant space. Exactly two scalar-isometric phases, the globally optimal grid and precise quadratic loss at the single bad shift characterize the entire conditioning of a natural asymmetric two-parameter kernel family. Unlike qualitative Zak-zero uniqueness, isometry and best constant require substantial sharp frequency analysis. A complete explicit inverse-problem stability profile is a motivated exact result, not an arbitrary computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
