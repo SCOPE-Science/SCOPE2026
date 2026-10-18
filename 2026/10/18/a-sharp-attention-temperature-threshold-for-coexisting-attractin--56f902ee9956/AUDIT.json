@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Exact softmax weights, full residual orbit images, and zeros of tangent derivatives give both 2x2 derivative matrices; direct diagonalization produces positive one-step multipliers and the exact strict spectral thresholds. Their squares are the 2-step Floquet multipliers. The standard-library checker reproduces derivatives in 32 cases and verifies near-cycle attraction, with nonlinear neutral boundaries explicitly excluded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Altafini Lemma 14 assumes eta<min(1/a,1/b); here eta>2/(b*tanh(alpha)-a)>1/b.",
+        "Gao-Yang-Chen sets A_ii=0 and V=-I, unlike the present self-inclusive attention and V=diag(a,-b)."
+      ],
+      "reasoning": "Neither earlier large-step qualitative discussion nor masked repulsive consensus-flip theorem dominates this exact two-cycle phase diagram with a positive eigenvalue.",
+      "searches": [
+        "Altafini discrete self-attention 2026 large step stable period two non-consensus antipodal pair negative eigenvalue exact sharp threshold",
+        "Gao Yang Chen repulsive self-attention 2026 self mask removed coexistence consensus and bipartite flip positive eigenvalue",
+        "arXiv:2610.13518v1 Sections IV-B V-B",
+        "arXiv:2609.28448v1 Section II Appendix B"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.13518v1 (equation (1), IV-B and V-B)",
+      "arXiv:2609.28448v1 (Section II and Appendix B/F)",
+      "arXiv:2511.11553v1 (model and stability sections)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original exact full-attention map is shared, but its stated bipartite stability theorem is restricted to small steps and fixed states.",
+        "The repulsive model has self-edges removed, so its antipodal pair receives an entirely different attention field.",
+        "The older ODE stable bipartite configuration is stationary, not a 2-cycle."
+      ],
+      "reasoning": "The claim requires an absent step-size regime, an absent pair-flip orbit, and a self-inclusive indefinite-value mechanism; it does not follow as a same-parameter corollary of the cited statements.",
+      "searches": [
+        "Altafini discrete self-attention 2026 large step stable period two non-consensus antipodal pair negative eigenvalue exact sharp threshold",
+        "Gao Yang Chen repulsive self-attention 2026 self mask removed coexistence consensus and bipartite flip positive eigenvalue",
+        "arXiv:2511.11553v1 Sections 2 and 5",
+        "arXiv:2610.13518v1 Lemmas 13-14"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Primary discrete source Section IV-B concerns collinear fixed points, not T^2-attracting sign-reversing antipodal configurations.",
+        "Relevant published search results concerned unrelated optimizer flips or Oja spectral estimates, not the same normalized attention map."
+      ],
+      "reasoning": "The antipodal state is not a fixed point at the parameter range considered: the physical two-step orbit is essential. An eigenvector-consensus fixed-point result is not an equivalent formulation.",
+      "searches": [
+        "two-token normalized self-attention indefinite value matrix diagonal a negative b antipodal period-two stable attractor softmax tanh sharp threshold",
+        "full self-inclusive softmax normalized discrete self attention 2 tokens indefinite value matrix attracting antipodal sign-flipping orbit tanh alpha exact stability eta bifurcation coexistence consensus flip",
+        "Altafini discrete self-attention 2026 large step stable period two non-consensus antipodal pair negative eigenvalue exact sharp threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted published-record semantic searches returned no record tabulating the sharp condition b*tanh(alpha)>a and eta>2/(b*tanh(alpha)-a) for fully self-inclusive two-token attention.",
+        "Search closest analogues include non-attention period-two optimizer dynamics and numerical phase classifications in other maps."
+      ],
+      "reasoning": "No covering explicit formula or same-model table was identified. This is a bounded search result, not a universal absence proof.",
+      "searches": [
+        "full self-inclusive softmax normalized discrete self attention 2 tokens indefinite value matrix attracting antipodal sign-flipping orbit tanh alpha exact stability eta bifurcation coexistence consensus flip",
+        "attracting period two orbits normalized multiagent Oja self-attention antipodal oscillation with residual parameter value matrix 2x2",
+        "two-token normalized self-attention indefinite value matrix diagonal a negative b antipodal period-two stable attractor softmax tanh sharp threshold"
+      ]
+    },
+    "rationale": "Source-level parameter-implication comparison shows that the 2026 discrete-time equilibrium theorem restricts the relevant Jacobian to eta<1/b, whereas the new attracting antipodal orbit requires eta>1/b and is not an equilibrium. The most closely related repulsive consensus flip removes the self-attention diagonal and has scalar negative value. The 2025 bipartite stability treatment is an ODE. Bounded published-record and own-claim searches found no stronger same-model two-cycle theorem; residual overlap remains possible.",
+    "residual_risks": [
+      "A more general large-step flip theorem or unpublished full-attention computation outside the searched corpus could cover the exact two-cycle window.",
+      "The primary 2026 paper gives general Jacobian ingredients, although its stated stability theorems do not cover flip cycles; the increment is a sharp phase classification rather than a new derivative calculus."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state or imply a large-step sign-reversing antipodal attracting two-cycle under the small-step Lemma 14 hypotheses; its normalization formula is used as the starting model.",
+        "evidence": [
+          "arXiv:2610.13518v1, equation (1), Lemma 13, Lemma 14, Section V-B; attracting flip requires eta>2/(b*tanh(alpha)-a)>1/b."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.13518v1",
+        "material_read": "Full HTML model in Section II, symmetric value assumptions, bipartite equilibrium Jacobian in IV-B and large-step discussion in V-B; key Lemmas 13-14.",
+        "method": "Compared actual one-step map, parameter hypotheses, state orbit vs equilibrium, and step ranges.",
+        "title": "Asymptotic Analysis of Discrete-Time Self-Attention Dynamics in Transformers",
+        "trigger": "Identical full-softmax normalized residual model and equilibrium Jacobian formulas"
+      },
+      {
+        "assessment": "Uses masked A_ii=0 and V=-I; proves a consensus flipping result but not the self-inclusive indefinite-V sharp antipodal flip window.",
+        "evidence": [
+          "arXiv:2609.28448v1, Section II, Appendix B equations (241)-(243), Appendix F."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.28448v1",
+        "material_read": "Full HTML Section II modeling, Section III period-two discussion, Appendix B consensus flip and Appendix F periodic cluster dynamics.",
+        "method": "Compared diagonal attention mask, value spectrum, state dimension, and orbit signatures.",
+        "title": "Nonequilibrium Phases of Repulsive Self-Attention: Chaos, Attention Condensation, and Emergent Locality",
+        "trigger": "Explicit discrete-time consensus flipping and periodic cluster motion in self-attention"
+      },
+      {
+        "assessment": "Continuous-time stable equilibria do not provide a finite-step period-two orbit or its exact temperature threshold.",
+        "evidence": [
+          "arXiv:2511.11553v1, equation (1), Section 5 stability."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2511.11553v1",
+        "material_read": "Full HTML Introduction, Section 2 model equation (1), stability descriptions in Sections 4-5.",
+        "method": "Compared continuous-time tangent ODE with discrete normalized residual difference equation and sign-reversal phenomenon.",
+        "title": "Multistability of Self-Attention Dynamics in Transformers",
+        "trigger": "Earlier bipartite self-attention multistability in same normed sphere geometry"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "56f902ee-9956-46dc-bde9-427938fefac5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact softmax-temperature and step-size boundary produces two locally attracting, symmetry-inequivalent time-periodic phases in a minimal fully connected sphere attention network. The phenomenon is hidden by fixed-point and small-step treatments and differs structurally from masked-repulsion models; the threshold is an intrinsic dynamical invariant of the two-token map.",
+    "status": "PASS"
+  }
+}
