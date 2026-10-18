@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "Exact polynomial sandwich identity; period-six modular reduction using R_{m+6}=R_m+10^mR_6 and 10^6=1 modulo each of 3,7,11,13; complete 6*3003*24 deterministic integer tests and independent 24-bit CRT-mask implementation agree; irredundance checked from exact gcd with R_6; density follows by counting one residue class per odd decimal length. Every core length, padding length and digit is included in the proof; no finite search is treated as an infinite primality proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wu, arXiv:1503.08883v2, Sections 2-4: six-block repunit gcd sufficiency criterion and specific cores 231, 420, 759; Theorem 6 covers even decimal lengths divisible by 11, but no all-length residue spectrum or density statement.",
+        "Wu Section 2 gives a sufficient algorithm with arbitrarily chosen repunit period, and Section 4 extends the setup to other bases; the paper does not publish a complete 3003-residue spectrum or asymptotic densities."
+      ],
+      "reasoning": "The general gcd-based covering test can be applied to each candidate core, and is broader as a sufficient test. It does not itself state which of all 3003 residue classes pass for all lengths or yield density formulas. The present result is an exact quantitative evaluation of the irredundant four-prime subsystem, not an assertion that Wu’s algorithm is new.",
+      "searches": [
+        "Chai Wah Wu 2015 prime composite for all padding lengths repunits prepend append repeated digit block a(n) zero A090287 prime-free digit",
+        "positive logarithmic density repeated-digit prime-free sandwich centers 2015 Wu 2015 arithmetic progressions",
+        "Chai Wah Wu 2015 arithmetic progression prime-free sandwich centers repunit R6 density",
+        "repeated-digit composite sandwiches general repunit gcd criterion"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1503.08883v2 (full HTML)",
+      "OEIS:A090287 (entry text)",
+      "Indexed mathematical-results searches compared by implication, including First break in the period-30 record-multiple pattern and Exact syndrome sizes for ternary parity-lifted two-burst covering codes"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wu, arXiv:1503.08883v2, Sections 2-4: six-block repunit gcd sufficiency criterion and specific cores 231, 420, 759; Theorem 6 covers even decimal lengths divisible by 11, but no all-length residue spectrum or density statement.",
+        "OEIS A090287, comments and program: records the core 231, 420, 759 and the even-length 11-divisibility exception but no exact CRT spectrum or logarithmic density."
+      ],
+      "reasoning": "Wu Theorem 6 implies precisely the even-length 11-divisible part. Theorems 1-3 imply only the three explicitly named seed examples directly; deriving the entire odd-length progressions additionally requires prime-local period reduction, a complete congruence classification and analytic counting. A possible prior corollary not indexed with the searched terminology is acknowledged as a residual risk.",
+      "searches": [
+        "prime-free palindrome digit sandwich Chai Wah Wu complete residue classification 3003 four-prime covering 3 7 11 13 odd-length 231 420 759",
+        "positive logarithmic density repeated-digit prime-free sandwich centers 2015 Wu 2015 arithmetic progressions",
+        "For decimal integer n of odd length t, all repeated-digit sandwiches divisible by primes 2,3,5,7,11,13 iff t mod6 and n modulo3003 in 2499 231 420 759 651; logarithmic density 1/6006",
+        "prime-free sandwich all m all digits small factor 3 7 11 13 density"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wu, arXiv:1503.08883v2, Sections 2-4: six-block repunit gcd sufficiency criterion and specific cores 231, 420, 759; Theorem 6 covers even decimal lengths divisible by 11, but no all-length residue spectrum or density statement.",
+        "OEIS A090287, comments and program: records the core 231, 420, 759 and the even-length 11-divisibility exception but no exact CRT spectrum or logarithmic density.",
+        "Closest indexed mathematical-results entry, First break in the period-30 record-multiple pattern, concerns primorial record multiples and has no implication for digit sandwiches."
+      ],
+      "reasoning": "The explicit 24-position prime divisibility requirement can be expressed equivalently as a union of four local CRT bitmasks for each length class mod 6. Searches for this formulation, the modulus 3003, and the five odd-length classes did not identify the exact spectrum in previously published sources. Closest indexed entries did not match the objects or implications.",
+      "searches": [
+        "Chai Wah Wu 2015 prime composite for all padding lengths repunits prepend append repeated digit block a(n) zero A090287 prime-free digit",
+        "prime-free palindrome digit sandwich Chai Wah Wu complete residue classification 3003 four-prime covering 3 7 11 13 odd-length 231 420 759",
+        "For decimal integer n of odd length t, all repeated-digit sandwiches divisible by primes 2,3,5,7,11,13 iff t mod6 and n modulo3003 in 2499 231 420 759 651; logarithmic density 1/6006",
+        "A090287 231 420 759 3003 prime-free sandwich congruence class"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A090287, comments and program: records the core 231, 420, 759 and the even-length 11-divisibility exception but no exact CRT spectrum or logarithmic density.",
+        "Wu Section 2 lists individual cores and reports 4919 confirmed values for cores at most 10^7. This is a bounded list, not the global 3003-residue classification."
+      ],
+      "reasoning": "The individual seeds 231, 420, 759 and others are known; no novelty is claimed for those examples. The new object is the complete infinite certificate spectrum and exact frequencies, which are not entailed by a finite table alone.",
+      "searches": [
+        "OEIS A090287 prime sandwich congruence classes full density exact",
+        "OEIS A090287 prime sandwich 231 420 759"
+      ]
+    },
+    "rationale": "The fixed-prime complete residue classification and its three exact density constants are not stated in the inspected original full text or OEIS data, and no indexed mathematical-results or topical literature match was identified. Wu’s finite covering test and original examples are explicitly treated as prior results. This is an evidence-based self-review, not proof of uniqueness or independent audit.",
+    "residual_risks": [
+      "The complete low-prime covering spectrum may have appeared in unindexed or differently worded work.",
+      "The general published gcd sufficient test gives an easy algorithm for these residues; mathematical value rests on the complete closed classification and sharp positive-density theorem, not on isolated seed certification.",
+      "Not all relevant historical discussions or informal proofs are discoverable through current searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains essential prior sufficient method, individual seed examples and even-digit 11 theorem. Does not explicitly state the complete residue classification modulo 3003 or the three asymptotic density constants.",
+        "evidence": [
+          "Definitions and core factors: Section 2, Theorems 1-3.",
+          "Existing even-digit sufficient condition: Theorem 6.",
+          "Finite-repunit gcd sufficient test and bounded computation: Section 2 after Theorem 6."
+        ],
+        "identifier_or_url": "arxiv:1503.08883v2 / https://arxiv.org/html/1503.08883v2",
+        "material_read": "Complete open HTML text, including Sections 1-4, Theorems 1-9, the modulus-six repunit factorizations, example computations, and the general gcd covering procedure.",
+        "method": "Read the publicly accessible primary full text, including the opening sections and the remaining technical section and conclusion.",
+        "title": "On a conjecture regarding primality of numbers constructed from prepending and appending identical digits",
+        "trigger": "Exact same sandwich definition, three documented examples, and general covering test."
+      },
+      {
+        "assessment": "Confirms known 231, 420, 759 and even-length divisibility by 11; no exact universal 3003-modulus covering spectrum or density calculation shown.",
+        "evidence": [
+          "OEIS sequence definition and March 31, 2015 comments.",
+          "OEIS sample program handling the known exceptional cases."
+        ],
+        "identifier_or_url": "https://oeis.org/A090287",
+        "material_read": "Definition, comments, references, and computational program and known exceptional cases.",
+        "method": "Read public OEIS entry HTML text.",
+        "title": "OEIS A090287, Smallest prime obtained by sandwiching n between identical digits",
+        "trigger": "Primary integer-sequence entry defining the historical sandwich-prime question."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c7b74ebe-dfd9-42e3-9f39-d1a561e646e3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The four primes 3,7,11,13 are the irredundant R_6 prime support needed to certify the original 231 exception. Complete classification of this natural minimal covering subsystem quantitatively resolves the prevalence of certified odd-length, non-11 prime-free cores: lower and upper natural densities 1/33033 and 10/33033 and logarithmic density 1/6006. These are motivated sharp arithmetic invariants beyond the original isolated examples and sufficient algorithm.",
+    "status": "PASS"
+  }
+}
