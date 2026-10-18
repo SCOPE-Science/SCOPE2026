@@ -1,0 +1,11 @@
+# Review
+
+**Correctness — PASS.** The dihedral average is legitimate because SLEM equals the spectral norm of the centered kernel and is convex. Explicit Fourier and radial block decompositions yield the objective. A sharp first-Fourier lower bound reduces to a one-dimensional strictly convex problem with exact minimizer. Exact interval checks cover the five small-order cases needed by the auxiliary bound; explicit diagonal dominance and a quadratic radial certificate bound all remaining modes. Strict monotonicity proves uniqueness in the invariant subclass, not outside it. The attached checker passed the exact finite sign certificates and full-matrix numerical comparisons. These computations supplement, rather than replace, the all-order proof.
+
+**Originality — PASS, with residual risk.** Boyd–Diaconis–Parrilo–Xiao (arXiv:0709.0955, 2007; SIAM J. Optimization 2009), section 5.4.3, solves the wheel, with no pendant vertices. Its scalar nonconstant-frequency modes are fundamentally different from the helm's coupled two-dimensional blocks. The prior claim on fastest mixing of the sunlet concerns a graph with no hub; it does not imply the helm formula. Semantic database searches for helm/corona/wheel mixing, including parameter and spectral variants, returned no dominating claim; negative search results are not novelty proofs. A hidden or unindexed equivalent treatment is still possible.
+
+**Value — PASS.** This determines an exact nontrivial spectral optimization for an infinite natural graph family that joins the previously solved wheel and the pendant-enriched cycle. It identifies a unique invariant optimal design, an exact expression for its rate, saturated hub and rim constraints, and the sharp inverse-linear relaxation scale. It is not merely a graph renaming or an arbitrary finite sample.
+
+**Closest literature and limitations.** Boyd et al. 2009, sec. 5.4.3, gives the wheel weights; the 2004 Boyd–Diaconis–Xiao paper establishes the general SDP framework. Only the 2009 symmetry paper was inspected in substantive relevant full-text sections; the other source's public abstract and bibliographic record were checked. The claim does not settle all non-invariant optimal kernels or weighted/nonreversible variants. Database coverage cannot exclude every equivalent source.
+
+Self-review: passed. Independent audit: not yet performed.

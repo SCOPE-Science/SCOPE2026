@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "Dihedral convex averaging, exact 3x3/2x2 Fourier decomposition, monotonic top-eigenvalue lower bound, unique exact scalar minimizer, rigorous feasibility for all n>=5, and explicit PSD comparisons establish global attainability. Full analytic proof in RESULT.md, finite exact checks in check_helm.py.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:0709.0955, sec. 5.4.3 explicitly treats the wheel with scalar Fourier modes; 2004 general SDP paper gives a method, not the helm numerical theorem."
+      ],
+      "reasoning": "A general SDP formulation is algorithmic coverage, not an implication of this exact formula without solving the additional coupled modes.",
+      "searches": [
+        "fastest mixing Markov chain on tree caterpillar double star barbell graph optimal transition edge weights spectral gap symmetric",
+        "fastest mixing of random walks on wheel corona helm graphs with hub ring and pendant vertices, symmetric stochastic SLEM",
+        "Boyd Diaconis Parrilo Xiao fastest mixing graph symmetries wheel pdf section 5.4.3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0709.0955 (2007-09-06); SIAM J. Optimization 2009, section 5.4.3",
+      "https://web.stanford.edu/~boyd/papers/fmmc.html",
+      "published-finding corpus search successful: fastest mixing of random walks on wheel corona helm graphs with hub ring and pendant vertices, symmetric stochastic SLEM",
+      "published-finding corpus own-ledger claims (week 2026-10_week2 part 1, prior generations through 33)",
+      "Web searches: \"helm graph\" \"fastest mixing\" Markov and wheel pendant graph corona sunlet helm optimization"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:0709.0955 sec.5.4.3 wheel spectrum: one 2x2 radial and scalar nonconstant Fourier eigenvalues; our helm requires a 3x3 radial and 2x2 nonconstant Fourier blocks."
+      ],
+      "reasoning": "The older optimum on n+1 vertices does not imply the optimum on 2n+1 vertices: new pendants add independent metastable modes, and a nontrivial scalar extremal balance is required.",
+      "searches": [
+        "fastest mixing of random walks on wheel corona helm graphs with hub ring and pendant vertices, symmetric stochastic SLEM",
+        "Fastest Mixing Markov Chain on Graphs with Symmetries full PDF wheel graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus exact helm description returned 2026/9/7/SCOPE002 and the unrelated tetrahedral and wheel polytope records; web exact helm phrase returned no direct FMMC treatment."
+      ],
+      "reasoning": "The helm also appears as a wheel with one leaf per rim vertex or a cone over the sunlet rim; the wheel solution omits leaves and sunlet results omit a hub.",
+      "searches": [
+        "fastest mixing of random walks on wheel corona helm graphs with hub ring and pendant vertices, symmetric stochastic SLEM",
+        "\"helm graph\" \"fastest mixing\" Markov [web search]"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus successful exact helm query top 10: spider lazy-walk concentration 2026/9/7/SCOPE002, tetrahedral orbit polytope stability, wheel symmetric-edge-polytope ellipsoid; none contains this theorem."
+      ],
+      "reasoning": "No identified exact precomputed table or result provides the all-n formula; one failed additional lookup does not establish novelty and is a residual risk.",
+      "searches": [
+        "fastest mixing of random walks on wheel corona helm graphs with hub ring and pendant vertices, symmetric stochastic SLEM",
+        "helm graph fastest mixing stochastic matrix [attempted; tool returned internal unavailability]"
+      ]
+    },
+    "rationale": "The exact all-order helm formula is not given by the inspected wheel theorem, which uses scalar nonconstant Fourier modes; pendants create coupled two-by-two modes. Exact published-finding corpus searches returned no implied helm claim; independently searched web descriptions/aliases found no covering source. Remaining risk: unindexed coverage and intermittent published-finding corpus tool failures.",
+    "residual_risks": [
+      "Unindexed equivalent helm-specific analysis may exist.",
+      "Additional exact/alias published-finding corpus queries encountered intermittent internal errors; successful exact helm query was completed and compared.",
+      "Other sections of general articles were not all read; closest wheel theorem was inspected in relevant full-text section."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS wheel only, NOT_COVERING helm claim on inspected material",
+        "evidence": [
+          "The wheel has n+1 vertices; rim Fourier eigenvalues are scalars 1-p+(2cosθ−2)q; helm has 2n+1 vertices and nonconstant 2x2 blocks.",
+          "No occurrence of helm in the accessible PDF text."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "material_read": "Section 5.4.3 pages 813–815, including equations (5.9)–(5.11), and text search for helm",
+        "method": "Full-text page read and page-image inspection",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "The most directly related published wheel FMMC theorem and symmetry reduction"
+      },
+      {
+        "assessment": "General convex formulation; no helm-specific result in inspected material",
+        "evidence": [
+          "Abstract establishes symmetric stochastic SLEM minimization as semidefinite program, without helm-specific classification."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/fmmc.html",
+        "material_read": "Public abstract and bibliographic page",
+        "method": "Web page review; not a claim of full-text inspection",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Foundational general spectral SDP framework"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "333c074d-554e-48d4-b363-a03c9a547226",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural hub-and-leaves network family adds coupled slow modes absent from the classical wheel. The result gives an all-order exact SLEM, a unique invariant edge-weight design, sharp outgoing-mass saturation and second-order asymptotic; the precise spectral optimization is not a routine consequence of the wheel formula.",
+    "status": "PASS"
+  }
+}
