@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "Explicit gap potential F is proved to decrease by no more than the cost of any a/b move, with equality at exactly one letter. The forced equality path is the stated word, realizes zero potential after exactly n-G contractions, and no other word has its cost. Cases n=2 and S={0,n-1} and all singleton boundaries are separately covered. Directly executed verify.py checks 130918 nonsingleton subsets for n=2..16 under 4 positive weight pairs; reverse Dijkstra independently verifies all subsets n<=12 under 3 weights; word replays check through n=128. No finite check is taken as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Eppstein 1990 full accessible source, Theorem 1 (arbitrary monotone automata) and Theorem 3 (classical extremal example).",
+        "Ruszil 2021 https://arxiv.org/pdf/2103.16185 pp. 1-5, general weighted-automata approximation and subset power automaton.",
+        "Behague–Johnson 2020 https://arxiv.org/pdf/2008.12166 pp. 2-4 on rendezvous thresholds; cited Cardoso 2014 as a Černý k-set lower-bound source."
+      ],
+      "reasoning": "The broader automaton classes have algorithms or general bounds, but these statements do not establish an explicit gap potential with a unique optimizing word for every subset and every positive pair of costs. The 2014 Cardoso thesis may provide stronger k-set formulas, but available citations describe lower bounds on extremal k-sets rather than the individual weighted policy; full-text uncertainty is flagged.",
+      "searches": [
+        "Published literature: weighted Cerny automaton shortest reset cost rotation merge arbitrary initial states",
+        "published-finding corpus: Černý power automaton arbitrary k-set shortest reset length explicit formula maximum cyclic gap and endpoint for all subsets",
+        "published-finding corpus: All subset reset policy Cerny automaton weighted letters 1964 Eppstein cyclic monotone optimal reset unique"
+      ]
+    },
+    "checked_sources": [
+      "https://www.ics.uci.edu/~eppstein/pubs/Epp-SJC-90.pdf",
+      "https://arxiv.org/pdf/1404.6731",
+      "https://arxiv.org/pdf/2008.12166",
+      "https://arxiv.org/pdf/2103.16185",
+      "https://sigarra.up.pt/fcup/pt/pub_geral.pub_view?pi_pub_base_id=32442",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Eppstein Theorem 1 implies the possibility of computing each unweighted optimum by a polynomial-time interval search, but supplies no explicit closed form or cost-uniform optimizer.",
+        "The classical \\(S=Q\\) shortest word and prior pair-only claims are included as corollaries.",
+        "Behague–Johnson uses maxima/minima over all automata; the present theorem is pointwise for one fixed family.",
+        "published-finding corpus id 2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f concerns avoiding sets, not merging arbitrary starting sets."
+      ],
+      "reasoning": "This theorem strictly contains earlier singleton/full-set and two-state special cases, but its independent content is the joint all-subset explicit law and rigid positive-weight optimality. A general shortest-path procedure, a k-set maximum lower bound, or an image-reachability threshold does not logically give the pointwise formula or cost-independent uniqueness without proving extra structure.",
+      "searches": [
+        "Published literature: Cerny automata shortest reset word any subset cyclic gap unique length subset synchronization",
+        "Published literature: Cerny automaton synchronization of arbitrary subsets formula maximum gap",
+        "Published literature: weighted Cerny automaton shortest reset cost rotation merge arbitrary initial states",
+        "published-finding corpus: Černý automaton exact weighted shortest synchronization for every arbitrary subset; largest missing cyclic gap, unique optimal word independent of input-letter costs",
+        "published-finding corpus: Černý power automaton arbitrary k-set shortest reset length explicit formula maximum cyclic gap and endpoint for all subsets",
+        "published-finding corpus: All subset reset policy Cerny automaton weighted letters 1964 Eppstein cyclic monotone optimal reset unique"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Eppstein 1990 author manuscript https://www.ics.uci.edu/~eppstein/pubs/Epp-SJC-90.pdf, Theorem 1 and interval representation Lemma 5 (pp. 4-5).",
+        "Gusev 2014 https://arxiv.org/pdf/1404.6731 pp. 5-8 gives a pair automaton and a random-input expectation, not the all-subset deterministic weighted problem.",
+        "published-finding corpus nearest id 2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f"
+      ],
+      "reasoning": "The optimization is equivalent to shortest paths from every nonsingleton in the Černý power automaton. Eppstein computes such paths algorithmically for monotone machines, a strong methodological ancestor but not the symbolic cost formula nor unique optimum independent of letter weights. Gusev handles pair expectations; the published-finding corpus avoiding-threshold item asks a different reachability property. Search failure is not treated as proof of global novelty.",
+      "searches": [
+        "published-finding corpus: Černý automaton exact weighted shortest synchronization for every arbitrary subset; largest missing cyclic gap, unique optimal word independent of input-letter costs",
+        "published-finding corpus: Černý power automaton arbitrary k-set shortest reset length explicit formula maximum cyclic gap and endpoint for all subsets",
+        "published-finding corpus: All subset reset policy Cerny automaton weighted letters 1964 Eppstein cyclic monotone optimal reset unique",
+        "Published literature: Cerny automata shortest reset word any subset cyclic gap unique length subset synchronization",
+        "Published literature: Cerny automaton synchronization of arbitrary subsets formula maximum gap"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus hits 2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f, 2026/9/9/SCOPE010, 2026/9/7/SCOPE007",
+        "Published source Behague–Johnson pp. 3-4 cites explicit lower bounds for Černý k-sets, not an all-subset weighted-cost table.",
+        "The current proof is for every n, not a finite table, and explicit verification checks all non-singletons through n=16."
+      ],
+      "reasoning": "Finite reset tables, computed sample automata and a known full-set or pair optimum do not imply a formula and uniquely optimal word for every n and every subset. No checked exact table or record was found that dominated the infinite parametric weighted statement.",
+      "searches": [
+        "published-finding corpus: Černý automaton exact weighted shortest synchronization for every arbitrary subset; largest missing cyclic gap, unique optimal word independent of input-letter costs",
+        "published-finding corpus: Černý power automaton arbitrary k-set shortest reset length explicit formula maximum cyclic gap and endpoint for all subsets",
+        "published-finding corpus: All subset reset policy Cerny automaton weighted letters 1964 Eppstein cyclic monotone optimal reset unique",
+        "Published literature: Cerny k-set synchronization exact subset reset length and table"
+      ]
+    },
+    "rationale": "The nearest general primary source Eppstein (1990) gives exact interval BFS for any subset of a cyclically monotone automaton but not a cyclic-gap closed form, positive-weight cost-invariant uniqueness, or an all-subset explicit word. Gusev (2014) concerns pair random-synchronization expectations; Behague–Johnson (2020) discusses k-set rendezvous and Černý worst-case bounds; Ruszil (2021) provides weighted approximation algorithms. The earlier pointwise pair result is a special case, not the new all-subset theorem; the prior exact-image rank reachability statement addresses the reverse image problem, not synchronizing arbitrary given subsets. 2014 Cardoso thesis is a material residual risk because relevant full text remained unavailable.",
+    "residual_risks": [
+      "Cardoso 2014 dissertation discusses exact Černý k-set lower-bound structures, but the complete thesis was not accessible and may contain more explicit pointwise formulas.",
+      "An unindexed earlier statement or derivation of some unweighted subset formulas cannot be excluded.",
+      "Eppstein 1990 computes unweighted optima for every starting subset algorithmically, so originality depends on explicit all-n symbolic formula and positive-cost-invariant unique optimal word, not the mere ability to compute shortest paths."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General exact BFS interval algorithm and extremal full-reset bound; no weighted all-subset cyclic-gap closed form or unique cost-invariant policy",
+        "evidence": [
+          "Theorem 1, page 5, O(kn²) interval search",
+          "Theorem 3, page 6, classical extremal full-set Cerny example"
+        ],
+        "identifier_or_url": "https://www.ics.uci.edu/~eppstein/pubs/Epp-SJC-90.pdf",
+        "material_read": "Author full text, introduction, definitions, Lemmas 1–5, Theorems 1–3, pp. 1–6, and algorithm extension on pp. 7–8",
+        "method": "Read parsed PDF and inspect scanned theorem page",
+        "title": "Reset Sequences for Monotonic Automata",
+        "trigger": "Strong covering candidate: any starting subset of cyclically monotone automata"
+      },
+      {
+        "assessment": "Expected random-input synchronization of pairs, not deterministic unique positive-weight shortest word from all subset cardinalities",
+        "evidence": [
+          "Definition of pair automaton and Lemma 1",
+          "Theorem 3: expected random walk synchronization for an extremal pair"
+        ],
+        "identifier_or_url": "arxiv:1404.6731v1 | https://arxiv.org/pdf/1404.6731",
+        "material_read": "Open full 11-page PDF, especially pair automaton construction pp. 5–7, Fig. 3 and Theorem 3 pp. 7–8",
+        "method": "Read PDF extracted text and figure screenshot",
+        "title": "Synchronizing Automata with Random Inputs",
+        "trigger": "Same Černý object; pair automaton"
+      },
+      {
+        "assessment": "Global k-set rendezvous-time bounds and known partial Černý k-set extremal lower bounds, not pointwise weighted optimal words for every subset",
+        "evidence": [
+          "Definitions rdv(k,n), RDV(k,n) pp.3–4",
+          "Citation of Cardoso thesis and extremal-set lower bound p.4"
+        ],
+        "identifier_or_url": "arxiv:2008.12166v1 | https://arxiv.org/pdf/2008.12166",
+        "material_read": "Primary 24-page available PDF, introduction pp.1–4, main parameter definitions and cited Cardoso result, closing discussion and references pp.21–23",
+        "method": "Parsed primary PDF and inspected figure/theorem page",
+        "title": "Synchronizing Times for k-sets in Automata",
+        "trigger": "Explicit k-subset rendezvous and Černý lower bounds"
+      },
+      {
+        "assessment": "General weighted optimization approximations; no specialized exact formula or cost-independent optimizer for arbitrary subsets of Černý",
+        "evidence": [
+          "Definition of per-letter cost and weighted synchronization pp.1–2",
+          "Algorithm 1/2 on pp.3–4"
+        ],
+        "identifier_or_url": "arxiv:2103.16185v1 | https://arxiv.org/pdf/2103.16185",
+        "material_read": "Available full 9-page PDF, weighted model pp.1–2, subset shortest-path algorithm pp.3–4, computational discussion and references pp.7–9",
+        "method": "Parsed original PDF, checked cost-model and algorithm statements",
+        "title": "Approximation algorithm for finding short synchronizing words in weighted automata",
+        "trigger": "Exact same per-letter cost model in broad automata"
+      },
+      {
+        "assessment": "UNRESOLVED MATERIAL RISK, but known cited thesis claim is a lower bound over k-subsets and does not by itself supply weight-independent unique optimizers. Full text could contain an unindexed equivalent pointwise formula.",
+        "evidence": [
+          "Institutional bibliographic DOI and date 2014-07-24",
+          "Behague–Johnson arXiv:2008.12166, pp.3–4 cites lower bound and conjectured global extremal k-set bound"
+        ],
+        "identifier_or_url": "doi:10.34626/607f-t921 | Universidade do Porto 2014",
+        "material_read": "Bibliographic record and quoted bounds in Behague–Johnson pp. 3–4 only; dissertation full text inaccessible",
+        "method": "Searched for arXiv/preprint and lawful open-access dissertation text; institutional repository and DOI did not yield readable full text.",
+        "title": "The Černý Conjecture and Other Synchronization Problems",
+        "trigger": "Explicit cited lower bound on Černý k-set rendezvous"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "508c1509-35ff-47c1-a2ed-de5f2a49dcb4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Genuinely natural all-subset control-cost problem in an extremal classical automaton. Supplies exact closed-form cost and a uniquely optimal word for every subset and every positive cost ratio, showing a non-obvious simultaneous Pareto optimum on counts of each letter. This is more than a table or straightforward application of a generic shortest-path algorithm: it explains the unique gap-expansion invariant and yields an O(|S|) controller description for all n. Deliberately does not claim other automata or zero-cost cases.",
+    "status": "PASS"
+  }
+}
