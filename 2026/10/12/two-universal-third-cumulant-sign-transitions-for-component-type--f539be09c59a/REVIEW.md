@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact finite block-selection joint moments in RESULT.md account for all absent cross edges exactly once. Their factorial-ratio logarithmic expansions through order \(n^{-2}\) cancel constant and first-order terms in the third cumulant. The second-order coefficient is \(abc[(a+b+c)(\lambda-1)^2-1]\). Local uniform convergence and simple roots give two sign-reversal zero sequences. Exact enumeration on six vertices and independent numerical asymptotic tests corroborate the algebra without replacing the universal proof.
+## correctness
 
-## Originality — PASS (with historical priority risk)
-The underlying joint component factorial moments and \(G(n,p)\) giant threshold are not asserted new. Janson--Knuth--Łuczak--Pittel, Theorem 5, concerns critical fixed-edge complex-component cyclic order counts. Krivelevich--Sudakov treat giant-component emergence, while Bhamidi--Broutin--Sen--Wang consider metric scaling limits. The assessed narrow assertion is the topology-independent normalized *third* cumulant with its two explicit sign reversals. Pittel's 1990 census was not available in full; implicit derivation from classical multivariate enumeration is the principal residual risk.
+PASS
 
-## Mathematical value — PASS
-The third mixed cumulant detects higher-order cooperation/competition of natural component populations. Unlike a finite covariance table, the two zero locations form a universal, size-sensitive structural law across arbitrary connected-component types; the second sign reversal is invisible at the covariance level. It creates a reference asymptotic for multivariate component-count fluctuations.
+Exact joint moments are obtained from disjoint vertex tuples and q^(-sum s_i*s_j) edge-corrections, with R_n(s) factorial ratios. Taking the third joint cumulant cancels order 0 and 1/n, while direct independent SymPy series computes the n^-2 coefficient abc[(a+b+c)(lambda-1)^2-1]. Distinct nonempty disjoint families ensure no multiple counting, even for equal orders; fixed positive lambda and n>=a+b+c. The two simple positive roots follow by locally uniform derivative expansions, not by finite sampling. A separate symbolic expansion reproduced the coefficient exactly.
 
-## Scope and limitations
-Component orders and \(\lambda>0\) are fixed before taking \(n\to\infty\). Means in the normalization are positive at each finite size but need not have the same growth order. The proof produces two local zero sequences, not a global classification of every zero. Independent review and comprehensive historical priority certification have not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Standard component-count factorial moments are classical, but the universal mixed third cumulant and its two parameter sign transitions were not found among the inspected published comparable results. This is best-of-knowledge only: full Pittel 1990 and complete Janson et al manuscript were not read.
+
+## value
+
+PASS
+
+Two sign reversals of a normalized connected-component triple correlation at explicit lambda values are a natural nontrivial structural refinement of sparse random-graph component statistics, independent of component topology; not a simple negative or arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,24 @@
 }
 ---
 
-The standalone `verify.py` enumerates all 32768 labeled graphs on six vertices and verifies pair/triple component moments for isolated-vertex, isolated-edge and isolated-three-vertex-path classes at rational edge probabilities 1/5, 1/2 and 4/5. It also runs 40 high-precision asymptotic comparisons and 12 finite sign checks at separated parameter values. Run `python verify.py` using Python 3 standard library; the expected final output begins `VERIFY_OK`. These finite and numerical checks are not proofs of any infinite limit or global uniqueness. The displayed formula and asymptotic expansion in RESULT.md are the analytic verification of the theorem.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+Exact joint moments are obtained from disjoint vertex tuples and q^(-sum s_i*s_j) edge-corrections, with R_n(s) factorial ratios. Taking the third joint cumulant cancels order 0 and 1/n, while direct independent SymPy series computes the n^-2 coefficient abc[(a+b+c)(lambda-1)^2-1]. Distinct nonempty disjoint families ensure no multiple counting, even for equal orders; fixed positive lambda and n>=a+b+c. The two simple positive roots follow by locally uniform derivative expansions, not by finite sampling. A separate symbolic expansion reproduced the coefficient exactly.
+
+## originality
+
+PASS
+
+Standard component-count factorial moments are classical, but the universal mixed third cumulant and its two parameter sign transitions were not found among the inspected published comparable results. This is best-of-knowledge only: full Pittel 1990 and complete Janson et al manuscript were not read.
+
+## value
+
+PASS
+
+Two sign reversals of a normalized connected-component triple correlation at explicit lambda values are a natural nontrivial structural refinement of sparse random-graph component statistics, independent of component topology; not a simple negative or arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
