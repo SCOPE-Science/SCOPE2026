@@ -1,11 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The maximal neighborhood simplices are exactly the \(mn\) sets in the proof. The opposite-layer pairs have unique centers when \(n\ge5\), making the first full-star collapse valid; the subsequent wing faces are unique and all matched pairs are codimension-one free faces. A surviving interface has \(m(m-1)\) cross edges and \(2m(m-2)\) fan triangles. The fan relations connect cross edges in the line graph of a connected crown graph; after \(E-1\) tree relations cancel all but one bridge, simple connectivity of \(S^{m-2}\) splits the remaining \(m^2-3m+1\) two-cells as spheres. The bridges make precisely one cycle. The package's executable reconstruction confirms all intermediate face sets and finite integral-structure-compatible mod-two ranks in sixteen parameter cases, but the universal result is based on the proof, not extrapolation.
+## correctness
 
-**Originality — PASS, with risk.** Matsushita's arXiv:1210.2803 Theorem 1.1 addresses fundamental groups, not higher sphere bouquets. Shukla's arXiv:1802.04526 Theorems 2–7 are restricted to graphs of maximum degree at most three or four-regular circulants, while this family has degree at least five. Chauhan–Shukla–Vinayak's arXiv:2512.04486 Theorem 1.5 concerns the different total two-cut complex on the identical graph, with homology in a wholly different dimension. Indexed results, exact-object searches, and nearby parameter comparisons do not imply the full claim. Residual risk: an uncatalogued equivalent decomposition could exist.
+PASS
 
-**Value — PASS.** The classification answers a natural product-graph topology question for every \(m\ge4,n\ge5\), identifies two independent families of sphere summands and their exact all-parameter multiplicities, and supplies explicit constructive reductions. Mixed-dimensional homology already appears at \(m=5\), beyond low-degree graph calculations, and the result determines all integral Betti numbers and fundamental groups without a finite census.
+For m≥4, n≥5, neighborhood facets in K_m □ C_n are exactly F_(a,i)=(R_i\{a})∪{(a,i−1),(a,i+1)}. Uniqueness of the opposite-wing pair's common center for n≥5 gives valid descending-dimension elementary collapse pairs, then one-wing high-cardinality faces similarly collapse, leaving each row boundary B_i=∂Δ^(m−1)≃S^(m−2), m(m−1) cross edges per interface and 2m(m−2) fan triangles. I inspected verify_neighborhood_cycle_products.py at its frozen source Git blob; it checks individual free-coface conditions and equality with the explicit core. The cross-edge relation graph is the line graph of connected K_(m,m) minus the diagonal; choosing a tree of E−1 relations cancels all but one bridging 1-cell per interface. Because B_i is simply connected for m≥4, remaining interface 2-cells null-attach and split λ=2m(m−2)−[m(m−1)−1]=m²−3m+1 independent S² per interface. n bridges form a circle, so N≃S¹∨(∨^n S^(m−2))∨(∨^(nλ) S²). Independent direct adjacency-to-faces and F₂ boundary rank tests give (m,n)=(4,5): β1=1,β2=30; (4,6):1,36; (5,5):β1=1,β2=55,β3=5; (5,6):1,66,6. The proof, not these finite examples, covers all m,n. At m=4 the two species of 2-spheres combine to 6n; no extension below m=4,n=5 was assumed.
 
-Scientific limitations: the claim is nonequivariant, assumes \(m\ge4,n\ge5\), and makes no assertion for low-order exceptional graphs. Literature coverage is not exhaustive.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the full open-neighborhood homotopy of the entire K_m □ C_n family, not for local clique-prism topology or the different total-two-cut functor. Direct full-text primary Shukla and Chauhan–Shukla–Vinayak comparisons do not imply this statement: the first assumes degree≤3 or particular 4-regular circulants, whereas these products have degree m+1≥5; the second computes total 2-cut complexes for some same graphs but different simplices and sphere dimensions. Resultary's K_m □ K2/prism local answer is considered, but does not supply the n-cycle gluing, fundamental S1, or nλ multiplicities automatically. Risks from other product graph-complex formulae recorded.
+
+## value
+
+PASS
+
+A uniform two-parameter infinite-family integral homotopy classification for a canonical cartesian graph product, with mixed sphere dimensions and precise multiplicity, is substantive. The local free-face collapse and crown graph relative cancellation explain a persistent S1 factor and cannot be replaced by a finite numerical table; it is a useful topological structural theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
