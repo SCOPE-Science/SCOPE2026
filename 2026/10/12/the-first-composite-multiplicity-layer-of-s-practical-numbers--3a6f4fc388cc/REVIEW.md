@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The complete-sequence criterion converts the defining subset-sum requirement into exact sorted-prefix inequalities. The proof enumerates all multiplicative partitions of \(\Omega(n)=2,3,4\), derives all surviving candidates without a numerical cutoff, and checks each terminal weight list exactly. The sole surviving boundary case \(60\) satisfies every prefix inequality. The standalone verifier agrees through \(10^6\), but that finite scan is explicitly not used as proof.
+## correctness
 
-## Originality
-**PASS.** Schwab--Thompson define \(s\)-practical numbers and prove infinitude and density zero; their Section 6.2 does not give a low-\(\Omega\) classification. OEIS A393492 contains \(60\) and records the later observation that composite prime powers are excluded, but it does not state the sharp lower bound or uniqueness at equality. Focused searches for aliases, multiplicity formulations, tables, and broader practical-number variants returned no result implying the theorem. The 2026 Reuijl thesis is a residual access risk because its full text was unavailable; available metadata exposes only the prime-power exclusion.
+PASS
 
-## Value
-**PASS.** \(\Omega(n)\) is the standard prime-factor multiplicity invariant, so determining the first composite layer is a natural structural question rather than an arbitrary slice. The result is sharp, unbounded, and completely classifies the boundary, giving a concrete foothold for the nonmultiplicative \(s\)-practical family where the founding paper notes that earlier structural machinery is unavailable.
+Schwab–Thompson Proposition 1.1 supplies an iff sorted-prefix test for sums of distinct divisor-aliquot values. For composite n, each distinct prime divisor contributes one weight s(p)=1, other composite divisors have s(d)>=3. Exhausting the exponent partitions of Omega(n) in {2,3,4} constrains possible p^a and p^a q^b forms, leaving n=12,24,36,60,84,90,100,126,198. Checking the exact sorted positive weights excludes all except 60; s(60) multiset sorted is [1,1,1,3,6,8,9,16,22,42,108] and satisfies every prefix inequality. No unbounded enumeration cutoff is used. Independent factorization/subset-prefix check through n=100000 corroborated the symbolic partition proof.
 
-## Closest literature and limitations
-The closest primary source is Schwab--Thompson, *A generalization of the practical numbers* (arXiv:1701.08504), especially Proposition 1.1 and Section 6.2. OEIS A393492 is the exact database entry for the sequence. The result does not classify \(\Omega(n)\ge5\), and an inaccessible 2026 thesis remains an explicit originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new natural first composite prime-factor-multiplicity classification: Omega(n)>=4, equality iff 60. Full founding paper and OEIS do not entail it; 2026 thesis inaccessible and risk documented.
+
+## value
+
+PASS
+
+The first attainable composite Omega-layer is a mathematically natural structural invariant in the recognized s-practical number sequence. The sharp uniqueness theorem is unbounded, rules out all lower multiplicity patterns, and gives future searches a rigorous base case; it is not equivalent to a finite table or arbitrary small cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
