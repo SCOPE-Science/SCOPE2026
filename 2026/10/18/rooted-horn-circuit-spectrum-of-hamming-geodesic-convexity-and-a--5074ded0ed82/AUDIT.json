@@ -1,0 +1,162 @@
+{
+  "correctness": {
+    "rationale": "Graph geodesics in H(d,q) yield rectangular hull closure, established also in prior Cartesian-product convexity literature. For root x, each coordinate generates a nonempty matching-row set M_i; inclusion minimality is equivalent to each premise row occurring as some singleton M_i. This proves 2<=r<=d, yields r! division without row-duplication issues, and produces the inclusion-exclusion formula with per-coordinate total q^r-(q-1)^r and removed singleton weight (q-1)^(r-1). For r=d all coordinates are distinct singleton patterns giving (q-1)^[d(d-1)]. General Horn stem necessity establishes the unique inclusion-minimal direct unit basis. A constructive family of (2^r-1)^(d-r)/r! stems at r=floor(d/2) yields exp(Omega(d^2)), with trivial exp(O(d^2)) upper bound; pair interval rules yield <N^3/2 chained rules. The proof addresses all integers d,q>=2. Standalone verify.py independently enumerated seven small cases and compared interval/rectangle closure on 984 samples; these are finite corroborations only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jiang, Pelayo and Pritikin (2004) establish convex subsets of Cartesian graph products to be products; the box-hull fact is known.",
+        "Nourine–Vilmin arXiv:2102.04245v1 Sections 2 and 4 develop Carathéodory/minimal generator closure frameworks, not a Hamming weighted-size formula."
+      ],
+      "reasoning": "The Cartesian-product closure description is a general source of the rectangular hull and thereby implies the matching-cover reduction. That fact and generic rooted-stem theory do not by themselves supply the stated weighted rank-count polynomial or direct versus nondirect size bounds. Whether another general weighted minimal-cover identity subsumes the nonbinary counting formula is unresolved and expressly recorded as residual risk.",
+      "searches": [
+        "exact number of minimal rooted circuit stems for geodesic convexity of Hamming graphs K_q Cartesian power, coordinate-cover inclusion-exclusion formula q^r-(q-1)^r",
+        "Caratheodory number d for shortest path convexity Hamming graph and count of extremal Caratheodory independent sets",
+        "Hamming graph geodesic convexity Cartesian product subset rectangle Jiang Pelayo Pritikin 2004",
+        "geodesic convexity and Cartesian products in graphs"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2102.04245v1 full HTML selected Sections 2 and 4",
+      "arXiv:1411.6432 full primary manuscript Sections 3.3 and 3.4",
+      "MathWorld Minimal Cover HTML tables",
+      "Royle JIS 3 (2000) HTML abstract",
+      "Devitt Jackson (1982) bibliographic landing",
+      "Jiang–Pelayo–Pritikin (2004) abstract",
+      "Anand et al. (2020) abstract",
+      "Klavžar (2005) publisher abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Royle (2000) abstract explicitly says enumeration of minimal covers is solved, and MathWorld gives full unweighted rank formula.",
+        "Wild gives generic rooted prime-implication characterization, but no formula for q-ary Hamming geodesic rooted-stem ranks.",
+        "An old accessible claim about graph-geodesic basis optimization was checked for deduplication; it does not state the Hamming q-ary size profile."
+      ],
+      "reasoning": "For a specified root, a stem is exactly a minimal cover of the d coordinate positions by the coordinate-matching sets of its premise vertices. In the binary alphabet each premise row is determined by that subset, so the complete binary size distribution equals the already published minimal-set-cover distribution, excluding the one-set trivial cover. For q>=3, each mismatching letter admits q-1 choices, producing genuinely weighted rank polynomials rather than the uncolored binary count. Standard prime-implicate theory separately gives necessity of all stems in a simultaneous one-pass unit Horn basis. The explicit weighted all-rank Hamming specialization and the comparison to polynomial multi-pass geodesic-interval bases were not located in the inspected sources; this is a limited originality assessment, not a priority certificate.",
+      "searches": [
+        "exact number of minimal rooted circuit stems for geodesic convexity of Hamming graphs K_q Cartesian power, coordinate-cover inclusion-exclusion formula q^r-(q-1)^r",
+        "Horn implications for Hamming convexity coordinate projections and minimal covering witness sets",
+        "Caratheodory number d for shortest path convexity Hamming graph and count of extremal Caratheodory independent sets",
+        "Devitt Jackson The Enumeration of Covers of a Finite Set 1982",
+        "Counting Set Covers and Split Graphs Royle"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "MathWorld Minimal Cover records mu(d,r), including d=4 row 1,25,22,1; the q=2 per-root stem spectrum agrees after excluding r=1.",
+        "Wild arXiv:1411.6432 Sections 3.3–3.4 gives stems as prime unit implications."
+      ],
+      "reasoning": "The binarily restricted formula is an equivalent presentation of a known minimal set cover size census. For q>=3 each nonmatching coordinate entry has q-1 colors, producing a weighted, q-dependent count, not the same numerical specialization as the classical table. These essential known-equivalence boundaries are stated publicly.",
+      "searches": [
+        "exact number of minimal rooted circuit stems for geodesic convexity of Hamming graphs K_q Cartesian power, coordinate-cover inclusion-exclusion formula q^r-(q-1)^r",
+        "Horn implications for Hamming convexity coordinate projections and minimal covering witness sets",
+        "minimal cover finite set cardinality A035348 Royle 2000 MathWorld Minimal Cover"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MathWorld Minimal Cover lists exact classical rank rows: d=3 (1,6,1), d=4 (1,25,22,1) and d=5 (1,90,305,65,1), matching q=2.",
+        "No all-nonbinary-q Hamming stem/implicate table appeared in the scoped search results."
+      ],
+      "reasoning": "The q=2 part has exact table coverage; no novelty is claimed for it. In the q>=3 weighted rank distribution, numerical counts differ—for instance d=3,q=3 gives ranks 36 and 64 per root—and the classic uncolored table does not literally tabulate these.",
+      "searches": [
+        "OEIS A035348 minimal covers n k exact table",
+        "MathWorld Minimal Cover size rank counts q=2",
+        "exact number of minimal rooted circuit stems for geodesic convexity of Hamming graphs K_q Cartesian power, coordinate-cover inclusion-exclusion formula q^r-(q-1)^r"
+      ]
+    },
+    "rationale": "The binary q=2 spectrum is exactly the CLASSICAL minimal-set-cover size distribution, not new, as explicitly shown by MathWorld A035348 and Royle. General Horn rooted-stem/direct-basis equivalence is also established by Wild; rectangular hull in Cartesian products is known by Jiang–Pelayo–Pritikin. The novelty claim is restricted to the weighted all-q Hamming rooted-stem polynomial (nonbinary q>=3) and the explicit exp(Theta(d^2)) versus O(N^3) one-pass/multi-pass representation gap. The inspected mathematical sources did not yield a statement implying that combined nonbinary claim. The colored minimal-cover generalization is straightforward, making the novelty margin modest and dependent on prior weighted-cover literature; priority remains qualified.",
+    "residual_risks": [
+      "The classical q=2 rank spectrum is already known exactly, and is not a novelty claim.",
+      "Colored minimal set cover enumerations or stronger Cartesian graph convexity results may subsume the weighted formula and its asymptotic interpretation without using the same terminology.",
+      "Devitt–Jackson original full text and Jiang–Pelayo–Pritikin full article not inspected.",
+      "No independent publication-priority review or external mathematical verification has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General closure/minimal-generator framework; does not supply the asserted Hamming weighted rank census",
+        "evidence": "arXiv:2102.04245v1, Sections 2 and 4",
+        "identifier_or_url": "https://arxiv.org/html/2102.04245v1",
+        "material_read": "Full HTML Sections 2 and 4 and theorem statements",
+        "method": "Open-access primary HTML inspection",
+        "title": "Enumerating maximal consistent closed sets in closure systems",
+        "trigger": "Middle-window 2021 work on minimal generators and Carathéodory numbers"
+      },
+      {
+        "assessment": "General prime implicate and direct Horn stem theorem covers basis-necessity lemma; that lemma is credited and excluded from novelty",
+        "evidence": "arXiv:1411.6432, Sections 3.3–3.4",
+        "identifier_or_url": "https://arxiv.org/abs/1411.6432",
+        "material_read": "Primary manuscript Sections 3.3–3.4 in accessible text",
+        "method": "Open-access primary text",
+        "title": "The joy of implications, aka pure Horn functions",
+        "trigger": "Potential dominating statement from general Horn stem theory"
+      },
+      {
+        "assessment": "Decisive coverage of the ENTIRE binary rank spectrum, explicitly acknowledged in manuscript; no q>=3 weighted Hamming formulas presented",
+        "evidence": "MathWorld A035348 triangle d=3 and d=4; Hearne–Wagner references",
+        "identifier_or_url": "https://mathworld.wolfram.com/MinimalCover.html",
+        "material_read": "Full web article including OEIS size triangle and source references",
+        "method": "Direct HTML comparison of rank tables with q=2 formula",
+        "title": "Minimal Cover",
+        "trigger": "Potential exact table covering binary case"
+      },
+      {
+        "assessment": "Confirms solved minimal cover enumeration; strong covered binary specialization; full text unresolved",
+        "evidence": "Journal of Integer Sequences 3 (2000), Article 00.2.6 abstract",
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL3/ROYLE/royle.html",
+        "material_read": "Article abstract and full-version link; full article not read",
+        "method": "Publisher-hosted landing HTML",
+        "title": "Counting Set Covers and Split Graphs",
+        "trigger": "Classical theorem dominating binary enumeration"
+      },
+      {
+        "assessment": "General known product convex-set description subsumes rectangular closure lemma, acknowledged",
+        "evidence": "Jiang–Pelayo–Pritikin, 2004 abstract",
+        "identifier_or_url": "https://www.researchgate.net/publication/249760576_Geodesic_Convexity_and_Cartesian_Products_in_Graphs",
+        "material_read": "Abstract only, full primary work not read",
+        "method": "Available abstract comparison",
+        "title": "Geodesic Convexity and Cartesian Products in Graphs",
+        "trigger": "Known broader Cartesian product hull theorem"
+      },
+      {
+        "assessment": "Classical minimal covers are known; cannot exclude broader parameterized formulas in unread full text",
+        "evidence": "Devitt–Jackson, Journal of London Mathematical Society 25 (1982), 1–6",
+        "identifier_or_url": "https://doi.org/10.1112/jlms/s2-25.1.1",
+        "material_read": "Publisher abstract/bibliography only; full text inaccessible",
+        "method": "Publisher HTML availability inspection",
+        "title": "The Enumeration of Covers of a Finite Set",
+        "trigger": "Historical general cover enumeration potentially dominating q-weighted count"
+      },
+      {
+        "assessment": "Discusses graph geodetic convexity but no full-text comparison; unresolved low-to-moderate scope",
+        "evidence": "Theoretical Computer Science 804 (2020), 46–57",
+        "identifier_or_url": "https://doi.org/10.1016/j.tcs.2019.10.041",
+        "material_read": "Abstract-level comparison only",
+        "method": "Bibliographic and accessible abstract inspection",
+        "title": "On the Carathéodory and exchange numbers of geodetic convexity in graphs",
+        "trigger": "Related graph convexity Carathéodory bounds"
+      },
+      {
+        "assessment": "Hamming embeddings, no observed rooted minimal Horn count",
+        "evidence": "Klavžar, Journal of Graph Theory 49 (2005), 302–312",
+        "identifier_or_url": "https://doi.org/10.1002/jgt.20084",
+        "material_read": "Abstract and publication metadata",
+        "method": "Publisher HTML abstract inspection",
+        "title": "Characterizing subgraphs of Hamming graphs",
+        "trigger": "Hamming graph structural results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5074ded0-ed82-490c-8fa5-7fc3e00fd1e2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A single natural family of closure systems has a complete exact size distribution of all indispensable one-pass unit Horn premises, with a nonbinary alphabet parameter, an attained maximum stem rank, and a provable superpolynomial blowup in representation size relative to a polynomial-size chained geodesic interval basis. This establishes an operational expressivity/description-size boundary, not merely a small parameter table; the mathematically relevant distinction is simultaneous one-pass inference versus iteration. The binary rank counts are classical, but the weighted nonbinary and logical-representation synthesis motivates the precise invariant. Meaningfulness is qualified by the elementary weighted-cover reduction and possible implicit precedence.",
+    "status": "PASS"
+  }
+}
