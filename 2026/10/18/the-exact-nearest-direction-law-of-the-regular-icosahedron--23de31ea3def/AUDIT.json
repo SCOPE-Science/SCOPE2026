@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "All radii are angles on the unit sphere. The 12 regular spherical pentagonal Voronoi cells have central inradius rho, terminal radius R, and five disjoint outside-of-side sectors until R. Integrating cap intersections per cell yields the entire CDF without unstated coverage overlaps. The segment derivative is 2 sin(t) alpha(t), yielding the 3/2 onset and quadratic terminal tail by explicit expansions; the surface Green identity gives the mean nearest squared chord loss with exact side length ell. The standalone standard-library checker reproduces the angular cell integrals independently at 21 radii, four threshold tests, 100000 direct samples, and the exact mean via angular quadrature. Finite checks are only corroboration; the analytical argument establishes the continuum identity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fowler et al. (2002, §3(a)) explicitly credits older geometry for the regular icosahedron being an optimal packing and covering and an intermediate twelve-cap solution.",
+        "Hardin–Michaels–Saff (2016) defines Voronoi cells and studies separation, covering radius, and icosahedral mesh constructions; it is not a distributional nearest-angle inversion."
+      ],
+      "reasoning": "Existing global optimal placement statements dominate any new assertion that the icosahedron is a packing or covering optimizer; that assertion is excluded here. These broader bounds do not specify the exact fraction covered at every intermediate radius, the coefficients of its two threshold asymptotics, or the mean squared-chord loss. No average-loss optimum is asserted.",
+      "searches": [
+        "Fowler & Tarnai 1996 Transition from Spherical Circle Packing to Covering Geometrical Analogues of Chemical Isomerization",
+        "Fowler Tarnai Gáspár 2002 icosahedron intermediate covering N=6",
+        "Hardin Michaels Saff arXiv:1607.04590 spherical icosahedral covering mesh ratio"
+      ]
+    },
+    "checked_sources": [
+      "P. W. Fowler, T. Tarnai, Zs. Gáspár (2002), doi:10.1098/rspa.2002.0990, §§2–3(a)",
+      "Oleg Mazonka (2012), arxiv:1205.1396, §4.1 Eq. 41",
+      "Hardin–Michaels–Saff (2016), arxiv:1607.04590, §§1.2, 2",
+      "Fowler–Tarnai (1996), doi:10.1098/rspa.1996.0108, abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The existing general segment formula must be combined with 12 congruent spherical pentagon Voronoi cells and proved non-overlap of five clipped-side regions up to the shared corners.",
+        "The two explicit different-order threshold expansions and the exact first spherical harmonic moment follow from the specific angular structure, not from an endpoint alone."
+      ],
+      "reasoning": "The literature includes building blocks from which the formula can be newly derived; the contribution is not the building blocks. No inspected theorem states a stronger all-radius result whose direct corollary is this entire profile with the sharp coefficients and moment. Implicit computability and full logical statement coverage are distinguished; a priority caveat remains.",
+      "searches": [
+        "Mazonka cone segment formula arccos sin gamma sin theta arccos tan gamma tan theta",
+        "Fowler Tarnai Gáspár 2002 §2 coverage penalty §3a N=6 icosahedron",
+        "Hardin Michaels Saff 2016 Voronoi spherical cell icosahedron points"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fowler–Tarnai–Gáspár (2002) defines coverage as one minus normalized uncovered sphere area: mathematically it is exactly the nearest-vertex distance CDF.",
+        "Mazonka (2012, Eq. 41) supplies the same one-edge spherical-cap segment integral as a general building block."
+      ],
+      "reasoning": "The exact observable is not new as a definition: a 12-site spherical-cap coverage curve equals the CDF, and the one-edge formula is classical. Inspected primary texts did not exhibit the full icosahedral piecewise CDF, endpoint Puiseux/Taylor coefficients, or the chord-distance expectation. An expression trivially implied by a fully tabulated same curve would cover the result, but no such tabulation was found.",
+      "searches": [
+        "area of union of 12 equal spherical caps centered at icosahedron vertices as radius grows, exact coverage probability, pairwise overlap and sixfold symmetry",
+        "Regular icosahedron nearest-site angular distance distribution spherical quantization spherical Voronoi cell cap area",
+        "Fowler Tarnai Gáspár (2002), DOI:10.1098/rspa.2002.0990, §§2 and 3(a)",
+        "Mazonka arXiv:1205.1396, §4.1 equation (41)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Fowler et al. (2002, §3(a)) lists the classical limiting angles of approximately 31.7175 and 37.3774 degrees, not an entire analytic distribution.",
+        "The inspected 2016 survey tabulates metrics of finite spherical point configurations, not the continuous full-radius nearest-angle CDF."
+      ],
+      "reasoning": "The known table endpoints match the domain boundaries of this theorem, so are explicitly subtracted from novelty. A finite endpoint table alone neither supplies the middle-branch law nor its asymptotic constants or mean loss.",
+      "searches": [
+        "regular icosahedron spherical covering radius 37.3773682 degrees packing radius 31.7175 degrees",
+        "Fowler Tarnai Gaspar 2002 table spherical cap covering 12 vertices",
+        "Uniform random points nearest vertex of Platonic solid icosahedron spherical covering radius area cap truncated regular pentagon"
+      ]
+    },
+    "rationale": "The complete nearest-angle distribution, two explicit threshold coefficients, and exact expected squared nearest-chord cost are not stated in the inspected primary works. The 2002 source contains the same coverage observable and known optimal icosahedral placement but reports only packing/covering endpoints for this case; the 2012 source establishes the cap-segment primitive, which is acknowledged and is not claimed new. The 2016 survey studies node separation/covering properties. Novelty is relative to these actual materials and semantic searches, not certified global priority.",
+    "residual_risks": [
+      "A known equivalent icosahedral cap-coverage expression could exist in classical circle-covering, spherical sampling, or computational geometry terminology not returned by the semantic and exact searches.",
+      "Full text of Fowler–Tarnai (1996) was not obtained; inability to inspect it is not positive evidence of originality.",
+      "The exact law uses the published spherical segment primitive and may be considered an implicit computable corollary of general formulas; historical priority is not certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CONTAINS_PREVIOUSLY_KNOWN_SITE_OPTIMALITY_AND_THRESHOLDS; no complete analytic twelve-site coverage law located in read material",
+        "evidence": "§2 Eq. (2.1) defines coverage. §3(a) states icosahedral N=6 antipodal arrangement is optimal from 31.7175 to 37.3774 degrees.",
+        "identifier_or_url": "doi:10.1098/rspa.2002.0990",
+        "material_read": "Accessible article full text including Introduction, Method §2, Results §3(a), and case discussion",
+        "method": "Read open article text, not only title or abstract",
+        "title": "From circle packing to covering on a sphere with antipodal constraints",
+        "trigger": "Same twelve-site icosahedral cap-coverage observable; decisive prior comparison"
+      },
+      {
+        "assessment": "PARTIALLY_COVERING_SPHERICAL_SEGMENT_PRIMITIVE; no regular-icosahedron all-radius profile found",
+        "evidence": "§4.1.4 Eq. (41) is exactly the one-edge cap segment. §4.2 treats two intersecting caps, not the 12-site nearest-direction law.",
+        "identifier_or_url": "arxiv:1205.1396",
+        "material_read": "Accessible full-text article; inspected sections 2, 4.1 (Eqs. 31–41), portions of 4.2, and Conclusion",
+        "method": "Read available lawful article text including relevant §4.1 segment derivation, not merely the abstract",
+        "title": "Solid Angle of Conical Surfaces, Polyhedral Cones, and Intersecting Spherical Caps",
+        "trigger": "Exact formula for a spherical cap clipped by a great-circle halfplane"
+      },
+      {
+        "assessment": "RELATED_SPHERICAL_NODE_GEOMETRY; no fixed-12-point CDF and moment theorem in inspected sections",
+        "evidence": "§1.2 defines Voronoi decomposition and maximum covering radius, and §2 constructs radial icosahedral nodes.",
+        "identifier_or_url": "arxiv:1607.04590",
+        "material_read": "Accessible article text: Abstract, §1.2 definitions and covering metrics, §2 radial icosahedral-node construction and corresponding discussion",
+        "method": "Read full-text online for relevant definitions and comparisons",
+        "title": "A Comparison of Popular Point Configurations on the Two-Sphere",
+        "trigger": "Geometric use of icosahedral nodes, Voronoi cells, and covering functionals"
+      },
+      {
+        "assessment": "UNRESOLVED_ACCESS_LIMITATION",
+        "evidence": "The 2002 article cites the 1996 study as earlier unconstrained intermediate covering work; a full-text identity comparison remains open.",
+        "identifier_or_url": "doi:10.1098/rspa.1996.0108",
+        "material_read": "Abstract and bibliographic metadata; complete text inaccessible in this research pass",
+        "method": "Reviewed available abstract only; not treated as proof of noncoverage",
+        "title": "Transition from Spherical Circle Packing to Covering: Geometrical Analogues of Chemical Isomerization",
+        "trigger": "Earlier twelve-point spherical intermediate covering and possible same-curve formula"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "23de31ea-3def-48a4-8a27-1396f9302b96",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A globally classical 12-site spherical packing/covering benchmark previously had explicit endpoint angles but no located exact interior CDF. The full coverage curve is the natural distribution of worst-and-average location-to-site error for this canonical geodesic code, and its two distinct sharp threshold powers quantify precisely the first overlap and final uncovered-area exhaustion. The exact average squared chord loss is a nontrivial quantization statistic obtained independently from Voronoi boundary geometry. This is one coherent distribution-and-moment result on a naturally optimal configuration, rather than an arbitrary parameter slice or restatement of the one-cap segment primitive.",
+    "status": "PASS"
+  }
+}
