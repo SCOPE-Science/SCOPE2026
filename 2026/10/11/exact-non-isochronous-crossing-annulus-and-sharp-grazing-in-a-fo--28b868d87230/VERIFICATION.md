@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-For arbitrary \(k>0\), \(A>2k\), the four exact elementary solutions in `RESULT.md` satisfy the two piecewise-linear second-order equations in their respective quadrants. The crossing times \(\theta_\pm\) satisfy \(\cos\theta_-=-k/(A-k)\), \(\cos\theta_+=k/(A+k)\), and their nonzero velocities equal \(\sqrt{A(A-2k)}\) and \(\sqrt{A(A+2k)}\) in magnitude. The endpoint and return-state formulas follow by substituting these trigonometric identities; no approximation is required.
+## correctness
 
-The energy obstruction for \(A\le 2k\) and the strict sign of the exact period derivative establish the global-in-amplitude conclusions. `verify.py` independently evaluates the four junction residuals, acceleration crossing signs, energy threshold and derivative formula at a deterministic set of positive parameters, printing `CHECK_OK` on success. Such finite checks do not imply universal validity or certify external literature comparisons; the universal statements rest on the displayed proof.
+PASS
 
-Independent audit status: not performed. There is no external validation claim.
+Verified exact quadrant dynamics with conserved E_−=(x²+y²)/2−k|x| in y<0 and E_+=(x²+y²)/2+k|x| in y>0. Starting at (A,0), a transverse lower axis crossing x=0 requires E_−=A(A−2k)/2>0, i.e. A>2k; at equality first arc x=k+k cos t hits origin at t=π. For A>2k, four explicit sinusoidal arcs join at (0,−sqrt[A(A−2k)]), (−A,0), (0,sqrt[A(A+2k)]), (A,0), with nonzero crossing speeds and unique transverse Filippov continuation. Thus P(A)=A, period 2 acos(−k/(A−k))+2 acos(k/(A+k)); differentiation yields 2k[(A+k)^{-1}(A(A+2k))^{-1/2}−(A−k)^{-1}(A(A−2k))^{-1/2}]<0. Endpoint limits 2π+2acos(1/3) and 2π. Independent symbolic endpoint substitution and sample numerical sign checks agree; analytic inequalities—not a finite grid—prove result for all k>0 and A>2k.
+
+## originality
+
+PASS
+
+Same model occurs as a degenerate case of Jiang's piecewise polynomial class; strict originality lies in exact finite-amplitude P(A)=A, A>2k crossing/grazing criterion and period twist, not in first-order zero averaging.
+
+## value
+
+PASS
+
+Exact sharp grazing boundary and strictly twisting nonisolated periodic annulus in a natural discontinuous oscillator resolve an ambiguity left by identically vanishing first-order averaging; scientifically motivated nonperturbative behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

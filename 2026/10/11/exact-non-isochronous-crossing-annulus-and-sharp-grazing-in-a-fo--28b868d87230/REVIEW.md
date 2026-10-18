@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof constructs four explicit harmonic segments for each \(k>0\) and \(A>2k\), checks all four junctions and normal velocities, and computes the exact return map. The lower-half-plane first integral forces the necessary strict inequality \(A>2k\); direct differentiation proves period monotonicity. The optional numerical checker is supplementary and is not used as an infinite-parameter proof.
+## correctness
 
-## Originality — PASS
-The closest exact-model source is Jiang (2024), DOI: 10.3934/math.2024177, read through its model, averaged-function theorem, remarks, and examples. Its first-order averaging degeneracy does not imply exact finite-parameter return or the sharp crossing threshold. Related Llibre–Teixeira (2013 preprint/2015 article) and Dong–Liu (2017) treat the conjugate switching-Liénard class by averaged limit-cycle bounds rather than the claimed period law; Dong–Liu's degenerate switching angle vanishes at first order, without an all-order identity. Targeted database, source, and alias searches did not yield a logically dominating statement. Remaining risks include older general center/reversibility theory and incompletely indexed nonsmooth oscillator literature; no claim of exhaustive priority is made.
+PASS
 
-## Value — PASS
-This is a natural, not arbitrarily parameter-sliced, exact relay degeneration of a studied multi-sector oscillator. The vanishing averaged drift leaves open whether finite forcing creates higher-order displacement or an exact center. The theorem resolves that ambiguity, gives a sharp finite-amplitude grazing threshold, and supplies a nonconstant exact twist-period law with explicit endpoint values; these facts identify the actual geometric domain in which averaging about transverse cycles is meaningful.
+Verified exact quadrant dynamics with conserved E_−=(x²+y²)/2−k|x| in y<0 and E_+=(x²+y²)/2+k|x| in y>0. Starting at (A,0), a transverse lower axis crossing x=0 requires E_−=A(A−2k)/2>0, i.e. A>2k; at equality first arc x=k+k cos t hits origin at t=π. For A>2k, four explicit sinusoidal arcs join at (0,−sqrt[A(A−2k)]), (−A,0), (0,sqrt[A(A+2k)]), (A,0), with nonzero crossing speeds and unique transverse Filippov continuation. Thus P(A)=A, period 2 acos(−k/(A−k))+2 acos(k/(A+k)); differentiation yields 2k[(A+k)^{-1}(A(A+2k))^{-1/2}−(A−k)^{-1}(A(A−2k))^{-1/2}]<0. Endpoint limits 2π+2acos(1/3) and 2π. Independent symbolic endpoint substitution and sample numerical sign checks agree; analytic inequalities—not a finite grid—prove result for all k>0 and A>2k.
 
-## Scientific limitations
-The result does not classify axial sliding/escaping Filippov motions, nor perturbative isolated cycles, nor general regularized switches. Crossing-section results apply only to the transverse family and parameter domain defined in the statement. The origin may be nonunique at grazing. Priority conclusions are limited to the identified checked material.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Same model occurs as a degenerate case of Jiang's piecewise polynomial class; strict originality lies in exact finite-amplitude P(A)=A, A>2k crossing/grazing criterion and period twist, not in first-order zero averaging.
+
+## value
+
+PASS
+
+Exact sharp grazing boundary and strictly twisting nonisolated periodic annulus in a natural discontinuous oscillator resolve an ambiguity left by identically vanishing first-order averaging; scientifically motivated nonperturbative behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
