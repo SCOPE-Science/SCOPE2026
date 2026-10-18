@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "For 1<=r<=l<d, full-row-rank J and nonzero e, JG has rank r almost surely. The orthogonal decomposition into h_* and ker J is exact. For coefficient minimization, Gaussian block independence and the row-Wishart Schur complement produce chi²_(d-r)/chi²_(l-r+1). For physical min-norm on the same Haar l-plane, represent its orthogonal complement with a q by s Gaussian block and use a second Schur complement to produce chi²_(d-l)/chi²_(l-r+1). Numerator-denominator independence is established separately for each marginal; no false independence of the paired actual errors is asserted. Gamma integrals prove the exact p<l-r+1 finite-moment range and the infinite endpoints, including the l=r and l=r+1 cases. The finite QR/Python checks pass 1742 assertions and the exact witness uses rational arithmetic; they are supporting checks, not the infinite proof. No finite-precision or iteration theorem is claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cartis–Fowkes–Shao, arXiv:2211.05727, pp.1–3, safeguard by trust region and convergence statement rather than exact unconstrained tie-breaker laws: https://arxiv.org/pdf/2211.05727",
+        "Cartis–Fowkes–Shao, arXiv:2211.09873, section 5, reduced Gauss–Newton model with regularization/trust-region: https://arxiv.org/pdf/2211.09873",
+        "LeJeune et al., SIAM J. Math. Data Sci. 6 (2024), pp.199–225, first- and second-order asymptotic pseudoinverse equivalences; no exact same-subspace marginal beta-prime laws: https://epubs.siam.org/doi/full/10.1137/22M1530264"
+      ],
+      "reasoning": "The safeguarded global complexity results do not imply the distribution of one unregularized, minimum-coefficient interpolating step, nor its QR physical-norm counterpart. The 2024 work compares Gaussian and orthogonal sketch ensembles asymptotically for regularized matrix operators rather than finite-dimensional ambient nullspace displacement for two bases of one identical sampled span. It does not dominate the present statement.",
+      "searches": [
+        "Gaussian pseudoinverse chi squared ratio expected norm inflation randomized least squares full-step nullspace",
+        "Orthonormal Haar versus Gaussian parameter sketch minimum norm correction finite moments null drift",
+        "randomized subspace Gauss Newton minimum norm sketching orthonormal basis subspace trust region 2023 2024 nullspace",
+        "arXiv:2211.05727, algorithm 1 and theorem 1",
+        "arXiv:2211.09873, section 5",
+        "arXiv:2211.03751, sections 4–7"
+      ]
+    },
+    "checked_sources": [
+      "Cartis–Otemissov, Optimization Online 7575, public date 2020-01-16 (full primary relevant sections); theorem 3.7 and corollary 3.9.",
+      "Cartis–Fowkes–Shao, arXiv:2211.05727 (full five-page primary source).",
+      "Cartis–Fowkes–Shao, arXiv:2211.09873 (primary full-text methods and relevant section 5).",
+      "LeJeune et al., arXiv:2211.03751 / SIAM J. Math. Data Sci. 2024 (full open-access HTML relevant sections).",
+      "Published result: 2026/9/19/SCOPE-unit-normalized-weak-gn-frame-obstruction--7915401e13af; deterministic weak-test frame effect, not same random subspace tie-breaker.",
+      "Published result: 2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248; different stochastic gradient stationarity criterion."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cartis–Otemissov 2020 Eq.(3.8) controls E||z||², not E||Gz||² nor min_{h in range(G)}||h||².",
+        "Cartis–Fowkes–Shao 2022 guarantee is tied to a bounded trust region and sufficient decrease; its assumptions do not determine a pseudoinverse selection of an unregularized underdetermined model.",
+        "This proof derives exact laws with numerators d-r and d-l respectively and the same denominator l-r+1, from two distinct Gaussian Schur complements."
+      ],
+      "reasoning": "The prior coefficient inverse-chi-squared law plus conditional Gaussian multiplication quickly yields the raw excess law, and is acknowledged as covered machinery. It does not establish the normalized Gaussian versus QR comparison without analyzing the Haar plane orthogonal complement, its physical minimizer, and its second independent inverse-Wishart identity. The value resides in that exact paired algorithmic classification rather than renaming the familiar inverse-Wishart primitive.",
+      "searches": [
+        "OptimizationOnline:7575 Theorem 3.7 Corollary 3.9",
+        "arXiv:2211.05727 p.2 Algorithm 1",
+        "arXiv:2211.09873 section 5",
+        "arXiv:2211.03751 section 6",
+        "Gaussian basis versus QR orthonormalized basis min coefficient norm exact fitting steps nullspace heavy tail and moment cutoff"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cartis–Otemissov (2020), Thm.3.7, proves ||z||²/||h_*||² is inverse-chi-squared with l-r+1 degrees; p.10 and Cor.3.9: https://optimization-online.org/wp-content/uploads/2020/01/7575.pdf",
+        "LeJeune et al., arXiv:2211.03751, sketched pseudoinverse results are proportional-asymptotic operator equivalents: https://epubs.siam.org/doi/full/10.1137/22M1530264"
+      ],
+      "reasoning": "The known Gaussian coefficient-norm law is an explicit prior building block, not claimed original. Integrating an independent d-r dimensional Gaussian null block gives the physical Gaussian-basis law; representing the orthogonal complement of the same Haar subspace produces a different d-l dimensional numerator for the physical-norm minimizer. The resulting paired finite-dimensional distribution, samplewise order, and moment comparison are not stated by the inspected coefficient theorem or asymptotic regularized-pseudoinverse analysis. A hidden equivalent inverse-Wishart or Grassmannian formulation remains possible.",
+      "searches": [
+        "Gaussian subspace Gauss Newton random sketches nullspace drift heavy tail inverse Wishart",
+        "Sharp Student-t nullspace displacement Gaussian random subspace Gauss Newton coefficients orthogonalization",
+        "Exact ambient nullspace error distribution Gaussian random embedding least squares chi squared d-r divided by chi squared l-r+1",
+        "Haar random subspace Euclidean minimum norm affine constraint beta prime chi squared d-l divided by chi squared l-r+1",
+        "OptimizationOnline:7575, Theorem 3.7",
+        "arXiv:2211.03751, sections 4–7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed published comparison: A. result entitled Unit-normalized weak Gauss–Newton can amplify energy error without bound; public item 2026/9/19/SCOPE-unit-normalized-weak-gn-frame-obstruction--7915401e13af, on deterministic weak test frames.",
+        "Closest published Haar direction result: Exact Haar moments remove sampling-dimension restrictions in sparse stochastic subspace descent; public item 2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248, on first-order stationarity.",
+        "The indexed results do not record this exact finite-dimensional two-basis nullspace-law classification; absence of a matching index entry alone cannot establish novelty."
+      ],
+      "reasoning": "The two closest identified records have different update operators and mathematical quantities: deterministic weak-test conditioning and gradient stationarity, respectively. Neither contains the pair of full-row-rank interpolation rules or the exact finite-sample distribution of their physical nullspace displacement. No relevant exact table of these paired ratios was found in the actual searches; no claim is made about unindexed or unpublished work.",
+      "searches": [
+        "Gaussian subspace Gauss Newton random sketches nullspace drift heavy tail inverse Wishart",
+        "Sharp Student-t nullspace displacement Gaussian random subspace Gauss Newton coefficients orthogonalization",
+        "Gaussian pseudoinverse chi squared ratio expected norm inflation randomized least squares full-step nullspace",
+        "Exact ambient nullspace error distribution Gaussian random embedding least squares chi squared d-r divided by chi squared l-r+1",
+        "Haar random subspace Euclidean minimum norm affine constraint beta prime chi squared d-l divided by chi squared l-r+1",
+        "Gaussian basis versus QR orthonormalized basis min coefficient norm exact fitting steps nullspace heavy tail and moment cutoff",
+        "Haar random subspace intersect affine subspace minimum norm multivariate t chi square ratio"
+      ]
+    },
+    "rationale": "Closest direct source Cartis–Otemissov 2020 already has inverse chi-squared reduced coefficient norm, openly credited, and that mathematical input is not presented as new. Inspecting its theorem, the two Cartis–Fowkes–Shao safeguarded GN formulations, and LeJeune et al. sketched-pseudoinverse asymptotics found no finite-dimensional paired same-subspace correction-norm laws; published semantic comparisons do not dominate the theorem. The new content is the exact ratio of two ambient nullspace laws and moment frontier for distinct tie-breaking choices on identical sampled subspaces; equivalent unindexed inverse-Wishart/Grassmannian formulations remain a disclosed risk.",
+    "residual_risks": [
+      "Generic inverse-Wishart/Hotelling/F laws, and a currently unidentified Grassmannian pseudoinverse analysis, could contain an equivalent specialized paired statement.",
+      "Source analysis cannot establish priority or nonexistence of unpublished results; no independent review has been performed.",
+      "The known coefficient-norm theorem makes part of the raw-displacement proof a short deduction. The distinct orthogonal-complement law and same-span comparison are the original claimed portion."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves the inverse-chi-square norm law for the reduced coefficient minimizer; does not report the proposed two ambient-parameter nullspace marginal laws or same-span QR comparison.",
+        "evidence": [
+          "Theorem 3.7 gives ||y_2^*||²/||x_*^T||² inverse chi-squared with d-d_e+1 degrees; Corollary 3.9 gives its mean; public source date 2020-01-16."
+        ],
+        "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2020/01/7575.pdf",
+        "material_read": "32-page primary PDF, introduction pp.1–4; section 3, notably pp.7–11, Thm.3.7 and Cor.3.9; affine remark pp.13–14.",
+        "method": "Read extracted full text at theorem and surrounding definitions and directly viewed printed page 10.",
+        "title": "A dimensionality reduction technique for unconstrained global optimization of functions with low effective dimensionality",
+        "trigger": "Same Gaussian embedding, exactly solvable minimum reduced coefficient and possible stronger coverage."
+      },
+      {
+        "assessment": "Safeguarded trust-region formulation: neither selects unregularized pseudoinverse tie-breaking nor supplies physical ambient nullspace distribution.",
+        "evidence": [
+          "Algorithm 1 uses restricted step norm and accept/reject tests; theorem provides gradient complexity, not parameter-step moment estimates."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2211.05727",
+        "material_read": "5-page preprint, including section 3 and Algorithm 1 on printed page 2, section 4 and theorem on p.3.",
+        "method": "Read full five-page text and directly viewed Algorithm 1 page image.",
+        "title": "A Randomised Subspace Gauss–Newton Method for Nonlinear Least-Squares",
+        "trigger": "Source algorithm computes reduced Gauss–Newton least squares in variable-domain sketches."
+      },
+      {
+        "assessment": "Formulates sketched second-order model with quadratic regularization or trust region; does not state matched-span basis-normalization law.",
+        "evidence": [
+          "Section 5 Eq.(5.2), reduced Hessian expression and safeguard discussion in printed pages 24 onward."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2211.09873",
+        "material_read": "39-page document; problem setup and subspace models, sections 3–5, with direct page image of section 5 beginning at printed page 24.",
+        "method": "Read text for applicable assumptions and global convergence, inspected section 5 actual model formula (5.2) and algorithmic safeguards.",
+        "title": "Randomised subspace methods for non-convex optimization, with applications to nonlinear least-squares",
+        "trigger": "Longer primary analysis may subsume one-step GN special case."
+      },
+      {
+        "assessment": "Proves proportional-asymptotic regularized sketched pseudoinverse equivalences, not the finite-dimensional physical-nullspace laws for two tie-breakers on a coupled identical subspace.",
+        "evidence": [
+          "Section 1 distinguishes asymptotic operator pseudoinverse equivalence and prior finite-sample results; Sections 4, 6 and 7 formulate operator limits and explicitly discuss lack of nonasymptotic characterization."
+        ],
+        "identifier_or_url": "https://epubs.siam.org/doi/full/10.1137/22M1530264",
+        "material_read": "Full open-access journal HTML, Introduction, Main Results, Applications and Discussion; arXiv lookup attempted prior to open publisher access.",
+        "method": "Read stated matrix/operator asymptotics, application section and distinctions among Gaussian and orthogonal sketch ensembles.",
+        "title": "Asymptotics of the Sketched Pseudoinverse",
+        "trigger": "Plausible stronger results on Gaussian versus orthogonal sketching and pseudoinverse moments."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4bcb907c-8026-460f-8ca3-0f505d7aacd0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The smallest positive-rank exact-fit linearized least-squares model with a redundant Gaussian parameter sketch has nonunique subspace minimizers, so pseudoinverse tie-breaking is a motivated numerical choice rather than an arbitrary parameter slice. The theorem quantifies basis-induced physical displacement: same residual zero and same random span can have different chi-squared excess numerator dimensions, with sharp infinite-vs-finite squared-step moment boundary after two extra sketch directions. This is a full classification of a natural implementation ambiguity and a benchmark for step normalization/trust controls; it does not claim a new Gaussian primitive or global convergence advantage.",
+    "status": "PASS"
+  }
+}
