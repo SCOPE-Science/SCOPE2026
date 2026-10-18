@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** A rank-two block-stratification proves that the expected dimension is attained exactly on nonempty independent interior zero sets. Expected codimension in the smooth Grassmannian proves the local complete-intersection property; generic independent differentials plus Cohen–Macaulayness prove reducedness. A direct blockwise Jacobian rank calculation proves the all-point smoothness equivalence in every characteristic. Adjunction and Grassmannian degree yield the canonical sheaf and Catalan degree. The extracted finite-field checker tests the exact pointwise criterion over every rank-two row plane for the enumerated fields and sizes; the general proof is not inferred from the finite tests.
+
+**Originality — PASS, with explicit prior-art separation.** The affine minimal primes, their independent-set structure, and affine complete intersection are established by Hoşten–Sullivant (2003) and Herzog et al. (2009); these are *not* claimed as independent new discoveries. The contribution is the exact global smooth-point classification in the projective adjacent-Plücker section, all-characteristic scheme interpretation, and specified transverse crossing. Damadi–Rahmati (2016) supplies an existential graph-level test under a different componentwise smoothness notion, not this pointwise Grassmannian criterion. Later positroid smoothness criteria and unidentified translations are residual coverage risks.
+
+**Value — PASS.** This natural highly reducible anticanonical Grassmannian section receives a complete all-size, characteristic-free *pointwise* classification of its singular points, not merely an existence result. The rank criterion determines exactly where its complete-intersection equations fail transversality, and the generic ordinary-crossing calculation identifies a geometric mechanism for those failures. The scheme is an explicit bridge between adjacent-minor cut-set geometry and projective Grassmannian singularities; no general theorem outside this motivated family is claimed.
+
+**Limitations.** The exact nonreduced Jacobian scheme and all nongeneric completed local rings are not determined. The cut-set combinatorics is prior art; possible equivalent smoothness descriptions in broad positoid or adjacent-minor literature remain a risk.
+
+Self-review: passed. Independent audit: not yet performed.
