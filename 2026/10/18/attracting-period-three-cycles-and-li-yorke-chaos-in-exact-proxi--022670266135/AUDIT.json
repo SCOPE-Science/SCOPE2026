@@ -1,0 +1,162 @@
+{
+  "correctness": {
+    "rationale": "The proof derives the actual unique ProxSPS minimizer using the original truncated loss and an unchanged ridge proximal term; the map has two continuous affine branches on a rigorously invariant interval. The branch ordering follows positive factorizations, the three orbit equalities hold identically, and the multiplier gives the exact local stability criterion. The Li–Yorke hypothesis of a continuous interval map with a genuine period-three point is met. The standalone exact-rational checker independently solves the convex subproblem at 10,112 sampled points; finite tests are corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schaipp–Gower–Ulbrich, arXiv:2301.04935v2, equation (11), Lemma 1, Algorithm 3, Sections 4.1–4.3: https://arxiv.org/html/2301.04935v2",
+        "Orvieto–Lacoste-Julien–Loizou, arXiv:2205.04583v5, studies SGD with SPS and DecSPS, not this proximal quadratic regularizer; https://arxiv.org/html/2205.04583v5",
+        "Li–Yorke, Period Three Implies Chaos (1975), DOI:10.2307/2318254, theorem statement: https://sites.calvin.edu/tmk5/courses/mw81/I09/LiYorke.pdf"
+      ],
+      "reasoning": "Schaipp et al. define the exact update but prove convergence only in controlled step regimes; those conclusions do not cover large constant steps nor imply a primitive period-three point. Earlier SPS/DecSPS bias and convergence results use different updates. Li–Yorke covers all periods *conditional on* a three-cycle; it does not supply this ProxSPS three-cycle.",
+      "searches": [
+        "proximal stochastic Polyak stepsize limit cycle piecewise affine quadratic regularization",
+        "truncated affine stochastic model proximal Polyak step with ridge strongly convex period 3 all periods Li Yorke",
+        "arXiv:2301.04935v2 Sections 4.1, 4.3 and proofs",
+        "arXiv:2205.04583v5 Sections 2,4 and Appendix D"
+      ]
+    },
+    "checked_sources": [
+      "Schaipp–Gower–Ulbrich, arXiv:2301.04935v2, equation (11), Lemma 1, Algorithm 3, Sections 4.1–4.3: https://arxiv.org/html/2301.04935v2",
+      "Li–Yorke, Period Three Implies Chaos (1975), DOI:10.2307/2318254, theorem statement: https://sites.calvin.edu/tmk5/courses/mw81/I09/LiYorke.pdf",
+      "https://arxiv.org/abs/2301.04935",
+      "https://arxiv.org/html/2205.04583v5",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-a-loose-sps-lower-bound-restores-the-scalar-gradient-descent-sta--86e9f0621099",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-curvature-clipping-phase-diagram-for-capped-sps-on-scalar--6e87af5006ee",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-sharp-fixed-radius-phase-transition-for-composite-trust-region-g--18ebe14ebda2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Loose-lower-bound unregularized SPS strict two-cycle and universal cap boundary: https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-a-loose-sps-lower-bound-restores-the-scalar-gradient-descent-sta--86e9f0621099",
+        "Heterogeneous capped classical SPS stationary mean and variance: https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-curvature-clipping-phase-diagram-for-capped-sps-on-scalar--6e87af5006ee",
+        "Linearized-ball trust-region gradient on scalar quadratic-plus-absolute-value has period-two orbits: https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-sharp-fixed-radius-phase-transition-for-composite-trust-region-g--18ebe14ebda2",
+        "Schaipp–Gower–Ulbrich, arXiv:2301.04935v2, equation (11), Lemma 1, Algorithm 3, Sections 4.1–4.3: https://arxiv.org/html/2301.04935v2",
+        "Li–Yorke, Period Three Implies Chaos (1975), DOI:10.2307/2318254, theorem statement: https://sites.calvin.edu/tmk5/courses/mw81/I09/LiYorke.pdf"
+      ],
+      "reasoning": "None of the three inspected published claims includes both the genuine ProxSPS truncation and separate proximal quadratic regularization. They thus do not imply the displayed three-cycle by specialization: one changes the sample lower bound and omits the proximal term, another has ordinary SGD with SPS cap, and the third has a ball-constrained linearized composite oracle. Schaipp et al. introduce the map but do not derive the three-cycle. Li–Yorke implies chaos from period three, so this classical corollary is not novelty-bearing.",
+      "searches": [
+        "ProxSPS deterministic regularized quadratic scalar truncated linear model periodic orbit two cycle border collision bifurcation sharp stepsize",
+        "model-based truncated stochastic proximal point gradient regularized quadratic limit cycles scalar",
+        "ProxSPS deterministic one-dimensional squared loss ridge regularization period three orbit chaotic interval map",
+        "2026/10/4/SCOPE-a-loose-sps-lower-bound-restores-the-scalar-gradient-descent-sta--86e9f0621099; 2026/10/4/SCOPE-exact-curvature-clipping-phase-diagram-for-capped-sps-on-scalar--6e87af5006ee; 2026/10/4/SCOPE-sharp-fixed-radius-phase-transition-for-composite-trust-region-g--18ebe14ebda2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Schaipp–Gower–Ulbrich, arXiv:2301.04935v2, equation (11), Lemma 1, Algorithm 3, Sections 4.1–4.3: https://arxiv.org/html/2301.04935v2",
+        "Exact map differs from unregularized SPS, classical Polyak cap, proximal reflected-gradient, and fixed-radius composite trust-region maps. The kinked two-affine-branch reduction is algebraically derived in RESULT.md."
+      ],
+      "reasoning": "The original model has a quadratic proximal regularizer applied outside the truncated loss. Eliminating the single-loss gradient gives the continuous piecewise affine map and a primitive three-cycle. Semantically similar scalar cycles in other methods are not equivalent under their stated updates, and no identified exact conjugacy carries their conclusions to this map.",
+      "searches": [
+        "ProxSPS deterministic regularized quadratic scalar truncated linear model periodic orbit two cycle border collision bifurcation sharp stepsize",
+        "proximal stochastic Polyak stepsize limit cycle piecewise affine quadratic regularization",
+        "ProxSPS truncated affine loss max zero ridge regularization skew tent map period three Li Yorke",
+        "ProxSPS deterministic one-dimensional squared loss ridge regularization period three orbit chaotic interval map",
+        "piecewise affine two branch map ProxSPS algorithm 3 quadratic regression no stochasticity chaotic cycle",
+        "arXiv:2301.04935v2 Eq.(11), Lemma 1, Algorithm 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published scalar SPS two-cycle record: https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-a-loose-sps-lower-bound-restores-the-scalar-gradient-descent-sta--86e9f0621099",
+        "Closest capped SPS stationary-law record: https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-curvature-clipping-phase-diagram-for-capped-sps-on-scalar--6e87af5006ee",
+        "Closest strongly-convex composite trust-region cycle record: https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-sharp-fixed-radius-phase-transition-for-composite-trust-region-g--18ebe14ebda2"
+      ],
+      "reasoning": "The queried index returned genuine related records but no exact ProxSPS period-three coordinates, cutoff or formula. Available previously recorded mathematical claims were also compared by implication; none concern this map or orbit. Negative search results are finite evidence only, never a proof of uniqueness.",
+      "searches": [
+        "ProxSPS Schaipp Gower Ulbrich regularized quadratic periodic point 8/9 17/18 35/36",
+        "ProxSPS deterministic one-dimensional squared loss ridge regularization period three orbit chaotic interval map",
+        "piecewise affine two branch map ProxSPS algorithm 3 quadratic regression no stochasticity chaotic cycle",
+        "ProxSPS Schaipp Gower Ulbrich regularized quadratic periodic point 8/9 17/18 35/36",
+        "arXiv:2301.04935 and published SPS scalar-cycles record comparison"
+      ]
+    },
+    "rationale": "A primitive period-three orbit of the actual ProxSPS regularized truncated-loss map, with explicit open parameter wedge, finite exact-rational witness and attracting subwedge, is not implied by the defining ProxSPS paper, classical nonproximal SPS dynamics, or the closest inspected published scalar optimization cycles. The Li–Yorke all-period implication is cited as prior mathematics, not credited as new. Exact-source, alias, map-equivalence, and stronger-coverage searches completed, but exhaustive novelty is not asserted.",
+    "residual_risks": [
+      "A previously unindexed paper or a non-optimization piecewise-affine-map conjugacy may include the precise ProxSPS orbit under a different parameterization.",
+      "Finite semantic search and inspectable records do not establish literature-wide uniqueness.",
+      "The Li–Yorke all-period implication is classical; only the exact ProxSPS three-cycle, its parameter domain and attracting criterion are assessed as new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Exact method and regularizer verified; no three-cycle or unrestricted large-step convergence theorem identified",
+        "evidence": [
+          "Schaipp–Gower–Ulbrich, arXiv:2301.04935v2, equation (11), Lemma 1, Algorithm 3, Sections 4.1–4.3: https://arxiv.org/html/2301.04935v2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2301.04935v2",
+        "material_read": "Sections 3–4, equation (11), squared-regularizer Lemma 1 and Algorithm 3, convergence assumptions, source appendix model definitions",
+        "method": "Full HTML text and targeted line examination of the algorithm, hypotheses, equations and convergence statements",
+        "title": "A Stochastic Proximal Polyak Step Size",
+        "trigger": "Exact algorithm and nearest covering primary source"
+      },
+      {
+        "assessment": "Provides all positive integer periods and Li–Yorke scrambled set; conditional theorem, not the new orbit",
+        "evidence": [
+          "Li–Yorke, Period Three Implies Chaos (1975), DOI:10.2307/2318254, theorem statement: https://sites.calvin.edu/tmk5/courses/mw81/I09/LiYorke.pdf"
+        ],
+        "identifier_or_url": "https://sites.calvin.edu/tmk5/courses/mw81/I09/LiYorke.pdf",
+        "material_read": "Theorem statement and hypotheses on period-three continuous interval maps, as rendered on the relevant PDF pages",
+        "method": "Primary PDF inspection including rendered theorem pages",
+        "title": "Period Three Implies Chaos",
+        "trigger": "Indispensable classical implication from the new 3-cycle"
+      },
+      {
+        "assessment": "Unregularized SPS with a deliberately loose negative bound, period two only; not an implication for exact regularized ProxSPS",
+        "evidence": [
+          "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-a-loose-sps-lower-bound-restores-the-scalar-gradient-descent-sta--86e9f0621099"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-a-loose-sps-lower-bound-restores-the-scalar-gradient-descent-sta--86e9f0621099",
+        "material_read": "Entire RESULT.md including theorem, proof, distinctions and bibliography",
+        "method": "Public GitHub repository full file read",
+        "title": "A loose SPS lower bound restores the scalar gradient-descent stability ceiling",
+        "trigger": "Closest already-published scalar Polyak cycle record"
+      },
+      {
+        "assessment": "Unregularized stochastic SPS random-affine iterates, not the claimed proximal truncated model or 3cycle",
+        "evidence": [
+          "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-curvature-clipping-phase-diagram-for-capped-sps-on-scalar--6e87af5006ee"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-curvature-clipping-phase-diagram-for-capped-sps-on-scalar--6e87af5006ee",
+        "material_read": "Entire RESULT.md including scalar recurrence, stationary moments, bounds and prior-work discussion",
+        "method": "Public GitHub repository full file read",
+        "title": "Exact curvature-clipping phase diagram for capped SPS on scalar quadratics",
+        "trigger": "Closest fixed-cap SPS dynamics record"
+      },
+      {
+        "assessment": "Different trust-region subproblem and nonsmooth regularizer; period-two phenomenon does not imply present period-three claim",
+        "evidence": [
+          "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-sharp-fixed-radius-phase-transition-for-composite-trust-region-g--18ebe14ebda2"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-sharp-fixed-radius-phase-transition-for-composite-trust-region-g--18ebe14ebda2",
+        "material_read": "Entire RESULT.md including exact oracle, two-cycle phase boundary and limitations",
+        "method": "Public GitHub repository full file read",
+        "title": "Sharp fixed-radius phase transition for composite trust-region gradient descent",
+        "trigger": "Closest strongly convex composite optimization model cycle"
+      },
+      {
+        "assessment": "Ordinary stochastic Polyak SGD and DecSPS, not a ridge-regularized truncated-loss proximal update; no direct coverage of the three-cycle",
+        "evidence": [
+          "https://arxiv.org/html/2205.04583v5"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2205.04583v5",
+        "material_read": "Abstract, introduction, algorithm formulation, section and appendix structure, scalar SPS bias setting",
+        "method": "Full-text HTML inspection of relevant sections and navigation with exact algorithm identifiers",
+        "title": "Dynamics of SGD with Stochastic Polyak Stepsizes: Truly Adaptive Variants and Convergence to Exact Solution",
+        "trigger": "Prior SPS dynamics potentially stronger than current claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "02267026-6135-4b56-b16c-0313ad0374bb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A finite, nontrivial structural obstruction to constant-large-step convergence for the actual ProxSPS algorithm is exhibited even with tight loss lower bounds and a globally strongly convex quadratic objective. A primitive, locally attracting three-cycle, its full open parameter domain, and the conditional all-period dynamical consequence materially distinguish the method from scalar gradient descent and standard SPS. These are motivated failure modes for an algorithm designed to stabilize composite stochastic optimization, not a mere routine stability factor.",
+    "status": "PASS"
+  }
+}
