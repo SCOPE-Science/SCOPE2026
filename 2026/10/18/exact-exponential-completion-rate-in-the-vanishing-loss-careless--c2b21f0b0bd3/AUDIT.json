@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Finite unique stationary chain. The exact q_k recursion is a one-round balance identity, checked via exact rational stationary solutions for 2–4 coupons. Uniform convergence of the continuous integrand gives stationary full-state mass exp(-nI+o(n)). Monotone coupling proves P_empty(S_t=all)<=stationary mass. Common-draw/common-loss coupling bounds total variation by n[(1-1/n)(1-c/n)]^t; O(\\(n^2\\)) blocks each hit with probability >=stationary mass/2. Union and geometric-tail bounds sandwich log T and log E T at rate I(c). Strict convexity of the exponential yields I(c)>log(1+c). No step relies on finite experiments for an infinite assertion.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Long Theorem 2.3 is a general criterion for a fully normalized exponential hitting law if specific flux/clump hypotheses are proved; it does not calculate the c/n exponent or verify its hypotheses in that regime.",
+        "The present theorem proves a weaker but different statement, an explicit sharp logarithmic exponent, directly by monotone coupling and polynomial mixing."
+      ],
+      "reasoning": "Aldous-style rare-set hitting principles might imply logarithmic equivalence after separate verification. Such general machinery does not itself supply the model-specific rate integral. General rare-event methods remain a recorded priority risk.",
+      "searches": [
+        "Cruciani Dudeja careless collector conjecture mean field inaccurate Long stationary rate c/n",
+        "arXiv:2605.14511v1, Theorem 2.3",
+        "arXiv:2605.14511v1, Section 2 proof"
+      ]
+    },
+    "checked_sources": [
+      "Cruciani and Dudeja arXiv:2602.20705v1 full relevant Sections 2 and 4",
+      "Long arXiv:2605.14511v1 full relevant Sections 2 and 5",
+      "Web searches about careless coupon c/n exact rate and stationary subset products"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cruciani–Dudeja, Assumption 19, explicitly imposes both spatial and temporal independence to derive product-marginal first-passage predictions. Their unconditional results are broad bounds and metastability.",
+        "Long Theorem 5.5 explicitly begins For each fixed p in (0,1), with constants depending on p; its derived fixed-p asymptotic cannot establish the c/n constant.",
+        "A previously established homogeneous-retention stationary subset inclusion formula can be specialized to the first proof step; novelty is not asserted for that identity."
+      ],
+      "reasoning": "Neither the source’s assumed independent-marginal formula nor the fixed-p high-tail estimate implies the exact unconditional I(c) growth exponent. The present proof supplies uniform-in-n mixing relative to exponentially small stationary all-present probability, a new needed asymptotic Riemann sum, and matching hitting-time bounds. Its source formula and basic coupling techniques are transparently reused as mathematical ingredients.",
+      "searches": [
+        "careless coupon collector p=c/n exact exponential mean growth constant integral",
+        "Cruciani Dudeja careless collector conjecture mean field inaccurate Long stationary rate c/n",
+        "arXiv:2602.20705v1, Assumption 19/Observation 21/Section 4.3",
+        "arXiv:2605.14511v1, Theorem 5.5 and Section 5.4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cruciani–Dudeja models exactly the same post-loss chain but fixes only the exponential order \\(e^{\\Theta(n)}\\) in the c/n regime without computing its coefficient.",
+        "Long proves a sharp stationary-entry law for fixed loss p and says explicitly p is fixed; no uniform c/n conclusion follows."
+      ],
+      "reasoning": "Comparisons used first-passage mean and probability logarithmic exponents, not matching titles. The fixed-p estimates have p-dependent constants and cannot be specialized by setting p=c/n. The earlier conditional spatial-independence formula would yield log(1+c), whereas the full joint stationary mass gives a strictly larger rate.",
+      "searches": [
+        "careless coupon collector p=c/n exact exponential mean growth constant integral",
+        "coupon collector with deletion each item each round stationary all types occupied exact product",
+        "arXiv:2602.20705v1, Section 4",
+        "arXiv:2605.14511v1, Sections 5.2–5.5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2026 source provides an O(\\(n^2\\)) finite-size mean algorithm, but its formula does not state the integral I(c) or log-first-passage limit.",
+        "No matching c/n rate table or formula was found in the examined accessible sources."
+      ],
+      "reasoning": "Finite-state recurrences, stationary inclusion moments, and exact finite-size expected-time computations are not the same as an independently proved asymptotic logarithmic constant. A general exact recurrence may permit derivation but does not alone contain the joint theorem as stated.",
+      "searches": [
+        "careless coupon collector p=c/n exact exponential mean growth constant integral",
+        "careless coupon collector stationary product subset preservation joint probability exponential",
+        "arXiv:2602.20705v1",
+        "arXiv:2605.14511v1"
+      ]
+    },
+    "rationale": "The final claim is the precise c/n first-passage exponent and its strict product-marginal discrepancy, not the known stationary subset recurrence. Identical-model original paper gives coarse \\(e^{\\Theta(n)}\\) and conditional mean-field predictions; closest fixed-p sharp work has nonuniform constants and does not supply this triangular rate. The source texts and separate query formulations were checked; general metastability and inverse occupancy priority remain risks.",
+    "residual_risks": [
+      "An earlier general Markov rare-set theorem plus a published stationary large-deviation calculation may imply the final rate.",
+      "No exhaustive cross-database search or independently conducted priority audit is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same objects but not the claimed unconditional explicit c/n first-passage exponent",
+        "evidence": [
+          "Submitted 2026-02-24; abstract: \\(e^{\\Theta(n)}\\) metastability at p=c/n",
+          "Assumption 19 supposes spatial and temporal independence; Observation 21 uses a mean-field rate log(1+c)",
+          "Section 4.3 separately presents unconditional upper/lower bounds"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2602.20705v1",
+        "material_read": "Abstract, update rule, model analysis, Section 4.2 including Assumption 19 and Observation 21, and Section 4.3 unconditional bounds",
+        "method": "Accessible original open HTML, inspected relevant complete sections and theorem hypotheses",
+        "title": "The Careless Coupon Collector’s Problem",
+        "trigger": "Identical post-draw coupon loss model and c/n metastable regime"
+      },
+      {
+        "assessment": "Plausible closest first-passage paper; fixed p does not cover p_n=c/n, and no explicit I(c) formula identified",
+        "evidence": [
+          "Abstract and Theorem 5.5 explicitly require fixed p in (0,1)",
+          "Theorem 2.3 is conditional on verifying model-specific flux, mixing and clumping properties",
+          "The fixed-p log mean is order \\(n^2\\), whereas the present c/n rate is order n"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.14511v1",
+        "material_read": "Abstract, introduction, full stationary-entry Theorem 2.3 and proof, Section 5 including high-tail Theorem 5.5, clump control and fixed-p hitting theorem",
+        "method": "Accessible arXiv original full-text HTML, inspected statements, hypotheses and comparisons",
+        "title": "Clumsy and Careless: Stationary-Entry Flux in Non-monotone Coupon Collectors",
+        "trigger": "Direct same-model fixed-loss sharp first-passage theorem, possible domination"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c2b21f0b-0bd3-4f7d-8414-c79a519a5c3a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Cruciani–Dudeja identify the c/n metastable region and motivation from data freshness/dynamic caching but determine only \\(e^{\\Theta(n)}\\) time unconditionally. I(c) is an exact model-specific nontrivial large-deviation cost, with a strict gap from log(1+c) for all c>0, and both high-probability and expectation conclusions. The quantity is a natural asymptotic completion-time invariant, not an arbitrary finite slice or a routine substitution into a fixed-p theorem.",
+    "status": "PASS"
+  }
+}
