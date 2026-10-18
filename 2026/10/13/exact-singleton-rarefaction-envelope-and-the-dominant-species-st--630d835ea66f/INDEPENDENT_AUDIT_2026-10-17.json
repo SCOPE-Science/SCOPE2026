@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T16:01:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Indicator linearity gives EF1=sum_i a_i*C(N-a_i,k-1)/C(N,k). The exact marginal D(a)=f(a+1)-f(a) decreases then increases (terminal zero tail), permitting pairwise transfers: concentrate all but at most one high abundance, and balance the low remaining entries. For k=2 f(a)=a(N-a) is globally concave and optimal balanced. Thus at least one global maximizing profile has the stated one-distinguished-L, S-1-nearly-equal shape. For k_N/N->rho in (0,1), singleton probability p_N(a) converges uniformly in a>=1 to h_rho(a)=a*rho*(1-rho)^(a-1), whose unique integer maximum away from reciprocal rho is m=floor(1/rho). Since one abundance must diverge with N and the other S-1 slots can equal m, a strict gap forces eventual unique maximizing multiset. Independently exhaustive all integer abundance partitions across 1,029 triples 3<=N<=21, 2<=S<=6, 2<=k<=N matched the finite envelope. Finite checks do not prove the asymptotic statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bhimaraju et al. Section V algorithm gives at most one exceptional variable for symmetric continuous resource allocation; Locey-White describes feasible SAD ensembles."
+        ],
+        "reasoning": "Generic allocation shape inspires, but neither exact integer hypergeometric envelope nor reciprocal-limit uniqueness is explicitly derived by those different objectives. Strong structural overlap is credited and remains a priority caveat.",
+        "searches": [
+          "Bhimaraju Chatterjee Varshney 2312.00896 concave convex resource allocation exact structural theorem",
+          "Locey White abundance feasible set richness N S"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2312.00896 full PDF",
+        "DOI:10.2307/1934716 abstract",
+        "DOI:10.1111/ele.12154 abstract",
+        "Chao-Jost 2012 DOI:10.1890/11-1952.1 bibliographic source",
+        "Resultary species singleton rarefaction optimization search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "E observed richness = sum_i(1-C(N-a_i,k)/C(N,k)), distinct from EF1=sum_i a_i C(N-a_i,k-1)/C(N,k). Bhimaraju continuous minimization does not automatically preserve positive integer combinatorial constraints or derive h_rho staircase."
+        ],
+        "reasoning": "Prior expectation identities do not determine extrema over abundance profiles; continuous single-exception results do not directly imply the discrete stepwise optimizer. Originality claim is limited to this concrete finite/asymptotic combined result.",
+        "searches": [
+          "Heck 1975 rarefaction expected richness",
+          "Chao Jost 2012 coverage rarefaction",
+          "Bhimaraju 2023 symmetric resource allocation one exception"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Heck-vBelle-Simberloff 1975 study E[S_n] and variance; S_n is total observed richness, different from F1 exactly-one frequencies."
+        ],
+        "reasoning": "A singleton count can be written as a sum of hypergeometric binomial terms, but optimizing over all integer community profiles is an additional result.",
+        "searches": [
+          "\"expected singletons\" hypergeometric \"maximize\" abundance composition",
+          "singleton rarefaction envelope fixed N S k dominant species"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned adjacent species richness covariance, occupancy counts, missing mass rather than an identical exact singleton envelope."
+        ],
+        "reasoning": "No exact published table or formula matching the stated envelope was found; indexing limitations remain.",
+        "searches": [
+          "Resultary singleton rarefaction envelope exact max expectation",
+          "ecological expected F1 optimized community profile N S k"
+        ]
+      },
+      "rationale": "Heck et al. address mean/variance of *richness*, not the maximization of expected sample-singletons at fixed N,S,k. Locey-White study feasible abundance distributions rather than this objective. Bhimaraju et al. prove a general concave/convex continuous resource-allocation structural optimization, which is relevant prior methodology but not the discrete hypergeometric envelope or fixed-S reciprocal-density staircase. Their structural method is openly credited; the proposed combined ecology-specific theorem remains a best-of-knowledge contribution.",
+      "residual_risks": [
+        "Related published general continuous symmetric allocation theorem shares a one-exception structural principle; only ecology-specific integer formula and staircase are retained as original.",
+        "Some older ecological feasible-set or rarefaction source full texts were not inspected; stronger unpublished-equivalent results may exist.",
+        "Staircase requires fixed S and rho not a reciprocal integer; no claim about boundary reciprocity or growing S."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related continuous symmetric resource allocation can have one exceptional share but does not state the finite integer hypergeometric singleton envelope or reciprocal fraction staircase.",
+          "evidence": [
+            "Section V Algorithm 2/Theorem 3 produces n equal service rates plus one exceptional beta and zeros; resource-cost objective not EF1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2312.00896",
+          "material_read": "Full 7-page PDF including Section V, Claims 4-5, Algorithm 2, Theorem 3 and appendix assumptions",
+          "method": "Primary full-text PDF with page-image inspection",
+          "title": "Dynamic Resource Allocation to Minimize Concave Costs of Shortfalls (Extended Version)",
+          "trigger": "Highly relevant general concave-to-convex separable optimization reduction"
+        },
+        {
+          "assessment": "Calculates expectation and variance of species richness, not the expected sample singleton maximum; full text comparison incomplete.",
+          "evidence": [
+            "Abstract explicitly E(S_n) and Var(S_n), sufficient sample size."
+          ],
+          "identifier_or_url": "https://doi.org/10.2307/1934716",
+          "material_read": "Publisher abstract and full bibliographic details; no full article theorem body read",
+          "method": "Publisher abstract",
+          "title": "Explicit Calculation of the Rarefaction Diversity Measurement and the Determination of Sufficient Sample Size",
+          "trigger": "Classical rarefaction statistics under fixed N,S"
+        },
+        {
+          "assessment": "Studies full feasible-set shape rather than fixed-k hypergeometric singleton maxima in inspected material; full article could contain related extremes.",
+          "evidence": [
+            "Abstract: feasible set of distributions with same S,N and its prevalent hollow-curve shape."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/ele.12154",
+          "material_read": "Publisher article summary/abstract and references; full theorem body not confirmed",
+          "method": "Publisher abstract",
+          "title": "How species richness and total abundance constrain the distribution of abundance",
+          "trigger": "Same fixed N and S feasible sets"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sample-singleton counts drive ecological richness diagnostics and coverage estimators; an exact worst-case expected singleton envelope at fixed community richness/abundance is a mathematically natural uncertainty/benchmark question. The reciprocal sampling-fraction staircase and eventual unique macroscopic-versus-rare species structure reveal a nontrivial qualitative change, beyond merely recomputing known rarefaction expectations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2312.00896 full PDF",
+    "DOI:10.2307/1934716 abstract",
+    "DOI:10.1111/ele.12154 abstract",
+    "Chao-Jost 2012 DOI:10.1890/11-1952.1 bibliographic source",
+    "Resultary species singleton rarefaction optimization search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Related published general continuous symmetric allocation theorem shares a one-exception structural principle; only ecology-specific integer formula and staircase are retained as original.",
+    "Some older ecological feasible-set or rarefaction source full texts were not inspected; stronger unpublished-equivalent results may exist.",
+    "Staircase requires fixed S and rho not a reciprocal integer; no claim about boundary reciprocity or growing S.",
+    "Publication withheld: no source mutation or finalized sanitized import package.",
+    "Best-of-knowledge primary-source and computation review; no formal, independent expert, or external certification."
+  ],
+  "residual_risks": [
+    "Related published general continuous symmetric allocation theorem shares a one-exception structural principle; only ecology-specific integer formula and staircase are retained as original.",
+    "Some older ecological feasible-set or rarefaction source full texts were not inspected; stronger unpublished-equivalent results may exist.",
+    "Staircase requires fixed S and rho not a reciprocal integer; no claim about boundary reciprocity or growing S."
+  ],
+  "schema_version": 1
+}

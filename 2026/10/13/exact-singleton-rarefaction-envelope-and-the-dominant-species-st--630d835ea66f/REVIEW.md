@@ -1,19 +1,21 @@
-# Scientific review: exact singleton-rarefaction envelope and dominant-species staircase
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The random-subsample indicator identity gives the exact integer objective. The first and second forward differences are explicit binomial identities, with a decreasing-then-increasing first-difference profile, including the terminal zero plateau. Pairwise mass transfers never decrease the objective: the convex upper branch can be concentrated into one abundance, and the concave lower branch can be balanced. The resulting one-parameter family is exhaustive for *at least one* maximum. In the fixed-richness macroscopic-sampling limit, an exact hypergeometric identity yields a uniformly exponentially small tail, establishing uniform convergence to \(a\rho(1-\rho)^{a-1}\); its strict discrete maximum away from reciprocal sampling fractions implies eventual uniqueness. All endpoint cases \(2\le k\le N\) are addressed. Finite exact enumeration and direct sampling checks supplement, but do not replace, the general proof.
+PASS
 
-## Originality — PASS, with residual risks
+Indicator linearity gives EF1=sum_i a_i*C(N-a_i,k-1)/C(N,k). The exact marginal D(a)=f(a+1)-f(a) decreases then increases (terminal zero tail), permitting pairwise transfers: concentrate all but at most one high abundance, and balance the low remaining entries. For k=2 f(a)=a(N-a) is globally concave and optimal balanced. Thus at least one global maximizing profile has the stated one-distinguished-L, S-1-nearly-equal shape. For k_N/N->rho in (0,1), singleton probability p_N(a) converges uniformly in a>=1 to h_rho(a)=a*rho*(1-rho)^(a-1), whose unique integer maximum away from reciprocal rho is m=floor(1/rho). Since one abundance must diverge with N and the other S-1 slots can equal m, a strict gap forces eventual unique maximizing multiset. Independently exhaustive all integer abundance partitions across 1,029 triples 3<=N<=21, 2<=S<=6, 2<=k<=N matched the finite envelope. Finite checks do not prove the asymptotic statement.
 
-Heck, van Belle, and Simberloff (1975) give ordinary rarefaction richness moments; Coddington et al. (2009) investigate observed singleton biases; Chao and Jost (2012) develop coverage-based richness comparisons; and Locey and White (2013) analyze abundance-vector feasible sets. None of the inspected accessible primary material establishes the maximum expected **number of sample singletons**, its all-integer abundance reduction, or its eventual sampling-fraction staircase. A 2023 continuous symmetric resource-allocation theorem contains an analogous one-exception/equal-tail motif, but concerns nonincreasing cost functions and nonnegative real allocations, not this discrete nonmonotone hypergeometric objective or its limiting classification. Unavailable complete texts, especially the 1975 rarity paper and 2013 feasible-set paper, leave a genuine prior-coverage risk. Search absence is not treated as proof of originality.
+## originality
 
-## Value — PASS
+PASS
 
-The expected count of singletons influences sample coverage, extrapolation, and apparent biodiversity. Conditioning on both true species richness and census abundance gives a natural finite null-envelope problem. Its exact solution reduces all positive integer partitions to linear-sized evaluation, and its asymptotic staircase identifies the specific rare abundance scale maximizing singleton detections at a fixed sampling fraction. The theorem is a structural ecological sampling benchmark, not a claim about naturally selected abundances, estimation precision, or sampling with replacement.
+Heck et al. address mean/variance of *richness*, not the maximization of expected sample-singletons at fixed N,S,k. Locey-White study feasible abundance distributions rather than this objective. Bhimaraju et al. prove a general concave/convex continuous resource-allocation structural optimization, which is relevant prior methodology but not the discrete hypergeometric envelope or fixed-S reciprocal-density staircase. Their structural method is openly credited; the proposed combined ecology-specific theorem remains a best-of-knowledge contribution.
 
-## Limitations and reproducibility
+## value
 
-Only existence of a canonical finite maximizer is proved, not classification of all ties. The asymptotic uniqueness excludes reciprocal limiting fractions and growing species richness. The proof is self-contained and the companion checker uses Python's standard library. No independent validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sample-singleton counts drive ecological richness diagnostics and coverage estimators; an exact worst-case expected singleton envelope at fixed community richness/abundance is a mathematically natural uncertainty/benchmark question. The reciprocal sampling-fraction staircase and eventual unique macroscopic-versus-rare species structure reveal a nontrivial qualitative change, beyond merely recomputing known rarefaction expectations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

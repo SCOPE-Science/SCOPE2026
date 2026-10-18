@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify_singleton_profiles.py` from the directory containing this document. No external packages or datasets are needed.
+## correctness
 
-The included exact-arithmetic checker completed with:
+PASS
 
-`VERIFY_OK finite_cases=2233 partition_comparisons=191588 difference_identities=129648 direct_draw_checks=568 transition_examples=3 macroscopic_instances=4`
+Indicator linearity gives EF1=sum_i a_i*C(N-a_i,k-1)/C(N,k). The exact marginal D(a)=f(a+1)-f(a) decreases then increases (terminal zero tail), permitting pairwise transfers: concentrate all but at most one high abundance, and balance the low remaining entries. For k=2 f(a)=a(N-a) is globally concave and optimal balanced. Thus at least one global maximizing profile has the stated one-distinguished-L, S-1-nearly-equal shape. For k_N/N->rho in (0,1), singleton probability p_N(a) converges uniformly in a>=1 to h_rho(a)=a*rho*(1-rho)^(a-1), whose unique integer maximum away from reciprocal rho is m=floor(1/rho). Since one abundance must diverge with N and the other S-1 slots can equal m, a strict gap forces eventual unique maximizing multiset. Independently exhaustive all integer abundance partitions across 1,029 triples 3<=N<=21, 2<=S<=6, 2<=k<=N matched the finite envelope. Finite checks do not prove the asymptotic statement.
 
-It enumerates the complete set of nondecreasing positive integer abundance profiles for every \(2\le N\le28\), \(2\le S\le\min\{7,N\}\), and \(2\le k\le N\). It compares each actual maximum with the proposed one-exception balanced-tail family, and checks marginal identities over \(N\le74\). Separate enumeration of individual-size-\(k\) samples in small cases checks the expectation independently. It also checks the three nine-individual transition profiles and four larger finite benchmark instances.
+## originality
 
-The unbounded-integer and fixed-richness asymptotic claims are justified by the pair-transfer and uniform-limit proofs in `RESULT.md`, not by enumeration. The large-number instances do not constitute a proof of eventual uniqueness. In particular, the checker makes no claim at reciprocal sampling-fraction thresholds and does not attempt to reconstruct all possible finite ties.
+PASS
+
+Heck et al. address mean/variance of *richness*, not the maximization of expected sample-singletons at fixed N,S,k. Locey-White study feasible abundance distributions rather than this objective. Bhimaraju et al. prove a general concave/convex continuous resource-allocation structural optimization, which is relevant prior methodology but not the discrete hypergeometric envelope or fixed-S reciprocal-density staircase. Their structural method is openly credited; the proposed combined ecology-specific theorem remains a best-of-knowledge contribution.
+
+## value
+
+PASS
+
+Sample-singleton counts drive ecological richness diagnostics and coverage estimators; an exact worst-case expected singleton envelope at fixed community richness/abundance is a mathematically natural uncertainty/benchmark question. The reciprocal sampling-fraction staircase and eventual unique macroscopic-versus-rare species structure reveal a nontrivial qualitative change, beyond merely recomputing known rarefaction expectations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
