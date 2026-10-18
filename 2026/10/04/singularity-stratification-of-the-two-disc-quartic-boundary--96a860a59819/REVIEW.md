@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof uses an invertible linear coordinate change, solves the full Jacobian system, and treats every point on both singular lines. The generic transverse Hessian is nondegenerate exactly away from the origin and the four stated special points. At each special point the coordinate used to obtain the pinch normal form has nonzero Jacobian. At the origin, the discriminant is a unit, so analytic root separation and a square root of the unit root justify the stated factorization into two smooth tangent branches. The bundled exact verifier rechecks the polynomial identities and the off-line saturation.
+## correctness
 
-## Originality
-PASS. The primary source was read at the exact example and elsewhere where it discusses singularities. Example 3.2 gives the quartic and its extreme-point interpretation, while the detailed singularity analysis later in the paper concerns a different degree-\(24\) three-disc surface. Exact polynomial, object-name, factorized-form, pinch-point, and semantic published-finding searches did not find coverage of the two-line locus, the four pinch points, or the origin normal form. The principal residual risk is a classical projective-equivalence description under unrelated coordinates.
+PASS
 
-## Value
-PASS. This is a complete affine local stratification of the nonlinear boundary component in the paper’s elementary two-disc example. It explains precisely where the generic self-crossing degenerates and separates the four pinch points from the qualitatively different branch collision at the origin; these features are directly relevant to normalization and boundary geometry.
+PASS. The exact source quartic is F=(u²+w²)(v²+w²)−4w². Its gradient together with F=0 gives w=0 and uv=0 (the excluded w≠0 case can be verified with Gröbner saturation), so the reduced locus is two crossing lines. Along a line, transverse Hessian determinant 4a²(a²−4) isolates the origin and a=±2; at ±2 invertible factor A and the S=(4−A)/A coordinate with ∂S/∂s≠0 give Whitney pinch germs. Origin factorization in w² with discriminant 16 at zero produces W²−U²V², two smooth tangent sheets. Nonexceptional points split as double curves. These identities were independently recomputed symbolically and checked against the actual artifacts/verify_target.py source.
 
-## Closest literature and limitations
-The closest source is F. Gesmundo and C. Meroni, “The Geometry of Discotopes,” arXiv:2111.01241, Example 3.2. The result is restricted to the affine complex surface and does not classify the projective closure at infinity or the intersections with the four plane boundary components. A hidden classical equivalence remains a literature risk, but no decisive or stronger coverage was found in the inspected sources.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best of knowledge). The primary Example 3.2 prints the precise quartic as the extreme-point component of a two-disc Minkowski sum. It does not state the two-line singular support, four pinch points or special tangential origin normal form. The separate two-3-disc quartic has a different dimension and branch geometry. A hidden classical projectively equivalent quartic remains possible.
+
+## value
+
+PASS
+
+PASS. The complete singularity stratification (ordinary double curve / pinch / tangential two-branch crossing) of a natural explicit irreducible quartic answers a structurally motivated local geometric question; the differentiated cases and analytic normal forms go beyond a routine formatting of the defining equation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

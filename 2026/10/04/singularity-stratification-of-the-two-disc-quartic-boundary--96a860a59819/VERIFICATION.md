@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact checker is `artifacts/verify_target.py`. It verifies the coordinate factorization and all first derivatives; computes a Gröbner basis after adjoining \(1-tw\), which proves the singular system has no solution on \(w\neq0\); checks the transverse Hessian determinant \(4a^2(a^2-4)\); verifies the nonzero coordinate derivative for the two pinch values \(a=\pm2\); and checks the factorization and nonzero value of the origin discriminant.
+# Independent mathematical audit
 
-Run:
+## correctness
 
-`python3 artifacts/verify_target.py`
+PASS
 
-Expected terminal line: `VERIFY_OK`.
+PASS. The exact source quartic is F=(u²+w²)(v²+w²)−4w². Its gradient together with F=0 gives w=0 and uv=0 (the excluded w≠0 case can be verified with Gröbner saturation), so the reduced locus is two crossing lines. Along a line, transverse Hessian determinant 4a²(a²−4) isolates the origin and a=±2; at ±2 invertible factor A and the S=(4−A)/A coordinate with ∂S/∂s≠0 give Whitney pinch germs. Origin factorization in w² with discriminant 16 at zero produces W²−U²V², two smooth tangent sheets. Nonexceptional points split as double curves. These identities were independently recomputed symbolically and checked against the actual artifacts/verify_target.py source.
 
-The checker certifies exact polynomial identities over the rationals. The analytic steps additionally use standard characteristic-zero facts: the analytic inverse function theorem, the parametric Morse lemma for a nondegenerate transverse quadratic form, and existence of analytic square roots of units near the origin. It does not inspect the projective closure at infinity.
+## originality
+
+PASS
+
+PASS (best of knowledge). The primary Example 3.2 prints the precise quartic as the extreme-point component of a two-disc Minkowski sum. It does not state the two-line singular support, four pinch points or special tangential origin normal form. The separate two-3-disc quartic has a different dimension and branch geometry. A hidden classical projectively equivalent quartic remains possible.
+
+## value
+
+PASS
+
+PASS. The complete singularity stratification (ordinary double curve / pinch / tangential two-branch crossing) of a natural explicit irreducible quartic answers a structurally motivated local geometric question; the differentiated cases and analytic normal forms go beyond a routine formatting of the defining equation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
