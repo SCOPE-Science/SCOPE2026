@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "Exact triangular-sweep Jacobian and determinant lemma yield the all-N characteristic polynomial with no special-value loss; strict triangle-inequality proof handles every eigenvalue for 0<alpha<N; root-of-unity factorization gives exact finite linear order at equality; determinant >1 proves instability for alpha>N. Symbolic SymPy checker exactly reproduces cases N=1..8. Boundary nonlinear stability is explicitly unproved.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Abramson–Zanette 1998 Section I specifies random new permutations or independently random sites, not a fixed repeated permutation; their main asymptotics concern large population and random updating.",
+        "Atmanspacher et al. 2004/2005 Section 4 states that generic noncommuting sequential products are difficult to diagonalize and applies a heuristic for random update.",
+        "The related published finding *Parity-selective equilibrium stabilization in a coupled Gumowski–Mira ring* treats a nearest-neighbor Gumowski–Mira ring; its parameter and adjacency regimes do not dominate the complete-mean cyclic spectrum."
+      ],
+      "reasoning": "Distinguished fully synchronous, randomized order, repeated fixed order, nearest-neighbor sublattice, and complete all-to-all mean *including self*. These are not equivalent as linear cocycles. The full-text gap in two Jiang papers is a residual coverage risk.",
+      "searches": [
+        "for N globally coupled logistic maps with cyclic sequential deterministic updates at full mean-field coupling, exact characteristic polynomial and stability iff N greater than negative local derivative",
+        "all-to-all coupled map lattice sequential update minimum population size three fixed point of logistic map slope minus two",
+        "arxiv:chao-dyn/9805015v1"
+      ]
+    },
+    "checked_sources": [
+      "Abramson–Zanette, arXiv:chao-dyn/9805015v1, full seven-page primary manuscript",
+      "Atmanspacher–Filk–Scheingraber, arXiv:nlin/0407014, full primary manuscript, especially Section 4",
+      "Jiang–Antillón–Escalona, Physics Letters A 262 (1999), DOI 10.1016/S0375-9601(99)00663-5, abstract only",
+      "Jiang–Antillón–Escalona, Physical Review E 61 (2000), DOI 10.1103/PhysRevE.61.4614, official abstract only",
+      "Deshmukh–Matte–Gade, EPJB 92 (2019), DOI 10.1140/epjb/e2019-100078-1, abstract/primary excerpts",
+      "Semantic searches of published mathematical findings for cyclic complete-mean stability, rank-one averaging and spectral resonance"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Abramson–Zanette equation (1) defines the full-mean coupling; their equation (2) uses randomized order/choice, not repeated deterministic sweeps.",
+        "Atmanspacher et al. pp. 17–18 derive a general matrix-product formalism; they describe a heuristic asynchronous stability bound rather than a closed cyclic all-to-all eigenvalue polynomial.",
+        "Jiang et al. 2000 available abstract describes numerical transitions, not an exact theorem; uninspected full text remains a serious uncertainty.",
+        "Deshmukh et al. 2019 available material uses nearest-neighbor even–odd/k-sublattice update blocks and different coupling coefficients."
+      ],
+      "reasoning": "The prior model definitions motivate this exact finite-N spectral question but their stated results do not by themselves imply the characteristic polynomial or the universal N-versus-slope threshold. The strongest close match is Jiang et al. (1999/2000); abstracts cannot establish full-paper noncoverage, and this is recorded as a residual risk.",
+      "searches": [
+        "arxiv:chao-dyn/9805015v1 §§I–III",
+        "arxiv:nlin/0407014 §§3–4",
+        "doi:10.1103/PhysRevE.61.4614 abstract",
+        "doi:10.1140/epjb/e2019-100078-1 article excerpts"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Atmanspacher–Filk–Scheingraber arXiv:nlin/0407014 pp. 17–18: update product and heuristic random-sign calculation, no explicit spectrum.",
+        "The fixed cyclic complete-mean derivative has the polynomial [z^(N+1)-((1-a/N)z+a/N)^N]/(z-1); its critical nonidentity-root spectrum differs from a synchronous rank-one spectrum."
+      ],
+      "reasoning": "Checked update-order, rank-one Gauss–Seidel and roots-of-unity aliases. The broad asynchronous product formalism is compatible with but does not directly supply a complete closed-form spectrum. No equivalent claim was located; failed search alone is not treated as proof of novelty.",
+      "searches": [
+        "complete graph asynchronous nonlinear map Gauss Seidel spectral polynomial characteristic and sharp dimension threshold",
+        "cyclic rank-one averaging map Jacobian nontrivial (N+1)st roots of unity at critical negative slope alpha=N",
+        "arxiv:nlin/0407014 §4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact finite-population stability threshold or critical root-of-unity table was returned in the checked published-result index.",
+        "The closest published summaries concern different maps, different coupling matrices, or optimization iterations; they do not supply the stated fixed-sweep polynomial."
+      ],
+      "reasoning": "No matching published mathematical database/table entry was located in the scoped semantic search. This negative search has limited recall and is not a uniqueness certificate.",
+      "searches": [
+        "all-to-all coupled map lattice sequential update minimum population size three fixed point of logistic map slope minus two",
+        "cyclic rank-one averaging map Jacobian nontrivial (N+1)st roots of unity at critical negative slope alpha=N"
+      ]
+    },
+    "rationale": "The exact finite-N characteristic polynomial and sharp N-versus-negative-slope stability trichotomy for a repeated deterministic cyclic *complete-mean* sweep were not found in the inspected full primary articles, related excerpts, or statement-level scientific literature searches. Known random-order mean-field synchronization and heuristic asynchronous stability do not state or entail the fixed-order characteristic polynomial. The 1999/2000 sequential-update articles are substantial unresolved full-text comparison risks, explicitly disclosed.",
+    "residual_risks": [
+      "The closely related 1999 and 2000 sequential globally coupled logistic-map articles could not be compared in full; their abstracts alone do not exclude an equivalent special case.",
+      "The entire 2019 k-sublattice full text was unavailable, though indexed model equations distinguish its nearest-neighbor setup.",
+      "The generic cyclic Gauss–Seidel matrix calculation might occur in older numerical linear-algebra literature under alternate terminology despite the executed semantic searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The complete-mean coupling matches, but update orders are randomized; no fixed-order finite-N characteristic polynomial or sharp population cutoff found.",
+        "evidence": [
+          "arXiv PDF pp. 1–7; model eqs. (1)–(2), introduction pp. 1–2."
+        ],
+        "identifier_or_url": "arxiv:chao-dyn/9805015v1",
+        "material_read": "Full seven-page arXiv article, especially model/update definitions and stability discussion",
+        "method": "Open primary PDF, read equations and explanatory text",
+        "title": "Globally coupled maps with asynchronous updating",
+        "trigger": "Earliest direct full-mean-coupled logistic-map precursor"
+      },
+      {
+        "assessment": "Provides general product of site derivatives, reports difficulty of exact spectra and uses random-order heuristic; does not state the exact fixed-order complete-mean trichotomy.",
+        "evidence": [
+          "arXiv PDF Section 4, printed pp. 17–18; author conclusion pp. 20–21."
+        ],
+        "identifier_or_url": "arxiv:nlin/0407014v2",
+        "material_read": "Full arXiv manuscript with Section 4 pp. 17–18 inspected in text and page image; sections 2–3 and conclusions also read",
+        "method": "Open arXiv PDF; inspect complete relevant section including product and heuristic argument",
+        "title": "Stability analysis of coupled map lattices at locally unstable fixed points",
+        "trigger": "Closest analytical asynchronous Jacobian spectrum comparison"
+      },
+      {
+        "assessment": "Numerical dynamics according to accessible abstract; whole-document coverage not established and cannot be ruled out.",
+        "evidence": [
+          "Physics Letters A 262 (1999) 403–408 abstract and DOI metadata."
+        ],
+        "identifier_or_url": "doi:10.1016/S0375-9601(99)00663-5",
+        "material_read": "Abstract and publication metadata only; full article not accessible",
+        "method": "OA and preprint search, bibliographic abstract comparison; attempted authorized publisher full text",
+        "title": "Globally coupled maps with sequential updating",
+        "trigger": "Direct deterministic sequential global-coupling precursor, plausible overlap"
+      },
+      {
+        "assessment": "Reports simulations of sequential schemes; cannot exclude uninspected exact characteristic polynomial.",
+        "evidence": [
+          "Physical Review E 61 (2000) 4614–4617 abstract, DOI and PMID 11088265."
+        ],
+        "identifier_or_url": "doi:10.1103/PhysRevE.61.4614",
+        "material_read": "Publisher/PubMed abstract and publication metadata only; full article not accessible",
+        "method": "OA and preprint search, official publisher abstract; attempted authorized publisher full text",
+        "title": "Numerical studies on the dynamics of the globally coupled maps with sequential updating",
+        "trigger": "Direct deterministic sequential logistic-map precursor, plausible overlap"
+      },
+      {
+        "assessment": "Studies nearest-neighbor k-sublattice updates rather than self-inclusive complete mean and single-coordinate sweeps; no direct implication, but finite-mode resonances are related.",
+        "evidence": [
+          "European Physical Journal B 92 (2019) abstract; publicly indexed primary-manuscript equations (1)–(2)."
+        ],
+        "identifier_or_url": "doi:10.1140/epjb/e2019-100078-1",
+        "material_read": "Detailed indexed excerpts and equations from publicly visible author-uploaded manuscript; full article not accessible",
+        "method": "Search indexed primary-author excerpt and equation; official abstract; attempted authorized full text",
+        "title": "Emergence of long range order for sublattice update in coupled map lattices",
+        "trigger": "Related deterministic periodic updating with analytic stability and resonance"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7bed7fb0-a75e-474d-914d-345f486e62aa",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The standard, motivated complete-mean coupled logistic-map model admits sharply different spectral behavior under deterministic cyclic versus synchronous updating. The exact all-population finite-N stability cutoff, universal (N+1) root-of-unity critical resonance, and min-size N=3 logistic stabilization constitute a nontrivial natural structural classification. Existing stochastic-order/nearest-neighbor arguments alone do not supply the sharp theorem.",
+    "status": "PASS"
+  }
+}
