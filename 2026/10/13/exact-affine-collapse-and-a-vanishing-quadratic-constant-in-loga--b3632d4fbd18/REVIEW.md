@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For \(F(x)=Ax\) with full column rank, \(B=A^{{\mathsf T}}A\succ0\). Substituting the printed LM step gives \(x_{{k+1}}=\lambda_k(B+\lambda_kI)^{{-1}}x_k\). Because the affine model is exact, the predicted reduction equals the reduction from the current residual, while the nonmonotone maximum is no smaller than the current residual; therefore \(\widehat r_k\ge1\). Since the printed algorithm has \(p_2<1\), the quartering branch follows exactly. The uniform damping bound and global contraction are elementary spectral consequences. The vanishing quadratic ratio is proved from the printed logarithmic exponent and a self-contained double-exponential estimate. Representative computations were replayed by the included verifier.
+## correctness
 
-## Originality — PASS
-The primary full text was inspected at its parameter rule, Algorithm 1, local theorem, numerical section, and references. It gives only the general rate \(\gamma(1+\nu)\) and calls the \(\gamma=\nu=1\) case quadratic; it does not analyze full-column-rank affine systems. Searches covered affine/exact-model aliases, nonmonotone-ratio collapse, damping-floor quartering, and vanishing-quadratic-constant formulations. The closest inspected nonmonotone LM papers use fixed exponents, different normalized parameters, or accelerated two-step constructions and do not imply this complete source-specific theorem. The unavailable full text of the 2015 two-step predecessor is a residual bibliographic risk, but its different algorithm prevents it from being a decisive implication comparison.
+PASS
 
-## Value — PASS
-The finding explains exactly what the 2026 globalization and adaptive damping do on the most basic nonsingular model class: there are no rejected trials, the control variable reaches its floor at a known finite index, the whole iteration is globally contractive, and the near-solution quadratic constant actually vanishes. That sharpens the source theorem in a mathematically motivated benchmark and exposes a non-obvious consequence of choosing \(1+1/\ln(k+e)\): although the exponent tends to the quadratic boundary, trajectory decay is fast enough that the excess exponent remains asymptotically effective.
+On full-column-rank F(x)=Ax, B=A^T A is positive definite and the exact affine model gives LM update x+ = lambda(B+lambda I)^-1 x. For each nonzero iterate, spectral factors are strictly in (0,1), making predicted reduction positive; the nonmonotone window maximum M>=current residual makes the acceptance quotient 1+(M²-current²)/(current²-new²)>=1. Because the original p2<1, every first trial is accepted, with mu_{k+1}=max(mu_k/4,m) and exact closed form. The source damping formula satisfies lambda<=Lambda=mu0 exp(1/e) by t^(1/t)<=exp(1/e) for t>=1 and t^delta<1 for t<1, giving global q=Lambda/(sigma_min²+Lambda)<1. Once near zero with mu=m, delta_k=1+1/log(k+e), so ||x_{k+1}||<=C||x_k||^(2+epsilon_k). Bootstrapping ||x|| to squaring in scaled coordinates makes |log||x_k||| grow at least as 2^k, hence epsilon_k |log||x_k|||->infinity and the quadratic error ratio tends to 0. The nonterminal/zero-tolerance qualification is essential; no fixed order >2 claimed. Independent exact linear-algebra and damping-branch checks passed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
 
-## Closest literature and limitations
-The closest inspected comparisons are DOI 10.11948/20220441, DOI 10.1016/j.cam.2015.04.040, and DOI 10.1155/2021/5608195. They do not imply the exact 2026 NMLM recurrence. The asymptotic statement concerns zero-tolerance continuation; the practical positive stopping tolerance may terminate first. No fixed Q-order strictly above two is claimed, and no extension to rank-deficient or nonlinear systems is asserted.
+PASS
+
+The source 2026 NMLM paper proves general quadratic-local behavior at gamma=nu=1 but does not analyze this source-specific full-rank affine exact-model subclass, every-step acceptance or vanishing quadratic ratio. Earlier LM superquadratic or cubic theorems use other trial steps and damping laws, so they do not imply this literal algorithm's recurrence. Structural insight is the ratio collapse and logarithmic-exponent asymptotic.
+
+## value
+
+PASS
+
+The full-column-rank affine class is the canonical nonsingular benchmark for nonlinear-equations solvers. The exact first-trial acceptance and control-variable collapse show the nonmonotone safeguard becomes inactive, while a subtle logarithmic excess exponent causes a vanishing quadratic constant even though the exponent tends to one. This identifies a meaningful and reproducible algorithm-specific sharp behavior beyond the general theorem, not merely a renamed convergence rate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

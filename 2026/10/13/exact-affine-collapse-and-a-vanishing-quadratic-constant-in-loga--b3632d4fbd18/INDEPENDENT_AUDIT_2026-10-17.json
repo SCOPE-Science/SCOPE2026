@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T10:09:47.566371Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On full-column-rank F(x)=Ax, B=A^T A is positive definite and the exact affine model gives LM update x+ = lambda(B+lambda I)^-1 x. For each nonzero iterate, spectral factors are strictly in (0,1), making predicted reduction positive; the nonmonotone window maximum M>=current residual makes the acceptance quotient 1+(M²-current²)/(current²-new²)>=1. Because the original p2<1, every first trial is accepted, with mu_{k+1}=max(mu_k/4,m) and exact closed form. The source damping formula satisfies lambda<=Lambda=mu0 exp(1/e) by t^(1/t)<=exp(1/e) for t>=1 and t^delta<1 for t<1, giving global q=Lambda/(sigma_min²+Lambda)<1. Once near zero with mu=m, delta_k=1+1/log(k+e), so ||x_{k+1}||<=C||x_k||^(2+epsilon_k). Bootstrapping ||x|| to squaring in scaled coordinates makes |log||x_k||| grow at least as 2^k, hence epsilon_k |log||x_k|||->infinity and the quadratic error ratio tends to 0. The nonterminal/zero-tolerance qualification is essential; no fixed order >2 claimed. Independent exact linear-algebra and damping-branch checks passed.",
+      "risk": [
+        "Original algorithm with positive stopping tolerance can terminate before the asymptotic tail.",
+        "Requires exact solves, full column rank, positive mu floor and nonzero iterates; no nonlinear/singular extension."
+      ],
+      "sources": [
+        "RESULT.md blob baa703c5f6cd0aaa08aa4dcea6ad26ba1eb6895a",
+        "Zheng–Yang–Cao 2026 open PDF Algorithm 1, nonmonotone ratio, lambda rule and convergence theorem DOI 10.3934/math.2026102",
+        "Independent_1643 checker exact first acceptance and step recurrence"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2015 paper abstract uses an accelerated two-step LM construction with adaptive parameter and asserts cubic convergence",
+          "2024 and 2021 methods use different step controls or parameter schedules"
+        ],
+        "reasoning": "Higher order convergence for another algorithm does not imply this source-specific exact first-trial acceptance, closed mu recurrence or log-exponent zero quadratic ratio.",
+        "searches": [
+          "Zhao–Tang 2024 DOI 10.11948/20220441",
+          "Amini–Rostami 2015 DOI 10.1016/j.cam.2015.04.040",
+          "Wu 2021 DOI 10.1155/2021/5608195"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3934/math.2026102",
+        "DOI:10.11948/20220441",
+        "DOI:10.1016/j.cam.2015.04.040",
+        "DOI:10.1155/2021/5608195",
+        "Resultary query: nonmonotone modified Levenberg Marquardt logarithmic exponent homogeneous linear exact affine quadratic ratio superquadratic"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General local quadratic bound ||e+||<=C||e||² does not imply ||e+||/||e||²->0.",
+          "Original p2<1 and exact affine model yield a fresh acceptance identity when combined, while the transient exponentially shrinking excess power gives the specific tail."
+        ],
+        "reasoning": "A general O(error²) theorem need not have a vanishing constant, and older different trial steps cannot force this closed step-control path.",
+        "searches": [
+          "Zheng–Yang–Cao 2026 Algorithm 1 and local convergence theorem",
+          "Amini–Rostami 2015 abstract",
+          "Zhao–Tang 2024 rate statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026 DOI:10.3934/math.2026102 Algorithm 1 uses the displayed logarithmic delta and specified mu quartering",
+          "The source establishes order gamma(1+nu) but not zero quadratic ratio on linear systems"
+        ],
+        "reasoning": "Checked terms exact-model trust-ratio collapse, zero quadratic constant, superquadratic tail and affine LM as aliases. Generic \"superlinear\" results do not determine this algorithm. ",
+        "searches": [
+          "Resultary semantic search: nonmonotone modified Levenberg Marquardt logarithmic exponent homogeneous linear exact affine quadratic ratio superquadratic",
+          "Search: exact affine full rank logarithmic exponent NMLM step damping mu quartering and superquadratic error"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Primary numerical examples include nonlinear and singular residual systems; its general convergence theorem is an upper-order estimate."
+        ],
+        "reasoning": "Finite source tables cannot establish every-iterate affine branch or an infinite asymptotic quadratic-ratio limit; no exact affine table was located.",
+        "searches": [
+          "Zheng–Yang–Cao 2026 numerical experiments and iteration table",
+          "Resultary LM search top15"
+        ]
+      },
+      "rationale": "The source 2026 NMLM paper proves general quadratic-local behavior at gamma=nu=1 but does not analyze this source-specific full-rank affine exact-model subclass, every-step acceptance or vanishing quadratic ratio. Earlier LM superquadratic or cubic theorems use other trial steps and damping laws, so they do not imply this literal algorithm's recurrence. Structural insight is the ratio collapse and logarithmic-exponent asymptotic.",
+      "residual_risks": [
+        "2015 Amini–Rostami full manuscript not accessed; cannot assert document-level noncoverage.",
+        "A known generic proximal/LM exact linear-model argument may make the easy acceptance portion elementary, but does not mechanically supply the full source-specific asymptotic."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING full-column-rank affine ratio>=1, every-step quartering, and vanishing quadratic ratio",
+          "evidence": "Algorithm uses strict p2<1 and general gamma(1+nu) local rate; its tests are not the assessed affine model.",
+          "identifier_or_url": "DOI:10.3934/math.2026102; https://www.aimspress.com/aimspress-data/math/2026/1/PDF/math-11-01-102.pdf",
+          "material_read": "Open 20-page PDF, algorithm definitions and lambda/delta formulas, acceptance ratio, update branches, local-rate theorem, numerical problem descriptions and bibliography",
+          "method": "PDF full text plus visual inspection of algorithm pages",
+          "title": "The modified Levenberg–Marquardt method with nonmonotone technique",
+          "trigger": "Originating exact same NMLM algorithm"
+        },
+        {
+          "assessment": "ACCESS_LIMITED, not whole-document noncoverage",
+          "evidence": "Abstract specifies an accelerated two-step algorithm and adaptive damping, not the literal 2026 NMLM. Unread full text is a residual risk.",
+          "identifier_or_url": "DOI:10.1016/j.cam.2015.04.040",
+          "material_read": "Original scholarly abstract and secondary citation; full text unavailable via lawful OA search",
+          "method": "ResearchGate article abstract and source reference",
+          "title": "A modified two steps Levenberg-Marquardt method for nonlinear equations",
+          "trigger": "Plausible predecessor with cubic local convergence"
+        },
+        {
+          "assessment": "DIFFERENT METHOD with nonmonotone parameter, no implication established for 2026 schedule",
+          "evidence": "Paper proposes distinct LM parameter and at least superlinear rate.",
+          "identifier_or_url": "DOI:10.1155/2021/5608195",
+          "material_read": "Abstract, method summary and reference list of openly available publisher page",
+          "method": "Publisher OA HTML",
+          "title": "A New Modified Efficient Levenberg-Marquardt Method for Solving Systems of Nonlinear Equations",
+          "trigger": "Broader nonmonotone LM claims"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full-column-rank affine class is the canonical nonsingular benchmark for nonlinear-equations solvers. The exact first-trial acceptance and control-variable collapse show the nonmonotone safeguard becomes inactive, while a subtle logarithmic excess exponent causes a vanishing quadratic constant even though the exponent tends to one. This identifies a meaningful and reproducible algorithm-specific sharp behavior beyond the general theorem, not merely a renamed convergence rate.",
+      "risk": [
+        "Restricted affine exact-model statement; does not show performance advantages on challenging nonlinear problems."
+      ],
+      "sources": [
+        "2026 primary algorithm/trust ratio and generic quadratic-local theorem",
+        "Direct reconstructed global contraction and exact asymptotic tail"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full column rank, exact arithmetic and solves, and original parameter inequalities; zero is terminal.",
+    "Superquadratic limit is for mathematical zero-tolerance continuation, not necessarily observable with practical positive tolerance.",
+    "Different prior methods have their own higher-order theorems; no priority claim for generic superquadratic convergence."
+  ],
+  "schema_version": 1
+}
