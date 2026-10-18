@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "For each selected letter of the alternating deleted subsequence, the number of unselected predecessors is even. Hence residual letters pair into ab/ba dominoes; phase changes consume selected letters and require two per maximal ba run, with an explicit converse interleaving. Boundary selection counts the binary run patterns exactly. Direct set enumeration for 66 parameter pairs and independent shuffle-membership DP over 7,151 cases agree; no finite check is used as a substitute for the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2603.20790v1 Conclusion, Section 5: exact closed formulas in specific cases remain open.",
+        "A published closed-form law for binary subsequence universality concerns the distribution of the universality index, not these deletion complements.",
+        "An alternating-source comparison with a grouped deleted word concerns a^k b^k, not (ab)^k."
+      ],
+      "reasoning": "A generic algorithm applies to each instance but has no uniform enumeration result. The related formula for removing a^k b^k does not cover the alternating deletion because its removed-word embedding constraints and remaining-language classes differ. No stronger theorem containing the exact result as a corollary was identified.",
+      "searches": [
+        "\"complement scattered factors\" \"2026\" \"periodic\"",
+        "\"complement scattered factors\" \"Adamson\" citations October 2026 subsequent",
+        "Alternating word perfect shuffle complement residual subsequences of (ab)^n deletion (ab)^k, number binomial run count"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2603.20790v1 (primary full-text HTML)",
+      "OEIS A000124 and A323231 (numerical comparison)",
+      "Published mathematical statements on complement sets, subsequence universality and deletion channels",
+      "Related alternating-source deletion identity for a grouped rather than alternating deleted word"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2603.20790v1 Section 4, Theorem 4.5: C(w,u)={u} iff w is the perfect self-shuffle of u, a uniqueness statement not applicable to general n>k here.",
+        "arXiv:2603.20790v1 Section 5 explicitly poses closed-form special cases.",
+        "A different deletion calculation counts C((ab)^m,a^k b^k), whose deleted word is a different subsequence."
+      ],
+      "reasoning": "The new theorem has a stronger conclusion than generic enumerability: it specifies the complete image language, cardinality and saturation criterion for all n,k. Uniqueness and deletion-of-block-word results neither logically imply nor subsume it.",
+      "searches": [
+        "\"alternating\" \"deleting\" \"alternating\" \"runs\" \"binomial\" words subsequence",
+        "Sets of complement scattered factors Adamson Fleischmann Huch 2026 exact counts for periodic alternating words",
+        "For n≥k≥0, complement scattered factors C((ab)^n,(ab)^k) are words formed from r=n-k dominoes ab or ba with at most k maximal runs of ba; exact count sum_{j=0}^k binomial(r+1,2j)."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2603.20790v1, Definition 6: complements characterized via shuffle; sections 3–4 give algorithmic/uniqueness statements, not the bounded-run language.",
+        "The exact complement language is the set of two-letter domino encodings with at most k maximal ba-runs; its cardinality also equals a partial row of Pascal's triangle."
+      ],
+      "reasoning": "Equivalently the claim is a sharp membership criterion for (ab)^n ∈ (ab)^k shuffle v, but the prior shuffle definition and generic computation algorithm alone give no closed condition on v or n,k. No equivalent statement was found in the searches.",
+      "searches": [
+        "\"complement scattered factors\" \"(ab)^n\" \"(ab)^k\"",
+        "\"C(w,u)\" \"alternating\" \"shuffle\" complement subsequences",
+        "Complement scattered factors of alternating binary word (ab)^n after deleting scattered (ab)^k, counting distinct remaining words, binomial formula and runs of ba",
+        "For n≥k≥0, complement scattered factors C((ab)^n,(ab)^k) are words formed from r=n-k dominoes ab or ba with at most k maximal runs of ba; exact count sum_{j=0}^k binomial(r+1,2j)."
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A000124 gives 1,2,4,7,11,... = 1+binomial(r+1,2), the k=1 numerical slice.",
+        "OEIS A323231 lists the same numbers in a different array description; numerical agreement does not state the complement interpretation."
+      ],
+      "reasoning": "Known integer sequences and elementary binomial identities overlap the numerical output only. They do not classify the residual words of (ab)^n after deleting (ab)^k or establish the sharp n≤3k threshold for this problem.",
+      "searches": [
+        "OEIS \"1, 2, 4, 7, 11, 16, 22, 29\" binomial partial sums",
+        "\"complement scattered factors\" \"OEIS\""
+      ]
+    },
+    "rationale": "The 2026 primary paper introduces C(w,u), proves general algorithms and uniqueness results, and explicitly leaves special-case exact formulas open. The proposed run-language theorem and two-parameter binomial spectrum do not follow from the inspected statements; known number sequences record arithmetic values, not their interpretation as these complement sets. A prior related deletion result handles a different subsequence (a^k b^k), so neither implies the new claim. Searches did not identify a covering publication. Residual unindexed-priority risk remains.",
+    "residual_risks": [
+      "An equivalent closed formula could appear in unindexed, unpublished, or recently posted work.",
+      "The mathematical count is a known binomial sequence, so priority attaches to the complement-language identification and proof, not to the binomial identity.",
+      "Other unindexed or unavailable mathematical records could contain an equivalent statement."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No covering statement located; authors explicitly list a closed formula for special cases as a remaining question.",
+        "evidence": [
+          "Section 1, lines 33–55: scope and contributions.",
+          "Definition 6, lines 92–96: C(w,u).",
+          "Theorem 4.5, lines 633–640: perfect self-shuffle uniqueness.",
+          "Section 5, lines 656–659: open formula question."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.20790",
+        "material_read": "Full-text HTML introduction, Definitions 2–6, algorithm statements in Section 3, structural results including Theorems 4.3 and 4.5 in Section 4, and Section 5 conclusion.",
+        "method": "Read actual arXiv HTML text at relevant sections and compared theorem premises/conclusions with the proposed alternating-source family.",
+        "title": "(Sets of) Complement Scattered Factors",
+        "trigger": "Same invariant, primary definition and potential exact formula"
+      },
+      {
+        "assessment": "Numerically matching specialization, but neither source claims the alternating-complement interpretation or exact all-parameter set identity.",
+        "evidence": [
+          "A000124: 1,2,4,7,11,16,... and triangular-plus-one formula.",
+          "A323231 row [3]: 1,2,4,7,11,16,... attributed to A000124."
+        ],
+        "identifier_or_url": "https://oeis.org/A000124 ; https://oeis.org/A323231",
+        "material_read": "A000124 term list and binomial formula; A323231 table showing the same column numerically.",
+        "method": "Compared numerical statements and their combinatorial interpretations with the proposed complement-set claim.",
+        "title": "OEIS A000124 and A323231",
+        "trigger": "Exact numerical coincidence at fixed k=1, and known Pascal-row binomial sums"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7c8521ac-c8d3-42f8-a746-9e01913e8993",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The cited 2026 paper explicitly identifies closed forms for special complement sets as a mathematical gap. Alternating source and deleted words form the canonical periodic binary test family. The solution supplies a complete natural two-parameter language classification, a sharp saturation boundary n≤3k, and the distinction between polynomial and exponential regimes; its significance is structural rather than mere recomputation of a known small table.",
+    "status": "PASS"
+  }
+}
