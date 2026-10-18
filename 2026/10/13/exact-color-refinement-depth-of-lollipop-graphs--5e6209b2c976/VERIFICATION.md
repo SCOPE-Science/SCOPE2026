@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-The theorem was checked in two ways.
 
-First, the proof gives a complete symbolic round-by-round partition description for every permitted parameter. For \(m\ge4\), the degree partition separates the clique interface immediately, and the only unresolved class is the path interval \(p_r,\ldots,p_{n-r}\) after round \(r\). For \(m=3\), rounds \(1\) and \(2\) are checked separately to account for the degree-\(2\) collision, and the same path-wave description begins at round \(3\).
+# Independent mathematical audit
 
-Second, `verify.py` directly implements color refinement from the uniform coloring and compares the computed partitions with the predicted partitions. It checks every pair
-\[
-3\le m\le20,\qquad 1\le n\le80,
-\]
-for a total of \(1440\) depth checks and \(29523\) round-level partition checks. The expected terminal output is:
+## correctness
 
-`VERIFY_OK depth_checks=1440 partition_checks=29523 m=3..20 n=1..80`
+PASS
 
-The verifier uses no external packages. Its finite checks are corroborative only; they do not establish the theorem outside the checked range. The all-parameter conclusion rests on the induction in `RESULT.md`.
+For m≥4 the initial degree partition isolates the clique attachment q0 (degree m), ordinary clique class Q (degree m−1), all degree-two path interiors and the leaf. The two path boundary fronts split from the one unresolved interval p_r..p_{n-r}, which becomes size≤1 at round ceil(n/2). For m=3 the ordinary triangle vertices have degree 2 and share a color with path interior; cases n=1,2 stabilize in rounds 1,2, and for n≥3 round three first separates Q from p1, after which the two-sided wave applies. The base cases and partition-stability convention were reconstructed. Independent WL implementation checked all 484 m=3..13,n=1..44 pairs (source also supplies independent partition checker).
+
+## originality
+
+PASS
+
+Best-of-knowledge exact family-specific ordinary-WL stabilization law, with sharp exceptional m=3 degree collision. Relevant general WL iteration works and published lollipop metric results use different invariants; no stronger prior implication was established from read material.
+
+## value
+
+PASS
+
+The exact stabilization time of a standard clique–path family is a motivated natural invariant for practical color refinement. The m=3 exception is not mere parameter substitution: a degree-2 collision delays separation and changes the entire small-n phase diagram. A complete formula over unbounded n clarifies the iteration mechanism and supplies sharp benchmark families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

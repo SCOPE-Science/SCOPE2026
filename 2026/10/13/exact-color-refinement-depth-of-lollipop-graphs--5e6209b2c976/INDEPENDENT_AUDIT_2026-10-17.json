@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T07:53:11Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md 93674edb10f6de21c6e0b676e96c440a71c4c93e",
+        "source verify.py blob ce20a0ac4b6f81291b87341b335011a4032c000f",
+        "independent WL 484 parameter pairs"
+      ],
+      "rationale": "For m≥4 the initial degree partition isolates the clique attachment q0 (degree m), ordinary clique class Q (degree m−1), all degree-two path interiors and the leaf. The two path boundary fronts split from the one unresolved interval p_r..p_{n-r}, which becomes size≤1 at round ceil(n/2). For m=3 the ordinary triangle vertices have degree 2 and share a color with path interior; cases n=1,2 stabilize in rounds 1,2, and for n≥3 round three first separates Q from p1, after which the two-sided wave applies. The base cases and partition-stability convention were reconstructed. Independent WL implementation checked all 484 m=3..13,n=1..44 pairs (source also supplies independent partition checker).",
+      "residual_risks": [
+        "Precise convention n = number of path vertices outside clique matters.",
+        "Induction, not finite regression, covers arbitrary n and m."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kiefer–McKay, The Iteration Number of Colour Refinement, arXiv:2005.10182 / DOI:10.4230/LIPIcs.ICALP.2020.73 establishes extremal iteration bounds for general graphs.",
+          "Krebs–Verbitsky, Universal covers, color refinement, and two-variable counting logic, arXiv:1407.3175 universal covers give a general local-color propagation mechanism.",
+          "Arvind–Köbler–Rattan–Verbitsky, Graph Isomorphism, Color Refinement, and Compactness, arXiv:1502.01255 concerns refinability/amenability structural notions."
+        ],
+        "reasoning": "General 1-WL iteration bounds allow many depths and do not evaluate the triangle-interface two-round lag or its exception. No specific stronger all-lollipop theorem was found in inspected primary material.",
+        "searches": [
+          "arXiv:2005.10182",
+          "arXiv:1407.3175",
+          "arXiv:1502.01255",
+          "Resultary semantic query \"Exact color refinement depth lollipop graphs\" (top 150 results)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query \"Exact color refinement depth lollipop graphs\" (top 150 results)",
+        "Krebs–Verbitsky, Universal covers, color refinement, and two-variable counting logic, arXiv:1407.3175",
+        "Arvind–Köbler–Rattan–Verbitsky, Graph Isomorphism, Color Refinement, and Compactness, arXiv:1502.01255",
+        "Kiefer–McKay, The Iteration Number of Colour Refinement, arXiv:2005.10182 / DOI:10.4230/LIPIcs.ICALP.2020.73",
+        "Resultary dominant edge metric bases of lollipop graphs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kiefer–McKay, The Iteration Number of Colour Refinement, arXiv:2005.10182 / DOI:10.4230/LIPIcs.ICALP.2020.73 general asymptotic/exact maximum iteration statements are not a fixed lollipop equality.",
+          "Krebs–Verbitsky, Universal covers, color refinement, and two-variable counting logic, arXiv:1407.3175 local propagation explains waves but leaves source-specific degree collision and cutoff to calculate."
+        ],
+        "reasoning": "Exact family-depth value is not a corollary of a general upper bound alone. No published algebraic identity immediately implies the m=3 boundary formula; the supplied round-by-round partition argument is the needed specialization.",
+        "searches": [
+          "arXiv:2005.10182",
+          "arXiv:1407.3175",
+          "Resultary dominant edge metric bases of lollipop graphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kiefer–McKay, The Iteration Number of Colour Refinement, arXiv:2005.10182 / DOI:10.4230/LIPIcs.ICALP.2020.73 uses colour refinement iteration number.",
+          "Resultary \"Dominant edge metric bases of lollipop graphs\" concerns distance resolving edges, not WL rounds."
+        ],
+        "reasoning": "Graph lollipop parameter n sometimes counts path edges or total path vertices; this claim pins n outside the clique, avoiding false mismatches. Edge metric dimension is not equitable-refinement depth.",
+        "searches": [
+          "Resultary semantic query \"Exact color refinement depth lollipop graphs\" (top 150 results)",
+          "Resultary query \"lollipop graphs clique path Weisfeiler Leman color refinement number rounds stabilization depth exact\"",
+          "web: \"clique with attached path equitable partition stabilization rounds\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary lollipop-specific retrieved finding is about edge metric bases, not this parameter or table.",
+          "The package verifier gives 1,440 finite m,n pairs but is original-source evidence, not prior external census."
+        ],
+        "reasoning": "No same-parameter external table was located; unindexed specialized examples remain a risk and search failure is not novelty proof.",
+        "searches": [
+          "Resultary semantic query \"Exact color refinement depth lollipop graphs\" (top 150 results)",
+          "web: \"lollipop graph color refinement iteration number table\""
+        ]
+      },
+      "rationale": "Best-of-knowledge exact family-specific ordinary-WL stabilization law, with sharp exceptional m=3 degree collision. Relevant general WL iteration works and published lollipop metric results use different invariants; no stronger prior implication was established from read material.",
+      "residual_risks": [
+        "Unindexed precise lollipop calculation could exist in the graph-isomorphism literature.",
+        "The finite checker does not certify arbitrary n; it corroborates independent propagation induction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General graph worst-case bounds; no identified full special-family depth computation.",
+          "evidence": [
+            "primary general iteration-number definition",
+            "no named lollipop passage from full-PDF text search"
+          ],
+          "identifier_or_url": "arXiv:2005.10182",
+          "material_read": "Primary full PDF obtained (22 pages); inspected introduction, theorem descriptions, and text searched for lollipop graphs.",
+          "method": "full PDF/primary theorem and search",
+          "title": "The Iteration Number of Colour Refinement",
+          "trigger": "Highly relevant general iteration theorem"
+        },
+        {
+          "assessment": "Explains propagation but not the precise triangle exception.",
+          "evidence": [
+            "local neighborhoods/universal covers refine with iterations"
+          ],
+          "identifier_or_url": "arXiv:1407.3175",
+          "material_read": "Abstract and universal-cover-based characterization in accessible primary content.",
+          "method": "arXiv preprint/sections",
+          "title": "Universal covers, color refinement, and two-variable counting logic",
+          "trigger": "Depth propagation potential prior implication"
+        },
+        {
+          "assessment": "Not shown to classify the exact lollipop stopping round.",
+          "evidence": [
+            "general refinability and amenability definitions"
+          ],
+          "identifier_or_url": "arXiv:1502.01255",
+          "material_read": "Abstract and general refinability structural statements inspected; appendix not exhaustively read.",
+          "method": "arXiv text search",
+          "title": "Graph Isomorphism, Color Refinement, and Compactness",
+          "trigger": "Broader orbit/refinability results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Kiefer–McKay, The Iteration Number of Colour Refinement, arXiv:2005.10182 / DOI:10.4230/LIPIcs.ICALP.2020.73",
+        "Krebs–Verbitsky, Universal covers, color refinement, and two-variable counting logic, arXiv:1407.3175"
+      ],
+      "rationale": "The exact stabilization time of a standard clique–path family is a motivated natural invariant for practical color refinement. The m=3 exception is not mere parameter substitution: a degree-2 collision delays separation and changes the entire small-n phase diagram. A complete formula over unbounded n clarifies the iteration mechanism and supplies sharp benchmark families.",
+      "residual_risks": [
+        "If an unindexed thesis provides the identical formula, originality must be reconsidered."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For m≥3,n≥1, L_{m,n}=K_m with an n-vertex pendant path has 1-WL depth ceil(n/2) for m≥4; for m=3 it is 1 at n=1, 2 at n=2, and max(3,ceil(n/2)) at n≥3.",
+  "limitations": [
+    "Only ordinary uniform initial 1-WL; m≥3 clique, n outside path vertices; no higher-dimensional WL.",
+    "Bibliographic coverage of unpublished theses may be incomplete."
+  ],
+  "schema_version": 1
+}
