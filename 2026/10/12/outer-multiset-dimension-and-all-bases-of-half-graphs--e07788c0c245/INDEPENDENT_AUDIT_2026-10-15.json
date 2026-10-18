@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T07:16:26.731051Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From actual Git RESULT.md blob 3770ffeb, the distance formulas are exact on H_n: same-side distinct vertices distance 2, opposite-side distance 1 for i<=j and 3 otherwise. For W with p A-landmarks and q B-landmarks, omitted A/B vertices have 2-multiplicities p/q respectively and side-specific cumulative 1-counts. There are at most q+1 and p+1 such counts, proving |W|>=n-1. At equality, prefix/suffix inequalities force x1=0, y_n=0 and x_{k+1}+y_k=1 for all k<n. This gives exactly the 2^(n-1) shifted-pair choices; omitted cross-side vertices collide iff p=q, the odd-n balanced case. Independent exhaustive direct distance-multiset checker for n=2,3,4,5 yielded basis counts 2,2,8,10, exactly the formula. These checks are finite corroboration; the prefix argument proves all n>=2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Outer-multiset complete multipartite theorem/resultary:2026/9/18/SCOPE-outer-multiset-dimension-complete-multipartite--ea7c8ea4c9fd gives part-size spectrum; half graphs are nested bipartite graphs, not generally complete multipartite."
+        ],
+        "reasoning": "General outer multiset definitions and complete multipartite formulas do not determine the shifted-pair forced choices and odd parity collision on H_n.",
+        "searches": [
+          "arXiv:1902.03017 full text half chain Ferrers",
+          "arXiv:2207.06834 full text half chain Ferrers"
+        ]
+      },
+      "checked_sources": [
+        "Git tree e240d3a3afd0dde203ced53af8418cae73eb25c6, RESULT blob 3770ffebf8ba333c1be0bce48a27a23f798c1d42",
+        "Gil-Pons et al. arXiv:1902.03017 full primary",
+        "Klavžar et al. arXiv:2207.06834 full OA",
+        "Resultary edge-metric half graph record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General outer multiset distance representation definitions yield formulas (5)-(6), but deriving the n-1 equality rigidity requires the prefix/suffix inequalities and cross-side parity test."
+        ],
+        "reasoning": "Existing baseline definitions imply the problem setup but not the full basis classification, particularly the odd balanced obstruction.",
+        "searches": [
+          "Resultary: outer multiset dimension half graph chain graph Ferrers graph all minimum bases parity",
+          "arXiv:1902.03017 full text half chain Ferrers",
+          "arXiv:2207.06834 full text half chain Ferrers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gil-Pons et al. 2019 and Klavžar–Kuziak–Yero 2023 define/study outer multiset dimension but their inspected full texts do not discuss half/chain/Ferrers graphs.",
+          "Resultary:2026/10/4/SCOPE-edge-metric-bases-of-half-graphs--13a0853af1d2 computes edge metric dimension, not outer multiset dimension."
+        ],
+        "reasoning": "The neighboring edge-metric basis theorem uses edge-distance identities and has 2^(n-1) bases for both parities, unlike the odd-order subtraction here. It is not an equivalent formulation or dominating theorem.",
+        "searches": [
+          "Resultary: outer multiset dimension half graph chain graph Ferrers graph all minimum bases parity",
+          "outer multiset dimension half graph chain graph Ferrers basis parity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full 2019/2023 primary treatments and Resultary semantic results: no exact table giving half-graph outer multiset basis counts 2^(n-1)-binomial odd case."
+        ],
+        "reasoning": "Although metric basis counts for other invariants/families exist, the exact invariant and graph family combination was not found in any inspected exact table; absence alone is only best-of-knowledge.",
+        "searches": [
+          "Resultary: outer multiset dimension half graph chain graph Ferrers graph all minimum bases parity",
+          "arXiv:2207.06834 full text half chain Ferrers"
+        ]
+      },
+      "rationale": "Statement-level best-of-knowledge comparison found no stronger prior theorem implying the complete final claim; source-specific exclusions and reading limits documented.",
+      "residual_risks": [
+        "A differently indexed half-graph treatment might exist under Ferrers/chain/cotree terminology; searches not completeness proof.",
+        "Theorem concerns canonical H_n only; not arbitrary chain graph twin classes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No exact half-graph basis classification apparent in read full text",
+          "evidence": [
+            "Defines outer multiset representations as distance multiset of omitted vertices, not identified landmark coordinates."
+          ],
+          "identifier_or_url": "arXiv:1902.03017v1; doi:10.1016/j.amc.2019.124612",
+          "material_read": "Full PDF text (definition and bounds plus examples), opening page rendered; searched half, chain and Ferrers occurrences",
+          "method": "lawful arXiv full-text PDF reading and term searches",
+          "title": "Distance-based vertex identification in graphs: the outer multiset dimension",
+          "trigger": "Foundational same invariant and upper/lower bounds"
+        },
+        {
+          "assessment": "No half-graph exact enumeration identified; general structure not equivalent",
+          "evidence": [
+            "Studies outer multiset dimension of various other graph classes, including regular diameter-two cases."
+          ],
+          "identifier_or_url": "arXiv:2207.06834v1; doi:10.1007/s00025-022-01829-8",
+          "material_read": "Full lawful OA full text inspected and opening page rendered, targeted half/chain/Ferrers searches",
+          "method": "full-text PDF material reading and targeted searches",
+          "title": "Further contributions on the outer multiset dimension of graphs",
+          "trigger": "Later structural theorem potentially subsumes exact family"
+        },
+        {
+          "assessment": "Different edge-distance object; does not establish vertex outer multiset bases",
+          "evidence": [
+            "Summary: edge metric dimension n-1 with 2^(n-1) choices, unlike odd-n vertex outer multiset count."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-edge-metric-bases-of-half-graphs--13a0853af1d2",
+          "material_read": "Resultary full returned published title and abstract only",
+          "method": "Resultary semantic record search",
+          "title": "Edge metric bases of half graphs",
+          "trigger": "Same canonical graph and superficially similar n-1/2^(n-1) formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact minimum and EVERY basis of a canonical nested-neighborhood graph, including the parity obstruction specific to discarding landmark identities. Researchers needing specific outer-multiset resolvers or basis counts can use the exact structural classification, not merely a numerical sample.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git tree e240d3a3afd0dde203ced53af8418cae73eb25c6, RESULT blob 3770ffebf8ba333c1be0bce48a27a23f798c1d42",
+    "Gil-Pons et al. arXiv:1902.03017 full primary",
+    "Klavžar et al. arXiv:2207.06834 full OA",
+    "Resultary edge-metric half graph record"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Canonical half graphs only.",
+    "Independent exhaustive finite checks n=2..5; source checker claims n<=10 but was not executed in this runtime.",
+    "A differently indexed half-graph treatment might exist under Ferrers/chain/cotree terminology; searches not completeness proof.",
+    "Theorem concerns canonical H_n only; not arbitrary chain graph twin classes."
+  ],
+  "schema_version": 1
+}
