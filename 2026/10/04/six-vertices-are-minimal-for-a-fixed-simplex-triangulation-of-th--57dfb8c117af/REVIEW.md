@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof separates the infinite-looking endomorphism condition from the finite low-order classification. A fixed-simplex-free simplicial endomorphism of a sphere triangulation has a fixed-point-free realization; Lefschetz then forces degree \(-1\). A nonzero-degree simplicial self-map of the same closed triangulated surface must permute the triangles and hence is a simplicial automorphism. The sphere triangulations on four, five, and six vertices are classified from \(e=3v-6\) and the vertex-degree sum, after which explicit bad automorphisms rule out the tetrahedral boundary, triangular bipyramid, and octahedral boundary. The remaining six-vertex type has a four-element automorphism group, and each automorphism fixes a simplex. The standalone checker independently confirms all \(6{,}658\) simplicial self-maps of that complex have an invariant simplex.
+## correctness
 
-## Originality
-PASS with residual literature risk. The closest primary source is Barmak's 2013 paper, which explicitly states existence of fixed-simplex triangulations of \(\mathbb S^n\) for \(n\ge2\) after subdivision but gives no minimum vertex count for \(\mathbb S^2\). Idzik–Zapart treat retractable complexes, which does not subsume a sphere triangulation. Baclawski–Björner's finite poset model of \(\mathbb S^2\) concerns the order-theoretic fixed point property rather than this simplicial minimum problem. Exact-phrase and implication searches in the checked published-finding index and web literature did not produce the six-vertex cutoff or its uniqueness statement. An unindexed older appearance remains possible.
+PASS
 
-## Value
-PASS. The minimum size is a natural complexity invariant for Barmak's existence phenomenon: dimension two is the first sphere dimension in which that construction applies, and the result closes the onset question exactly. The uniqueness of the minimum model and the explicit contrasting octahedral failure make the result a small but reusable benchmark for fixed-simplex algorithms and constructions.
+PASS. For any simplicial sphere endomorphism without invariant simplex, a fixed realization point would force an invariant carrier simplex; therefore it is fixed-point-free. Lefschetz on S² gives degree −1, forcing a nonzero-degree simplicial self-map. Every target triangle then has a nondegenerate source preimage; equal facet counts imply bijection on triangles and surjectivity on vertices, so an automorphism. Euler e=3v−6 and minimum vertex degree three imply unique triangulations for v=4,5, and two for v=6 (octahedron and a one-face subdivision of the triangular bipyramid). Explicit free automorphisms exclude the first three; the four automorphisms of the displayed six-vertex complex all fix a vertex or the edge {4,5}. Independently enumerated all 6^6=46,656 maps and obtained 6,658 simplicial endomorphisms with 0 fixed-simplex-free cases; independent finite corroboration, not replacement for global proof.
 
-## Closest literature and limitations
-The closest statement is Barmak's existence theorem for fixed-simplex triangulations of spheres. The present result is narrower in dimension but strictly sharper in combinatorial size. It does not address larger triangulations or higher-dimensional minima. The finite checker certifies only the displayed low-order complexes and is not used as evidence for any unbounded classification.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best of knowledge). Barmak Proposition 3 constructs fixed-simplex triangulations using subdivisions of pseudomanifolds; it states no vertex-minimal 2-sphere instance. Idzik–Zapart retractable complexes and finite-poset fixed point results concern different hypotheses/objects. Resultary search found only the target among exact six-vertex fixed-simplex theorems; possible uncatalogued low-order examples remain historical risk.
+
+## value
+
+PASS
+
+PASS. The sharp six-vertex minimum and unique extremal combinatorial type solve an intrinsically natural small-triangulation classification problem suggested by Barmak’s qualitative existence theorem. The proof uses topology and sphere combinatorics rather than an arbitrary finite data slice; the full 46,656-map check separately verifies the explicit extremizer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
