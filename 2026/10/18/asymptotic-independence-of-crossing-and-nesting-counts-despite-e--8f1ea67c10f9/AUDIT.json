@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Uniform matching equals sorted independent uniform-endpoint chords; two conditional projection polynomials integrate exactly to centered variances 1/45 and mixed covariance zero; covariance table and Hoeffding-degenerate residual variance O(n^2) give finite formulas and rigorous joint CLT. Exact symbolic and exhaustive checks independently support the computation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kasraoui–Zeng Proposition 3.8 provides a full bivariate generating function for finite counts (stronger finite enumeration, not the asymptotic theorem).",
+        "Féray, Section 1.2.1 and Section 6, treats crossings and gives a general weighted dependency graph methodology; no nesting theorem found in the available full text."
+      ],
+      "reasoning": "The complete finite polynomial indeed determines all mixed moments at fixed n and may facilitate a joint asymptotic derivation. An n-dependent joint Gaussian limit is not supplied by the inspected statements, and a general CLT method does not identify the zero off-diagonal projection covariance without this calculation.",
+      "searches": [
+        "crossings nestings bivariate normal random matchings",
+        "random chord diagram joint crossing nesting counts bivariate central limit theorem and limiting correlation 0",
+        "random chord diagram joint crossing nesting counts bivariate central limit theorem and limiting correlation 0"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2104.01134 (full HTML, Theorem 1.1; Lemma 2.2; Section 4)",
+      "arxiv:math/0601081 (full available text; Corollary 1.5; Proposition 3.8)",
+      "arxiv:math/0503012 (accessible mathematical text)",
+      "arxiv:1605.03836 (full text; Sections 1.2.1 and 6)",
+      "published-finding corpus search: For a uniform random matching on 2n points, crossing-pair count and nesting-pair count have covariance -n(n-1)/18 and correlation -5/(2(n+3)); bivariate normal independent limit",
+      "published-finding corpus search: orthogonal Hoeffding projections of crossing and nesting kernels for iid random chord endpoints asymptotically independent Gaussian crossing nesting counts",
+      "published-finding corpus search: random chord diagram joint crossing nesting counts bivariate central limit theorem and limiting correlation 0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kasraoui–Zeng Section 3 supplies an exact generating function but states no central limit theorem.",
+        "Paguyo Sections 1–4 establish a crossing CLT and a distinct simple-chord Poisson limit.",
+        "Féray Section 6 proves a crossing CLT with weighted dependencies and discusses multivariate CLT technology in a broader sense."
+      ],
+      "reasoning": "A bivariate joint-GF identity implies covariance through differentiation but not automatically the stated centered/scaled two-dimensional normal limit. Two univariate normal limits cannot imply joint independence. The independent-chord projection calculation supplies the missing joint step. Residual risk of an older unstated asymptotic implication remains.",
+      "searches": [
+        "orthogonal Hoeffding projections of crossing and nesting kernels for iid random chord endpoints asymptotically independent Gaussian crossing nesting counts",
+        "random chord diagram joint crossing nesting counts bivariate central limit theorem and limiting correlation 0",
+        "joint asymptotic normality crossings nestings random matchings chord diagram multivariate CLT"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kasraoui–Zeng (arxiv:math/0601081), Corollary 1.5: exact distributional symmetry of crossing/nesting counts.",
+        "Féray (arxiv:1605.03836), Theorem 6.5: univariate random-matching crossing normal limit.",
+        "Paguyo (arxiv:2104.01134), Theorem 1.1: univariate crossing normal approximation."
+      ],
+      "reasoning": "The target is joint asymptotic normality with a diagonal covariance matrix, equivalently convergence of all linear combinations to the predicted normal. Symmetry or marginal univariate CLTs do not imply the joint theorem; no same joint Gaussian limit was found in these inspected sources.",
+      "searches": [
+        "For a uniform random matching on 2n points, crossing-pair count and nesting-pair count have covariance -n(n-1)/18 and correlation -5/(2(n+3)); bivariate normal independent limit",
+        "orthogonal Hoeffding projections of crossing and nesting kernels for iid random chord endpoints asymptotically independent Gaussian crossing nesting counts",
+        "random chord diagram joint crossing nesting counts bivariate central limit theorem and limiting correlation 0",
+        "crossings nestings covariance random chord diagram"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Kasraoui–Zeng Proposition 3.8 enumerates the entire joint finite distribution via its generating function.",
+        "Paguyo Lemma 2.2 gives known marginal crossing mean and variance."
+      ],
+      "reasoning": "The finite covariance and marginal moments are recoverable from prior exact enumerators, so these identities alone do not constitute the originality claim; the main new assertion is the joint Gaussian limit and explicit orthogonal structure.",
+      "searches": [
+        "number of crossings number of nestings covariance matchings",
+        "crossings nestings covariance random chord diagram",
+        "For a uniform random matching on 2n points, crossing-pair count and nesting-pair count have covariance -n(n-1)/18 and correlation -5/(2(n+3)); bivariate normal independent limit"
+      ]
+    },
+    "rationale": "Asymptotic joint independence of crossing/nesting counts via diagonal first Hoeffding projections was not identified in checked primary full texts or published-finding corpus. Kasraoui–Zeng already gives all finite mixed moments through a generating function; the originality assessment rests on the explicit joint Gaussian limit and orthogonal-mechanism proof, not counting symmetry, individual marginals, or finite covariance alone. Significant residual priority risk is disclosed.",
+    "residual_risks": [
+      "The 2006 complete joint generating function makes all finite mixed moments implicit, so the covariance component alone is covered; historical priority of the joint CLT requires independent inspection of other possible asymptotic generating-function analyses.",
+      "General multivariate U-statistic CLTs are standard; the motivation and novel specificity rest on the orthogonal crossing/nesting projections, not on re-proving the general theorem.",
+      "published-finding corpus is a semantic retrieval database, not proof of exhaustive originality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Univariate crossing CLT, crossing variance and simple-chord Poisson limit; no joint crossing/nesting normal limit.",
+        "evidence": [
+          "arxiv:2104.01134 Theorem 1.1: standardized X_n tends to N(0,1).",
+          "arxiv:2104.01134 Lemma 2.2: exact marginal crossing mean and variance; Section 4 focuses on different open problems."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2104.01134v2",
+        "material_read": "HTML full article: Introduction, Theorem 1.1, Lemma 2.2, crossing proof, simple-chord section and final remarks.",
+        "method": "Read mathematical statements, scope and equations including Theorem 1.1 and Lemma 2.2.",
+        "title": "Convergence rates of limit theorems in random chord diagrams",
+        "trigger": "Same uniform chord-diagram model, crossings, limit theorems; primary MSC 60C05."
+      },
+      {
+        "assessment": "Contains full finite joint generating function. Thus finite mixed moments are implicit, but no joint asymptotic Gaussian theorem is stated in inspected text.",
+        "evidence": [
+          "Equation (1.7): crossing–nesting equidistribution.",
+          "Proposition 3.8: bivariate ordinary generating function for perfect matchings.",
+          "No Gaussian/variance/central-limit statements within inspected article text."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0601081",
+        "material_read": "Full available HTML mathematical text: Sections 1–3 including Corollary 1.5, equation (1.7), Proposition 3.8 and continued fractions.",
+        "method": "Compared formal bivariate polynomial, symmetries and asymptotic claims with a joint Gaussian assertion.",
+        "title": "Distribution of crossings, nestings and alignments of two edges in matchings and partitions",
+        "trigger": "Exact same crossing and nesting statistics and entire bivariate generating-function coverage."
+      },
+      {
+        "assessment": "Joint symmetry/counting identities, not the present joint limit, based on inspected text.",
+        "evidence": [
+          "Klazar proves counting identities and equidistribution of the two statistics."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0503012",
+        "material_read": "Accessible complete mathematical article including definitions, combinatorial identities and bijections.",
+        "method": "Compared matching statistics and conclusions to exact covariance and joint limit.",
+        "title": "On identities concerning numbers of crossings and nestings of two edges in matchings",
+        "trigger": "Older perfect-matching crossing/nesting symmetry."
+      },
+      {
+        "assessment": "A proof of asymptotic normality of crossing counts, not the joint crossing/nesting limit in the inspected text.",
+        "evidence": [
+          "Section 1.2.1 names the number of crossings, and Theorem 6.5 as a new proof of its univariate CLT.",
+          "Searching the full text for nesting gives no instance."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1605.03836",
+        "material_read": "Full available text: introduction, Section 1.2.1, theorem statements in Section 6 and scan for nesting.",
+        "method": "Compared univariate Theorem 6.5 and claimed multivariate scope to the specific joint limit.",
+        "title": "Weighted dependency graphs",
+        "trigger": "General normal limits in random pair partitions and weighted-dependency methods."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8f1ea67c-10f9-4c3c-84a3-1ccc466afbd4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Crossings and nestings form the natural competing pair of local configurations in a chord diagram. Strict negative finite covariance versus independent Gaussian global fluctuations is a nontrivial structural dependence phenomenon. The exact finite correlation and orthogonal-projection mechanism explain why the local competition disappears at the n^(3/2) scale; this is more than a known marginal CLT or enumeration rephrasing.",
+    "status": "PASS"
+  }
+}
