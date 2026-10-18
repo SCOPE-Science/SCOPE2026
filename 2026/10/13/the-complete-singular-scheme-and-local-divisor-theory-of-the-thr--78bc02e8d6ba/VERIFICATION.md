@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Execute `python3 check_birkhoff.py` with the Python standard library. Its recorded stdout is included as `check_output.txt`; a fresh replay reproduced it exactly. The checker establishes rank five for the augmented six exponents and their primitive circuit, exhaustively checks all 64 binary supports of the projective equation, checks Hilbert dimensions in degrees 1 through 12, verifies the rank-four saturated local divisor relation matrix using the gcd of exact maximal minors, and verifies the nondegenerate node Hessian.
+## correctness
 
-The general proof in `RESULT.md` supplies the essential unbounded arguments: the unique primitive toric relation, the complete prime decomposition of the squarefree Jacobian ideal, Cohen--Macaulay tensor factorization, the local analytic forms, and the toric class-group exact sequences. Finite numerical tests alone do not verify a theorem for all closed points. The public source date is the verified first arXiv version of the principal Birkhoff cubic reference. Independent mathematical audit has not been performed.
+PASS
+
+For the six permutation vertices of B3, the unique primitive toric relation equates products of even and odd triple coordinates, so X=V(x1x2x3−y1y2y3) in P5. Its partials are precisely all pair products within each triple, and the squarefree saturated Jacobian ideal is the K3,3 Stanley–Reisner ideal; hence precisely 9 coordinate lines with 6 triple-point intersections, no embedded components. Tensoring two coordinate-axis rings gives Hilbert series (1+2t)^2/(1−t)^2, Hilbert polynomial 9d−3, degree 9, genus 4, CM. Jacobian codimension >=2 and hypersurface CM establish normality. Generic line chart is transverse uv−wz=0, local class group Z; six endpoint charts ab−cde=0 have six invariant height-one divisors, a rank-4 saturated relation lattice, hence Cl(local)=Z². Independently checked all 6-variable singular support masks, Hilbert pieces through degree24 and rank+gcd maximal minors=1 for six-divisor relation matrix; verified actual assigned full RESULT and checker paths.
+
+## originality
+
+PASS
+
+The prior Haase–Paffenholz paper Section 1.3 explicitly gives the cubic equation and toric nature; these are excluded from novelty credit. The assigned result provides its full reduced Jacobian scheme, incidence, Hilbert invariants, and pointwise local class groups. Prior general toric divisor-class exact sequences supply method, but no inspected B3 source states this combined geometric specialization. Resultary search surfaced an unrelated K3,3 Stanley–Reisner curve for Wan’s Igusa Kuranishi cone; same abstract incidence curve does not determine Birkhoff local geometry.
+
+## value
+
+PASS
+
+The B3 cubic is a canonical singular projective toric fourfold. Its singular scheme, arithmetic genus, and a jump from rank-one to rank-two local class groups at six triple intersections give natural geometric invariants useful when studying divisors, Q-factoriality and possible resolutions. Exact specialization is substantive beyond repeating the original cubic relation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
