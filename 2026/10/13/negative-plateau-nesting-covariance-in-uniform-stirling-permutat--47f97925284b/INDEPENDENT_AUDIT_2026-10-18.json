@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T07:45:48.485175Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "actual immutable RESULT.md, verify.py, VERIFICATION.md",
+        "independent exhaustive Stirling generator n<=7",
+        "arXiv:0803.1129 tree coding and leaf expectation"
+      ],
+      "rationale": "Reconstructed DFS tree bijection P=leaf count L, D=2(H-n) from each doubled-label interval. Insertion among 2n+1 ordered tree slots gives the conditional recurrences for H,L and W=sum leaf depths; subtracting products of means yields c_(n+1)=[(2n+2)/(2n+1)]c_n-2/9, c_1=0, and exact central binomial closed form. Standard asymptotic C(2n,n)~4^n/sqrt(pi*n) fixes limit. Independent newly generated ALL (2n-1)!! Stirling permutations for n=1..7 and exact fractions: covariance P,D: 0,-4/9,-44/45,-164/105,-412/189,-652/231,-4484/1287. Finite checks support but do not prove all orders.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lundblad--Wagner jointly marks leaf statistics and path lengths using a multivariate equation.",
+          "Janson Thm 2.5 gives Cov(ascents,descents,plateaux) but not with global nested distance."
+        ],
+        "reasoning": "A coefficient extraction could subsume this expression, but inspected published theorem does not state explicit all-n identity/sign; genuine residual risk remains.",
+        "searches": [
+          "Lundblad--Wagner, DOI:10.4230/LIPIcs.AofA.2026.2",
+          "arXiv:0803.1129",
+          "arXiv:0805.4084"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0803.1129",
+        "arXiv:0805.4084",
+        "https://www.dmg.tuwien.ac.at/kuba/preprintStirblock.pdf",
+        "DOI:10.4230/LIPIcs.AofA.2026.2",
+        "Resultary search: Uniform Stirling permutations covariance plateau count total nesting"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Local pair covariances among X,Y,Z do not specify H_n.",
+          "Individual distance distributions do not fix aggregate covariance.",
+          "A sufficiently specified multivariate GF could in principle imply it by differentiation; explicit evaluated formula not located."
+        ],
+        "reasoning": "The explicitly evaluated finite sign and n-asymptotic are not immediate corollaries of the cited marginal results. Best-of-knowledge pass, with implicit-GF risk.",
+        "searches": [
+          "Janson arXiv:0803.1129 Thm 2.5",
+          "Kuba--Panholzer distance statistics",
+          "Lundblad--Wagner AofA 2026 generating function"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Contour bijection P_n=L_n and D_n=2(H_n-n) is exact.",
+          "Single-label distances are descendant counts, but their marginal laws do not fix covariance of their total with leaves."
+        ],
+        "reasoning": "Equivalent tree formulation Cov(L_n,H_n)=4^n/[3 C(2n,n)]-(4n+2)/9 is the same claim, not novelty. No older exact leaf/internal-path covariance found in inspected statements.",
+        "searches": [
+          "arXiv:0803.1129 pp.2--3",
+          "arXiv:0805.4084",
+          "author preprint Kuba--Panholzer 2010"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest hits concern root/leaf/cycle covariances in different random trees, no exact same claim.",
+          "Janson gives local leaf counts and moments, not joint nesting table."
+        ],
+        "reasoning": "No existing exact joint coefficient table identified; lack of search hit alone is not a proof of novelty.",
+        "searches": [
+          "Resultary:Uniform Stirling permutations covariance plateau count total nesting or contour tree leaf number internal path length exact negative covariance 4^n / central binomial",
+          "Janson 2008 second-order Eulerian coefficient tables"
+        ]
+      },
+      "rationale": "Exact covariance of TOTAL nesting with plateaux is distinct from Janson’s local ascent/descent/plateau covariances and from individual label-spacing distributions. Lundblad--Wagner has general multivariate generating machinery which may implicitly yield it, explicitly retained as a stronger-framework risk. Resultary semantic search did not reveal the exact evaluated covariance; this is not conclusive priority proof.",
+      "residual_risks": [
+        "Lundblad--Wagner (2026) multivariate leaf/path-length GF may encode an equivalent finite identity not explicitly evaluated.",
+        "Older plane-oriented recursive-tree leaf-internal-path covariance under different notation may be unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves plateaux=leaves, marginal leaf moments and covariance among local ascent/descent/plateau counts; not the plateau-versus-total-nesting covariance.",
+          "evidence": [
+            "p.2 contour coding and slot insertion",
+            "p.3 E L_n=(2n+1)/3",
+            "Theorem 2.5 is covariance of local ascent/descent/plateau statistics only."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0803.1129",
+          "material_read": "8-page text opened; introduction p.1--3, theorem 2.5 p.6 for covariance of ascents/descents/plateaux and tree coding p.2 inspected, screenshot p.2.",
+          "method": "Read arXiv PDF text and page image",
+          "title": "Plane recursive trees, Stirling permutations and an urn model",
+          "trigger": "Original contour bijection, plateaux, urn statistics"
+        },
+        {
+          "assessment": "Broader local-statistics laws and generalized k-versions do not in inspected portions directly give the displayed global nesting covariance.",
+          "evidence": [
+            "p.3 generalized Stirling permutations and plateau definitions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0805.4084",
+          "material_read": "25-page text opened; introduction, generalized permutation encoding and local ascents/descents/plateaux p.3 inspected, page image.",
+          "method": "ArXiv open full PDF; targeted text and page visual inspection",
+          "title": "Generalized Stirling permutations, families of increasing trees and urn models",
+          "trigger": "Potentially more general tree-statistics generating laws"
+        },
+        {
+          "assessment": "Gives distributions for individual repeated-label spacings and descendant counts, not the exact covariance of aggregate spacings with global plateau count in inspected material.",
+          "evidence": [
+            "pp.2--3: individual spacing Δ_(n,j,p) and descendant correspondence."
+          ],
+          "identifier_or_url": "https://www.dmg.tuwien.ac.at/kuba/preprintStirblock.pdf",
+          "material_read": "28-page lawful author full PDF opened, abstract and pp.2--3, exact distance-definition and descendant linkage examined; page 2 screenshot.",
+          "method": "Author OA PDF, text find and page screenshot",
+          "title": "Analysis of Statistics for Generalized Stirling Permutations",
+          "trigger": "Repeated-label distance / nesting parameter is very relevant"
+        },
+        {
+          "assessment": "A general joint generating framework may encode this covariance implicitly; no explicit evaluated finite rational-binomial covariance located in inspected theorems.",
+          "evidence": [
+            "Multivariate marking of leaf count and path-length related statistics",
+            "Asymptotic comparison, not identified finite plateau-nesting formula."
+          ],
+          "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol381-aofa2026/LIPIcs.AofA.2026.2/LIPIcs.AofA.2026.2.pdf",
+          "material_read": "Full accessible OA PDF, main multivariate generating-function setup, definitions and asymptotic analysis pp.1--7,12--14 inspected (earlier page 6 screenshot).",
+          "method": "Full PDF with selected page images and theorem/section reading",
+          "title": "Path Length and External Path Length in Random Trees",
+          "trigger": "Joint leaf/path-length generating function may subsume exact covariance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Janson 2008 leaves and urn model",
+        "Lundblad--Wagner 2026 mixed path-length generating framework"
+      ],
+      "rationale": "Leaf count (plateau count) is a canonical local branching statistic, and total internal path length (aggregate doubled-label nesting) captures global depth. Their exact finite covariance, strict anticorrelation sign and limiting linear drift answer a motivated joint-statistics question that neither marginal distribution supplies. The exact function could calibrate related increasing-tree joint laws, despite a possible alternative derivation from a known general GF.",
+      "residual_risks": [
+        "An already implicit differentiated multivariate generating series may reduce novelty."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For all n>=1 uniform ordinary Stirling permutations, Cov(P_n,D_n)=2*4^n/(3*C(2n,n))-(8n+4)/9; zero n1, strictly negative n>=2, ratio to n tends -8/9.",
+  "limitations": [
+    "Ordinary two-copy, uniformly sampled Stirling permutations, not generalized Stirling permutations.",
+    "Exact covariance, not complete bivariate generating function or joint limit.",
+    "Finite independent enumeration through n=7 is not proof of all n."
+  ],
+  "schema_version": 1
+}

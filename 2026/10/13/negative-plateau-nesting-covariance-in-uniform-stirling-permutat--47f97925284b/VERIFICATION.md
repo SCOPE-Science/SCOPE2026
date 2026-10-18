@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction
-Run `python3 verify.py` with Python 3 and its standard library. The script constructs all \((2n-1)!!\) Stirling permutations at each order \(1\le n\le7\) by unique insertion of each largest adjacent pair. It independently parses every word into a rooted ordered labelled tree and checks its plateau, nesting, leaf, and depth identities. For trees through order \(5\), it enumerates each possible next insertion and checks the exact conditional recurrences, including the mixed product. It recomputes exact rational covariances through order \(7\), checks the closed expression and negativity through order \(1000\), and exits nonzero on any discrepancy.
+# Independent mathematical audit
 
-Actual replay: `VERIFY_OK words=146599 decoded_shape_checks=146599 conditional_insertion_checks=1069 exact_mean_checks=14 covariance_checks=7 finite_sign_checks=7 n_range=1..7 analytic_formula_checks=1000`.
+## correctness
 
-# Logical scope
-The code is finite evidence. The assertion for every \(n\ge1\) follows from the complete conditional-moment derivation and solved recurrence in `RESULT.md`; strict negativity follows from the sign-preserving linear recurrence, and the asymptotic from the classical central-binomial estimate. The checker does not establish originality, a full mixed law, any results about generalized multi-copy Stirling permutations, or independent audit.
+PASS
+
+Reconstructed DFS tree bijection P=leaf count L, D=2(H-n) from each doubled-label interval. Insertion among 2n+1 ordered tree slots gives the conditional recurrences for H,L and W=sum leaf depths; subtracting products of means yields c_(n+1)=[(2n+2)/(2n+1)]c_n-2/9, c_1=0, and exact central binomial closed form. Standard asymptotic C(2n,n)~4^n/sqrt(pi*n) fixes limit. Independent newly generated ALL (2n-1)!! Stirling permutations for n=1..7 and exact fractions: covariance P,D: 0,-4/9,-44/45,-164/105,-412/189,-652/231,-4484/1287. Finite checks support but do not prove all orders.
+
+## originality
+
+PASS
+
+Exact covariance of TOTAL nesting with plateaux is distinct from Janson’s local ascent/descent/plateau covariances and from individual label-spacing distributions. Lundblad--Wagner has general multivariate generating machinery which may implicitly yield it, explicitly retained as a stronger-framework risk. Resultary semantic search did not reveal the exact evaluated covariance; this is not conclusive priority proof.
+
+## value
+
+PASS
+
+Leaf count (plateau count) is a canonical local branching statistic, and total internal path length (aggregate doubled-label nesting) captures global depth. Their exact finite covariance, strict anticorrelation sign and limiting linear drift answer a motivated joint-statistics question that neither marginal distribution supplies. The exact function could calibrate related increasing-tree joint laws, despite a possible alternative derivation from a known general GF.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
