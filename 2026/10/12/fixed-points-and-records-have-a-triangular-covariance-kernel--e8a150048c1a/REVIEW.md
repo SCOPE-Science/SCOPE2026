@@ -1,26 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Conditioning on one fixed point leaves a uniform bijection on the remaining positions and values. If the fixed position lies after the candidate record position, the record probability stays \(1/j\). If it lies before, the candidate record is the maximum of the remaining \(j-1\) prefix positions, giving \(1/(j-1)\). If it coincides with the record position, all earlier values must be exactly \(\{1,\ldots,j-1\}\), giving a reciprocal binomial coefficient.
+PASS
 
-These three conditional probabilities prove the coordinate kernel. Summation cancels the negative \(1/j\) diagonal contribution exactly and gives the positive aggregate law. Standard exact marginal moments give the total correlation. Exact enumeration through \(n=9\) reproduces all identities.
+Under I_i=1, prefix record probability is 1/(j-1) for i<j (other j-1 prefix positions are exchangeable and their maximum necessarily exceeds i), 1/C(n-1,j-1) for i=j, and 1/j for i>j. Subtract P(I_i)P(R_j)=1/(nj) to obtain the triangular kernel. The j-1 earlier positions contribute 1/(nj), canceling the diagonal -1/(nj), leaving 1/[n*C(n-1,j-1)]. Summation and known fixed-point Var=1 and independent-record Var=H_n-H_n^(2) give the claimed correlation. Independently enumerated all permutations n=2 through 7 with Fraction exact arithmetic, checking every i,j covariance and total. Finite checks are supplementary to the all-n conditional counting proof.
 
-## Originality
+## originality
 
-PASS, with explicit residual risks. The inspected full Foata--Han article gives broad multivariate fixed-point calculus with descent, excedance, and major-index statistics, not records. Mukherjee's inspected full manuscript concerns fixed points and cycle structure; targeted full-text searches found no left-to-right-maxima statistic.
+PASS
 
-The highly relevant Gnedin--Gorin record-dependent source was only available at abstract level in the inspected source, so whole-document noncoverage is not asserted. Recent full-text work by Dubach proves that record asymptotics for conjugation-invariant permutations depend on fixed-point abundance, but does not state the finite uniform coordinate kernel or the reciprocal-binomial aggregate covariance.
+Best-of-knowledge acceptance follows the actual statement-versus-implication comparisons above; the strongest inspected primary sources establish a general framework, different problem, or strictly narrower subcase, not this final full claim. The explicitly listed plausible full-text access/implicit-coverage risks remain open; lack of search hits alone is not novelty evidence.
 
-Targeted semantic-database and literature searches did not locate the exact formulas. Search failure is not treated as novelty proof; acceptance rests on the statement-level comparisons above.
+## value
 
-## Value
+PASS
 
-PASS. Fixed points are the most basic cycle statistic of a permutation, while records are a basic order statistic in one-line notation. Modern conjugation-invariant permutation theory shows that fixed-point abundance can change record asymptotics, making the interaction mathematically motivated.
+The exact positional kernel disentangles the global fixed-point (cycle) and upper-record (order) statistics, identifies a nontrivial negative local-diagonal versus positive aggregate cancellation, and gives a quantitative finite-n and asymptotic dependence law. These are natural invariants of uniform permutations, not arbitrary refinements of a trivial count.
 
-The result gives the finite uniform baseline at coordinate resolution. It explains why earlier fixed points help a later record, why the same-position contribution is usually negative, and why the aggregate remains positive after exact cancellation. This triangular kernel is more informative than a single mixed moment.
-
-Self-review: passed. Independent audit: not yet performed.
-
-
-Exact replay: `VERIFY_OK permutations_checked=409112 local_cov_checks=240 aggregate_cov_checks=36 conditional_checks=36 total_cov_checks=8 variance_checks=16 sign_checks=33`.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

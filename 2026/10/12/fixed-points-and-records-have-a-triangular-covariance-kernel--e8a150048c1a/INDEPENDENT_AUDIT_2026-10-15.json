@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T08:48:10.578789Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under I_i=1, prefix record probability is 1/(j-1) for i<j (other j-1 prefix positions are exchangeable and their maximum necessarily exceeds i), 1/C(n-1,j-1) for i=j, and 1/j for i>j. Subtract P(I_i)P(R_j)=1/(nj) to obtain the triangular kernel. The j-1 earlier positions contribute 1/(nj), canceling the diagonal -1/(nj), leaving 1/[n*C(n-1,j-1)]. Summation and known fixed-point Var=1 and independent-record Var=H_n-H_n^(2) give the claimed correlation. Independently enumerated all permutations n=2 through 7 with Fraction exact arithmetic, checking every i,j covariance and total. Finite checks are supplementary to the all-n conditional counting proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dubach Theorem 2.10 gives limiting record distribution conditional on prescribed fixed-point abundance and covers broader nonuniform measures only asymptotically.",
+          "Gnedin–Gorin treats record-dependent probability measures; source abstract does not supply the mixed fixed-point positional kernel."
+        ],
+        "reasoning": "Broader permutation families may include the uniform law but their available theorems concern different marginal/limiting quantities, not a stronger statement implying the exact kernel.",
+        "searches": [
+          "Resultary: random permutation fixed points left to right maxima exact covariance record count",
+          "doi:10.1007/s00440-025-01449-7",
+          "arxiv:1202.3680",
+          "arxiv:math/0703099",
+          "https://www.findstat.org/StatisticsDatabase/St000221/",
+          "web: \"fixed points\" \"records\" \"covariance\" permutations"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1007/s00440-025-01449-7",
+        "arxiv:1202.3680",
+        "arxiv:math/0703099",
+        "arxiv:1509.04552",
+        "https://www.findstat.org/StatisticsDatabase/St000221/",
+        "Resultary: random permutation fixed points left to right maxima exact covariance record count",
+        "Resultary: Boundary localization of fixed-point–descent dependence in a uniform permutation (2026/10/4)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Marginal E[F_n]=1 and P(R_j)=1/j alone leave their dependence undetermined.",
+          "Dubach §2.3 addresses asymptotic distribution as fixed-point abundance varies; it does not state this uniform finite-j conditional expectation."
+        ],
+        "reasoning": "The kernel is a new joint coupling identity at the level of exact positions; it is not a direct corollary of independent marginal laws or coarse conditional limits without the explicit conditioning-on-I_i calculation.",
+        "searches": [
+          "Resultary: random permutation fixed points left to right maxima exact covariance record count",
+          "doi:10.1007/s00440-025-01449-7",
+          "arxiv:1202.3680",
+          "arxiv:math/0703099",
+          "https://www.findstat.org/StatisticsDatabase/St000221/",
+          "web: \"fixed points\" \"records\" \"covariance\" permutations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record indicators are classical independent Bernoulli(1/j), but that only determines their marginal distribution.",
+          "Dubach proves asymptotic high-record laws conditional on cycle-type fixed-point abundance, not the unconditional finite I_i/R_j covariance kernel."
+        ],
+        "reasoning": "No displayed primary result computes all triangular local covariances or the reciprocal-binomial exact global sum; classical single-statistic formulas do not entail their cross-statistics without additional joint counting.",
+        "searches": [
+          "Resultary: random permutation fixed points left to right maxima exact covariance record count",
+          "doi:10.1007/s00440-025-01449-7",
+          "arxiv:1202.3680",
+          "arxiv:math/0703099",
+          "https://www.findstat.org/StatisticsDatabase/St000221/",
+          "web: \"fixed points\" \"records\" \"covariance\" permutations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "FindStat St000221 lists joint generating functions of STRONG fixed points (a different statistic requiring monotone prefixes/suffixes), RLmin and LRmax.",
+          "Direct finite exact enumeration reconstructs covariances for n<=7 but cannot certify originality for all n."
+        ],
+        "reasoning": "The apparent mesh-pattern joint statistics in FindStat use a different fixed-point notion; no actual table giving the ordinary fixed-point/record kernel was located.",
+        "searches": [
+          "Resultary: random permutation fixed points left to right maxima exact covariance record count",
+          "doi:10.1007/s00440-025-01449-7",
+          "arxiv:1202.3680",
+          "arxiv:math/0703099",
+          "https://www.findstat.org/StatisticsDatabase/St000221/",
+          "web: \"fixed points\" \"records\" \"covariance\" permutations"
+        ]
+      },
+      "rationale": "Best-of-knowledge acceptance follows the actual statement-versus-implication comparisons above; the strongest inspected primary sources establish a general framework, different problem, or strictly narrower subcase, not this final full claim. The explicitly listed plausible full-text access/implicit-coverage risks remain open; lack of search hits alone is not novelty evidence.",
+      "residual_risks": [
+        "Older multivariate (fixed point, record) generating functions or mesh-pattern identities may imply some/all mixed moments despite the lack of a matching explicit formula in searched primary sections.",
+        "Full Gnedin–Gorin record-dependent manuscript was not inspected.",
+        "The exact formula is elementary after an apt conditional exchangeability argument; value resides in the motivated complete kernel and cancellation, not computational complexity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_REGIME; fixed cycle type and asymptotic law, not local uniform covariance",
+          "evidence": "Its Theorem 2.10 conditions on cycle type and describes phase transitions in high-record limits, with no I_i/R_j exact finite positional matrix.",
+          "identifier_or_url": "https://doi.org/10.1007/s00440-025-01449-7",
+          "material_read": "Open full journal HTML sections 2.3 Records and 6 proofs of records; Theorems 2.9–2.11",
+          "method": "Springer full-text HTML section/keyword and theorem reading",
+          "title": "Dubach, A geometric approach to conjugation-invariant random permutations",
+          "trigger": "Highly relevant prior interaction of fixed-point abundance with left-to-right records"
+        },
+        {
+          "assessment": "PARTIAL; cannot claim entire manuscript noncovering",
+          "evidence": "Studies record-dependent laws and their coherent distributions; possible implicit mixed moment formulas unverified.",
+          "identifier_or_url": "https://arxiv.org/abs/1202.3680",
+          "material_read": "Indexed abstract/bibliography only; full paper not retrieved",
+          "method": "arXiv listing and bibliographic material",
+          "title": "Gnedin and Gorin, Record-dependent measures on the symmetric groups",
+          "trigger": "Record-biased permutation laws potentially encompassing uniform distributions"
+        },
+        {
+          "assessment": "DIFFERENT_STATISTIC",
+          "evidence": "A strong fixed point requires additional order inequalities on both sides; it is not the ordinary event Pi(i)=i used here.",
+          "identifier_or_url": "https://www.findstat.org/StatisticsDatabase/St000221/",
+          "material_read": "Full database entry including statistic definition, small generating polynomials, and citations",
+          "method": "online combinatorics statistic entry read",
+          "title": "FindStat St000221, Number of strong fixed points of a permutation",
+          "trigger": "Possible exact database using fixed point plus record statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact positional kernel disentangles the global fixed-point (cycle) and upper-record (order) statistics, identifies a nontrivial negative local-diagonal versus positive aggregate cancellation, and gives a quantitative finite-n and asymptotic dependence law. These are natural invariants of uniform permutations, not arbitrary refinements of a trivial count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Under a uniform permutation in S_n, for n>=2 and 2<=j<=n the exact covariance of fixed-point indicator I_i with left-to-right record R_j is 1/[n j(j-1)] for i<j, (1/n)(1/C(n-1,j-1)-1/j) for i=j, and zero for i>j; the total fixed/record covariance is (1/n) sum_{k=1}^{n-1} 1/C(n-1,k) and correlation is asymptotic to 1/(n sqrt(log n)).",
+  "limitations": [
+    "Only the uniform S_n distribution and upper records are covered; no claimed independence or general law for conjugation-invariant or biased measures."
+  ],
+  "schema_version": 1
+}

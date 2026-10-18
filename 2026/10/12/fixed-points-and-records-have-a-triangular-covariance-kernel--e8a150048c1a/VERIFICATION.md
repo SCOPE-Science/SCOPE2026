@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. The accompanying checker exhaustively enumerates every permutation for
-\[
-2\le n\le9.
-\]
+# Independent mathematical audit
 
-For each \(n\), every record position \(2\le j\le n\), and every fixed-point position \(1\le i\le n\), it reconstructs \(I_i\) and \(R_j\) directly and verifies the three-case covariance kernel using exact rational arithmetic.
+## correctness
 
-It also verifies the aggregate covariance, the conditional mean under a record event, the total fixed-point/record-count covariance, and both marginal variances.
+PASS
 
-The exhaustive replay is supplementary. The all-\(n\) proof is the conditional exchangeability argument in `RESULT.md`.
+Under I_i=1, prefix record probability is 1/(j-1) for i<j (other j-1 prefix positions are exchangeable and their maximum necessarily exceeds i), 1/C(n-1,j-1) for i=j, and 1/j for i>j. Subtract P(I_i)P(R_j)=1/(nj) to obtain the triangular kernel. The j-1 earlier positions contribute 1/(nj), canceling the diagonal -1/(nj), leaving 1/[n*C(n-1,j-1)]. Summation and known fixed-point Var=1 and independent-record Var=H_n-H_n^(2) give the claimed correlation. Independently enumerated all permutations n=2 through 7 with Fraction exact arithmetic, checking every i,j covariance and total. Finite checks are supplementary to the all-n conditional counting proof.
 
-Independent audit has not been performed.
+## originality
 
-Exact replay result: `VERIFY_OK permutations_checked=409112 local_cov_checks=240 aggregate_cov_checks=36 conditional_checks=36 total_cov_checks=8 variance_checks=16 sign_checks=33`.
+PASS
+
+Best-of-knowledge acceptance follows the actual statement-versus-implication comparisons above; the strongest inspected primary sources establish a general framework, different problem, or strictly narrower subcase, not this final full claim. The explicitly listed plausible full-text access/implicit-coverage risks remain open; lack of search hits alone is not novelty evidence.
+
+## value
+
+PASS
+
+The exact positional kernel disentangles the global fixed-point (cycle) and upper-record (order) statistics, identifies a nontrivial negative local-diagonal versus positive aggregate cancellation, and gives a quantitative finite-n and asymptotic dependence law. These are natural invariants of uniform permutations, not arbitrary refinements of a trivial count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
