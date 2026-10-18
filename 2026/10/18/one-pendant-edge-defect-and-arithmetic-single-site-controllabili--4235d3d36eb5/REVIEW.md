@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** Exact Fourier-mode decomposition of the uniform sunlet, a reflection-even rank-one secular argument, and the PBH eigenvector test give the claimed iff classification for every integer \(n\ge3\) and every positive conductance triple. The proof establishes that all off-uniform eigenvalues are simple, identifies all permanent odd-mode zeros, and shows the remaining exceptions lie in finite explicit rational-function zero sets. The exceptional \(n=5\) witness is independently checkable by exact rational characteristic polynomials. A self-contained standard-library script checks 1100 finite modular or rational ranks; finite checks are corroboration, not infinite proof.
+
+**Originality — PASS, with residual risk.** Uniform corona Laplacian spectra (Barik–Pati–Sarma, Theorem 3.2), path/cycle Laplacian control (Parlangeli–Notarstefano, Section IV.B), identical-cell interconnections (Hsu, Theorem 3.4), and generic independent edge-weight perturbations (Poignard–Pereira–Pade) do not by their stated hypotheses yield the one-prescribed-pendant-edge classification with the exact arithmetic leader rule and finite exceptional-defect sets. The rank-one secular method is classical. Full texts of the first three sources were inspected in the material relevant to their theorems. Equivalent nonindexed formulations remain possible; some related literature was available only as abstracts.
+
+**Value — PASS.** A single conductance defect can reduce the controllability requirement from at least two vertex actuators to one without changing topology. The theorem separates unavoidable reflection-node obstructions from isolated spectral resonances and supplies a closed arithmetic count of generally usable control locations on an infinite network family. The documented \(n=5\) resonance shows why genericity alone is not an adequate exact design rule.
+
+Self-review: passed. Independent audit: not yet performed.
