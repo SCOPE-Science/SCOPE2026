@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Full matrix-unit computation yields the commutator rows (lambda_u-lambda_v)y_e+b_e(x_v-x_u). Cross-color rows are independently pivoted by individual off-diagonal variables; equal-color nonzero rows have graphic-incidence rank, with one dependence exactly when the unique cycle is fully supported. The labeling transfer matrix has eigenvalues 1+(q^2-1)z and 1-z. Correcting the exceptional full-cycle tuples yields the claimed rank polynomial. Connectedness gives center size q; coefficient extraction and evaluation at z=1/q yield cycle recovery and commuting-pair total. check_rank.py exhaustively tests six small instances from actual multiplication tables and exact finite-field row reductions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Krylov and Tuganbaev (arXiv:2305.02984) covers arbitrary preorders and coefficient rings for structural derivation descriptions.",
+        "Fornaroli and Khrypchenko (arXiv:2307.08439) covers arbitrary posets and skew derivations structurally.",
+        "Related finite Kronecker path-algebra commutator results concern a different radical-square-zero algebra with parallel arrows and give no stated simple-unicyclic-poset rank-polynomial specialization."
+      ],
+      "reasoning": "Although their object classes are broader, the inspected theorems do not give distributional coverage. A result about commutation probabilities for one Kronecker-type quiver does not imply the simultaneous all-rank distribution and cycle-length reconstruction for a connected simple unicyclic height-two poset.",
+      "searches": [
+        "Centralizer dimensions in radical square zero path algebras and incidence algebras of bipartite graphs, characteristic polynomial of inner derivation ranks",
+        "Quiver path algebra of oriented bipartite unicyclic graph, ranks of adjoint maps, center codimension, finite field centralizer distribution",
+        "finite incidence algebra inner derivations rank enumeration cycle correction"
+      ]
+    },
+    "checked_sources": [
+      "Krylov and Tuganbaev, arXiv:2305.02984 (primary PDF selected text/page images).",
+      "Fornaroli and Khrypchenko, arXiv:2307.08439 (primary PDF selected text/page images).",
+      "Fornaroli and Pezzott, DOI 10.1080/00927872.2020.1854775 (publisher abstract only).",
+      "Krylov and Tuganbaev, DOI 10.3390/math12070999 (publisher abstract only).",
+      "Publisher-indexed public descriptions of related finite radical-square-zero quiver and graphical-group commuting counts; only claim summaries compared, not complete texts."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 19.2 of arXiv:2305.02984 gives dimensions of spaces of additive and inner additive derivations in terms of graph cycle rank and triangular rank.",
+        "Theorem 2.8 of arXiv:2307.08439 gives a decomposition of skew derivations into inner and additive parts.",
+        "The new result concerns rank(ad_a) for every a and gives a q-parameter generating polynomial, an exceptional cycle correction, and a rank-one cycle-length recovery."
+      ],
+      "reasoning": "Fixed vector-space dimensions of derivation modules can hold for every element distribution; they do not determine its rank fibers. The full-cycle support-dependence and transfer matrix are additional computations. The broad sources do not dominate the specific enumerative conclusions.",
+      "searches": [
+        "arxiv 2305.02984 incidence rings automorphisms derivations full text theorem inner derivations",
+        "arxiv:2305.02984",
+        "arxiv:2307.08439",
+        "Pairs of commuting elements in incidence algebras of unicyclic posets finite fields, centralizer rank and cycle length"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Krylov and Tuganbaev, arXiv:2305.02984, Chapter 4 and Theorem 19.2, treat derivation-module decompositions and dimensions, not the distribution of ranks of individual ad_a.",
+        "Fornaroli and Khrypchenko, arXiv:2307.08439, Theorem 2.8 decomposes skew derivations into inner and additive summands."
+      ],
+      "reasoning": "A module dimension or an inner-versus-outer classification does not specify the rank of the action ad_a on the entire algebra as a function of a. The cycle-space dependence in Theorem 19.2 is a different rank invariant. No equivalent rank-fiber formula was found in checked material.",
+      "searches": [
+        "Rank distribution and rank generating polynomial of inner derivations ad(a) in incidence algebras of finite height-two bipartite posets; dependence on a unique cycle, finite fields",
+        "Exact rank polynomial of distinct inner derivations of finite incidence algebra I(P,F_q) for bipartite unicyclic Hasse diagrams, explicit q and cycle length",
+        "\"inner derivation\" \"rank\" \"incidence algebra\" finite"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted searches of finite-field incidence-algebra rank distribution, centralizer ranks, and unicyclic poset commutation statistics returned no exact formula matching the symbolic q,m,cycle-length distribution.",
+        "Exact direct test values for four- and six-cycles were computed independently in check_rank.py rather than transcribed from an existing table."
+      ],
+      "reasoning": "No matching table or database coverage was identified; this negative search is only supporting context, not proof of uniqueness or novelty. A database listing only small coefficients could be implied by a stronger unindexed theorem, which remains a residual risk.",
+      "searches": [
+        "Incidence algebra of a height two poset whose cover graph has one even cycle, rank-one inner derivations determine cycle length and exact commuting pairs",
+        "\"unicyclic\" \"incidence algebra\" \"commuting\" finite field",
+        "\"incidence algebra\" \"rank distribution\" \"inner derivations\""
+      ]
+    },
+    "rationale": "The full-text primary comparisons concern decompositions and dimensions of derivation modules rather than cardinalities of individual adjoint-rank fibers. The rank polynomial, unique-cycle correction and cycle-length recovery are not implied by those structural theorems. Searches for alternate centralizer, quiver, graph-Potts and finite-incidence formulations did not locate a dominating formula. Abstract-only sources and unindexed equivalents remain explicitly flagged as risks.",
+    "residual_risks": [
+      "An unindexed graph-Potts or radical-square-zero quiver algebra rank-polynomial could imply the expression under another presentation.",
+      "The 2020 additive-derivation article and 2024 derivation article were not inspected in full; they are plausible same-object sources, though available summaries point to different structural questions.",
+      "Only a self-review, not independent priority verification, was performed.",
+      "Earlier algebraic counts of unit-group commuting pairs or commuting idempotent tuples on related quivers do not state all-element rank distributions; an unrecognized implication or transform is a remaining originality risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_THE_CLAIM_IN_INSPECTED_SECTIONS",
+        "evidence": [
+          "Theorem 19.2 states dimensions of additive derivations and inner additive derivations via m, cyclomatic number, and triangular rank, not per-a adjoint rank distribution.",
+          "The introduction describes derivation modules and automorphism structure as the study focus."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2305.02984",
+        "material_read": "Introduction; Chapter 4 §§14–18 selected statements (Corollary 14.3; Lemma 15.1; Proposition 15.7; Theorem 16.1; Proposition 18.1 and Proposition 18.2) at printed pages 60–79; §19 and Theorem 19.2 at printed pages 84–85; PDF textual search for rank and finite fields. The full 89-page PDF was available, but not every page was read.",
+        "method": "Primary arXiv full-text PDF, targeted page text and page-image inspection.",
+        "title": "Incidence Rings: Automorphisms and Derivations",
+        "trigger": "Direct source studying incidence rings and derivations; possible structural implication."
+      },
+      {
+        "assessment": "NOT_COVERING_THE_CLAIM_IN_INSPECTED_SECTIONS",
+        "evidence": [
+          "Theorem 2.8 proves decomposition of skew derivation space into inner and additive contributions.",
+          "No finite-field enumeration of individual inner-derivation rank strata occurs in the inspected portion."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2307.08439",
+        "material_read": "Abstract, introduction, definitions on pages 1-3, and Theorem 2.8 with proof on page 8.",
+        "method": "Primary arXiv full-text PDF, text and page-image inspection.",
+        "title": "Skew derivations of incidence algebras",
+        "trigger": "Broader class of skew derivations includes ordinary inner derivations."
+      },
+      {
+        "assessment": "INCOMPLETE_FULL_TEXT_COMPARISON",
+        "evidence": [
+          "Abstract states necessary-and-sufficient conditions for an additive derivation to be inner, not a rank-enumerator result.",
+          "No assertion of whole-article noncoverage is made."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/00927872.2020.1854775",
+        "material_read": "Publisher abstract and bibliographic information only; online publication date 2020-12-09.",
+        "method": "Publisher abstract, open-access and preprint searches; institutional full-text workflow required interactive approval and was not completed.",
+        "title": "Additive derivations of incidence algebras",
+        "trigger": "Related older structural result for inner incidence-algebra derivations."
+      },
+      {
+        "assessment": "INCOMPLETE_FULL_TEXT_COMPARISON",
+        "evidence": [
+          "Abstract describes the module of derivations and outer derivations over general coefficient algebras.",
+          "Absence of any matching rank polynomial in the abstract does not establish noncoverage of the full article."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/math12070999",
+        "material_read": "Publisher metadata and abstract dated 2024-03-27; article retrieval encountered a rate-limiting error.",
+        "method": "Publisher-indexed abstract; full text not obtained.",
+        "title": "Derivations of Incidence Algebras",
+        "trigger": "Later same-author source with broad derivation classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6bbe3510-4638-497d-8ed0-841752501c48",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Rank(ad_a) is the codimension of the centralizer of a, and its full distribution controls commuting probabilities in finite associative algebras. The result gives exact complete rank statistics for the infinite family of connected unicyclic height-two incidence algebras, uniformly in all finite fields. It shows that all pendant-tree arrangements collapse to just their edge count but the cycle length is recoverable already from rank-one multiplicity. This is a natural structural and enumerative distinction, not a one-off numeric slice.",
+    "status": "PASS"
+  }
+}

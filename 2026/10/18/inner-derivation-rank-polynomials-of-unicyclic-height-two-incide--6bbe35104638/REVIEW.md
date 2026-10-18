@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The complete proof starts from multiplication of the diagonal and off-diagonal incidence-algebra basis units, identifies independent off-diagonal pivot columns and the weighted graph-incidence rows, and proves the unique cycle is the sole source of a rank defect. A two-eigenvalue coloring transfer matrix yields the displayed polynomial for any finite field, followed by independent proof of the center, rank-one coefficient, and commuting-pair count. An executable checker performs exhaustive direct multiplication-and-rank verification in six small cases, including cycles of lengths four and six and pendant trees.
+
+**Originality — PASS within examined material.** The closest full-text sources are Krylov–Tuganbaev (arXiv:2305.02984), whose Theorem 19.2 counts module dimensions via cycle spaces, and Fornaroli–Khrypchenko (arXiv:2307.08439), whose Theorem 2.8 decomposes skew derivations. These structural statements do not imply a rank-fiber distribution without additional work: the present formula counts the ranks of each individual inner map, including a special full-cycle defect. Related finite-ring centralizer and graphical-group results concern different algebras and linear maps. No checked source establishes the same unicyclic rank polynomial. Residual risks include unindexed formulations using graph transfer matrices or finite radical-square-zero algebra commuting statistics and incomplete access to two related publisher articles.
+
+**Value — PASS.** Inner derivation rank is the codimension of an element's centralizer, a natural structural invariant of finite associative algebras. The result supplies the complete distribution for an infinite and graph-theoretically motivated family, an exact closed commuting-pair count, and an unexpected cycle-length recovery from the rank-one multiplicity. The invariance under changes in pendant-tree arrangement is a meaningful structural collapse, not a single small-field census.
+
+Limitations: The proof concerns inner derivations of connected simple unicyclic height-two posets only, not arbitrary incidence algebras or all derivations. Small-field checks corroborate but do not certify the infinite statement. Originality has not been independently audited.
+
+Self-review: passed. Independent audit: not yet performed.
