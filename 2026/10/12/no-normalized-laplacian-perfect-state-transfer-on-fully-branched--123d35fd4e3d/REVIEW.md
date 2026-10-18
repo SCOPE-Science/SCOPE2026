@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The statement fixes every parameter quantifier and the normalized-Laplacian convention. Degree equality follows from the simple eigenvalue-zero projector. For the only remaining cross-class candidate, exact second moments lie in disjoint ranges. For the same-class candidates singled out by the cited Corollary 8, two explicit vectors in the eigenvalue-one eigenspace force nonzero sum and difference projections, ruling out strong cospectrality. These calculations are exact for every \(m\ge2\) and \(p_i\ge1\). The finite reproducibility checks corroborate but are not substituted for proof.
+## correctness
 
-**Originality — PASS, with residual risk.** The closest normalized-Laplacian work is Coutinho–Baptista, Corollary 8, which restricts candidate pairs rather than eliminating them across this unrestricted heterogeneous family. Monterde's Theorem 3.9/Corollary 3.14 gives general twin criteria, not the explicit entire family exclusion and cross-class moment separation. The adjacency-tree nonexistence theorem of Coutinho–Juliano–Spier concerns a different Hamiltonian. Alvir et al. cover special paths, not the family. Relevant semantic searches and existing-result comparisons did not identify the same unrestricted claim. Because these are specialized applications of existing spectral methods, a more encompassing, unlocated statement remains a substantive possible overlap.
+PASS
 
-**Value — PASS.** The problem is motivated by the explicit broader tree nonexistence question for normalized-Laplacian quantum walks. The theorem settles a natural, infinite, unbounded and heterogeneous depth-two tree class; it identifies a precise eigenvalue-one obstruction even for cospectral sibling twins and a separate root–hub walk-moment obstruction. The result does not assert a complete classification of all diameter-four trees or rule out approximate transfer.
+Perfect state transfer implies spectral strong cospectrality, hence same degree via the simple H=0 projector. Across bipartition, only root-hub can have equal degree; S^2(root,root)=(1/m)*sum_i 1/(p_i+1)<=1/2 while S^2(hub,hub)=(p_i+1/m)/(p_i+1)>=3/4 for degree-matched p_i=m-1, contradiction. Coutinho-Baptista Corollary 8 reduces any same-class PST in a tree to sibling leaves. The vector z with root 1, hubs 0 and leaves -1/p_i lies in ker A, so D^1/2 z lies in H=1 eigenspace and overlaps e_u+e_v for siblings; e_u-e_v independently lies there. Thus E_1(e_u+e_v) and E_1(e_u-e_v) both nonzero, incompatible with E_1e_u=+/-E_1e_v. Exact for all m,p, no finite extrapolation.
 
-**Limitations and proximity.** The family excludes neighbors that are direct leaves of the root. It includes the previously known path boundary but also unrestricted non-path cases. Independent corroboration of originality against all possible reformulations is not available.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No prior mathematical result located implying the all-parameter family-specific theorem; best-of-knowledge, with residual indexed/access limitations.
+
+## value
+
+PASS
+
+Attacks the explicit normalized-Laplacian tree PST problem by ruling out a natural unbounded, heterogeneous diameter-four family, with independent spectral mechanisms separating cross-bipartition and symmetric sibling pairs. The explicit obstruction is reusable for nearby rooted trees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

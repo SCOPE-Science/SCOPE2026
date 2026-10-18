@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` in this folder. Python standard library suffices.
+## correctness
 
-Observed output:
+PASS
 
-```text
-VERIFY_OK profiles=360 total_vertices=5274 sibling_pairs=2184 exact_rational_witnesses
-```
+Perfect state transfer implies spectral strong cospectrality, hence same degree via the simple H=0 projector. Across bipartition, only root-hub can have equal degree; S^2(root,root)=(1/m)*sum_i 1/(p_i+1)<=1/2 while S^2(hub,hub)=(p_i+1/m)/(p_i+1)>=3/4 for degree-matched p_i=m-1, contradiction. Coutinho-Baptista Corollary 8 reduces any same-class PST in a tree to sibling leaves. The vector z with root 1, hubs 0 and leaves -1/p_i lies in ker A, so D^1/2 z lies in H=1 eigenspace and overlaps e_u+e_v for siblings; e_u-e_v independently lies there. Thus E_1(e_u+e_v) and E_1(e_u-e_v) both nonzero, incompatible with E_1e_u=+/-E_1e_v. Exact for all m,p, no finite extrapolation.
 
-The checker traverses every profile of branch counts in \(\{1,2,3\}^m\) for \(2\le m\le5\). It checks the exact rational vector identity \(Az=0\), the nonvanishing of sibling-leaf sum projections witnessed by \(z\), and disjoint second moments for degree-compatible root/hub pairs. All unrestricted claims are established analytically in RESULT.md, not by the finite checker. Numerical spectral diagonalization is not needed.
+## originality
+
+PASS
+
+No prior mathematical result located implying the all-parameter family-specific theorem; best-of-knowledge, with residual indexed/access limitations.
+
+## value
+
+PASS
+
+Attacks the explicit normalized-Laplacian tree PST problem by ruling out a natural unbounded, heterogeneous diameter-four family, with independent spectral mechanisms separating cross-bipartition and symmetric sibling pairs. The explicit obstruction is reusable for nearby rooted trees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
