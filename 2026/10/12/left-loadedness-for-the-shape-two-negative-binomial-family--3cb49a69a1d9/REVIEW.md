@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof derives the exact survival function, verifies the first and last cumulative imbalances for all admissible parameters, and reduces the internal shape to the sign of one explicit increasing quadratic expression. The recurrence \(\alpha_{i+1}=\alpha_i-(a_{m-i}-a_{m+i})\) then forces a single crossing. The boundary case \(n=2\) is handled exactly.
+## correctness
 
-## Originality
-PASS. The full motivating source was inspected at the definitions, negative-binomial parameterization, and conjectural discussion. It states that the same left-loaded behavior appears to hold for the negative-binomial family with \(p=1-1/n\), but supplies no proof. A broader Simmons-type negative-binomial source addresses a near-mean tail comparison rather than the complete cumulative sign sequence. Searches under negative-binomial, left-loaded, cumulative-tail, and parameterization aliases found no covering theorem. The main residual risk is an older equivalent theorem under different tail-order terminology.
+PASS
 
-## Value
-PASS. Shape two is the first non-geometric member of the exact negative-binomial family singled out by the motivating paper. The theorem resolves the whole integer-parameter subfamily, not an isolated numerical case, and gives a structural proof mechanism through an exact survival identity and a one-turn likelihood-ratio profile.
+Differentiated geometric series yields exact survival T_K=p^K(K+n)/n for p=(n-1)/n and m=2n-2. Endpoint alpha_1>0 (four rational base checks then monotonic (1+1/x)^x) and alpha_m<0 for n>=3 (two base checks then e<3). With a_k=(k+1)p^k/n^2, ratio beta_i=a_(m+i)/a_(m-i) obeys sign(beta_(i+1)/beta_i-1)=sign((2n-1)(i(i+1)-2n(n-1))). It falls then rises and crosses 1 at most once, so alpha_i first decreases then possibly increases and can cross zero only once. Independent exact Fraction checks n=2,3,4,5,6,10,30 corroborate signs, not infinite proof; symbolic cancellation independently verifies the ratio polynomial.
 
-## Closest literature and limitations
-The closest source is the motivating paper itself, whose negative-binomial statement is explicitly presented as an observed direction rather than a theorem. The earlier Simmons-type extension gives only a weaker kind of tail comparison from the material inspected. The theorem does not address shapes \(r\ge3\) or condition \(L_2\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fokkink et al explicitly present negative-binomial p=1-1/n behavior as an observation/direction, with no complete shape-two L1 proof. Prior 2006 Simmons-type negative-binomial extension concerns a near-mean tail comparison, not the full cumulative crossing profile. A differently worded earlier theorem remains possible.
+
+## value
+
+PASS
+
+Resolves a natural infinite-parameter subfamily highlighted in the introducing paper, the first nongeometric negative-binomial shape, and provides a reusable unimodal likelihood-ratio method. It is not an arbitrary sample-size cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
