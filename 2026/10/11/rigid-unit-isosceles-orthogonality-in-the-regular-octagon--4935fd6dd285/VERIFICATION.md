@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,52 +18,25 @@
   "schema_version": 1
 }
 ---
-Put
-\[
-r=\sqrt2-1,
-\qquad
-d=2-\sqrt2,
-\]
-and parametrize the reference edge by
-\[
-x(a)=(1-da,r+da),
-\qquad
-0\le a\le1.
-\]
-The quarter-turn map is
-\[
-R(s,t)=(-t,s).
-\]
-The exact edge identities are
-\[
-E_2(a)=R(x(a)),
-\qquad
-E_6(a)=-R(x(a)).
-\]
 
-The analytic proof establishes the following zero table for
-\[
-F(x,y)=N_8(x+y)-N_8(x-y):
-\]
-\[
-\begin{array}{c|c}
-\text{relative edge}&F=0\\
-\hline
-E_0&\varnothing\\
-E_1&(a,b)=(0,1)\\
-E_2&a=b\\
-E_3&(a,b)=(1,0)\\
-E_4&\varnothing\\
-E_5&(a,b)=(0,1)\\
-E_6&a=b\\
-E_7&(a,b)=(1,0).
-\end{array}
-\]
-The isolated endpoint zeros are shared endpoints of the \(E_2\) and \(E_6\) families, so the global equality set is exactly
-\[
-y=\pm Rx.
-\]
+# Independent mathematical audit
 
-The bundled `verify.py` replays all eight edge classes in exact arithmetic in \(\mathbb Q(\sqrt2)\) on a rational parameter grid and checks the exact quarter-turn identities and common chord value. The grid is supplementary; the continuum sign proof is contained in `RESULT.md`.
+## correctness
 
-No independent audit or independent validation has been performed.
+PASS
+
+Dihedral symmetry reduces x to a reference edge x(a)=(1−da,r+da), r=√2−1,d=2−√2. On E0 sum norm 2 exceeds difference norm. On E1 sum≥√2 and difference≤√2, equality only a=0,b=1, shared E2 endpoint. On E2 x±y reduce after norm symmetry to N(√2±d(a−b),w), |w|≤d; strict monotonicity in the first coordinate yields F=0 iff a=b, exactly y=Rx. E3 reverses signs with one shared endpoint. Central symmetry gives E4...E7 and y=−Rx. Explicit x±Rx have coordinate √2 and another coordinate magnitude ≤d, so N=√2. Whole continuum classified by inequalities, not grid.
+
+## originality
+
+PASS
+
+Same-object James extremizers are quarter-turn pairs but classify only maximal min-chord values, not the entire zero locus of N(x+y)−N(x−y). The present all-unit-pairs iff is stronger in a genuinely different way. Other exact octagonal constants optimize different expressions. Best-of-knowledge novel complete relation.
+
+## value
+
+PASS
+
+Describes the entire isosceles-orthogonality relation in a canonical symmetric non-Hilbert norm; this is a structural rigidity theorem stronger than a single optimized scalar and useful for normed-plane geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
