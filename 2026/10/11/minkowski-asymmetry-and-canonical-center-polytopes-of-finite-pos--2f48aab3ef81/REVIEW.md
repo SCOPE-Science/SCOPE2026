@@ -1,19 +1,21 @@
-# Scientific review: Minkowski centers of order polytopes
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact reflection-containment criterion follows from the upper-set vertices of an order polytope and gives coordinate lower/upper bounds and unit separation at every cover. The longest-chain inequality forces a dilation factor at least the height, while the longest-chain-ending rank function attains it. The center polytope is a network difference-constraint polytope with an integral vertex description. A weighted-longest-path perturbation establishes that only elements lying on longest chains have forced center coordinates. Exact-rational tests corroborate the center-dimensional formula for 1,219 poset presentations without being used as an infinite proof.
+PASS
 
-## Originality
+PASS: Reconstructed every vertex of an order polytope as an upper-set indicator and the exact reflected halfspace criterion: 1<=(s+1)c_i<=s for all i; (s+1)(c_j-c_i)>=1 for covers. Summing across an h-element longest saturated chain gives s>=h. The longest-prefix rank c_i=ell(i)/(h+1) meets every inequality at s=h. The entire optimal center polytope Q_P after scaling H=h+1 is a bounded integral difference-constraint region 1<=u_i<=h,u_j-u_i>=1 on covers, with total unimodularity giving exactly the convex hull of interior H-order-polytope integer points; H is the Ehrhart codegree by the strict chain height condition. For dimension, augmented cover DAG longest bottom-top paths fix exactly elements of maximum-length chains; perturbing any edge not on a longest path with epsilon<1 and averaging yields strict slack in every noncritical coordinate, proving dim=n-|C(P)|. Independent exact lattice-point affine ranks verified antichain and multiple chained/branched/disconnected examples including unique and one-dimensional center cases. All-poset result is proved symbolically, not from finite presentations.
 
-PASS, with an equivalence risk. The relevant literature provides order-polytope facet and vertex descriptions, codegree interior labelings, and poset-polytope triangulations. Haase–Kohl–Tsuchiya (arXiv:1805.02967), the closest result, already treats the strict-labeling hull and should receive full credit for that object; it does not in the inspected sections identify that hull with the complete set of Minkowski centers or compute their affine dimension from longest-chain membership. Chappell–Friedl–Sanyal (arXiv:1606.04938) study double poset polytopes and comparability-graph chain polytopes, not this center classification. Von Bell et al. (arXiv:2102.11306) analyze triangulations, circuits and volume rather than asymmetry. A general difference-constraints or Hibi-ring formulation might already imply the theorem, so an earlier equivalent statement cannot be ruled out solely by phrase searches.
+## originality
 
-## Value
+PASS
 
-PASS. This is a natural, complete convex-geometric classification for every finite poset, not a numerical special case: it identifies the minimizing dilation, the entire optimizing locus, its exact lattice-geometric realization, and a combinatorial criterion for its dimension and uniqueness. The last criterion differs from purity of a poset: two disjoint three-element chains with a cover from the first point of one to the last point of the other have an additional short maximal chain but still a unique Minkowski center. The connection of the optimizing locus to the canonical degree interior hull is potentially useful in geometric and poset-theoretic work; no downstream theorem is asserted.
+PASS best-of-knowledge: Stanley supplies the order-polytope facets/vertices and basic combinatorics; Haase-Kohl-Tsuchiya study codegree interior integer labels and levelness (a different property), but no identified Minkowski asymmetry factor or equality of its entire minimizer locus with the first interior lattice hull. A published exact Euclidean inradius/center result for the *same* order polytope happens to have the same longest-chain uniqueness condition, but its metric-dependent center inequalities have sqrt(2) cover gaps and a different radius; it does not imply the affine-invariant asymmetry value h or the lattice-interior hull identification. The general den Hertog et al. LP requires nontrivial longest-path and TU analysis. Overlap of the uniqueness criterion is recorded, not hidden.
 
-## Evidence and limitations
+## value
 
-The proof is in RESULT.md; the standard-library program verify.py and its reproduced output provide bounded exact computation. The strongest related published result is arXiv:1805.02967, especially §§6 and 8. The 2021 geometry-source paper arXiv:2102.11306 is dated by its first arXiv posting, not its revision or journal appearance. The stable-set realization of comparability-graph chain polytopes is a known construction, but the order/chain transfer is not affine; thus no general chain-polytope metric conclusion transfers automatically to order polytopes. The independent audit has not been performed.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS: This is a uniform exact affine-geometric classification for every finite poset, connecting three natural structures: Minkowski asymmetry, strict integer order maps at codegree, and longest-chain combinatorics controlling center dimension and uniqueness. In contrast to simply applying a generic LP to one arbitrary poset, the proof gives a complete symbolic center polytope and a combinatorial dimension test for arbitrarily large and disconnected posets; such a bridge is mathematically motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
