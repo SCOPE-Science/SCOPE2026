@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "The exact conditional 11-count distributions from Sobolewski--Spiegelhofer Proposition 3.2 give the initial rational functions A1,B1. The displayed recursions imply B_{2^k-1}=H for k>=3, the rational boundary J=A15, and the polynomial difference K=A31-A15=(z-1)^2(z+1)(2z^2+z+2)/64. Induction shows every later difference is a nonnegative z-power multiple of K; K(1)=0 so it changes no negative coefficient or total mass. The even-shift formula similarly preserves the negative mass for j>=1. Negative Laurent masses 9/32, 27/64, 27/64, 73/64 yield 83/128 and 39/64; direct rational base cases give the remaining six values. The extracted verifier checks these algebraic identities and initial cases with exact fractions, with finite enumeration used only diagnostically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "[1] Theorem 2.1 and Section 2 remarks: Gaussian approximation depends on increasing count N of maximal runs, whereas this family has N=1 for all parameter values.",
+        "[2] Theorem 1.2: general word w but again requires number of maximal runs N to grow."
+      ],
+      "reasoning": "General asymptotic CLTs do not dominate exact one-run values. General recurrences in [1] do determine any *fixed* shift, but do not state a uniform sharp formula for unbounded run length; establishing that all negative Laurent coefficients stabilize requires the explicit factorization and induction in this finding. No inspected stronger theorem implies that uniform result without additional argument.",
+      "searches": [
+        "Rudin Shapiro count overlapping binary 11 block r(n+t)-r(n) Mersenne shifts t=2^k-1 density nonnegative 83/128+3/4^k exact",
+        "Block occurrence Cusick analogue one run of ones shifts t=2^j (2^k-1) lower bound 39/64",
+        "https://arxiv.org/html/2309.00142v1",
+        "https://arxiv.org/html/2412.15851v1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2309.00142v1",
+      "https://arxiv.org/html/2412.15851v1",
+      "https://arxiv.org/abs/2411.07779",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-superadditivity-of-summatory-all-one-block-counts--6618f31b8fde"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "[1] Proposition 3.2 provides the source recurrences and is expressly reused, with a new symbolic special-family reduction to a fixed negative tail.",
+        "[2] Theorem 1.2 is many-runs Gaussian and does not apply to a single maximal run.",
+        "[3] concerns binary sum-of-digits s(n), not overlapping 11-count r(n)."
+      ],
+      "reasoning": "Pointwise implication comparison: [1] proves existence of shift distributions and a recursion for arbitrary t, but no explicit parameter-uniform evaluation; the new result proves exact stabilized values and the full sharp one-run bound by a nontrivial support invariant. [2] asymptotics do not apply for N=1. [3] changes the digit statistic. A general transfer-matrix simplification or an unpublished prior evaluation could still cover this theorem.",
+      "searches": [
+        "Sobolewski Spiegelhofer binary overlapping 11 nonnegative increment single block shifts exact density plateau",
+        "Binary block-additive r function two adjacent ones shifted by one block c_t distribution exact lower bound",
+        "Sobolewski Spiegelhofer Block occurrences in binary expansion correlation coefficients 2023 2024 one-block shifts",
+        "https://arxiv.org/html/2309.00142v1",
+        "https://arxiv.org/html/2412.15851v1",
+        "https://arxiv.org/abs/2411.07779"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "[1] arXiv:2309.00142v1, Section 2 equation (2.4) and Proposition 3.2: asks the global strict density inequality and derives conditional shift recurrences, but provides no full one-block closed-family density table.",
+        "[2] arXiv:2412.15851v1, Section 1: asymptotic normality for many maximal one-blocks, without the stated fixed-one-block family."
+      ],
+      "reasoning": "Equivalent formulations include the nonnegative mass of the conditional difference distribution, its negative Laurent tail, the Rudin-Shapiro adjacent-one counting statistic, and fixed one-run binary translates. The discovered polynomial increment K(z) supported in nonnegative degrees provides exact stabilization across all run lengths; this explicit family evaluation was not stated in the inspected works. The base recurrences themselves are previously published and not original.",
+      "searches": [
+        "For all k>=4, density of n such that number of occurrences 11 in binary n+(2^k-1) >= in n equals 83/128 and for 2^j(2^k-1) with j>=1 equals 39/64",
+        "Exact 39/64 83/128 11 block additive shift one block of ones 2^k-1",
+        "Sobolewski Spiegelhofer binary overlapping 11 nonnegative increment single block shifts exact density plateau",
+        "https://arxiv.org/html/2309.00142v1",
+        "https://arxiv.org/html/2412.15851v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "[1] lists the value sequence r(n) as OEIS A014081 and reports an experimental lower bound among shifts t<2^20, not a sharp infinite-family table.",
+        "published-finding corpus 2026/10/4/SCOPE-superadditivity-of-summatory-all-one-block-counts--6618f31b8fde addresses superadditivity of the *summatory* block count, not nonnegative shifts of the pointwise overlapping 11-count."
+      ],
+      "reasoning": "The published OEIS reference is for r(n) itself, not this exact probability table. A bounded numerical shift check does not establish the infinite k,j law or the negative-tail rigidity. No verified exact table was found among the queried mathematical records; failed search alone would not prove novelty.",
+      "searches": [
+        "For all k>=4, density of n such that number of occurrences 11 in binary n+(2^k-1) >= in n equals 83/128 and for 2^j(2^k-1) with j>=1 equals 39/64",
+        "Exact 39/64 83/128 11 block additive shift one block of ones 2^k-1",
+        "2026/10/4/SCOPE-superadditivity-of-summatory-all-one-block-counts--6618f31b8fde",
+        "https://oeis.org/A014081"
+      ]
+    },
+    "rationale": "The inspected primary reference arXiv:2309.00142v1 asks the strict density question and provides general recursions but not the sharp one-run density classification or a run-length negative-tail stabilization. Subsequent arXiv:2412.15851v1 proves a many-run Gaussian approximation, not a one-run law. Relevant published-finding corpus searches surfaced a summatory 11-count theorem, whose pointwise implication is inapplicable. Previously published recurrence formulas are acknowledged as a crucial ingredient and not claimed novel. Potential unindexed implications and broader transfer-matrix coverage are residual risks.",
+    "residual_risks": [
+      "Published Proposition 3.2 supplies generic recurrences for all individual shifts; the new contribution is only their infinite-parameter exact simplification, so hidden published algebraic simplifications would undermine originality.",
+      "Search databases and public full-text comparisons are not exhaustive; an unpublished or unindexed complete one-block calculation might exist.",
+      "No independent manuscript review or publication-priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source proves general shift recurrences and many-run Gaussian law, not the exact one-run table or infinite plateau. The source recurrences are necessary prior inputs.",
+        "evidence": [
+          "Section 2 eq. (2.4) openly asks the strict inequality.",
+          "Proposition 3.2 displays a_t,b_t recursions.",
+          "Theorem 2.1 requires the number of maximal runs to become large."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2309.00142v1",
+        "material_read": "Full online article: abstract, Sections 1, 2, 3.1 (including exact recurrence and base law), Section 3.5 concluding proof, and references context; searched article text for single block, 83, 39/64 and appendix.",
+        "method": "Read author-hosted arXiv HTML and compare the object, distribution parameters, all-run claims, and published conditional identities.",
+        "title": "Block occurrences in the binary expansion",
+        "trigger": "Exactly the same 11 block-count statistic and explicitly open density question"
+      },
+      {
+        "assessment": "General block-pattern Gaussian law only when number of maximal one-runs increases; no exact single-run theorem.",
+        "evidence": [
+          "Theorem 1.2: N maximal blocks of ones tends to infinity.",
+          "Introduction says one-run N below asymptotic threshold remains the hard case."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2412.15851v1",
+        "material_read": "Full online article: abstract, Sections 1–2 (main theorem and parameters), sections concerning recurrences and concluding theorem proof, plus targeted searches for one-block and 39/64.",
+        "method": "Read arXiv HTML v1, compare Theorem 1.2 hypotheses, scope, and the statistic N^w.",
+        "title": "On the behavior of binary block-counting functions under addition",
+        "trigger": "Later full-word generalization potentially dominating the same object"
+      },
+      {
+        "assessment": "Concerns s(n), number of one-bits, rather than r(n), number of overlapping adjacent one pairs; does not establish the claimed value table.",
+        "evidence": [
+          "Abstract explicitly defines s(n) and characteristic functions of s(n+t)-s(n)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2411.07779",
+        "material_read": "Article abstract and described scope.",
+        "method": "Compared defined function and major stated theorem with the proposed 11-count shift density.",
+        "title": "Decomposing the sum-of-digits correlation measure",
+        "trigger": "Similar shift-correlation parameter family and exact fixed-block subfamilies"
+      },
+      {
+        "assessment": "Summatory superadditivity does not imply the sign-density of the pointwise shifted difference. No whole-document exclusion is asserted.",
+        "evidence": [
+          "published-finding corpus summary states superadditivity of summatory occurrence counts, not distributions under fixed shifts."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-superadditivity-of-summatory-all-one-block-counts--6618f31b8fde",
+        "material_read": "Search-returned title and abstract summary only, not entire repository proof.",
+        "method": "Compared searched theorem statement and required quantifiers/statistics.",
+        "title": "Superadditivity of summatory all-one block counts",
+        "trigger": "Closest semantic published-finding corpus hit mentioning all-one binary block counts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "36850f32-9063-424e-8fe9-bffe6a69b329",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The original 2023 paper explicitly leaves the strict-density analogue of Cusick open; shifts with a single maximal run constitute a complete natural infinite hard regime outside its many-runs Gaussian approximation. A sharp uniform bound 39/64 for the whole family is meaningful, and the stronger negative-tail invariance once run length exceeds four explains why arbitrarily long blocks produce the same exact probability. This is an infinite structural rigidity, not isolated small-t enumeration or the established recurrence alone.",
+    "status": "PASS"
+  }
+}
