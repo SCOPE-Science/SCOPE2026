@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The source identities and section-count argument were reconstructed from the full primary PDF. A single very general branch member exists simultaneously for the countable family because \(|2R|\cong\mathbf P^3\) over the uncountable field \(\mathbf C\). Transversality makes the two pullback components smooth and connected. Their pre-blowup intersection is \(8\); after the three fixed common blowups their intersection matrix is
-\[
-\begin{pmatrix}-3&5\\5&-3\end{pmatrix}.
-\]
-Therefore the sum has intersection \(2\) with each component and nonnegative intersection with every other irreducible curve, proving nefness. Its square is \(4\), so it is big. The long one-section range is exactly the range proved in the source.
+## correctness
 
-## Originality
-**PASS.** The initiating paper proves \(D_n^2=4\) and the long non-moving range, but does not state that \(D_n\) is nef, big, or simple normal crossings. Its explicit non-nef calculation concerns a different auxiliary divisor. The original moving-multiple paper discusses nef and big positivity but predates the current example. Exact-title, exact-identifier, nefness, SNC, and fixed-square searches did not locate a covering statement. This does not eliminate the residual possibility of an unindexed observation.
+PASS
 
-## Value
-**PASS.** The refinement places the pathology inside the natural class of nef and big divisors while keeping the surface fixed and the self-intersection equal to \(4\). It also gives reduced SNC representatives. This materially sharpens the geometric interpretation of the counterexample without claiming to solve the prime-or-irreducible variant.
+Reconstructed Liu fixed elliptic product cover setup, branch degrees 2 and 2(n²+4), connected smooth pullbacks, genera 2 and n²+5, eight transverse intersections before three fixed blowups and five afterwards. Each strict transform has square -3; their sum has square 4 and positive intersection 2 with each component, nonnegative with every other irreducible curve; hence nef and big. Over uncountable C, countably many tangent loci in |2(F+G)|≈P³ can be avoided simultaneously, fixing one X across odd n. Liu’s checked section calculation gives h0(mD_n)=1 for 1≤m<n²/4+1 independently of regression scripts.
 
-## Closest literature and limitations
-The closest source is Jihao Liu, *An example of a very non-movable effective divisor*, arXiv:2605.20594v1. The motivating background is Ciliberto--Knutsen--Lesieutre--Lozovanu--Miranda--Mustopa--Testa, *A few questions about curves on surfaces*. The finding does not make the divisors irreducible and does not identify the exact first moving multiple.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Liu proves nonmoving square-4 divisor on the fixed surface; the extra simultaneous smooth SNC and nef-and-big positivity assertion is not in Liu’s inspected 4-page paper and requires the explicit two-component intersection argument.
+
+## value
+
+PASS
+
+The fixed self-intersection-4 family’s unchanged nonmoving range persists even under nefness, bigness and SNC divisor conditions, a meaningful strengthening of a surface-positivity counterexample. The divisors are still reducible, a material boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

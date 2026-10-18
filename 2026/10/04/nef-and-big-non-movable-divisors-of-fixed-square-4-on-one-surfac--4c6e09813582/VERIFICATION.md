@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,25 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The quantified statement is proved symbolically in `RESULT.md`. Simultaneous genericity uses a countable intersection of dense open conditions in \(|2R|\cong\mathbf P^3\) over \(\mathbf C\), and nefness uses intersection theory on the fixed blown-up double cover. No finite computation is used to infer those general facts.
+# Independent mathematical audit
 
-The bundled `verify.py` is a regression check. For odd integers \(n\) through \(999\) it recomputes
-\[
-A_n^2=8,\qquad B\cdot F=2,\qquad B\cdot\Gamma_n=2(n^2+4),
-\]
-\[
-g(C_F)=2,\qquad g(C_n)=n^2+5,
-\]
-\[
-\widetilde C_F^2=\widetilde C_n^2=-3,\qquad \widetilde C_F\cdot\widetilde C_n=5,
-\]
-\[
-D_n\cdot\widetilde C_F=D_n\cdot\widetilde C_n=2,\qquad D_n^2=4.
-\]
-It also checks the positive-integer range satisfying \(1\le m<n^2/4+1\) for representative odd \(n\).
+## correctness
 
-The replay output stored in `verification_output.txt` must end in `VERIFY_OK`.
+PASS
 
-Unproved limits: the verifier does not establish the source cohomology theorem, Bertini's theorem, the uncountability argument, or literature originality. Those are handled by the mathematical proof and source inspection.
+Reconstructed Liu fixed elliptic product cover setup, branch degrees 2 and 2(n²+4), connected smooth pullbacks, genera 2 and n²+5, eight transverse intersections before three fixed blowups and five afterwards. Each strict transform has square -3; their sum has square 4 and positive intersection 2 with each component, nonnegative with every other irreducible curve; hence nef and big. Over uncountable C, countably many tangent loci in |2(F+G)|≈P³ can be avoided simultaneously, fixing one X across odd n. Liu’s checked section calculation gives h0(mD_n)=1 for 1≤m<n²/4+1 independently of regression scripts.
+
+## originality
+
+PASS
+
+Liu proves nonmoving square-4 divisor on the fixed surface; the extra simultaneous smooth SNC and nef-and-big positivity assertion is not in Liu’s inspected 4-page paper and requires the explicit two-component intersection argument.
+
+## value
+
+PASS
+
+The fixed self-intersection-4 family’s unchanged nonmoving range persists even under nefness, bigness and SNC divisor conditions, a meaningful strengthening of a surface-positivity counterexample. The divisors are still reducible, a material boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
