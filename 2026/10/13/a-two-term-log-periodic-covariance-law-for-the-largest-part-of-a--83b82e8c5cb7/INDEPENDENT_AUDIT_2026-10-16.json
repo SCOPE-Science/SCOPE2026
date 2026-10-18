@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T21:14:09.022468Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under uniform unrestricted compositions of N, cut bits n=N-1 are iid fair; K=1+ones and M=1+longest zero run. Bernoulli differentiation gives Cov=-1/4 sum_{r>=1} partial_p Pr_p(L_n<r)|p=1/2. The avoidance generating function is (1-(qz)^r)/(1-z+p q^r z^(r+1)). Differentiating its dominant-pole residue uniformly for log2 n±3log2 ln n, with Rouché separation on |z|=3/2, gives -n epsilon_r' exp(-n epsilon_r)+ summable o(1) errors, epsilon_r=p q^r. Short-run disjoint-block tails are superexponentially suppressed and long-run pivotality tails contribute O((ln n)^-2). Reindexing lambda_r=n 2^(-r-1) yields Cov= -1/2[(log2 n-2)P({log2 n})+Q({log2 n})]+o(1), with P and Q as absolutely convergent dyadic series. Gamma Fourier coefficients imply P nonconstant, and longest-run variance bounded above and away from zero gives Corr=-Theta((ln N)/sqrt N). Independent exact recurrences give declining absolute differences through n=4096; numerical values alone cannot establish the o(1) uniform error.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General longest-run marginal asymptotics and composition part counts are older.",
+          "An earlier Resultary same-pair theorem gives negative regression and O(log^2 n) covariance, strictly weaker than the phase-resolved asymptotic.",
+          "Lou abstract promises exact joint finite law, which may in principle permit derivation but does not state the expansion in accessible material."
+        ],
+        "reasoning": "None of these checked published statements logically gives an absolute o(1) two-term covariance without a further differentiated singularity analysis. The unread Lou full text remains named as a risk.",
+        "searches": [
+          "Schilling 1990 The Longest Run of Heads variance",
+          "Bender Canfield Locally Restricted Compositions I 2005",
+          "Lou 1996 runs longest run tests joint number successes",
+          "Resultary 0ee24a72cd31 prior exact covariance"
+        ]
+      },
+      "checked_sources": [
+        "S. Finch, Covariance within Random Integer Compositions, arXiv:2010.06643v2",
+        "Resultary/2026/2026/10/4/SCOPE-rigorous-decorrelation-of-part-count-and-maximum-in-uniform-comp--0ee24a72cd31/RESULT.md",
+        "W. Y. W. Lou, JASA 91 (1996), DOI 10.1080/01621459.1996.10476727 (abstract only)",
+        "Schilling 1990 marginal longest-run theory",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior Resultary: -Cov=O((log N)^2), no matching lower bound; present Cov=-Theta(log N), strictly more precise.",
+          "Finch proposed negative power of log correlation while present order is (log N)/sqrt N.",
+          "Exact finite joint law alone could theoretically imply an asymptotic through further analysis, but no inspected theorem states it."
+        ],
+        "reasoning": "The new analysis establishes a qualitatively different decay regime and a nonconstant periodic leading term. It does not claim priority for cut-bit representation, exact runs generating functions, or negative covariance.",
+        "searches": [
+          "arXiv:2010.06643v2 Section 1 dependence and correlation conjecture",
+          "Resultary same-statistic negative-regression theorem",
+          "Lou 1996 abstract joint laws"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "S. Finch, Covariance within Random Integer Compositions, arXiv:2010.06643v2: gives finite exact mixed recurrences and suggests Corr ~ C(ln N)^(-5/2).",
+          "Resultary/2026/2026/10/4/SCOPE-rigorous-decorrelation-of-part-count-and-maximum-in-uniform-comp--0ee24a72cd31/RESULT.md: negativity and O((ln N)^2) bound only."
+        ],
+        "reasoning": "Long-run/maximum-part aliases, Bernoulli successes vs longest failure run, and logarithmic periodicity considered. No compared full source states the sharp mixed covariance two-term expansion.",
+        "searches": [
+          "random compositions covariance number of parts and largest part longest run log periodic asymptotic",
+          "Finch Covariance within Random Integer Compositions log periodic largest part correlation",
+          "Resultary semantic search: random compositions covariance number of parts and largest part longest run log periodic asymptotic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finch provides numerical finite rows and recurrence, not a table of phase-dependent P,Q coefficients.",
+          "Lou supplies exact finite distributions according to abstract, no confirmed asymptotic tables.",
+          "The previously published Resultary record does not supply the P,Q expansion."
+        ],
+        "reasoning": "The new claim is an infinite asymptotic with absolute remainder, not rediscovery of finite exact distributions or a known covariance table.",
+        "searches": [
+          "Finch 2020 Table 1 mixed composition covariances",
+          "Lou 1996 exact finite joint Markov chain distribution",
+          "Resultary published same pair 0ee24a72cd31"
+        ]
+      },
+      "rationale": "Finch directly studies the same joint statistics but proposes a different decay law; prior Resultary work proved negative regression and a weaker log-squared covariance bound, not this uniform absolute-o(1), phase-resolved two-term formula. Lou 1996 supplies exact finite distributions; its full article remains inaccessible and is a specific priority risk, not proof of novelty or an automatic O failure.",
+      "residual_risks": [
+        "Lou (1996) remains inaccessible in full despite arXiv/OA and institutional attempts; possibly implicit sharper mixed asymptotics cannot be ruled out.",
+        "Very small nonconstant periodic amplitudes cannot be reliably certified numerically; Gamma integral establishes them symbolically.",
+        "Quantified conclusion is uniform-unrestricted compositions only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same problem, competing conjecture; no asymptotic covariance law proved",
+          "evidence": "Finch gives exact finite recurrences and conjectures correlation decay as a negative power of log N.",
+          "identifier_or_url": "https://arxiv.org/html/2010.06643v2",
+          "material_read": "Complete accessible primary arXiv version including Section 1, table, definitions, questions and references",
+          "method": "Read full primary arXiv/PDF; rendered key page containing conjecture",
+          "title": "Covariance within Random Integer Compositions",
+          "trigger": "Same two random variables and proposed dependence law"
+        },
+        {
+          "assessment": "Strict negative regression and O((log N)^2) covariance; no sharp phase-resolved mixed expansion",
+          "evidence": "Equation (4) gives an O(log^2 n) upper bound and Eq (5) a weaker correlation bound.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-rigorous-decorrelation-of-part-count-and-maximum-in-uniform-comp--0ee24a72cd31",
+          "material_read": "Complete RESULT.md read via GitHub at source path, including theorem, proof, limits",
+          "method": "GitHub primary published scientific file",
+          "title": "Rigorous decorrelation of part count and maximum in uniform compositions",
+          "trigger": "Earlier result with precisely same pair of statistics"
+        },
+        {
+          "assessment": "Exact finite joint distribution is prior work; no valid whole-document noncoverage conclusion possible",
+          "evidence": "Abstract items (c),(d) give joint and conditional longest-run/success-count distributions.",
+          "identifier_or_url": "https://doi.org/10.1080/01621459.1996.10476727",
+          "material_read": "Publisher abstract and bibliographic metadata only. arXiv and lawful OA full text search unsuccessful; authorized institutional PDF attempt returned no_pdf. Full paper not read.",
+          "method": "Web full-text/OA search and authorized Oxford institutional attempt",
+          "title": "On Runs and Longest Run Tests: A Method of Finite Markov Chain Imbedding",
+          "trigger": "Strong potential general prior joint-law source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The question of asymptotic dependence of composition length and maximum is explicitly posed for the same statistics. The new absolute-o(1) covariance expansion identifies the sharp log scale, the lattice-phase dependence and the correct root-N decorrelation regime, superseding a conjectured different decay order. This is a mathematically motivated sharp asymptotic result, not merely finite runs enumeration.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "S. Finch, Covariance within Random Integer Compositions, arXiv:2010.06643v2",
+    "Resultary/2026/2026/10/4/SCOPE-rigorous-decorrelation-of-part-count-and-maximum-in-uniform-comp--0ee24a72cd31/RESULT.md",
+    "W. Y. W. Lou, JASA 91 (1996), DOI 10.1080/01621459.1996.10476727 (abstract only)",
+    "Schilling 1990 marginal longest-run theory",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Lou (1996) remains inaccessible in full despite arXiv/OA and institutional attempts; possibly implicit sharper mixed asymptotics cannot be ruled out.",
+    "Very small nonconstant periodic amplitudes cannot be reliably certified numerically; Gamma integral establishes them symbolically.",
+    "Quantified conclusion is uniform-unrestricted compositions only."
+  ],
+  "schema_version": 1
+}
