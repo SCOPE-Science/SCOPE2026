@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-The claim is reconstructed from the unordered two-particle discrete configuration complex. The verifier checks all \(66\) vertices, \(240\) edges, and \(204\) squares, verifies \(\partial_1\partial_2=0\), connectivity of the configuration \(1\)-skeleton, a determinant-\(1\) rank-\(161\) minor for \(\partial_2\) in an integral cycle basis, and \(43\) independent integral \(2\)-cycles. These data force \(H_1\cong\mathbb Z^{14}\) and \(H_2\cong\mathbb Z^{43}\), with no torsion in \(H_1\). The same verifier reconstructs the action of all \(48\) graph automorphisms and recomputes every character value and irreducible multiplicity.
+## correctness
 
-## Originality
-The closest general sources treat graph-configuration functoriality and planar two-particle homology. Barnett–Farber's planar theory can account for coarse nonequivariant information but does not state the full cuboctahedral \(S_4\times C_2\)-module decomposition. Agarwal–Banks–Gadish–Miyata make automorphism naturality explicit but likewise give no exact cuboctahedral character. Exact-object and alias searches in the research database found no statement implying the decomposition.
+PASS
 
-## Value
-The cuboctahedral graph is a canonical \(4\)-regular Archimedean graph with the full octahedral symmetry group. The result upgrades a nonequivariant Betti-number calculation to a complete rational symmetry-module description in both nonzero positive degrees. In particular, the central orientation-reversing symmetry acts very differently in degrees \(1\) and \(2\), with traces \(0\) and \(-7\), information invisible to Betti numbers.
+Rebuilt L(Q3) from the 12 cube edges and found 24 adjacency edges. Discrete two-particle cubical model has 66 vertices, 240 edge-vertex cells, 204 disjoint-edge squares; independent boundary calculations checked d1*d2=0, d1 rank 65 and d2 rank 161 over F_2,F_3,F_101,F_1009. Independently decoded actual 24,241-byte certificate and recomputed the 161x161 integer minor by exact fraction-free elimination: determinant +1; checked 43 kernel columns satisfy B*K=0 and 43x43 pivot inverse. Thus H1=Z^14 and H2=Z^43, with no torsion. Reconstructed signed actions of all 48 cube symmetries on cells and kernel; reproduced ten rational character values in both degrees and S4xC2 irreducible multiplicities. The graph is sufficiently subdivided for n=2 (one edge between essential vertices, simple cycle lengths >=3).
 
-## Closest literature and limitations
-The calculation is compatible with the classical cellular and planar-graph frameworks but is not a family theorem. It does not compute the integral representation lattice or the cohomology ring. A specialized unindexed computation remains a residual novelty risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Barnett–Farber Theorem 6.1 strongly covers integral H2 of ordered configurations for ALL planar graphs by disjoint face-pair tori, with swap involution; other general graph braid papers supply cellular equivariant machinery. These are credited. The final claimed result is not the ranks or general existence of representation, but the full ten-conjugacy-class rational Aut(L(Q3)) character and all multiplicities, plus a reproducible integral unit-minor certificate. This specialized 48-element signed action is NOT tabulated by the general planar theorem and requires new graph-specific enumeration/certificate. Resultary closest SCOPE entries concern Petersen/dodecahedral configurations and exchange-sign Borel–Moore homology, distinct objects/coefficients. It remains a computational corollary of general theory, so originality scope is narrow; no exact table found.
+
+## value
+
+PASS
+
+The cuboctahedral graph is the maximally symmetric natural line graph of the cube, and its FULL S4xC2 action on graph braid homology is a natural equivariant invariant, not just an arbitrary subgraph table. The ten class traces and decomposition provide a concrete test case for graph-configuration functoriality and integrality of homology, distinguishing central reflection sectors. Substantial exact computation is needed to determine these natural numbers; no family theorem or ring structure is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
