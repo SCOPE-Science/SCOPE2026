@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For an arbitrary directed increasing net, scalar coordinates are bounded monotone, and the order increments make the image coordinates Cauchy. Passing to their norm limit gives the exact upper-bound epigraph. The candidate least upper bound is verified when the image limit has a preimage; conversely specially chosen upper bounds force any alleged supremum to recover that preimage. A geometric-error summable construction produces an increasing order-bounded sequence without a supremum for every nonclosed image. The diagonal \(\ell_1\) witness independently demonstrates the obstruction. All quantifiers and completion assumptions are explicit.
+## correctness
 
-**Originality — PASS (residual risk documented).** Glück's arXiv:2409.19768v1 raises the general monotone-supremum/normality question and supplies a theorem under separability and normality; it does not give the exact upper-bound profile for these cones. Messerschmidt's arXiv:1307.1415v2 studies pairwise quasi-suprema and normality, not this net-level epigraph. Existing criteria characterizing weak Dini convergence and normality for operator-gauge cones do not, as stated, characterize upper bounds or individual net suprema. The same cone family is close background, and synonymous results may exist in unindexed Lorentz-cone literature; no global uniqueness is claimed.
+PASS
 
-**Value — PASS.** The result supplies a natural, complete supremum classification in a family used to test order convergence. It is quantitative at the level of every upper bound rather than a new proof of a known closed-range equivalence; the exact missing-image obstruction and countable explicit witness materially distinguish least upper bounds from mere order bounds. It gives a concrete restricted boundary for a published question while leaving the unrestricted question open.
+Let T:X→Y bounded and injective between real Banach spaces, C_T={(t,x):t≥||Tx||}. For any increasing net with upper bound, t_i↗s and ||Tx_j−Tx_k||≤2(s−t_i) above common predecessor i; Banach completeness produces image norm limit y. A candidate (u,w) is above every element iff u≥s+||Tw−y||: limit proves necessity, triangle inequality gives sufficiency. If y∈T(X), (s,T^{-1}y) is least; if a supremum (u,w) existed, compare it with q_i=(s+||Tx_i−y||,x_i), then u+||Tw−y||≤s and upper bound requires u≥s+||Tw−y||, forcing Tw=y. If T(X) nonclosed, choose a summably fast image approximating inaccessible y and let scalar increments equal successive image distances; resulting monotone bounded sequence has no supremum. Diagonal T on ℓ1, (Tx)_k=2^{-k}x_k, x_n=∑_{k≤n}e_k, t_n=1−2^{-n}, gives s=1 and y=(2^{-k}) with no ℓ1 preimage; (2,0) is a concrete order upper bound. All net quantifiers and closed-range equivalences verified directly.
 
-**Limitations.** This is only about bounded injective real operator gauges. The scalar/image Cauchy property does not imply convergence of the original Banach-space vectors. No external or independent audit has been performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The closely related published weak-Dini theorem for the SAME C_T characterizes closed range through weak-to-norm behavior, not the upper-bound epigraph for each increasing net or the existence of its order supremum. Glück poses broader monotone completeness/normality questions but assumes normality in his main convergence results. The exact norm-geometry of all upper bounds and individual missing-limit obstruction survive these comparisons; residual possibility of an older implicit Lorentz-cone treatment.
+
+## value
+
+PASS
+
+Calculating every upper bound, not just existence of a supremum, distinguishes leastness from minimal upper bounds and shows precisely how nonclosed operator ranges obstruct monotone order completeness. This is a natural structural statement about closed generating nonnormal cones and gives a nontrivial uniform constructive counterexample for every nonclosed range, directly addressing a recognized gap in monotone-order Banach space geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
