@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The lower bound follows because omitting two deleted matched pairs makes the corresponding same-side vertices have identical truncated-distance vectors. Equality therefore has exactly one omitted pair and one selected vertex from every other pair. Same-side pairs are then automatically separated. For an unselected adjacent cross pair \(a_i,b_j\), failure occurs exactly when all landmarks lie in \(\{a_j,b_i\}\). This cannot happen at size \(n-1\ge3\), while at \(n=3\) it isolates exactly the mixed-side two-landmark exceptions. The bundled exhaustive checker independently confirms the lower bound and full basis classifier through \(n=9\).
+## correctness
 
-## Originality
-PASS. The foundational adjacency-metric paper and the later full-text \(k\)-adjacency treatment were inspected around their definitions, scope, and graph-family results. The latter mentions complete bipartite graphs as a twin example but contains no crown treatment. Focused searches using crown, matching-deleted complete bipartite, one-factor deletion, and bipartite Kneser terminology found no statement implying the retained basis classification or count. The residual risk is an unindexed source under uncommon terminology.
+PASS
 
-## Value
-PASS. The crown graph is a canonical matching-deleted complete bipartite family. The result does more than compute a scalar: it classifies every minimum adjacency resolving set, gives an exact closed count, and identifies the unique small exception at \(n=3\). The one-hole-transversal structure is a reusable description for comparisons with other metric-identification parameters on the same family.
+If two deleted-matching pairs are disjoint from an adjacency resolving set, their two A-side vertices have identical truncated distance vectors, so the set meets n-1 matched pairs. A size n-1 set must thus choose one vertex per pair with exactly one pair omitted. Such a transversal separates unselected same-side vertices using a selected counterpart of one index. For unselected opposite-side vertices a_i,b_j with i≠j, the only possible indistinguishability is S⊆{a_j,b_i}, which cannot occur when |S|=n-1>=3 (n>=4); in n=3 it occurs precisely for mixed-side transversals. Independent exhaustive code recomputed all subset signatures for sizes below n-1 and every n-1 subset for n=3..8, giving basis counts 6,32,80,192,448,1024 respectively; unrestricted n follows the argument, not this census.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+An especially relevant earlier published Resultary result (2026-10-04) classifies EDGE-metric crown bases by exactly one-hole transversals, n*2^(n-1) even at n=3. That is distinct from vertex adjacency metric dimension: its distances classify edges, while the present theorem distinguishes vertices with truncated d_2; the n=3 adjacency basis count is 6 versus 12 edge bases. For n>=4 the optimizers coincide, which creates substantial overlap, but the edge metric theorem alone does not logically furnish the adjacency vertex-separation condition and misses the 3-crown exception. The separate parameter, proof and exception are an original natural invariant best-of-knowledge; do not count the repeated large-n family as novel independent of the edge result.
+
+## value
+
+PASS
+
+Adjacency resolving sets and edge-metric resolving sets have different identification tasks. Their surprisingly coincident crown bases for n>=4 and sharply different n=3 boundary, alongside complete enumeration of all minimal vertex adjacency resolving sets, are precise natural graph-identification facts a future graph invariants researcher could need. Mathematical value rests on the independent vertex-classification and exceptional boundary, not on reprinting the known edge-metric basis count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

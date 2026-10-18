@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-The proof was reconstructed directly from the truncated metric \(d_2(x,y)=\min\{d(x,y),2\}\) on the crown graph. The critical checks are:
+# Independent mathematical audit
 
-- two completely omitted deleted matched pairs leave an unresolved same-side pair, proving \(|S|\ge n-1\);
-- equality forces one omitted pair and one selected vertex from every other pair;
-- under that profile, every same-side unselected pair is distinguished by a selected matched counterpart;
-- an unselected cross pair \(a_i,b_j\), \(i\ne j\), fails exactly when \(S\subseteq\{a_j,b_i\}\);
-- this is impossible for \(n\ge4\) because \(|S|=n-1\ge3\), while for \(n=3\) it removes exactly the mixed-side one-hole transversals.
+## correctness
 
-The bundled `verify.py` constructs the graph and truncated metric from definitions, exhausts all subsets smaller than the claimed optimum, and compares every optimum-size subset with the structural classifier for \(3\le n\le9\). Expected output:
+PASS
 
-`VERIFY_OK n_range=3..9 subset_checks=141658 basis_checks=59274 bases=4086 max_order=18`
+If two deleted-matching pairs are disjoint from an adjacency resolving set, their two A-side vertices have identical truncated distance vectors, so the set meets n-1 matched pairs. A size n-1 set must thus choose one vertex per pair with exactly one pair omitted. Such a transversal separates unselected same-side vertices using a selected counterpart of one index. For unselected opposite-side vertices a_i,b_j with i≠j, the only possible indistinguishability is S⊆{a_j,b_i}, which cannot occur when |S|=n-1>=3 (n>=4); in n=3 it occurs precisely for mixed-side transversals. Independent exhaustive code recomputed all subset signatures for sizes below n-1 and every n-1 subset for n=3..8, giving basis counts 6,32,80,192,448,1024 respectively; unrestricted n follows the argument, not this census.
 
-The finite computation does not establish the theorem beyond \(n=9\); the symbolic argument supplies the proof for every \(n\ge3\). No independent audit has been performed.
+## originality
+
+PASS
+
+An especially relevant earlier published Resultary result (2026-10-04) classifies EDGE-metric crown bases by exactly one-hole transversals, n*2^(n-1) even at n=3. That is distinct from vertex adjacency metric dimension: its distances classify edges, while the present theorem distinguishes vertices with truncated d_2; the n=3 adjacency basis count is 6 versus 12 edge bases. For n>=4 the optimizers coincide, which creates substantial overlap, but the edge metric theorem alone does not logically furnish the adjacency vertex-separation condition and misses the 3-crown exception. The separate parameter, proof and exception are an original natural invariant best-of-knowledge; do not count the repeated large-n family as novel independent of the edge result.
+
+## value
+
+PASS
+
+Adjacency resolving sets and edge-metric resolving sets have different identification tasks. Their surprisingly coincident crown bases for n>=4 and sharply different n=3 boundary, alongside complete enumeration of all minimal vertex adjacency resolving sets, are precise natural graph-identification facts a future graph invariants researcher could need. Mathematical value rests on the independent vertex-classification and exceptional boundary, not on reprinting the known edge-metric basis count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
