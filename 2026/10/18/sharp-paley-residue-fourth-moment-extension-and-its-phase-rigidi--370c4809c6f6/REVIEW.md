@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The field hypotheses and Fourier normalizations are explicit. The Paley difference-intersection parameter is derived directly from quadratic characters. An exact autocorrelation sum-of-squares identity, rather than an asymptotic bound, establishes the sharp constant and equality requirements. For orders at least \(27\), Hasse's elliptic-curve bound supplies the uniformly positive triple-intersection criterion; the only outstanding admissible orders are resolved by direct classification at \(3,7\), exact exhaustive enumeration at \(19,23\), and an integer determinant certificate at \(11\). The actual supplied checker was run, including the degree-three extension field. The scope is all odd prime powers congruent to \(3\) modulo \(4\).
+
+## Originality — PASS, with residual priority risk
+The classical difference-set property and Fourier fourth-moment orthogonality are known and explicitly credited. The inspected Iosevich–Koh quadratic-surface work does not assert this Paley-residue sharp weighted fourth-moment estimate or the \(7\)-to-\(11\) rigidity transition. Inspected Paley combinatorial sources treat different counting questions. A published four-point unimodular Fourier minimization and a small-field anisotropic-sphere phase classification have different supports and implications. Indexed literature searches did not locate the exact result; unsuccessful searches do not establish priority. An older Freiman-homomorphism or difference-set formulation remains the principal historical risk.
+
+## Mathematical value — PASS
+The quadratic residues are a canonical dense difference set in an infinite sequence of finite fields. The result identifies both the exact optimum and the full equality locus, including a nontrivial change from continuous phase freedom to finite character rigidity. The quantitative sum-of-squares identity measures amplitude nonuniformity and conflicting phase ratios separately and is meaningful even when no global phase-rigidity conclusion is requested. The needed elliptic-curve incidence estimate and exceptional order-eleven integral certificate go substantially beyond a routine application of Cauchy–Schwarz.
+
+## Limits and sources
+The analysis is restricted to the stated field congruence class, support, and Fourier exponent. The order-\(19\) and order-\(23\) exceptional verifications are exact finite computations with source code supplied; finite random tests are not treated as a universal proof. The Hasse bound is an established external lemma. The closest inspected published literature is Iosevich–Koh, arXiv:0804.4505v1; Bachoc–Matolcsi–Ruzsa, *Squares and difference sets in finite fields*; and Monico–Elia, *Note on an Additive Characterization of Quadratic Residues Modulo p*. Two nearby published Fourier classifications concern different objects and do not imply the present statement. Historical equivalence and independent verification remain possible and unperformed respectively.
+
+Self-review: passed. Independent audit: not yet performed.
