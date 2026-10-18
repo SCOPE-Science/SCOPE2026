@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-For a given binary input word \(w\), appending its last symbol partitions every occurrence of every subsequence according to whether that position is used. This gives a complete, exact integer recurrence. Exhaustion of all binary source words of lengths \(2\) through \(14\), with no quotienting by symmetry, finds only four exceptions, all of length \(14\). Two independent direct position-subset tallies cross-check every frequency for representatives `01010001110101` and `01110101010001`; their unique length-eight maximizing subsequences occur 144 and 147 times, while the best length-at-most-seven patterns occur 136 and 144 times. The attached verifier checks every assertion and outputs an explicit success marker only after all checks.
+PASS
 
-## Originality (O): PASS; residual risk
+The append-letter recurrence F_{wc}(u)=F_w(u)+1_{u=vc}F_w(v) exactly partitions scattered-subsequence occurrence choices, so all 2^n binary words for n=2..14 and all their nonzero subwords are exhaustively handled by finite integer dynamic programming. The inspected verify.py explicitly loops product(01,repeat=n) for each n, checks no n≤13 exception and exactly four n=14 strings, confirms unique maximizers. The word 01010001110101 has unique most frequent subword 01001101 (length 8) with 144 occurrences versus maximum 136 for lengths≤7, directly refuting the half-length conjecture. Independent binary exhaustive recomputation for every word n≤14 and independent mask recomputation on two witnesses corroborated the source; computation is finite *exhaustive*, not an extrapolation to n>14.
 
-Fang's full arXiv:2406.02971v3, Section 5, Conjecture 5.7 asserts that *at least one* most frequent subword has length at most \(\lceil n/2\rceil\). It is contradicted by both explicit strict frequency gaps. The first arXiv version uses a stronger, differently phrased quantifier and is not treated as the target of the contribution. Source tables concern entropy-minimizing inputs, not exhaustive input-word counterexamples; Menon–Singh studies fixed-pattern counting and different optimization order. Targeted searches for half-length and mode-length formulations, exact 14-bit words, and semantic-index nearest results did not identify any covering theorem or known identical certificate. Absence of a search result is not a proof of first discovery; an unindexed equivalent result or relevant uninspected appendix remains possible.
+## originality
 
-## Mathematical value (V): PASS
+PASS
 
-This provides a substantive negative answer to an explicit conjecture that proposes a general algorithmic reduction in the search length. Exact binary minimality and complete first-failure classification identify where the heuristic ceases to work; the strict margin of eight or three occurrences, respectively, rules out a mere tie at half length.
+Fang revised Conjecture 5.7 explicitly asserts the existence of a maximally frequent scattered subword of length≤ceil(n/2) for every word; the counterexample disproves that published conjecture and adds exact binary minimal length and four-exception census. Fang measures minimum entropy or partial experimental cases, not this complete binary every-word census. Menon–Singh study occurrence frequency of fixed patterns, not the length of an argmax over patterns in fixed ambient words. Resultary binary absent-subsequence and universality records concern different invariants.
 
-## Limits
+## value
 
-The result only classifies binary inputs through length fourteen, establishes binary minimality, and refutes the alphabet-unrestricted conjecture using a binary example. It does not classify longer or larger-alphabet cases, settle complexity of finding a most frequent scattered subword, or claim unique historical priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A rigorous smallest counterexample to a published nontrivial universal word-combinatorics conjecture is valuable; exact minimal length and four-example symmetry classification rule out accidental tiny counterexamples and provide a reproducible sharp boundary. The result does not purport to classify all longer/nonbinary words.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

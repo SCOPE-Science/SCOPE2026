@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T09:20:56.728309Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The append-letter recurrence F_{wc}(u)=F_w(u)+1_{u=vc}F_w(v) exactly partitions scattered-subsequence occurrence choices, so all 2^n binary words for n=2..14 and all their nonzero subwords are exhaustively handled by finite integer dynamic programming. The inspected verify.py explicitly loops product(01,repeat=n) for each n, checks no n≤13 exception and exactly four n=14 strings, confirms unique maximizers. The word 01010001110101 has unique most frequent subword 01001101 (length 8) with 144 occurrences versus maximum 136 for lengths≤7, directly refuting the half-length conjecture. Independent binary exhaustive recomputation for every word n≤14 and independent mask recomputation on two witnesses corroborated the source; computation is finite *exhaustive*, not an extrapolation to n>14.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fang revised statement was presented as a conjecture, not already refuted by a length14 binary example in checked paper.",
+          "Menon–Singh fix the subsequence pattern and count words or occurrences, not argmax length for arbitrary w."
+        ],
+        "reasoning": "The 2025 primary full text has the exact conjecture. Prior fixed-pattern counts do not imply exact across-all-pattern binary n14 minimality.",
+        "searches": [
+          "Fang arxiv:2406.02971v1 versus v3 Section 5 Conjecture 5.7",
+          "Menon Singh Subsequence frequency in binary words arxiv:2306.07870"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2406.02971v3",
+        "https://arxiv.org/html/2406.02971v1",
+        "https://arxiv.org/abs/2306.07870",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28",
+        "RESULT.md and verify.py record #4 git snapshot"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Conjecture predicts H(w)=H_≤(w) and is contradicted by explicit H=144 versus H_≤=136.",
+          "Paper published full text retains revised existential quantifier and was inspected to exclude a misquoted conjecture."
+        ],
+        "reasoning": "Counterexample refutes a prior claim rather than rephrasing a proved theorem; no result in cited papers entails the strict inequality or the shortest length14 classification.",
+        "searches": [
+          "arxiv:2406.02971v3 Conjecture 5.7",
+          "arxiv:2306.07870"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fang defines occ(w,u) as increasing index-subset counts, and his revised Conjecture 5.7 asserts an attaining u with |u|≤ceil(|w|/2).",
+          "The four words violate that existential statement because the unique global maximizer is longer."
+        ],
+        "reasoning": "The audited H(w)>H_≤(w) is exactly the logical negation of Fang revised conjecture. It differs from the stronger 2024 draft quantifier but refutes both where applicable.",
+        "searches": [
+          "Fang Conjecture 5.7 arxiv:2406.02971v3",
+          "most frequent scattered subsequence binary Fang conjecture length half counterexample"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact 4 binary counterexamples at length14 and none earlier independently enumerated; no identical table found in checked Resultary hits."
+        ],
+        "reasoning": "The source combinatorial recurrence is complete over 2^n binary words, unlike experiments on selected entropy minima; no inference beyond n=14 is made.",
+        "searches": [
+          "Fang entropy experiment tables Section 5",
+          "Resultary most frequent subsequence binary length half search"
+        ]
+      },
+      "rationale": "Fang revised Conjecture 5.7 explicitly asserts the existence of a maximally frequent scattered subword of length≤ceil(n/2) for every word; the counterexample disproves that published conjecture and adds exact binary minimal length and four-exception census. Fang measures minimum entropy or partial experimental cases, not this complete binary every-word census. Menon–Singh study occurrence frequency of fixed patterns, not the length of an argmax over patterns in fixed ambient words. Resultary binary absent-subsequence and universality records concern different invariants.",
+      "residual_risks": [
+        "Exhaustiveness is only for binary n≤14; no longer-word census or arbitrary-alphabet minimum-size characterization.",
+        "The counterexample uses scattered (not contiguous) subsequences; substituting substring occurrence would change the problem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIMARY_CONJECTURE_REFUTED",
+          "evidence": [
+            "Conjecture 5.7 asks whether at least one most frequent subword has length at most half rounded upward.",
+            "The source does not include a binary length14 four-exception census."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2406.02971v3",
+          "material_read": "Full revised v3 HTML Section 5 and explicit Conjecture 5.7; compared v1 stronger quantifier. Full 2025 journal PDF also inspected, including page 20 image containing revised statement.",
+          "method": "full primary HTML plus PDF page image",
+          "title": "Maximal number of subword occurrences in a word",
+          "trigger": "Exactly identical conjecture, possible version ambiguity"
+        },
+        {
+          "assessment": "DIFFERENT_FIXED_PATTERN_PROBLEM",
+          "evidence": [
+            "Counts occurrences of a specified pattern in ambient binary words, not the maximizing scattered pattern length over all u."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2306.07870",
+          "material_read": "Public primary abstract, definition of fixed-pattern frequency, and compared problem quantifiers; complete text not inspected",
+          "method": "arXiv index and semantic comparison",
+          "title": "Subsequence frequency in binary words",
+          "trigger": "Similar occurrence-count combinatorics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A rigorous smallest counterexample to a published nontrivial universal word-combinatorics conjecture is valuable; exact minimal length and four-example symmetry classification rule out accidental tiny counterexamples and provide a reproducible sharp boundary. The result does not purport to classify all longer/nonbinary words.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2406.02971v3",
+    "https://arxiv.org/html/2406.02971v1",
+    "https://arxiv.org/abs/2306.07870",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28",
+    "RESULT.md and verify.py record #4 git snapshot"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exhaustiveness is only for binary n≤14; no longer-word census or arbitrary-alphabet minimum-size characterization.",
+    "The counterexample uses scattered (not contiguous) subsequences; substituting substring occurrence would change the problem."
+  ],
+  "schema_version": 1
+}

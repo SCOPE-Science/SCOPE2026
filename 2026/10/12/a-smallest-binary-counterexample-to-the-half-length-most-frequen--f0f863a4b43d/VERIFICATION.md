@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Exact finite-check reproduction
 
-Run `python3 verify.py` with Python 3.8 or later. No nonstandard libraries, network, external datasets, or random seeds are required.
+# Independent mathematical audit
 
-The verifier enumerates every binary source word of lengths \(2\) to \(14\); the number of source words is \(\sum_{n=2}^{14}2^n=32764\). It computes all scattered-subword multiplicities by appending one input symbol at a time and applying the exact split into occurrences that omit or use the final position. For each input it checks whether the maximum among all subwords exceeds the maximum among lengths at most \(\lceil n/2\rceil\). It asserts that there are no earlier failures and that precisely four length-fourteen words fail.
+## correctness
 
-It then checks the exact unique length-eight maximizing subsequences and their frequencies, all fifteen lengthwise maxima for each representative, and—using a separate algorithm—counts all \(2^{14}\) position subsets for each representative and compares every pattern count. The second method does not call the recurrence. Complementation and reversal preserve subsequence occurrences by bijections on position subsets, which explains the orbit pairings.
+PASS
 
-The successful result is: `VERIFY_OK all_binary_words_n=2..14 failures_before14=0 failures_at14=4 unique_maximizers=2 independent_mask_checks=32768` followed by details. Finite exhaustion establishes exact results only for the stated finite input universe; no extrapolation beyond it or independent certification is claimed.
+The append-letter recurrence F_{wc}(u)=F_w(u)+1_{u=vc}F_w(v) exactly partitions scattered-subsequence occurrence choices, so all 2^n binary words for n=2..14 and all their nonzero subwords are exhaustively handled by finite integer dynamic programming. The inspected verify.py explicitly loops product(01,repeat=n) for each n, checks no n≤13 exception and exactly four n=14 strings, confirms unique maximizers. The word 01010001110101 has unique most frequent subword 01001101 (length 8) with 144 occurrences versus maximum 136 for lengths≤7, directly refuting the half-length conjecture. Independent binary exhaustive recomputation for every word n≤14 and independent mask recomputation on two witnesses corroborated the source; computation is finite *exhaustive*, not an extrapolation to n>14.
+
+## originality
+
+PASS
+
+Fang revised Conjecture 5.7 explicitly asserts the existence of a maximally frequent scattered subword of length≤ceil(n/2) for every word; the counterexample disproves that published conjecture and adds exact binary minimal length and four-exception census. Fang measures minimum entropy or partial experimental cases, not this complete binary every-word census. Menon–Singh study occurrence frequency of fixed patterns, not the length of an argmax over patterns in fixed ambient words. Resultary binary absent-subsequence and universality records concern different invariants.
+
+## value
+
+PASS
+
+A rigorous smallest counterexample to a published nontrivial universal word-combinatorics conjecture is valuable; exact minimal length and four-example symmetry classification rule out accidental tiny counterexamples and provide a reproducible sharp boundary. The result does not purport to classify all longer/nonbinary words.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
