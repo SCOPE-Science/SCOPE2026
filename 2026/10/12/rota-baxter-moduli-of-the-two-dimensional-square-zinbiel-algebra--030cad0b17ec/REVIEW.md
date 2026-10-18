@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Direct substitution gives \(c=0\) and \(a(a-2d)=0\). The automorphism group is exactly \(\begin{pmatrix}s&0\\t&s^2\end{pmatrix}\) with \(s\ne0\), and conjugation fixes \(a,d\) while sending \(b\) to \(sb+(a-d)t/s\). These formulas yield all normal forms and finite-field counts. The packaged checker independently enumerates solutions, automorphisms, and orbits over four finite prime fields.
+PASS
 
-## Originality
+Writing R(e1)=ae1+be2, R(e2)=ce1+de2 and applying the weight-zero Rota–Baxter identity to (e1,e2) yields c²=0, hence c=0 over a field; (e1,e1) then gives a(a−2d)=0, including char 2. The automorphism group follows from φ(e2)=φ(e1)²=s²e2 (s≠0), and explicit triangular-matrix conjugation sends b to sb+(a−d)t/s. The cases a=d=0 give {0,N}, and all remaining branches have a−d≠0 so b may be killed; char2 collapses the 2d branch. This derives complete mutually exclusive normal forms 0,N,P_d,Q_d (char odd), 0,N,P_d (char2), q-dependent class and orbit-size distributions. Independently checked the defining identity and orbit actions for GF2,GF3,GF5,GF7; (operator counts, orbit counts) were (4,3),(15,6),(45,10),(91,14). Exhaustive finite checks are corroboration, not an arbitrary-field proof. Assumes fields, not rings or scheme-point multiplicities.
 
-PASS. The primary 2024 source gives raw Rota–Baxter matrices over \(\mathbb C\) but no automorphism quotient, finite-field census, or characteristic-\(2\) analysis. Focused semantic and literature searches found no matching normal-form theorem. The closest structural Zinbiel source concerns the underlying algebra only. A specialized unindexed source remains a residual risk.
+## originality
 
-## Value
+PASS
 
-PASS. The quotient removes gauge parameters from the raw families, exposes an exact characteristic-\(2\) branch collapse, and provides closed finite-field moduli and stabilizer data for the smallest nontrivial Zinbiel algebra.
+Best-of-knowledge priority judgment based on direct statement/implication comparisons with specified inspected sources, published semantic search and alias checks; neither the source names nor negative searches by themselves demonstrate novelty. Searches covered conjugacy, equivalence under algebra automorphisms, normal forms and characteristic degeneration. The raw family contains the orbit representatives but does not state the equivalence quotient or field-uniform orbit-size result.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The automorphism quotient and stabilizer distribution of the smallest nontrivial Zinbiel algebra are natural moduli invariants absent from the published complex raw-matrix classification. Characteristic-two degeneration and finite-field counts supply a meaningful all-field classification, not a mere variable change or recomputation of complex matrices; the narrow size is motivated by the first nonzero Zinbiel product.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
