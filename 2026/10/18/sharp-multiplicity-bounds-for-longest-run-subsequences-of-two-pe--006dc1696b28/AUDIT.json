@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "The full proof in RESULT.md shows at most one doubled label in a run subsequence of the two-permutation host, constructs length m+1, and counts all optimum words bijectively by record positions and independent choices of smaller later-occurring labels. Missing-smaller-element charging yields the sharp linear lower bound and consecutive singleton/adjacent-pair equality cases. Strict comparison of r*2^(m-r) yields the exponential upper bound and exactly the two prefix equality cases, with m=1 separately. The staged check.py independently exhausts all subsequence choices for every permutation of at most five symbols, and all permutations up to nine symbols for equality classes; it completed without discrepancies. Finite checking is corroborative and not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schrinner et al. WABI 2020 DOI 10.4230/LIPIcs.WABI.2020.6 gives general exact LRS computation algorithms and no general formula for the count of distinct optima.",
+        "Dondi–Sikora arXiv:2011.08119 gives hardness and parameterized results for LRS, not a formula for the permutation-concatenation optimum count.",
+        "Asahiro et al. CPM 2023 DOI 10.4230/LIPIcs.CPM.2023.2 proves approximation ratios 3/2 and 4/3 for 2-occurrence variants.",
+        "Asahiro et al. WABI 2025 DOI 10.4230/LIPIcs.WABI.2025.3 improves approximations and complement deletion bounds, not exact multiplicity counting."
+      ],
+      "reasoning": "Optimization hardness, algorithms that return one optimum, and approximation factors cannot imply the number of distinct optimum words. General exact dynamic programming might compute counts after augmentation but does not yield these structural formulas and equality classifications as a corollary without a new argument.",
+      "searches": [
+        "web: \"Approximation Algorithms for the Longest Run Subsequence Problem\" arxiv first posted",
+        "web: \"Approximability of Longest Run Subsequence\" 2025 paper",
+        "web: \"longest run subsequence\" \"number of longest\" double occurrence",
+        "Run subsequence multiplicity k<=T<=2^(k-1) for permutations, equality adjacent transpositions"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.4230/LIPIcs.CPM.2023.2",
+      "doi:10.4230/LIPIcs.WABI.2020.6",
+      "arxiv:2011.08119",
+      "doi:10.4230/LIPIcs.WABI.2025.3",
+      "ipsj:225660",
+      "OEIS:A001048",
+      "Semantic searches of published mathematical research records for source titles, claims and equivalent parameters",
+      "Publicly indexed prior scientific claims compared for mathematical implication and direct phrase overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original 2020 LRS paper develops dynamic programming and integer programming for the length optimum; its publicly visible Section 4 contains no distinct-optimum formula.",
+        "The 2021, 2023, 2025 followups prove complexity/approximation statements not determining exact solution degeneracy.",
+        "The current proof derives a new explicit statistic sum_{record t} 2^(pi_t-t) and classifies equality at both ends."
+      ],
+      "reasoning": "None of the inspected results implies the requested multiplicity as a special case, as an approximation to an optimum value says nothing about how many output words attain it. The exact algorithms could in principle be adapted to enumerate outputs on any input, but this does not cover an explicit symbolic formula and equality classification for all concatenated permutations.",
+      "searches": [
+        "web: \"longest run subsequence\" \"counting\" \"optimal\" permutation",
+        "web: \"longest run subsequence\" \"two permutations\" \"count\"",
+        "web: \"longest run subsequence\" \"number of longest\" double occurrence",
+        "Longest run subsequence of duplicated permutation word 1..n followed by permutation, optimal solution multiplicity, record highs, weighted count"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Indexed related findings include studies of the inverse degree for noisy tandem duplication and of inverse branching for duplication-with-transposition; their scientific objects and parameter implication do not cover the run-subsequence optimum multiplicity.",
+        "The 2023 12-page primary paper, DOI 10.4230/LIPIcs.CPM.2023.2, analyzes 2-occurrence approximation and explicit run choices, not counting all distinct optima."
+      ],
+      "reasoning": "An equivalent theorem would specify, at minimum, the weighted sum over left-to-right records for W formed from two permutations, or infer exact minimum and maximum multiplicities with equality classifications. The listed claims instead analyze different optimization, string duplication, or permutation-record topics; no such implication was identified.",
+      "searches": [
+        "Longest run subsequence of duplicated permutation word 1..n followed by permutation, optimal solution multiplicity, record highs, weighted count",
+        "Number of longest run subsequences two copies of every letter, concatenation of two permutations; Fibonacci equality permutations",
+        "web: \"longest run subsequence\" \"counting\" \"optimal\" permutation",
+        "web: permutation left-to-right maxima statistic sum powers of two record value position"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A001048 (https://oeis.org/A001048) lists 2,3,8,30,144,840,5760 from an elementary factorial formula, but not as a string-optimum statistic.",
+        "The original record-weighted multiplicity depends on the full permutation and cannot be recovered from this single factorial sequence.",
+        "Accessible prior scientific-claim indices contain other Fibonacci and factorial enumerations but not the two-permutation LRS extremal classification."
+      ],
+      "reasoning": "Matching a numerical sequence is insufficient for novelty or coverage. Existing table entries do not state a combinatorial meaning involving LRS or prove the exact record formula or both equality structures; this independent coincidence is acknowledged explicitly rather than claimed as a new numerical sequence.",
+      "searches": [
+        "Number of longest run subsequences two copies of every letter, concatenation of two permutations; Fibonacci equality permutations",
+        "web: site:oeis.org \"2, 3, 8, 30, 144, 840, 5760\"",
+        "web: site:oeis.org \"3,8,30,144,840,5760\" permutation maximum"
+      ]
+    },
+    "rationale": "The inspected 2020, 2021, 2023 and 2025 primary work analyzes hardness, exact optimization algorithms, and bounded-occurrence approximation, but does not state or imply the number of distinct optima in concatenated-permutation hosts, the weighted-record formula, or the complete two-sided equality classifications. Search of published mathematical research records and accessible prior scientific claims revealed no equivalent; the known OEIS factorial combination is only the coincident numerical sequence and has no run-subsequence implication. Residual risks include inaccessible/unindexed work and the early Japanese technical report metadata-only access.",
+    "residual_risks": [
+      "The earlier Japanese technical report was available as bibliographic metadata only, whereas the full publisher paper was readable.",
+      "An unindexed or non-English source may present an equivalent permutation-record weighted statistic or LRS equality theorem.",
+      "The factorial maximum-family number agrees with an existing integer sequence; no priority is claimed for that numerical formula apart from its word-theoretic interpretation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides bounded-occurrence approximation algorithms, not count of distinct longest-run-subsequence output words for two-permutation hosts.",
+        "evidence": "Publisher open access PDF https://drops.dagstuhl.de/storage/00lipics/lipics-vol259-cpm2023/LIPIcs.CPM.2023.2/LIPIcs.CPM.2023.2.pdf",
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2023.2",
+        "material_read": "Full accessible 12-page PDF, especially definition and Problem 2, Sections 3–4, Theorems 8 and 13, Remarks 9 and 14, conclusion and references.",
+        "method": "Read searchable publisher full text and compared theorem statements, examples, and conditions on optimum solutions.",
+        "title": "Approximation Algorithms for the Longest Run Subsequence Problem",
+        "trigger": "Same mathematical optimization objective; every symbol appears exactly twice in the restricted case."
+      },
+      {
+        "assessment": "Defines APX-hardness and other complexity questions, not sharp counting of optimal words in the stated class.",
+        "evidence": "arXiv:2011.08119, first posted 2020-11-16.",
+        "identifier_or_url": "https://arxiv.org/pdf/2011.08119",
+        "material_read": "Accessible full-text PDF, inspected definition, complexity summary and two-occurrence hardness section and checked terminology for enumeration claims.",
+        "method": "Opened preprint full text and searched for permutation or optimal-solution enumeration.",
+        "title": "The Longest Run Subsequence Problem: Further Complexity Results",
+        "trigger": "Primary hardness theorem even when each symbol occurs twice."
+      },
+      {
+        "assessment": "Exact length optimization framework, no all-permutation solution-multiplicity classification.",
+        "evidence": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol172-wabi2020/LIPIcs.WABI.2020.6/LIPIcs.WABI.2020.6.pdf",
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.WABI.2020.6",
+        "material_read": "Publisher 13-page PDF; inspected formulation, ILP and dynamic-programming Sections 3–4 and discussion.",
+        "method": "Read publicly accessible text, checked scope of the algorithms and relevant propositions.",
+        "title": "The Longest Run Subsequence Problem",
+        "trigger": "Original statement of the LRS problem, exact optimization algorithms."
+      },
+      {
+        "assessment": "Improved approximation and complementary-minimization ratios; no stated exact count or equality classification.",
+        "evidence": "Publisher 2025-08-15 DOI 10.4230/LIPIcs.WABI.2025.3.",
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.WABI.2025.3",
+        "material_read": "Publisher accessible full HTML, abstract, algorithm and approximation analyses, conclusion; searches for permutation and solution-count concepts.",
+        "method": "Inspected full-paper text at https://drops.dagstuhl.de/storage/00lipics/lipics-vol344-wabi2025/html/LIPIcs.WABI.2025.3/LIPIcs.WABI.2025.3.html",
+        "title": "Approximability of Longest Run Subsequence and Complementary Minimization Problems",
+        "trigger": "Later work on same 2-occurrence LRS model could dominate older results."
+      },
+      {
+        "assessment": "Date evidence is usable; early-report-only differences remain a residual access risk, not a basis for declaring whole-paper noncoverage.",
+        "evidence": "IPSJ bibliographic record released 2023-05-03, same English title and author list.",
+        "identifier_or_url": "https://ipsj.ixsq.nii.ac.jp/records/225660",
+        "material_read": "Bibliographic record and abstract/date from the public index; complete report download unavailable.",
+        "method": "Checked official indexed 2023-05-03 public date; used fully readable later 2023 publisher version for scientific comparison.",
+        "title": "Approximation Algorithms for the Longest Run Subsequence Problem (early technical report)",
+        "trigger": "Earliest publicly dated source of the primary 2023 paper."
+      },
+      {
+        "assessment": "The numerical formula is known, but it supplies no LRS multiplicity statement or equality theorem.",
+        "evidence": "OEIS A001048: n!+(n-1)!.",
+        "identifier_or_url": "https://oeis.org/A001048",
+        "material_read": "Indexed sequence entries, formula and comments visible in public result.",
+        "method": "Compared the numerical formula to the interpretation and implications.",
+        "title": "OEIS A001048",
+        "trigger": "Exact integer match to the count of upper equality permutations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "006dc169-6b28-411b-97f2-db575454b6d9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a natural complete counting and structural-extremal classification of how many optimal outputs exist at a tractable boundary of a known hard genome-scaffolding problem: optimum length is fixed but solution degeneracy varies sharply from m to 2^(m-1). Both equality families are characterized and exactly counted for every alphabet size, with a computable closed record statistic for every member. This is substantive mathematical structure, not merely a one-off numerical census, trivial parity check, or renamed source theorem.",
+    "status": "PASS"
+  }
+}
