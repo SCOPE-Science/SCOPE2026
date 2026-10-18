@@ -1,35 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact witness satisfies the source's environmental constraints and both hypotheses of Theorem 4.10. Patch 1 becomes
-\[
-dx_1
-=
-x_1\left(\frac74-x_1\right)dt
-+
-x_1\,dB_1(t),
-\]
-so the source's own Lemma 2.3 gives
-\[
-\lim_{t\to\infty}\langle x_1(t)\rangle
-=
-\frac54.
-\]
-The displayed theorem lower bound is \(5/2\), whereas the proof-derived \(R_1\)-based lower bound is \(5/4\).
+PASS
 
-## Originality
+PASS: Reconstructed the exact source SDE, environmental ODE, effective rates, stochastic logistic Lemma 2.3, and both positivity hypotheses of Theorem 4.10. For r1=3,r2=2,r0=1,d12=1,d21=0,lambda_i=0,a_i=sigma_i=1, ce=1/2,c0=1/4,f=g=m=1,h=2,u_e=1, environmental derivatives vanish and R1=7/4,R2=2; both R_i-sigma_i^2/2>0. With no immigration to patch 1, it is precisely dx1=x1(7/4-x1)dt+x1 dB; its almost-sure time mean is (7/4-1/2)=5/4. The printed theorem requires >=5/2, while its own proof concludes >=5/4. Independent Fraction arithmetic replay established every displayed rational value and direction. Publisher original PDF pp.11-12 (zero-index pages 10-11) visually confirms the two differing displayed bounds; Example 3 permits zero migration. The false part is the quantitative clause, NOT persistence itself.
 
-PASS. Stochastic-logistic time-mean formulas are prior work. The accepted result is the exact source-specific theorem-statement correction and admissible counterexample. Exact source, theorem-number, migration/pollution-loss, correction, and own-ledger searches found no equivalent published diagnosis.
+## originality
 
-## Value
+PASS
 
-PASS. The disputed clause is a quantitative long-run abundance guarantee for each habitat. Omitting pollution and outward migration can materially overstate the guaranteed abundance; the exact example doubles the correct value. The proof itself supplies the natural corrected quantity.
+PASS, best-of-knowledge: The exact source-specific false printed lower bound and an admissible decoupled witness are not among the conclusions of broader stochastic logistic/polluted-population theory. The motivating 2020 full PDF demonstrably prints r_i instead of effective R_i in Theorem 4.10, although its proof uses R_i. Publication/erratum and targeted Resultary searches disclosed no earlier paper-specific correction; no absence-of-search novelty theorem is asserted.
 
-## Closest literature and limitations
+## value
 
-Earlier stochastic-logistic and polluted-population work establishes the persistence machinery but does not contain this source-specific theorem/proof mismatch.
+PASS
 
-The qualitative strong-persistence conclusion is not disproved, and no universal sharpness claim is made beyond the exact witness.
+PASS: The disputed published quantitative long-run per-habitat abundance guarantee is the outcome, not an incidental sign check. Pollution and outward migration change that promised guaranteed population from 5/2 to the true 5/4. The counterexample is exact and identifies the precise corrected rate in the source proof; a researcher relying on persistence bounds would need this distinction.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
