@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The final claim was checked by a direct proof replay.
+# Independent mathematical audit
 
-1. For \(H=\operatorname{lat}(C(I)\otimes C(I))\), each \(h\in H\) is a finite difference of finite lattice suprema, so at each point it equals one of finitely many algebraic-tensor branches.
-2. The coincidence sets with those branches are closed and cover \(I^2\). Baire category gives a nonempty open rectangle in \((0,1)^2\) on which \(h\) equals one algebraic tensor, hence has finite-dimensional section span.
-3. A basis \(h(\cdot,t_j)\) of that local section span admits evaluation points \(s_i\) for which \((h(s_i,t_j))\) is invertible; otherwise the basis functions would be linearly dependent.
-4. Solving this fixed linear system with right-hand side \((h(s_i,t))\) gives coefficient functions that are real-analytic for \(0<t<1\) and continuous on \(I\).
-5. The difference between \(h\) and the resulting separated sum is real-analytic on \((0,1)^2\) and vanishes on the Baire rectangle. The real-analytic identity theorem makes it vanish on the full connected interior. Continuity extends the formula to the closed square.
-6. If the local section span has dimension zero, the same identity theorem gives \(h=0\) globally.
+## correctness
 
-The focal arXiv source was inspected in full for the tensor realization and the finite-branch/Baire step. No numerical experiment, finite enumeration, or external certificate enters the proof. The literature comparison has an explicit residual risk from older decomposition/approximation papers for which only public abstract or bibliographic material was inspected; this does not affect correctness of the mathematical statement.
+PASS
+
+The finite Riesz-lattice expression for each element of the generated sublattice is a difference of two finite maxima of algebraic tensors; each point therefore lies in one of finitely many closed coincidence sets with a fixed algebraic branch. Baire gives an open interior rectangle where an analytic kernel agrees with a finite-rank branch. Choose a basis of local sections, linearly independent evaluations and invert the evaluation matrix to obtain globally continuous, interior-analytic coefficient functions. The analytic residual vanishes on an open rectangle in the connected interior, hence identically by real-analytic identity theorem; continuity propagates to boundary. Handles rank zero and requires full connected analyticity, not merely smoothness.
+
+## originality
+
+PASS
+
+The Ben Amor counterexample uses finite branch/Baire to exclude only exp(st); its stated conclusion does not classify every analytic member. Analytic continuation from an open rectangle provides a nontrivial positive classification. The older Fremlin–Talagrand decomposition and Grobler–Labuschagne approximation texts were not fully obtained, so an implicit general theorem remains a residual risk, not proof of prior coverage.
+
+## value
+
+PASS
+
+The result identifies exactly the analytic slice of a naturally defined Riesz tensor that may be strictly larger than the algebraic tensor in general. It clarifies the boundary of the Ben Amor nonmembership obstruction and applies to all analytic kernels, a structural classification rather than a cosmetic special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
