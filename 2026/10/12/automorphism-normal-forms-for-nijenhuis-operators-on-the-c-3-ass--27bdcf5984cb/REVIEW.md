@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The Nijenhuis identity is reconstructed directly after the isotropic change of basis. A general matrix first reduces to the block form \(aI+Q\), and the remaining equations are exactly \(K^TJK=0\). The automorphism group and conjugation action are derived from the annihilator and the conformal hyperbolic form. The orbit reduction is exhaustive, and rank, trace, kernel isotropy, and the residual covector quotient separate all displayed representatives. The packaged symbolic checker independently replays the defining equations and every normal form.
+PASS
 
-## Originality
+For C3 over C, z=2e1, u=e2+i e3, v=e2-i e3 satisfy uv=z and every other basis product zero. Writing a general operator and independently evaluating nine Nijenhuis basis-pair torsions forces N(z)=az and K^TJK=0 for J=[[0,1],[1,0]], with unrestricted covector ell. The algebra automorphism group has connected component [[pq,rho,sigma],[0,p,0],[0,0,q]] and the component swapping u,v, so K transforms by conjugation and ell by (pq ell+rK)diag(p,q)^-1. Any nonzero K has image an isotropic line; after swapping, K=[[t,s],[0,0]], split s=0,t!=0 versus s!=0. In the first case the residual covector quotient has a zero/nonzero flag; in the second, normalize s to 1 and the same flag. With K=0, ell has three orbits: zero, isotropic support, nonisotropic support. This gives exactly 3 Z families, 2 P families (t nonzero), 2 R families (t arbitrary), with a and t invariants. An independent SymPy calculation reproduced the torsion generators; independent full C3(F3) enumeration found 459 Nijenhuis operators, 72 automorphisms and exactly 39 orbits, matching the predicted list. F3 corroborates only; the complex proof supplies universality.
 
-PASS. The primary source explicitly presents parametrically complete operator lists while saying that a full automorphism-orbit analysis is not performed; its only worked conjugacy illustration is for another two-dimensional algebra. The 2026 published version retains this limitation. Focused semantic and web searches found no \(C_3\) quotient, no equivalent \(K^TJK=0\) orbit theorem, and no seven-family normal-form table. A specialized unindexed source remains a residual risk.
+## originality
 
-## Value
+PASS
 
-PASS. The quotient is an explicitly identified next problem in the source and materially simplifies a complete but redundant coordinate classification. The isotropic-kernel split and the residual covector flag reveal genuine orbit geometry, so the result is more than a cosmetic reparameterization.
+Gao–Kang–Lü–Yu / Zou–Gao–Kang–Lü explicitly list raw parametric Nijenhuis operators for the same algebra C3, but the full primary text says an automorphism-conjugacy classification is outside its scope and only illustrates a distinct A5 two-dimensional case. The seven orbit families are not synonyms for the five raw coordinate families: they quotient the full automorphism group using the form K^TJK and eliminate redundancies, retaining trace, kernel type and covector flags. Resultary searches for exact C3 isotropic conjugacy found only unrelated algebras and operator structures; this is supporting scope comparison, not proof that every unindexed treatment has been excluded.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The published authors identify automorphism-orbit reduction as missing after listing all Nijenhuis operators. Completing the intrinsic seven-family orbit classification for this natural 3D algebra answers that explicit structural problem and makes stabilizers/degeneration parameters transparent; this is not cosmetic relabeling of a raw list.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

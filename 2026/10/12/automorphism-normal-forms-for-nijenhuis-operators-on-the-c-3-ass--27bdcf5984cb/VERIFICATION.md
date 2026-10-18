@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,53 +18,25 @@
   "schema_version": 1
 }
 ---
-The packaged checker `artifacts/verify.py` starts from the multiplication
-\[
-uv=vu=z
-\]
-and a completely general \(3\times3\) linear map.
 
-It reconstructs all nine ordered basis-pair Nijenhuis equations. Two square equations force the lower two entries of \(N(z)\) to vanish. After this reduction, the remaining system is verified to be exactly
-\[
-K^T
-\begin{pmatrix}
-0&1\\
-1&0
-\end{pmatrix}
-K=0.
-\]
+# Independent mathematical audit
 
-The checker independently verifies the connected automorphisms
-\[
-\begin{pmatrix}
-pq&\rho&\sigma\\
-0&p&0\\
-0&0&q
-\end{pmatrix}
-\]
-and the component interchanging \(u\) and \(v\), including multiplicativity.
+## correctness
 
-It then checks the block conjugation formula
-\[
-K\mapsto F K F^{-1},
-\qquad
-\ell\mapsto(\lambda\ell+rK)F^{-1},
-\]
-and the diagonal normalization
-\[
-\begin{pmatrix}
-t&s\\
-0&0
-\end{pmatrix}
-\mapsto
-\begin{pmatrix}
-t&(p/q)s\\
-0&0
-\end{pmatrix}.
-\]
+PASS
 
-Finally, every one of the seven displayed normal-form families is substituted into all defining equations and verified identically.
+For C3 over C, z=2e1, u=e2+i e3, v=e2-i e3 satisfy uv=z and every other basis product zero. Writing a general operator and independently evaluating nine Nijenhuis basis-pair torsions forces N(z)=az and K^TJK=0 for J=[[0,1],[1,0]], with unrestricted covector ell. The algebra automorphism group has connected component [[pq,rho,sigma],[0,p,0],[0,0,q]] and the component swapping u,v, so K transforms by conjugation and ell by (pq ell+rK)diag(p,q)^-1. Any nonzero K has image an isotropic line; after swapping, K=[[t,s],[0,0]], split s=0,t!=0 versus s!=0. In the first case the residual covector quotient has a zero/nonzero flag; in the second, normalize s to 1 and the same flag. With K=0, ell has three orbits: zero, isotropic support, nonisotropic support. This gives exactly 3 Z families, 2 P families (t nonzero), 2 R families (t arbitrary), with a and t invariants. An independent SymPy calculation reproduced the torsion generators; independent full C3(F3) enumeration found 459 Nijenhuis operators, 72 automorphisms and exactly 39 orbits, matching the predicted list. F3 corroborates only; the complex proof supplies universality.
 
-The checker returns `VERIFY_OK`.
+## originality
 
-No finite enumeration is used to establish the complex-field theorem.
+PASS
+
+Gao–Kang–Lü–Yu / Zou–Gao–Kang–Lü explicitly list raw parametric Nijenhuis operators for the same algebra C3, but the full primary text says an automorphism-conjugacy classification is outside its scope and only illustrates a distinct A5 two-dimensional case. The seven orbit families are not synonyms for the five raw coordinate families: they quotient the full automorphism group using the form K^TJK and eliminate redundancies, retaining trace, kernel type and covector flags. Resultary searches for exact C3 isotropic conjugacy found only unrelated algebras and operator structures; this is supporting scope comparison, not proof that every unindexed treatment has been excluded.
+
+## value
+
+PASS
+
+The published authors identify automorphism-orbit reduction as missing after listing all Nijenhuis operators. Completing the intrinsic seven-family orbit classification for this natural 3D algebra answers that explicit structural problem and makes stabilizers/degeneration parameters transparent; this is not cosmetic relabeling of a raw list.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
