@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and proof limits
+# Independent mathematical audit
 
-The accompanying standalone `verify.py` uses only the Python standard library and constructs derivation matrices on the basis consisting of the unit, degree-one monomials, and unordered degree-two monomials. Every candidate checked is tested for \(D^2=D\) by matrix multiplication, then its full linear rank is obtained by Gaussian elimination in the corresponding finite field.
+## correctness
 
-Run `python3 verify.py` from the directory containing this file. It ends with `VERIFY_OK` only after assertions pass. Exhaustive checks are made for \((n,q)=(1,2),(1,3),(1,5),(2,2),(2,3)\), including all quadratic coefficients of degree-one generator images. A separate full scalar-image check handles \(n=1\), characteristic three, where cubics can admit derivations with nonzero scalar images before imposing idempotence. A direct \(\mathbb F_4\) check handles \(n=1\). Deterministically seeded random cases \((n,q)=(3,2),(2,5)\) and explicit quadratic-shear constructions in \(n=2,3,4\) are additional checks, not exhaustive verifications of those dimensions.
+PASS
 
-For \(\mathbb F_2\), the theorem predicts \(1+112t^2\) at \(n=2\) and \(1+269312t^3+28672t^4\) at \(n=3\); the former is exhaustively recovered, and the latter is checked by the symbolic proof and sampled matrix calculations, not exhaustive enumeration. The algebraic proof (particularly the characteristic boundary, quadratic-shear conjugacy, and projection-complement count) is needed for arbitrary fields and all dimensions. No independent external audit is claimed.
+The unital cubic-jet quotient A=K⊕V⊕Sym²V has no positive-degree cube. In characteristic ≠2, comparison of D²(ab) with D(ab) forces 2D(a)D(b)=0; images of all generators then have zero scalar and linear parts because squares of nonzero linear forms in Sym²V are nonzero, and idempotence forces D=0. In characteristic 2, cubic relations rule out constant generator images; every derivation D|V=P+Q with P:V→V and Q:V→Sym²V obeys D²=D exactly when P²=P and Q=QP+δ_P Q. Splitting V=imP⊕kerP yields Q(imP)⊂Sym²(imP)⊕Sym²(kerP), Q(kerP)⊂imP·kerP. Quadratic automorphism shear H=Q eliminates Q. Thus precisely n+1 orbits, full D rank r(n-r+1), and over even F_q number of rank-r operators is Gaussian(n,r,q) q^[r(n-r)+r(binomial(r+1,2)+binomial(n-r+1,2)+(n-r)^2)]. Independent enumeration for n=2,q=2 gives 1+112t²; n=3,q=2 symbolic count 1+269312t³+28672t⁴. Arbitrary-field result is established algebraically, not by these finite tests.
+
+## originality
+
+PASS
+
+Best-of-knowledge novel is the exact classification and finite-field rank enumerator for the symmetric cubic maximal-ideal quotient, not the known idempotent-derivation/Z2-grading equivalence. The equivalent binary grading and a related but different truncated-coordinate algebra were inspected in primary sources. No located prior work logically implies this exact normal-form-plus-rank enumeration; unlocated more general graded Artin-algebra classification remains a real historical risk.
+
+## value
+
+PASS
+
+Composition-idempotent derivations are a natural form of Z2 grading; their automorphism classes and complete rank distribution are intrinsic, reusable invariants of the standard symmetric cubic local algebra in every dimension. The quadratic-shear dimensions vary with the projection rank; the result is not merely the standard count of matrix projections.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
