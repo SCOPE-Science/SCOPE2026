@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and boundaries
+# Independent mathematical audit
 
-The exact model is the \(N\)-site nearest-neighbor adjacency Hamiltonian with monitored site projectors \(P_r\) and fixed positive rates \(\gamma_r\). The proof of the full asymptotic-state identity is in `RESULT.md`; it is based on the sine spectrum, Hilbert–Schmidt dissipation, peripheral eigenoperator classification, and the absence of imaginary-axis Jordan chains. Its arithmetic Cesàro formula is evaluated by a finite Fourier sum, with no appeal to numerical extrapolation.
+## correctness
 
-Install the declared Python packages from `requirements.txt`, then execute `python verify.py` in the directory containing both files. The verifier constructs the full complex Liouvillian using Kronecker products independently of the sine-based analytic formula, diagonalizes it, computes its zero-frequency projection and checks the predicted dark-mode imaginary spectrum. A successful direct replay prints:
+PASS
 
-```
-VERIFY_OK monitor_sets=83 initial_sites=461 peripheral_eigenvalues=105
-```
+For finite open path adjacency H with simple sine spectrum E_ℓ=2 cos(πℓ/(N+1)), protected modes vanish at every positive-rate monitored vertex iff (N+1)|ℓr for every r in S, exactly ℓ=m(N+1)/g where g=gcd(N+1,S); protected dimension g−1. The Hilbert–Schmidt dissipation identity Re⟨X,LX⟩=−(1/2)∑γ_r||[P_r,X]||² shows all imaginary-axis eigenoperators commute with each monitor. At zero frequency the ground sine mode nonzero everywhere couples all monitored-visible energy coefficients to a single bright scalar. At nonzero fixed Bohr frequency simple energies make X have at most one entry per row/column, triangular/nilpotent; [X,P_r]=0 then forces X|r⟩=0 and ⟨r|X=0, so only dark-to-dark matrix units survive. Contractivity excludes peripheral Jordan growth; finite dimensionality gives exponential decay of all other modes and the claimed operator asymptote for arbitrary initial densities. Cesàro averaging kills nonzero dark energy differences, reducing the position kernel to a finite sine-fourth-product sum. The root-of-unity cosine sum gives the displayed gcd-residue kernel with bright factor (1−w_j)(1−w_k)/(N−g+1), and reveals the g=1/g=2/g≥3 mixing trichotomy. Independently evaluated the sine product sum versus the closed formula for all sites and one-site monitor placements on N=2,...,25, checking row normalization; finite numerical checks support only the finite identity examples, not arbitrary N proof. Source verify.py contains direct small-N Liouvillian diagonalization as a separate consistency check.
 
-The checks cover every single monitored vertex and every pair of monitored vertices on each path of size \(2\le N\le7\), with strictly positive example rates, and every possible localized input on these paths. Numeric tolerance is \(2\times10^{-7}\), not an interval-arithmetic certificate. The finite experiments do not establish the infinite family of finite-size cases. The analytic argument does. No independent audit has been performed. The scope excludes vanishing rates and all non-path Hamiltonians.
+## originality
+
+PASS
+
+General Lindblad decoherence-free subspace criteria and noise-induced quantum-walk decoherence are prior work. The arbitrary-subset monitored finite open path gcd protected dimension, exact full asymptotic density operator and all-site residue-class Cesàro kernel are stricter and are not furnished by those broad prior models, best of accessible reading.
+
+## value
+
+PASS
+
+Exact sharp design rule for how many quantum coherences survive dephasing at an arbitrary set of monitored sites of a finite open path, together with complete asymptotic density matrices and rate-independent all-pairs Cesàro positions. It separates full mixing, memory without oscillations and persistent oscillations, a nontrivial physically and spectrally motivated classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

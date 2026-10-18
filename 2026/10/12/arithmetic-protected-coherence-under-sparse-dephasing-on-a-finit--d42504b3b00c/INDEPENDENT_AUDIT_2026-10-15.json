@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T01:13:17Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For finite open path adjacency H with simple sine spectrum E_ℓ=2 cos(πℓ/(N+1)), protected modes vanish at every positive-rate monitored vertex iff (N+1)|ℓr for every r in S, exactly ℓ=m(N+1)/g where g=gcd(N+1,S); protected dimension g−1. The Hilbert–Schmidt dissipation identity Re⟨X,LX⟩=−(1/2)∑γ_r||[P_r,X]||² shows all imaginary-axis eigenoperators commute with each monitor. At zero frequency the ground sine mode nonzero everywhere couples all monitored-visible energy coefficients to a single bright scalar. At nonzero fixed Bohr frequency simple energies make X have at most one entry per row/column, triangular/nilpotent; [X,P_r]=0 then forces X|r⟩=0 and ⟨r|X=0, so only dark-to-dark matrix units survive. Contractivity excludes peripheral Jordan growth; finite dimensionality gives exponential decay of all other modes and the claimed operator asymptote for arbitrary initial densities. Cesàro averaging kills nonzero dark energy differences, reducing the position kernel to a finite sine-fourth-product sum. The root-of-unity cosine sum gives the displayed gcd-residue kernel with bright factor (1−w_j)(1−w_k)/(N−g+1), and reveals the g=1/g=2/g≥3 mixing trichotomy. Independently evaluated the sine product sum versus the closed formula for all sites and one-site monitor placements on N=2,...,25, checking row normalization; finite numerical checks support only the finite identity examples, not arbitrary N proof. Source verify.py contains direct small-N Liouvillian diagonalization as a separate consistency check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bressanini–Benedetti–Paris (2022) study graph Haken–Strobl dephasing in full site basis and graph Laplacian variants, not arbitrary strict subset of path vertex monitors. Solenov–Fedichkin (2005) study cycles with all-site decoherence, not sparse monitors on open paths."
+        ],
+        "reasoning": "Any-one-endpoint full mixing follows from classical primitive semigroup intuition but does not imply exact gcd formula for arbitrary monitor placements or all initial density matrices. Existing broad tools give ingredients but no identified dominating explicit statement.",
+        "searches": [
+          "Resultary: finite path Hamiltonian selective dephasing monitored vertices gcd dark modes Cesaro position transition kernel",
+          "arXiv:2204.01836 quantum walk classicalization under dephasing",
+          "arXiv:quant-ph/0506096 cycle graph monitored quantum walks"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:quant-ph/0301032 full text",
+        "arXiv:2204.01836 full text",
+        "arXiv:quant-ph/0506096 abstract/model",
+        "Hoyer 2013 UCB thesis Chapter 2 reference",
+        "How to suppress dark states in quantum networks (OA partial PDF)",
+        "Resultary semantic query",
+        "source package RESULT.md, SLOGAN.txt, verify.py at frozen commit",
+        "Independent site-location Fourier-sum formula tests N=2..25"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General DFS theorems ensure isolated modes can remain coherent, while full dephasing of all sites forces uniform mixing in a different model; neither implies monitored-subset gcd dimension and residue-form site occupations without exploiting path sine arithmetic and classifying all peripheral operators."
+        ],
+        "reasoning": "The source supplies additional semigroup peripheral-spectrum analysis and root-of-unity summation; previous model-specific statements are not logically stronger. Transport/sink dark states use a different, non-trace-preserving dissipator and are not covering claims.",
+        "searches": [
+          "arXiv:quant-ph/0301032 full Lindblad DFS exposition",
+          "arXiv:2204.01836 full text",
+          "arXiv:quant-ph/0506096",
+          "eScholarship 2013 Hoyer Chapter 2 metadata",
+          "Resultary semantic exact query"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lidar–Whaley (2003) formulates general Lindblad decoherence-free subspace conditions; the precise path-eigenfunction common zeros gcd criterion follows after specialization but its quantitative full Cesàro kernel does not appear there."
+        ],
+        "reasoning": "Sine-node dark eigenstates, decoherence-free subspaces, monitored/sink-resistant modes are compared as aliases; the novel full dissipative asymptote is not reducible to a generic DFS definition alone.",
+        "searches": [
+          "Resultary: finite path Hamiltonian selective dephasing monitored vertices gcd dark modes Cesaro position transition kernel",
+          "Web: path quantum walk monitored sites dephasing dark states gcd N+1",
+          "arXiv:quant-ph/0301032 decoherence free subsystems"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The theorem gives an all-N symbolic formula and all-gcd placement classification, not a numerical lookup table. Public spectral tables of path adjacency only provide E_ℓ, sine eigenfunctions and zero locations, not the dissipative operator asymptote or Cesàro probability matrix."
+        ],
+        "reasoning": "Known path spectrum is a reusable premise. No indexed exact table or universal relation covering the full rate-independent kernel was found; a finite table would not imply the infinite N family without analysis.",
+        "searches": [
+          "Resultary: finite path Hamiltonian selective dephasing monitored vertices gcd dark modes Cesaro position transition kernel",
+          "Web: quantum walk path dephasing gcd dark mode finite site monitoring"
+        ]
+      },
+      "rationale": "General Lindblad decoherence-free subspace criteria and noise-induced quantum-walk decoherence are prior work. The arbitrary-subset monitored finite open path gcd protected dimension, exact full asymptotic density operator and all-site residue-class Cesàro kernel are stricter and are not furnished by those broad prior models, best of accessible reading.",
+      "residual_risks": [
+        "A specialized earlier paper on partially dephased path transport under another terminology may derive part of the gcd criterion; no full priority guarantee.",
+        "The sourced sink/dark-state comparison and a 2005 cycle paper were not read in entire full text; avoid whole-document NOT_COVERING claims.",
+        "Convergence constants depend on fixed positive rates and finite N; there is no rate-uniform gap as rates tend to zero.",
+        "No physical graph Laplacian or non-Markovian extension is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "States general DFS criteria, not the all-site-set quantum-path gcd dimension or time-averaged position kernel",
+          "evidence": "Lindblad dynamical conditions, Section 5; no path-specific arithmetic kernel claimed.",
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/0301032",
+          "material_read": "Accessible full arXiv HTML/parsed text, Sections on Lindblad DFS and invariant subspaces",
+          "method": "primary full-text reading",
+          "title": "Decoherence-Free Subspaces and Subsystems",
+          "trigger": "General decoherence-free Lindblad conditions may cover all protected modes"
+        },
+        {
+          "assessment": "Studies dephasing in entire position basis and graph classes; cannot directly imply selective sparse monitor arithmetic protected oscillations",
+          "evidence": "Model sums over all site projectors, unlike arbitrary nonempty proper subset S; no exact residue-class all-pairs kernel.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.01836",
+          "material_read": "Full accessible arXiv text, setup and graph-specific asymptotic discussion",
+          "method": "primary full-text reading",
+          "title": "Decoherence and classicalization of continuous-time quantum walks on graphs",
+          "trigger": "Same Haken–Strobl master-equation family"
+        },
+        {
+          "assessment": "Dark-state mechanism relevant, but sink-mediated non-trace-preserving transport differs from pure-dephasing trace-preserving Lindblad dynamics",
+          "evidence": "Comparison of different generator and observables; no whole-document exclusion inferred.",
+          "identifier_or_url": "https://arxiv.org/abs/1707.07482",
+          "material_read": "Open-access PDF introduction and model sections describing absorption/sink transport; not entire appendices",
+          "method": "primary PDF selective reading",
+          "title": "How to suppress dark states in quantum networks and bio-engineered structures",
+          "trigger": "Same language dark eigenmodes for quantum networks"
+        },
+        {
+          "assessment": "Periodic graph and monitoring-everywhere differs from sparse-site finite open path",
+          "evidence": "Distinct boundary and dephasing placement; priority risk remains.",
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/0506096",
+          "material_read": "Abstract/model-level accessible material and source citation, not certified whole text",
+          "method": "abstract/model inspection",
+          "title": "Continuous-time Quantum Walks on a Cycle Graph",
+          "trigger": "Quantum-walk dephasing precursor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact sharp design rule for how many quantum coherences survive dephasing at an arbitrary set of monitored sites of a finite open path, together with complete asymptotic density matrices and rate-independent all-pairs Cesàro positions. It separates full mixing, memory without oscillations and persistent oscillations, a nontrivial physically and spectrally motivated classification.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:quant-ph/0301032 full text",
+    "arXiv:2204.01836 full text",
+    "arXiv:quant-ph/0506096 abstract/model",
+    "Hoyer 2013 UCB thesis Chapter 2 reference",
+    "How to suppress dark states in quantum networks (OA partial PDF)",
+    "Resultary semantic query",
+    "source package RESULT.md, SLOGAN.txt, verify.py at frozen commit",
+    "Independent site-location Fourier-sum formula tests N=2..25"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A specialized earlier paper on partially dephased path transport under another terminology may derive part of the gcd criterion; no full priority guarantee.",
+    "The sourced sink/dark-state comparison and a 2005 cycle paper were not read in entire full text; avoid whole-document NOT_COVERING claims.",
+    "Convergence constants depend on fixed positive rates and finite N; there is no rate-uniform gap as rates tend to zero.",
+    "No physical graph Laplacian or non-Markovian extension is asserted."
+  ],
+  "schema_version": 1
+}
