@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T07:53:11Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md blob 54bfc9d21a263694b3eceeca91083e6dec698c95",
+        "Sturmfels, The Hurwitz Form of a Projective Variety, arXiv:1410.6703 / J. Symbolic Computation 79 (2017), DOI:10.1016/j.jsc.2016.08.012 Theorem 1.1 in full arXiv primary PDF",
+        "independent exact integer checks all 40000 a,b=1..200"
+      ],
+      "rationale": "On X=P^a×P^b over C, A^a B^b=1 and (A+B)^(a+b) gives Chow degree C=binom(d,a). Adjunction with K=−(a+1)A−(b+1)B computes sectional genus of a generic complete-intersection curve; the smooth-variety Hurwitz theorem H=2C+2g−2 simplifies to H=(2ab/d)C=2(d−1)!/((a−1)!(b−1)!). With reduced multiplier numerator u/denominator q, q=d/gcd(d,2ab) divides C because H integer, so gcd(C,H)=C/q. If a=1, gcd(b+1,2b)=gcd(b+1,2), yielding coprime iff b even; if both a,b≥2, C≥binom(d,2)>d≥q hence gcd>1. Independently checked 40,000 pairs a,b=1..200 with exact Python integers. The symbolic geometric and arithmetic proofs, not regression, cover all dimensions.",
+      "residual_risks": [
+        "Complex smooth standard Segre O(1,1) embedding only.",
+        "The Hurwitz formula is a published premise; no claimed independent proof of it."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary: Common prime divisors of all Veronese coisotropic degrees (2026-10-04), github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-common-prime-divisors-of-all-veronese-coisotropic-degrees--f17b21fe7f4c concerns all coisotropic degrees for a different Veronese embedding.",
+          "Resultary: Fixed-dimensional Segre duals: Fibonacci mass and a 1/sqrt5 defect mode (2026-10-04) computes Segre dual degrees in fixed ambient dimension, rather than gcd of the first two associated degrees.",
+          "Sturmfels, The Hurwitz Form of a Projective Variety, arXiv:1410.6703 / J. Symbolic Computation 79 (2017), DOI:10.1016/j.jsc.2016.08.012 gives a general Hurwitz degree expressed in sectional genus."
+        ],
+        "reasoning": "A general Hurwitz degree **can derive** the first integer input but does not explicitly classify gcd for two-factor Segre; a theorem about Veronese all-degree divisibility or Segre dual alone does not dominate both numbers and their gcd for every a,b.",
+        "searches": [
+          "Resultary: Common prime divisors of all Veronese coisotropic degrees (2026-10-04), github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-common-prime-divisors-of-all-veronese-coisotropic-degrees--f17b21fe7f4c",
+          "Resultary: Fixed-dimensional Segre duals: Fibonacci mass and a 1/sqrt5 defect mode (2026-10-04)",
+          "arXiv:1410.6703",
+          "Resultary query \"Segre variety rank-one 3 by n plus 1 matrices gcd of coisotropic polar degrees Hurwitz Chow\""
+        ]
+      },
+      "checked_sources": [
+        "Sturmfels, The Hurwitz Form of a Projective Variety, arXiv:1410.6703 / J. Symbolic Computation 79 (2017), DOI:10.1016/j.jsc.2016.08.012",
+        "Resultary: Common prime divisors of all Veronese coisotropic degrees (2026-10-04), github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-common-prime-divisors-of-all-veronese-coisotropic-degrees--f17b21fe7f4c",
+        "Resultary: Fixed-dimensional Segre duals: Fibonacci mass and a 1/sqrt5 defect mode (2026-10-04)",
+        "Resultary semantic queries gcd Segre Chow and Hurwitz degrees / coisotropic sequences"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sturmfels, The Hurwitz Form of a Projective Variety, arXiv:1410.6703 / J. Symbolic Computation 79 (2017), DOI:10.1016/j.jsc.2016.08.012 gives 2p+2g−2; adjunction for X and reduction of rational multiplier are still needed to obtain gcd.",
+          "Resultary: Common prime divisors of all Veronese coisotropic degrees (2026-10-04), github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-common-prime-divisors-of-all-veronese-coisotropic-degrees--f17b21fe7f4c covers different embedding and more invariants but not the same Segre parameter family."
+        ],
+        "reasoning": "There is a genuine strong dependency on published general geometry; nevertheless deriving exact rational multiplier and its complete two-parameter coprimality condition is separate work. The paper’s general theorem by itself is insufficient without applying Segre-specific intersection arithmetic. No unsupported claim that the input formulas are new.",
+        "searches": [
+          "arXiv:1410.6703 Theorem 1.1",
+          "Resultary: Common prime divisors of all Veronese coisotropic degrees (2026-10-04), github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-common-prime-divisors-of-all-veronese-coisotropic-degrees--f17b21fe7f4c",
+          "Resultary: Fixed-dimensional Segre duals: Fibonacci mass and a 1/sqrt5 defect mode (2026-10-04)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sturmfels, The Hurwitz Form of a Projective Variety, arXiv:1410.6703 / J. Symbolic Computation 79 (2017), DOI:10.1016/j.jsc.2016.08.012 gives Hdeg=2p+2g−2 and treats the Chow/Hurwitz associated forms, not a general Segre gcd statement in inspected source text.",
+          "Standard Segre Chow degree is a binomial coefficient."
+        ],
+        "reasoning": "Equivalent vocabulary includes consecutive coisotropic/associated-hypersurface degrees, Chow form degree and Hurwitz discriminant degree. Reducing 2ab/(a+b) predicts the gcd; explicit arithmetic locus not found as an already stated earlier theorem.",
+        "searches": [
+          "Resultary query \"gcd Segre Chow and Hurwitz degrees\"",
+          "web: \"Segre Chow Hurwitz degree coprime gcd projective product\"",
+          "arXiv:1410.6703"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returns Veronese coisotropic divisibility and unrelated Segre dual distributions; no matching full Segre two-degree gcd table.",
+          "Internal 40,000 arithmetic verifications are a consistency check, not external prior."
+        ],
+        "reasoning": "No actual database value or table implying the all-a,b coprimality criterion was found. Since the formulas are elementary given standard intersection theory, unindexed prior numerical tables are plausible.",
+        "searches": [
+          "Resultary query \"Chow Hurwitz degree gcd Segre P^2 times P^n\"",
+          "web: \"coisotropic degrees Segre gcd table\""
+        ]
+      },
+      "rationale": "Best-of-knowledge exact common-divisor identity and complete coprimality locus for the two natural consecutive associated hypersurface degrees of every two-factor Segre. Sturmfels gives the general Hurwitz-degree formula and standard intersection theory gives the input degrees; those are expressly credited. The gcd is short but neither identical nor a direct single-parameter special case of a published prior gcd theorem found in actual literature comparisons. Novelty is assessed for the complete arithmetic classification, with a strong explicit residual risk of an unindexed elementary corollary.",
+      "residual_risks": [
+        "Gcd expression is a short arithmetic corollary of **known** Segre degree and Hurwitz genus formulas; novelty/value narrower than novel general geometric theorem.",
+        "An unindexed algebraic geometry handbook may have already tabulated exactly this gcd or coprimality.",
+        "Related multigraded Hurwitz texts not comprehensively read; no broad priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms general Hurwitz normalization Hdeg=2p+2g−2; no general Segre coprimality theorem found in inspected material.",
+          "evidence": [
+            "Theorem 1.1: 2p+2g−2 for smooth/codimension-two-singular-locus variety",
+            "P1×P1 quadric example"
+          ],
+          "identifier_or_url": "arXiv:1410.6703",
+          "material_read": "Full 12-page primary arXiv PDF obtained; first-page Theorem 1.1 read, checked normalization Plücker Hurwitz degree and the quadric Segre example, searched PDF for gcd terminology.",
+          "method": "lawful arXiv PDF, first-page screenshot and PDF text search",
+          "title": "The Hurwitz Form of a Projective Variety",
+          "trigger": "Direct primary source of the nonstandard Hurwitz degree lemma"
+        },
+        {
+          "assessment": "Different Veronese geometry, cannot infer claimed all Segre two-factor gcd from abstract alone.",
+          "evidence": [
+            "published finding says common primes controlled by Veronese degree e and n+1"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-common-prime-divisors-of-all-veronese-coisotropic-degrees--f17b21fe7f4c",
+          "material_read": "Published finding title and complete search-record abstract including exact formula for Veronese case; full Git source not read.",
+          "method": "Resultary semantic search",
+          "title": "Common prime divisors of all Veronese coisotropic degrees",
+          "trigger": "Potentially stronger many-degree gcd classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Sturmfels, The Hurwitz Form of a Projective Variety, arXiv:1410.6703 / J. Symbolic Computation 79 (2017), DOI:10.1016/j.jsc.2016.08.012",
+        "Resultary: Common prime divisors of all Veronese coisotropic degrees (2026-10-04), github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-common-prime-divisors-of-all-veronese-coisotropic-degrees--f17b21fe7f4c",
+        "exact pairwise gcd computation"
+      ],
+      "rationale": "Consecutive associated-hypersurface degrees form a canonical sequence in projective geometry, and their gcd/coprimality is a natural arithmetic integrality comparison—not an arbitrary parameter slice. The complete infinite two-parameter coprimality classification (exactly P¹×P^{even} up to swap), including proof that all higher-factor dimensions obstruct it, is a usable exact structural fact. It is short once Sturmfels and Segre intersection ring are combined, and its scientific value is modest but meets the bar for an exact natural previously unlocated invariant without demanding a general new geometric theorem.",
+      "residual_risks": [
+        "A reader may regard this as immediate once both degree formulas are known; no claimed downstream theorem or major innovation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For complex Segre X=P^a×P^b (a,b≥1), Chow degree C=binom(a+b,a) and Hurwitz degree H=(2ab/(a+b))C satisfy gcd(C,H)=C·gcd(a+b,2ab)/(a+b); they are coprime exactly for (a,b)=(1,2m) or (2m,1), m≥1.",
+  "limitations": [
+    "Only smooth standard complex Segre embedding O(1,1), not Segre-Veronese, higher polar sequences or singular varieties.",
+    "Input geometric degree theorem is known; contribution is limited arithmetic comparison with acknowledged prior-overlap risk."
+  ],
+  "schema_version": 1
+}

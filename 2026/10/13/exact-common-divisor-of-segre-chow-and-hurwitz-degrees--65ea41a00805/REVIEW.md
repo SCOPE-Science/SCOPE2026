@@ -1,34 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof starts from the general Hurwitz-degree theorem
-\[
-\operatorname{Hdeg}(X)=2\deg(X)+2g(X)-2
-\]
-for the smooth Segre variety. The intersection ring gives
-\[
-C_{a,b}=\binom{a+b}{a},
-\]
-and adjunction gives the sectional genus. Substitution reduces the Hurwitz degree to
-\[
-H_{a,b}=\frac{2ab}{a+b}C_{a,b}.
-\]
-Reducing this multiplier to lowest terms proves the gcd identity exactly. The coprimality classification is then exhaustive: the one-dimensional-factor case is elementary, while for both factor dimensions at least two the binomial degree is already larger than the possible reduced denominator.
+## correctness
 
-The bundled checker verifies the formulas and gcd classification for all \(1\le a,b\le200\). These computations are regression evidence only; the theorem is proved symbolically.
+PASS
 
-## Originality
-PASS. The closest archival source proves the general Hurwitz-degree theorem and explicitly relates Hurwitz and Chow forms, but the inspected full text does not state the all-Segre closed gcd formula or the coprimality classification. Targeted semantic and web searches using exact-ratio, gcd, common-divisor, coprimality, and associated-hypersurface formulations found no equivalent statement.
+On X=P^a×P^b over C, A^a B^b=1 and (A+B)^(a+b) gives Chow degree C=binom(d,a). Adjunction with K=−(a+1)A−(b+1)B computes sectional genus of a generic complete-intersection curve; the smooth-variety Hurwitz theorem H=2C+2g−2 simplifies to H=(2ab/d)C=2(d−1)!/((a−1)!(b−1)!). With reduced multiplier numerator u/denominator q, q=d/gcd(d,2ab) divides C because H integer, so gcd(C,H)=C/q. If a=1, gcd(b+1,2b)=gcd(b+1,2), yielding coprime iff b even; if both a,b≥2, C≥binom(d,2)>d≥q hence gcd>1. Independently checked 40,000 pairs a,b=1..200 with exact Python integers. The symbolic geometric and arithmetic proofs, not regression, cover all dimensions.
 
-Nearby results on Pluecker Grassmannians and on larger Segre coisotropic-degree sequences concern different formulas and do not imply the stated two-degree gcd for arbitrary \(\mathbb P^a\times\mathbb P^b\).
+## originality
 
-Residual risk: the arithmetic argument is short once the general Hurwitz theorem and the Segre intersection ring are juxtaposed, so an unindexed source could contain the same consequence.
+PASS
 
-## Value
-PASS. Chow and Hurwitz forms are consecutive canonical associated hypersurfaces, encoding generic incidence and first-order nontransversality. Their exact common degree divisor is therefore a natural arithmetic comparison. The primitive cases form a complete geometric family:
-\[
-\mathbb P^1\times\mathbb P^{2m},
-\]
-up to exchanging the factors.
+Best-of-knowledge exact common-divisor identity and complete coprimality locus for the two natural consecutive associated hypersurface degrees of every two-factor Segre. Sturmfels gives the general Hurwitz-degree formula and standard intersection theory gives the input degrees; those are expressly credited. The gcd is short but neither identical nor a direct single-parameter special case of a published prior gcd theorem found in actual literature comparisons. Novelty is assessed for the complete arithmetic classification, with a strong explicit residual risk of an unindexed elementary corollary.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Consecutive associated-hypersurface degrees form a canonical sequence in projective geometry, and their gcd/coprimality is a natural arithmetic integrality comparison—not an arbitrary parameter slice. The complete infinite two-parameter coprimality classification (exactly P¹×P^{even} up to swap), including proof that all higher-factor dimensions obstruct it, is a usable exact structural fact. It is short once Sturmfels and Segre intersection ring are combined, and its scientific value is modest but meets the bar for an exact natural previously unlocated invariant without demanding a general new geometric theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
