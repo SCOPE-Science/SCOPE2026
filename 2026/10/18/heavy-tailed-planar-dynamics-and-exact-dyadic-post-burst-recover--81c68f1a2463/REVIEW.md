@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The rational map sends the positive wedge to a graph in one step; its graph coordinate is exactly logistic. At the excluded critical endpoint the angle doubling representation gives a unique natural physical law for typical wedge initial conditions. Beta integration gives the stationary tail and the moment threshold. Conditional uniformity of the short angle, together with monotone doubling before the critical-half threshold, proves the complete finite-threshold first-passage survival and expected return formulas. The sharpness and exceptional finite-pole sets are explicit. The standalone rational checker returns `VERIFY_OK`; finite checks are not infinite proofs.
+
+**Originality — PASS, with historical-priority risk.** Sedaghat, arXiv:1406.6721, gives the logistic fold and the very same invariant graph; those are explicitly acknowledged as prior work. His bounded-orbit theorem assumes \(0<b<4\), whereas the present endpoint has an unbounded singular vertical observable. Freitas–Freitas–Todd, arXiv:0804.2887, give general rare-target hitting and extreme-value results but not the exact law of a return to a fixed macroscopic set after conditioning on an extreme value. Lazaryan–Sedaghat, arXiv:1405.3124, consider a different semilinear rational planar system. Searches of published mathematical records, including concept/alias checks for logistic, rational planar, and dyadic passage, identified no equivalent combined theorem. Classical conjugacy and arcsine density alone do not state the exact conditioned passage formula; specialist literature could still conceal equivalent results.
+
+**Mathematical value — PASS.** The singular threshold is natural and source-motivated: the first coordinate remains bounded while the second acquires nonintegrable moments, and the logistic critical point specifies a canonical recovery target. The result determines the entire rare-event conditioned delay law, its exact mean and its log-periodic order-one variation, rather than only a mean invariant density or routine local stability sign.
+
+The analysis is restricted to the positive wedge and the critical endpoint; the measure is singular in planar area and pole preimages are excluded. Independent historical-priority review is still necessary.
+
+Self-review: passed. Independent audit: not yet performed.
