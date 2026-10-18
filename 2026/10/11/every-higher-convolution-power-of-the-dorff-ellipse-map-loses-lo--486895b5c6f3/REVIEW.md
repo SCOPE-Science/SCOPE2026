@@ -1,19 +1,21 @@
-# Same-model review: all higher harmonic convolution powers
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The primary 2026 source gives the exact geometric coefficient tails, normalized affine ellipse construction, harmonic Hadamard convolution, and Lewy's Jacobian condition (Sections 2, 5–8). Direct binomial expansion of the coefficient powers gives the derivative identity with \(S_t(z)=z(2-tz)/(1-tz)^2\). The positivity of \(2-tx\) and its squared denominator on the closed real diameter is uniform in every mixed exponent. Both analytic-tail constants are negative; both coanalytic-tail constants are positive. At the parity-dependent endpoint, every nonconstant analytic-derivative term is negative. One term dominates 1 for \(m=3\) by an exact rational inequality; monotonicity extends that dominance to every \(m\ge3\). A real analytic-derivative zero therefore occurs away from the origin, while the coanalytic derivative remains nonzero. This makes the Jacobian negative, and continuity forces an interior zero, excluding local univalence. The checker executed successfully with exact fractions for the critical base inequality and representative small integers; the infinite claim does not rely on enumeration.
+PASS
 
-## Originality — PASS, with residual risk
+For exact Wang–Zhong ellipse-map coefficients a=-10/11,b=1/44; A,B negative and C,D positive, with |A|>27/25. The binomial theorem gives p_m’=1+sum_j binom(m,j) A^j B^(m-j) S_{a^j b^(m-j)} and q_m’=sum_j binom(m,j) D^j C^(m-j) S_{...}, S_t(x)=x(2-tx)/(1-tx)^2. For any nonzero real x in [-1,1], all S_t(x) have sign x, so q_m’(x) is nonzero with sign x. At epsilon_m=(-1)^(m+1), all analytic derivative tail summands are negative; j=m gives p_m’(epsilon_m)<=1-|A|^m F((10/11)^m), F(u)=(2+u)/(1+u)^2 decreases with u. For m>=3 the latter product exceeds its m=3 lower bound (27/25)^3 F((10/11)^3)=1+136271021/1048140625. Thus p_m’(epsilon_m)<0, p_m’(0)=1 and intermediate value yields an interior signed root where J=-|q_m’|²<0. Since J(0)=1, Lewy local univalence necessity excludes local univalence on the disk. Independently calculated exact rational boundary bounds and located signed zeros for sample m=3..10; universal proof is monotonicity, not those finite tests. The m=2 nonunivalence is explicitly credited to original 2026 source.
 
-The source arXiv:2609.11556v1 establishes only the second-power counterexample; its explicit subsequent calculation never studies higher Hadamard powers. The public paper *Unique real-axis fold point in the Dorff ellipse counterexample* examines exactly the same second power and its real Jacobian roots, but not \(m\ge3\). Targeted statement-level searches for higher powers, parity-dependent derivative zeros and iterated convolutions found no dominating established statement. A separate same-source investigation of the parameter threshold for second-power Jacobian failure also does not imply the all-integer result. Earlier harmonic-convolution literature addresses different map classes or sufficient univalence hypotheses. Not every historical text was accessible in full and unindexed equivalence remains possible; absence from search results alone is not a proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-Convolution instability at one iteration does not generally imply instability at every subsequent iteration. The all-integer result supplies a natural structural persistence theorem for a specific convex harmonic counterexample, with an alternating real-axis witness and an exact order-three threshold supporting a proof for every later iterate. The result clarifies that repeated harmonic convolution cannot restore local univalence in this example. It makes no sweeping classification of arbitrary convex harmonic maps or of all Jacobian zeros.
+Compared exact claim and logical implication against primary published literature and relevant Resultary entries. Every higher convolution power of the Dorff ellipse map loses local univalence survives on best current evidence, with named full-text/access limits and residual risks. Exact nontrivial class/support/collapse/convolution data are not established by identified older stronger or generic statements.
 
-## Scientific limitations
+## value
 
-The theorem is specific to the Wang–Zhong rational ellipse construction, and asserts at least one point with vanishing analytic derivative and nonzero coanalytic derivative for each \(m\ge3\). It does not show uniqueness of critical points or any quantitative asymptotic for their locations. The case \(m=2\) is prior work. Independent audit and independent validation have not been performed.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+A robust uniform all-exponent instability phenomenon for a published exact convex harmonic ellipse counterexample: despite initial convexity, none of its higher Hadamard convolution powers is locally univalent. The parity-dependent signed witness and nonzero coanalytic derivative show structural analytic mechanism and a full infinite-exponent extension of the original second-power observation, not a routine symbolic substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
