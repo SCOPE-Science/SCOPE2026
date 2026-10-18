@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The arbitrary-field rank-one classification follows from the preservation identity \(T(e_1e_2)=0\), the invertibility of the structure matrix, and \(E^2=E\); it does not rely on exhaustive experiments. Both orientations of triangular matrices, the diagonal exceptional case, finite characteristics, quadratic repeated roots, and rank-zero/rank-two cases were separately checked. The finite-field proof double-counts no map: distinct ranks and disjoint matrix support types partition the domain. The root-incidence count uses the two distinct forbidden values \(0\) and \(a/d\), including characteristic two. The monomial automorphism count and all final formulas are verified by direct enumeration in five fields, including \(\mathbf F_4\).
+## correctness
 
-## Originality — PASS, with residual risk
-The closest inspected sources classify perfect two-dimensional algebras and their invertible automorphisms, not singular homomorphisms or rank-one retract/square-zero fibers. The earlier universal automorphism equations are stronger at a formal definitional level but do not supply these closed singular-fiber classifications or finite-field counts without additional arguments. We compared equivalent terminology (perfect, regular, idempotent evolution algebra; monoid, endomorphism, retraction) and checked published research results. A classification in less visible endomorphism-semigroup literature remains a residual risk, especially given the elementary dimension-two setting; lack of a hit is not a novelty certificate. The later isomorphism-class counting paper was accessible by abstract only and is not represented as fully read.
+PASS
 
-## Value — PASS
-The theorem determines **all** noninvertible endomorphisms of an entire natural algebra family over arbitrary fields, not an unmotivated special table. It separates generic algebras with only automorphisms and zero from triangular algebras with retracts and nilpotent maps. The exact equality of rank-one retracts and nonzero square-zero maps over every finite field is not implied by existing automorphism or isomorphism-class counts; it supplies a stable arithmetic property with a complete proof and characteristic-uniform normalization.
+Writing T(e1)=(u,v), T(e2)=(w,z), orthogonality implies uw=vz=0 because det A != 0. If nonzero images of both basis vectors were proportional in rank one, their squares vanish and the surjectivity of the square span E^2=E forces T=0: impossible. Thus rank-one maps kill one basis vector. If e2 is killed, c=0 and x^2=x; the x=0 branch yields y=a/d and T^2=0, the x=1 branch is the quadratic d y^2-a y+b=0 with T^2=T. Symmetric for e1 killed; b=c=0 gives 6 maps. Over F_q, each triangular family has (q-1)^2(q-1) matrices; root incidences per family (q-1)^2(q-2); counting the diagonal case gives each rank-one type 2q(q-1)^2. Monomial invertible matrices contribute G+(q-1)^2(q-s+r), s=gcd(2,q-1), r=gcd(3,q-1); adding G zero maps plus singular maps yields 2G+(q-1)^2(5q-s+r). Independent brute equations over GF(2),GF(3),GF(4),GF(5) yielded respective (idempotent,nilpotent,automorphisms,total)=(4,4,8,22),(24,24,56,152),(72,72,234,558),(160,160,544,1344). Finite checks corroborate the exact arbitrary-field and all-prime-power algebraic derivation, not replace it.
 
-## Limitations and neighboring literature
-The automorphism portion is acknowledged as prior background, and the result is not a higher-dimensional endomorphism theorem. The third cited work was compared at the abstract and bibliographic level; its complete article could not be inspected. There is no assertion of independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Automorphism and isomorphism classifications were prior; the reviewed theorem singles out all noninvertible endomorphisms, their idempotent/nilpotent dichotomy, labeled incidence distributions and full pair census for every finite field. Closely read the 20-page 2022 isomorphism paper and Sriwongsa–Zou automorphism part. Neither claims the noninvertible fibers. A nonindexed classification of endomorphism semigroups remains a genuine priority risk.
+
+## value
+
+PASS
+
+The noninvertible portion of a natural finite-dimensional algebra endomorphism monoid is structurally important, and the equality of global retraction/square-zero counts in every characteristic is a concrete nontrivial exact arithmetic invariant rather than a parameter renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

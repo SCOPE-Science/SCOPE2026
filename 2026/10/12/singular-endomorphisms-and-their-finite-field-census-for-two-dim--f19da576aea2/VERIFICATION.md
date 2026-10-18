@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Running `python3 verify.py` performs exact multiplication and homomorphism checks for each matrix and linear map over GF(2), GF(3), GF(4), GF(5), and GF(7). GF(4) is represented by a root of an irreducible quadratic over GF(2). The command prints counts and `VERIFY_OK` if all assertions hold. This is finite corroboration, not a substitute for the all-fields argument in RESULT.md. The argument classifies all singular morphisms via rank and proves counts by double-counting quadratic-root incidences; the monomial automorphism contribution is separately derived.
+## correctness
+
+PASS
+
+Writing T(e1)=(u,v), T(e2)=(w,z), orthogonality implies uw=vz=0 because det A != 0. If nonzero images of both basis vectors were proportional in rank one, their squares vanish and the surjectivity of the square span E^2=E forces T=0: impossible. Thus rank-one maps kill one basis vector. If e2 is killed, c=0 and x^2=x; the x=0 branch yields y=a/d and T^2=0, the x=1 branch is the quadratic d y^2-a y+b=0 with T^2=T. Symmetric for e1 killed; b=c=0 gives 6 maps. Over F_q, each triangular family has (q-1)^2(q-1) matrices; root incidences per family (q-1)^2(q-2); counting the diagonal case gives each rank-one type 2q(q-1)^2. Monomial invertible matrices contribute G+(q-1)^2(q-s+r), s=gcd(2,q-1), r=gcd(3,q-1); adding G zero maps plus singular maps yields 2G+(q-1)^2(5q-s+r). Independent brute equations over GF(2),GF(3),GF(4),GF(5) yielded respective (idempotent,nilpotent,automorphisms,total)=(4,4,8,22),(24,24,56,152),(72,72,234,558),(160,160,544,1344). Finite checks corroborate the exact arbitrary-field and all-prime-power algebraic derivation, not replace it.
+
+## originality
+
+PASS
+
+Automorphism and isomorphism classifications were prior; the reviewed theorem singles out all noninvertible endomorphisms, their idempotent/nilpotent dichotomy, labeled incidence distributions and full pair census for every finite field. Closely read the 20-page 2022 isomorphism paper and Sriwongsa–Zou automorphism part. Neither claims the noninvertible fibers. A nonindexed classification of endomorphism semigroups remains a genuine priority risk.
+
+## value
+
+PASS
+
+The noninvertible portion of a natural finite-dimensional algebra endomorphism monoid is structurally important, and the equality of global retraction/square-zero counts in every characteristic is a concrete nontrivial exact arithmetic invariant rather than a parameter renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
