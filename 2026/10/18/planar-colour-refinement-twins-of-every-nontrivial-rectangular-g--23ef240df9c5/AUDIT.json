@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The three switch cases are exhaustive for 2 <= m <= n except C4. An automorphism interchanging the swapped endpoints yields exact vertexwise equality of all refinement colours by induction. Detours and exterior arc embeddings (Kuratowski for 2x4) prove connected planarity. The length-three-path argument yields a precisely signed four-cycle-count difference +2 at (3,3), -2 elsewhere. C4 is the unique simple degree-two graph on four vertices. The supplied checker reproduced each assertion in 152 grids of sides at most 18; the all-size proof is explicit and does not rely on the finite check.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "limits": "The statement is about one-dimensional colour refinement, not two-dimensional WL; the witness need not be bipartite. Priority risk is documented. Independent audit not performed.",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Arvind–Köbler–Rattan–Verbitsky, Theorem 9, characterize amenability among all graphs, while Lemma 6 gives general colour-preserving replacements.",
+        "Kiefer–Schweitzer–Selman, Theorem 17, characterize graphs identified by C2 via bouquet forests.",
+        "Kiefer–Neuen (2022) study planar Weisfeiler–Leman colourings at a higher-dimensional level; their abstract does not assert planar connected C2 grid twins."
+      ],
+      "reasoning": "These broader results can settle unrestricted identification but their existence claims allow nonplanar or disconnected alternatives; no quantitative four-cycle difference or single-switch preservation of planarity is asserted in the inspected statements. The current result is restricted and constructive with stronger witness properties; it does not re-claim the unrestricted consequence.",
+      "searches": [
+        "Graph Isomorphism Color Refinement Compactness Theorem 9 amenable graphs",
+        "Graphs Identified by Logics with Counting Theorem 17 bouquet forests",
+        "A Study of Weisfeiler-Leman Colorings on Planar Graphs 2022"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1502.01255v1 (posted 2015-02-04)",
+      "ECCC TR15-032 revision 2 (2015-05-04)",
+      "arXiv:1503.08792v1 (posted 2015-03-30)",
+      "Immerman–Lander (1990), DOI:10.1007/978-1-4612-4478-3_5",
+      "Published mathematical record “Square-cell splitting for closed neighborhood complexes of triangle-free graphs” (2026-10-11), distinct invariant"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The unrestricted characterization permits proving that a rectangular grid has some C2-equivalent nonisomorphic graph, but does not restrict the counterexample to be connected and planar.",
+        "The specific proof here constructs a single two-edge switch and computes exactly +2 or -2 four-cycles in the planar witness, which are not conclusions of the stated classification theorems."
+      ],
+      "reasoning": "The old theorems strongly cover the unrestricted grid nonamenability component; the separate strengthened claim concerns geometry-preserving witness existence and exact cycle discrepancy. Those additional properties do not logically follow from existence of an arbitrary colour-refinement competitor without further construction.",
+      "searches": [
+        "arXiv:1502.01255v1, Lemma 6 and Theorem 9",
+        "arXiv:1503.08792v1, Theorem 17",
+        "two-variable counting logic planar rectangular grids indistinguishable non-isomorphic graphs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Immerman–Lander (1990) equate C2 distinction to one-dimensional colour refinement; Arvind et al. (2015), Lemma 6, preserve CR colours under equitable-degree-preserving replacements. Both searched primary full texts contain no rectangular-grid or connected-planar witness classification."
+      ],
+      "reasoning": "The claim is equivalent to an explicit planar connected 1-WL twin, with an exact four-cycle-count discrepancy, for each nontrivial grid. Searching for either the logical or graph-algorithmic wording revealed general CR theory but no such specialisation.",
+      "searches": [
+        "color refinement grid planar nonisomorphic graphs connected 1-WL planar grids four-cycles edge switching",
+        "two-variable counting logic C2 colour refinement Cartesian products of paths rectangular grid graphs amenable 2x2 distinction",
+        "arXiv:1502.01255v1 (full-text grid, planar search)",
+        "arXiv:1503.08792v1 (full-text grid, planar search)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest topical published mathematical record located about rectangular grids concerns closed-neighbourhood complexes and four-cycles, not two-variable logical equivalence or planar twins: “Square-cell splitting for closed neighborhood complexes of triangle-free graphs” (published record, 2026-10-11).",
+        "Accessible own archival findings have subjects including path powers, proper interval graphs, pseudoforests, and bounded-depth graph logic, but not rectangular-grid planar switch twins."
+      ],
+      "reasoning": "No exact table or published statement matching the connected planar C2-twin construction and signed four-cycle gap appeared. This is search evidence only, not a guarantee of nonexistence.",
+      "searches": [
+        "C2 equivalence of planar grids explicit connected planar edge-switch witness with differing four-cycle counts",
+        "C2 identification graph Cartesian product of two finite paths",
+        "planar graph 1-WL indistinguishability by a 2-switch on rectangular grid"
+      ]
+    },
+    "rationale": "The earlier complete unrestricted identification characterizations do not themselves produce planar connected competitors for every rectangular grid or an exact signed four-cycle gap of two. The uniform explicit two-edge switch, connected planar witness condition, and sharp exceptional C4 are the comparison-sensitive claims. The priority risk of an unindexed folklore planar switch is expressly retained.",
+    "residual_risks": [
+      "A specialist earlier source or folklore construction may produce the same connected planar switch or sharp four-cycle discrepancy.",
+      "The unrestricted C2 nonamenability corollary is already known; novelty is limited to witness strength and explicit exact cycle-change classification, which can be viewed as a specialization of common switching techniques."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_CR_COVERAGE_NOT_PLANAR_WITNESS",
+        "evidence": "Lemma 6 allows regular/biregular equitable-cell edge replacement preserving refinement; Theorem 9 characterizes unrestricted amenability. Neither inspected location imposes connected-planar witness construction or exact four-cycle gap.",
+        "identifier_or_url": "https://eccc.weizmann.ac.il/report/2015/032/revision/2/download",
+        "material_read": "Full-text introduction and statements/proofs around Lemma 6, Conditions A–H, Theorem 9, and examples; text search for grid and planar across the PDF",
+        "method": "Read primary PDF text, examined specific theorem passages, and searched the full text for grid/planar discussions",
+        "title": "Graph Isomorphism, Color Refinement, and Compactness",
+        "trigger": "Most directly dominating unrestricted amenability characterization"
+      },
+      {
+        "assessment": "GENERAL_C2_COVERAGE_NOT_PLANAR_WITNESS",
+        "evidence": "Theorem 17 says a graph is identified by C2 iff its flip is a bouquet forest; neither grid nor planar is specifically treated in the inspected original material.",
+        "identifier_or_url": "https://arxiv.org/pdf/1503.08792",
+        "material_read": "Primary paper introduction, preliminaries, §4 characterization, Theorem 17, and full-text searches for grid and planar",
+        "method": "Read PDF text and the first rendered page; extracted Theorem 17 comparison",
+        "title": "Graphs Identified by Logics with Counting",
+        "trigger": "Independent complete classification of C2-identified graphs"
+      },
+      {
+        "assessment": "BACKGROUND_NOT_COVERING",
+        "evidence": "Establishes classical C2 background and that trees are identified; it does not state connected planar grid switch competitors.",
+        "identifier_or_url": "https://people.cs.umass.edu/~immerman/pub/canon.pdf",
+        "material_read": "Primary-paper abstract and introductory description of finite-variable counting logics, canonicalization and trees",
+        "method": "Accessible author-hosted paper preview and bibliographic cross-check",
+        "title": "Describing Graphs: A First-Order Approach to Graph Canonization",
+        "trigger": "Underlying equivalence of colour refinement and C2"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "23ef240d-f9c5-455a-8349-47a604bef2cf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This constructs a uniformly short, geometry-preserving counterexample to C2 identification for every genuinely two-dimensional rectangular grid, even when the competitor is required to remain connected and planar. Prescribing the minimal two-edge exchange and exact four-cycle difference gives a precise structural obstruction to detecting planar square-cell information; the sole C4 exception and the 3x3 sign reversal locate sharp boundaries. The motivation is not an arbitrary finite parameter choice but a natural graph family and restricted planar definability question.",
+    "status": "PASS"
+  }
+}
