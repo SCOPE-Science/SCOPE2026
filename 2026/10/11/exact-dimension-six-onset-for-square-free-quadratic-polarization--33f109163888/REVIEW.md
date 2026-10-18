@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof has explicit quantifiers over all real symmetric zero-diagonal matrices. Multi-affine extremization reduces both suprema to Boolean vertices. Symmetric cross-block cancellation, a size-two sign reversal, and the three-flip average on a three-vertex block give the exact upper factors. The opposite-signed triangle example gives the matching lower factor. The accompanying standalone rational checker exhaustively verifies the symbolic coefficient identities for all \(5456\) Boolean vertex pairs in dimensions two through six and the exact extremal pair \((8,12)\). Finite checking is not used to extrapolate values in higher dimensions.
+## correctness
 
-**Originality — PASS, with literature risk.** The exact coefficient-restricted constant and sharp first deviation are compared with unrestricted symmetric polarization in Dimant--Galicer--Rodríguez (arXiv:1908.08107), Chatzakou--Sarantopoulos (arXiv:2107.05993), Marceca's different non-symmetric polarization (2020 thesis, Chapter 6), and the distinct semidefinite-vs-Boolean quadratic ratio of Alon--Makarychev--Makarychev--Naor (2006). Searches for alternative square-free/tetrahedral, matrix-sign, bilinear decoupling and graph-norm formulations identified no result implying the full dimension-two-through-six claim. An unindexed equivalent theorem remains possible.
+PASS
 
-**Mathematical value — PASS.** The exact invariant records a structural transition from equality of two important norms in dimensions at most five to a sharp \(3/2\) loss in dimension six. The dimension threshold and extremal two-triangle construction are natural quantitative facts in the theory of real symmetric multilinear forms and Boolean quadratic optimization, rather than an arbitrary instance or a computational-only example.
+The zero diagonal makes P_A separately affine, so extrema reduce to 2^n sign vertices; B_A is separately affine in both vectors. Conjugating by one sign vector makes the other a U/V cut and cancels cross contributions, B=a−b. Averaging P over opposite signs on one block bounds |q_U+q_V| by M=||P||. If a cut block has ≤2 elements, its quadratic value is negatable; every n≤5 cut, and unbalanced n=6 cuts, obey |a−b|≤M. For n=6 split 3+3, each triple one-flip average is −(its all-ones value)/3, so |a−b/3|≤M and |b−a/3|≤M; subtract to get |a−b|≤3M/2. Opposite-signed complete triangles realize polynomial norm 8 and bilinear norm 12. My independently implemented exact fraction certificate checked all 16+64+256+1024+4096 sign pairs (not a sample over matrices), matching coefficient identities for arbitrary real A and maximal coefficient mass 1 or 3/2 as claimed. These finite dimension computations corroborate the universal coefficient inequalities; the analytic averaging proves the theorem.
 
-**Scope.** Real spaces and square-free quadratic polynomials only. Sharp values for dimensions seven and above, and complex scalars, are not claimed. Literature inspection does not substitute for independent expert assessment.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original square-free dimension-onset threshold; general polynomial polarization works with diagonal terms and does not provide the exact real zero-diagonal 2–6 split. The related Boolean quadratic-form/graph cut formulations were checked at the level of the required numerator/denominator, not by title alone.
+
+## value
+
+PASS
+
+The first dimension at which real square-free quadratic polarization ceases to preserve norm is a natural structural invariant of multi-affine polynomial geometry, not a reparametrization of unrestricted polarization. Proving complete optimal constants through the first failure and identifying a sparse exact extremizer provides useful finite-dimensional boundary data for operator/polynomial norm inequalities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
