@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Smoothness and threefold tangent contact follow by direct substitution into the defining polynomial. The cross-family determinant \(1+\zeta^{a+b+c}\) proves the exact characteristic-two concurrency jump for every prime other than three; uniqueness of line intersections and the nine additional contact points follows from distinctness and off-curve evaluations. Frobenius on cube roots of unity proves each prime-field count. The standalone verifier independently checks twelve primes, but the proof does not depend on finite sampling.
+## correctness
 
-**Originality — PASS, with bibliographic risk.** Talar's article and the Dimca–Ilardi–Pokora–Sticlaru article contain the characteristic-zero divisor geometry, which is explicitly excluded. The abstract dual-Hesse configuration and its characteristic-dependent realizability are already treated in Kühne–Szemberg–Tutaj-Gasińska and earlier literature; that classification is likewise not claimed as new. The result is the exact fixed-integral-model degeneration, including the cubic component, triple-contact support, and complete prime-field singular-support spectrum. Direct statement and implication comparisons found no covering treatment in the inspected sources. The uninspected complete 2019 dual-Hesse chapter and unindexed equivalent deductions are residual risks.
+PASS
 
-**Value — PASS.** The nine flex tangents form the natural canonical addition to the Fermat cubic studied in the free-curve literature. Their reduction develops a mathematically significant non-generic Steiner triple-system incidence lattice precisely in characteristic two while retaining nine distinct contacts with the cubic; all good-characteristic rational singular support counts are determined at the same time. This is not an arbitrary small-prime numerical sample, since the determinant identity proves the full characteristic classification.
+Over any geometric field of p≠3, the Fermat cubic gradient (3X^2,3Y^2,3Z^2) never vanishes projectively; each of the nine lines X+ζ^aY, etc. has cubic restriction Z^3, hence exactly one distinct smooth flex triple-contact point. Three pencils have centers off the cubic. Mixed-pencil concurrent triple determinant is 1+ζ^(a+b+c); for odd p≠3, -1 is never a cube root of unity, so 27 distinct cross-pair ordinary double points plus 3 pencil triples and 9 cubic tangencies =39. In p=2, exactly nine mixed triples replace 27 doubles, giving 12 line triples and nine tangencies=21 support points, the 9_4/12_3 dual-Hesse incidence. Frobenius on ζ gives F_p-rational counts p=2:7, odd p≡1 mod3:39, odd p≡2 mod3:9. No four lines concurrent; cross intersections off cubic. Universal determinant proof, supplemented by inspection of source finite-field verifier; characteristic3 rightly excluded (nonreduced divisor), and singular scheme/Tjurina not counted.
 
-Characteristic three is excluded, and no freeness or singular-scheme-length claim is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical dual-Hesse realization in characteristic two and characteristic-zero Fermat cubic flex arrangement are known. Kühne-Szemberg-Tutaj-Gasińska 2024 §2.2 identifies the unique 9-line Steiner triple configuration and its field realizability by a root of x^2-x+1; Talar 2023 has the 27-node/3-triple/9-flex characteristic-zero count. Neither independently states the complete p≠3 specialization of this fixed integral union of the Fermat cubic and nine specific tangents, nor its rational geometric singular-support counts 7/39/9. Best-of-knowledge positive for that combined arithmetic divisor classification only, with strong prior-line-incidence coverage explicitly excluded from novelty.
+
+## value
+
+PASS
+
+Good reduction versus characteristic-two collision for a concrete degree-12 Fermat flex divisor is a natural geometric arithmetic boundary: 27 ordinary nodes merge in nine triples while flex contact remains. All-prime singular-support and rational-point counts can be reused when studying integral arrangements and characteristic-dependent singularity schemes; this is more than recomputation of abstract dual-Hesse incidences.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
