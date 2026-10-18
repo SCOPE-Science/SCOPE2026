@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T23:18:44.162954Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Frozen RESULT.md 36a5a4f26e0f9f521bf6770306a3f08396bae3ac and exact checker 8f4aa0d99fa711493089acae4570b533e3ee7f0d inspected. For smooth odd restoring f(x)=cx^3+dx^5+O(x^7), c>0, even damping g(x)=a+bx^2+O(x^4), a>0, with global g>=g0>0, xf>0, coercive U, energy E=v²/2+U gives E_dot=-g(x)v²<=0; compact LaSalle ensures all solutions tend to (0,0). Eigenvalues 0,-a give a one-dimensional slow center graph and unique fast strong-stable manifold. Invariance h h_prime=-g h-f gives h=-(c/a)x³+[-d/a+bc/a²-3c²/a³]x⁵+O(x⁷). Independently differentiated this polynomial with SymPy, obtaining Γ=-h5/(c/a)=d/c-b/a+3c/a². Along slow trajectories u=x^-2 obeys u_prime=2c/a-2h5/u+O(u^-2), integrating with u~(2c/a)t gives u=(2c/a)t+Γ log t+C+o(1), with integrable error and stable-fiber exponential tracking. For polynomial f=cx³+dx⁵, g=a+bx², exact W=v+(c/a)x³ obeys W_dot=-(a+ad x²/c)W iff b=ad/c+3c/a; symbolic independent check gives residual proportional to Γ x⁵. No singular claim is made on x=0 at finite crossings; eventual sign is fixed for nonstrong-stable trajectories. Logs/finite tests alone do not establish global convergence; energy and center/strong-stable arguments provide that proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior slow/fast rate theory covers leading decay classes but does not state the quintic-jet coefficient; qualitative LaSalle global convergence is known."
+        ],
+        "reasoning": "No inspected stronger theorem with exact b,d,a,c dependence and global strong-stable exception found. Generic center-manifold theorem alone supplies a formal jet, not this explicit integrated and globally selected asymptotic statement.",
+        "searches": [
+          "Bárta author-hosted 16-page PDF Theorems3,12–16",
+          "Llibre–Valls 2023 global damping dynamics"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2110.14306; original full arXiv HTML inspected earlier in this run",
+        "https://www.karlin.mff.cuni.cz/~barta/preprints/OptimalDecay_degenerate.pdf",
+        "2023 public Cambridge journal full text, recorded source DOI/arXiv in frozen RESULT.md",
+        "Resultary semantic query (actual): Global asymptotic inverse square x(t) log(t) coefficient in degenerate nonlinear damped Lienard oscillator quintic center manifold",
+        "Source package RESULT.md blob 36a5a4f26e0f9f521bf6770306a3f08396bae3ac and checker blob 8f4aa0d99fa711493089acae4570b533e3ee7f0d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior studies concern invariant curve construction, leading decay, or different systems (Lorenz/weak-focus)."
+        ],
+        "reasoning": "Those prior statements do not by themselves identify the Liénard-specific quintic coefficient and its exact coincidence with algebraic slow graph for arbitrary globally damped inputs.",
+        "searches": [
+          "Demina full text invariant graph",
+          "Bárta preprint full text",
+          "Resultary related Lorenz and weak-focus corrections"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Darboux condition yields the same special graph when Γ=0; this part is NOT new."
+        ],
+        "reasoning": "The larger claim additionally quantifies a global two-term relaxation asymptotic for generic initial data; the known invariant graph construction alone does not imply the Γ log t coefficient off that graph.",
+        "searches": [
+          "Global asymptotic inverse square x(t) log(t) coefficient in degenerate nonlinear damped Lienard oscillator quintic center manifold",
+          "Demina arXiv:2110.14306 invariant algebraic curves",
+          "Bárta 2017 preprint theorem3,12–16"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No relevant exact table of Γ or all-orbit logarithmic relaxation for this system located in material read."
+        ],
+        "reasoning": "Failed search or missing exact table is not novelty proof; assessment grounded in statement-level comparisons and exact derivation.",
+        "searches": [
+          "Global asymptotic inverse square x(t) log(t) coefficient in degenerate nonlinear damped Lienard oscillator quintic center manifold",
+          "Demina invariant curve theorem and bibliography",
+          "Bárta preprint"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS with attribution: Darboux polynomial invariant curve under cancellation was pre-existing (Demina), as were global Liénard attraction/leading rates (Llibre–Valls and Bárta). Neither inspected full source supplies this particular all-nonfast-orbits two-term physical-time inverse-square logarithm with coefficient d/c-b/a+3c/a², plus exact algebraic cancellation equivalence. Generic center-manifold machinery is used transparently, not claimed new.",
+      "residual_risks": [
+        "An older center-manifold asymptotic-expansion theorem might implicitly yield a generic Γ formula after substitution; residual priority risk, not a factual assertion of isolation.",
+        "Global coercivity and uniformly positive damping are essential; outside this hypothesis no global attractor claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General invariant-curve construction already available, hence cubic invariant graph existence is credited, not claimed new. Does not visibly establish the stated global all-orbit logarithmic relaxation coefficient.",
+          "evidence": "Original invariant-curve coefficient relation g=-q_l(f+q_l prime) in its notation, with operator conventions transformed as needed.",
+          "identifier_or_url": "arXiv:2110.14306; original full arXiv HTML inspected earlier in this run",
+          "material_read": "Relevant full primary HTML theorem/proof and low-degree invariant-curve conditions, especially the relation between f,g and a polynomial invariant slow graph.",
+          "method": "arXiv HTML article",
+          "title": "Invariant algebraic curves for polynomial Liénard differential systems (Demina)",
+          "trigger": "Darboux invariant graphs could imply zero-log special case"
+        },
+        {
+          "assessment": "Establishes leading decay orders and fast/slow distinction for its damping/potential classes; no quintic-jet universal log coefficient detected in the inspected theorem and proofs; not equivalent to g(x)>=g0 case.",
+          "evidence": "Theorem 12 distinguishes fast and slow; Theorem 13 leading-power rates; Theorem 16 generalized decay rates.",
+          "identifier_or_url": "https://www.karlin.mff.cuni.cz/~barta/preprints/OptimalDecay_degenerate.pdf",
+          "material_read": "16-page lawful author-hosted PDF; sections on slow/fast solutions, Theorems 3, 12–16 and asymptotic decay estimates examined, with page image of page 1.",
+          "method": "author-hosted primary PDF plus indexed pages",
+          "title": "Exact rate of decay for solutions to damped second order ODEs with degenerate potential (Bárta)",
+          "trigger": "closest long-time slow/fast decay estimates for degenerate damped ODE"
+        },
+        {
+          "assessment": "Global convergence is not new by itself; the novel candidate is the explicit globally selected logarithmic correction and exact cancellation equivalence.",
+          "evidence": "Theorems concern qualitative global dynamics, not the displayed d/c-b/a+3c/a² coefficient.",
+          "identifier_or_url": "2023 public Cambridge journal full text, recorded source DOI/arXiv in frozen RESULT.md",
+          "material_read": "Primary openly available article full text read previously in this run, including global behavior theorems.",
+          "method": "publisher open HTML",
+          "title": "Llibre and Valls, global dynamics of polynomial Liénard equations",
+          "trigger": "global attraction of damped Liénard origin"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The sign and exact vanishing of the first logarithmic correction to algebraic relaxation are motivated measurable asymptotic invariants of a globally damped degenerate oscillator, and the exact cancellation parameter identifies an invariant slow curve. The full all-initial-data except one strong-stable manifold statement distinguishes this from mere local Taylor algebra or an unmotivated substitution.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2110.14306; original full arXiv HTML inspected earlier in this run",
+    "https://www.karlin.mff.cuni.cz/~barta/preprints/OptimalDecay_degenerate.pdf",
+    "2023 public Cambridge journal full text, recorded source DOI/arXiv in frozen RESULT.md",
+    "Resultary semantic query (actual): Global asymptotic inverse square x(t) log(t) coefficient in degenerate nonlinear damped Lienard oscillator quintic center manifold",
+    "Source package RESULT.md blob 36a5a4f26e0f9f521bf6770306a3f08396bae3ac and checker blob 8f4aa0d99fa711493089acae4570b533e3ee7f0d"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No assertion that Darboux invariant graph existence alone is original.",
+    "Polynomial cancellation equivalence assumes exact cubic-quintic f and quadratic g; general smooth f,g only satisfy the logarithmic formula."
+  ],
+  "residual_risks": [
+    "An older center-manifold asymptotic-expansion theorem might implicitly yield a generic Γ formula after substitution; residual priority risk, not a factual assertion of isolation.",
+    "Global coercivity and uniformly positive damping are essential; outside this hypothesis no global attractor claim."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "General invariant-curve construction already available, hence cubic invariant graph existence is credited, not claimed new. Does not visibly establish the stated global all-orbit logarithmic relaxation coefficient.",
+      "evidence": "Original invariant-curve coefficient relation g=-q_l(f+q_l prime) in its notation, with operator conventions transformed as needed.",
+      "identifier_or_url": "arXiv:2110.14306; original full arXiv HTML inspected earlier in this run",
+      "material_read": "Relevant full primary HTML theorem/proof and low-degree invariant-curve conditions, especially the relation between f,g and a polynomial invariant slow graph.",
+      "method": "arXiv HTML article",
+      "title": "Invariant algebraic curves for polynomial Liénard differential systems (Demina)",
+      "trigger": "Darboux invariant graphs could imply zero-log special case"
+    },
+    {
+      "assessment": "Establishes leading decay orders and fast/slow distinction for its damping/potential classes; no quintic-jet universal log coefficient detected in the inspected theorem and proofs; not equivalent to g(x)>=g0 case.",
+      "evidence": "Theorem 12 distinguishes fast and slow; Theorem 13 leading-power rates; Theorem 16 generalized decay rates.",
+      "identifier_or_url": "https://www.karlin.mff.cuni.cz/~barta/preprints/OptimalDecay_degenerate.pdf",
+      "material_read": "16-page lawful author-hosted PDF; sections on slow/fast solutions, Theorems 3, 12–16 and asymptotic decay estimates examined, with page image of page 1.",
+      "method": "author-hosted primary PDF plus indexed pages",
+      "title": "Exact rate of decay for solutions to damped second order ODEs with degenerate potential (Bárta)",
+      "trigger": "closest long-time slow/fast decay estimates for degenerate damped ODE"
+    },
+    {
+      "assessment": "Global convergence is not new by itself; the novel candidate is the explicit globally selected logarithmic correction and exact cancellation equivalence.",
+      "evidence": "Theorems concern qualitative global dynamics, not the displayed d/c-b/a+3c/a² coefficient.",
+      "identifier_or_url": "2023 public Cambridge journal full text, recorded source DOI/arXiv in frozen RESULT.md",
+      "material_read": "Primary openly available article full text read previously in this run, including global behavior theorems.",
+      "method": "publisher open HTML",
+      "title": "Llibre and Valls, global dynamics of polynomial Liénard equations",
+      "trigger": "global attraction of damped Liénard origin"
+    }
+  ]
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and analytical limits
+# Independent mathematical audit
 
-The theorem is established analytically by the energy law, the smooth center-manifold invariance equation, an exact transverse equation and a convergent inverse-square remainder. `lienard_critical_checker.py` is included to check finite polynomial identities only; it does not certify the infinite-time dynamics and requires SymPy as stated in `requirements.txt`.
+## correctness
 
-Actual replay of the included checker: `python lienard_critical_checker.py` returned `CHECK_OK`. It verifies the exact third/fifth center-graph coefficients, \(\Gamma=d/c-b/a+3c/a^2\), the polynomial cofactor identity, the iff cancellation relation \(b=ad/c+3c/a\), and the signs \(3,0,-3\) for the admissible examples \((a,c,d)=(1,1,0)\), \(b=0,3,6\).
+PASS
 
-Separately, numerical forward integrations over \(t\in[0,5000]\) yielded empirical logarithmic slopes approximately \(2.9766\), \(0\), and \(-3.0166\) for those examples. The small discrepancies at finite time are expected from the integrable \(O((\log t)/t^2)\) residual. These finite experiments are not exhaustive and are not used as the proof of asymptotic or global statements.
+Frozen RESULT.md 36a5a4f26e0f9f521bf6770306a3f08396bae3ac and exact checker 8f4aa0d99fa711493089acae4570b533e3ee7f0d inspected. For smooth odd restoring f(x)=cx^3+dx^5+O(x^7), c>0, even damping g(x)=a+bx^2+O(x^4), a>0, with global g>=g0>0, xf>0, coercive U, energy E=v²/2+U gives E_dot=-g(x)v²<=0; compact LaSalle ensures all solutions tend to (0,0). Eigenvalues 0,-a give a one-dimensional slow center graph and unique fast strong-stable manifold. Invariance h h_prime=-g h-f gives h=-(c/a)x³+[-d/a+bc/a²-3c²/a³]x⁵+O(x⁷). Independently differentiated this polynomial with SymPy, obtaining Γ=-h5/(c/a)=d/c-b/a+3c/a². Along slow trajectories u=x^-2 obeys u_prime=2c/a-2h5/u+O(u^-2), integrating with u~(2c/a)t gives u=(2c/a)t+Γ log t+C+o(1), with integrable error and stable-fiber exponential tracking. For polynomial f=cx³+dx⁵, g=a+bx², exact W=v+(c/a)x³ obeys W_dot=-(a+ad x²/c)W iff b=ad/c+3c/a; symbolic independent check gives residual proportional to Γ x⁵. No singular claim is made on x=0 at finite crossings; eventual sign is fixed for nonstrong-stable trajectories. Logs/finite tests alone do not establish global convergence; energy and center/strong-stable arguments provide that proof.
 
-Only the smooth odd/even positive-damping regime is proved. The exceptional fast trajectories require the strong stable manifold; their inverse-square quantity does not satisfy the slow logarithmic law. The exact cubic invariant curve is a special polynomial case and is not asserted for general smooth forces.
+## originality
+
+PASS
+
+Best-of-knowledge PASS with attribution: Darboux polynomial invariant curve under cancellation was pre-existing (Demina), as were global Liénard attraction/leading rates (Llibre–Valls and Bárta). Neither inspected full source supplies this particular all-nonfast-orbits two-term physical-time inverse-square logarithm with coefficient d/c-b/a+3c/a², plus exact algebraic cancellation equivalence. Generic center-manifold machinery is used transparently, not claimed new.
+
+## value
+
+PASS
+
+PASS. The sign and exact vanishing of the first logarithmic correction to algebraic relaxation are motivated measurable asymptotic invariants of a globally damped degenerate oscillator, and the exact cancellation parameter identifies an invariant slow curve. The full all-initial-data except one strong-stable manifold statement distinguishes this from mere local Taylor algebra or an unmotivated substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
