@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The six-vertex witness is proved analytically. Perron–Frobenius monotonicity gives \(\rho>2\), and the symmetry-reduced eigenvector equations force vertex \(3\) to be the unique adjacency-eigenvector maximizer. Exact PageRank solution gives three rational differences from vertex \(0\) to the other symmetry classes, each strictly positive on \(0<\alpha<1\), so vertex \(0\) is the unique PageRank maximizer throughout the entire damping interval. The lower bound is exhaustive over the \(1,2,6,21\) connected unlabeled graphs of orders \(2,3,4,5\), with every PageRank crossing and every exact Perron maximizer checked. The packaged verifier returns `VERIFY_OK`.
+## correctness
 
-Risk: the result is specific to uniform teleportation and unique maxima.
+PASS
 
-## Originality
-**PASS.** Perra and Fortunato directly compare PageRank with eigenvector-based spectral centralities and show that spectral rankings can differ substantially; generic disagreement is therefore prior art. The checked literature and database searches did not state the six-vertex minimum, the exact witness, or the stronger fact that its PageRank–eigenvector top-node conflict persists for every nontrivial damping value.
+For the six-vertex simple undirected graph edges 01,02,03,34,35,45 the Perron root rho>2 (proper triangle) and symmetry equations give eigenvector maximum at vertex 3. Independently solved exact rational PageRank: differences p0-p1, p0-p3, p0-p4 have the claimed numerator factors and are strictly positive for every 0<alpha<1, making vertex 0 sole winner. For n<=5 independently enumerated connected graph isomorphism classes of cardinalities 1,2,6,21, solved PageRank rational functions, isolated all ranking-crossing real roots and tested each interval AND root point with exact Perron eigenvector principal cofactors. The tested statement is conditional on both winners UNIQUE: do not infer equality of full rankings or top-sets in tie cases. Exhaustive finite n<=5 and symbolic rational all-alpha proof establish the result.
 
-Risk: an unindexed exercise or software regression case could contain the same six-vertex graph without identifying its minimality or all-damping property.
+## originality
 
-## Value
-**PASS.** PageRank and eigenvector centrality are canonical recursive node-importance measures but normalize neighboring influence differently. Requiring a unique top node makes the comparison operational, and robustness across the full damping interval removes dependence on the conventional numerical damping choice. The minimum witness cleanly exposes the mechanism: adjacency reinforcement favors the dense triangle side, while degree-normalized random-walk reinforcement favors the two-leaf side.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Published PageRank-vs-eigenvector comparison shows spectral rankings can differ, but does not imply that *unique maxima* first differ at n=6 while PageRank conflict holds for every damping alpha. n<=5 lower bound was checked across exact algebraic crossing roots; neither a conventional alpha=0.85 example nor a generic convergence theorem establishes the universal interval statement. Existing graph atlases enumerate graphs but not these exact centrality inequalities. Best-of-knowledge PASS with residual risk of graph-software/example prepublication.
+
+## value
+
+PASS
+
+PageRank and adjacency-eigenvector centrality are widely used yet can select different most-important nodes; identifying the smallest undirected connected graph and proving conflict for every nontrivial damping parameter gives a robust exact structural counterexample. This is not a cosmetic alternative ranking, as universal damping sensitivity and minimality are independently meaningful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

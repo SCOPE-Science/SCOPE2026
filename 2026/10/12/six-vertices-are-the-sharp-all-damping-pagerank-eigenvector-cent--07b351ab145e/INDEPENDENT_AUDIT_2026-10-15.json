@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T19:10:01Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3483f65fb030cf34348a8a03e667158c1d8993dd/2026/10/12/six-vertices-are-the-sharp-all-damping-pagerank-eigenvector-cent--07b351ab145e/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3483f65fb030cf34348a8a03e667158c1d8993dd/2026/10/12/six-vertices-are-the-sharp-all-damping-pagerank-eigenvector-cent--07b351ab145e/verify_pagerank_eigenvector_boundary.py"
+      ],
+      "rationale": "For the six-vertex simple undirected graph edges 01,02,03,34,35,45 the Perron root rho>2 (proper triangle) and symmetry equations give eigenvector maximum at vertex 3. Independently solved exact rational PageRank: differences p0-p1, p0-p3, p0-p4 have the claimed numerator factors and are strictly positive for every 0<alpha<1, making vertex 0 sole winner. For n<=5 independently enumerated connected graph isomorphism classes of cardinalities 1,2,6,21, solved PageRank rational functions, isolated all ranking-crossing real roots and tested each interval AND root point with exact Perron eigenvector principal cofactors. The tested statement is conditional on both winners UNIQUE: do not infer equality of full rankings or top-sets in tie cases. Exhaustive finite n<=5 and symbolic rational all-alpha proof establish the result.",
+      "residual_risks": [
+        "Unindexed hand-computed small graph centrality counterexample may contain n=6, but no inspected source gives exact all-alpha minimality. For alpha endpoints 0,1 ties can arise; theorem restricts 0<alpha<1. Tied maxima excluded.",
+        "Finite checks are distinguished from symbolic proof and exhaustive finite-domain proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Perra–Fortunato compare several spectral measures on real/synthetic networks and PageRank correlations, but provide no exhaustive n<=5 graph argument and no universal damping sign inequalities."
+        ],
+        "reasoning": "A graph where rankings differ may still share a unique top vertex, and a single alpha example does not imply all alpha; thus broader generic coverage does not dominate precise theorem.",
+        "searches": [
+          "smallest connected undirected graph PageRank eigenvector centrality different maximum all damping six vertices",
+          "https://arxiv.org/pdf/0805.3322"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3483f65fb030cf34348a8a03e667158c1d8993dd/2026/10/12/six-vertices-are-the-sharp-all-damping-pagerank-eigenvector-cent--07b351ab145e/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3483f65fb030cf34348a8a03e667158c1d8993dd/2026/10/12/six-vertices-are-the-sharp-all-damping-pagerank-eigenvector-cent--07b351ab145e/verify_pagerank_eigenvector_boundary.py",
+        "https://arxiv.org/pdf/0805.3322",
+        "https://github.com/Resultary/2026/tree/main/2026/9/8/SCOPE031",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-complete-six-vertex-tournament-neighborhood-complex-homotopy-cen--089ebb6a89de"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Witness p0-p3=3alpha(alpha-1)/((alpha+3)(4alpha²-alpha-6))>0 on (0,1) and eigen Perron at vertex3; all 30 n<=5 isoclasses covered with exact root intervals."
+        ],
+        "reasoning": "General PageRank/eigenvector comparison does not prove minimum n or every-alpha robust disagreement; source provides independently motivated setting.",
+        "searches": [
+          "smallest connected undirected graph PageRank eigenvector centrality different maximum all damping six vertices",
+          "https://arxiv.org/pdf/0805.3322"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Perra–Fortunato Equation (20) is the undirected PageRank random-walk resolvent; adjacency Perron eigenvector is not random-walk stationary distribution and neither is Katz with a fixed teleport term."
+        ],
+        "reasoning": "Equivalent PageRank conventions alpha vs jump probability q=1-alpha only reparameterize domain; no full all-alpha six-vertex boundary in that comparison.",
+        "searches": [
+          "smallest connected undirected graph PageRank eigenvector centrality different maximum all damping six vertices",
+          "https://arxiv.org/pdf/0805.3322"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Well-known numbers of connected unlabeled graphs 1,2,6,21 alone supply graph objects; Resultary six-vertex tournament and circulant tables concern directed tournament homotopy or spectra, not uniform teleportation PageRank-vs-Perron extrema."
+        ],
+        "reasoning": "Known graph-atlas structural classification is used as domain, but is not a precomputed all-alpha centrality polynomial inequality table.",
+        "searches": [
+          "smallest connected undirected graph PageRank eigenvector centrality different maximum all damping six vertices",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-complete-six-vertex-tournament-neighborhood-complex-homotopy-cen--089ebb6a89de"
+        ]
+      },
+      "rationale": "Published PageRank-vs-eigenvector comparison shows spectral rankings can differ, but does not imply that *unique maxima* first differ at n=6 while PageRank conflict holds for every damping alpha. n<=5 lower bound was checked across exact algebraic crossing roots; neither a conventional alpha=0.85 example nor a generic convergence theorem establishes the universal interval statement. Existing graph atlases enumerate graphs but not these exact centrality inequalities. Best-of-knowledge PASS with residual risk of graph-software/example prepublication.",
+      "residual_risks": [
+        "Unindexed hand-computed small graph centrality counterexample may contain n=6, but no inspected source gives exact all-alpha minimality. For alpha endpoints 0,1 ties can arise; theorem restricts 0<alpha<1. Tied maxima excluded.",
+        "Published literature coverage is a best-of-knowledge inference, not a proof from failed search; no external expert attestation or formal Lean proof is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Develops differences between PageRank and spectral centrality on graphs and network ensembles, not an all-damping 6-vertex threshold for unique Perron and PageRank maxima or exhaustive n<=5 boundary.",
+          "evidence": [
+            "PageRank undirected Eq.(20), Section III, PDF page 4",
+            "https://arxiv.org/pdf/0805.3322"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0805.3322",
+          "material_read": "Accessible 11-page arXiv PDF; read undirected graph extension Section III and PageRank equation (20), analyzed ranking comparison, and viewed PDF page 4",
+          "method": "Primary arXiv full PDF parsed text and visual screenshot",
+          "title": "Spectral centrality measures in complex networks",
+          "trigger": "Undirected PageRank versus adjacency eigenvector centrality, potential known exact graph threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3483f65fb030cf34348a8a03e667158c1d8993dd/2026/10/12/six-vertices-are-the-sharp-all-damping-pagerank-eigenvector-cent--07b351ab145e/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3483f65fb030cf34348a8a03e667158c1d8993dd/2026/10/12/six-vertices-are-the-sharp-all-damping-pagerank-eigenvector-cent--07b351ab145e/verify_pagerank_eigenvector_boundary.py",
+        "https://arxiv.org/pdf/0805.3322"
+      ],
+      "rationale": "PageRank and adjacency-eigenvector centrality are widely used yet can select different most-important nodes; identifying the smallest undirected connected graph and proving conflict for every nontrivial damping parameter gives a robust exact structural counterexample. This is not a cosmetic alternative ranking, as universal damping sensitivity and minimality are independently meaningful.",
+      "residual_risks": [
+        "Mathematical utility is confined to the explicitly stated object/domain and is not asserted as a general optimal algorithm or broader classification.",
+        "Unindexed hand-computed small graph centrality counterexample may contain n=6, but no inspected source gives exact all-alpha minimality. For alpha endpoints 0,1 ties can arise; theorem restricts 0<alpha<1. Tied maxima excluded."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Unindexed hand-computed small graph centrality counterexample may contain n=6, but no inspected source gives exact all-alpha minimality. For alpha endpoints 0,1 ties can arise; theorem restricts 0<alpha<1. Tied maxima excluded."
+  ]
+}
