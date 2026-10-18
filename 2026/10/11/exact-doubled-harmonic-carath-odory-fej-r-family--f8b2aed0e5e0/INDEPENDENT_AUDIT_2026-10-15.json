@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T05:39:32Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md sha:120b0e4c677e90d155b2abc68762e993b99cb5b4",
+        "artifacts/verify.py sha:bd70a0e33b85a7e46f927d0cd50a22a6e181acae",
+        "Kolountzakis Révész math/0302193 Theorem 3 comparison"
+      ],
+      "rationale": "The support is continuous circle, real even, constant term 1. Evaluating any feasible 1+a cos(t)+b cos(mt)+c cos(2mt) at t=pi and t=pi-2pi/(3m) cancels b,c after weighting 1+2, so a<=3/(1+2u), u=cos(2pi/(3m)). In the construction, after t=pi-phi and y=cos(m phi), one has cos((arccos y)/m)>=cos(phi) for phi in [0,pi], so P>=R(y)-g(y) where g(y)=A cos(arccos(y)/m) and R(y)=1-C+B y+2C y². Exact coefficient identities B+C=A-1 and B-2C=q force R(1)=g(1), R(-1/2)=g(-1/2) and R'(-1/2)=g'(-1/2). For alpha=1/m in (0,1), every nonconstant coefficient of the hypergeometric expansion of cos(alpha arccos y) in (1-y)/2 is negative; applying three y-derivatives gives third_derivative_g(y)>0 on (-1,1), including one-sided continuous endpoints. Therefore the quadratic Hermite remainder g-R=(third_derivative_g(xi)/6)(y-1)(y+1/2)^2<=0, proving circle nonnegativity. Equality in the dual bound forces vanishing at both contacts and zero derivative at the interior contact, giving unique B,C by two independent linear equations. Independently checked cancellation, contacts and positivity across 20,001 points for m=2,3,4,7,13,35; sampling corroborates but cannot prove the all-m Hermite argument.",
+      "residual_risks": [
+        "Hermite remainder uses full sign on (-1,1); numerical grid checks alone are not an all-circle or all-m proof.",
+        "The m=2 instance is known exact {1,2,4} sparse support and is not novel by itself."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kolountzakis-Révész inspect Theorem 3 lists singleton and other support families but not uniform H={m,2m}; Krenedits-Révész proves general reduction to positive-definite sequences, not the sharp all-m Hermite formula."
+        ],
+        "reasoning": "An equivalence of the abstract extremal problems is not a numeric evaluation, and singleton or resonance implications do not enforce the two-harmonic coefficient A_m or uniqueness.",
+        "searches": [
+          "Kolountzakis Révész math/0302193 Theorem 3 solved supports",
+          "Krenedits Révész arXiv:1304.0071 general Abelian groups Caratheodory Fejer reduction",
+          "Révész 1991 Some trigonometric extremal problems and duality"
+        ]
+      },
+      "checked_sources": [
+        "Kolountzakis-Révész arXiv:math/0302193 critical theorem pages",
+        "Krenedits-Révész arXiv:1304.0071 framework",
+        "Resultary m=2 exact support b301e7223b2c",
+        "Resultary resonance 537434123da6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior m=2 is a corollary of present family, thus it covers exactly that special case; inverse implication of one special case to all m is invalid. A general group reduction and positivity-preserving augmentation do not supply Hermite majorant or unique coefficients."
+        ],
+        "reasoning": "The final all-m statement is strictly beyond those checked implications; no new originality assigned to isolated m=2. Residual risk is an unindexed equivalent cosine-polynomial theorem.",
+        "searches": [
+          "arXiv:math/0302193 Theorem 3",
+          "arXiv:1304.0071 general positive definite reduction",
+          "Resultary record b301e7223b2c special m=2",
+          "Resultary record 537434123da6 odd-multiple resonance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Support H={m,2m} with sequence ψ(1)=A/2 is equivalent to nonnegative cosine polynomial with first coefficient A. Searches identified same Resultary clone and known m=2 {1,2,4}, not an independent all-m result."
+        ],
+        "reasoning": "The normalization halves the cosine first harmonic on the discrete positive-definite sequence; compared both formulations and explicitly separated known m=2 specialization from the m>=3 family.",
+        "searches": [
+          "Resultary: Caratheodory Fejer exact doubled harmonic family support 1 m 2m 3/(1+2cos(2pi/3m))",
+          "Kolountzakis Révész math/0302193 positive definite support H={m,2m}"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary m=2 support {1,2,4} gives A_2=3/2 and unique extremizer. Another Resultary result classifies when adding a single frequency does not improve baseline, without exact A for H={m,2m}."
+        ],
+        "reasoning": "Known value A_2 and a qualitative strict-gain criterion cannot interpolate or imply formula 3/(1+2cos(2pi/(3m))) for every integer m.",
+        "searches": [
+          "Resultary: exact carathodory fejer constant with third harmonic missing",
+          "Resultary: odd multiple rigidity for one frequency caratheodory fejer augmentation",
+          "Resultary: doubled harmonic sparse cosine extremizers"
+        ]
+      },
+      "rationale": "The full infinite m>=2 doubled-harmonic family and unique Hermite-contact extremizer survive mathematical implication comparison; m=2 is covered prior and explicitly excluded as standalone novelty. No identified general reduction computes the family closed form.",
+      "residual_risks": [
+        "An older unindexed trigonometric Chebyshev or cosine polynomial table might contain an equivalent all-m doubled-harmonic formula.",
+        "The published m=2 member is covered and must not be advertised as individually original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_BACKGROUND_PLUS_SPECIAL_FAMILIES",
+          "evidence": "The listed exact support families inspected do not state the all-m H={m,2m} formula.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0302193",
+          "material_read": "Primary complete-paper PDF consulted at framework and solved-family theorem pages (in particular Theorem 3 and later examples, pages around 8-10,16-18).",
+          "method": "Primary PDF pages, theorem statement and mathematical support set comparison",
+          "title": "On pointwise estimates of positive definite functions with given support",
+          "trigger": "Same abstract sparse H⊂Z and sharp Carathéodory-Fejér constants"
+        },
+        {
+          "assessment": "REDUCTION_NOT_NUMERIC_FORMULA",
+          "evidence": "Establishes equivalence of frameworks; no sharp A_m expression present in inspected theorem descriptions.",
+          "identifier_or_url": "https://arxiv.org/abs/1304.0071",
+          "material_read": "ArXiv abstract and general group-reduction statement plus journal repository listing and manuscript front matter, not represented as whole-document negative inspection.",
+          "method": "Primary preprint statement/metadata and mathematical implication comparison",
+          "title": "Carathéodory–Fejér type extremal problems on locally compact Abelian groups",
+          "trigger": "Potential broader reduction of all such support problems"
+        },
+        {
+          "assessment": "COVERS_ONLY_M2",
+          "evidence": "It has H={2,4}, one parameter value; the all-m theorem genuinely includes more frequencies.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-carath-odory-fej-r-constant-with-the-third-harmonic-missin--b301e7223b2c",
+          "material_read": "Published Resultary finding summary specifying full support {1,2,4}, coefficient 3/2 and unique extremizer; full associated file not read in this run.",
+          "method": "Semantic Resultary search with exact support identification",
+          "title": "Exact Carathéodory–Fejér constant with the third harmonic missing",
+          "trigger": "Exact same problem at m=2"
+        },
+        {
+          "assessment": "STRICT_GAIN_ONLY_NOT_EXACT",
+          "evidence": "2m is not equivalent to a closed form for simultaneous m and 2m.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-odd-multiple-rigidity-for-one-frequency-carath-odory-fej-r-augme--537434123da6",
+          "material_read": "Published summary on conditions under which one extra harmonic leaves singleton extremum unchanged; no full text read in this run.",
+          "method": "Resultary semantic metadata/summary with implication check",
+          "title": "Odd-multiple rigidity for one-frequency Carathéodory–Fejér augmentation",
+          "trigger": "Closest other frequency-family general statement"
+        },
+        {
+          "assessment": "RESIDUAL_BIBLIOGRAPHIC_RISK",
+          "evidence": "Dual minimax methodology alone does not provide the two-contact all-m unique coefficients.",
+          "identifier_or_url": "https://doi.org/10.1017/S1446788700032985",
+          "material_read": "Bibliographic record and related theorem framework, not full text inspected in this run.",
+          "method": "Bibliographic/implication comparison",
+          "title": "Some trigonometric extremal problems and duality",
+          "trigger": "Broad exact extremal duality potential coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Carathéodory–Fejér support optimization",
+        "new uniform m-family dual contact and Hermite construction",
+        "explicit positive-definite extremizer"
+      ],
+      "rationale": "A natural sparse positive-definite extremal family is solved for every m with a sharp analytic closed form and a unique extremizer. The dual two-contact certificate and Hermite majorization give a reusable structural method and a sharp coefficient for infinitely many distinct supports, a motivated extension beyond prior isolated m=2 and qualitative augmentation. Neither a textbook coefficient exercise nor a random finite slice.",
+      "residual_risks": [
+        "The work does not settle arbitrary pairs of higher frequencies or more harmonics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every integer m>=2, the sharp first-harmonic coefficient of every nonnegative real cosine polynomial supported on {0,1,m,2m} is A_m=3/(1+2 cos(2pi/(3m))); the displayed explicit Hermite-contact polynomial is the unique maximizer.",
+  "limitations": [
+    "All-m proof depends on strict positivity of third derivative of the hypergeometric cosine function; finite checks m<=200 are only diagnostics.",
+    "The same support for m=2 is already solved; no independent novelty claim made for that instance."
+  ],
+  "schema_version": 1
+}
