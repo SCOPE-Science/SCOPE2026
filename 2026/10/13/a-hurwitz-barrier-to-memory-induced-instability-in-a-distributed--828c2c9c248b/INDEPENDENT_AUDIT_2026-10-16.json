@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T19:10:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With the same scalar Caputo distributed-order symbol Psi(s)=integral omega(alpha)Tc^(alpha-1)s^alpha d alpha, support 0<alpha<=1, nonnegative omega, principal branch, every Re s>=0 has Re Psi(s)>=0. A Hurwitz J has strictly left-half-plane spectrum; hence det(Psi(s)I-J) cannot vanish in Re s>=0, including s=0 because det J !=0. The published distributed-order root criterion gives linear/local asymptotic stability. Separately reconstructed Ali 2026 baseline equilibrium N=902.9557574728, (X,H,Y,Z)=(362.377257655,84.479329039,131.439986279,324.659184500). Independent symbolic differentiation yielded quartic coefficients (0.578669909137,0.088107704477,0.004035626673,0.000039900775658), positive Routh-Hurwitz minors 0.046949650671 and 0.000176110134. This certifies the fixed baseline against every common nonnegative density supported in (0,1], not compartment-specific memory nor altered model parameters.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2011 source studies multiple distributed-order systems, provides equivalent root tests but not the exact Ali 2026 four-state endemic Jacobian. Distinct compartment densities give a diagonal symbol not Psi I; the half-plane scalar comparison cannot be simply transferred."
+        ],
+        "reasoning": "No prior verified stronger result automatically establishes the printed parameter-specific Routh-Hurwitz margins; general criterion is an essential premise rather than the whole claim.",
+        "searches": [
+          "distributed order fractional Caputo Hurwitz matrix common memory stability SEIRS positive real symbol",
+          "https://onlinelibrary.wiley.com/doi/10.1155/2011/175323"
+        ]
+      },
+      "checked_sources": [
+        "https://onlinelibrary.wiley.com/doi/10.1155/2011/175323",
+        "https://www.mdpi.com/2227-7390/14/17/3186",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/a-hurwitz-barrier-to-memory-induced-instability-in-a-distributed--828c2c9c248b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Given only the prior root criterion and Ali numerical scan, one must still prove Re Psi(s)>=0 on the right half-plane and independently establish that the actual printed baseline J is Hurwitz. Both are supplied; standard analysis is honestly credited."
+        ],
+        "reasoning": "General theory does not itself report an all-memory stability theorem for this parameterized model; this is a limited but useful corollary rather than a new fractional calculus framework.",
+        "searches": [
+          "distributed order fractional Caputo Hurwitz matrix common memory stability SEIRS positive real symbol",
+          "https://onlinelibrary.wiley.com/doi/10.1155/2011/175323"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Najafi-Sheikhani-Ansari Thm3.1 characterizes distributed-order stability by roots of det(B(s)I-A). The positive-real half-plane property of B(s) for 0<alpha<=1 and nonnegative density makes the ordinary Hurwitz condition sufficient for every such density."
+        ],
+        "reasoning": "General spectral criterion is prior and mathematically close; this review credits it. Baseline SEIRS Jacobian certification and universal all-memory implication are the specific completed comparison.",
+        "searches": [
+          "distributed order fractional Caputo Hurwitz matrix common memory stability SEIRS positive real symbol",
+          "https://onlinelibrary.wiley.com/doi/10.1155/2011/175323"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ali 2026 baseline simulations and listed endemic equilibrium are known. Its tested memory density windows are finite, not a universal support theorem. Independently recomputed the Jacobian quartic and 2 nontrivial RH minors, which are not merely copied experimental data."
+        ],
+        "reasoning": "The numerical equilibrium alone is not the novelty; it is the analytic universal density exclusion linked to certified Hurwitz margins.",
+        "searches": [
+          "distributed order fractional Caputo Hurwitz matrix common memory stability SEIRS positive real symbol",
+          "https://onlinelibrary.wiley.com/doi/10.1155/2011/175323"
+        ]
+      },
+      "rationale": "Saberi Najafi et al 2011 develop the general characteristic-root criterion for distributed-order linear systems and discuss robust stability; Theorem 3.1 is credited, not claimed new. The elementary positive-real s^alpha observation yields a model-independent Hurwitz sufficient condition, and the distinctive source-specific contribution is the reconstructed endemic equilibrium and verified all-memory Routh-Hurwitz certificate. Ali 2026 reports numerical searches over memory-shape windows rather than the complete universal density result. No checked primary source states this exact SEIRS parameter certificate.",
+      "residual_risks": [
+        "The model-independent half-plane implication may be known under complete Bernstein/Stieltjes function language, reducing the general novelty; the source-specific certificate is the valued remainder.",
+        "Only common nonnegative density supported in (0,1] and fixed epidemiological parameters, with local rather than global stability."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_FRAMEWORK",
+          "evidence": "Theorem3.1 is root-location equivalence for arbitrary B(s); does not compute Ali four-state baseline or present its all-memory Routh-Hurwitz certificate.",
+          "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/2011/175323",
+          "material_read": "Full open HTML article introduction and Sec.3, in particular Thm 3.1, Defs3.2-3.5 and Thm3.6, plus robustness discussion",
+          "method": "Read substantive primary text and compare root criterion to half-plane sufficient condition",
+          "title": "Stability Analysis of Distributed Order Fractional Differential Equations, Najafi–Refahi Sheikhani–Ansari",
+          "trigger": "Possibly dominating general DO stability criterion"
+        },
+        {
+          "assessment": "NUMERICAL_WINDOWS_ONLY",
+          "evidence": "The source describes selected memory scans and its baseline equilibrium, not a proof for every nonnegative common memory density over the entire 0<alpha<=1 range.",
+          "identifier_or_url": "https://www.mdpi.com/2227-7390/14/17/3186",
+          "material_read": "Publisher HTML/abstract and model numerical stability discussion, baseline displayed parameters and equilibrium where accessible, cross-checked against actual model vector field in frozen verifier",
+          "method": "Read primary publisher available sections, reconstructed model independently to verify source specificity",
+          "title": "Stability and Transient Dynamics of a Distributed-Order Fractional SEIRS Epidemic Model with Temporary Immunity, Ali",
+          "trigger": "Same nonlinear model and parameter set"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact all-nonnegative-common-memory conclusion removes the possibility of memory-induced destabilization of a biologically specified endemic equilibrium across an entire infinite-dimensional density class, upgrading a finite parameter scan. It is a motivated stability boundary and reproducible baseline certificate, albeit an easy half-plane principle once the scalar same-order assumption is recognized.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The model-independent half-plane implication may be known under complete Bernstein/Stieltjes function language, reducing the general novelty; the source-specific certificate is the valued remainder.",
+    "Only common nonnegative density supported in (0,1] and fixed epidemiological parameters, with local rather than global stability."
+  ]
+}

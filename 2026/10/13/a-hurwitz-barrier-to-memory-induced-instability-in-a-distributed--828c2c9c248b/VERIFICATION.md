@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,35 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The universal stability statement is analytic and uses no finite sampling of memory distributions.
+# Independent mathematical audit
 
-The source-specific computation was independently reconstructed from the printed baseline model. The equilibrium identities reduce the endemic state to a scalar equation in total population \(N\). Bisection on \(902<N<903\) yields
-\[
-N^*\approx902.955757473,
-\]
-and then
-\[
-(X^*,H^*,Y^*,Z^*)\approx
-(362.377257655,84.479329039,131.439986279,324.659184500).
-\]
+## correctness
 
-The analytic Jacobian at this state gives the monic characteristic polynomial
-\[
-z^4+0.5786699091z^3+0.08810770448z^2
-+0.004035626673z+0.00003990077566.
-\]
-All coefficients are positive. The remaining quartic Routh-Hurwitz checks give
-\[
-a_1a_2-a_3\approx0.04694965067>0
-\]
-and
-\[
-a_1a_2a_3-a_3^2-a_1^2a_4
-\approx0.0001761101341>0.
-\]
+PASS
 
-The bundled `verification/verify.py` recomputes the equilibrium, all four equilibrium residuals, the Jacobian, characteristic coefficients, and both Routh-Hurwitz margins using only the Python standard library. It prints `VERIFY_OK` on success.
+With the same scalar Caputo distributed-order symbol Psi(s)=integral omega(alpha)Tc^(alpha-1)s^alpha d alpha, support 0<alpha<=1, nonnegative omega, principal branch, every Re s>=0 has Re Psi(s)>=0. A Hurwitz J has strictly left-half-plane spectrum; hence det(Psi(s)I-J) cannot vanish in Re s>=0, including s=0 because det J !=0. The published distributed-order root criterion gives linear/local asymptotic stability. Separately reconstructed Ali 2026 baseline equilibrium N=902.9557574728, (X,H,Y,Z)=(362.377257655,84.479329039,131.439986279,324.659184500). Independent symbolic differentiation yielded quartic coefficients (0.578669909137,0.088107704477,0.004035626673,0.000039900775658), positive Routh-Hurwitz minors 0.046949650671 and 0.000176110134. This certifies the fixed baseline against every common nonnegative density supported in (0,1], not compartment-specific memory nor altered model parameters.
 
-Unproved limits: no global endemic stability theorem is asserted; no claim is made for compartment-specific memory operators, distributed orders exceeding one, or epidemiological parameter changes that move the ordinary Jacobian out of the Hurwitz class.
+## originality
+
+PASS
+
+Saberi Najafi et al 2011 develop the general characteristic-root criterion for distributed-order linear systems and discuss robust stability; Theorem 3.1 is credited, not claimed new. The elementary positive-real s^alpha observation yields a model-independent Hurwitz sufficient condition, and the distinctive source-specific contribution is the reconstructed endemic equilibrium and verified all-memory Routh-Hurwitz certificate. Ali 2026 reports numerical searches over memory-shape windows rather than the complete universal density result. No checked primary source states this exact SEIRS parameter certificate.
+
+## value
+
+PASS
+
+The exact all-nonnegative-common-memory conclusion removes the possibility of memory-induced destabilization of a biologically specified endemic equilibrium across an entire infinite-dimensional density class, upgrading a finite parameter scan. It is a motivated stability boundary and reproducible baseline certificate, albeit an easy half-plane principle once the scalar same-order assumption is recognized.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
