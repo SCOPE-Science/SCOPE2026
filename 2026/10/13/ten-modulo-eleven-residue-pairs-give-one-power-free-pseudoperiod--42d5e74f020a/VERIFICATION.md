@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` beside `certificate.json`.
+# Independent mathematical audit
 
-The checker reconstructs the fixed/variable \(11\)-residue template from the two morphism images. It examines all \(121\) ordered pairs of shift residues and, whenever a source or target lands on the variable residue, enumerates every independent bit assignment. Exactly twenty ordered classes survive.
+## correctness
 
-For the \(3^+\)-power argument, the checker verifies a fixed opposite-bit residue for each nonzero shift modulo \(11\). It independently generates the six length-\(3\) Thue--Morse factors and exhausts every possible local factor required for periods \(1,2,3,4\). The remaining infinite cases are the explicit arguments in `RESULT.md`: a fixed residue mismatch when the period is not divisible by \(11\), and a forbidden Thue--Morse cube when it is.
+PASS
 
-A separate long-prefix stress test checks all certified parameter pairs with second shift at most \(300\). That stress test is not used as an infinite proof.
+The 11-block morphism has fixed bits at residues 0,1,2,3,4,6,7,8,9,10 and only the bit at residue 5 depends on the source Thue--Morse symbol. For each shift residue pair and each of 11 source residues, independently treating occurrences of residue 5 as arbitrary bits is a stronger universal condition than actual correlations; checking all 121 ordered pairs yields exactly the 20 listed orientations. For 3^+-power avoidance, any factor of length 3p+1 and period p with p>=5 and 11 not dividing p has a fixed mismatch residue in 2p+1 comparison positions; p=11q yields a forbidden Thue--Morse cube of period q from the residue-5 positions; p=1..4 exhaust the six length-3 Thue--Morse factors and every 11-block offset. Thus both properties hold for all integer shifts in these classes; density is 20/121 because each residue pair has equal asymptotic frequency among a<b. A new independent checker reconstructs the 20 robust residue orientations and all short factors.
 
-Independent audit has not been performed.
+## originality
+
+PASS
+
+The primary 2023 publication includes the *identical* 11-uniform morphism and finite evidence for (1,5) and 122 other tested pairs. Those tests do not prove all quotient lifts; its positive-density Theorem 35 concerns only (1,a) and combines several morphisms, not one word simultaneously for a positive-density two-dimensional set of (a,b). The adversarial-residue template establishes a new unrestricted arithmetic family, conditional on no unindexed equivalent source note.
+
+## value
+
+PASS
+
+The cited conjecture asks which pairs admit infinite binary 3^+-power-free pseudoperiodic words; replacing scattered finite witnesses by an exact two-dimensional family of density 20/121 for the same single morphism is a meaningful structural and quantitative extension. The family is sufficient only; it does not settle the full conjecture or characterize all pseudoperiods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
