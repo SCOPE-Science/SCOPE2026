@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof starts from the published edge-segment realization and acyclic-orientation vertex model. The symmetry center is half the degree vector. At an orientation vertex, the centered coordinate is half of indegree minus outdegree, so the squared norm is a fixed degree-square term minus the number of directed two-edge paths. In a complete multipartite graph, triples from three distinct parts contribute a fixed amount; the only variable contribution comes from a singleton vertex interleaving two vertices of one part. Hence the maximum occurs exactly when all parts are contiguous blocks, equivalently when every pair of parts is uniformly oriented. The exact cubic-moment formula follows by elementary symmetric-polynomial simplification. Central symmetry proves both uniqueness of the circumcenter and the diameter formula.
+## correctness
 
-## Originality
-PASS. The exact graphical-zonotope source and the highly relevant shuffle/join source were inspected in full. They supply the standard realization, acyclic-orientation vertices, and the complete-multipartite join construction, but no Euclidean circumradius or diameter statement. Direct published-result and literature searches under graphical-zonotope, complete-multipartite, acyclic-orientation imbalance, farthest-vertex, and complete-bipartite formulations found no covering theorem. Own current and prior ledgers contain graphical-zonotope inradius results but no complete-multipartite circumradius result.
+PASS
 
-## Value
-PASS. Complete multipartite graphical zonotopes are a canonical iterated-join family in recent generalized-permutahedron work. The result computes their exact circumspheres for arbitrary part sizes and identifies all extremal acyclic orientations. The formula
-\[
-R^2=\frac{N^3-\sum_i n_i^3}{12}
-\]
-shows that the entire outer Euclidean size is encoded by the cubic moment of the part-size distribution, while the equality class has the transparent interpretation of total orders on the parts.
+For Z_G=Σ_{uv edge}[e_u,e_v], the unique central symmetry center has coordinate deg(v)/2=(N−n_i)/2. Every vertex corresponds to an acyclic orientation with coordinates indeg(v); its squared centered norm equals Σdeg(v)^2/4−Σ indeg(v)outdeg(v). A topological word counts the latter as one for every triple of distinct multipartite classes plus nonnegative interleaving triples (two vertices from one class straddling another class). Equality occurs exactly for contiguous class-block orders: k! distinct acyclic orientations. Symmetric polynomial simplification gives R²=(N³−Σn_i³)/12; central symmetry gives diameter 2R and uniqueness of the enclosing-ball center. Independent exhaustive all-acyclic-orientation enumeration (not reused topological-word code) checked seven small part profiles, exact R² and k! contacts. The symbolic interleaving argument, not finite sampling, proves every k and n_i.
 
-## Closest literature and limitations
-The closest literature gives complete combinatorial and deformation descriptions but does not optimize Euclidean orientation norms. The own weighted graphical-zonotope result concerns inradius and cut expansion, a different metric problem. A residual risk remains for an equivalent theorem in orientation-imbalance terminology. The claim is restricted to unweighted complete multipartite graphical zonotopes.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Primary Padrol–Pilaud–Poullot establishes the standard graphical zonotope and acyclic orientation model but focuses deformation-cone geometry; Chapoton–Pilaud establishes graph joins/shuffles, not Euclidean circumspheres. A highly relevant separate published Resultary result on UNIVERSAL CONING gives D2(K1∨H)^2=D2(H)^2+m(m+1) and farthest-point cuts; that is a stronger statement for adjoining a single singleton part, but repeated coning cannot construct arbitrary multipartite blocks with n_i>1. It even explicitly cites complete multipartite cases as known. Therefore the complete arbitrary-part cubic-moment and k! contact theorem is not implied by that coning formula alone. Best-of-knowledge PASS with significant folklore/equivalent inequality risk.
+
+## value
+
+PASS
+
+Complete multipartite graphs form a natural infinite iterated-graph-join/shuffle family. A closed Euclidean circumradius expressed by the third power sums of part sizes, plus an exact k! classification of extremal orientations, is a structural geometry theorem not merely a known vertex count; it specializes to both permutahedra and complete bipartite zonotopes and is useful in future optimization of graphical zonotopes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
