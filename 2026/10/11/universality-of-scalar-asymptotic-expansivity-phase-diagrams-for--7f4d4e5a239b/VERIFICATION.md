@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytical proof uses (1) the normal spectral theorem to identify every forward-bounded orbit, (2) the uniform spectral restriction test for strong asymptotic expansivity, (3) the Cantor–Bendixson perfect-kernel density lemma, and (4) a nonatomic-plus-atomic full-support Borel measure with exactly the prescribed atoms. These jointly establish the universal converse, not merely sample cases.
+## correctness
 
-The optional `check.py` confirms exact rational identities for finitely many middle-third Cantor gaps, including the right endpoints and their missing open interiors. Run `python3 check.py` with Python 3 and no extra dependencies. It does not prove any infinite-dimensional implication, and the proof above does not rely on its output.
+PASS
 
-Known fixed-operator spectral criteria are prior work. External independent review has not been performed.
+C: For normal N spectral theorem proves bounded-orbit subspace E([0,r])H under scaled modulus, bounded-orbit limit is its atom at r; SAE requires spectral gap strictly below r. The left-gap set J_K handles spectral accumulation correctly. For compact metrizable K, Cantor–Bendixson perfect kernel P and isolated points I satisfy closure(P∪I)=K. Construct a nonatomic finite measure with full support P and weighted atoms precisely at countable A, obtain L²(K,µ) separable and M_t positive/invertible with K support and atom set A. Converse: separability gives at most countably many mutually orthogonal positive-eigenvalue projections and isolated spectral points have nonzero projections. Tested boundary cases singleton, purely perfect/Cantor, isolated endpoints, and nonempty atoms. Optional packaged finite Cantor checks were read but not treated as an infinite proof.
+
+## originality
+
+PASS
+
+O: Complete fixed-normal spectral criterion is acknowledged antecedent mathematics. The mathematically distinct necessity-and-realization of EVERY eligible (K,A), together with Cantor dense SAE split for a single operator, was absent from the inspected original AE/SAE paper and strongest semantic prior.
+
+## value
+
+PASS
+
+V: Characterizes exactly which simultaneous scalar AE/SAE/hyperbolicity diagrams can occur on separable positive normal dynamics; the arbitrary prescribed atom set and dense interleaving construction are natural operator-theoretic inverse/classification results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
