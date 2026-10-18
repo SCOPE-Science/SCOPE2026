@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "The source gives the exact Brownian reset MFPT. In the zero-delay case its stability boundary becomes cosh(k)/cosh(bk)=1+k^2/C. The extracted entire-function coefficients are proportional to n(2n−1)−sum_{j=0}^{n−1}b^{−2j}; their sign changes once for C>5/2 by the monotone second-difference argument, proving a unique positive root. Sign bracketing at y=(1±epsilon)log C and log-domain inversion prove the stated two-term high-c expansion. The supplied checker passed 75 assertion groups, supplemental only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2020 queue reset work and 2011 optimal reset work address first-passage/queue mechanisms, without identified count-dependent equalizing asymptotics of the particular 2026 interval model.",
+        "The 2026 paper itself identifies a numerical higher-than-quadratic fit rather than a logarithmically corrected quadratic limit."
+      ],
+      "reasoning": "General restart and G/M/c stability theory supplies the starting equations, but no inspected result supplies or directly states the sharp asymptotic in this simultaneous small-starting-position and high-rate regime.",
+      "searches": [
+        "high server queue critical reset crossover rate c^2 log^2 c false power law",
+        "queue arrival Brownian absorbing reflecting interval resetting equalizing crossover r_eq number of servers c squared log squared asymptotic",
+        "Diffusion with optimal resetting Evans Majumdar 2011",
+        "Queueing theory of search processes with stochastic resetting Bressloff 2020"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2602.05009v1 dated 2026-02-04",
+      "arxiv:2602.05009v2 Sections II-IV, Appendix A and B",
+      "doi:10.1103/pzz6-3hzf publication metadata",
+      "Giral-Barajas and Bressloff 2025 no-reset queue paper (citation and account in 2026 source)",
+      "Pal and Prasad 2019 interval resetting (citation in source)",
+      "Published mathematical research record titles and claims (scientific-content comparison only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The first paper proves the exact underlying renewal formula and locates the crossover numerically, while the earlier 2025 work analyzes unreset critical positions.",
+        "The new proof determines the logarithmically corrected high-server rate and analytically proves single-root uniqueness."
+      ],
+      "reasoning": "Existing implicit equations mathematically determine the root; that fact is conceded. The asymptotic evaluation, including the leading dimensional constant and 2 log log correction, requires a nontrivial joint limit and is not presented as a source corollary. Implicit coverage by a general asymptotic theorem remains a residual risk.",
+      "searches": [
+        "Resetting-induced instability in queues fed by a search process in an interval r_eq c log power law",
+        "Stochastic 1D search-and-capture as a G/M/c queueing model 2025",
+        "First passage under stochastic resetting in an interval Pal Prasad 2019"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The motivating article derives the same implicit zero-delay equality of critical start positions but gives numerical rate growth only (section IV, Fig. 8 and Appendix B).",
+        "The new theorem reformulates its equality as an even entire-function zero with a single sign change of Taylor coefficients."
+      ],
+      "reasoning": "Implicitly defining the same number is prior knowledge, but the specific logarithmic two-term large-server inversion and its analytic proof were not found in the inspected source.",
+      "searches": [
+        "\"Resetting-induced instability in queues\" r_eq c log power law",
+        "Giral-Barajas Bressloff resetting queue c servers crossover critical resetting rate r_eq x_r star x0 star logarithmic correction",
+        "arxiv:2602.05009v2 Sections III IV Appendix B"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Figure 8 in arXiv:2602.05009v2 contains finite-server numerical points but no analytic squared-logarithmic limit.",
+        "The displayed explicit constant and two-term logarithmic scale are not a lookup of the finite figure."
+      ],
+      "reasoning": "A finite numerical plot cannot certify the limit; the exact coefficient variation and logarithmic root localization resolve the asymptotic domain.",
+      "searches": [
+        "Resetting-induced instability in queues fed by a search process in an interval r_eq c asymptotic log squared c critical resetting rate Giral Barajas Bressloff",
+        "asymptotics of transcendental cosh(k)/cosh(b k)=1+k^2/C unique positive root near b=1",
+        "arxiv:2602.05009 Figure 8"
+      ]
+    },
+    "rationale": "The original 2026 paper was inspected across its mathematical sections and appendices, and establishes the implicit equalizing condition but only presents finite-c numerical scaling. The logarithmically corrected analytic high-server law and coefficient-variation proof were not found in that paper or actual indexed searches. The 2025 queue source is cited as a no-reset baseline; a possibility of general pre-existing implicit coverage remains.",
+    "residual_risks": [
+      "The 2025 baseline paper and several classical resetting references were not inspected in complete primary full text; statements about their scope rely on the 2026 source account.",
+      "A general uniform hyperbolic-root asymptotic or Lambert W theorem not identified by the searches might imply the formula.",
+      "Self-review is not an independent audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Underling renewal formula and implicit critical crossing are previous; reported scaling is a numerical fit with exponent greater than two, without the logarithmic quadratic asymptotic derived here",
+        "evidence": [
+          "arxiv:2602.05009v2 Sections II.1, II.3, IV, V, Appendix B",
+          "DOI:10.1103/pzz6-3hzf"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2602.05009v2",
+        "material_read": "Abstract, Introduction, Sections II-IV including Eqs. (6),(12),(14)-(16), critical region and Fig. 8 discussion, V and Appendices A-B",
+        "method": "Read full openly accessible structured HTML by section and compare the rate definition, starting-position equation, and claimed asymptotic",
+        "title": "Resetting-induced instability in queues fed by a search process in an interval",
+        "trigger": "Same Brownian resetting search-fed G/M/c queue, same rate r_eq and parameters"
+      },
+      {
+        "assessment": "No independent full-text exclusion; possible implicit overlap of queue-stability methods, though the 2026 paper treats the rate crossover as new",
+        "evidence": [
+          "arxiv:2602.05009v2 reference [20], Section II.2"
+        ],
+        "identifier_or_url": "Giral-Barajas and Bressloff, Journal of Physics A 58 (2025) 355001; bibliographic reference [20] in arxiv:2602.05009v2",
+        "material_read": "Citation and account in the 2026 motivating paper, Sections I-II (not 2025 full text)",
+        "method": "Secondary-literature comparison only; source full text not claimed as inspected",
+        "title": "Stochastic 1D search-and-capture as a G/M/c queueing model",
+        "trigger": "Motivating 2026 paper cites this 2025 baseline for unreset stability"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2764dcb0-1522-471a-95b2-12eccc8fac40",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The resource-planning threshold depends on the coupled limit of increasing server count and an ever-closer critical starting point. The exact asymptotic identifies a true regular-variation exponent of 2 with squared logarithmic correction, replacing a numerically fitted larger exponent and providing its physical prefactor and first log-log improvement. It is a quantitatively meaningful scale law, not a one-off parameter substitution.",
+    "status": "PASS"
+  }
+}
