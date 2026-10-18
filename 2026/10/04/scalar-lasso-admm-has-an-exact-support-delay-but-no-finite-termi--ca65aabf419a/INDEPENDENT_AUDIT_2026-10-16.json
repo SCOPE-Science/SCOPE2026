@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T02:53:30.632653Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Starting from actual scalar scaled ADMM update, inactive threshold input r^j=(b/rho)(1-(1+rho)^(-j)). Strict inequality b(1-(1+rho)^(-j))>lambda yields exact first positive index floor(log(b/(b-lambda))/log(1+rho))+1, including equality case. At activation scaled dual u=lambda/rho and 0<z<b-lambda. Subsequent recurrence z_next=(b-lambda+rho*z)/(1+rho) has never-vanishing geometric error factor rho/(1+rho), any finite rho>0. Active-cell Jacobian has eigenvalues rho/(1+rho),0. Independently replayed exact fractions for five choices (b,lambda,rho), including b=2,lambda=rho=1 giving j=2,z^2=1/2; the all-parameter result follows from the recurrence, not tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General partial-smoothness ADMM results prove eventual active-set identification and local linear rate, not finite full-state termination",
+          "Later DR finite-convergence theorems have additional local hypotheses and different operator structure"
+        ],
+        "reasoning": "The general results neither imply the exact scalar activation time nor dominate the nonterminating scalar counterexample; the 2016 source gives the opposite conclusion.",
+        "searches": [
+          "arXiv:1412.6858",
+          "arXiv:1606.02116",
+          "Resultary: scalar lasso ADMM exact support identification time no finite termination finite convergence counterexample K=I"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1109/ICASSP.2016.7472579",
+        "arXiv:1412.6858"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dohmatob et al. Theorem 1(c1) gives finite support identification, while Theorem 1(c3) explicitly claims finite-time whole-algorithm convergence when K=Id",
+          "Its p3 proof invokes large-rho limiting Friedrichs cosine 0 to infer exact finite convergence for finite rho"
+        ],
+        "reasoning": "Finite rho yields strictly positive contraction rho/(1+rho), so the asserted finite convergence is false in the quantified zero-initialized scalar instance even though asymptotic rate tends to zero for rho->0 or can differ in the large-rho projection limit.",
+        "searches": [
+          "DOI:10.1109/ICASSP.2016.7472579",
+          "arXiv:1412.6858",
+          "arXiv:1606.02116"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original 2016 equation (2) is precisely scaled ADMM for x=z, K=I, Omega=|z|",
+          "In the scalar active region, exact geometric residual has nonzero eigenvalue rho/(1+rho) rather than nilpotence"
+        ],
+        "reasoning": "Equivalent proximal, Douglas–Rachford and scaled-dual formulations distinguish finite manifold identification from exact finite iterate convergence; no independent identical onset formula found.",
+        "searches": [
+          "Resultary: scalar lasso ADMM exact support identification time no finite termination finite convergence counterexample K=I",
+          "DOI:10.1109/ICASSP.2016.7472579",
+          "arXiv:1412.6858"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned Resultary finding is top exact match",
+          "Other retrieved exact ADMM phase-diagram and rank-staircase records concern different algorithms/problems"
+        ],
+        "reasoning": "No independent exact scalar onset table or previously published corrected finite-termination example identified; the negative result is bounded.",
+        "searches": [
+          "Resultary: scalar lasso ADMM exact support identification time no finite termination finite convergence counterexample K=I",
+          "Resultary published 2026/10/4/SCOPE-scalar-lasso-admm-has-an-exact-support-delay-but-no-finite-termi--ca65aabf419a"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality accepted on the basis of direct statement/implication comparisons; prior components explicitly credited. Scalar Lasso ADMM has an exact support delay but no finite termination. Risks and partial readings disclosed.",
+      "residual_risks": [
+        "An unindexed erratum or earlier scalar ADMM note may observe the same particular counterexample.",
+        "No claim on arbitrary initialization, penalty schedules or multivariate designs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECTLY CONTRADICTED by scalar recurrence",
+          "evidence": [
+            "Theorem 1(c3) says K=Id gives finite whole-algorithm convergence; proof passes from large-penalty leading term to a finite-penalty claim"
+          ],
+          "identifier_or_url": "DOI:10.1109/ICASSP.2016.7472579",
+          "material_read": "Full extracted five-page original paper; especially printed update equation (2), Theorem 1(c1,c3) p2, proof (c3) p3",
+          "method": "authorized institutional article full-text read",
+          "title": "Local Q-Linear Convergence and Finite-time Active Set Identification of ADMM on a Class of Penalized Regression Problems",
+          "trigger": "Direct target of finite-termination counterexample"
+        },
+        {
+          "assessment": "NOT DECISIVE; eventual identification not finite full termination",
+          "evidence": [
+            "Finite activity identification and local linear contraction are compatible with nonzero scalar error at every finite step"
+          ],
+          "identifier_or_url": "arXiv:1412.6858",
+          "material_read": "Public abstract and available theorem discussion; not a complete independent article read",
+          "method": "arXiv abstract / literature index",
+          "title": "Activity Identification and Local Linear Convergence of Douglas–Rachford/ADMM under Partial Smoothness",
+          "trigger": "Potential general stronger identification theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A minimal, hypothesis-faithful scalar counterexample invalidates a specific published claim that K=I anisotropic ADMM reaches a fixed point finitely. It preserves the established finite support-identification theorem while exposing the precise opposing penalty tradeoff: faster identification for larger rho, slower post-identification contraction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only scalar b>lambda>0, finite fixed rho>0 and initialized z0=u0=0, standard unrelaxed scaled ADMM.",
+    "Finite computer replay cannot by itself prove infinite nontermination.",
+    "An unindexed erratum or earlier scalar ADMM note may observe the same particular counterexample.",
+    "No claim on arbitrary initialization, penalty schedules or multivariate designs."
+  ],
+  "schema_version": 1
+}
