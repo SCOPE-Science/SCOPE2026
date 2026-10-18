@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The global claim concerns equal numbers of strictly positive abundance entries, not different richness or similarity-weighted diversity. Sorting gives an exact signed-interval decomposition for the count-function difference. Opposite-sign intervals are disjoint and properly indexed, limiting sign changes to \(s-1\). The Mellin transform has no more real zeros counted with multiplicity than the function's sign changes, as shown by an explicit extended-Chebyshev/Rolle argument. The equal-sum constraint consumes one zero and the special Shannon order is correctly handled by its derivative. The exact integer differences at orders \(2,3,4\) have alternating signs. The standalone finite checker reproduces these computations, but it does not certify the infinite theorem. Risk: the generality of the zero lemma requires nonzero functions of compact support away from zero, which the positive finite abundance data supply.
+PASS
 
-## Originality (PASS; qualified)
+Sorting both s-component probability vectors yields a signed step function h(t)=Σ(1_{p_i>t}−1_{r_i>t}) with at most s−1 sign changes: supports from opposite-signed intervals at increasing indices are disjoint and ordered. The Mellin transform M(z)=∫t^z h(t)dt is a real exponential-polynomial integral with at most s−1 real zeros counted with multiplicity by the confluent Chebyshev/zero-variation lemma, proved via Rolle and sign interpolation. F(q)=Σp_i^q−Σr_i^q=q M(q−1); normalization M(0)=0 consumes one zero, and at q=1 the Shannon tie requires M′(0)=0. Therefore there are ≤s−2 finite q>0 ties for unequal multisets. Independent exact integer power sums for the displayed P and Q gave F(2),F(3),F(4) signs +,−,+ with differences 2362, −517776, 16323602434, hence exactly two simple crossings, in (2,3) and (3,4). No assertion of s−2 attainability for every s≥5.
 
-Hill (1973) supplies the diversity family, not the intersection bound. Patil–Taillie (1982, pp.553–555) proves a crossing analysis for a constructed family of abundance perturbations. Leinster–Cobbold (2012, pp.17–22) explicitly discusses occasional double crossings and unlimited crossing counts as species richness varies, but does not establish a sharp four-species threshold or a universal \(s-2\) upper bound for fixed richness. Aw–Rosenberg (2018, Theorem 3.9) and Gress–Rosenberg (2024, Results 1–4) supply conditional magnitude bounds, not crossing counts. Directed semantic and bibliographic searches found no covering result. Residual literature risk: a broader power-majorization or total-positivity theorem, or the not fully inspected Tóthmérész (1995) article, might imply the claim. No absence-of-results search is regarded as conclusive proof of novelty.
+## originality
 
-## Value (PASS)
+PASS
 
-The sharp minimal richness is a motivated structural boundary for a known ecological interpretation problem, where choosing sensitivity order changes rankings. A universal support-dependent intersection bound substantially constrains such reversals. The construction uses only four species and exact rational proportions, avoiding an arbitrary high-dimensional numerical artifact. Limitations: distinct positive components, equal richness, finite positive sensitivity orders, and no similarity or sampling noise.
+General Rényi/Hill diversity comparison and crossing examples predate this record. Leinster–Cobbold 2012 explicitly exhibit two profile crossings but do not in the inspected corresponding section determine minimal positive species count. Patil–Taillie 1982 examines comparison/crossing for structured perturbations rather than establishing a universal equal-support s−2 bound in inspected passages. The new quantified tie maximum follows a nontrivial sign-variation argument; an existing total-positivity or power-majorization theorem might imply it without stating ecological terminology and remains a material residual risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Hill/Rényi profiles are standard diversity-orderings in ecology; an upper bound on ranking reversals in terms of richness and an exact smallest double-reversal example clarify a natural model-selection ambiguity. The s=4 threshold is supported by an all-s theorem, not merely a numerical curiosity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
