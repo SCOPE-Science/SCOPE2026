@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T01:58:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For star Laplacian and positive costs c_i=d_i², the Rayleigh/PSD inequality evaluated on a minimum-resultant polygon embedding bounds λ2 by Λ=[S−δ²/(m+1)]^{-1}, S=Σc_i, δ=(2 max d_i−Σd_i)_+. The min resultant in R² is zero exactly at the polygon inequality, and otherwise δ with unique largest side. If δ=0 all rates 1/S attain the bound; saturation of the centered embedding equality forces each leaf rate. For δ>0, prescribed w_j=Λ(1−δ/(n d_j)) and w_i=Λ(1+δ/(n d_i)) are positive and satisfy exact cost one. The proof does not merely find an eigenvector: it gives a full PSD certificate L−ΛP as Λ/n times δ[Σ_{i≠j} z_i²/d_i−T²/B]+(B/d_j)(z_j+d_jT/B)². Both terms nonnegative, and nullity gives a simple λ2. The saturated eigenvector forces uniqueness for any optimal allocation. The two-leaf case and equality polygon boundary are included. Independently checked exact example (25,4,1) with Λ=1/29, rates (9/290,5/116,3/58), budget one and symbolic PSD identity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SIAM Review 48 (2006) 681-699 proves general SDP and dual but not an explicit arbitrary-price star optimizer",
+          "Göring et al 2005/2008 uniform-cost star example"
+        ],
+        "reasoning": "Algorithmic SDP coverage provides a method to derive the solution but no stated closed-form polygon threshold, rates, and multiplicity. Equal prices are an included but strictly narrower special case.",
+        "searches": [
+          "max algebraic connectivity weighted star graph arbitrary positive edge prices spectral gap polygon inequality exact optimum rates",
+          "Sun Boyd Xiao Diaconis 2006 fastest mixing general cost",
+          "Göring Helmberg Wappler 2005 Embedded in the Shadow of the Separator"
+        ]
+      },
+      "checked_sources": [
+        "https://stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "https://optimization-online.org/2005/09/1202/",
+        "https://doi.org/10.1080/03081089008817967"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2006 SDP/embedding dual admits the arbitrary cost constraint but has no specialized closed-form theorem in its worked families",
+          "The present proof derives an explicit sum-of-squares PSD lower certificate and unique primal allocation"
+        ],
+        "reasoning": "General existence/optimality via semidefinite programming does not logically state the exact δ and w* formula without solving the star case. This specific analytical solution survives best-of-knowledge comparison.",
+        "searches": [
+          "doi:10.1137/S0036144504443821",
+          "optimization-online.org/2005/09/1202/",
+          "max algebraic connectivity weighted star graph arbitrary positive edge prices spectral gap polygon inequality exact optimum rates"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sun et al 2006: fastest mixing continuous-time generator -L with edge conductance cost budget is maximum algebraic connectivity",
+          "Current formulation is a star-specific maximum variance embedding with fixed squared edge lengths d_i²"
+        ],
+        "reasoning": "Reconstructed normalization explicitly: combinatorial Laplacian, uniform vertex stationary distribution and Σc_iw_i=1; excludes discrete-time normalized chains.",
+        "searches": [
+          "max algebraic connectivity weighted star graph arbitrary positive edge prices spectral gap polygon inequality exact optimum rates",
+          "fastest mixing Markov process star graph edge price maximum variance embedding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Uniform star exact spectral values 0, w (m-1 times), (m+1)w are classical",
+          "No inspected primary source tabulates the arbitrary real cost continuum by square-root polygon imbalance"
+        ],
+        "reasoning": "A finite tabulation is inapplicable to an all-positive-real cost theorem; searched exact star formulas and compared symbolic results instead.",
+        "searches": [
+          "max algebraic connectivity weighted star graph arbitrary positive edge prices spectral gap polygon inequality exact optimum rates",
+          "star algebraic connectivity optimal conductances unequal costs price closed form"
+        ]
+      },
+      "rationale": "The primary Sun–Boyd–Xiao–Diaconis paper establishes the general arbitrary-price SDP/max-variance duality, but its worked exact families are paths/cycles rather than the proposed all-price star formula. Göring–Helmberg–Wappler analyze a symmetric/uniform-cost star embedding and cannot settle the strict price-imbalance transition. The later Farhadi–Louis–Singh–Tetali treatment of tree variance embedding and an alternate star infinity functional does not state the same exact spectral-cost rates. There is a best-of-knowledge possibility of an equivalent formula in older tree connectivity literature, notably Fiedler 1990 not read in full.",
+      "residual_risks": [
+        "Fiedler 1990 full tree-connectivity paper inaccessible; its possible arbitrary-price specialization is unverified.",
+        "The theorem assumes an unconstrained continuous-time symmetric rate generator and no per-edge caps, not stochastic discrete-time mixing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_FRAMEWORK_ONLY",
+          "evidence": [
+            "Linear edge cost budget and Rayleigh algebraic connectivity are fully treated; no closed-form heterogeneous star formula located in inspected full paper."
+          ],
+          "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "material_read": "Primary full PDF including formulation, SDP, duality and Section 5 worked path/cycle families",
+          "method": "PDF full-text and page inspection",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "Same arbitrary edge price fastest-mixing objective"
+        },
+        {
+          "assessment": "UNIFORM_PRICE_SPECIAL_CASE",
+          "evidence": [
+            "Treats symmetric star embedding, not arbitrary positive costs and polygon imbalance."
+          ],
+          "identifier_or_url": "https://optimization-online.org/2005/09/1202/",
+          "material_read": "Primary paper including star example and relevant separator embedding discussions",
+          "method": "full PDF inspection",
+          "title": "Embedded in the Shadow of the Separator",
+          "trigger": "Published star embedding example"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_RISK",
+          "evidence": [
+            "Fiedler 1990 could contain a differently parameterized star optimization theorem; no full text verified."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/03081089008817967",
+          "material_read": "Abstract and bibliographic record; full primary text inaccessible",
+          "method": "abstract-only; avoid whole-paper coverage judgment",
+          "title": "Absolute algebraic connectivity of trees",
+          "trigger": "Historical graph spectral optimization potentially covers arbitrary-priced stars"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact optimization of algebraic connectivity under heterogeneous linear edge prices is a natural rate-allocation question. The closed polygon-inequality bifurcation, unique optimizer, spectral multiplicity change, and a sharp semidefinite sum-of-squares certificate replace a generic convex-program solver for an entire continuous family. This is a motivated structural theorem, not just the known equal-price star instance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fiedler 1990 full tree-connectivity paper inaccessible; its possible arbitrary-price specialization is unverified.",
+    "The theorem assumes an unconstrained continuous-time symmetric rate generator and no per-edge caps, not stochastic discrete-time mixing.",
+    "Frozen public METADATA.json retains operational scope_run_id and is not safe for unchanged publication."
+  ],
+  "schema_version": 1
+}
