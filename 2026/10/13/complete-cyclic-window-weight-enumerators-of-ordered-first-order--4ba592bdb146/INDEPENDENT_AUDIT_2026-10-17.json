@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T07:01:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each nonconstant binary affine truth table in increasing integer position order, its least active variable index t yields B=2^t sized constant blocks in opposite paired blocks. The higher affine bit pattern g(s) determines exactly j cyclic 1-to-0 transitions, giving j zero runs length2B and H-2j runs length B. The binary carry parity map from high coefficient bits to u_h is invertible over F2, making v enumerate 0..2^q-1 and j=ceil(v/2). Thus the endpoint/interior multiplicities mu_q(j) are 1/2 as stated, with extra factor2 for the affine constant; the two constant words contribute 1+z^N. This reconstructs the exact W_{m,b} formula for every m>=1,1<=b<=2^m, and the derived pair and minimum-b formulas. Independent truth-table evaluation, completely separate from the stated formula, checked all cyclic widths for each m=1..6. The analytical carry argument, not finite trials, proves the unlimited quantifiers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2021 gives generic zero-run->weight formula but not distribution; 2024 field-power ordered length8 code has pair min6 whereas ordered RM(1,3) pair min5."
+        ],
+        "reasoning": "The 2024 hypotheses involve a different order and cannot dominate cyclic-weight claims; the 2021 generic identity needs the new carry count.",
+        "searches": [
+          "Shi Zhu Helleseth 2021 Theorem 2 zero-run transform",
+          "Luo Ezerman Guneri Ling Ozbudak 2024 Theorem 7 extended cyclic codes"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2109.13764v1",
+        "arXiv:2401.04941v1",
+        "Resultary: Resultary: first order binary Reed Muller RM(1,m) natural order cyclic b-symbol weight enumerator zero run distribution"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ordinary RM Hamming enumerator has weights 0,N/2,N but the b=2 cyclic enumerator has all weights N/2+1..N; dimension/length-equal field-power realization has different b-minimum."
+        ],
+        "reasoning": "Neither Hamming spectrum nor generic window transform nor a differently ordered extended cyclic construction implies all claimed coefficients.",
+        "searches": [
+          "arXiv:2109.13764 Theorem2 general b weight via zero gaps",
+          "arXiv:2401.04941 Theorem7 extended cyclic example"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent to distribution of cyclic zero-run lengths for binary affine truth tables in increasing integer evaluation order; Hamming equivalence does not imply b-symbol equivalence."
+        ],
+        "reasoning": "The claim is compared to Hadamard/Reed–Muller and b-symbol/zero-run aliases, fixing coordinate order in each comparison.",
+        "searches": [
+          "Resultary: first order binary Reed Muller RM(1,m) natural order cyclic b-symbol weight enumerator zero run distribution",
+          "Shi Zhu Helleseth 2021 zero-run b-symbol identities"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed close results concern other binary cyclic codes and string attractors; no all-m ordered RM b-enumerator table was identified."
+        ],
+        "reasoning": "Search is corroborating but not proof of priority; residual historical coordinate-order-specific computation possible.",
+        "searches": [
+          "Resultary: first order binary Reed Muller RM(1,m) natural order cyclic b-symbol weight enumerator zero run distribution",
+          "Hadamard Reed Muller lexicographic cyclic pair weight 4 coefficient"
+        ]
+      },
+      "rationale": "Shi/Zhu/Helleseth provide the generic zero-run relation for any cyclic word, not the exact run-length distribution of these integer-ordered binary affine truth tables. Luo/Ezerman et al 2024 use a field-power/extended cyclic coordinate order; at m=3,b=2 their construction has minimum 6 while this order has 5, so Hamming code equivalence cannot transfer their b-symbol result. Resultary queries for first-order RM, Hadamard, natural-order b-symbol enumerators and zero-run distribution returned unrelated code families. The new all-m/all-b carry-induced multiplicity law is not logically implied by generic run transforms, subject to residual unindexed coordinate-specific literature.",
+      "residual_risks": [
+        "An earlier unindexed affine-truth-table run-length census or Hadamard symbol-pair table may yield an equivalent formula.",
+        "All-m theorem holds ONLY for increasing binary-integer evaluation order; a different field ordering invalidates the same polynomial."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERIC_RUN_TRANSFORM_ONLY",
+          "evidence": "Transforms specified zero-gap multiplicities into weights but does not determine integer-ordered affine truth-table transition distribution.",
+          "identifier_or_url": "arXiv:2109.13764v1",
+          "material_read": "Full 17-page primary arXiv PDF with definitions, Theorem 2 zero-run identity, special families, conclusion and rendered initial page.",
+          "method": "lawful full arXiv PDF text and page image",
+          "title": "The connections among Hamming metric, b-symbol metric, and r-th generalized Hamming metric",
+          "trigger": "Generic zero-run theorem could imply submitted cyclic enumerators."
+        },
+        {
+          "assessment": "ORDER_DIFFERENT_NOT_IMPLYING",
+          "evidence": "At length8 and b2 source construction has min6 while ordered RM(1,3) has min5, demonstrating lack of b-symbol isometry.",
+          "identifier_or_url": "arXiv:2401.04941v1",
+          "material_read": "Full 10-page primary arXiv PDF, theorem statements and constructions including Theorem 7, plus rendered first page.",
+          "method": "lawful full arXiv PDF text and page image",
+          "title": "Griesmer Bound and Constructions of Linear Codes in b-Symbol Metric",
+          "trigger": "Closely related extended cyclic construction of same length/dimension."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first-order Reed–Muller/Hadamard code is canonical and cyclic b-symbol weights are intrinsically coordinate-order-sensitive. Computing all coefficients, not merely a minimum, for EVERY dimension and cyclic read width is a substantive natural family classification. The surprising uniform fourfold nonzero interior symbol-pair multiplicities and the binary-carry mechanism supply reusable exact structural content.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2109.13764v1",
+    "arXiv:2401.04941v1",
+    "Resultary: Resultary: first order binary Reed Muller RM(1,m) natural order cyclic b-symbol weight enumerator zero run distribution"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "m>=1, binary RM(1,m), fixed increasing-integer evaluation order, 1<=b<=2^m. No extension to nonlinear, higher order, or arbitrarily permuted coordinates.",
+    "Priority assessment is best-of-knowledge, not exhaustive literature or expert certification.",
+    "An earlier unindexed affine-truth-table run-length census or Hadamard symbol-pair table may yield an equivalent formula.",
+    "All-m theorem holds ONLY for increasing binary-integer evaluation order; a different field ordering invalidates the same polynomial."
+  ],
+  "residual_risks": [
+    "An earlier unindexed affine-truth-table run-length census or Hadamard symbol-pair table may yield an equivalent formula.",
+    "All-m theorem holds ONLY for increasing binary-integer evaluation order; a different field ordering invalidates the same polynomial."
+  ],
+  "schema_version": 1
+}

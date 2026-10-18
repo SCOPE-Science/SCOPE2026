@@ -1,9 +1,21 @@
-# Scientific review: cyclic window-weight enumerator
+# Independent mathematical audit
 
-**Correctness — PASS.** The code family is defined with an explicit binary-integer coordinate order, avoiding the common ambiguity between coordinate-equivalent linear codes in the cyclic window metric. The proof partitions each nonconstant affine word by its least active variable, identifies every maximal circular zero run as having length \(2^t\) or \(2^{t+1}\), and counts its exact multiplicity via carries of a binary counter. For a fixed carry-parity vector, the number of cyclic transitions is \(v+(v\bmod 2)\), giving the required endpoint/interior multiplicities. The multiplicities sum to \(2^{m+1}\) including constants. A separate implementation evaluates all cyclic windows directly for every \(m=1,\ldots,8\) and every \(b=1,\ldots,2^m\), and checks the full coefficient maps, not merely the minima. Boundary cases \(b=1\), \(b=N\), \(q=0\), and \(m=1\) are included. No finite sample is used as an infinite proof.
+## correctness
 
-**Originality — PASS, with residual risk.** Shi–Zhu–Helleseth, arXiv:2109.13764 (2021), supply the general weight/zero-run transformation and determine distributions for some irreducible cyclic/simplex families, but not the exact zero-run multiplicities of ordered binary affine truth tables. Their formula does not by itself yield the present enumerator. Luo–Ezerman–Güneri–Ling–Özbudak, arXiv:2401.04941 (2024), prove Griesmer bounds and construct a length-\(2^m\) extended cyclic family, but its primitive-element column order differs essentially: its binary \(m=3,b=2\) minimum is six (Theorem 7), versus five here. Classical Hamming weight enumerators for Reed–Muller codes do not imply ordered \(b\)-weights because these change under coordinate permutations. Focused prior-literature and research-index searches found no equivalent complete joint-parameter formula. An unindexed earlier formula or less-obvious equivalent remains a genuine priority risk.
+PASS
 
-**Value — PASS.** The complete family \(\operatorname{RM}(1,m)\) is a standard coding-theoretic object; increasing-integer evaluation order is a fixed natural encoder realization. The cited 2021 primary paper identifies computing exact \(b\)-symbol weight distributions of further special linear codes as a meaningful direction. This result gives every coefficient of the enumerator for all window widths and all lengths, strengthening the well-known two-weight Hamming description and yielding the particularly simple exact symbol-pair spectrum. The answer is not a one-off parameter evaluation or an arbitrary slice. The scope is strictly binary first-order codes in that order; no universal optimality, arbitrary permutation invariance, or higher-order extension is asserted.
+For each nonconstant binary affine truth table in increasing integer position order, its least active variable index t yields B=2^t sized constant blocks in opposite paired blocks. The higher affine bit pattern g(s) determines exactly j cyclic 1-to-0 transitions, giving j zero runs length2B and H-2j runs length B. The binary carry parity map from high coefficient bits to u_h is invertible over F2, making v enumerate 0..2^q-1 and j=ceil(v/2). Thus the endpoint/interior multiplicities mu_q(j) are 1/2 as stated, with extra factor2 for the affine constant; the two constant words contribute 1+z^N. This reconstructs the exact W_{m,b} formula for every m>=1,1<=b<=2^m, and the derived pair and minimum-b formulas. Independent truth-table evaluation, completely separate from the stated formula, checked all cyclic widths for each m=1..6. The analytical carry argument, not finite trials, proves the unlimited quantifiers.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Shi/Zhu/Helleseth provide the generic zero-run relation for any cyclic word, not the exact run-length distribution of these integer-ordered binary affine truth tables. Luo/Ezerman et al 2024 use a field-power/extended cyclic coordinate order; at m=3,b=2 their construction has minimum 6 while this order has 5, so Hamming code equivalence cannot transfer their b-symbol result. Resultary queries for first-order RM, Hadamard, natural-order b-symbol enumerators and zero-run distribution returned unrelated code families. The new all-m/all-b carry-induced multiplicity law is not logically implied by generic run transforms, subject to residual unindexed coordinate-specific literature.
+
+## value
+
+PASS
+
+The first-order Reed–Muller/Hadamard code is canonical and cyclic b-symbol weights are intrinsically coordinate-order-sensitive. Computing all coefficients, not merely a minimum, for EVERY dimension and cyclic read width is a substantive natural family classification. The surprising uniform fourfold nonzero interior symbol-pair multiplicities and the binary-carry mechanism supply reusable exact structural content.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
