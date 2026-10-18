@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification details
 
-The proof in `RESULT.md` is symbolic and valid for every integer \(a\ge2\) and every odd prime \(p\); the restricted complete classification applies when \(\Omega((\sigma(n)-n)/4)\le2\), after \(\nu_2(\sigma(n)-n)=2\) is proved.
+# Independent mathematical audit
 
-Run the included `verify.py` with a standard Python 3 interpreter. Its trial-factorization routine independently computes \(D\) and \(\Omega\); its primality checks use deterministic Miller–Rabin bases for unsigned \(64\)-bit integers. The captured successful check was:
+## correctness
 
-```
-CHECK_OK tested_prime_pairs=3861 fixed_points=2 low_odd_support=2 family=[(3, 152, 19, 37), (11, 8394752, 4099, 2098687), (15, 2147581952, 65539, 536895487)] exceptional=284
-```
+PASS
 
-The finite test covers \(2\le a\le10\), odd prime \(p\le3000\), and separately paired-prime exponents \(3\le a\le18\); it is neither a complete census for all parameters nor an independent proof. The theorem instead uses the exact valuation argument, elimination identities, and complete factorization of \(16\). No unproved primality assumption is used for a particular example, and no existence or infinitude beyond the conditional parameterization is asserted.
+For t=2^a>=4, p odd prime, S=(t-1)p+2t-1. If D(S)=tp, valuation nu_2(S)=1 makes D(S) odd; valuation >=3 gives D(S)/S>=3/2 and S/n>3/4, contradictory. Thus S=4m odd m, with exact identities p=4D(m)+2t-1 and m-(t-1)D(m)=t(2t-1)/4. Since D(m)=Omega(m) mod2, this forces even Omega for a=2 and odd Omega for a>=3. For Omega<=2 and a>=3, m is prime and the two simultaneous prime formulas follow; conversely these imply D(S)=n. For a=2, Omega=2 gives (r-3)(s-3)=16; pairs (5,11) and (7,7), and only former gives p=71 and n=284. The first case a=3,p=19 has q=37,n=152. Independent factor/derivative calculations over 616 (a,p) pairs corroborated the logic. No assertion for higher Omega, a=1 or infinitely many simultaneous primes.
+
+## originality
+
+PASS
+
+OEIS A248816 contains the equation and numerical examples 152, 284 and larger; A125246 already records the deficient-by-four family shape. Neither database observation implies the exact unconditional 2-adic/odd-Omega obstruction plus exhaustive low-complexity converse over all a. Resultary searches returned other arithmetic derivative iterations and 2^a p divisor topics without statement-equivalent coverage. Originality attaches only to this rigidity and classification, not the derivative identity, example values or family shape.
+
+## value
+
+PASS
+
+This is a natural structural question for the fixed points of the arithmetic derivative of proper-divisor sums, already populated by an OEIS sequence. The two-adic rigidity excludes entire factor-complexity classes and the exhaustive Omega<=2 classification describes an infinite conditional prime-parameter family without claiming its infinitude. A researcher determining further fixed points can use the precise obstruction and terminal small-complexity layer; this is more than recomputing known terms or renaming the deficient-by-four family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

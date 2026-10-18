@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T11:06:06.833746Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Assigned immutable RESULT.md Git blob 7888c566bf3de5ddab11c83dcf853a795c96e2ff; algebra reconstructed from its proof",
+        "independent_math_checks.py exact independent factorization/primality/derivative checks, 616 small admissible pairs",
+        "Explicit exceptional pairs (5,11), (7,7), p values 71 and 63"
+      ],
+      "rationale": "For t=2^a>=4, p odd prime, S=(t-1)p+2t-1. If D(S)=tp, valuation nu_2(S)=1 makes D(S) odd; valuation >=3 gives D(S)/S>=3/2 and S/n>3/4, contradictory. Thus S=4m odd m, with exact identities p=4D(m)+2t-1 and m-(t-1)D(m)=t(2t-1)/4. Since D(m)=Omega(m) mod2, this forces even Omega for a=2 and odd Omega for a>=3. For Omega<=2 and a>=3, m is prime and the two simultaneous prime formulas follow; conversely these imply D(S)=n. For a=2, Omega=2 gives (r-3)(s-3)=16; pairs (5,11) and (7,7), and only former gives p=71 and n=284. The first case a=3,p=19 has q=37,n=152. Independent factor/derivative calculations over 616 (a,p) pairs corroborated the logic. No assertion for higher Omega, a=1 or infinitely many simultaneous primes.",
+      "residual_risks": [
+        "The classification restricts n to 2^a p with a>=2 and odd p and Omega((sigma(n)-n)/4)<=2 after valuation proof.",
+        "No general full fixed-point classification or infinitude of the paired-prime family is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A125246 gives n=2^a(2^{a+1}+3) as known deficient-by-four family shape.",
+          "Resultary indexed fixed-multiplier D(n)=kn and 2^a p subset-sum results, neither entails D(S(2^a p))=2^a p."
+        ],
+        "reasoning": "An all-S fixed-point theorem or all-Omega classification would dominate this result, but these checked sources give only shape/examples or distinct operations.",
+        "searches": [
+          "Resultary: arithmetic derivative aliquot sum fixed points D(sigma(n)-n)=n 2^a p classification valuation A248816",
+          "Resultary: fixed-multiplier level sets of the arithmetic derivative",
+          "OEIS A125246 deficient by four"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A248816 (same fixed point equation and earlier values)",
+        "OEIS A125246 (known family shape)",
+        "OEIS A003415 (standard arithmetic derivative)",
+        "Resultary semantic search arithmetic derivative aliquot sum fixed points D(sigma(n)-n)=n 2^a p classification valuation A248816"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A248816 gives examples of the target equation; A125246 gives one family shape.",
+          "Proof identifies S(2^a(2^{a+1}+3))=4q_a, so the extra q_a primality is necessary and sufficient in the restricted Omega=1 layer."
+        ],
+        "reasoning": "Combining the entries with the standard derivative does not give global necessity across all odd p; the new valuation/parity and factorization argument is the nontrivial implication.",
+        "searches": [
+          "OEIS A248816 fixed points",
+          "OEIS A125246 deficient by four",
+          "Resultary arithmetic derivative aliquot sum fixed points D(sigma(n)-n)=n 2^a p classification valuation A248816"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A248816 records the same fixed-point predicate and explicit members but no two-adic/low-Omega necessity-and-sufficiency theorem in inspected listing.",
+          "A003415 contains standard D(n) identity, not the aliquot fixed-point classification."
+        ],
+        "reasoning": "An equivalent statement might be phrased as arithmetic derivative of aliquot sum, derivative of proper-divisor sum, or fixed points of D∘S; numerical agreement is insufficient for theorem coverage.",
+        "searches": [
+          "arithmetic derivative aliquot sum fixed points D(sigma(n)-n)=n 2^a p classification valuation A248816",
+          "OEIS A248816 D(sigma(n)-n)=n",
+          "OEIS A003415 arithmetic derivative"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A248816 contains known example terms including 152,284,8394752,2147581952.",
+          "A125246 contains related deficient-by-four numbers; the joint q_a prime requirement for derivative equality is not inferred merely from the n shape."
+        ],
+        "reasoning": "Earlier exact entries are prior data, not an unrestricted conditional low-prime-complexity theorem; the theorem claims no novelty for listed values.",
+        "searches": [
+          "OEIS A248816 terms and comments",
+          "OEIS A125246 family",
+          "OEIS A003415 arithmetic derivative"
+        ]
+      },
+      "rationale": "OEIS A248816 contains the equation and numerical examples 152, 284 and larger; A125246 already records the deficient-by-four family shape. Neither database observation implies the exact unconditional 2-adic/odd-Omega obstruction plus exhaustive low-complexity converse over all a. Resultary searches returned other arithmetic derivative iterations and 2^a p divisor topics without statement-equivalent coverage. Originality attaches only to this rigidity and classification, not the derivative identity, example values or family shape.",
+      "residual_risks": [
+        "Unindexed number-theoretic manuscripts or OEIS comments might already present the exact conditional small-Omega theorem.",
+        "Both the fixed-point predicate and the deficient-by-four family shape are prior art; only the rigidity/restricted converse is proposed as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_EXACT_VALUES_NOT_GENERAL_RESTRICTED_CLASSIFICATION",
+          "evidence": "The database already lists initial fixed points but does not in the inspected entry formulate the valuation theorem.",
+          "identifier_or_url": "https://oeis.org/A248816",
+          "material_read": "OEIS main sequence definition, representative terms and record annotations; not a full mathematical paper",
+          "method": "Direct sequence/database page reading",
+          "title": "OEIS A248816: Numbers that are equal to arithmetic derivative of sum of aliquot parts",
+          "trigger": "Identical predicate and exact earlier numerical sequence"
+        },
+        {
+          "assessment": "PRIOR_PARAMETER_SHAPE_CREDITED",
+          "evidence": "The displayed deficient-by-four family is prior; q_a must also be prime for current fixed-point classification.",
+          "identifier_or_url": "https://oeis.org/A125246",
+          "material_read": "Database statement and known family shape",
+          "method": "Direct sequence/database page reading",
+          "title": "OEIS A125246: Numbers that are deficient by 4",
+          "trigger": "Potential earlier parameterization n=2^a(2^{a+1}+3)"
+        },
+        {
+          "assessment": "FOUNDATIONAL_NOT_CURRENT_CLASSIFICATION",
+          "evidence": "D(p)=1 and Leibniz property are classical; no claim of their novelty.",
+          "identifier_or_url": "https://oeis.org/A003415",
+          "material_read": "Definition and sequence conventions",
+          "method": "Direct mathematical database entry reading",
+          "title": "OEIS A003415: Arithmetic derivative of n",
+          "trigger": "Foundational derivative identities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "OEIS A248816 motivates the fixed-point equation",
+        "The unrestricted a and p valuation argument and complete low-Omega classification",
+        "OEIS A125246 provides already-known related family shapes"
+      ],
+      "rationale": "This is a natural structural question for the fixed points of the arithmetic derivative of proper-divisor sums, already populated by an OEIS sequence. The two-adic rigidity excludes entire factor-complexity classes and the exhaustive Omega<=2 classification describes an infinite conditional prime-parameter family without claiming its infinitude. A researcher determining further fixed points can use the precise obstruction and terminal small-complexity layer; this is more than recomputing known terms or renaming the deficient-by-four family.",
+      "residual_risks": [
+        "Narrow n=2^a p subdomain and restricted odd quotient factor complexity; does not solve the entire original sequence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The classification restricts n to 2^a p with a>=2 and odd p and Omega((sigma(n)-n)/4)<=2 after valuation proof.",
+    "No general full fixed-point classification or infinitude of the paired-prime family is established.",
+    "Unindexed number-theoretic manuscripts or OEIS comments might already present the exact conditional small-Omega theorem.",
+    "Both the fixed-point predicate and the deficient-by-four family shape are prior art; only the rigidity/restricted converse is proposed as new.",
+    "Narrow n=2^a p subdomain and restricted odd quotient factor complexity; does not solve the entire original sequence.",
+    "Scientific review of directly fetched Git blobs completed; recursive source tree identity unverified and publication readiness withheld."
+  ],
+  "schema_version": 1
+}

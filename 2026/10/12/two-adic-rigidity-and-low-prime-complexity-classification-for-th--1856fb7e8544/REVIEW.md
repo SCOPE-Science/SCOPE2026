@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof starts from the exact aliquot-sum formula \(S(2^ap)=(2^a-1)p+2^{a+1}-1\). Valuations \(\nu_2(S)=1\) and \(\nu_2(S)\ge3\) are eliminated by parity and the exact logarithmic-derivative inequality, respectively. The forced valuation \(2\) gives identities for \(m=S/4\) and \(D(m)\). These imply the opposite parity constraints on \(\Omega(m)\) at \(a=2\) and \(a\ge3\). The remaining cases are exactly one odd prime versus two odd primes; the latter reduces to the full factor equation \((r-3)(s-3)=16\), including the repeated-prime case. Both directions of the parametrization have been verified algebraically. The standalone bounded computation independently agrees; no unbounded claim relies on its coverage.
+## correctness
 
-## Originality — PASS, residual risk disclosed
-OEIS A248816 directly records the same derivative-of-aliquot-sum question and individual values, but does not provide this valuation obstruction, parity theorem, or complete low-prime-complexity converse. OEIS A125246 already contains the deficient-by-four *shape* of one family; novelty is not claimed for the shape. Its relation to the derivative question additionally requires the stated simultaneous primality test. The arithmetic-derivative definition in A003415 does not imply the classification without the intervening argument. The compositions in A248815 and A230164 are different. Semantic searches of published-finding corpus for this equation, 2-adic obstruction, simultaneous prime conditions, and alternative formulations found no equivalent/stronger claim among the closest results. The remaining risk is unindexed older argument or a direct derivation embedded in a source not indexed under the same equation.
+PASS
 
-## Value — PASS
-The exact fixed-point equation is explicitly recorded as an arithmetic sequence problem with isolated numerical examples. The theorem settles an infinite two-prime-support stratum under the natural and nontrivial restriction that the odd aliquot quotient has at most two prime factors, including a unique exceptional even-parity case, and gives an unbounded 2-adic obstruction even without that restriction. It explains multiple large sequence values through a necessary-and-sufficient paired-prime mechanism, rather than recomputing a finite table. The uncertain infinitude of the prime pair family and the remaining high-\(\Omega\) cases are not resolved.
+For t=2^a>=4, p odd prime, S=(t-1)p+2t-1. If D(S)=tp, valuation nu_2(S)=1 makes D(S) odd; valuation >=3 gives D(S)/S>=3/2 and S/n>3/4, contradictory. Thus S=4m odd m, with exact identities p=4D(m)+2t-1 and m-(t-1)D(m)=t(2t-1)/4. Since D(m)=Omega(m) mod2, this forces even Omega for a=2 and odd Omega for a>=3. For Omega<=2 and a>=3, m is prime and the two simultaneous prime formulas follow; conversely these imply D(S)=n. For a=2, Omega=2 gives (r-3)(s-3)=16; pairs (5,11) and (7,7), and only former gives p=71 and n=284. The first case a=3,p=19 has q=37,n=152. Independent factor/derivative calculations over 616 (a,p) pairs corroborated the logic. No assertion for higher Omega, a=1 or infinitely many simultaneous primes.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+OEIS A248816 contains the equation and numerical examples 152, 284 and larger; A125246 already records the deficient-by-four family shape. Neither database observation implies the exact unconditional 2-adic/odd-Omega obstruction plus exhaustive low-complexity converse over all a. Resultary searches returned other arithmetic derivative iterations and 2^a p divisor topics without statement-equivalent coverage. Originality attaches only to this rigidity and classification, not the derivative identity, example values or family shape.
+
+## value
+
+PASS
+
+This is a natural structural question for the fixed points of the arithmetic derivative of proper-divisor sums, already populated by an OEIS sequence. The two-adic rigidity excludes entire factor-complexity classes and the exhaustive Omega<=2 classification describes an infinite conditional prime-parameter family without claiming its infinitude. A researcher determining further fixed points can use the precise obstruction and terminal small-complexity layer; this is more than recomputing known terms or renaming the deficient-by-four family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
