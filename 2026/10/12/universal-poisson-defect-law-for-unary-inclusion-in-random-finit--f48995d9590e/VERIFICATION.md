@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and its standard library. The verifier constructs all \(2^{n^2}\) binary relations for each \(1\le n\le4\). It directly evaluates the inclusion violation count from row and column masks, obtains the unweighted joint histogram by number of defects and retained pairs, and compares exact rational probabilities to the coefficient formula in the theorem. It also checks the full factorial-moment identities and the pairwise covariance bound in small cases.
+## correctness
 
-Observed final output:
+PASS
 
-```
-n= 1 teams= 2 unweighted_defect_histogram= [2, 0]
-n= 2 teams= 16 unweighted_defect_histogram= [12, 4, 0]
-n= 3 teams= 512 unweighted_defect_histogram= [374, 132, 6, 0]
-n= 4 teams= 65536 unweighted_defect_histogram= [52056, 12632, 840, 8, 0]
-VERIFY_OK teams 66066 rational_parameter_cases 20 exact_probability_coefficients 70
-```
+For a fixed subset S of k indices, no edge enters those k columns with probability q^(nk), while each of k selected rows must use one of the n-k other columns, independently: intersection probability q^(nk)(1-q^(n-k))^k. Summing subsets yields exact falling factorial moments and PGF. Pairwise B_i covariance <=0 gives Var<=EW and Chebyshev for diverging intensity. For finite nonzero limiting intensity q->1 and fixed-k ratios tend to 1; factorial-moment determinacy yields Poisson. Both sparse windows and intervening regime follow from elementary uniform logarithmic estimates. Independent enumeration exactly reproduced all n<=4 defect histograms.
 
-Finite enumeration checks coefficients for \(p\in\{0,1/3,1/2,2/3,1\}\). It does not test all real probabilities directly (the closed-form identities do), and finite samples do not prove limits as \(n\to\infty\). The infinite claims rest on the exact intersection factorization, the negative pairwise covariance and factorial-moment argument given in `RESULT.md`. No independent validation has been performed.
+## originality
+
+PASS
+
+The inspected primary inclusion-logic article develops semantics and complexity, not random Bernoulli teams. No matching two-window Poisson law or exact factorial moment formula appeared in Resultary matched records; comparison to old random directed-graph degree statistics was bounded. Best-of-knowledge O PASS with named possible in/out isolation equivalence.
+
+## value
+
+PASS
+
+Natural probability of a basic unary inclusion atom in random databases exhibits two sharply different nonmonotone reliability windows; the exact all-k law can be used directly by finite model and random-structure researchers. This is not a single arbitrary tiny case or simple table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
