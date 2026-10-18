@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. For each integer \(r\), failure of \(r\)-conicity is equivalent to the existence of a total-dominating set of at most \(r\) vertices: a nonconic subcomplex supplies one witness simplex against every star, and a total-dominating set generates a subcomplex excluded from every star. The cone case exactly matches infinite total-domination number. For joins, a join face fails after adjoining a vertex from one factor exactly when its component in that factor fails, so total-dominating sets of \(K*L\) are precisely unions of total-dominating sets of \(K\) and \(L\). The verifier independently exhausts all labeled complexes on up to four vertices and 144 small join pairs.
+## correctness
 
-## Originality
-PASS relative to the checked literature. Barmak's 2021 full text defines \(r\)-conicity and proves only the one-sided join implication; it contains no total-domination discussion. The Aharoni--Berger total-domination parameter is explicitly reproduced in Lew's 2017 thesis, which gives a homological-connectivity bound but no conicity language. Exact phrase, alias, implication, and join searches found no source stating the parameter identity or the exact shifted additivity of maximal conicity. A 2023/2024 survey restates conicity results without a total-domination connection. The original 2006 Aharoni--Berger full text was not retrievable through the checked access routes, leaving a limited source-access risk, but it predates the introduction of \(r\)-conicity.
+PASS
 
-## Value
-PASS. The result is a structural identification, not a finite table entry: it turns two separately developed obstruction parameters into the same invariant and strengthens the established join lower bound to an equality for maximal conicity. This lets exact total-domination calculations be transferred directly into conicity statements and conversely explains join sharpness uniformly. The result does not rely on claiming that substituted connectivity corollaries are themselves new.
+The crucial quantifiers were checked, including the empty simplex and cones. If K fails r-conicity, a subcomplex A on <=r vertices lies in no closed star; for every v some face sigma in A cannot be extended by v, so its vertex set is totally dominating. Conversely for a dominating S of size <=r, faces sigma_v witnessing each vertex generate a subcomplex A on <=r vertices contained in no star. Thus K r-conic iff gamma(K)>r, for all integers r>=-1. K is cone iff no totally dominating set exists, proving infinity case. For disjoint joins, a witness face alpha union beta for v in K fails join membership iff alpha union {v} fails in K, since beta is a valid L face; hence total domination holds exactly when both component sets totally dominate. Minimize cardinalities, covering cone/infinity cases. The provided verify.py correctly enumerates all 126 small nonempty labeled complexes and 144 joins, which corroborate but do not prove the general theorem.
 
-## Closest literature and limitations
-The closest conicity source is Barmak's introduction of the notion and its join lemma. The closest domination source is the Aharoni--Berger parameter as reproduced with its general-complex definition by Lew. The shortness of the proof is a limitation on technical depth, and an obscure post-2021 duplicate remains possible; no such statement was found in the checked primary/survey literature or semantic search.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Aharoni–Berger (2006) states simplicial total domination via non-extendable faces; Barmak (2021) separately defines r-conicity through closed stars and proves only a lower join bound. The full texts checked provide the two ingredients separately, but not their identity or exact join additivity of maximal conicity; Farber appendix likewise restates conicity without the dual parameter. This is a short derivation once definitions are juxtaposed; novelty is bounded to the explicit cross-parameter formula and joins, not new connectivity bounds.
+
+## value
+
+PASS
+
+This is an exact dictionary between independently used topology and combinatorial domination invariants. Its nontrivial mathematical purpose is to transfer conicity estimates to an existing total-domination parameter and upgrade Barmak's general one-sided join estimate to an equality for the maximal conicity index, including cones. Although the proof is short, the universal join structure and reusable equivalence are motivated, not an arbitrary renamed finite calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

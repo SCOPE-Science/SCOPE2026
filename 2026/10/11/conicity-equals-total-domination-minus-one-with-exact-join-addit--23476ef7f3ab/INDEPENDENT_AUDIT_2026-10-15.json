@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T00:40:45Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": "Git RESULT.md and verify.py, exact tree fa62d1167f46bdf91d4ddf04b8589d95d4e94183; Barmak Definition2 and Remark5; Aharoni-Berger §6 definition of domination",
+      "rationale": "The crucial quantifiers were checked, including the empty simplex and cones. If K fails r-conicity, a subcomplex A on <=r vertices lies in no closed star; for every v some face sigma in A cannot be extended by v, so its vertex set is totally dominating. Conversely for a dominating S of size <=r, faces sigma_v witnessing each vertex generate a subcomplex A on <=r vertices contained in no star. Thus K r-conic iff gamma(K)>r, for all integers r>=-1. K is cone iff no totally dominating set exists, proving infinity case. For disjoint joins, a witness face alpha union beta for v in K fails join membership iff alpha union {v} fails in K, since beta is a valid L face; hence total domination holds exactly when both component sets totally dominate. Minimize cardinalities, covering cone/infinity cases. The provided verify.py correctly enumerates all 126 small nonempty labeled complexes and 144 joins, which corroborate but do not prove the general theorem.",
+      "residual_risks": [
+        "The proof uses finite nonempty declared vertex sets and disjoint join vertices; no infinite locally finite generalization is asserted.",
+        "The open definition of subcomplex with empty simplex and r=-1 boundary is handled by equivalence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barmak Remark5 p.4 proves (r1+r2+1)-conicity for a join, which is only a lower bound for the maximal parameter.",
+          "Farber 2023 appendix restates conicity and connectivity thresholds, not total domination."
+        ],
+        "reasoning": "The published one-sided join theorem does not imply equality for maximal conicity; factorwise total dominating sets supply the missing upper bound.",
+        "searches": [
+          "conic simplicial complex conicity parameter total domination number exact join additive Barmak Aharoni Berger",
+          "Barmak (2021), arXiv:2103.03952v1",
+          "Farber (2023), https://doi.org/10.1007/s41468-023-00134-9"
+        ]
+      },
+      "checked_sources": [
+        "Aharoni and Berger (2006), https://doi.org/10.1090/S0002-9947-06-03833-5",
+        "Barmak (2021), arXiv:2103.03952v1",
+        "Farber (2023), https://doi.org/10.1007/s41468-023-00134-9",
+        "Resultary self record ...--23476ef7f3ab"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Aharoni–Berger Theorem6.3 is a connectivity lower bound from total domination; it makes no claim of maximal conicity or join additivity.",
+          "Barmak Definition2 and Remark5 give definition and one-sided join estimate; neither establishes the equality as a stated result."
+        ],
+        "reasoning": "The join sharpness theorem is a consequence of newly making the two obstruction parameters equivalent, not just plugging a parameter into an existing connectivity theorem. Its derivation is elementary but exact and general.",
+        "searches": [
+          "Aharoni and Berger (2006), https://doi.org/10.1090/S0002-9947-06-03833-5",
+          "Barmak (2021), arXiv:2103.03952v1",
+          "Farber (2023), https://doi.org/10.1007/s41468-023-00134-9",
+          "conic simplicial complex conicity parameter total domination number exact join additive Barmak Aharoni Berger"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aharoni–Berger full article §6 pp.4904–4905 defines gamma via a simplex sigma⊆A not extendible by v.",
+          "Barmak Definition2 p.4 defines r-conic using every subcomplex <=r vertices in a star, but the PDF contains no total-domination discussion."
+        ],
+        "reasoning": "Their duality follows from contrasting witness quantifiers but no prior text located stating the exact identity; a logical bridge across two historically distinct invariants is the whole claim.",
+        "searches": [
+          "conic simplicial complex conicity parameter total domination number exact join additive Barmak Aharoni Berger",
+          "web: conic simplicial complex total domination number max conicity star duality",
+          "Aharoni and Berger (2006), https://doi.org/10.1090/S0002-9947-06-03833-5",
+          "Barmak (2021), arXiv:2103.03952v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent published numerical or theorem table of kappa(K) or gamma(K) joint identity was found; own Resultary hit is self-coverage.",
+          "Existing S0 join example in Barmak has sharp individual numerical values only for that family."
+        ],
+        "reasoning": "Examples of join spheres with kappa=odd integers do not imply a universal exact join formula for arbitrary finite K,L.",
+        "searches": [
+          "conic simplicial complex conicity parameter total domination number exact join additive Barmak Aharoni Berger",
+          "Resultary: conicity total domination join simplicial complex"
+        ]
+      },
+      "rationale": "Aharoni–Berger (2006) states simplicial total domination via non-extendable faces; Barmak (2021) separately defines r-conicity through closed stars and proves only a lower join bound. The full texts checked provide the two ingredients separately, but not their identity or exact join additivity of maximal conicity; Farber appendix likewise restates conicity without the dual parameter. This is a short derivation once definitions are juxtaposed; novelty is bounded to the explicit cross-parameter formula and joins, not new connectivity bounds.",
+      "residual_risks": [
+        "The duality is an elementary de Morgan equivalence; an unindexed later expository reference may explicitly state it under different notation.",
+        "An Aug-2026 Barmak–Farber paper on other combinatorial connectivity criteria was indexed but its full text was not accessible for substantive comparison; it is a possible uninspected later alias source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING explicit dual total-domination identity or maximal join equality",
+          "evidence": "Remark5 asserts conicity lower bound under join, Definition2 star criterion; no simplicial total domination in PDF.",
+          "identifier_or_url": "arXiv:2103.03952v1",
+          "material_read": "Full primary PDF introduction, p.4 Definition2, Examples3 and6, Remark5 and page image; full-text keyword check for total domination",
+          "method": "Open arXiv 14-page PDF text and p.4 visual inspection",
+          "title": "Connectivity of ample, conic and random simplicial complexes",
+          "trigger": "Introduced r-conicity and one-sided join result"
+        },
+        {
+          "assessment": "NOT_COVERING r-conicity concept introduced fifteen years later or its join identity",
+          "evidence": "§6 defines gamma(C) as min |A| whose non-extendible-face witnesses span every vertex; the paper gives a connectivity bound rather than a join/conicity equality.",
+          "identifier_or_url": "doi:10.1090/S0002-9947-06-03833-5; author-posted full text https://www.researchgate.net/publication/250750417_The_intersection_of_a_matroid_and_a_simplicial_complex",
+          "material_read": "Author-uploaded complete primary full text §1 and §6 especially pp.4904–4905 definition of spanning, gamma and Theorem6.3",
+          "method": "Legitimate author-posted readable full-text HTML with focused mathematical section inspection",
+          "title": "The intersection of a matroid and a simplicial complex",
+          "trigger": "Origin of general-complex domination parameter"
+        },
+        {
+          "assessment": "NOT_COVERING checked conicity-total domination identity",
+          "evidence": "Appendix repeats closed-star conicity and n-connectivity thresholds without referencing gamma_tilde.",
+          "identifier_or_url": "doi:10.1007/s41468-023-00134-9",
+          "material_read": "Publisher accessible full-text Appendix 1.1 introductory conicity definition and discussed connectivity bounds",
+          "method": "Open publisher HTML targeted appendix",
+          "title": "Large simplicial complexes: universality, randomness, and ampleness",
+          "trigger": "Later survey with Barmak conicity appendix potentially covering alternate identity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Aharoni and Berger (2006), https://doi.org/10.1090/S0002-9947-06-03833-5",
+        "Barmak (2021), arXiv:2103.03952v1",
+        "Farber (2023), https://doi.org/10.1007/s41468-023-00134-9"
+      ],
+      "rationale": "This is an exact dictionary between independently used topology and combinatorial domination invariants. Its nontrivial mathematical purpose is to transfer conicity estimates to an existing total-domination parameter and upgrade Barmak's general one-sided join estimate to an equality for the maximal conicity index, including cones. Although the proof is short, the universal join structure and reusable equivalence are motivated, not an arbitrary renamed finite calculation.",
+      "residual_risks": [
+        "The equivalence is elementary and yields no automatically new or sharper connectivity corollary compared with existing domination bounds; value is modest and structural."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every finite nonempty simplicial complex K, maximal conicity kappa(K)=tilde_gamma(K)-1 (infinity conventions); for finite nonempty K,L on disjoint vertex sets, simplicial total domination adds under joins and kappa(K*L)=kappa(K)+kappa(L)+1.",
+  "limitations": [
+    "All finite nonempty K,L; no claim of new general connectivity sharpness or novel sphere example.",
+    "Barmak–Farber Aug2026 related primary full text not accessible; specific residual originality risk recorded."
+  ],
+  "schema_version": 1
+}

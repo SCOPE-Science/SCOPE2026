@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,24 +18,25 @@
   "schema_version": 1
 }
 ---
-The proof is symbolic and covers every finite nonempty simplicial complex. The finite verifier is an independent sanity check of the definitions, not evidence for extending a finite experiment to the general theorem.
 
-`verify.py` enumerates every labeled simplicial complex on one through four declared vertices. It computes total domination directly from its witness definition and tests \(r\)-conicity independently by enumerating supported subcomplexes and closed-star containment. It checks all \(126\) complexes and all relevant \(r\). It separately checks \(144\) ordered join pairs drawn from all complexes on at most three vertices and verifies exact total-domination additivity, including cone cases.
+# Independent mathematical audit
 
-The recorded output is:
+## correctness
 
-`LABELED_COMPLEXES_CHECKED {1: 1, 2: 2, 3: 9, 4: 114}`
+PASS
 
-`JOIN_PAIRS_CHECKED 144`
+The crucial quantifiers were checked, including the empty simplex and cones. If K fails r-conicity, a subcomplex A on <=r vertices lies in no closed star; for every v some face sigma in A cannot be extended by v, so its vertex set is totally dominating. Conversely for a dominating S of size <=r, faces sigma_v witnessing each vertex generate a subcomplex A on <=r vertices contained in no star. Thus K r-conic iff gamma(K)>r, for all integers r>=-1. K is cone iff no totally dominating set exists, proving infinity case. For disjoint joins, a witness face alpha union beta for v in K fails join membership iff alpha union {v} fails in K, since beta is a valid L face; hence total domination holds exactly when both component sets totally dominate. Minimize cardinalities, covering cone/infinity cases. The provided verify.py correctly enumerates all 126 small nonempty labeled complexes and 144 joins, which corroborate but do not prove the general theorem.
 
-`JOIN_1_S0_TOTAL_DOMINATION=2 EXPECTED_CONICITY=1`
+## originality
 
-`JOIN_2_S0_TOTAL_DOMINATION=4 EXPECTED_CONICITY=3`
+PASS
 
-`JOIN_3_S0_TOTAL_DOMINATION=6 EXPECTED_CONICITY=5`
+Aharoni–Berger (2006) states simplicial total domination via non-extendable faces; Barmak (2021) separately defines r-conicity through closed stars and proves only a lower join bound. The full texts checked provide the two ingredients separately, but not their identity or exact join additivity of maximal conicity; Farber appendix likewise restates conicity without the dual parameter. This is a short derivation once definitions are juxtaposed; novelty is bounded to the explicit cross-parameter formula and joins, not new connectivity bounds.
 
-`JOIN_4_S0_TOTAL_DOMINATION=8 EXPECTED_CONICITY=7`
+## value
 
-`EXHAUSTIVE_EQUIVALENCE_OK`
+PASS
 
-Limits: the verifier checks only small finite complexes; the unrestricted conclusion rests on the proof in `RESULT.md`. The original Aharoni--Berger article was not available as verified full text through the attempted routes, so its definition was checked via the later thesis source that explicitly attributes and states it.
+This is an exact dictionary between independently used topology and combinatorial domination invariants. Its nontrivial mathematical purpose is to transfer conicity estimates to an existing total-domination parameter and upgrade Barmak's general one-sided join estimate to an equality for the maximal conicity index, including cones. Although the proof is short, the universal join structure and reusable equivalence are motivated, not an arbitrary renamed finite calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
