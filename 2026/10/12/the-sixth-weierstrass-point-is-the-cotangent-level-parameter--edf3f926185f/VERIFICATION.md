@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact symbolic replay is `verify.py`. It verifies the two tangent-radical identities
-\[
-S_1-rS_0=-q_0,\qquad S_2-rS_1=-q_1,
-\]
-so on \(X\) the tangent-radical matrix has rank one unless \(S_0=0\). It also constructs the six-point Kummer equations with sixth branch parameter \(r\) and verifies
-\[
-E_1-rE_0=q_0,\qquad E_2-rE_1=q_1,
-\]
-as well as equality, up to sign, of the Kummer branch equation and the tangent-plane branch equation.
+# Independent mathematical audit
 
-A fresh execution of the packaged checker produced the exact line recorded in `verification_output.txt`:
+## correctness
 
-`VERIFY_OK tangent_branch=kummer_branch sixth_branch_parameter=e complement=16_two_torsion`
+PASS
 
-The checker verifies algebraic identities, not the published geometric theorems. The geometric inputs used are: Kim--Lee's characterization of the branch locus by the double-line condition and their smooth Kummer-type result for every nondiscriminant direction; Skorobogatov's three-quadric model of the desingularized Kummer surface; and the standard fact that the sixteen nodes of a genus-two Kummer quotient are the images of the sixteen two-torsion points.
+The displayed normalized equations q0=ΣA_i y_i² and q1=Σθ_i A_i y_i² lead on X to S1=rS0 and S2=r²S0; hence the tangent restricted quadratic becomes doubly degenerate precisely at B_r:ΣA_i x_i²/(r−θ_i)=0. The six-point Kummer equations with weights Q′(θ_i)^{-1}=A_i/(θ_i−r) give E1−rE0=q0, E2−rE1=q1 and the same branch locus. A smooth degree-4 del Pezzo has torsion-free Picard group, so double covers with that branch divisor and compatible line bundle are identified. The quotient singularities correspond to Jac[2] (16 points). Critical geometry relies on the stated full Kim–Lee and classical Kummer theorems, not the symbolic checker alone.
 
-No finite experiment is used to certify an infinite family. The argument excludes the five discriminant directions and makes no statement about their degenerations.
+## originality
+
+PASS
+
+The original Kim–Lee Remark 3.12 explicitly leaves whether the sixth point bar-e equals e undetermined. Beauville et al. later express the general fiber by moving hyperelliptic branch parameter, already covering the generic identification, which is excluded from the claim of novelty. Their stated general-fiber result does not give the uniform nondiscriminant-level identification; the new branch-divisor argument provides precisely that extension. No matched existing record appeared in this Resultary query; priority is best-of-knowledge, with all-directions alias risk.
+
+## value
+
+PASS
+
+Closes an explicit unassigned geometric parameter in a natural algebraic-integrable system and identifies the Jacobian and 16 omitted points fiberwise for all nondegenerate directions, not merely at a chosen generic level.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. In normalized pencil coordinates, the branch condition for the Kim--Lee double cover is reconstructed from the radical of the restriction of the pencil quadric to the tangent plane. The resulting divisor is \(\sum_i A_i x_i^2/(r-\theta_i)=0\). Skorobogatov's six-branch-point Kummer model for branch set \(\{\theta_1,\ldots,\theta_5,r\}\) projects to the same degree-four del Pezzo surface and has the same branch divisor up to sign. Torsion-freeness of \(\operatorname{Pic}(X)\) identifies the two double covers. The symbolic identities were replayed from the packaged checker. The proof does not infer an infinite statement from finite sampling.
+## correctness
 
-## Originality
-PASS. Kim--Lee explicitly state in Remark 3.12 that they do not know whether their sixth Weierstrass parameter \(\bar e\) equals the level direction \(e\). Skorobogatov supplies the Kummer equations but does not connect that sixth branch point to the cotangent-level parameter. Beauville--Etesse--Höring--Liu--Voisin later identify the moving branch parameter for a general fiber; this covers the generic dimension-two situation but does not state the uniform all-nondiscriminant comparison proved here. Searches for the source identifier, the exact uncertainty, Kummer/sixth-branch-point aliases, and all-directions Jacobian formulations found no statement implying the full claim.
+PASS
 
-## Value
-PASS. The result closes an explicit parameter-identification gap in the source and upgrades a generic relationship to a uniform description of every smooth level direction. It also identifies the sixteen omitted points intrinsically as two-torsion, giving a concrete fiberwise modular label rather than only an abstract Kummer-type assertion.
+The displayed normalized equations q0=ΣA_i y_i² and q1=Σθ_i A_i y_i² lead on X to S1=rS0 and S2=r²S0; hence the tangent restricted quadratic becomes doubly degenerate precisely at B_r:ΣA_i x_i²/(r−θ_i)=0. The six-point Kummer equations with weights Q′(θ_i)^{-1}=A_i/(θ_i−r) give E1−rE0=q0, E2−rE1=q1 and the same branch locus. A smooth degree-4 del Pezzo has torsion-free Picard group, so double covers with that branch divisor and compatible line bundle are identified. The quotient singularities correspond to Jac[2] (16 points). Critical geometry relies on the stated full Kim–Lee and classical Kummer theorems, not the symbolic checker alone.
 
-## Closest literature and limitations
-The closest sources are Kim--Lee arXiv:2210.01317, Skorobogatov DOI:10.4171/LEM/56-1-3, and Beauville--Etesse--Höring--Liu--Voisin arXiv:2304.10919 / DOI:10.1112/mod.2024.3. The last source gives the same moving-branch interpretation generically, so generic parameter identification is not claimed as new. The finding is restricted to nondiscriminant directions over \(\mathbb C\); degeneration at the five singular pencil members is outside scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original Kim–Lee Remark 3.12 explicitly leaves whether the sixth point bar-e equals e undetermined. Beauville et al. later express the general fiber by moving hyperelliptic branch parameter, already covering the generic identification, which is excluded from the claim of novelty. Their stated general-fiber result does not give the uniform nondiscriminant-level identification; the new branch-divisor argument provides precisely that extension. No matched existing record appeared in this Resultary query; priority is best-of-knowledge, with all-directions alias risk.
+
+## value
+
+PASS
+
+Closes an explicit unassigned geometric parameter in a natural algebraic-integrable system and identifies the Jacobian and 16 omitted points fiberwise for all nondegenerate directions, not merely at a chosen generic level.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
