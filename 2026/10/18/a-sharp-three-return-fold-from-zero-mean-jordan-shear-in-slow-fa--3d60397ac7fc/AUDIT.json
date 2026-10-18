@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For every epsilon>0, kappa>=0, delta!=0, direct differentiation verifies v=delta exp((y^2-1)/(2 epsilon)) and u/v=kappa (y^3-y)/(3 epsilon). Squared Euclidean norm equals exp((y^2-1)/epsilon)[1+kappa^2 y^2(y^2-1)^2/(9 epsilon^2)]. It is less than 1 at y=0, equal to 1 at y=1, strictly greater than 1 at y>1. On 0<y<1, t=(1-y^2)/epsilon converts norm return to the level condition kappa=3 sqrt((exp(t)-1)/((1-epsilon t)t^2)). This function diverges at both interval endpoints. Its logarithm has positive second derivative -1/(4sinh^2(t/2))+epsilon^2/(1-epsilon t)^2+2/t^2>0, proving unique minimum and exhaustive 0,1,2 interior root counts. The nondegenerate second derivative yields square-root fold. At epsilon=0, minimizer t0 in (1,2) solves (2-t0)exp(t0)=2, and implicit-function/envelope differentiation yields kappa_epsilon=kappa0(1+t0 epsilon/2+O(epsilon^2)). The standalone verifier passed 336 exact rational identities and 95 representative numeric checks; it is corroborative only. No analytic inference from finite enumeration or failed solver was used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kaklamanos–Kuehn–Popović–Sensi, published full HTML, Assumption 1 item 4, explicitly postulates a unique slow-coordinate value at which two eigenvalues coincide; the present two eigenvalues are both y at every slow-coordinate value.",
+        "Battelli–Palmer (2015), Criteria for exponential dichotomy for triangular systems, accessible abstract, studies dichotomy rather than finite-epsilon equal-norm crossing counts and does not furnish a covering statement in the accessible material."
+      ],
+      "reasoning": "A unique crossing of initially distinct eigenvalue branches is excluded by the present identically equal eigenvalues. General dichotomy and nonmodal-transient machinery may contain relevant principles, but the accessible statements do not imply the exact threshold and exhaustive three-return result; the abstract-only paper is retained as a risk, not certified not covering.",
+      "searches": [
+        "non-autonomous Jordan shear slow parameter norm return multiple crossings saddle-node",
+        "arXiv:2208.11559 Entry-Exit Functions in Fast-Slow Systems with Intersecting Eigenvalues Assumption 1",
+        "triangular nonautonomous shear mean zero slow fast delayed stability repeated norm crossing"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.15670v1",
+      "https://arxiv.org/abs/2610.15670",
+      "https://link.springer.com/article/10.1007/s10884-023-10266-2",
+      "https://doi.org/10.1016/j.jde.2016.01.008",
+      "https://doi.org/10.1016/j.jmaa.2015.03.029"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Borsotti Eq. (11) derives epsilon|log epsilon| exit correction from persistent fixed N and notes additional norm matches only near the initial coordinate. For mean-zero N(y) the accumulated shear vanishes at the baseline exit, and multiple norm recrossings lie in the positive y interval before y=1, all for every epsilon>0.",
+        "The scalar 2016 entry-exit balance predicts y=1 but has no two-fast-coordinate shear term and cannot distinguish threshold kappa_epsilon.",
+        "The intersecting-eigenvalues paper fails the unique-intersection hypothesis for this everywhere-defective fast family."
+      ],
+      "reasoning": "The overlapping literature supplies the spectral-balance context and related propagation techniques, not the new complete positive-return phase diagram; known general linear ODE integration alone does not imply the sharp minimization, root count, fold, and singular coefficient without further work. Priority remains provisional.",
+      "searches": [
+        "https://arxiv.org/html/2610.15670v1 Sections 2–5",
+        "https://link.springer.com/article/10.1007/s10884-023-10266-2 Assumption 1 and Theorem 1",
+        "slow-fast passage nilpotent coefficient changes sign integral cancels entry exit returns multiple delayed recrossings"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Borsotti 2026 arXiv:2610.15670v1, Eq. (3), assumes the fast matrix lambda(y,epsilon) I+N with a fixed nonzero nilpotent N; Eqs. (4)–(11) compute the corresponding growth and delayed-exit displacement.",
+        "Its Remark after Eq. (11) explicitly notes possible multiple norm-equality points near the initial entry y0, not the complete return count for a zero-mean y-dependent nilpotent term and y>0.",
+        "For the present flow, the accumulated nilpotent factor is kappa (y^3-y)/(3 epsilon), which vanishes at y=1, leading to the threshold K_epsilon(t) not present in that fixed-N formulation."
+      ],
+      "reasoning": "The scalar spectral balance y=1 is common, but fixed N yields a monotone accumulated shear on y>-1, whereas this sign-changing N(y) makes the accumulated shear vanish again at y=1. Consequently the present extra repelling-side roots and unique parameter fold are not instances of the fixed-N result. The closest equivalent-formulation search returned neighboring entry-exit and transient-nonnormal topics, not the same theorem.",
+      "searches": [
+        "slow-fast passage nilpotent coefficient changes sign integral cancels entry exit returns multiple delayed recrossings",
+        "variable nilpotent Jordan off-diagonal y^2-1/3 one slow variable epsilon multiple norm returns",
+        "\"variable nilpotent\" \"entry-exit\" norm returns",
+        "https://arxiv.org/html/2610.15670v1 Section 2 and Remark 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The actual record searches returned near-topic findings on norm thresholds for constant triangular shears, affine Jordan operator pencils, and nilpotent escape laws, but no result for the exact K_epsilon(t) minimization or the three positive norm-return trichotomy.",
+        "The motivating article gives a different asymptotic formula and illustrative sample, not a table for the stated sign-changing shear family."
+      ],
+      "reasoning": "No exact indexed record or table was found for this specific natural zero-mean polynomial shear and Euclidean norm-return count. The indexed result set is incomplete and does not prove priority or mathematical uniqueness.",
+      "searches": [
+        "sharp three-return saddle-node threshold norm level crossings slow-fast nonnormal varying shear y squared minus one third",
+        "Borsotti entry exit nilpotent corrections multidimensional slow fast systems arxiv 2610.15670",
+        "arXiv:2610.15670 slow-fast nilpotent entry-exit cancellation moving Jordan coefficient"
+      ]
+    },
+    "rationale": "The reviewed claim gives an all-epsilon exhaustive number of positive norm returns (one, two, or three) in a variable, sign-changing zero-mean Jordan-shear passage, a unique finite-epsilon fold threshold, and its first singular correction. The motivating fixed-nilpotent theory proves an epsilon-log-epsilon shift and mentions possible extra near-entry returns but neither assumes sign-changing nilpotent coefficient nor implies the stated positive-side 1/2/3 classification. The eigenvalue-intersection paper requires a unique eigenvalue crossing, whereas the present spectrum is everywhere double. Actual semantic record searches did not identify an exact covering finding. General nonnormal dynamics theory and uncatalogued work remain priority risks; absence of a search hit does not establish novelty.",
+    "residual_risks": [
+      "Equivalent special-case formulas might exist in uncatalogued slow-fast, nonautonomous triangular or nonnormal transient-growth literature; searching does not prove uniqueness.",
+      "Foundational 2016 entry-exit work and a 2015 triangular dichotomy article were not read in full; comparison is limited to their accessible descriptions and the primary article citations.",
+      "The fold location is norm- and initial-direction-dependent; no extension to other norms or initial fast directions is claimed.",
+      "Self-review is not independent priority or mathematical validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the new three-return zero-mean variable-shear threshold; fixed N and near-entry comment are narrower/different, although the work motivates the question.",
+        "evidence": "Eq. (3) uses lambda(y,epsilon)I+N with N fixed nonzero. The comment after Eq. (11) is confined to possible norm equalities in an epsilon-neighborhood of initial y0. Eqs. (4)–(11) do not count repelling-side norm recrossings for sign-changing nilpotent coefficient.",
+        "identifier_or_url": "https://arxiv.org/html/2610.15670v1",
+        "material_read": "Full accessible arXiv HTML mathematical body: Introduction, Main Result Eqs. (3)–(11) and near-entry remark, Competing Spectral Families, Examples, and Discussion.",
+        "method": "Direct full-text HTML examination of assumptions and formulas, then explicit implication comparison against the variable N(y) system.",
+        "title": "The entry-exit function and nilpotent corrections in multidimensional slow-fast systems",
+        "trigger": "Same slow-fast fast-block spectral balance and persistent nilpotent correction, potentially dominating the candidate."
+      },
+      {
+        "assessment": "NOT_COVERING: its Assumption 1 item 4 demands exactly one eigenvalue-coalescence point; here the eigenvalues coincide at all y.",
+        "evidence": "Assumption 1(4): a unique x* with xi+(x*)=xi-(x*). Here xi+(y)=xi-(y)=y identically, so the hypothesis fails.",
+        "identifier_or_url": "https://doi.org/10.1007/s10884-023-10266-2",
+        "material_read": "Accessible journal HTML introduction, model definitions, Assumption 1 items 1–6 and principal results, relevant proof and example descriptions.",
+        "method": "Full-text theorem-hypothesis and implication comparison.",
+        "title": "Entry–Exit Functions in Fast–Slow Systems with Intersecting Eigenvalues",
+        "trigger": "Possible broader multidimensional entry-exit coverage with defective fast eigenvalues."
+      },
+      {
+        "assessment": "Scalar balance explains y=1, but exact two-coordinate shear threshold not established in material accessed; no entire-document noncoverage claim.",
+        "evidence": "The scalar balance integral of y from -1 to y vanishes at y=1; the present three-return theorem also depends on nontrivial off-diagonal growth absent from that scalar formula.",
+        "identifier_or_url": "https://doi.org/10.1016/j.jde.2016.01.008",
+        "material_read": "Bibliographic identification, source citation, and accessible high-level description; the publisher full text was not read.",
+        "method": "Comparison restricted to the scalar baseline formula and the accessible source citation.",
+        "title": "The entry–exit function and geometric singular perturbation theory",
+        "trigger": "Foundational scalar entry–exit balance might dominate the special example."
+      },
+      {
+        "assessment": "ACCESS_RISK: it concerns dichotomy, not visibly the exact crossing threshold; no negative full-document coverage assertion.",
+        "evidence": "The accessible abstract describes block-triangular exponential-dichotomy criteria on the line and half-line.",
+        "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2015.03.029",
+        "material_read": "Accessible indexed abstract only; the full text was not obtained.",
+        "method": "Abstract-level identification of question and hypotheses only.",
+        "title": "Criteria for exponential dichotomy for triangular systems",
+        "trigger": "General triangular linear ODE theory might contain stronger norm behavior."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3d60397a-c7fc-4e1f-8157-b3e82349cf30",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The shear y^2-1/3 is, up to scaling, the least-degree nonconstant even polynomial whose integral over the symmetric [-1,1] passage vanishes. This deliberately probes a natural cancellation boundary: the spectral balance and net shear both return to zero at y=1, yet sufficiently strong variable Jordan amplification creates two additional norm recrossings on the repelling side. The exact all-epsilon 1/2/3 trichotomy, unique fold, square-root splitting and first-order singular shear threshold quantify an otherwise hidden nonnormal obstruction to a single entry-exit description. The fact is not merely a computation at an arbitrary isolated parameter: it classifies a continuous, naturally normalized family and supplies an analytic benchmark for variable nilpotent passage.",
+    "status": "PASS"
+  }
+}
