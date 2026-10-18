@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,32 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` embeds the complete \(100\)-tetrahedron presentation and uses only the Python standard library.
+# Independent mathematical audit
 
-The complex reconstructs
-\[
-f=(16,116,200,100).
-\]
-Contracting a fixed spanning tree gives a rank-\(101\) graph-cycle lattice. The verifier checks an explicit \(100\times100\) facial-relation minor with determinant \(-4\), while a primitive integral cocycle annihilates all \(200\) facial relations. Thus the relation rank is exactly \(100\).
+## correctness
 
-Modulo \(2\), the relation rank is \(98\). Smith determinantal-divisor reasoning therefore gives exactly two nontrivial invariant factors, both \(2\), and one free generator:
-\[
-H_1\cong\mathbb Z\oplus(\mathbb Z/2)^2.
-\]
+PASS
 
-The same reduction gives exact coordinates \((n,\epsilon_1,\epsilon_2)\), where \(n\in\mathbb Z\) is the primitive free coordinate and \(\epsilon_1,\epsilon_2\in\mathbf F_2\) are torsion coordinates.
+For the exact 100 tetrahedra on 16 vertices, independent face reconstruction gives (16,116,200,100). Contracting edges (1,v) gives a 200x101 integral triangular relation matrix. Independent exact Bareiss evaluation of the specified 100x100 subminor yields -4, and the explicit primitive integral cocycle annihilates every relation; the rational rank is exactly 100. Independent mod-two elimination gives rank 98: exactly two even Smith factors with product dividing 4, forcing two factors 2,2 and H1=Z+(Z/2)^2. Enumerated 507 graph triangles, with 307 empty; computed free cocycle values and three quotient bits with free parity c0+c2 and found no zero class. Precisely 157 pure order-two carriers (55,53,49) and 150 primitive free ±1 carriers (38,38,37,37), after orientation identification. These 307 are exactly the edge-length-three integral systoles in this triangulation.
 
-Exhaustive enumeration finds \(507\) graph triangles, \(200\) facial triangles, and \(307\) empty triangles. No empty triangle has zero coordinate. The zero-free-coordinate classes have multiplicities
-\[
-55,\quad53,\quad49,
-\]
-and the four unoriented free-coordinate-\(1\) classes have multiplicities
-\[
-38,\quad38,\quad37,\quad37.
-\]
+## originality
 
-Exact successful output:
+PASS
 
-`VERIFY_OK f=16,116,200,100 H1_Z=Z+Z2+Z2 maximal_minor_det=-4 rank_mod2=98 graph_triangles=507 facial3=200 empty3=307 all_empty3_nonzero=yes torsion_systoles=157 torsion_counts=55,53,49 primitive_infinite_systoles=150 lift_counts=38,38,37,37`
+Compared exact claim and logical implication against primary published literature and relevant Resultary entries. Every empty triangle is essential in the sixteen-vertex G2 flat manifold survives on best current evidence, with named full-text/access limits and residual risks. Exact nontrivial class/support/collapse/convolution data are not established by identified older stronger or generic statements.
+
+## value
+
+PASS
+
+A complete, non-obvious shortest integral one-homology layer for the natural sixteen-vertex triangulated half-turn flat 3-manifold: reveals torsion-only and primitive infinite-order representatives, and exact multiplicities for every torsion class/fiber. The integral Smith and cocycle proof distinguishes torsion that mod-two ranks alone would miss. This naturally complements the primary f-vector/homology table and is useful for discrete systolic and triangulation comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

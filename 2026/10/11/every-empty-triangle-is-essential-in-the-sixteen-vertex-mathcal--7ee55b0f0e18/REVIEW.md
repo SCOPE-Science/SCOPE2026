@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact \(100\)-tetrahedron complex is reconstructed independently. A determinant-\(4\) maximal minor, mod-two rank \(98\), and a primitive integral cocycle prove
-\[
-H_1\cong\mathbb Z\oplus(\mathbb Z/2)^2.
-\]
-All \(507\) three-vertex cliques are exhausted. Exactly \(307\) are nonfaces, none is homologically zero, and their exact class multiplicities are \(55,53,49\) for the three nonzero torsion classes and \(38,38,37,37\) for the four unoriented torsion lifts of a primitive free generator.
+## correctness
 
-## Originality
-PASS. The inspected exact-object literature supplies the flat-manifold classification, ambient homology, sixteen-vertex face vector, and facet data, but not the homology spectrum of the empty triangles. Five focused semantic publication searches, focused web searches, and the current and prior owned ledgers did not locate a covering statement. An unindexed historical computation remains a residual risk.
+PASS
 
-## Value
-PASS. Because triangles are the first possible simple cycles, the result completely resolves the shortest integral homology layer. The coexistence of all three nonzero pure-torsion classes and all four torsion decorations of a primitive free class makes the spectrum a natural structural invariant of this small flat-manifold triangulation.
+For the exact 100 tetrahedra on 16 vertices, independent face reconstruction gives (16,116,200,100). Contracting edges (1,v) gives a 200x101 integral triangular relation matrix. Independent exact Bareiss evaluation of the specified 100x100 subminor yields -4, and the explicit primitive integral cocycle annihilates every relation; the rational rank is exactly 100. Independent mod-two elimination gives rank 98: exactly two even Smith factors with product dividing 4, forcing two factors 2,2 and H1=Z+(Z/2)^2. Enumerated 507 graph triangles, with 307 empty; computed free cocycle values and three quotient bits with free parity c0+c2 and found no zero class. Precisely 157 pure order-two carriers (55,53,49) and 150 primitive free ±1 carriers (38,38,37,37), after orientation identification. These 307 are exactly the edge-length-three integral systoles in this triangulation.
 
-## Closest literature and limitations
-The closest sources are the 2008 small-triangulation table, the exact public facet data, and the 2003 flat-space construction. They determine the ambient topology and homology but not the finite carrier spectrum. The result is specific to simplicial edge length in this triangulation.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Compared exact claim and logical implication against primary published literature and relevant Resultary entries. Every empty triangle is essential in the sixteen-vertex G2 flat manifold survives on best current evidence, with named full-text/access limits and residual risks. Exact nontrivial class/support/collapse/convolution data are not established by identified older stronger or generic statements.
+
+## value
+
+PASS
+
+A complete, non-obvious shortest integral one-homology layer for the natural sixteen-vertex triangulated half-turn flat 3-manifold: reveals torsion-only and primitive infinite-order representatives, and exact multiplicities for every torsion class/fiber. The integral Smith and cocycle proof distinguishes torsion that mod-two ranks alone would miss. This naturally complements the primary f-vector/homology table and is useful for discrete systolic and triangulation comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
