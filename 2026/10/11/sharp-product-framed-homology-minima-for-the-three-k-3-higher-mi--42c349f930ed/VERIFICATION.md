@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,21 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof has a symbolic lower-bound part and an exact finite sharpness part.
+# Independent mathematical audit
 
-For product framing, the published presentation gives
-\[
-H_1(Z;\mathbb Z)\cong\operatorname{coker}A_S\oplus\mathbb Z/d,
-\qquad d=\gcd(p,q).
-\]
-The adapted covering maps have cokernels \(\mathbb Z/p\) and \(\mathbb Z/q\). Projection to the two factor cokernels gives a surjection from \(\operatorname{coker}A_S\) onto \(\mathbb Z/p\oplus\mathbb Z/q\). This proves the universal product-framed divisor \(pq\,d\) without computation.
+## correctness
 
-For sharpness, `artifacts/certificates.json` contains three products of integral symplectic transvections in the adapted surface bases. `artifacts/verify_minimal_h1.py` reconstructs every matrix from definitions, checks every transvection and its product against \(S^\top J S=J\), builds the two covering maps from the formula in Lemma 11.2 of the source, and exhaustively evaluates every maximal minor by exact Bareiss elimination.
+PASS
 
-The replay returns surface-cokernel orders \(16\), \(9\), and \(12\). They equal \(pq\) in the three cases, so the natural quotient map onto \(\mathbb Z/p\oplus\mathbb Z/q\) is an isomorphism. Adding the split meridional \(\mathbb Z/d\) gives the claimed three groups and orders.
+Checked original Akhmedov–Akhmedov rectangular Mayer–Vietoris presentation in arXiv:2610.03756 (Sec.5, Lemma 11.2, Question 13.1) and verified product-framing eliminates meridional coupling: H1 ≅ coker A_S ⊕ Z/d, d=gcd(p,q), with A_S=[Q_{p,g}; -Q_{q,h}S] and coker Q_1=Z/p, coker Q_2=Z/q. Natural map coker A_S -> coker Q_1⊕coker Q_2 is well-defined and surjective, so finite H1 order divisible by pq*d. Independently reconstructed supplied symplectic transvection matrices S and original adapted cover Q matrices for the three cases, verified S^T J S=J, and enumerated ALL maximal minors using exact SymPy determinants rather than verifier logs: for (4,4) matrix 8x10: 7 nonzero minors, gcd=16; (3,3) 12x14: 7 nonzero, gcd=9; (6,2) 12x14: 4 nonzero, gcd=12. These equal pq, so the surjection is an isomorphism and direct split yields (Z/4)^3, (Z/3)^3, Z/6⊕(Z/2)^2 with minimal orders 64,27,24. Mapping class group onto Sp gives realizable gluing. The finite certificates establish these three witnesses, not all possible gluings; the symbolic quotient proves universal lower bound within product framing.
 
-The finite replay is a certificate for the three explicit witnesses only. The lower bound for all product-framed full-rank gluings is the symbolic quotient argument above. No claim is made for nonzero framing terms or for a complete classification of all possible first-homology groups.
+## originality
 
-No independent audit has been performed.
+PASS
+
+The primary source asks the three k=3 Smith-minimum problems and gives only weaker lcm divisibility. The new precise product-framed divisor and explicit symplectic minimizing certificates answer a natural restricted instance. Earlier k=1 gluing theorem cannot imply k=3 rectangular Smith minima; no independent covering Resultary finding located.
+
+## value
+
+PASS
+
+Explicitly resolves three posed, structurally natural finite torsion-minimization cases and a stronger general divisibility obstruction; full exact Smith witness matters to constructions of rational-cohomology symplectic four-manifolds. Restricted product framing and limited parameter list stated precisely, no claim of arbitrary normal framing or complete census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
