@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,80 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For \(z\in S_{X_\omega}\), let
-\[
-M=\max\{|z_1|,|z_2|\},
-\qquad
-m=\min\{|z_1|,|z_2|\}.
-\]
-From
-\[
-M^2+\omega m^2=1
-\]
-and
-\[
-D(z)=M^2-m^2
-\]
-one gets
-\[
-\|z\|_2^2
-=
-\frac{2}{1+\omega}
--
-\frac{1-\omega}{1+\omega}D(z).
-\]
+# Independent mathematical audit
 
-For every \(z\),
-\[
-N_\omega(z)^2
-=
-\|z\|_2^2-(1-\omega)m(z)^2.
-\]
-If
-\[
-p=\langle x,y\rangle
-\]
-and \(\sigma=1\) for \(p\ge0\), \(\sigma=-1\) otherwise, then
-\[
-\|x-\sigma y\|_2^2
-=
-\|x\|_2^2+\|y\|_2^2-2|p|.
-\]
-Since
-\[
-F_\omega(x,y)^2\le N_\omega(x-\sigma y)^2,
-\]
-direct substitution yields the claimed stability inequality.
+## correctness
 
-For
-\[
-x=(a,b),\qquad y=(a,-b),
-\qquad
-a^2+\omega b^2=1,
-\qquad
-a\ge b\ge0,
-\]
-one has
-\[
-F_\omega(x,y)=2b,
-\]
-\[
-D(x)=D(y)=\langle x,y\rangle=a^2-b^2,
-\]
-and
-\[
-m(x-y)=0.
-\]
-Both sides of the stability inequality reduce exactly to
-\[
-\frac{4}{1+\omega}\bigl(1-(1+\omega)b^2\bigr).
-\]
+PASS
 
-The zero-defect conditions force both vectors onto diagonal rays and force Euclidean orthogonality, giving the diagonal James-extremal orbit. The near-extremizer estimates use only
-\[
-J^2-F^2=(J-F)(J+F)\le2J\varepsilon.
-\]
+PASS: On the unit sphere of N_ω, solve max²+ω min²=1 to obtain ||x||₂²=2/(1+ω)−[(1−ω)/(1+ω)]D(x). For arbitrary chord z the exact identity N_ω(z)²=||z||₂²−(1−ω)m(z)² holds. Choosing σ with σ<x,y>=|<x,y>| makes ||x−σy||₂²=||x||₂²+||y||₂²−2|<x,y>|; since F²<=N(x−σy)², substitution proves precisely the three-term lower bound. Sign-reflected x=(a,b),y=(a,-b), a>=b>=0, a²+ωb²=1, yields F=2b and both sides=4(a²−b²)/(1+ω), verifying full continuous equality. Zero deficit forces diagonal, Euclidean-orthogonal extremal orbit; using J²−F²≤2J epsilon gives the three stated near-extremizer estimates. Every step algebraic, not inferred from numerical stress tests.
 
-No finite enumeration, numerical optimization, or external certificate is used as proof.
+## originality
+
+PASS
+
+PASS best-of-knowledge: Kato–Maligranda established the scalar James constant J=2/sqrt(1+ω); relevant complete Kato–Maligranda–Takahashi 2001 Studia paper and later survey concern James/NJ constants and extremal pairs, but supplied no identical sharp three-defect quantitative inequality. An attempted authorized DOI retrieval of JMAA 10.1006/jmaa.2000.7367 unexpectedly returned a DIFFERENT JMAA 2000 article 10.1006/jmaa.2000.6727; this mismatched document is NOT evidence concerning target, and lack of target full text is retained as priority risk. A stronger equivalent stability theorem in that original article or elsewhere cannot be ruled out.
+
+## value
+
+PASS
+
+PASS: The stability refinement controls three independent geometric defects of near James-maximizing pairs and attains a sharp coefficient along a nontrivial 1-parameter equality family. This is more than re-reporting the scalar James constant, and its exact near-extremizer estimates plausibly serve stability questions in normed-plane geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

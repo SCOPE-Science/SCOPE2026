@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The unit-sphere equation gives an exact formula for Euclidean radial loss in terms of coordinate-square imbalance. Rewriting the Lorentz norm as Euclidean energy minus the smaller-coordinate penalty and evaluating the Euclidean-shorter chord yields the three-defect inequality with no approximation. A full one-parameter sign-reflected family attains equality, and the zero-defect conditions give exactly the diagonal orthogonal James orbit. The near-extremizer bounds follow by factoring the squared deficit.
+## correctness
 
-## Originality
-PASS. The classical same-family literature computes the James value and exhibits sharp pairs, while the complete 2001 Studia paper and complete 2014 Lorentz survey contain no pairwise James-deficit theorem or near-extremizer control. Targeted semantic and web searches under stability, deficit, near-extremizer, and equality formulations found no equivalent statement. The inaccessible body of the exact 2001 JMAA paper is retained as an explicit residual risk rather than treated as negative evidence.
+PASS
 
-## Value
-PASS. The theorem upgrades a canonical scalar computation to a sharp quantitative geometric statement. It separates three independent mechanisms of loss from the James maximum and is attained on a continuum of nonextremal pairs, so it is stronger than an equality-case observation and supplies explicit control of near-maximizers.
+PASS: On the unit sphere of N_ω, solve max²+ω min²=1 to obtain ||x||₂²=2/(1+ω)−[(1−ω)/(1+ω)]D(x). For arbitrary chord z the exact identity N_ω(z)²=||z||₂²−(1−ω)m(z)² holds. Choosing σ with σ<x,y>=|<x,y>| makes ||x−σy||₂²=||x||₂²+||y||₂²−2|<x,y>|; since F²<=N(x−σy)², substitution proves precisely the three-term lower bound. Sign-reflected x=(a,b),y=(a,-b), a>=b>=0, a²+ωb²=1, yields F=2b and both sides=4(a²−b²)/(1+ω), verifying full continuous equality. Zero deficit forces diagonal, Euclidean-orthogonal extremal orbit; using J²−F²≤2J epsilon gives the three stated near-extremizer estimates. Every step algebraic, not inferred from numerical stress tests.
 
-## Closest literature and limitations
-Kato--Maligranda gives the full q>=2 scalar Lorentz value. Kato--Maligranda--Takahashi gives a complete public proof for the q=2 classical subfamily and the diagonal witness. Saito--Mitani--Tanaka surveys the full two-dimensional Lorentz James problem. The result is only two-dimensional and does not claim an optimal metric-distance stability modulus.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Kato–Maligranda established the scalar James constant J=2/sqrt(1+ω); relevant complete Kato–Maligranda–Takahashi 2001 Studia paper and later survey concern James/NJ constants and extremal pairs, but supplied no identical sharp three-defect quantitative inequality. An attempted authorized DOI retrieval of JMAA 10.1006/jmaa.2000.7367 unexpectedly returned a DIFFERENT JMAA 2000 article 10.1006/jmaa.2000.6727; this mismatched document is NOT evidence concerning target, and lack of target full text is retained as priority risk. A stronger equivalent stability theorem in that original article or elsewhere cannot be ruled out.
+
+## value
+
+PASS
+
+PASS: The stability refinement controls three independent geometric defects of near James-maximizing pairs and attains a sharp coefficient along a nontrivial 1-parameter equality family. This is more than re-reporting the scalar James constant, and its exact near-extremizer estimates plausibly serve stability questions in normed-plane geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
