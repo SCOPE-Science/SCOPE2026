@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T19:57:22Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git blob RESULT.md:fa137f2c2598f0e327851afb2354fac8bc6acbf0",
+        "Ivanovs arXiv:1501.04542 Sections 1,3 and Sparre-Andersen background",
+        "Independent exact lattice enumeration n1..11"
+      ],
+      "rationale": "For each k<=n, write Sn=Sk+(Sn-Sk); centered future independent of event {Sk>0}, so E[Sn 1(Sk>0)]=E[Sk 1(Sk>0)]=E|Sk|/2 by symmetry, valid for symmetric integrable increments even with ties. Summing gives exact covariance. With continuous iid symmetric increments Sparre–Andersen yields P(An=r)=binom(2r,r)binom(2n-2r,n-r)/4^n and Var An=n(n+1)/8, hence correlation sqrt(2)*sum E|Sk|/(sigma*n*sqrt(n+1)). CLT + bounded second moments ensure uniform integrability of |Sk|/(sigma sqrt k), giving limit 4/(3sqrt(pi)); Brownian identity by Fubini/conditional mean and Var Gamma=1/8. Independent exhaustive symmetric ±1 walks n<=11 confirmed the general covariance identity, not the continuous-increment arcsine marginal.",
+      "residual_risks": [
+        "The finite-n beta-binomial marginal requires no atom at 0 (continuous increment law); discrete lattice ties are not covered by it. Correlation finite positive variance."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ivanovs Proposition 3.1 equates distributions of positive/negative occupation and extrema/last-passage times conditioned on endpoint classes; Hartmann–Majumdar joint distribution is among occupation, time of max, last passage—not terminal displacement; Erdős–Kac treats marginal arcsine convergence."
+        ],
+        "reasoning": "None of these theorems directly supplies finite-n E[An Sn] for all continuous symmetric finite-variance increments. Brownian joint results might imply the continuum mixed moment, but not the exact discrete identity.",
+        "searches": [
+          "Ivanovs arXiv:1501.04542 full 6-page paper",
+          "Hartmann–Majumdar Phys Rev E 111 (2025) 044134",
+          "Erdős–Kac Bull AMS 53 (1947)"
+        ]
+      },
+      "checked_sources": [
+        "Ivanovs arXiv:1501.04542 (Prop3.1 and proof)",
+        "Hartmann–Majumdar Phys Rev E 111,044134 (2025)",
+        "Erdős–Kac DOI:10.1090/S0002-9904-1947-08928-X",
+        "Resultary query correlation covariance number of positive partial sums terminal position symmetric random walk occupation time"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Even knowing that A_n has beta-binomial law and S_n has symmetric Gaussian scaling does not determine Cov(A_n,S_n); dependence is established by an additional time-k independent-future decomposition."
+        ],
+        "reasoning": "No inspected primary claim directly implies the exact discrete covariance absent that extra argument; the Brownian constant is a compatible limit not a novelty claim independent of the discrete theorem.",
+        "searches": [
+          "Ivanovs Proposition 3.1 arXiv:1501.04542",
+          "Hartmann–Majumdar 2025 joint laws",
+          "Erdős–Kac 1947 classical arcsine count"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A_n is the positive partial-sum sojourn count; terminal value S_n is not time-of-maximum or last-zero time. Conditioned exchangeable random-walk statements in Ivanovs involve equidistribution of temporal functionals, not E[S_n A_n]."
+        ],
+        "reasoning": "The claim is a bivariate occupation-displacement identity, stronger than either marginal arcsine law or pure occupation-time distribution and distinct from running-max vs endpoint identities.",
+        "searches": [
+          "correlation covariance number of positive partial sums terminal position symmetric random walk occupation time",
+          "Ivanovs arXiv:1501.04542 Prop 3.1",
+          "Sparre-Andersen occupation time endpoint joint law"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary maximum-endpoint law Cov(M,S)=Var(S)/2 has the wrong observable (running maximum rather than A_n count). The result gives an exact formula indexed by n and increment law, not a finite table of integer values."
+        ],
+        "reasoning": "Known distribution tables of A_n cannot determine its mixed first moment with S_n. The exact-database dimension is not an intrinsic finite-catalog problem; actual alternate observables checked.",
+        "searches": [
+          "correlation covariance number of positive partial sums terminal position symmetric random walk occupation time",
+          "Resultary published maximum–endpoint covariance reversal/sign symmetry"
+        ]
+      },
+      "rationale": "The well-known Sparre–Andersen and Erdős–Kac laws are marginal sojourn-count laws and do not alone determine covariance with terminal displacement. Ivanovs discusses occupation-time distributions under endpoint conditioning, but its inspected propositions establish distributional identities between random times, not this first mixed moment or the all-symmetric-increment correlation constant. Brownian global-time joint laws address three times, not B1. The exact finite-n covariance for all symmetric integrable increments and universal finite-variance asymptotic survive best-of-knowledge comparison, though broad classical fluctuation literature poses residual overlap risk.",
+      "residual_risks": [
+        "A much older full joint transform for (positive sojourn,terminal position) may imply this mixed moment even if absent from searched titles; do not claim a failed search proves novelty. Brownian standalone identity may be classical even if finite-n universality remains distinct."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Occupational-time marginal/exchangeability and conditional time identities; no stated E[A_n S_n] or universal Pearson constant.",
+          "evidence": "Prop3.1 matches laws of N+,N- and extrema-time functionals conditioned on {S_n in B}; not a mixed displacement covariance.",
+          "identifier_or_url": "https://arxiv.org/pdf/1501.04542",
+          "material_read": "Six-page arXiv paper: Sections 1 and 3 including Prop 3.1, law equivalences under terminal conditioning; page 4 figure and text inspected",
+          "method": "Open-access full PDF parsed, relevant pages examined including page-image proof",
+          "title": "Sparre-Andersen identity and the last passage time",
+          "trigger": "Classical fluctuation theory potential stronger occupation/end-point statement"
+        },
+        {
+          "assessment": "Studies occupation time, max time and last-passage time; does not include terminal Brownian position as one of the three.",
+          "evidence": "Paper calls its analyzed triple occupation/max/last-passage times; endpoint B1 is different observable.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.111.044134",
+          "material_read": "Full open HTML analysis of three joint distributions and conclusion/Appendix A",
+          "method": "Read open journal article including conclusion and relevant appendix",
+          "title": "Exact joint distributions of three global characteristic times for Brownian motion",
+          "trigger": "Might dominate the Brownian occupation endpoint correlation"
+        },
+        {
+          "assessment": "Prior marginal count asymptotics, not demonstrated bivariate covariance coverage from material accessed.",
+          "evidence": "Erdős–Kac classical positive-sums count arcsine law, no verified mixed identity.",
+          "identifier_or_url": "DOI:10.1090/S0002-9904-1947-08928-X",
+          "material_read": "Historical theorem identification and marginal statement through primary article metadata and citations",
+          "method": "Bibliographic/abstract-level inspection only",
+          "title": "On the number of positive sums of independent random variables",
+          "trigger": "Original discrete arcsine occupation law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ivanovs 2016 random-walk occupation theory",
+        "Hartmann–Majumdar 2025 Brownian multitime correlations",
+        "Git RESULT.md"
+      ],
+      "rationale": "Occupation fraction is a canonical arcsine functional, while terminal displacement is a canonical additive endpoint. Their exact finite-n mixed covariance and universal nonzero correlation 4/(3sqrt(pi)) quantify dependence that marginal arcsine and CLT statements leave undetermined. This is a motivated joint-statistic fact valid for a broad finite-variance universality class, not simply a renaming of the arcsine marginal.",
+      "residual_risks": [
+        "Does not supply the full two-variable joint law; breadth of older fluctuation theory may affect priority."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Continuous law needed for finite beta-binomial A_n; exact covariance valid for symmetric integrable independent increments; finite nonzero variance for Pearson limit."
+  ],
+  "schema_version": 1
+}

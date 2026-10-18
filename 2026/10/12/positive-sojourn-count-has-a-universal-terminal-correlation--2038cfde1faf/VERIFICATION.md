@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,37 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. The accompanying checker performs three supplementary replays.
+# Independent mathematical audit
 
-For every simple symmetric lattice walk of length at most \(16\), it exhaustively computes
-\[
-A_n=\sum_{k=1}^n\mathbf 1_{\{S_k>0\}}
-\]
-and \(S_n\), and verifies with exact rational arithmetic that
-\[
-\operatorname{Cov}(A_n,S_n)
-=
-\frac12\sum_{k=1}^n\mathbb E|S_k|.
-\]
-This check deliberately uses a lattice law with ties, demonstrating that the covariance identity itself does not require continuity.
+## correctness
 
-For every \(1\le n\le200\), the checker verifies directly from
-\[
-p_{n,r}
-=
-4^{-n}\binom{2r}{r}\binom{2(n-r)}{n-r}
-\]
-that the probabilities sum to one and have mean \(n/2\) and variance \(n(n+1)/8\).
+PASS
 
-Finally, it evaluates the exact Gaussian correlation formula at increasing \(n\) and confirms convergence toward
-\[
-4/(3\sqrt{\pi}).
-\]
+For each k<=n, write Sn=Sk+(Sn-Sk); centered future independent of event {Sk>0}, so E[Sn 1(Sk>0)]=E[Sk 1(Sk>0)]=E|Sk|/2 by symmetry, valid for symmetric integrable increments even with ties. Summing gives exact covariance. With continuous iid symmetric increments Sparre–Andersen yields P(An=r)=binom(2r,r)binom(2n-2r,n-r)/4^n and Var An=n(n+1)/8, hence correlation sqrt(2)*sum E|Sk|/(sigma*n*sqrt(n+1)). CLT + bounded second moments ensure uniform integrability of |Sk|/(sigma sqrt k), giving limit 4/(3sqrt(pi)); Brownian identity by Fubini/conditional mean and Var Gamma=1/8. Independent exhaustive symmetric ±1 walks n<=11 confirmed the general covariance identity, not the continuous-increment arcsine marginal.
 
-These computations are not used as an infinite proof. The universal result follows from the exact mixed-moment reduction, the classical Sparre-Andersen law, and the central limit theorem with uniform integrability.
+## originality
 
-Independent audit has not been performed.
+PASS
 
-Exact replay result: `VERIFY_OK lattice_paths=131070 covariance_checks=16 arcsine_normalizations=200 arcsine_means=200 arcsine_variances=200 gaussian_checks=5 last_corr=0.752254651282 target=0.752252778064`.
+The well-known Sparre–Andersen and Erdős–Kac laws are marginal sojourn-count laws and do not alone determine covariance with terminal displacement. Ivanovs discusses occupation-time distributions under endpoint conditioning, but its inspected propositions establish distributional identities between random times, not this first mixed moment or the all-symmetric-increment correlation constant. Brownian global-time joint laws address three times, not B1. The exact finite-n covariance for all symmetric integrable increments and universal finite-variance asymptotic survive best-of-knowledge comparison, though broad classical fluctuation literature poses residual overlap risk.
+
+## value
+
+PASS
+
+Occupation fraction is a canonical arcsine functional, while terminal displacement is a canonical additive endpoint. Their exact finite-n mixed covariance and universal nonzero correlation 4/(3sqrt(pi)) quantify dependence that marginal arcsine and CLT statements leave undetermined. This is a motivated joint-statistic fact valid for a broad finite-variance universality class, not simply a renaming of the arcsine marginal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
