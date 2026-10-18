@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The rank-one form of the all-to-all Hamiltonian gives the exact transition probability and shows that every failed measurement maps the uniform survivor state back to the same ray. This makes the attempt count geometric for iid intervals and gives \(T=\mathbb E\tau/\mathbb E p(\tau)\). The global optimization is then the pointwise inequality \((1-\cos x)/x\le\sin x_*\), with the unique positive maximizer characterized by \(\tan(x_*/2)=x_*\). Boundary cases with zero success probability have infinite mean time and do not threaten the bound. The exponential-law comparison is an exact Laplace-transform calculation.
+## correctness
 
-## Originality
-PASS. The 2025/2026 fully connected paper solves Poissonian probing and explicitly leaves comparison of different measurement protocols open. The 2020 random-probing paper proves a general mean-time identity and studies selected interval families, while the 2023 renewal paper gives a general renewal framework and short-time laws. None of the inspected statements yields the complete-graph extended-target all-renewal optimizer, its equation \(\tan(x_*/2)=x_*\), or the exact \(30.9975\%\) Poisson gap. Targeted exact-claim, alias, protocol, and implication searches found no covering result. Residual risk remains that an older first-detection or renewal-search paper contains the same scalar optimization under remote terminology.
+PASS
 
-## Value
-PASS. The result answers the motivating paper's explicit protocol-comparison direction in its central exactly solvable model, upgrades optimization from one parametric family to every iid renewal law for a natural canonical bright state, and gives a closed-form performance gap to the best Poissonian protocol. The deterministic optimum is not merely a numerical tuning: it follows from a sharp global extremum and can be implemented directly.
+For all N>=2, 1<=m<N and J>0, fully connected H=-NJ|u><u|. Uniform survivor b on first m sites evolves with target success probability p(tau)=beta/2[1-cos(NJ tau)], beta=4m(N-m)/N². A failed projective measurement returns a scalar multiple of b, so for iid nonnegative intervals of finite positive mean, successes form IID Bernoulli trials and stopping-time cost Eτ/Ep (if mean success zero, T=inf). Put X=NJ tau; the pointwise ratio g(x)=(1-cos x)/x has unique global maximum sin(x*) at x*=2.33112237041442 (tan(x*/2)=x*) in (pi/2,pi); for x>=pi, g<=2/x<=2/pi<sin x*. Thus E(1-cos X)<=sin(x*) E X, equality only X in {0,x*} with positive mass at x*. The optimum T=2/[beta NJ sin x*] attained by deterministic tau=x*/(NJ) (or zero mixing). Exponential waiting with rate r yields T=2/(beta NJ)[r/(NJ)+(NJ)/r], uniquely best at r=NJ with ratio to optimum 1/(2sin x*)=0.6900250698446504. Independent complex-vector tests for 4 (N,m,J,tau) and 10000 random finite-support trials confirmed examples; global inequality proved analytically.
 
-## Closest literature and limitations
-The closest sources are arXiv:2509.08556 (same fully connected extended-target model, Poissonian optimization), arXiv:2012.01763 (arbitrary iid random probing and mean-time identity), and arXiv:2305.15123 (general renewal measurement framework). The theorem is restricted to the uniform survivor state and iid renewal projective measurements; it does not cover arbitrary initial states or adaptive, weak, or non-renewal protocols.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-level prior comparison: the exact final claim goes beyond inspected narrower qualitative, lower-bound, upper-bound or Poisson-restricted results. This is not a claim of exhaustive historical priority; see four comparisons and source-specific risks.
+
+## value
+
+PASS
+
+A natural optimization of the complete waiting-time law (not merely Poissonian rate) for the exactly solvable complete-graph target detector, sharpening and quantifying earlier Poisson-protocol optimum by about 31%. Identifies precise deterministic/zero-mass equality laws and the structural role of postfailure ray reset; a useful benchmark for quantum detection scheduling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

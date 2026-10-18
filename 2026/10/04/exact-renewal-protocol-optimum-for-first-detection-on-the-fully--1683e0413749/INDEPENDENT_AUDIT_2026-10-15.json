@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T13:58:01.997326Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all N>=2, 1<=m<N and J>0, fully connected H=-NJ|u><u|. Uniform survivor b on first m sites evolves with target success probability p(tau)=beta/2[1-cos(NJ tau)], beta=4m(N-m)/N². A failed projective measurement returns a scalar multiple of b, so for iid nonnegative intervals of finite positive mean, successes form IID Bernoulli trials and stopping-time cost Eτ/Ep (if mean success zero, T=inf). Put X=NJ tau; the pointwise ratio g(x)=(1-cos x)/x has unique global maximum sin(x*) at x*=2.33112237041442 (tan(x*/2)=x*) in (pi/2,pi); for x>=pi, g<=2/x<=2/pi<sin x*. Thus E(1-cos X)<=sin(x*) E X, equality only X in {0,x*} with positive mass at x*. The optimum T=2/[beta NJ sin x*] attained by deterministic tau=x*/(NJ) (or zero mixing). Exponential waiting with rate r yields T=2/(beta NJ)[r/(NJ)+(NJ)/r], uniquely best at r=NJ with ratio to optimum 1/(2sin x*)=0.6900250698446504. Independent complex-vector tests for 4 (N,m,J,tau) and 10000 random finite-support trials confirmed examples; global inequality proved analytically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Del Vecchio Del Vecchio–Majumdar arXiv:2509.08556 define general iid f but perform exact fully connected model and optimizing with Poisson f(t)=r exp(-rt).",
+          "Kessler–Barkai–Ziegler arXiv:2012.01763 study general i.i.d. random probing and detection-time identity; Kulkarni–Majumdar arXiv:2305.15123 treat random resetting first-detection statistics."
+        ],
+        "reasoning": "The broader arbitrary-probe framework does not imply the all-law optimum for this model without proving the rank-one failure reset and solving the explicit scalar ratio. General protocol studies cannot be treated as disproof of novelty absent such implication.",
+        "searches": [
+          "arXiv:2012.01763 quantum first detection random probing intervals deterministic Gamma",
+          "arXiv:2305.15123 quantum resetting random projective measurements",
+          "arXiv:2509.08556 complete graph extended target Poisson mean detection"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2509.08556 full source",
+        "DOI:10.1088/1751-8121/ae34fe",
+        "arXiv:2012.01763",
+        "DOI:10.1103/PhysRevA.103.022222",
+        "arXiv:2305.15123 abstract/metadata",
+        "Resultary quantum renewal semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Motivating primary article arXiv:2509.08556 Sections 2, 5–6 explicitly restrict exact optimization to exponential waiting and rate r, while initial protocol setup allows general f.",
+          "Present theorem proves global pointwise inequality p(tau)<=const*tau, then equality distribution and strict ratio 0.690025 against best Poisson."
+        ],
+        "reasoning": "Best-Poisson optimization over a one-parameter exponential subfamily does not entail the optimum over all i.i.d. renewal laws. More general first-detection expressions do not alone specify failure ray reset or the optimal deterministic clock for this special bright state.",
+        "searches": [
+          "Del Vecchio Del Vecchio Majumdar 2026 all to all quantum detection optimal rate r",
+          "Kessler Barkai Ziegler mean first detection iid random probes",
+          "Kulkarni Majumdar quantum resetting first detection random intervals"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For uniform survivor b, failure maps back to b and the optimization becomes minimizing Eτ/Ep(τ); it is equivalent to maximizing pointwise (1-cos x)/x.",
+          "Kessler–Barkai–Ziegler arXiv:2012.01763 establish a general relationship between mean interval and mean number of detection attempts, not this global maximization."
+        ],
+        "reasoning": "Generic renewal reward identity is prior; obtaining the model-specific reset, exact success law, and a sharp universal waiting-distribution optimizer is the additional content.",
+        "searches": [
+          "all-to-all quantum first detection projective measured subspace iid waiting law restart sharp first detection",
+          "renewal reward ratio E waiting over E successful probability best deterministic waiting"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returns target and other unrelated renewal/detection entries, no separate full-law optimum entry for this Hamiltonian.",
+          "Universal scalar constant is a transcendental root rather than a known finite computational table; no precomputed table alone implies the model theorem."
+        ],
+        "reasoning": "Database/table coverage is specifically inapplicable to the all-law optimization theorem; the constant may occur in unrelated restart problems, but its existence alone is not an implication for this quantum detector.",
+        "searches": [
+          "Resultary semantic fully connected quantum first detection extended target deterministic renewal optimal waiting times versus Poisson",
+          "quantum detection optimal constant tan(x/2)=x deterministic timing"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-level prior comparison: the exact final claim goes beyond inspected narrower qualitative, lower-bound, upper-bound or Poisson-restricted results. This is not a claim of exhaustive historical priority; see four comparisons and source-specific risks.",
+      "residual_risks": [
+        "General deterministic-restart optimization ratios are known in renewal theory; the originality lies in this quantum model's exact reset, best-Poisson comparison and global law classification, not abstract fractional programming alone.",
+        "Related 2023 resetting paper full text was not inspected; a more general theorem could cover the special bright ray under an alias.",
+        "The result does not address arbitrary initial bright states, correlated or adaptive clocks, general graphs, or nonprojective detection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS fixed exponential-rate optimality, not an explicit complete renewal-law optimum",
+          "evidence": "In model section primary text specifies f(tau)=r exp(-r tau); Section 5 starts 'Poissonian measurement' and optimizes over r; general iid f is a setup, not a universal optimum.",
+          "identifier_or_url": "arXiv:2509.08556; DOI:10.1088/1751-8121/ae34fe",
+          "material_read": "Read primary 43-page arXiv text in sections describing full iid protocol and fully connected setup, Poisson-only analysis and concluding context, plus relevant PDF screenshots",
+          "method": "Primary arXiv full-text extraction with targeted page/section inspection",
+          "title": "Optimal detection of quantum states via projective measurements",
+          "trigger": "Exactly same H, measured subspace, bright states and Poisson benchmark"
+        },
+        {
+          "assessment": "COVERS mean-attempt / mean-interval relationship, not known explicit all-law optimum here",
+          "evidence": "General random probing leaves system-specific survival/detection probability to compute; targeted universal scalar optimization not stated in checked sections.",
+          "identifier_or_url": "arXiv:2012.01763; DOI:10.1103/PhysRevA.103.022222",
+          "material_read": "Inspected 12-page arXiv article introduction/general random-probing theorem and first-detection discussion; not every numerical example",
+          "method": "Primary arXiv full-text inspection focused on main statements",
+          "title": "The first detection time of a quantum state under random probing",
+          "trigger": "Prior general iid detection theorem may dominate ratio"
+        },
+        {
+          "assessment": "No established mathematical implication from accessed description; NOT a whole-document NOT_COVERING verdict",
+          "evidence": "Quantum resetting settings differ from exact postmeasurement ray reset in this model.",
+          "identifier_or_url": "arXiv:2305.15123",
+          "material_read": "Bibliographic record, abstract and indexed scope only; no full primary inspection this run",
+          "method": "Abstract-level; retains residual risk",
+          "title": "First detection probability in quantum resetting via random projective measurements",
+          "trigger": "Another framework for random waiting intervals"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural optimization of the complete waiting-time law (not merely Poissonian rate) for the exactly solvable complete-graph target detector, sharpening and quantifying earlier Poisson-protocol optimum by about 31%. Identifies precise deterministic/zero-mass equality laws and the structural role of postfailure ray reset; a useful benchmark for quantum detection scheduling.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only uniform survivor b and iid nonnegative finite-positive-mean waiting times for fully connected model.",
+    "A mixture with waiting time zero still has positive finite expected time and almost-surely finite detection count; no non-renewal or adaptive improvement claimed."
+  ],
+  "schema_version": 1
+}
