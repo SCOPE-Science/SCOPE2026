@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "The formula follows from the correctly normalized killed-Brownian Green kernel, an exact renewal equation, and explicit integration over the safe zone. At and above the proposed threshold, a coefficientwise hyperbolic inequality proves strict non-improvement for every \\(r>0\\), including equality. Below it, the negative small-rate coefficient proves existence of beneficial rates and the high-rate divergence yields minimizer existence for \\(0<a<L\\). The critical rate and gain follow from Taylor expansion with positive quartic coefficient, uniform localization of global minimizers, and the implicit-function theorem. An independent sparse backward-equation discretization passed 157 numerical checks; numerical evidence is supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1812.03009: absorption only at interval endpoints, each reset restarts",
+        "arXiv:2109.11101: bounded spherical geometry, threshold in starting radius for conventional resetting, abstract inspected only",
+        "arXiv:2205.13989: occupation-time threshold absorption and resetting of internal state"
+      ],
+      "reasoning": "A general renewal or backward-equation framework might be adapted to this model but does not supply the explicit variable-cutoff phase criterion or critical coefficients. The compared published theorems vary initial/reset positions, reaction kinetics or elapsed occupation time instead of switching the alarm outcome between restart and immediate absorption. Full-text noncoverage is not asserted for the abstract-only Chen-Huang source.",
+      "searches": [
+        "Poisson reset Brownian motion in bounded domain with reset-triggered absorption outside central window optimally helpful iff geometric threshold",
+        "sharp safe-zone geometry 1/sqrt(6) boundary for beneficial stochastic restart Brownian two absorbers",
+        "thermal stochastic reset with state dependent absorption threshold first passage in finite interval",
+        "First passage of a diffusing particle under stochastic resetting in bounded domains with spherical symmetry",
+        "Diffusion in a partially absorbing medium with position and occupation time resetting"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2111.15241 (relevant primary sections materially read)",
+      "arXiv:1812.03009 (relevant primary sections materially read)",
+      "arXiv:2109.11101 (abstract only)",
+      "arXiv:2205.13989 (abstract and repository summary)",
+      "published finding searches with exact queries in the named checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Grange 2021: safe zone defined specifically by \\([-\\pi,\\pi]\\) inside \\([-2\\pi,2\\pi]\\); renewal eqs (13)-(16) and q0/S0 formulas; no tunable policy or threshold optimization theorem",
+        "Pal and Prasad 2018: central backward equation \\(D\\partial_x^2q-(r+s)q=-1-rq(x_0)\\), corresponding to a reset everywhere and absorption at endpoints",
+        "Current theorem: a variable cutoff and coefficientwise comparison yield strict threshold at \\(a/L=1-1/\\sqrt6\\), with an optimizer/gain bifurcation"
+      ],
+      "reasoning": "Grange covers the physically shortest-route specialization but cannot dominate a full continuum of tunable alarm-decision rules with a critical value. The published standard-reset results change the starting point or restart destination, not whether a given alarm causes absorption. Their formulations are not mapped to the stated model by coordinate symmetry, a time rescaling, or a direct parameter substitution. The threshold and critical expansions require further analysis beyond their displayed results.",
+      "searches": [
+        "Grange 2021 Brownian winding ring reset return path safe zone threshold arbitrary length exact mean first passage critical radius",
+        "Poisson reset Brownian motion in bounded domain with reset-triggered absorption outside central window optimally helpful iff geometric threshold",
+        "sharp safe-zone geometry 1/sqrt(6) boundary for beneficial stochastic restart Brownian two absorbers",
+        "thermal stochastic reset with state dependent absorption threshold first passage in finite interval",
+        "First passage under stochastic resetting in an interval Pal Prasad",
+        "Winding number of a Brownian particle on a ring under stochastic resetting Grange"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2111.15241 Sections 2-5 fixes \\(a=L/2\\) and treats shortest-route reset",
+        "arXiv:1812.03009 section III backward equation implements unconditional restart at a fixed point; no alarm-dependent absorption",
+        "arXiv:2205.13989 abstract models resetting occupation-time internal states, not immediate success selected by position"
+      ],
+      "reasoning": "The closest equivalent descriptions would be a Brownian interval with Poisson observation and an alarm-dependent binary response, or a shortest-return circle with tunable feedback radius. The full inspected Grange source fixes the radius, while Pal-Prasad uses unconditional position restart. Neither states or implies the all-safe-zone geometric \\(1/\\sqrt6\\) threshold and quadratic gain onset without performing the new comparison and proof. Generic renewal identities are acknowledged prior machinery.",
+      "searches": [
+        "state-dependent stochastic resetting with immediate absorption outside safety region Brownian interval critical threshold one over square root six",
+        "Grange 2021 Brownian winding ring reset return path safe zone threshold arbitrary length exact mean first passage critical radius",
+        "Winding number of a Brownian particle on a ring under stochastic resetting Pascal Grange 2111.15241 conditional returns first-passage",
+        "Brownian motion Poisson reset activation absorbing region on reset only spatial threshold",
+        "state dependent restart abort successful if position in target region stochastic resetting",
+        "Exact critical safe-zone fraction 1-1/sqrt(6) and optimal-rate square-root onset in Brownian Poisson resetting with reset-triggered absorption outside a symmetric central region; generalizes Grange winding circle resetting 2021"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The claimed quantity is the mean absorption time in a continuously parameterized Brownian feedback model, not a tabulated finite invariant.",
+        "Available Grange paper gives a special fixed-zone mean; its fixed value at \\(a=L/2\\) does not determine the global safe-zone transition."
+      ],
+      "reasoning": "No exact database/table with the same parameterized absorption rule was located. The result is a symbolic continuum identity plus an all-parameter phase classification; a table of fixed-window cases could not imply the sharp boundary without a uniform inequality.",
+      "searches": [
+        "state-dependent stochastic resetting with immediate absorption outside safety region Brownian interval critical threshold one over square root six",
+        "Winding number of a Brownian particle on a ring under stochastic resetting Pascal Grange 2111.15241 conditional returns first-passage",
+        "Brownian first passage bounded interval stochastic resetting to origin conditional absorption when reset outside safe zone threshold optimum length 1/sqrt6",
+        "Brownian motion Poisson reset activation absorbing region on reset only spatial threshold"
+      ]
+    },
+    "rationale": "A full-text comparison of Grange (2021) confirms it handles only the shortest-return \\(a=L/2\\) geometry and develops the renewal method but not the variable safe-zone geometric transition. Full text of Pal-Prasad (2018) confirms unconditional resets with endpoint-only absorption. Other similar bounded-domain and conditional-reaction models differ in their stopping rules. Targeted published-finding searches did not reveal a dominating result. Novelty is a qualified literature assessment, not a claim of exhaustive search or independent priority certification.",
+    "residual_risks": [
+      "Broader state-dependent resetting and absorption literature could encode the same threshold in an implicit specialization not surfaced by semantic search.",
+      "The complete Chen–Huang paper was not accessible; the abstract describes a distinct standard-reset model, so priority comparison there remains abstract-level.",
+      "A more general published stopping-control theorem might encompass the result without matching terminology; no such concrete dominating theorem was found."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CONTAINS the fixed half-circle safety model and general renewal ingredients; does not cover a variable conditional-completion zone and its global phase boundary.",
+        "evidence": [
+          "Definition \\(S=(-\\pi,\\pi)\\), \\(D=[-2\\pi,-\\pi]\\cup[\\pi,2\\pi]\\) in Section 2",
+          "Eq. (16) mean via ordinary survival/safe resolvents",
+          "Eq. (26) evaluates fixed short-route model",
+          "Section 5 derives winding-count laws rather than cutoff control phase transitions"
+        ],
+        "identifier_or_url": "https://dukespace.lib.duke.edu/server/api/core/bitstreams/28bad279-e951-4f8b-aa39-0e40c3f7df65/content",
+        "material_read": "Full preprint model description, Sections 2-5, renewal equations (13)-(16), expressions (25)-(28), and appendix resolvent series (47)-(48)",
+        "method": "Direct primary preprint text inspection including equations and boundary definitions",
+        "title": "Winding number of a Brownian particle on a ring under stochastic resetting",
+        "trigger": "Exact parent model for shortest-path resetting and winding completion"
+      },
+      {
+        "assessment": "Applies a Poisson reset to a fixed location while endpoints absorb. Does not introduce alarm-triggered absorption conditional on a safe-zone radius.",
+        "evidence": [
+          "Backward equation \\(D\\partial_x^2q-(r+s)q=-1-rq(x_0)\\) in Eq. (2)",
+          "Boundary values \\(q(a)=q(b)=0\\) and ordinary endpoint exit outcomes",
+          "No interior alarm-completion term in its backward equation"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/329525576_First_passage_under_stochastic_resetting_in_an_interval",
+        "material_read": "Primary article full-text model, backward Fokker–Planck section (notably Eq. (2)), results on absorption and discussion",
+        "method": "Read publicly available article text, not solely abstract",
+        "title": "First passage under stochastic resetting in an interval",
+        "trigger": "Potentially dominating first-passage restart theory in bounded Brownian intervals"
+      },
+      {
+        "assessment": "The described critical radius concerns the initial particle position under conventional resets, not a switch in the outcome of a reset alarm; inaccessible full text leaves residual literature risk.",
+        "evidence": [
+          "Abstract states a nonzero optimal resetting rate when initial radial location exceeds \\(\\sqrt{d/(d+4)}\\) times the sphere radius",
+          "Absorption at bounding sphere; no position-triggered absorption at alarm reported in abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2109.11101",
+        "material_read": "Original arXiv abstract and journal publication details only; complete text unavailable during comparison",
+        "method": "Primary abstract and bibliographic inspection",
+        "title": "First passage of a diffusing particle under stochastic resetting in bounded domains with spherical symmetry",
+        "trigger": "Another sharp critical resetting transition in bounded geometry"
+      },
+      {
+        "assessment": "Focuses on occupation-time-controlled absorption and reset of internal state; its threshold is not a spatial conditional outcome of an alarm.",
+        "evidence": [
+          "Absorption when internal occupation-time state crosses a threshold",
+          "Position and occupation-time state are both reset on Poisson events"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2205.13989",
+        "material_read": "Original arXiv abstract and publisher repository summary",
+        "method": "Primary abstract and accessible repository summary",
+        "title": "Diffusion in a partially absorbing medium with position and occupation time resetting",
+        "trigger": "Potential general absorption-plus-reset framework"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6894a53c-fe64-4e41-ac34-63b95b3cb66b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The cutoff is the operative spatial decision in a feedback reset/complete policy directly generalizing the geometric half-ring resetting experiment. The exact dimensionless boundary separates regimes where all alarm rates worsen first passage from those with strictly advantageous alarms, a global qualitative classification not provided by the parent special case. The near-critical linear optimal-rate onset and quadratic maximal savings quantify how a practically tunable protocol bifurcates. This is a motivated all-parameter phase law, not a single easy substitution or an arbitrary finite table.",
+    "status": "PASS"
+  }
+}
