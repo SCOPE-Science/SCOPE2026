@@ -1,0 +1,192 @@
+{
+  "correctness": {
+    "rationale": "All 16-vertex graph adjacencies and 48 edges are constructed from definitions; for every one of 1128 pairs of edges, separator masks exactly encode the resolving quantifier. Exhaustive 16-choose-k scans below and at k=6 (Shrikhande) and k=5 (rook) agree with separate edge-distance-vector uniqueness checks, proving minimum sizes 6,5 and exact bases 736,576. Enumerated 192 and 1152 automorphisms saturate rigorously checked \\(16\\cdot12\\) and \\(16\\cdot72\\) upper bounds from neighborhoods with uniquely profiling nonneighbors, certifying full groups; orbit sizes sum to counts. Basis-exchange mask adjacency covers every legal swap and BFS proves both connected, with degree and edge totals cross-checked. Reproduce from verify_edge_metric.py in this exact package. No infinite extension or external audit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kelenc et al. arXiv:1602.00291 pp.4-7: Cartesian products of *paths* and special cycle products, not products of complete graphs.",
+        "Hakanen et al. arXiv:2003.02048 pp.7-10: rook graph but {2}-resolving all vertex pairs, with no edge-only basis enumeration.",
+        "Kuziak--Yero arXiv:2107.04877 Table 14 pp.34-35 lists many edge metric classes but neither pair member."
+      ],
+      "reasoning": "No inspected family theorem subsumes edim of the Shrikhande graph or K4 Cartesian K4; the available Cartesian grid formula for P_r Cartesian P_t is inapplicable, and the strongly regular parameters alone provably do not force the same edim because exact values here differ.",
+      "searches": [
+        "Cartesian product complete graphs edge metric dimension K4 square K4, generalized rook graph, Hamming graph H(2,4)",
+        "edge metric generator Shrikhande Cayley Z4 Z4 rook graph K4 Cartesian K4 edge distinguish",
+        "arxiv:1602.00291 Proposition 4 on P_r Cartesian P_t",
+        "arxiv:2003.02048 Theorems 17-20 rook graph",
+        "arxiv:2107.04877 Table 14"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1602.00291v1",
+      "Resonance (2015) Sane The Shrikhande Graph",
+      "arxiv:2003.02048v1",
+      "arxiv:2103.07375v1",
+      "arxiv:2107.04877v1",
+      "2026/10/11/SCOPE-independence-complexes-of-the-shrikhande-and-4-times4-rook-graph--41bf4d1d3187",
+      "2026/10/4/SCOPE-edge-metric-bases-of-crown-graphs--b5b3c45f23e8",
+      "2026/10/4/SCOPE-edge-metric-bases-of-half-graphs--13a0853af1d2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sane, Resonance October 2015, establishes structural Shrikhande graph properties and symmetry, without the 2016 edge-metric invariant.",
+        "Published independence-complex comparison establishes a homotopy distinction for the same pair, but no edge-resolving vertex-landmark statement.",
+        "Earlier related own claims on rook domination/zero forcing and Shrikhande zero forcing concern different numerical invariants and do not imply pairwise edge-separator masks.",
+        "Published half-graph and crown-graph minimum-base formulas apply to nonisomorphic bipartite graph classes."
+      ],
+      "reasoning": "The novelty-bearing claim is the exact pairwise edge-resolution minima, all minimum-basis counts, symmetry orbit decompositions, and exchange-graph degrees/components. Known facts that both graphs are (16,6,2,2), their automorphism orders, ordinary vertex metric bases, and their other graph-complex invariants cannot determine these specific edge-distance classifications. No closer inspected statement implies the new claim.",
+      "searches": [
+        "Shrikhande graph edge metric dimension six; 4x4 rook graph edge metric dimension five; nonisomorphic strongly regular graphs parameters (16,6,2,2); edge metric generators",
+        "Strongly regular graph edge resolving number Shrikhande 6 rook 5, minimum edge metric bases 736 576, adjacent basis-exchange connected 4128 3744",
+        "edge locating dimension of Shrikhande graph and lattice graph L2(4) exactly 6 and 5, edge metric resolving bases; Doob graph",
+        "published record 2026/10/11/SCOPE-independence-complexes-of-the-shrikhande-and-4-times4-rook-graph--41bf4d1d3187",
+        "worker ledger prior claim IDs 8e459c2c,044c9a86,efdde2d2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kelenc--Tratnik--Yero arXiv:1602.00291 pp.1-2 defines vertex-landmarks resolving edges by min endpoint distance.",
+        "Kuziak--Yero arXiv:2107.04877 §8 pp.29 and 39 explicitly distinguishes edge-landmark line-graph metric dimension from vertex-to-edge dimension.",
+        "Hakanen et al. arXiv:2003.02048 §4.1 defines {2}-resolving on every vertex pair, not only edges."
+      ],
+      "reasoning": "Tested the alternate labels edge dimension, edge location, edge resolvability and Doob/lattice-graph names. Here the landmarks are V(G) and the targets are E(G); the line-graph edge-to-edge invariant uses E(G) as landmarks and is not equivalent. The {2}-resolving predicate for all vertex pairs is strictly stronger than for edges only and hence does not determine the edge-metric-basis census.",
+      "searches": [
+        "Shrikhande graph edge metric dimension six; 4x4 rook graph edge metric dimension five; nonisomorphic strongly regular graphs parameters (16,6,2,2); edge metric generators",
+        "edge locating dimension of Shrikhande graph and lattice graph L2(4) exactly 6 and 5, edge metric resolving bases; Doob graph",
+        "edge metric generator Shrikhande Cayley Z4 Z4 rook graph K4 Cartesian K4 edge distinguish",
+        "\"Shrikhande\" \"edge metric dimension\"",
+        "\"Shrikhande\" \"edge resolving\"",
+        "arxiv:2107.04877 Section 8, edge version of metric dimension versus edge metric dimension"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Six published-database semantic queries returned completed ranked hit lists, with no matching 736/576 minimum-edge-basis counts for the target pair.",
+        "arXiv:2107.04877 Section 8 Table 14 contains known graph-class values but not Shrikhande or 4x4 rook.",
+        "Closest record SCOPE-edge-metric-bases-of-crown-graphs--b5b3c45f23e8 counts a different class."
+      ],
+      "reasoning": "Queries used exact numbers, symbols, graph aliases and family names as well as dimension terminology. Near-result checks included related exact tables but none with target graph distance matrices or one-for-one exchange invariants. Semantic search is not a proof of worldwide uniqueness; unindexed catalogs are a residual risk.",
+      "searches": [
+        "Strongly regular graph edge resolving number Shrikhande 6 rook 5, minimum edge metric bases 736 576, adjacent basis-exchange connected 4128 3744",
+        "minimum edge resolving bases 736 576 strongly regular graphs (16,6,2,2) reconfiguration exchange orbits",
+        "\"Shrikhande\" \"edge metric dimension\"",
+        "\"rook graph\" \"edge metric dimension\"",
+        "\"edge metric dimension\" \"Hamming graphs\" \"Shrikhande\"",
+        "arxiv:2107.04877 Table 14 exact edge metric families"
+      ]
+    },
+    "rationale": "Six completed published research-index semantic queries with aliases, exact values, graph-pair names, and exchange terms; separate targeted web-literature searches; full-text inspection of the 2016 edge-metric primary paper, 2015 Shrikhande reference and relevant subsequent primary studies. Closest same-graph paper concerns independence homotopy, and the closest same-invariant publications concern distinct graph classes. The rook {2}-resolving literature treats a strictly different, stronger predicate. Known graph symmetries and strongly regular parameters do not imply the new minima/counts/exchanges. Nonindexed work remains possible.",
+    "residual_risks": [
+      "Semantic scientific-index searches are not exhaustive of all global published papers or nonindexed exact tables.",
+      "The same-pair independence-complex publication was compared from its full scientific claim summary rather than its complete paper; the invariants are categorically distinct, so this does not leave a plausible dominating edge-metric theorem unresolved.",
+      "Exact values are finite computational proofs reproducible with ordinary Python, not a uniform family theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: Defines the invariant and treats products of paths/cycles among others; no Shrikhande or product of complete 4-vertex graphs basis census.",
+        "evidence": [
+          "https://arxiv.org/pdf/1602.00291",
+          "Proposition 4 states edim(P_r Cartesian P_t)=2; theorem 7 addresses products of cycles."
+        ],
+        "identifier_or_url": "arxiv:1602.00291v1",
+        "material_read": "Full open-access 23-page preprint; definitions pp.1-2, product constructions and propositions pp.4-8, searches across its complete text for Shrikhande, rook, K4 and strongly regular.",
+        "method": "ArXiv PDF full-text reading, term searches, page inspections.",
+        "title": "Uniquely identifying the edges of a graph: the edge metric dimension",
+        "trigger": "Definition and strongest early general results potentially covering a 16-vertex graph or Cartesian product."
+      },
+      {
+        "assessment": "NOT_COVERING: Basic graph and group information is prior knowledge; predates 2016 edge-metric formulation and provides no minimum edge-resolving landmarks.",
+        "evidence": [
+          "Resonance October 2015 pp.903-918, definition and symmetry sections."
+        ],
+        "identifier_or_url": "https://people.math.binghamton.edu/zaslav/Oldcourses/510.S18/sane.shrikhande-graph.resonance2015.pdf",
+        "material_read": "16-page original article including graph construction, parameters and automorphism discussion, pp.1-16.",
+        "method": "Read PDF text, inspect diagrams and automorphism section.",
+        "title": "The Shrikhande Graph",
+        "trigger": "Foundational same-object construction and potential graph-invariant computations."
+      },
+      {
+        "assessment": "NOT_COVERING: {2}-resolving all vertex pairs (including nonedges and singletons), not edge-only resolving; results do not imply the minimum edge-only basis family or exchange census.",
+        "evidence": [
+          "https://arxiv.org/pdf/2003.02048",
+          "Definition 1 and §4.1 Theorems 17-20."
+        ],
+        "identifier_or_url": "arxiv:2003.02048v1",
+        "material_read": "Full-text abstract and definitions pp.1-2, Cartesian-product and rook section 4.1 pp.7-10 including Theorems 17 and 19, plus bibliography and keyword scans.",
+        "method": "Inspect arXiv PDF section 4.1 including proof and figures.",
+        "title": "On the Metric Dimensions for Sets of Vertices",
+        "trigger": "Especially relevant later paper directly about rook graphs and pair-of-vertices location."
+      },
+      {
+        "assessment": "NOT_COVERING: Studies different families, fractional constructions and monotonicity; no exact Shrikhande/rook landmark-basis classification.",
+        "evidence": [
+          "https://arxiv.org/pdf/2103.07375"
+        ],
+        "identifier_or_url": "arxiv:2103.07375v1",
+        "material_read": "14-page paper; edge-distance definitions and main graph-class sections, with full-text searches for the target graph names.",
+        "method": "Open lawful arXiv PDF, inspect the stated class theorems and term matches.",
+        "title": "On the edge dimension and fractional edge dimension of graphs",
+        "trigger": "Post-foundational edge metric survey and fractional extensions."
+      },
+      {
+        "assessment": "NOT_COVERING: Table 14 covers other graphs; separates vertex-to-edge landmark metric from non-equivalent line-graph edge-to-edge metric.",
+        "evidence": [
+          "https://arxiv.org/pdf/2107.04877",
+          "Section 8.1.3 and Table 14."
+        ],
+        "identifier_or_url": "arxiv:2107.04877v1",
+        "material_read": "Section 8, pp.29-39, especially Table 14 p.34 and explicit comparison of two edge metrics; targeted full-text searches for graph names.",
+        "method": "Read arXiv PDF in relevant section, check page images of pp.29 and 34.",
+        "title": "Metric dimension related parameters in graphs: A survey on combinatorial, computational and applied results",
+        "trigger": "Broad reference survey and exact-value table; distinction from line graph invariant."
+      },
+      {
+        "assessment": "NOT_COVERING: the actual full paper proves only ordinary independence-complex homotopy types; it never discusses vertex-to-edge landmark distance, minimum edge-metric bases, or exchange edges.",
+        "evidence": [
+          "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-independence-complexes-of-the-shrikhande-and-4-times4-rook-graph--41bf4d1d3187",
+          "Full RESULT.md path in the cited public repository; independent homology and discrete-Morse argument; no edge-metric results."
+        ],
+        "identifier_or_url": "2026/10/11/SCOPE-independence-complexes-of-the-shrikhande-and-4-times4-rook-graph--41bf4d1d3187",
+        "material_read": "Complete 7,980-byte public RESULT.md, including all theorem, proof, limitations, references and independent-check descriptions; not just the ranked summary.",
+        "method": "Fetch full publicly available RESULT.md through read-only repository access; compare the claim, proof scope and all references; keyword scan of full content for edge metric, edge resolving and basis exchange.",
+        "title": "Independence complexes of the Shrikhande and 4x4 rook graphs have different sphere-wedge homotopy types",
+        "trigger": "Same two nonisomorphic strongly regular graphs; possible stronger comparison."
+      },
+      {
+        "assessment": "NOT_COVERING: Bipartite K_{n,n} minus perfect matching, with exactly n2^{n-1} edge-resolving bases; not any of the strongly regular target graphs.",
+        "evidence": [
+          "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-edge-metric-bases-of-crown-graphs--b5b3c45f23e8/RESULT.md"
+        ],
+        "identifier_or_url": "2026/10/4/SCOPE-edge-metric-bases-of-crown-graphs--b5b3c45f23e8",
+        "material_read": "Entire publicly accessible scientific RESULT.md (theorem, detailed proof, verification and scope).",
+        "method": "Read complete RESULT.md via public repository file access; compare hypotheses/quantifiers/object classes and look for target graph aliases.",
+        "title": "Edge metric bases of crown graphs",
+        "trigger": "Same vertex-landmark edge metric invariant and exact minimum-basis classification, potential broad coverage."
+      },
+      {
+        "assessment": "NOT_COVERING: Nested-neighborhood bipartite half graphs, exact dimension p-1 and 2^{p-1} bases; no inference to a 16-vertex six-regular strongly regular pair.",
+        "evidence": [
+          "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-edge-metric-bases-of-half-graphs--13a0853af1d2/RESULT.md"
+        ],
+        "identifier_or_url": "2026/10/4/SCOPE-edge-metric-bases-of-half-graphs--13a0853af1d2",
+        "material_read": "Entire publicly accessible scientific RESULT.md (theorem, detailed proof, verification and scope).",
+        "method": "Read complete RESULT.md via public repository file access; compare hypotheses/quantifiers/object classes and look for target graph aliases.",
+        "title": "Edge metric bases of half graphs",
+        "trigger": "Same vertex-landmark edge metric invariant and exact minimum-basis classification, potential broad coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8b4234fa-5046-43c8-900c-0004a75f5d23",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The Shrikhande and 4x4 rook graphs are the classical nonisomorphic strongly regular (16,6,2,2) pair, where adjacency spectrum and local intersection parameters cannot distinguish them. An exact vertex-landmark requirement for edge localization separates them sharply (6 vs 5), while complete minimum-basis geometry reveals a seven-orbit, irregular exchange graph versus one-orbit, 13-regular behavior. This is a natural exact classification and motivated boundary on what strongly regular parameters determine, not a selected numerical slice; independently valuable even without a family-wide theorem.",
+    "status": "PASS"
+  }
+}
