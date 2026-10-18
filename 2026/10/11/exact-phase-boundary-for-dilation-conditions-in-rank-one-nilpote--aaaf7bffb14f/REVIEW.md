@@ -1,14 +1,21 @@
-# Review
-## Correctness
-**PASS.** The final claim is reconstructed from the defining fundamental equation. With \(s=(1-|\lambda_n|^2)^{1/2}\), direct inversion of the defect operator gives the stated triangular formula for every \(F_i\). Exact multiplication then yields the commutator and mixed-adjoint defect formulas. The global phase-reversal criterion is exactly the rank-at-most-one condition for the two-row matrix formed by the coefficient vector and its reversal-conjugate. The cases \(n=2\), \(\lambda_n=0\), and the zero coefficient vector were checked separately. No experimental evidence is used as proof.
+# Independent mathematical audit
 
-## Originality
-**PASS.** arXiv:2609.39711v1 was inspected in full. Its second nilpotent family uses nonvanishing determinant-type coefficient expressions to produce failure of the dilation conditions, but it does not state the exact if-and-only-if zero locus, the pairwise defect identities, or the unimodular phase-reversal classification. Full text of arXiv:1610.01978 was also inspected; it develops fundamental-operator properties for \(\Gamma_3\) and gives noncommuting examples, not this all-\(n\) nilpotent-slice classification. A published 2021 fundamental-operator paper was checked at the bibliographic/abstract level for broader coverage. Targeted semantic searches for equivalent formulations and stronger coverage returned no result implying the final claim. Residual risk remains that an older result uses different language for the same coefficient locus.
+## correctness
 
-## Value
-**PASS.** The focal construction presents a family on the failure side of two operator identities. The finding determines the complete algebraic boundary inside the canonical common-nilpotent slice, shows that the two dilation conditions share one Plücker-type obstruction when \(\lambda_n\ne0\), and exposes the exact exceptional behavior at \(\lambda_n=0\). The phase-reversal formulation is a structural classification rather than a routine recomputation of one example.
+PASS
 
-## Closest literature and limitations
-The closest source is arXiv:2609.39711v1, which contains the same rank-one nilpotent matrix template and the same determinant-type coefficient expressions, but only uses a nonvanishing regime to force failure. Earlier fundamental-operator literature supplies the general equations and tridisc examples. The theorem here remains conditional on the tuple being a \(\Gamma_n\)-contraction and does not classify the spectral-set region or construct dilations.
+PASS. Since T_n^*T_n=diag(0,|λ_n|²), D=diag(1,s) is invertible for |λ_n|<1 and the defining fundamental equation gives the displayed triangular Fi uniquely. Explicit symbolic multiplication independently checks [Fi,Fj]=−λ_n Δij/s³ N and the mixed-adjoint defect Δij/s² diag(1,−1). Hence simultaneous identities iff every Δij=0 even when λ_n=0 (when just commutativity is vacuous). All Δij are the 2×2 minors of u=(λ1,…,λ_{n−1}) and its conjugate reversal v; if u≠0, a rank-one condition gives u=ηv and equal norms force |η|=1, including self-reversed n=2 and zero vectors. This is an exact condition on fundamental-operator identities only; Γ_n spectral-set assumption is retained, and no converse about existence of dilation or classification of admissible λ is claimed. No finite experiments substitute for algebra.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS, provisional best-knowledge, with unusually close priority risk. Paul arXiv:2609.39711 publicly describes nilpotent 2×2 Γn tuples violating fundamental-operator commutator and mixed identities. The present claim is the complete coefficient-space zero-locus of both defects, including λ_n=0 and the conjugate-reversal unit phase locus, not merely a witness that one condition fails. All minors are natural algebraic consequences of the same triangular Fi; if the focal paper's general symbolic products already give both exact identities for arbitrary coefficients, the current equivalence may be an immediate corollary and originality would need revisiting. Independent full text was unavailable via the working routes; thus no unsupported claim that the entire paper is noncovering or proof of novelty. Bisai–Pal 2021 develop general fundamental operator theory, not an independently established identical slice classification; Resultary unavailable.
+
+## value
+
+PASS
+
+PASS, with modest-scale value. The coefficient boundary controls two specific sufficient fundamental-operator identities underlying Γn dilation criteria in a canonical 2×2 nilpotent counterexample slice. The degeneracy λ_n=0, equivalence for λ_n≠0 and phase-reversal symmetry give a natural complete structural classification, not a merely arbitrary choice of coefficients. Value would vanish if the same boundary is already a textbook-sized obvious corollary of Paul's exact unrestricted formulas; retained as explicit risk rather than asserted away.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
