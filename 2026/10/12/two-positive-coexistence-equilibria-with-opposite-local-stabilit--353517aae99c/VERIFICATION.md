@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact computational verification
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 standard library. The script computes rational bisection enclosures for positive roots of \(\phi(x)=h/10\) and \(\psi(y)=3h/10\), with monotonicity arguments supplied in `RESULT.md`. Every exponential bound uses a 70-term rational Taylor polynomial with a rigorous positive remainder majorant, valid on every argument encountered here. It checks \(F(49/10)>26>F(5)\) and \(F(9)<26<F(19/2)\), then computes narrow prey brackets and interval enclosures of the full Jacobian and characteristic polynomial.
+## correctness
 
-The first branch's five Jury expressions are proved strictly positive. The second branch's \(\det(I-J)\) is proved strictly negative; the monic cubic therefore has a real root exceeding one. Successful replay ends with `VERIFY_OK`. All inequalities are checked as exact fractions, not trusted printed decimal approximations. The underlying analytical IVT, Schur/Jury, and implicit-function arguments are supplied in the proof rather than inferred from finite enumeration.
+PASS
 
-No globally attracting state, complete fixed-point census, population-data estimate, external independent validation, or higher-dimensional bifurcation classification is demonstrated. Independent audit has not been performed.
+For the exact three-variable Beverton–Holt/Nicholson–Bailey map with r=26,a=1/10,b=3/10, a positive fixed point must satisfy φ(x)=x/(e^x−1)=a h, ψ(y)=y/(1−e^-y)=b h and r=e^x(h+e^y). Strict decrease of φ and increase of ψ parameterize a unique positive (x,y) over 10/3<h<10, reducing existence to continuous scalar F(h)=26. Rational interval sign certificates in the supplied verifier show F(4.9)>26>F(5) and F(9)<26<F(9.5); independently reconstructed roots h=4.98708531279478 and h=9.35663868823336. Direct symbolic differentiation of the ORIGINAL full map, after imposing equilibrium equations, matches the submitted full Jacobian J. Independent high-precision eigenvalues of the first J have moduli <1 (complex 0.248146±0.911481i; real 0.953657) and second J has real eigenvalue 1.01023065>1. The supplied standard-library rational interval code verifies strict Jury signs/negative det(I−J), upgrading numerical corroboration to certified inequalities. Nonzero det(I−J) at both points yields smooth continuation and persistence of the strict stability split near the parameter triple via implicit-function theorem. Claim properly says at least two, not exactly two, and no bistability.
+
+## originality
+
+PASS
+
+Seno–Goyal (2026) Eq.(27)/Appendix I derives necessary conditions and qualitative native/boundary predator invasion, but does not supply two distinct strictly positive coexistence fixed points at one parameter triple or their opposing spectra. A related published SCOPE result about oscillatory invasion advantages studies transverse Lyapunov exponents, not multiplicity of this map’s positive fixed points. Statement-level comparison and Resultary searches did not expose full coverage. Seno–Goyal Lemma 6 only gives necessary ordering R_A>R_J>1, satisfied here.
+
+## value
+
+PASS
+
+The existence of multiple full positive equilibria with one attracting and one unstable branch is a meaningful structural/bifurcation feature for a biologically motivated three-species discrete-time model, beyond boundary-state invasion conditions. Rigorous rational inequalities avoid unreliable phase-portrait guesses and show an open parameter region, while honestly not claiming global bistability or an exact total count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

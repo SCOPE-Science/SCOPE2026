@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The full published recurrence is explicitly stated and differentiated; the exact fixed-point equations reduce to monotone scalar response laws on the admissible interval. The attached exact-fraction program verifies four separate strict sign comparisons, constructs disjoint root enclosures, and certifies every strict cubic Schur/Jury condition for the lower-prey equilibrium, with a negative \(\det(I-J)\) at the higher-prey equilibrium. The implicit-function-theorem continuation uses strict nonvanishing of these determinants and smoothness in parameters. The assertions are local, not global.
+## correctness
 
-**Originality — PASS with residual literature risk.** Source Eq. (27), the boundary-equilibrium uniqueness theorem, Lemma 6, and Appendix I have been compared to the new two-branch claim. Necessary coexistence inequalities and parameter scans do not imply two different fully positive equilibria for one parameter triple, much less opposite spectral types. Abstracts concerning multiple parasitoids and parasitoid phenology involve related but different models. The full text of the classic May–Hassell comparison was unavailable, so the limitation is retained explicitly; no priority is claimed for coexistence multiplicity as a general phenomenon.
+PASS
 
-**Mathematical value — PASS.** Full coexistence multiplicity is a meaningful gap after necessary conditions and boundary-system uniqueness: a deterministic predator-competition calibration can admit two interior stationary states with different local dynamics under identical demographic inputs. The open-parameter persistence distinguishes the construction from an isolated numerical coincidence. It does not establish bistability, and its value is the specific counterexample to an otherwise plausible extrapolation of boundary uniqueness, not a universal ecological claim.
+For the exact three-variable Beverton–Holt/Nicholson–Bailey map with r=26,a=1/10,b=3/10, a positive fixed point must satisfy φ(x)=x/(e^x−1)=a h, ψ(y)=y/(1−e^-y)=b h and r=e^x(h+e^y). Strict decrease of φ and increase of ψ parameterize a unique positive (x,y) over 10/3<h<10, reducing existence to continuous scalar F(h)=26. Rational interval sign certificates in the supplied verifier show F(4.9)>26>F(5) and F(9)<26<F(9.5); independently reconstructed roots h=4.98708531279478 and h=9.35663868823336. Direct symbolic differentiation of the ORIGINAL full map, after imposing equilibrium equations, matches the submitted full Jacobian J. Independent high-precision eigenvalues of the first J have moduli <1 (complex 0.248146±0.911481i; real 0.953657) and second J has real eigenvalue 1.01023065>1. The supplied standard-library rational interval code verifies strict Jury signs/negative det(I−J), upgrading numerical corroboration to certified inequalities. Nonzero det(I−J) at both points yields smooth continuation and persistence of the strict stability split near the parameter triple via implicit-function theorem. Claim properly says at least two, not exactly two, and no bistability.
 
-**Scope and limits.** The quantitative proof is exact for \((r,a,b)=(26,1/10,3/10)\) and qualitative under sufficiently small perturbations; other equilibria remain unclassified. A separate independent mathematical audit has not been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Seno–Goyal (2026) Eq.(27)/Appendix I derives necessary conditions and qualitative native/boundary predator invasion, but does not supply two distinct strictly positive coexistence fixed points at one parameter triple or their opposing spectra. A related published SCOPE result about oscillatory invasion advantages studies transverse Lyapunov exponents, not multiplicity of this map’s positive fixed points. Statement-level comparison and Resultary searches did not expose full coverage. Seno–Goyal Lemma 6 only gives necessary ordering R_A>R_J>1, satisfied here.
+
+## value
+
+PASS
+
+The existence of multiple full positive equilibria with one attracting and one unstable branch is a meaningful structural/bifurcation feature for a biologically motivated three-species discrete-time model, beyond boundary-state invasion conditions. Rigorous rational inequalities avoid unreliable phase-portrait guesses and show an open parameter region, while honestly not claiming global bistability or an exact total count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T12:18:01.678504Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the exact three-variable Beverton–Holt/Nicholson–Bailey map with r=26,a=1/10,b=3/10, a positive fixed point must satisfy φ(x)=x/(e^x−1)=a h, ψ(y)=y/(1−e^-y)=b h and r=e^x(h+e^y). Strict decrease of φ and increase of ψ parameterize a unique positive (x,y) over 10/3<h<10, reducing existence to continuous scalar F(h)=26. Rational interval sign certificates in the supplied verifier show F(4.9)>26>F(5) and F(9)<26<F(9.5); independently reconstructed roots h=4.98708531279478 and h=9.35663868823336. Direct symbolic differentiation of the ORIGINAL full map, after imposing equilibrium equations, matches the submitted full Jacobian J. Independent high-precision eigenvalues of the first J have moduli <1 (complex 0.248146±0.911481i; real 0.953657) and second J has real eigenvalue 1.01023065>1. The supplied standard-library rational interval code verifies strict Jury signs/negative det(I−J), upgrading numerical corroboration to certified inequalities. Nonzero det(I−J) at both points yields smooth continuation and persistence of the strict stability split near the parameter triple via implicit-function theorem. Claim properly says at least two, not exactly two, and no bistability.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The closest same-model SCOPE hit concerns juvenile invasion Lyapunov advantage under dynamical equivalence, not multiple full three-species equilibria.",
+          "Other predator bistability results in different dynamical systems cannot imply the exact r=26,a=.1,b=.3 example."
+        ],
+        "reasoning": "More general ecological coexistence and stability statements without this model/parameter or without full fixed-point multiplicity do not dominate the claim.",
+        "searches": [
+          "Seno–Goyal full 2026 article sections 5–6 and Appendix I",
+          "Resultary 2026/10/4 SCOPE-dynamical-equivalence-gives-an-exact-oscillatory-invasion-advant--1f59dc2b325d",
+          "Resultary: two strictly positive coexistence fixed points stable unstable Seno Goyal juvenile adult predators"
+        ]
+      },
+      "checked_sources": [
+        "Seno–Goyal, J. Math. Biol. 93 Article 11 (2026), Eq.27, Lemma 6, App.I",
+        "Resultary 2026/10/4 published same-model oscillatory invasion advantage",
+        "Resultary model-specific multiplicity and stability searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "R_A=7.5>R_J=2.5>1 fulfills the original necessary condition; the condition is not sufficient to force even one, much less two, coexistence fixed points.",
+          "The scalar F(h)=r crosses r=26 in disjoint h intervals with different signs of det(I−J)."
+        ],
+        "reasoning": "The submitted existence plus stable/unstable split requires strict inequalities and stability analysis not entailed by source necessary conditions.",
+        "searches": [
+          "Original Seno–Goyal Lemma 6 and Appendix I Eq(I27)",
+          "Independent symbolic full Jacobian and local eigenvalues"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original Eq(I27) uses x^J=e^(−pJ), x^A=e^(−pA) and Ψ, equivalent to our φ,ψ parameterization.",
+          "Seno–Goyal Lemma 6 proves necessary R_A>R_J>1 but no two-fixed-point construction."
+        ],
+        "reasoning": "The original variables are conjugate parameterizations of the same three-dimensional fixed-point problem. The proposed *multiplicity and local stability* statement is strictly more specific than the prior necessary condition.",
+        "searches": [
+          "Seno–Goyal DOI 10.1007/s00285-026-02427-w Eq.(27), Lemma 6, Appendix I Eq(I27)",
+          "Resultary semantic: two strictly positive coexistence fixed points stable unstable Seno Goyal juvenile adult predators"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original figures analyze boundary equilibria, invasions, oscillatory native subsystems, and a necessary full coexistence parameter ordering.",
+          "No exact full-positive double-root numerical table with this parameter triple was found in the primary article."
+        ],
+        "reasoning": "The original figures and phase diagrams are neither a certified existence pair nor a full three-variable Jury check.",
+        "searches": [
+          "Seno–Goyal July 2026 Sections 6.2–6.5 and Figures 2–6",
+          "Resultary same-map and discrete stage-specific coexistence searches"
+        ]
+      },
+      "rationale": "Seno–Goyal (2026) Eq.(27)/Appendix I derives necessary conditions and qualitative native/boundary predator invasion, but does not supply two distinct strictly positive coexistence fixed points at one parameter triple or their opposing spectra. A related published SCOPE result about oscillatory invasion advantages studies transverse Lyapunov exponents, not multiplicity of this map’s positive fixed points. Statement-level comparison and Resultary searches did not expose full coverage. Seno–Goyal Lemma 6 only gives necessary ordering R_A>R_J>1, satisfied here.",
+      "residual_risks": [
+        "Other numerical coexistence figures, unpublished source computations, or differently scaled coordinates may encode the same two branch structure.",
+        "The publication does not prove exactly two positive equilibria, mutual attraction, global coexistence basins or empirical ecological interpretation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides correct map and necessary full-positive ordering, but no certified pair with opposite spectra for same parameters.",
+          "evidence": "Published July 3 2026, Eq(27), Lemma 6, Appendix I Eq(I27).",
+          "identifier_or_url": "https://doi.org/10.1007/s00285-026-02427-w",
+          "material_read": "Full Springer Open Access article accessible; Sections 5–6 model Eq(27), Lemma 6 and Appendix I Eq(I27) read; searched for same simultaneous parameter/stability assertion.",
+          "method": "primary publisher full-text HTML",
+          "title": "Discrete-time exploitative competition model of different stage-specific predators",
+          "trigger": "Exact original recurrence and strongest same-model prior work"
+        },
+        {
+          "assessment": "Concerns invasion Lyapunov exponents on recurrent native states, no direct two-positive-fixed-point coverage apparent from accessible summary.",
+          "evidence": "Resultary semantic hit of Oct 4 2026; residual text-comparison limitation acknowledged.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-dynamical-equivalence-gives-an-exact-oscillatory-invasion-advant--1f59dc2b325d",
+          "material_read": "Resultary indexed title and substantive summary read; full Git manuscript not inspected.",
+          "method": "Resultary published summary screening",
+          "title": "Dynamical equivalence gives an exact oscillatory invasion advantage for juvenile predators",
+          "trigger": "Close same-model published research possibility"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The existence of multiple full positive equilibria with one attracting and one unstable branch is a meaningful structural/bifurcation feature for a biologically motivated three-species discrete-time model, beyond boundary-state invasion conditions. Rigorous rational inequalities avoid unreliable phase-portrait guesses and show an open parameter region, while honestly not claiming global bistability or an exact total count.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Seno–Goyal, J. Math. Biol. 93 Article 11 (2026), Eq.27, Lemma 6, App.I",
+    "Resultary 2026/10/4 published same-model oscillatory invasion advantage",
+    "Resultary model-specific multiplicity and stability searches"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Other numerical coexistence figures, unpublished source computations, or differently scaled coordinates may encode the same two branch structure.",
+    "The publication does not prove exactly two positive equilibria, mutual attraction, global coexistence basins or empirical ecological interpretation."
+  ],
+  "schema_version": 1
+}
