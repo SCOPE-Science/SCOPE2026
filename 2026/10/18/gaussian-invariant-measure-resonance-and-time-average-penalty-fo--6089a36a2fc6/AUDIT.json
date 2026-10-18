@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "Substitution into two distinct source stage formulas gives one identical affine Gaussian update for any SPD curvature. The exact covariance of the Brownian increment and integral yields Q=2h(I-hK+h²K²/3). On each eigendirection, the AR(1) factor r(z)=1-z+z²/2 satisfies |r|<1 exactly for 0<z<2; nondegenerate noise precludes any stationary probability outside. The stationary Lyapunov solution f(z) and its sign defect z²(3z-4)/(24(1-z+z²/2-z³/8)) are algebraically verified. At the unique positive root z=4/3, r=5/9 and the correlation sum gives physical-time asymptotic variance 14/(3λ²) versus 2/λ² for continuous OU, ratio 7/3. The standalone exact symbolic/rational program passed 483 checks. Finite checks are supplementary, not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li et al. 2019, NeurIPS main paper “Stochastic Runge–Kutta Accelerates Langevin Monte Carlo and Beyond”: different SRK-LD map, broad Wasserstein guarantees.",
+        "Ye 2026, arXiv:2609.11528, Theorem 2 and introduction: an order O((Nh)^(-1)+h^4) time-average MSE bound without an exact fixed-h coefficient.",
+        "Accessible result records on underdamped UBU report different harmonic bias or stability phase diagrams."
+      ],
+      "reasoning": "The source general-purpose small-step bounds neither entail a positive-step Gaussian invariance resonance nor exact finite-step cost to a linear observable; they are not stronger statements on the present specific quantities. The 2019 method is not the two-stage 2026 RKLMC-2G, and an underdamped UBU operator is not equivalent to the overdamped scheme considered.",
+      "searches": [
+        "overdamped Langevin two-stage three-stage integrators invariant Gaussian variance exact at nonzero step 4/3 quadratic",
+        "\"stochastic Runge Kutta\" \"Ornstein Uhlenbeck\" \"invariant measure\" 2026",
+        "Yang Wang Langevin stochastic Runge Kutta numerical invariant Gaussian covariance resonance and integrated autocorrelation"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2605.07939 (source definitions and statements)",
+      "arxiv:2609.11528 (source definitions and time-average analysis)",
+      "arxiv:1906.07868 / NeurIPS 2019 paper (different method)",
+      "Published mathematics result listings for UBU/ULMC invariant covariance and Gaussian schemes"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yang–Wang 2026 gives the RKLMC-2G coefficients and W2 guarantees, not the exact scalar covariance or two/three-stage coupling; Ye 2026 provides both schemes and general MSE bounds, not the resonance and penalty.",
+        "Li–Wu–Mackey–Erdogdu 2019 gives a three-gradient earlier SRK-LD scheme with different stages.",
+        "A prior published OU calculation concerns an Euler–Heun local error and adaptive PI-step multiplier, not stationary SRK Gaussian sampling."
+      ],
+      "reasoning": "No compared prior theorem contains the same input map, the same nonzero stationary exactness condition, or the 7/3 coefficient. These findings are not corollaries of Wasserstein error orders without deriving and identifying the scheme-specific rational covariance. The prior OU Euler–Heun one-step controller law is independent of the current stationary kernel and has no implication for the asserted all-time statement.",
+      "searches": [
+        "\"RKLMC-2G\" \"Gaussian\" \"invariant\"",
+        "\"SRK-I\" \"SRK-II\" \"quadratic\" \"invariant\"",
+        "\"Stochastic Runge Kutta\" \"Ornstein Uhlenbeck\" \"invariant measure\" 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ye 2026, arXiv:2609.11528, §2.2 equations (2.1)-(2.2): exact two scheme formulas and §4 MSE results.",
+        "Yang–Wang 2026, arXiv:2605.07939, §2.2 eqs (15)-(20): two-stage method and three-gradient variants.",
+        "Published mathematical research record: “Fractional midpoint noise creates configurational superconvergence in UBU-type Langevin sampling” (2026) studies a different underdamped splitting scheme."
+      ],
+      "reasoning": "Equivalent Gaussian test-equation formulations would show the same innovation covariance and rational stationary-variance function or root 4/3 for precisely these 2026 schemes, together with the time-average penalty. Inspected relevant scheme papers discuss convergence orders rather than that complete exact law. A similar analysis for UBU does not imply it because the transition kernel and noise covariance differ.",
+      "searches": [
+        "RKLMC-2G SRK-I SRK-II quadratic Gaussian Ornstein Uhlenbeck exact same update stationary variance 4/3",
+        "\"SRK-I\" \"SRK-II\" \"quadratic\" \"invariant\"",
+        "stochastic Runge Kutta OU harmonic quadratic Gaussian exact invariant distribution step size 4/3 7/3 autocorrelation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical records index: closest “Fractional midpoint noise creates configurational superconvergence in UBU-type Langevin sampling,” “Harmonic equilibrium bias and a one-gradient covariance obstruction for randomized ULMC,” and “Exact stationary covariance and stability factorization for constant-template STORM.”",
+        "Full published comparison of formulas is provided in the 2026 original arXiv preprints [1] and [2]."
+      ],
+      "reasoning": "Neither cited published-record item nor inspected source contains an exact table of this two/three-stage SRK quadratic covariance with unique resonance and correlation inflation. A search does not rule out independently discovered but unindexed scalar calculations; none is asserted absent universally.",
+      "searches": [
+        "RKLMC-2G SRK-I SRK-II quadratic Gaussian Ornstein Uhlenbeck exact same update stationary variance 4/3",
+        "stochastic Runge Kutta OU harmonic quadratic Gaussian exact invariant distribution step size 4/3 7/3 autocorrelation",
+        "\"stochastic Runge Kutta\" \"4/3\" \"stationary\" Gaussian"
+      ]
+    },
+    "rationale": "The asserted new conjunction is scheme-specific: pathwise coincidence of the 2026 two- and three-stage Langevin samplers for every quadratic potential, the exact Gaussian invariant-covariance sign law and unique nonzero isotropic exact-invariance step, and the 7/3 physical-time averaging penalty at that step. Source [2] derives the two-stage method and a general Wasserstein result; [1] treats both schemes and general MSE convergence; [3] studies a different earlier SRK-LD algorithm. These do not state or immediately imply the exact joint classification without reconstructing the novel test-equation reduction, covariance, and time-average comparison. Available published-record searches found related underdamped UBU analyses, not equivalent claims. Absolute novelty is not certified; the unindexed specialized literature is a residual risk.",
+    "residual_risks": [
+      "A specialized earlier stochastic-integrator Gaussian test-equation calculation might include the scalar rational variance and positive-step root without those keywords or without indexing.",
+      "Source papers could admit a previously unnoticed implicit simplification in extended supplementary derivations, although the inspected main texts state no equivalent classification.",
+      "Originality assessment is evidence-based rather than a proof of priority or independent bibliographic certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines identical driving Brownian objects and both distinct gradient stage formulas; bounds MSE generally, does not claim this exact quadratic Gaussian invariant resonance or 7/3 variance penalty.",
+        "evidence": "arXiv:2609.11528, §1.1; §2.2; §4.2.",
+        "identifier_or_url": "https://arxiv.org/abs/2609.11528",
+        "material_read": "Introduction and contribution statements, §2.2 equations (2.1) and (2.2), §4 MSE theorem statements and surrounding discussion; searched the full accessible article text for the term “Ornstein”",
+        "method": "Accessible arXiv full-text HTML and its in-document search",
+        "title": "Mean Square Error Analysis of Stochastic Runge–Kutta Integrators",
+        "trigger": "Closest exact definitions of both named schemes and time-average analysis"
+      },
+      {
+        "assessment": "Establishes the integrator definitions and general approximation performance, but not exact invariant Gaussian covariance or physical-time time-average variance at the special step.",
+        "evidence": "arXiv:2605.07939, §2.2 and §2.3.",
+        "identifier_or_url": "https://arxiv.org/abs/2605.07939",
+        "material_read": "Introduction/claimed contributions, §2.2 coefficients in equations (15)-(20), §2.3 convergence assumptions and main result statements, reference discussion",
+        "method": "Accessible arXiv full-text HTML",
+        "title": "Accelerating Langevin Monte Carlo via Efficient Stochastic Runge–Kutta Methods beyond Log-Concavity",
+        "trigger": "Original source of RKLMC-2G two-stage coefficients and three-gradient examples"
+      },
+      {
+        "assessment": "Different three-gradient SRK-LD method and general sampling results, not a stronger theorem for the precise newer SRK-I/SRK-II joint invariant-covariance computation.",
+        "evidence": "NeurIPS 2019 primary paper, §§1–3.",
+        "identifier_or_url": "https://papers.nips.cc/paper/8990-stochastic-runge-kutta-accelerates-langevin-monte-carlo-and-beyond.pdf",
+        "material_read": "Primary 13-page conference PDF introduction, method and principal theorem sections; full-document text searched for “Ornstein” and “invariant,” with a page image inspected",
+        "method": "Primary NeurIPS PDF text and page visual inspection",
+        "title": "Stochastic Runge–Kutta Accelerates Langevin Monte Carlo and Beyond",
+        "trigger": "Earlier major SRK-LD work plausibly covering Gaussian sampler performance"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6089a36a-2fc6-4591-82ff-b341c64fded1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A finite exact-invariance step could be mistaken for exact sampling efficiency. The combined theorem gives a complete Gaussian benchmark for the source two- and three-stage schemes, including a unique positive isotropic exactness resonance, an impossibility for anisotropic SPD curvature under one common h, and a quantified 7/3 asymptotic physical-time variance penalty despite exact invariant marginals. This distinguishes invariant distribution fidelity from autocorrelation/time-average accuracy in an actively studied Langevin Monte Carlo algorithm; it is not merely a renaming or general convergence-order consequence.",
+    "status": "PASS"
+  }
+}

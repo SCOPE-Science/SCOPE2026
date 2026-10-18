@@ -1,0 +1,9 @@
+# Scientific review: Gaussian SRK invariant resonance and time-average penalty
+
+**Correctness — PASS.** Direct derivation reduces the two published stochastic Runge–Kutta algorithms to a shared affine Gaussian autoregression on strictly convex quadratic potentials. The exactly computed innovation covariance yields a sharp stability interval, rational stationary-covariance function and the unique positive root of its covariance defect. Stationary autocovariance summation gives the physical-time variance inflation factor \(7/3\). Proof details and 483 executable exact-algebra comparisons appear in `RESULT.md` and `verify.py`.
+
+**Originality — PASS, with priority uncertainty.** The 2026 primary papers specify the schemes and bound sampling errors, but their inspected statements do not give the pathwise-coincidence result, the unique finite-step Gaussian stationary resonance, anisotropic obstruction and exact time-average penalty in combination. A 2019 primary SRK-LD analysis and accessible results on underdamped UBU numerical covariances concern different methods. A published Ornstein–Uhlenbeck result on one-step Euler–Heun error-control does not cover the stationary SRK kernel. Searches do not establish global uniqueness; unindexed exact Gaussian calculations remain a concrete risk.
+
+**Mathematical value — PASS.** The proof gives a useful Gaussian test case for comparing algorithms and disentangles exact stationary distribution from integrated autocorrelation and time-averaged MSE. The ratio \(7/3\) quantifies a nontrivial cost precisely at the positive step where invariant covariance error vanishes. The result is limited to fixed-step, exact Brownian-pair, strictly convex quadratics; the physical-time comparison is not an equal-work comparison.
+
+Self-review: passed. Independent audit: not yet performed.
