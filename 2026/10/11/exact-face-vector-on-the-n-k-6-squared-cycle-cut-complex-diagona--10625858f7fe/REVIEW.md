@@ -1,14 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof gives an exact cyclic-run criterion for disconnected complements, counts all six-vertex facets by run and gap compositions, characterizes the five-vertex nonfaces, and proves that the four-skeleton is complete. The Euler formula follows algebraically. The standalone verifier rebuilds the complexes from graph connectivity for \(3\le k\le14\) and checks every displayed count.
+## correctness
 
-## Originality
-PASS. The primary squared-cycle source conjectures shellability on \(n\ge k+6\) but does not state this all-parameter face vector. The later squared-cycle theorem fixes the cut size at three. The closest database finding is the prior \(n=k+5\) face-vector theorem; it has different facet size and does not imply the present six-vertex run enumeration. Exact parameter, alias, and implication searches found no covering theorem for \(n=k+6\).
+PASS
 
-Residual risk remains from non-indexed or differently phrased work. The special case \(k=3\) is covered by the three-cut theorem; the originality claim is the uniform formula for all \(k\ge3\).
+A deleted six-set yields a disconnected C_n² survivor iff its cyclic word contains at least two deleted one-runs of length ≥2. One-deleted-vertex gaps are bypassed by cycle-square edges while gaps of ≥2 split surviving components. For r=2,3,4 runs, compositions of six with ≥2 long runs number 3,7,6. Distribute k zero gaps by C(k−1,r−1), count n/r rotations to derive f5. Five-vertex nonfaces are exactly an interval run of five or an independent 5-set in the ordinary cycle, yielding f4 by subtracting n+n/(k+1) C(k+1,5) from C(n,5). Every four-subset extends to a qualifying six-facet by adding ≤2 vertices, so the lower face vector is binomial. The alternating Euler sum reduces to the stated quartic. Independent graph connectivity and downward-closure tests for k=3…7 agree; supplied verification source checks k≤14, neither is an infinite proof. Conditional shellability implication only.
 
-## Value
-PASS. The line \(n=k+6\) is the first diagonal in the published shellability conjecture. Its exact f-vector and Euler characteristic are natural invariants of that open family and force the sphere multiplicity if shellability is eventually proved, so the result isolates a substantive enumerative part of the conjecture rather than adding a routine finite data point.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+No all-k f vector on n=k+6 in the inspected original squared-cycle cut-complex paper; later k=3 theorem covers only one parameter. Prior n=k+5 face-vector polynomial counts different-sized facets and does not entail the six-set classification.
+
+## value
+
+PASS
+
+The line n=k+6 is the first diagonal in a published shellability conjecture. Its full exact all-k face vector and Euler characteristic are natural invariants and fix the putative top-dimensional sphere count conditional on future shellability, an independently useful open-problem component.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
