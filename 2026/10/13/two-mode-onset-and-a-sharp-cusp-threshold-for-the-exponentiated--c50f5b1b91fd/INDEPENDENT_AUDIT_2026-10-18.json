@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T16:13:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Writing y=τx, k=2τ(τ+2), G=1−e^(−y)(y²+2y+D)/D and g=e^(−y)(y²+k)/D, D=2(1+τ)², the log-density derivative at δ=1+ε is A(y)+εB(y), A=2y/(y²+k)−1=−((y−1)²+k−1)/(y²+k), B=g/G>0. Since yB→1, an analytic implicit-function argument gives a unique near-zero max y1=ε+O(ε²). For k<1, both simple roots 1±√(1−k) persist and become a minimum and a second maximum; for k>1 no others persist. At k=1, A''(1)=−1 and B(1)=2/[3(e−2)], with strict local concavity giving two roots y=1±2√ε/√[3(e−2)]+O(ε). Tail/compact sign bounds exclude other roots for each fixed τ. Independent high-precision root bracketing and symbolic derivative checks corroborate the theorem, without serving as a global root census.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ahsan-ul-Haq (2022), Section 2.1, gives baseline δ=1 critical cutoff τ_c=√(3/2)−1.",
+          "Alharthi (2025), full 34-page PDF, derives EHaq density and qualitative plotted shapes, not an exhaustive small-ε theorem.",
+          "General Lehmann F=G^δ construction is classical."
+        ],
+        "reasoning": "Baseline threshold and transformation methodology are excluded from novelty. Persistence and splitting of roots after small δ>1 is an additional quantified theorem; generic variable-change results do not imply this exact cusp coefficient.",
+        "searches": [
+          "exponentiated Haq distribution bimodal density shape derivative cusp two modes threshold",
+          "Lehmann alternatives Gupta Gupta Gupta 1998 exponentiated CDF density modality",
+          "Ahsan ul Haq 2022 Statistical Analysis Haq Distribution mode tau"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.3934/math.20251002",
+        "https://www.researchgate.net/publication/362822858_Statistical_Analysis_of_Haq_Distribution_Estimation_and_Applications",
+        "https://doi.org/10.3390/axioms12040327"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At ε=0, A(y) has two simple positive zeros iff k<1 and a double zero when k=1.",
+          "At ε>0 the singular term εg/G~ε/y creates a new root near y=ε, changing the root count and requiring a separate compact/tail exclusion."
+        ],
+        "reasoning": "Prior baseline A-root classification plus density formula is input evidence; the near-origin root and exact critical perturbation are not automatic corollaries of the baseline statement and require nontrivial bifurcation analysis.",
+        "searches": [
+          "exponentiated Haq distribution bimodal density shape derivative cusp two modes threshold",
+          "Alharthi 2025 AIMS Mathematics 10 22497-22530 eq 3 4",
+          "Ahsan-ul-Haq baseline 2022 Haq mode cutoff"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Alharthi (2025), DOI 10.3934/math.20251002 equations (3)-(4), defines F=G^δ and f=δgG^(δ−1).",
+          "Stationarity is equivalently A_τ(y)+(δ−1)g_τ(y)/G_τ(y)=0."
+        ],
+        "reasoning": "The problem is an explicit perturbative root count in the CDF-power family; it is not the baseline Haq mode count or the power-transformed-variable Haq model.",
+        "searches": [
+          "exponentiated Haq distribution bimodal density shape derivative cusp two modes threshold",
+          "\"exponentiated Haq\" \"density\" \"stationary\"",
+          "CDF power Haq Lehmann derivative log f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Alharthi's Figures and page discussion display selected density shapes rather than a parameter-uniform τ-threshold census.",
+          "Resultary first 12 semantic hits for EHaq cusp were unrelated continuous/discrete modality problems."
+        ],
+        "reasoning": "A parameter table or plot cannot imply the all-sufficiently-small-ε stationary-point classification, especially the τ=τ_c square-root boundary; no direct database result was found.",
+        "searches": [
+          "exponentiated Haq distribution bimodal density shape derivative cusp two modes threshold",
+          "Exponentiated Haq 2025 Figure 1 density modality two maxima table",
+          "Haq distribution bimodal numerical table tau delta"
+        ]
+      },
+      "rationale": "The sharp numerical τ_c is already the baseline Haq cutoff in Ahsan-ul-Haq (2022), and exponentiated-CDF construction itself is Lehmann prior work: neither is novel. The contribution is the quantified near-δ=1 *additional near-origin mode* and sharp three-root phase count, including a critical square-root cusp with equality on the two-mode side. Full 2025 Alharthi article gives distribution and plots but no located fixed-τ small-ε theorem; Tashkandy's power-Haq law transforms the variable, not the CDF. Best-of-knowledge PASS subject to potential unindexed generic exponentiated-density bifurcation theorem.",
+      "residual_risks": [
+        "An unindexed general theorem on modality of Lehmann alternatives may subsume the perturbative stationary-point count.",
+        "Baseline threshold τ_c is known for δ=1, so only its ε>0 bifurcation use is new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides CDF, density and visual shape discussion; no located quantified near-δ=1 three-root/cusp theorem.",
+          "evidence": "Alharthi (2025), AIMS Mathematics 10, 22497–22530, DOI 10.3934/math.20251002.",
+          "identifier_or_url": "https://doi.org/10.3934/math.20251002",
+          "material_read": "Full open 34-page AIMS PDF; detailed equations (3)–(4), pp. 22499–22502 and density figures/prose; document searched for stationary, mode, shape.",
+          "method": "Direct PDF page inspection, formula comparison and document search.",
+          "title": "An exponentiated Haq distribution: Theoretical aspects, estimation, and modeling of radiation and COVID-19 datasets",
+          "trigger": "Exact same model and density-shape discussion."
+        },
+        {
+          "assessment": "Baseline cutoff explicitly credited, not claimed new; other details not comprehensively verified.",
+          "evidence": "Ahsan-ul-Haq (2022), Pakistan Journal of Statistics 38, 473–490.",
+          "identifier_or_url": "https://www.researchgate.net/publication/362822858_Statistical_Analysis_of_Haq_Distribution_Estimation_and_Applications",
+          "material_read": "Bibliographic/full-text excerpt for Section 2.1 available in source package; complete primary source was not independently reopened in this run.",
+          "method": "Compared documented derivative cutoff and notation against A(y) for δ=1.",
+          "title": "Statistical Analysis of Haq Distribution: Estimation and Applications",
+          "trigger": "Check whether baseline modal cutoff already published."
+        },
+        {
+          "assessment": "Distinct transformed-variable model per inspected mathematical definition; any further comparison limited by partial reading.",
+          "evidence": "Tashkandy et al. (2023), Axioms 12, 327.",
+          "identifier_or_url": "https://doi.org/10.3390/axioms12040327",
+          "material_read": "Abstract and model-definition descriptions, not complete primary full text this execution.",
+          "method": "Compared power transformation in source's cited family against CDF exponentiation.",
+          "title": "Modeling COVID-19 Real Data Set by a New Extension of Haq Distribution",
+          "trigger": "Potential same-law power-Haq result."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The number/location of interior modes is a natural shape feature of the published lifetime model, critical for selecting and interpreting density fits. Determining a rigorous two-mode versus one-mode threshold and a degenerate sqrt perturbative splitting gives a complete local bifurcation diagram, beyond a selected-parameter figure or routine derivative transcription.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.3934/math.20251002",
+    "https://www.researchgate.net/publication/362822858_Statistical_Analysis_of_Haq_Distribution_Estimation_and_Applications",
+    "https://doi.org/10.3390/axioms12040327"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Existential ε0 depends on each fixed τ; no globally uniform parameter bound and no full all-δ phase diagram.",
+    "Two local modes need not be of equal height or both global modes."
+  ],
+  "residual_risks": [
+    "An unindexed general theorem on modality of Lehmann alternatives may subsume the perturbative stationary-point count.",
+    "Baseline threshold τ_c is known for δ=1, so only its ε>0 bifurcation use is new."
+  ],
+  "schema_version": 1
+}
