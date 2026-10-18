@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T16:08:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For X=ab+c with 1<=a<b and 0<=c<b, no carry when doubling forces S_b(2X)=4 S_b(X)=8X, contradicting S_b(2X)=X. With a required carry, 2X has digits (2a+1,2c-b) and the exact two cycle equations have c-resultant (b^2+1)(5a-b+3)(13a-b+5). The b=13a+5 branch yields c=5a+2 and violates 2c>=b. The surviving b=5a+3 branch gives c=3a+2; its digits obey all two-digit bounds, and substitution proves the converse for every a>=1. Independent SymPy resultant and direct bases 2..130 match. No finite search is the infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General bounds on happy cycles and finite-base tables contain some exemplars; their accessible material establishes no all-base converse."
+        ],
+        "reasoning": "An all-cycle theorem would subsume the two-digit result only if it implies the exact digit/ratio shape; no such implication was located. Hargreaves full text remains unread, so negative assessment is bounded.",
+        "searches": [
+          "Hargreaves Siksek 2010 Cycles and Fixed Points of Happy Functions; Wu Dang Zhang 2015 periodic points selected bases"
+        ]
+      },
+      "checked_sources": [
+        "Goedhart et al. 2025 DOI:10.1007/s44007-025-00157-x Section 4.2",
+        "Hargreaves–Siksek 2010 bibliographic and abstract only",
+        "OEIS:A193585 cycle count table",
+        "Wu–Dang–Zhang 2015 DOI:10.2991/ic3me-15.2015.327 selected-base table",
+        "Resultary semantic query for two-digit doubling converse"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known family b=5t+3 solves both equations. Independent symbolic resultant has the additional b=13a+5 factor, excluded by carry inequality."
+        ],
+        "reasoning": "The cited construction is strictly one direction; the extra factor and carry test are necessary to deduce the universal converse.",
+        "searches": [
+          "Goedhart Gurtas Harris 2025 tree-construction section; extracted source RESULT.md elimination"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Goedhart–Gurtas–Harris 2025 Section 4.2 gives the exact parametric doubling examples, not necessity of those parameters; no relevant Resultary record matched the converse."
+        ],
+        "reasoning": "Constructive equality Y=2X for an infinite family does not imply uniqueness. The two independent quadratic constraints plus carry classification supply the absent converse.",
+        "searches": [
+          "\"sum of squares of digits\" \"2X\" \"5t+3\" converse two-digit; Resultary: two-digit happy function digit square sum cycles doubling ratio 2 bases 5t+3 classification unique all"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "These entries specify counts/examples, not a universal classification of two-digit doubled cycle members."
+        ],
+        "reasoning": "A table of finite bases cannot establish exclusion of other bases or carry branches.",
+        "searches": [
+          "OEIS A193585 number cycles by base; Wu Dang Zhang 2015 table (13,26) base8 (34,68) base13"
+        ]
+      },
+      "rationale": "The closest 2025 primary paper explicitly constructs b=5t+3 and X=(t,3t+2)_b with Y=2X. A construction is not the all-base converse under both-digit and ratio-two constraints. The elimination argument supplies the unique necessary branch. Older happy-function cycle literature and OEIS tables cover other questions; incomplete access to Hargreaves–Siksek 2010 leaves a real priority risk.",
+      "residual_risks": [
+        "Hargreaves–Siksek 2010 primary full text unavailable; may contain equivalent short classification.",
+        "Other ratios and cycles with non-two-digit member unclassified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Coverage limited to existence formula, no checked exhaustive converse",
+          "evidence": [
+            "b=5t+3; digits (t,3t+2),(2t+1,t+1); Y=2X explicitly given"
+          ],
+          "identifier_or_url": "DOI:10.1007/s44007-025-00157-x",
+          "material_read": "Section 4.2 construction for two-cycles and note Y=2X",
+          "method": "lawful publicly available primary full text",
+          "title": "A Tree Approach to the Happy Function",
+          "trigger": "Exact same base/doubling parametrization"
+        },
+        {
+          "assessment": "UNREAD_PLAUSIBLE_SOURCE; no claim of not-covering",
+          "evidence": [
+            "Accessible abstract emphasizes cycle bounds and fixed-point counts; full two-cycle analysis remains unknown"
+          ],
+          "identifier_or_url": "Hargreaves–Siksek, J. Combin. Number Theory 2 (2010) 217-229",
+          "material_read": "Title/abstract/index metadata only; full paper not retrieved",
+          "method": "OA/arXiv routes attempted; authorized Oxford worker returned unavailable/invalid",
+          "title": "Cycles and Fixed Points of Happy Functions",
+          "trigger": "Potential historical theorem on happy cycles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The 2025 source singled out the doubling two-cycle family; identifying precisely when it is exhaustive is a motivated minimal-digit rigidity problem. The forced carry and rejected algebraic branch explain exactly why no other two-digit ratio-two patterns exist. Not a mere additional numerical example or an arbitrary base cutoff.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Hargreaves–Siksek 2010 primary full text unavailable; may contain equivalent short classification.",
+    "Other ratios and cycles with non-two-digit member unclassified."
+  ],
+  "schema_version": 1
+}
