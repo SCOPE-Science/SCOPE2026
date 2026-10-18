@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness
+**PASS.** The theorem fixes all parameters and the observable explicitly: centered Gaussian cold starts, Ornstein–Uhlenbeck relaxation, independent periodic or Poisson resets, and the dimensionless Jeffreys divergence per reset divided by mean cycle length. The proof verifies the Gaussian variance, the two exact renewal formulas and their derivatives. Periodic uniqueness follows from the strictly decreasing elasticity. Poisson uniqueness follows from verified concavity of the logarithmic-time derivative and Prékopa marginalization, combined with analyticity to rule out a flat maximum. Bounds on the auxiliary integral and its derivative justify the sharp square-root asymptotics. The 230 supplementary numerical assertions are consistent with the proof; they do not establish infinite-parameter claims themselves.
+
+## Originality
+**PASS, with residual risk.** Farago (2026, arXiv:2605.28445v1) gives the underlying harmonic endpoint-KL theory, qualitative low/high-frequency behavior and sharp-reset approximate rates; none of those contributions is claimed anew. Fuchs–Goldt–Seifert (2016, arXiv:1603.01141v1) give a distinct resetting information/thermodynamic balance and not these cold-Gaussian Jeffreys-rate optima. Prékopa's log-concavity theorem is imported as a known tool. Searches for Gaussian finite-width Jeffreys-cycle optimization and its temperature-ratio square-root laws found no established statement that directly yields the whole two-protocol theorem. Published general renewal theory and marginal log-concavity remain potential routes for implicit coverage, especially for individual parts; absence of a matching search result is not a uniqueness proof.
+
+## Value
+**PASS.** A nonzero reset width is physically motivated because exact point resets produce singular endpoint divergences. At fixed finite width the full KL-rate function, unlike the sharp-reset approximation, returns to zero at high frequency. Proving unique maximizing frequencies and their divergent cold-limit scales resolves where the finite-width turnover occurs, while the sharp protocol gap quantifies the loss associated with random rather than deterministic cycle durations. The result is a meaningful optimization/inference statement for an explicit stochastic-thermodynamic observable; it does not purport to optimize hardware-inclusive dissipation.
+
+## Closest literature and limits
+The closest direct source is Farago's 2026 paper (Sections II.1–II.3, particularly equations 11 and 17–19). The earlier 2016 resetting-thermodynamics treatment concerns different entropy observables. The mathematical proof uses established Gaussian-divergence and log-concavity principles. The chief residual originality risk is an unlocated general renewal-reward extremum theorem that specializes to these exact expressions. The theorem is restricted to centered Gaussian resets, one scalar OU relaxation mode and the endpoint-KL reward; it does not assert corresponding properties for full path-space entropy production or arbitrary reset distributions.
+
+Self-review: passed. Independent audit: not yet performed.
