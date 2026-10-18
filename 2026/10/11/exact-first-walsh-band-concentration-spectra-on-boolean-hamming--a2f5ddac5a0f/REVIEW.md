@@ -1,11 +1,21 @@
-# Scientific review of the Hamming-ball first-Walsh-band concentration theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The claimed complete spectrum is the characteristic factorization of an explicitly reconstructed permutation-invariant Gram matrix. The one- and two-coordinate binomial identities fix the normalization; the determinant identity forces strict interlacing. Injectivity follows from evaluation at all points of the radius-one ball. Local binomial asymptotics identify the Gaussian two-outlier limit, while exact central-binomial ratios establish strict stability monotonicity. The standalone verifier independently compared 39 Gram matrices and characteristic polynomials, 99 monotonicity ratios, and three Gaussian examples. It does not establish the infinite parameter range in place of proof.
+## correctness
 
-**Originality — PASS, with risk.** The main literature comparison separates spherical-mean Walsh multipliers (Harrow–Kolla–Schulman, 2014), general graph spectral concentration (Tsitsvero–Barbarossa–Di Lorenzo, 2015), the same-object numerical spectra and pre-existing rank theorem (Hogan–Lakey, 2018 online), the equal-radius eigenspace reduction (Hogan–Lakey, arXiv 2018), and induced-ball adjacency spectra (Avni–Samorodnitsky, 2024) from the present all-radius closed eigenvalues. Related halfspace symmetry already implies the multiplicity of the half-energy level in the odd balanced case; degree-two shell and Gaussian Hermite half-line work also overlap the subject but not the complete all-radius binomial eigenvalue and sampling-stability statements. Searches for Hamming-ball Walsh concentration, first-chaos covariance, and Krawtchouk spectral equivalents found no directly dominating published theorem. A different coding-theoretic or exchangeable-matrix formulation could still contain the same formulas; this is a residual risk, not a novelty certification.
+PASS
 
-**Mathematical value — PASS.** The answer is a complete exact spectral classification for the canonical lowest nonconstant Fourier band and all Boolean Hamming balls, rather than a selected finite table. It supplies sharp sampling stability, strict interlacing over all interior radii, and an explicit binomial-to-Gaussian transition with persistent spectral outliers. The balanced-half-ball condition-number monotonicity gives an all-dimension quantitative benchmark for stable bandlimited sampling.
+Walsh Gram matrix has scalar p, one-coordinate s and two-coordinate t exactly from conditioning on Bin(n-1,1/2) and Bin(n-2,1/2). Coordinate-sum-zero sector gives p-t with multiplicity n-1; the radial 2x2 block gives p+(n-1)t/2±sqrt(ns²+(n-1)²t²/4). Since t=s(n-1-2r)/(n-1) and determinant at p-t is n(t²-s²)<0 for 1<=r<=n-2, the sectors strictly interlace. Evaluate radius-one affine Walsh polynomials to show rank n+1 for r>=1. Direct boundary substitution gives r=0,n-1,n. Local and global binomial CLTs give the 2 Hermite-halfline eigenvalues, with central-binomial ratio <1 for odd half-balls. Independent exact rational Gram reconstruction checked all 39 (n,r) cases n=3..8; this is corroboration, not proof of all n.
 
-**Scope and limits.** The band is degree at most one; higher Walsh degrees, arbitrary nonradial sets, and moving extreme-tail central-limit parameters are not covered. Related prior results may imply individual special cases without implying the all-radius theorem. Independent audit is outstanding.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The all-radius closed three-sector spectrum and Gaussian/condition-number limit survive statement-level comparison. Hogan–Lakey’s established general rank criterion already covers injectivity, and its eigenbasis reduction is not claimed as original; neither that literature nor other Resultary Hamming shell/graph concentration records gives the complete same-operator all-radii formulas and crossover.
+
+## value
+
+PASS
+
+Determines exact sampling singular values/conditioning for the most basic nonconstant Walsh band on natural Hamming balls, including boundary and asymptotic transitions, rather than an arbitrary slice or a merely numerical table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
