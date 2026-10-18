@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The defining source and pointwise symmetry were inspected directly. The new argument gives an exhaustive exact facet decomposition of every unit isosceles pair in the affine-regular hexagon, reduces the eight resulting segments to two canonical families, and proves a sharp lower bound on \(N(x+\lambda y)/\sqrt{1+\lambda^2}\). The minus family reaches \(\sqrt{32/45}\) exactly at \(u=1/3\), \(\lambda=3\); hence \(H_2=3\sqrt{10}/8\). The bundled checker reproduces the finite classification and all factor identities.
+## correctness
 
-## Originality
-PASS. The Baronti--Bertella full text was inspected at Definition 3, Proposition 4 and the later global results, and searched for hexagonal or regular-polygon examples; none occur. published-finding corpus and direct web searches covered the invariant name, pointwise formulation, affine-regular-hexagon aliases and exact radical. The closest same-space and same-family results change the objective, exponent or norm and do not imply this claim. The current prior ledger was also checked for overlap.
+PASS
 
-## Value
-PASS. The affine-regular hexagon is a canonical nonsmooth Banach plane, and \(H_2\) is a recently introduced Hilbert-deviation constant. The exact interior extremizer \(\lambda=3\) and the two-family classification supply structural information beyond a numerical evaluation and provide a reusable method for polygonal spaces.
+For N(s,t)=max(|s|,|t|,|s-t|), I independently re-enumerated all six signed norm facets against six possible y edges after edge-transitivity fixes x=(1,u): solving N(x+y)=N(x-y) as piecewise affine equality with exact rational inequalities returns exactly eight nonempty segments (two each on y-edges 1,2,4,5). The repository's exact facet certificate additionally supplies explicit dihedral matrices identifying the two canonical families y=±((1-u)/2,1), 0<=u<=1/3. For lambda>=1 the facet lower envelopes cross at 2(1-u)/(1+u) and 2/(1-u); their derivative signs reduce the global infimum to crossings. The plus family is strictly above 32/45. For the minus family the sharp R(u)>=(32/45) reduces exactly to (3u-1)(15u^3-25u^2+56u-20)>=0 on [0,1/3]. The explicit unit isosceles pair x=(1,1/3), y=(-1/3,-1), lambda=3 attains N(x+3y)=8/3 and H2=3sqrt(10)/8. The lambda<1 case is obtained by interchanging the ordered unit pair and inverting lambda. This establishes the continuum theorem, not merely a finite sample; original audit and verifier scripts were inspected, not blindly executed.
 
-## Closest literature and limitations
-Baronti and Bertella's defining article was published online on 4 May 2024 and lists MSC 46B20 among its classifications. It supplies the invariant and symmetry identity but no hexagonal calculation. The result is limited to \(p=2\) and does not classify every extremizer or give the full \(H_p\) profile.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The source DOI introduces the exact Baronti–Bertella H_p objective and ordered-pair symmetry and analyzes Hilbert/square cases and general bounds, but its examined mathematical sections have no formula for H_2 of the hexagonal norm. Searches for the exact hexagon/constant and dual presentations did not reveal a dominating published computation. H_4 in a different hexagon and other von Neumann–Jordan/Banach–Mazur hexagon invariants change the objective, so they do not imply this H_2 optimization. This is a best-of-knowledge judgment, not novelty certification; Resultary failed and names of equivalent pointwise mu_2 formulations remain a priority risk.
+
+## value
+
+PASS
+
+A canonical affine-regular hexagonal nonsmooth Banach plane is a natural test space for a recently introduced Hilbert-deviation constant. The exact nonboundary maximizing lambda=3, exhaustive two-family classification and sharp universal norm ratio give a reusable polygonal-facet method, not a renamed general bound or arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
