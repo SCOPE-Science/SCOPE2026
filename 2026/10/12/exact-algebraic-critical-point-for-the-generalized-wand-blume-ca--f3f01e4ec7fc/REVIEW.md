@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The boundary-law reduction, discriminant factor, sign-safe elimination, monotonicity proof for \(P\), endpoint argument, and merger with the unique symmetric branch were reconstructed. The exact polynomial identity is replayable from the included verifier. The finite replay is supporting evidence only.
+## correctness
 
-## Originality
-PASS. The closest source is Khatamov's 2022 generalized-wand paper, which gives only \(\theta_{cr}\approx0.6589252\) and cites graphical/computer analysis for the discriminant. Targeted searches for the numerical threshold, exact polynomial, model aliases, and implication-equivalent formulations found no published exact characterization. The ordinary-wand paper has a different compatibility graph and threshold, and the later citing Ising–SOS paper treats a different model. Residual risk remains for weakly indexed or unpublished derivations.
+PASS
 
-## Value
-PASS. The source's phase-transition location is a canonical parameter of the model. Giving it as the unique algebraic root of \(P\), with a short global proof of the discriminant sign, materially strengthens an approximate theorem rather than adding a routine numerical digit.
+For order-two Cayley-tree generalized-wand normalized positive boundary laws, use the original nonsymmetric branch phi=(1-t^8+sqrt(D))/(2t²), D=t^16-2t^8-8t^7+8t³+1, discriminant sign F=(1-3t^4)phi-2t. Its zeros must lie below 3^{-1/4}. The identity (1-3t^4)^2 D-[4t³-(1-3t^4)(1-t^8)]²=-16t³P(t) was independently checked symbolically, P=3t^12-7t^8+5t^4+t³-1. P prime derivative t²(36t^9-56t^5+20t+3)>0 on (0,1), since for u=t⁴>5/9 the negative term is at most 4*(4/9)<3. P(0)=-1,P(1)=1; F(0)>0,F(3^{-1/4})<0 yields one actual F zero, avoiding extraneous squared roots. Original symmetric-branch uniqueness gives 3 TIGMs for 0<t<t*, 1 at t* and above; t>=1 excluded by original sign analysis. Exact root bracket independently checked. No periodic/extremality conclusions.
 
-## Closest literature and limitations
-The result is restricted to the generalized-wand translation-invariant branch on the order-two Cayley tree. It does not address extremality, periodic measures, free energy, or arbitrary order.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier Khatamov 2022 studies the exact generalized-wand model and proves/plots an approximately 0.6589252 phase threshold, but the materially inspected full 22-page original gives a radical discriminant and numerical graph rather than this exact degree-12 minimal polynomial or all-parameter monotonicity certificate. Khatamov 2020 ordinary-wand model gives a different threshold t=1. The result makes a rigorous algebraic exactification, not a new physical model.
+
+## value
+
+PASS
+
+The exact critical algebraic number is the natural nonarbitrary phase-separation invariant for the published model; its explicit polynomial and uniqueness proof replace a numerical/plot-based threshold with a reproducible exact boundary, allowing exact comparison of parameter intervals. It is a motivated mathematical gap even without a new Gibbs-measure class.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
