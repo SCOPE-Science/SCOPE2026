@@ -1,19 +1,21 @@
-# Scientific review — universal two-term finite-time escape
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof is independent of computational sampling. Orient the escape direction by the leading coefficient, build a barrier \(v>Kz^{m+1}\), and show the normal component of the vector field points into that open wedge. Strict growth \(\dot z\ge Kz^{m+1}\) forces finite forward maximal time. Gronwall's inequality excludes divergence of velocity while the position remains bounded. The exact relation \(dv/dz=b(sz)-z^{2n-1}/v\) yields the two-term velocity expansion; reciprocal integration in physical time and algebraic inversion yield the finite-time coefficients. The restoring force enters the \(z^{m-1}\) velocity correction exactly at \(m=n\). The standalone checker validates representative rational coefficient balances only; it is not an infinite-degree proof.
+PASS
 
-## Originality — PASS, with disclosed priority risk
+For odd b of odd degree m≥n≥2, sign orientation z=sx,v=−sy gives ż=v, v̇=−z^(2n−1)+ẇb(z)v with ẇb(z)=Bz^m+c z^(m−2)+O(z^(m−4)), B>0. On v=Kz^(m+1), K=B/[4(m+1)], derivative v−Kz^(m+1) is ≥−z^(2n−1)+KB z^(2m+1)/4>0 for sufficiently large z; z=R border points inward. Thus all starting wedge data remain inside, with ż≥Kz^(m+1), forcing finite forward lifespan and divergence; if z stayed bounded v solves bounded-coefficient linear equation, contradicting maximality. As z increases, dv/dz=ẇb(z)−z^(2n−1)/v, leading v~Az^(m+1), A=B/(m+1), and the first correction Q=[c−1_{m=n}/A]/(m−1); restoring term is lower order for m>n and exactly resonant for m=n. Tail integral τ=∫_z^∞dζ/v(ζ) yields τ=Lz^(−m)−Q/[A²(m+2)]z^(−m−2)+o, L=1/(Am). Independent symbolic inversion checked z=(L/τ)^(1/m)−Q/[A(m+2)](τ/L)^(1/m)+o. Read actual finite verifier but rely on proof for all m,n, initial points; no assertion about complementary region.
 
-García–Llibre (2022 online) studies the same normalized nilpotent Liénard family but establishes global-center/non-global-center information. Chen–Li–Zhang (arXiv:2208.06184) and Han–Kong–Yu (2026, Theorem 3.5) provide broader qualitative classifications; the earlier global-center conjecture is already solved and is explicitly **not** claimed here. Matsue's Section 4.8 Liénard example is at a different restoring-to-damping-degree equality and deals with periodic blow-up; Bluman and collaborators treat a narrower linear-damping cubic oscillator. Comparisons covered physical-time statements, scalar-coordinate aliases, degree reductions and implications rather than word matching. The original Dumortier–Herssens (1999) near-infinity paper was identifiable but its entire text could not be inspected; it is a genuine remaining originality risk, as is other unindexed prior work.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The open wedge determines a whole positive-measure family of exploding trajectories in a system already known to have subtle local versus global center geometry. Beyond deciding whether motion is unbounded, the theorem separates finite from infinite forward escape time and computes a universal, initial-condition-independent two-term observable. The equality of damping degree and nilpotency index is a natural structural boundary where the restoring force first affects the correction, rather than an arbitrary specialized example.
+Best-of-knowledge statement-level comparison of original claim, aliases and stronger coverage: No inspected accessible theorem decisively implies the same full coefficients; best-of-knowledge PASS, conditional on priority risk from inaccessible closely relevant primary text.
 
-## Scope and limitations
+## value
 
-Only the stated forward escape wedge is covered; no claim is made for all nonperiodic trajectories, for full phase portraits, or for uniformity in initial data. The error terms are orbitwise. Absolute publication priority and independent verification remain open.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The physically normalized two-term time-to-infinity profile for a whole open escape wedge isolates a sharp restoring-force resonance m=n, giving a natural quantitative invariant beyond local center criteria or topological phase portraits. Uniform coefficients independent of initial conditions are potentially useful in singularity asymptotics and validating desingularization-time calculations; it is not an arbitrary one-orbit or tiny-degree exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
