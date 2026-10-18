@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim reconstructs the Gamma construction with precisely specified shapes, normalization, positivity, finite concentration, and fixed-proportions limits. Conditioning on independent normalized Gamma directions derives the entire cross-covariance matrix. The Beta second moment and conditional variance establish the exact strictly signed bias. An explicit Gamma CDF comparison yields the exponential race at low concentration; the independent Dirichlet directions collapse to simplex vertices, giving the full limiting categorical coupling. Chebyshev and boundedness give the high-concentration correlation limit. The exact identities were reproduced by the supplied finite checker as a standalone program; finite diagnostics do not prove the continuum results.
+PASS
 
-## Originality — PASS with priority risk
+Independence of normalized Gamma directions and Gamma totals yields X=RW+(1−R)P,Y=SW+(1−S)Q, hence Cov(X,Y)=E[RS](diag(mu)−mu mu^T)/(sc+1) and rho=(c+1)E[RS]/(sc+1). Exchangeability gives s−rho=(c+1)E[(R−S)^2]/(2(sc+1))>0; common T gives Cov(R,S)=Var(E[R|T])>0 and the strict lower bound. c→infinity uses law of large numbers for Gamma totals. At c→0, −c log Gamma(pc,1) converges to Exp(rate p); the shared-total win in the three-way race has probability s/(2−s). Independent small-shape Dirichlet directions converge to categorical vertices with law mu; shared common direction chosen by both precisely on the shared-total win event, giving the stated joint categorical mixture. Independent 120000-draw Monte Carlo diagnostics at s=0.4,c=.1,.5,3,50 yielded empirical correlations .262,.296,.356,.396, matching predicted interval and endpoints .25,.4; stochastic diagnostics are NOT the proof.
 
-The closest research is Trick, Jäkel and Rothkopf (arXiv:2104.08069), with the Gamma/Dirichlet model and exact covariance, and Trick, Rothkopf and Jäkel (METRON 2023, DOI:10.1007/s40300-023-00247-2), which explicitly leaves the accuracy of its equal-margin linear rule open. The new global one-sided error formula, the two sharp concentration endpoints, and the categorical joint limit are not stated or implied by a stronger theorem in their inspected texts. Their exact covariance formula is a starting identity, not an accepted statement of the new asymptotics. Companion classifier-fusion literature and relevant public research-record matches concern different claims. The complete 2004 Magnussen article was inaccessible (only abstract available), so an earlier equivalent statement cannot be excluded; neither search absence nor metadata constitutes a novelty certificate.
+## originality
 
-## Value — PASS
+PASS
 
-The result settles a well-identified calibration question for the natural equal-marginal proportional-sharing family. It shows the linear proxy always errs in the same direction and has a nonvanishing relative error at low concentration, while the rare-concentration law explains that error by an exact shared-category/independent-category mixture. The simplex-dimensional covariance factor and categorical coupling extend the binary understanding without claiming a general model-sized classification.
+The 2023 full accessible METRON article by Trick–Rothkopf–Jäkel constructs the same six-Gamma equal-marginal beta/Dirichlet coupling and computes exact product moments/covariances. Section 2.4.3 Eq. (33) proposes a linear shared-fraction approximation, and explicitly leaves its accuracy as an open problem. Section 3 states the correlated Dirichlet construction but no small-concentration categorical joint weak limit or universal strict s−rho bias sign. These new endpoint, strict-bias and coupling laws are more than naming the common model; the preexisting full moment formula can in principle be specialized but the nontrivial small-shape Gamma-race asymptotic is not a quoted corollary.
 
-## Limits
+## value
 
-Proportional shared shapes and identical Dirichlet margins are essential. No claim is made for unequal marginals, nonproportional sharing, monotonicity in concentration, uniform error bounds, or total-variation convergence to a singular measure. Full bibliographic priority remains independently unconfirmed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The parameter s is frequently interpreted as the desired correlation; the strict finite-concentration overestimate and low-c endpoint s/(2−s) provide an exact calibration boundary. The explicit shared/independent categorical limiting coupling explains loss of calibration in sparse Dirichlet models and is a reusable distributional result, not merely a finite Monte Carlo observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T16:03:59Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/d88a3b7e22a88836e8d5b4fb7ea02f6da9f123ec/2026/10/12/shared-gamma-dirichlet-correlation-sharp-concentration-endpoints--e009ac117b70/RESULT.md",
+        "actual Git tree 61d69fc87f845b149d10afb2017f14c33002d294"
+      ],
+      "rationale": "Independence of normalized Gamma directions and Gamma totals yields X=RW+(1−R)P,Y=SW+(1−S)Q, hence Cov(X,Y)=E[RS](diag(mu)−mu mu^T)/(sc+1) and rho=(c+1)E[RS]/(sc+1). Exchangeability gives s−rho=(c+1)E[(R−S)^2]/(2(sc+1))>0; common T gives Cov(R,S)=Var(E[R|T])>0 and the strict lower bound. c→infinity uses law of large numbers for Gamma totals. At c→0, −c log Gamma(pc,1) converges to Exp(rate p); the shared-total win in the three-way race has probability s/(2−s). Independent small-shape Dirichlet directions converge to categorical vertices with law mu; shared common direction chosen by both precisely on the shared-total win event, giving the stated joint categorical mixture. Independent 120000-draw Monte Carlo diagnostics at s=0.4,c=.1,.5,3,50 yielded empirical correlations .262,.296,.356,.396, matching predicted interval and endpoints .25,.4; stochastic diagnostics are NOT the proof.",
+      "residual_risks": [
+        "Preexisting full covariance formulas mathematically encode the scalar rho and could yield some asymptotics after independent limiting arguments; absolute priority of endpoint derivation not certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Their covariance algorithm is broader in unequal shape parameters, but numerical evaluation of general moments does not explicitly establish global strict inequality, low-concentration endpoint or joint categorical law."
+        ],
+        "reasoning": "Their covariance algorithm is broader in unequal shape parameters, but numerical evaluation of general moments does not explicitly establish global strict inequality, low-concentration endpoint or joint categorical law.",
+        "searches": [
+          "shared gamma correlated Dirichlet proportional concentration small shape endpoint correlation s/(2-s) categorical coupling",
+          "Trick Rothkopf Jäkel METRON 2023 exact joint product moments",
+          "https://link.springer.com/article/10.1007/s40300-023-00247-2",
+          "https://arxiv.org/abs/2104.08069"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/d88a3b7e22a88836e8d5b4fb7ea02f6da9f123ec/2026/10/12/shared-gamma-dirichlet-correlation-sharp-concentration-endpoints--e009ac117b70/RESULT.md",
+        "https://link.springer.com/article/10.1007/s40300-023-00247-2",
+        "https://arxiv.org/abs/2104.08069"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One may derive the endpoint starting from their exact moments, but doing so requires a singular Gamma race/Dirichlet limit and a new proof; the original text explicitly leaves approximation accuracy open. The categorical joint law is not determined by covariance alone."
+        ],
+        "reasoning": "One may derive the endpoint starting from their exact moments, but doing so requires a singular Gamma race/Dirichlet limit and a new proof; the original text explicitly leaves approximation accuracy open. The categorical joint law is not determined by covariance alone.",
+        "searches": [
+          "shared gamma correlated Dirichlet proportional concentration small shape endpoint correlation s/(2-s) categorical coupling",
+          "published exact covariance formula under simultaneous c→0 Gamma parameter scaling",
+          "https://link.springer.com/article/10.1007/s40300-023-00247-2",
+          "https://arxiv.org/abs/2104.08069"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equal-marginal case is the same construction, not a distinct model. New claimed statements concern exact strict bias, endpoints and joint weak limit, not the joint density or existing covariance."
+        ],
+        "reasoning": "The equal-marginal case is the same construction, not a distinct model. New claimed statements concern exact strict bias, endpoints and joint weak limit, not the joint density or existing covariance.",
+        "searches": [
+          "shared gamma correlated Dirichlet proportional concentration small shape endpoint correlation s/(2-s) categorical coupling",
+          "six-Gamma Magnussen bivariate Beta and Dirichlet shared component mixture",
+          "https://link.springer.com/article/10.1007/s40300-023-00247-2",
+          "https://arxiv.org/abs/2104.08069"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The empirical approximation Fig6 and numerical calibration do not contain the all-c strict s−rho sign or formula s/(2−s) and shared categorical weak limit."
+        ],
+        "reasoning": "The empirical approximation Fig6 and numerical calibration do not contain the all-c strict s−rho sign or formula s/(2−s) and shared categorical weak limit.",
+        "searches": [
+          "shared gamma correlated Dirichlet proportional concentration small shape endpoint correlation s/(2-s) categorical coupling",
+          "METRON Eq33 correlation approximation and Fig6 simulation table",
+          "https://link.springer.com/article/10.1007/s40300-023-00247-2",
+          "https://arxiv.org/abs/2104.08069"
+        ]
+      },
+      "rationale": "The 2023 full accessible METRON article by Trick–Rothkopf–Jäkel constructs the same six-Gamma equal-marginal beta/Dirichlet coupling and computes exact product moments/covariances. Section 2.4.3 Eq. (33) proposes a linear shared-fraction approximation, and explicitly leaves its accuracy as an open problem. Section 3 states the correlated Dirichlet construction but no small-concentration categorical joint weak limit or universal strict s−rho bias sign. These new endpoint, strict-bias and coupling laws are more than naming the common model; the preexisting full moment formula can in principle be specialized but the nontrivial small-shape Gamma-race asymptotic is not a quoted corollary.",
+      "residual_risks": [
+        "Preexisting full covariance formulas mathematically encode the scalar rho and could yield some asymptotics after independent limiting arguments; absolute priority of endpoint derivation not certified.",
+        "No monotonicity in c, uniformity in s or variable unequal marginals established; low-c convergence is weak not total variation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Eq33 is an approximate correlation; text explicitly leaves accuracy open. Section3 contains 3d shared-Gamma construction, not the new sharp low concentration endpoint.",
+          "evidence": [
+            "Section 2.4.3 says open problem when approximation (33) holds to what accuracy.",
+            "Section 3 equations (34)–(35) give the same Dirichlet model."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s40300-023-00247-2",
+          "material_read": "Full open-access HTML, especially sections 2.1–2.4.3, Eq. (33), Fig. 6 and Section 3 correlated Dirichlet extension.",
+          "method": "Read open-access primary full-text HTML and specific formula/prose around 2.4.3",
+          "title": "Parameter estimation for a bivariate beta distribution with arbitrary beta marginals and positive correlation",
+          "trigger": "same Gamma coupling and proposed equal-margin correlation calibration"
+        },
+        {
+          "assessment": "2023 full article of same authors provides stronger direct source coverage; preprint separately not asserted read.",
+          "evidence": [
+            "Abstract states all product moments and exact covariance are derived."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2104.08069",
+          "material_read": "Accessible arXiv abstract only; full-text HTML failed and authorized institutional retrieval VPN disconnected.",
+          "method": "Read abstract/metadata, relied principally on openly available full 2023 journal counterpart",
+          "title": "A Bivariate Beta Distribution with Arbitrary Beta Marginals and its Generalization to a Correlated Dirichlet Distribution",
+          "trigger": "original 2021 preprint by same authors"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/d88a3b7e22a88836e8d5b4fb7ea02f6da9f123ec/2026/10/12/shared-gamma-dirichlet-correlation-sharp-concentration-endpoints--e009ac117b70/RESULT.md",
+        "https://link.springer.com/article/10.1007/s40300-023-00247-2",
+        "https://arxiv.org/abs/2104.08069"
+      ],
+      "rationale": "The parameter s is frequently interpreted as the desired correlation; the strict finite-concentration overestimate and low-c endpoint s/(2−s) provide an exact calibration boundary. The explicit shared/independent categorical limiting coupling explains loss of calibration in sparse Dirichlet models and is a reusable distributional result, not merely a finite Monte Carlo observation.",
+      "residual_risks": [
+        "Preexisting full covariance formulas mathematically encode the scalar rho and could yield some asymptotics after independent limiting arguments; absolute priority of endpoint derivation not certified.",
+        "No monotonicity in c, uniformity in s or variable unequal marginals established; low-c convergence is weak not total variation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Preexisting full covariance formulas mathematically encode the scalar rho and could yield some asymptotics after independent limiting arguments; absolute priority of endpoint derivation not certified.",
+    "No monotonicity in c, uniformity in s or variable unequal marginals established; low-c convergence is weak not total variation."
+  ],
+  "schema_version": 1
+}
