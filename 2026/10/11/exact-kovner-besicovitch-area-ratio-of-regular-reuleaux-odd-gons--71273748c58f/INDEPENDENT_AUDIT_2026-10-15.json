@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T09:47:23Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/exact-kovner-besicovitch-area-ratio-of-regular-reuleaux-odd-gons--71273748c58f/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/exact-kovner-besicovitch-area-ratio-of-regular-reuleaux-odd-gons--71273748c58f/verify.py",
+        "/mnt/data/scope09_quick_independent_check.py"
+      ],
+      "rationale": "Every symmetric subset with center c is contained in C_c=K∩(2c-K). Convex Minkowski interpolation C_tc+(1-t)d supersets tC_c+(1-t)C_d; planar Brunn–Minkowski gives concavity of sqrt(area C_c). The odd dihedral rotation orbit averages to origin, giving optimal C_0. The reflected n centers interlace into 2n uniformly spaced circle centers. The limiting disk for any radial ray is the one with smallest dot product, so its quadratic yields s(delta)=-r cos delta+sqrt(1-r² sin² delta), delta in [-pi/k,pi/k]. Exact integration of k sectors gives F(k,r). Each generating vertex violates its reflected disk as 2r_n>1, giving strict proper inclusion. An independent mpmath evaluation confirms beta(3)=0.8403426028066864, beta(5)=0.9479862949042737; independent symbolic Taylor of F verifies the coefficients through n^-4. All-n proof is analytic, not ray-grid quadrature.",
+      "residual_risks": [
+        "A symmetry maximizing center is established, not uniqueness; no monotonicity across odd n claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guo–Jin, J. Geom.102 (2011) 73–79, abstract explicitly gives Minkowski as_infty(Reuleaux n)=1/(2cos(pi/(2n))-1).",
+          "Resultary Exact Estermann measure of regular Reuleaux polygons gives a circumscribed centrally symmetric outer-hull ratio."
+        ],
+        "reasoning": "Minkowski circumradius/radial inclusion, outer-hull area, and diameter-bisection measures are not the Kovner–Besicovitch maximal INNER area functional, so no implication even when all share Reuleaux parameters.",
+        "searches": [
+          "constant width regular Reuleaux polygon asymmetric area centrally symmetric subset maximal universal n",
+          "Kovner Besicovitch centrally symmetric maximum inscribed area regular Reuleaux odd-gons intersection reflected disk n exact ratio"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/exact-kovner-besicovitch-area-ratio-of-regular-reuleaux-odd-gons--71273748c58f/RESULT.md",
+        "https://arxiv.org/abs/math/0009137",
+        "https://doi.org/10.1112/jlms/s1-26.2.81",
+        "https://doi.org/10.1007/s00022-011-0096-9",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-estermann-measure-of-regular-reuleaux-polygons--6e48f964d474"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Harrell 2000 all-width minimizer: Reuleaux triangle; no centered-reflected intersection integral.",
+          "Guo–Jin 2011 as_infty is Minkowski measure, not inner-area ratio.",
+          "Besicovitch 1951 pp.81-93 metadata confirms very plausible same-field paper but no accessible full text."
+        ],
+        "reasoning": "Prior known triangle case and general width results do not imply regular pentagon and arbitrary odd-n inner area formula. The inaccessible 1951 historical source could change a future priority conclusion; without decisive coverage evidence the bounded current O verdict is PASS with substantial residual risk.",
+        "searches": [
+          "Kovner Besicovitch centrally symmetric maximum inscribed area regular Reuleaux odd-gons intersection reflected disk n exact ratio",
+          "Reuleaux regular odd gons inner area Kovner Besicovitch centrally symmetric kernel all odd n",
+          "Kovner Besicovitch Reuleaux n F(2n) reflected maximal inner area",
+          "Besicovitch 1951 Measure of Asymmetry of Convex Curves II Curves of Constant Width"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kovner–Besicovitch inner-area fraction is max_c area[K∩(2c-K)]/area(K).",
+          "Harrell arXiv:math/0009137 studies min area of K among all width-one bodies, a different optimization."
+        ],
+        "reasoning": "The dihedral-center reduction converts the claim to a specific disk-intersection area ratio; neither minimization of the original K area nor a perimeter measure determines the symmetric inner-area numerator.",
+        "searches": [
+          "Kovner Besicovitch centrally symmetric maximum inscribed area regular Reuleaux odd-gons intersection reflected disk n exact ratio",
+          "Reuleaux regular odd gons inner area Kovner Besicovitch centrally symmetric kernel all odd n",
+          "Kovner Besicovitch Reuleaux n F(2n) reflected maximal inner area"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Reuleaux triangle benchmark is classical and is reproduced, not claimed novel.",
+          "Resultary outer Estermann formula is for an enclosing polygon rather than all odd-n inner disk intersections."
+        ],
+        "reasoning": "A known triangle area ratio is only the n=3 special case; no checked exact all-odd-n F(2n,r)/F(n,r) table was found. Failure of search is not novelty proof.",
+        "searches": [
+          "Kovner Besicovitch measure Reuleaux triangle 0.84034260 Reuleaux pentagon area table",
+          "Kovner Besicovitch Reuleaux n F(2n) reflected maximal inner area"
+        ]
+      },
+      "rationale": "Best-of-knowledge not covered: relevant papers on area-minimal constant-width bodies, Minkowski chord asymmetry, Estermann outer centrally symmetric hull, and diameter-bisection symmetry optimize different functionals. The inaccessible Besicovitch 1951 primary constant-width asymmetry paper is a material priority risk, but its absence alone is not a negative originality proof and is explicitly retained.",
+      "residual_risks": [
+        "Besicovitch 1951 primary full text materially relevant and not inspected: Oxford authorization reported vpn_disconnected; direct comparison incomplete.",
+        "A known Reuleaux triangle benchmark is prior; originality restricted to the uniform all-odd-n inner-area expression and expansion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Minimizes AREA OF BODY among width-one domains, not maximal central-symmetric subset area fraction.",
+          "evidence": [
+            "The variational condition singles out Reuleaux triangle as width-constrained area minimizer."
+          ],
+          "identifier_or_url": "arXiv:math/0009137v1; https://www.researchgate.net/publication/225741530_A_direct_proof_of_a_theorem_of_Blaschke_and_Lebesgue",
+          "material_read": "Open author-supplied full-text HTML article, introduction, constant-width variational proof, conclusion and regular odd polygon discussion.",
+          "method": "Read indexed author-uploaded original complete text, checked statement and proof goals.",
+          "title": "A direct proof of a theorem of Blaschke and Lebesgue",
+          "trigger": "Same Reuleaux polygons and area functional vocabulary."
+        },
+        {
+          "assessment": "Minkowski asymmetry as_infty exact 1/(2cos(pi/(2n))-1), not inner area measure.",
+          "evidence": [
+            "J. Geom.102(2011), pp.73-79, abstract, explicitly names Minkowski measure."
+          ],
+          "identifier_or_url": "DOI:10.1007/s00022-011-0096-9",
+          "material_read": "Springer abstract and references, not the subscription full text.",
+          "method": "Read primary abstract and scope, mathematical comparison of as_infty definition.",
+          "title": "On a measure of asymmetry for Reuleaux polygons",
+          "trigger": "Very close same family and asymmetry terminology."
+        },
+        {
+          "assessment": "Not assessed as NOT_COVERING; unresolved specific priority possibility logged without treating access alone as O failure.",
+          "evidence": [
+            "April 1951 JLMS s1-26:81–93, institutional tool requires human VPN connection."
+          ],
+          "identifier_or_url": "DOI:10.1112/jlms/s1-26.2.81",
+          "material_read": "1951 publisher title, citation, pages 81–93 only; full text NOT obtained.",
+          "method": "arXiv and lawful OA search unsuccessful; then authorized Oxford download returned vpn_disconnected; no bypass.",
+          "title": "Measure of Asymmetry of Convex Curves (II): Curves of Constant Width",
+          "trigger": "Potential historical all constant-width asymmetry coverage."
+        },
+        {
+          "assessment": "Outer area measure uses minimal symmetric ENCASING hull; exact formula cannot be substituted for inner overlap area.",
+          "evidence": [
+            "Formula pi/(n tan(pi/(2n)))-1 describes outer hull size."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-estermann-measure-of-regular-reuleaux-polygons--6e48f964d474",
+          "material_read": "Resultary indexed title and theorem summary, not full proof.",
+          "method": "Semantic search and explicit functional comparison.",
+          "title": "Exact Estermann measure of regular Reuleaux polygons",
+          "trigger": "Nearby published indexed symmetry measure."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/exact-kovner-besicovitch-area-ratio-of-regular-reuleaux-odd-gons--71273748c58f/RESULT.md",
+        "https://arxiv.org/abs/math/0009137",
+        "https://doi.org/10.1112/jlms/s1-26.2.81",
+        "https://doi.org/10.1007/s00022-011-0096-9"
+      ],
+      "rationale": "The Kovner–Besicovitch maximum centrally symmetric inner-area fraction is a classical natural asymmetry invariant. Computing its exact value simultaneously for every regular odd Reuleaux polygon, with a global symmetry-center theorem and sharp second-order and fourth-order convergence to symmetry, is a substantive natural family result beyond one benchmark. Potential use in comparisons of convex constant-width asymmetry measures.",
+      "residual_risks": [
+        "No proof of monotonicity or of an irregular-polygon extremal classification, and no assertion of absolute historical priority."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For regular width-one Reuleaux odd-n-gons n>=3 defined by n equally spaced disks with center-circle radius r_n=(2cos(pi/(2n)))^-1, the maximal centrally symmetric inner-area fraction is F(2n,r_n)/F(n,r_n), attained by K_n∩(-K_n), with F the displayed exact polar disk-intersection area and expansion 1-pi^2/(8n^2)-25pi^4/(1536n^4)+O(n^-6).",
+  "limitations": [
+    "All odd n>=3 regular disk intersections of common width; no uniqueness of symmetric maximizing center, no irregular Reuleaux classification.",
+    "Besicovitch 1951 relevant inaccessible full text; authorized Oxford attempt returned vpn_disconnected; manuscript not declared noncovering."
+  ],
+  "schema_version": 1
+}
