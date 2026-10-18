@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,150 +19,24 @@
 }
 ---
 
-The low-degree formulas are exact. With
-\[
-y=(1+x)/2,
-\]
-\[
-Q_2^{(\beta)}(2y-1)
-=
-y^{\beta+1}
-\left(
-(\beta+3)y-(\beta+2)
-\right),
-\]
-so its critical point is
-\[
-y_2=(\beta+1)/(\beta+3)
-\]
-and its critical amplitude is
-\[
-A_2
-=
-\left(
-\frac{\beta+1}{\beta+3}
-\right)^{\beta+1}.
-\]
+# Independent mathematical audit
 
-For
-\[
-Q_3^{(\beta)},
-\]
-the first critical point is
-\[
-y_3
-=
-\frac{
-\beta+2+\sqrt{3(\beta+2)/(\beta+4)}
-}{
-\beta+5
-},
-\]
-and the corresponding amplitude is
-\[
-A_3
-=
-y_3^{\beta+1}
-\frac{
-\sqrt{3(\beta+2)(\beta+4)}-(\beta+2)
-}{
-\beta+5
-}.
-\]
+## correctness
 
-After
-\[
-t=\sqrt{(\beta+2)/(\beta+4)},
-\]
-the ratio
-\[
-R=A_3/A_2
-\]
-is
-\[
-R(t)
-=
-\frac{2t}{\sqrt3+t}
-\left[
-\frac{
-t(1+t^2)
-}{
-(\sqrt3+t)(\sqrt3t-1)
-}
-\right]^{(3t^2-1)/(1-t^2)}.
-\]
-The bracketed factor is greater than one.
+PASS
 
-Using
-\[
-\log B>2(B-1)/(B+1)
-\]
-and
-\[
-q=\sqrt3\,t,
-\]
-the derivative of
-\[
-\log R
-\]
-has a lower bound whose sign is the opposite of
-\[
-F(q)
-=
-q^5+7q^4+8q^3+12q^2-81q-27.
-\]
-On
-\[
-1<q<\sqrt3,
-\]
-\[
-F'(q)
-=
-(q-1)(5q^3+33q^2+57q+81)>0,
-\]
-but
-\[
-F(\sqrt3)=72-48\sqrt3<0.
-\]
-Hence
-\[
-R
-\]
-is strictly increasing.
+Expand Q_2 and Q_3 after y=(1+x)/2 and solve their derivative equations to obtain y2=(β+1)/(β+3) and y3=(β+2+sqrt(3(β+2)/(β+4)))/(β+5). The signed first extrema give exact amplitudes A2,A3. Their ratio under t=sqrt((β+2)/(β+4)) equals the stated elementary R(t). The logarithmic derivative lower bound uses log B>2(B-1)/(B+1), with F(q) increasing and F(sqrt3)=72-48sqrt3<0, so R increases strictly for β>-1. Its limit at -1 is 1/2 and the known β=-1/3 discrete inequality is strict, yielding exactly one crossing. High precision independently found β*=-0.36466584452339080365…, positive derivative samples, and signs on either side; this is corroboration. The separate y3>y2 proof follows by the explicitly positive squared identity for β>=1 and direct sign for -1<β<1.
 
-The endpoint checks are
-\[
-\lim_{\beta\downarrow-1}R(\beta)=1/2
-\]
-and, by the primary source's boundary discrete theorem,
-\[
-R(-1/3)>1.
-\]
-Therefore the equation
-\[
-R(\beta)=1
-\]
-has exactly one solution.
+## originality
 
-High-precision evaluation of that exact equation gives
-\[
-\beta_*
-=
--0.36466584452339080365581021836986159\ldots.
-\]
-The decimal is not used in the proof of uniqueness.
+PASS
 
-The position inequality is checked independently from
-\[
-3(\beta+2)(\beta+3)^2-(\beta-1)^2(\beta+4)
-=
-2(\beta+1)(\beta+5)^2>0
-\]
-when
-\[
-\beta\ge1,
-\]
-while the unsquared comparison is immediate for
-\[
--1<\beta<1.
-\]
+Castillo–Hang 2026 states the continuous equal-phase threshold β=-1/3 and says its sharpness below that value does not settle the separated discrete comparisons. Its stated discrete theorem covers β>=-1/3, not an exact m=2,k=1 threshold below it. Wong–Zhang covers the β=0 specialization/ordinary Jacobi extrema. The present precise negative-β crossing and all-range first-position order are additional finite-degree facts; a highly relevant full primary PDF remained inaccessible, so best-of-knowledge priority is qualified.
+
+## value
+
+PASS
+
+The first nontrivial consecutive-degree Jacobi–Radau extrema are the natural minimal probe of the explicitly open discrete-versus-continuous barrier. The exact one-crossing classification shows a nonempty interval below -1/3 where the discrete amplitude order survives and provides a sharp benchmark for any all-degree threshold study; value is independent of solving the larger problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

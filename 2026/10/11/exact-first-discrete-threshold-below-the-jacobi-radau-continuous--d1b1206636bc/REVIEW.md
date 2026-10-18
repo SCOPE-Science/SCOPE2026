@@ -1,70 +1,21 @@
-# Review of Exact first discrete threshold below the Jacobi–Radau continuous barrier
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The degree-two and degree-three weighted Radau functions are expanded exactly after the affine change
-\[
-y=(1+x)/2.
-\]
-Their first critical points and critical values follow from linear and quadratic equations.
+PASS
 
-The ratio of the two critical amplitudes reduces to an explicit one-variable function
-\[
-R(t)
-\]
-on
-\[
-1/\sqrt3<t<1.
-\]
-Its logarithmic derivative is bounded below by an explicit rational expression. After
-\[
-q=\sqrt3\,t,
-\]
-the only nontrivial sign is controlled by
-\[
-F(q)=q^5+7q^4+8q^3+12q^2-81q-27.
-\]
-Since
-\[
-F'(q)=(q-1)(5q^3+33q^2+57q+81)>0
-\]
-and
-\[
-F(\sqrt3)=72-48\sqrt3<0,
-\]
-the derivative is strictly positive throughout the interval. Endpoint values then give one and only one amplitude threshold.
+Expand Q_2 and Q_3 after y=(1+x)/2 and solve their derivative equations to obtain y2=(β+1)/(β+3) and y3=(β+2+sqrt(3(β+2)/(β+4)))/(β+5). The signed first extrema give exact amplitudes A2,A3. Their ratio under t=sqrt((β+2)/(β+4)) equals the stated elementary R(t). The logarithmic derivative lower bound uses log B>2(B-1)/(B+1), with F(q) increasing and F(sqrt3)=72-48sqrt3<0, so R increases strictly for β>-1. Its limit at -1 is 1/2 and the known β=-1/3 discrete inequality is strict, yielding exactly one crossing. High precision independently found β*=-0.36466584452339080365…, positive derivative samples, and signs on either side; this is corroboration. The separate y3>y2 proof follows by the explicitly positive squared identity for β>=1 and direct sign for -1<β<1.
 
-The position comparison is independent of the amplitude argument and reduces to the exact positive identity
-\[
-3(\beta+2)(\beta+3)^2-(\beta-1)^2(\beta+4)
-=
-2(\beta+1)(\beta+5)^2.
-\]
+## originality
 
-## Originality
+PASS
 
-PASS. The fresh primary source proves the discrete inequalities only for
-\[
-\beta\ge-1/3
-\]
-and explicitly says that its continuous reversal below this value does not determine the optimal discrete range.
+Castillo–Hang 2026 states the continuous equal-phase threshold β=-1/3 and says its sharpness below that value does not settle the separated discrete comparisons. Its stated discrete theorem covers β>=-1/3, not an exact m=2,k=1 threshold below it. Wong–Zhang covers the β=0 specialization/ordinary Jacobi extrema. The present precise negative-β crossing and all-range first-position order are additional finite-degree facts; a highly relevant full primary PDF remained inaccessible, so best-of-knowledge priority is qualified.
 
-The accepted result answers that highlighted issue completely for the first nontrivial discrete pair. It finds a threshold strictly below
-\[
--1/3
-\]
-and proves the full sign trichotomy, rather than merely exhibiting one parameter value below the source range.
+## value
 
-The classical Wong--Zhang results cover the
-\[
-\beta=0
-\]
-specialization or ordinary Jacobi relative extrema, not this weighted negative-parameter threshold. Candidate-specific literature and database searches did not locate the displayed threshold or an implication-equivalent degree-two/degree-three classification.
+PASS
 
-## Value
+The first nontrivial consecutive-degree Jacobi–Radau extrema are the natural minimal probe of the explicitly open discrete-versus-continuous barrier. The exact one-crossing classification shows a nonempty interval below -1/3 where the discrete amplitude order survives and provides a sharp benchmark for any all-degree threshold study; value is independent of solving the larger problem.
 
-PASS. The distinction between continuous and discrete thresholds is explicitly singled out by the source as unresolved. The first nontrivial discrete pair is the natural minimal test of whether the continuous barrier is also discrete.
-
-The result shows that the two notions genuinely separate: amplitude monotonicity survives on a nonempty interval below the continuous barrier, and the position inequality is even more robust, persisting throughout the full Jacobi range. This supplies a sharp finite-degree benchmark for any future attempt to determine the all-degree discrete parameter range.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
