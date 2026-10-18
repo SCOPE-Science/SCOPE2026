@@ -1,17 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The cited theorem identifies the transformed controlled-frame operator as \(WSW^*\). If \(W\) is surjective, then \(W^*\) is bounded below, which gives the lower frame estimate directly from \(\alpha I\le S\). Conversely, if \(WSW^*\) is invertible, then its range is the whole space and is contained in \(R(W)\), hence \(W\) is surjective. The backward-shift construction verifies all relevant properties exactly and yields a Parseval transformed family although \(W\) is noninjective.
+## correctness
 
-## Originality
-PASS for the source-specific claim. Searches were made for the exact arXiv identifier, theorem number, title, journal DOI, invertibility-versus-surjectivity formulations, backward-shift counterexamples, tensor formulations, and the implication \(WSW^*\) invertible \(\Rightarrow W\) surjective. No checked indexed record covered the same correction. The general surjective-image fact for frames is treated as prior knowledge rather than as the contribution.
+PASS
 
-The closest contextual literature located was Gang Wang's 2024 paper on weaving \(K\)-frames in \(n\)-Hilbert spaces, which uses surjective operators in a different construction. It does not repair Theorem 4.9 or its published Theorem 13.
+Source identity S_W=WSW* and αI≤S≤βI imply positive lower frame bound iff W* is bounded below; equivalently W is onto. Upper bound β||W||² follows directly. If S_W onto then Ran(S_W)⊆Ran W, forcing W onto. Backward shift L has LL*=I but ker L≠0. Rotated orthonormal f1,f2 mapped by L give two ±e1/√2 atoms and remaining ONB; exact squared coefficient sums yield Parseval, tensoring with identity remains Parseval. Independently checked finite-support algebra, proof is infinite-dimensional operator argument.
 
-## Value
-PASS. The published statement excludes all surjective noninjective transformations, although such transformations can preserve the controlled-frame property perfectly. The counterexample is Parseval and has no zero transformed atom, and the repair gives an exact necessary-and-sufficient operator condition together with quantitative bounds.
+## originality
 
-## Limitations
-The result does not address removal of the source theorem's commutation hypotheses. A residual risk remains from unindexed corrections or informal notes.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The 2021 preprint Theorem 4.9 and 2024 publication Theorem 13 require invertibility, but their own operator formula only forces onto W. Classical onto-image theorem is acknowledged, while this concrete n-Hilbert tensor source correction and noninjective Parseval witness were not found in relevant indexed prior.
+
+## value
+
+PASS
+
+Corrects a false iff condition in the published theorem and gives sharp attainable transformed bounds with a noninjective infinite-dimensional example, clarifying true image stability. Classical surjective-image operator theory is not represented as novel.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

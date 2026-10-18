@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,32 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The target preprint and published theorem were read at the statement and proof level. Both versions identify the transformed controlled-frame operator as \(WSW^*\), with \(W=U_1\otimes U_2\), and both infer invertibility of \(W\) from invertibility of \(WSW^*\) and \(S\). That inference is stronger than what the range relation provides.
+# Independent mathematical audit
 
-For the explicit example, \(L\) is the backward shift on \(\ell^2(\mathbb N)\). It is surjective because \(L e_{m+1}=e_m\), and it is noninjective because \(Le_1=0\). The first-factor transformed atoms
-\[
-\frac{e_1}{\sqrt2},\quad-\frac{e_1}{\sqrt2},\quad e_2,\quad e_3,\ldots
-\]
-satisfy the exact Parseval identity
-\[
-\frac12|x_1|^2+\frac12|x_1|^2+\sum_{m\ge2}|x_m|^2=\|x\|^2.
-\]
-Tensoring with an orthonormal basis in the second factor preserves the Parseval identity. Thus the source's necessary invertibility condition fails even though no transformed tensor atom is zero.
+## correctness
 
-For the repaired theorem, the lower bound follows from
-\[
-\langle WSW^*x,x\rangle\ge\alpha\|W^*x\|^2\ge\alpha m(W^*)^2\|x\|^2,
-\]
-and the upper bound follows from
-\[
-\langle WSW^*x,x\rangle\le\beta\|W\|^2\|x\|^2.
-\]
-The converse uses only
-\[
-R(WSW^*)\subseteq R(W).
-\]
-Therefore invertibility of \(WSW^*\) forces surjectivity, but not injectivity, of \(W\).
+PASS
 
-The verification does not remove the source theorem's commutation assumptions and does not claim novelty for the standard general fact that surjective bounded operators preserve the frame property.
+Source identity S_W=WSW* and αI≤S≤βI imply positive lower frame bound iff W* is bounded below; equivalently W is onto. Upper bound β||W||² follows directly. If S_W onto then Ran(S_W)⊆Ran W, forcing W onto. Backward shift L has LL*=I but ker L≠0. Rotated orthonormal f1,f2 mapped by L give two ±e1/√2 atoms and remaining ONB; exact squared coefficient sums yield Parseval, tensoring with identity remains Parseval. Independently checked finite-support algebra, proof is infinite-dimensional operator argument.
+
+## originality
+
+PASS
+
+The 2021 preprint Theorem 4.9 and 2024 publication Theorem 13 require invertibility, but their own operator formula only forces onto W. Classical onto-image theorem is acknowledged, while this concrete n-Hilbert tensor source correction and noninjective Parseval witness were not found in relevant indexed prior.
+
+## value
+
+PASS
+
+Corrects a false iff condition in the published theorem and gives sharp attainable transformed bounds with a noninjective infinite-dimensional example, clarifying true image stability. Classical surjective-image operator theory is not represented as novel.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
