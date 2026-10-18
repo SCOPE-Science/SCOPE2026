@@ -1,18 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Translating by \(I\) gives the exact \(\Gamma(2,\beta)\) density. The CDF inversion requires the lower Lambert branch \(W_{-1}\), and direct integration of the published survival gives
-\[
-m(t)=\beta\frac{t-I+2\beta}{t-I+\beta}.
-\]
-The source's printed quantile lies below its support, and its mean-residual-life formula has the wrong algebraic simplification and wrong monotonicity. The bundled checker independently evaluates both identities.
+## correctness
 
-## Originality
-PASS. The complete primary PDF was inspected at the defining density, MGF, survival, quantile, Theorem 3, proof, and plot. Five focused published-finding corpus searches and exact-source web searches found no published NMED correction. The closest published-finding corpus records concern other gamma-quantile and residual-life problems and do not imply the source-specific two-formula correction.
+PASS
 
-Residual risk remains from an unindexed author correction or a generic gamma reference phrased without the NMED model name.
+Substitution y=x-I yields y*e^{-y/beta}/beta^2; survival (1+y/beta)e^{-y/beta}. Inversion of (1+z)e^{-z}=1-p with 1+z>=1 uses W_{-1} on (−1/e,0), giving support-correct interior quantile and endpoints p→0,1. Independent exact SymPy integration yields integral_t^∞ S = (y+2beta)e^{-y/beta} and m=beta(y+2beta)/(y+beta), derivative -beta^2/(y+beta)^2. Primary PDF screenshot verified the false sign/branch and incorrect linearly increasing MRL. No numerical extrapolation is needed.
 
-## Value
-PASS. Quantiles are needed for simulation and probabilistic interpretation, while mean residual life is a primary reliability measure. One published formula violates the support and the other reverses the true monotonicity. The corrected shifted-gamma representation supplies exact usable replacements.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality is restricted to identifying and fixing TWO specific erroneous formulas and the reversed reliability interpretation in the Alomani et al. 2025 NMED paper. The shifted Gamma(2,scale beta) law, Lambert-W inversion method and Gamma residual-life identity are standard and not claimed as new. The primary article actually prints the two incompatible formulae; no observed article correction or equivalent source-specific note was found.
+
+## value
+
+PASS
+
+Fixing two explicitly published, consequential formula errors in a stated mortality/reliability distribution has concrete value: the printed quantile generates out-of-support values and the printed MRL asserts the opposite aging trend and wrong threshold value. The correction avoids invalid simulation and reliability interpretation. Although the derivation uses routine Gamma calculus, diagnosing and correcting contradictory claims in a cited source is a substantive source-specific reliability correction, not an arbitrary normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

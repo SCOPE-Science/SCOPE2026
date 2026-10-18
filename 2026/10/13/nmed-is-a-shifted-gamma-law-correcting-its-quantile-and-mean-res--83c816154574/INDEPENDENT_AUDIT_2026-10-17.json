@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T18:44:16Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Substitution y=x-I yields y*e^{-y/beta}/beta^2; survival (1+y/beta)e^{-y/beta}. Inversion of (1+z)e^{-z}=1-p with 1+z>=1 uses W_{-1} on (−1/e,0), giving support-correct interior quantile and endpoints p→0,1. Independent exact SymPy integration yields integral_t^∞ S = (y+2beta)e^{-y/beta} and m=beta(y+2beta)/(y+beta), derivative -beta^2/(y+beta)^2. Primary PDF screenshot verified the false sign/branch and incorrect linearly increasing MRL. No numerical extrapolation is needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Standard shape-two gamma theory already determines CDF, survival, quantile and residual life for a shifted gamma law.",
+          "The original article displays contradictory formulas, not a broader corrected NMED theorem. Resultary hits concerned other gamma sums and stationary renewal models."
+        ],
+        "reasoning": "Published gamma theory logically supplies the mathematical tools, but does not itself flag Alomani et al. specific 2025 article errors. No stronger already-corrected NMED statement located; unsuccessful search is not proof of priority.",
+        "searches": [
+          "Primary DOI 10.3934/math.20251222, full OA pdf relevant pp.3-9",
+          "Resultary gamma quantile and renewal residual-life findings",
+          "Search: NMED shifted gamma density and quantile inversion"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3934/math.20251222 (original full relevant pages)",
+        "Resultary query for NMED shifted Gamma/quantile/MRL",
+        "Web corrigendum/source-name queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For 0<p<1, W_0((1-p)/e)>0 makes the source quantile <I although X>I.",
+          "Correct MRL at t=I is 2 beta; printed expression gives beta and increases without bound.",
+          "AIMS source plots increasing MRLF, matching its incorrect printed expression."
+        ],
+        "reasoning": "The source premises mathematically imply the corrected formulas, but its actual claims contradict them; this is a demonstrated source-specific correction, not mere reproduction of the prior theorem.",
+        "searches": [
+          "Primary PDF: quantile p.8 and Theorem 3 p.9",
+          "NMED correction and Lambert-W branch searches",
+          "Classical gamma shape 2 equivalent distribution"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "PDF pp.3,8-9: source MED density is y*exp(-y/beta)/beta^2; NMED uses x-I, so gamma shape 2 is a reparametrization.",
+          "PDF p.8 (printed 27823): source quantile uses W((1-p)/e), not lower real W_{-1}(-(1-p)/e); p.9 printed Theorem 3 has m(t)=beta+t-I."
+        ],
+        "reasoning": "Aliases searched include moment-exponential/shape-two gamma/translated gamma, NMED, Lambert branch and residual-life correction. Generic gamma identity is prior mathematics; article-specific identification of two false downstream expressions and their correction is the asserted contribution.",
+        "searches": [
+          "Resultary semantic search: neutrosophic moment exponential distribution NMED gamma shape 2 Lambert W quantile mean residual life correction",
+          "Web: NMED mean residual life corrected decreasing neutrosophic moment exponential published corrigendum 2025 2026",
+          "DOI:10.3934/math.20251222"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary paper has the false quantile and Theorem 3 formula, not a correction table.",
+          "No relevant published NMED correction appeared among the actual returned searches; other returned general Gamma articles do not address this specific source."
+        ],
+        "reasoning": "An exact Gamma(2) table would contain the true formula but not an erratum pointing out the source-specific mistake. The absence of an indexed correction is residual priority uncertainty.",
+        "searches": [
+          "Resultary: gamma/mean residual life/NMED full query 14 hits",
+          "DOI exact and corrigendum search 2025/2026",
+          "Source AIMS issue published 28 Nov 2025"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality is restricted to identifying and fixing TWO specific erroneous formulas and the reversed reliability interpretation in the Alomani et al. 2025 NMED paper. The shifted Gamma(2,scale beta) law, Lambert-W inversion method and Gamma residual-life identity are standard and not claimed as new. The primary article actually prints the two incompatible formulae; no observed article correction or equivalent source-specific note was found.",
+      "residual_risks": [
+        "Generic Gamma(2) quantile and MRL identities are long-known; do not attribute them as original mathematics.",
+        "An unindexed correction, author note or a later erratum may exist outside returned searches.",
+        "No claim about validity of neutrosophic interpretation or data-model fitting; only fixed I, beta>0 formulas."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly contradicts both submitted corrected formulas and verifies the correction target.",
+          "evidence": "Published p.8 displays Q(p)=I+beta[-W(-(p-1)e^-1)-1], p.9 displays MRLF beta+(t-I), with increasing plot.",
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2025/11/PDF/math-10-11-1222.pdf",
+          "material_read": "Relevant original density/CDF pp.3-4, quantile p.8 (PDF page index 7), Theorem 3 and MRLF graph p.9 (index 8); rendered PDF screenshots inspected. Not all unrelated entropy/estimation pages read.",
+          "method": "OA full PDF parsed and page screenshots",
+          "title": "Neutrosophic moment exponential distribution: properties and modeling of child mortality rate data",
+          "trigger": "Same NMED model and the formulas being corrected"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fixing two explicitly published, consequential formula errors in a stated mortality/reliability distribution has concrete value: the printed quantile generates out-of-support values and the printed MRL asserts the opposite aging trend and wrong threshold value. The correction avoids invalid simulation and reliability interpretation. Although the derivation uses routine Gamma calculus, diagnosing and correcting contradictory claims in a cited source is a substantive source-specific reliability correction, not an arbitrary normalization check.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For density (x-I) beta^-2 exp(-(x-I)/beta) on x>I, with fixed I in R, beta>0, X=I+Gamma(shape 2,scale beta). For 0<p<1 its quantile is I+beta[-1-W_{-1}(-(1-p)/e)] and for t>=I its mean residual life is beta+beta^2/(t-I+beta), strictly decreasing, contrary to the original 2025 article quantile and Theorem 3.",
+  "limitations": [
+    "I must be fixed, beta>0, t>=I, 0<p<1; no assessment of parameter estimation or the mortality dataset.",
+    "Originality concerns the correction to this article, not rediscovery of Gamma(2) formulas."
+  ],
+  "schema_version": 1
+}
