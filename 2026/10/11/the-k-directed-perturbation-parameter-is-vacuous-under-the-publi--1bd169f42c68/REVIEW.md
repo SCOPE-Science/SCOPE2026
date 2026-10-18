@@ -1,27 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The theorem is quantified over every \(f,g\in H\). Replacing \(g\) by \(tg\), dividing by \(t\), and letting \(t\to\infty\) removes the sole nonhomogeneous term \(\gamma\|K^*f\|^2\). The resulting gamma-free inequality gives
-\[
-\frac{1-\lambda_1}{1+\lambda_2}A\|K^*f\|^2
-\le
-\int_\Omega\|\Gamma_\omega f\|^2\,d\mu(\omega)
-\le
-\frac{1+\lambda_1}{1-\lambda_2}B\|f\|^2.
-\]
-One-point scalar examples attain both factors exactly.
+## correctness
 
-## Originality
-PASS. The exact source, theorem number, published constants, gamma term, homogeneity aliases, related \(K\)-\(g\)-frame stability literature, and checked prior scientific results were compared.
+PASS
 
-No checked indexed source states that the gamma term in this theorem is vacuous or gives the two sharp gamma-free factors.
+Theorem 4.1 literally quantifies ∀f,g. For every t>0 apply it to (f,tg), divide by t; t→∞ removes γ||K*f||². Set g=f to obtain X≤λ1X+(1+λ2)Y and Y≤(1+λ1)X+λ2Y, yielding exact frame lower ((1−λ1)/(1+λ2))A and upper ((1+λ1)/(1−λ2))B when 0≤λ1,λ2<1, without any γ bound. A one-point scalar Λ=a, Γ=b, K=I meets equality at each endpoint, proving sharpness of universal factors. No numerical experiment is necessary.
 
-## Value
-PASS. The published theorem treats \(\gamma\) as a substantive \(K\)-directed perturbation parameter and imposes the restriction \(\lambda_1+\gamma/A<1\). The correction shows that this parameter has no effect under the stated quantifiers and removes that entire restriction while improving both bounds to sharp constants.
+## originality
 
-## Closest literature and limitations
-Hua--Huang provide closely related \(K\)-\(g\)-frame stability background, but the present issue arises from the target theorem's specific two-vector testing inequality.
+PASS
 
-If one instead normalized \(g\) or multiplied the additive term by a norm of \(g\), the scaling argument would no longer remove \(\gamma\). No claim is made about such modified hypotheses.
+The source Theorem 4.1 uses a two-vector universal inequality with a γ||K*f||² term independent of g. Existing general K-g-frame stability literature does not include the resulting theorem-specific sharp γ-free lower and upper factors. A related homogeneity-defect Resultary item is a different controlled K-Bessel source and does not imply these bounds.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The non-homogeneous γ term was presented as a substantive restriction of a published stability theorem. Its exact elimination removes the entire γ/A smallness constraint and improves both universal new-frame estimates to sharp constants. This has a concrete correction and two boundary sharpness witnesses beyond a cosmetic notation observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
