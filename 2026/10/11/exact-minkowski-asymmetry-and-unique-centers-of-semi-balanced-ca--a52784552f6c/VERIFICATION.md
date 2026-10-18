@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The theorem is proved by the affine cycle-kernel decomposition, free sums of two simplices, and the exact asymmetry rule for an affine join. The matching upper and lower bounds, including uniqueness, are symbolic and all-dimensional.
+## correctness
 
-Running `python verify.py` in the directory containing this file gives:
+PASS
 
-```
-VERIFY_OK cases= 270 reflection_identities= 3685
-```
+For a connected cactus, m=n-1+q, so q disjoint balanced cycle relations exhaust the affine kernel. Each 2k-cycle factor is a free sum of two (k-1)-simplices with unique barycentric center and s=k-1; each bridge is a singleton. For affine joins, reflect each factor and derive s+1>=sum_i(s_i+1), with equality forcing each center and barycentric weight, yielding s=H-1 and uniqueness. For each edge, choosing H-1 distinct complementary roots proves the matching reflection upper certificate. Independently verified a balanced 4-cycle with two bridges by six exact rational reflection identities. No finite check substituted for universal cactus proof.
 
-This standard-library script checks 270 deterministic, differently oriented semi-balanced cactus examples with interleaved cycles and bridges. Each check verifies the affine rank, cycle-circuit relation, positive center weights, and every sharp reflected-vertex decomposition by exact rational arithmetic. The code works directly from oriented edge lists that it constructs. Finite examples do not certify a universal theorem or publication priority.
+## originality
 
-The assertion \(s(Q_G)=H-1\) is proved by a general factor-join lower bound, not by numerical optimization. The reflection certificate alone would establish only an upper bound. No claims are made about non-semi-balanced orientations or graphs with overlapping cycles. Independent external audit and validation have not been performed.
+PASS
+
+No decisive prior statement implying the exact final formula was found in materially inspected primary texts; this is explicitly best-of-knowledge, not novelty certification. Known structural ingredients are distinguished from exact claimed invariant; the failed Resultary service is separately recorded and not counted as negative evidence.
+
+## value
+
+PASS
+
+The invariant gives a complete sharp affine asymmetry/unique-center classification for the natural connected semi-balanced cactus family, distinguishes bridge versus cycle geometry with rigid 2:1 coefficients, and provides explicit distinct-root certificate; it is not only a renamed low-dimensional census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
