@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T15:00:34Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every positive odd k the affine cobalancing recurrence b_(n+2)=6b_(n+1)-b_n+2, normalized by a=b/2, yields a_(n+k)-a_n=Q_k B_(n+(k-1)/2). The square-window difference is Q_k u_n v_n. The modular recurrence for u and v restricts gcd_n(u_n v_n) to a divisor of 7, with at most one 7; possible 7 requires 3|k. An independently checked exact telescoping coboundary 64a_(n+1)^2=Delta G+5 gives 64F_0 congruent 5k mod Q_k; Pell norm excludes 5|Q_k for odd k. For k odd divisible by 3, the 7-adic identity nu_7(Q_k)=1+nu_7(k) eliminates the potential extra factor in the full-window gcd. The result is gcd_n sum_i b_(n+i)^2=4 gcd(k,Q_k). Independent recurrence-based integer computation checked every odd k<=101 over hundreds of windows, but proof—not experiments—supports universal k and n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mbirika–Schrader–Spilker give an unsquared odd-window cobalancing identity b(k)=2 gcd(Q_k,k), not the square-window result.",
+          "The generalized Fibonacci paper treats homogeneous order-two Fibonacci recurrences, whereas a_n obeys affine recurrence with +1; its formula cannot be applied directly."
+        ],
+        "reasoning": "Neither known broad theorem determines the claimed cobalancing squared gcd or the 7-adic removal. A general square-window theorem for this affine recurrence would dominate, but was not located.",
+        "searches": [
+          "arXiv:2301.05758v3 Section 6.1 Question 30",
+          "arXiv:2204.12626 generalized Fibonacci squared-window gcd"
+        ]
+      },
+      "checked_sources": [
+        "https://cs.uwaterloo.ca/journals/JIS/VOL26/Mbirika/mbir5.pdf",
+        "https://arxiv.org/abs/2204.12626"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Question 30 asks specifically for b(n)^2 windows and lists only limited empirical behavior.",
+          "The unsquared formula has no square-period factor H; the new proof requires prime support and lifting at 7."
+        ],
+        "reasoning": "A formula for sums without squares and a formula for another recurrence do not imply this square-window identity without nontrivial additional arithmetic arguments.",
+        "searches": [
+          "Mbirika–Schrader–Spilker 2023 Question 30 and Theorem 28",
+          "Mbirika–Spilker 2022 homogeneous squared-window result"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mbirika–Schrader–Spilker §6.1 asks for closed forms for squared cobalancing windows rather than stating 4 gcd(k,Q_k).",
+          "Closest Resultary Pell hits address digit extraction or other Lucas invariants, not square-window gcd."
+        ],
+        "reasoning": "Identical claims could be indexed via half-cobalancing a_n, Pell companion Q_k or consecutive square gcd; none of the inspected formulas states this odd-length result. Negative search is not proof of priority.",
+        "searches": [
+          "Resultary semantic: odd k gcd consecutive squares cobalancing numbers Pell Q_k gcd(k,Q_k)",
+          "web: cobalancing square windows gcd associated Pell odd length"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2023 paper has partial numeric observations and divisibility-by-four information, not the all-odd k formula.",
+          "Fresh recurrence diagnostic matched the symbolic formula through odd k=101; these generated values are not a published exhaustive database."
+        ],
+        "reasoning": "No inspected exact table includes the whole formula, and a finite table cannot imply the quantified theorem.",
+        "searches": [
+          "J. Integer Seq. 26 (2023) Art. 23.6.4 §6.1 numerical observations",
+          "Resultary semantic: cobalancing square-window gcd table Q_k"
+        ]
+      },
+      "rationale": "The result explicitly settles all odd lengths of the cobalancing-square case identified as Question 30 by Mbirika, Schrader and Spilker. Prior unsquared braid/gcd identities and a generalized homogeneous Fibonacci square-window theorem do not imply its affine-cobalancing 7-adic argument. Semantic literature search found only adjacent Pell invariants, so residual unindexed-equivalence risk remains.",
+      "residual_risks": [
+        "A later or unindexed Pell/cobalancing identity could present an equivalent odd-window formula.",
+        "The 7-adic lifting step depends on odd k divisible by 3 and the unramified 7-adic quadratic extension; characteristic assumptions are explicit.",
+        "Numerical windows through 101 are diagnostic only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior formulation and partial evidence, not coverage of the submitted odd-square formula",
+          "evidence": "Question 30 seeks square-window cobalancing closed forms; Theorem 28 concerns unsquared identities.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Mbirika/mbir5.pdf",
+          "material_read": "Full article PDF, especially Section 6.1 Question 30 and surrounding unsquared identities and displayed experimental remarks",
+          "method": "Full-text PDF reading and section/page visual check",
+          "title": "Pell and associated Pell braid sequences as GCDs of sums of k consecutive Pell, balancing, and related numbers",
+          "trigger": "Exactly same cobalancing sequence and squared windows"
+        },
+        {
+          "assessment": "Related technique; insufficient to deduce affine cobalancing case",
+          "evidence": "Generalized Fibonacci obeys recurrence coefficients different from affine a_(n+2)=6a_(n+1)-a_n+1.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.12626",
+          "material_read": "Abstract and equation descriptions of homogeneous generalized Fibonacci family; no exhaustive appendix comparison",
+          "method": "Open-access arXiv abstract/available source passages",
+          "title": "GCD of sums of k consecutive squares of generalized Fibonacci numbers",
+          "trigger": "Potential stronger squared-window recurrence theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a closed expression for an infinite arithmetic family that a primary source explicitly identified as an open square-window gcd problem. Distinguishing the possible exceptional prime 7 and its exact valuation is a genuine obstruction; the result is neither a renaming of the unsquared braid formulas nor merely small-case enumeration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A later or unindexed Pell/cobalancing identity could present an equivalent odd-window formula.",
+    "The 7-adic lifting step depends on odd k divisible by 3 and the unramified 7-adic quadratic extension; characteristic assumptions are explicit.",
+    "Numerical windows through 101 are diagnostic only."
+  ],
+  "schema_version": 1
+}

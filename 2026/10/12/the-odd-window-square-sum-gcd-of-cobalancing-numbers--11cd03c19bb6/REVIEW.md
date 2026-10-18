@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The proof treats all odd positive lengths and every nonnegative window start. The Pell shift is derived from the two initial values and the recurrence; the critical quadratic telescoping identity follows from the invariant \(t_n^2+t_{n+1}^2-6t_nt_{n+1}=-4\). The prime-divisor argument for the normalized square-period gcd forces it to divide \(7\); the extra possible factor is eliminated by a local lifting calculation. The exact finite program is an independent normalization regression, not the source of the infinite claim.
+PASS
 
-## Originality (PASS)
+For every positive odd k the affine cobalancing recurrence b_(n+2)=6b_(n+1)-b_n+2, normalized by a=b/2, yields a_(n+k)-a_n=Q_k B_(n+(k-1)/2). The square-window difference is Q_k u_n v_n. The modular recurrence for u and v restricts gcd_n(u_n v_n) to a divisor of 7, with at most one 7; possible 7 requires 3|k. An independently checked exact telescoping coboundary 64a_(n+1)^2=Delta G+5 gives 64F_0 congruent 5k mod Q_k; Pell norm excludes 5|Q_k for odd k. For k odd divisible by 3, the 7-adic identity nu_7(Q_k)=1+nu_7(k) eliminates the potential extra factor in the full-window gcd. The result is gcd_n sum_i b_(n+i)^2=4 gcd(k,Q_k). Independent recurrence-based integer computation checked every odd k<=101 over hundreds of windows, but proof—not experiments—supports universal k and n.
 
-The closest primary article, Mbirika--Schrader--Spilker (2023), asks for square-window gcd formulas for cobalancing numbers in Question 30 and records only \(4\)-divisibility. Its Pell and associated Pell squared statements concern different sequences. Mbirika--Spilker (2022) concerns squares of homogeneous generalized Fibonacci recurrences. published-finding corpus alias/parameter searches and specific web searches found no equivalent claim; a not-yet-indexed alternative remains possible.
+## originality
 
-## Value (PASS)
+PASS
 
-This is a complete exact theorem for the full odd-index class of a named natural gcd problem, expressed in the classical associated Pell sequence. It replaces a congruence observation with an exact arithmetic invariant. The even-length case and other associated sequences remain outside the claim.
+The result explicitly settles all odd lengths of the cobalancing-square case identified as Question 30 by Mbirika, Schrader and Spilker. Prior unsquared braid/gcd identities and a generalized homogeneous Fibonacci square-window theorem do not imply its affine-cobalancing 7-adic argument. Semantic literature search found only adjacent Pell invariants, so residual unindexed-equivalence risk remains.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This is a closed expression for an infinite arithmetic family that a primary source explicitly identified as an open square-window gcd problem. Distinguishing the possible exceptional prime 7 and its exact valuation is a genuine obstruction; the result is neither a renaming of the unsquared braid formulas nor merely small-case enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
