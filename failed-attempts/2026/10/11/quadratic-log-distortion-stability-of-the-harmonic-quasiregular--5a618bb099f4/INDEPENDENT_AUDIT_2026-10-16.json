@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T02:44:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/quadratic-log-distortion-stability-of-the-harmonic-quasiregular--5a618bb099f4",
+        "https://arxiv.org/html/2609.33140v1"
+      ],
+      "rationale": "Read the entire displayed coefficient C(K), k and L(K) in arXiv:2609.33140v1 Theorem 1.5. With c=cosh((log K)/2), s=sinh((log K)/2), k=s/c, L=2c/(1+c), the product (kL/2)*s=(s²)/(1+c)=c-1 exactly. Hence C(K)=C0 c+(c-1)(3sqrt3/2+coth(2c/(1+c))). Derivative in c is C0+A+coth(ell)-2(c-1)/(c+1)^2*csch²(ell)>C0+A+3/4>0 because ell>=1 and 2(c-1)/(c+1)^2<=1/4. c=1+q²/8+O(q4) gives exact alpha=(C0+A+coth1)/8=0.69887946077..., no odd term. No claim of fixed-K optimality follows.",
+      "residual_risks": [
+        "C(K) is asymptotically sharp as K->1, not proven optimal at each K>1; do not reinterpret alpha as an optimal stability curvature."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.5 covers all K>=1 with exact explicit C(K), while the audited expansion covers K near 1 only"
+        ],
+        "reasoning": "The global pointwise formula is strictly more informative: differentiation and Taylor expansion give all local coefficients and monotonicity checks without additional mapping inequalities.",
+        "searches": [
+          "Resultary harmonic quasiregular coefficient query",
+          "https://arxiv.org/html/2609.33140v1"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2609.33140v1",
+        "https://arxiv.org/abs/2104.05976"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "C(K) source = C0*(K+1)/(2sqrt K)+(k L/2)*(3sqrt3/2+coth L)*(K-1)/(2sqrt K); expansion of the already stated formula yields the claimed coefficient alpha"
+        ],
+        "reasoning": "Theorem 1.5 implies the entire claim by routine hyperbolic identities and calculus; the source does not need to print alpha for it to cover a mechanically obtained Taylor corollary.",
+        "searches": [
+          "https://arxiv.org/html/2609.33140v1",
+          "Resultary harmonic quasiregular coefficient query"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 1.5 explicitly specifies C(K), k(K), L(K) globally; the audited reduced formula equals this expression identically after c=(K+1)/(2sqrt K)"
+        ],
+        "reasoning": "The new parameter q=log K re-expresses exactly the same published coefficient rather than defining a new mathematical quantity.",
+        "searches": [
+          "Resultary harmonic quasiregular coefficient query",
+          "https://arxiv.org/html/2609.33140v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact coefficient function C(K) tabulated symbolically as displayed elementary expression in the primary theorem"
+        ],
+        "reasoning": "A symbolic formula for every K is stronger data than an exact local table of its first derivative or Taylor coefficient; no numerical database search is decisive beyond that same-source formula.",
+        "searches": [
+          "Resultary harmonic quasiregular coefficient query",
+          "https://arxiv.org/html/2609.33140v1"
+        ]
+      },
+      "rationale": "The paper already publishes the *entire explicit function* C(K) for every K>=1 in Theorem 1.5, in precisely the same harmonic quasiregular setting. The new profile is an exact invertible hyperbolic substitution and the first ordinary Taylor coefficient and derivative sign of that known elementary expression. The stronger pointwise formula already determines the claimed asymptotic and monotonicity without a new estimate, invariant, or extremizer; absent a substantive new theorem, these are covered corollaries of the published global formula.",
+      "residual_risks": [
+        "The rejection concerns only the original claim as an independent result; source coefficient and algebra are correct.",
+        "C(K) is asymptotically sharp as K->1, not proven optimal at each K>1; do not reinterpret alpha as an optimal stability curvature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source provides the entire exact elementary C(K), so audited local rate is covered derivative data",
+          "evidence": [
+            "Theorem1.5, eq (1.9), displayed C(K), limit; Remark1.6"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.33140v1",
+          "material_read": "Full accessible arXiv HTML; Theorem1.5 including k, L, C(K), Remark1.6 and theorem proof discussion",
+          "method": "Full arXiv HTML mathematical source",
+          "title": "The sharp Lipschitz continuity problem with respect to the pseudo hyperbolic metric",
+          "trigger": "Exact same mapping class and coefficient"
+        },
+        {
+          "assessment": "Prior rough K+1 estimate is not the decisive covering source; new 2026 explicit formula is",
+          "evidence": [
+            "Chen et al introduction Theorem B"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2104.05976",
+          "material_read": "Predecessor theorem statement 2.8587(K+1) described within 2026 source, not claimed independent full reading",
+          "method": "Source-theorem citation in primary Chen et al text",
+          "title": "Lipschitz property of harmonic mappings with respect to the pseudo-hyperbolic metric",
+          "trigger": "Predecessor coefficient"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/quadratic-log-distortion-stability-of-the-harmonic-quasiregular--5a618bb099f4",
+        "https://arxiv.org/html/2609.33140v1"
+      ],
+      "rationale": "The observation that the already supplied C(K) has vanishing first derivative at K=1 is mathematically correct, but follows by a routine two-term Taylor expansion of an explicit published coefficient; it does not establish a new sharp fixed-K stability bound, new extremal phenomenon or any unknown natural invariant. Its isolated 0.698879 coefficient is derivative data mechanically supplied by the earlier exact formula, below the stated substantive-value threshold.",
+      "residual_risks": [
+        "C(K) is asymptotically sharp as K->1, not proven optimal at each K>1; do not reinterpret alpha as an optimal stability curvature."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For the coefficient C(K) already displayed in Chen–Hamada–Huang–Jin Theorem 1.5, C(K) is increasing and C(K)=C0+[(C0+3sqrt3/2+coth 1)/8](log K)^2+O((log K)^4) as K down to 1.",
+  "limitations": [
+    "The rejection concerns only the original claim as an independent result; source coefficient and algebra are correct.",
+    "C(K) is asymptotically sharp as K->1, not proven optimal at each K>1; do not reinterpret alpha as an optimal stability curvature."
+  ],
+  "schema_version": 1
+}
