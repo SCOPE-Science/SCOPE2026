@@ -1,0 +1,156 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md §§Finding, Proof",
+      "verify.py exact_certificate and numerical_trajectory",
+      "Two explicit equal-mean survival contrasts with exact radical comparisons"
+    ],
+    "rationale": "Directly dividing the two positive phase equations yields the unique positive ratio root r=d+sqrt(1+d^2); substitution gives u^2=(h-Q)/r and v^2=r(h-Q). The log-coordinate seasonal map has derivative -tanh z with absolute value <1 everywhere: the two-step map contracts on a compact interval about its established fixed point, proving global convergence from every positive state whenever ab>1. For ab<=1 the even subsequence strictly decreases and can converge only to zero. The exact phase identities yield mean^2=(Q+1)(h-Q)/2 and the factorization (Q-1)(h-Q-2)/2 after comparison with the matched-mean constant-survival equilibrium. At fixed h>3 the one-switch threshold delta=sqrt((h-2)^2-1) is inside persistence delta<sqrt(h^2-1). A standalone standard-library checker reproduced seven exact rational identity cases and 33 high-precision trajectories; none of those finite samples substitutes for the universal analytic proof.",
+    "risks": [
+      "The model assumes multiplicative survival after recruitment, not additive adult survival; changing the operation changes the population equation.",
+      "No closed-form yield or welfare comparison is asserted."
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Franke and Yakubu 2005, §§2,4–6, considers additive survivor term and monotone recruitment; the current map has derivative c(1-x^2)/(1+x^2)^2 and thus fails that monotonicity requirement.",
+        "Brauer–Sánchez 2003 abstract addresses periodic solutions of harvesting models without stating an exact discrete two-season average-abundance threshold; complete text was not obtained.",
+        "Franke and Yakubu 2006 §§3–5 explicitly assume small parameter oscillations for the signature theorem."
+      ],
+      "reasoning": "General theorems guaranteeing a stable periodic orbit could imply existence or stability here but do not on that basis imply the exact nonlinear sign comparison. Available full texts on monotone/additive survivorship cannot dominate the claimed nonmonotone multiplicative-survival result. The inaccessible 2003 article remains a residual risk rather than a claimed negative full-text comparison.",
+      "searches": [
+        "Maynard Smith population map x next equals a x/(1+x squared), periodic two season reproduction alternating a b globally attracting 2 cycle exact mean biomass versus constant arithmetic mean a+b over two, resonance threshold",
+        "Hassell contest scramble population two season alternating fishing survival positive stable two cycle mean exceeds constant harvest sharp criterion",
+        "Franke Yakubu 2006 signature periodic forced Smith model exact global comparison biomass geometric mean growth rates",
+        "Franke and Yakubu (2005) survivor demographic model DOI 10.1080/10236190500386275; pdf pages 1-3, 6-12",
+        "Brauer and Sanchez (2003) DOI 10.1111/j.1939-7445.2003.tb00113.x"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1007/s11538-006-9086-8 (original PDF sections inspected)",
+      "doi:10.1080/10236190500386275 (original PDF sections inspected)",
+      "doi:10.1111/j.1939-7445.2003.tb00113.x (abstract only, unavailable full text)",
+      "Published 2026 synchronous Ricker Floquet finding, title and summary only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Franke–Yakubu 2006 concerns a local sign of perturbations relative to average carrying capacity, leaving arbitrary finite contrast unquantified.",
+        "The present matched-mean reproduction example R=10 has a=7,b=3 with mean-square 2sqrt(5)>4, but a=8,b=2 with mean-square 2sqrt(10)-5/2<4, both above the persistence threshold.",
+        "Franke–Yakubu 2005 formula (2) is f(t,x)+gamma_t x, not gamma_t f(x), and specializes to Beverton–Holt recruitment."
+      ],
+      "reasoning": "Neither the local signature nor additive-survivor theorem implies the new global threshold, because their conclusions have different benchmarks and hypotheses. The sharp finite-contrast reversal is the substantive additional consequence beyond existence of a stable two-cycle.",
+      "searches": [
+        "Franke Yakubu signature periodic attenuant resonant 2 cycles model exponent two finite amplitude global threshold alternating growth parameter exact",
+        "ecological periodic harvesting two-season density dependent population resonance a x/(1+x^2), strong overcompensation, exact amplitude",
+        "Franke Yakubu 2006 signature periodic forced Smith model exact global comparison biomass geometric mean growth rates",
+        "fixed mean harvesting effort alternating amplitude reverse resonance to attenuation ecological map",
+        "Franke–Yakubu 2006 §5.5 pages 16–17 and conclusions page 30",
+        "Franke–Yakubu 2005 §§2 and 5–6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Franke and Yakubu 2006 §5.5, Eq. (10), Table 2, DOI 10.1007/s11538-006-9086-8, compares to mean seasonal carrying capacity for small forcing.",
+        "The quadratic update can be written as a Smith carrying-capacity map with coupled season-specific carrying capacity and demographic parameters; the benchmark is instead survival held at its arithmetic mean."
+      ],
+      "reasoning": "The algebraically equivalent quadratic Smith representation does not make the new claim a restatement of the local signature: both the reference population and parameter quantifiers differ. Searches for synonyms including Smith, Smith–Slatkin, two-periodic maps, attenuation and resonance returned no statement of the exact threshold.",
+      "searches": [
+        "Maynard Smith population map x next equals a x/(1+x squared), periodic two season reproduction alternating a b globally attracting 2 cycle exact mean biomass versus constant arithmetic mean a+b over two, resonance threshold",
+        "Franke Yakubu signature periodic attenuant resonant 2 cycles model exponent two finite amplitude global threshold alternating growth parameter exact",
+        "quadratic Maynard Smith one species periodic survival harvesting exact 2-cycle average resonance attenuation finite amplitude threshold h sqrt(1+delta^2)+2",
+        "two-periodic map f_a(x)=a x/(1+x^2), f_b(x) population mean effect constant multiplier average"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected 2006 Table 2 tabulates local signature weights in fluctuating carrying-capacity/demographic variables, not an exact finite-amplitude boundary for fixed mean survival.",
+        "The published 2026 Ricker-cycle record describes Floquet multipliers of synchronized multispecies cycles, not the current single-species Smith comparison."
+      ],
+      "reasoning": "No checked exact formula/table covers the all-amplitude threshold or the two concrete matched-mean policy examples. A missing search hit is not by itself proof of originality; the primary scientific comparisons support the conclusion.",
+      "searches": [
+        "quadratic Maynard Smith one species periodic survival harvesting exact 2-cycle average resonance attenuation finite amplitude threshold h sqrt(1+delta^2)+2",
+        "two-periodic map f_a(x)=a x/(1+x^2), f_b(x) population mean effect constant multiplier average",
+        "Franke–Yakubu 2006 Table 2 and §5.5"
+      ]
+    },
+    "rationale": "The inspected 2006 Franke–Yakubu paper gives local small-amplitude signatures and compares 2-cycles with the mean of seasonal carrying capacities. Its §5.5 and Table 2 do not provide the exact all-amplitude mean-survival reference threshold, nor the fixed-mean amplification-to-suppression reversal while both seasons remain individually viable. The 2005 Franke–Yakubu survivor model has additive survival and constant/Beverton–Holt recruitment; its globally monotone framework does not cover the nonmonotone quadratic recruitment map. The relevant published Ricker/Floquet result treats a different nonlinear map and question. An unexamined broader theorem may still imply the identity, so no absolute novelty guarantee is asserted.",
+    "residual_risks": [
+      "The full text of Brauer and Sánchez (2003) was not obtained; a more general older result could potentially subsume the model-specific comparison.",
+      "Other specialized periodic-difference-equation sources may imply the algebraic identity even where terminology does not match; this remains for independent literature audit.",
+      "No claim of worldwide novelty or verification against unpublished research is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "LOCAL_SIGNATURE_DIFFERENT_REFERENCE: applicable model family but quantified as small perturbations and measured against mean carrying capacity; no material full-amplitude fixed-mean-survival classification in inspected relevant results.",
+        "evidence": [
+          "§5.5 Eq.(10) model V periodic carrying capacity/demography and formula for signature function",
+          "Introduction says Sects. 3–5 assume small forcing and §9 reiterates relative perturbation strengths",
+          "Table 2 weights are local and not finite-amplitude exact mean-survival boundary"
+        ],
+        "identifier_or_url": "https://franke.math.ncsu.edu/Research/sigrevc.pdf",
+        "material_read": "Author-posted full PDF inspected using parsed text and page images: introduction pp.1–3, model table p.4, §5.5 pp.16–17, local signature Table 2 p.19, conclusions p.30.",
+        "method": "Full-paper textual section comparisons and inspection of original formula/page images.",
+        "title": "Signature Function for Predicting Resonant and Attenuant Population 2-cycles",
+        "trigger": "Direct same-model resonance/attenuance precedent, potential complete prior coverage"
+      },
+      {
+        "assessment": "DIFFERENT_MODEL: survival added as gamma*x to recruitment, and examples constant or Beverton–Holt; does not establish present quadratic post-recruitment survival threshold.",
+        "evidence": [
+          "§2 Eq.(2) x_next=f(t,x)+gamma_t x",
+          "§4 assumes increasing concave bounded recruitment",
+          "§§5–6 establish specific Beverton–Holt attenuance/resonance statements"
+        ],
+        "identifier_or_url": "https://franke.math.ncsu.edu/Research/SurvivalFinal05.pdf",
+        "material_read": "Original full PDF inspected using parsed sections pp.1–3, 5–8 and 11, and an original page image; model equations and theorems identified.",
+        "method": "Compare model equations, recruitment monotonicity assumptions and established resonance conclusions.",
+        "title": "Population models with periodic recruitment functions and survival rates",
+        "trigger": "Relevant historical period-two survival model that might dominate"
+      },
+      {
+        "assessment": "ACCESS_LIMITED_RISK: stable periodic solutions in continuous-time ecological harvesting, no exact discrete quadratic threshold visible; full coverage unresolved.",
+        "evidence": [
+          "2003 Natural Resource Modeling 16(3), 233–244; abstract states goal of asymptotically stable periodic solutions",
+          "Related later discussion describes logistic continuous-time harvesting contexts"
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/j.1939-7445.2003.tb00113.x",
+        "material_read": "Journal metadata, abstract and citation context only; full article content unavailable.",
+        "method": "Abstract-level comparison with scope and related discussion; did not claim full-text noncoverage.",
+        "title": "Periodic Environments and Periodic Harvesting",
+        "trigger": "Broad older harvesting title could contain stronger coverage"
+      },
+      {
+        "assessment": "DISTINCT_OBJECT: multispecies Ricker Floquet spectrum of synchronous cycles, not seasonal survival effect on single-species mean abundance.",
+        "evidence": [
+          "Published summary gives Floquet spectrum polynomial in row-regular interaction matrix"
+        ],
+        "identifier_or_url": "Published article: Spectral Floquet reduction for synchronous cycles in row-regular Ricker competition (2026)",
+        "material_read": "Published title and short summary only; not a full-paper inspection.",
+        "method": "Compare explicitly described dynamics, coupling and invariant to exact quadratic survival benchmark.",
+        "title": "Spectral Floquet reduction for synchronous cycles in row-regular Ricker competition",
+        "trigger": "Closest published semantic search hit for periodic ecological maps"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "763ba6c6-0ea0-4124-8c51-932347eaab81",
+  "self_review_status": "passed",
+  "value": {
+    "evidence": [
+      "Franke–Yakubu 2006 ecological resonance problem and Smith population map",
+      "Fixed h=5 examples with delta=2 and delta=3 and exact opposite signs",
+      "Exact globally attracting orbit and analytical contrast threshold"
+    ],
+    "rationale": "Periodic harvesting with matched mean survival fraction is a natural direct comparison in demographic ecological modeling. The exact threshold distinguishes genuine mean-biomass improvement from loss in an overcompensatory model and demonstrates a nonperturbative reversal: at the same mean survival one change in seasonal contrast improves mean abundance and a larger contrast worsens it, without extinguishing the population. Its closed boundary identifies where local-signature intuition ceases to hold, provides explicit globally attracting testbeds for seasonal forcing, and separates persistence from resonance. This is structural mathematical information rather than a routine normalization or arbitrary finite census.",
+    "risks": [
+      "Ecological applicability depends on the quadratic deterministic assumption and a post-recruitment survival mechanism.",
+      "Abundance comparison alone does not imply yield, welfare, or management optimality."
+    ],
+    "status": "PASS"
+  }
+}
