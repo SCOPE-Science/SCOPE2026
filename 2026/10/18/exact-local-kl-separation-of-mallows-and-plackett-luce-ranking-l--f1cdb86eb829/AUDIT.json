@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Explicit finite-permutation score/Taylor calculation: Fisher Hessian G has eigenvalue (n-H_n)/(n-1), Mallows cross-score b_i=(i-(n+1)/2)/2, inversion variance n(n-1)(2n+5)/72. Projection gives exact C_n, strict positivity from two positions for the same adjacent item swap, and n=2 vanishing. The bundled exact rational verifier checks each identity n=2..6. Growth and uniqueness follow from the displayed proof, not finite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "El Mesaoudi-Paul, Hüllermeier, Busa-Fekete (PMLR 2018) Section 6 evaluates KL empirical fit, not theoretical sharp near-uniform KL curvature.",
+        "Turvey, arXiv:2610.11895 abstract states impossibility for at least four items for independent rankings."
+      ],
+      "reasoning": "A broader qualitative four-item representability failure does not imply the value of an optimized local KL coefficient, and says nothing about the three-item Plackett–Luce tangent mismatch. The more restrictive family is evaluated quantitatively here.",
+      "searches": [
+        "Mallows Kendall tau probability model versus Plackett Luce near uniform exact optimal Kullback Leibler relative entropy second order harmonic number projection",
+        "Kendall Mallows ranking model minimized KL divergence Plackett Luce local entropy expansion",
+        "Web query: Mallows Plackett Luce local asymptotic Kullback Leibler divergence"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.11895v1 abstract",
+      "PMLR 80 2018 El Mesaoudi-Paul et al. full-text PDF sections 1,2,6,7",
+      "openarchives.gr ranking noisy samples abstract",
+      "published-finding corpus mathematical record queries on local KL projection and Mallows/Plackett-Luce",
+      "Public primary literature on ranking families and inversion statistics"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2018 model paper defines Mallows and Plackett–Luce and uses empirical KL, without analytical all-n projection.",
+        "The 2026 representation obstruction applies to all independent-variable rankings for n≥4 but is not a quantitative entropy statement.",
+        "Results on sparse inversion patterns in exponential-clock rankings involve a different probability regime, not optimized near-uniform Mallows-to-Plackett–Luce KL projection."
+      ],
+      "reasoning": "Neither inspected primary statement derives the harmonic-number Fisher residual or its \\(n^3/288\\) behavior. Residual risk remains for uninspected specialized ranking-model approximation literature.",
+      "searches": [
+        "Mallows Kendall tau probability model versus Plackett Luce near uniform exact optimal Kullback Leibler relative entropy second order harmonic number projection",
+        "Kendall Mallows ranking model minimized KL divergence Plackett Luce local entropy expansion",
+        "2018 PMLR original PDF inspected Section 2 and Section 6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Turvey 2026 abstract: independence-generated permutation obstruction begins at four items; does not state a Fisher-normal KL projection coefficient",
+        "Uniform permutation score calculations expose equivalence to squared tangent-space distance, giving a finite checkable identity."
+      ],
+      "reasoning": "Compared inversion-score projection with ranking-independent exponential clocks and tangent-space Fisher metric: qualitative nonrepresentation differs from a sharp all-n coefficient. No retrieved published-finding corpus statement matches the harmonic-score projection.",
+      "searches": [
+        "Mallows to Plackett Luce information projection curvature formula n-H_n variance of Kendall inversions",
+        "Mallows Plackett Luce model distinction first order tangent spaces Fisher information gap all n",
+        "Web query: Mallows Plackett Luce KL divergence n=3 local q=1 permutation ranking"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned related permutation/inversion work but no coefficient involving the Plackett–Luce score covariance \\(n-H_n\\).",
+        "No identified public table or record gives the harmonic-number coefficient for the KL projection."
+      ],
+      "reasoning": "No identified exact table or database entry provides this coefficient; a negative search is not a uniqueness proof.",
+      "searches": [
+        "Mallows to Plackett Luce information projection curvature formula n-H_n variance of Kendall inversions",
+        "Mallows Plackett Luce model distinction first order tangent spaces Fisher information gap all n",
+        "published-finding corpus: Mallows Plackett Luce model distinction first order tangent spaces Fisher information gap all n"
+      ]
+    },
+    "rationale": "Analytical all-size local KL information-projection curvature is not in the inspected model-comparison primary paper or in the 2026 qualitative independent-ranking abstract; targeted published-finding corpus and web queries searched harmonic coefficients, tangent equivalences and KL projection. A relevant older thesis and the recent full text remain access risks.",
+    "residual_risks": [
+      "Recent arXiv:2610.11895 full text was not accessible in this execution; any hidden exact KL statement is unverified.",
+      "Older specialized ranking-model information projection literature, including an only-abstract-accessible dissertation, might derive an equivalent coefficient.",
+      "A finite record search cannot demonstrate absolute uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Qualitative nonrepresentation for n>=4 is related but does not supply all-n local KL curvature; full-text coverage remains uncertain",
+        "evidence": [
+          "2026-10-08 first submission",
+          "Public abstract discusses Mallows impossibility n>=4."
+        ],
+        "identifier_or_url": "arxiv:2610.11895v1",
+        "material_read": "Public abstract and first-submission metadata only; arXiv full text returned DisabledError",
+        "method": "abstract retrieval plus attempted full-text URL",
+        "title": "Permutations from ranking independent random variables",
+        "trigger": "recent motivating work on independent-variable ranking representation"
+      },
+      {
+        "assessment": "Uses KL empirically but does not establish local KL minimization constant for all sizes",
+        "evidence": [
+          "ICML 2018 paper Section 6 describes empirical KL fit",
+          "Model definitions in Section 2 and introduction."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v80/mesaoudi-paul18a/mesaoudi-paul18a.pdf",
+        "material_read": "PDF abstract, introduction, model definitions, numerical KL evaluation Section 6, conclusion and references",
+        "method": "web PDF text inspection and visual first-page reading",
+        "title": "Ranking Distributions based on Noisy Sorting",
+        "trigger": "primary full-text comparison of Mallows, Plackett-Luce, ranking KL fits"
+      },
+      {
+        "assessment": "Mention of KL as a divergence metric, but precise projection results inaccessible; retained as originality risk",
+        "evidence": [
+          "Repository abstract names Mallows, Plackett-Luce and KL divergence, with learning focus."
+        ],
+        "identifier_or_url": "https://www.openarchives.gr/aggregator-openarchives/edm/ntua/000011-123456789_49685",
+        "material_read": "Abstract only, in translated public repository listing",
+        "method": "web search snippet inspection",
+        "title": "On learning rankings from noisy samples",
+        "trigger": "potential older dissertation comparing model families and f-divergence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f1cdb86e-b829-4d5c-aab1-235425526025",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A sharp, natural statistical model-misspecification invariant for two standard ranking families, optimized over all PL rates. It establishes the first nonzero dimension, exact harmonic-number coefficient for every n, best-fit weight direction, and asymptotic cubic growth; this is more than a fixed-size numerical example or a renaming of a qualitative impossibility theorem.",
+    "status": "PASS"
+  }
+}
