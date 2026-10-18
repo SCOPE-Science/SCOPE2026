@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact formula is supported by a complete symbolic proof. The critical ingredients are the modular complement identity \((E+R)\bmod M=R^{\mathrm c}\), the disjointness \((R+R)\cap R=\varnothing\), exact treatment of the exceptional insertion \(8f+6\), explicit coverage of every transient gap, and a tail induction that applies uniformly for all \(f\ge6\). The standalone exact verifier corroborates the formula for \(6\le f\le200\) through twenty moduli per parameter value.
+## correctness
 
-## Originality
-PASS. The closest published results treat \(g=2f\), \(g=2f+1\), \(g=2f+2\), and \(g=3f\). None covers \(g=2f+3\) for \(f\ge6\). Searches for the exact parameter line, modulus, period length, residue description, and transient triple returned no prior infinite theorem. The most important remaining risk is differently phrased historical work and the unavailable full text of the companion conjecture paper; these risks are recorded in `AUDIT.json`.
+PASS
 
-## Value
-PASS. This is the next natural full line in the recent 2-sumfree periodicity program and reveals a new phenomenon: periodic residue extrapolation from the first two off-diagonal lines requires two deletions and one insertion before stabilization. The result is an infinite structural classification with a minimal period theorem, not a finite table extension.
+Independently generated strict-greedy chosen sets and the stated modular-set formula for f=6..79 and f=100,200 over twenty moduli, finding agreement. The proof establishes E+R complement mod M, R+R disjoint R, checks the three finite transient exceptions (6f+3 excluded, 8f+6 inserted, 11f+8 excluded), and covers all later complement residues using earlier e in E and tail representatives. The unique cyclic exceptional gap yields primitive period length f+4. Finite checks corroborate but do not replace this induction.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Published first two off-diagonal families cover g=2f+1 and g=2f+2, and a second diagonal covers g=3f, none implying g=2f+3 for f>=6. The van Berkel-Bosma proved range g<2f and conjectural broader periodicity do not give this residue formula or transient triple. Resultary target match is not prior novelty evidence; uninspected Queneau 1972 and newer full preprints are residual risks.
+
+## value
+
+PASS
+
+The next natural off-diagonal g=2f+3 extends a systematic greedy-additive sequence family; exact infinite periodicity, primitive period and density with nontrivial three-point transient corrections are a motivated structural classification beyond previous parameter lines.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
