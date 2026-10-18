@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The analytical argument is recorded in `RESULT.md`. The independent Poisson corner reduction, chord-altitude identity and expectation uniform integrability establish the fixed-polygon law. The exact exponential-harmonic-mean tail integral and Laplace saddle establish the square-root tail prefactor, the centered extreme-value limit and the expectation correction. These infinite arguments do not rely on finite experiments.
+# Independent mathematical audit
 
-Run `python3 verify.py` with a standard Python 3 interpreter. The checked executable completed successfully with `VERIFY_OK 2894 finite checks`. It compares the tail integral in two different coordinate systems, verifies planar point-to-segment distances against the analytic chord formula for several angles and many positive pairs, checks deterministic sandwich inequalities, checks Bessel-tail leading asymptotics through an equivalent integral, and compares several finite-size extreme-value CDFs with the predicted Gumbel distribution. No numerical test is treated as a proof of an infinite statement.
+## correctness
 
-Scientific limitations: the order of limits is essential; the source's previously established fixed-polygon law and order-of-magnitude result are not asserted to be original; full historical priority is not independently certified. Independent audit has not been performed.
+PASS
+
+For n→∞ first and fixed m≥4, convex distance reduces error to polygon vertices, local Poisson edge-germ spacings are independent exponentials and the chord altitude is D_m. Uniform trigonometric bounds compare D_m to δ_mXY/(X+Y) with relative O(m^-2) error. The exact tail integral P(XY/(X+Y)>z)=2ze^-2z K_1(2z) has the saddle asymptotic sqrt(pi z)e^-4z, yielding max normalization logm+(1/2)loglogm+(1/2)logpi−log2 and standard Gumbel limit. Two-sided tails provide centered uniform integrability, hence the additional Euler gamma term in the expected value. The order n then m is essential.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge originality based on mathematical statement and implication comparisons, not title matches. The result sharpens a natural unresolved asymptotic, subject to search limitations. Search self-hit 2026/10/11/SCOPE-gumbel-transition-and-second-order-hausdorff-error-for-randomly--3fe000dbc9a1 identifies the assigned candidate itself, not prior independent coverage.
+
+## value
+
+PASS
+
+The polygon vertex-count dependence of a natural stochastic Hausdorff approximation invariant was known only at first order; the precise extreme-value phase, unavoidable loglog correction and limiting expectation constant answer a motivated second-order geometric probability question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
