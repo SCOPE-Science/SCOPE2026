@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact checker uses symbolic rational arithmetic to verify the defining polynomial and every algebraic identity used in the proof. In particular it checks:
+# Independent mathematical audit
 
-- irreducibility of \(p^4-p^3+2p^2+p+1\) over \(\mathbb Q\);
-- preservation of its root set under \(p\mapsto-1/p\), \(p\mapsto(1-p)/(1+p)\), and \(p\mapsto(p+1)/(p-1)\), including the Klein-four composition law;
-- \((2p-1-2/p)^2=-15\) modulo the defining polynomial and the corresponding fixed-field signs under all three involutions;
-- the factorization over \(\mathbb Q(\sqrt{-15})\);
-- the identities yielding square roots of \(5\) and \(-3\);
-- \(q\mapsto-1/q\) under the relative involution;
-- common scaling of all four coefficient groups in the displayed \(Q_{56}\) equation by \(1/(p^4q^4)\).
+## correctness
 
-The computation proves identities in the source's parameter field; it does not enumerate all 56 line equations and therefore does not test minimal fields of individual lines or the full permutation action on labeled lines.
+PASS
+
+PASS: Veniani Q56 Section 5.2 defines irreducible f(p)=p^4-p^3+2p²+p+1 and q=(p-1)/(p+1). Independently checked irreducibility over Q, exact root-permutation identities f(-1/p)=f(p)/p^4 and f((1-p)/(1+p))=4f(p)/(1+p)^4 and f((1+p)/(p-1))=4f(p)/(p-1)^4; these commute as a Klein-four group. s=2p-1-2/p satisfies s²=-15 modulo f and is fixed by p↦-1/p. Over Q(s), f splits into quadratics with discriminants a=(1+s)/2 and its conjugate; adjoining u²=a and v=2/u gives (u+v)²=5, (u-v)²=-3. The extension is Q(sqrt5,sqrt(-3)), with relative involution fixing Q(sqrt(-15)). The quartic coefficient groups scale identically under (p,q)↦(-1/p,-1/q). No claim of minimal field for each line or Galois action on labeled 56 lines. Independent exact SymPy polynomial-rem checks and inspected source verify identities.
+
+## originality
+
+PASS
+
+PASS: The primary geometry source provides the quartic parameter polynomial and claims the surface is over Q(sqrt(-15)) and lines over an unnamed quartic Q(p), but no named biquadratic structure, fixed-field involution, or explicit Galois-conjugation description. Older Degtyarev-Itenberg-Sertöz classification contains the combinatorial Q56 configuration, not Veniani’s explicit p-field arithmetic. Resultary quartic matches concern other curves.
+
+## value
+
+PASS
+
+PASS: For a uniquely distinguished, rigid quartic with 56 lines, the smallest named arithmetic field described by a concrete all-lines parameter is a natural exact field-of-definition invariant. Identifying Q(p) with Q(sqrt5,sqrt(-3)), its three quadratic subfields, and the relative descent involution explains the published distinction between the surface and line fields and makes Galois descent/base change explicit for future line-configuration work. No unmotivated parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
