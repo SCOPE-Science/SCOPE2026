@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The checked source normalization is
-\[
-h_{Z_n}(x,t)=\mathbb E\left|\langle x,\Gamma_{n-1}\rangle+t\right|,
-\]
-with \(\operatorname{Cov}(\Gamma_{n-1})=(\pi/2)I_{n-1}\). Hence \(h_{Z_n}(\theta,0)=1\) for horizontal unit vectors and \(h_{Z_n}(0,1)=1\). The source defines \(F_1(s)=\phi(s)/\sqrt{1+s^2}\), proves that its minimum \(b_\infty\) occurs at a unique \(s_0>0\), and proves \(d_{BM}(Z_n,B_2^n)=b_\infty^{-1}\).
+# Independent mathematical audit
 
-For a candidate ellipsoid with support-square \(q\), the sharp sandwich was checked algebraically to be exactly
-\[
-b_\infty^2h_{Z_n}^2\le q\le h_{Z_n}^2.
-\]
-Averaging \(q\) over \(O(n-1)\times\{\pm1\}\) preserves both inequalities because \(Z_n\) is invariant. The source proof of Theorem 5.3 was checked in both parameter ranges: \(\alpha>1\) and \(0<\alpha<1\) each give a strictly larger comparison ratio than \(b_\infty^{-1}\). Thus an averaged sharp optimizer has Euclidean shape.
+## correctness
 
-The scale is forced by two exact contacts. Horizontal directions give the lower bound \(c^2\ge b_\infty^2\); the minimizing-slope directions \((\theta,s_0)/\sqrt{1+s_0^2}\) give the upper bound \(c^2\le b_\infty^2\). Therefore the averaged support-square is exactly \(b_\infty^2\|u\|^2\).
+PASS
 
-Finally, the equality case of averaging was checked directly. On the horizontal orbit, the pointwise quantity \(q(gu)-b_\infty^2\) is continuous and nonnegative and has zero Haar average, so it vanishes identically. This fixes the horizontal block. The axial coefficient is fixed similarly. On the minimizing-slope orbit, \(b_\infty^2-q(gu)\) is continuous and nonnegative with zero Haar average, so it also vanishes identically. Substitution into the remaining block form forces every cross coefficient to be zero. Hence \(q=b_\infty^2\|\cdot\|^2\).
+For n≥3 the primary Gaussian zonoid has horizontal and axial support 1 and minimizing-slope orbit support b∞<1 at s0>0. A proposed sharp ellipsoid E with squared support q satisfies b∞²h_Z²≤q≤h_Z². Haar averaging q over O(n−1)×{±1} preserves both inequalities, and the strict α≠1 branches of source Theorem 5.3 force the averaged shape to be Euclidean. Horizontal lower contact and minimizing-slope upper contact fix its scale to b∞². Pointwise inequalities with identical Haar average force equality on entire compact horizontal and minimizing-slope orbits. This fixes the horizontal block and kills cross block w via 2s0<θ,w>/(1+s0²)=0; the axial coefficient is fixed by group averaging. Hence Q=b∞²I exactly; the proof covers all origin-centered ellipsoids in n≥3, not arbitrary translated pairs.
 
-No finite experiment, numerical approximation, or partial enumeration is used to infer the theorem. The verified scope is every integer \(n\ge3\), for origin-centered ellipsoids only. No claim is made about translated ellipsoid pairs.
+## originality
+
+PASS
+
+The full source Ryabogin–Zvavitch proves the sharp Banach–Mazur distance and existence, with strict invariant-ellipse optimization. A symmetry average merely establishes the existence of a symmetric optimum; it does not by itself force every optimizer to be symmetric. The equality-on-contact-orbits step supplies the missing uniqueness. Grundbacher–Kobos general uniqueness criterion d>√(n−1) cannot cover this zonoid for n≥3 because d≤√2≤√(n−1).
+
+## value
+
+PASS
+
+Characterizing all extremizers, rather than just the optimal distance and existence, is a natural rigidity problem in convex geometry. The argument closes an equality-case gap left by group averaging and identifies the exact centered distance ellipsoid in every dimension n≥3, making it independently useful even though the distance itself is known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

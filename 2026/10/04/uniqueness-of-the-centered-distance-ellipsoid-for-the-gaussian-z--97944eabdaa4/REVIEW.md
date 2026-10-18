@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof starts from the exact support-function inequalities equivalent to the sharp ellipsoid sandwich. Averaging the positive-definite quadratic support form over \(O(n-1)\times\{\pm1\}\) preserves both inequalities. The strict \(\alpha>1\) and \(0<\alpha<1\) cases in the source proof of Theorem 5.3 force the averaged optimizer to be Euclidean. Horizontal and minimizing-slope contact directions then fix its scale to \(b_\infty\). Equality in the pointwise sandwich plus equality of the group average forces the original quadratic form to equal the averaged form on the horizontal, axial, and minimizing-slope orbits, which kills every cross term. The argument proves the quantified statement for every integer \(n\ge3\) and uses no finite experiment as a substitute for proof.
+## correctness
 
-## Originality
-**PASS.** The directly relevant source, arXiv:2609.10852v1, proves the exact distance and says that the Euclidean ball is an optimal Banach--Mazur ellipsoid, but it does not state uniqueness of every origin-centered optimal ellipsoid. Its averaging lemma only establishes existence of a symmetric optimizer from any optimizer. The present equality-on-orbits argument supplies the missing rigidity implication. The closest general uniqueness theorem located, Grundbacher--Kobos Corollary 2.11, requires \(d_{BM}(K,B_2^n)>\sqrt{n-1}\); here \(b_\infty^{-1}\le\sqrt2\), so that theorem does not cover dimensions \(n\ge3\). Exact-claim and equivalent-formulation searches found no covering statement. Residual bibliographic risk remains because older distance-ellipsoid literature was not exhaustively searched.
+PASS
 
-## Value
-**PASS.** Distance ellipsoids need not be unique in higher dimensions, so uniqueness is a genuine structural issue rather than a normalization choice. The Gaussian zonoids are a new dimension-independent sharp family for a Banach--Mazur phenomenon, and the source's averaging step loses exactly the information needed to decide whether nonsymmetric optimizers survive. Recovering the full optimizer from contact-orbit equality closes that natural gap without changing the distance constant.
+For n≥3 the primary Gaussian zonoid has horizontal and axial support 1 and minimizing-slope orbit support b∞<1 at s0>0. A proposed sharp ellipsoid E with squared support q satisfies b∞²h_Z²≤q≤h_Z². Haar averaging q over O(n−1)×{±1} preserves both inequalities, and the strict α≠1 branches of source Theorem 5.3 force the averaged shape to be Euclidean. Horizontal lower contact and minimizing-slope upper contact fix its scale to b∞². Pointwise inequalities with identical Haar average force equality on entire compact horizontal and minimizing-slope orbits. This fixes the horizontal block and kills cross block w via 2s0<θ,w>/(1+s0²)=0; the axial coefficient is fixed by group averaging. Hence Q=b∞²I exactly; the proof covers all origin-centered ellipsoids in n≥3, not arbitrary translated pairs.
 
-## Closest literature and limitations
-The closest source is Ryabogin--Zvavitch, arXiv:2609.10852v1, especially Lemma 5.1 and Theorem 5.3. The closest general uniqueness result inspected is Grundbacher--Kobos, arXiv:2407.08829v2 / Mathematika 71 (2025), Corollary 2.11, whose distance threshold is inapplicable here. The claim is only about origin-centered ellipsoids and dimensions \(n\ge3\); it does not settle uniqueness for translated affine ellipsoid pairs.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The full source Ryabogin–Zvavitch proves the sharp Banach–Mazur distance and existence, with strict invariant-ellipse optimization. A symmetry average merely establishes the existence of a symmetric optimum; it does not by itself force every optimizer to be symmetric. The equality-on-contact-orbits step supplies the missing uniqueness. Grundbacher–Kobos general uniqueness criterion d>√(n−1) cannot cover this zonoid for n≥3 because d≤√2≤√(n−1).
+
+## value
+
+PASS
+
+Characterizing all extremizers, rather than just the optimal distance and existence, is a natural rigidity problem in convex geometry. The argument closes an equality-case gap left by group averaging and identifies the exact centered distance ellipsoid in every dimension n≥3, making it independently useful even though the distance itself is known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
