@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The trapezoid has base area \(6\), so every apex of height \(h\) gives volume \(2h\). Each lateral-face area is one half its base-edge length times the three-dimensional distance from the apex to that edge line, yielding the explicit surface-area formula. The paired slanted-face contribution is even and strictly convex in the transverse coordinate, forcing \(y=0\). On that plane the objective reduces to \(\Phi=A/h^{2/3}\). Coercivity gives existence. For each level \(c\), \(G_c=A-c h^{2/3}\) is convex, strictly in the only directions needed to exclude two equal minimizers; hence the global minimizer is unique. At a stationary point of \(\Phi\), \(G_c=0\) and \(\nabla G_c=0\), so convexity makes that stationary point globally minimizing. Therefore the displayed radical system has exactly one solution. The bundled checker replays the derivatives and high-precision numerical evaluation but is not used as an infinite-domain proof.
+## correctness
 
-## Originality
-**PASS, with an unindexed-followup residual risk.** The full motivating article was materially inspected at the definition, triangle theorem, and the trapezoid remark. The article itself labels the trapezoid values as numerical experiments and reports the optimum only approximately. Searches using the exact object, invariant names, and numerical fingerprints did not locate a later source proving the global uniqueness or the two-equation characterization. Related isoperimetric results for regions inside a prescribed cone concern different objects and quantifiers.
+PASS
 
-## Value
-**PASS.** The trapezoid is not an arbitrary parameter slice: it is the explicit canonical counterexample chosen by the source to demonstrate that the triangular cone-center phenomenon changes for general convex bases. Replacing the source's numerical experiment by a global theorem certifies the motivating example, identifies its unique optimum, and isolates a reusable convex-sublevel mechanism for cone-apex optimization.
+Directly reconstructed edge-to-apex face areas: A(x,y,h)=6+sqrt(h²+x²)+2sqrt(h²+(2-x)²)+[sqrt(5h²+(x+2-2y)²)+sqrt(5h²+(x+2+2y)²)]/2 and V=2h. The paired lateral terms are even and strictly convex in y, forcing y=0. On that plane F=A³/(4h²), equivalent to Phi=A h^(-2/3). Phi is coercive as h tends to 0 or infinity or |x| diverges. For any c>0, G_c=A-c h^(2/3) is convex and strictly convex in h; A is strictly convex in x at fixed h>0. Two global minimizers would force a negative midpoint G_c, impossible. At any stationary Phi=c, G_c=0 and grad G_c=0, so convexity makes it a global minimizer; hence the two explicit A_x=0, 3hA_h=2A equations have exactly one solution. Recomputed this root and F to 20+ significant digits by an independent high-precision numerical procedure. The root solve corroborates only numeric values: global existence/uniqueness is analytic.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The motivating primary source publishes the canonical trapezoid and its numerical minimizer/fixed-height horizontal centers, but does not prove global uniqueness or an exact stationary-system characterization for the nontriangular case. Checked Resultary under exact numerical and geometry aliases; related optimized cones concern other bases/functionals. This is a bounded, best-of-knowledge refinement of a previously numerical test case, not a new general polygon theorem.
+
+## value
+
+PASS
+
+A natural, explicitly published counterexample to naive extension of the triangle incenter method previously had only sampled numerical optima. Determining its unique global isoperimetric apex and exact stationary characterization is a mathematically motivated resolution of that specific nontriangular benchmark, not just reprinting numerical data. The strict-convexity argument gives a reusable certification mechanism for similar convex-norm surface functionals while expressly making no broad polygonal claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
