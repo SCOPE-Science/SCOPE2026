@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The proof establishes an exact Myhill-Nerode residual characterization valid for all finite binary continuations including the empty one; computes I_(2^k-1); verifies even and odd profiles map injectively to Q_(k-1) and dyadic P_(k-1); separates them via the absence of three equal Thue-Morse bits; and sums an independently proved Fibonacci profile count. Base k=1 yields four factors. Exact finite checker k<=11 and independent complete DFAO minimization k<=7 both pass, but these tests are not used to infer infinity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2021 abstract explicitly restricts r to 0<=r<m in the family mT+r; m=1 permits r=0 only.",
+        "Theorem 19 gives an upper bound <=10c/3 rather than exact states, and Theorem 20 gives a lower bound for infinitely many parameters, via powers of two.",
+        "The currently examined linked 2026 manuscript handles precisely shifts 2^r."
+      ],
+      "reasoning": "An arbitrary shift of the Thue–Morse set is not mT+r in the 2021 domain: m>1 changes asymptotic density, and m=1 forces r=0. A general upper bound and a lower bound holding only for an infinite subsequence do not determine the Mersenne exact count.",
+      "searches": [
+        "Published paper: Charlier–Cisternino–Massuir, Minimal Automaton for Multiplying and Translating the Thue-Morse Set, DOI 10.37236/9068",
+        "Web: automatic sequences shift Thue Morse Mersenne exact state complexity Fibonacci count 2026",
+        "Moradi–Rampersad–Shallit arXiv:2512.10017v5 Theorem 19 and Theorem 20"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2512.10017v5, Section 4.2 and Open Problem 2",
+      "OEIS A382296 (entry and initial values)",
+      "Biswas A382296/A382296.typ (full textual manuscript)",
+      "Charlier–Cisternino–Massuir, EJC 2021 #P3.12 (published abstract)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Closest direct scientific comparison: Biswas proves N(2^k)=2F(k+3), while present claim is N(2^k-1)=2F(k+4)-6.",
+        "Another nearby exact classification concerns successor shifts 2^k+1 rather than 2^k-1; its result does not quantify over Mersenne shifts.",
+        "The general Moradi et al. work does not determine these predecessor shifts."
+      ],
+      "reasoning": "One cannot specialize the known dyadic theorem to a shift differing by one, because MSD-first residual carry patterns change under subtraction by one. The separate Mersenne-offset parity-split recurrence and its no-triples disjointness proof supply the missing implication. A similarly structured successor proof is methodologically close, but its statement neither contains nor logically forces the Mersenne formula.",
+      "searches": [
+        "published-finding corpus: Thue Morse state complexity 2F(k+4)-6 shifts",
+        "published-finding corpus: OEIS A382296 Mersenne 2^k-1 exact closed formula",
+        "published-finding corpus: state complexity of shifts of Thue Morse sequence t(n+c) exact automaton kernel minimal number of states",
+        "arXiv:2512.10017v5 Theorems 19–20 and Open Problem 2",
+        "rnbguy/proofs A382296/A382296.typ full textual manuscript"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Moradi–Rampersad–Shallit explicitly pose the all-shift exact state-complexity formula as Open Problem 2.",
+        "In Biswas A382296/A382296.typ, the statement and proof concern the shift by an exact power of two, not a Mersenne number.",
+        "OEIS A382296 lists the first Mersenne indices numerically but states no Mersenne all-index formula."
+      ],
+      "reasoning": "The equivalent language formulation recognizes integers whose shifted binary digit sum is odd, or a negative translate of the Thue–Morse set. Neither the explicit dyadic formula for 2^r nor a restricted arithmetic progression mT+r with 0<=r<m supplies the all-k formula for 2^k-1. Source comparisons are of quantified theorems, not just matching titles.",
+      "searches": [
+        "published-finding corpus: Exact Fibonacci formula state complexity shifts of Thue Morse sequence by Mersenne numbers 2^k minus one MSB DFAO",
+        "published-finding corpus: Thue Morse shifts c=3 7 15 31 automata sizes 10 20 36 62",
+        "Web: Thue Morse 2 to the k minus 1 shift minimal automaton Fibonacci",
+        "arXiv:2512.10017v5 Section 4.2 Theorems 19–20 and Open Problem 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Visible A382296 data include N(1)=4, N(3)=10, N(7)=20, N(15)=36, N(31)=62.",
+        "A382296 FORMULA supplies N(2^n)=2F(n+3), credited as proved in 2026, but does not supply N(2^n-1).",
+        "The A382296 page links a table of values through n=12000; that complete linked table was not inspected."
+      ],
+      "reasoning": "A finite exact database contains some instances but cannot imply a universal identity over unbounded k. The theorem gives an independent all-k recurrence and proof; known finite entries are acknowledged as prior.",
+      "searches": [
+        "OEIS:A382296, directly viewed entry, values and FORMULA section",
+        "OEIS A382296 3 7 15 31 Fibonacci 2026",
+        "A382296 2^n-1 complexity Fibonacci"
+      ]
+    },
+    "rationale": "Within examined evidence, exact all-k Mersenne predecessor shifts are not covered by the known dyadic theorem, the neighboring successor-dyadic classification, Moradi et al. bounds, the 2021 restricted mT+r theorem, or finite OEIS data. The new structural offset-set partition proves a distinct quantified result, with finite known instances acknowledged and historical-priority risks recorded.",
+    "residual_risks": [
+      "The linked full OEIS table of all values up to 12000 was not read; finite contents cannot alone prove this infinite formula.",
+      "The complete 2021 Charlier et al. PDF was inaccessible through the displayed iframe; its explicitly stated domain differs, but unexamined appendices could discuss related shifts.",
+      "An unindexed or differently named infinite Mersenne-shift classification may exist; web and mathematical-record searches do not prove global priority.",
+      "A nearby successor-shift result uses a similar parity-split mechanism, so expert judgment may differ on incremental conceptual value, even though its quantified theorem does not imply the Mersenne claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General upper and dyadic lower bounds; exact Mersenne predecessor family absent from examined text.",
+        "evidence": "Theorem 19 is an upper bound (10/3)c, Theorem 20 lower bounds an infinite dyadic family, and Open Problem 2 asks for exact N(c).",
+        "identifier_or_url": "https://arxiv.org/html/2512.10017v5",
+        "material_read": "HTML full-text Section 4.2, especially Theorems 19 and 20, discussion, and Open Problem 2; arXiv bibliographic history",
+        "method": "Direct reading and comparison of quantified theorems and offset parameters",
+        "title": "Complexity of Linear Subsequences of k-Automatic Sequences",
+        "trigger": "Direct study of state complexity of shifted Thue-Morse sequences"
+      },
+      {
+        "assessment": "Known finite values for Mersenne indices and an all-index formula only for powers of two; no universal Mersenne formula recorded.",
+        "evidence": "N(1),N(3),N(7),N(15),N(31) are 4,10,20,36,62; formula is a(2^n)=2F(n+3).",
+        "identifier_or_url": "https://oeis.org/A382296",
+        "material_read": "Direct short sequence entry, displayed terms, FORMULA, LINKS, AUTHOR and publication date; not the full external linked 12000-value table",
+        "method": "Literal database and formula inspection",
+        "title": "A382296 — number of states for shifted Thue-Morse DFAOs",
+        "trigger": "Exact numerical database matching the shift invariant"
+      },
+      {
+        "assessment": "Establishes exact state complexity for c=2^r; does not assert the c=2^k-1 result.",
+        "evidence": "Main Theorem explicitly fixes r>=0 and computes 2F(r+3) states for w->t(V(w)+2^r); every proof section retains the power-of-two parameter.",
+        "identifier_or_url": "https://github.com/rnbguy/proofs/blob/main/A382296/A382296.typ",
+        "material_read": "Full 15562-byte textual Typst manuscript plus README; proof lemmas, states and main theorem, not merely PDF link",
+        "method": "Full mathematical text inspection via public manuscript source",
+        "title": "State Complexity of Thue-Morse Shifts by Powers of Two",
+        "trigger": "OEIS link to a formalized closely related infinite exact formula"
+      },
+      {
+        "assessment": "The stated domain mT+r, 0<=r<m, does not contain arbitrary translates T+c at c>0; residual risk from unread full paper is recorded.",
+        "evidence": "Abstract explicitly says m positive and r in {0,...,m-1}.",
+        "identifier_or_url": "https://doi.org/10.37236/9068",
+        "material_read": "Published full abstract and stated parameter domain on the journal article page; PDF iframe not examined",
+        "method": "Object and domain comparison, including density distinction",
+        "title": "Minimal Automaton for Multiplying and Translating the Thue-Morse Set",
+        "trigger": "Plausible older stronger theorem with translation in title"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "84654aad-76e5-4532-89b2-379e4ee09c1d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact infinite-family classification answers an explicit natural slice of Moradi–Rampersad–Shallit Open Problem 2 on automaton state complexity, rather than an arbitrary finite sample. Mersenne shifts form the canonical predecessors to radix powers. The recurrence C_k=C_(k-1)+2F_(k+2), with a nontrivial disjointness mechanism and exact six-state deficit from the nearby successor shifts, explains structural behavior and supplies benchmarks for any all-c formula.",
+    "status": "PASS"
+  }
+}
