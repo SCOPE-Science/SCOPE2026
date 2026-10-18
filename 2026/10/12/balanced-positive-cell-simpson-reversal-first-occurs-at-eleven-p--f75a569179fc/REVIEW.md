@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The domain is finite and exhaustively parameterized. For each arm of size \(m\), positivity of all four stratum-by-outcome cells is exactly a positive composition of \(m\) into four parts, so the two-arm search has \(\binom{m-1}{3}^2\) tables. The verifier checks every table through \(m=11\) using exact cross multiplication, finding no reversal for \(m\le10\) and exactly four labeled reversals at \(m=11\). All four are reconstructed, grouped into two stratum-swap orbits, and rechecked by the binary cross-product association sign. The packaged verifier returns `VERIFY_OK`.
+## correctness
 
-Risk: the cutoff is not universal once zero cells or unequal pooled arm sizes are allowed.
+PASS
 
-## Originality
-**PASS.** Classical and modern literature already owns Simpson reversal, its causal/confounding interpretation, and general association-reversal characterizations. A Stanford Encyclopedia example even gives a balanced positive-cell reversal with 13 observations per group. An archived Brilliant challenge asks for the smallest strict Simpson example, but its formal domain permits zero cells and does not require equal pooled group totals. Searches for the constrained balanced positive-cell minimum, 11-per-arm formulation, exact witness rates, and first-layer census did not locate the 22-observation theorem.
+For two groups both of size m split across two labeled strata with all 8 binary cells strictly positive, an arm's four cells are exactly a positive composition of m. There are binom(m-1,3)^2 tables in total. Writing stratum-1 group sizes a,b and events x,y and stratum-2 events u,v, exact reversal is xb<ya, u(m-b)<v(m-a), x+u>y+v. Independently re-enumerated every positive-table case for each m=4,...,11 using direct integer loops and exact cross-products, obtaining reversal counts 0,0,0,0,0,0,0,4, first solution set [(3,8,1,3,5,2),(4,7,1,2,5,3),(7,4,5,3,1,2),(8,3,5,2,1,3)]. Swap of strata forms two orbits. Example 1/3<3/8,5/8<2/3 yet 6/11>5/11. Since m<4 is impossible under 4 positive cells per arm, total 22 is sharp. Positive cells ensure odds/risk ratio association sign tracks risk difference. This is a complete finite proof, not sampling.
 
-Risk: the public smallest-example challenge is close in spirit, and an unindexed solution could have studied the balanced positive-cell specialization.
+## originality
 
-## Value
-**PASS.** Equal pooled arm size is standard in comparative experiments, and positivity removes degenerate zero-rate examples. The result therefore answers a natural finite-design question: how small can a fully nondegenerate balanced dataset be before confounding can reverse every within-stratum treatment comparison? The complete first layer adds diagnostic value beyond a single example and improves the familiar balanced positive-cell example at 13 per group to the sharp 11-per-group boundary.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge original *constrained sharp minimum*: classical Simpson reversal and algebraic-geometric conditions on tables are prior art, and an encyclopedia displays a balanced positive table of 13 per arm. The checked full Linusson–Stamps paper Section 2 treats association/geometry, but not the strictly-positive equal-arm integer lower bound or four-table classification. No checked Resultary exact theorem implies the 11-per-arm sharpness; these statements are strictly stronger than mere feasibility.
+
+## value
+
+PASS
+
+A natural sharp finite boundary for an epidemiologically meaningful and nondegenerate 2x2x2 table design: equal arms, every cell positive and a genuine reversal. Exact minimal sample size and orbit representatives make a reusable test set and resolve a meaningful extremal construction; not an arbitrary slice selected only for a number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
