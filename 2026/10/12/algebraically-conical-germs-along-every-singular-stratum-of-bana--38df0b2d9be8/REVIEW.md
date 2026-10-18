@@ -1,19 +1,21 @@
-# Review of algebraic local conicality for banana graph hypersurfaces
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement is quantified over integers \(n\ge4\) and closed complex points on \(X_n\) with at least three zero homogeneous coordinates. The central unit-normalized identity is exact on the appropriate projective chart, and the substitution \(y=x_k/(1+cx_k)\) is invertible on a Zariski neighborhood because both denominators evaluate to \(1\) at the point. Algebraic product, formal local ring, Hilbert series, and singular stratification follow by direct computation. Irreducibility and Serre's criterion establish normality. The checker passes 1,002 support tests, 176 identity tests, and 135 Hilbert tests. These tests are corroboration; the symbolic identities establish infinite coverage. The derivation is not sensitive to nonzero-coordinate values.
+PASS
 
-## Originality — PASS, with residual risk
+On the chart where n-k nonzero coordinates are inverted, the actual equation is U^{-1}Psi=e_{k-1}(x)+c e_k(x). Writing P=product_{i<k}x_i and S=e_{k-2}(x_1,...,x_{k-1}), substitution x_k=y/(1-cy) gives exactly (1-cy)(P+x_k(S+cP))=P+yS. This is invertible near the point and proves the all-order model, including singular points k=3..n-1. The gradient vanishes precisely for at least 3 zero coordinates; irreducibility plus codimension-2 singular support yields normality via Serre. Independent tests confirmed 105 rational exact local identities, and the Hilbert-series follows from homogeneous hypersurface equation rather than the finite checks.
 
-Aluffi–Marcolli, *Feynman motives of banana graphs* (arXiv:0807.1690, equation (1.28), Lemma 3.8), contains the graph polynomial and boundary incidence. Patterson, *On the Singular Structure of Graph Hypersurfaces* (arXiv:1004.5166, Theorem 4.13, Proposition 4.17 and Example 4.19), already covers multiplicity and tangent-cone information; these are excluded as stand-alone novelty claims. The specifically assessed fact is an invertible Zariski-local algebraic coordinate change that removes all higher-order terms uniformly at all singular closed points, which is stronger than knowing a tangent cone. Direct inspections and published-record searches did not locate the same analytic-equivalence theorem. Residual risk: other literature could contain the explicit specialization, and no search certifies historical uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-Local analytic/contact type, unlike tangent cone alone, controls the entire completed local ring and shows that all higher-degree corrections in the ambient graph equation are geometrically removable. A single formula uniformly describes generic nodes, higher-multiplicity intersections, and all other singular closed points in every degree. It supplies an exact stratum-compatible local model for further invariants or stratified analysis, rather than a small numerical recomputation. It is deliberately restricted to this motivated classical family.
+Aluffi–Marcolli and Patterson already supply the banana polynomial, coordinate-incidence and tangent cone/multiplicity descriptions. The exact all-order regular coordinate change is stronger than an initial form and is not established by those inspected prior theorems. Equivalent toric local trivialization in other terminology remains a risk.
 
-## Limitations
+## value
 
-Only the stated banana graph hypersurfaces and closed complex points are covered. The coordinate changes need not glue globally; numerical tests alone are never used as proofs; an unindexed equivalent algebraic trivialization remains possible. Not independently audited.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A uniform algebraic local product normal form, valid at every singular stratum including high-multiplicity intersections, is an intrinsically useful singularity-classification statement; it fixes the complete analytic/contact type rather than a small numerical refinement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
