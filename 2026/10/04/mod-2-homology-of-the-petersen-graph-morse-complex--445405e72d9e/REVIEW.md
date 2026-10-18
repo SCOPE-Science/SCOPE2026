@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The graph, primitive vectors, compatibility condition, and acyclicity condition are explicit. For one-dimensional complexes, a closed \(V\)-path is exactly a directed cycle in the selected partial orientation, so the finite face model is equivalent to the ordinary Morse complex. The complete face census is independently reproduced by principal minors of the Petersen Laplacian via the matrix-forest theorem. The reduced mod-2 boundary ranks are computed from the full face set twice with opposite pivot and traversal conventions, and the Betti numbers satisfy the reduced Euler-characteristic check. The claim is deliberately limited to \(\mathbb F_2\)-homology.
+## correctness
 
-## Originality
-PASS. The closest ordinary-Morse-complex literature checked gives family-specific homotopy calculations and general connectivity theorems, not the Petersen Betti vector. A recent overview of strong discrete Morse matchings explicitly distinguishes its strong subcomplex from the ordinary Morse complex and lists the comparatively small collection of ordinary cases with known homotopy types; it does not include the Petersen graph. Searches using Petersen, discrete-Morse, gradient-vector-field, rooted-forest, and exact numerical aliases found no statement implying these ranks. Residual risk remains for non-indexed computations or unpublished tables.
+PASS
 
-## Value
-PASS. The Petersen graph is a canonical symmetric cubic test graph, while exact topology of ordinary Morse complexes is known only in limited families. The calculation gives a natural exact invariant beyond connectivity: nonzero reduced mod-2 homology occurs in two adjacent top dimensions, with ranks \(38\) and \(294\). This supplies a reproducible benchmark for future structural results and computations on Morse complexes without claiming a broader theorem than the evidence supports.
+The graph has 15 edges/30 oriented incidences and Morse faces are rooted forests. A separately recomputed Petersen Laplacian coefficient expansion (1+2t)^5(1+5t)^4 yields exactly the face vector (1,30,390,2880,13305,39882,77640,94800,66000,20000). The pinned artifacts/verify.py blob f58933d4a3c4a8e59cbe743337f8c1f1129a11f2 explicitly builds all 4^10 assignments and F2 augmented boundary ranks (1,29,361,2519,10786,29096,48544,46256,19706) with opposite pivot conventions; inspecting its boundary assembly and rank algorithm shows that those exact ranks imply Betti 38 and 294 in dimensions 7,8. The later fully read integral wedge computation independently entails the same mod-two ranks. The entire 314928-face rank routine was reviewed but not rerun in this execution; full numerical rerun remains a reproducibility limitation, not an asserted alternative proof.
 
-## Closest literature and limitations
-Donovan–Lin–Scoville (arXiv:1909.11440v1) compute ordinary Morse complexes for selected families and give structural reductions. Scoville–Zaremsky (arXiv:2004.10481v1) provide connectivity results. Knudson–Owens-White (arXiv:2609.06844v1) treat a different strong-Morse subcomplex and summarize the narrow range of ordinary cases whose homotopy types are known. None of these checked statements implies the Petersen mod-2 Betti vector. The present result is finite, graph-specific, and does not determine integral homology or homotopy type.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+No source published before the 2026-10-04 finding was found covering its *ordinary* Petersen Morse-complex F2 homology. Scoville-Zaremsky gives connectivity bounds; Donovan-Lin-Scoville gives other graph families. A 2026-10-11 published integral wedge theorem does imply the exact pair but explicitly recognizes the 2026-10-04 mod-two result as earlier prior work; later implication is not retroactive prior art. The similarly named Petersen graph configuration-space Morse calculation concerns a different object.
+
+## value
+
+PASS
+
+The Petersen graph is a canonical cubic, nonplanar, vertex-transitive graph, and full F2 homology of its ordinary Morse complex is a natural exact invariant not determined by connectivity theorems. The later integral wedge computation explicitly relies on/preserves these Betti numbers, demonstrating use as a meaningful finite benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
