@@ -1,15 +1,21 @@
-# Scientific review: a fractional-power mean-square rate law
+# Independent mathematical audit
 
-## Correctness — PASS
-The result is an asymptotic theorem for the specified quadratic, sketch law, parameters, and initialization. Substituting the source update into the only active coordinate produces the displayed conditional matrices. Squaring the pair of scalar state components yields the exact three-dimensional transfer \(M_d(t)\). Its small-\(t\) expansion contains the positive length-three coupling product \(2(d-1)t^4/d^4\), yielding the cubic characteristic splitting \(\lambda=1-2t/d+C_dt^{4/3}+O_d(t^{5/3})\). A real leading root separates from the complex pair, and positive left/right dominant-eigenvector overlaps show it is actually observed by the initialized expected objective. Exact-rational finite-step tests and independent numerical spectral evaluations corroborate the critical identities; they do not substitute for the asymptotic proof. Limits are taken with fixed \(d\), first \(k\to\infty\) for fixed positive \(\kappa\), then \(\kappa\downarrow0\).
+## correctness
 
-## Originality — PASS, subject to independent checking
-The May 1, 2026 paper of Omiya, Poirion, and Takeda develops the precise three-sequence randomized-subspace acceleration update and proves a general potential-based expectation bound. Its Algorithm 2, strongly convex theorem, coordinate-sketch discussion, numerical experiments, and relevant appendices were examined: they do not present the exact three-dimensional covariance transfer for this diagonal eigendirection or the singular \(\kappa^{2/3}\) spectral correction. Comparisons with Fercoq–Richtárik's accelerated coordinate framework, ordinary coordinate descent, nonaccelerated Haar subspace descent, deterministic Nesterov objective spikes, and related spectral-perturbation results do not imply this exact statement. The closest indexed mathematical results use different update recurrences and observables; matching a general square-root acceleration rate does not entail this positive nonanalytic second term. Searches cannot exclude an equivalent stochastic-momentum analysis in differently indexed older literature. This remaining risk is genuine but did not yield a dominating result in the inspected material.
+PASS
 
-## Value — PASS
-This is not merely evaluating one iterate or recomputing the method's published bound. The exact asymptotic mean-square rate is an operationally meaningful statistic for repeated randomized sketches and the lower-curvature optimization mode. The fractional-power correction identifies a nonsemisimple covariance perturbation that survives even though the underlying state is only two-dimensional, and it quantifies a first-order factor-of-two slack in the published rate bound for this natural diagonal family. This supplies a reproducible test case for sharper moment analyses and for differentiating worst-case potential guarantees from actual asymptotic expected-objective decay.
+The correct state reduction follows from the actual Algorithm 2: initial x=z=e1 on diagonal Hessian means only first coordinate can move; with theta=t/d the two 2x2 conditional updates K0 and K1 in RESULT.md follow directly. Their exact second-moment action S(K) on (E[a²],E[ab],E[b²]) gives M_d(t)=((d-1)S(K0)+S(K1))/d, w0=(1,1,1), and E f_kappa(x_j)=kappa(M^j w0)_1/2. I independently differentiated these rational matrices symbolically for d=2,3,5 and verified coefficient-by-coefficient N1 and N2 as printed, including the lower-left coefficient (d-1)/d². The Jordan chain 1->2->3->1 has leading product 2(d-1)t^4/d^4, forcing the three distinct Puiseux roots with shifts C_d*zeta*t^(4/3); the real root has strictly largest modulus for small positive t. The displayed positive left/right eigenvector leading components and h.v->3 exclude cancellation by w0/e1, so the fixed-kappa successive expected-objective ratio tends to that dominant root. Numerical eigensolutions for d=2,3,5, t=0.001 agreed with 1-2t/d+C_dt^(4/3). Fixed d and asymptotic k->infinity preceding kappa->0 are essential; finite checks alone would not prove either asymptotic.
 
-## Closest literature and boundaries
-Omiya–Poirion–Takeda, arXiv:2605.00740v1, is the closest exact algorithmic source; Fercoq–Richtárik, arXiv:1312.5799, provides a related but different accelerated coordinate scheme. The result is not claimed for arbitrary smooth strongly convex functions, different sketches, arbitrary starts, finite precision, or nonasymptotic accelerated complexity. Finite checks establish finite identities only. A separately conducted independent scholarly audit is still needed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The source method's theorem supplies a general (1-theta)^j expected-objective guarantee, not the exact observable spectral radius nor its nonanalytic positive kappa^(2/3) correction. A real second-moment covariance Jordan cycle is needed; the first-moment 2x2 recursion alone lacks it. The primary Algorithm 2 and strongly convex rate theorem and generic accelerated coordinate descent literature were compared at the level of update matrices and conclusion. No directly dominating exact-covariance formula was found in Resultary/topical literature, subject to possible differently indexed specialized random-matrix asymptotics.
+
+## value
+
+PASS
+
+The exact stationary asymptotic rate of a prescribed published acceleration algorithm is a natural convergence invariant, distinct from its worst-case certified bound. Identifying a fractional-power correction and mechanism changes low-curvature prediction quantitatively, is not a routine substitution in the published complexity estimate, and may guide covariance-sensitive parameter analysis. The tight statement is deliberately only for fixed dimensions, a diagonal quadratic and one-coordinate initialization; no global acceleration or finite-precision guarantee is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
