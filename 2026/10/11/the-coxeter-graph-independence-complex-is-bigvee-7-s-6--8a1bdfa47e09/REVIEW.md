@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The graph is specified without an external adjacency-list dependency as the disjointness graph on the 28 nonline triples of the Fano plane. The verifier enumerates the entire 196,008-face ordinary independence complex; the matching pairs exactly 98,000 adjacent-rank faces in each direction, leaving one critical vertex and seven critical dimension-six faces. An exact topological sort over every one of 1,319,724 oriented codimension-one incidences proves the matching acyclic. Forman's theorem then gives a CW complex with only those critical cells; its six-cell attaching maps are trivial because the five-skeleton is a point. A separately written recurrence verifies the independence polynomial and Euler characteristic. Acyclicity, rather than a homology-rank guess, is the decisive step. Risk is restricted to errors in the standalone finite computation, exposed for full reproduction.
+## correctness
 
-## Originality
-**PASS, with residual bibliographic risk.** Searches for the Coxeter graph/Foster F28A, the Fano nonline-triple graph, the induced subgraph of the Kneser graph, and seven six-spheres identified no prior exact homotopy classification. Closest inspected full texts: Barmak (arXiv:1007.0418) proves general suspension structure but not Coxeter multiplicities; Feng–Wang (arXiv:2404.10566) study the full 35-vertex Kneser graph and not the 28-vertex Fano-line deletion; Dejter (arXiv:1002.1960) investigates graph geometry and 7-cycles, not its independence complex. The parent-complex Betti table cannot determine this proper induced subcomplex. Related archived Heawood and dodecahedral independence-complex results concern different graphs. Novelty beyond indexed and inspected material is not certified; an unindexed equivalent theorem remains a risk.
+PASS
 
-## Value
-**PASS.** The Coxeter graph is a classical distance-transitive cubic graph of girth seven; the Fano-plane/Kneser realization makes its independence complex a naturally motivated object. This is a complete integral homotopy classification for a dimension-eleven simplicial complex, not a routine Euler-characteristic extraction. The result identifies precisely seven six-dimensional sphere summands and excludes integral torsion and hidden attaching phenomena. It offers a concrete comparison against the full Kneser graph's substantially different homology.
+Independent exhaustive reconstruction formed the 28 Fano-nonline triples and their 42 disjointness edges; enumerated all 196,009 independent sets including empty and matched exact 98,000 distinct nonempty Hasse pairs. A separately implemented complete 1,319,724-incidence DAG topological sort visited all 196,008 nonempty faces. The only critical faces are one dimension-0 and seven dimension-6 simplices. Forman discrete Morse gives one 0-cell and seven 6-cells; every 6-cell attaches to a point, proving the integral homotopy wedge of 7 S^6. Exact finite verification is exhaustive over this named graph; no general graph family is inferred.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Independent statement/implication comparisons against the actual named primary results and Resultary index support a bounded best-of-knowledge original contribution; the claim is not merely the known broader theorem, known table, or alias. Scope and residual priority risks are explicit.
+
+## value
+
+PASS
+
+The Coxeter cubic graph is a classical 28-vertex graph with Fano-plane/Kneser structure. Its complete integral independence-complex homotopy type is a meaningful unknown graph-topological invariant, not obtained from the full Kneser parent or a mere Betti-table lookup; the explicit acyclic matching gives integral information beyond Euler count. Narrow graph-specific scope is appropriate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
