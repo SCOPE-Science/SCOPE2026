@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof writes the exact distance multiset for every omitted vertex in terms of the two omission index sets. There are only two possible types on each shore, forcing at most two omissions per shore; the equal-shore cases are then eliminated by an explicit cross-shore collision. The surviving five omission patterns are both necessary and sufficient. Their counts give the claimed minimum and the complete size enumerator. A direct graph-distance verifier checks every subset for \(3\le n\le8\).
+## correctness
 
-## Originality
-PASS. Searches covered crown, matching-deleted-biclique, bipartite-Kneser, bipartite-complement, basis-count, and size-enumerator formulations. The closest same-invariant published result is the complete-multipartite classification, which does not apply because \(\operatorname{Cr}_n\) is not complete multipartite for \(n\ge3\). The regular diameter-two theorem gives the undeleted \(K_{n,n}\) baseline but not the diameter-three crown value. The principal residual risk is an older equivalent result indexed under a different name for crown graphs.
+PASS
 
-## Value
-PASS. Crown graphs are the canonical one-factor deletion of balanced bicliques. The theorem gives the exact invariant, every resolving set, every basis, and a sharp perturbation comparison with \(K_{n,n}\). The missing \(2n-2\) cardinality also exposes a nonmonotone feature of outer multiset resolving sets that is invisible from the minimum value alone.
+For n>=3, the crown graph has distance 1 between nonpaired opposite-shore vertices, 2 within a shore, and 3 across the missing matched edge. For each omitted a_i, the selected-vertex distance multiset has n-x copies of 2 and, depending on i in Y, either n-y copies of 1 or n-y-1 copies of 1 plus one 3; the symmetric expression holds for b_j. Each shore therefore admits at most two omissions, and two require exactly one mate omitted across the shore. When x=y=1 the two omitted vertices have identical multisets; when x=y=2, the required intersection=1 also produces a cross-shore collision. Different x,y give different 2-counts, leaving precisely (0,0),(1,0),(0,1),(2,1),(1,2), with the latter requiring intersection=1. Counting omitted indexed pairs gives odim(Cr_n)=2n-3, 2n(n-1) bases and the exact three-term set enumerator. Independently implemented exhaustive graph-distance/subset checks n=3,4,5,6 confirmed all cases, including the absent size 2n-2;  finite checks do not prove the infinite theorem.
 
-## Closest literature and limitations
-Peng, arXiv:2609.20073v1, is the recent same-invariant literature lead and has primary MSC \(05C12\). Klavžar--Kuziak--Yero, arXiv:2207.06834v1, gives the regular diameter-two extremal theorem and complete multipartite examples. The latter was inspected in full text; it contains no crown or matching-deletion theorem. The recent toroidal-grid full text was inaccessible during this review, so only its public metadata and abstract were used for scope, date, and MSC. The finite computation is supportive, not the infinite proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The equal-distance-multiset classification is not implied by the existing multipartite invariant because Cr_n has missing cross edges, diameter 3, and contains a non-multipartite adjacency pattern; fixed complete-bipartite baselines and edge-metric or odd-coloring results are different invariants. The primary outer-multiset literature states diameter-two extremals and multipartite families, not this all-set classification. Best-of-knowledge originality survives with indexing/alias risk.
+
+## value
+
+PASS
+
+Crown graphs are a standard symmetric one-factor-deletion model. An exact full resolving-set classification, base count, and forbidden size 2n-2 answer a natural identification invariant under the smallest structured change to a biclique; the sharp dimension drop 2 from K_{n,n} gives a perturbation boundary beyond a bare small-number computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

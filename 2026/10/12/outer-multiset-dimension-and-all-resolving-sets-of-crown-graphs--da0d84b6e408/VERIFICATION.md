@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof is primary. It derives every possible distance multiset from the two omission index sets and proves the classification for all \(n\ge3\).
+# Independent mathematical audit
 
-The standalone script `verify.py` independently constructs the graph, computes all-pairs shortest-path distances by breadth-first search, and checks every subset directly from the definition. It compares this direct test with the theorem's structural criterion for every \(n\) from \(3\) through \(8\), verifies the exact size enumerator, and checks the minimum and basis count.
+## correctness
 
-The expected replay summary is:
+PASS
 
-`ALL CHECKS PASSED; orders=3..8; subsets=87360; bases=332`
+For n>=3, the crown graph has distance 1 between nonpaired opposite-shore vertices, 2 within a shore, and 3 across the missing matched edge. For each omitted a_i, the selected-vertex distance multiset has n-x copies of 2 and, depending on i in Y, either n-y copies of 1 or n-y-1 copies of 1 plus one 3; the symmetric expression holds for b_j. Each shore therefore admits at most two omissions, and two require exactly one mate omitted across the shore. When x=y=1 the two omitted vertices have identical multisets; when x=y=2, the required intersection=1 also produces a cross-shore collision. Different x,y give different 2-counts, leaving precisely (0,0),(1,0),(0,1),(2,1),(1,2), with the latter requiring intersection=1. Counting omitted indexed pairs gives odim(Cr_n)=2n-3, 2n(n-1) bases and the exact three-term set enumerator. Independently implemented exhaustive graph-distance/subset checks n=3,4,5,6 confirmed all cases, including the absent size 2n-2;  finite checks do not prove the infinite theorem.
 
-The finite range is a stress test only and is not an exhaustive proof for arbitrary \(n\). The recent toroidal-grid source's full text was unavailable during the literature check; this is an originality-access limitation, not a correctness dependency. No independent audit has been performed.
+## originality
+
+PASS
+
+The equal-distance-multiset classification is not implied by the existing multipartite invariant because Cr_n has missing cross edges, diameter 3, and contains a non-multipartite adjacency pattern; fixed complete-bipartite baselines and edge-metric or odd-coloring results are different invariants. The primary outer-multiset literature states diameter-two extremals and multipartite families, not this all-set classification. Best-of-knowledge originality survives with indexing/alias risk.
+
+## value
+
+PASS
+
+Crown graphs are a standard symmetric one-factor-deletion model. An exact full resolving-set classification, base count, and forbidden size 2n-2 answer a natural identification invariant under the smallest structured change to a biclique; the sharp dimension drop 2 from K_{n,n} gives a perturbation boundary beyond a bare small-number computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

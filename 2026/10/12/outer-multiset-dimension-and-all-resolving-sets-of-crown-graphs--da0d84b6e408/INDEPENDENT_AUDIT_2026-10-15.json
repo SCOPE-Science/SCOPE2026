@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T04:14:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=3, the crown graph has distance 1 between nonpaired opposite-shore vertices, 2 within a shore, and 3 across the missing matched edge. For each omitted a_i, the selected-vertex distance multiset has n-x copies of 2 and, depending on i in Y, either n-y copies of 1 or n-y-1 copies of 1 plus one 3; the symmetric expression holds for b_j. Each shore therefore admits at most two omissions, and two require exactly one mate omitted across the shore. When x=y=1 the two omitted vertices have identical multisets; when x=y=2, the required intersection=1 also produces a cross-shore collision. Different x,y give different 2-counts, leaving precisely (0,0),(1,0),(0,1),(2,1),(1,2), with the latter requiring intersection=1. Counting omitted indexed pairs gives odim(Cr_n)=2n-3, 2n(n-1) bases and the exact three-term set enumerator. Independently implemented exhaustive graph-distance/subset checks n=3,4,5,6 confirmed all cases, including the absent size 2n-2;  finite checks do not prove the infinite theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published Resultary complete-multipartite theorem has odim=N-#distinct part sizes and different all-set omission rule, only for complete multipartite graphs.",
+          "For n>=3 the crown is not complete multipartite: among the same shores nonedges and deleted opposite pairs, nonadjacency is not a transitive equivalence relation; its diameter is 3."
+        ],
+        "reasoning": "Neither the complete-multipartite theorem nor the regular diameter<=2 extremal theorem covers the crown case, so they cannot imply its size distribution.",
+        "searches": [
+          "outer multiset dimension crown graph complete bipartite graph minus perfect matching all outer resolving sets dimension 2n-3",
+          "https://github.com/Resultary/2026/blob/main/2026/9/18/SCOPE-outer-multiset-dimension-complete-multipartite--ea7c8ea4c9fd/RESULT.md",
+          "arXiv:2207.06834 Klavzar Kuziak Yero regular diameter 2 theorem"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1902.03017",
+        "https://arxiv.org/abs/2207.06834",
+        "https://github.com/Resultary/2026/blob/main/2026/9/18/SCOPE-outer-multiset-dimension-complete-multipartite--ea7c8ea4c9fd/RESULT.md",
+        "https://arxiv.org/abs/2609.20073"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The existing extreme N-1 result gives odim(K_{n,n})=2n-1, whereas the target odim(Cr_n)=2n-3.",
+          "Resultary family theorem excludes Cr_n for n>=3."
+        ],
+        "reasoning": "The prior results cover the undeleted biclique and other regular diameter-two or multipartite graphs, not a post-deletion resolving-set classification. Both remain credited as baselines.",
+        "searches": [
+          "Klavzar Kuziak Yero 2023 Thm 2.1 regular diameter <=2",
+          "Resultary complete multipartite full RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cr_n=K_{n,n} minus a one-factor is also bipartite Kneser H(n,1); source distance representation is by selected landmarks, not ordinary/edge metric.",
+          "Gil-Pons et al. arXiv:1902.03017 introduced outer-multiset dimension; Resultary closest crown items use edge metric or odd coloring."
+        ],
+        "reasoning": "The tested aliases retain precisely the same pairs and metric multisets. Retrieved publications under crown-graph labels optimize different parameters; no equivalent all-n outer-multiset classification in checked material.",
+        "searches": [
+          "outer multiset dimension crown graph complete bipartite graph minus perfect matching all outer resolving sets dimension 2n-3",
+          "\"outer multiset dimension\" \"bipartite Kneser\" \"H(n,1)\"",
+          "\"outer multiset dimension\" \"crown graph\" 2n-3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned complete-multipartite record 2026/9/18/SCOPE-outer-multiset-dimension-complete-multipartite--ea7c8ea4c9fd and crown-specific records for edge metric/odd coloring, but no outer-multiset crown table.",
+          "Independently checked n=3..6 finite counts match 2n(n-1), but finite checks are not an existing literature table."
+        ],
+        "reasoning": "No checked exact table subsumes all n or the resolving-set criteria; a database miss does not itself prove novelty.",
+        "searches": [
+          "outer multiset dimension crown graph complete bipartite graph minus perfect matching all outer resolving sets dimension 2n-3",
+          "Resultary outer multiset crown graph exact basis count size enumerator"
+        ]
+      },
+      "rationale": "The equal-distance-multiset classification is not implied by the existing multipartite invariant because Cr_n has missing cross edges, diameter 3, and contains a non-multipartite adjacency pattern; fixed complete-bipartite baselines and edge-metric or odd-coloring results are different invariants. The primary outer-multiset literature states diameter-two extremals and multipartite families, not this all-set classification. Best-of-knowledge originality survives with indexing/alias risk.",
+      "residual_risks": [
+        "Crown graph may be indexed as bipartite Kneser H(n,1), complement of a matching, or by other metric-dimension variant. Search failure cannot rule out poorly indexed prior exact tables.",
+        "Toroidal-grid recent full text not inspected, but its advertised graph family is distinct."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_CROWN",
+          "evidence": "Theorems concern diameter<=2 or complete multipartite graphs; crown graphs have diameter 3 and are not multipartite.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.06834",
+          "material_read": "Primary arXiv full text, theorem for order-minus-one and complete multipartite discussion",
+          "method": "Primary arXiv PDF inspected; compared hypotheses and graph families",
+          "title": "Further contributions on the outer multiset dimension of graphs",
+          "trigger": "Same invariant, regular diameter-two extremality and multipartite examples"
+        },
+        {
+          "assessment": "NOT_COVERING_CROWN",
+          "evidence": "Full-family theorem applies only to complete multipartite graphs, not Cr_n.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/18/SCOPE-outer-multiset-dimension-complete-multipartite--ea7c8ea4c9fd/RESULT.md",
+          "material_read": "Entire published RESULT.md: finding, full proof, assumptions and references",
+          "method": "GitHub repository file at Resultary/2026 checked directly",
+          "title": "Outer multiset dimension of arbitrary complete multipartite graphs",
+          "trigger": "Closest Resultary published same-invariant family theorem"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH_FAMILY_LIMITED_ACCESS",
+          "evidence": "Toroidal grids C_s x C_t; no verified full-text noncoverage claim. ",
+          "identifier_or_url": "https://arxiv.org/abs/2609.20073",
+          "material_read": "Metadata/abstract and scope; full article not checked in this run",
+          "method": "Search result/accessible abstract",
+          "title": "The Outer Multiset Dimension of Toroidal Grids",
+          "trigger": "Recent same-invariant publication and bibliographic comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Crown graphs are a standard symmetric one-factor-deletion model. An exact full resolving-set classification, base count, and forbidden size 2n-2 answer a natural identification invariant under the smallest structured change to a biclique; the sharp dimension drop 2 from K_{n,n} gives a perturbation boundary beyond a bare small-number computation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1902.03017",
+    "https://arxiv.org/abs/2207.06834",
+    "https://github.com/Resultary/2026/blob/main/2026/9/18/SCOPE-outer-multiset-dimension-complete-multipartite--ea7c8ea4c9fd/RESULT.md",
+    "https://arxiv.org/abs/2609.20073"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Crown graph may be indexed as bipartite Kneser H(n,1), complement of a matching, or by other metric-dimension variant. Search failure cannot rule out poorly indexed prior exact tables.",
+    "Toroidal-grid recent full text not inspected, but its advertised graph family is distinct."
+  ],
+  "schema_version": 1
+}
