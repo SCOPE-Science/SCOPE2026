@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof starts from the exact PSB identity \(R^+=(I-pp^T)R(I-pp^T)\). Orthogonality makes successive coordinate projectors commute, yielding the exact masked error matrix. Positive semidefiniteness of \(LI-A\) proves that zero deficits are already kernel directions. Hence exactly the positive deficits require updates. On a quadratic the Hessian-variation correction disappears, so the source multiple scheme contributes \(t+1\) greedy updates per completed outer iteration. The ceiling formula and subsequent exact Newton step follow by counting, and a diagonal family makes the outer-step bound sharp.
+PASS
 
-## Originality
+For R=G-A, the exact PSB update in a unit basis direction p is (I-pp^T)R(I-pp^T); commuting coordinate projections give R_S=P_{S^c}(LI-A)P_{S^c}. Since LI-A is positive semidefinite, a zero diagonal deficit entails its entire row/column vanish. Thus greedy positive scores are invariant until chosen, exactly s positive directions require updates, and quadratic Hessian variation has M=0. The primary MGPSB algorithm (36) performs t internal plus one final refinement per outer step, so G_q=A after ceil(s/(t+1)) steps (q=0 if s=0); the following primal solve is exact. In a diagonal Hessian with distinct positive deficits, error in the last selected coordinate persists before the final Newton step, establishing sharp worst-case count. Independently reconstructed exact-rational non-diagonal projection mask and s=5,t=1 batching example; no inference from finite tests alone.
 
-PASS. The primary paper, the earlier greedy-PSB finite-termination paper, a recent unified quasi-Newton termination framework, and the cited multiple-greedy precursor were compared by statements and implications. None states the invariant initial-score ordering, exact count by positive Rayleigh deficits, sharp \(\lceil s/(t+1)\rceil\) batching cutoff, or invariance of total nontrivial PSB update count. Targeted published-result searches found no implication-equivalent record.
+## originality
 
-The residual originality risk is an equivalent observation under different quasi-Newton terminology. No such result was found in the inspected sources.
+PASS
 
-## Value
+The source paper combines a single-update quadratic finite termination theorem with a different general nonlinear multi-update rate theorem. Its equations (2),(3),(36) do not give the invariant initial deficit ordering, exact s reduction or sharp multi-update outer-iteration count. The exact-specific algorithmic count is not entailed by a generic at-most-n termination statement. Relevant preprints and database aliases were compared.
 
-PASS. The result directly analyzes the paper's proposed multiple-update mechanism on the standard quadratic model where quasi-Newton identification is most transparent. It gives an exact finite complexity law separating outer solves from matrix updates and proves that the extra batch work changes only how the same finite identification workload is packaged. This sharpens the interpretation of the source's faster-rate claim without asserting a nonlinear or wall-clock speedup.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The all-dimension exact identification law separates costly outer primal iterations from matrix refinements, determines when zero initial deficit directions need no work, and supplies a sharp worst-case solve count. This is a motivated exact complexity refinement for an actually published quasi-Newton variant, not just a restatement that PSB converges finitely.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

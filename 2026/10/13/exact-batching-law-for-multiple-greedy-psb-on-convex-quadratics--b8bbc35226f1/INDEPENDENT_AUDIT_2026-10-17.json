@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T11:13:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For R=G-A, the exact PSB update in a unit basis direction p is (I-pp^T)R(I-pp^T); commuting coordinate projections give R_S=P_{S^c}(LI-A)P_{S^c}. Since LI-A is positive semidefinite, a zero diagonal deficit entails its entire row/column vanish. Thus greedy positive scores are invariant until chosen, exactly s positive directions require updates, and quadratic Hessian variation has M=0. The primary MGPSB algorithm (36) performs t internal plus one final refinement per outer step, so G_q=A after ceil(s/(t+1)) steps (q=0 if s=0); the following primal solve is exact. In a diagonal Hessian with distinct positive deficits, error in the last selected coordinate persists before the final Newton step, establishing sharp worst-case count. Independently reconstructed exact-rational non-diagonal projection mask and s=5,t=1 batching example; no inference from finite tests alone.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Du–Liu Lemma 3.2 proves recovery within n *single* greedy updates; Ji–Dai considers a residual-vector greedy score; Ji 2025 discusses broader sufficient directional conditions."
+        ],
+        "reasoning": "The broader termination frameworks establish finite recovery but do not imply the sharp ceil(s/(t+1)) count for the source exact scheme and initialization.",
+        "searches": [
+          "10.1007/s10589-023-00495-y greedy PSB finite termination",
+          "arXiv:2508.10211 projection operator quasi Newton quadratic termination",
+          "multiple greedy Powell symmetric Broyden PSB exact batching count quadratic Hessian identification coordinate deficits"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1080/02331934.2026.2615215 (primary PSB equations, quadratic Lemma 3.2 and algorithm (36))",
+        "DOI:10.1007/s10589-023-00495-y (2023 predecessor public metadata)",
+        "arXiv:2508.10211 (projection-based framework)",
+        "Resultary search: multiple greedy Powell symmetric Broyden PSB exact batching count quadratic Hessian identification coordinate deficits"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original full author-posted text gives an n-step quadratic theorem and nonlinear rate only. The present formula refines n to the number of positive initial diagonal deficits and exactly tracks batches."
+        ],
+        "reasoning": "Prior finite termination cannot alone dictate the update order, the exact s count or outer step sharpness, and hence does not imply the final claim.",
+        "searches": [
+          "Min Du Zexian Liu 2026 primary full text Theorem 3.1 Lemma 3.2 scheme (36)",
+          "Ji Dai greedy PSB 2023 Theorem 4",
+          "multiple greedy Powell symmetric Broyden PSB exact batching count quadratic Hessian identification coordinate deficits"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published greedy selector maximizes u^T(G-A)u/(u^Tu). Its multiple scheme performs t internal refinements and one after the primal step, but has no fixed-deficit ordering theorem."
+        ],
+        "reasoning": "Because the selected projectors commute, this particular algorithm admits a stronger exact order-and-count invariant; the searched aliases did not locate an equivalent complete result.",
+        "searches": [
+          "multiple greedy Powell symmetric Broyden PSB exact batching count quadratic Hessian identification coordinate deficits",
+          "10.1080/02331934.2026.2615215 equations (2),(3),(36); exact PSB batching finite termination"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No direct result in the semantic research search reports the s-deficit batching identity; this claim is not a small numerical table or benchmark."
+        ],
+        "reasoning": "The invariant is an exact symbolic algorithmic law; the search for formula aliases did not surface an already tabulated special case.",
+        "searches": [
+          "multiple greedy Powell symmetric Broyden PSB exact batching count quadratic Hessian identification coordinate deficits",
+          "PSB greedy coordinate deficit Hessian recovery exact count table"
+        ]
+      },
+      "rationale": "The source paper combines a single-update quadratic finite termination theorem with a different general nonlinear multi-update rate theorem. Its equations (2),(3),(36) do not give the invariant initial deficit ordering, exact s reduction or sharp multi-update outer-iteration count. The exact-specific algorithmic count is not entailed by a generic at-most-n termination statement. Relevant preprints and database aliases were compared.",
+      "residual_risks": [
+        "Same exact batching law might be an unstated corollary or appear in older loosely indexed projection-update analyses.",
+        "Quadratic constant Hessian and fixed orthogonal greedy basis are essential; nonlinear identification is not claimed.",
+        "Counted outer solves and PSB matrix refinements do not by themselves prove a wall-clock advantage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_SINGLE_UPDATE_AND_MULTIPLE_SCHEME_NOT_EXACT_BATCH_IDENTIFICATION",
+          "evidence": "Lemma 3.2 establishes G_k=A for some k≤n; scheme (36) lists t internal updates and a final update after x_{k+1}; Theorem 5.1 bounds local rates.",
+          "identifier_or_url": "DOI:10.1080/02331934.2026.2615215",
+          "material_read": "Author-posted complete article text; inspected PSB equation (2), greedy rule (3), quadratic Lemma 3.2 proof around equation (10), multiple strategy (33), explicit algorithm (36), Theorem 5.1 formulation.",
+          "method": "Open lawful author-posted full text at https://www.researchgate.net/publication/399910745_The_multiple_greedy_PSB_method_with_faster_superlinear_convergence_rate",
+          "title": "The multiple greedy PSB method with faster superlinear convergence rate",
+          "trigger": "The precise algorithm, projection rule and possible previous quadratic termination result"
+        },
+        {
+          "assessment": "BROADER_FRAMEWORK_WITH_READING_LIMIT",
+          "evidence": "General projection-based sufficient termination does not supply a read source-specific greedy ordering, so implicit corollary overlap remains a risk.",
+          "identifier_or_url": "arXiv:2508.10211",
+          "material_read": "Abstract and available public description of sufficient image/projection conditions and PSB-class quadratic termination; complete proof not independently read.",
+          "method": "Open arXiv bibliographic and technical-summary inspection",
+          "title": "Improving Quasi-Newton Methods via Image and Projection Operators",
+          "trigger": "General PSB quadratic termination may imply the new count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The all-dimension exact identification law separates costly outer primal iterations from matrix refinements, determines when zero initial deficit directions need no work, and supplies a sharp worst-case solve count. This is a motivated exact complexity refinement for an actually published quasi-Newton variant, not just a restatement that PSB converges finitely.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.1080/02331934.2026.2615215 (primary PSB equations, quadratic Lemma 3.2 and algorithm (36))",
+    "DOI:10.1007/s10589-023-00495-y (2023 predecessor public metadata)",
+    "arXiv:2508.10211 (projection-based framework)",
+    "Resultary search: multiple greedy Powell symmetric Broyden PSB exact batching count quadratic Hessian identification coordinate deficits"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Same exact batching law might be an unstated corollary or appear in older loosely indexed projection-update analyses.",
+    "Quadratic constant Hessian and fixed orthogonal greedy basis are essential; nonlinear identification is not claimed.",
+    "Counted outer solves and PSB matrix refinements do not by themselves prove a wall-clock advantage."
+  ],
+  "residual_risks": [
+    "Same exact batching law might be an unstated corollary or appear in older loosely indexed projection-update analyses.",
+    "Quadratic constant Hessian and fixed orthogonal greedy basis are essential; nonlinear identification is not claimed.",
+    "Counted outer solves and PSB matrix refinements do not by themselves prove a wall-clock advantage."
+  ],
+  "schema_version": 1
+}
