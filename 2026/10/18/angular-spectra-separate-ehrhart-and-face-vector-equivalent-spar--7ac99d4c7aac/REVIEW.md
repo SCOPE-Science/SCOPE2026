@@ -1,0 +1,15 @@
+# Review of angular spectra for sparse-paving matroid base polytopes
+
+## Correctness
+**PASS.** The stable-set hypothesis in the Johnson graph guarantees that every one-exchange neighbor of a deleted rank-set is a surviving basis. The basis-exchange proof and strict-score runner-up argument establish the Gaussian angle formula exactly. Double-counting Johnson neighbors yields the second collision formula; triple-neighbor incidence yields complete angle multiplicities for the explicit rank-three pair. The third finite difference of a positive-power function proves strict separation at all powers greater than two. A full-dimensionality argument validates the intrinsic normal-cone interpretation and the connected-matroid hypothesis needed for the established face-vector result. Exact rational checks and direct maximization over all coordinate orders for the first two dimensions corroborate the proof; finite tests are not substituted for universal reasoning.
+
+## Originality
+**PASS, subject to bibliographic limitations.** The hypersimplex deletion description, sparse-paving Ehrhart equivalence, matroid greedy maximization, and Ferroni--Schröter's dependence of the face vector on the number of deleted bases and their distance-two pair count are established prior work. They are not claimed as new. The evaluated contribution is the Gaussian solid-angle formula, the complete incidence-based angular distribution, and the infinite pair having identical Tutte and Ehrhart polynomials, entire face vectors, and two-direction collision probabilities but unequal angular spectra and higher collision probabilities. Searches of the available mathematical index and relevant accessible primary text did not identify a statement covering that conjunction. General greedy or normal-fan descriptions provide underlying principles but do not state the sharp higher-order separation. Unindexed equivalent formulations remain possible.
+
+## Mathematical value
+**PASS.** Matroid base polytopes carry both lattice-point and face-enumeration invariants. The theorem gives a canonical Euclidean measurement that survives beyond these invariants, with the first detectable power fixed exactly at three. It identifies a concrete higher-order Johnson-neighborhood statistic absent from the face-vector parameters, rather than giving an arbitrary finite numerical example. The separation occurs in every dimension at least six within an explicit infinite rank-three family. The first two angular power sums coincide despite a provably different full distribution.
+
+## Scope and literature limits
+The angular law concerns canonical zero-one embeddings and isotropic directions. General matroid-greedy theory and the earlier face-enumeration theorem are material antecedents; the new claims require their precise specialization and new higher-neighborhood counting. Other mathematical records can be incomplete, and no independent mathematical audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.

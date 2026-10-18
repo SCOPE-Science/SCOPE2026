@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "The stable Johnson-deletion family defines a matroid: any competing exchange choices cannot all be deleted. For generic scores, when the top rank-r subset is forbidden, the global next-best subset is the unique one-exchange replacement of its least selected member by its greatest unselected member. Conditional ranks distribute its 1/N probability evenly among d=r(n-r) surviving neighbors, giving alpha_B=(1+t(B)/d)/N. Summing t and binom(t,2) yields md and 4q exactly, proving C2. The displayed rank-three triples have respectively zero and one common neighbor of all three forbidden triples; this yields histograms (N-3d+9,3d-24,12,0) and (N-3d+8,3d-21,9,1) and the exact third-difference power-sum identity. For real s>2 positivity follows from the positive third derivative of x^s. Tutte coincidence follows from the rank function, Ehrhart coincidence from disjoint symmetric truncated caps, and entire f-vector coincidence from Ferroni--Schroeter Corollary 2.10 with the same lambda=3,mu=3, with full-dimensionality verified. Exact direct enumeration of 5040 and 40320 orders per example in dimensions 7 and 8, rational moment checks through 11 and basis-exchange/Tutte enumeration passed. Finite checks are supportive, not infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hanely et al. state that sparse-paving Ehrhart polynomials depend only on rank, ground-set size and number of circuit-hyperplanes (Remark 5.12).",
+        "Ferroni--Schroeter prove f_P(t)=f_hypersimplex(t)-lambda*u(t)-mu*(t^2+t^3) for connected sparse-paving matroids (Corollary 2.10).",
+        "Random-ranking/greedy matroid theory gives a framework for the maximizing basis, but the literature comparisons located no normal-angle spectrum theorem for these sparse-paving examples."
+      ],
+      "reasoning": "The face-enumeration result already knows the distance-two pair statistic q and hence strongly motivates comparison at a statistic sensitive to triple-neighbor overlap. It cannot distinguish the displayed examples because both have lambda=3 and mu=3. The new Gaussian angle probability law and the third-direction separation depend on triple intersections of Johnson neighborhoods, which are not parameters of the published f-vector theorem.",
+      "searches": [
+        "Ehrhart Theory of Paving and Panhandle Matroids arXiv 2201.12442 full text",
+        "Face enumeration for split matroid polytopes Ferroni Schroeter Corollary 2.10",
+        "matroid base polytope solid angle uniform random order greedy vertex count",
+        "sparse paving matroid base polytope normal cones solid angle probability ranking circuit-hyperplane missing bases neighbors Johnson graph"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2201.12442 (full HTML, first posted 2022-01-28)",
+      "arXiv:2310.05487 (first posted 2023-10-09; journal full text read)",
+      "doi:10.1017/S0963548325000021 (lawful OA HTML full article)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Equal Ehrhart is directly covered by sparse-paving Ehrhart results and not claimed new.",
+        "Equal f-vectors for fixed (n,r,lambda,mu) are directly covered by Ferroni--Schroeter; thus equal face counts in the example are not claimed independently new."
+      ],
+      "reasoning": "The genuinely new conjunct is not sameness of enumerative invariants, but an exact all-vertex Gaussian angular law and two explicit equal-f-vector families having identical collision probabilities for two directions while their three-direction probabilities differ by 6/(N^3 d^3). The prior f-vector theorem only supplies lambda and mu, whereas the third angular moment detects the triple-neighborhood count; the implication does not reverse without this new geometric argument.",
+      "searches": [
+        "arXiv:2201.12442 Remark 5.12",
+        "doi:10.1017/S0963548325000021 Corollary 2.10",
+        "same Tutte Ehrhart f vector sparse paving matroids distinct Gaussian vertex cone angle spectra triple collision"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full accessible arXiv HTML of Hanely et al., arXiv:2201.12442, Sections 1,2 and Remark 5.12, addresses Ehrhart and truncation, not Gaussian normal-cone masses.",
+        "Ferroni--Schroeter full Cambridge text doi:10.1017/S0963548325000021, Corollary 2.10, addresses face numbers and modular pairs rather than directional exposure probabilities.",
+        "The Gaussian angle is equivalently the probability a randomly ordered weight vector has a given greedy-optimal matroid basis."
+      ],
+      "reasoning": "The closest alias is random greedy basis output for a sparse-paving matroid. General greedy optimization alone does not give the explicit per-basis reallocation rule, nor the triple-overlap comparison of two equal-face-vector matroids. No retrieved record states the same angle spectrum or three-versus-two collision distinction.",
+      "searches": [
+        "sparse paving matroid base polytope normal cones solid angle probability ranking circuit-hyperplane missing bases neighbors Johnson graph",
+        "Gaussian exposure collision power sum alpha^3 of sparse paving matroid base polytopes equivalent f-vectors with distinct angular spectra",
+        "same Tutte Ehrhart f vector sparse paving matroids distinct Gaussian vertex cone angle spectra triple collision",
+        "sparse paving matroids Gaussian normal cone volume solid angle basis probability greedy rankings",
+        "matroid base polytope solid angles probability bases greedy random weights sparse paving"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No directly matching angle or three-direction collision table appeared in the retrieved mathematical sources.",
+        "The published 2025 face-enumeration examples tabulate face-vector differences for two distinct sparse-paving matroids but no angular mass distribution."
+      ],
+      "reasoning": "The exact histogram families were compared against the available retrieved angle/table searches, not against all possible literature. Absence from those searches is treated as limited evidence; the original assertion rests on a statement/implication comparison with the closest full texts.",
+      "searches": [
+        "sparse paving matroid solid angle normal cone probability tables examples",
+        "sparse paving matroid full angular normal cones histograms vertices matroid base polytope",
+        "Gaussian exposure collision power sum alpha^3 of sparse paving matroid base polytopes equivalent f-vectors with distinct angular spectra"
+      ]
+    },
+    "rationale": "The 2022 paving-matroid Ehrhart paper provides the known hypersimplex truncation and Ehrhart equivalence, while Ferroni--Schroeter (first public 2023) establishes complete face-vector dependence on the deleted circuit-hyperplane count and the distance-two pair statistic. Standard matroid greedy maximization and normal-fan interpretation are acknowledged. Neither inspected work states the exact Euclidean Gaussian normal-cone angle formula or exhibits equal f-vectors and equal two-exposure collision statistics but differing every higher exposure collision statistic. Targeted literature and mathematical-record searches found no covering formulation. A residual risk remains that an unindexed formulation of random greedy basis probabilities already derives an equivalent result.",
+    "residual_risks": [
+      "Broad matroid greedy-basis and normal-fan literature might contain an equivalent unindexed specialization; no universal novelty proof is possible from available searches.",
+      "The known face-vector dependence on lambda,mu must not be confused with originality of the angle spectrum.",
+      "No independent mathematical verification; exact finite checks do not imply a universal proof by themselves."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS known truncated-hypersimplex construction and Ehrhart formula; DOES_NOT_COVER claimed Gaussian angular spectrum or higher collision separation.",
+        "evidence": "Sections 1, 2.2, 2.3, 5.11/Remark 5.12; sparse-paving Ehrhart formula explicitly depends on the number of circuit-hyperplanes.",
+        "identifier_or_url": "https://arxiv.org/html/2201.12442v3",
+        "material_read": "Accessible full-text HTML: introduction, matroid definitions, base polytope inequalities and Remark 5.12; matching passages and mathematical statements inspected.",
+        "method": "Opened arXiv preprint HTML; read sections and located the sparse-paving formula with in-document text search.",
+        "title": "Ehrhart Theory of Paving and Panhandle Matroids",
+        "trigger": "Foundation for rank-r hypersimplex truncations and equal Ehrhart functions."
+      },
+      {
+        "assessment": "COVERS face-vector dependence on lambda and mu, and examples of equal Ehrhart but differing face vectors. DOES_NOT_COVER Gaussian angular masses or equal-face-vector higher-collision separation.",
+        "evidence": "Corollary 2.10 gives the exact f-vector dependence on lambda and the count mu of pairs sharing r-2 elements; article full text contains no Gaussian/solid-angle discussion.",
+        "identifier_or_url": "https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/face-enumeration-for-split-matroid-polytopes/8AB800A4A0AAB1AEF4720C07899107AF",
+        "material_read": "Accessible full-text journal HTML: introduction, main Theorem 2.5, examples, Section 2.5 and Corollary 2.10, final remarks.",
+        "method": "Opened the lawful OA full text and inspected detailed formula and examples; checked terms solid angle, Gaussian and normal cone in the full page.",
+        "title": "Face enumeration for split matroid polytopes",
+        "trigger": "Closest prior theorem involving the same pairwise circuit-hyperplane intersection statistic and same enumerative invariants."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7ac99d4c-7aac-4890-be55-472c687b95c6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The new angle law computes a canonical Euclidean invariant of a well-motivated infinite family of sparse-paving matroid base polytopes. It identifies the exact first angular power that detects higher-order Johnson-neighborhood incidences not encoded by either the Ehrhart polynomial or the whole face vector. The explicit all-n comparison has identical Tutte/Ehrhart/f-vector data, and even identical two-direction collision probability, yet strictly different third and every higher collision probability. This is structural separation of geometric measures, not a routine one-parameter change, arbitrary finite computation or recomputation of a known enumeration table.",
+    "status": "PASS"
+  }
+}
