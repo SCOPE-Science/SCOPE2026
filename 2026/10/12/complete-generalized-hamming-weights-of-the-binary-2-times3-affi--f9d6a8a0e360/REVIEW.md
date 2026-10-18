@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The code is explicitly the 10-generator minor-evaluation code on all 64 binary matrices. Injectivity was checked on all 1,024 coefficient masks. The rank-by-rank exhaustive RREF enumeration counts every subspace once, computes the support of its full span by OR of basis supports, and checks ten exact Gaussian-binomial totals. A separately compiled run of the complete attached checker reproduced all minima, their multiplicities and both middle-rank witnesses, ending in `VERIFY_OK`. Crucial finite lower bounds are proved by complete enumeration, not by sampling.
+## correctness
 
-## Originality — PASS, with residual risk
-Datta and Ghorpade (arXiv:1503.02196v1, full text, Theorems 2.5 and 3.3) supply the first three and last five generalized weights but not ranks four and five for this code. The 2026 Yadav manuscript (arXiv:2609.10274v1), available at abstract level, addresses individual-codeword weight spectrum; that does not by itself imply these two joint-support minima and multiplicities. Searches for equivalent code representations, Reed–Muller restrictions, GHW tables, and published mathematical records disclosed no documented claim with the same two missing values. The recent paper's full text and any unindexed older special-purpose table remain originality risks.
+PASS
 
-## Value — PASS
-A concrete natural affine Grassmann code has exactly two unresolved positions between the published initial and terminal higher-weight formulas. Determining those two weights and counts of minimizing subspaces completes its entire generalized-weight hierarchy, a coding invariant measuring minimum coordinate exposure of subcodes. The work makes no unsupported extension to larger matrices or fields.
+The ten coefficient-mask evaluations are injective by 1024 distinct 64-bit patterns. Every r-dimensional subspace of F_2^10 has a unique reduced-row-echelon basis; enumeration over all ordered increasing pivot tuples and every allowable nonpivot right-of-pivot entry therefore visits all Gaussian-binomial [10 choose r]_2 subspaces exactly once. The subcode support is the bitwise OR of evaluations of its basis; population-count minimum and number attaining it are exact. Independently compiled a new Gray-code-driven C++ enumerator (distinct from inspected artifacts/verify.cpp) for ALL r=1..10, including 53,743,987 4-spaces and 109,221,651 5-spaces; reproduced all 10 weights and minimizer counts (112,448,64,28,1120,24,1456,2016,64,1). Thus this exhaustive finite certificate legitimately proves all claimed minima; no extrapolation to other codes.
 
-## Closest literature and scientific limits
-Datta and Ghorpade (2015), arXiv:1503.02196v1; Yadav (2026), arXiv:2609.10274v1; Beelen, Ghorpade and Høholdt (2010), DOI: 10.1109/TIT.2010.2048470. The classification relies on the executable exhaustive finite certificate; the 2026 same-object source's full manuscript was inaccessible, and no external independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Datta–Ghorpade 2015 full text arXiv:1503.02196, Theorems 2.5 and 3.3, gives first three generalized weights and last five (ranks6–10) for these parameters, leaving precisely ranks4,5. Their theorems do not determine those 2 numbers or counts of minimizing subcodes. The closest same-object Yadav arxiv 2609.10274 (2026-09) describes individual codeword weight spectra, not generalized weights of subcodes; abstract read but full PDF not accessible from arXiv or OA and authorized Oxford returned vpn_disconnected. That source is explicit possible hidden-appendix/priority risk. Resultary returned higher-weight spectra for DIFFERENT generator-code families. On available primary comparisons O passes best-of-knowledge with named caveat.
+
+## value
+
+PASS
+
+The previously missing two ranks lie in a published partial higher-weight hierarchy of a natural Grassmann-evaluation code. Completing this exact code hierarchy and providing exact numbers of minimizing r-subcodes determines fundamental higher-support exposure invariants useful for coding/secret-sharing, and is neither an arbitrary derived table nor mere codeword weight spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
