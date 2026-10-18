@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof is the primary evidence.
+# Independent mathematical audit
 
-`artifacts/verify.py` exhaustively checks every nondecreasing complete-multipartite part profile of total order \(2\) through \(7\), for every \(1\le k\le4\). It enumerates all labels \(0,1,\ldots,k\), evaluates the open-neighborhood rainbow condition directly, compares that result with the part-count criterion, groups feasible functions by count matrices, verifies the multinomial coefficient contribution, and compares the brute-force minimum with the closed subset-capacity formula.
+## correctness
 
-Replay output:
+PASS
 
-`ALL CHECKS PASSED; profiles=37; enumerators=148; labelings_checked=1591634; orders=2..7; colors=1..4`
+For every uncolored vertex in part V_i, the open neighborhood is exactly V\V_i; thus a_{i,0}>0 iff every color has positive support outside that part, giving precise feasibility and multinomial enumerator. For functions with zeros, separate fully colored parts F (cost W_F); each color absent from F requires two distinct partial-part incidences. With q=k-W_F>0, available capacities are n_i-1 and the capacitated Hall criterion reduces to sum_{i notin F}min(n_i-1,q)>=2q because min(c,t)/t is nonincreasing in t. This gives exact candidate 2k-W_F or W_F when W_F>=k, plus all-colored N. Constructive placements attain every finite candidate. Independently brute-forced 24 complete multipartite profiles/k parameter combinations through six vertices and k<=3.
 
-The finite computation is corroborative only. The theorem for arbitrary part sizes and arbitrary \(k\) is proved in `RESULT.md`.
+## originality
+
+PASS
+
+Prior ordinary two-rainbow domination permits multiple colors at one vertex, unlike this singleton graph labeling; a published Resultary ordinary-2-rainbow multipartite count does not imply arbitrary singleton-k feasible-function counting or capacitated Hall minimum. The 2026 singleton-3 primary work addresses cylindrical Cartesian products, not a complete multipartite classification. A differently named SkRD treatment may overlap.
+
+## value
+
+PASS
+
+The full enumerator and uniform arbitrary-k exact minimum for the canonical complete multipartite family are reusable combinatorial classifications, with a sharp support multiplicity dichotomy. This is more than one small instance or a rephrased basic definition; the Hall capacity lower bound and attainment are substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

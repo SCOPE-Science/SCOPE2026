@@ -1,25 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. In a complete multipartite graph, every zero in part \(V_i\) sees exactly the labels outside \(V_i\), so the part-count implication is necessary and sufficient. The weight enumerator is then a direct multinomial sum.
+PASS
 
-For the minimum, colors represented in fully colored parts need one occurrence, while any color absent there must occur in two distinct partially colored parts. The exact feasibility of those double incidences is a capacitated Hall condition
-\[
-\sum_{i\notin F}\min\{n_i-1,q\}\ge2q.
-\]
-The lower bound and construction match. Exhaustive enumeration through order seven and four colors confirms the classification, enumerator, and minimum formula.
+For every uncolored vertex in part V_i, the open neighborhood is exactly V\V_i; thus a_{i,0}>0 iff every color has positive support outside that part, giving precise feasibility and multinomial enumerator. For functions with zeros, separate fully colored parts F (cost W_F); each color absent from F requires two distinct partial-part incidences. With q=k-W_F>0, available capacities are n_i-1 and the capacitated Hall criterion reduces to sum_{i notin F}min(n_i-1,q)>=2q because min(c,t)/t is nonincreasing in t. This gives exact candidate 2k-W_F or W_F when W_F>=k, plus all-colored N. Constructive placements attain every finite candidate. Independently brute-forced 24 complete multipartite profiles/k parameter combinations through six vertices and k<=3.
 
-## Originality
+## originality
 
-PASS. The closest primary paper studies singleton three-rainbow domination on cylindrical graphs and contains no complete-multipartite theorem. Exact searches using singleton-rainbow, singleton \(k\)-rainbow, complete multipartite, and complete bipartite terminology found no covering result.
+PASS
 
-The closest published-result record treats ordinary \(2\)-rainbow domination on complete multipartite graphs. That invariant permits a vertex to carry several colors, unlike the singleton model, so it does not imply the present arbitrary-\(k\) feasible-set classification or Hall-capacity formula.
+Prior ordinary two-rainbow domination permits multiple colors at one vertex, unlike this singleton graph labeling; a published Resultary ordinary-2-rainbow multipartite count does not imply arbitrary singleton-k feasible-function counting or capacitated Hall minimum. The 2026 singleton-3 primary work addresses cylindrical Cartesian products, not a complete multipartite classification. A differently named SkRD treatment may overlap.
 
-Residual risk remains from older abbreviated terminology such as SkRD and S3RD.
+## value
 
-## Value
+PASS
 
-PASS. The result classifies all singleton rainbow functions, not only one minimum value, and gives an exact arbitrary-\(k\) optimization criterion with a clear structural interpretation. It therefore turns a currently active special-\(k\), special-product problem into a complete theorem on a canonical dense family.
+The full enumerator and uniform arbitrary-k exact minimum for the canonical complete multipartite family are reusable combinatorial classifications, with a sharp support multiplicity dichotomy. This is more than one small instance or a rephrased basic definition; the Hall capacity lower bound and attainment are substantive.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
