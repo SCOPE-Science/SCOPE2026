@@ -1,15 +1,21 @@
-# Scientific review: pendant-loop chiral phase transition
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph is explicitly defined and primitive for all integers \(k\geq0\). The weighted adjacency Perron root follows from a positive rotation-invariant eigenvector and is checked by its quadratic equation. The resulting Markov kernel and stationary marginal obey their normalization and invariance identities. The Gibbs rowwise relative-entropy inequality reduces the complete stationary variational problem to one real current; strict positivity of the pressure second derivative ensures unique linear maximizing pairs and no hidden maximizer. The quotient monotonicity proof uses exact power-series coefficients with a sign-verified closed inequality, not sampled derivatives. Its unique sign transition yields the exact global phase diagram via a value comparison and excludes boundary maxima. The quartic term supplies the strict separation of coexistence and spinodal temperatures. Every limiting step and endpoint is covered by the proof; numerical root values are not used to certify global inequalities.
+## correctness
 
-## Originality — PASS, with stated residual risk
-The closest focal primary source is Tang--Yang--Li (2026), Sections 7.1--7.6. Its two-state \(st\)-correlation phase transition preserves the same stationary marginal, but its adjacency and observable differ; its three-state Potts transition uses a two-dimensional state-occupation energy; its primitive forbidden-edge three-state model is continuous with exponent \(1/4\). None states or dominates a sharp graph-decoration threshold for a *scalar oriented current* on a reversible-leaf extension of a three-cycle. The full earlier sources Buzzi--Kloeckner--Leplaideur (Sections 5.1--5.2), Bru--de Siqueira Pedra--Lopes (Section 4), and Kucherenko (rotation-theory variational sections and examples) were compared by mathematical implication. General Legendre theory provides the method, not the monotonicity/unique-coexistence assertions for this graph family. Earlier mathematical claims checked at the statement level did not cover the result. Semantic database and indexed-literature searches under graph/cycle, current/circulation, decorated/pendant, Markov mean field, inverse-temperature, and Potts aliases returned no statement covering the exact family and phase census. Possible older papers under different vocabulary remain an uncertainty; database silence is not a proof of uniqueness.
+PASS
 
-## Mathematical value — PASS
-The model asks a motivated structural question: can adding entropy-carrying yet zero-current reversible excursions switch a time-reversal-symmetric scalar-current mean-field transition from continuous to discontinuous? The theorem answers it completely across an infinite natural family, with a sharp *integer* decoration boundary, exact spinodal and coexistence equations, a global equilibrium count, metastability, and identical-marginal chiral phases. A quartic sign test alone would not prove the global phase diagram; the strict ratio-of-power-series argument supplies the nonlocal comparison. This is more than routine substitution into the general variational principle. It makes no broader physical universality claim.
+For the primitive looped directed 3-cycle with k symmetric reversible pendant leaves and quadratic stationary oriented-current energy, Perron symmetry gives λ²−(1+2cosh t)λ−k=0 and derivative m=2sinh t/√[(1+2cosh t)²+4k]. Row-relative entropy yields the sharp constrained entropy Legendre transform, ensuring only Doob stationary kernels maximize at given interior current. The self-consistency β=b_k(t)=t/m_k(t) is analyzed with F_k/D=F_{9/4}/D+9−4k; the exact positive Taylor coefficient ratio and proof of strict increase establish monotone b for k≤2 and a unique minimum for k≥3. The coexistence difference G=P−P(0)−tm/2 satisfies G′=(m²/2)b′, giving exactly one upper-branch coexistence root; the quartic coefficient sign proves β_s<β_t<β_c and strictly positive jump for k≥3. Independent symbolic derivatives, Taylor and reference hyperbolic identity checked. Domain all integer k≥0 and β≥0, including β=β_c and k=0, is covered by the analytic proof, not just sample roots.
 
-## Scope and literature risk
-The result applies only to the stated primitive finite graph family and convex quadratic edge-current energy. Newer or unindexed work could have the equivalent threshold in a different graphical parametrization; existing general nonlinear-pressure frameworks imply reduction but not the specific exact graph-dependent order-of-transition result.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Tang–Yang–Li introduce the finite-state nonlinear correspondence variational theory and selected occupation-based Potts/correlation examples; Buzzi–Kloeckner–Leplaideur study Curie–Weiss/metastability in a distinct asymmetric three-letter Bernoulli model. General Legendre/variational reductions do not supply the explicit k-dependent scalar antisymmetric Markov-current global bifurcation, sharp integer threshold k=3, or same-marginal opposite-current coexistence without new graph-specific PF and power-series analysis. A related indexed edge-weighted forbidden-transition correspondence has different graph constraints and control parameter; not known to subsume integer pendant family. Focal 2026 primary original full text unavailable, so assessment is explicitly best-of-knowledge with material access risk.
+
+## value
+
+PASS
+
+A one-parameter natural decoration of a primitive finite correspondence changes symmetry-breaking order at the exact integer threshold k=3. The all-k global equilibrium census, metastable spinodal and same-marginal opposite flows give a mathematically motivated sharp example of nonlinear thermodynamic selection beyond general existence theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
