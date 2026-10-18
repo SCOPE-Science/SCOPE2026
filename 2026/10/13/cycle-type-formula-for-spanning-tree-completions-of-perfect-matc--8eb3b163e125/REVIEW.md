@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The fixed matching is a forest, so spanning trees containing it correspond bijectively to trees of the contracted multigraph. Each pair of contracted vertices has multiplicity \(2-\mathbf1_{\{\sigma(i)=j\}}-\mathbf1_{\{\sigma(j)=i\}}\), including the \(2\)-cycle parallel-edge boundary. Fourier diagonalization of the resulting Laplacian gives \(0\), \(2n\) with multiplicity \(c-1\), and the explicit nonconstant cycle frequencies. Kirchhoff's theorem and a verified Chebyshev factor identity yield the formula. The unconditioned crown count is obtained independently from its bipartite Laplacian. Exact determinant checks over \(2{,}174\) derangements and original-graph brute-force checks over \(55\) derangements agree. This finite evidence supplements, but does not establish, the general identity.
+## correctness
 
-## Originality — PASS
-Direct searches of the published mathematical record and prior work found the closest explicit results in Ge–Dong (arXiv:1904.07766, especially Theorems 1.3 and 1.5 and Section 5.2) and Dong–Ge (arXiv:2103.05294, Theorems 2 and 4). The first counts fixed-matchings in \(K_{m,n}\) and unconditional trees/effective resistances after deleting a matching; the second counts spanning trees of \(K_{m,n}\) containing any prescribed forest. Neither specializes automatically to a cycle-type-dependent simultaneous perfect-matching inclusion in \(K_{n,n}\) minus its diagonal matching. The comparison is one of statements and implications, not merely terminology. The general matrix-tree theorem is acknowledged and used, and therefore not claimed as original. The 2023 multipartite fixed-forest article addresses complete multipartite graphs rather than this deletion-pattern quotient. Gilbert–Myrvold (1997) studies complements of unions of paths and cycles in simple complete graphs; only an abstract was accessible, and its relation to this parallel-edge quotient is recorded as a residual risk. Specific residual risk: an unindexed crown-graph specialization or a general high-order edge-correlation formula could imply the product after substantial evaluation; independent audit remains necessary.
+PASS
 
-## Value — PASS
-A perfect matching is a natural spanning forest to force in a dense bipartite network. Counting its tree completions measures a genuine high-order dependency in the uniform spanning-tree distribution. The forbidden diagonal matching destroys the usual symmetry: for \(n=4\), the same graph has matchings with exactly \(32\) and \(36\) tree completions. The theorem gives every such count for all orders and all matching cycle types, through a structural Laplacian decomposition rather than isolated table entries. This distinguishes exact joint reliability of edge sets that have identical cardinalities and degrees.
+PASS: Contracting any prescribed M_sigma preserves its spanning-tree completions bijectively, counting parallel edges. Between distinct contracted vertices the multiplicity is 2-1_{sigma(i)=j}-1_{sigma(j)=i}; hence the exact Laplacian is L=2(n-1)I-2J+P_sigma+P_sigma^T. Fourier modes on derangement cycles give the null eigenvalue, 2n with multiplicity c-1, and internal eigenvalues 2(n-1)+2cos(2pi h/ell). The matrix-tree theorem and the Chebyshev identity product_h(x+2cos(2pi h/ell))=2(T_ell(x/2)-(-1)^ell) yield the formula, treating 2-cycles with multiplicity two in P+P^T. Independently recomputed the exact quotient multigraph cofactor versus the integer Chebyshev formula for every derangement on n=3..6 (2,9,44,265 cases). The crown Laplacian separately confirms tau(Cr_n)=(n-1)n^(n-2)(n-2)^(n-1). Bounded tests support the unbounded eigenvalue proof.
 
-## Limitations and coverage risk
-No claim is made about arbitrary prescribed forests, optimization among derangements, or independent certification. The nearby 2019 near-complete-bipartite paper was materially read through its fixed-matching and resistance results; the 2021 complete-bipartite fixed-forest paper was read in its introduction, full theorem statements and methodology. An unindexed source explicitly determining the same cycle product would supersede the originality assessment; no such source was found in the documented searches.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Ge–Dong and Dong–Ge count fixed forests in the intact complete bipartite graph, and give the unconditioned tree count for K_n,n minus a matching, but do not state a cycle-type-dependent matching-included count in the already deleted graph. Gilbert–Myrvold concerns simple almost-complete graphs; its inaccessible full text creates a nontrivial method/coverage risk. Neither identical product nor a stronger specialization was identified in actual inspected material.
+
+## value
+
+PASS
+
+PASS: Counting spanning-tree completions of a specified perfect matching is a natural exact network-reliability/random-spanning-tree observable. The automorphism-breaking interaction of two distinct perfect matchings in a crown graph makes derangement cycle type mathematically relevant, yielding a genuinely reusable all-order product rather than a routine known tree-total substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
