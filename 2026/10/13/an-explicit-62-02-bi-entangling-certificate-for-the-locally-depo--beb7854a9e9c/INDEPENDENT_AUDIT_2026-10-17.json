@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T15:00:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For independent replacement depolarization after CNOT, Pauli masses are a=1-3p/4 for I and b=p/4 for each X,Y,Z. At p=(8-2sqrt6)/5, inspected 15 explicitly weighted affine supports from decomposition.json. Independently rebuilt all 16 exact Q(sqrt6) target Choi diagonal masses and convex mixture; verified each weight positive and total 1, each support affine, and all 19 pairs of restricted stabilizer generators commute on its declared bipartition. Each projector is diagonal in local joint eigenbases, hence separable on declared SEP, SEP-with-SWAP or EB cut. Local post-depolarization preserves each operation class, extending to every p>=p*. Distinct numerical PPT spot-checks support nontriviality but are not certification. No global optimality claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kempe et al derive distinct computational model thresholds and discuss incomparability; a 2026 fermionic paper has same algebraic constant but concerns a different class of channels."
+        ],
+        "reasoning": "A numerically lower figure under a different computational noise model does not logically imply bi-entangling membership of THIS noisy CNOT channel.",
+        "searches": [
+          "Kempe Regev Unger de Wolf 2008 upper bounds fault tolerant CNOT",
+          "arXiv:2609.09467 fermionic convex Gaussian threshold",
+          "Virmani Huelga Plenio 2005 CNOT"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:quant-ph/0408076",
+        "arXiv:0802.1464",
+        "arXiv:2609.09467",
+        "Resultary topic CNOT bi-entangling search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original p>=2/3 sufficient bound is strictly weaker than 0.620204... under the exact same model; no lower bound claiming optimality is asserted."
+        ],
+        "reasoning": "Membership of a convex set at p* implies membership at greater p by local channel postcomposition; converse or optimality does not follow. Same constant in another resource class is not statement overlap.",
+        "searches": [
+          "Virmani 0408076 equations 17 and 23",
+          "Kempe 0802.1464 CNOT noise model"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original Virmani bi-entangling polytope convex hull and p>=2/3 source Eq (23); inspected certificate explicitly realizes p=0.620204."
+        ],
+        "reasoning": "Checked both common definitions (Choi biseparability across three gates cuts and convex mixture of simulation-friendly operations) for same local output model, not an unrelated 2-qubit channel noise parameter.",
+        "searches": [
+          "Resultary semantic: local depolarized CNOT bi-entangling 62 percent 8 minus 2 sqrt6 over 5 convex stabilizer decomposition",
+          "arXiv:quant-ph/0408076",
+          "bi-entangling CNOT 0.620204 local depolarization",
+          "2014 Rossi bi-entangling CNOT thesis"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No same-model indexed decomposition table observed; explicit 15 supports are reproduced and checked against source Choi probabilities."
+        ],
+        "reasoning": "Finite 16×15 exact table is a certificate; searches cannot exclude offline unpublished decompositions or unindexed theses.",
+        "searches": [
+          "CNOT bi-entangling threshold 0.6202041028867288",
+          "CNOT bi-entangling 15 stabilizer supports",
+          "Resultary CNOT local depolarizing gate certificate"
+        ]
+      },
+      "rationale": "Virmani–Huelga–Plenio 2005 full text directly treats this same local independent replacement-depolarization model and gives conservative threshold p>=2/3, expressly not full convex-hull optimization. Later Kempe–Regev–Unger–de Wolf recursion/circuit model is inequivalent and not a dominating same-gate Choi implication. No prior same-model 0.620204 explicit 15-term witness found from actual targeted/Resultary searches. An inaccessible 2014 thesis on CNOT bi-entangling robustness leaves a named residual risk.",
+      "residual_risks": [
+        "Plausibly relevant 2014 CNOT thesis remains unread; overlap in its appendices cannot be excluded",
+        "Certificate is only sufficient, no claim of optimal p or arbitrary gates",
+        "Separability relies on correct Pauli-label-to-stabilizer mapping; this was reconstructed independently and matched source finite certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same-model known sufficient bound explicitly weaker, with room to optimize convex hull",
+          "evidence": [
+            "Eq 17, Eq 23, remarks following Eq 23"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/0408076",
+          "material_read": "Complete arXiv PDF, Eq (17) local noise and Eq (23) p>=2/3, discussion of nonoptimality; relevant PDF page visually checked",
+          "method": "open-access 12-page primary PDF",
+          "title": "Classical simulatability, entanglement breaking, and quantum computation thresholds",
+          "trigger": "Original bi-entangling definition and same gate model"
+        },
+        {
+          "assessment": "Different circuit model, not same noise equivalence or bi-entangling class certification",
+          "evidence": [
+            "arXiv:0802.1464 definitions and discussion of incomparability"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0802.1464",
+          "material_read": "Abstract, method and model comparison passages, not every appendix",
+          "method": "arXiv accessible summary/selected full-text sections",
+          "title": "Upper Bounds on the Noise Threshold for Fault-tolerant Quantum Computing",
+          "trigger": "Potential stronger CNOT bound"
+        },
+        {
+          "assessment": "Cannot assess prior coverage from snippet; explicitly unresolved bibliographic risk",
+          "evidence": [
+            "2014 thesis search listing; access challenge prevents full-document exclusion"
+          ],
+          "identifier_or_url": "2014 Matteo Rossi thesis CNOT bi-entangling (catalogue search)",
+          "material_read": "Bibliographic/abstract search listing; full primary thesis behind bot challenge, not read",
+          "method": "public discovery followed by access failure",
+          "title": "Bi-entangling gates and noise robustness (thesis record)",
+          "trigger": "Plausible earlier same-object treatment"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A rigorously checked, fully explicit 15-state separability mixture improves a physical gate-noise sufficient threshold from 66.67% to 62.02% in exactly the original gate-level model. It is a concrete reusable separability certificate with exact algebraic coefficients, not an unsupported decimal gain.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Gate noise convention is independent local replacement on each output qubit; certificate concerns convex-hull bi-entangling class, not a tight threshold."
+  ],
+  "schema_version": 1
+}

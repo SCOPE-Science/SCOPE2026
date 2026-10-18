@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-`verify.py` is a standard-library exact-arithmetic replay of the endpoint certificate. It represents numbers as elements of \(\mathbb Q(\sqrt6)\), checks the radical identity for \(p_*\), checks positivity and normalization of all convex weights, reconstructs the sixteen Pauli-error probabilities, and verifies exact equality with the fifteen affine-support mixture.
+## correctness
 
-For separability, the checker reconstructs each support's affine parity constraints. The CNOT Choi stabilizer eigenvalue bits are related to the output-Pauli label \(u=(x_1,z_1,x_2,z_2)\) by
-\[
-e=(z_2,\ x_1+x_2,\ z_1+z_2,\ x_1).
-\]
-Each affine constraint is converted to a product of \(G_0,G_1,G_2,G_3\); the checker then verifies pairwise symplectic commutation of the restrictions to the left subsystem of the asserted cut. The simultaneous-local-diagonalization argument in `RESULT.md` converts those checks into exact separability certificates.
+PASS
 
-The replay does not attempt to optimize over the full bi-entangling set and therefore does not certify that \(p_*\) is minimal. It certifies only the stated constructive endpoint and, together with the analytic local-noise composition argument, the interval \(p\ge p_*\).
+For independent replacement depolarization after CNOT, Pauli masses are a=1-3p/4 for I and b=p/4 for each X,Y,Z. At p=(8-2sqrt6)/5, inspected 15 explicitly weighted affine supports from decomposition.json. Independently rebuilt all 16 exact Q(sqrt6) target Choi diagonal masses and convex mixture; verified each weight positive and total 1, each support affine, and all 19 pairs of restricted stabilizer generators commute on its declared bipartition. Each projector is diagonal in local joint eigenbases, hence separable on declared SEP, SEP-with-SWAP or EB cut. Local post-depolarization preserves each operation class, extending to every p>=p*. Distinct numerical PPT spot-checks support nontriviality but are not certification. No global optimality claim.
+
+## originality
+
+PASS
+
+Virmani–Huelga–Plenio 2005 full text directly treats this same local independent replacement-depolarization model and gives conservative threshold p>=2/3, expressly not full convex-hull optimization. Later Kempe–Regev–Unger–de Wolf recursion/circuit model is inequivalent and not a dominating same-gate Choi implication. No prior same-model 0.620204 explicit 15-term witness found from actual targeted/Resultary searches. An inaccessible 2014 thesis on CNOT bi-entangling robustness leaves a named residual risk.
+
+## value
+
+PASS
+
+A rigorously checked, fully explicit 15-state separability mixture improves a physical gate-noise sufficient threshold from 66.67% to 62.02% in exactly the original gate-level model. It is a concrete reusable separability certificate with exact algebraic coefficients, not an unsupported decimal gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
