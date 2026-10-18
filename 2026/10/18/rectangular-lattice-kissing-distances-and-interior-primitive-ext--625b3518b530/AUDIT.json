@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The planar closest-face analysis yields vertex-vertex, vertex-edge, or parallel-edge separation. Integer determinants relative to primitive edge vectors bound every positive support-line gap below by 1/sqrt M; a modular inverse constructs an integer vertex with determinant one and projection strictly inside a maximizing segment. Equalities force primitive maximizing directions and adjacent lattice support lines. The 28t,36t family proof checks coprimality, all possible boundary deficits, and the positive differences 88t-7, 40t-7. The delivered checker has been executed and confirms 25 small rectangular cases by exact exhaustive point-segment arithmetic plus four interior-family examples. Finite checks are supplementary, not proofs for all dimensions/parameters.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2305.18597v2 Theorems 1.1, 5.2 concern the cube [0,k]^d and bounds/reductions; its Table 1 lists square cases for d=2.",
+        "arXiv:2412.03479v1 Theorem 1.1 and §3 establish the exact d=2 square expression, not unequal a,b.",
+        "arXiv:2502.19554v1 and arXiv:2601.03183v1 submission abstracts explicitly concern dimension-three cubes and higher-dimensional bounds."
+      ],
+      "reasoning": "A general-dimensional cube separation lower bound applies to rectangles as subsets only after embedding in a larger cube; its lower bound is strictly weaker when the aspect ratio differs. Existing exact square equalities do not determine anisotropic distances or the unique interior direction for 28t by 36t.",
+      "searches": [
+        "published-finding corpus: Minimum distance two disjoint convex hulls of integer points in [0,a] x [0,b] with a,b positive, largest primitive lattice direction Euclidean norm",
+        "web: minimum distance disjoint lattice polygons square k sqrt k squared k minus one formula",
+        "arXiv:2305.18597v2 §§1,2,4,5",
+        "arXiv:2412.03479v1 §§1-3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2305.18597v2 §§1,2,4,5 and Table 1 (read primary full text)",
+      "arXiv:2412.03479v1 §§1-3 and Thm. 1.1 (read primary full text)",
+      "arXiv:2502.19554v1 (read abstract)",
+      "arXiv:2601.03183v1 (read abstract)",
+      "SIAM J. Discrete Math. 2024 published record DOI:10.1137/24M1640859 (bibliographic page)",
+      "published-finding corpus semantic search results for nine specified source, theorem, parameter and alias queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2412.03479v1 proof uses integer x1,x2 in [0,k] and bounds the denominator by sqrt(k^2+(k-1)^2); the anisotropic maximizing primitive direction need not lie on x=a or y=b, as the proven 28t by 36t family shows.",
+        "The first-paper geometric lower bound only depends on the common cube side k. The present arithmetic formula cannot be inferred by substituting a and b for one parameter k."
+      ],
+      "reasoning": "Prior cube theorems imply only the a=b values or bounds for a!=b. To derive the claimed full rectangle invariant requires the primitive-direction maximization and a Bezout witness for every maximizing direction. To derive the interior family requires separate arithmetic exclusion of all boundary directions. Thus it is neither a numerical restatement nor a corollary of the cited statements as written.",
+      "searches": [
+        "published-finding corpus: Anisotropic two-dimensional lattice kissing polytopes optimal separation in integer rectangle parameter a,b",
+        "published-finding corpus: arXiv 2305.18597 kissing polytopes, arXiv 2412.03479 small kissing polytopes; rectangular lattice boxes coprime norm",
+        "web: kissing lattice polygons unequal sides rectangular box coprime direction exact minimum distance 2024 2025"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2412.03479v1 §3 reduces the square case to an integer determinant divided by Euclidean edge length (equations (17)-(20)); the present claim characterizes the maximum over an anisotropic primitive-direction rectangle.",
+        "The affine-map alternative changes Euclidean distances, so ordinary square results do not imply this anisotropic formula."
+      ],
+      "reasoning": "The most plausible equivalence is a lattice line-spacing/shortest point-to-segment determinant problem. Its primitive-normal formulation was checked against square kissing-polytopes results and matched only in the equal-side specialization; the interior-maximizer arithmetic statement has no square analogue.",
+      "searches": [
+        "published-finding corpus: Distance between disjoint convex lattice polygons contained in axis aligned rectangle [0,a] times [0,b], maximum squared norm among primitive lattice edge directions coprime",
+        "published-finding corpus: Rectangular lattice polytope kissing distance gcd primitive vectors box side lengths a b max coprime pair",
+        "published-finding corpus: arXiv 2305.18597 kissing polytopes, arXiv 2412.03479 small kissing polytopes; rectangular lattice boxes coprime norm",
+        "web: lattice disjoint segments rectangular integer box minimal distance number theory gcd"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The preprint arXiv:2305.18597v2 Table 1 lists d=2 squares for k<=6; those are not newly claimed here.",
+        "The primary published arXiv:2412.03479v1 Theorem 1.1 proves all square sizes; its §3 was inspected directly.",
+        "Targeted published-result searches returned mathematically distinct polytope distance, ellipsoid, lattice-transference, and graph-polytope topics, not a rectangular formula."
+      ],
+      "reasoning": "The square subcase is exactly covered and is cited, not presented as new. The genuinely new part is the two-side-length formula and sharp interior-extremizer family; no database row/table inspected covered these.",
+      "searches": [
+        "published-finding corpus: Exact minimum Euclidean distance between two disjoint lattice polygons in the square [0,k]^2 for arbitrary positive integer k: reciprocal square root of k squared plus (k-1) squared; kissing polytopes",
+        "published-finding corpus: For a=28t b=36t t congruent 1 mod 21, interior primitive direction (28t-1,36t-1) gives shortest distance between disjoint lattice polygons",
+        "web: \"kissing polytopes\" \"2,k\" exact \"k-1\" distance all k",
+        "arXiv:2305.18597v2 Table 1; arXiv:2412.03479v1 Theorem 1.1"
+      ]
+    },
+    "rationale": "Published primary papers arXiv:2305.18597v2 and arXiv:2412.03479v1 define Euclidean kissing distances for lattice polytopes inside equal-side cubes and establish the square formula; they do not cover independent side lengths or infinite arithmetic families with uniquely interior winning slopes. Anisotropic affine normalization does not preserve Euclidean distances. published-finding corpus source/alias/parameter searches found no matching rectangular theorem among their returned summaries. Later d=3 publications are not dominating. Residual possibility of earlier unindexed line-spacing treatments remains.",
+    "residual_risks": [
+      "A preexisting unindexed lattice line-spacing or anisotropic polytope-separation theorem could imply this formula.",
+      "Later publications may contain proofs outside searchable abstracts; the two closest primary cube/square papers were read beyond snippets."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "addresses common-side cubes, not Euclidean rectangular parameter pairs",
+        "evidence": "§1 defines lattice (d,k)-polytopes; Table 1 gives d=2 square values for k<=6; §5 restricts enumeration to complementary-dimensional simplices.",
+        "identifier_or_url": "arXiv:2305.18597v2 https://arxiv.org/html/2305.18597",
+        "material_read": "Full-text sections 1, 2 (distance reduction), 4 (small-dimensional constructions), 5 (exact computation and Table 1)",
+        "method": "read arXiv experimental HTML, inspected theorem and table statements",
+        "title": "Kissing polytopes",
+        "trigger": "original definition and sharp cube bounds"
+      },
+      {
+        "assessment": "covers a=b square case exactly, but not the two-parameter rectangle or interior primitive family",
+        "evidence": "Theorem 1.1 gives 1/sqrt(k^2+(k-1)^2); Lemma 3.1 and equation (17) use all coordinates bounded by the same integer k.",
+        "identifier_or_url": "arXiv:2412.03479v1 https://arxiv.org/pdf/2412.03479",
+        "material_read": "Full-text introduction and sections 2-3, including the complete proof of Theorem 1.1 and Lemma 3.1; inspected rendered pages 2 and 9",
+        "method": "read searchable arXiv PDF source and inspected page screenshots",
+        "title": "Small kissing polytopes",
+        "trigger": "later full exact square theorem may dominate proposed rectangular claim"
+      },
+      {
+        "assessment": "not a dominating or equivalent statement; parameter d=3 and equal side lengths",
+        "evidence": "Abstract states exact d=3 cube formula for k>=4.",
+        "identifier_or_url": "arXiv:2502.19554v1 https://arxiv.org/abs/2502.19554",
+        "material_read": "Abstract, classification, initial-public date",
+        "method": "read arXiv abstract page",
+        "title": "Kissing polytopes in dimension 3",
+        "trigger": "later stronger results for the same geometric invariant"
+      },
+      {
+        "assessment": "not directly comparable: point-to-triangle in three-dimensional cubes and higher-d bounds",
+        "evidence": "Abstract states exact min lattice point-to-triangle distance in [0,k]^3.",
+        "identifier_or_url": "arXiv:2601.03183v1 https://arxiv.org/abs/2601.03183",
+        "material_read": "Abstract, classification, initial-public date",
+        "method": "read arXiv abstract page",
+        "title": "Flat simplices and kissing polytopes",
+        "trigger": "potential 2026 refinement of kissing distances"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "625b3518-b530-416c-b01e-f25f934f6586",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The all-parameter rectangular kissing-distance classification is a natural shape-sensitive extension of the established cubical lattice-polytope distance problem, tied to alternating projection and facial-distance complexity. The result gives an exact finite arithmetic evaluation and necessary-and-sufficient geometric contact conditions. Its infinite 28t-by-36t family proves that optimal primitive vectors can be strictly interior, disproving the seemingly sufficient search only over full-side-span directions. It is not a routine substitution of k: anisotropic Euclidean rescaling is not isometric and the gcd barriers cause nontrivial arithmetic regimes.",
+    "status": "PASS"
+  }
+}
