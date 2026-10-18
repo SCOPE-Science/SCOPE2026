@@ -1,18 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Diagonal scaling reduces the method to \(y^{(k+1)}=y^{(k)}+\omega(c-Cy^{(k)})\) with an SPD Stieltjes matrix \(C\) of unit diagonal. The first two iterate polynomials are entrywise nonnegative under convergence. For the third, the exact off-diagonal identity
-\[
-(q_3(C))_{ij}=\omega^2\left((3-2\omega)g_{ij}+\omega\sum_{\ell\ne i,j}g_{i\ell}g_{\ell j}\right)
-\]
-proves universal nonnegativity through \(\omega=3/2\), while spectral positivity of \(q_3(C)\) gives positive diagonal entries. A two-dimensional family proves sharpness for every \(3/2<\omega<2\), and the scalar formula proves dimension-one impossibility. Exact-rational replay verifies the displayed witness.
+## correctness
 
-## Originality
-PASS. Full-text inspection of the weighted-Jacobi parameter paper by Imakura et al. confirms the same recurrence and spectral-radius convergence viewpoint but contains no Stieltjes, \(M\)-matrix, or positivity analysis. Full-text inspection of Li and Sun confirms classical Jacobi-type and \(M\)-matrix convergence/spectral-radius theory, not a finite-iterate coordinate-sign threshold. De Sterck et al. provide the nearby underrelaxed positivity mechanism for weights in \((0,1)\); that result does not cover the overrelaxed range or the exact third-iterate threshold. published-finding corpus searches under weighted Jacobi, relaxed Jacobi, and diagonally preconditioned Richardson aliases returned norm-safety and convergence results, not an implication-equivalent coordinatewise theorem. The principal residual risk is older nonnegative-splitting literature using different language.
+PASS
 
-## Value
-PASS. Weighted Jacobi is a canonical highly parallel stationary iteration and preconditioner whose relaxation parameter is chosen for spectral convergence. The theorem gives a sharp, dimension-minimal boundary separating convergence from a distinct order-preservation property: overrelaxation can remain convergent while creating a negative component, and the first possible failure occurs exactly at the third iterate. The universal threshold and exact two-dimensional obstruction are structural rather than a parameter-specific numerical example.
+Diagonal similarity C=D^-1/2 A D^-1/2 has unit diagonal, SPD and Stieltjes signs. The iteration polynomial q3(C)=3omega I-3omega^2 C+omega^3 C^2 has off-diagonal omega^2[(3-2omega)g_ij+omega sum_(l!=i,j)g_il g_lj], which is >=0 for omega<=3/2; spectral positivity q3(lambda)=omega(1+r+r^2)>0 when r=1-omega lambda in (-1,1) handles diagonal. q2 diagonal omega(2-omega)>0 and offdiagonal >=0. For omega>3/2, 2x2 C_a with a<2/omega-1 and b=e2 yields negative offdiagonal. Independently iterated exact rational omega=8/5,a=1/5 to x3=(-64/625,4312/3125) with iteration eigenvalues -23/25,-7/25; scalar case is positive for all k.
 
-Closest literature and limitations are described in RESULT.md and AUDIT.json. The result is restricted to fixed-weight weighted Jacobi on SPD Stieltjes systems from the zero initial vector and does not classify later iterates.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Imakura et al Theorems 3.1–3.2 optimize weighted Jacobi spectral radius; their full four-page source has the identical recurrence but no finite third-iterate sign theorem. M-matrix nonnegative splitting arguments guarantee monotonicity only in underrelaxed regime and do not deliver the overrelaxed 3/2 boundary. No exact equivalent appeared in the targeted Resultary comparison.
+
+## value
+
+PASS
+
+Separates asymptotic convergence of a classical positivity-relevant iterative solver from finite-step coordinatewise sign safety, with a sharp universal weight and minimal counterexample. This boundary matters when nonnegative transient states are required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
