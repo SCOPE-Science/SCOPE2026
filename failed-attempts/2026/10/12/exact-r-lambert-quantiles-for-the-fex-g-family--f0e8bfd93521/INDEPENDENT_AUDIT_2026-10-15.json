@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T17:12:52.020947Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/0c9388fc1533d38ed91063a55c96c9c935f40448/2026/10/12/exact-r-lambert-quantiles-for-the-fex-g-family--f0e8bfd93521/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/0c9388fc1533d38ed91063a55c96c9c935f40448/2026/10/12/exact-r-lambert-quantiles-for-the-fex-g-family--f0e8bfd93521/VERIFICATION.md"
+      ],
+      "rationale": "Set p=e/(e−1), z=1+log(1−u/p)∈(0,1). Inverting the already defined FEx-G CDF gives (1−w)^w=z. Writing t=log(1−w)<0 transforms it to t e^t−t=−log z. H(t)=t(e^t−1) strictly decreases from +∞ at −∞ to 0 at 0− because H′=e^t(1+t)−1<0. Thus t is the unique negative r-Lambert W_{−1} branch and w=1−e^t; substituting G(x)=1−(1−x^a)^b gives Q=[1−exp(t/b)]^(1/a). This is mathematically correct for 0<u<1 and continuous strictly increasing baseline G.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mező–Baricz original full paper develops r-Lambert for any real parameter and branch geometry",
+          "Eldemery distribution generator allows any baseline G"
+        ],
+        "reasoning": "The universal r-Lambert inverse covers parameter r=−1; FEx-G source covers arbitrary baseline G; combining covers every claimed instance including Kumaraswamy.",
+        "searches": [
+          "FEx-G exponential G distribution quantile inverse r-Lambert y exp(y)-y Kwamuraswamy Eldemery",
+          "generalized Lambert W inverse exponential polynomial fixed r -1"
+        ]
+      },
+      "checked_sources": [
+        "https://www.aimspress.com/article/doi/10.3934/math.2026571",
+        "https://arxiv.org/pdf/1408.3999",
+        "https://doi.org/10.3934/math.2026571",
+        "Resultary search: FEx-G exponential G distribution quantile inverse r-Lambert y exp(y)-y Kwamuraswamy Eldemery"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original CDF inversion gives implicit w equation; substitute t=log(1−w) to obtain defining W_{−1} equation",
+          "Kumaraswamy inverse directly gives x=[1−e^{t/b}]^{1/a}"
+        ],
+        "reasoning": "Every scientific part follows from applying a published named inverse to a published inversion relation, with only algebra/elementary sign check needed. Different terminology or closed-form packaging does not restore originality.",
+        "searches": [
+          "FEx-G exponential G distribution quantile inverse r-Lambert y exp(y)-y Kwamuraswamy Eldemery",
+          "Eldemery Eq 2.2 inversion w log(1-w)=log z",
+          "Mezo Baricz W_{-1} branch"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eldemery et al FEx-G published scalar equation w log(1−w)=log z as quoted in reviewed source",
+          "Mező–Baricz arXiv:1408.3999 §3.2, Eq (2), define inverse of x e^x+r x as W_r"
+        ],
+        "reasoning": "Set t=log(1−w): exactly t e^t−t=−log z. Thus the quoted inverse is precisely W_{−1}(κ), not an independent new inverse result.",
+        "searches": [
+          "FEx-G exponential G distribution quantile inverse r-Lambert y exp(y)-y Kwamuraswamy Eldemery",
+          "Mezo Baricz r Lambert definition x exp x plus r x inverse"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published-finding semantic search returned no direct exact FEx-G record; lack of exact indexed wording does not override stronger implication",
+          "No exact count/table is asserted"
+        ],
+        "reasoning": "This is a symbolic composition, not a database/table; the comparison is against the defining formulas of the two originals.",
+        "searches": [
+          "FEx-G exponential G distribution quantile inverse r-Lambert y exp(y)-y Kwamuraswamy Eldemery",
+          "quantile FEx-G Kumaraswamy Lambert W exact"
+        ]
+      },
+      "rationale": "The original Eldemery et al FEx-G work supplies the full CDF and explicitly its already-inverted scalar relation w log(1−w)=log z; Mező–Baricz (2015/2017) define W_r as precisely the inverse of t e^t+r t and analyze real branches. The alleged exact FEx-G quantile is obtained immediately from that published relation by the one-step substitution t=log(1−w), setting the existing r parameter to −1 and composing with baseline G^{−1}. The branch restriction t<0 follows immediately from 0<w<1 and monotonicity of a known scalar function. The Kumaraswamy formula is algebraic substitution. The complete submitted claim is mathematically implied by these two prior statements, even without an identical named quantile formula. This is a covered corollary, not a distinct original theorem.",
+      "residual_risks": [
+        "The FEx-G original full mathematical manuscript was not retrievable through the article HTML in this run; equation relied on exact submission quotation plus independently checked original CDF algebra.",
+        "Rejection is mathematical implication/value judgment, not a claim the same literal W_{−1} expression appears in either source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General inverse W_r defined for any r; specializing r=−1 resolves submitted equation",
+          "evidence": "arXiv:1408.3999 Eq (2) and §3.2, pp 2, 6–8",
+          "identifier_or_url": "https://arxiv.org/pdf/1408.3999",
+          "material_read": "full PDF original §1.2 defining x e^x+r x; §§2–3 especially §3.2 real branch discussion and W_r definition",
+          "method": "arXiv full 19-page PDF, text and page inspection",
+          "title": "On the generalization of the Lambert W function",
+          "trigger": "exact inverse equation t e^t−t"
+        },
+        {
+          "assessment": "Original distribution and quantile model are same; a complete primary full-text NOT_COVERING claim is intentionally not made",
+          "evidence": "AIMS Mathematics 11 (2026), DOI 10.3934/math.2026571; published equation as quoted in source package",
+          "identifier_or_url": "https://www.aimspress.com/article/doi/10.3934/math.2026571",
+          "material_read": "AIMS open access article landing HTML, bibliographic data, description of FEx-G and FExKw; original inversion equation additionally available in actual reviewed RESULT/REVIEW quotations, not independently full-text-verified",
+          "method": "journal website HTML; full-text link only opened same abstract content",
+          "title": "A unified parsimonious exponential-G family for modeling real-world data: theory and statistical inference",
+          "trigger": "identical 2026 distribution family and quantile problem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://www.aimspress.com/article/doi/10.3934/math.2026571",
+        "https://arxiv.org/pdf/1408.3999"
+      ],
+      "rationale": "Although a callable special-function wrapper may help implement distribution quantiles, the record adds no new nontrivial bound, asymptotic, algorithmic complexity, structural classification, or unknown invariant: it merely labels the original article’s already explicit scalar inverse via the established generalized Lambert inverse and restates its branch. Numeric root finding remains necessary and no speed or stability gain is proven. Under the common value bar, this is routine reparameterization/notation of already published mathematics, not a substantive mathematical gap.",
+      "residual_risks": [
+        "The FEx-G original full mathematical manuscript was not retrievable through the article HTML in this run; equation relied on exact submission quotation plus independently checked original CDF algebra.",
+        "Rejection is mathematical implication/value judgment, not a claim the same literal W_{−1} expression appears in either source."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The FEx-G original full mathematical manuscript was not retrievable through the article HTML in this run; equation relied on exact submission quotation plus independently checked original CDF algebra.",
+    "Rejection is mathematical implication/value judgment, not a claim the same literal W_{−1} expression appears in either source.",
+    "Published-source priority checked at the level of mathematical implication and given available lawful primary access; neither a universal priority certification nor publication authorization.",
+    "Source metadata sanitization is a distinct transport/publication blocker, not a scientific proof defect."
+  ],
+  "schema_version": 1
+}
