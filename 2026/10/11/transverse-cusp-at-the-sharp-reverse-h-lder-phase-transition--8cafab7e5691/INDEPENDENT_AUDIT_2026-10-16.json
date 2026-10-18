@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T04:54:36Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Melbourne, Roysdon, Tang, Tkocz, From simplex slicing to sharp reverse Hölder inequalities, arXiv:2505.00944v2",
+        "Eitan, The centered convex body whose marginals have the heaviest tails, arXiv:2110.14382v1",
+        "Frozen RESULT.md blob 7e5b993ca4269c1865da0598cbe5481be4c57e3f"
+      ],
+      "rationale": "For p in (2.9414,2.9415) the Melbourne–Roysdon–Tang–Tkocz source gives A(p)=Gamma(p+1)^(1/p), B(p)=(e/2)M(p)^(1/p) and the unique crossing h=Gamma(p+1)-(e/2)^p M(p)=0 with left/right branch signs. At root, q=J/Gamma obeys q/(1+q)<1/6 using p>2.94 and log2<0.7; log-Gamma convexity gives psi(p+1)<log4<7/5; opposite-monotonicity covariance gives -Jprime/J<1/(p+1)<1/3; log(e/2)>3/10. Differentiating gives hprime/Gamma<-1/90; chain rule yields strict corner Cprime_+−Cprime_->C/(90p)>C/270. Independent 60-digit quadrature gives p0≈2.94147275271262, hprime/Gamma≈-0.1717054, derivative gap≈0.1047084. Numerical check is corroboration; analytic inequalities establish the strict universal statement.",
+      "residual_risks": [
+        "The derivative-gap constant is coarse, not claimed sharp; relies on external source proof of branch ordering and crossing.",
+        "Restricted to Lp/L1 sharp constant; not a variance-normalized crossing."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The new source classifies extremizing branch for p around p0 and gives a tight bracket but no quantitative derivative gap.",
+          "Eitan treats different p/q norm comparison; variance-normalized transitions are separate."
+        ],
+        "reasoning": "No inspected stronger smoothness/regularity theorem forces a first-order cusp; branch sign ordering is weaker.",
+        "searches": [
+          "Resultary: sharp reverse Hölder centered log concave phase transition p0 2.9414 cusp derivative Melbourne Roysdon Tang Tkocz",
+          "Melbourne–Roysdon–Tang–Tkocz arXiv:2505.00944v2 main theorem/appendix",
+          "Eitan arXiv:2110.14382"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/transverse-cusp-at-the-sharp-reverse-h-lder-phase-transition--8cafab7e5691",
+        "Melbourne, Roysdon, Tang, Tkocz, From simplex slicing to sharp reverse Hölder inequalities, arXiv:2505.00944v2",
+        "Eitan, The centered convex body whose marginals have the heaviest tails, arXiv:2110.14382v1",
+        "Frozen RESULT.md blob 7e5b993ca4269c1865da0598cbe5481be4c57e3f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior branch formula makes the claimed derivative computable, but h_prime negativity needs nontrivial uniform inequalities.",
+          "The audited computation q/(1+q)<1/6, psi<7/5 and integral covariance bound gives h_prime/Gamma<-1/90."
+        ],
+        "reasoning": "A formula enabling a derivative calculation does not explicitly furnish the strict sign; the proof rules out a higher-order zero, a structural refinement rather than a renaming of the branch switch.",
+        "searches": [
+          "arXiv:2505.00944v2, eqs.(4),(5) and Lemma14",
+          "arXiv:2110.14382v1, Theorem4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cusp is equivalent to a nonzero first derivative h_prime(p0)<0 at the unique zero h(p0)=0; the source proves only uniqueness and sign pattern, which could also arise for an odd higher-order tangency."
+        ],
+        "reasoning": "An exact max of two analytic branches does not automatically imply a corner; the derivative-gap estimate supplies a distinct local regularity fact.",
+        "searches": [
+          "Resultary: sharp reverse Hölder centered log concave phase transition p0 2.9414 cusp derivative Melbourne Roysdon Tang Tkocz",
+          "arXiv:2505.00944v2, Lemma14",
+          "arXiv:2110.14382v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published bracket p0 in (2.9414,2.9415) and branch formula is not a certified derivative nonvanishing theorem."
+        ],
+        "reasoning": "A pointwise tabulation of the crossing or a numerical plot does not give the strict analytic gap for all exact p0.",
+        "searches": [
+          "Resultary: reverse Holder cusp phase transition derivative gap",
+          "arXiv:2505.00944v2 p0 numerical bracket and plots"
+        ]
+      },
+      "rationale": "Best-of-knowledge scientific implication comparison grounded in primary mathematical text; residual risks and access boundaries remain explicit.",
+      "residual_risks": [
+        "Semantic search indexing and bibliographic completeness are necessarily bounded; no absolute priority certification or independent human attestation is claimed.",
+        "The current published Resultary hit for the exact title is the work being reviewed, not independent prior evidence.",
+        "Unindexed equivalent or stronger results under alternative mathematical terminology could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NON_COVERING of nonzero derivative at p0; gives unique sign-changing zero and branch ordering.",
+          "evidence": "Lemma 14 h(p)=Gamma(p+1)-(e/2)^p M(p) has p0≈2.9414 and changes sign; the proof uses sign-crossing and does not establish h_prime(p0)<0.",
+          "identifier_or_url": "arXiv:2505.00944v2",
+          "material_read": "Primary full-text Theorem 2 and equation (4)–(5) pp.3–4, Appendix Lemma 14 and proof pp.21–22.",
+          "method": "Public arXiv PDF text and inspected page image.",
+          "title": "From simplex slicing to sharp reverse Hölder inequalities",
+          "trigger": "Defines the exact two-branch sharp constant and transition."
+        },
+        {
+          "assessment": "NON_COVERING; different normalization and even higher moments, no cusp of the newly derived C_p.",
+          "evidence": "Theorem 4 treats L_n/L_2 for even n rather than derivative of L_p/L_1 transition.",
+          "identifier_or_url": "arXiv:2110.14382v1",
+          "material_read": "Full-text pp.1–3, including Theorems 1,3,4 and general norm-ratio set-up.",
+          "method": "Public arXiv PDF.",
+          "title": "The centered convex body whose marginals have the heaviest tails",
+          "trigger": "Predecessor centered log-concave reverse Hölder result."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2505.00944v2",
+        "arXiv:2110.14382v1"
+      ],
+      "rationale": "Determines whether the extremizer-switching threshold of a sharp log-concave inequality is a genuine first-order cusp rather than higher-order branch tangency. This changes local regularity/quantified sensitivity of the sharp constant and answers a natural question not decided by knowing the crossing exponent.",
+      "residual_risks": [
+        "Mathematical importance is specific to the natural invariant/gap described; no claim of a broad new theory, universal optimality beyond scope, or human expert endorsement."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/transverse-cusp-at-the-sharp-reverse-h-lder-phase-transition--8cafab7e5691",
+    "Melbourne, Roysdon, Tang, Tkocz, From simplex slicing to sharp reverse Hölder inequalities, arXiv:2505.00944v2",
+    "Eitan, The centered convex body whose marginals have the heaviest tails, arXiv:2110.14382v1",
+    "Frozen RESULT.md blob 7e5b993ca4269c1865da0598cbe5481be4c57e3f"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The derivative-gap constant is coarse, not claimed sharp; relies on external source proof of branch ordering and crossing.",
+    "Restricted to Lp/L1 sharp constant; not a variance-normalized crossing.",
+    "Semantic search indexing and bibliographic completeness are necessarily bounded; no absolute priority certification or independent human attestation is claimed.",
+    "The current published Resultary hit for the exact title is the work being reviewed, not independent prior evidence.",
+    "Unindexed equivalent or stronger results under alternative mathematical terminology could exist."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "NON_COVERING of nonzero derivative at p0; gives unique sign-changing zero and branch ordering.",
+      "evidence": "Lemma 14 h(p)=Gamma(p+1)-(e/2)^p M(p) has p0≈2.9414 and changes sign; the proof uses sign-crossing and does not establish h_prime(p0)<0.",
+      "identifier_or_url": "arXiv:2505.00944v2",
+      "material_read": "Primary full-text Theorem 2 and equation (4)–(5) pp.3–4, Appendix Lemma 14 and proof pp.21–22.",
+      "method": "Public arXiv PDF text and inspected page image.",
+      "title": "From simplex slicing to sharp reverse Hölder inequalities",
+      "trigger": "Defines the exact two-branch sharp constant and transition."
+    },
+    {
+      "assessment": "NON_COVERING; different normalization and even higher moments, no cusp of the newly derived C_p.",
+      "evidence": "Theorem 4 treats L_n/L_2 for even n rather than derivative of L_p/L_1 transition.",
+      "identifier_or_url": "arXiv:2110.14382v1",
+      "material_read": "Full-text pp.1–3, including Theorems 1,3,4 and general norm-ratio set-up.",
+      "method": "Public arXiv PDF.",
+      "title": "The centered convex body whose marginals have the heaviest tails",
+      "trigger": "Predecessor centered log-concave reverse Hölder result."
+    }
+  ]
+}

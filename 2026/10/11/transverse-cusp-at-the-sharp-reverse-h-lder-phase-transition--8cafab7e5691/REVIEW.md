@@ -1,19 +1,21 @@
-# Review of Transverse cusp at the sharp reverse-Hölder phase transition
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof differentiates the exact branch-power difference at the source's unique transition. The crossing identity reduces the derivative to a digamma term and a one-dimensional weighted logarithmic moment. Strict convexity of \(\log\Gamma\), an opposite-monotonicity covariance bound, and elementary logarithmic inequalities yield
-\[
-\frac{h'(p_0)}{\Gamma(p_0+1)}<-\frac1{90}.
-\]
-This implies the stated one-sided derivative gap. The numerical checker is supplementary only.
+## correctness
 
-## Originality
-PASS. The closest source, arXiv:2505.00944, proves the exact branch formula, transition bracket, uniqueness and sign change, but does not state that the crossing is simple or analyze differentiability of the sharp constant. The earlier arXiv:2110.14382 gives a broader reduction to two-sided exponential laws without determining this \(L_1\)-normalized transition. Targeted semantic and web searches did not locate an implication of the cusp estimate. Residual risk remains that an unindexed note contains the same elementary observation.
+PASS
 
-## Value
-PASS. Whether a newly discovered extremizer switch is first-order or a higher-order tangency is intrinsic to the phase-transition structure. The quantitative cusp gives a robustness scale for the sharp constant and rules out a qualitatively different local transition mechanism.
+For p in (2.9414,2.9415) the Melbourne–Roysdon–Tang–Tkocz source gives A(p)=Gamma(p+1)^(1/p), B(p)=(e/2)M(p)^(1/p) and the unique crossing h=Gamma(p+1)-(e/2)^p M(p)=0 with left/right branch signs. At root, q=J/Gamma obeys q/(1+q)<1/6 using p>2.94 and log2<0.7; log-Gamma convexity gives psi(p+1)<log4<7/5; opposite-monotonicity covariance gives -Jprime/J<1/(p+1)<1/3; log(e/2)>3/10. Differentiating gives hprime/Gamma<-1/90; chain rule yields strict corner Cprime_+−Cprime_->C/(90p)>C/270. Independent 60-digit quadrature gives p0≈2.94147275271262, hprime/Gamma≈-0.1717054, derivative gap≈0.1047084. Numerical check is corroboration; analytic inequalities establish the strict universal statement.
 
-## Closest literature and limitations
-The closest literature is Melbourne--Roysdon--Tang--Tkocz, arXiv:2505.00944, together with Eitan, arXiv:2110.14382. The lower bound \(C_{p_0}/(90p_0)\) is deliberately coarse and is not claimed optimal. The statement does not address the separate variance-normalized \(L_p/L_2\) problem.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge scientific implication comparison grounded in primary mathematical text; residual risks and access boundaries remain explicit.
+
+## value
+
+PASS
+
+Determines whether the extremizer-switching threshold of a sharp log-concave inequality is a genuine first-order cusp rather than higher-order branch tangency. This changes local regularity/quantified sensitivity of the sharp constant and answers a natural question not decided by knowing the crossing exponent.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
