@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The claim concerns normalized integral \(\Gamma\)-chains of finite simple graphs without isolated vertices. The four three-corner hyperedges of the \(\Gamma\)-square force every nondegenerate two-cube into a unique graph edge. Both degree-one and degree-two chains therefore decompose edgewise, and the second differential preserves this decomposition. The signed cone \(K_n=(-1)^{n+1}T_n\) is a well-defined chain contraction in positive degrees for the single-edge complex; every graph two-cycle consequently receives an integral three-chain filler. In degree one, the exhibited square \((a,b,a,a)\) generates precisely the reversal relation, giving ordinary graph incidence homology. All boundaries, normalization choices and the exclusion of isolated vertices have been checked. The independent finite verifier evaluates signed cone identities and seven example graphs; it does not serve as the infinite proof.
+
+## Originality — PASS, qualified
+The nearest text is Zaidi–Jamil [1], which explicitly computes \(H_1^{\Gamma}\) for example graphs and a chain-of-triangles family (Proposition 3.10). Its edgewise reversal computation makes the degree-one extension straightforward, so **degree one alone is not claimed as the new contribution**. The integral \(H_2^{\Gamma}\)-vanishing for all simple graphs is neither stated there nor implied by those degree-one examples. The classical discrete cubical theory [2,3] has different source cubes: ordinary square edges versus three-element \(\Gamma\)-square hyperedges, so those theorems cannot be substituted. Targeted searches of named and synonymous formulations identified no covering statement. Unindexed or unpublished equivalent results remain possible.
+
+## Value — PASS
+The new \(\Gamma\)-homology is motivated by comparing hypergraph homologies; the central structural question is what additional higher-order information it extracts from ordinary graphs. A priori nondegenerate higher cubes could introduce spurious degree-two classes even though graph realizations are one-dimensional, and classical discrete cubical graph homology can indeed have nontrivial degree-two groups. The universal integral vanishing is therefore a substantive boundary theorem for this new functor: all ordinary graphs retain precisely their graph-cycle information through degree two, while hypergraphs with larger edges remain free to behave differently. It gives an all-graph structural comparison and a benchmark for interpreting higher-dimensional computations, not merely a small isolated example.
+
+## Closest literature and limits
+Zaidi–Jamil [1, §§3,5] contains the nearest special-case degree-one computation but no general degree-two vanishing. Barcelo et al. [2,3] work with the different ordinary cubical graph theory. The result says nothing about \(\Gamma\)-homology in degrees at least three, or about graphs with isolated vertices in the stated normalization. Scientific priority is qualified by possible unindexed work.
+
+Self-review: passed. Independent audit: not yet performed.
