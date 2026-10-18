@@ -1,0 +1,15 @@
+# Scientific review: Exact ternary minimum scattered-subsequence multiplicities through length 16
+
+## Correctness — PASS
+Every word over the three-symbol alphabet is equivalent, under a bijective renaming, to exactly one restricted-growth canonical word. The executable enumerates all such words of lengths one through 16; the independently derived recurrence for subsequence multiplicities is exact. Each stored pattern and frequency is recovered by sorted merging of previously enumerated patterns and one-symbol extensions. Thus the minimum across visited canonical words is the global optimum for each length. The counts of canonical words agree with Stirling-number totals. Independently enumerated position subsets confirm all canonical cases through length nine and every reported optimum witness through length 16. The computation proves a finite assertion only; it is not extrapolated to greater lengths.
+
+## Originality — PASS with residual risk
+W. Fang (arXiv:2406.02971v1, June 5, 2024; v3, May 14, 2025) defined the minimax statistic for general alphabet size and supplied bounds and a binary minimizer table through length 40. The inspected material contains no ternary minimizer table. The broad lower bound is not sharp: at length 15 it gives at most a lower bound of 17, while the finite exact minimum here is 33. General results on *distinct* contiguous subwords, and the prior counterexample for the length of a most-frequent scattered subsequence, do not imply these minima or optimizer counts. Targeted literature and published-result searches did not uncover a covering ternary table; possible unindexed program outputs remain a genuine priority risk.
+
+## Value — PASS
+The general minimax scattered-subsequence entropy quantity was introduced to quantify how evenly a word disperses subsequence occurrences. The source computed a binary table but left the first nonbinary alphabet numerically unevaluated. The present result supplies the complete first 16 natural lengths, not selected special strings or predetermined target numbers, and classifies every attaining word modulo symbol renaming. The nontrivial gaps between general bounds and exact minima and the uniqueness at the largest lengths provide useful finite benchmark data for future structural conjectures, algorithm design and comparisons across alphabet sizes. A longer census or an asymptotic theorem is not claimed.
+
+## Closest literature and limits
+Primary source: W. Fang, *Maximal number of subword occurrences in a word*, arXiv:2406.02971, Sections 2–3 and 5, especially Proposition 3.4 and Tables 1–2 (binary only). The 2024 AofA proceedings version gives the same general research setting. Other nearby literature on subword frequency, substring complexity and subsequence embeddings addresses different statistics. Unindexed independent computations might preempt individual entries; no claim of absolute priority is made. Scientific scope ends at the printed cutoff.
+
+Self-review: passed. Independent audit: not yet performed.

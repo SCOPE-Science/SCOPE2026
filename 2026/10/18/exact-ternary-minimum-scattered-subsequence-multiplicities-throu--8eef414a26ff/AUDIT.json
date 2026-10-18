@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "The complete restricted-growth enumeration visits every ternary word class exactly once through length 16. The suffix recurrence counts every scattered subsequence by exact integer operations, with all pattern lengths permitted. Counts and minimizers are reproduced from the actual executable; independent position-mask enumeration verifies all canonical classes for n<=9 and all optimal witnesses through n=16. No infinite claim is inferred.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fang arXiv:2406.02971v3 Proposition 3.4 gives maxocc(w)>=max_l binom(n,l) 3^(-l); at n=15 the bound rounded up is 17, smaller than the computed value 33.",
+        "Fang Theorem 3.8 proves existence of the asymptotic rate but gives no exact ternary coefficients.",
+        "Fang Section 5 data table concerns k=2 rather than k=3."
+      ],
+      "reasoning": "The source is mathematically broader in allowed alphabet size but not stronger in exact finite evaluation: its inequalities leave numerous integers possible and do not fix any optimizer list.",
+      "searches": [
+        "Web: Maximal number of subword occurrences in a word arxiv 2406.02971",
+        "published-finding corpus: Wenjie Fang maximal subword occurrences subword entropy Conjecture 5.2 average lower bound 0.585 2024"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2406.02971v1, first submitted June 5 2024",
+      "arXiv:2406.02971v3, accessible HTML full text",
+      "AofA 2024 LIPIcs 302 article 3",
+      "Journal of Experimental Mathematics 1(2), 2025 abstract",
+      "arXiv:1502.03065v3, selected material",
+      "arXiv:1104.4425 abstract",
+      "Published published-finding corpus semantic searches for maxocc / entropy / ternary classification",
+      "Own available preceding and current ledger claim identifiers for overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The present finite theorem states all exact F_3(n) and all optimal canonical words for n=1..16; the published Fang source gives only bounds for k=3 and numerical minima for k=2.",
+        "An own previous record f0f863a4-b43d-423a-bce6-8f6a7cdfe1bb concerns a binary counterexample to the most-frequent-subsequence length conjecture, not minimization over ternary words.",
+        "Nearest published published-finding corpus result 2026/9/19/SCOPE-random-word-distinct-substring-first-correction--022b2626ec5b concerns expected distinct contiguous substrings of random words, not an extremal scattered-subsequence frequency."
+      ],
+      "reasoning": "Neither the previous binary fixed-word counterexample nor expected distinct-substring counts imply numerical ternary minimax values or complete optimizer classes. General definitions and expectation inequalities fall short.",
+      "searches": [
+        "Web: ternary subword entropy maxocc finite words enumerations",
+        "published-finding corpus: complete classification ternary maxocc minimal word through length 12",
+        "Web: maximum subword occurrences ternary Fang table"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fang arXiv:2406.02971v3 Section 2: min S_sw^(k)(n)=min_w log_2 maxocc(w). Taking the logarithm of the present integer F_3(n) is the exact same invariant for k=3.",
+        "Full inspected Section 5 Table 1 labels its data binary and describes only min S_sw^(2)(n), n<=40."
+      ],
+      "reasoning": "Any previous exact values for min S_sw^(3) would imply the present numerical minima, regardless of differing notation; no such values appeared in the inspected primary text or search hits. The optimizer classification is stronger still.",
+      "searches": [
+        "published-finding corpus: exact ternary three letter minimal maximum scattered subword occurrences subword entropy length 12 13 Wenjie Fang",
+        "published-finding corpus: minimum maximal subsequence occurrence ternary word subword entropy finite enumeration q=3",
+        "published-finding corpus: complete classification ternary maxocc minimal word through length 12",
+        "Web: maximum subword occurrences ternary Fang table"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Fang arXiv:2406.02971v3 Table 1: explicit binary minimizing words, lengths 1–40; no k=3 column.",
+        "The OEIS-oriented web query surfaced records for *contiguous distinct-factor complexity*, a different invariant; direct sequence-lookup access was unsuccessful."
+      ],
+      "reasoning": "A binary or contiguous-factor table does not determine multiplicities of scattered subsequences over three symbols. An inaccessible sequence database search is not taken as proof of novelty; this is a residual risk.",
+      "searches": [
+        "Web: OEIS 1 1 1 2 2 2 3 5 6 8 9 15 18 24 33 subword entropy",
+        "Web: minimum maximum scattered subsequence occurrence 3-letter 24 33 15 18 sequence",
+        "published-finding corpus: minimum maximal subsequence occurrence ternary word subword entropy finite enumeration q=3"
+      ]
+    },
+    "rationale": "The full relevant sections of Fang arXiv:2406.02971v3 define the arbitrary-alphabet statistic but tabulate only k=2. No ternary minimum or exhaustive extremizer list through length 16 is present; the source lower bound does not imply the reported exact values (at n=15 it only proves a lower bound of 17 versus exact 33). Targeted published-record and literature searches found no covering q=3 table. Residual risk: unindexed earlier computations and lack of independent priority audit.",
+    "residual_risks": [
+      "An unindexed or privately distributed enumeration of ternary minimizers may have established the same finite table.",
+      "A direct OEIS query for the entire sequence was not available; no claim that all integer databases were exhaustively searched.",
+      "Exact replay is finite and computational; independent human audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No ternary exact values; binary table and general bounds do not cover this q=3 finite classification",
+        "evidence": "Section 5 Table 1 explicitly labels binary minimizers through n=40; Proposition 3.4 expectation bound; Theorem 3.8 limit existence.",
+        "identifier_or_url": "https://arxiv.org/html/2406.02971v3",
+        "material_read": "Sections 1–3 and 5 (definitions, propositions, open problems and the complete binary Tables 1–2); Section 4 overview and selected proofs",
+        "method": "Direct reading of full article HTML with section and table searches",
+        "title": "Maximal number of subword occurrences in a word",
+        "trigger": "Same arbitrary-alphabet minimax statistic and competing binary computation"
+      },
+      {
+        "assessment": "Same broad problem and binary-focused bound; no accessible competing ternary numeric table in inspected metadata",
+        "evidence": "Published July 18, 2024; ACM subject classification combinatorics on words.",
+        "identifier_or_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.AofA.2024.3",
+        "material_read": "Proceedings metadata and abstract",
+        "method": "Open-access proceedings entry",
+        "title": "Maximal Number of Subword Occurrences in a Word",
+        "trigger": "Earliest proceedings version and independent subject classification"
+      },
+      {
+        "assessment": "Counts occurrences for specified patterns and incidence structures; the inspected results do not solve ternary minimax optimization",
+        "evidence": "Examples describe fixed pattern occurrence counts rather than the minimum over all ternary host words.",
+        "identifier_or_url": "https://arxiv.org/html/1502.03065v3",
+        "material_read": "Opening definitions and selected incidence algebra formula examples",
+        "method": "Open-access full-text HTML excerpts",
+        "title": "Subword counting and the incidence algebra",
+        "trigger": "Potential broader subword-occurrence counting formalism"
+      },
+      {
+        "assessment": "Counts distinct scattered subwords of rainbow words, not maximum multiplicities across ternary host words",
+        "evidence": "Abstract describes scattered subword complexity in terms of distinct factors and gap sets.",
+        "identifier_or_url": "https://arxiv.org/abs/1104.4425",
+        "material_read": "Abstract and scope",
+        "method": "Open-access bibliographic abstract",
+        "title": "On scattered subword complexity",
+        "trigger": "Possible older scattered-subsequence sequence table"
+      },
+      {
+        "assessment": "Publication in 2025 is later than the 2024 original preprint; same general study and no extra ternary enumeration identified from public metadata",
+        "evidence": "Journal publication August 30, 2025.",
+        "identifier_or_url": "https://jexpmath.org/index.php/jem/article/view/Vol-1Issue-2Paper-2",
+        "material_read": "Abstract, publication metadata",
+        "method": "Journal public metadata",
+        "title": "Maximal number of subword occurrences in a word",
+        "trigger": "Later published journal form of motivating source"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8eef414a-26ff-4338-b0e7-35f843bfc4c8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a natural complete initial-range evaluation (n=1..16) of the first nonbinary alphabet for a named minimax invariant introduced for general k in arXiv:2406.02971, where only the binary table was computed. The result includes all maximally dispersed ternary words up to symbol relabeling and exact gaps from general bounds; it supplies reproducible benchmark data for future algorithms and extremal-construction study. No significance is inferred from correctness or code alone and no unsupported infinite theorem is asserted.",
+    "status": "PASS"
+  }
+}
