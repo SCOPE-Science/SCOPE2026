@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The stated matrix generator was multiplied explicitly to obtain the determinant-one normalized monodromy and exact Perron exponent. The uniform scaled expansion \(H_T(z)=g(z)+O(T^2)\) includes \(z=0\), the global upper tail controls unbounded rates, and strict unimodality of \(g\) follows from the sign change of \(\sinh(2z)-4z\). These statements yield existence, small-season uniqueness, the \(O(T)\) rate correction and the \(O(T^3)\) exponent correction. Independent matrix-exponential computations and finite optimization checks passed. The first-order mortality-boundary equality is explicitly not claimed.
+
+**Originality — PASS, with residual priority uncertainty.** The two motivating full-text papers were inspected at their high-frequency and exact square-wave model sections. The known two-patch Floquet expression is acknowledged; fixed-migration \(T\downarrow0\) and fixed-period migration limits do not imply the nonuniform optimal \(m\asymp 1/T\) law without joint analysis. Semantic published-results searches, literal prior-claim checks and scientific source comparisons did not identify an already-covered global singular optimum. Equivalent derivations in optimal-dispersal or periodic matrix-product literature may remain unindexed. This is a best-knowledge research judgment, not priority certification.
+
+**Value — PASS.** Optimizing migration, rather than holding it fixed, is the natural response to a shrinking environmental cycle. The positive, universal growth coefficient identifies a sharp leading mortality-versus-switching boundary and supplies a precise fast-season management scaling. It is a population-dynamics comparative-statics law, not a mere recomputation of the previously known Floquet exponent.
+
+**Closest work and scope.** Katriel (arXiv:2104.01589) develops dispersal-induced growth and fixed-rate high-frequency results; Benaïm et al. (arXiv:2111.12633), Section 2.2, explicitly analyze the same square-wave system and derive its finite-parameter growth rate. The contribution is restricted to optimizing across all *constant symmetric* migration intensities in the singular short-season limit. Literature priority and biologically regulated or stochastic effects remain unresolved.
+
+Self-review: passed. Independent audit: not yet performed.
