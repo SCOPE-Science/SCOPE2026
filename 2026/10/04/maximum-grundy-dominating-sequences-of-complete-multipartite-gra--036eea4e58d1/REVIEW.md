@@ -1,10 +1,21 @@
-# Correctness
-The proof reduces every legal sequence to the behavior forced by its first multipartite part. After the first selected vertex, all vertices outside that part are dominated; selecting further vertices inside the part can only footprint themselves, while the first selection outside the part dominates every still-undominated vertex of the initial part and therefore terminates the sequence. This proves the upper bound, the exact value \(\gamma_{\mathrm{gr}}(G)=m\), and the two-form classification. The counting formulas then follow by disjoint case counting, with the \(m=2\) set-count treated separately to remove double counting.
+# Independent mathematical audit
 
-# Originality
-Targeted searches for “complete multipartite graphs Grundy domination number maximum Grundy dominating sequences count”, “exact number of Grundy dominating sets complete multipartite graphs”, and close variants found related Grundy-domination and complete-multipartite results but no source stating the ordered-sequence classification or these enumeration formulas. The 2016 source develops Grundy domination and exact values in other graph families and products; the 2026 uniqueness paper gives qualitative uniqueness and iso-uniqueness results but does not enumerate complete multipartite maximum sets or sequences. Residual risk remains that a differently indexed source contains the same formulas.
+## correctness
 
-# Value
-The result gives a complete witness-level description, not only the invariant value, for a canonical graph class. It turns the qualitative non-uniqueness question into exact enumerators and separates the exceptional \(m=2\) set-count caused by two possible largest-part orientations. The formulas are immediately usable as closed benchmarks for algorithms that enumerate or sample extremal legal domination sequences.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+For a first chosen vertex in part P, all outside P and that vertex are dominated. Subsequent P vertices footprint themselves; first outside-P choice, if legal, footprints all remaining P and ends sequence. Thus maximum m and exactly the two families; permutations give A=t m!(N-m+1) for m>=2, and B=t[1+m(N-m)] for m>=3, with separate m=2 singleton correction and complete-graph m=1. Independently enumerated ALL legal sequences for 63 profiles with 2-4 parts, part sizes 1-3, total <=7, reproducing both counts; general proof does not extrapolate from checks.
+
+## originality
+
+PASS
+
+Compared ordinary closed-neighborhood maximum Grundy sequences and their ordered/unordered enumerators with foundational graph-product work, other domination variants, complete-multipartite studies, and the published findings index. No source read states the full ordered-sequence and underlying-set classification; best-of-knowledge only.
+
+## value
+
+PASS
+
+A natural complete-multipartite benchmark, not merely the known Grundy number: it classifies all extremal legal-order witnesses and distinct selected sets, including exceptional double-counting at m=2. Exact enumerators support independent enumeration and extremal graph research.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
