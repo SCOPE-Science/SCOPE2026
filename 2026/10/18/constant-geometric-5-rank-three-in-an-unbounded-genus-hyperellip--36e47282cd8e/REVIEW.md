@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The squarefree hypothesis holds for every \(r\ge1\); the Cartier–Manin matrix is reconstructed from the exact three-term square and has one nonzero entry per admissible row and column. The transformation \(t=2i-1\) reduces its stable Frobenius rank to cycles of multiplication by \(5\) modulo \(4\cdot3^r\). The elementary primitive-root argument establishes that only three odd residue labels form entire lower-half cycles, including all boundary cases \(r=1\) and high \(3\)-adic valuation. A packaged verifier checks six independent finite cases; infinite scope follows from proof, not samples.
+
+**Originality — PASS, subject to literature risk.** Pan's 2026 Section 3 studies the complex family, not reduction \(5\)-rank. Nourozi–Rahmati–Tafazolian's 2019 Theorem 4.1 computes \(a\)-numbers for exponents divisible by the characteristic, and their general formula gives one-step Cartier coefficients; neither specifies the stable Cartier rank \(3\) across this prime-power tower. Frei's 2017 work separates these invariants. A relevant 2014 maximal-curves study and 2024 \(a\)-number paper were checked at abstract level; neither accessible abstract supplies the claim. No overlap was located in targeted published-record searches or accessible prior mathematical claims. Residual risk: cyclic-cover character formulas or unindexed computations might imply the precise value. Searching alone does not certify uniqueness.
+
+**Mathematical value — PASS.** The \(5\)-rank is a standard Jacobian invariant not determined by genus, individual Cartier rank or a complex group action. The exact stable-rank calculation identifies a naturally defined infinite tower with exponentially increasing genus and constant positive \(5\)-rank, and exhibits the three surviving characters explicitly. This is a structural arithmetic phenomenon, not a single small-genus computation or a restatement of the \(a\)-number formula. No general claim about all hyperelliptic towers is asserted.
+
+**Limitations.** No full Newton polygon, Ekedahl–Oort classification, or complete p-rank distribution in the larger family is proved. Independent verification of novelty remains necessary.
+
+Self-review: passed. Independent audit: not yet performed.
