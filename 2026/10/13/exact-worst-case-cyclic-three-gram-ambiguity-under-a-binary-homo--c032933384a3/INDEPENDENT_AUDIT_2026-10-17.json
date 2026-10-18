@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T17:03:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the cyclic binary constraint prohibiting triple 000 and111, allowed order-two de Bruijn graph has six arcs 001,010,011,100,101,110. Flow balance forces profile (a,s-b,b,a,s-a,b), s>=1, 0<=a,b<=s, n=2s+a+b. Mark an occurrence of vertex 01 (exactly s such indices), traverse s outward 01-to-10 and return 10-to-01 excursions, with independent binary detour choices in exactly b outward and a return legs. There are C(s,a)C(s,b) marked walks; double-counting (word,index) gives n/s times this product, no disconnected Euler-support exception. At fixed s, log-concavity balances a,b; feasible s range ceil(n/4)..floor(n/2), so stated finite max holds for every n>=2. Independent direct complete profile enumeration of 5,774 valid indexed cyclic words n=2..16 agrees. At n=2 the two alternating words correctly form a fiber of size 2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kiah Euler circuit/flow generality supplies method, not the explicit maximizing balanced excursion split and s-restricted max."
+        ],
+        "reasoning": "A general directed Euler tour counting result would permit evaluation of any one fixed profile, but no inspected broader theorem specializes all allowed profiles and optimizes their largest indexed-word fiber. Algebraic profile flow restriction is nontrivial but transparently based on known graph methods.",
+        "searches": [
+          "Maximal cyclic ternary gram profile fiber binary homopolymer constrained no 000 111 de Bruijn graph excursions",
+          "Kiah Puleo Milenkovic DNA profile Eulerian digraph flow homopolymer free maximum preimage",
+          "Jacquet Knessl Szpankowski Counting Markov Types cyclic directed graph",
+          "doi:10.46298/dmtcs.2768"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1410.8837",
+        "doi:10.46298/dmtcs.2768",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71/RESULT.md",
+        "Resultary semantic query: Maximal cyclic ternary gram profile fiber binary homopolymer constrained no 000 111 de Bruijn graph excursions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cyclic rotations are counted as indexed words; divisor s follows 01 mark double count, in contrast to fixed linear endpoints in the prior binary two-gram paper."
+        ],
+        "reasoning": "A published linear two-gram pointwise class formula does not imply this cyclic three-gram constrained formula by coordinate substitution. Here 01 cross section and two independent detour choices on six-edge de Bruijn graph determine n/s factor.",
+        "searches": [
+          "Maximal cyclic ternary gram profile fiber binary homopolymer constrained no 000 111 de Bruijn graph excursions",
+          "Kiah Puleo Milenkovic DNA profile Eulerian digraph flow homopolymer free maximum preimage",
+          "Jacquet Knessl Szpankowski Counting Markov Types cyclic directed graph",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kiah 2014/2015 restricted de Bruijn flow framework covers feasibility and general classes but does not directly state this six-edge n/s binomial formula or sharp max."
+        ],
+        "reasoning": "Cyclic length-three full multiplicity read under forbidden 000/111 is a closed six-edge de Bruijn flow problem, in contrast to linear length-two spectra or unrestricted Markov type counts.",
+        "searches": [
+          "Maximal cyclic ternary gram profile fiber binary homopolymer constrained no 000 111 de Bruijn graph excursions",
+          "Kiah Puleo Milenkovic DNA profile Eulerian digraph flow homopolymer free maximum preimage",
+          "Jacquet Knessl Szpankowski Counting Markov Types cyclic directed graph",
+          "arxiv:1410.8837"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Sample values independently reproduced L(12)=108,L(16)=600 from profile counting, but absence of external tabulations is not affirmative proof of priority."
+        ],
+        "reasoning": "Resultary searches of cyclic ternary gram and homopolymer constrained reconstruction returned different 2-read code spectra, cyclic graph claims and unrestricted DNA profile ranks; no matching exact L(n) table was identified.",
+        "searches": [
+          "Maximal cyclic ternary gram profile fiber binary homopolymer constrained no 000 111 de Bruijn graph excursions",
+          "Kiah Puleo Milenkovic DNA profile Eulerian digraph flow homopolymer free maximum preimage",
+          "Jacquet Knessl Szpankowski Counting Markov Types cyclic directed graph",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71/RESULT.md"
+        ]
+      },
+      "rationale": "The general restricted de Bruijn Euler-circuit/flow formula and cyclic Markov class notions are prior mathematics. A complete six-edge homopolymer-forbidden excursion reduction gives exact n/s binomial fiber multiplicity and optimized worst-case cyclic length-three list for every n; those are not supplied as a closed all-length theorem by inspected general flow papers.",
+      "residual_risks": [
+        "General Eulerian-tour formula may have been explicitly optimized earlier for this exact constrained subgraph under different terminology.",
+        "No closed elementary maximizing s or large-n asymptotic is claimed; finite one-dimensional maximum is the final result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General Eulerian-flow machinery can count individual fixed profiles but does not provide the restricted six-arc de Bruijn excursion reduction nor all-n maximum list formula",
+          "evidence": [
+            "Kiah-Puleo-Milenkovic arxiv:1410.8837, flow formulation and DNA sequence profile classes."
+          ],
+          "identifier_or_url": "arxiv:1410.8837",
+          "material_read": "Complete accessible arXiv HTML, profile feasibility flow-equivalence, code rate and count of possible profiles",
+          "method": "Public primary arXiv full-text inspection",
+          "title": "Codes for DNA Sequence Profiles",
+          "trigger": "Exact same multiplicity preserving read model, restricted de Bruijn graph, possible stronger Euler-flow count"
+        },
+        {
+          "assessment": "Counts distinct cyclic Markov types, does not establish sharp largest constrained ternary gram profile fiber",
+          "evidence": [
+            "Jacquet-Knessl-Szpankowski 2010 on cyclic Markov type enumerations."
+          ],
+          "identifier_or_url": "doi:10.46298/dmtcs.2768",
+          "material_read": "Complete DMTCS 2010 article, cyclic string type-counting section and prior Whittle reference",
+          "method": "Public original PDF/HTML study",
+          "title": "Counting Markov Types",
+          "trigger": "Cyclic Markov transition spectra equivalent to Eulerian closed-walk type counts"
+        },
+        {
+          "assessment": "Does not dominate cyclic read length 3 homopolymer forbidden model; not same graph/constraint",
+          "evidence": [
+            "Published result classifies linear length-two bigrams and singleton profiles, not cyclic length-three forbidden homopolymers."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71/RESULT.md",
+          "material_read": "Complete published RESULT.md, binary linear read length 2",
+          "method": "Read-only original GitHub full file",
+          "title": "Exact binary two-multispectrum code size and singleton classification",
+          "trigger": "Overlapping reconstruction observation but different gram length and linearity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Worst-case cyclic three-gram multiplicity ambiguity under the most natural binary homopolymer length-three exclusion is an intrinsic reconstruction list invariant. The exact finite 1D maximization over s is complete and computationally effective for each length; it need not supply closed elementary argmax to have value. No claim of noise correction or asymptotic not proved.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:1410.8837",
+    "doi:10.46298/dmtcs.2768",
+    "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71/RESULT.md",
+    "Resultary semantic query: Maximal cyclic ternary gram profile fiber binary homopolymer constrained no 000 111 de Bruijn graph excursions"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "General Eulerian-tour formula may have been explicitly optimized earlier for this exact constrained subgraph under different terminology.",
+    "Verified finite calculations supplement rather than establish unrestricted theorem.",
+    "No GitHub write/import, independent external attestation, or global literature priority certification.",
+    "Publication withheld due to potentially public operational provenance in source metadata."
+  ],
+  "residual_risks": [
+    "General Eulerian-tour formula may have been explicitly optimized earlier for this exact constrained subgraph under different terminology.",
+    "No closed elementary maximizing s or large-n asymptotic is claimed; finite one-dimensional maximum is the final result."
+  ],
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof classifies all closed walks of the six-edge restricted de Bruijn graph by \(s,a,b\), obtains the exact multiplicity of every realizable profile through an explicit marked-excursion double count, and proves balanced counts maximize each fixed-\(s\) slice by a strict binomial inequality. The integer extrema and all boundary cases \(n\ge2\) are addressed; the accompanying program independently enumerated all words at lengths 2 through 18.
+## correctness
 
-**Originality — PASS, with residual bibliographic risk.** The closest inspected primary source (Kiah–Puleo–Milenkovic, arXiv:1410.8837, 2014–2015) develops constrained profile and de Bruijn flow methods. Its distinct-profile enumerations are not equivalent to the present maximum-fiber theorem and do not determine its exact all-length one-dimensional extremum. General Euler-tour counts can recover individual fibers but do not perform the global optimization. Searches of other published records did not identify an equivalent sharp optimization. A specialized historical maximum may nevertheless have been published outside inspected sources.
+PASS
 
-**Value — PASS.** The largest noiseless reconstruction list is a natural operational invariant in complete k-mer observation. An exact all-length, efficiently evaluable capacity bound, together with the precise fiber characterization and equality mechanism, goes beyond one isolated instance and does not follow from merely counting distinct profiles.
+For the cyclic binary constraint prohibiting triple 000 and111, allowed order-two de Bruijn graph has six arcs 001,010,011,100,101,110. Flow balance forces profile (a,s-b,b,a,s-a,b), s>=1, 0<=a,b<=s, n=2s+a+b. Mark an occurrence of vertex 01 (exactly s such indices), traverse s outward 01-to-10 and return 10-to-01 excursions, with independent binary detour choices in exactly b outward and a return legs. There are C(s,a)C(s,b) marked walks; double-counting (word,index) gives n/s times this product, no disconnected Euler-support exception. At fixed s, log-concavity balances a,b; feasible s range ceil(n/4)..floor(n/2), so stated finite max holds for every n>=2. Independent direct complete profile enumeration of 5,774 valid indexed cyclic words n=2..16 agrees. At n=2 the two alternating words correctly form a fiber of size 2.
 
-**Limits.** The answer keeps an explicit discrete one-dimensional maximum rather than resolving the maximizing integer in a closed congruence formula. It treats cyclic, full-multiplicity, noise-free observations only. A separate independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general restricted de Bruijn Euler-circuit/flow formula and cyclic Markov class notions are prior mathematics. A complete six-edge homopolymer-forbidden excursion reduction gives exact n/s binomial fiber multiplicity and optimized worst-case cyclic length-three list for every n; those are not supplied as a closed all-length theorem by inspected general flow papers.
+
+## value
+
+PASS
+
+Worst-case cyclic three-gram multiplicity ambiguity under the most natural binary homopolymer length-three exclusion is an intrinsic reconstruction list invariant. The exact finite 1D maximization over s is complete and computationally effective for each length; it need not supply closed elementary argmax to have value. No claim of noise correction or asymptotic not proved.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
