@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T05:10:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With fixed m,r,k,lambda>0, fixed inoculum one, c>0 co-scaling saturation and disease mortality, the implicit horizon T solves mT+c integral_0^T[x V/(1+lambda cV)]dt=1 uniquely since derivative m+cF>0. The ODE bound d(log V)/dt<=g(x)=9/2-(x-10)^2/20 gives V<=exp(g(x)t) and T<=1/m, hence Kc<=K0 uniformly all x>=0,p in [0,1]. K0 uniquely maximizes at x=10 with strict sign and uniform negative curvature. Uniform C2 compact perturbation and derivative signs make one critical maximizer on any fixed [0,R], while the global K0(R)<K0(10) gap excludes unbounded tails. This yields unique global x_c(p)=10+O(c), q_c(x_c(p))/c=10m J(9/2,1/m)+O(c), and optimized Kc=K0(10,p)+O(c), all uniform p including endpoints.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Older model studies vaccination and host type with infection-age structure, different from present fixed-inoculum ODE and implicit mortality horizon."
+        ],
+        "reasoning": "The same-source and older general virulence discussions lack the quantified compact C2 and global tail implication under the exact functional.",
+        "searches": [
+          "Resultary semantic search: Barril Vegue virulence host heterogeneous within host competition c small global fitness maximizer phenotype 10 uniform",
+          "André and Gandon 2006 Vaccination within-host dynamics and virulence evolution (bibliographic/abstract)"
+        ]
+      },
+      "checked_sources": [
+        "Barril and Vegué 2026 DOI:10.1007/s11538-026-01673-9 sections 2 and 5",
+        "André Gandon 2006 DOI:10.1111/j.0014-3820.2006.tb01077.x (abstract/bibliography only)",
+        "Actual source RESULT.md blob 098153a9516bf854f16e735962bb5623450c58f6",
+        "Resultary host virulence small-c search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing criterion selects a strain conditional on comparisons of its transmission potential. It does not prove those comparisons produce a single optimum for all p and small c."
+        ],
+        "reasoning": "The new proof requires uniform C2 perturbation and global majorant controlling unbounded trait domain; a finite-c source bistability result does not imply uniform eventual uniqueness.",
+        "searches": [
+          "Resultary semantic search: Barril Vegue virulence host heterogeneous within host competition c small global fitness maximizer phenotype 10 uniform",
+          "Barril Vegué 2026 model derivation and Sections 3, 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original paper derives K selection and finite-c mixture switching but does not state uniform small-c uniqueness or q_c/c coefficient."
+        ],
+        "reasoning": "An equivalent theorem would control whole continuum of host mixtures and all x>0 under joint weak crowding/mortality, not simply maximize the quadratic onset growth g(x).",
+        "searches": [
+          "Resultary semantic search: Barril Vegue virulence host heterogeneous within host competition c small global fitness maximizer phenotype 10 uniform",
+          "Barril Vegué 2026 Sections 2-5 and Eqs (11)-(13)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The finite-c numerical plots show switching and two competing optima; no tabulated universal threshold or all-p asymptotic is supplied."
+        ],
+        "reasoning": "Finite plots cannot decide uniform in p or eliminate off-compact maxima; the claim is a structural asymptotic theorem, not a known-table count.",
+        "searches": [
+          "Resultary semantic search: Barril Vegue virulence host heterogeneous within host competition c small global fitness maximizer phenotype 10 uniform",
+          "Barril Vegué 2026 Fig 1-2 and Eqs (11)-(13)"
+        ]
+      },
+      "rationale": "PASS, best of knowledge: Barril-Vegué’s 2026 source defines the exact coupled within-host/evolution model and exhibits multiple finite-c fitness peaks depending on host mixture. It does not establish a uniformly unique global optimum under joint vanishing crowding and mortality coupling. Older heterogeneous-host virulence evolution studies use different infection-age structures and cannot be substituted for this parameter-specific singular perturbation theorem.",
+      "residual_risks": [
+        "No numeric universal threshold c_* or uniformity when m,r,k,lambda vary jointly is claimed.",
+        "Larger phenotype intervals depending on c, inoculum scaling with c, and finite non-small c hysteresis remain outside scope.",
+        "The 2006 older heterogeneous-host source was compared from bibliographic and secondary context, not claimed wholly noncovering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SUPPLIES MODEL, NOT UNIFORM WEAK-COUPLING THEOREM",
+          "evidence": "Source Eqs 11-13 define V(0)=1 and implicit vulnerable mortality, and finite-c sections analyze host-mixture-dependent local peaks; no uniform c->0 global uniqueness claim in inspected relevant text.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s11538-026-01673-9",
+          "material_read": "Full accessible HTML of mathematical model equations (11)-(13), fixed inoculum assumption, discussion of finite-c competing optima and host-mixture hysteresis in Sections 2-5",
+          "method": "Focused primary full-text sections comparison",
+          "title": "C. Barril and M. Vegué, Virulence Evolution in Host Populations with Heterogeneous Immune Responses, DOI:10.1007/s11538-026-01673-9",
+          "trigger": "Exact same nonlinear within-host and vulnerable-host mortality integrals"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: the theorem proves that a biologically meaningful two-peak/hysteresis mechanism disappears under a precise weak-competition limit, uniformly over host proportions, and gives exact limiting selected phenotype and induced mortality. A motivated global bifurcation/selection boundary, not just the elementary peak of initial growth g(x).",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Barril and Vegué 2026 DOI:10.1007/s11538-026-01673-9 sections 2 and 5",
+    "André Gandon 2006 DOI:10.1111/j.0014-3820.2006.tb01077.x (abstract/bibliography only)",
+    "Actual source RESULT.md blob 098153a9516bf854f16e735962bb5623450c58f6",
+    "Resultary host virulence small-c search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No numeric universal threshold c_* or uniformity when m,r,k,lambda vary jointly is claimed.",
+    "Larger phenotype intervals depending on c, inoculum scaling with c, and finite non-small c hysteresis remain outside scope.",
+    "The 2006 older heterogeneous-host source was compared from bibliographic and secondary context, not claimed wholly noncovering.",
+    "Best-of-knowledge audit, not formal certification. Primary texts and package proofs independently compared; prior package PASS not adopted as audit evidence."
+  ],
+  "schema_version": 1
+}
