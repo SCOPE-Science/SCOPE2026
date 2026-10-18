@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "The exact Gaussian Hermite spectrogram integrates to the stated gamma-annulus eigenvalues. Their consecutive difference has an exact boundary primitive, yielding all maximizing indices and ties by a strictly monotone logarithmic-mean threshold. Differentiating at the ties proves the positive norm corners. Uniform Stirling expansion around the central annular area yields the Bernoulli correction, including transitions, and choosing fractional parts of the center gives precisely the asserted cluster interval. The standalone checker passed 450 high-precision numerical comparisons; these are corroboration, not a substitute for the symbolic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Daubechies (1988) treats general radial localization operators, including normalized Gaussian kernels, making the eigenvalue formula a special case, not a new theorem.",
+        "Abreu–Dörfler (2012) considers inverse localization geometry, including annular Hermite eigenfunctions, not optimizing spectra over radius."
+      ],
+      "reasoning": "The general radial formula is broader than the new spectral setup, so the new work credits that part. However such a formula alone does not state the log-mean global argmax, the transverse kink amplitudes or the Bernoulli second-order norm. No inspected stronger theorem was found that supplies these last three quantitative conclusions.",
+      "searches": [
+        "Daubechies 1988 Time-frequency localization operators geometric phase space approach full text",
+        "arxiv:1202.5841 An Inverse Problem for Localization Operators full text",
+        "\"Poisson\" \"logarithmic mean\" \"mode\" \"interval\" incomplete gamma"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1109/18.9761",
+      "arxiv:1202.5841",
+      "arxiv:1907.00848",
+      "doi:10.1007/s00041-020-09751-9"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Knutsen (2020), Proposition 3.1: for area-one rings the operator norm has leading \\(R^{-1}\\) behavior with an unspecified error \\(\\pm C R^{-3}\\); its proof bounds the top mode by Poisson point masses.",
+        "The new result supplies the actual coefficient at exactly that error order, varying periodically with the fractional part of the central area, plus all crossing radii and derivative jumps."
+      ],
+      "reasoning": "The prior estimate is implied by the new expansion for area one, but the converse is false: an \\(O(R^{-3})\\) bound does not determine any oscillatory coefficient or the precise switching set. The old eigenvalue formula is necessary input, not the full new result. No full-text-inspected predecessor explicitly gives the combined claim.",
+      "searches": [
+        "doi:10.1007/s00041-020-09751-9 Proposition 3.1 and proof",
+        "arxiv:1202.5841 Sections 1–3",
+        "doi:10.1109/18.9761 radial localization Section IV"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Knutsen (2020), Section 3.1, equations (3.1) and Proposition 3.1, uses Gaussian ring area one, integrals of Poisson kernels and a nonsharp order-three error term.",
+        "Daubechies (1988), Section IV, supplies radial Hermite eigenfunctions and gamma-integral disk eigenvalues."
+      ],
+      "reasoning": "The statement is equivalent to a sharp maximization of interval probabilities of Poisson-gamma kernels, followed by a uniform two-term local Poisson expansion. Knutsen covers the same family of objects at area one, but only brackets nearby candidate modes and bounds the norm with an unspecified order-three error; it neither identifies all mode-crossing radii nor gives the oscillatory coefficient. The new statement is stronger in these specifically stated respects; the basic diagonalization is inherited.",
+      "searches": [
+        "\"annulus\" \"localization operator\" \"Hermite\" \"mode\" \"eigenvalue\"",
+        "\"Gaussian localization operator\" \"annuli\" \"asymptotic\" spectrum maximum",
+        "doi:10.1007/s00041-020-09751-9, Section 3.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Knutsen (2020), Section 3.1, gives the explicit finite incomplete-gamma integral and two candidate modes for unit-area rings, but no table or exact formula for their transition radii."
+      ],
+      "reasoning": "Exact tables of incomplete-gamma functions would only give samples and do not by themselves classify every crossing and sharp periodic correction uniformly. No inspected database or table contained the proposed all-area structural classification. Unindexed special-function tabulations remain a risk.",
+      "searches": [
+        "\"Gaussian time-frequency\" \"annulus\" \"largest eigenvalue\" mode",
+        "\"Poisson\" \"logarithmic mean\" \"mode\" \"interval\" incomplete gamma",
+        "arxiv:1907.00848 ring Section 3.1"
+      ]
+    },
+    "rationale": "Full relevant source text gives no covering equivalent statement: the closest same-geometry prior work proves only a leading annular norm estimate with undetermined third-order error, whereas the present exact all-area switching and periodic second-order coefficient determine that error and every cusp. Classical Hermite diagonalization and gamma formulas are credited. Historical priority outside the inspected sources remains uncertain.",
+    "residual_risks": [
+      "An older special-functions or Poisson probability theorem may directly cover incomplete-gamma interval modes and their complete second-order expansion without using time-frequency terminology.",
+      "Not all classical probability and mathematical-physics periodicals were exhaustively searched; an implicit equivalent might predate the inspected publications.",
+      "The historical 1988 article has no precisely verified public release day, so the day-dated archival source is the 2012 preprint, not an invented day in 1988."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers radial diagonalization and gamma integrals, not the claimed explicit annular switching law or uniform oscillatory coefficient.",
+        "evidence": "Daubechies (1988), Section IV and radial localization calculations.",
+        "identifier_or_url": "doi:10.1109/18.9761; https://sites.math.duke.edu/~ingrid/publications/ieee34-1988.pdf",
+        "material_read": "Author-hosted eight-page article, especially introduction, radial eigenfunctions and Section IV disk/annular discussions, with page renderings inspected.",
+        "method": "Read lawful author-hosted PDF and checked page renderings of formulas",
+        "title": "Time-frequency localization operators: A geometric phase space approach",
+        "trigger": "Foundational theorem on Gaussian radial localization and possible complete spectral coverage"
+      },
+      {
+        "assessment": "Its inverse rigidity result concerns shapes of masks and Hermite eigenfunctions, not maximization of annular operator norm over Hermite degrees or second-order asymptotics.",
+        "evidence": "Abreu and Dörfler (2012), arXiv:1202.5841.",
+        "identifier_or_url": "arxiv:1202.5841; https://arxiv.org/abs/1202.5841",
+        "material_read": "Accessible full paper text, including introduction, problem statements and Sections 1–3 relevant to annular Hermite functions.",
+        "method": "Read the openly available manuscript text",
+        "title": "An Inverse Problem for Localization Operators",
+        "trigger": "Close reference to Hermite eigenfunctions on concentric annuli and inverse localization geometry"
+      },
+      {
+        "assessment": "Closest source; supplies basic ring eigenvalues and coarse norm asymptotic but does not supply exact all-area mode crossings, positive corner amplitudes or the nonconstant Bernoulli correction.",
+        "evidence": "Knutsen (2020), Sections 2.3 and 3.1, Proposition 3.1.",
+        "identifier_or_url": "doi:10.1007/s00041-020-09751-9; https://link.springer.com/article/10.1007/s00041-020-09751-9",
+        "material_read": "Full readable open-access article, especially Section 2.3, Section 3.1 with equation (3.1), Proposition 3.1 and its proof, and adjacent context.",
+        "method": "Read publisher open-access HTML in full relevant sections",
+        "title": "Daubechies’ Time–Frequency Localization Operator on Cantor Type Sets I",
+        "trigger": "Exactly the same Gaussian-ring object and potential stronger priority coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "57fcc645-d909-49fc-90af-e41f197f9648",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The problem is motivated directly by the published Gaussian area-one ring norm estimate, which leaves its next order indeterminate. Exact all-area maximizing-mode transitions and derivative kinks describe a nontrivial spectral staircase, and the Bernoulli profile resolves the sign, phase dependence, and complete accumulation interval of the previously uncomputed sharp correction. It applies uniformly to a natural infinite family and is not a fixed-parameter calculation.",
+    "status": "PASS"
+  }
+}
