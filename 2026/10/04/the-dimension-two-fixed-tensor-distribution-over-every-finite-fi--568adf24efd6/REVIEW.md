@@ -1,23 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof exhausts the scalar, Jordan, split-semisimple, and nonsplit-semisimple similarity types in \(\operatorname{GL}_2(\mathbf F_q)\). The split case reduces to four explicit tensor eigenvalues with multiplicities, so all exceptional fibers are controlled by the elements \(1\), \(-1\), and nontrivial cube roots. In the nonsplit case, the fixed-eigenvalue condition reduces to
-\[
-\alpha^{q-2}=1,
-\]
-and
-\[
-\gcd(q-2,q^2-1)=\gcd(q-2,3),
-\]
-which produces exactly one irreducible order-three class when \(q\equiv2\pmod3\). The Jordan fixed-space rank is established by direct row reduction and explicit minors. Class sizes and fiber counts sum to \(|\operatorname{GL}_2(\mathbf F_q)|\). The packaged exhaustive checker independently constructs every eight-dimensional tensor operator over five fields and matches every formula.
+PASS
 
-## Originality
+Reconstructed all four rational-canonical GL_2 conjugacy cases: scalar (one identity d=8, other scalars d=0), Jordan unipotent (d=4 exactly in characteristic 2, else d=3), split semisimple (tensor eigenvalue multiplicities 3,3,1,1; directed squaring and cubic-root exception), and irreducible quadratic semisimple (exactly one d=2 class when q is 2 mod 3). Similarity-class cardinalities are 1, q^2−1, q(q+1), q(q−1). Their weighted sum produces the posted six N_k(q) formula for every prime power. Independent direct rank computation over GF(2),GF(3),GF(4),GF(5),GF(7) exhaustively enumerated GL_2 and matched N_k and group orders; these finite cases corroborate rather than establish the all-q theorem.
 
-PASS. Verhulst's paper proves the Burnside fixed-space framework, works out only \(\mathbf F_2\) in dimension two, and explicitly asks for closed formulas for the matrix counts by fixed-space dimension. The theorem supplies precisely that missing distribution for every finite field when the matrix dimension is two. The classical Petersson--Scherer total and the 2026 Bekbaev classification do not imply the individual fibers. Exact tensor-expression, invariant-space, and algebra-enumeration searches found no equivalent distribution. The main residual risk is an equivalent formulation in invariant-tensor literature under different terminology.
+## originality
 
-## Value
+PASS
 
-PASS. The result solves a stated counting problem in the first nontrivial matrix dimension, gives a complete six-fiber classification rather than a finite census, and explains exactly how characteristic two and order-three arithmetic affect the Burnside terms. Its weighted sum independently recovers the known algebra count, providing a useful structural decomposition of a classical enumeration.
+Verhulst 2020 Lemma 3.3 and Theorem 3.4 express the orbit count as a Burnside sum over the tensor-fixed dimensions and work out q=2; the Outlook asks for the all-q distribution. Petersson–Scherer 2004 supplies the summed count of 2-dimensional algebras, which is not equivalent to the six separate N_k(q). Querying published mathematical records returned the assigned finding as top self-hit, with other finite-field spectral results on different invariants; no independently earlier equivalent distribution was identified.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The full q-uniform fiber distribution of a natural GL_2 tensor representation is an explicitly posed gap; it resolves which stabilizer dimensions occur and their frequencies, strictly more informative than a Burnside weighted orbit total. The proof isolates representation resonances relevant to general higher-dimensional cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
