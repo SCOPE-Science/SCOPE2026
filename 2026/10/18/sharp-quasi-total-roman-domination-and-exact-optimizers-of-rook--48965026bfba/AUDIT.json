@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "A forced-unit block of (m-a)(n-b) vertices yields weight >= 2k+(m-a)(n-b) when k defenders occupy a rows and b columns; the forced ones do not support defenders. Enumerating all k relative to m proves the sharp 2m bound, with equality only for supported one-per-row / transposed columns for m,n >=4 and explicitly classified additional exceptions on 2x2 and 3x3. Associated-Stirling counting follows by a bijection to labeled row partitions. The included independent graph-based exhaustive finite checker confirms specified small dimensions, without being used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mertens, arxiv:2401.00716, determines the ordinary domination polynomial of rook graphs, which counts a broader collection of dominating vertex sets.",
+        "Cabrera Martínez et al. (2021) obtain general inequalities for quasi-total Roman domination, but do not enumerate the rook optimizers."
+      ],
+      "reasoning": "A broader ordinary-domination count cannot by itself extract a coefficient for quasi-total Roman functions: the support restriction and the label-1 exceptional cases are not tracked. General quasi-total Roman bounds, even if equality at 2m follows, do not imply the number or classification of minimizers.",
+      "searches": [
+        "quasi-total Roman domination of rook graphs K_m Cartesian K_n, enumeration of all optimal assignments",
+        "minimum Roman domination of Cartesian product of two complete graphs rook graph associated Stirling set partitions without singletons",
+        "Roman domination polynomial Cartesian complete graph products K_m K_n minimum coefficient quasi-total support",
+        "arxiv:2401.00716v1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1903.09789v1",
+      "doi:10.3390/math9212823",
+      "arxiv:2401.00716v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2019 foundational paper defines QTRDFs and analyzes general graph classes, not Cartesian rook optimizer enumeration.",
+        "The 2021 paper proves general estimates and certain parameter comparisons, not the all-minimizer coefficient on rook graphs.",
+        "Mertens 2024 counts ordinary dominating rook placements; even its full polynomial lacks the positive-neighbor condition at defender vertices and cannot directly determine the label-1 exceptions."
+      ],
+      "reasoning": "The final result gives a complete structural classification and count in a separate, stricter coloring/defense invariant. The minimum value alone is not asserted to be the sole novelty; the exact count and 2x2/3x3 exceptional configurations are not implied by the compared statements.",
+      "searches": [
+        "arxiv:1903.09789v1",
+        "doi:10.3390/math9212823",
+        "arxiv:2401.00716v1",
+        "rook graph gamma_qtR equal 2 min(m,n) number of minimum quasi total roman functions",
+        "total domination polynomial K_m square K_n rook graphs smallest coefficient counts minimum total dominating sets"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rook graph is the line graph of the complete bipartite graph; all-2 quasi-total Roman optima correspond to total edge-dominating sets.",
+        "The 2019 and 2021 quasi-total Roman literature defines and bounds the invariant but provides no rook-graph optimizer counting formula."
+      ],
+      "reasoning": "The principal equivalence to total edge domination was explicitly searched. In the nonexceptional optimum, edge domination additionally requires every chosen edge to meet another chosen edge; associated Stirling numbers count its partitioned incidence-star patterns. No located theorem supplies the exact count or exceptional QTR classes.",
+      "searches": [
+        "line graph of complete bipartite K_{m,n} quasi-total Roman domination optimum enumerator",
+        "complete bipartite K_{m,n} all minimum total edge dominating sets counted by Stirling numbers associated set partitions with blocks at least 2",
+        "enumeration of minimum total dominating sets of line graph of complete bipartite graph count no singleton fibers",
+        "arxiv:1903.09789v1",
+        "doi:10.3390/math9212823"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The known rook ordinary-domination coefficient tables count all dominating sets; the new coefficient separates supported fibers and two exceptional squares.",
+        "The checked mathematical records did not show the proposed associated-Stirling optimizer sequence or a direct QTRDF table for rook graphs."
+      ],
+      "reasoning": "Ordinary rook domination tables and values are not the same invariant. The search yielded no exact QTR enumerator, but negative search results do not prove uniqueness; the published-literature implication comparison remains decisive.",
+      "searches": [
+        "rook graphs K_m Cartesian K_n quasi-total Roman domination minimum functions count associated Stirling numbers no singleton columns",
+        "minimum total domination rook graph number F(m,n) = sum (n)_j S_{>=2}(m,j)",
+        "quasi-total Roman optimal functions rectangular rook graph exactly 2 min(m,n) first nonzero coefficient",
+        "arxiv:2401.00716v1"
+      ]
+    },
+    "rationale": "The 2019 and 2021 quasi-total Roman papers introduce and bound the invariant but do not enumerate optimal rook labelings. The complete 2024 rook domination polynomial counts ordinary dominating sets, not the extra defender-support restriction. Explicit semantic records and complete primary literature comparison identified no implication of the exact nonempty-fiber-size-at-least-two count or exceptional label-1 optima. Related total edge-domination equivalence was searched; its possible unindexed enumeration remains the principal risk.",
+    "residual_risks": [
+      "An unindexed exact minimum total edge domination enumeration for complete bipartite graphs may be equivalent to the nonexceptional part of the result.",
+      "An unlocated source may enumerate quasi-total Roman rook optima under a different name.",
+      "A database may tabulate the coefficient without a searchable textual description."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Foundation and first source date verified, no rook Cartesian optimizer enumeration located",
+        "evidence": [
+          "arxiv:1903.09789, posted 23 March 2019; explicit QTRDF support rule and general results."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1903.09789",
+        "material_read": "Lawful open-access preprint, entire 15-page mathematical PDF text, including definitions and graph-class results; searched for rook and Cartesian product terminology",
+        "method": "Primary full-text PDF inspection",
+        "title": "Quasi-total Roman domination in graphs",
+        "trigger": "Defines the exact new invariant and might contain product families"
+      },
+      {
+        "assessment": "No rook graph optimizer classification, exceptional boards, or associated-Stirling count",
+        "evidence": [
+          "doi:10.3390/math9212823, 2021, sharp general quasi-total Roman inequalities and bounds."
+        ],
+        "identifier_or_url": "https://www.mdpi.com/2227-7390/9/21/2823",
+        "material_read": "Accessible journal full-text definitions, main theorems, product and graph-family discussion, conclusions and references",
+        "method": "Primary journal full-text inspection and searches of graph-class and product terminology",
+        "title": "On the Quasi-Total Roman Domination Number of Graphs",
+        "trigger": "Likely strongest general estimates for the exact invariant"
+      },
+      {
+        "assessment": "Counts ordinary dominating sets, does not enforce support of label-2 vertices or treat label-1 exceptions; not a covering theorem",
+        "evidence": [
+          "arxiv:2401.00716, published 1 Jan 2024."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2401.00716",
+        "material_read": "Open-access complete primary mathematical PDF, theorem formulas, methods and special coefficients including page of table/sample formulas",
+        "method": "Full-text PDF inspection, including a mathematical page image, direct comparison of definitions",
+        "title": "Domination Polynomial of the Rook Graph",
+        "trigger": "Same Cartesian rook graph and complete counting polynomial, plausible dominating result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "48965026-bfba-4764-a8d9-ed7749486f42",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete exact count of optimum quasi-total Roman assignments on every rectangular rook graph is a natural first nonzero coefficient of its weight enumerator. A sharp floor-sized defender structure, a polynomial in the larger dimension indexed by associated Stirling partitions, an orientation transition at square boards and 54 exceptional low-order optimum functions provide a motivated structural classification, not a routine substitution or an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
