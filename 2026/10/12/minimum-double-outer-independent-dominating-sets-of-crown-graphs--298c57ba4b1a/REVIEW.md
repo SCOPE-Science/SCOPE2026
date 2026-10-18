@@ -1,12 +1,21 @@
-# Review of Minimum double outer-independent dominating sets of crown graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. An independent complement in a crown graph is either contained in one bipartition class or is exactly one deleted matching pair. In the first case the whole opposite class is selected and at least two vertices from the first class are necessary and sufficient for double domination. In the second case the selected set has size \(2n-2\) and is feasible. Comparing the two sizes gives the exact value and all equality cases. Exhaustive verification of all \(87{,}360\) subsets for \(3\le n\le8\) matches the classification.
+## correctness
 
-## Originality
-PASS. The 2017 introducing paper was inspected in full text: it gives the complete-bipartite benchmark and a one-edge perturbation bound, but no crown theorem. A 2018 full-text primary paper gives general relations among double, total, and \(2\)-outer-independent domination and a bipartite bound; it has no crown occurrence. The later continuation paper states general bounds and rooted-product formulas. Targeted exact and semantic searches under crown, matching-deletion, and the equivalent total outer-independent terminology found no equivalent theorem.
+PASS
 
-## Value
-PASS. Crown graphs are the canonical perfect-matching deletion of balanced complete bipartite graphs, for which the parameter has a known exact benchmark. The result answers the natural robustness question sharply, proves the exact one-unit increase, classifies every optimum, and identifies the genuine \(n=4\) boundary tie.
+For Cr_n=K_{n,n} minus a perfect matching, the complement I of a double outer-independent dominating set is independent. It is either contained in one bipartition side or exactly the unmatched pair {a_i,b_i}. In a one-sided complement case the selected opposite side is complete, and at least two vertices must also be selected on the first side (one cannot defend its unmatched b_i); every choice of two suffices. Thus |D|≥n+2, and there are 2*C(n,2) such equality sets. A two-sided independent complement yields |D|=2n−2 and is feasible for n≥3. Comparing gives γ_d^{oi}=min(n+2,2n−2)=n+2 for n≥4; n=4 has four additional optimum unmatched-pair complements (total 16), n≥5 has precisely n(n−1). A separately written direct all-subsets checker verifies the complete minimizer set for n=4,5,6. This finite check is corroboration, not the all-n argument.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The introducing result establishes the complete bipartite value and isolated-edge perturbation bound, and later work establishes a broader parameter equivalence on minimum-degree≥2 graphs; neither implies the simultaneous perfect-matching deletion value or classifies all minimum sets, including the n=4 boundary.
+
+## value
+
+PASS
+
+A crown graph is a standard highly symmetric perfect-matching deletion from a complete bipartite graph. The theorem resolves the exact increase of the double outer-independent domination number and gives every optimal set, with a genuinely distinct equality geometry at n=4. This is a natural infinite-family equality classification, beyond an edge-removal bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

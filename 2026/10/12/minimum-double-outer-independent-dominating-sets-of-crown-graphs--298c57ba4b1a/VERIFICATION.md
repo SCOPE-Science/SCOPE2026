@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,34 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The checker constructs
-\[
-\operatorname{Cr}_n=K_{n,n}-M
-\]
-for
-\[
-3\le n\le8.
-\]
-For every vertex subset \(D\), it checks that the complement is independent and that
-\[
-|N[v]\cap D|\ge2
-\]
-for every vertex \(v\). The minimum cardinality and complete minimum-set family are compared with the theorem.
+# Independent mathematical audit
 
-Recorded output:
+## correctness
 
-```text
-VERIFY_OK
-n=3: gamma_doi=4, minimum_sets=3
-n=4: gamma_doi=6, minimum_sets=16
-n=5: gamma_doi=7, minimum_sets=20
-n=6: gamma_doi=8, minimum_sets=30
-n=7: gamma_doi=9, minimum_sets=42
-n=8: gamma_doi=10, minimum_sets=56
-subsets_checked = 87360
-all minimum sets matched the piecewise classification
-```
+PASS
 
-The checker exhausts \(87{,}360\) subsets. The finite computation is corroborative; the arbitrary-order theorem follows from the independent-complement proof.
+For Cr_n=K_{n,n} minus a perfect matching, the complement I of a double outer-independent dominating set is independent. It is either contained in one bipartition side or exactly the unmatched pair {a_i,b_i}. In a one-sided complement case the selected opposite side is complete, and at least two vertices must also be selected on the first side (one cannot defend its unmatched b_i); every choice of two suffices. Thus |D|≥n+2, and there are 2*C(n,2) such equality sets. A two-sided independent complement yields |D|=2n−2 and is feasible for n≥3. Comparing gives γ_d^{oi}=min(n+2,2n−2)=n+2 for n≥4; n=4 has four additional optimum unmatched-pair complements (total 16), n≥5 has precisely n(n−1). A separately written direct all-subsets checker verifies the complete minimizer set for n=4,5,6. This finite check is corroboration, not the all-n argument.
+
+## originality
+
+PASS
+
+The introducing result establishes the complete bipartite value and isolated-edge perturbation bound, and later work establishes a broader parameter equivalence on minimum-degree≥2 graphs; neither implies the simultaneous perfect-matching deletion value or classifies all minimum sets, including the n=4 boundary.
+
+## value
+
+PASS
+
+A crown graph is a standard highly symmetric perfect-matching deletion from a complete bipartite graph. The theorem resolves the exact increase of the double outer-independent domination number and gives every optimal set, with a genuinely distinct equality geometry at n=4. This is a natural infinite-family equality classification, beyond an edge-removal bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
