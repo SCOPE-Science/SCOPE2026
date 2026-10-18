@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Finite-field verification and proof dependencies
+# Independent mathematical audit
 
-Run `python verify_derivation_nullfiliform.py` in the directory containing the included script. It uses Python 3 and only its standard library. The script exhausts every parameter vector for dimensions \(1\leq n\leq8\) over \(\mathbf F_2\), \(1\leq n\leq6\) over \(\mathbf F_3\), and \(1\leq n\leq5\) over each of \(\mathbf F_4\) and \(\mathbf F_5\). It constructs matrices and computes ranks without using the counting formula, verifies the gauge identity coefficientwise, and checks the resulting nullity counts against the claimed closed forms. Successful output terminates with `VERIFY_OK`.
+## correctness
 
-A direct derivation of the closed formula, valid beyond these finite tests, is given in `RESULT.md`, Proof, Steps 1–5. The critical arguments are the derivation recurrence, triangular invertibility on an incomplete characteristic block, the coefficientwise gauge recursion, its decomposition into residue classes modulo \(p\), and uniform triangular fibers. There are no external computational packages or precomputed data dependencies.
+PASS
 
-Finite exhaustive agreement cannot certify originality, independence, or every infinite-dimensional parameter case. No independent mathematical audit has been performed.
+Right Leibniz multiplication [e_i,e_1]=e_(i+1) makes a derivation D uniquely determined by n coefficients D(e_1). In R_n=K[t]/(t^n), its matrix is the linear operator a_1(1+t∂_t)+M_h. For a_1=0, nullity equals t-order of h, giving geometric-count terms. If a_1≠0 and n<p, all diagonal entries a_1,2a_1,...,na_1 are invertible. For n>=p, strip invertible terminal length n−p floor(n/p); normalize a unit u(t) by setting its degrees divisible by p to zero and recursively solve a_1tu′=(b(t^p)−h)u; conjugation leaves p residue blocks, only the block with exponent p−1 possibly singular, with nullity min(ord_s b,m), m=floor(n/p). Fresh resonance coordinates b_1,...,b_(m−1) are triangular, uniformly distributed, yielding exactly the displayed formula with total q^n and no invertible derivations when n>=p. Independent exhaustive finite-field Gaussian elimination for p=2 n<=7, p=3 n<=6, p=5 n<=5 matches all histograms. Finite checks cannot establish the universal field/dimension case.
+
+## originality
+
+PASS
+
+The standard derivation matrices over complex numbers and the almost-inner derivation subspace were known. The modular rank-stratification and nullity histogram for all finite fields, including characteristic-two resonance, are not given in the inspected sources; the gauge normalization is the substantive bridge.
+
+## value
+
+PASS
+
+An exact rank spectrum of all derivations is a natural invariant of a standard null-filiform non-Lie Leibniz family. It sharply isolates when invertible derivations disappear at dimension p and counts every nullity fiber, which is useful for positive-characteristic structural computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
