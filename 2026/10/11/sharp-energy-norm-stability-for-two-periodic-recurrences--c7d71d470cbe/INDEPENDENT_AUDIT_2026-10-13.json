@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T12:11:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Parity grouping u_k=x_{2k},v_k=x_{2k+1} and bilateral Fourier transform is unitary on ℓ²(Z;C²), giving multiplier A(z)=[[-a,1],[z,−b]] on |z|=1. A* A has z-independent trace S=2+|a|²+|b|² and determinant |ab−z|², so its smaller eigenvalue is [S−√(S²−4|ab−z|²)]/2. The minimum of |ab−z| on circle is δ=||ab|−1|. δ>0 iff invertible; rationalization gives exact K²=[S+√(S²−4δ²)]/(2δ²). If δ=0, a continuous singular fiber at one phase forces infimum singular value zero, despite trivial ℓ² kernel. At fixed positive r≠1, K increases strictly in S, minimized by |a|=|b|=√r with K=1/|√r−1|, and diverges at fixed r with large imbalance. When ab≠0, the optimal phase is one Haar-null singleton and L² norm is not attained by nonzero data; if ab=0, |ab−z| and top inverse singular value are constant, so a measurable singular-vector field yields nonzero attainers. Independent two-by-two arithmetic agrees for (2,2) K=1 and (8,1/2) ≈2.710347891355; these checks are not the all-parameter proof.",
+      "risks": [
+        "Scope is bilateral ℓ² with unit shift coefficient and two-periodic scalars, not one-sided or ℓ∞ stability."
+      ],
+      "sources": [
+        "Frozen RESULT.md blob 2ba666a4e16e452405bc7785e6504bfff917f2b2",
+        "Frozen verify.py blob 37f6a2c440dbd0d961cd9d8d1c79ff9f8b7a717b"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Anderson–Onitsuka–Rassias 2020 Theorems 2.2/2.3 concern one-sided pointwise Ulam/Hyers stability, even when periodic.",
+          "Xu–Brzdęk 2015 and Jung 2015 constant coefficient matrix difference operator results do not evaluate this particular non-normal 2×2 Fourier symbol under bilateral ℓ² norm."
+        ],
+        "reasoning": "Neither pointwise bound nor Floquet spectral product alone quantitatively dominates the exact energy singular-value norm; distinct norms can yield distinct optimizers/attainment.",
+        "searches": [
+          "Resultary: two-periodic scalar recurrence bilateral l2 Hyers Ulam exact energy inverse norm singular values Floquet product unequal coefficients",
+          "arXiv:2004.03465v1 Anderson–Onitsuka–Rassias Theorems 2.2/2.3",
+          "doi:10.1155/2015/269356 Xu–Brzdęk",
+          "doi:10.1186/s13662-015-0507-6 Jung",
+          "Resultary two-periodic sharp energy norm stability search"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2004.03465v1",
+        "doi:10.1155/2015/269356 Xu–Brzdęk 2015",
+        "doi:10.1186/s13662-015-0507-6 Jung 2015",
+        "Resultary two-periodic sharp energy and Floquet queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Symbol trace S and determinant |ab−z|² give exact smallest singular-value square and K formula, not present in the cited pointwise Theorems 2.2/2.3.",
+          "At fixed r, AM–GM balances |a|,|b|; measure-zero maximizing phase for ab≠0 causes nonattainment, while ab=0 makes fiber max constant on the entire unit circle."
+        ],
+        "reasoning": "Classic Floquet invertibility criterion |ab|≠1 is prior/reducible; the quantified sharp ℓ² stability and equality-profile claims do not logically follow from that criterion or from pointwise optimal constants.",
+        "searches": [
+          "Resultary: two-periodic scalar recurrence bilateral l2 Hyers Ulam exact energy inverse norm singular values Floquet product unequal coefficients",
+          "arXiv:2004.03465v1 Anderson–Onitsuka–Rassias Theorems 2.2/2.3",
+          "doi:10.1155/2015/269356 Xu–Brzdęk",
+          "doi:10.1186/s13662-015-0507-6 Jung",
+          "Resultary two-periodic sharp energy norm stability search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under parity grouping, L becomes bilateral block Laurent multiplier A(z)=[[-a,1],[z,−b]], so exact residual-error constant equals inverse of minimum singular value of A(z).",
+          "This is also a resolvent/periodic weighted-shift formulation, checked as alias; ordinary Floquet |ab| alone controls invertibility but not exact ℓ² conditioning."
+        ],
+        "reasoning": "Full equivalent symbol was considered, including spectral multiplier formulations, not only the words Ulam stability.",
+        "searches": [
+          "Resultary: two-periodic scalar recurrence bilateral l2 Hyers Ulam exact energy inverse norm singular values Floquet product unequal coefficients",
+          "arXiv:2004.03465v1 Anderson–Onitsuka–Rassias Theorems 2.2/2.3",
+          "doi:10.1155/2015/269356 Xu–Brzdęk",
+          "doi:10.1186/s13662-015-0507-6 Jung",
+          "Resultary two-periodic sharp energy norm stability search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The function K(a,b) is a continuum closed formula for complex a,b with product modulus r and S; no finite tabulation determines it.",
+          "Exact finite cyclic checker samples 6,746 singular values but is not a table of all complex parameters."
+        ],
+        "reasoning": "Finite Toeplitz approximations alone cannot establish bilateral ℓ² operator norm or absence of nonzero attaining residual; proof via Fourier multiplication is required.",
+        "searches": [
+          "Resultary: two-periodic scalar recurrence bilateral l2 Hyers Ulam exact energy inverse norm singular values Floquet product unequal coefficients",
+          "arXiv:2004.03465v1 Anderson–Onitsuka–Rassias Theorems 2.2/2.3",
+          "doi:10.1155/2015/269356 Xu–Brzdęk",
+          "doi:10.1186/s13662-015-0507-6 Jung",
+          "Resultary two-periodic sharp energy norm stability search"
+        ]
+      },
+      "rationale": "PASS best of knowledge. The original Anderson–Onitsuka–Rassias paper, including its period-two results, treats one-sided time-grid h-difference equations and pointwise bounded-error (sup-type) Hyers–Ulam constants; its coefficients and norm estimates do not imply the bilateral Hilbert ℓ² inverse singular-value formula. Xu–Brzdęk and Jung likewise study constant coefficients and pointwise framework. The natural unitary 2×2 Fourier block symbol is standard, but the asserted optimal energy constant, dependence on within-period moduli at fixed Floquet product, and exact norm-attainment criterion for ab=0 are distinct statements not found in checked originals or indexed findings.",
+      "residual_risks": [
+        "An exact same bilateral ℓ² resolvent norm formula may be recorded under weighted bilateral shifts, Laurent operator pseudoresolvents or Toeplitz spectral analysis outside the searched literature.",
+        "Sharp nonattainment concerns L² residuals, not Bloch generalized eigenwaves."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Norm/domain mismatch: one-sided pointwise, not bilateral ℓ² inverse singular values.",
+          "evidence": [
+            "Theorems 2.2/2.3, recurrence with t in nonnegative h-grid and sup-type bounded perturbations."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2004.03465",
+          "material_read": "Full original PDF accessible; examined setting/h-grid, Theorems 2.2/2.3 and period-two case, proof normalization and pointwise supremum errors.",
+          "method": "Lawful arXiv PDF with relevant page screenshot.",
+          "title": "Best constant for Ulam stability of first-order h-difference equations with periodic coefficient",
+          "trigger": "Closest same period-two linear recurrence and Ulam stability"
+        },
+        {
+          "assessment": "All quantified ℓ² norm arguments analytic; examples only corroborate.",
+          "evidence": [
+            "RESULT.md sections Fiberization, Sharp inverse bound, Fixed Floquet-product profile, Equality versus approximation."
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/sharp-energy-norm-stability-for-two-periodic-recurrences--c7d71d470cbe",
+          "material_read": "Full frozen RESULT.md, VERIFICATION and complete verify.py, source metadata and reviewed summary.",
+          "method": "Read Git blobs at frozen commit; independent two-by-two numerical singular tests.",
+          "title": "Sharp energy-norm stability for two-periodic recurrences",
+          "trigger": "Assigned final claim and certificates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural minimal nonconstant periodic recurrence, an exact inverse conditioning norm in ℓ² is an independently useful invariant: it quantifies how two coefficient profiles with the same Floquet product differ arbitrarily in residual-error sensitivity, identifies balanced optimum, and determines when sharp error ratios are attained by genuine ℓ² vectors. These consequences refine the mere stability dichotomy and do not require a larger periodic theory to be valuable.",
+      "risks": [
+        "Standard Fourier machinery is borrowed; value lies in its complete sharp parameter/equality classification."
+      ],
+      "sources": [
+        "arXiv:2004.03465v1",
+        "Frozen RESULT.md"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "No ℓ∞ Ulam constants, finite intervals or periods >2; ab=0 equality case is genuinely special.",
+    "No assertion that cited Floquet invertibility criterion is new."
+  ]
+}
