@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The definitions require least period and both cyclic maximality inequalities; the length bound rules out untested longer periods. The binary uniform-subword argument proves the fixed unary-run count, and alternating-window incidence proves exactly two period-two runs. Two independently complete generators produce the same \(2048\) cycles, and two separate run algorithms match on every one. The complete period-three/four six-cell census, orbit classes, exact rational moments, and CSV can be replayed from the included sources.
+
+**Originality — PASS against inspected evidence, with residual risk.** The original published runs results establish bounds and methods for linear words, not exact population frequencies for order-five de Bruijn circles. Classical constant-letter run distributions cover the unary part, which is expressly acknowledged as known background; they do not determine the nonconstant least-period-three/four table. The closest searchable historical entries about BWT runs or Abelian squares are different invariants and do not imply the present maximal-periodic-run census. An earlier unindexed or unexamined numerical census remains possible.
+
+**Mathematical value — PASS.** Maximal repetitions are an established invariant of algorithmic string combinatorics. Universal cycles have fixed short-factor multiplicities but nontrivial higher-order periodic-run variation. The result combines a structural all-order period restriction, two forced low-period counts, an exhaustive six-cell spectrum of the remaining periods, exact sharp extrema, and an orbit-level classification, providing a motivated exact benchmark.
+
+**Sources and limitations.** The closest primary sources inspected were Crochemore et al., arXiv:0907.2157 (general highly periodic runs), and Bannai et al., arXiv:1406.0263 (the linear-word runs theorem); Fillmore et al., DOI 10.1007/s10623-026-01841-x, explicitly treats the different constant-symbol R-2 property. There is no proof of a corresponding order-six spectrum, no comprehensive global priority guarantee, and no external independent scientific audit.
+
+Self-review: passed. Independent audit: not yet performed.
