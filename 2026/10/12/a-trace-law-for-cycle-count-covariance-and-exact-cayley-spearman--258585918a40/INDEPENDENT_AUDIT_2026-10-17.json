@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T14:45:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md",
+        "checker.py",
+        "independent_checks.py"
+      ],
+      "rationale": "Condition on Pi(i)=j. If j=i there is a fixed-point cycle and a uniform S_(n-1) complement, yielding 1+H_(n-1); if j!=i contract the forced directed edge, preserving cycle count and giving H_(n-1). Thus Cov(C,1_{Pi(i)=j})=(n-1)/n^2 on the diagonal, -1/n^2 off it. Summing proves the universal trace law. Plugging a_ij=(i-j)^2 gives Cov(C,D)=-(n^2-1)/6; Bernoulli-cycle variance H_n-H_n^(2) and permutation Spearman variance 1/(n-1) give exact correlation and decay. Independently enumerated all permutations n=2..6 for a non-symmetric polynomial array and D.",
+      "residual_risks": [
+        "Covariance zero is not independence. Formula presumes uniform S_n; no nonuniform extension claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jiang arXiv:1110.0807 proves asymptotic independence of normalized Spearman-family metrics from class functions and includes cycles. A Resultary theorem computes covariance of cycles with inversion indicators, not Pi(i)=j linear assignment statistics."
+        ],
+        "reasoning": "Asymptotic independence is weaker than the exact finite covariance law; inversion indicators are different observables and do not imply the entire arbitrary-array functional without additional work.",
+        "searches": [
+          "covariance cycles random uniform permutations permutation matrix linear assignment statistic Spearman Cayley distance exact",
+          "Jiang Asymptotic correlations of metrics on the symmetric groups arXiv:1110.0807",
+          "Resultary 2026/10/4/SCOPE-linear-inversion-gap-profile-for-cycle-count-in-a-uniform-random--efaa92233051"
+        ]
+      },
+      "checked_sources": [
+        "Jiang arXiv:1110.0807",
+        "Maples–Nikeghbali–Zeindler arXiv:1203.4132 abstract",
+        "Hultman arXiv:1301.0430 bibliographic record",
+        "Resultary semantic covariance cycles random uniform permutations permutation matrix linear assignment statistic Spearman Cayley distance exact",
+        "Resultary inversion-gap theorem 2026/10/4/...-efaa92233051"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Jiang establishes asymptotic metric decorrelation, not the diagonal grand-mean trace identity or -1/n finite Cayley–Spearman covariance. Maples et al focus on marginal cycle moments; Hultman’s accessible record concerns general permutation statistics without this displayed comparison."
+        ],
+        "reasoning": "None of the inspected results implies the exact coefficients as a stated corollary; however the elementary Ewens derivative route is a residual prior-implication risk.",
+        "searches": [
+          "Jiang arXiv:1110.0807 full article class function Spearman",
+          "Maples Nikeghbali Zeindler arXiv:1203.4132 cycles",
+          "Hultman arXiv:1301.0430 permutation statistics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Permutation-matrix one-entry indicators give a rank-one diagonal-minus-grand-mean covariance functional; differentiating an Ewens-tilted expectation could yield the same identity, although a primary theorem spelling this out was not located."
+        ],
+        "reasoning": "The exact matrix-entry and character/Ewens aliases were considered. No inspected prior finite theorem established the entire arbitrary-array coefficient.",
+        "searches": [
+          "covariance cycles random uniform permutations permutation matrix linear assignment statistic Spearman Cayley distance exact",
+          "random permutation cycles covariance assignment cost matrix diagonal sum",
+          "Ewens theta derivative expected fixed permutation matrix entries"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact arithmetic permutation enumerations through n=6 agree, while no located published table identifies the arbitrary n trace coefficient."
+        ],
+        "reasoning": "Finite sample tables are not infinite proof. No known OEIS/table identity in the inspected search subsumes the linear-form theorem.",
+        "searches": [
+          "\"Cov(C_n,R_n)\" \"1/n\" Spearman",
+          "Resultary covariance cycles random uniform permutations permutation matrix linear assignment statistic Spearman Cayley distance exact"
+        ]
+      },
+      "rationale": "The elementary indicator contraction identity supplies a universal finite-array covariance and exact Cayley–Spearman coefficient; the inspected Jiang article gives a broader asymptotic independence framework but not these finite values. A general Ewens/permutation character identity may imply the trace formula and is a specific novelty risk.",
+      "residual_risks": [
+        "A general exact Ewens derivative or character-theory formula could imply the entire covariance identity despite lack of same wording.",
+        "The proof is short and some finite special-case covariance might be classical."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "No exact finite trace law or 1/n covariance in inspected theorem/proof.",
+          "identifier_or_url": "https://www.researchgate.net/publication/51924442_Asymptotic_correlations_of_metrics_on_the_symmetric_groups",
+          "material_read": "Full author-hosted article text, main theorem and proof discussion of class-functions and asymptotic independence",
+          "method": "Full HTML mathematical article",
+          "title": "Asymptotic correlations of metrics on the symmetric groups",
+          "trigger": "Same Cayley and Spearman metrics, cycle statistic"
+        },
+        {
+          "assessment": "PARTIAL_ACCESS_RISK",
+          "evidence": "Marginal cycle statistics; full text not reread here.",
+          "identifier_or_url": "arXiv:1203.4132",
+          "material_read": "Abstract and indexing record only",
+          "method": "Bibliographic abstract",
+          "title": "On the number of cycles in a random permutation",
+          "trigger": "Cycle count distribution and moments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Jiang arXiv:1110.0807",
+        "RESULT.md"
+      ],
+      "rationale": "A finite-sample, arbitrary-array covariance functional is a useful exact structural statement for ranking and matching statistics, and the full Cayley–Spearman correlation quantifies the rate only suggested by asymptotic metric-independence theory. This is more than repeating a one-variable expectation or reporting a finite table.",
+      "residual_risks": [
+        "The theorem concerns second moments only, not stochastic independence or higher joint fluctuations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For uniform Pi in S_n (n>=2) and deterministic real array A, Cov(C_n, sum_i a_{i,Pi(i)})=tr(A)/n-sum(A)/n^2, yielding Cov(C_n,D_n)=-(n^2-1)/6 and Corr(K_n,R_n)=-sqrt(n-1)/(n sqrt(H_n-H_n^(2))).",
+  "limitations": [
+    "Uniform-permutation distribution essential.",
+    "Universal trace law proven via contraction; independent finite census only through n=6."
+  ],
+  "schema_version": 1
+}
