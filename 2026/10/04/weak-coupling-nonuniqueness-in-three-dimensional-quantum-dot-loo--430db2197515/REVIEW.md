@@ -1,15 +1,21 @@
-# Review: Weak-coupling nonuniqueness in three-dimensional quantum-dot loop optimization
+# Independent mathematical audit
 
-## Correctness
-PASS. For disjoint translated supports, the three-halves Lebesgue norm of the total potential is exactly \(N^{2/3}\|v\|_{3/2}\). Hölder and the three-dimensional Sobolev inequality then give a geometry-independent lower quadratic-form bound. Under the stated coupling condition the operator is nonnegative; compact support preserves essential spectrum \([0,\infty)\), hence the spectral bottom is exactly zero. The proof is infinite-dimensional and analytic; no finite experiment is used to infer absence of spectrum.
+## correctness
 
-## Originality
-PASS. The primary full text was checked at the model definition, the statement that three-dimensional regular wells require critical strength for binding, the optimization theorem, and the loop conjecture. The closest singular point-interaction optimization result concerns a different operator class and does not imply a weak-coupling plateau for regular wells. Targeted searches for weak-coupling, binding-threshold, fixed-loop, regular-polygon, and three-dimensional variants did not locate an equivalent statement connecting the uniform Sobolev estimate to the literal uniqueness clause.
+PASS
 
-## Value
-PASS. The finding is a motivated boundary of a published open optimization conjecture, not an arbitrary parameter slice: in the model's three-dimensional branch, nonbinding is structurally expected at weak coupling. The result makes that boundary uniform over all admissible finite geometries and identifies the precise kind of additional hypothesis needed before uniqueness can be meaningful.
+PASS: For N finite disjoint supported nonnegative wells W_Y, disjointness gives exact ||W_Y||_(3/2)=N^(2/3)||v||_(3/2). Radial v with L²(0,rho) profile is L^(3/2)(R³) by compact support/Hölder. For u∈H¹(R³), Hölder and 3D Sobolev yield integral W_Y|u|²<=C_S N^(2/3)||v||_(3/2)||grad u||². Therefore q_H[u]>=0 for all admissible geometries when 0<lambda<=1/(C_S N^(2/3)||v||_(3/2)); compactly supported L^(3/2) form perturbation has essential spectrum [0,infty), so inf sigma(H)=0 for all those Y. For sufficiently large fixed loop length relative to support radius, regular polygon and a noncongruent small smooth loop deformation retain disjoint wells, giving two tied geometries, contradicting a literal unrestricted unique maximizer. Proof analytic, not relying on experiments. A zero resonance at threshold is possible but does not change inf sigma=0.
 
-## Closest literature and limitations
-The closest primary source is Exner's *Geometry effects in quantum dot families* (arXiv:2305.12748), which supplies the regular-well model and the conjecture. Exner's *An optimization problem for finite point interaction families* (arXiv:1906.01229) proves a related circle optimization for singular point interactions, but it does not cover the regular-potential weak-coupling regime. The sufficient coupling bound is not claimed sharp, the two-dimensional case is not addressed, and an intended binding-only reading of “principal eigenvalue” would turn the result into a missing-hypothesis clarification rather than a literal counterexample.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, narrowly qualified: Exner Conjecture 5.3 in materially inspected 2023 original explicitly states a unique regular-loop maximizer for two and three dimensions; its discussion independently notes that in 3D a single regular attractive well needs critical coupling for binding. The novel claim is the uniform all-admissible-geometries N-dependent explicit Sobolev nonbinding plateau and consequent missing binding hypothesis for that exact literal global uniqueness assertion, not the general textbook Sobolev inequality or existence of single-well thresholds. Older point-interaction optimization binds by a different mechanism, not a regular potential counterexample. The concession about a restricted interpretation of principal eigenvalue is essential; no false assertion that binding-regime conjecture is disproved.
+
+## value
+
+PASS
+
+PASS, limited: Provides a rigorous necessary boundary condition for a named geometry-optimization conjecture: without binding one cannot have its literal uniqueness in three dimensions, and a quantified uniform coupling interval exhibits the obstruction. Although the estimate is a straightforward Sobolev/Hölder bound and not a sharp binding threshold, applying it uniformly to a natural conjectured optimization family produces a substantive scope correction rather than an arbitrary negative test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
