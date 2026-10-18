@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For every \\(k\\ge12\\), the verified integer identities \\(a=448999\\), \\(a^2=201600102001\\), \\(2a^2=403200204002\\), together with \\(2a^2<10^{12}\\le10^k\\), imply the two exact nonoverlapping digit-block formulas. The individual sums are 43, 13, 17, so \\(s_{10}(N_k)=86\\) and \\(s_{10}(N_k^2)=43\\). Congruence modulo 10 fixes the last digit at 9; strict increase in k guarantees infinitely many distinct integers. A standalone integer checker verifies the seed and \\(12\\le k\\le100\\). The infinite proof relies on the block lemma, not on finite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hare-Laishram-Stoll arXiv:1001.4169, theorem on liminf of the ratio zero and constructive noninterfering polynomials: can imply weaker plain existence but s(n) grows.",
+        "Hare-Laishram-Stoll arXiv:1001.4170, Theorem 1.5 fixes \\(s(n)=s(n^2)\\) at sufficiently large admissible weights, not strict division."
+      ],
+      "reasoning": "Unrestricted strict divisor infinitude is covered as an implication of the older 2010 small-ratio construction plus arithmetic progression selection; novelty must NOT be claimed for it. Fixed equal weights do not force any fixed unequal pair, and a square-weight bounded while input-weight diverges does not imply a fixed input-weight family. Their proofs employ the same basic block lemma, so the lemma is not a novelty claim.",
+      "searches": [
+        "https://arxiv.org/abs/1001.4169",
+        "https://arxiv.org/html/1001.4170v1",
+        "digit sum inequality squares s_b(n^2) < s_b(n) infinitely often no trailing zeros",
+        "decimal digit-sum ratios exact equality s(n)=2 s(n²) infinite bounded digital weight nonzero last digit"
+      ]
+    },
+    "checked_sources": [
+      "https://oeis.org/A268135",
+      "https://oeis.org/A058369",
+      "https://arxiv.org/html/1001.4170v1",
+      "https://arxiv.org/abs/1001.4169",
+      "The published (3,2,3) binary-weight classification (not about decimal square-digit sums)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1.5 of arXiv:1001.4170 requires \\(s(n)=s(n^2)\\), which is incompatible with 86 versus 43.",
+        "arXiv:1001.4169 produces unbounded s(n) as \\(s(n^2)/s(n)\\to0\\), so cannot directly furnish n with s(n)=86 for infinitely many n.",
+        "The explicit seed identities establish exactly these two weights by block separation."
+      ],
+      "reasoning": "Statement-by-statement comparison separates plain infinitude (an old corollary) from fixed, unequal digital weights for an infinite ray (the final claim). Search results concerning binary factor weights, ordinary divisor functions and other bases are non-dominating because their arithmetic objects and implications differ.",
+      "searches": [
+        "https://arxiv.org/html/1001.4170v1",
+        "https://arxiv.org/abs/1001.4169",
+        "https://oeis.org/A268135",
+        "proper divisor digit sum square not divisible by ten fixed digit weight noninterfering blocks"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A268135 (16 March 2016 comment) describes the strict divisor property but only a finite list of examples not ending in zero.",
+        "The published (3,2,3) binary-weight classification concerns factor binary weights, not decimal square-digit sums."
+      ],
+      "reasoning": "Equivalent formulation: the common intersection of fixed fibers {n: \\(s_{10}(n)=86\\)} and {n:\\(s_{10}(n^2)=43\\)} contains an explicit unbounded subray all congruent to 9 mod 10. Database semantic matches and OEIS sequence did not state this fixed-pair claim; matching just a single numerical witness is not equivalent.",
+      "searches": [
+        "OEIS A268135 digit sum of n squared proper divisor of digit sum of n infinitely many n not divisible by 10 explicit family",
+        "decimal digit sums s_10(n^2) divides s_10(n) strictly n mod 10 nonzero infinite family",
+        "fixed decimal digit sums s10(n)=86 and s10(n squared)=43 for infinitely many integers n not ending zero",
+        "fixed digital weights 86 and 43 infinitely many n square digit sum half decimal",
+        "https://oeis.org/A268135"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A268135 contains samples including 149 and 549 and comments from 2016; no exact parameterized (86,43) family or classification is stated.",
+        "A058369 records equality of digital sums rather than proper division."
+      ],
+      "reasoning": "An example or finite sequence table cannot imply a uniform k>=12 family; conversely the explicit family is not a complete description of OEIS A268135. The pair (86,43) is not claimed minimal.",
+      "searches": [
+        "OEIS:A268135",
+        "OEIS:A058369",
+        "decimal digit sum square divisor proper 149 549 not divisible 10",
+        "fixed decimal digit sums s10(n)=86 and s10(n squared)=43 for infinitely many integers n not ending zero"
+      ]
+    },
+    "rationale": "The exact claim fixes two *unequal* decimal digit sums at (86,43) for an unbounded non-trailing-zero family. OEIS A268135 asks about strict divisibility and lists finite examples, not this fixed-weight ray. Hare-Laishram-Stoll arXiv:1001.4170 proves infinite families with fixed *equal* digit weights; arXiv:1001.4169 proves arbitrarily small ratios but does not fix both weights. Its construction already yields the weaker plain infinitude with strict divisibility by suitable choices, so that weaker consequence is deliberately NOT asserted as new. The standard noninterfering-block lemma is also not claimed to be original. Targeted scientific-literature and mathematical-record searches for digit sums, proper divisors, fixed digital weights, and the specific seed found no encompassing record. Undiscovered explicit fixed unequal-weight families remain a risk.",
+    "residual_risks": [
+      "An unindexed or differently titled fixed-unequal-digital-weight family may precede this one.",
+      "The standard block lemma itself is established in older papers; only the witness-based fixed unequal pair is claimed new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Records strict divisor property and finitely many nonzero-last-digit examples; does not state the fixed-weight ray. Its general existence question admits implications from earlier 2010 constructions, which are credited.",
+        "evidence": [
+          "Dated question March 16, 2016; example 149, digit sums 14 and 7; list of nontrailing-zero examples."
+        ],
+        "identifier_or_url": "https://oeis.org/A268135",
+        "material_read": "The entire sequence page, including definitions, comments, example, and dates",
+        "method": "Full HTML text",
+        "title": "OEIS A268135: Numbers n such that the digit sum of n² is a divisor of the digit sum of n",
+        "trigger": "Explicit 2016 non-trailing-zero and strict divisor questions"
+      },
+      {
+        "assessment": "Theorem 1.5 supplies many infinitely repeated equal weight pairs; it neither asserts nor implies a fixed unequal pair of weights with proper divisibility. Proposition 2.1 covers the block identity, credited accordingly.",
+        "evidence": [
+          "Theorem 1.5 s_q(n²)=s_q(n)=k for \\(k\\ge94(q-1)\\) with congruence, Proposition 2.1 block-splitting formula."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1001.4170v1",
+        "material_read": "Abstract, Introduction and Theorems 1.1-1.5, Section 2 Proposition 2.1 and the noninterfering-block proof, fixed-weight theorem claims",
+        "method": "Full-text HTML inspection of central statements and relevant proofs",
+        "title": "The sum of digits of n and n²",
+        "trigger": "Most relevant fixed-weight infinite-family theorem"
+      },
+      {
+        "assessment": "The unrestricted strict-divisor infinitude can be extracted from this constructive approach, so is not novel; its construction makes input weight grow, unlike the present fixed input and square weights.",
+        "evidence": [
+          "2010 Theorem 1.3 ratio tending to zero; Section 2 block splitting and polynomial constructions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1001.4169",
+        "material_read": "Introduction, theorem statements, Proposition 2.1 and constructive proof giving digit-sum ratios tending to zero",
+        "method": "Accessible primary full text rendered through arXiv; compared concrete constructive parameters",
+        "title": "Stolarsky's conjecture and the sum of digits of polynomial values",
+        "trigger": "Potential stronger implication via small square-digit-sum ratio"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a87baa80-d051-4950-8fc4-d6fc39d245c0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural qualitative refinement of the March 2016 A268135 non-trailing-zero question is to hold both digit sums fixed instead of allowing the input digit weight to diverge. Such fixed-weight fibers are a recognized subject in Hare-Laishram-Stoll 2010; their displayed theorem treats equality, not proper divisibility. This establishes a fixed strict-divisor fiber with infinitely many members and constant quotient two, not a mere trailing-zero padding family. The numeric pair (86,43) is a witness to existence, not asserted to be an optimal invariant. The method is elementary and does not classify all possible weights.",
+    "status": "PASS"
+  }
+}
