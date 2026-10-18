@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T00:51:35Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every nonempty proper row subset of F_10, published ACM/Achanta results require uniform distribution modulo divisors and preserve full spark under affine units/translations and complement. Independently enumerating uniformly distributed subsets of sizes 1,...,5 found counts 10,20,60,30,20 and the exact affine representatives {0};{0,1};{0,1,2},{0,1,3};{0,1,2,3},{0,1,3,4};{0,1,2,3,4}. Consecutive reps are Vandermonde full spark. For {0,1,3} every 3-column determinant is Vandermonde times x1+x2+x3: three tenth roots cannot sum to zero because primitive cube-root ratios are not tenth roots. The 4-row exceptional representative has a singular minor on columns {0,1,2,6}; independently reduced that determinant to zero modulo Phi_10(z). Ten affine images are bad in size 4, and complements give ten bad in size 6. Full finite domain covered without floating-point zero tests; remaining adjacent sizes 1,2,3,5 and complements full spark.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "ACM necessity of distribution over divisors holds all orders and is sufficient for prime-powers only; N=10 fails sufficiency.",
+          "Achanta general theorem for one-missing-index subsets needs a separate orbit reduction and exact 10th-root analysis.",
+          "Order 12 and 14 full classifications address different moduli."
+        ],
+        "reasoning": "No checked broader result supplies the complete order-10 classification by implication without new orbit reduction/minor check.",
+        "searches": [
+          "arXiv:1110.3548 full text section 2 and Theorem 9",
+          "Achanta, Biswas, Dasgupta et al 2014 SAM full 4p PDF",
+          "Resultary order-12 and order-14 full spark classifications"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1110.3548 Theorem 9 and N10 example",
+        "Achanta et al DOI:10.1109/SAM.2014.6882460, full author-hosted PDF",
+        "Resultary order10/order12/order14 semantic search",
+        "Actual Git verification script verify_z10_fullspark.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published necessity eliminates nonuniform subsets; published affine/complement invariance reduces cases; published singular witness excludes the bad orbit.",
+          "Additional exact orbit enumeration and analytic nonvanishing of {0,1,3} fill all remaining uniform cases."
+        ],
+        "reasoning": "Published facts are critical inputs, but without the new complete orbit census they do not state that no other N=10 exceptions exist.",
+        "searches": [
+          "Alexeev--Cahill--Mixon Theorem 9 N=10 discussion",
+          "Achanta Theorem 3.2 one-missing-row criterion",
+          "verify_z10_fullspark.py frozen blob 6010eccb6656d8c9f85e8d698e69f741949694ff"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "ACM p.16 contains only the bad {0,1,3,4} rows and {0,1,2,6} columns, not entire orbit census.",
+          "Achanta Theorem 3.2 characterizes certain missing-row singular cases, but does not list all uniformly distributed order-10 row orbits."
+        ],
+        "reasoning": "The exact orbit table and iff for every nonempty proper row set is a different, more complete statement than one counterexample or one sufficient condition.",
+        "searches": [
+          "Resultary: full spark harmonic Fourier frames order 10 uniformly distributed row sets affine orbit {0,1,3,4} 10th roots",
+          "arXiv:1110.3548 Theorem 9 counterexample 10",
+          "Achanta et al SAM 2014 Theorems 2.2-3.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both primary papers reproduce the known 4x4 singular example; neither enumerates 30 uniform size-4 row subsets as 20 full and 10 bad.",
+          "Our independent combinatorial orbit check gives 7 canonical reps for sizes <=5, with all other sizes by complement."
+        ],
+        "reasoning": "Existing exact singular witness alone is not an exact classification table; no independent table was located.",
+        "searches": [
+          "Resultary: full spark harmonic Fourier frames order 10 uniformly distributed row sets affine orbit",
+          "arXiv:1110.3548 N=10 bad example",
+          "Achanta 2014 N=10 Example 2.1"
+        ]
+      },
+      "rationale": "Alexeev--Cahill--Mixon Theorem 9 supplies uniformity necessity, invariances and the exact N=10 exceptional singular minor, but not the complete classification of EVERY uniform row set at N=10. Achanta et al give coprime/single-missing-row criteria and revisit the same counterexample, yet do not enumerate or classify all affine row orbits at N=10. The finite exhaustive orbit theorem is an additional natural exact classification, although much of its ingredients are published; no dominating exact table was located.",
+      "residual_risks": [
+        "The new proof leverages published N=10 counterexample and substantial known affine/complement reductions; some exact finite census may be folklore or an appendix not indexed.",
+        "The statement is limited to Fourier order 10 and not a general composite-order criterion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the known counterexample and general obstruction; not an N10 census.",
+          "evidence": "p.16: row set {0,1,3,4}, columns {0,1,2,6} singular despite uniform distribution.",
+          "identifier_or_url": "https://arxiv.org/pdf/1110.3548",
+          "material_read": "Retrieved complete 26-page primary PDF; read the general necessity and invariance claims and the relevant order-10 counterexample p.16, with corresponding rendered page. Other parts not all examined page-by-page.",
+          "method": "Lawful arXiv full-text examination.",
+          "title": "Full Spark Frames",
+          "trigger": "Primary source of full-spark uniformity necessity and N10 counterexample"
+        },
+        {
+          "assessment": "General missing-row determinant criteria and repeat of N10 counterexample; no full N10 row-orbit listing.",
+          "evidence": "Section II Example 2.1 restates N=10 exceptional minor; section III Theorem 3.2 iff via vanishing sums of roots of unity.",
+          "identifier_or_url": "https://research.engineering.uiowa.edu/cbig/sites/research.engineering.uiowa.edu.cbig/files/files/SAM_SD.pdf",
+          "material_read": "Retrieved full four-page paper; examined introduction, Theorems 2.2-3.4, and related order-10 example with p.3 rendered. PDF does not contain a full all-row-set order-10 classification.",
+          "method": "Lawful author-hosted primary full-text PDF.",
+          "title": "Coprime Conditions for Fourier Sampling for Sparse Recovery",
+          "trigger": "Highly relevant follow-up explicitly revisiting order-10 exception"
+        },
+        {
+          "assessment": "N=12 is a different modulus and neither a uniform nor an order-dominating classification for N=10.",
+          "evidence": "Abstract states exactly two obstruction types at order 12; not a statement at order 10.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-complete-full-spark-classification-for-the-order-12-dft--81a97859d04e",
+          "material_read": "Title and semantic abstract only, not full underlying primary proof.",
+          "method": "Resultary index query.",
+          "title": "Complete full-spark classification for the order-12 DFT",
+          "trigger": "Resultary neighboring complete finite-order classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "DFT order 10 is the canonical first composite order where the uniform-distribution condition is insufficient. Classifying all full-spark row selections and exactly two exceptional affine/complement orbits is a complete, useful finite frame-design invariant rather than an unmotivated isolated computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The new proof leverages published N=10 counterexample and substantial known affine/complement reductions; some exact finite census may be folklore or an appendix not indexed.",
+    "The statement is limited to Fourier order 10 and not a general composite-order criterion.",
+    "PUBLIC-FILE CONFIDENTIALITY BLOCKER: original source METADATA.json (frozen Git blob 57a66b8b48bda39df7395ae7b80a88ebdae530ee) contains process identifiers/review states; AUDIT.json (blob 50be157ab0c2e76c21bd02ea660247ed6b250547) and REVIEW.md also disclose review-process details. A complete semantically checked set of sanitized guarded public replacements was not supplied. The whole package must be withheld; scientific status is separate from transport safety."
+  ],
+  "schema_version": 1
+}

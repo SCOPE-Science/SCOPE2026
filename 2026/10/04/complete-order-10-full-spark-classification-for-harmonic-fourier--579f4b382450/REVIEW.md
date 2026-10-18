@@ -1,20 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim has a finite, explicit domain: all nonempty proper row subsets of the order-10 DFT. Published results supply necessity of uniform distribution and affine/complement invariance. Uniform row sets reduce to seven affine representatives through cardinality 5. Consecutive representatives are Vandermonde full spark; the only nonconsecutive candidate \(\{0,1,3\}\) has determinant
-\[
--\,(x_1-x_2)(x_1-x_3)(x_2-x_3)(x_1+x_2+x_3),
-\]
-and the last factor cannot vanish for distinct tenth roots because a three-term unit-circle zero sum would force a primitive cube-root ratio. The exceptional \(\{0,1,3,4\}\) has the published zero minor on columns \(\{0,1,2,6\}\). Exact exhaustive cyclotomic arithmetic reproduces every case and the complement counts.
+## correctness
 
-Risk: the proof relies on the cited published invariance and necessity theorems. The included verifier checks the order-10 finite consequences directly for uniformly distributed sets, but it does not reprove the general theorem that nonuniform sets cannot be full spark.
+PASS
 
-## Originality
-PASS on the evidence inspected. The closest source, Alexeev--Cahill--Mixon, gives the order-10 counterexample and explicitly leaves the general composite characterization open; it does not classify every order-10 row set. Achanta et al. characterize several structured one-missing-row families and revisit the same counterexample, but do not give a complete order-10 affine-orbit census. Tang still presents the arbitrary-composite sufficiency problem as unresolved in 2017. Targeted published-finding corpus and web searches for the exact order-10 classification, aliases, affine formulations, and stronger covering statements returned no prior statement implying the final classification.
+For every nonempty proper row subset of F_10, published ACM/Achanta results require uniform distribution modulo divisors and preserve full spark under affine units/translations and complement. Independently enumerating uniformly distributed subsets of sizes 1,...,5 found counts 10,20,60,30,20 and the exact affine representatives {0};{0,1};{0,1,2},{0,1,3};{0,1,2,3},{0,1,3,4};{0,1,2,3,4}. Consecutive reps are Vandermonde full spark. For {0,1,3} every 3-column determinant is Vandermonde times x1+x2+x3: three tenth roots cannot sum to zero because primitive cube-root ratios are not tenth roots. The 4-row exceptional representative has a singular minor on columns {0,1,2,6}; independently reduced that determinant to zero modulo Phi_10(z). Ten affine images are bad in size 4, and complements give ten bad in size 6. Full finite domain covered without floating-point zero tests; remaining adjacent sizes 1,2,3,5 and complements full spark.
 
-Residual risk: a differently phrased or poorly indexed complete order-10 classification could exist. Search non-detection is evidence, not a novelty proof.
+## originality
 
-## Value
-PASS. Order 10 is the smallest highlighted non-prime-power case where uniform distribution is known not to suffice. A complete classification identifies the obstruction sharply: exactly one affine orbit at cardinality 4 and its complement at cardinality 6. This converts an isolated counterexample into a natural exact boundary theorem for full-spark harmonic frames and Fourier sparse-recovery designs.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Alexeev--Cahill--Mixon Theorem 9 supplies uniformity necessity, invariances and the exact N=10 exceptional singular minor, but not the complete classification of EVERY uniform row set at N=10. Achanta et al give coprime/single-missing-row criteria and revisit the same counterexample, yet do not enumerate or classify all affine row orbits at N=10. The finite exhaustive orbit theorem is an additional natural exact classification, although much of its ingredients are published; no dominating exact table was located.
+
+## value
+
+PASS
+
+DFT order 10 is the canonical first composite order where the uniform-distribution condition is insufficient. Classifying all full-spark row selections and exactly two exceptional affine/complement orbits is a complete, useful finite frame-design invariant rather than an unmotivated isolated computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
