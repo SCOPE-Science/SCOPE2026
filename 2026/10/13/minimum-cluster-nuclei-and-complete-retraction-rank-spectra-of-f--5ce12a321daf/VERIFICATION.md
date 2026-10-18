@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Finite, independently coded structural checks
+# Independent mathematical audit
 
-Run the accompanying standalone source file with `python3 verify.py`. It uses only the Python standard library, has no external dependencies, and never reads an external corpus or ledger.
+## correctness
 
-For sixteen explicit equivalence-cluster profiles, with total frame sizes at most six, the program enumerates **all point functions** and tests each one by direct successor-set equality. It independently computes the proposed endomorphism spectrum using Stirling-surjection counts and inclusion–exclusion, and the proposed idempotent spectrum using the anchor-cluster product; it then compares full rank distributions and all retraction-support sets. For profiles with at most five points, each accepted bounded map is also checked algebraically against every truth subset for preservation of modal saturation under inverse image. The script does not assume the formulas are correct when screening point functions.
+PASS
 
-Its completed replay produced:
+Finite Boolean powerset endomorphisms are exactly inverse image maps f^{-1} for unique f:X→X. Modal Diamond preservation is equivalent to f[R(x)]=R(f(x)), and for finite S5 equivalence clusters each source cluster must surject onto one entire target cluster. The surjection count q_ij=a_j!S(a_i,a_j) yields unrestricted image polynomial E_X by inclusion-exclusion over occupied target clusters, and idempotent polynomial I_X by fixing selected image clusters pointwise. An omitted smallest source cluster cannot map onto larger targets, so idempotent retraction support is realizable iff it contains at least one globally smallest cluster. Thus support count 2^m−2^(m−r), rank support equality, image isomorphism-type count c_a·prod_{b>a}(c_b+1). Independent enumeration of all selfmaps in profiles (1,1),(1,2),(1,2,3),(2,2) verified full algebra-image ranks, idempotent counts and supports, including (1,2,3) polynomials E=z²+20z⁸+6z¹⁶+12z⁶⁴ and I=z²+7z⁸+z¹⁶+z⁶⁴. Symbolic proof covers every finite nonempty equivalence frame.
 
-```text
-VERIFY_OK {'shapes': 16, 'candidate_tables': 197086, 'bounded_maps': 1059, 'direct_algebra_subset_checks': 10874, 'rank_checks': 48}
-```
+## originality
 
-The test list includes unequal class sizes, equal class sizes, singleton classes, a single cluster, all-singleton frames, and the mixed profile \((1,2,3)\). The direct tests confirm \(39\) bounded endomorphisms and \(10\) idempotents for that mixed profile. All computations use exact integers. The test does not claim exhaustive verification beyond these finite profiles, does not independently establish mathematical novelty, and does not replace the universal proof in `RESULT.md`.
+PASS
+
+The original S5/Baire paper introduces lower/upper cluster sizes and S5 modal algebra semantics, not heterogeneous endomorphism and idempotent rank counts. Adams–Dziobiak 2007 establishes reconstruction of finite monadic Boolean algebras from their endomorphism monoids according to its accessible abstract, rather than this full rank distribution, but its complete primary text remained inaccessible after both open routes failed and the authorized institutional connection reported VPN disconnected. Monteiro et al. 2006 counts all subalgebras, not individual idempotents or dual supports; full text also unavailable. Best-of-knowledge O PASS with material residual risk, not an automatic rejection for inaccessible literature.
+
+## value
+
+PASS
+
+The complete rank polynomials for arbitrary unequal S5 cluster sizes, their equality-of-attainable-ranks despite unequal multiplicities, and the minimum-cluster anchor criterion classify a natural finite modal-algebra endomorphism/retraction invariant. This distinguishes dual map supports from embedded algebra images and gives explicit computations for finite monadic Boolean algebras rather than an arbitrary tiny example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
