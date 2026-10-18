@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,34 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_nanson_baldwin_first_unique_divergence.py` uses exact finite enumeration with only the Python standard library.
 
-It enumerates every anonymous four-candidate profile with one through five voters as a weak composition into the \(24\) strict ballot types.
+# Independent mathematical audit
 
-Baldwin is treated as a correspondence over all legal eliminations among tied lowest-Borda candidates. A singleton winner set therefore means the winner is independent of every such tie-breaking choice.
+## correctness
 
-Nanson simultaneously eliminates every candidate whose current Borda score is strictly below the average. If no candidate is below average while more than one survives, the surviving set is returned as non-unique rather than imposing an artificial tie-break.
+PASS
 
-Two implementations are compared on every anonymous profile:
-1. a multiplicity engine using precomputed score contributions for each surviving-candidate set;
-2. an explicit-ballot engine that expands the profile and recomputes restricted-ballot Borda scores directly.
+Every anonymous four-candidate profile with 1..5 complete strict ballots lies in a weak composition over 24 ranking types (counts 24,300,2600,17550,98280). Reconstructed a separate multiplicity-based recursion branching over ALL tied Baldwin minima, with Nanson removing all strictly sub-average candidates and keeping equal-score stalling nonunique. It finds no different unique outcomes for n<=4; at n=5 exactly 384 anonymous, weighted 24480 labeled, out of 7,232,544 labeled cases unique for both; canonicalizing under all 24 candidate relabelings yields 16 orbits all size 24. Confirmed witness 2 BDCA +1 CABD +2 DCAB elects B under Baldwin and D under Nanson by explicit score recount. Exhaustive finite search is legitimate because the stated domain is finite, but proves nothing beyond n<=5 and specified tie convention.
 
-The verifier confirms:
-- anonymous domain sizes \(24,300,2600,17550,98280\);
-- zero tie-independent unique divergences for one through four voters;
-- \(7232544\) labeled five-voter profiles with unique outcomes under both rules;
-- exactly \(384\) anonymous and \(24480\) labeled five-voter divergences;
-- incidences \(85/27648\), \(85/25113\), and \(16/4095\);
-- exactly \(16\) candidate-relabeling classes, each of orbit size \(24\);
-- \(2040\) labeled profiles for each ordered pair of distinct winners;
-- the displayed witness and all intermediate scores.
+## originality
 
-Run:
+PASS
 
-`python3 verify_nanson_baldwin_first_unique_divergence.py`
+Primary full-text definitions and manipulation complexity for Nanson/Baldwin do not state the tie-independent all-profiles agreement threshold with exact multiplicities and 16 orbit types. Independent complete arithmetic enumeration and candidate-relabeling show a motivated new finite layer, with possible unseen older small-profile tables explicitly retained.
 
-The first output line must be:
+## value
 
-`VERIFY_OK`
+PASS
 
-The computation proves only the stated four-candidate boundary through five voters.
+The smallest electorate for guaranteed different unique Nanson and Baldwin outcomes is a natural comparison of two historically connected elimination rules. Exact unconditional and conditional incidences plus the complete first symmetry layer are independently useful, beyond one example and beyond finite software reproducibility alone. The result is bounded to four candidates, strict ballots and explicitly defined tie independence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
