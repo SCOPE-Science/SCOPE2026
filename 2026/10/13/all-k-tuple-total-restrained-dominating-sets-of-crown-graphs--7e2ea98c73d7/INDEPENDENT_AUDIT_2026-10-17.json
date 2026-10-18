@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T14:01:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=3 and 1<=k<=n-1, selected sets I,J and omitted X,Y, all vertices have k selected open neighbors iff |I|,|J|>=k+1. For nonfull sets, each outside vertex additionally requires k outside open neighbors: k<=|X|,|Y|<=n-k-1, with X∩Y=empty whenever one omitted size is k. Full S always feasible. Four binomial regimes give the displayed polynomial; gamma=2n for n<=2k and gamma=2k+2 otherwise. Independent literal adjacency/open-neighborhood and complement checking matched all criteria and coefficients for n=3..7, every k; in particular n=2k+1 boundary count checked. The argument is uniform and symbolic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kazemi Proposition 7 only characterizes equality at 2k for arbitrary bipartite graphs; Corollary 8 gives K_{n,m} scalar",
+          "Crown missing matching requires at least k+1 selected each side and a pairwise disjointness restriction at outside boundary k"
+        ],
+        "reasoning": "No more general published explicit enumeration found that implies full generating polynomial. General lower bounds do not give coefficients.",
+        "searches": [
+          "https://www.researchgate.net/publication/51913832_k-tuple_total_restrained_domination_and_k-tuple_total_restrained_domaticin_graphs",
+          "https://arxiv.org/abs/1106.5591"
+        ]
+      },
+      "checked_sources": [
+        "https://www.researchgate.net/publication/51913832_k-tuple_total_restrained_domination_and_k-tuple_total_restrained_domaticin_graphs",
+        "https://arxiv.org/abs/1106.5591",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-restrained-dominating-set-profile-of-crown-graphs--23a9be9d61aa"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "New gamma=2k+2 for n>=2k+1 versus Kazemi universal lower 2k, with full-set regime n<=2k",
+          "At n=2k+1 nonfull minimum count binom(n,k)binom(n-k,k); n>=2k+2 count binom(n,k+1)^2"
+        ],
+        "reasoning": "Earlier 2k inequality is strictly weaker. Complete-bipartite cases cannot imply matching-deletion cases or all subsets.",
+        "searches": [
+          "https://www.researchgate.net/publication/51913832_k-tuple_total_restrained_domination_and_k-tuple_total_restrained_domaticin_graphs",
+          "Ma Chen Sun total restrained domination graphs 2005"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Outside-test for a_i omitted is |Y|-1_{i∈Y}>=k, and symmetric condition"
+        ],
+        "reasoning": "Direct kTRDS and deleted perfect matching aliases searched; no equivalent full all-set classification established.",
+        "searches": [
+          "k tuple total restrained domination crown graph n k",
+          "perfect matching deleted K_nn kTRDS",
+          "arXiv:1106.5591 Kazemi crown"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No crown kTRDS coefficient table in inspected Kazemi sections; complete K_nm Corollary 8 is different graph"
+        ],
+        "reasoning": "Search incomplete in older journals but no exact matching table located. This alone does not prove novelty.",
+        "searches": [
+          "total restrained domination crown all k coefficients",
+          "Resultary crown graph k tuple restrained count"
+        ]
+      },
+      "rationale": "Kazemi 2011 full-text sections including general bipartite Proposition 7 and complete bipartite Corollary 8 were inspected. Crown graphs delete a perfect matching and the old scalar bounds do not imply the all-set criterion or polynomial. Related Resultary crown restrained sets have different requirements. No stronger covered theorem found in bounded primary comparisons; residual unindexed literature risk.",
+      "residual_risks": [
+        "Older sources might have underindexed special crown bounds",
+        "Ma–Chen–Sun full original text not inspected; scope based on abstract/metadata, not whole-text exclusion"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proposition 7 gives general bipartite 2k bound and equality criterion; Corollary 8 handles complete K_{n,m}, not crown K_{n,n}-M. The new all-set crown polynomial is not an immediate consequence of those numerical bounds.",
+          "evidence": [
+            "Kazemi (2011) Proposition 7 and Corollary 8, source page lines 440–491"
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/51913832_k-tuple_total_restrained_domination_and_k-tuple_total_restrained_domaticin_graphs",
+          "material_read": "Full-text manuscript sections 1–3 including Proposition 7, Corollary 8 and discussion of bipartite/completed multipartite graphs; searched text for crown",
+          "method": "Open research author-upload HTML full text; arXiv metadata also queried",
+          "title": "k-Tuple total restrained domination and k-tuple total restrained domatic in graphs",
+          "trigger": "Same k-tuple total restrained predicate and bipartite family bounds"
+        },
+        {
+          "assessment": "Different scalar total-restrained k=1 problem; complete bipartite exact values do not identify crown deleted-matching all-set formula.",
+          "evidence": [
+            "Ma, Chen & Sun (2005) title and article scope"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10587-005-0012-2",
+          "material_read": "Author/publisher reference and accessible abstract; no whole text inspected",
+          "method": "Citation metadata and summary",
+          "title": "On total restrained domination in graphs",
+          "trigger": "k=1 predecessor, possible graph-family overlap"
+        },
+        {
+          "assessment": "Counts ordinary restrained domination, not k-tuple total restrained open-neighborhood conditions",
+          "evidence": [
+            "Resultary crown restrained search result"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-restrained-dominating-set-profile-of-crown-graphs--23a9be9d61aa",
+          "material_read": "Resultary indexed title and statement",
+          "method": "Semantic indexed summary",
+          "title": "Restrained-dominating-set profile of crown graphs",
+          "trigger": "Same crown graphs, related counting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "All-k total-restrained exact sets on a canonical regular bipartite graph, including a sharp threshold at n=2k+1, are a natural graph-invariant classification and useful counting refinement beyond Kazemi lower bounds. No paper-sized general theorem is needed for this complete motivated family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "n>=3 and 1<=k<=n-1; not a domatic result; metadata not privacy sanitized."
+  ],
+  "schema_version": 1
+}

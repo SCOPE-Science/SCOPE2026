@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,21 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof reduces the definition to exact neighborhood counts. For \(S\) encoded by selected index sets \(I,J\) and omitted index sets \(X,Y\):
+# Independent mathematical audit
 
-- every \(a_i\) sees exactly \(|J|-\mathbf 1_{i\in J}\) selected neighbors;
-- every \(b_i\) sees exactly \(|I|-\mathbf 1_{i\in I}\) selected neighbors;
-- every omitted \(a_i\) sees exactly \(|Y|-\mathbf 1_{i\in Y}\) omitted neighbors;
-- every omitted \(b_i\) sees exactly \(|X|-\mathbf 1_{i\in X}\) omitted neighbors.
+## correctness
 
-These identities prove the side-size bounds and show that the only overlap restriction is \(X\cap Y=\varnothing\) when \(|X|=k\) or \(|Y|=k\). The coefficient formula then counts ordered omitted-index pairs by their two sizes.
+PASS
 
-The packaged checker independently enumerates all subsets for every \(3\le n\le8\) and every \(1\le k\le n-1\), compares the direct neighborhood definition with the structural criterion, reconstructs the entire coefficient dictionary from the formula, and checks the minimum value and number of minimum sets.
+For n>=3 and 1<=k<=n-1, selected sets I,J and omitted X,Y, all vertices have k selected open neighbors iff |I|,|J|>=k+1. For nonfull sets, each outside vertex additionally requires k outside open neighbors: k<=|X|,|Y|<=n-k-1, with X∩Y=empty whenever one omitted size is k. Full S always feasible. Four binomial regimes give the displayed polynomial; gamma=2n for n<=2k and gamma=2k+2 otherwise. Independent literal adjacency/open-neighborhood and complement checking matched all criteria and coefficients for n=3..7, every k; in particular n=2k+1 boundary count checked. The argument is uniform and symbolic.
 
-Replay result:
+## originality
 
-`VERIFY_OK n_range=3..8 subset_checks=582528 criterion_checks=582528 coefficient_checks=83 minimum_checks=54 max_order=16`
+PASS
 
-Limits: exhaustive enumeration is finite and does not prove the theorem for unbounded \(n\); the infinite claim is supported by the symbolic argument in `RESULT.md`. No independent audit has been performed.
+Kazemi 2011 full-text sections including general bipartite Proposition 7 and complete bipartite Corollary 8 were inspected. Crown graphs delete a perfect matching and the old scalar bounds do not imply the all-set criterion or polynomial. Related Resultary crown restrained sets have different requirements. No stronger covered theorem found in bounded primary comparisons; residual unindexed literature risk.
+
+## value
+
+PASS
+
+All-k total-restrained exact sets on a canonical regular bipartite graph, including a sharp threshold at n=2k+1, are a natural graph-invariant classification and useful counting refinement beyond Kazemi lower bounds. No paper-sized general theorem is needed for this complete motivated family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
