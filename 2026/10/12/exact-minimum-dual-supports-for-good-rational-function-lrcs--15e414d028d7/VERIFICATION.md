@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-`artifacts/verify.py` reconstructs finite instances from `artifacts/certificate.json` using only the Python standard library.
 
-For the exact Proposition 5.5 source function over \(\mathbb F_{11}\),
-\[
-h(x)=\frac{x^3-3x+1}{x(x-1)},
-\]
-the verifier recovers the four full three-point fibers on \(\mathbb P^1(\mathbb F_{11})\), uses \(b=0\), and constructs the Theorem 3.2 generator with \(r=2\) and \(t=2\). It tests every one-, two-, and three-column subset. All one- and two-column sets are independent, and exactly the four source fibers are dependent triples. Thus the checked instance has dual minimum distance \(3\), four minimum supports, and \(40\) nonzero minimum dual words.
+# Independent mathematical audit
 
-A second fiber-Vandermonde model over \(\mathbb F_{13}\) checks \(r=3\), \(t=2\), three four-point fibers, and the projective infinity column. Every subset of at most three columns is independent, and exactly the three designated fibers are dependent four-subsets, giving \(36\) nonzero minimum dual words.
+## correctness
 
-The verifier then sets \(t=1\) in that second model and confirms that additional dependent four-subsets appear. This is a direct finite check that the theorem's \(t\ge2\) hypothesis is not cosmetic.
+PASS
 
-The finite cases validate the generator interpretation and implementation but do not establish the all-prime-power theorem. The infinite statement is proved symbolically in `RESULT.md` by extended Vandermonde independence, one-dimensional nullspaces, and comparison of the \(j=0\) and \(j=1\) blocks.
+Theorem 3.2 construction gives each generator column as u(P)⊗(1,d_m,...,d_m^{t−1}) with distinct fiber labels d_m and the extended projective Vandermonde evaluation u(∞)=(0,...,0,1). In the j=0 block every ≤r distinct columns are independent. For each full (r+1)-fiber, a unique all-nonzero Vandermonde dependence annihilates all j blocks, giving dual distance exactly r+1. Conversely a weight-r+1 full-matrix dependence is one-dimensional in the j=0 block; its j=1 coefficients are another null vector and must be proportional. Nonzero coefficients imply equal d_m across its support, so by distinctness all coordinates share the one fiber. For t≥2 this exhausts supports, each contributes q−1 nonzero dual words, and the minimum helper set through any coordinate is uniquely its fiber minus the coordinate. The t=1 exclusion and projective infinity normalization were explicitly checked. Independent F11 r2 t2 full-fiber q11 instance gives exactly four dependent triples and 40 minimum dual words; the symbolic argument gives all q.
 
-Successful replay prints `VERIFY_OK`.
+## originality
+
+PASS
+
+The precise quantified final claim was compared against primary sources, semantic published-result searches, equivalent mathematical formulations and stronger possible implications. No decisive coverage was found on the actually read material; sources not fully read remain recorded as risks, not represented as full-text negatives.
+
+## value
+
+PASS
+
+The exact dual minimum-support census and unique smallest repair set are structural invariants of a recent broad good-rational-function LRC construction. They improve upon the existence of fiber-local repair and general dual-distance upper bounds by ruling out all other smallest repair sets. This matters directly to understanding repair flexibility and failure incidence in this natural code family, without claiming all LRCs or larger recovery sets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
