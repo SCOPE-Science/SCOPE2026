@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The source construction is a smooth sextic hypersurface with a projective order-two linear action. Eigenplane calculations give precisely two disjoint smooth sextic curves of genus \(10\); equivariant formal coordinates give the local \(\frac12(1,1,1)\) quotient, second-Veronese determinantal equations, multiplicity \(4\), and Reid–Tai terminality. Adjunction and the action on the residue form give canonical index \(2\). The exact Chern class, Lefschetz-trace, and rational finite-quotient transfer computations yield \(b_4=1283\) and Euler characteristic \(1287\). The embedded checker was extracted and successfully run; its checks support but do not replace the universal proof.
+## correctness
 
-**Originality — PASS, with residual risk.** Diamond arXiv:2603.29157 studies the same source fourfold and involution, but its full examined treatment concerns invariant cohomology and divisorial support rather than the singular coarse quotient, its two transverse Veronese strata, global index, or the complete Betti polynomial. Focused published-finding corpus searches for the exact source, fixed genus-ten curves, terminal index-two quotients, and Betti numbers returned unrelated or structurally weaker findings. Shioda–Katsura 1979 concerns another cyclic quotient for the inductive Fermat construction and is not an implication of this theorem. A historically implicit quotient computation, especially for the Fermat member, remains possible; the 1979 full text was not exhaustively inspected.
+PASS
 
-**Value — PASS.** This classifies all singular points, analytic local models, and rational Betti numbers of a natural family of projective Calabi–Yau fourfold involution quotients. Nonrational genus-ten terminal strata, canonical index two, Picard number one, and odd Euler number together supply meaningful birational and topological invariants, not merely a routine named example.
+Fixed projective eigenplanes are y=±ix, and sextic homogeneity restricts the fourfold equation to 2f(x)=0, yielding precisely two disjoint genus-10 smooth curves. At each fixed point the involution acts +1 on the curve tangent and −1 on three normals; equivariant formal linearization gives A¹ times the 2-Veronese invariant cone, local multiplicity four and Reid–Tai age 3/2 (terminal, index2). Adjunction gives trivial source canonical; residue transformation has sign −1 and quotient is étale in codimension one, so the quotient reflexive canonical square is trivial but canonical itself is non-Cartier at singularities. Lefschetz gives Picard rank one. Source χ=2610, b4=2606; fixed curves χ=−36, trace_H4=−40 and invariant b4=1283, quotient Euler1287. Independent exact Chern/binomial and invariant trace arithmetic checks corroborated proof, not replacement for quotient theorems.
 
-**Scope.** No positive characteristic, degenerate sextics, integral cohomology, intersection cohomology or resolution classification is asserted. The symbolic checker certifies exact identities only, and independent validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Diamond studies the very same smooth sextic fourfold family and projective block-exchange involution and notes the anti-invariant holomorphic form. The full same-object paper focuses on Hodge structures and coniveau for invariant middle cohomology, rather than local terminal quotient strata, canonical class index, or the quotient rational Betti profile as one theorem. Shioda–Katsura analyze a different Fermat cyclic-quotient construction. The fixed-plane and cohomological-transfer principles are standard; the scoped exact quotient classification appears additional best-of-knowledge.
+
+## value
+
+PASS
+
+The coarse quotient is a natural Calabi–Yau fourfold construction with nonrational genus-ten terminal singular strata. Its complete analytic singular model, global index and Betti polynomial across all smooth sextics are meaningful birational/topological invariants, not a single arbitrarily chosen arithmetic statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
