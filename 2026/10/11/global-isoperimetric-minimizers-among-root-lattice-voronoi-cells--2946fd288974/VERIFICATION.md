@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,56 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof has two exact reductions.
+# Independent mathematical audit
 
-First, every root facet of the Voronoi cell has distance
-\[
-\frac1{\sqrt2}
-\]
-from the origin. Hence
-\[
-\operatorname{vol}(V_\Lambda)
-=
-\frac{1}{d\sqrt2}\,
-\mathcal H^{d-1}(\partial V_\Lambda),
-\]
-and therefore
-\[
-\mathcal I_d(V_\Lambda)
-=
-d\sqrt2\,\operatorname{covol}(\Lambda)^{1/d}.
-\]
+## correctness
 
-Second, since
-\[
-\operatorname{covol}(\Lambda)^2=\det(\Lambda),
-\]
-the problem is exactly determinant minimization. For irreducible root lattices,
-\[
-\det(A_m)=m+1,\qquad
-\det(D_m)=4,\qquad
-\det(E_6)=3,\qquad
-\det(E_7)=2,\qquad
-\det(E_8)=1.
-\]
-The residue lower bound
-\[
-h=(1,2,3,4,4,4,3,2)
-\]
-satisfies
-\[
-h(a)h(b)\ge h(a+b\bmod8)
-\]
-for all residues \(a,b\), and equality occurs only when one residue is zero.
+PASS
 
-The bundled checker verifies this complete multiplication table and, independently, computes the exact minimum determinant and all equality decompositions through rank \(256\). It confirms the periodic determinant sequence
-\[
-1,2,3,4,4,4,3,2
-\]
-modulo \(8\), with the rank-zero residue represented by \(E_8\)-blocks.
+Root lattice normalization makes all facet root-bisectors distance 1/√2, giving surface area d√2 covolume and I=d√2 det(Λ)^(1/(2d)). ADE Cartan Gram determinants A_m=m+1,D_m=4,E6=3,E7=2,E8=1 reduce all ranks to multiplicative residue h=(1,2,3,4,4,4,3,2). Every 8x8 h(a)h(b)≥h(a+b mod 8), with equality only if a or b is zero; all-rank argument and listed equality cases follow. Checked exact complete table separately, inspected actual bounded verifier; its finite d≤256 DP is supporting, not infinite proof.
 
-The finite dynamic program is supplementary. The infinite proof is the residue inequality together with the classical irreducible determinant formulas.
+## originality
 
-No computation or proof here addresses arbitrary non-root lattices, because no such claim is made.
+PASS
+
+Novaga–Song Section 9 gives root normalization and strict local metric/affine minimizers/instability, not optimization over all ADE orthogonal sums at a fixed rank. Known ADE determinants supply ingredients but not the explicit every-rank modulo-8 global discrete minimizer and full equality type list; Resultary broader search found only this own exact claim and separate local Hessian study. Best-of-knowledge not a certificate; old determinant-optimization aliases remain plausible.
+
+## value
+
+PASS
+
+Natural complete classification of fixed-dimensional root-lattice Voronoi isoperimetric minimizers and all equality types, contrasting global discrete minima (often reducible) against local continuous instability. Solves a mathematically intrinsic discrete optimization in every rank, not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

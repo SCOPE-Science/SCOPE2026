@@ -1,31 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. In the source normalization, roots have squared length \(2\) and are exactly the Voronoi facet vectors. Therefore every facet lies at distance \(1/\sqrt2\), and the pyramid identity gives
-\[
-\mathcal I_d(V_\Lambda)
-=
-d\sqrt2\,\operatorname{covol}(\Lambda)^{1/d}.
-\]
-The ADE Cartan determinants reduce the problem to integer determinant products. The periodic lower-bound function
-\[
-(1,2,3,4,4,4,3,2)
-\]
-is multiplicatively compatible modulo \(8\), with equality only when one residue is zero. This proves both the all-rank bound and the equality classification. The bundled exact checker independently confirms the residue table and dynamic-programming minima through rank \(256\).
+PASS
 
-## Originality
+Root lattice normalization makes all facet root-bisectors distance 1/√2, giving surface area d√2 covolume and I=d√2 det(Λ)^(1/(2d)). ADE Cartan Gram determinants A_m=m+1,D_m=4,E6=3,E7=2,E8=1 reduce all ranks to multiplicative residue h=(1,2,3,4,4,4,3,2). Every 8x8 h(a)h(b)≥h(a+b mod 8), with equality only if a or b is zero; all-rank argument and listed equality cases follow. Checked exact complete table separately, inspected actual bounded verifier; its finite d≤256 DP is supporting, not infinite proof.
 
-PASS. Novaga--Song's theorem is local under nearby metric and affine perturbations. It neither compares all root lattices of a fixed rank nor gives a global equality list. Targeted searches for the exact modulo-\(8\) isoperimetric classification and its determinant formulation found no covering result.
+## originality
 
-## Value
+PASS
 
-PASS. The result completely solves the natural global discrete counterpart to the source's local root-lattice analysis. It gives an exact closed constant in every rank and explains the recurring role of \(E_8\) by a sharp determinant-product law. The contrast between discrete global optimality and continuous local instability is structurally informative.
+Novaga–Song Section 9 gives root normalization and strict local metric/affine minimizers/instability, not optimization over all ADE orthogonal sums at a fixed rank. Known ADE determinants supply ingredients but not the explicit every-rank modulo-8 global discrete minimizer and full equality type list; Resultary broader search found only this own exact claim and separate local Hessian study. Best-of-knowledge not a certificate; old determinant-optimization aliases remain plausible.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
 
-## Closest literature and limitations
+PASS
 
-The closest source is Novaga--Song, arXiv:2610.01653v1, whose Section 9 gives the local root-lattice classification. Classical ADE references provide the determinant table but do not state the fixed-rank Voronoi isoperimetric theorem.
+Natural complete classification of fixed-dimensional root-lattice Voronoi isoperimetric minimizers and all equality types, contrasting global discrete minima (often reducible) against local continuous instability. Solves a mathematically intrinsic discrete optimization in every rank, not an arbitrary finite slice.
 
-The result applies only to root lattices. It does not identify the global minimizer among arbitrary lattices or parallelohedra. Older lattice literature may contain the determinant optimization implicitly under another formulation; this is the main residual bibliographic risk.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
