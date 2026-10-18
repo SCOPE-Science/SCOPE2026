@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "All labeled single n-cycles biject with phases a1=0 and a2,...,an distinct in Z/n. Replacing the time-0 row bit gives exact prefix-indicator shift equations. The shifts realizing any prefix form a coset of a stabilizer of order dividing both n and the prefix cardinality; multiplication gives U(n). For prime powers, digit reversal makes each i-prefix stable under the largest subgroup of order p^{v_p(i)}. Independent suffix shifts by those subgroups preserve the complete comparison matrix and all future maximal prefix stabilizers; counting distinct shifts gives p^{(p^k-1)/(p-1)-k}. If n has distinct prime divisors p<q, equality forces nested prefixes S_p and S_q to equal incomparable subgroups of orders p and q, contradiction. Actual packaged Python checker passed prime powers 4,8,9,16,25 and exhaustive phase/iterate enumeration n4,6,8,9. Computation is not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary paper proves interval-map rigidity from period spectrum under additional hypotheses and a prime-cycle reconstruction lemma; those results do not upper-bound multiplicity of arbitrary composite n-cycle comparison tables.",
+        "The prime reconstruction research note establishes O(p^2) recovery of a prime cycle from its full table; its primality hypothesis specifically prevents composite ambiguity."
+      ],
+      "reasoning": "A theorem reconstructing prime-length cycles cannot bound all composite-length fibres. Rigidity from whole period spectra or families of orbit sets is a different type of input than one known ordered cycle comparison table. Neither a stronger covering theorem nor a reduction to one was found among inspected comparable claims.",
+      "searches": [
+        "Fuhrmann Gröger Passeggi period spectrum rigidity interval maps 2026 ambiguity first odd composite permutation cycle",
+        "period spectrum rigidity interval maps Fuhrmann Groger Passeggi composite cycle signature ambiguity bound gcd",
+        "arithmetic saturation of cyclic permutation order signature injectivity n prime power versus composite non prime power",
+        "2026/10/11/SCOPE-quadratic-time-reconstruction-of-prime-cycles-from-left-right-or--f270190d0cd7"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.07435v1",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-quadratic-time-reconstruction-of-prime-cycles-from-left-right-or--f270190d0cd7/RESULT.md",
+      "https://arxiv.org/abs/1304.7790",
+      "2026/10/11/SCOPE-quadratic-time-reconstruction-of-prime-cycles-from-left-right-or--f270190d0cd7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fuhrmann–Gröger–Passeggi Lemma 2.1: injectivity for primes; Section 2: existence of noninjectivity for composite periods.",
+        "Quadratic-time reconstruction note: full L(i,t) implies the unique n-cycle only for prime n; based on cyclic shifts of partial phase indicators.",
+        "New result: M(n) <= product_{i=1}^{n-1} gcd(n,i), attained exactly for prime powers, with explicit formula p^((p^k-1)/(p-1)-k), and strictly unattainable if n has multiple prime divisors."
+      ],
+      "reasoning": "Prime uniqueness implies only M(p)=1 (consistent with the p^1 case). Existence of composite collisions entails M(n)>1 but neither a maximum nor a sharp equality criterion; the published quadratic reconstruction shifts give a key elementary observation but not maximal compatible branching or the nested-subgroup construction. The new theorem is therefore not a direct numerical or statement-level corollary of the inspected claims.",
+      "searches": [
+        "https://arxiv.org/html/2610.07435v1",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-quadratic-time-reconstruction-of-prime-cycles-from-left-right-or--f270190d0cd7/RESULT.md",
+        "maximal ambiguity left right orbit signatures n cycle prime power suffix translation subgroup stabilizer gcd(n,i) product",
+        "period spectrum rigidity interval maps Fuhrmann Groger Passeggi composite cycle signature ambiguity bound gcd"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fuhrmann–Gröger–Passeggi Section 2 establishes uniqueness for prime period and examples of composite ambiguity; it does not give maximum fibre size across ordered cycles.",
+        "The complete published RESULT.md of the quadratic-time reconstruction note assumes a prime p and proves algorithmic uniqueness there.",
+        "The new phase-prefix proof considers the complete time-indexed comparison matrix and computes its maximum equivalence-class cardinality over all n-cycles."
+      ],
+      "reasoning": "Possible equivalent invariants include cyclic indicator-row rotations, orbit order comparison tables, translated-prefix stabilizers, and signature fibre multiplicity. The closest sources consider prime-only uniqueness or existence of composite collisions, neither the arithmetic exact maximum M(p^k) nor the mixed-prime saturation criterion. Thus these published statements do not imply the new extremal classification.",
+      "searches": [
+        "left-right behavior of permutations nine cycles 9 periodic orbits signature multiplicity histogram 37584 864 16",
+        "order sign itineraries of cyclic permutations length 9 uniquely determined left right behaviour 9-fold ambiguity",
+        "maximal ambiguity left right orbit signatures n cycle prime power suffix translation subgroup stabilizer gcd(n,i) product",
+        "prime power cyclic permutation sign itinerary reconstruction multiplicity 2^4 for n=8 3^2 for n=9",
+        "https://arxiv.org/html/2610.07435v1",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-quadratic-time-reconstruction-of-prime-cycles-from-left-right-or--f270190d0cd7/RESULT.md"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published preprint gives illustrative composite ambiguities and no complete tables of multiplicity distributions.",
+        "The new checker exhaustively obtained at n=9: 37584 singleton, 864 triple and 16 ninefold signatures; primary theorem also covers arbitrary prime powers."
+      ],
+      "reasoning": "No inspected prior table or searchable database reports the full nine-cycle multiplicity distribution or general prime-power maximum. A finite sample by itself would not prove the infinite result; here it independently checks the theorem.",
+      "searches": [
+        "left-right behavior of permutations nine cycles 9 periodic orbits signature multiplicity histogram 37584 864 16",
+        "order sign itineraries of cyclic permutations length 9 uniquely determined left right behaviour 9-fold ambiguity",
+        "prime power cyclic permutation sign itinerary reconstruction multiplicity 2^4 for n=8 3^2 for n=9",
+        "cyclic permutations length nine directional displacement sequences lexicographic sign of iterates ambiguity"
+      ]
+    },
+    "rationale": "The closest inspected primary theorem proves uniqueness in prime length and gives composite collisions but not the all-length sharp stabilizer upper bound or saturation dichotomy. A full published research note uses cyclic phase matching to reconstruct prime cycles faster, but cannot imply sharp prime-power composite maxima. Direct published-finding corpus claim searches, prior published record and the accessible local history revealed no covering statement. Residual older-equivalence risk remains.",
+    "residual_risks": [
+      "An equivalent representation using cyclic prefix-stabilizer chains in older combinatorial or symbolic-dynamical literature might be unindexed.",
+      "Archer–Elizalde full text was not inspected; its different signed-shift restriction is justified only by the abstract.",
+      "published-finding corpus is an indexed research repository; a failed semantic match is not a mathematical guarantee of uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Prime-cycle uniqueness and nonuniqueness for composite lengths are known; no exact composite maximal fibre count or prime-power saturation criterion established in inspected source.",
+        "evidence": [
+          "Lemma 2.1: prime-case uniqueness from left-right behavior.",
+          "Section 2: composite-period ambiguity examples; Remark 2.4: O(p^3) prime reconstruction."
+        ],
+        "identifier_or_url": "arxiv:2610.07435v1; https://arxiv.org/html/2610.07435v1",
+        "material_read": "HTML article sections 1–5, particularly Section 2, Lemma 2.1, Remark 2.4, Figure 2 discussion; bibliographic front matter and primary MSC.",
+        "method": "Inspected primary full-text HTML and searched for gcd, prime-power, multiplicity, 9-cycle and the composite-period argument.",
+        "title": "Period spectrum and rigidity of interval maps",
+        "trigger": "Motivating new paper with prime-order orbit reconstruction and composite ambiguity examples."
+      },
+      {
+        "assessment": "Same signature but prime-only O(p²) reconstruction. Cyclic row shifts appear in the old proof; nested stabilizer saturation and all composite extremal fibre multiplicity do not.",
+        "evidence": [
+          "Published proof establishes uniqueness of matching shifts using the prime cyclic-group property.",
+          "Published limitations explicitly state the primality-based proof does not cover composite periods."
+        ],
+        "identifier_or_url": "2026/10/11/SCOPE-quadratic-time-reconstruction-of-prime-cycles-from-left-right-or--f270190d0cd7; https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-quadratic-time-reconstruction-of-prime-cycles-from-left-right-or--f270190d0cd7/RESULT.md",
+        "material_read": "Complete published RESULT.md including finding, hypotheses, proof, verification, relationship and limitations.",
+        "method": "Fetched the public research record file directly from its repository through authorized read access; inspected the complete theorem and proof.",
+        "title": "Quadratic-time reconstruction of prime cycles from left-right orbit signatures",
+        "trigger": "Closest published direct prior use of the same full time-indexed signature and phase-prefix matching."
+      },
+      {
+        "assessment": "The studied counts are cyclic permutations realized by signed shifts, a restricted dynamical realization problem, not general full time-indexed signature fibre maxima. Lack of full-text examination is a residual bibliographic risk.",
+        "evidence": [
+          "Abstract identifies enumeration of periodic patterns realized by signed shifts, not table multiplicities over all cycles."
+        ],
+        "identifier_or_url": "arxiv:1304.7790; https://arxiv.org/abs/1304.7790",
+        "material_read": "Public abstract and bibliographic information, not complete full text.",
+        "method": "Read primary abstract and matched the objects and hypotheses against arbitrary ordered n-cycle full comparison matrices.",
+        "title": "Cyclic permutations realized by signed shifts",
+        "trigger": "Adjacent literature on ordinal periodic patterns and signed dynamical shifts."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4ff765c7-95e4-456d-a1e1-64cd6eade2bc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating 2026 interval-map paper establishes a genuine sharp prime/composite identifiability distinction but supplies only existence of composite ambiguity. The theorem discovers and proves the exact maximal ambiguity for an infinite, natural arithmetic family of periods, together with a structural obstruction for all other periods. The count can be exponentially large and is directly informative about inverse reconstruction from dynamical order comparisons; it is not a textbook renaming, arbitrary finite slice or a routine improved implementation. General mixed-prime maxima remain open.",
+    "status": "PASS"
+  }
+}
