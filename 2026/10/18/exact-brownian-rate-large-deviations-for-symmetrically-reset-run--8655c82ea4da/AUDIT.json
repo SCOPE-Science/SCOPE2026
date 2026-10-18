@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Halfline Feynman-Kac matching yields exact resolvent (1); renewal and unique admissible pole give quadratic (4) and SCGF (5). The key renewal theorem proves pole dominance, and Gärtner-Ellis yields full LDP. Edge alpha=0 and all real tilts are handled. Standalone check.py passes 256 exact substitutions, 72 matched ODE comparisons, 192 pole comparisons and three simulations; finite tests are not substitutes for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2020 paper covers general orientation probabilities and computes poles numerically; its broader integral transform entails the specialized result only after explicit nontrivial algebra.",
+        "Di Bello et al arxiv:2302.06696v1 concerns ensemble integrated currents rather than positive one-particle occupation."
+      ],
+      "reasoning": "Explicit closed-form all-tilt rate reduction is not displayed in the more general numerical treatment. This is a narrower model but a stronger explicit mathematical evaluation; priority risk acknowledged.",
+      "searches": [
+        "Bressloff occupation time RTP with arbitrary reset direction probability arxiv:2009.01968v1",
+        "\"run-and-tumble\" \"occupation time\" \"effective resetting rate\" symmetric"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2009.01968v1",
+      "arxiv:1801.09909",
+      "arxiv:2302.06696v1",
+      "published-finding corpus semantic q1,q2,q3 results, nearest 2026/9/17/SCOPE-critical-elephant-cover-time-profile--b2b4f7c61f17 and 2026/10/11/SCOPE-universal-bowen-ball-volume-law-for-irrational-skew-dehn-twists--9c651d44a4c2 (unrelated)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bressloff gives an implicit general-pole equation; the present claim solves its symmetric finite-alpha case, exposing the cancellation and effective rate R.",
+        "For alpha tending to infinity, R tends to r; this reproduces the Brownian limiting statement in the 2020 paper but adds exact finite-alpha identity."
+      ],
+      "reasoning": "The 2020 general transform does mathematically imply the present result after elimination, so this is an exact analytic evaluation of a known implicit equation, not a separate model theorem. The specific closed form and universality identification are absent from inspected primary text; independent priority judgment is necessary.",
+      "searches": [
+        "run-and-tumble occupation fraction symmetric orientation resetting exact scaled cumulant generating function sqrt(k^2+4R^2) universal arcsine large deviation",
+        "run tumble occupation time symmetric initial velocity exactly Brownian large deviation resetting effective rate",
+        "Bressloff 2020 section IV B formulas (4.12)-(4.21)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bressloff 2020 derives the general RTP occupation renewal pole equation, but computes its finite-tumble large-deviation rate numerically; this result evaluates the symmetric case explicitly and identifies a rate-renormalized Brownian rate function.",
+        "den Hollander et al arxiv:1801.09909 gives Brownian resetting large-deviation rate, without telegraph tumbling."
+      ],
+      "reasoning": "The exact symmetric RTP all-tilt root requires eliminating two telegraph square roots; the earlier all-parameter implicit resolvent does not state or evaluate the finite-switching effective Brownian-rate equality. The implicit specialization is a substantial priority risk; do not claim the renewal framework as new.",
+      "searches": [
+        "occupation time positive half line run-and-tumble telegraph process Poisson resetting symmetric initial directions exact rate function Brownian resetting effective rate r(r+2alpha)/(2(r+alpha))",
+        "run-and-tumble occupation fraction symmetric orientation resetting exact scaled cumulant generating function sqrt(k^2+4R^2) universal arcsine large deviation",
+        "Bressloff 2020 2009.01968 occupation time resetting rho1=one-half direct closed form Brownian effective rate",
+        "arxiv:2009.01968v1 eqs (3.10),(4.12),(4.16)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic results for q1 and q3 had closest 2026/9/17/SCOPE-critical-elephant-cover-time-profile--b2b4f7c61f17, which is an unrelated elephant random walk.",
+        "The inspected Bressloff rate-function figures are numerical, not exact tables of the effective Brownian rate."
+      ],
+      "reasoning": "No exact source database or tabulation giving the elementary all-tilt identity was found in searches. Absence of search matches is not proof of novelty.",
+      "searches": [
+        "occupation time positive half line run-and-tumble telegraph process Poisson resetting symmetric initial directions exact rate function Brownian resetting effective rate r(r+2alpha)/(2(r+alpha))",
+        "run-and-tumble occupation fraction symmetric orientation resetting exact scaled cumulant generating function sqrt(k^2+4R^2) universal arcsine large deviation",
+        "Bressloff 2020 2009.01968 occupation time resetting rho1=one-half direct closed form Brownian effective rate"
+      ]
+    },
+    "rationale": "The 2020 general RTP resolvent leaves finite-alpha symmetric large deviations numerical/implicit. The explicit closed-form SCGF and surprising exact Brownian-rate identity after nontrivial square-root elimination were not stated in inspected sources. Implicit mathematical coverage by the general transform is acknowledged as an important residual priority risk, and independent evaluation has not happened.",
+    "residual_risks": [
+      "General implicit Feynman-Kac resolvent of Bressloff (2020) mathematically encodes this exact symmetric specialization; independent priority evaluation could deem it covered.",
+      "Search-index recall and unevaluated alternative derivations cannot establish uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General implicit transform and numerical rate-function study; no explicit finite-alpha symmetric Brownian effective-rate equivalence stated. High implicit-coverage risk.",
+        "evidence": [
+          "arxiv:2009.01968v1, equations (3.10),(4.12),(4.16), discussion of numerical calculations"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2009.01968",
+        "material_read": "arXiv v1 PDF pp. 1,6-10, with equations 3.10, 4.12, 4.16, 4.21 and text on numerical rate-function evaluation",
+        "method": "Full primary PDF mathematical text and page inspection",
+        "title": "Occupation time of a run-and-tumble particle with resetting",
+        "trigger": "Same underlying process and full resetting renewal"
+      },
+      {
+        "assessment": "Brownian model, not persistent velocity-switching telegraph particle.",
+        "evidence": [
+          "arxiv:1801.09909"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1801.09909",
+        "material_read": "Open full-text sections II and IV discussing occupation large deviations",
+        "method": "arXiv primary article inspection",
+        "title": "Properties of additive functionals of Brownian motion with resetting",
+        "trigger": "Brownian comparison and possible dominating universality result"
+      },
+      {
+        "assessment": "Integrated currents of independent particles, not occupation time of a single RTP.",
+        "evidence": [
+          "arxiv:2302.06696v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.06696",
+        "material_read": "Available arXiv full-text abstract and model sections",
+        "method": "Primary preprint inspection",
+        "title": "Current fluctuations in stochastically resetting particle systems",
+        "trigger": "Related resetting-current large deviations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8655c82e-a4da-469a-863d-c59aa64bbc83",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact finite-persistence Brownian-rate universality is structurally unexpected: an RTP with non-Brownian finite-time behavior has exactly the Brownian resetting occupation LDP at a nontrivially renormalized rate, resolving a previously numerical finite-alpha spectral calculation. This supplies a quantitative rate-level persistence crossover and fluctuation prediction.",
+    "status": "PASS"
+  }
+}
