@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible checks and proof boundary
+# Independent mathematical audit
 
-Run `python3 verify.py`. The checker uses standard-library integer square roots, exact rational fractions, and deterministic trial division to verify all seventy-three primes congruent to \(1\pmod4\) and their spacing ratios, covering each integer norm from \(29\) through \(8\cdot10^9\). It also proves the five exceptional overlap inequalities below norm \(29\), using rational enclosures for \(n^{-3/2}\) based on \(\lfloor\sqrt{10^{16}n}\rfloor\).
+## correctness
 
-Observed result:
+PASS
 
-`EXACT_CERTIFICATE_OK witnesses=73 start=37 last=8856541433 small_cases=5 initial_norms=13`
+The Gaussian divisor sum factors as products of geometric Euler factors over nonassociate primes, whose norm multiset has one ramified 2, duplicate split primes q=1 mod4 and squared inert norms. The interval-overlap lemma requires tail maximum T_j >= 1+N_j^{-3/2}; for every norm N>=29 a split q in (N,3N/2] contributes TWO later Gaussian prime factors, and 2*(3/2)^(-3/2)>1. Independent primality/ratio validation covers the 73 split-prime chain 37 to 8856541433 for all N from 29 through 8e9, and exact rational inequalities verify all five small cases. Bennett–Martin–O’Bryant–Rechnitzer explicit theta bound supplies every larger N. The upper Euler product is zeta_Q(i)(3/2), absolutely convergent.
 
-The all-larger-norm step is proved separately by Theorem 1.2 of Bennett--Martin--O'Bryant--Rechnitzer, *Explicit bounds for primes in arithmetic progressions*, applied to \(\theta(x;4,1)\) for \(x\ge8\cdot10^9\). The interval-filling lemma and the Gaussian Euler-product identity are mathematical proof steps in RESULT.md, not outputs of finite enumeration. No independently executed or independently authored audit is represented here.
+## originality
+
+PASS
+
+PASS, best of knowledge: generalized reciprocal-divisor range results for ordinary integers and the Gaussian Dedekind Euler factor identities are genuine antecedents, but neither inspected full primary result implies no gaps in this Gaussian exponent-3 closure. Split-prime duplication and the verified tail overlap add a nontrivial number-field-specific argument.
+
+## value
+
+PASS
+
+PASS: exponent three is the first positive integral reciprocal exponent for which the Gaussian Euler-product upper endpoint is finite. Determining that the full allowed interval is nonetheless attained densely is a complete natural topological classification; duplicated split primes make the proof genuinely number-field-specific.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

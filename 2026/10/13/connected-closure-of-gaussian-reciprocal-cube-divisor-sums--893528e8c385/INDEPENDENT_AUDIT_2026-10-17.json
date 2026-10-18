@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T07:06:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Gaussian divisor sum factors as products of geometric Euler factors over nonassociate primes, whose norm multiset has one ramified 2, duplicate split primes q=1 mod4 and squared inert norms. The interval-overlap lemma requires tail maximum T_j >= 1+N_j^{-3/2}; for every norm N>=29 a split q in (N,3N/2] contributes TWO later Gaussian prime factors, and 2*(3/2)^(-3/2)>1. Independent primality/ratio validation covers the 73 split-prime chain 37 to 8856541433 for all N from 29 through 8e9, and exact rational inequalities verify all five small cases. Bennett–Martin–O’Bryant–Rechnitzer explicit theta bound supplies every larger N. The upper Euler product is zeta_Q(i)(3/2), absolutely convergent.",
+      "risk": [
+        "The finite witness chain alone is insufficient for arbitrarily large N: the independently checked external explicit prime-AP theorem is an essential analytic premise.",
+        "Result describes closure, not surjectivity or every exponent."
+      ],
+      "sources": [
+        "Assigned RESULT.md and full verify.py immutable Git blobs",
+        "independent1613_checks.py: Sympy primality and exact Fractions, all 73 and five overlap cases",
+        "Bennett–Martin–O’Bryant–Rechnitzer, arXiv:1802.00085, Theorem 1.2"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Defant, arXiv:1507.02663, works with arithmetic functions on subsets of Z_{>0}, not Gaussian divisors modulo units."
+        ],
+        "reasoning": "Ordinary prime local factors differ: split primes appear with multiplicity two and inert norms are squares here. Defant theorems do not imply Gaussian tail inequalities without new input.",
+        "searches": [
+          "arXiv:1507.02663 Defant reciprocal divisor function range ordinary integers",
+          "general number field divisor function range topological closure"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1305.5502",
+        "arXiv:1507.02663",
+        "arXiv:1802.00085",
+        "OEIS A103230",
+        "Resultary semantic query gaussian divisor norm closure"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gaussian prime classification gives factorization only; Defant gives distinct ordinary-integer setting; prime-AP theorem gives q in a multiplicative interval but not the divisor-range conclusion."
+        ],
+        "reasoning": "The claimed connected closure requires joining independently known ingredients by a new finite-plus-infinite overlap argument. No inspected source directly implies that conclusion.",
+        "searches": [
+          "De Sanctis–Reid arXiv:1305.5502",
+          "Defant arXiv:1507.02663",
+          "Bennett–Martin–O’Bryant–Rechnitzer arXiv:1802.00085"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "De Sanctis–Reid, arXiv:1305.5502: splitting of Gaussian primes and zeta product, in a coprimality setting."
+        ],
+        "reasoning": "Reciprocal-norm Gaussian divisor sums are not the norm of the complex sum of Gaussian divisors or the probability of Gaussian coprimality.",
+        "searches": [
+          "Gaussian integers reciprocal norm divisor sums range closure connected interval norm exponent three",
+          "Gaussian prime ideal Euler factors zeta_Q(i)(3/2) divisor sum continuous range",
+          "arXiv:1305.5502 Gaussian coprimality"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest indexed Resultary result is the alternating ordinary-integer divisor range with two intervals, not this Gaussian single interval; OEIS A103230 takes a complex divisor-sum norm instead of the real sum of reciprocal norms."
+        ],
+        "reasoning": "A database entry about a different function or ring cannot establish this Gaussian topological closure.",
+        "searches": [
+          "Resultary: Gaussian integer divisor sum reciprocal norms connected interval zeta Dedekind exponent 3 all values closure",
+          "Resultary: Gaussian integers reciprocal norm divisor sums range closure connected interval norm exponent three",
+          "OEIS A103230 Gaussian divisor sum"
+        ]
+      },
+      "rationale": "PASS, best of knowledge: generalized reciprocal-divisor range results for ordinary integers and the Gaussian Dedekind Euler factor identities are genuine antecedents, but neither inspected full primary result implies no gaps in this Gaussian exponent-3 closure. Split-prime duplication and the verified tail overlap add a nontrivial number-field-specific argument.",
+      "residual_risks": [
+        "Number-field generalizations of Defant-type range theorems or unindexed Gaussian divisor papers could provide an equivalent interval result; no exhaustive historical priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BACKGROUND_NOT_COVERING",
+          "evidence": "Its arithmetic subject is gcd/coprimality probabilities, not closures of reciprocal-cube divisor sums.",
+          "identifier_or_url": "https://arxiv.org/abs/1305.5502",
+          "material_read": "Accessible full primary text on Gaussian primes, coprimality and Euler products.",
+          "method": "ArXiv text and page scope comparisons.",
+          "title": "On the Probability of Relative Primality in the Gaussian Integers",
+          "trigger": "Same ring and norm splitting"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECT",
+          "evidence": "Ordinary rational integer divisor range, not Gaussian splitting/local products.",
+          "identifier_or_url": "https://arxiv.org/abs/1507.02663",
+          "material_read": "Full available PDF introductory definitions and Theorem 2.1 describing ordinary positive-integer domain.",
+          "method": "ArXiv full text and theorem comparison.",
+          "title": "On the Density of Ranges of Generalized Divisor Functions with Restricted Domains",
+          "trigger": "Closest reciprocal divisor-range primary theorem"
+        },
+        {
+          "assessment": "USED_AS_LEMMA",
+          "evidence": "For (q,a)=(4,1), |theta(x;4,1)-x/2|<x/(160 log x), justifying q in (N,3N/2].",
+          "identifier_or_url": "https://arxiv.org/abs/1802.00085",
+          "material_read": "ArXiv full text Theorem 1.2 and displayed theta error, x>=8e9, 3<=q<=1e5.",
+          "method": "ArXiv rendered full-text reading.",
+          "title": "Explicit bounds for primes in arithmetic progressions",
+          "trigger": "Critical infinite norm coverage premise"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: exponent three is the first positive integral reciprocal exponent for which the Gaussian Euler-product upper endpoint is finite. Determining that the full allowed interval is nonetheless attained densely is a complete natural topological classification; duplicated split primes make the proof genuinely number-field-specific.",
+      "risk": [
+        "Only topological closure at exponent three; no pointwise attainment or statistics of values."
+      ],
+      "sources": [
+        "arXiv:1305.5502",
+        "arXiv:1507.02663",
+        "Assigned RESULT.md"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact closure at exponent three only; does not classify other exponents, all real exponents or other quadratic number fields.",
+    "The 73-prime list is rigorously finite and the infinite range uses an external published theorem.",
+    "Priority remains best-of-knowledge, not certified."
+  ],
+  "schema_version": 1
+}
