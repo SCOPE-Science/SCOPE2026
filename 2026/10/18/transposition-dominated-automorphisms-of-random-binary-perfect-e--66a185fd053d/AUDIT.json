@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "All automorphisms are permutations because invertible square vectors force singleton column supports over the binary field. Exact transposition centralizer group count gives p_n; dimensions of other commuting algebras and Bonferroni pair intersections yield an absolute O(n^4 2^-4n) error. Python exhaustive n=2,3,4 checks confirm finite boundaries; all n are covered by the mathematical argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wei–Zou 2023 gives all-field isomorphism-orbit enumeration for arbitrary dimension via Burnside, but explicit enumerations only for dimensions two through four.",
+        "Rodiño Montoya et al. 2025 analyze finite connected undirected graph-associated algebras and automorphism group actions."
+      ],
+      "reasoning": "The structural theorem is broader in its base field, yet its conclusion is about orbit enumeration and group actions rather than quantified high-dimensional stabilizer rarity. The graph-specific theorem is not a probabilistic result for all invertible binary matrices. The new error term and conditional C2 limit require independent centralizer and intersection estimates.",
+      "searches": [
+        "automorphism-free typical finite evolution algebra over F_2 random invertible structure matrices permutation matrices centralizers",
+        "symmetric group simultaneous row column permutations of uniformly random nonsingular binary matrices rigidity probability transpositions",
+        "arXiv:2310.12368 counting formula",
+        "arXiv:2505.15604 Theorems 2.17–2.20"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2310.12368",
+      "arXiv:2505.15604",
+      "2026/10/4/SCOPE-a-single-symmetry-jump-in-the-e-lambda-evolution-algebra-family--1a1e7e2dd0e3",
+      "2026/10/4/SCOPE-exact-automorphism-group-of-the-binary-sr-sum-in-example-2--0dfa5f909168",
+      "2026/9/30/SCOPE-exact-ordered-tuple-orbit-profiles-of-the-side-preserving-random--f8b9342567cf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The expectation of automorphism-group size follows by Burnside fixed-point summation; probability of nontrivial stabilizer differs from this expectation when more than one symmetry co-occurs.",
+        "The double-transposition and 3-cycle intersection bounds isolate the error O(n^4 2^{-4n}), not derived in the inspected papers."
+      ],
+      "reasoning": "No title matching is used as the novelty test: the strongest applicable earlier statement provides a way to sum fixed points, whereas the present asymptotic requires showing all nontransposition and simultaneous transposition contributions are exponentially smaller and controlling the complete group conditional on the rare event.",
+      "searches": [
+        "random perfect evolution algebras over binary finite field F2: exact probability of nontrivial automorphism group, transposition symmetry dominance, GL_n(2) centralizer",
+        "binary perfect evolution algebras random GL_n(F2) automorphism asymptotic probability transposition one nontrivial permutation matrix centralizer",
+        "arXiv:2310.12368 Burnside formula (2.1)",
+        "arXiv:2505.15604 Theorem 2.17"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2310.12368 establishes monomial stabilizers and Burnside orbit count; its general count concerns mean stabilizer and orbit number, not nonidentity probability or conditional structure.",
+        "Focused semantic records returned individual algebra automorphism studies; no corresponding random-matrix asymptotic in their displayed claims."
+      ],
+      "reasoning": "Translate the full group into the simultaneous row–column permutation stabilizer of a uniform invertible binary matrix. This equivalent formulation was specifically searched. The classical group-action formulation does not supply the union-of-fixed-point-events estimate with a transposition leading constant.",
+      "searches": [
+        "random perfect evolution algebras over binary finite field F2: exact probability of nontrivial automorphism group, transposition symmetry dominance, GL_n(2) centralizer",
+        "evolution algebra automorphism finite fields random binary structure matrices probability permutation symmetry",
+        "binary perfect evolution algebras random GL_n(F2) automorphism asymptotic probability transposition one nontrivial permutation matrix centralizer",
+        "arXiv:2310.12368 §1–2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Existing exact isomorphism-class tables at dimensions 2, 3, 4 were compared with new fixed-point probability, which is a distinct invariant of the labelled ensemble.",
+        "The checker exhaustively enumerates GL_2(2), GL_3(2), and GL_4(2); none of these finite enumerations alone is claimed as original."
+      ],
+      "reasoning": "The new claim is a uniform n→infinity probability and typical-group law, not a recomputation of a known small-dimension table.",
+      "searches": [
+        "binary perfect evolution algebras random GL_n(F2) automorphism asymptotic probability transposition one nontrivial permutation matrix centralizer",
+        "idempotent evolution algebra over F2 automorphism groups random invertible structure matrix asymptotic n(n-1)4^{-n}",
+        "arXiv:2310.12368 §4–6 low-dimensional counts"
+      ]
+    },
+    "rationale": "Wei–Zou proves general monomial actions and orbit-counting, not this high-dimensional nontrivial-stabilizer probability or conditional C2 law. Rodiño Montoya–Viana Bedoya–Henao studies graph-associated automorphisms, not the random binary GL ensemble. Actual semantic and mathematical-implication comparisons did not find a covering claim; possible unindexed work remains a risk.",
+    "residual_risks": [
+      "Potential unindexed or implicit earlier asymptotic for automorphism stabilizers of invertible binary matrices; broad Burnside formulas provide starting identities but not the demonstrated tail bound."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General group action and Burnside formula covers structural reduction and expectations but not the high-dimensional probability and single-transposition conditional law",
+        "evidence": [
+          "Definition and Theorem 1.1 on monomial action, formula (1.5), Burnside formula (2.1), abstract and section summaries of dimensions 2–4."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2310.12368",
+        "material_read": "Abstract and introduction, Sections 1–2, relevant discussion of explicit low-dimensional counts and their scope; PDF pp. 1–4 cross-checked, complete HTML mathematical text searched for asymptotic",
+        "method": "Primary open-access PDF, text sections and PDF page inspection",
+        "title": "Isomorphism Classes of Idempotent Evolution Algebras",
+        "trigger": "Same objects, full monomial group action and finite-field matrix count"
+      },
+      {
+        "assessment": "Connected undirected-graph-associated algebras over algebraically closed characteristic-zero fields; no random uniform GL_n(F2) automorphism probability",
+        "evidence": [
+          "Theorems 2.17 and 2.20; section 1 identifies the connected undirected-graph model and field hypotheses."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2505.15604",
+        "material_read": "Abstract, introduction, sections on automorphism actions, Theorems 2.9, 2.17, 2.20 and section 3 examples; PDF introduction pp.1–2 inspected",
+        "method": "Primary open-access arXiv PDF with text and page image inspection",
+        "title": "Group actions and automorphisms of evolution algebras associated to finite graphs",
+        "trigger": "Recent motivating primary work on evolution-algebra automorphism groups"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "66a185fd-053d-4f8f-ac96-3a003cddf379",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Quantifies symmetry rarity, identifies sharp leading probability and the exact typical structure of the rare nonrigid binary perfect evolution algebra. Complements classification-by-orbits and distinguishes full permutations from purely diagonal automorphisms.",
+    "status": "PASS"
+  }
+}
