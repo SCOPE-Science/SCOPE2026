@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T10:53:06.438823Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For W_n with b(i)=i+1 mod n, c(0)=c(1)=2 and c(i)=i+1 for i>=2, inverse preimage c^-1 differs from b^-1 only at state 0. On P, a c^-1 step reduces cardinality precisely if 1∈P and 2∉P; otherwise replace by b^-1 without increasing any later inverse set, so a shortest avoiding path can be normalized to exactly k deletions. Each deletion after r cyclic inverse shifts is an occupied→empty cyclic boundary p=r+1 with cost p (p>=1) or n (p=0), new set (P\\{p})-p. Exactly one k-set B={0}∪{n-k+1,...,n-1} has only boundary p=0, so it first pays n and then k-1 forced (n-1) steps, giving k(n-1)+1; any other set admits a nonzero boundary in <=n-1 and all later sets omit 0,1 hence total <=k(n-1). The explicit word (cb^(n-2))^(k-1)cb^(n-1) realizes equality. Independently constructed exact BFS reachable image-subset distances for n=3,...,10, ALL k and ALL target subsets; verified unique maximizer and sharp formula. Finite computation corroborates but does not prove every n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known Černý at_k=kn and W_n early rank-compression minimum 2s-1 are on non-identical invariants/automata. MFCS general upper bounds do not coincide with the full W_n profile."
+        ],
+        "reasoning": "A general subset-avoidance theorem specifically covering all circular 1-contracting automata with exact distance may dominate the statement; none was identified from inspected primary/source results. General upper bounds are too weak to imply exact equality and uniqueness.",
+        "searches": [
+          "Wielandt automaton k avoiding thresholds exact length kn-k+1 unique target",
+          "Resultary published Černý k-avoiding thresholds ID 5cdbaf373a0f",
+          "Resultary sharp early rank thresholds in W_n ID 267316e1d983",
+          "Ferens–Szykuła–Vorel MFCS2021"
+        ]
+      },
+      "checked_sources": [
+        "Ananichev–Gusev–Volkov arXiv:1005.0129 full original 13 pages",
+        "Ferens–Szykuła–Vorel MFCS2021 full 14 pages",
+        "Published Černý-series k-avoiding Resultary finding 5cdbaf373a0f",
+        "Published W_n early rank compression Resultary finding 267316e1d983",
+        "Resultary semantic query recorded"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Reset threshold concerns map Q→one state and does not determine worst distance to avoid each subset; existence of rank-deficiency words minimizes over targets, not maximizes target avoidance difficulty."
+        ],
+        "reasoning": "Although W_n appears as an induced Černý action, the different generator length and inverse boundary cost preclude directly importing the Černý kn avoiding formula. Need the explicit inverse deletion argument.",
+        "searches": [
+          "Wielandt automaton k avoiding thresholds exact length kn-k+1 unique target",
+          "Ananichev–Gusev–Volkov arXiv:1005.0129 theorem 2",
+          "Resultary Černý k-avoiding and W_n early rank-profile findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "W_n is isomorphic to a labeled unique binary coloring of Wielandt graph; avoiding S is total extension of its complement."
+        ],
+        "reasoning": "Aliases subset extension/total extension were checked, not just wording. Neither inspected original W_n reset theorem nor general avoiding paper supplies the sharp prescribed-subset distance k(n-1)+1 and its unique hardest target.",
+        "searches": [
+          "Wielandt automaton k avoiding thresholds exact length kn-k+1 unique target",
+          "Ananichev–Gusev–Volkov arXiv:1005.0129",
+          "Ferens–Szykuła–Vorel MFCS2021 DOI:10.4230/LIPIcs.MFCS.2021.46"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The MFCS paper tabulates small extreme examples and a five-state classification exists, but these are bounded finite n and different maximizing question."
+        ],
+        "reasoning": "Any overlap at small n/k would not cover the all-n, all-k formula and unique maximizing subset. Exact finite BFS here tests examples but is not presented as a substitute for the general inverse-boundary proof.",
+        "searches": [
+          "Wielandt automaton k avoiding thresholds exact length kn-k+1 unique target",
+          "Ferens–Szykuła–Vorel MFCS2021",
+          "Resultary four five-state binary avoiding threshold classes ID add2e90918b8"
+        ]
+      },
+      "rationale": "Ananichev–Gusev–Volkov introduced this same W_n family and its reset threshold n²−3n+3, but their inspected Theorem 2 and proof do not classify avoidance of arbitrary k-subsets. Ferens–Szykuła–Vorel give general avoiding definitions and bounds, plus other examples, with no W_n appearance in the inspected 14-page primary text. A published Černý-series k-avoiding theorem yields kn on a different automaton, and a related W_n initial image-rank theorem is a different optimization (exists some compressed image rather than avoids a prescribed target). The exact all-k profile and unique worst targets appear best-knowledge novel.",
+      "residual_risks": [
+        "Unindexed older terminology subset reachability, total extension, or exact Wielandt reverse-preimage profile could cover the same invariant.",
+        "Our independent image-BFS n<=10 is finite; the proof’s normalized inverse deletion argument, not this enumeration, is what establishes all n."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_FAMILY_DIFFERENT_INVARIANT",
+          "evidence": "Theorem 2 reset bound n²−3n+3; no all-k prescribed-set avoiding classification in that work.",
+          "identifier_or_url": "arXiv:1005.0129v1",
+          "material_read": "Entire accessible 13-page primary text, especially p.5-8 definition of unique coloring W_n, Theorem 2 reset n²-3n+3, relation to Černý automaton and induced action; PDF page image visually inspected",
+          "method": "arXiv full PDF text plus p8 screenshot",
+          "title": "Slowly synchronizing automata and digraphs",
+          "trigger": "Original labeled Wielandt family, relevant reset and inverse-letter dynamics"
+        },
+        {
+          "assessment": "GENERAL_BOUNDS_AND_EXAMPLES; W_n not found in inspected paper",
+          "evidence": "Page 3 describes subset avoidance as total extension and general O(n^3) upper bounds, some Eulerian k(n−1) upper bounds, without special W_n exact profile.",
+          "identifier_or_url": "doi:10.4230/LIPIcs.MFCS.2021.46",
+          "material_read": "Entire 14-page full primary PDF made accessible; read definition, known upper/lower bounds, contribution and examples (notably p.3), searched full text for Wielandt",
+          "method": "Dagstuhl full PDF parsed text, indexed search and p2 screenshot",
+          "title": "Lower Bounds on Avoiding Thresholds",
+          "trigger": "Primary development of exact avoidance invariant and strongest standard bounds"
+        },
+        {
+          "assessment": "DIFFERENT_AUTOMATON",
+          "evidence": "Černý at_k=kn with different worst set; W_n claimed k(n−1)+1.",
+          "identifier_or_url": "Resultary 2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f",
+          "material_read": "Published Resultary title/summary and threshold kn; full hosted mathematical proof not read",
+          "method": "Resultary semantic finding",
+          "title": "Exact k-avoiding thresholds of the Černý automata",
+          "trigger": "Closest published explicit all-k avoidance profile"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Avoiding thresholds are a natural exact automata invariant distinct from synchronization/reset length. A complete all-n, all-k sharp formula and uniqueness of hardest target distinguish Wielandt from the Černý series and give an explicit worst-case profile for a standard slow synchronizer. The cyclic boundary mechanism is a structural explanation, not a computation of arbitrary tiny instances.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Standard labeled W_n and n>=3, 1<=k<n; worst maximizing subset description changes under relabeling while numeric threshold is invariant.",
+    "A negative full-text search does not establish universal novelty; subset-reachability terminology is a residual risk."
+  ],
+  "schema_version": 1
+}
