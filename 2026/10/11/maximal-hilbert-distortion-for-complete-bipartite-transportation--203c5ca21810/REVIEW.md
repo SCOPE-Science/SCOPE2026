@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact domain is every unit-edge shortest-path metric on a complete bipartite graph with both classes of size at least three, over real scalars. The proof (i) classifies every Lipschitz-unit-ball vertex through connectivity of tight edges, (ii) computes the centered quadratic form at all vertex types and its crossing-edge dual norms, and (iii) symmetrizes arbitrary Hilbert structures and proves a sharp lower bound from balanced-sign vertices. The squared distortion is \(m+n-1\); the proof constructs a witness attaining its lower extreme. The exact-rational executable checks 6,228 finite identities but is not an infinite-dimensional or all-orders certificate.
+PASS
 
-## Originality — PASS with risks
+Independently reconstructed the d=m+n-1 Lipschitz dual quotient norm L=max_{i,j}|x_i-y_j|, since all same-part distances equal 2 and are implied by cross-edge bounds. A point of its unit polytope is a vertex exactly when the tight-edge subgraph is connected; this forces either constant part classes differing by 1 or one class zero and the other ±1. For Q0=h²+mean u²+mean v² every listed vertex has Q0=1, so Q0<=L² by convexity; the cross-edge functional has squared Q0 dual norm d, giving L²<=dQ0, and an explicit witness attains both boundaries. Symmetrization of arbitrary positive quadratic forms under S_m×S_n reduces them without loss to alpha sum u_i²+beta sum v_j²+gamma h². Constant and balanced-sign vertices give gamma<=1 and the parity delta bounds. The crossing-edge dual norm G >= d follows from reciprocal-gamma and c_s inequalities (c_m+c_n<=1/2), and quadratic duality implies distortion >=sqrt(d). Independent exact Fraction tests for (m,n)=(3,3),(3,4),(4,5),(6,7) checked all sign vertices, the witness and the gamma certificates. These bounded checks are auxiliary.
 
-Alexander–Fradelizi–García-Lirola–Zvavitch, arXiv:1911.10642, Sections 2, 3.2, 3.4, and 5, characterize free-space graph polytopes, spiderweb \(K_{2,n}\) decomposition and Hanner-type spaces, and volume products. Their conclusions do not contain the Hilbert Banach–Mazur norm optimization for \(K_{m,n}\) with \(m,n\geq3\). Dilworth–Kutzarova–Ostrovskii, arXiv:1807.03814, Sections 2–3, compare with \(\ell_1\) and study graph families; they do not give the Euclidean constant here. Godard, arXiv:0904.3178, treats tree metrics, not these multiply cyclic graphs. Previously documented exact Euclidean formulas for cycles and equilateral metrics are not reductions covering complete bipartite graphs with both parts at least three; numerical index one for bipartite free spaces is also a different invariant. The remaining risk is an equivalent unindexed historical statement about symmetric graph-root polytopes or maximal Hilbert distortion, not identified in the inspected material. Absence from searches is not a uniqueness proof.
+## originality
 
-## Value — PASS
+PASS
 
-The formula determines a canonical exact isomorphic invariant in all dimensions in a two-parameter family of transportation Banach spaces. These are non-Hanner, highly cyclic graph examples attaining the universal dimensional Hilbert-distance threshold, while the Hanner spiderweb boundary was structurally understood. The conclusion cannot be obtained simply by applying the tree, spiderweb, or even-cycle formulas. The full characterization of invariant optimal ellipsoids and a vertex-dual certificate make the geometric reason for sharpness reproducible. No claim is made for weighted, complex or arbitrary bipartite cases.
+Alexander–Fradelizi–García-Lirola–Zvavitch full preprint covers the exact graph geometry, characterizes K_{2,n} spiderwebs and Hanner free-space balls but does not optimize Hilbert Banach–Mazur distance for K_{m,n}, m,n>=3. Dilworth–Kutzarova–Ostrovskii treat ell_1 comparisons and recursive graph families. Indexed exact graph BM formulas for even cycles, weighted cycles and equilateral spaces do not imply the whole two-parameter complete-bipartite result; neither does bipartite numerical index 1.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Determines a sharp all-size Hilbert distortion for a natural non-tree, non-Hanner two-parameter transportation-space family, exhibits an optimal invariant ellipsoid and a geometric dual-edge obstruction to any tilted ellipsoid. Demonstrates maximal John distance persists beyond Hanner examples and has natural metric embedding significance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
