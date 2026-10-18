@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-The attached `verify.py` constructs each graph explicitly and implements ordinary color refinement from the uniform coloring.
+# Independent mathematical audit
 
-It checks every \(2\le p,q\le20\) and \(1\le L\le40\). For each parameter triple it verifies both the exact stabilization-depth formula and equality of the stable partition with the explicit automorphism-orbit partition.
+## correctness
 
-The checker returns:
+PASS
 
-`VERIFY_OK depth_checks=14440 orbit_checks=14440 p,q=2..20 L=1..40`
+A degree first round and simultaneous inward propagation from the two branching heads reconstruct the balanced reflected pairs and the unbalanced fixed-end singletons. With p!=q, pendant types split no earlier than round 2. Explicit independent standard 1-WL partition recomputation agreed for 1,568 parameter triples p,q=2..8, L=1..32. This supports but does not replace the all-length induction. Boundary cases L=1 and p=q=2 included.
 
-These finite checks are corroborative only. They do not replace the all-parameter propagation proof in `RESULT.md`.
+## originality
+
+PASS
+
+Compared implication strength across published primary same-object papers and related published-result hits; no dominating statement was found within the inspected material, with specific residual priority risks below.
+
+## value
+
+PASS
+
+Double brooms are a standard natural tree family in extremal and reconstruction questions. The exact stabilization-depth and orbit-partition classification exposes a sharp symmetry-breaking distinction between balanced and unequal leaf multiplicities; a researcher studying 1-WL on standard tree families can use this precise depth law, not just a generic O(n) bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
