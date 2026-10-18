@@ -1,15 +1,21 @@
-# Self-review: price-metric variance law for birth-death paths
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The precise domain is every path with at least two vertices, all stationary masses strictly positive and summing to one, all edge prices strictly positive, and a unit *linear conductance* budget. The covariance identity \(\operatorname{Var}_\pi(f)=d^{\mathsf T}Gd\) follows by expanding nested indicator covariances. Testing the cumulative square-root-price coordinates gives a global spectral-gap upper bound of \(1/D\). The proposed positive conductances attain it by an exact sum-of-squares identity for *every* edge-gradient vector, not by experimental extrapolation. Positivity of every covariance-kernel entry makes the minimizing nonconstant eigenspace one-dimensional. Equality in the universal upper bound plus the telescoping generalized eigenvector equations forces every optimizing edge conductance, establishing global uniqueness, including against boundary allocations. Exact-arithmetic tests cover 801 independently constructed instances and 6408 quadratic identities; 420 additional arbitrary-price numerical eigenvalue comparisons are consistent with the theorem. All critical steps have a direct proof in `RESULT.md`. Residual numerical risk concerns only implementation errors in optional checks, not a gap in the analytical argument.
+PASS
 
-## Originality — PASS (bounded, not independently certified)
+PASS: For every n>=2, positive normalized stationary masses pi and prices c, define g_i=sqrt(c_i), cumulative s_j, D=Var_pi(s)>0, P_i=sum_{j<=i}pi_j, G_ij=P_min(i,j)(1-P_max(i,j))>0 and F=Gg. The nested-indicator identity Var_pi(f)=d^T G d was reconstructed. Test f=s yields gamma(w)<=1/D for all feasible ∑ c_i w_i=1. Candidate w_i=F_i/(Dg_i)>0 has exact budget 1; direct expansion establishes ∑w_i d_i²−D^{-1}d^T G d=(2D)^{-1}∑G_ij g_i g_j(d_i/g_i−d_j/g_j)^2>=0 for every gradient, proving attainment and simplicity, including n=2. Any optimum has s as lowest eigenvector, and telescoping its first i equations forces w_i=F_i/(Dg_i), hence uniqueness even against disconnected boundary. Differentiation gives ∂gamma*/∂c_i=−gamma*w_i. Independently compared 340 nonsquare-price/mass random instances (n=2..18) with direct generalized symmetric eigenspectrum; worst relative error 1.69e-14; finite checks are not the all-real proof.
 
-The closest antecedent is Fiedler's 1990 optimization for unpriced tree Laplacians with equal vertex masses; Göring–Helmberg–Wappler's 2005 full preprint gives its semidefinite/embedding interpretation, also under a uniform budget. Wan et al. (2008) give a general-tree algorithm for the uniform-mass, uniform-price setting. Shafi–Arcak–El Ghaoui (2010) allow node and edge weights in general spectral optimization models but their examined explicit chain application concerns a different eigenvalue-ratio objective; they do not state this cost-constrained twofold-heterogeneous path classification. Boyd et al. (2006) address symmetric discrete-time stochastic path chains and a different SLEM objective. The contribution assessed here is the joint arbitrary-mass/arbitrary-edge-price **closed-form spectral optimum, all-rate formula, and unique positive optimizer**, not the general SDP formulation or the known uniform special case. Originality is not proved by absence from search results. Historical uncertainty persists because Fiedler's complete original text was inaccessible and inaccessible equivalent treatments may exist; no claim of independent literature certification is made.
+## originality
 
-## Value — PASS
+PASS
 
-Prescribing a nonuniform equilibrium distribution and individual unit conductance prices is a natural resource-allocation problem in birth-death dynamics. The result replaces a general eigenspectrum/semidefinite optimization by a linear-time exact constructive formula, including uniqueness and zero-edge exclusion for arbitrary real data. The square-root *price metric* and weighted-mass variance reveal the intrinsic design quantity; the exact cumulative fluxes give every optimal rate, not merely the optimum objective. This is a complete parameter-space classification rather than a finite enumeration, renaming of a uniform model, or a small numerical improvement. The result does not generalize to nonpath topologies or unrelated mixing-time objectives without additional work.
+PASS, bounded priority risk: Fiedler (1990) and Göring–Helmberg–Wappler (2005) optimize unweighted vertex Laplacian with uniform total conductance budget, covering only uniform-mass/unit-price specialization. Boyd et al. (2006) treats discrete-time SLEM for uniform stationary chain; Wan et al. (2008) covers uniform tree allocation; generalized node/edge-weight SDP of Shafi–Arcak–El Ghaoui (2010) formulates but does not state the all-parameter explicit optimal rates. The precise simultaneously heterogeneous mass and individual price square-root variance/flux law was not found in inspected statements or Resultary. Fiedler 1990 full text inaccessible (authorized institutional access disconnected), so any hidden generalized formulation is a real residual priority risk, not an automatic FAIL.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS: Designing fastest-relaxing reversible birth-death dynamics with prescribed heterogeneous equilibrium and per-edge conductance prices is a natural complete resource-allocation family. The theorem yields unique positive *all* optimal rates, exact spectral gap, simple eigenmode, sensitivity, and O(n) algorithm, replacing numerical SDPs across a continuous multi-parameter domain. It is neither a renaming of equal-cost uniform tree models nor merely a finite invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
