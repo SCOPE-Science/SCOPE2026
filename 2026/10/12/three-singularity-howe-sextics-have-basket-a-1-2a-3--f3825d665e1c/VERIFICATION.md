@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The universal argument is mathematical rather than experimental. Its critical inputs are: the sextic is absolutely irreducible; its normalization is a genus-five Howe curve; the source proves that the central singularity is a node; Proposition 4.2.6 gives exactly one further sign-symmetric pair in Cases II and III; and the local equation is even in the transverse sign coordinate. These imply total \(\delta\)-defect \(5\), hence \(\delta=2\) at each noncentral point.
+# Independent mathematical audit
 
-For Case III, formal splitting in the direction with nonzero quadratic coefficient produces \(U^2-h(V)\). Uniqueness of the formal critical section and sign symmetry make \(h\) even. Since \(\delta(U^2-h(V))=\lfloor\operatorname{ord}(h)/2\rfloor\), the source's lower bound \(\operatorname{ord}(h)\ge4\) together with \(\delta=2\) gives exact order \(4\), hence \(A_3\).
+## correctness
 
-For Case II, `verify.py` symbolically checks that the second system in Lemma 4.2.2 makes the cubic \(P(s)\) have a triple root. At an infinity point this would produce an \(A_2\) cusp because the point is multiplicity two and the other local coordinate occurs only in even powers, contradicting \(\delta=2\). In the surviving double-root case, the same parity and defect argument gives \(A_3\).
+PASS
 
-The script also checks the paper's explicit Case-II example over \(\mathbb F_{31}\). Its completed-square transverse quartic coefficient is nonzero, providing a concrete exact replay of the tacnode behavior. This example is not used to infer the universal statement.
+For absolutely irreducible degree-six Moriya-Kudo (2,2,4) Howe model (char 0 or >=7), arithmetic genus (6-1)(6-2)/2=10; smooth Howe normalization genus 5 forces total delta 5. Primary Prop 4.2.6 proves exactly 3 singular points in Cases II/III, the distinguished (0:0:1) is an ordinary node delta1; two others exchanged by involution have equal delta=2. In Case III the source Lemma 4.2.4 proves nonzero quadratic U² with remaining transverse order >=4. Involution v->-v and uniqueness of splitting critical section make h(v) even; delta(U²-h(v))=floor(ord h/2) gives ord h=4 and A3. In Case II triple-root coefficient alternative (Lemma 4.2.2 system2) eliminates pure u² at infinity. Since multiplicity exactly 2 the tangent quadratic is pure v² and remaining transverse u order 3; local cusp A2 has delta1, contradicting the forced delta2, thus impossible. Remaining double-root case has nonzero u²; a nonzero v² would make node delta1; symmetry again forces transverse order 4 and A3. Independent genus/delta arithmetic checked; source verify.py computes an exact example over F31, which is not proof for all characteristics. No claim for generic 5-point case or char 2,3,5.
 
-The replay used SymPy 1.14.0 after inspecting its installed package source. No assertion is made for characteristics \(2,3,5\) or for five-singularity models.
+## originality
+
+PASS
+
+Moriya-Kudo Proposition 4.2.6 gives three-or-five multiplicity-two points and Lemma4.2.4 type A_{α-1} with α>=4, not alpha=4. Their Lemma4.2.2 preserves a second coefficient system, whereas combining genus defect, paired symmetry and formal parity rules it out. The 2024 companion treats the different (1,1,0) Howe parameter type, and does not subsume the exact (2,2,4) analytic basket. Exact ADE types are a meaningful extra singularity classification although proof uses established genus and splitting tools.
+
+## value
+
+PASS
+
+Analytic singularity basket is a natural geometric invariant of an explicit genus-five plane model, sharper than number/multiplicity of points: A1+2A3 determines local delta distribution and deformation/resolution structure, and removing a spurious parameter alternative clarifies the model family. It is bounded but independently useful geometry rather than a new name for old multiplicity count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
