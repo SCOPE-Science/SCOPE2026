@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Each de Bruijn cycle uniquely determines local bijections at 16 vertices; all 65536 possibilities are checked and exactly 2048 give a single 32-edge orbit, fixing rotation at 00000. A separate direct Euler-tour depth-first search generates the same 2048 cyclic words. Both reproduce the 47-entry histogram, extrema, exact moments and complement/reversal orbits. The all-shift bipolar normalization is explicit. Third-party peak thresholds and rounded RMS averages independently agree.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fujisaki, Nabeshima (2011), doi:10.1587/nolta.2.400, full nine-page paper: Theorem 4 is a worst-correlation lower bound; Tables I-II list numbers attaining individual worst and second-worst correlation values.",
+        "Spinsante, Warty, Gambi (2013), doi:10.1109/AERO.2013.6496833, publicly available author full text, Section 4 and Figure 6: overlaid full-family correlation traces but no table of squared individual energies.",
+        "Gabrić, Sawada (2018), arxiv:1803.09009, full 14-page public preprint: constructs de Bruijn sequences via concatenation and cycle connections, not via autocorrelation-energy ranking."
+      ],
+      "reasoning": "The correlation-value bound and extremal tables do not determine sums of 31 squared correlations. The figure of all 2048 overlaid traces is not a machine-readable enumeration or analytic spectrum theorem, and construction algorithms do not prescribe energy multiplicities. The finite equality test does not claim an all-orders theorem.",
+      "searches": [
+        "On auto-correlation values of de Bruijn sequences Fujisaki Nabeshima 2011",
+        "DS-SS with de Bruijn Sequences for Secure Inter Satellite Links autocorrelation profiles",
+        "Constructing de Bruijn sequences by concatenating smaller universal cycles arxiv 1803.09009"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1803.09009",
+      "doi:10.3934/amc.2020125",
+      "doi:10.1186/1687-1499-2011-4",
+      "doi:10.1587/nolta.2.400",
+      "doi:10.1109/AERO.2013.6496833"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Spinsante, Andrenacci, Gambi (2011), doi:10.1186/1687-1499-2011-4, publisher full text and Table 3: 2048 cycles; 12 with max absolute sidelobe <=4, 784 <=8; rounded normalized average RMS sidelobes 0.146/0.123/0.078 for whole/<=8/<=4 subsets.",
+        "Fujisaki, Nabeshima (2011), doi:10.1587/nolta.2.400, full nine-page paper: Theorem 4 is a worst-correlation lower bound; Tables I-II list numbers attaining individual worst and second-worst correlation values.",
+        "Spinsante, Warty, Gambi (2013), doi:10.1109/AERO.2013.6496833, publicly available author full text, Section 4 and Figure 6: overlaid full-family correlation traces but no table of squared individual energies.",
+        "Gabrić, Sawada (2018), arxiv:1803.09009, full 14-page public preprint: constructs de Bruijn sequences via concatenation and cycle connections, not via autocorrelation-energy ranking.",
+        "Mandal, Gong (2020), doi:10.3934/amc.2020125, publicly available introduction/abstract and bibliographic details: ideal tuple distributions for filtered de Bruijn generators, not an unfiltered energy histogram; its linked full HTML was not accessible."
+      ],
+      "reasoning": "Prior peak-minimum sets of size 12 agree with but do not establish the exact squared-sidelobe minimum and full histogram: cycles with equal peak may have widely varying E. Published rounded mean RMS values under two thresholds have many compatible histograms. Bounds on one lag or extrema also do not supply the maximizer distribution. The new finite enumeration obtains exactly what prior results leave undetermined.",
+      "searches": [
+        "binary order five de Bruijn periodic autocorrelation energy spectrum squared sidelobe sums 47 values 192 1952",
+        "de Bruijn order five cyclic periodic autocorrelation peak sidelobe distribution merit factor",
+        "de Bruijn sequences 2048 periodic correlation 47 energy values",
+        "arxiv:1803.09009 full paper"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Spinsante, Andrenacci, Gambi (2011), doi:10.1186/1687-1499-2011-4, publisher full text and Table 3: 2048 cycles; 12 with max absolute sidelobe <=4, 784 <=8; rounded normalized average RMS sidelobes 0.146/0.123/0.078 for whole/<=8/<=4 subsets.",
+        "The per-cycle RMS ρ equals sqrt(E/31)/32; equivalently \\(E=31\\cdot 32^2\\rho^2\\). Thus the exact energy histogram is equivalent to the complete per-cycle RMS distribution, not to its three published subset means."
+      ],
+      "reasoning": "Explicit equivalence to a familiar RMS statistic was checked. Table 3 gives mean RMS values for three nested classes only. Means do not determine exact support, multiplicities or per-cycle energy; no statement of the 47-value distribution occurs in the inspected paper.",
+      "searches": [
+        "de Bruijn sequences 2048 integrated sidelobe level merit factor 32-bit energy histogram",
+        "de Bruijn sequence order 5 full distribution periodic autocorrelation RMS 2011 2018",
+        "de Bruijn sequences 2048 periodic correlation RMS distribution",
+        "doi:10.1186/1687-1499-2011-4 Table 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Spinsante, Andrenacci, Gambi (2011), doi:10.1186/1687-1499-2011-4, publisher full text and Table 3: 2048 cycles; 12 with max absolute sidelobe <=4, 784 <=8; rounded normalized average RMS sidelobes 0.146/0.123/0.078 for whole/<=8/<=4 subsets.",
+        "The complete computed histogram has 47 energies and counts, while the 2011 table has three aggregate columns and threshold subset sizes, not per-value frequencies."
+      ],
+      "reasoning": "A full table of 2048 peak/RMS averages had been published; its published aggregates cannot imply 47 exact distinct energies or the upper extremal orbit. Searches for a matching exact spectrum or tabulation gave no explicit duplicate. This is evidence of an additional invariant, not a proof of world-wide uniqueness.",
+      "searches": [
+        "\"de Bruijn\" \"1952\" \"autocorrelation\"",
+        "\"de Bruijn\" \"periodic merit factor\" distribution",
+        "\"de Bruijn\" \"integrated sidelobe\" \"2048\"",
+        "doi:10.1186/1687-1499-2011-4 PDF Table 3"
+      ]
+    },
+    "rationale": "The closest inspected prior paper already analyzes all 2048 order-five cycles and averages their RMS sidelobes, which is expressly credited. The new contribution is an exact per-cycle 47-value total-squared periodic-correlation distribution (plus maximum-energy class, exact moments and complement/reversal orbit structure), which is not mathematically implied by the previously published three aggregate RMS averages, two peak thresholds, worst individual correlations or overlay plot. Relevant exact-formulation searches found no dominating theorem. Unindexed equivalents remain a risk.",
+    "residual_risks": [
+      "2011 authors necessarily computed correlation statistics for all 2048 cycles; unpublished underlying per-sequence data could have the equivalent histogram, but the inspected published tables and figures do not state it.",
+      "An unindexed specialist tabulation might record the exact 47-value spectrum under RMS, sidelobe energy, Fourier-fourth-moment, or spectral-flatness normalization.",
+      "A 2020 related filtered-generator paper was inspected only at the abstract level; this does not establish noncoverage of its full text, although its object is different.",
+      "No external independent mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST; earlier exact count of 2048, peak threshold subset sizes and averaged RMS; not exact individual energy multiplicities",
+        "evidence": "Spinsante, Andrenacci, Gambi (2011), doi:10.1186/1687-1499-2011-4, publisher full text and Table 3: 2048 cycles; 12 with max absolute sidelobe <=4, 784 <=8; rounded normalized average RMS sidelobes 0.146/0.123/0.078 for whole/<=8/<=4 subsets.",
+        "identifier_or_url": "doi:10.1186/1687-1499-2011-4",
+        "material_read": "Full publisher article, correlation definitions, generation discussion, Section on auto- and cross-correlation; PDF p. 8 Table 3 and surrounding paragraphs examined",
+        "method": "Full legal open-access article HTML and publisher PDF",
+        "title": "Binary De Bruijn sequences for DS-CDMA systems: analysis and results",
+        "trigger": "Directly same alphabet, order, count of cycles and autocorrelation metric"
+      },
+      {
+        "assessment": "Prior individual-correlation bounds and worst-count tables, not the squared-total energy distribution",
+        "evidence": "Fujisaki, Nabeshima (2011), doi:10.1587/nolta.2.400, full nine-page paper: Theorem 4 is a worst-correlation lower bound; Tables I-II list numbers attaining individual worst and second-worst correlation values.",
+        "identifier_or_url": "doi:10.1587/nolta.2.400",
+        "material_read": "Complete nine-page article via free-access PDF, including Theorems 2-4, Tables I-II and appendix",
+        "method": "Public publisher PDF with tables inspected visually",
+        "title": "On auto-correlation values of de Bruijn sequences",
+        "trigger": "Explicit tables of extremal order-five autocorrelation values"
+      },
+      {
+        "assessment": "Displays overlaid traces and correlation motivations, but does not give an exact energy-count table",
+        "evidence": "Spinsante, Warty, Gambi (2013), doi:10.1109/AERO.2013.6496833, publicly available author full text, Section 4 and Figure 6: overlaid full-family correlation traces but no table of squared individual energies.",
+        "identifier_or_url": "doi:10.1109/AERO.2013.6496833",
+        "material_read": "Author public full text, especially Section 4 and Figure 6 caption and surrounding analyses",
+        "method": "Author-accessible full text reproduced at public research page",
+        "title": "DS-SS with de Bruijn sequences for secure Inter Satellite Links",
+        "trigger": "Figure advertises all 2048 autocorrelation traces, a plausible dominating source"
+      },
+      {
+        "assessment": "Construction theorems do not assert the periodic sidelobe energy spectrum",
+        "evidence": "Gabrić, Sawada (2018), arxiv:1803.09009, full 14-page public preprint: constructs de Bruijn sequences via concatenation and cycle connections, not via autocorrelation-energy ranking.",
+        "identifier_or_url": "arxiv:1803.09009",
+        "material_read": "Fourteen-page preprint from arXiv, abstract, introduction and detailed construction sections checked for metric coverage",
+        "method": "Original public arXiv PDF and abstract",
+        "title": "Constructing de Bruijn sequences by concatenating smaller universal cycles",
+        "trigger": "Middle-period primary de Bruijn paper with construction/characterization implications"
+      },
+      {
+        "assessment": "Different filtered sequence ensemble; not sufficient to assert any whole-document noncoverage, but its abstract states a different main theorem",
+        "evidence": "Mandal, Gong (2020), doi:10.3934/amc.2020125, publicly available introduction/abstract and bibliographic details: ideal tuple distributions for filtered de Bruijn generators, not an unfiltered energy histogram; its linked full HTML was not accessible.",
+        "identifier_or_url": "doi:10.3934/amc.2020125",
+        "material_read": "Publisher abstract and bibliography; linked full HTML was not accessible",
+        "method": "Public journal article landing page",
+        "title": "On ideal t-tuple distribution of orthogonal functions in filtering de bruijn generators",
+        "trigger": "Middle-period source on pseudorandom statistical behavior of de Bruijn generators"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "28842864-883f-4fb9-ad53-952c3582f953",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Cyclic accumulated sidelobe energy is a mathematically natural fourth-spectral-moment / RMS measure for de Bruijn pseudorandom sequences. The complete order-five family of 2048 is a canonical first nontrivial finite universe for exact classification, not an arbitrarily chosen slice. Distinct cycles with identical maximum sidelobes have different cumulative energies. The 47 exact frequencies, absent attainable-grid values, sharp energy maximum and its symmetry orbit, and variance give information absent from the previous peak-count and RMS-mean studies. No unsupported physical-channel or general-order claims are made.",
+    "status": "PASS"
+  }
+}
