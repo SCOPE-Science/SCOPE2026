@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and mathematical boundaries
+# Independent mathematical audit
 
-The standalone file `verify.py` uses only Python's standard library. Execute it from the directory containing the extracted file with `python verify.py`.
+## correctness
 
-Observed output:
+PASS
 
-`VERIFY_OK bfs_cases=105 bfs_states=1622619 interval_cases=53130 large_witnesses=1606`
+For all n>=3 and 2<=k<=n-1, a is cyclic successor and b sends i<k to i+1 and fixes i>=k. The inverse-image method starts from the best singleton {k}, on which exactly k strict b inverse expansions create [0,k]. Every nonfull cyclic interval admits the displayed dominance comparison between inverse a and b, so choosing inverse b only when k is present and 0 absent cannot lengthen the expansion; monotonicity of preimages gives an optimum greedy sequence. Each further full k-state expansion costs n steps, with the final remainder treated by r=(n-1) mod k. Reversing yields a resetting word of the proven minimal length n(ceil((n-1)/k)-1)+k. We independently BFS-enumerated all reachable image subsets for 55 n,k pairs (3<=n<=12); all exact shortest lengths equal formula. That finite enumeration corroborates, not proves, all n.
 
-The BFS independently determines the shortest reset word length for every specified pair through \(n=16\), rather than merely replaying a proposed word. A separate exhaustive check verifies inverse-interval preservation and dominance for all nonfull intervals through \(n=22\). Further direct witness checks run through \(n=60\). The theorem over all integers is proved by the inverse-preimage dominance argument and phase count in `RESULT.md`; finite tests do not prove the universal quantifier, and passing a test is not a claim of independent validation. The source-inspection comparisons and unresolved priority limits appear in `REVIEW.md` and `AUDIT.json`.
+## originality
+
+PASS
+
+The exact uniform two-parameter reset-threshold equality and closed shortest witness for a rank-n-1 nonidempotent successor-chain letter are distinguishable from known one-point-merge Cerny and broader synchronizability/upper-bound results. Best-of-knowledge originality survives the inspected theorem statements; a renamed equivalent transformation family or earlier short-word result remains plausible.
+
+## value
+
+PASS
+
+Reset threshold is the central exact invariant in synchronizing automata. The parameter k interpolates quadratic versus linear behavior with a sharp arithmetic boundary, and the proof classifies a full natural nonidempotent cyclic-letter family rather than an ad hoc finite example. The shortest-word construction gives independently useful normal form.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

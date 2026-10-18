@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T18:16:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all n>=3 and 2<=k<=n-1, a is cyclic successor and b sends i<k to i+1 and fixes i>=k. The inverse-image method starts from the best singleton {k}, on which exactly k strict b inverse expansions create [0,k]. Every nonfull cyclic interval admits the displayed dominance comparison between inverse a and b, so choosing inverse b only when k is present and 0 absent cannot lengthen the expansion; monotonicity of preimages gives an optimum greedy sequence. Each further full k-state expansion costs n steps, with the final remainder treated by r=(n-1) mod k. Reversing yields a resetting word of the proven minimal length n(ceil((n-1)/k)-1)+k. We independently BFS-enumerated all reachable image subsets for 55 n,k pairs (3<=n<=12); all exact shortest lengths equal formula. That finite enumeration corroborates, not proves, all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhu arXiv:2407.08135 Thm 1.4 gives a general 2n^2-7n+7 upper bound for transitive-rank-n-1 settings.",
+          "Rystsov and Szykuła arXiv:2307.01302 study primitive/synchronizing automata with semiconstant components, not this exact two-parameter length in the inspected sections."
+        ],
+        "reasoning": "General synchronizability and broad quadratic upper bounds imply neither the exact stepwise k-state inverse-growth lower bound nor the matching arithmetic equality.",
+        "searches": [
+          "Resultary semantic: exact reset threshold circular automaton successor-chain letter a cyclic permutation b(i)=i+1 for i<k fixed otherwise",
+          "Resultary semantic: successor chain letter circular synchronization R(n,k) n ceil((n-1)/k)",
+          "arXiv:2307.01302 §4",
+          "arXiv:2407.08135 Theorem 1.4",
+          "Resultary/2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f"
+        ]
+      },
+      "checked_sources": [
+        "Assigned frozen Git tree 67d2b5231c6c074e93e87497a01a475c8c0395eb: RESULT.md, AUDIT.json, METADATA.json, REVIEW.md, SLOGAN.txt, VERIFICATION.md, verify.py",
+        "Resultary semantic: exact reset threshold circular automaton successor-chain letter a cyclic permutation b(i)=i+1 for i<k fixed otherwise",
+        "Resultary semantic: successor chain letter circular synchronization R(n,k) n ceil((n-1)/k)",
+        "arXiv:2307.01302 §4",
+        "arXiv:2407.08135 Theorem 1.4",
+        "Resultary/2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known k=1 endpoint equality and general upper bounds leave the k>=2 chain-extension thresholds undetermined.",
+          "The candidate's inverse interval domination and k-phase count establish both optimality and attainment for every admitted n,k."
+        ],
+        "reasoning": "There is no evident implication from the inspected prior statements to the all-k formula; proving synchronizability or a quadratic upper bound cannot determine its exact threshold.",
+        "searches": [
+          "Resultary semantic: exact reset threshold circular automaton successor-chain letter a cyclic permutation b(i)=i+1 for i<k fixed otherwise",
+          "Resultary semantic: successor chain letter circular synchronization R(n,k) n ceil((n-1)/k)",
+          "arXiv:2307.01302 §4",
+          "arXiv:2407.08135 Theorem 1.4",
+          "Resultary/2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Here b is a nonidempotent chain of length k; in the classical Cerny letter (k=1), b has a single merge and an otherwise fixed image.",
+          "Resultary 2026/9/17 Cerny k-avoiding discusses shortest words to avoid target subsets for the classical letter, not reset length of this changed successor-chain letter."
+        ],
+        "reasoning": "Relabeling a cycle or reversing its orientation does not identify its rank-n-1 transient-chain letter for k>=2 with a fixed-point single merge. Subset avoidance for the Cerny automaton optimizes a different target condition and does not imply this full reset theorem.",
+        "searches": [
+          "Resultary semantic: exact reset threshold circular automaton successor-chain letter a cyclic permutation b(i)=i+1 for i<k fixed otherwise",
+          "Resultary semantic: successor chain letter circular synchronization R(n,k) n ceil((n-1)/k)",
+          "arXiv:2307.01302 §4",
+          "arXiv:2407.08135 Theorem 1.4",
+          "Resultary/2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Searches returned Resultary Cerny avoidance, Wielandt rank profiles and unrelated automata; the matching exact numeric formula for this successor-chain transformation was not found.",
+          "Classical Cerny k=1 threshold (n-1)^2 is explicitly excluded from new contribution."
+        ],
+        "reasoning": "No equivalent same-family exact table identified by actual queries, but negative search is not a definitive novelty certificate; prior automata tables and relabelings are a residual risk.",
+        "searches": [
+          "Resultary semantic: exact reset threshold circular automaton successor-chain letter a cyclic permutation b(i)=i+1 for i<k fixed otherwise",
+          "Resultary semantic: successor chain letter circular synchronization R(n,k) n ceil((n-1)/k)",
+          "arXiv:2307.01302 §4",
+          "arXiv:2407.08135 Theorem 1.4",
+          "Resultary/2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f"
+        ]
+      },
+      "rationale": "The exact uniform two-parameter reset-threshold equality and closed shortest witness for a rank-n-1 nonidempotent successor-chain letter are distinguishable from known one-point-merge Cerny and broader synchronizability/upper-bound results. Best-of-knowledge originality survives the inspected theorem statements; a renamed equivalent transformation family or earlier short-word result remains plausible.",
+      "residual_risks": [
+        "A little-indexed family definition with isomorphic successor-chain transition maps may already have an equivalent exact threshold.",
+        "Independent BFS only reached n<=12; infinitely quantified lower bound depends on the inverse-interval dominance reasoning."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broad sufficient statements and bounds inspected, no exact successor-chain n,k formula in read portion",
+          "evidence": "Theorem 25 is a structural synchronizability statement, not shortest reset lengths.",
+          "identifier_or_url": "arXiv:2307.01302",
+          "material_read": "Theorem 25 and relevant semiconstant discussion, PDF pages and source theorem statements",
+          "method": "Public arXiv PDF full-text relevant section and rendered-page inspection",
+          "title": "Primitive Automata that are Synchronizing",
+          "trigger": "Potential inclusion of successor-chain letters in primitivity/synchronizability theorems"
+        },
+        {
+          "assessment": "General upper bound does not determine the exact two-parameter value",
+          "evidence": "2n^2-7n+7 differs from n(ceil((n-1)/k)-1)+k.",
+          "identifier_or_url": "arXiv:2407.08135",
+          "material_read": "Theorem 1.4 as quoted and comparison in package; full document was not re-read",
+          "method": "Primary-source theorem reference and source-text comparison",
+          "title": "A Quadratic Upper Bound on the Reset Thresholds of Synchronizing Automata Containing a Transitive Permutation Group",
+          "trigger": "Strong broad theorem encompassing rank-n-1 cyclic automata"
+        },
+        {
+          "assessment": "Different problem: avoidance of k-element targets in classical Cerny automaton, not reset threshold of nonidempotent b",
+          "evidence": "Its exact result at_k(C_n)=kn with ordinary Cerny b does not specify this letter or reset threshold.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f/RESULT.md",
+          "material_read": "Entire RESULT.md including definition, theorem, proof and scope",
+          "method": "Published Resultary primary full record read through GitHub",
+          "title": "Exact k-avoiding thresholds of the Černý automata",
+          "trigger": "Highly ranked published exact threshold in nearby automata family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Reset threshold is the central exact invariant in synchronizing automata. The parameter k interpolates quadratic versus linear behavior with a sharp arithmetic boundary, and the proof classifies a full natural nonidempotent cyclic-letter family rather than an ad hoc finite example. The shortest-word construction gives independently useful normal form.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned frozen Git tree 67d2b5231c6c074e93e87497a01a475c8c0395eb: RESULT.md, AUDIT.json, METADATA.json, REVIEW.md, SLOGAN.txt, VERIFICATION.md, verify.py",
+    "Resultary semantic: exact reset threshold circular automaton successor-chain letter a cyclic permutation b(i)=i+1 for i<k fixed otherwise",
+    "Resultary semantic: successor chain letter circular synchronization R(n,k) n ceil((n-1)/k)",
+    "arXiv:2307.01302 §4",
+    "arXiv:2407.08135 Theorem 1.4",
+    "Resultary/2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A little-indexed family definition with isomorphic successor-chain transition maps may already have an equivalent exact threshold.",
+    "Independent BFS only reached n<=12; infinitely quantified lower bound depends on the inverse-interval dominance reasoning."
+  ],
+  "residual_risks": [
+    "A little-indexed family definition with isomorphic successor-chain transition maps may already have an equivalent exact threshold.",
+    "Independent BFS only reached n<=12; infinitely quantified lower bound depends on the inverse-interval dominance reasoning."
+  ],
+  "schema_version": 1
+}
