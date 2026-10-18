@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For each n in a single Fibonacci interval, the summand count equals one plus the translated count, so induction reduces n. All intervals crossing a Fibonacci boundary lie among four explicitly tabulated offsets, with formulas proved by a two-step Fibonacci-index recurrence from F9 and F10. For d=2,3 two boundary parities differ; for d=1,4 two adjacent counts are equal. The equal odd divisors of two adjacent odd integers must equal one; all eligible odd Fibonacci pairs are (1,3),(3,5), leaving the sole triple (1,3,5). Greedy checks and symbolic boundary cases were rechecked from packaged VERIFY.py; finite checks are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lao et al. Theorem 4.3 excludes eight-term runs except the initial even block; Theorem 4.4 constructs infinitely many even-start five-term runs.",
+        "Lao et al. Theorem 5.1 concerns equal counts at step F_d, not odd-start step two."
+      ],
+      "reasoning": "The published long-run exclusion is logically weaker for odd triples, and a five-term even example is disjoint. The finite six-run synopsis also does not imply the odd triple statement as read; the inaccessible full version is a residual risk.",
+      "searches": [
+        "Zeckendorf Niven three consecutive odd terms 2 arithmetic progression only 1 3 5",
+        "Lucas Zeckendorf Niven odd consecutive run lengths parity 2026",
+        "published-finding corpus: Zeckendorf Niven three consecutive odd terms 2 arithmetic progression only 1 3 5",
+        "https://arxiv.org/html/2606.24006v1 §4 and §5"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2606.24006v1, full HTML §§1–5",
+      "published-finding corpus searches Zeckendorf Niven three consecutive odd terms 2 arithmetic progression only 1 3 5; Zeckendorf digit sum parity triple n n+2 n+4 two equal parity rigidity Fibonacci representation; Lucas Zeckendorf Niven odd consecutive run lengths parity 2026",
+      "web search: \"Zeckendorf-Niven\" \"odd\" \"three consecutive\"; \"Zeckendorf Niven\" \"1,3,5\" consecutive odd; \"Zeckendorf digit sum\" \"n+2\" parity equal",
+      "Machina Mathematica indexed synopsis, inaccessible full manuscript",
+      "ResearchGate indexed Zeckendorf numeral digit method, no full article read"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 4.3: only eight-or-more runs in one initial even progression",
+        "Theorem 4.4: infinite even-start five-term sequences",
+        "Theorem 5.1: equal Zeckendorf counts at Fibonacci-sized step",
+        "New statement: no three-term odd progression except 1,3,5, by an adjacent-equal-count parity lemma."
+      ],
+      "reasoning": "A theorem about runs of length at least eight does not cover their length-three subcases in other regions; nor do the listed even examples cover odd starts. The general canonical-representation recurrence used in earlier papers does not alone state the new necessary parity condition; we derive and verify it by induction. General automatic-sequence theorems could still imply the claim and are a cited residual risk.",
+      "searches": [
+        "https://arxiv.org/html/2606.24006v1 Theorems 4.3,4.4,5.1",
+        "Zeckendorf Niven three consecutive odd terms 2 arithmetic progression only 1 3 5",
+        "Zeckendorf digit sum parity triple n n+2 n+4 two equal parity rigidity Fibonacci representation",
+        "published-finding corpus: Lucas Zeckendorf Niven odd consecutive run lengths parity 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Local lemma: equal parity of s_Z(n),s_Z(n+2),s_Z(n+4) forces adjacent equality; only odd Zeckendorf–Niven triple is (1,3,5).",
+        "arXiv:2606.24006v1, §4 analyzes six low Fibonacci digits for longer runs but does not formulate a three-count parity implication."
+      ],
+      "reasoning": "Searched both the direct digit-sum form and the progression classification. No equal-or-stronger equivalent was located. The original infinite induction is not subsumed by a finite instance search.",
+      "searches": [
+        "Zeckendorf digit sum parity triple n n+2 n+4 two equal parity rigidity Fibonacci representation",
+        "\"Zeckendorf digit sum\" \"n+2\" parity equal",
+        "published-finding corpus: Zeckendorf digit sum parity triple n n+2 n+4 two equal parity rigidity Fibonacci representation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed exact classification or OEIS-style table covering *all* positive odd starts was recovered.",
+        "Exact finite verification to n<100000 independently yielded only the starting value 1, but is not used for proof."
+      ],
+      "reasoning": "Finite sample sequences do not imply the universal claim. The analytic recurrence and boundary proof establishes all n, including untested ranges.",
+      "searches": [
+        "Zeckendorf Niven three consecutive odd terms 2 arithmetic progression only 1 3 5",
+        "\"Zeckendorf Niven\" \"1,3,5\" consecutive odd",
+        "published-finding corpus: Zeckendorf Niven three consecutive odd terms 2 arithmetic progression only 1 3 5"
+      ]
+    },
+    "rationale": "Exact statement/implication comparison with the accessible complete motivating paper finds neither the odd three-term progression classification nor the step-two parity-rigidity lemma. The cited paper only forces restrictions on longer step-two runs and on equal digit counts along Fibonacci steps; neither entails this universal three-point parity statement. Targeted published-finding corpus and web searches found no equivalent. The indexed but uninspected companion manuscript and broader Fibonacci-automatic literature remain genuine residual risks.",
+    "residual_risks": [
+      "The searchable synopsis of a separate Zeckendorf–Niven six-term study was available but the complete manuscript could not be inspected; it could contain the same parity lemma.",
+      "General Fibonacci-automatic or Zeckendorf digit-addition theory may state a stronger local theorem not recovered by targeted searches.",
+      "Search absence is not a mathematical proof of originality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Published results cover long runs and three equal-count terms at Fibonacci steps, but neither implies the all-odd three-term rigidity without a new parity analysis.",
+        "evidence": [
+          "Introduction: Zeckendorf–Niven definition and MSC 11B39,11B25",
+          "Theorem 4.3: all eight-term step-two runs are in 2,4,...,18",
+          "Theorem 4.4: infinite five-term step-two runs",
+          "Theorem 5.1: equal-count triple at step F_d, a different conclusion"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2606.24006v1",
+        "material_read": "Full HTML paper, especially introduction and complete Sections 4 and 5, including Theorems 4.3–4.4 and 5.1",
+        "method": "Read statements and arguments about two-step runs, their local digit configurations, and same-summand-count progressions",
+        "title": "On Zeckendorf-Niven Numbers and Arithmetic Progressions",
+        "trigger": "Same arithmetic object and exact step-two run-length problem"
+      },
+      {
+        "assessment": "Stated six-term-run conditions do not by themselves imply the classification of odd three-term runs; complete content remains an overlap risk.",
+        "evidence": [
+          "Search snippet announces obstruction n+3 or n+5 Fibonacci for six-term runs and finite bounds; no odd-triple classification appeared in accessible description"
+        ],
+        "identifier_or_url": "https://lean.up.railway.app/",
+        "material_read": "Indexed descriptive snippet only; complete manuscript not retrieved",
+        "method": "Compared the accessible announced claims about six-term runs and Fibonacci-index obstruction",
+        "title": "Machina Mathematica: a Zeckendorf–Niven six-term progression manuscript synopsis",
+        "trigger": "Online indexed synopsis explicitly related to the same step-two problem"
+      },
+      {
+        "assessment": "Relevant methodology but no located three-point local parity assertion; residual implicit-coverage risk.",
+        "evidence": [
+          "Context: low Zeckendorf digit blocks detected in an arithmetic application"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/figure/Detecting-four-Zeckendorf-digits_fig1_388011541",
+        "material_read": "Search synopsis/figure context only, no complete proof",
+        "method": "Examined accessible subject and comparison at statement level",
+        "title": "Zeckendorf numeral digit detection in work on primes as Fibonacci sums",
+        "trigger": "General Zeckendorf digit-block methodology could dominate local-count lemma"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "33ce7f1b-6622-4eb7-bd1e-9ae15cfbafe8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a natural complete parity-stratified classification of length-three step-two Zeckendorf–Niven progressions, complementing a new 2026 paper’s length-five and length-eight results. The mechanism is a reusable universal three-point digital parity rigidity lemma, not a computational cutoff or an unmotivated parameter case.",
+    "status": "PASS"
+  }
+}
