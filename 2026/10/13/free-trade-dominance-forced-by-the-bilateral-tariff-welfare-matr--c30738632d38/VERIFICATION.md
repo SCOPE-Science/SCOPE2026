@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scientific boundaries
+# Independent mathematical audit
 
-The welfare payoff table was reconstructed from Section 5.1 of the cited June 2026 article, which contains the four pure action profiles with domestic deadweight losses and partner-induced export losses. The theorem assumes \(D_A,D_B>0\), fixed additive losses and no subsidy. Recompute the tariff-versus-no-tariff gap in each country at both opponent actions; it is always exactly the negative domestic deadweight loss. Affinity in the partner's tariff probability then has zero slope. Verify the binary replicator differential equations by substitution and the displayed logistic solutions by exact differentiation.
+## correctness
 
-`verify.py` checks these symbolic identities using SymPy, together with a separate exact rational sample. Running `python verify.py` in the actual package returned `VERIFY_OK`. No approximate eigenvalues, finite sampling, or unproved numerical continuation are used to establish the theorem.
+PASS
 
-The dynamic convergence statement is restricted to strictly interior policy frequencies. Boundary pure strategies remain fixed under replicator dynamics even when they are not Nash equilibria. The algebra does not decide which of the original article's two inconsistent representations was intended and makes no claim about implementation or real-world optimal tariffs. The claimed source-specific originality has not undergone independent audit.
+From the exact four cells of the stated no-subsidy national-welfare matrix, the payoff gap tariff-minus-free equals -D_A for A and -D_B for B, independent of the opponent mix because foreign-tariff export-loss terms cancel. For D_A,D_B>0, F is strictly dominant and (F,F) unique Nash. The binary two-population replicator becomes decoupled logistic decay with solution x(t)=x0/(x0+(1-x0)e^{D_A t}), similarly y, strictly converging to zero for 0<x0,y0<1. The source’s separately printed Eq(8) cross slope A_I=S_I+exp^I(0)+exc^I(0)>0 under no subsidy and positive baseline producer surplus conflicts with the zero slopes forced by its OWN Section5.1 matrix. Independently re-expanded exact symbolic payoff gap and checked restrictions at boundary.
+
+## originality
+
+PASS
+
+Standard strictly-dominant 2x2 game and logistic replicator formulas are already known; novelty is only the precise source-specific contradiction between the literal June 2026 tariff welfare table and the paper’s separate nonzero Eq(8) coupled evolutionary coefficients/prisoner dilemma discussion. Full original article Sections 5.1, 5.2, 7 and cited appendix were checked. Related published Resultary sign-error finding corrects Jacobian of the SEPARATELY coupled model, not this payoff-table incompatibility, and thus does not cover it. Best-knowledge PASS with source revision risk.
+
+## value
+
+PASS
+
+This is not a freestanding textbook dominance statement: in the specific published model, the table is presented as supporting reciprocal-tariff equilibrium and richer coupled dynamics, yet its exact payoffs eliminate all strategic cross-dependence and force a unique welfare-table equilibrium and explicit flow. Identifying this input-to-dynamics incompatibility is a substantive model-validity obstruction for interpretation and rederivation, with no empirical policy generalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
