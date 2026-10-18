@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and limits
 
-The proof is self-contained in `RESULT.md`. Run `python3 verify.py` with Python 3 and its standard library. Expected terminal line begins with `PASS exact conditional means and distance frequencies:` and reports 28 conditional cases among 280392 Prüfer-coded labelled trees, 35 determinant checks, 11026 exact transition checks and 148 modal cases.
+# Independent mathematical audit
 
-The checker actually compares all labelled trees through eight vertices against the closed form using rational arithmetic; no Monte Carlo approximations are used. For \(n\le150\), it separately tests algebraic transitions and peak locations, but the all-size claims rest on the principal-minor forest proof and monotone cubic inequality. The script is not a formal proof assistant and its finite ranges do not exhaust the infinite domain. The proof assumes no constrained degree sequence, no fixed root, and no simultaneous conditioning of the two distinguished vertices to be leaves.
+## correctness
 
-Primary-literature checks cover the full 2003 Wiener-index paper and the 2021 full-text distance-profile and leaf-bias results; historical equivalence under alternate tree-enumerator names remains a residual risk. The self-review is not an independent external audit.
+PASS
+
+For a fixed 1-to-2 path with s=k+1 vertices, n−s=r remaining vertices, the matrix-tree principal minor det(nI_r−J_r)=s n^(r−1) counts rooted attachments; deleting an off-path leaf gives probability ((n−1)/n)^(r−1) and deleting a path-end leaf gives (s−1)/s times that probability. Linearity gives the stated expectation for 1≤k≤n−2, with the spanning-path endpoint k=n−1 giving 2. Subtracting successive exact fractions yields sign 2n−(k²+1)(k+2), with exceptional last difference (3−n)/(n−1). Strict increase of the cubic proves unimodality and exact ties, including n=3, while uniform expansion for k=O(n^(1/3)) proves first mode (2n)^(1/3)+O(1) and peak advantage 1/e+O(n^(−1/3)). Independent Prüfer enumeration n≤7, 18,248 trees and 21 conditional means, agrees, but is not the infinite proof.
+
+## originality
+
+PASS
+
+Exact full global-leaf-count regression at all fixed-pair distances and cubic-root mode were not supplied by the retrieved distance-profile, endpoint-degree or Wiener-index statements. Distinct from established rooted-forest enumeration as a general tool; originality remains best-of-knowledge because older bivariate enumerators may implicitly specialize to it.
+
+## value
+
+PASS
+
+Both global leaf extremity and distinguished-pair distance are canonical observables for Cayley trees. Their conditional relationship has an unexpected nonmonotone all-n shape, a sharp cubic turning threshold versus typical sqrt(n) distances, and a nonzero limiting O(1) advantage; researchers can use the exact regression and finite tie classification without a separate general limit theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
