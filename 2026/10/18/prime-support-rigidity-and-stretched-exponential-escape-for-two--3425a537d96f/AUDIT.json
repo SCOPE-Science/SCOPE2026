@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For every escaping orbit of \\(Q_{\\pm1}\\), odd returns are \\(y_{i+1}=k_iy_i\\) with \\(k_i=(y_i\\pm1)/2^{v_2(y_i\\pm1)}\\ge3\\). Since \\(\\gcd(k_i,y_i)=1\\), every return introduces a new odd prime. Then \\(y_r\\ge(r+2)!/2\\) and \\(r\\le(1+o(1))\\log y_r/\\log\\log y_r\\). An ordinary-time block has at most \\((r+1)\\log_2(y_r+1)\\) steps and all its states are at least \\(y_r\\), yielding \\(\\liminf\\log x_t/\\sqrt{t\\log t}\\ge\\sqrt{\\log2/2}\\). All boundary cases, quantifiers, initial even segments, and the logarithm base are handled in RESULT.md. The self-contained exact-arithmetic program passed 2157 return, 947 coprimality, and 947 prime-bound checks; the asymptotic proof does not rely on computations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ye Theorems 1–2 cover the identity of bounded starts and divergence of remaining starts, but do not provide any quantitative lower function of the ordinary time index.",
+        "Sedaghat gives \\(3^r\\) for odd-return count, but no conversion to \\(t\\)."
+      ],
+      "reasoning": "A qualitative dichotomy is not quantitatively stronger than the claimed explicit rate. A \\(3^r\\) odd-index bound does not dominate the stretched-exponential ordinary-time bound when unbounded waiting lengths are allowed. New prime-divisor disjointness supplies an extra mechanism. No covering published uniform time bound found.",
+      "searches": [
+        "polynomial iteration valuations parity quadratic Collatz map escape rates basin eventual cycles",
+        "pairwise coprime odd-return multipliers and prime-primorial growth in quadratic Collatz dynamics",
+        "arxiv:2005.10712v1, inspected PDF proof of the divide-or-choose recurrence",
+        "arxiv:2610.10660v1, Sections 2–6"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.10660v1 (complete relevant primary HTML)",
+      "arxiv:2004.07357v1 (complete relevant primary HTML)",
+      "arxiv:2005.10712v1 (primary PDF relevant proofs)",
+      "Semantic searches of mathematical result titles and implications with closest-source comparisons"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior exact return identity and mere divergence are correctly attributed to Ye and Sedaghat.",
+        "For each escaping orbit, \\(k_i\\) is coprime to the accumulated \\(y_i\\), and prime-support growth plus an upper bound on \\(j_i\\) yields a different, stronger quantitative conclusion."
+      ],
+      "reasoning": "Published prime-support or full-clock statements were not found. The asserted rate is not a specialization of a prior uniform rate, because none was present in the inspected primary sources; it is a new derived quantitative consequence of published orbit recurrences, using additional arithmetic proof.",
+      "searches": [
+        "quadratic Collatz divide-or-choose-2 map prime divisors grow each odd iteration pairwise coprime multipliers primorial omega orbit",
+        "uniform superpolynomial escape lower bound exp(sqrt(t log t)) for quadratic Collatz divide-or-choose 2 and odd n(n+1)/2 maps",
+        "arxiv:2610.10660v1 Lemmas 1–2 and Theorems 1–2",
+        "arxiv:2004.07357v1 proof of Theorem 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ye Lemmas 1–2: \\(y_{r+1}=k_ry_r\\), \\(k_r\\ge3\\) for escaping orbits; no coprime-support or full-clock growth claim.",
+        "Sedaghat (2020), Section 2: \\(y_r=k_{r-1}\\cdots k_0y_0\\ge3^ry_0\\) for continued growth."
+      ],
+      "reasoning": "Equivalent prime-support formulations via \\(\\omega(y_r)\\), disjoint gcd of multipliers, and primorial lower growth were compared to the displayed recurrence. The earlier recurrence alone is an exact identity; the new assertion adds a coprimality argument and full-time inversion. Neither inspected source states an equivalent lower bound.",
+      "searches": [
+        "quadratic Collatz maps n(n-1)/2 n(n+1)/2 (n^2-1)/4 orbit classification bounded unbounded congruence residue dynamics",
+        "quadratic Collatz divide-or-choose-2 map prime divisors grow each odd iteration pairwise coprime multipliers primorial omega orbit",
+        "uniform superpolynomial escape lower bound exp(sqrt(t log t)) for quadratic Collatz divide-or-choose 2 and odd n(n+1)/2 maps",
+        "arxiv:2610.10660v1 full HTML search: prime, odd terms, growth",
+        "arxiv:2004.07357v1 full HTML search: prime, growth"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed result about Mersenne-power binary-polynomial Collatz odd-sequence lengths concerns a different coefficient ring and cannot imply the asserted integer-map bound.",
+        "No exact finite database or table would by itself certify the stated infinite growth assertion."
+      ],
+      "reasoning": "This is a universal asymptotic theorem rather than a finite sequence or table lookup. The searched result index returned related dynamical claims in other models but no exact row or covering theorem.",
+      "searches": [
+        "quadratic Collatz maps n(n-1)/2 n(n+1)/2 (n^2-1)/4 orbit classification bounded unbounded congruence residue dynamics",
+        "Qminus Qplus map odd n n(n±1)/2 distinct new prime factors primorial lower bound escape",
+        "finite prime support versus bounded orbits for Qminus Qplus quadratic Collatz maps",
+        "quadratic Collatz divide-or-choose-2 map prime divisors grow each odd iteration pairwise coprime multipliers primorial omega orbit"
+      ]
+    },
+    "rationale": "Ye (arxiv:2610.10660v1) proves qualitative classification and the exact return identity, and Sedaghat (arxiv:2004.07357v1) obtains at most a geometric lower growth rate in the odd-return index. The prime-support rigidity and a stretched-exponential rate in the original iteration clock require additional arithmetic and inverse-time bounds. Targeted semantic-literature and published-primary comparisons found no claim directly covering both. Risk persists that the deduction is implicit in uninspected arithmetic dynamics literature.",
+    "residual_risks": [
+      "These bounds follow by augmenting known exact return formulas with elementary number theory; an unstated earlier derivation or a broader arithmetical-dynamics theorem could imply them.",
+      "Related sources outside the accessible primary literature may contain similar growth lower bounds.",
+      "No optimality assertion for the displayed universal constant is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the new full-clock quantitative rate or the pairwise-coprime support structure.",
+        "evidence": [
+          "Lemma 1 exact odd-return block; Lemma 2 escape iff no terminal, Theorems 1–2 classify starts; no universal ordinary-time lower bound."
+        ],
+        "identifier_or_url": "arxiv:2610.10660v1; https://arxiv.org/html/2610.10660v1",
+        "material_read": "Full HTML including introduction, Lemmas 1–3, three classification proofs, divisibility criterion, conclusion and references.",
+        "method": "Direct primary full-text inspection, with targeted searching for prime support and quantitative growth.",
+        "title": "Classification of the Orbits of Three Quadratic Collatz-type Maps",
+        "trigger": "The exact motivating October 2026 orbit-classification paper on the identical two integer maps."
+      },
+      {
+        "assessment": "Supplies exact product recurrence and geometric growth only in number of odd terms; no prime-support rigidity or ordinary-time stretched-exponential bound.",
+        "evidence": [
+          "Section 2, equations (4)–(5) and proof of Theorem 2: lower growth \\(3^r\\) indexed by odd blocks."
+        ],
+        "identifier_or_url": "arxiv:2004.07357v1; https://arxiv.org/html/2004.07357v1",
+        "material_read": "Full accessible HTML including Section 2 recurrence and lower bound, remainder and references.",
+        "method": "Direct full-text HTML inspection and comparison of claims and time parameters.",
+        "title": "Bounded Orbits of Quadratic Collatz-type Recursions",
+        "trigger": "Foundational original divide-or-choose-2 result with detailed odd-return formulas."
+      },
+      {
+        "assessment": "No statement found covering the new primorial support or ordinary-clock rate.",
+        "evidence": [
+          "The published discussion distinguishes bounded and growing orbits and uses multiplicative odd transitions."
+        ],
+        "identifier_or_url": "arxiv:2005.10712v1; https://arxiv.org/abs/2005.10712",
+        "material_read": "Accessible full PDF, focusing on odd-return recursions, orbit classification, and discussion.",
+        "method": "PDF text and page-image inspection of relevant mathematical material.",
+        "title": "Dual Nature of Orbits of the Divide-or-Choose 2 Rule",
+        "trigger": "Closely related historical primary study of the exact same signed-minus quadratic map."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3425a537-d96f-494c-b8f0-641c5cb07fa6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The Oct 2026 classification of bounded orbits leaves quantitative escape speed unspecified. Each escaping odd return has at least one genuinely new prime divisor, a nontrivial arithmetical persistence law, and this translates into an explicit stretched-exponential floor for the actual number of steps, even with arbitrarily long halvings. The combination of prime-support growth with full-clock control makes a natural structurally motivated refinement, rather than a finite verification or minor parameter change. The bound does not require claiming sharpness.",
+    "status": "PASS"
+  }
+}
