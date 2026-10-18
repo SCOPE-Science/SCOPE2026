@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Conditional antipodal signs are independent fair bits even for heterogeneous radial/projective distributions. The exact walk count identity reduces the halfspace-depth event to a two-absorbing-barrier path count. The reflection-image sum and complete residue-class partition prove the entire stated law for every integer sample size and threshold. The standalone script verifies 85 exhaustive finite identities for sample sizes through 14; it does not substitute for the all-size proof.
+
+**Originality — PASS (qualified).** The full all-depth, non-identically distributed centrally symmetric planar sample law was not found in the research records or inspected primary sources. Wendel covers only the first positive depth. Yuan derives general-window circular scan laws for selected event levels under uniform circular sampling. Fojtík and collaborators solve deterministic computation of central regions, not this random-sample distribution. Puthawala and collaborators establish a directed-spanning characterization, not probability across arbitrary depths. A recent preprint addressing Gaussian ReLU injectivity was available only via abstract, so implicit coverage remains a documented risk. A different formulation in older covering literature is also possible.
+
+**Mathematical value — PASS.** The exact probability at every possible halfspace-depth threshold is a natural finite-sample law central to robust planar geometry; the heterogeneous distribution-free invariance and one-line binomial residue formula provide precise benchmark probabilities absent from the inspected general computational and selected-threshold scan sources. It simultaneously quantifies all levels of a directed-spanning active-row count, rather than a single existence event. The generalization is structural, not a minor numerical parameter substitution.
+
+**Scope and residual risks.** Independence, individual antipodal symmetry, and pairwise noncollinearity are necessary hypotheses for the proof. The statement is planar only; its value is an exact finite-sample law, not a new general-purpose neural-network theorem. Direct full-text comparison to arXiv:2610.07492 was not possible, and incomplete coverage of older circular covering theory remains a residual originality risk.
+
+Self-review: passed. Independent audit: not yet performed.
