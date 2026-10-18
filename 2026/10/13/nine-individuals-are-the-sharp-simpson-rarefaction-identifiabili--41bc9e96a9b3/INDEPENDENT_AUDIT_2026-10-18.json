@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T07:45:48.485274Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "actual immutable RESULT.md, verify_simpson_rarefaction_boundary.py",
+        "new independent partition enumeration N<=9",
+        "Hurlbert 1971 rarefaction formula"
+      ],
+      "rationale": "For without-replacement samples direct pair agreement gives R_2=2-D_2 and three-draw inclusion-exclusion gives R_3=3-3D_2+T_3. Under fixed N,S, equality D_2 iff exact Q_2=Σ n_i(n_i-1) agrees. Exhaustive independent generation of every nondecreasing positive partition for all 1<=N<=9 and 1<=S<=N checks 109 within-slice profile pairs and finds the sole duplicate key (N,S,Q2)=(9,3,24), pair (1,4,4),(2,2,5). Exact third factorial moments 48 and 60 yield gap 1/42. This finite classification IS exhaustive over the stated bounded domain, unlike a sample of profiles.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hurlbert supplies hypergeometric R_m formula and broad warning that single diversity summaries do not identify rarefaction.",
+          "R_3 depends on third factorial moment, not determined by D_2 in general."
+        ],
+        "reasoning": "General non-identifiability does not imply minimal N=9 under both fixed N and fixed S, uniqueness at first collision, or exact R_3 gap.",
+        "searches": [
+          "Hurlbert, DOI 10.2307/1934145",
+          "Olszewski, DOI 10.1111/j.0030-1299.2004.12519.x",
+          "general abundance moment sequences"
+        ]
+      },
+      "checked_sources": [
+        "Simpson, Measurement of Diversity, Nature 163 (1949), DOI 10.1038/163688a0",
+        "Hurlbert 1971 DOI 10.2307/1934145",
+        "Olszewski 2004 DOI 10.1111/j.0030-1299.2004.12519.x",
+        "Resultary semantic search N9 Simpson rarefaction pair"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Standard R_2=2-D_2 and R_3=3-3D_2+T_3 follow from Hurlbert formulas.",
+          "The first collision, uniqueness and exact N threshold require a separate complete finite integer classification."
+        ],
+        "reasoning": "Prior formula implies only the relationship between moments, not the hard cutoff; the finite classification supplies new exact information.",
+        "searches": [
+          "Hurlbert 1971 abstract R_m and PIE formulas",
+          "Olszewski 2004 article abstract",
+          "exact finite subset partition enumeration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "D_2 = Σ n_i(n_i-1)/(N(N-1)); PIE=1-D_2.",
+          "For fixed N,S equality of D_2 is equality of sum of squares of integer partitions."
+        ],
+        "reasoning": "Equivalent number-theoretic formulation is first distinct partitions of N of equal length and sum of squares. An unindexed partition-table coincidence is possible.",
+        "searches": [
+          "DOI 10.2307/1934145 abstract",
+          "Simpson collision index versus Hurlbert PIE",
+          "Resultary:Simpson concentration rarefaction identifiability first collision N=9 richness S=3 partitions 1 4 4 2 2 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fresh complete integer partition enumeration finds only (1,4,4) vs (2,2,5) across N<=9 fixed length; 109 pairs checked.",
+          "Resultary nearest results concern covariance of richness and Gini-Simpson under sampling, a different stochastic invariant."
+        ],
+        "reasoning": "No covering published database entry identified; a worked ecological teaching example containing this same pair is a realistic risk.",
+        "searches": [
+          "Resultary:Simpson concentration rarefaction identifiability first collision N=9 richness S=3 partitions 1 4 4 2 2 5",
+          "integer partitions with equal sums of squares N<=9",
+          "Hurlbert diversity rarefaction worked examples"
+        ]
+      },
+      "rationale": "Hurlbert already established both finite-population collision diversity and full rarefaction and discussed the general limitation of a one-number index. The bounded new claim is the SHARP positive-integer fixed-N fixed-S boundary and unique first collision, not the general phenomenon; exact exhaustive 109 within-slice pair census establishes the fact but does not itself certify novelty. Targeted Resultary and public searches did not find an existing fixed-richness nine-individual uniqueness theorem.",
+      "residual_risks": [
+        "Hurlbert 1971 full text was not retrieved; its abstract was read, so an example deeper in text could be equivalent.",
+        "The exact small pair can occur in unindexed integer partition or ecological software tables; first-boundary language may be folklore."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior covers both key definitions and general inadequacy of scalar diversity; no whole-document noncoverage is claimed.",
+          "evidence": [
+            "Hurlbert 1971 abstract includes PIE and E(S_n) finite hypergeometric sum."
+          ],
+          "identifier_or_url": "https://esajournals.onlinelibrary.wiley.com/doi/10.2307/1934145",
+          "material_read": "Accessible publisher abstract and bibliographic/formula portion, NOT the full article; matched the published expected richness equation.",
+          "method": "Publisher full metadata/abstract",
+          "title": "The Nonconcept of Species Diversity: A Critique and Alternative Parameters",
+          "trigger": "Identical hypergeometric rarefaction and PIE objects"
+        },
+        {
+          "assessment": "No assertion about exact minimality N=9 can be made from snippets; retained risk.",
+          "evidence": [
+            "Olszewski 2004 relationship between richness/evenness and rarefaction."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/j.0030-1299.2004.12519.x",
+          "material_read": "Published abstract/bibliographic information only, not full text.",
+          "method": "Secondary scholarly search and abstract",
+          "title": "A unified mathematical framework for the measurement of richness and evenness within and among multiple communities",
+          "trigger": "Later comparison of rarefaction and index relations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Hurlbert 1971 ecological meaning of PIE and rarefaction",
+        "complete integer profile partition search"
+      ],
+      "rationale": "The first exact non-identifiability threshold under fixed richness and total is a sharp natural finite boundary for when second-order diversity summaries cease determining the next finite-sample rarefaction point. The unique witness supplies an explicit diagnostic of how a third factorial moment adds information, with a reproducible rational discrepancy. A natural cutoff need not yield a large downstream theorem.",
+      "residual_risks": [
+        "Its small elementary witness may be a prior worked example."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "With fixed total N and richness S and positive integer species counts, (N,S,D_2) identifies the profile for N<=8. First unique ambiguity at N=9: (1,4,4) vs (2,2,5), both D2=1/3 and R2=5/3, while R3=44/21 vs 89/42.",
+  "limitations": [
+    "Positive integer profiles; fixed richness and total, not continuous distributions or varying-richness communities.",
+    "Original Hurlbert full text not material-read; abstract only."
+  ],
+  "schema_version": 1
+}

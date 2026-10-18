@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,78 +18,25 @@
   "schema_version": 1
 }
 ---
-For positive integer abundance profiles with fixed richness \(S\) and total \(N\), define
-\[
-Q_2=\sum_i n_i(n_i-1)
-\]
-and
-\[
-Q_3=\sum_i n_i(n_i-1)(n_i-2).
-\]
 
-The embedded `verify_simpson_rarefaction_boundary.py` independently constructs every abundance multiset through
-\[
-N=9
-\]
-in two ways: directly as a nondecreasing positive partition and as a canonicalized positive composition.
+# Independent mathematical audit
 
-It verifies Hurlbert's hypergeometric expected-richness formula directly and checks
-\[
-R_2
-=
-2-
-\frac{Q_2}{N(N-1)}
-\]
-for every profile with \(N\ge2\), and
-\[
-R_3
-=
-3-
-3\frac{Q_2}{N(N-1)}
-+
-\frac{Q_3}{N(N-1)(N-2)}
-\]
-for every profile with \(N\ge3\).
+## correctness
 
-Profiles are then grouped by the exact key
-\[
-(N,S,Q_2).
-\]
+PASS
 
-The complete nonsingleton-group list through nine individuals is exactly
-\[
-(9,3,24,\{(1,4,4),(2,2,5)\}).
-\]
+For without-replacement samples direct pair agreement gives R_2=2-D_2 and three-draw inclusion-exclusion gives R_3=3-3D_2+T_3. Under fixed N,S, equality D_2 iff exact Q_2=Σ n_i(n_i-1) agrees. Exhaustive independent generation of every nondecreasing positive partition for all 1<=N<=9 and 1<=S<=N checks 109 within-slice profile pairs and finds the sole duplicate key (N,S,Q2)=(9,3,24), pair (1,4,4),(2,2,5). Exact third factorial moments 48 and 60 yield gap 1/42. This finite classification IS exhaustive over the stated bounded domain, unlike a sample of profiles.
 
-The verifier checks all
-\[
-109
-\]
-within-\((N,S)\) unordered profile pairs in the domain.
+## originality
 
-For the first collision it verifies
-\[
-D_2=\frac13,
-\qquad
-R_2=\frac53,
-\]
-and
-\[
-R_3(1,4,4)=\frac{44}{21},
-\qquad
-R_3(2,2,5)=\frac{89}{42},
-\]
-with gap
-\[
-\frac1{42}.
-\]
+PASS
 
-Run:
+Hurlbert already established both finite-population collision diversity and full rarefaction and discussed the general limitation of a one-number index. The bounded new claim is the SHARP positive-integer fixed-N fixed-S boundary and unique first collision, not the general phenomenon; exact exhaustive 109 within-slice pair census establishes the fact but does not itself certify novelty. Targeted Resultary and public searches did not find an existing fixed-richness nine-individual uniqueness theorem.
 
-`python3 verify_simpson_rarefaction_boundary.py`
+## value
 
-The first output line must be:
+PASS
 
-`VERIFY_OK`
+The first exact non-identifiability threshold under fixed richness and total is a sharp natural finite boundary for when second-order diversity summaries cease determining the next finite-sample rarefaction point. The unique witness supplies an explicit diagnostic of how a third factorial moment adds information, with a reproducible rational discrepancy. A natural cutoff need not yield a large downstream theorem.
 
-The cutoff claim is a complete finite classification, not an extrapolation from sampled profiles.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

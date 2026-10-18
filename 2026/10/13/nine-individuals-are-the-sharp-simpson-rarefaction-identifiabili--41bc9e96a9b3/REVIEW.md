@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The two-draw identity follows directly because rarefied richness is one on a collision and two otherwise. For three draws, the pointwise identity \(S_3=3-C+I\) gives \(R_3=3-3D_2+T_3\). The finite cutoff is exhaustive: strict positivity bounds richness by \(S\le N\), and every positive abundance multiset through \(N=9\) is generated twice by independent exact enumerators. No fixed-\((N,S)\) Simpson collision exists through \(N=8\), and the unique \(N=9\) collision is \((1,4,4)\) versus \((2,2,5)\). The packaged verifier returns `VERIFY_OK`.
+## correctness
 
-Risk: none within the stated finite domain; changing the domain by allowing varying richness or noninteger weights changes the boundary question.
+PASS
 
-## Originality
-**PASS.** Simpson and Hurlbert own the underlying concentration and rarefaction quantities. Hurlbert also explicitly owns the broader observation that equal values of a conventional diversity index can coexist with different species-richness curves, so generic nonidentification is not claimed. Olszewski later made the rarefaction–PIE link explicit. The inspected literature and targeted searches did not state the fixed-richness sharp boundary \(N=9\), the uniqueness of the first collision, or its exact three-draw separation.
+For without-replacement samples direct pair agreement gives R_2=2-D_2 and three-draw inclusion-exclusion gives R_3=3-3D_2+T_3. Under fixed N,S, equality D_2 iff exact Q_2=Σ n_i(n_i-1) agrees. Exhaustive independent generation of every nondecreasing positive partition for all 1<=N<=9 and 1<=S<=N checks 109 within-slice profile pairs and finds the sole duplicate key (N,S,Q2)=(9,3,24), pair (1,4,4),(2,2,5). Exact third factorial moments 48 and 60 yield gap 1/42. This finite classification IS exhaustive over the stated bounded domain, unlike a sample of profiles.
 
-Risk: an unindexed teaching note, worked example, or ecological software test could contain the same nine-individual pair.
+## originality
 
-## Value
-**PASS.** Rarefaction standardizes richness across sample sizes, while Simpson/PIE summarizes pairwise abundance concentration. Fixing both observed richness and total abundance removes obvious scale effects and asks when the pairwise summary first ceases to encode the abundance structure needed for the next rarefaction depth. The answer is a natural complete finite cutoff with a unique first obstruction and an exact information increment at sample size three.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Hurlbert already established both finite-population collision diversity and full rarefaction and discussed the general limitation of a one-number index. The bounded new claim is the SHARP positive-integer fixed-N fixed-S boundary and unique first collision, not the general phenomenon; exact exhaustive 109 within-slice pair census establishes the fact but does not itself certify novelty. Targeted Resultary and public searches did not find an existing fixed-richness nine-individual uniqueness theorem.
+
+## value
+
+PASS
+
+The first exact non-identifiability threshold under fixed richness and total is a sharp natural finite boundary for when second-order diversity summaries cease determining the next finite-sample rarefaction point. The unique witness supplies an explicit diagnostic of how a third factorial moment adds information, with a reproducible rational discrepancy. A natural cutoff need not yield a large downstream theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
