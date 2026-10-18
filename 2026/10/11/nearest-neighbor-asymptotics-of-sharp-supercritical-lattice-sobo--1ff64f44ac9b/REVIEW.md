@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof uses the valid homogeneous discrete Sobolev embedding for dimensions at least three, the Fourier-defined transient Green kernel, and the Hilbert-space reproducing identity. Harmonic maximum principles isolate exactly \(2d\) largest noncentral entries of the normalized Green vector. For arbitrary near-maximizers, the point-evaluation orthogonal decomposition and \(\ell^{p_*}\) Hölder bound show their departure from the Green vector is exponentially smaller than the leading first-shell mass. Explicitly, \(\|v\|_{\mathcal D}=O(\rho_d^qe^{C\sqrt q})\), and hence the \(q\)-th-power optimal norm has expansion \(1+2d\rho_d^q+o(\rho_d^q)\). The asymptotic remains valid without assuming a maximizer exists. The finite-box program is corroborative only, not an infinite proof.
+PASS
 
-## Originality — PASS, residual risk disclosed
+Reconstructed homogeneous norm Σ_{x,j}|u(x+e_j)−u(x)|² on Z^d (d≥3), p*=2d/(d−2), q>p*: the transient Green vector G has <u,G>_D=u(0), K=G(0), h=G/K and nearest-neighbor value ρ=1−1/(2dK)∈(0,1). Discrete harmonic maximum principle, decay and ℓ^{p*} make 2d points ±e_j the sole strict largest noncentral values, so A_q=Σ_{n≠0}h(n)^q=2dρ^q+o(ρ^q). For a unit-energy near maximizer, translate and phase to its maximum a and decompose u=a h+v with v(0)=0, a²/K+||v||²_D=1; interpolation first gives t=||v||=O(q^−1/2). Hölder and mean value yield R_q=O(qt(ρ+t)^{q−p*}); near-maximality and a Green test improve t=O(ρ^q e^{C√q}), hence R_q=o(ρ^q), b^q=1+o(ρ^q) and (C_{d,q}/√K)^q=1+2dρ^q+o(ρ^q). Taking qth roots gives 2dρ^q/q with correct normalization, real/complex cases, no attainment assumption. The limiting proof is analytic, not finite-box extrapolation.
 
-The 2014 public preprint by Ilyin, Laptev and Zelik explicitly supplies the sharp \(\ell^\infty\) endpoint and a generally nonsharp \(\ell^q\) bound for finite exponents; its full original HTML text, including its Section 4 and Section 6, was inspected. Those statements imply neither the exponential correction rate nor its first-shell prefactor. Searches for finite graph, nonlinear lattice, and Banach embedding analogues produced no stronger result for the same homogeneous infinite-lattice energy and large-exponent asymptotic. This does not prove global novelty; an abstract Green-function perturbation theorem or an unindexed source could cover the statement.
+## originality
 
-## Value — PASS
+PASS
 
-The new invariant is the first correction to a natural sharp Sobolev embedding constant that the initiating literature identifies as sharp only at the endpoint. Its exact exponential base depends on lattice Green geometry, and its universal coefficient records the first neighbor shell. This is a structural asymptotic for all dimensions at least three, not a finite-parameter computation or relabeling of the endpoint constant. It supports quantitative comparison of nearly-supremum lattice inequalities but does not solve exact finite-exponent sharpness.
+The 2014/2015 Ilyin–Laptev–Zelik source proves the sharp ℓ∞ endpoint and a nonsharp supercritical finite-q estimate, not the first exponentially small q→∞ correction. No surveyed original statement implies the first-shell prefactor. Best-of-knowledge with abstract Green-kernel perturbation risks.
 
-## Bibliographic limitations
+## value
 
-The full original arXiv manuscript and full open-access published article were compared at the theorem/remark level. Available abstracts and introductions of further graph Sobolev papers were checked without treating an unread full paper as NOT_COVERING. Potential unnamed abstract perturbation theorems remain residual originality risk. No independent validation is claimed.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Sharp lattice Sobolev norms are natural constants, and the first correction beyond the endpoint is a quantitatively precise, dimension-uniform structural asymptotic. Its exponential base identifies the lattice Green first shell and its prefactor exactly counts the 2d nearest neighbours. It is not a renaming of the endpoint constant or a finite experiment, even though fixed finite-q exact values and critical q remain unknown.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
