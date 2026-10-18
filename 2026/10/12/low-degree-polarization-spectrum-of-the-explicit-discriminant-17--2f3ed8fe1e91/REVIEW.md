@@ -1,23 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces ampleness to positivity against the two irreducible \((-2)\)-curves and uses an exact change of variables
-\[
-(p,q)=(3x+8y,\;37x+8y)
-\]
-with
-\[
-A^2=(p^2+66pq+q^2)/2176.
-\]
-The cutoff \(A^2\le16\) forces \(pq\le527\), so the remaining enumeration is finite and exhaustive. The standalone verifier reproduces the spectrum exactly.
+## correctness
 
-## Originality
-PASS. The lead paper explicitly gives the Picard lattice, its degree-two, degree-four and degree-eight polarizations, and the absence of square \(6\), but does not state the complete primitive ample census through square \(16\). Targeted searches for the exact lattice, degree-\(16\) polarization, and missing squares \(10,12,14\) found no covering statement. The main residual risk is an equivalent older lattice computation indexed under different K3-polarization terminology.
+PASS
 
-## Value
-PASS. The source is expressly concerned with multiple low-degree polarizations on this K3 surface. Determining the next primitive polarization degree and proving the complete absence of the intervening genera is a natural finite classification that sharpens the geometry of the example rather than an arbitrary numerical slice.
+For A=xH+yC with Picard intersection matrix [[4,5],[5,2]], positivity against both effective (−2) curves D=2H−C, D′=−2H+9C yields p=3x+8y>0, q=37x+8y>0. Since a third irreducible (−2) class would intersect both nonnegatively, the quadratic identity (p²+66pq+q²)/2176=−2 forbids it. The chamber thus gives ampleness. A²≤16 implies pq≤527; exact divisibility x=(q−p)/34, y=(37p−3q)/272 and primitivity give squares/classes {2:C;4:H,−H+5C;8:3H−C,−3H+14C;16:H+C,−H+6C}; excludes 6,10,12,14. Independent integer (p,q) enumeration exhausts the bounded domain and involution x→−x,y→5x+y pairs. This is finite proof for a finite low-degree window, not the entire spectrum.
 
-## Closest literature and limitations
-The closest source is Festi--Nijgh--Platt itself. The result is confined to the first low-degree window beyond the source's degree-eight polarization; it does not classify all polarizations or construct the genus-nine projective model.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Festi–Nijgh–Platt supply the exact lattice, two wall classes, involution and initial polarizations (squares 2,4,8) including exclusion of 6. The submitted primitive-ample all-class window through square16 is not stated in inspected source, and requires actual lattice/chamber enumeration; it is not presented as discovery of the source lattice or involution. No relevant Resultary exact degree16 census was found. Residual risk that such small bounded enumeration is implicit in broader lattice arithmetic literature.
+
+## value
+
+PASS
+
+The explicit surface and polarization degree are geometrically motivated by the paper’s competing low-degree models: this closes the next natural window beyond degree8, certifies gaps in 10,12,14, and records the first 16-degree orbit. This is a small but complete and reusable arithmetic classification for the specific K3, not an arbitrary coordinate slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
