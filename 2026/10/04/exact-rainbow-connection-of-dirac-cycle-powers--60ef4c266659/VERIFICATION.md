@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytical proof is the primary evidence. The standalone script `verify_cycle_power_rainbow.py` supplies two finite stress tests.
+# Independent mathematical audit
 
-1. For every noncomplete Dirac cycle power with \(5\le n\le80\), it applies the stated coloring and checks the prescribed two-edge rainbow geodesic for every nonadjacent pair.
-2. For every such graph with \(n\le30\), it independently brute-forces all possible intermediate vertices and confirms that a rainbow two-edge geodesic exists.
-3. For \(1\le k\le30\), it checks that the antipodal pair in \(C_{4k}^k\) has exactly two common neighbors, \(k\) and \(3k\), and that both edges of either two-edge path have cyclic distance \(k\).
+## correctness
 
-Observed output:
+PASS
 
-`ALL CHECKS PASSED; constructive_nonadjacent_pairs=312398; boundary_cases=30; independent_bruteforce_nonadjacent_pairs=5850`
+For k<floor(n/2), degree 2k, so Dirac iff 4k≥n. For n<4k every nonadjacent cyclic distance k<d≤floor(n/2)<2k gives path u,u+k,u+d, with red k-edge and blue (d−k)-edge. At n=4k, every edge uniquely has clockwise span 1≤r≤k; color by start block parity floor(i/k) mod 2. Two geodesic steps starting at u and u+k have opposite block parity. Antipodes 0,2k have only common neighbors k,3k; both paths use two distance-k edges, so generator-based two-coloring cannot work. Diameter2 and noncompleteness force rc=src=2. Independently checked every nonadjacent pair for 5≤n≤50: 46,720 pairs, 11 boundary parameter families. Finite run confirms, not proves all n.
 
-The finite tests do not establish the infinite theorem; they verify implementations of the proof's constructions over a substantial range. No independent audit has been performed.
+## originality
+
+PASS
+
+The strongest recent primary explicitly names this exact C_(4k)^k boundary as an example defeating generator coloring and leaves open Dirac circulant rc2; the new four-block coloring answers its highlighted subclass and obtains strong geodesic rainbow connection for all noncomplete Dirac cycle powers.
+
+## value
+
+PASS
+
+A recent primary explicitly singled out the exact Dirac boundary cycle power as defeating natural colorings and left Dirac circulant rc2 open. A complete explicit positive rc=src classification and sharp generator-based obstruction for the whole cycle-power subfamily is meaningful, self-contained progress on that motivated problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
