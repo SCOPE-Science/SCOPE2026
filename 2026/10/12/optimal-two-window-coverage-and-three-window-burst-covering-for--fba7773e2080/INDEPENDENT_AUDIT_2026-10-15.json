@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T16:50:26.665604Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: h(a)=(1,a) across F_(2^m), so all 2^m odd-parity syndromes are single positions; even nonzero two-window syndromes are exactly distinct adjacent XORs. If q-1 distinct nonzero differences covered every nonzero field element, the XOR over the group would be 0. On a linear Hamiltonian ordering telescoping gives a_0+a_last !=0; on the cyclic ordering there are q nonzero differences, so exactly one must repeat and XOR would be nonzero. Therefore <=q-2 adjacent labels and <=2q-1 total. Construct order (0,1,alpha,...,alpha^(q-2)), alpha primitive, alpha+1=alpha^t with 2<=t<=q-2. Internal consecutive powers provide all q-1 nonzero labels except Delta=alpha^(t-1), and both head and closing edges repeat labels already present. The positions alpha^j and alpha^(j+2), j=q-2-t in [0,q-4], lie in a linear 3-window and sum to Delta. Thus all syndromes are covered, including m=2. Independently generated GF(8) under x^3+x+1, obtained exactly 15/16 two-window and 16/16 three-window syndromes in both boundary conventions; the infinite proof is the algebraic argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full 16-page source has a length-8 extended Hamming example and general bounds on arbitrary cyclic codes. Ollis--Willmott abstract treats terraces in abelian groups, including exceptional elementary 2-groups."
+        ],
+        "reasoning": "General coding bounds do not certify an optimal all-m coordinate permutation; terraces are neighboring group-theoretic objects but no direct implication to all 3-windows is established from material read.",
+        "searches": [
+          "Himelfarb Schwartz arXiv 2601.00435 Theorem 13 Theorem 17 Example 16",
+          "Ollis Willmott 2015 terraces R-sequencings Bailey conjecture abelian groups",
+          "Resultary semantic: extended Hamming code binary burst covering radius three field primitive coordinate ordering two window syndrome"
+        ]
+      },
+      "checked_sources": [
+        "Sac Himelfarb and Schwartz, arXiv:2601.00435v2 (2026), pp. 1-6; PDF inspected.",
+        "Ollis and Willmott, J. Combin. Designs 23 (2015), DOI 10.1002/jcd.21396, abstract.",
+        "Resultary coding and sequence-coverage related records 2026/10/4/SCOPE-covering-radius-three-for-two-extended-two-weight-bch-families--01880b509c86 and 2026/10/4/SCOPE-generation-profiles-of-cyclic-binary-hamming-codes-collapse-by-p--089d7cd75f06 (different codes/metrics)."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published example shows merely existence of a radius-3 ordering for q=8; bound in Thm17 does not yield exact absence of one syndrome for each q nor primitive-power completion."
+        ],
+        "reasoning": "The q=8 special case is not original, but generalizing one instance to every m with an exact optimality proof is neither an immediate substitution nor implied by the general count; parity/cyclic boundary arguments were independently checked.",
+        "searches": [
+          "Sac Himelfarb Schwartz 2026 primary PDF page 6 Example 16 Theorem 17",
+          "Ollis Willmott group sequencing 2015 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The set of even syndromes is the adjacent XOR-difference spectrum of a permutation of the elementary abelian 2-group; full two-window coverage would require each nonzero difference."
+        ],
+        "reasoning": "The one-hole obstruction is also a group sequencing parity obstruction, but the full theorem additionally forces completion by a particular distance-two pair using finite-field multiplicative structure; source group-ordering results do not by title or abstract imply it.",
+        "searches": [
+          "\"extended Hamming\" \"burst-covering\" radius permutation",
+          "\"binary elementary abelian\" adjacent XOR almost sequencing three window",
+          "Resultary semantic: extended Hamming code binary burst covering radius three field primitive coordinate ordering two window syndrome"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No indexed explicit all-m two-window syndrome-deficiency table/source matched; isolated length-eight Example 16 is known prior."
+        ],
+        "reasoning": "The all-m formula comes from finite-field group identities, not a table; the n=8 example is covered, and only the simultaneous infinite-parameter sharp statement is counted new.",
+        "searches": [
+          "\"extended Hamming\" \"one missing syndrome\" \"three\"",
+          "Resultary semantic: extended Hamming code binary burst covering radius three field primitive coordinate ordering two window syndrome"
+        ]
+      },
+      "rationale": "PASS (best knowledge): The 2026 Sac Himelfarb--Schwartz original defines the metric, proves the local-check characterization (Theorem 13) and gives one length-eight permutation of radius three (Example 16). Theorem 17 is a generic counting inequality, not a sharp all-m one-hole obstruction plus simultaneous explicit construction. Historical additive-group terraces and R-sequencings address permutations with prescribed consecutive differences, but the reviewed work does not visibly contain the coding-theoretic three-window completion or all-m sharp optimum; historical priority risk remains because an analogous near-terrace construction may be unindexed.",
+      "residual_risks": [
+        "Full Ollis--Willmott historical near-terrace article not inspected; a previously known ordering equivalence is possible.",
+        "Optimal code radius over permutations only, not a claim about all binary codes, all extremizers or burst decoding.",
+        "No external formal validation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Length-8 positive example and general syndrome criterion are prior; no complete all-length construction or one-hole optimum at those locations.",
+          "evidence": [
+            "Example 16 treats [8,4,4] extended Hamming and gives a radius-three permutation; Theorem 17 gives general counting bounds."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2601.00435",
+          "material_read": "Full 16-page PDF available; read abstract/definitions and page 6 with Definition 14, Remark 15, Example 16, Theorem 17 and proof; inspected relevant neighboring sections.",
+          "method": "Read original mathematical PDF text and inspected rendered page 6, comparing theorem scope and quantifiers.",
+          "title": "On the Burst-Covering Radius of Binary Cyclic Codes",
+          "trigger": "Exact same burst metric and Hamming code example"
+        },
+        {
+          "assessment": "Potential related group ordering theorem; cannot make entire-text exclusion from abstract alone.",
+          "evidence": [
+            "Abstract focuses on terrace existence, with elementary-abelian 2-group exceptions."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/jcd.21396",
+          "material_read": "Publisher abstract and bibliographic description only; complete 17-page primary article not retrieved.",
+          "method": "Read actual publisher abstract; compared statement about terraces in groups to proposed coding-syndrome criterion.",
+          "title": "Constructions for Terraces and R-Sequencings, Including a Proof That Bailey's Conjecture Holds for Abelian Groups",
+          "trigger": "Close group-difference sequencing analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Localized access to parity-check columns is the motivating cost in burst-covering codes. Establishing a sharp smallest window size, impossibility at width two, exact single uncovered syndrome and an explicit ordering for an infinite classical code family is a natural and reproducible mathematical classification. The result is not falsely described as decoding or correcting burst errors.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For all m>=2, among coordinate permutations of the binary length 2^m extended Hamming code, the maximal fraction of syndromes attainable within a linear or cyclic two-position window is 2^(m+1)-1 out of 2^(m+1); an explicit primitive-field-power ordering attains this and makes every syndrome attainable within a three-position window, so both optimal burst-covering radii are exactly three.",
+  "limitations": [
+    "R-sequencing literature could hide priority overlap; targeted searches did not resolve it.",
+    "Small-field enumeration is not an all-m proof."
+  ],
+  "schema_version": 1
+}
