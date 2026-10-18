@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T03:07:49.536726Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "git:2026/10/13/sharp-condition-number-frontier-for-adamp-detector-false-positiv--66b04cd09d3c/RESULT.md at 40d46a820f74fdf355c691812bdc426ec204bde7",
+        "independent_1813_checks.py, recorded finite bounds"
+      ],
+      "rationale": "For H SPD with spectrum [mu,L], w!=0, min cos(w,Hw)=2sqrt(mu L)/(mu+L) follows from weighted eigenvalue moments m=sum p_i lambda_i and lambda_i^2<=(mu+L)lambda_i-mu L; optimization over m yields the sharp value attained by a two-eigenvector mixture. With detector cos<delta/sqrt(d), 0<delta<sqrt d, solving the strict equality gives kappa*=((sqrt(d)+sqrt(d-delta^2))/delta)^2. All w are safe exactly when kappa<=kappa*, while for larger kappa an open cone of SPD-quadratic false-positive states exists. The d=1 case is automatically kappa=1. Independent numerical spectral and symbolic diagnostics confirmed values and threshold, not an optimizer trajectory theorem.",
+      "residual_risks": [
+        "Originality is only the optimizer-specific diagnostic; underlying SPD angle theorem, threshold inversion, and extremal eigenvector mixture are routine classical deductions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kantorovich controls every SPD matrix angle, so covers the pure geometric sublemma.",
+          "Related Resultary conditioning claims concern update directions or trust ratios for LAMB/LARS, not AdamP cosine gate."
+        ],
+        "reasoning": "Broader pure matrix inequality cannot by itself claim a new matrix theorem; however the precise named detector’s strict activation frontier and its methodological meaning are not located in those algorithm sources.",
+        "searches": [
+          "Kantorovich inequality matrix angle first antieigenvalue",
+          "Heo et al AdamP 2021 source",
+          "Resultary: LAMB obtuse direction conditioning and LARS descent frontier"
+        ]
+      },
+      "checked_sources": [
+        "Heo et al arXiv:2006.08217 and clovaai.github.io/AdamP/ authors method overview",
+        "Classical Kantorovich matrix-angle inequality (antieigenvalue), 2sqrt(mu L)/(mu+L)",
+        "Resultary 2026/10/4/SCOPE-sharp-conditioning-threshold-for-an-obtuse-first-lamb-direction--00498ba452dc",
+        "Resultary 2026/10/4/SCOPE-sharp-condition-number-frontier-for-objective-descent-in-core-la--70b4a7c981f6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Putting the classical extremal cosine inequality into the published AdamP threshold does algebraically imply the numeric frontier.",
+          "Neither published work is claimed as a new lemma; our final contribution is the explicit diagnostic comparison of scale invariance versus SPD curvature."
+        ],
+        "reasoning": "Prior ingredients make the derivation mathematically elementary; value depends on meaningful optimizer-specific diagnostic interpretation, not credit for the classical angle lemma. An explicit same-gate analysis in prior optimizer work would cover this claim.",
+        "searches": [
+          "Heo et al arXiv:2006.08217 detector definition",
+          "Kantorovich inequality first antieigenvalue"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Classical Kantorovich/Gustafson antieigenvalue formula is exactly 2sqrt(mu L)/(mu+L).",
+          "AdamP detector compares the absolute cosine to delta/sqrt(group dimension)."
+        ],
+        "reasoning": "The spectral minimum/witness are covered classical math; applying the strict AdamP test gives the optimizer-specific if-and-only-if kappa frontier and false positive interpretation.",
+        "searches": [
+          "AdamP arXiv:2006.08217 curvature cosine threshold false positive",
+          "Kantorovich angle min (w,Hw)/(||w|| ||Hw||)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For d=1,2,64,256 the explicit formula yields about 398,798,25598,102398.",
+          "No tabular optimization benchmark supplied the worst-case all-state threshold in inspected records."
+        ],
+        "reasoning": "The formula is analytical and follows from classical matrix geometry plus the AdamP rule; absence of a table is not evidence of novelty.",
+        "searches": [
+          "AdamP delta=0.1 group dimension frontier ~400d",
+          "Resultary: AdamP cosine detector condition number SPD quadratic false positive threshold"
+        ]
+      },
+      "rationale": "Kantorovich's matrix angle or first antieigenvalue inequality already gives the extremal SPD cosine and 2-eigenvector equality, so neither this inequality nor its witness is new. Heo et al's AdamP defines a strict dimension-normalized cosine gate and tests it empirically for scale invariance, but the inspected public source does not state the precise SPD condition-number activation frontier with source default delta=.1 or the false-positive diagnostic. Related published SCOPE LAMB/LARS conditioning frontiers involve different update rules. The novelty claim is limited to this concrete AdamP gate interpretation and exact all-state frontier; priority remains vulnerable to unindexed optimizer-diagnostic discussions.",
+      "residual_risks": [
+        "Originality is only the optimizer-specific diagnostic; underlying SPD angle theorem, threshold inversion, and extremal eigenvector mixture are routine classical deductions.",
+        "Uninspected complete AdamP appendix or prior code discussions might have an exact condition-number false-positive threshold.",
+        "No conclusion about post-projection optimizer dynamics, frequency of false positives in training, or momentum/Adam trajectories."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_METHOD_COVERAGE",
+          "evidence": "Source implements projection on near-zero weight-gradient cosine with a scale-invariance motivation; no explicit kappa* found in inspected material.",
+          "identifier_or_url": "https://arxiv.org/abs/2006.08217",
+          "material_read": "Public arXiv bibliographic abstract, author’s project explanatory Algorithm and figures; full conference PDF not freshly read",
+          "method": "Read arXiv abstract and project methodology; used source-established gate from package",
+          "title": "AdamP: Slowing Down the Slowdown for Momentum Optimizers on Scale-invariant Weights",
+          "trigger": "Defines the exact optimizer and the cosine projection gate"
+        },
+        {
+          "assessment": "COVERS_GEOMETRIC_SUBLEMMA",
+          "evidence": "Minimum cosine 2sqrt(mu L)/(mu+L) is classical and must not be claimed as original.",
+          "identifier_or_url": "https://files.ele-math.com/articles/mia-10-45.pdf",
+          "material_read": "Publicly indexed full-text excerpt of section 2.1, equations (2.1)-(2.3); complete PDF was not fetched",
+          "method": "Read indexed extract of equations (2.1)-(2.3) and compared formula and eigenvector equality witness; direct PDF fetch timed out, so full paper not read",
+          "title": "C. Radhakrishna Rao, Kantorovich inequality and generalizations",
+          "trigger": "Exact same minimum cosine formula under SPD bounds"
+        },
+        {
+          "assessment": "DIFFERENT_ALGORITHM",
+          "evidence": "Addresses first LAMB direction, not the AdamP cosine gate.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-conditioning-threshold-for-an-obtuse-first-lamb-direction--00498ba452dc",
+          "material_read": "Resultary title, abstract and exact quantified claim; full source not read",
+          "method": "Semantic Resultary inspection only",
+          "title": "Sharp conditioning threshold for an obtuse first LAMB direction",
+          "trigger": "Published nearby conditioning frontier"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Heo et al arXiv:2006.08217 and clovaai.github.io/AdamP/ authors method overview",
+        "Classical Kantorovich matrix-angle inequality (antieigenvalue), 2sqrt(mu L)/(mu+L)",
+        "Resultary 2026/10/4/SCOPE-sharp-conditioning-threshold-for-an-obtuse-first-lamb-direction--00498ba452dc"
+      ],
+      "rationale": "Whether a scale-invariance detector triggers on a strictly scale-variant, strongly convex objective is a concrete interpretability gap for the method. The exact kappa* boundary certifies when curvature alone cannot spoof it, and explicit open cones show when it can; it supplies a testable, dimension-resolved guarantee (about 400d at delta=.1), not just renaming the underlying classical inequality. No claim of degraded final training performance is made.",
+      "residual_risks": [
+        "Uninspected complete AdamP appendix or prior code discussions might have an exact condition-number false-positive threshold.",
+        "No conclusion about post-projection optimizer dynamics, frequency of false positives in training, or momentum/Adam trajectories."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Originality is only the optimizer-specific diagnostic; underlying SPD angle theorem, threshold inversion, and extremal eigenvector mixture are routine classical deductions.",
+    "Uninspected complete AdamP appendix or prior code discussions might have an exact condition-number false-positive threshold.",
+    "No conclusion about post-projection optimizer dynamics, frequency of false positives in training, or momentum/Adam trajectories."
+  ],
+  "schema_version": 1
+}
