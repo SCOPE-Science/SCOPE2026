@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The characterization follows from compact attainment of the defining supremum, the sharp factorwise bounds \(\|x+y\|\le2\) and \(\|2x-y\|\le2\), and equality in the triangle inequality expressed through norm-one supporting functionals. The converse substitutes the exposed-face data directly into the defining admissible set. The Day--James witness is exact, and the independent literature value \(J(X_D)=3/2\) establishes uniform non-squareness.
+## correctness
 
-## Originality
-PASS. The defining article gives the universal upper bound, a rotund sufficient condition for strict inequality, and the implication \(T_G<2\Rightarrow\) uniformly non-square, but does not state the two-face equality characterization or its converse-failure corollary. Searches using the notation \(T_G\), Day--James aliases, upper-bound saturation, equality, exposed faces, and uniform non-squareness found no statement implying the final claim. The closest exact \(T_G\) computation found concerns a different regular-octagonal norm.
+PASS
 
-## Value
-PASS. This is not merely another table entry: it identifies the local facial geometry responsible for saturation of a recently introduced constant and shows that saturation is compatible with uniform non-squareness. The Day--James plane is a canonical self-dual hexagonal benchmark, so it gives a natural boundary example for the published geometric implication.
+In a finite-dimensional real Banach space the admissible pairs x,y∈S with ||x−y||=1 form a nonempty compact set (dimension≥2), so TG=2 is attained if supremum equals 2. Triangle bounds each ||x+y|| and ||x+(x−y)|| by 2; product 4 forces both equal 2. Let u=x,v=y,w=x−y, so u=v+w and all are unit. Hahn–Banach support functionals for u+v and u+w give norm-one f,g with f(u)=f(v)=g(u)=g(w)=1. Conversely these relations force admissibility and both norms exactly 2, hence TG=2. For N(s,t)=max(|s|,|t|,|s−t|), u=(1,1),v=(1,0),w=(0,1) and f(s,t)=s,g(s,t)=t satisfy all exact equalities; N(2,1)=N(1,2)=2. Published independent Example 4 directly computes J(Day–James l_inf−l_1)=3/2<2, so this is a uniformly non-square space with TG=2. Checked exact witnesses, support norms and original publication. Scope finite dim only; no attainment assertion in arbitrary infinite dim.
 
-## Closest literature and limitations
-The closest primary source is Ahmad--Xie--Li (2022), which defines \(T_G\), proves the bound and the one-way uniform-non-squareness implication, and leaves further specific-space values open. Kato--Maligranda--Takahashi (2001) supplies the independent exact value \(J(X_D)=3/2\). Residual originality risk is limited to unindexed literature that may have observed the same equality case. Infinite-dimensional nonattainment is not addressed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Ahmad–Xie–Li established TG≤2 and TG<2⇒uniformly non-square and used the equality-triangle obstruction for rotund spaces. Kato–Maligranda–Takahashi established the Day–James J=3/2 but predate TG. Their conjunction plus the new explicit TG witness yields a natural counterexample to a tempting converse; the two-face equality equivalence also makes the sharp boundary structural. Elementary supporting-face argument is acknowledged as elementary rather than disguised as deep theory. No identical reverse-implication counterexample located in actual primary text.
+
+## value
+
+PASS
+
+The implication TG<2⇒uniformly non-square appears explicitly in the defining paper; a canonical two-dimensional uniformly non-square counterexample disproving its converse is directly motivated, and the exposed-face iff criterion precisely describes all finite-dimensional extremizers. Though elementary, the explicit negative boundary and mechanism matter to geometric-constant comparisons rather than being an arbitrary constant computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

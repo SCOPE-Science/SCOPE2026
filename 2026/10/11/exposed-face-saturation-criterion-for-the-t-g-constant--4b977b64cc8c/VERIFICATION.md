@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. The defining paper was inspected at Definition 3.1, Theorem 3.2, Theorem 4.6, Proposition 4.9, and its conclusion. These establish the definition, the universal bound \(T_G(X)\le2\), the published rotund implication, the one-way uniform-non-squareness implication, and the stated gap concerning further specific spaces.
+# Independent mathematical audit
 
-For the equality characterization, an extremizing pair in finite dimension has both factors exactly \(2\). Hahn--Banach support at \(x+y\) and at \(2x-y=x+(x-y)\) yields the two norm-one functionals. Conversely, the two functionals force both norms back to \(2\). No finite experiment substitutes for this argument.
+## correctness
 
-For the Day--James corollary, the exact vectors \(u=(1,1)\), \(v=(1,0)\), and \(w=(0,1)\) satisfy \(u=v+w\) and all have norm \(1\). The coordinate functionals have dual norm \(1\), so the criterion applies. The literature premise \(J(X_D)=3/2\) was checked against Kato--Maligranda--Takahashi (2001), Example 4.
+PASS
 
-Limits: no claim is made that \(T_G=2\) is attained in every infinite-dimensional space, and no classification of all extremizing triples is asserted.
+In a finite-dimensional real Banach space the admissible pairs x,y∈S with ||x−y||=1 form a nonempty compact set (dimension≥2), so TG=2 is attained if supremum equals 2. Triangle bounds each ||x+y|| and ||x+(x−y)|| by 2; product 4 forces both equal 2. Let u=x,v=y,w=x−y, so u=v+w and all are unit. Hahn–Banach support functionals for u+v and u+w give norm-one f,g with f(u)=f(v)=g(u)=g(w)=1. Conversely these relations force admissibility and both norms exactly 2, hence TG=2. For N(s,t)=max(|s|,|t|,|s−t|), u=(1,1),v=(1,0),w=(0,1) and f(s,t)=s,g(s,t)=t satisfy all exact equalities; N(2,1)=N(1,2)=2. Published independent Example 4 directly computes J(Day–James l_inf−l_1)=3/2<2, so this is a uniformly non-square space with TG=2. Checked exact witnesses, support norms and original publication. Scope finite dim only; no attainment assertion in arbitrary infinite dim.
+
+## originality
+
+PASS
+
+Ahmad–Xie–Li established TG≤2 and TG<2⇒uniformly non-square and used the equality-triangle obstruction for rotund spaces. Kato–Maligranda–Takahashi established the Day–James J=3/2 but predate TG. Their conjunction plus the new explicit TG witness yields a natural counterexample to a tempting converse; the two-face equality equivalence also makes the sharp boundary structural. Elementary supporting-face argument is acknowledged as elementary rather than disguised as deep theory. No identical reverse-implication counterexample located in actual primary text.
+
+## value
+
+PASS
+
+The implication TG<2⇒uniformly non-square appears explicitly in the defining paper; a canonical two-dimensional uniformly non-square counterexample disproving its converse is directly motivated, and the exposed-face iff criterion precisely describes all finite-dimensional extremizers. Though elementary, the explicit negative boundary and mechanism matter to geometric-constant comparisons rather than being an arbitrary constant computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
