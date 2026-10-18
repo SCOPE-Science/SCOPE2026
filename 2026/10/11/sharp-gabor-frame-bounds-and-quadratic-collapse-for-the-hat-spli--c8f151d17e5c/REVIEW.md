@@ -1,11 +1,21 @@
-# Scientific review: sharp hat-spline Gabor bounds
+# Independent mathematical audit
 
-**Correctness: PASS.** The \(p=1,q=2\) Zibulski–Zeevi characterization determines the optimal bounds from a two-term Zak-fiber norm. Explicit four-term Laurent formulas, a common minimizing phase and coefficientwise upper maximization yield the claimed closed forms. The exact rational endpoint and asymptotic factor are derived in the proof. Finite tests serve only as supplementary checks; the analytic proof establishes the full continuum.
+## correctness
 
-**Originality: PASS, with residual risk.** The closest full text, Stangl–Frederick (arXiv:2609.00481v2), gives the binary frame-set characterization and the fiber formula but does not evaluate the optimal lower/upper envelopes. Its binary membership implication is expressly acknowledged, not claimed as a novel theorem. Hasannasab–Lemvig (arXiv:2609.13116v1) treats Zak zeros and membership, but the complete manuscript was not retrieved. Earlier Gram-matrix work might encode an equivalent quantitative formula. The comparison is therefore affirmative for the accessible material, not an assertion of global uniqueness.
+PASS
 
-**Value: PASS.** Optimal frame constants quantify stable recovery. The exact sharp dependence on modulation spacing and the \((7/4-b)^{-2}\) conditioning blow-up provide a motivated analytic classification close to a structurally known obstruction.
+At the correct unitary Zak normalization b^(-3/2), the 2-sample squared Laurent norm gives exact frame bounds. Enumerated integer translates agree with RESULT.md and an independent 5,508-fiber coefficient/phase check. Reverse triangle and (1+z) factorization show both component minima at z=-1 and give ((U-x)_+)^2+((x-L)_+)^2; the x minimum is x=1/4. Nonnegative Laurent coefficients force the maximum at z=1; endpoint/convexity optimization yields B. The b=7/4 zero and 313/32 factor follow exactly by rational substitution. Finite diagnostics alone do not establish global bounds: the coefficient inequalities and continuous Zak characterization supply the infinite proof.
 
-**Limitations.** The result applies only to the hat spline with \(ab=1/2\) and \(3/2\le b\le7/4\); neither the other Gabor frame regions nor independent validation are addressed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Closest original Zak manuscripts establish Gabor frame membership and scalar-fiber characterization; no inspected theorem evaluates the optimal lower AND upper constants on this full interval or identifies the 313/32 blow-up. The related published tent-spline onset law at b=2+1/(2q) covers a different transition from b=7/4 at q=2. Distinguish previously known qualitative obstruction from new quantitative optimization; full Hasannasab–Lemvig and older Gram-paper texts remain material originality risks.
+
+## value
+
+PASS
+
+Exact optimal Gabor bounds control quantitative stable reconstruction. The whole natural parameter interval and singular quadratic conditioning profile, with sharp fibers and coefficient, address a motivated precision gap left by qualitative frame-set statements, rather than a known table or arbitrary finite sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

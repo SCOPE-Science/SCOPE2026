@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The theorem is proved analytically in `RESULT.md`. A standalone Python 3 program `verify.py` uses rational parameters to reconstruct the short Zak Laurent polynomials, checks agreement with direct finite sums over physical integer shifts, and compares 21 by 41 by 16 sampled phase fibers with the candidate universal bounds. It also verifies the extremizing fibers at \(\gamma=0\) and \(\gamma=1/2\), exact rational bounds, and the singular endpoint. Reproduce by executing `python3 verify.py`.
+## correctness
 
-The script is supplementary: finite phase sampling cannot establish universal inequalities, and its output does not certify originality or independent review. The complete proof relies on the Zibulski–Zeevi frame characterization and elementary exact coefficient inequalities, not numerical extrapolation.
+PASS
+
+At the correct unitary Zak normalization b^(-3/2), the 2-sample squared Laurent norm gives exact frame bounds. Enumerated integer translates agree with RESULT.md and an independent 5,508-fiber coefficient/phase check. Reverse triangle and (1+z) factorization show both component minima at z=-1 and give ((U-x)_+)^2+((x-L)_+)^2; the x minimum is x=1/4. Nonnegative Laurent coefficients force the maximum at z=1; endpoint/convexity optimization yields B. The b=7/4 zero and 313/32 factor follow exactly by rational substitution. Finite diagnostics alone do not establish global bounds: the coefficient inequalities and continuous Zak characterization supply the infinite proof.
+
+## originality
+
+PASS
+
+Closest original Zak manuscripts establish Gabor frame membership and scalar-fiber characterization; no inspected theorem evaluates the optimal lower AND upper constants on this full interval or identifies the 313/32 blow-up. The related published tent-spline onset law at b=2+1/(2q) covers a different transition from b=7/4 at q=2. Distinguish previously known qualitative obstruction from new quantitative optimization; full Hasannasab–Lemvig and older Gram-paper texts remain material originality risks.
+
+## value
+
+PASS
+
+Exact optimal Gabor bounds control quantitative stable reconstruction. The whole natural parameter interval and singular quadratic conditioning profile, with sharp fibers and coefficient, address a motivated precision gap left by qualitative frame-set statements, rather than a known table or arbitrary finite sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
