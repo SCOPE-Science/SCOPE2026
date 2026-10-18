@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The complete \(99\)-tetrahedron complex is reconstructed. Unimodular reduction proves \(H_1\cong\mathbb Z^2\oplus\mathbb Z/2\) from the actual facial relation matrix. Two explicit integral cocycles give exact free coordinates, and a mod-two cocycle detects the unique torsion kernel. Exhaustive enumeration proves that all \(297\) nonfacial triangles are homologically nonzero and gives the complete seven-class multiplicity table.
+## correctness
 
-## Originality
-PASS. The exact-object literature supplies the topology, homology, sixteen-vertex face vector, and tetrahedral data but does not state the triangular systole spectrum. Focused semantic publication searches and exact-phrase web searches did not locate the \(297\)-cycle census, the \(55\) pure-torsion count, or the six torsion-decorated primitive free classes. The current and prior owned records contain no same-object result.
+PASS
 
-## Value
-PASS. Mixed free and torsion first homology makes the shortest layer intrinsically richer than a rank-only calculation. The complete seven-class structure gives a natural, reusable finite invariant: one pure torsion class plus both torsion lifts of three primitive free directions.
+Inspected complete 99-tetrahedron verifier with f=(16,115,198,99). Its relation matrix after star-tree contraction has 100 generators and 198 face equations; 97 unimodular pivots and remaining one column with gcd2 certify SNF 1^97,2 and H1=Z²+Z/2. Two Z-cocycles surject to free quotient; independent mod2 cocycle detects unique torsion element. Exhaustive 495 three-cliques minus 198 faces leaves 297 nonfacial triangles, all nonzero; seven exact class counts 55,54,33,41,36,40,38. Every simple cycle >=3 edges, so all 297 are systoles. The finite verifier was read structurally, not executed as independent certificate.
 
-## Closest literature and limitations
-The closest sources are Lutz's flat-manifold survey, the later f-vector paper, and the exact Manifold Page data. They establish the input complex and ambient invariants but not this inclusion-sensitive shortest-loop classification. The result is specific to one labelled triangulation, and unindexed historical computations remain a residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: known Lutz flat-manifold classification and 16-vertex face-vector table establish the ambient homology/complex, not the precise shortest integral cycle classes and their torsion lifts or multiplicities; related published SCOPE records concern different labeled manifolds.
+
+## value
+
+PASS
+
+PASS: For the natural minimal 16-vertex triangulation of a standard flat three-manifold, the complete shortest integral cycle census and torsion-lift split is a structurally motivated exact invariant potentially relevant to simplicial systolic topology. It is not reducible to the known ambient H1 or f-vector alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
