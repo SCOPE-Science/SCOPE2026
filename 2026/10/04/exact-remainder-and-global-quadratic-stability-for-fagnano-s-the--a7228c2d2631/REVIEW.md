@@ -1,14 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact decomposition follows directly from three cosine-rule square decompositions and the identity \(u+v+w=8\Delta^2/(abc)\). Each remainder term \(\sqrt{s^2+t^2}-s\) is nonnegative. The equality system reduces to the unique orthic side coordinates because \(ABC\) is acute. Rationalizing each term and bounding each inscribed side by the triangle diameter gives the first global stability inequality; the algebraic identity \((U+V)^2+(V+W)^2+(W+U)^2=(U+V+W)^2+U^2+V^2+W^2\) gives the second. The bundled deterministic replay agrees with the exact identity to \(6.661	imes10^{-15}\).
+## correctness
 
-## Originality
-PASS, with historical-access risk recorded. Fagnano minimality is classical and is not claimed as new. The closest inspected proof, Holland (2007), already contains the three side-level sum-of-two-squares decompositions, but it uses them only to prove the qualitative lower bound and equality case. The inspected text does not state the exact total remainder or the quadratic side-coordinate stability estimate. Targeted semantic-database and literature searches found no matching remainder formula. Because older geometry literature is difficult to exhaust and one recent generalized-Fagnano paper was available only through its abstract, exhaustive historical novelty is not asserted.
+PASS
 
-## Value
-PASS. The exact remainder isolates the entire Fagnano perimeter deficit into three nonnegative geometric terms and gives an immediate global quantitative stability bound for perturbations of the orthic triangle. This is a structural strengthening of a classical minimization theorem rather than a renamed inequality or a numerical recomputation. The coefficient in the displayed quadratic bound is explicit but is not claimed sharp.
+For acute ABC and any X,Y,Z on closed sides, cosine rule gives ZX=sqrt(u²+p²), XY=sqrt(v²+q²), YZ=sqrt(w²+r²) for the explicitly given linear forms. The telescoping u+v+w=a cos A+b cos B+c cos C=8Delta²/(abc) yields exact nonnegative remainder. For zero deficit, p=q=r=0; solving the sine-rule linear system gives unique orthic x0=c cos B, y0=a cos C, z0=b cos A, and positivity of linear components at orthic. Rationalization sqrt(s²+t²)-s=t²/(sqrt(s²+t²)+s), with degenerate t=0 handled separately, and each chord <=D proves deficit >=(p²+q²+r²)/(2D). With U=sin A(x-x0),V=sin B(y-y0),W=sin C(z-z0), p=U+W,q=U+V,r=V+W, hence p²+q²+r²=(U+V+W)²+U²+V²+W²>=U²+V²+W². Independently tested acute triangles including equilateral and 200 random side placements each; exact identity errors <=2.22e-15, inequality margins nonnegative. Computation is not universal proof.
 
-Closest literature, source inspections, and residual risks are recorded in `AUDIT.json` and `RESULT.md`.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-level prior comparison: the exact final claim goes beyond inspected narrower qualitative, lower-bound, upper-bound or Poisson-restricted results. This is not a claim of exhaustive historical priority; see four comparisons and source-specific risks.
+
+## value
+
+PASS
+
+The classical orthic minimizer is qualitatively known; an explicit global quadratic coercivity estimate throughout all three sides (including boundary positions) controls displacement from the minimizer, useful for quantitative rigidity, perturbations, and shortest billiard orbit estimates. The coefficient is not claimed sharp, and mere rediscovery of classical perimeter inequality has no novelty.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
