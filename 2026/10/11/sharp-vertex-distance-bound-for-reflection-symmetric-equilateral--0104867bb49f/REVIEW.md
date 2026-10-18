@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The symmetry and unit-edge normalization give a complete one-variable parametrization on \([1/4,1]\). The ten distances are computed directly, the three supporting-edge width directions give the exact minimum width, and strict upper estimates eliminate the two lower intervals. On the last interval, the width is the vertical height and the normalized objective is strictly increasing. The unique weakly convex optimizer and the strict-class supremum follow analytically. The packaged verifier separately computes distances and edge-direction widths as finite diagnostics; this is not an infinite proof.
+PASS
 
-## Originality — PASS, subject to historical priority risk
+The symmetry assumption forces one fixed vertex and two reflected vertex pairs; side-one geometry gives x∈[1/4,1], y=sqrt(1-(x-1/2)^2), u=sqrt(1-x^2), z=y+u. All ten distances sum to 5+2sqrt(z^2+1/4)+2x+2sqrt(1+2x); checking the five edge-normal support widths reduces min width to three explicit candidates. The proof partitions [1/4,1] into bounded subintervals and handles the final strict ratio monotonicity, not a finite sample. Independently reconstructed all ten pairwise distances and every edge-normal width for 40,001 samples, attaining 4+6sqrt(3) only at x=1 on that grid; this corroborates but does not prove continuum extremality. x=1 is weakly convex and the strict convex family has supremum only, exactly as claimed.
 
-Audet and Ninin's initial 2010 working paper proves extremal perimeter, diameter and area but not the sum-of-pairwise-distances result. Their later full journal-version text explicitly labels the all-odd-sided distance-maximization assertion Conjecture 9 and reports finite-precision tests, not an analytic theorem. Dumitrescu (2013) optimizes analogous distance sums under a different, fixed-perimeter normalization and without equilateral-width constraints; his stronger-looking general distance results do not entail this sharp width-normalized subclass inequality. Searches of the published mathematical findings corpus by object, conjecture name, precise constant, alias and parameters found no equivalent or dominating claim. An earlier geometric inequality for symmetric equilateral pentagons may exist under unsearched terminology, so first-publication priority cannot be independently guaranteed.
+## originality
 
-## Value — PASS
+PASS
 
-The invariant is exactly the first unproved, numerically tested member of a documented natural polygonal extremal program. Reflection symmetry is imposed because the conjectured optimizer itself has this symmetry, not to manufacture an arbitrary numerical slice. The result proves the exact sharp value, uniqueness and weak-convexity boundary for this natural class; no wider unrestricted resolution is claimed.
+Audet–Ninin 2013 full journal manuscript, section 4, states total vertex-pair distance optimization at odd n as Conjecture 9 with numerical n=5,7,9 evidence, not a proof; their perimeter/diameter/area theorems do not prove it. Dumitrescu 2013 Theorems 2 and 5 optimize pairwise distances for prescribed perimeter without equilateral and minimal-width normalization, so neither exact ratio nor symmetric equality follows. Direct primary and published-result searches found no stronger proof of this reflection-symmetric n=5 case. The restriction matches the conjectured trapezoidal extremal shape rather than an arbitrary manufactured slice; older unindexed geometric inequalities remain priority risk.
 
-## Limits and closest literature
+## value
 
-The unrestricted conjecture, higher odd numbers of sides, and independent verification remain open or unperformed. The June 2010 author-hosted manuscript and its later journal-version Section 4 were compared separately, as were Dumitrescu's fixed-perimeter polygon distance results.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The unresolved Audet–Ninin natural odd equilateral polygon distance/width program predicts a specific trapezoidal shape. Proving the exact constant and uniqueness in the first pentagonal reflection-symmetric class is a motivated symmetric reduction containing the conjectured optimizer; it neither purports to solve all pentagons nor relies on numerical evidence for its continuum claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
