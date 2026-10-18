@@ -1,11 +1,21 @@
-# Mathematical assessment: quantitative antipodal concentration
+# Independent mathematical audit
 
-**Correctness — PASS.** For the exact sharp-constant range, the positive Schur comparison functions satisfy \(Th=\mathscr A gF(r^2)/F(1)\) and \(T^*g\le\mathscr B h\), with \(\mathscr A\mathscr B=\mathcal C_{n,\alpha}\). Strict monotonicity of the Gauss hypergeometric factor, weighted Cauchy–Schwarz and a uniform interior Poisson-kernel lower bound produce the displayed explicit positive deficit. The cap geometry gives the asserted power of \(\delta\); neither numeric samples nor finite enumeration serve as proof. The limit statements follow on sets exhausting the complement of two null boundary points.
+## correctness
 
-**Originality — PASS with documented residual risk.** Li–Luo–Xu's complete June 2026 preprint establishes the sharp norm and constructs a singular extremizing family; the pointwise quantitative deficit and the necessity of two-pole concentration for *every* near-extremizer are not stated there. Earlier hyperbolic-harmonic literature concerns the specialization \(\alpha=n-2\). Relevant mathematical-index results on harmonic Bergman, Hardy coefficients and Bloch extremizers do not imply the new theorem because their operators and norms differ. The earlier hyperbolic source was accessible only via its abstract and quotation in the later manuscript; an unindexed equivalent remains possible.
+PASS
 
-**Value — PASS.** The theorem converts a sharp trace bound into a geometric concentration principle with an explicit positive deficit for every excluded polar cap, resolving where near-optimal sequences can retain boundary \(L^2\) mass throughout the sharp \(\alpha\)-harmonic parameter range. Its content is stronger than the known single sharpness sequence, without claiming a sharp stability modulus or converse classification.
+For n>=2 and alpha>max(-1,-(n-1)/2), the positive kernel on the unit-ball diameter and normalized sphere has Schur comparisons Th=A g F(r²)/F(1), T*g<=B h, AB=C, with h=(1-<xi,eta>²)^(-(n-1)/4), g=(1-r²)^(-(n-1)/2). The stated Gauss hypergeometric F has two negative numerator parameters, positive denominator, positive convergence excess, and strictly increases on [0,1]. Weighted Cauchy–Schwarz yields a nonnegative defect ≥∫|f|²/h T*(A g-Th). On |r|≤1/2 the strict F(r²)<F(1) gap plus positive Poisson/measure kernel lower bounds produce the displayed κ(δ)>0. The cap complement geometry gives 1/h≥[δ²(1-δ²/4)]^((n-1)/4). Thus no nonzero L² equality, and all normalized norm-extremizing sequences concentrate outside any fixed complement of antipodal caps; no converse. Independently confirmed six gamma/hypergeometric constants and positive κ for six parameter samples; all-parameter claim depends on reconstructed analytic Schur argument and cited exact primary beta identities.
 
-The norm constant and sharpness examples are previously known. The quantitative defect is the new claim. Its coefficient is not asserted optimal; the earlier hyperbolic-only manuscript remains a literature-access limitation, and a full independent mathematical evaluation is still required.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Li–Luo–Xu arXiv:2606.14457v1 establishes the sharp alpha-harmonic Riesz–Fejér norm and builds a particular extremizing sequence. The supplied trace comparison leverages its Schur inputs but adds a uniform positive defect on EVERY polar-cap complement and a necessity classification of ALL near-extremizers; an exhibited sharpness family alone does not imply this stability. Ahmed–Khalfallah 2026 covers hyperbolic alpha=n-2 but not a published all-alpha quantitative cap deficit identified here. Full primary text was not accessible freshly, so this is explicitly best-of-knowledge and subject to a material possible-covered-theorem risk.
+
+## value
+
+PASS
+
+The theorem identifies the geometric location where near-optimizers for a natural sharp integral trace inequality must concentrate, quantified by an explicit mass–deficit modulus for each antipodal cap. Nonattainment and universal extremizer localization are structural facts beyond the known optimal constant and a single extremizing construction; sharpness of κ and sufficiency are properly not claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

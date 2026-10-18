@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The proof is entirely analytic and relies on two explicit, correctly normalized positive-kernel identities from Li–Luo–Xu (2026), namely the hypergeometric expression for the Schur test function and the dual beta-integral bound, both stated with the precise parameter range. The additional strict interior gap follows from monotonicity of \({}_2F_1\); its conversion into the cap stability coefficient uses the estimates \(|r\eta-\xi|\le3/2\), \(1-r^2\ge3/4\) for \(|r|\le1/2\), and \(1-\langle\xi,\eta\rangle^2\ge\delta^2(1-\delta^2/4)\) outside the caps.
+## correctness
 
-The accompanying executable numerical consistency checker evaluates \(F(1/4)<F(1)\), \(\mathscr A\mathscr B=\mathcal C_{n,\alpha}\), and \(\kappa_{n,\alpha}(1/2)>0\) in six representative admissible dimension/parameter pairs. These finite evaluations are checks of transcribed formulas, not certification of universal inequalities. The universal claim is established by the displayed analytic proof. An independent audit has not been performed.
+PASS
+
+For n>=2 and alpha>max(-1,-(n-1)/2), the positive kernel on the unit-ball diameter and normalized sphere has Schur comparisons Th=A g F(r²)/F(1), T*g<=B h, AB=C, with h=(1-<xi,eta>²)^(-(n-1)/4), g=(1-r²)^(-(n-1)/2). The stated Gauss hypergeometric F has two negative numerator parameters, positive denominator, positive convergence excess, and strictly increases on [0,1]. Weighted Cauchy–Schwarz yields a nonnegative defect ≥∫|f|²/h T*(A g-Th). On |r|≤1/2 the strict F(r²)<F(1) gap plus positive Poisson/measure kernel lower bounds produce the displayed κ(δ)>0. The cap complement geometry gives 1/h≥[δ²(1-δ²/4)]^((n-1)/4). Thus no nonzero L² equality, and all normalized norm-extremizing sequences concentrate outside any fixed complement of antipodal caps; no converse. Independently confirmed six gamma/hypergeometric constants and positive κ for six parameter samples; all-parameter claim depends on reconstructed analytic Schur argument and cited exact primary beta identities.
+
+## originality
+
+PASS
+
+Li–Luo–Xu arXiv:2606.14457v1 establishes the sharp alpha-harmonic Riesz–Fejér norm and builds a particular extremizing sequence. The supplied trace comparison leverages its Schur inputs but adds a uniform positive defect on EVERY polar-cap complement and a necessity classification of ALL near-extremizers; an exhibited sharpness family alone does not imply this stability. Ahmed–Khalfallah 2026 covers hyperbolic alpha=n-2 but not a published all-alpha quantitative cap deficit identified here. Full primary text was not accessible freshly, so this is explicitly best-of-knowledge and subject to a material possible-covered-theorem risk.
+
+## value
+
+PASS
+
+The theorem identifies the geometric location where near-optimizers for a natural sharp integral trace inequality must concentrate, quantified by an explicit mass–deficit modulus for each antipodal cap. Nonattainment and universal extremizer localization are structural facts beyond the known optimal constant and a single extremizing construction; sharpness of κ and sufficiency are properly not claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
