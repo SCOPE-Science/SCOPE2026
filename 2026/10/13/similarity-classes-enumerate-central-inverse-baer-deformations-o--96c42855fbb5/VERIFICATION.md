@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction
 
-Using Python 3 with only its standard library, run `python3 verify.py` in the directory containing this report and `verify.py`. The script prints `VERIFY_OK` after exhaustive checks of all 729 alternating bilinear laws on \(\mathbb F_3^4\) under the symplectic transvection action, and all three parameter values of the two-dimensional central law on 27-element groups. Expected orbit sizes are 1,1,1,72,72,72,80,80,80,90,90,90. The rank-stratum counts are 1,3,8 at ranks 0,2,4 respectively. The symbolic proof addresses the infinite range of primes and dimensions; these are finite consistency tests only.
+# Independent mathematical audit
 
-The proof, full source citations, and current scientific limits are in `RESULT.md`. An independent audit has not been performed.
+## correctness
+
+PASS
+
+PASS: On E=V⊕F_p, p odd, central alternating β makes +_β a class-two exponent-p group. Direct calculation gives lambda_{(v,s)}(w,t)=(w,t+(ω−β)(v,w)), an additive automorphism; left and right brace identities hold by central bilinearity, and the Baer transform cancels β to the common additive +_0. Any multiplicative Heisenberg-group automorphism acts by a symplectic similitude P with multiplier τ and central linear shear ℓ; simultaneous preservation of +_β is equivalent to conjugacy of the ω-selfadjoint operator A_β. A selfadjoint operator over F_p[t] has symplectic hyperbolic cyclic decompositions: its invariant factors occur twice, giving diag(T,T^transpose) and one orbit for each ordinary similarity class T∈M_d(F_p). Linear shears contribute p^{2d} to the automorphism count. Rational-canonical matrix similarity enumeration yields ∏_{j>=1}(1-pu^j)^−1 and, excluding polynomial t for invertible T, ∏_{j>=1}(1-u^j)/(1-pu^j). Thus d=2 yields p²+p total, p²−1 nondegenerate/additively extraspecial. Independent enumeration of GL2(F3) conjugacy classes gave 12 total with rank split 1,3,8, consistent with bundled symplectic orbits. This classifies the stated central alternating-bilinear family only; it does not classify all skew braces or all inverse Baer deformations.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge with substantive access risk: The Baer transform, inverse Baer deformation construction and classic symplectic selfadjoint normal form (Waterhouse 2005) are prior and explicitly credited. The inspected Ercan and Damele descriptions introduce the general transform and use it to construct simple braces; neither accessible material states the complete Heisenberg-family brace-isomorphism quotient by matrix similarity with both total and invertible-class Euler series. The original Damele full text and Waterhouse complete text were inaccessible, and a plausible unindexed complete classification may overlap. These are recorded as residual risks, not automatic O failure, because no actual dominating implication was found.
+
+## value
+
+PASS
+
+PASS: The fixed Heisenberg multiplication and central alternating deforming additions yield a canonical natural inverse-Baer family. Complete unmarked brace-isomorphism classes and automorphism centralizers, including the nonabelian-additive/extraspecial subfamily counts, are meaningful group-theoretic moduli data. The proof relates the brace action to classical symplectic matrix similarity and rational-canonical counting, appropriately crediting those tools. This is a family-specific exact classification, not a claim about all braces.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
