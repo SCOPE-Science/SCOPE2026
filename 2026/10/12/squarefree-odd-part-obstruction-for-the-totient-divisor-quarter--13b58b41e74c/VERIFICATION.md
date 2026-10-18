@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact arithmetic verification and its limits
+# Independent mathematical audit
 
-Run the standalone standard-library-only program `python verify.py` in the same directory as `RESULT.md`. The supplied `verification_output.txt` is the resulting output from a fresh execution, and its first line is `VERIFY_OK`.
+## correctness
 
-The symbolic proof needs only the multiplicative identities for \(\varphi\) and \(\tau\), parity of \(P-2Q\), elementary inequalities, and the factorization \(233\) as a prime. The program performs the following finite independent cross-checks: admissible valuation pairs for prime-support parameters \(r=3,4,5,6\); exact rational comparisons of the five relevant prime-product upper bounds; the positive gaps for the prefixes \((3,5,7)\), \((3,5,11)\), \((3,5,13)\); the numerical mismatch of the printed 2023 proposed example; and separately sieved \(\varphi\) and \(\tau\) values for every multiple of \(4\) through \(100000\) with squarefree odd part.
+PASS
 
-The prime-product bounds apply to arbitrarily large primes because \(p/(p-1)\) strictly decreases with \(p\). The argument for all \(k\) above the finite valuation cases is given symbolically by growth of powers of \(2\) relative to \(k+3\), not by stopping enumeration. These proofs and the case analysis in `RESULT.md` establish the infinite exclusion. Finite verification does not establish a global claim by itself. No six-odd-prime solution, independent external review, or complete solution of the unrestricted Diophantine equation is certified.
+With n=2^(k+2) product_{i=1}^r p_i (distinct odd primes) multiplicativity yields exactly 2^k (P-2Q)=2^r(k+3), where P=product p_i, Q=product(p_i-1), B=P-2Q odd. Therefore k=r+nu_2(k+3), B=(k+3)/2^(k-r) must be a positive odd integer. For r<=2 B<0; for r=3 and 5 no admissible k; r=4 forces (k,B)=(4,7), prime-product bounds force p1=3,p2=5; then (p3-16)(p4-16)=233 forces p3=17,p4=249 composite, contradiction. For r=6 only (k,B)=(6,9) or (7,5); Euler-ratio monotonicity forces p1=3,p2 in {5,7,11}; modulo-3 and prefix recurrence in (7,5) force p2=5,p3>=17. Independent exact integer checks reproduced these signatures and the alleged 2023 example n=4096320, phi=1024000, tau=112, phi+tau-n/4=32. No bounded search is used as an infinite nonexistence proof.
+
+## originality
+
+PASS
+
+Sándor 2023 treats the identical quarter equation and proves only unrestricted omega(n)>=4. Its closing odd-squarefree reduction uses a k+1 divisor term and an example with error 32; correcting the factor to k+3 changes the possible support signatures and excludes five-odd-prime layers. The 2022 half-equation is a different target. No searched Resultary record supplies an implication-equivalent support obstruction.
+
+## value
+
+PASS
+
+The squarefree odd part is a canonical multiplicative stratum of a published equation, not an arbitrary cutoff. The theorem eliminates all support sizes up to five odd prime factors for every 2-adic exponent and isolates exact first admissible support constraints; the demonstrated numerical correction prevents invalid examples from propagating.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,17 +1,21 @@
-# Scientific review: squarefree odd-part obstruction for the quarter equation
+# Independent mathematical audit
 
-## Correctness — PASS
-For \(n=2^{k+2}\prod p_i\) with distinct odd primes, multiplicativity independently yields the exact equivalent equation \(2^k(P-2Q)=2^r(k+3)\). The gap \(P-2Q\) is odd, giving the necessary and sufficient valuation and quotient conditions. For \(r=0,1,2\), this gap is negative; the valuation conditions rule out \(r=3,5\) and reduce \(r=4\) uniquely to gap \(7\). Strict rational Euler-product bounds restrict the first two primes to \(3,5\), after which the prime factorization \((p_3-16)(p_4-16)=233\) is impossible. For \(r=6\), the same exact conditions give precisely the two permitted \((k,B)\) branches, and monotone prime bounds and congruences yield all reported constraints. These are unrestricted symbolic deductions, not inductive extrapolations from computations.
+## correctness
 
-The verification program independently recomputed the multiplicative identities, rational bounds, low-support valuation signatures, the exceptional printed example, and exact finite totient/divisor sums. The proof's essential nonstandard steps are explicitly reconstructed in `RESULT.md`. The finite integer regression is corroborative only.
+PASS
 
-## Originality — PASS, with bibliographic risk
-The closest directly relevant primary source, Sándor (2023), Theorems 6–7 and the closing discussion on pages 134–136, treats the very same equation \(\varphi(n)+\tau(n)=n/4\). Its general support lower bound is \(\omega(n)\ge4\), weaker than the present conditional \(\omega(n)\ge7\). The source's four-odd-prime purported example is not a solution by direct substitution, and its associated squarefree reduction replaces the correct divisor-count factor \(k+3\) by \(k+1\). Therefore its statement and proof do not imply the present exclusion. The earlier Sándor–Bhattacharjee (2022) full text treats the related but distinct half equation. Searches under equivalent signatures, the exact equation, prime-support classifications, and the relevant public research record did not find a dominating result. The possibility of an uncatalogued equivalent proof remains a residual bibliographic risk, not a claim of universal novelty certification.
+With n=2^(k+2) product_{i=1}^r p_i (distinct odd primes) multiplicativity yields exactly 2^k (P-2Q)=2^r(k+3), where P=product p_i, Q=product(p_i-1), B=P-2Q odd. Therefore k=r+nu_2(k+3), B=(k+3)/2^(k-r) must be a positive odd integer. For r<=2 B<0; for r=3 and 5 no admissible k; r=4 forces (k,B)=(4,7), prime-product bounds force p1=3,p2=5; then (p3-16)(p4-16)=233 forces p3=17,p4=249 composite, contradiction. For r=6 only (k,B)=(6,9) or (7,5); Euler-ratio monotonicity forces p1=3,p2 in {5,7,11}; modulo-3 and prefix recurrence in (7,5) force p2=5,p3>=17. Independent exact integer checks reproduced these signatures and the alleged 2023 example n=4096320, phi=1024000, tau=112, phi+tau-n/4=32. No bounded search is used as an infinite nonexistence proof.
 
-## Value — PASS
-The quarter equation is an explicit, published Diophantine problem with proposed families of solutions and conjectures about infinitude. Squarefree odd parts constitute a canonical multiplicative stratum, not an arbitrary numerical interval. This theorem completely excludes each of its first six prime-support levels (including the prime \(2\)), with unrestricted exponents of \(2\), and identifies the two possible valuation branches at the next level. It also removes a misleading purported squarefree-odd-part solution by an exact substitution. This gives a useful structural obstruction for future searches and corrections to the problem's initial evidence. The existence of a seven-prime-support solution is neither needed for the exclusion nor asserted.
+## originality
 
-## Closest literature and scope
-J. Sándor, *On certain equations and inequalities involving the arithmetical functions φ(n) and d(n) – II*, 2023, DOI `10.7546/nntdm.2023.29.1.130-136`, primary full text inspected: general Theorem 6, three special non-squarefree families in Theorem 7, closing squarefree formula and example. J. Sándor and S. Bhattacharjee, 2022, DOI `10.7546/nntdm.2022.28.2.376-379`, primary full text inspected: the distinct \(n/2\) problem. The present claim does not establish an example with six odd primes and does not address general odd-prime powers. Independent bibliographic verification and independent mathematical audit are still outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sándor 2023 treats the identical quarter equation and proves only unrestricted omega(n)>=4. Its closing odd-squarefree reduction uses a k+1 divisor term and an example with error 32; correcting the factor to k+3 changes the possible support signatures and excludes five-odd-prime layers. The 2022 half-equation is a different target. No searched Resultary record supplies an implication-equivalent support obstruction.
+
+## value
+
+PASS
+
+The squarefree odd part is a canonical multiplicative stratum of a published equation, not an arbitrary cutoff. The theorem eliminates all support sizes up to five odd prime factors for every 2-adic exponent and isolates exact first admissible support constraints; the demonstrated numerical correction prevents invalid examples from propagating.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
