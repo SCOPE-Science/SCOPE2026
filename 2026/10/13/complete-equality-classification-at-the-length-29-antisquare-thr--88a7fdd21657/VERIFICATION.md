@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` beside `certificate.json`.
+# Independent mathematical audit
 
-The search begins from the empty word. Because both admissibility conditions are inherited by factors, every admissible word has an admissible prefix, so prefix extension is exhaustive.
+## correctness
 
-For each appended bit, every new forbidden factor must be a suffix. The verifier checks every even suffix of length \(2h\), \(h\ge4\), for the antisquare relation, and checks every suffix length \(L\) and every candidate period \(p\) satisfying \(3L\ge8p\). Thus no floating-point period or exponent comparison is used.
+PASS
 
-The verifier regenerates the complete survivor counts through length \(30\), confirms exactly eight survivors at length \(29\) and none at length \(30\), then independently checks every factor and every candidate period in each of the eight extremizers. Finally it recomputes the reversal/complement action and obtains exactly two orbits of size four.
+Both restrictions are factorial; any newly introduced forbidden factor on extension must be a suffix. Independently enumerated all binary prefix survivors by rejecting suffixes x complement(x) with |x|≥4 and periods p satisfying 3L≥8p. Counts for lengths 0..30 exactly agree with the assigned complete certificate, ending at eight at length 29 and zero at 30; the complete eight-word equality list is reproduced. Direct whole-word factor-period and antisquare checks of all survivors rule out a faulty pruning criterion, and reversal/complement closure yields two four-word orbits. The source published the scalar maximum; exhaustion at length30, not a mere finite cutoff assumption, rules out every longer avoiding word.
 
-The verification proves only this finite equality classification. It does not reprove the source's other repetition-threshold theorems. Independent audit has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for eight extremizers and two symmetry classes, not for the published sharp 29-letter maximum. The exact prior antisquares paper Table 3 contains a scalar and one representative; the additional list and orbit structure require an actual complete boundary enumeration.
+
+## value
+
+PASS
+
+PASS: the length-29 obstruction is the exact sharp finite boundary used in a published combinatorics-on-words threshold argument. Classifying all boundary witnesses and their two nontrivial symmetry types is a natural exact rigidity fact, not a random truncated sample or an unmotivated parameter choice; it distinguishes genuinely different extremal mechanisms left unspecified by the one-witness source.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
