@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T22:09:15.511863Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md d6817175b669f02d5bdff00765a1fe7f5610962b",
+        "frozen exact SymPy checker 9ceba29363417bb845c7526c0c4dc3fe1fdec091 read completely",
+        "Liu-Sarfraz-Li (2021) DOI:10.1515/dema-2021-0033, Theorem 5.2",
+        "Komuro-Saito-Tanaka (2016) DOI:10.1002/mana.201500238 regular-octagon J=sqrt2"
+      ],
+      "rationale": "Real octagon norm N(u,v)=max(|u|,|v|,(|u|+|v|)/sqrt2). Parameter swapping x and y shows J(lambda)=J(1-lambda); for 0<lambda<=1/2 the published general bound J(lambda,X)<=lambda J(X)+|2lambda-1| (Liu et al Theorem 5.2) and independently published classical J(X8)=sqrt2 imply upper T=1-(2-sqrt2)lambda. Set r=sqrt2-1, x=(-r,1), y=(1,r), both norm one. Expand p=lambda x+(1-lambda)y=(1-sqrt2 lambda,r+(2-sqrt2)lambda); q=lambda x-(1-lambda)y=(-T,sqrt2 lambda-r). For half interval p coordinates nonnegative, <=T, diagonal (p1+p2)/sqrt2=T, hence N(p)=T. q1=-T and |q2|<=r T, verified by splitting at lambda=1-1/sqrt2 into affine factors 2(2-sqrt2)lambda and 2(sqrt2-1)(1-2lambda); hence N(q)=T. Endpoint lambda=1/2 agrees J(X8)/2=sqrt2/2. Parameter symmetry gives complete exact J(lambda)=1-(2-sqrt2)min(lambda,1-lambda). The independent local symbolic factorization reproduces every inequality, not a finite grid proof. C depends on the cited universal bound and published classical J(X8); those premises are explicitly identified.",
+      "residual_risks": [
+        "The proof uses two published inequalities/values whose hypotheses and normalization matter; the audited source explicitly uses matching weighted definition. Hilbert comparison is an additional consequence, not used to derive the profile."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For each lambda<=1/2, the general upper estimate equals T, but no cited universal equality theorem guarantees attainment for a particular X. Explicit x,y establish this extra fact."
+        ],
+        "reasoning": "Prior theorems cover the upper bound and classical midpoint, not the all-parameter sharp law for this polyhedral norm. Unlike Hilbert plane sharing J=sqrt2, octagon has strict greater J(lambda) for lambda in (0,1/2), so J(X) alone cannot determine profile.",
+        "searches": [
+          "Theorem 5.2 Liu et al 2021 universal James bound",
+          "Komuro-Saito-Tanaka 2016 J(X)=sqrt2",
+          "Filomat 2024 octagon constants"
+        ]
+      },
+      "checked_sources": [
+        "Liu et al 2021 defining paper Theorem 5.2",
+        "Komuro et al 2016 classical octagon identity",
+        "Yang et al Filomat 2024 different invariant",
+        "frozen octagon result, proof, exact checker"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General inequality plus classical J=sqrt2 mathematically implies J(lambda)<=T; only explicit adjacent-edge pair and exact facet check imply equality. Hilbert formula sqrt(lambda²+(1-lambda)²)<T for 0<lambda<1/2 despite same classical J."
+        ],
+        "reasoning": "Prior implication is one-sided, not identity; the exhibited saturation is new mathematical information unless a prior classification of all equality cases at this norm is found (not established).",
+        "searches": [
+          "Liu-Sarfraz-Li 2021 Theorem 5.2",
+          "Komuro-Saito-Tanaka 2016",
+          "Yang-Li-Yang Filomat 2024",
+          "Resultary semantic attempt 2026-10-12: temporarily_unavailable/search_internal_error, search_completed:false; NOT negative evidence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "J(lambda,X)=sup min(||lambda x+(1-lambda)y||,||lambda x-(1-lambda)y||); L_YJ(lambda,mu,X) uses different weighted quadratic (sum-of-squares) expression. The latter does not algebraically determine the former."
+        ],
+        "reasoning": "The octagon is describable as a rotated/scaled polygonal norm but the explicit exact functional is fixed; compared aliases regular octagon/octagonal plane. Known distinct quadratic invariant isn't an equivalent restatement.",
+        "searches": [
+          "Liu-Sarfraz-Li 2021 DOI:10.1515/dema-2021-0033",
+          "Filomat 2024 DOI:10.2298/FIL2405583Y",
+          "search exact weighted James profile regular octagon",
+          "Resultary semantic attempt 2026-10-12: temporarily_unavailable/search_internal_error, search_completed:false; NOT negative evidence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Classical midpoint J(X8)=sqrt2 known; current formula gives at lambda=1/2 J=sqrt2/2 under weighted normalization and an entire affine profile; Filomat tabulates different L_YJ."
+        ],
+        "reasoning": "Known-table recomputation is NOT claimed. The precise weighted min functional and saturation for all lambda are the novelty, conditional on source search limitations.",
+        "searches": [
+          "Filomat 38 (2024) 1583-1593 octagon L_YJ table",
+          "Komuro-Saito-Tanaka 2016 classical James value",
+          "GitHub SCOPE2026 code search (current default branch): returned zero matches; index limitations, NOT negative novelty evidence"
+        ]
+      },
+      "rationale": "The exact continuum octagonal weighted James profile saturating the 2021 universal J(X) upper bound is more than the single classical J(X8)=sqrt2. The 2024 Filomat octagon paper studies L_YJ(lambda,mu,X) and Lprime_YJ which are sum-of-squares functionals and do not imply this weighted minimum norm under general identities. Source article's universal bound alone does not yield octagon-specific matching witnesses. Residual risk remains from unidentified equivalent polygon profile in other notation.",
+      "residual_risks": [
+        "Resultary search failed transiently, no database cross-match verified.",
+        "Prior full text for Komuro and Filomat was only partially available; do not claim whole-document noncoverage.",
+        "A known equality case classification of universal weighted James bound could imply the octagon saturation, not found in reviewed sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "UPPER_BOUND_ONLY",
+          "evidence": "For lambda<=1/2, universal estimate lambda J(X)+1-2lambda becomes T when J(X8)=sqrt2; no octagon exact formula in inspected examples.",
+          "identifier_or_url": "Liu-Sarfraz-Li, DOI:10.1515/dema-2021-0033",
+          "material_read": "Accessible primary definition and Theorem 5.2 on the weighted James bound plus pertinent examples",
+          "method": "Primary full-text relevant sections read and inequality matched algebraically",
+          "title": "Some aspects of generalized Zbaganu and James constant in Banach spaces",
+          "trigger": "Same functional, actual sharp upper bound"
+        },
+        {
+          "assessment": "KNOWN_MIDPOINT_NOT_WEIGHTED_PROFILE",
+          "evidence": "Regular octagon is recognized as J(X8)=sqrt2 non-Hilbert example.",
+          "identifier_or_url": "Komuro, Saito, Tanaka, Math. Nachr. 289 (2016), DOI:10.1002/mana.201500238",
+          "material_read": "Original article title/abstract and its cited role in octagon model; full historical article not independently read",
+          "method": "Original abstract/metadata plus explicit premise from audited package",
+          "title": "On the class of Banach spaces with James constant sqrt(2)",
+          "trigger": "Exact classical octagon premise"
+        },
+        {
+          "assessment": "DIFFERENT_QUADRATIC_INVARIANT",
+          "evidence": "Paper evaluates L_YJ(lambda,mu,X) quantities, not sup-min norm J(lambda,X).",
+          "identifier_or_url": "Yang, Li, Yang, Filomat 38 (2024), DOI:10.2298/FIL2405583Y",
+          "material_read": "Accessible original paper metadata/abstract naming L_YJ and Lprime_YJ; detailed whole-body absence not asserted",
+          "method": "Compared definitions/functional type",
+          "title": "On the L_YJ(lambda,mu,X) constant for the regular octagon space",
+          "trigger": "Same object, similar parameterized invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Liu et al 2021 general upper bound",
+        "Komuro et al 2016 classical James equality",
+        "octagon versus Hilbert strict gap exact factor 2(sqrt2-1)lambda(1-2lambda)"
+      ],
+      "rationale": "The weighted James profile is a natural exact invariant of the distinguished regular-octagon plane. Equality in a published universal bound at every weight is a nontrivial sharpness example and the explicit profile distinguishes the octagon from a Hilbert plane with the SAME classical James constant. This is useful as a geometric counterexample to determination by the midpoint constant, with complete parameter coverage and elementary reproducible witnesses. Not counted as new: classical midpoint J(X8)=sqrt2 or the upper inequality alone.",
+      "residual_risks": [
+        "Specific two-dimensional canonical polygon rather than a new general inequality; importance is as a sharp complete example."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The proof uses two published inequalities/values whose hypotheses and normalization matter; the audited source explicitly uses matching weighted definition. Hilbert comparison is an additional consequence, not used to derive the profile.",
+    "Resultary search failed transiently, no database cross-match verified.",
+    "Prior full text for Komuro and Filomat was only partially available; do not claim whole-document noncoverage.",
+    "A known equality case classification of universal weighted James bound could imply the octagon saturation, not found in reviewed sources.",
+    "Specific two-dimensional canonical polygon rather than a new general inequality; importance is as a sharp complete example.",
+    "The complete assessment is not an external attestation or a change to existing Lean/expert-verification channels. The scientific PASS is not an import/publication authorization."
+  ],
+  "schema_version": 1
+}
