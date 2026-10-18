@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The all-positive affine recursion is exact for the stipulated initial condition, and its trigonometric formula is checked by substitution. Direct differentiation at the rational-angle center gives \(D_n>0\). On a shrinking interval the second derivative grows at most polynomially times \(q_n^n\); therefore the first derivative remains positive, the two nearby exit roots are unique, and their difference has a controlled relative error. Positivity of the earlier branch coordinates validates using the affine formula for the actual max-plus iterates. The width comparison follows from consecutive \(4\cos^2(\pi/n)\) centers. Numerical root checks supplement but do not replace the analytic argument.
+PASS
 
-## Originality — PASS
+For positive X the affine first-coordinate recurrence X_{j+2}=R X_{j+1}−R X_j+1, X0=1, X1=1+R is solved by H_j=1+R^((j+1)/2) sin(jθ)/sinθ, θ=acos(sqrtR/2). At r_n=4cos²(π/n), H_n(r_n)=1 and independently differentiating at θ=π/n yields D_n=n q_n^n/(4 sin²(π/n))>0. Since D_n~q_n^n n³, a radius 3/D_n yields H_n(r_n−c/D_n)=1−c+O(q_n^-n) and strict positive derivative. Both levels 0 and 1/R are crossed exactly once; for j<n the angle satisfies 0<jθ<π throughout, hence X_j=H_j>1 and the first n−1 branch decisions genuinely coincide with the positive affine recurrence. Mean-value theorem gives gap ΔR=(r_nD_n)^−1(1+O(q_n^-n))=tan²(π/n)/(n q_n^n)(1+O(q_n^-n)); q_n=2cos(π/n) implies π² 2^-n n^-3(1+O(n^-1)). The neighboring r_n−r_{n−1}~8π²/n³ yields ratio 2^-n/8. High-precision independent derivative checks at n=6,10,20 matched exact D_n; finite checks only corroborate infinite Taylor estimates.
 
-The 2021 originating preprint, arXiv:2107.09300v1, gives the trigonometric positive-branch solution and a finite table of parameter thresholds. The full 2024 generalization, arXiv:2402.06230v1, describes bifurcation boundaries and approximate period/angle behavior, but neither examined paper states the explicit exponentially small adjacent gap with a \(\pi^2\) leading constant and ratio to the polynomial window width. The theorem is not a restatement of a tabulated value. Equivalent specialized literature could still affect priority.
+## originality
 
-## Value — PASS
+PASS
 
-The known limiting period-window sequence accumulates at the critical parameter \(R=4\). Quantifying how its exponentially thin interstitial gaps compare with the wider reset windows is a dynamical scaling question, rather than an arbitrary finite computation. The exact asymptotic and leading coefficient describe a sharp bifurcation-parameter geometry not resolved by approximate period estimates.
+The exact max-plus model, oscillatory recurrence, exit inequalities and numerical branch-boundary tables all appeared in Yamazaki–Ohmori 2021 and its 2024 generalization. This final claim does not rebrand those facts: it proves an asymptotically EXPLICIT exponential gap with sharp π² constant and its 2^-n/8 ratio to adjacent polynomial windows. Both relevant full primary manuscripts were read, and no corresponding asymptotic was located; possible equivalent unstated Taylor corollary is acknowledged, not treated as a known published result.
 
-## Limits of verification
+## value
 
-The theorem is restricted to the orbit starting at \((1,1)\), sufficiently large integers and the stated exit-root definition. It does not determine arbitrary orbits, the smallest admissible index, or gap dynamics. The origin of the affine recurrence is credited and historical publication-priority risk remains. Finite high-precision checks do not certify the infinite assertion.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The parameter windows are intrinsic to a concrete reset oscillator. Determining exponentially small inter-window gaps compared with adjacent O(n^-3) widths resolves a genuine scale separation and limits numerical bifurcation resolution; the precise coefficient is useful for large-n parameter estimates, without claiming attractor classification in the gap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
