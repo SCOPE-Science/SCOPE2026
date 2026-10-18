@@ -1,12 +1,21 @@
-# Review of Four mutual-visibility parameters of square-page book graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. Explicit geodesics prove that the internal page set is total mutual-visible. Selecting \(x\) permits at most one \(a_i\), and selecting \(y\) permits at most one \(b_i\), because the corresponding same-side geodesics are unique and pass through the spine. This excludes spine-containing maxima for \(r\ge3\). The only equality-sized spine-containing configurations at \(r=2\) are checked directly and each has a blocked pair. Hence the mutual maximum is unique; total feasibility of that set then forces equality and uniqueness for all four variants. Exhaustive direct checks for \(2\le r\le7\) agree.
+## correctness
 
-## Originality
-PASS. The closest primary source is the 2023 paper introducing the three additional variants, which studies a shared-edge pentagonal-page family rather than square pages. A 2025 correction changes that family’s dual value but does not cover the square-page case. Searches under book, square-page, shared-edge-cycle, and generalized-theta aliases found no equivalent theorem or common unique-maximizer classification.
+PASS
 
-## Value
-PASS. The pentagonal shared-edge family is used in the variant-introduction paper precisely to demonstrate separation among the four invariants. The canonical square-page counterpart instead exhibits complete coincidence, so the theorem isolates a natural page-length transition and simultaneously determines all four extremal sets.
+The full 2r nonspine page set I is total-visible by explicit spine-only internal geodesics; selecting spine x in mutual set allows at most one a_i and selecting spine y at most one b_i. Cardinality bounds rule out spine-containing maxima for r>=3; direct geodesic blockage handles r=2 boundary. Thus all four values 2r with unique maximizer I. Independent breadth-first all-shortest-path and all-subset tests for r=2,3,4 reproduced maxima 4,6,8 and exactly one maximizing set for all variants; infinite r follows from structural proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Cicerone et al give four visibility variants and C5-page shared-edge book separation rather than exact C4 all-variant equality. A 2025 later characterization could imply a special case but inspected abstract does not establish that implication. The square C4 result is a natural transition with a unique maximizing configuration, not the related but distinct dual general-position problem.
+
+## value
+
+PASS
+
+Shared-edge books are a canonical test family for mutual-visibility variants. The C4 page transition yields complete equality of four separately motivated invariants with a unique common extremizer, in contrast to known C5 separation; the result is a natural structural characterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

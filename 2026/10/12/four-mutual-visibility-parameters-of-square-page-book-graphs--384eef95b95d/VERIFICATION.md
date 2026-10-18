@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,24 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The checker constructs each square-page book, computes all-pairs distances, enumerates the internal-vertex masks of every shortest path, and tests mutual, outer, dual, and total visibility directly.
+# Independent mathematical audit
 
-For every \(2\le r\le7\), every vertex subset is tested. The program verifies value \(2r\) for all four variants and verifies that the common maximum is unique and consists of all non-spine page vertices.
+## correctness
 
-Recorded output:
+PASS
 
-```text
-VERIFY_OK
-book_parameters_checked = 6
-subset_variant_trials = 436800
-pair_visibility_variant_checks = 349440
-parameters r = 2..7
-all four visibility numbers equal 2r
-the common maximum set is unique and equals the 2r internal page vertices
-all independent mutual-visibility numbers equal r+1
-the two maximum independent sets match the theorem
-```
+The full 2r nonspine page set I is total-visible by explicit spine-only internal geodesics; selecting spine x in mutual set allows at most one a_i and selecting spine y at most one b_i. Cardinality bounds rule out spine-containing maxima for r>=3; direct geodesic blockage handles r=2 boundary. Thus all four values 2r with unique maximizer I. Independent breadth-first all-shortest-path and all-subset tests for r=2,3,4 reproduced maxima 4,6,8 and exactly one maximizing set for all variants; infinite r follows from structural proof.
 
-The independent-mutual-visibility lines are an additional sanity check and are not part of the claimed theorem. Finite computation is corroborative only.
+## originality
+
+PASS
+
+Cicerone et al give four visibility variants and C5-page shared-edge book separation rather than exact C4 all-variant equality. A 2025 later characterization could imply a special case but inspected abstract does not establish that implication. The square C4 result is a natural transition with a unique maximizing configuration, not the related but distinct dual general-position problem.
+
+## value
+
+PASS
+
+Shared-edge books are a canonical test family for mutual-visibility variants. The C4 page transition yields complete equality of four separately motivated invariants with a unique common extremizer, in contrast to known C5 separation; the result is a natural structural characterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
