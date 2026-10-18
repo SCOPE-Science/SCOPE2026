@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+The full \(65,535\)-section coefficient space is partitioned into \(49,515\) forms with explicit geometric singular-point witnesses and \(16,020\) remaining forms. Independently evaluated singularity certificates cover the former. An independently implemented \(72\)-element group action partitions the latter into \(252\) orbits, and exact four-chart polynomial-ideal calculations prove all orbit representatives geometrically smooth. Therefore no untested smooth forms survive. The cohomological Hasse–Witt coefficient formula follows from Frobenius on the standard Čech basis, and both independent binary-matrix implementations agree on all weighted strata. The class-weighted and equation-weighted totals reconcile. A residual computational risk is shared interpretation of coordinate encoding; explicit formulas in the result and positive/negative independent implementations reduce that risk.
+
+## Originality — PASS, qualified
+The 2020 Xarles census and the preceding split-quadric smooth census already classify the individual curves: no originality is claimed for those base counts or for \(2\)-ranks alone. The closest 2023 Dragutinović paper already supplies the \((3,3)\) Hasse–Witt matrix and forbids one relevant EO type \([4,3]\) in characteristic two; the narrower exclusion is therefore not novel in isolation. The inspected primary text, however, does not provide a full finite-field joint table or prohibit *all* \(a\ge2\) for every smooth split-quadric genus-four curve over \(\mathbf F_2\). Camacho-Navarro's inspected calculations cover odd-characteristic examples. Actual research-record and local historical-claim comparisons found no equivalent five-bin equation- and isomorphism-weighted classification. Remaining risk: unpublished postprocessing of the published census (or an overlooked table in a subsequent source) could contain these exact results. Absence from searches alone is not proof of priority.
+
+## Value — PASS
+The precise finite-family invariant is motivated by the arithmetic geometry of genus-four Jacobians: the \(a\)-number measures the local Frobenius/Cartier defect and refines the known isogeny/zeta classification. The complete class-and-equation weighted stratification gives a sharp natural restriction, namely no \(a\ge2\), and yields the exact distribution across all \(252\) smooth split classes. It distinguishes a natural moduli subfamily from possible characteristic-two EO behavior; this is not merely a count of arbitrary coefficient slices. It is an exact finite classification, not a characteristic-independent theorem.
+
+## Source and evidence limits
+Primary full-text material consulted: Xarles (arXiv:2007.07822), Camacho-Navarro (arXiv:2012.08705), Dragutinović (arXiv:2301.12897, including smooth-quadric/EO discussion). The source paper's formula is prior work. The numerical table relies on exact executable code and data included here; no independent human mathematical audit is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
