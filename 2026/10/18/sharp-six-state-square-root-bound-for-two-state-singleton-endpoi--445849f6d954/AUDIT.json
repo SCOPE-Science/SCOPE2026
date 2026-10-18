@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "For every two-state Boolean relation matrix, off-diagonal square entries factor as m_ss*m_st OR m_st*m_tt, each factor recognized by a three-state unordered-pair NFA; the union gives a six-state epsilon-free NFA. Equal endpoints use a two-state original-path copy plus one unordered-pair component, giving five. Six literal binary fooling pairs give a 6x6 acceptance matrix with diagonal ones and at least one zero in every symmetric off-diagonal pair; the standard splicing argument proves a six-state lower bound. Standalone program checks 523264 finite cases and the literal witness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Onishchenko, arXiv:2605.02957v1: universal n^3 upper bound and n>=6 lower witness with three initial and three final states"
+      ],
+      "reasoning": "The broader n^3 theorem supplies only 8 states when n=2; its lower witness does not apply to the restricted two-state one-initial one-final case. The new six-state upper is strictly stronger in its precise domain.",
+      "searches": [
+        "Nondeterministic square root operation automata exact n=2 binary alphabet maximal nondeterministic state complexity 8 fooling set",
+        "2026 automata theory arxiv October 2026 word combinatorics open questions 68R15"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2605.02957v1 (full accessible HTML)",
+      "arXiv:2004.12958 (targeted accessible excerpts)",
+      "Hospodar et al., Information and Computation 307 (2025), operational NFA-to-DFA complexity abstract; distinct output model"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Main paper Section 3: n^3-state construction; Section 4: example requires n>=6 and multiple endpoint states",
+        "Current result: two-state singleton-endpoint six-state universal bound, achieved with binary alphabet and six-pair fooling set"
+      ],
+      "reasoning": "Neither the known 8-state upper bound nor the published high-state lower bound implies the exact restricted value six. The pair symmetry and the explicit binary lower certificate are the additional contributions.",
+      "searches": [
+        "arXiv:2605.02957v1 sections 3 and 4",
+        "Exact six-state bound on nondeterministic state complexity of square root languages recognized by two-state NFAs with one initial and one final state; 6-state binary fooling witness"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2605.02957v1, sections 3-4; direct theorem comparison",
+        "No identical theorem in the returned focused literature or research-record summaries"
+      ],
+      "reasoning": "Equivalent wordings include square root of a regular language, two-state nondeterministic automata, double-word preimage, and symmetric-square product. No examined text gives the universal six-state singleton-endpoint bound plus matching binary witness.",
+      "searches": [
+        "Exact six-state bound on nondeterministic state complexity of square root languages recognized by two-state NFAs with one initial and one final state; 6-state binary fooling witness",
+        "Two-state NFA square root operation unordered pair symmetric square 3-state construction 2x2 Boolean transition relation",
+        "\"square root\" \"two-state\" \"nondeterministic\" automata state"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Available research-record returns concern other automata or algebraic fooling matrices, not a table of two-state square-root NFA complexities"
+      ],
+      "reasoning": "No covering exact-state table or binary two-state witness was located. Search absence alone cannot establish novelty.",
+      "searches": [
+        "Exact six-state bound on nondeterministic state complexity of square root languages recognized by two-state NFAs with one initial and one final state; 6-state binary fooling witness",
+        "nondeterministic state complexity square root two states 6 NFA \"square root\""
+      ]
+    },
+    "rationale": "The full accessible text of Onishchenko arXiv:2605.02957v1 establishes the generic n-cubed construction and sharpness for n at least six with multiple initial/final states, not the two-state singleton-endpoint sharp constant. Actual semantic-research-record searches and named-source literature searches found no identical six-state formula or symmetric-pair construction; residual historical-priority risk remains.",
+    "residual_risks": [
+      "Specialized earlier results under different terminology may exist beyond indexed material.",
+      "The 2020 deterministic-root text was not inspected in full; however its described model differs.",
+      "No independent historical-priority certification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The stated n^3 upper is not tight in the restricted two-state singleton-endpoint setting; the lower construction uses n>=6 with multiple initial/final states and does not cover this claim.",
+        "evidence": [
+          "arXiv:2605.02957v1 introduction, Section 3 Definition 2/Theorem 2, Section 4 Definition 3/Theorem 3"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.02957",
+        "material_read": "Complete accessible HTML sections 1-4, including NFA convention, upper-bound construction, lower-bound hypotheses, proof and references",
+        "method": "read arXiv full HTML",
+        "title": "Nondeterministic state complexity of square root",
+        "trigger": "Same language operation, direct dominating general n^3 theorem"
+      },
+      {
+        "assessment": "Discusses deterministic state complexity and friendly modifiers, not the NFA-to-NFA two-state singleton-endpoint question. Partial-text limitation recorded.",
+        "evidence": [
+          "arXiv:2004.12958, abstract and root-operation summary"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2004.12958",
+        "material_read": "Search-indexed summary and selected text concerning deterministic DFA modifier and root operation; complete paper not inspected",
+        "method": "targeted scientific literature search excerpt",
+        "title": "The state complexity of a class of operations involving roots and boolean operations",
+        "trigger": "Potential root-language equivalence under a different model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "445849f6-d954-4020-88c7-c8ab1752f7a7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact first nontrivial two-source-state boundary of a recently settled cubic NFA square-root problem is six, not eight, in a natural singleton-endpoint source model. The sharp binary witness and the three-state symmetric-square structure explain the gain. This is a quantitative state-complexity classification, not merely a routine restatement or isolated experiment.",
+    "status": "PASS"
+  }
+}
