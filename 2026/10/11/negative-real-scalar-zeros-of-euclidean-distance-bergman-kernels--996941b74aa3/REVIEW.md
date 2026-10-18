@@ -1,15 +1,21 @@
-# Review of the Euclidean-distance Bergman-ball zero classification
+# Independent mathematical audit
 
-## Correctness — PASS
-Direct monomial norms and the duplication identity give the hypergeometric kernel with the stated unnormalized volume constant. The Euler and Pfaff transformations supply precisely the Jacobi parameters \(\alpha=d-1/2\) and \(\beta=\pm1/2\). Their orthogonality weight is strictly positive, so every scalar root is simple and negative real. Descartes sign variation is exact here because all roots are real; the proof deals explicitly with the possible boundary root at \(s=-1\). The complex inner-product disk is fully attainable. An exact-rational script checked 5,776 independent series coefficients and the sample transitions. The infinite-dimensional-parameter conclusion rests on the symbolic proof, not these finite tests.
+## correctness
 
-## Originality — PASS
-The closest 2026 boundary-distance study (Marinescu–Xing, arXiv:2609.24258v1, original PDF §§1, 4–5) proves parameter analyticity but not the special ball's zero structure. Beberok's Jacobi kernels (arXiv:1601.02989v1, §§3–4) belong to intersections of ellipsoids; Zeytuncu and Perälä treat radial weighted disk kernels under different hypotheses, with no exact all-dimensional Euclidean-distance count. The present conclusion is not obtained by merely changing symbols in those statements: it relies on the beta moments for higher-dimensional balls, an orthogonal-polynomial reduction, and an exact boundary-aware counting argument. Searches for weighted ball kernel zeros, Jacobi reductions, equivalent hypergeometric forms and stronger all-dimensional conclusions yielded no covering statement. This is a provisional literature assessment, not proof of absence from all literature. In particular, an unindexed equivalent result or derivation from known dimension-raising identities remains possible.
+PASS
 
-## Value — PASS
-The Lu Qi-Keng zero question asks for qualitative existence and exact location of reproducing-kernel zeros; Euclidean-distance weights are a natural family highlighted by the recent boundary-regularity work. This result gives the full scalar zero set for all integer exponents and all complex dimensions at least two, with a computable exact zero count rather than a finite sample. The contrast at exponent \(3\) between complex dimensions \(2\) and \(3\), followed by reappearance at exponent \(4\) in dimension \(3\), demonstrates meaningful geometric variation that does not follow from ordinary \((1-\|z\|^2)^t\) weights.
+For complex ball B^d, d≥2 and integer t≥0 with exactly weight (1−||z||)^t dV, unit-sphere monomial integral and radial beta B(2k+2d,t+1) give normalized coefficients (d+(t+1)/2)_k(d+(t+2)/2)_k/[(d+1/2)_k k!]. Euler transforms 2F1 into (1−s)^(−d−t−1)Q(s), Q=2F1(−m,−floor(t/2)−1/2;d+1/2;s), m=ceil(t/2). Pfaff and Jacobi produce (1−s)^m P_m^(d−1/2,(-1)^t/2)((1+s)/(1−s)) m!/(d+1/2)_m. Both Jacobi parameters >−1 ensure exactly m simple real x∈(−1,1), mapping to simple negative scalar s. For F(u)=Q(u−1), all roots are real; Descartes sign changes of its Taylor coefficients at u=0 equal the exact number positive roots, correctly excluding a boundary root s=−1. |s|<1 is exactly the attainable ball inner-product disk. Independent rational symbolic check reconstructed Q_{2,3}, Q_{3,3}, Q_{3,4} and Jacobi identity for six (d,t) pairs, including t=0 and t=8; finite checks supplement all-integer proof.
 
-## Limitations and sources
-The finding does not address noninteger exponents or arbitrary domains; it is a statement about simple scalar roots rather than isolated zeros in the several-variable product. Relevant primary papers were inspected in full or by their relevant proof sections: Marinescu–Xing (2026), Beberok (2016), Zeytuncu (2010), Perälä (2017). Classical hypergeometric and Jacobi facts are credited to DLMF. Potential unindexed equivalent literature remains a residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The exact several-variable Euclidean-distance weight numerator, complete negative-simple-root geometry, and exact boundary-aware count were not implied by surveyed primary work. The 2026 Marinescu–Xing manuscript uses the same δ^t weight but abstract/theorems accessible here concern parameter regularity, not scalar zero geometry; full text inaccessible is a specific residual risk, not independent novelty proof.
+
+## value
+
+PASS
+
+The Lu Qi-Keng zero problem is a natural invariant for Euclidean boundary-distance weighted Bergman kernels. The exact all-d≥2, all-integer-exponent scalar root geometry and finite rational-arithmetic count resolve an actual parametric classification, including non-monotone dimension-dependent zero-free examples (d,t)=(2,3),(3,3),(3,4). Neither isolated trial examples nor a known disk table supplies the classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
