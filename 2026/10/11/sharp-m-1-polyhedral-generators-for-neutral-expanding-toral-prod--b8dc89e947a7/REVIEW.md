@@ -1,11 +1,21 @@
-# Review: sharp polyhedral generators for a neutral–expanding product
+# Independent mathematical audit
 
-**Correctness — PASS.** For each integer \(m\ge2\), the displayed \(m+1\) cells partition the fundamental square and have finite affine boundaries. Merging \(a\) and \(b\) yields the exact greedy base-\(m\) digit expansion of \(y\); the unsplit frequency of \(a\) on the universal full-measure equidistribution set is \(\theta/m\), recovering \(\theta\). Entropy of the direct product is exactly \(\log m\). Any \(m\)-symbol generator would induce the uniform i.i.d. name process by equality in Shannon's block entropy bounds, implying ergodicity in contradiction to the fixed neutral coordinate. Thus the lower bound applies to **all** measurable generators and the upper bound is piecewise affine.
+## correctness
 
-**Originality — PASS.** The focal full-text theorem at arXiv:2610.01642v1 requires an eigenvalue strictly inside the unit circle for its smooth-generator obstruction; \(\operatorname{diag}(1,m)\) has no such eigenvalue. Its expanding and strictly contracting regimes and earlier Markov/Bernoulli literature do not state an exact \(m+1\) minimum or the one-cylinder frequency code. The closest published searches concern expanding-matrix Markov partitions and finite-alphabet entropy bounds. The exact specialized result was compared at the level of hypotheses and implication, not titles. Residual risk: an unlocated symbolic-coding construction may imply the same formula.
+PASS
 
-**Value — PASS.** Generator size is the natural minimum symbolic alphabet required to reconstruct a dynamical system. This closes that exact invariant across a natural infinite diagonal family at the neutral spectral boundary, with polygonal realizers rather than merely abstract measurable generators. The sharp one-symbol cost of retaining a nonergodic neutral factor is not obtained from entropy alone; the essential new mechanism is frequency coding within one expanding digit cell.
+For all integer m≥2, the disjoint half-open cells P_a=[0,θ/m) in y, P_b=[θ/m,1/m), plus P_j=[j/m,(j+1)/m) for 1≤j<m cover the fundamental square and have finitely many affine boundary pieces. Merging a,b recovers the canonical base-m digits of y; uniform distribution of multiplication-by-m orbits holds simultaneously for all real θ thresholds on one full-measure forward-invariant set Y, so frequency of letter a is θ/m and reconstructs θ. Thus one-sided names separate a full Haar-measure subset. Haar entropy is log m; an s-cell generator must have s≥m. If s=m, equality in H_n≤nlogm and entropy rate inf_n H_n/n=logm forces all n-word distributions uniform; name shift is ergodic Bernoulli, contrary to invariant nonconstant θ factor of T_m. Hence g=g_poly=m+1. The proof is all-m symbolic, not finite trajectory extrapolation.
 
-**Scope and caution.** Neither uniqueness of the coding, its Markov property, nor an extension to non-diagonal matrices is asserted. The literature check is not a proof of absolute novelty. The accessible primary texts were compared on their actual theorems and hypotheses.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: Leuridan arXiv:2610.01642 Theorem 1, despite broad abstract wording, only obstructs smooth finite generators if an eigenvalue has modulus STRICTLY <1; diag(1,m) has eigenvalues 1,m and is outside its hypotheses. Previously published explicit optimal polygonal construction for an irrational rotation times expansion requires irrational α≠0, and its Fourier-weighted decoder does not formally cover the stationary θ case. General entropy and generator theorems do not specify the polygonal m+1 construction at eigenvalue exactly 1. Specialized older coding equivalence remains a risk.
+
+## value
+
+PASS
+
+PASS: resolves exact least alphabet and supplies a concrete finite-polygon generator in a naturally nonergodic neutral–expanding family. Distinguishes neutral from contracting directions, provides a recoverable phase observable and sharp entropy obstruction; useful as a boundary example in smooth-generator theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

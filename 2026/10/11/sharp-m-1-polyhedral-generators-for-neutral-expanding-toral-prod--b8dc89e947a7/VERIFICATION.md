@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-14.md",
+      "INDEPENDENT_AUDIT_2026-10-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,13 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the minimal generating alphabet
 
-The proof requires no program, numerical table, or finite enumeration. Each step is independently checkable for a symbolic positive integer parameter \(m\ge2\).
+# Independent mathematical audit
 
-1. The intervals \([0,\theta/m)\), \([\theta/m,1/m)\), and \([j/m,(j+1)/m)\) for \(1\le j<m\) form a disjoint cover of the second coordinate for each \(\theta\), with half-open boundary convention.
-2. Under \(T_m\), merging the first two labels reads \(d_n=\lfloor m(m^ny\bmod1)\rfloor\); the convergent digit series reconstructs \(y\) exactly on canonical representatives.
-3. For every \(y\) in the standard common full-measure set uniformly distributed under multiplication by \(m\), the \(a\)-frequency is precisely the interval length \(\theta/m\), for every \(\theta\) simultaneously. The same common full-measure set handles an uncountable collection of thresholds by rational squeeze.
-4. Haar entropy is \(\log m\), since multiplying by \(m\) is uniform Bernoulli in its base digits and the neutral coordinate has zero entropy. For a finite \(m\)-letter process, each block entropy is at most \(n\log m\); if the stationary entropy rate equals \(\log m\), subadditivity forces equality at every block size. Hence its process must be i.i.d. uniform and ergodic, contrary to the invariant neutral coordinate if the name map were generating.
+## correctness
 
-These exact arguments establish the upper and lower bounds for all \(m\ge2\). No claim is made about partitions required to be Markov or independent, pointwise generation on all exceptional orbits, higher-dimensional neutral factors, or arbitrary non-diagonal matrices. Literature incompleteness is the remaining novelty risk; independent audit was not performed.
+PASS
+
+For all integer m≥2, the disjoint half-open cells P_a=[0,θ/m) in y, P_b=[θ/m,1/m), plus P_j=[j/m,(j+1)/m) for 1≤j<m cover the fundamental square and have finitely many affine boundary pieces. Merging a,b recovers the canonical base-m digits of y; uniform distribution of multiplication-by-m orbits holds simultaneously for all real θ thresholds on one full-measure forward-invariant set Y, so frequency of letter a is θ/m and reconstructs θ. Thus one-sided names separate a full Haar-measure subset. Haar entropy is log m; an s-cell generator must have s≥m. If s=m, equality in H_n≤nlogm and entropy rate inf_n H_n/n=logm forces all n-word distributions uniform; name shift is ergodic Bernoulli, contrary to invariant nonconstant θ factor of T_m. Hence g=g_poly=m+1. The proof is all-m symbolic, not finite trajectory extrapolation.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS: Leuridan arXiv:2610.01642 Theorem 1, despite broad abstract wording, only obstructs smooth finite generators if an eigenvalue has modulus STRICTLY <1; diag(1,m) has eigenvalues 1,m and is outside its hypotheses. Previously published explicit optimal polygonal construction for an irrational rotation times expansion requires irrational α≠0, and its Fourier-weighted decoder does not formally cover the stationary θ case. General entropy and generator theorems do not specify the polygonal m+1 construction at eigenvalue exactly 1. Specialized older coding equivalence remains a risk.
+
+## value
+
+PASS
+
+PASS: resolves exact least alphabet and supplies a concrete finite-polygon generator in a naturally nonergodic neutral–expanding family. Distinguishes neutral from contracting directions, provides a recoverable phase observable and sharp entropy obstruction; useful as a boundary example in smooth-generator theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
