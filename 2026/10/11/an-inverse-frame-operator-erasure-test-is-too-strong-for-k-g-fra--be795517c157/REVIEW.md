@@ -1,50 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The full two-vector family has invertible frame operator
-\[
-S_J=
-\begin{pmatrix}
-2&1\\
-1&1
-\end{pmatrix}.
-\]
-After deleting \(f_1=(1,1)\), the remaining singleton \(\{e_1\}\) satisfies
-\[
-|\langle x,e_1\rangle|^2=\|K^*x\|^2
-\]
-for \(K=P_{\operatorname{span}\{e_1\}}\), so it is a Parseval \(K\)-frame. Direct computation gives
-\[
-I-S_J^{-1}S_{\{1\}}
-=
-\begin{pmatrix}
-1&0\\
--1&0
-\end{pmatrix},
-\]
-which is singular and does not preserve \(R(K)\).
+## correctness
 
-The exact replacement follows from
-\[
-\sum_{j\in J\setminus I}\|\Lambda_jx\|^2
-=
-\langle S_{J\setminus I}x,x\rangle:
-\]
-the remaining family is a \(K\)-\(g\)-frame exactly when
-\[
-S_{J\setminus I}\ge aKK^*
-\]
-for some \(a>0\).
+PASS
 
-## Originality
-PASS. Exact-source, theorem-number, erasure, inverse-frame-operator, range-restriction, and Douglas-range formulations were searched and implication-compared.
+Exact C² matrices S_J=[[2,1],[1,1]], S_I=[[1,1],[1,1]], K=diag(1,0) give S_remaining=K K* and Q=I−S_J^(-1)S_I=[[1,0],[-1,0]], determinant zero, with Qe1=e1−e2 outside R(K). This refutes both printed inverse assertions under source hypotheses. The exact replacement S_remaining≥a K K* follows by definition and Douglas factorization, with no closed-range assumption.
 
-The closest indexed result on closed-range \(K\)-frame reconstruction explains that frame operators need not preserve \(R(K)\). That observation is relevant to the published revision, but it does not imply the decisive new counterexample: here the full frame operator is invertible on all of \(H\), yet the first-public full-space criterion is still false.
+## originality
 
-## Value
-PASS. The theorem is advertised as an exact redundancy characterization. Its criterion collapses the \(K\)-\(g\)-frame question to ordinary frame invertibility and therefore rejects a genuine Parseval \(K\)-frame after erasure. The corrected operator inequality is necessary and sufficient and keeps the intended operator-relative notion.
+PASS
 
-## Limitations
-The finding concerns only the redundancy equivalence theorem. It does not assess the paper's approximate-dual results. A later redundancy paper had inaccessible full text during the bounded comparison, and a nonindexed correction remains possible.
+Source-specific statement/implication searches and mathematical comparison support a distinct finding; relevant full-text access limitations and database outage are retained explicitly.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A claimed exact erasure criterion erroneously imposes ordinary frame invertibility on K-frames and is ill-typed after its published repair. The explicit Parseval K-frame witness and Douglas alternative answer the practical redundancy question in its intended operator-relative form.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

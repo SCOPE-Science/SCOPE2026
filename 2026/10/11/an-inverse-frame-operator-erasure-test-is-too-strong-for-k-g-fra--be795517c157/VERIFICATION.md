@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-11.md",
+      "INDEPENDENT_AUDIT_2026-10-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,102 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Let
-\[
-K=
-\begin{pmatrix}
-1&0\\
-0&0
-\end{pmatrix},
-\qquad
-f_1=
-\begin{pmatrix}
-1\\
-1
-\end{pmatrix},
-\qquad
-f_2=
-\begin{pmatrix}
-1\\
-0
-\end{pmatrix}.
-\]
-Then
-\[
-S_J=f_1f_1^*+f_2f_2^*
-=
-\begin{pmatrix}
-2&1\\
-1&1
-\end{pmatrix}
-\]
-and
-\[
-S_J^{-1}
-=
-\begin{pmatrix}
-1&-1\\
--1&2
-\end{pmatrix}.
-\]
+# Independent mathematical audit
 
-For \(I=\{1\}\),
-\[
-S_I=
-\begin{pmatrix}
-1&1\\
-1&1
-\end{pmatrix},
-\qquad
-S_{J\setminus I}
-=
-\begin{pmatrix}
-1&0\\
-0&0
-\end{pmatrix}
-=
-KK^*.
-\]
-Hence the erased family is a Parseval \(K\)-frame.
+## correctness
 
-But
-\[
-S_J^{-1}S_I
-=
-\begin{pmatrix}
-0&0\\
-1&1
-\end{pmatrix}
-\]
-and therefore
-\[
-I-S_J^{-1}S_I
-=
-\begin{pmatrix}
-1&0\\
--1&0
-\end{pmatrix}.
-\]
-Its determinant is zero.
+PASS
 
-Moreover,
-\[
-R(K)=\operatorname{span}\{e_1\},
-\]
-while
-\[
-\left(I-S_J^{-1}S_I\right)e_1=e_1-e_2\notin R(K).
-\]
+Exact C² matrices S_J=[[2,1],[1,1]], S_I=[[1,1],[1,1]], K=diag(1,0) give S_remaining=K K* and Q=I−S_J^(-1)S_I=[[1,0],[-1,0]], determinant zero, with Qe1=e1−e2 outside R(K). This refutes both printed inverse assertions under source hypotheses. The exact replacement S_remaining≥a K K* follows by definition and Douglas factorization, with no closed-range assumption.
 
-The preprint theorem and the revised published theorem were inspected in their complete proofs. The corrected condition
-\[
-S_{J\setminus I}\ge aKK^*
-\]
-is exactly the lower \(K\)-\(g\)-frame inequality written in operator form. Douglas' theorem gives the equivalent range condition
-\[
-R(K)\subseteq R\!\left(S_{J\setminus I}^{1/2}\right).
-\]
+## originality
 
-All calculations are exact symbolic identities; no numerical experiment or partial enumeration is used.
+PASS
+
+Source-specific statement/implication searches and mathematical comparison support a distinct finding; relevant full-text access limitations and database outage are retained explicitly.
+
+## value
+
+PASS
+
+A claimed exact erasure criterion erroneously imposes ordinary frame invertibility on K-frames and is ill-typed after its published repair. The explicit Parseval K-frame witness and Douglas alternative answer the practical redundancy question in its intended operator-relative form.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
