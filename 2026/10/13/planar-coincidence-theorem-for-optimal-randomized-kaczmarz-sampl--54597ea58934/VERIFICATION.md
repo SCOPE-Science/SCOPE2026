@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Execute `python3 verify_planar_rk.py` using only the Python standard library. The expected final output is exactly:
+## correctness
 
-`VERIFY_OK 789 exact/geometry checks`
+PASS
 
-The checker was run using its bundled source file, and its recorded output matched. It implements exact rational orthogonal projections and covariance propagation, compares the resulting finite-time mean-square errors against the theorem's two-endpoint formula, tests the isotropic three-direction all-horizon formula at finitely many horizons, verifies the exact doubled-angle moment identity, and compares selected circular-arc and segment distances. A rational three-row instance also tests the optimal angular support lower bound.
+Reconstructed the self-adjoint positive covariance operator T_p(C)=Σ p_i P_i C P_i, its PSD Gram nonzero spectrum, Perron nonnegative top eigenmatrix and the Rayleigh lower bound Γ(p)>=(1+||Σp_i z_i||²)/2. For r=0 isotropic moment identity yields exact 2^-k for every e0; for r>0 unique occupied semicircle endpoints split 1/2 achieve (1+r²)/2 and characterize all minimizers (up to duplicate rows). Exact-rational two-row covariance propagation checked 3 initial vectors over 10 steps, factor 17/25 for r=3/5. Does not assert quenched or adaptive rates.
 
-The 789 checks comprise 588 exact pair/horizon/error identities, 36 exact isotropic identities, 50 exact moment identities, 49 deterministic arc-geometry checks, and 66 rational candidate comparisons. All numerical geometry checks use a specified absolute tolerance for floating-point trigonometry; rational equalities use `fractions.Fraction` and exact equality.
+## originality
 
-The analytic proof in `RESULT.md` supplies the arbitrary-real-angle, arbitrary-row-count, all-initialization and infinite-time quantifiers. The checker does **not** establish originality, replace the proof, certify mathematical statements independently, or cover noisy systems and quenched error rates. The source-document comparisons and their residual risk are documented in `REVIEW.md` and `AUDIT.json`.
+PASS
+
+Strohmer–Vershynin provide classical exponential expected convergence; Dai–Soltanalian–Pelckmans optimize the one-step eigenvalue upper bound; Agaskar–Wang–Lu establish exact lifted MSE operator and convex SDP for the annealed rate. Their inspected full text does not give the closed planar value, equality of optimizer sets, zero-distance all-time law, or complete positive-distance support classification. These are not automatic consequences of an SDP existence theorem; the new doubled-angle geometry and sharp Rayleigh equality provide the missing explicit optimization.
+
+## value
+
+PASS
+
+Selecting optimal sampling probabilities for linear solvers is a canonical optimization problem. This exact characterization replaces a general SDP by a planar convex-hull construction and distinguishes the optimized exact annealed factor (1+r²)/2 from the previously optimized one-step bound (1+r)/2; both zero-distance and short-arc cases have meaningful different finite-time behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

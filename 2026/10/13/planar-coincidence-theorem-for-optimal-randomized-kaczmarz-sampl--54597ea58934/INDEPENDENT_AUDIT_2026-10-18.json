@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T01:03:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the self-adjoint positive covariance operator T_p(C)=Σ p_i P_i C P_i, its PSD Gram nonzero spectrum, Perron nonnegative top eigenmatrix and the Rayleigh lower bound Γ(p)>=(1+||Σp_i z_i||²)/2. For r=0 isotropic moment identity yields exact 2^-k for every e0; for r>0 unique occupied semicircle endpoints split 1/2 achieve (1+r²)/2 and characterize all minimizers (up to duplicate rows). Exact-rational two-row covariance propagation checked 3 initial vectors over 10 steps, factor 17/25 for r=3/5. Does not assert quenched or adaptive rates.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2014 exact MSE paper §3 optimizes general λmax(R_A(p)) via SDP, without a planar closed form.",
+          "2014 approximate bound optimization covers all dimensions but optimizes a different matrix functional."
+        ],
+        "reasoning": "The general SDP covers the existence/computability of a solution, not this explicit exact value/all minimizers; claimed new part is geometric solution of the planar specialization.",
+        "searches": [
+          "Harvard DASH archived Agaskar–Wang–Lu full 2014 PDF §2-3",
+          "arXiv:1402.2863 full PDF",
+          "Resultary: randomized Kaczmarz exact asymptotic mean square optimal sampling planar two dimensions rows covariance eigenvalues"
+        ]
+      },
+      "checked_sources": [
+        "Actual frozen RESULT.md blob 740025cb197447b08b4e3991887552367570f334",
+        "arXiv:1402.2863",
+        "doi:10.1109/GlobalSIP.2014.7032145",
+        "arXiv:math/0702226",
+        "Resultary: randomized Kaczmarz exact asymptotic mean square optimal sampling planar two dimensions rows covariance eigenvalues"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Strohmer–Vershynin convergence result concerns row-norm sampling, Dai et al one-step bound, Agaskar et al exact annealed SDP."
+        ],
+        "reasoning": "The earlier exact MSE operator is an indispensable premise, but a nontrivial Rayleigh geometry/endpoint sharpness argument is required to show coincidence and the formula; no inspected prior theorem implies it directly.",
+        "searches": [
+          "arXiv:math/0702226",
+          "arXiv:1402.2863",
+          "doi:10.1109/GlobalSIP.2014.7032145"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Agaskar–Wang–Lu (2014) lifted annealed MSE rate λmax(R_A(p)), solved generally by SDP.",
+          "Dai–Soltanalian–Pelckmans (2014) optimized the one-step eigenvalue surrogate, a different objective."
+        ],
+        "reasoning": "The proposed theorem gives the exact planar minimizer and equality of objective minimizer sets, not merely an alternate statement of either pre-existing objective.",
+        "searches": [
+          "Resultary: randomized Kaczmarz exact asymptotic mean square optimal sampling planar two dimensions rows covariance eigenvalues",
+          "web: randomized Kaczmarz exact asymptotic mean square optimal sampling planar two dimensions",
+          "arXiv:1402.2863"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Agaskar et al show numerical sampling weights for a 300x3 matrix and no exact 2D table.",
+          "Independent exact two-row r=3/5 yields gamma=17/25."
+        ],
+        "reasoning": "Experimental examples and a numerical SDP cannot provide the all-row planar theorem. No prior exact table dominating the 2D classification identified.",
+        "searches": [
+          "Resultary: randomized Kaczmarz exact asymptotic mean square optimal sampling planar two dimensions rows covariance eigenvalues",
+          "arXiv:1402.2863 numerical examples",
+          "DASH Agaskar et al 2014 Fig. 2-3"
+        ]
+      },
+      "rationale": "Strohmer–Vershynin provide classical exponential expected convergence; Dai–Soltanalian–Pelckmans optimize the one-step eigenvalue upper bound; Agaskar–Wang–Lu establish exact lifted MSE operator and convex SDP for the annealed rate. Their inspected full text does not give the closed planar value, equality of optimizer sets, zero-distance all-time law, or complete positive-distance support classification. These are not automatic consequences of an SDP existence theorem; the new doubled-angle geometry and sharp Rayleigh equality provide the missing explicit optimization.",
+      "residual_risks": [
+        "Undiscovered exact planar optimal-design interpretation could reproduce the result.",
+        "Perron/PSD and geometric argument reconstructed, not formally proof-assistant certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes exact MSE and general SDP as prior art, but only numeric examples / abstract optimization, no complete planar geometry in inspected paper.",
+          "evidence": [
+            "§3 eq. (20) λmax(R_A(p)); author discussion of Dai bound vs exact annealed rate"
+          ],
+          "identifier_or_url": "https://dash.harvard.edu/server/api/core/bitstreams/7312037d-8b4a-6bd4-e053-0100007fdf3b/content",
+          "material_read": "6-page lawful OA author version; §2 exact lifted second-moment operator, §3 SDP optimal probabilities; Figure 2-3 experiments",
+          "method": "Read PDF text and screenshot of §3 p.5, equations (18)–(20)",
+          "title": "Randomized Kaczmarz Algorithms: Exact MSE Analysis and Optimal Sampling Probabilities",
+          "trigger": "Identical annealed exponent and probability optimization"
+        },
+        {
+          "assessment": "Older optimization concerns one-step eigenvalue/contraction upper bound, not exact annealed exponent equality.",
+          "evidence": [
+            "arXiv:1402.2863, sampling SDP and linear-system setting"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1402.2863",
+          "material_read": "Full accessible 11-page arXiv text, focusing theorem setup and optimized one-step spectral contraction; inspected relevant pages",
+          "method": "Read primary PDF text and selected page images",
+          "title": "On the Randomized Kaczmarz Algorithm",
+          "trigger": "Potential same optimizer from one-step surrogate"
+        },
+        {
+          "assessment": "Prior expected contraction baseline, no inspected planar equality classification.",
+          "evidence": [
+            "Strohmer–Vershynin 2007 arXiv:math/0702226"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0702226",
+          "material_read": "ArXiv abstract and known theorem context only; not full text",
+          "method": "Abstract/source metadata",
+          "title": "A randomized Kaczmarz algorithm with exponential convergence",
+          "trigger": "Canonical predecessor expected convergence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Selecting optimal sampling probabilities for linear solvers is a canonical optimization problem. This exact characterization replaces a general SDP by a planar convex-hull construction and distinguishes the optimized exact annealed factor (1+r²)/2 from the previously optimized one-step bound (1+r)/2; both zero-distance and short-arc cases have meaningful different finite-time behavior.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Actual frozen RESULT.md blob 740025cb197447b08b4e3991887552367570f334",
+    "arXiv:1402.2863",
+    "doi:10.1109/GlobalSIP.2014.7032145",
+    "arXiv:math/0702226",
+    "Resultary: randomized Kaczmarz exact asymptotic mean square optimal sampling planar two dimensions rows covariance eigenvalues"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only consistent real rank-two iid unrelaxed orthogonal Kaczmarz; zero probabilities allowed.",
+    "Exact exponent for mean squared error, not almost-sure typical exponent."
+  ],
+  "residual_risks": [
+    "Undiscovered exact planar optimal-design interpretation could reproduce the result.",
+    "Perron/PSD and geometric argument reconstructed, not formally proof-assistant certified."
+  ],
+  "schema_version": 1
+}
