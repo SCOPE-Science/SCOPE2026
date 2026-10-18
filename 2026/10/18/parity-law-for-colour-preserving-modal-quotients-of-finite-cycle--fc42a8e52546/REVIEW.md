@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The proof derives a forced normal form for every locally-surjective map out of a cycle, then reduces the possible coloured paths to primitive-word periods and vertex-axis reflection centres. The only delicate orbit step uses the composition of two reflections, which is a rotation by twice their centre difference. The resulting one-versus-two path-type law is proved for every cyclic word, including constant and odd-primitive-period cases. Two independent verification approaches check finite boundaries; their limitations are stated.
+
+**Originality: PASS with residual priority risk.** The 2014 primary article arXiv:1408.6676 establishes the general definition and algorithms for locally-surjective graph homomorphisms; it does not assert the exact coloured-cycle quotient spectrum or the parity multiplicity theorem in its inspected sections. Targeted searches for modal bounded morphisms, periodic words, reversible cycles, and path-folding quotient counts did not identify an implication covering the complete stated theorem. The results are nevertheless elementary enough that an uncatalogued specialized treatment remains a meaningful risk.
+
+**Value: PASS.** This gives a full isomorphism-type spectrum of bounded-morphic images for a natural family of finite coloured Kripke frames. The parity law is an actual structural distinction: when the fold-length-to-primitive-period ratio is even, two distinct path colourings survive; when odd they are identified by endpoint reversal. These exact quotient counts are useful for classifying finite-modal frame reductions and are not simply a restatement of map existence.
+
+**Closest literature and limitations.** Chaplick et al., arXiv:1408.6676 (2014), concerns general locally constrained homomorphisms; its complexity and existence methods cover the ambient mapping notion, while closed labelled quotient-isomorphism spectra were not located. Reflections must fix vertices in the cyclic indexing, and all frames here are simple undirected irreflexive graphs. Source-wide literature and all mathematical claims still need independent scrutiny.
+
+Self-review: passed. Independent audit: not yet performed.
