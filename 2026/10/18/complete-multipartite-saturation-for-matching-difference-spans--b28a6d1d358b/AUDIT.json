@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "For each within-part matching pair uv, there are at least k vertices outside its part. An unmatched outside vertex yields a three-point difference expansion. Otherwise among the other k-1 pairs one pair is entirely outside and a four-point Garnir identity gives two cross-part matchings. The number of within-part pairs decreases in both cases, proving Pk(G)=Pk(K_n) for all k through nu. An elementary selected-vertices matching construction proves nu=min(floor(n/2),n-max part). The initiating source supplies and proves the characteristic-zero complete-graph two-row Specht dimension and graded duality; those facts are not claimed new. The packaged verifier independently checks 217 degrees on 58 multipartite profiles and 20 no-matching degrees modulo prime 1000003; these finite calculations corroborate but do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.34260v2 Proposition 5.11 proves k-linked implies k-saturated, but K_{k,k} on 2k vertices is not k-linked at the top degree for k>=2.",
+        "arXiv:2609.34260v2 Theorem 5.12 requires the complement to be a matching, which fails for multipartite parts of size at least three.",
+        "arXiv:2609.34260v2 Theorem 5.9 covers degree two; the present claim covers arbitrarily large degrees."
+      ],
+      "reasoning": "The closest sufficiently general conditions are strictly weaker than needed for the new class. For k>=3 and G=K_{k,k}, linkedness cannot pair two vertices in the same part without an internal vertex when all 2k vertices are terminals, although our identity gives saturation. Therefore those prior theorems do not imply the full present claim.",
+      "searches": [
+        "bipartite matching Specht polynomials k-saturation in characteristic zero and dimension binomial difference",
+        "matching Specht spans all degrees complete multipartite graph k-connectivity",
+        "k-linked graphs are k-saturated Proposition 5.11 complete multipartite graphs",
+        "graphs with matching complement saturation Theorem 5.12"
+      ]
+    },
+    "checked_sources": [
+      "Grinberg--Kirillov--Shapiro, Matching algebras and their Dunkl subalgebras, arXiv:2609.34260v2 (first public v1 2026-09-28).",
+      "ArXiv bibliographic page arXiv:2609.34260, first publication timestamp and primary MSC2020 05C70.",
+      "Research-record searches for matching Specht saturation, complete multipartite difference spans, Dunkl matching Hilbert series, and algebraic equivalences.",
+      "Open web comparisons for complete bipartite Dunkl Hilbert series and matching Specht span equivalence."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The main text of arXiv:2609.34260v2 §§1,5.4-5.5 states Pk(K_n) two-row Specht dimensions, duality, linkedness sufficiency, matching-complement sufficiency, and the equal-size-two multipartite corollary.",
+        "The graph K_{3,3} has complement K_3 disjoint union K_3 (not a matching), is not 3-linked, and is not within the cited multipartite corollary. Its rank statement in top degree is a special case of the present theorem."
+      ],
+      "reasoning": "Cited prior results provide the ambient algebraic model and dimensions, but not the step needed to span arbitrary within-part pairs by cross-part matching polynomials when more than two vertices lie in a part. The new pigeonhole/Garnir reduction closes that implication for all complete multipartite graphs.",
+      "searches": [
+        "Grinberg Kirillov Shapiro Matching algebras and their Dunkl subalgebras arxiv 2609.34260",
+        "Dunkl matching algebra complete multipartite graph exact Hilbert series truncation Catalan triangle saturation",
+        "arXiv 2609.34260 Theorem 5.12 Corollary 5.13 matching-complement multipartite"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.34260v2 §3 and §5 define matching-difference spans and k-saturation, which are the direct equivalent formulations.",
+        "Relevant database results concerning ordinary matching complexes and matching polytopes use different objects and do not assert polynomial-span equality."
+      ],
+      "reasoning": "Equality of all matching-difference spans implies exactly the claimed Hilbert coefficients via the established perfect graded pairing. Searches compared that implication, not only the word saturation; no matching equalities for all complete multipartite part sizes were found.",
+      "searches": [
+        "complete bipartite graphs K_{a,b} Dunkl matching subalgebra Hilbert series matching Specht polynomials all k saturated",
+        "span of products of linear differences for matchings of complete bipartite graph equals two-row Specht module",
+        "Dunkl matching algebra complete multipartite graph exact Hilbert series truncation Catalan triangle saturation",
+        "polynomials product of differences across distinct multipartite color classes full Specht module rank",
+        "matching-difference spans for cross-part matchings; bipartite matching Specht saturation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The paper explicitly tabulates the matching algebra M(K_{a,b}) generating polynomial, distinct from the Dunkl subalgebra D(K_{a,b}).",
+        "Corollary 5.13 of arXiv:2609.34260v2 lists complete multipartite graphs with every part of size two only.",
+        "Targeted searches did not locate a coefficient table or database formula for D(K_{n_1,...,n_r}) for arbitrary part sizes."
+      ],
+      "reasoning": "Ordinary matching numbers count matchings rather than the rank of their difference-polynomial span and therefore are not the same coefficients. The new formula is a precise all-profile all-degree statement not contained in the located tables.",
+      "searches": [
+        "complete bipartite graphs K_{a,b} Dunkl matching subalgebra Hilbert series matching Specht polynomials all k saturated",
+        "Dunkl matching algebra complete multipartite graph exact Hilbert series truncation Catalan triangle saturation",
+        "matching Specht spans all degrees complete multipartite graph k-connectivity",
+        "Hilbert series Dunkl matching algebra K_{a,b} two-row Specht dimensions"
+      ]
+    },
+    "rationale": "The manuscript arXiv:2609.34260v2 gives full matching-difference dimensions for complete graphs, sufficiency of k-linkedness, a matching-complement sufficient condition and its complete multipartite corollary only when all parts have size two. It does not state the equality or Hilbert-series formula for arbitrary complete multipartite graphs. The new replacement induction proves the missing coverage, including all complete bipartite graphs in top matching degree where k-linkedness may fail. Targeted semantic and bibliographic searches found no dominating exact theorem; unresolved unindexed work remains a risk.",
+    "residual_risks": [
+      "An unindexed or inaccessible preprint may contain the same complete multipartite reduction under other algebraic terminology.",
+      "The examined manuscript may be revised after the inspected 2026-10-02 version; this comparison is version-specific.",
+      "Other characteristic regimes are not covered by the Hilbert-series assertion; the present theorem is stated in characteristic zero."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper is the precise foundational source and partial coverage. No result was located deriving full k-saturation and the Dunkl Hilbert series for arbitrary complete multipartite part sizes. It does give a distinct matching-algebra series for K_{a,b} and a limited multipartite corollary.",
+        "evidence": [
+          "arXiv:2609.34260v2 p. 2, introductory summary of saturation criteria",
+          "arXiv:2609.34260v2 p. 6, formula for Hilb(M(K_{a,b}))",
+          "arXiv:2609.34260v2 pp. 20-21, Proposition 5.11, Theorem 5.12 and Corollary 5.13"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2609.34260",
+        "material_read": "Original abstract/first-public-date record, introduction and summary pp. 1-3; complete-bipartite matching-algebra formula p. 6; the results and arguments of Proposition 5.11, Theorem 5.12, and Corollary 5.13 on pp. 20-21, including their three- and four-point polynomial identities; full revision v2 PDF text snippets for the relevant sections.",
+        "method": "Primary open-access arXiv PDF text and displayed page inspection; searches of key terms bipartite, multipartite, linkedness and matching-complement.",
+        "title": "Matching algebras and their Dunkl subalgebras",
+        "trigger": "The motivating 2026 primary manuscript defines exactly the polynomial spans, graded Dunkl algebra, and saturation property in the claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b28a6d1d-358b-4e92-9e05-85d78c222a05",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The initiating manuscript makes deciding k-saturation for graph families a structural research question. The theorem gives an exact all-size, all-degree answer for the canonical infinite class of complete multipartite graphs; it converts the graph connectivity obstruction into an if-and-only-if classification within this class, including families not covered by linkedness or matching-complement hypotheses, and determines a previously unspecified graph-algebra Hilbert series, with a sharp truncation at matching number. This is not ordinary matching enumeration and has concrete structural and algebraic content beyond a renaming exercise.",
+    "status": "PASS"
+  }
+}
