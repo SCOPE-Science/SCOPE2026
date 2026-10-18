@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The unique graph Laplacian has within-p, within-q, and cross-contrast eigenvalues px+qz (multiplicity p-1), qy+pz (multiplicity q-1), Nz (multiplicity 1). Its pseudoinverse-trace objective is strictly convex on connected feasible weights (positive definite inverse-trace Hessian) and permutation symmetry forces orbitwise equal edges without assuming it. Exact per-unit-price marginal KKT inequalities yield three exhaustive regimes with both sharp thresholds and equality behavior. Closed-form budgets, KKT stationarity, positivity and optimal values are symbolically derived; a standalone reconstruction performed 752 exact rational/symbolic assertions with full independent edgewise Laplacian matrices. Finite checks corroborate but do not replace the all-p,q proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghosh, Boyd, Saberi, Minimizing Effective Resistance of a Graph, MTNS 2006, https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "Ghosh, Boyd, Saberi, Minimizing Effective Resistance of a Graph, SIAM Review 50 (2008), 37–66, https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "Tovar et al., Cost convexity controls the architecture of resistance-optimal networks, arXiv:2610.03627, https://arxiv.org/abs/2610.03627",
+        "Bhoite et al., Budget-Constrained Graph Augmentation for Robust Network Design via Kirchhoff Index Minimization, arXiv:2609.29790, https://arxiv.org/abs/2609.29790"
+      ],
+      "reasoning": "The general convex model includes the proposed feasible family after inserting edge-specific prices, but supplies only implicit KKT optimization. The published barbell has a single bridge, whereas this graph has all pq cross edges, with all internal edges optional. The augmentation paper fixes a base weighted network and adds an exact number of edges, a different constraint set; neither stronger framework includes explicit closed price thresholds or states the three support phases.",
+      "searches": [
+        "Optimal network design resistance two unequal clusters complete bipartite bridge all within edges activate only larger part intermediate price",
+        "Effective resistance minimization graph complete with two orbits edge costs 3 phase all cross only larger clique only both cliques",
+        "Ghosh Boyd Saberi 2006 minimizing effective resistance graph weighted barbell cost extensions",
+        "Tovar cost convexity resistance optimal architecture power law group topology 2026"
+      ]
+    },
+    "checked_sources": [
+      "Ghosh, Boyd, Saberi, Minimizing Effective Resistance of a Graph, MTNS 2006, https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+      "Ghosh, Boyd, Saberi, Minimizing Effective Resistance of a Graph, SIAM Review 50 (2008), 37–66, https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+      "Tovar et al., Cost convexity controls the architecture of resistance-optimal networks, arXiv:2610.03627, https://arxiv.org/abs/2610.03627",
+      "Bhoite et al., Budget-Constrained Graph Augmentation for Robust Network Design via Kirchhoff Index Minimization, arXiv:2609.29790, https://arxiv.org/abs/2609.29790",
+      "Published-index semantic searches for two-community conductance optimization, Kirchhoff index, price phase thresholds and stronger formulas",
+      "Accessible previous research ledger claims (deduplication only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ghosh, Boyd, Saberi, Minimizing Effective Resistance of a Graph, MTNS 2006, https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "Ghosh, Boyd, Saberi, Minimizing Effective Resistance of a Graph, SIAM Review 50 (2008), 37–66, https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "Tovar et al., Cost convexity controls the architecture of resistance-optimal networks, arXiv:2610.03627, https://arxiv.org/abs/2610.03627",
+        "Bhoite et al., Budget-Constrained Graph Augmentation for Robust Network Design via Kirchhoff Index Minimization, arXiv:2609.29790, https://arxiv.org/abs/2609.29790"
+      ],
+      "reasoning": "Original framework proves convexity, uniqueness, and KKT criteria, which are correctly credited. Its theorem does not by itself specify where the KKT inequalities switch active sets on two different vertex-orbit dimensions. The new theorem computes their intersections at t_on=2p/(qH) and t_fill=2pN/(2pN-2p-q), proving a nonempty intermediate support phase iff p>q. It does not claim new KKT theory, only this closed classification.",
+      "searches": [
+        "two-community complete graph Kirchhoff index optimal conductance allocation unit cross price internal common price three phase thresholds",
+        "Optimal network design resistance two unequal clusters complete bipartite bridge all within edges activate only larger part intermediate price",
+        "Ghosh Boyd Saberi ERMP tree wheel barbell optimal resistance conductance formula unequal group cost"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ghosh, Boyd, Saberi, Minimizing Effective Resistance of a Graph, MTNS 2006, https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "Ghosh, Boyd, Saberi, Minimizing Effective Resistance of a Graph, SIAM Review 50 (2008), 37–66, https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "Tovar et al., Cost convexity controls the architecture of resistance-optimal networks, arXiv:2610.03627, https://arxiv.org/abs/2610.03627"
+      ],
+      "reasoning": "Resistance-sum, Kirchhoff-index, weighted graph Laplacian pseudoinverse-trace, and optimal intercommunity/within-community conductance designs are equivalent search formulations. The established general convex ERMP and nonlinear-cost architecture literature do not state or directly imply the two exact price transitions and larger-group-only interior regime without solving these new class-specific stationarity inequalities.",
+      "searches": [
+        "Price dependent effective resistance minimization for biclique with optional internal clique conductances exact three-phase solution",
+        "two-community complete graph Kirchhoff index optimal conductance allocation unit cross price internal common price three phase thresholds",
+        "complete bipartite augmentation into complete graph optimal Kirchhoff index priced within-group conductance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-index entry: Exact discounted hitting domination of complete bipartite graphs (different objective and coverage)",
+        "Published-index entry: Euclidean inradius of acyclic flow polytopes (different flow polytope objective)",
+        "Ghosh, Boyd, Saberi, Minimizing Effective Resistance of a Graph, SIAM Review 50 (2008), 37–66, https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf"
+      ],
+      "reasoning": "Searches for exact size-dependent thresholds, table entries, and known priced-biclique specializations returned only distinct graph invariants or generic convex optimization. This is negative search evidence, not a proof that no unpublished or differently named exact formula exists.",
+      "searches": [
+        "Kirchhoff index convex edge weight budget internal edges addition to complete bipartite graph optimal conductance threshold",
+        "Kirchhoff index optimum on complete graph split into two communities cross edges unit cost and all intracommunity edges common price optimal topology two thresholds",
+        "exact formula thresholds within community clique weights total effective resistance complete biclique price t"
+      ]
+    },
+    "rationale": "Explicit two-price-threshold support classification for complete two-community networks with independently adjustable edges is not covered by the inspected general convex ERMP, one-bridge barbell, nonlinear-cost-network, or exact-cardinality augmentation literature. The KKT framework is prior art and is not attributed as new. No equivalently specific indexed finding was retrieved and the accessible same-slot records were compared as deduplication only; remaining risk from unindexed equivalent specializations is acknowledged.",
+    "residual_risks": [
+      "An equivalent unpublished, unindexed, or differently named exact specialization of the known general KKT system may exist.",
+      "The general convex framework renders part of the argument accessible by standard methods; the claimed value is the complete exact group-asymmetric phase boundary, not a new optimization principle.",
+      "The earliest dated proceedings cover certifies the conference date but not a distinct electronic upload day."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Foundational convex ERMP and single-bridge barbell, not complete bipartite cross-connection plus two optional internal cliques with common price",
+        "evidence": "Ghosh, Boyd, Saberi, Minimizing Effective Resistance of a Graph, MTNS 2006, https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "material_read": "PDF text including abstract, full optimization and analytical barbell sections, references and extensions; cover page with proceedings date",
+        "method": "Lawfully accessible author-hosted proceedings PDF, read and compared formulas/topologies",
+        "title": "Minimizing Effective Resistance of a Graph (MTNS 2006)",
+        "trigger": "Original linear-budget resistance optimization, KKT and barbell closest to priced network design"
+      },
+      {
+        "assessment": "General uniqueness/convexity and other graph families; exact two-group price thresholds not stated in inspected material",
+        "evidence": "Ghosh, Boyd, Saberi, Minimizing Effective Resistance of a Graph, SIAM Review 50 (2008), 37–66, https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "material_read": "Author-hosted full-text article including objectives, optimality conditions, examples (wheels/barbells), extensions",
+        "method": "PDF read for dominating instances and equivalent formulations",
+        "title": "Minimizing Effective Resistance of a Graph (SIAM Review 2008)",
+        "trigger": "Expanded primary source, potentially additional examples or price variants"
+      },
+      {
+        "assessment": "General exponent-dependent architecture and linear-cost marginal balance, but not explicit complete two-group linear-cost support classification",
+        "evidence": "Tovar et al., Cost convexity controls the architecture of resistance-optimal networks, arXiv:2610.03627, https://arxiv.org/abs/2610.03627",
+        "identifier_or_url": "https://arxiv.org/abs/2610.03627",
+        "material_read": "Full accessible arXiv HTML article, model and theoretical sections II–VIII",
+        "method": "Searched equations and examples for linear-price, two-orbit and phase diagrams",
+        "title": "Cost convexity controls the architecture of resistance-optimal networks",
+        "trigger": "Contemporary broad resistance-minimizing edge cost power-law phases"
+      },
+      {
+        "assessment": "Different discrete augmentation regime and fixed base; not equivalent or dominating present continuous allocation",
+        "evidence": "Bhoite et al., Budget-Constrained Graph Augmentation for Robust Network Design via Kirchhoff Index Minimization, arXiv:2609.29790, https://arxiv.org/abs/2609.29790",
+        "identifier_or_url": "https://arxiv.org/abs/2609.29790",
+        "material_read": "Full accessible arXiv HTML article, objective and optimization formulation, results",
+        "method": "Compared fixed-base, k-edge augmentation constraint to all-edge continuous allocation",
+        "title": "Budget-Constrained Graph Augmentation for Robust Network Design via Kirchhoff Index Minimization",
+        "trigger": "Potentially stronger cost-aware Kirchhoff minimization under available edge additions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8080922e-9ba7-4a8f-b5c4-5caf250fd111",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact all-parameter solution for a natural community-based resource-allocation model; revealing a nontrivial intermediate regime with no smaller-group internal edges and explicit group-size-dependent boundaries. The middle interval exists exactly under community size imbalance; both thresholds coalesce when groups are equal, and split toward 1 and 2 under increasing imbalance. All conductances and total resistance optima have explicit formulae, allowing reproducible sizing without numerical optimization; no arbitrary finite parameter slice is selected.",
+    "status": "PASS"
+  }
+}
