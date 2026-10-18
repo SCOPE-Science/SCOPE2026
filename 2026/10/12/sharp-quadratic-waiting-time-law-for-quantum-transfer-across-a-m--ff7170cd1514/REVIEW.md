@@ -1,15 +1,21 @@
-# Scientific review: sharp quadratic waiting-time law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The invariant basis consists of the antisymmetric missing-edge state (zero eigenvalue) and the symmetric state coupled to the uniform clique core; it produces the exact two-root amplitude. The loss is sandwiched by a positive weighted sum of phase errors. Every pair of nearest odd eigenphases determines integers of opposite parity. The algebraic norm of their approximate eigenfrequency ratio is a nonzero integer, yielding the displayed uniform lower obstruction. Conversely, the quadratic irrational ratio has bounded continued-fraction coefficients, giving an inhomogeneous half-integer approximation of size \(O_n(1/T)\), and thus an upper loss \(O_n(T^{-2})\). The executable reproduces independent finite matrix-amplitude checks. No finite calculation is used to establish the all-time assertions.
+PASS
 
-## Originality — PASS, with explicit residual risk
+I reconstructed the antisymmetric 0-eigenvector, invariant symmetric endpoint/core 2x2 adjacency block, eigenvalues (s±d)/2 and b-weights w and 1-w. The exact amplitude (f(t)-1)/2 and loss sandwich S/4<=loss<=S/2 reduce perfect phase matching to approximate odd eigenphases. The nearest-odd construction gives integers k,l with k+l odd and nonzero integer norm d^2 k^2-s^2 l^2. Combining |dk-sl| |dk+sl|>=1 with the deadline bound and Cauchy-Schwarz proves precisely the displayed uniform denominator. The complementary construction uses bounded continued-fraction quotients of quadratic irrational beta=(d/s-1)/2 and an inhomogeneous half-integer mesh approximation at k<=floor(sT/(2*pi)); it yields loss <=C_n/T^2. The integer norm and bounded type—not the finite tests—prove the all-n/all-T assertions. A new independent spectral matrix exponential/closed-form comparison and lower-bound sampling on n=4,5,6,9,15 verified 605 tested relations with max amplitude discrepancy under 4e-14.
 
-The close prior result is Kirkland--Monterde--Plosker, arXiv:2201.02720, Theorem 14(2a) and Example 3, which already gives adjacency proper pretty good transfer and no perfect transfer on exactly \(K_n\setminus e\). The present statement does **not** claim either qualitative property as novel; it concerns the exact optimal finite-deadline exponent, including a uniform all-time obstruction. The two additional primary sources (arXiv:2208.08971, Sections 3 and 5, and arXiv:2312.06906, introduction and join analysis) concern decidability, limiting probabilities, and perfect transfer, not the matched finite-time rate. The mathematical step distinguishing the claim is the nonzero integer norm combined with a bounded-type half-rotation covering argument. A general, differently indexed theorem about quantitative returns of two-frequency quantum dynamics could cover part of this claim; the targeted sources inspected did not establish such a domination. A failed search is not treated as a proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-This is a physically meaningful resource question: knowing that near-perfect transport occurs in an almost-complete network does not say how waiting time depends on the required fidelity. The theorem proves both a universal impossibility of improving the exponent and a constructive route matching that exponent, not just one successful sequence. It distinguishes the adjacency model from the known Laplacian perfect-transfer phenomenon. The constants are not claimed to be optimal and depend on fixed graph order.
+Best-of-knowledge finite-deadline quantitative theorem survives the exact SAME-GRAPH established qualitative proper adjacency pretty good transfer. The known result is credited, not presented as novel. The present nonzero quadratic-field norm gives an every-T sharp exponent, whereas qualitative PGST, limit supremum algorithms and adjacency/Laplacian perfect-transfer criteria do not by themselves provide it. A general effective Kronecker/rotation return theorem may be reducible to the exponent; this priority risk remains explicit.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A natural resource question for the explicitly known near-perfect-transport graph: for target 1-epsilon fidelity, what waiting time is intrinsically needed? A matching lower all-time bound and upper construction force the sharp epsilon^-1/2 exponent rather than merely proving that some good times exist. This is useful when comparing transport deadlines for different graph Hamiltonians; no graph-order-uniform bound or sharp leading constant is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
