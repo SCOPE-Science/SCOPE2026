@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T00:51:35Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The divisor set of n=2^a p^b partitions into b+1 layers {2^i p^j:0<=i<=a}. Binary uniqueness gives layer digits 0<=c_j<=M=2^(a+1)-1. If p<=M+1, intervals from adding layer j meet because p^j<=1+M(1+...+p^(j-1)); induction fills [0,M(1+...+p^b)]=[0,sigma(n)]. If p>M+1, each digit is <p; ordinary base-p uniqueness makes all divisor subset sums injective, giving exactly (M+1)^(b+1) represented integers and sigma(n)+1-(M+1)^(b+1) omissions. At b=1 this is M(p-M-1)>=M; H_(b+1)-H_b=M[p^(b+1)-(M+1)^(b+1)]>0. All a,b>=1 and odd primes p are covered analytically; finite checker small cases corroborates only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stewart--Sierpinski via Weingartner: p<=1+sigma(2^a) precisely when 2^a p^b is practical.",
+          "The Zumkeller work counts equal-half-sum partitions, a different fiber statistic; no statement of collision-free all subset sums."
+        ],
+        "reasoning": "The practical threshold is covered but the non-practical uniqueness/omission-count theorem is not implied by it alone. Full Stewart primary text remains unavailable, hence qualified best-of-knowledge PASS.",
+        "searches": [
+          "arXiv:1405.2585 full PDF introduction",
+          "Stewart 1954 DOI:10.2307/2372651",
+          "Resultary: exact Zumkeller partition multiplicity in the upper two-prime strip"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1405.2585, introduction",
+        "Stewart 1954 DOI 10.2307/2372651 (full text unavailable)",
+        "Sierpinski 1955 DOI 10.1007/BF02410762",
+        "Resultary practical/divisor-subset and Zumkeller searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical result says no full interval coverage on the non-practical side, not that all existing representations are unique.",
+          "The proof adds a base-p no-carry injection and an exact count 2^((a+1)(b+1))."
+        ],
+        "reasoning": "Classical coverage does not imply injectivity; p>M+1 and binary layer uniqueness supply mathematically additional information.",
+        "searches": [
+          "arXiv:1405.2585 p.1 Stewart--Sierpinski theorem",
+          "Theorem RESULT.md p>2^(a+1) base-p digits"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Weingartner 2015 first-page restatement only concerns coverage/practicality.",
+          "Radix uniqueness c_j<p yields collision-free sums for p>2^(a+1), whereas practical-number criterion lacks multiplicity information."
+        ],
+        "reasoning": "The exact bijection with bounded base-p strings is distinct from the classical cover-or-not decision; searched equivalences did not locate coverage.",
+        "searches": [
+          "Resultary: practical numbers 2^a p^b divisor subset sums unique representation injective p>2^(a+1)",
+          "Stewart Sums of distinct divisors 1954 unique representation collision-free",
+          "arXiv:1405.2585 Stewart Sierpinski practical inequality"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact match is the record under independent audit, not earlier independent coverage.",
+          "Equal-sum bipartitions and phi-practical polynomial divisor degrees are different maps/objects, not a table of integers represented by distinct divisor subsets."
+        ],
+        "reasoning": "No independent exact count or list for the same subset-sum statistic was located; this non-detection is not by itself a novelty proof.",
+        "searches": [
+          "Resultary: practical numbers 2^a p^b divisor subset sums unique representation injective p>2^(a+1)",
+          "Resultary: exact Zumkeller partition counts for family 2^a p",
+          "Resultary: interior divisor degrees are never unique for two-prime phi-practical numbers"
+        ]
+      },
+      "rationale": "Weingartner restates the Stewart--Sierpinski practical-number iff boundary p<=2^(a+1) for 2^a p^b. That gives complete coverage but does not count distinct subset sums, give collision multiplicities, or assert injectivity on the complementary non-practical side. The new count follows separately from radix uniqueness and is not a corollary of merely knowing impracticality. Nearby Zumkeller and phi-practical records count a different property. Stewart 1954 full text was inaccessible after arXiv/OA search and authorized Oxford reported disconnected VPN; this is a named residual risk, not an automatic O failure.",
+      "residual_risks": [
+        "Original Stewart 1954 full text not read; authorized Oxford connection was unavailable (VPN disconnected).",
+        "Unindexed work on unique radix divisor expansions or partition counts could have recorded this elementary dichotomy.",
+        "The theorem is limited to prime support {2,p}; no generalization to three primes follows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "States practical iff p_j<=1+sigma(previous prime-power prefix); does not give complementary all-subsets injectivity theorem.",
+          "evidence": "p.1 exact criterion for all factorization steps; for n=2^a p^b this is p<=2^(a+1).",
+          "identifier_or_url": "https://arxiv.org/pdf/1405.2585",
+          "material_read": "Retrieved the complete 16-page primary PDF; read introduction and Stewart--Sierpinski criterion p.1, checked bibliography and pertinent terminology. Remaining pages not individually inspected.",
+          "method": "Open-access primary full text.",
+          "title": "Practical Numbers and the Distribution of Divisors",
+          "trigger": "Primary lawful full-text restatement of classical practical-number criterion"
+        },
+        {
+          "assessment": "Cannot assert whole-document noncoverage; uninspected plausible source is a residual originality risk, not decisive counterevidence.",
+          "evidence": "B. M. Stewart, American Journal of Mathematics 76 (1954), 779-785; DOI 10.2307/2372651; Oxford reported vpn_disconnected.",
+          "identifier_or_url": "https://doi.org/10.2307/2372651",
+          "material_read": "Bibliographic title/journal/pages and Stewart criterion as accurately restated by Weingartner; ORIGINAL full pages not accessible.",
+          "method": "arXiv/preprint and OA attempted; authorized Oxford paper download attempted; VPN disconnected, no retry or bypass.",
+          "title": "Sums of Distinct Divisors",
+          "trigger": "Original Stewart 1954 paper plausibly addresses collisions as well as sums."
+        },
+        {
+          "assessment": "Counts equal-sum bipartitions (one target sum), not all represented divisor-subset sums or injectivity.",
+          "evidence": "For n=2^a p this record gives formula floor((2^(a+1)-1+p)/(2p)), distinct from present represented-value count.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/21/SCOPE-zumkeller-two-prime-partition-count--8a0ca297bd59",
+          "material_read": "Published semantic record title and descriptive mathematical abstract; not full proof.",
+          "method": "Read Resultary search-result record and comparison of precise invariant.",
+          "title": "Exact Zumkeller partition counts for the family 2^a p",
+          "trigger": "Closest related two-prime divisor-subset multiplicity in Resultary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At the natural classical practical-number threshold the theorem identifies a sharp collision transition and exact number of representable and missing values over every exponent b. Representational multiplicity is a meaningful invariant of an entire arithmetically defined family, not an arbitrary parameter slice or a mere recalculation of the known practicality test.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Original Stewart 1954 full text not read; authorized Oxford connection was unavailable (VPN disconnected).",
+    "Unindexed work on unique radix divisor expansions or partition counts could have recorded this elementary dichotomy.",
+    "The theorem is limited to prime support {2,p}; no generalization to three primes follows.",
+    "PUBLIC-FILE CONFIDENTIALITY BLOCKER: original source METADATA.json (frozen Git blob 2006de2efa5ce0df5d0152ead8d18732a523f527) contains process identifiers/review states; AUDIT.json (blob 80b3e0eb3e629cc5d947e11a81e3a12a757cf23e) and REVIEW.md also disclose review-process details. A complete semantically checked set of sanitized guarded public replacements was not supplied. The whole package must be withheld; scientific status is separate from transport safety."
+  ],
+  "schema_version": 1
+}
