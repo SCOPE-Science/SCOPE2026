@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The bundled `verify.py` uses only the Python standard library. It checks the Levenshtein distance independently by dynamic programming and recursion on all unordered word pairs, enumerates all four-word and five-word candidates, proves the maximum size and exact count, verifies every maximum is an affine \(2\)-flat, and enumerates the full compatibility-graph automorphism group by adjacency-preserving backtracking. It then computes all maximum-code orbits and the two pair-distance profiles.
+# Independent mathematical audit
 
-Observed replay:
+## correctness
 
-`VERIFY_OK vertices=32 edges=211 maximum=4 labeled_maxima=28 affine_maxima=28 directions=14 admissible_cosets_per_direction=2 automorphism_group=4 max_orbits=8 max_orbit_sizes=2,2,4x6 direction_orbits=8 direction_orbit_sizes=1,1,2x6 distance_profiles=18x(3^5,4),10x(3^4,4^2)`
+PASS
 
-No claim is made beyond binary length \(5\), minimum edit distance \(3\). The originality conclusion depends on the inspected literature and database searches and retains the stated risk of obscure unindexed finite enumerations.
+Ordinary insertion/deletion/substitution distance was recomputed independently by a length-5 Levenshtein dynamic program for all 32 words. The 211-edge compatibility graph has exactly 28 four-vertex cliques and no five-vertex cliques (all C(32,5) tested), so optimum is four. For every extremizer, subtracting a codeword yields a four-element XOR-closed subspace: all 28 are affine binary 2-flats. There are 14 directions and 2 eligible cosets per direction exchanged by complement; the six mutual edit distances split as 18 with five 3s and one 4, and 10 with four 3s and two 4s. A separate networkx GraphMatcher isomorphism enumeration of the EXACT 32-vertex graph finds precisely four automorphisms, which agree with reversal and global bit complement, inducing eight maximum-code orbits of sizes 2,2,4,4,4,4,4,4. This is a provably exhaustive finite proof, not extrapolation.
+
+## originality
+
+PASS
+
+Houghten–Ashlock–Lenarz already tabulated E_2(5,3)=4 and proved global alphabet-permutation/reversal edit-space isometries. Neither the inspected report nor the maintained parameter table enumerates all 28 maxima, their affine structure, eligible cosets, finite compatibility-graph automorphisms, or its eight equality-case orbits; only these latter data are evaluated as new. An obscure archived equality-case census is a residual priority risk.
+
+## value
+
+PASS
+
+A complete, symmetry-resolved equality census for a classical fixed-length edit-code optimum clarifies the geometry of all optimal four-word codes, independently reusable to compare code constructions and automorphism reduction. The known value 4 alone cannot provide its 28 labeled solutions, 14 directions, or eight orbits; this is a natural finite classification, not a selected arbitrary tuple.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
