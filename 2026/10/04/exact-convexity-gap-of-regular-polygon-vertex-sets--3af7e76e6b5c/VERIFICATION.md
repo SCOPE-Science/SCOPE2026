@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-11.md",
+      "INDEPENDENT_AUDIT_2026-10-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,60 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-For vertices indexed by \(\mathbb Z/n\mathbb Z\), let
-\[
-\rho(i,j)=\min\{|i-j|,n-|i-j|\}
-\]
-and
-\[
-d_q=2R\sin\!\left(\frac{\pi q}{n}\right)
-\]
-for
-\[
-0\le q\le\left\lfloor\frac n2\right\rfloor.
-\]
+## correctness
 
-For a pair at cyclic separation \(k\), any vertex center \(j\) satisfies
-\[
-k\le \rho(0,j)+\rho(j,k)\le2\max\{\rho(0,j),\rho(j,k)\},
-\]
-so the smallest possible maximum index distance is at least \(\lceil k/2\rceil\). A midpoint-nearest vertex on the shorter arc attains this bound. Therefore
-\[
-\operatorname{hd}(0,k)=2d_{\lceil k/2\rceil}
-\]
-and
-\[
-g_k=2d_{\lceil k/2\rceil}-d_k.
-\]
+PASS
 
-For every even \(2m\),
-\[
-g_{2m-1}-g_{2m}
-=
-2R\bigl(\sin(2mt)-\sin((2m-1)t)\bigr)>0.
-\]
-For odd terms, writing \(u=(m+1)t\),
-\[
-g_{2m+1}=4R\sin u-2R\sin(2u-t),
-\]
-and
-\[
-\frac{d}{du}g
-=
-4R(\cos u-\cos(2u-t))\ge0
-\]
-because
-\[
-t\le u\le2u-t\le\pi/2.
-\]
-Hence the global maximum is the largest admissible odd separation.
+Using cyclic vertex separation k (1<=k<=floor(n/2)), the exact minimax center distance equals chord length d_{ceil(k/2)} because cyclic index triangle inequality gives the lower bound and the shorter-arc midpoint vertex attains it. Thus leipodistance g_k=4R*sin(ceil(k/2)*pi/n)-2R*sin(k*pi/n). Every even k is dominated by preceding odd k, and for odd k=2m+1 the derivative of F(u)=4R*sin(u)-2R*sin(2u-pi/n) is 4R*(cos(u)-cos(2u-pi/n))>=0 throughout the admissible interval. The largest allowed odd k maximizes; substitution gives all four residue-class formulas and Taylor expansions, with limiting circle gap 2(sqrt(2)-1)R. Independently enumerated all vertex-pair/vertex-center minimaxes for n=3..50 and matched the exact formula numerically; the proof is all-n and finite enumeration was only a check.
 
-The embedded `verify.py` was replayed from its actual package path before packaging. For each \(3\le n\le80\), it independently enumerates every unordered vertex pair and every possible vertex center in Cartesian coordinates, computes hyperdistance directly from the definition, and compares the result to both the compact and residue-class formulas. It also checks the leading asymptotic errors.
+## originality
 
-The replay output was:
+PASS
 
-`VERIFY_OK regular-polygon convexity gap n=3..80`
+The defining Geller–Misiurewicz source computes the gap of a full Euclidean circle and a Hausdorff continuity bound, not the exact finite regular-vertex gaps or their mod-four sampling oscillation. Those prior claims cannot imply the exact maximizer or coefficients. No covering prior theorem was located in accessible inspected material; current corpus search unavailability and alias risks are recorded.
 
-Finite enumeration is not used as an infinite proof. The all-\(n\) theorem follows from the exact center minimization and monotonicity argument above.
+## value
+
+PASS
+
+Regular polygon vertex sets are the canonical finite equispaced approximations of the circle, the defining benchmark for this recent metric midpoint-defect invariant. Exact finite values, extremizing separations and four distinct convergence modes supply a meaningful complete natural classification and reveal an arithmetic sampling effect not provided by Hausdorff stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

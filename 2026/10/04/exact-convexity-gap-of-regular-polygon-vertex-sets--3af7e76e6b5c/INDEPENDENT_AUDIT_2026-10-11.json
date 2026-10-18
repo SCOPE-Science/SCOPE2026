@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-11",
+  "audited_at_utc": "2026-10-11T18:17:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "actual RESULT.md blob ef14bf289e6fba18d16a2d7a50a6d7209d9e86ab",
+        "actual verify.py blob a16130a33d6a469c438df58e56b97615b44ea063",
+        "independent pair-center enumeration n=3..50",
+        "Geller–Misiurewicz full manuscript definitions"
+      ],
+      "rationale": "Using cyclic vertex separation k (1<=k<=floor(n/2)), the exact minimax center distance equals chord length d_{ceil(k/2)} because cyclic index triangle inequality gives the lower bound and the shorter-arc midpoint vertex attains it. Thus leipodistance g_k=4R*sin(ceil(k/2)*pi/n)-2R*sin(k*pi/n). Every even k is dominated by preceding odd k, and for odd k=2m+1 the derivative of F(u)=4R*sin(u)-2R*sin(2u-pi/n) is 4R*(cos(u)-cos(2u-pi/n))>=0 throughout the admissible interval. The largest allowed odd k maximizes; substitution gives all four residue-class formulas and Taylor expansions, with limiting circle gap 2(sqrt(2)-1)R. Independently enumerated all vertex-pair/vertex-center minimaxes for n=3..50 and matched the exact formula numerically; the proof is all-n and finite enumeration was only a check.",
+      "residual_risks": [
+        "Ambient chord metric with centers constrained to vertex set; not polygon boundary/intrinsic metric, irregular samples or higher-dimensional spheres."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source sphere computation fixes the limit but not the sample-dependent error.",
+          "A general Hausdorff Lipschitz inequality yields at best a bound on approximation error; it has no mod-four exact optimizer information.",
+          "Sparse-ends work concerns unbounded spaces rather than finite samples."
+        ],
+        "reasoning": "Broader coverage in ambient metric space classes is not stronger in the exact sampled-polygon invariant; the detailed n-dependent values are not a corollary of mere continuity.",
+        "searches": [
+          "Geller–Misiurewicz author manuscript https://math.indianapolis.iu.edu/~mmisiure/holes.pdf",
+          "DOI 10.1007/s11856-026-2905-8",
+          "arXiv:2606.12202 Sparse metric spaces and sparse ends"
+        ]
+      },
+      "checked_sources": [
+        "Geller–Misiurewicz author-hosted manuscript",
+        "DOI 10.1007/s11856-026-2905-8",
+        "arXiv:2606.12202",
+        "GitHub SCOPE code search: leipodistance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Circle gap 2(sqrt2-1)R gives only the limit, not mod-four signed first-order errors and the quadratic n=0 mod4 branch.",
+          "The coarse Hausdorff inequality cannot imply the exact largest-odd-separation maximizing pair."
+        ],
+        "reasoning": "The finite exact gap is a substantive evaluation of the defining invariant on its canonical discrete approximants, not a simple relabeling of the source formula.",
+        "searches": [
+          "Geller–Misiurewicz sphere example and Hausdorff continuity lemma",
+          "Author manuscript full-text term search polygon"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The defining source explicitly defines hyperdistance, leipodistance and gamma; its sphere example gives a continuous circle value only.",
+          "No polygon occurrence was found in its accessible full text."
+        ],
+        "reasoning": "Compared exact discrete midpoint-defect formulation, leipodistance, metric nonconvexity gap, and finite cyclic chord metrics, not merely the title.",
+        "searches": [
+          "Geller Misiurewicz Holes nonconvexity curvature metric spaces full-text check for polygon",
+          "Attempted Resultary: regular polygon chord distance leipodistance hyperdistance convexity gap (temporarily_unavailable)",
+          "GitHub SCOPE code search: leipodistance (zero indexed results)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No accessible table of this new metric invariant over all regular n-gons was found in the inspected primary manuscript."
+        ],
+        "reasoning": "As a symbolic exact all-n formula rather than finite numerical data, any equivalent general polygon formula could cover it; no such theorem was verified.",
+        "searches": [
+          "Attempted Resultary query with gap polygon leipodistance (failed search, not a negative result)",
+          "GitHub SCOPE code search: leipodistance",
+          "Targeted web: leipodistance regular polygon chord Euclidean"
+        ]
+      },
+      "rationale": "The defining Geller–Misiurewicz source computes the gap of a full Euclidean circle and a Hausdorff continuity bound, not the exact finite regular-vertex gaps or their mod-four sampling oscillation. Those prior claims cannot imply the exact maximizer or coefficients. No covering prior theorem was located in accessible inspected material; current corpus search unavailability and alias risks are recorded.",
+      "residual_risks": [
+        "A targeted published-finding semantic search was attempted but returned temporarily_unavailable/search_internal_error with search_completed=false; it is not treated as evidence that no overlapping record exists. A current GitHub code-search query of the public SCOPE repository returned no match, which is also not proof of novelty.",
+        "Older equivalent formulations under approximate-midpoint/metric-nonconvexity language may be weakly indexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "LIMIT/GENERAL CONTINUITY ONLY",
+          "evidence": "The source computes the circle gap and general continuity but does not display the regular-vertex discrete sequence.",
+          "identifier_or_url": "https://math.indianapolis.iu.edu/~mmisiure/holes.pdf",
+          "material_read": "Accessible author-hosted PDF text covering opening definitions, the Euclidean sphere example and Hausdorff continuity lemma; full-document text search for polygon.",
+          "method": "Primary full-text reading and terminology/formula comparison.",
+          "title": "Holes, nonconvexity, and curvature in metric spaces",
+          "trigger": "Defining source for gap and exact circle benchmark"
+        },
+        {
+          "assessment": "DIFFERENT DOMAIN",
+          "evidence": "Describes gap/tryposity for sparse unbounded spaces rather than finite regular vertex samples.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.12202",
+          "material_read": "Accessible preprint record/abstract and scope discussion, not a full-document exclusion search.",
+          "method": "Scope comparison.",
+          "title": "Sparse metric spaces and sparse ends",
+          "trigger": "Later reuse of the same gap invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Geller–Misiurewicz sphere gap and Hausdorff continuity",
+        "exact all-n optimization and residue derivation"
+      ],
+      "rationale": "Regular polygon vertex sets are the canonical finite equispaced approximations of the circle, the defining benchmark for this recent metric midpoint-defect invariant. Exact finite values, extremizing separations and four distinct convergence modes supply a meaningful complete natural classification and reveal an arithmetic sampling effect not provided by Hausdorff stability.",
+      "residual_risks": [
+        "Does not classify arbitrary cyclic samples or intrinsic polygon boundary gaps."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Ambient Euclidean chord metric with centers among sampled vertices, n>=3, R>0.",
+    "No intrinsic metric or irregular sampling result.",
+    "Unindexed approximate-midpoint literature and unavailable semantic index remain originality risks."
+  ],
+  "schema_version": 1
+}
