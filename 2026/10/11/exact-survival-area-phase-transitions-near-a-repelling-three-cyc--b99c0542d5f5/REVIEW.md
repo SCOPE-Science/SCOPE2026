@@ -1,11 +1,21 @@
-# Same-model mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim has a completely specified dynamical event, a verified primitive period-three itinerary and derivative, and an exact halfplane representation for each finite survivor polygon. The inverse return matrix has eighth power \(4096^{-1}I\), which proves the global eight-block scaling using convex nesting. Exact affine-endpoint facet certificates verify the first-, second-, and third-block stabilization polygons and their positive areas on full real parameter intervals, not on a finite grid; all three area constants follow by determinant scaling. The included standalone script was run on the supplied source file.
+## correctness
 
-**Originality — PASS, with stated priority risk.** The 2024 source (arXiv:2410.01052, Section 4.1, equation (8), Section 5.6 and Appendix) treats the same map and finds the period-three orbit and graph classification, but its inspected conclusions do not specify the planar Lebesgue measures of repeated-itinerary survival sets, the exact first stabilization depth in distinct parameter strips, or either of these two new coefficients' breakpoints. The 2025 sequel (arXiv:2503.02411, introduction and main theorems) studies measures and entropy *on invariant graphs*, not planar transient cylinder area. Published-record semantic comparisons sought equivalent Lozi-map, survivor-cylinder, and repeller escape-law formulations, without a covering statement found. A preexisting specialized cylinder-measure calculation could still imply the result and would supersede this proposed priority claim; these searches do not certify absolute novelty.
+PASS
 
-**Value — PASS.** The rate alone is suggested by the known expanding derivative, but that rate does not distinguish the three quantitatively different initial-condition survival regimes. The theorem determines a natural observable, planar measure of transient imitation of a repelling cycle, throughout a nontrivial parameter interval. It gives exact transitions at \(b=3/2\) and \(b=7/4\), plus a quadratic vanishing law near the disappearing itinerary, and a complete eight-phase self-similarity even outside the coefficient's simple formula interval. These are meaningful, testable geometric refinements of existing qualitative orbit descriptions.
+Read the complete assigned RESULT.md and exact-rational verify.py. Its three-step return matrix M=[[2,2],[-2,2]] and inverse N=(1/4)[[1,-1],[1,1]] satisfy N^8=4096^-1 I; the strict prescribed quadrant conditions reduce to four halfspaces D_b centered at the known orbit r_b, and S_n=intersection_{j=0}^{n-1}N^j D_b. Since D_b is convex and contains zero, the eight residue classes of scaled copies are nested; n>=8 makes the last copy of each class controlling, proving the infinite-index homothety. The three finite b regimes use explicit polygons D_b, P_b, (2-b)Q, with affine-in-b endpoint support constraints and N-invariance. The actual checker certifies the edge-support and feasibility tests in exact rational arithmetic at interval endpoints, which analytically extends to every b in the closed regime; shoelace areas give the three C(b). Independent rational clipping checks at multiple b and n corroborated areas and the periodic homothety. The claim is CONDITIONAL survivor area only, not full basin/escape measure.
 
-**Limitations and closest literature.** The event is one prescribed strict quadrant itinerary; it is neither the basin of an invariant graph nor unconditional escape to infinity. The coefficient classification is for \(1\leq b<2\), while the eight-block identity is for \(3/4<b<2\). The originating paper and sequel are the closest inspected primary sources. Related general Markov-cylinder volume heuristics may recover geometric rates but not the exact parameter-dependent formulas without new polygon intersections. Historical priority remains open to future independent literature comparison.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded best-of-knowledge originality: the exact stated invariant and quantified result were compared by implication to the closest primary and published SCOPE sources; no decisive covering result found. Unread material and alternative nomenclature remain explicit, and source search is not proof of absolute novelty.
+
+## value
+
+PASS
+
+The exact decay factor alone is a determinant exercise, but the sharp finite stabilization and previously uncomputed b-dependent area constants at b=3/2 and 7/4 are nontrivial bifurcations of a natural repelling itinerary cylinder. These quantify finite-time survival geometry of the same dynamically motivated planar family; they are not a discretionary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
