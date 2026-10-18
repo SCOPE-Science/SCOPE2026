@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The companion `verify.py` checks exact symbolic identities for the four quadrics and all six pairs, including all moving-conic discriminants. It checks the two special nonordinary triple contact patterns by truncated formal power series, tests all stated exceptional triple-point incidences, confirms the degree-three Jacobian syzygy, and certifies full rank for the degree-one and degree-two syzygy matrices over the prime field of order \(1000003\). That last full-rank test is a valid proof of injectivity over characteristic zero for an integer matrix, not an extrapolation from a sample.
+## correctness
 
-The local-type conclusion uses the standard analytic equivalences between two smooth branches of intersection multiplicity \(m\) and \(A_{2m-1}\), three transverse branches and \(D_4\), and the local equality \(\mu=\tau\) exactly for quasihomogeneous plane curve germs. Counting is exhaustive through all six conic pairs, with Bézout total \(24\) pair-incidences. The near-free conclusion invokes the established degree-eight numerical characterization, not a computational heuristic. The computation is reproducible by running `python verify.py` with SymPy \(\ge1.12\); it does not constitute independent external validation.
+PASS
 
-**Explicit limits:** The singular fourth conic at \(t=-1\) is outside scope. The two contact-pattern triple germs at \(t=0\) are described by pairwise intersection multiplicities, rather than assigned a nonexistent ADE type. Bibliographic completeness beyond inspected accessible sources is not certified.
+For t != -1 four displayed quadrics have nonzero determinants (-1,-1,-1,-24(t+1)). Independently reconstructed all 6 pairwise y-resultants; moving discriminants are 8(8-t),32(2-t),8(8-t), and fixed-point substitutions yield triple collisions only at t=0 and 7/2. Pairwise local expansions at t=0 give (4,2,2) branch contacts at each of two triple germs; t=7/2 gives two ordinary D4; t=2 gives two A3 and t=8 two extra A7, while pairwise Bezout total24 certifies remaining nodes. Generic: 2A7+16A1 tau30; t2: 2A7+2A3+12A1 tau32; t7/2: 2A7+2D4+10A1 tau32; t8: 4A7+8A1 tau36; t0: two (4,2,2) triples plus 8 nodes mu36 tau<36 by Saito non-quasihomogeneous criterion. The nearly-free octic relation tau=48-r(7-r) forces tau>=36 for admissible r<=4; for t8 exact cubic syzygy and full-rank lower-degree matrices modulo1000003 yield mdr3 and near freeness. Independently checked resultants, jacobian syzygy over Q and modulus. t9 printed by Pokora lies in generic stratum; t-1 excluded. Proof uses exhaustiveness of resultants, not finite t-samples.
+
+## originality
+
+PASS
+
+The full accessible 2024 primary Pokora article Example2.6 actually displays the -9z^2 coefficient (t=9) while claiming an intended 4A7+8A1 nearly-free configuration, which the displayed member fails to realize. The reviewed claim corrects the parameter to t=8 AND enumerates all exceptional strata and unique near-free parameter, beyond bare existence of the configuration (already known). Targeted Resultary and reference searches found no specific complete t-parameter stratification or erratum. Potential unindexed correction retained.
+
+## value
+
+PASS
+
+A complete degeneration and freeness stratification of an explicit naturally published family corrects a materially inconsistent example, identifies non-ADE boundary germs and explains why exactly one smooth-four-conic member is nearly free; this is a motivated parameter-space classification rather than a one-number change.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
