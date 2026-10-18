@@ -1,20 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Invariance against arbitrary antiderivatives of each coordinate gives the three exact fiberwise calibrations. Their residuals are exactly the three coordinate speeds, so conditional orthogonality gives the variance defects and directed covariance formulas. The one-Lipschitz contraction
-\[
-\operatorname{Var}(\sin Y)\le\operatorname{Var}(Y)
-\]
-then yields the cyclic inequalities; summation and substitution give the global and directional speed budgets. Backward variation of constants on a bounded complete trajectory gives the exponential-memory formula and the cube bound.
+## correctness
 
-Risk: the compact-support hypothesis is stronger than necessary for the conditional identities but is used to keep all generator and complete-trajectory steps uniform.
+PASS
 
-## Originality
-PASS. The complete 2007 same-object article was inspected across its bifurcation, multistability, long-time-statistics, conservative-limit, diffusion, and symbolic-dynamics sections. It computes numerical standard deviations and invokes an ergodic interpretation, but does not supply the accepted coordinate-fiber conditional laws. Full-text checks found no conditional, variance, or moment theorem. Later same-object bifurcation work and published same-system critical-damping results were compared at implication level.
+For b>0 and any compact invariant μ, coordinate antiderivatives give E[sin y|x]=bx and cyclic analogues. Thus residual speeds R_x=sin y−bx are conditionally orthogonal to receiving coordinates, yielding Var(sin y)=b²Var(x)+E[R_x²] and Cov(x,sin y)=b Var(x), likewise y,z. Since sin is one-Lipschitz, Var(sin Y)≤Var(Y); setting A,B,C as coordinate variances and U,V,W as speed squares yields B≥b² A+U, C≥b² B+V, A≥b² C+W. Sum proves U+V+W≤(1−b²)(A+B+C); cyclic substitution gives b^4 U+b² V+W≤(1−b^6)A and rotations. Checked substitution symbolic coefficients b^6 A+b^4 U+b²V+W exactly. Bounded backward variation of constants gives x(t)=∫_0∞ e^(-bs)sin y(t-s)ds and |x|≤1/b; no finite orbit tests used as proof.
 
-Risk: the invariant-measure generator argument is short, so a differently phrased unindexed equivalent remains possible. The known global-stability threshold is excluded from the originality claim.
+## originality
 
-## Value
-PASS. The nonlinear feedback ring is the defining structure of the model, while coexisting attractors mean one cannot safely replace an individual invariant state by a cyclically symmetrized ensemble. The theorem calibrates each directed feedback edge separately for every compact stationary state and turns the three calibrations into an exact speed/coherence diagnostic and a closed quantitative speed budget.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Direct full-text original 2007 Sprott–Chlouverakis paper analyzes precisely the sine cyclic flow, numerical standard deviations σ, kurtosis, chaos, multistability and orbit bifurcations; its displayed σ² is a trajectory average of x²+y²+z², not an all-invariant-measures conditional mean or exact mean-square-speed bound. Thomas 1999 original abstract treats circuits and labyrinth attractors. Resultary semantic checks showed the focal finding and related Chen-fiber stationary regressions but no stronger bound for this exact sine cycle. Although generator orthogonality and Lipschitz variance contraction are standard tools, their three-way cyclic coupling gives explicit directional b^4,b²,1 weighted budgets not implication-wise supplied by the cited numerical RMS analyses; best-of-knowledge original as a natural same-object bound.
+
+## value
+
+PASS
+
+The Thomas flow exhibits coexisting attractors and nontrivial b-dependent variance. A uniform exact three-edge stationary calibration and global/directional a priori bounds on mean-square speed apply separately to every invariant measure, without symmetry or ergodicity. For 0<b<1 the bounds constrain active recurrent dynamics quantitatively, while b≥1 collapses stationary speed/variance and is already known; that threshold is NOT claimed as a new contribution. This is a motivated structural necessary constraint and numerical cross-check invariant, not a single unmotivated parameter value or claim of new bifurcation theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
