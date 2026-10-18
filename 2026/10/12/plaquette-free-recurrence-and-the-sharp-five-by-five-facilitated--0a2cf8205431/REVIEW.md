@@ -1,23 +1,21 @@
-# Scientific review: finite facilitated exclusion
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The precise state space and transition rule agree with equation (2.2) in Kim–Lee–Seo [1]. The geometric closed-set lemma follows directly from the collinear facilitator constraint. The finite certificate enumerates every one of the \(\binom{25}{h}\) configurations for each \(1\le h\le8\), constructs its forward and reverse transition edges by explicit Boolean tests, and uses two-pass exact strongly connected components to determine all closed communicating classes. It tests terminal membership against absence of empty periodic \(2\times2\) plaquettes for every state, not only counts. The largest enumerated sector has 1,081,575 vertices and 17,054,400 transitions. A second integer transfer-matrix algorithm independently counts the plaquette-free configurations; all eight counts agree. The published low-density theorem supplies the sharpness comparison for \(K\le16\). These are exact finite computations, not evidence about infinitely many lattice sizes.
+PASS
 
-## Originality — PASS, with residual uncertainty
+Every legal occupied rear facilitator–occupied source–vacant forward target jump cannot create a newly empty 2x2 plaquette: a 2-site axial plaquette containing the old source but excluding the new target contains the still-occupied rear facilitator. The exact finite part is exhaustive over all binomial(25,h) states for h=1..8, all 100 directed geometric move templates, and strongly connected components. An independently written C++ Tarjan/Kosaraju-style transition-graph decomposition (not the submitted verifier) obtained for h=1..8 SCC counts 1,1,1,26,26,76,126,426; terminal counts all one; recurrent states 25,300,2300,12625,52605,171900,448450,941450; and zero statewise disagreement between the terminal SCC membership and no-empty-plaquette property. Largest h=8 sector 1,081,575 states/17,054,400 directed edges. This is a complete FINITE proof for N=5, not a simulation. The below-K=17 multiplicity portion invokes published Kim–Lee–Seo Theorem 2.1(2) at N=5,d=2; direct full-paper verification was blocked and is explicitly a dependency risk.
 
-The closest work [1, Theorem 2.1] gives on the five-by-five torus only uniqueness for \(K\ge22\) and multiplicity for \(K\le16\), not the five intermediate sectors or a complete recurrent-state membership criterion. Its Section 3 uses fully occupied boxes to establish reachability, which does not imply the asserted empty-plaquette exclusion or the specific SCC census. Material comparison of the source model, main theorem, and Section 3 found no corresponding claim. The one-dimensional model [2] and its alternative higher-dimensional facilitation convention do not imply this finite directional result. Targeted published mathematical searches found no equivalent, broader, or tabulated 25-site result; unindexed independent finite enumerations remain a genuine residual uncertainty.
+## originality
 
-## Value — PASS
+PASS
 
-This resolves the exact finite-size transition where the best cited general theorem leaves five particle-number sectors open. It gives a new simple invariant description of the recurrent class, not only its size, and an exact finite counting sequence useful for microscopic study of the directional kinetic constraint. The 25-site odd torus is a natural first detailed finite test of the odd-size gap; its sharply closed interval and geometric classification motivate the computation. It does not by itself yield a thermodynamic-limit theorem.
+Kim–Lee–Seo give uniqueness only for K>=22 and nonuniqueness for K<=16 upon specialization to N=5,d=2, leaving intermediate K=17..21. The complete 5x5 terminal-SCC computation closes that exact gap, identifies every recurrent state and counts class sizes. Goldstein–Lebowitz–Speer concern one-dimensional fluctuations and a different higher-dimensional facilitation predicate; no theorem covering the same finite directed transition graph was located. The primary Kim–Lee–Seo full text was not independently retrievable through available access; its exact theorem usage remains a documented risk rather than an automatic O failure.
 
-## Closest literature and limitations
+## value
 
-[1] S. Kim, S. Lee, I. Seo, *Facilitated Exclusion Process in Higher Dimensions: Recurrent Structure and Transient Dynamics*, arXiv:2609.18885v1, Theorem 2.1 and Sections 2–3, https://arxiv.org/html/2609.18885v1.
+PASS
 
-[2] S. Goldstein, J. L. Lebowitz, E. R. Speer, *Approach to Hyperuniformity in the One-Dimensional Facilitated Exclusion Process*, arXiv:2407.02652v2, Sections 1–2, https://arxiv.org/html/2407.02652v2.
+Finite exact determination of a sharp conserved-density threshold and complete communicating-class decomposition for the first nontrivial odd 2D torus directly resolves five sectors left between the published lower and upper dynamical bounds; physically natural local plaquette invariant and recurrence make this a meaningful finite classification, not an arbitrary state count.
 
-Finite-only proof and possible unindexed equivalent computations are explicit limits; scientific novelty must not be inferred solely from failure to retrieve an identical title. A separate independent audit has not been performed.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
