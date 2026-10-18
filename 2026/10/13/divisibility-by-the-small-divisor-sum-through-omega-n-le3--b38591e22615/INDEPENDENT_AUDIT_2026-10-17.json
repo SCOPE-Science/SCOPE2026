@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T19:56:37Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exhausted Ω(n)<=3 factorization shapes. Prime powers p^2,p^3 have a=1+p and cannot divide; pq with p<q requires p+1=q, forcing 6. For p²q, the two complementary divisors q and p² straddle sqrt(n), so a=1+p+min(q,p²). For q>p², coprimality gives prime q=p²+p+1; for q<p², a=p+q+1>p,q must equal p² (giving q=p²-p-1) or pq (giving (p-1)(q-1)=2, thus 12 and 18). For distinct p<q<r, the small divisors are exactly 1,p,q,min(r,pq); case r>pq yields (p+1)(q+1) contradicting every feasible prime divisor, while r<pq gives a=p+q+r+1 and parity/order contradictions for a in {pq,pr,qr}. No squarefree triple works. Each converse checked by small-divisor formula. Independent integer-arithmetic classification for every 2<=n<60,000 with Ω(n)<=3 matched the theorem. No assertion concerning polynomial prime infinitude.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary paper proves average order, supermultiplicativity and prime-power formulas but not this low-Ω divisibility theorem",
+          "Other divisibility families have sigma(n), unitary divisor sum, or different constraints"
+        ],
+        "reasoning": "Existing broad analytic results on a(n) do not logically classify its divisibility against n even with ≤3 total prime factors; paper also lacks prime-square times prime branches.",
+        "searches": [
+          "small divisor sum a(n) divides n at most three prime factors p^2 q",
+          "Iannucci arXiv:1910.11835",
+          "Resultary divisor-sum and near-perfect classes"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1910.11835",
+        "https://oeis.org/A066839"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known prime-power formula supports easy Ω=1 and pure powers but not mixed p²q or squarefree pqr analysis",
+          "Theorem derives two quadratic-prime branches and 12/18 special semiprime cube cases by divisibility plus parity"
+        ],
+        "reasoning": "The cited paper and OEIS entry do not imply the full claimed equivalence without new exhaustive factorization-shape arguments.",
+        "searches": [
+          "small divisor sum a(n) divides n at most three prime factors p^2 q",
+          "Iannucci 2019 small divisors results",
+          "OEIS:A066839"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Iannucci a(n) is precisely sum_{d|n,d<=sqrt n}d",
+          "Sequence OEIS entry identifies this same sum but no Ω<=3 divisibility classification"
+        ],
+        "reasoning": "This is the same object under aliases small-divisor sum, lower half divisors; submitted condition a(n)|n is not a standard sum-of-divisors divisibility test.",
+        "searches": [
+          "small divisor sum a(n) divides n at most three prime factors p^2 q",
+          "Iannucci On sums of the small divisors of a natural number arXiv:1910.11835",
+          "OEIS A066839 a(n)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A066839 gives individual small-divisor sums for n, not a table of solutions to a(n)|n restricted by Ω",
+          "The independent classification has unbounded prime parameter branches and excludes all squarefree triple products"
+        ],
+        "reasoning": "Finite sequence data cannot establish the all-n low-Ω classification; no exact table with theorem was found, with genuine unindexed risk.",
+        "searches": [
+          "small divisor sum a(n) divides n at most three prime factors p^2 q",
+          "OEIS A066839",
+          "p²+p+1 p²-p-1 prime a(n)|n"
+        ]
+      },
+      "rationale": "Iannucci full 2019 primary paper defines exactly this a(n) and supplies prime-power sums and analytic statistics, but does not state or imply the classified divisibility solutions from its shown results. OEIS A066839 lists a(n) sequence and formulas without the Ω<=3 preimage-divisibility classification. Resultary targeted semantic search showed nearby divisor variants, not same condition. Best-of-knowledge with unindexed arithmetic note risk.",
+      "residual_risks": [
+        "Unindexed elementary-number-theory note could contain this low-Ω classification; keyword searches cannot exclude it.",
+        "Infinity of primes from p²±p+1 is open/not addressed; classes remain conditional on primality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING exact divisibility classification",
+          "evidence": "Defines a(n), studies supermultiplicativity and analytic growth; no Ω<=3 a(n)|n classification among examined results.",
+          "identifier_or_url": "https://arxiv.org/abs/1910.11835",
+          "material_read": "Full lawful ar5iv full text read around definition, prime-power formula, main asymptotic and derived claims",
+          "method": "open access HTML full text",
+          "title": "On sums of the small divisors of a natural number",
+          "trigger": "same arithmetic function and possible divisibility theorem"
+        },
+        {
+          "assessment": "NOT_COVERING theorem",
+          "evidence": "Lists small divisor sum itself and related properties, not complete low-prime-multiplicity inverse divisibility classification.",
+          "identifier_or_url": "https://oeis.org/A066839",
+          "material_read": "Sequence entry with definition, formulas, examples and cross references read",
+          "method": "online OEIS record",
+          "title": "OEIS A066839: sum of divisors <=sqrt(n)",
+          "trigger": "exact function database might list solution patterns"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The small-divisor sum is a natural arithmetic function studied analytically; exact divisibility of n by its lower-half divisor sum is an intrinsic, motivated relation. Ω<=3 is the complete first nontrivial multiplicative-depth classification, with two conditional quadratic prime branches and a clean prohibition for squarefree three-prime inputs; useful as a boundary for broader Ω study, not an arbitrary finite cutoff.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Claim only Ω(n)<=3; prime-output branches conditional on primality; no conclusion for Ω>=4 or infinitude.",
+    "Finite direct computation is regression evidence, not substitute for factorization proof.",
+    "Public-facing operational identifiers not sanitized; five publication plans intentionally not ready, regardless of science.",
+    "Pinned record-tree SHAs from dispatcher were not independently reconstructed from Git tree listings."
+  ],
+  "schema_version": 1
+}
