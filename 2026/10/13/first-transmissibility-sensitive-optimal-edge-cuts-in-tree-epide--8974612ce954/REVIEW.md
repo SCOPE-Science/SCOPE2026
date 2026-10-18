@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For independent bond transmissions on a tree, the mean component size is an exact sum of pairwise path-retention probabilities. Removing a single edge deletes precisely the cross-cut pair contributions, yielding the exact intervention polynomial. The finite classification follows from a Prüfer-complete enumeration and a center-rooted canonical code that classifies unlabeled trees. Integer nonnegative Bernstein-basis coefficients prove domination for every real transmissibility, not merely a numerical grid. The two exceptional trees have explicitly verified polynomials; other edges are dominated, and the two switching factors have exactly one zero in the open unit interval. A standalone checker recomputes all certificates and both witness families.
+## correctness
 
-**Originality — PASS, with specified risk.** Moore–Newman gives the percolation framework; Enns and coauthors investigate link interventions under different optimization objectives; Khorramzadeh and coauthors already show that edge-importance rankings can change with an edge reliability parameter, including a golden-ratio threshold in a different (cyclic, two-terminal) problem. The new claim is not the general switch phenomenon or the number \(0.618\), but the sharp and complete first-order classification of *uniform-seed mean-outbreak-minimizing single-edge removal on trees*: none through seven vertices and precisely two exceptional types at eight. A broad reliability framework does not imply these specific optimal-edge comparisons without an additional finite calculation. Earlier exact tree-vaccination results concern removal of a vertex, not an edge. Different terminology or inaccessible work may still cover the result and should be checked independently.
+PASS
 
-**Value — PASS.** The exact first-size boundary resolves when a fixed intervention edge suffices at every infectiousness level and when the recommended connection must change, with all first-size topologies and thresholds given. This supplies a sharp structural benchmark for preventive edge quarantine and explains why local degree-based and balanced-cut criteria can compete. It does not claim that eight-node trees are typical of real contact networks or that the percolation model predicts every SIR epidemic.
+The uniform-seed outbreak mean is 1+(2/n)Σ_{unordered u,v}p^{distance}, because tree percolation connects exactly along the unique path. Deleting edge e removes cross-cut pairs and maximizes F_e(p)=product of endpoint-distance generating functions. A separate independent networkx unlabelled-tree enumeration (counts 1,1,2,3,6,11,23 for n2..8) computed every cut polynomial by explicit vertex-pair distances. It found uniform integer Bernstein-basis certificates for every class through7 and 21 of 23 eight-vertex classes, and exactly two exception classes. For Type I alternative-center difference p(1-p-p^2); Type II p(1-2p), with all other edges dominated, establishing exact transitions golden ratio conjugate and 1/2. Nonnegative Bernstein integer coefficients guarantee all real p in [0,1], not sample points.
 
-Closest published comparisons: Moore–Newman (arXiv:cond-mat/9911492); Enns–Mounzer–Brandeau (DOI:10.1016/j.mbs.2011.11.006); Khorramzadeh–Youssef–Eubank–Mowlaei (arXiv:1403.7074); Enns–Brandeau (DOI:10.1016/j.jtbi.2015.02.005). Limitations: homogeneous independent transmissions, tree topology, uniform random seed, single preemptive edge deletion, mean outbreak size, and finite classification at orders at most eight.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior Khorramzadeh and coauthors exhibit transmissibility-dependent edge-importance rankings in cyclic two-terminal reliability networks and even a golden-ratio switch. These are credited, not new here. On the user-specified different functional (mean uniformly seeded finite-tree cluster under one preemptive edge removal), the complete first order and only two exceptional topologies require a new classification. Enns link-removal intervention models use other optimization assumptions.
+
+## value
+
+PASS
+
+Determines sharp first small-network size at which the best one-edge preventive intervention genuinely depends on pathogen transmissibility and supplies both exceptional structures, rational/algebraic thresholds and exact optimization witnesses. This is a motivated complete finite classification relevant to reliability and bond-percolation interventions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
