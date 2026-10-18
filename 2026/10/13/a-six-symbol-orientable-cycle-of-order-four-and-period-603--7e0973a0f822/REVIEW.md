@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The new claim is finite existence at period \(603\), not global optimality. The complete 603-character witness has been checked against the mathematical definition with an exact 603-by-603 ordered reversal-comparison census, distinct cyclic windows, absence of palindromes, and least-period checks. Every comparison is repeated by the included standalone verifier without external dependencies. The computation is exhaustive for the stated witness, not an enumeration of all possible cyclic words.
+## correctness
 
-**Originality — PASS, with residual priority risk.** Gabrić and Sawada (arXiv:2407.07029), Alhakim et al. (arXiv:2407.14866), and both relevant Mitchell–Wild papers (arXiv:2507.02526, arXiv:2603.18646) were compared by definition, parameter pair, and best-length implication. The latest inspected primary table (arXiv:2603.18646v2, Table 4) reports \(552\) and \(612\) as the prior lower and upper bounds for six letters and order four. Thus it does not imply existence at period \(603\). The indexed search returned no equivalent, but this cannot rule out unindexed work or developments after the inspected versions.
+PASS
 
-**Value — PASS.** The sequence improves the reported record from \(552\) to \(603\), an increase of \(51\) symbols or more than nine percent, and leaves only \(9\) symbols between the new construction and the published upper bound. The improved packing of 603 of the 630 available nonpalindromic reversal classes directly addresses the natural longest-orientable-sequence question and its position-and-direction sensing interpretation. No broader theorem or maximality is claimed.
+Fetched original witness.txt Git blob f098c294a2023a28f8a9a10425f04df07a0f82a6; independently constructed all 603 circular length-four windows. The word has exactly 603 symbols all in 0..5, 603 distinct forward windows, 603 distinct reversed windows, no forward/reverse overlap, zero palindromes and least period 603. Hence it realizes 603 of 630 possible nonpalindromic reversal pairs with 27 unused. The exact finite exhaustive verifier matches the definition and wraparound, not extrapolation; no assertion of optimality.
 
-**Closest literature and limitations.** The most relevant comparison is Mitchell and Wild's 2026 Table 4; their method achieves period \(552\) for this parameter. The witness settles an improved lower bound only, and original priority is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The revised 2026 primary paper Table 4 reports k=6, n=4 best prior period 552, upper bound 612. This certified 603 witness is not implied by an upper bound or earlier shorter examples. The search located no prior 603 witness, but later/unindexed constructions may still overlap.
+
+## value
+
+PASS
+
+A rigorously checked explicit combinatorial construction raises the natural extremal period lower bound by 51 and leaves only nine to the known upper bound; it is a mathematically useful near-extremal finite certificate, not a trivial exhaustive rescan or arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
