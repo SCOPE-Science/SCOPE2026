@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Percolation coupling gives exact infection generations as root distances; all cycle tail cases including the all-open exception are treated. A finite geometric-power polynomial determines a unique crossing by strict monotonicity, and a convergent Riemann-sum bracketing proves the universal asymptotic coefficient. Strict mean-size increase follows from two edge-disjoint routes. An independently structured exhaustive edge-subset checker confirms 32 symbolic identities across n=3,...,10 and rational examples; finite checks corroborate but do not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lashari et al., arXiv:1805.05117, study duration of a supercritical epidemic on random configuration-model graphs and logarithmic asymptotics, not exact rooted finite path/cycle transformations.",
+        "Shivam et al., arXiv:2103.06427, sections II–IV study contact-tracing dynamics and percolation-type scaling on complete and lattice networks, not the present one-edge finite cycle law.",
+        "Alarcón González–Pérez, DOI:10.1101/2023.04.24.23289026, sections 4.3 and 6 use a bivariate closed-population chain, without fixed contact topology."
+      ],
+      "reasoning": "A general exact SIR moment-closure method on trees, duration asymptotics for random graphs, and a finite population expected-duration algorithm would not imply this specific explicit formula and unique crossover without an additional computation not present in those results. They do not dominate the statement by more general path/cycle coverage.",
+      "searches": [
+        "The duration of an SIR epidemic on a configuration model",
+        "Exact Equations for SIR Epidemics on Tree Graphs",
+        "Recursive contact tracing in Reed-Frost epidemic models",
+        "Computation of Expected Epidemic Duration cycle path graph Reed Frost"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1212.2172",
+      "doi:10.1007/s11538-013-9923-5",
+      "arxiv:1805.05117",
+      "arxiv:2103.06427",
+      "doi:10.1101/2023.04.24.23289026",
+      "Accessible prior finite-graph results on edge-addition outbreak-size variance and sentinel optimization; statements compared for implications."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A previously identified finite-graph theorem compares outbreak-size variance under arbitrary added edges. Variance of total infected individuals does not determine expected last infection generation; its theorem supplies none of the required two-tail distributions.",
+        "A separate prior tree-sentinel theorem identifies varying *optimal monitored vertices* as transmissibility varies; it does not compare epidemic duration between graphs.",
+        "The prior expected-duration algorithm for a bivariate Markov chain is a computational method, not the exact path–cycle sign theorem."
+      ],
+      "reasoning": "The accessible edge-addition variance result concerns a different functional of the outbreak random variable, and the earlier optimal-sentinel result concerns a different optimization objective. Neither entails first-passage maximum-distance expectation or the exact strict sign boundary. Literature treating general expected durations as Markov hitting times does not supply this closed form or its uniqueness.",
+      "searches": [
+        "Reed Frost SIR expected outbreak duration on path versus cycle when adding one closing edge exact crossover polynomial",
+        "\"Computation of Expected Epidemic Duration\" cycle path graph Reed Frost",
+        "one-step infectious epidemic lifetime percolated path versus cycle unique infection probability threshold duration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The path-to-cycle mean-generation formula is exact for every n≥3 and compares the maximum root-relative percolation distance, not an expected outbreak size, infection probability, or time to detecting a sentinel.",
+        "Sharkey et al., arXiv:1212.2172, Theorem 1.1 addresses closure of continuous-time Markov SIR probability equations on trees; it has different dynamics and no path-to-cycle duration expression."
+      ],
+      "reasoning": "The proposed identity is formulated equivalently as a rooted-bond-percolation eccentricity expectation comparison. Searches included both epidemic and graph-distance aliases and did not reveal a stronger equivalence. The investigated primary papers address state probabilities, asymptotic random-graph lifetimes, or contact tracing and contain no covering finite rooted path-versus-cycle identity in the inspected material.",
+      "searches": [
+        "Reed Frost SIR expected outbreak duration on path versus cycle when adding one closing edge exact crossover polynomial",
+        "average epidemic lifetime root on ring versus linear chain constant transmissibility once-infected shortest open-path",
+        "bond percolation root eccentricity cycle path expected maximum infection distance",
+        "\"mean epidemic duration\" \"path\" \"cycle\" percolation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted query results did not disclose a matching polynomial for the difference of mean last-infection generations, a positive unique parameter root, and its n^{-1} asymptotic threshold.",
+        "The independent enumeration here covers path/cycle edge-subsets through n=10, not a search of all published finite-graph tables."
+      ],
+      "reasoning": "Available searches yielded no exact table for the claimed crossing thresholds or large-n constant. This is negative retrieval evidence only; an unindexed source remains possible.",
+      "searches": [
+        "Exact epidemic extinction generation Reed-Frost one-step SIR P_n endpoint versus cycle C_n percolation added closing contact edge",
+        "transmissibility threshold adding a shortcut edge increases outbreak size yet decreases outbreak duration",
+        "\"outbreak duration\" \"cycle graph\" \"path graph\" epidemic"
+      ]
+    },
+    "rationale": "Four particularly pertinent accessible primary full texts have been materially compared by hypotheses and implications: exact continuous-time tree SIR moments, asymptotic random-graph epidemic durations, finite network Reed–Frost contact tracing, and a closed-population expected-duration Markov-chain algorithm. Their established results neither imply nor explicitly give the exact one-edge rooted path-cycle duration crossover and n^{-1} threshold constant. The closest known edge-addition outbreak-size variance and epidemic-sentinel optimality results address different functionals. Residual risk of an equivalent unindexed graph-percolation calculation remains.",
+    "residual_risks": [
+      "An older graph-reliability or expected-eccentricity treatment may contain an equivalent cycle/path formula that semantic and targeted text searches did not recover.",
+      "The public source first dates differ from journal issue dates; the archive motivating source is independently dated by its arXiv submission 2012-12-10.",
+      "The theorem models independent single-generation contact success, not continuous-time SIR or contact tracing."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: continuous-time Markov SIR closures, no one-generation rooted path-to-cycle duration theorem.",
+        "evidence": [
+          "Article sections 1.1–1.2, Theorem 1.1, and discussion of cycle limitations; original preprint arXiv:1212.2172."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11538-013-9923-5",
+        "material_read": "Abstract; introduction, mathematical model and Theorem 1.1; stated tree and cycle limitations.",
+        "method": "Open-access full HTML, inspected theorem and methodology rather than abstract alone.",
+        "title": "Exact equations for SIR epidemics on tree graphs",
+        "trigger": "Same graph-SIR topic and exact finite-network time-series claims"
+      },
+      {
+        "assessment": "NOT_COVERING: random configuration-model limiting outbreak durations, not finite rooted path/cycle closing-edge exact comparison.",
+        "evidence": [
+          "Abstract, introduction, Theorems 2.1–2.2 and Section 3 on vaccination."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1805.05117",
+        "material_read": "Accessible arXiv full-text: introduction, main results for large random graphs, and vaccination discussion.",
+        "method": "Full arXiv HTML read at relevant theorem/results and application sections.",
+        "title": "The duration of a supercritical SIR epidemic on a configuration model",
+        "trigger": "Direct overlap in epidemic-duration objective and possible more general theorem"
+      },
+      {
+        "assessment": "NOT_COVERING: studies contact tracing and percolation scaling; no exact duration effect of closing a rooted contact path.",
+        "evidence": [
+          "Sections I–IV, especially Reed–Frost graph model and complete/lattice results."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2103.06427",
+        "material_read": "Full-text introduction, Section II including discrete-generation definition, results on complete graph/square lattice and conclusion.",
+        "method": "Accessible full HTML reviewed around definitions and results.",
+        "title": "Recursive contact tracing in Reed-Frost epidemic models",
+        "trigger": "Direct Reed-Frost finite network model and percolation-duration association"
+      },
+      {
+        "assessment": "NOT_COVERING: bivariate closed-population Markov model with contact-structure extension left as future work; no fixed rooted path/cycle formula.",
+        "evidence": [
+          "Section 4.3 on absorbing-chain hitting times; Section 6.1 on future contact-structure extension."
+        ],
+        "identifier_or_url": "https://www.medrxiv.org/content/10.1101/2023.04.24.23289026v2.full",
+        "material_read": "Full-text abstract, contributions, expected-duration matrix formulation in section 4.3, experiments/conclusion and stated extensions.",
+        "method": "Accessible lawful full HTML, with relevant mathematical sections checked.",
+        "title": "Computation of Expected Epidemic Duration",
+        "trigger": "Highly relevant expected-duration methodology possibly more general than finite graph result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a86786ce-bd43-49e4-866b-5c941693647b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For a natural minimal epidemic-network intervention, the theorem exhibits opposed outcomes: every added contact increases mean infections, yet on an arbitrary-length rooted path its effect on last-infection time changes direction at one rigorously defined probability. A complete phase classification and a nontrivial asymptotic scaling constant clarify when this outcome conflict occurs; this is not just a numerical witness or algebraic rewrite of the standard Reed–Frost process.",
+    "status": "PASS"
+  }
+}
