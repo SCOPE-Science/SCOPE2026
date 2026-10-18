@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary n>=3, real a and nonzero b, two independent unit inputs, and integer T>=1, real Fourier eigenbasis blocks factor the exact finite-horizon Krylov Gramian. All normalizations and singular cases are accounted for by two scalar rows, interior 2x2 blocks and classical nonzero-sine products. Moment-Gram determinants are positive precisely at the stated Vandermonde horizons. For even n the exact determinant difference is (det G_E)^2 times a squared residual inner product and is nonnegative, proving the global class comparison. The all-order proof covers eigenvalue degeneracy across k and n-k by real block construction. The standalone dependency-free exact-integer checker separately executed 440 full Gramian determinant tests and 36 even-order comparisons; these finite tests do not prove the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://skoge.folk.ntnu.no/prost/proceedings/cdc-ecc-2011/data/papers/0872.pdf Section VI Theorem 3 proves adjacent leaders are sufficient to make a cycle controllable; it does not optimize determinant volume among all distinct pairs.",
+        "https://naomi.princeton.edu/wp-content/uploads/sites/744/2021/03/Fitch_Leonard_ECC_16_final.pdf Section V discusses cycle leader placement for a projected continuous-time objective."
+      ],
+      "reasoning": "The closest broader graph controllability statements concern reachable subspaces, or an infinite-horizon projected energy metric; neither is a stronger theorem about this exact full-state determinant at every finite horizon. No inspected result gives the odd-cycle universal tie and even-cycle two-class comparison.",
+      "searches": [
+        "cycle graph two control nodes determinant Gramian equal greatest common divisor graph Laplacian",
+        "Optimal two actuator placement on ring cycle network controllability determinant independent of actuator distance odd even",
+        "cycle graph single and multiple leader selection spectral Gramian determinant equal independent distance",
+        "Controllability of Diffusively-Coupled Multi-Agent Systems with General and Distance Regular Coupling Topologies"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1109.3556",
+      "https://skoge.folk.ntnu.no/prost/proceedings/cdc-ecc-2011/data/papers/0872.pdf",
+      "https://naomi.princeton.edu/wp-content/uploads/sites/744/2021/03/Fitch_Leonard_ECC_16_final.pdf",
+      "https://doi.org/10.1002/rnc.3870",
+      "https://arxiv.org/abs/1109.3556"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/pdf/1109.3556 Theorem 4.10 and related cycle section supply gcd-type rank conditions; positive determinant magnitude and its parity-sensitive ordering are not determined by rank.",
+        "https://skoge.folk.ntnu.no/prost/proceedings/cdc-ecc-2011/data/papers/0872.pdf Theorem 3 guarantees controllability for adjacent cycle leaders; it does not compare volumes with distant controllable pairs.",
+        "https://naomi.princeton.edu/wp-content/uploads/sites/744/2021/03/Fitch_Leonard_ECC_16_final.pdf Uses an infinite-horizon disagreement projection, which removes the constant Laplacian mode and has different Gramian and determinant."
+      ],
+      "reasoning": "The exact formulas do imply the cycle rank facts and immediate full controllability for adjacent independent inputs. The reverse implication fails logically: identical rank can coexist with distinct positive determinants, and the finite-horizon full-state scalar mode has no counterpart in the prior projected metric. No prior verified statement logically dominates the entire claim.",
+      "searches": [
+        "All finite-horizon controllability Gramian determinant equal for every controllable two-actuator placement on undirected cycle graph; parity, gcd distance, D optimality",
+        "cycle graph two control nodes determinant Gramian equal greatest common divisor graph Laplacian",
+        "two leader cycle finite horizon controllability Gramian determinant cyclic Laplacian actuator distance optimal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/pdf/1109.3556 Sections III-IV treats reachability and eigenvectors on paths/cycles, not determinants of finite-horizon Gramians.",
+        "https://naomi.princeton.edu/wp-content/uploads/sites/744/2021/03/Fitch_Leonard_ECC_16_final.pdf Section IV uses continuous-time infinite-horizon projected controllability and volume; does not identify the full-state finite-horizon determinant polynomial."
+      ],
+      "reasoning": "The Kalman controllability rank test characterizes when determinant is nonzero but does not fix its magnitude or compare different admissible placements. Generic Krylov/Gram determinant formulas require evaluation of the two-dimensional Fourier input blocks and both scalar parity modes; the exact all-horizon factor identities are stronger.",
+      "searches": [
+        "two leader cycle finite horizon controllability Gramian determinant cyclic Laplacian actuator distance optimal",
+        "Exact determinants for reachability matrices of cycle graph two control nodes",
+        "Unimodular two-input Kalman matrix cycle graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://doi.org/10.1002/rnc.3870 accessible abstract and references classify cycle leader positions by rank/distance and do not present an all-horizon determinant table.",
+        "https://arxiv.org/pdf/1109.3556 cycle rank and eigenvector information is given but no determinant data."
+      ],
+      "reasoning": "Literature searches for finite-horizon exact Gramian determinants, volume and D-optimal placement did not identify a database or table reporting the universal classes, let alone their exact moment-Gram values. Search absence alone does not prove priority.",
+      "searches": [
+        "D-optimal sensor placement in undirected cycle graph based on finite time controllability Gramian",
+        "Minimum-time controllability Gramian volume two input cycle graph cyclic Laplacian Vandermonde determinant eigenvector sine",
+        "cycle graph controllability volume reachable ellipsoid two inputs optimal nodes finite horizon"
+      ]
+    },
+    "rationale": "The assessed claim is an exact finite-horizon determinant and two-input cycle D-optimality parity law, not the already-known cycle controllability test or a generic spectral representation. A complete relevant arXiv primary paper, a complete 2011 cycle-leader rank paper, and a complete 2016 reachable-volume paper were inspected for their objects and results. The primary 2011 and 2017 rank analyses do not supply exact Gramian volume formulas; the 2016 projected continuous-time disagreement Gramian is a different objective and cannot imply full-state discrete equalities merely by matching graph/actuator count. No directly established equivalent or dominating result was identified, but an inaccessible later article and unindexed equivalent derivations remain specific risks.",
+    "residual_risks": [
+      "Full text of Liu and Ji (2017) was unavailable during comparison; it is close on two-leader cycle controllability.",
+      "Other published treatments of finite-horizon reachability Gramian determinants or circulant systems may contain an equivalent Fourier-factorization corollary not indexed by the searches.",
+      "Generic rank, eigenbasis and moment-Gram tools are pre-existing; priority is claimed only for their exact combined all-horizon optimization statement, and is not independently verified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Established source for cycle reachability and Fourier-eigenvector framework; no exact all-horizon two-input Gramian determinant or D-optimal placement tie theorem identified. Even-cycle scalar alternating mode independently treated here.",
+        "evidence": [
+          "Cycle control model and independent-input definitions in Sections II-III.",
+          "Cycle theorems and eigenvalue criteria in Section IV."
+        ],
+        "identifier_or_url": "arxiv:1109.3556v1; https://arxiv.org/pdf/1109.3556",
+        "material_read": "Complete primary 26-page arXiv PDF, including model, cycle theorems, proofs, boundary cases, and references.",
+        "method": "Full-text reading of PDF sections and displayed equations; compared scope and implications, not just titles.",
+        "title": "On the Reachability and Observability of Path and Cycle Graphs",
+        "trigger": "Same network object and two-node Laplacian controls; possible rank or volume identity."
+      },
+      {
+        "assessment": "Section VI Theorem 3 establishes controllability from adjacent cycle leaders, a known rank statement, without determinant equality or D-optimality among all pair separations.",
+        "evidence": [
+          "Section VI Theorem 3 and adjacent-pair proof on p. 6.",
+          "Theorem 1/2 discuss rank bounds and sufficient controllability, not Gramian determinants."
+        ],
+        "identifier_or_url": "doi:10.1109/CDC.2011.6160658; https://skoge.folk.ntnu.no/prost/proceedings/cdc-ecc-2011/data/papers/0872.pdf",
+        "material_read": "Complete six-page primary conference article, including multi-leader dimension bounds, Section VI cycle proof, and conclusion.",
+        "method": "Full PDF text and page-image reading.",
+        "title": "Controllability of Diffusively-Coupled Multi-Agent Systems with General and Distance Regular Coupling Topologies",
+        "trigger": "2011 cycle two-leader placement theorem, could dominate optimal pair selection."
+      },
+      {
+        "assessment": "Uses continuous-time projected-to-disagreement infinite-horizon Gramian and a corresponding volume/pseudodeterminant metric; this is not the discrete finite-horizon full-state determinant and does not state the present exact ties.",
+        "evidence": [
+          "Controllability-volume objective and Gramian in Section IV.",
+          "Cycle example and leader placements in Section V."
+        ],
+        "identifier_or_url": "https://naomi.princeton.edu/wp-content/uploads/sites/744/2021/03/Fitch_Leonard_ECC_16_final.pdf",
+        "material_read": "Complete six-page primary 2016 conference PDF, including Gramian objective, cycle discussion, and cited methodology.",
+        "method": "Full-text reading of relevant sections and proof statements.",
+        "title": "Optimal Leader Selection for Controllability and Robustness in Multi-agent Networks",
+        "trigger": "Explicit controllability-volume optimization and cycle leader examples."
+      },
+      {
+        "assessment": "The indexed abstract addresses rank/controllable dimension and parity of cycle leader distances, not advertised determinant volumes. Complete-paper overlap is unresolved.",
+        "evidence": [
+          "Official abstract specifies sufficient and necessary cycle rank tests and controllable-subspace dimension.",
+          "First online 2017-06-30."
+        ],
+        "identifier_or_url": "doi:10.1002/rnc.3870; https://doi.org/10.1002/rnc.3870",
+        "material_read": "Publisher bibliographic record, abstract, references and publication history; full 14-page article was not accessed.",
+        "method": "Publisher HTML abstract and full-text availability checks; no whole-document noncoverage assertion.",
+        "title": "Controllability of Multiagent Systems Based on Path and Cycle Graphs",
+        "trigger": "Specialized two-leader cycle parity theorem and possible exact refinements."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2a806c17-9e4f-4e65-964d-311a46e49957",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact optimal design of two input locations for an unweighted ring is a motivated finite-horizon reachability-volume problem. The theorem removes any need for a per-distance determinant computation: all relatively prime separations tie for odd order, while for even order the eligible odd class uniformly dominates the even class, for every horizon and every affine Laplacian step. The equality of geometrically different actuator pairs and the nontrivial parity comparison add structural content beyond rank criteria or textbook Gramian definitions. It makes no unsupported claim about unequal gains, other graphs, control-energy norms, or independent scientific certification.",
+    "status": "PASS"
+  }
+}
