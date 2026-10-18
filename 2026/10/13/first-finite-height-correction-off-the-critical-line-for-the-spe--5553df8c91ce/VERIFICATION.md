@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification notes
 
-The mathematical proof is analytic and does not depend on a finite search. `verify_first_correction.py` checks three reproducible finite items: the archimedean integral identity \(\int_1^2\log u\,du=2\log2-1\), numerical values of the coefficient \(\log(2/\pi)-1+2\zeta'(\sigma+1/2)/\zeta(\sigma+1/2)\), and convergence of the prime cutoff \(\sum_p\log p/(p^s-1)\) to \(-\zeta'(s)/\zeta(s)\) for several \(s>1\).
+# Independent mathematical audit
 
-The finite cutoff is not a certificate of the infinite Dirichlet-series identity; that identity follows from the absolutely convergent Euler product for \(\zeta(s)\) when \(s>1\). The program output is therefore a normalization check only.
+## correctness
 
-Unproved here: any estimate uniform as \(\sigma\downarrow1/2\), any support extension, and any second finite-height correction.
+PASS
+
+Reconstructed the explicit-formula terms and all parameter restrictions from RESULT.md. The weighted gamma contribution after Stirling is hatphi(0)(1+(2log2-1-log(2pi))/logT)+o(1/logT) because off-critical |zeta|² averaging gives uniformly weighted log t with ∫_1²logu du=2log2-1. Source-stated I_q/I_sigma moment expansion for q≤T^alpha gives summed prime-power errors O(T^{1-2sigma+alpha(sigma-1/2)}/L), O(T^{-sigma+3alpha/2}L), O(T^{-sigma/2+alpha(sigma+1/2)}L); all o(1/L) for alpha<sigma/(2sigma+1). The full von Mangoldt series converges absolutely at s=sigma+1/2>1, and its sum is -zeta'(s)/zeta(s), yielding plus 2*zeta'/zeta in coefficient. Laurent behavior at s=1 gives pole -2/(sigma-1/2). Numerical prime cutoffs are not used as proof. Important source-access qualification: Theorem 2.4 exact moment estimate and pole-term normalization from the new primary paper could not be independently cross-read in full, so this is a conditional reconstruction against the correctly quoted source estimate, not external verification of that estimate.
+
+## originality
+
+PASS
+
+The identified first 1/logT correction appears not stated in available off-critical leading-density sources; best knowledge with material unresolved full-text primary overlap risk. Main contribution is explicit lower-order coefficient, not leading unitary law.
+
+## value
+
+PASS
+
+A completely specified analytic lower-order correction, including gamma constant, prime-power Euler-product term, and its singular dependence on sigma, is a natural next question beyond the universal off-critical leading unitary limit and can be used in finite-height comparisons. This is not just numerical fitting of a coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

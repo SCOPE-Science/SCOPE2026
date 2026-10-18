@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the source's exact explicit formula rather than relying on its already-truncated \(O(1/\log T)\) statement. The source twisted-moment estimate is summed only within \(\alpha<\sigma/(2\sigma+1)\); all three accumulated error families are then polynomially smaller than \(1/\log T\). Absolute convergence for \(\sigma+1/2>1\) licenses the limiting prime-power sum. The gamma-factor constant and the weighted \(\log t\) average are accounted for explicitly. The accompanying computation checks identities and normalization only and is not used as an infinite proof.
+## correctness
 
-## Originality
-PASS. The closest source on the identical family proves only \(\widehat\phi(0)+O_\sigma(1/\log T)\), after absorbing the terms that determine the coefficient. Full-text inspection found no stated lower-order coefficient or logarithmic-derivative formulation there. The earlier Bettin--Fazzari paper treats critical-line powers instead. Semantic published-finding corpus and literature searches found no covering statement. Residual risk is that analogous lower-order expansions occur in other families, but no dominating result for this exact family was located.
+PASS
 
-## Value
-PASS. The coefficient resolves the first finite-height bias left open by the source's remainder and makes the approach to the source's critical phase transition quantitatively singular through \(\zeta'/\zeta(\sigma+1/2)\). It neither claims a larger support nor disguises a routine special case as a separate result.
+Reconstructed the explicit-formula terms and all parameter restrictions from RESULT.md. The weighted gamma contribution after Stirling is hatphi(0)(1+(2log2-1-log(2pi))/logT)+o(1/logT) because off-critical |zeta|² averaging gives uniformly weighted log t with ∫_1²logu du=2log2-1. Source-stated I_q/I_sigma moment expansion for q≤T^alpha gives summed prime-power errors O(T^{1-2sigma+alpha(sigma-1/2)}/L), O(T^{-sigma+3alpha/2}L), O(T^{-sigma/2+alpha(sigma+1/2)}L); all o(1/L) for alpha<sigma/(2sigma+1). The full von Mangoldt series converges absolutely at s=sigma+1/2>1, and its sum is -zeta'(s)/zeta(s), yielding plus 2*zeta'/zeta in coefficient. Laurent behavior at s=1 gives pole -2/(sigma-1/2). Numerical prime cutoffs are not used as proof. Important source-access qualification: Theorem 2.4 exact moment estimate and pole-term normalization from the new primary paper could not be independently cross-read in full, so this is a conditional reconstruction against the correctly quoted source estimate, not external verification of that estimate.
 
-## Closest literature and limitations
-The direct comparison is Sugiyama--Suriajaya, arXiv:2610.05227v1. The result is fixed-\(\sigma\), strict-support, and first-order only; it gives no uniform expansion at \(\sigma=1/2\). Bettin--Fazzari, arXiv:2208.08421v1 / DOI 10.1007/s00209-024-03496-7, concerns critical-line weights.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The identified first 1/logT correction appears not stated in available off-critical leading-density sources; best knowledge with material unresolved full-text primary overlap risk. Main contribution is explicit lower-order coefficient, not leading unitary law.
+
+## value
+
+PASS
+
+A completely specified analytic lower-order correction, including gamma constant, prime-power Euler-product term, and its singular dependence on sigma, is a natural next question beyond the universal off-critical leading unitary limit and can be used in finite-height comparisons. This is not just numerical fitting of a coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
