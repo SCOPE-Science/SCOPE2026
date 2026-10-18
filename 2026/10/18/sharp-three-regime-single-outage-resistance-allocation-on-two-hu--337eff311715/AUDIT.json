@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For all integers m>=3, B>0 and t>0, joint convexity of Thomson flow energy yields global symmetrization without an a-priori symmetric design restriction. Series/parallel reduction after any one edge failure gives exactly the two rational objective branches. Their difference is (r-1)[1/r-2/((m-1)(m-2+r))], with strictly positive bracket. Derivative numerators t[(m-2+r)^2+2(m-2)]-2(m-1) and -(m-1)/r^2+2t/(m-1) have unique zeros, deriving both closed-form thresholds and the joining regime. Boundary cases r=1 and positive t are included. Standalone verify.py independently checks the identities and matrix computations. No uniqueness among arbitrary asymmetric optimizers is claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Johnson–Chertkov Section V supplies general nonsmooth convex outage optimization for prescribed current patterns, and numerical grid illustrations, without an exact two-hub allocation specialization.",
+        "The general convex formulation guarantees existence and computational solvability but does not entail the displayed closed forms without the additional proof."
+      ],
+      "reasoning": "A general optimization framework subsumes the feasibility class but not the newly proved exact all-parameter theorem or implications of its two explicit transitions. The full text of the strongest relevant early robust-design framework was materially inspected.",
+      "searches": [
+        "arxiv:1004.2285 Sections III and V",
+        "single edge deletion alternate path effective resistance minimax design two terminal parallel paths conductance budget",
+        "graph conductance allocation to minimize maximum replacement-path resistance on parallel length two paths",
+        "arxiv:2302.05966 sections 1,3.3,4"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1004.2285, original preprint 2010-04-13, sections II, III, V read",
+      "arxiv:1408.4471, original preprint 2014-08-19, sections IV, V read",
+      "arxiv:2302.05966, 2023-02-12, relevant full-text objectives and theorems read",
+      "Ghosh–Boyd–Saberi 2008 official abstract and bibliographic entry (not full-text exclusionary evidence)",
+      "Related previously recorded scientific claims compared for statement overlap; those claims are not treated as published sources"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Johnson–Chertkov prove convexity of worst-case failure power loss but provide no exact K_(2,m) differentiated-price optimizer.",
+        "Zelazo–Bürger prove effective-resistance bounds on antagonistic edge magnitude for given graph; not a conductance budget design classification.",
+        "A previous exact bridgeless-cactus edge-failure-resistance allocation covers edge-disjoint cycle blocks, while each edge of K_(2,m) for m>=3 lies in multiple 4-cycles; that theorem cannot be specialized to this noncactus network.",
+        "Other related two-hub optimization statements concern different objective functions, not post-deletion endpoint-resistance minimization."
+      ],
+      "reasoning": "Cactus blockwise separation fails here because alternate routes overlap; an equal-weights plateau across t_-(m) to t_+(m) follows from simultaneous constraints of two different failed-edge types, not from a prior independent-cycle cutoff formula. A publication covering a stronger uniform theorem is a residual risk, not assumed absent.",
+      "searches": [
+        "robust worst single edge outage effective resistance endpoints weighted complete bipartite graph K2,m optimal price threshold",
+        "single edge deletion alternate path effective resistance minimax design two terminal parallel paths conductance budget",
+        "graph conductance allocation to minimize maximum replacement-path resistance on parallel length two paths",
+        "arxiv:1004.2285 Section V",
+        "arxiv:1408.4471 Section IV",
+        "arxiv:2302.05966 Section 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem IV.7 (Zelazo–Bürger) gives an inverse-resistance stability threshold for a given weighted positive subnetwork, not the price-constrained optimization of post-removal resistances.",
+        "Suliman–Weinstein minimize maximum intact-edge effective resistance; deleting each measured edge beforehand changes all scalar outage formulas."
+      ],
+      "reasoning": "The objective used here has the conductance of the failed edge absent from the corresponding scenario, whereas intact-edge max resistance includes it. A fixed signed-edge stability test does not derive global line-sizing thresholds. This difference is checked at the level of objectives and implied claims rather than words.",
+      "searches": [
+        "robust worst single edge outage effective resistance endpoints weighted complete bipartite graph K2,m optimal price threshold",
+        "single edge deletion alternate path effective resistance minimax design two terminal parallel paths conductance budget",
+        "arxiv:1408.4471 Section IV Theorem IV.7",
+        "arxiv:2302.05966 Section 1 max intact edge resistance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed parallel-path item concerns minimum enclosing spheres of directed edge polytopes, a different geometric invariant, rather than deletion-specific resistance optimization.",
+        "No exact K_(2,m) threshold table or equivalent minimax terminal-resistance formula was identified in these actual indexed searches."
+      ],
+      "reasoning": "A failed semantic search cannot prove nonexistence, so the comparison is qualified. None of the observed closest record summaries states a dominating result with matching graph, outage measure and prices.",
+      "searches": [
+        "robust worst single edge outage effective resistance endpoints weighted complete bipartite graph K2,m optimal price threshold",
+        "post failure edge endpoint effective resistance theta graph equal weight plateau",
+        "graph conductance allocation to minimize maximum replacement-path resistance on parallel length two paths",
+        "K2,m edge failure resistance \"conductance\" \"worst case\" price"
+      ]
+    },
+    "rationale": "The exact priced K_(2,m) post-deletion edge-endpoint minimax resistance formula, with two size-dependent price thresholds and a broad equal-conductance plateau, is not implied by the examined convex outage-formulation paper, the negative-edge stability margins, or minimax intact-edge resistance results. Accessible historical-claim and indexed-record comparisons were undertaken; an unindexed equivalent remains a risk.",
+    "residual_risks": [
+      "Unindexed or differently phrased literature might contain an equivalent exact K_(2,m) minmax price theorem.",
+      "Ghosh–Boyd–Saberi full text was not materially inspected here, so its unobserved appendices cannot be excluded solely from abstract evidence.",
+      "Asymmetric global optimizer uniqueness is deliberately not claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives convex robust-power-loss formulation and line sizing, but not the present failed-edge endpoint objective or closed-form K_(2,m) two-price phase diagram.",
+        "evidence": "Section V uses a fixed load-current covariance and maximizes power loss over outage patterns; the new result changes the current source-sink pair with each deleted edge and gives exact thresholds.",
+        "identifier_or_url": "arxiv:1004.2285; https://arxiv.org/abs/1004.2285",
+        "material_read": "Introduction; technical preliminaries on convex effective resistance; optimization in Section III; entire Sections V-A, V-B, V-C on worst-case line failures.",
+        "method": "Read openly accessible HTML full-text sections and checked problem definitions, objectives, and demonstrations.",
+        "title": "A Majorization-Minimization Approach to Design of Power Transmission Networks",
+        "trigger": "Directly relevant early price-constrained conductance design with edge-failure robustness."
+      },
+      {
+        "assessment": "Establishes fixed-network stability thresholds from effective resistance, not optimal conductance allocation at heterogeneous prices or the stated three-regime theorem.",
+        "evidence": "Theorem IV.7 bounds magnitude of a single negative edge by inverse effective resistance of the positive subnetwork; no K_(2,m) allocation result or two thresholds.",
+        "identifier_or_url": "arxiv:1408.4471; https://arxiv.org/html/1408.4471v2",
+        "material_read": "Sections IV-A and IV-B including Theorem IV.7, Sections V-A/V-B including robustness margins, plus definitions.",
+        "method": "Read arXiv open full-text HTML, crosschecked public first-post date against abstract metadata.",
+        "title": "On the Robustness of Uncertain Consensus Networks",
+        "trigger": "Effective resistance after deleting an uncertain or antagonistic link is close to the chosen outage margin."
+      },
+      {
+        "assessment": "Their max is taken over intact-graph edge resistances. The present failure-specific resistance is measured after deleting precisely the tested edge, giving a distinct objective and derivative structure.",
+        "evidence": "Their Section 1 explicitly defines the max edge resistance on the weighted original graph, rather than the max post-edge-deletion resistance.",
+        "identifier_or_url": "arxiv:2302.05966; https://arxiv.org/abs/2302.05966",
+        "material_read": "Introduction and its objectives, Sections 3.3 and 4 on intact edge effective resistance and ERMP, selected relevant statements on Lewis weights.",
+        "method": "Read accessible arXiv HTML full-text mathematical definitions and cited theorem statements.",
+        "title": "Infinite Lewis Weights in Spectral Graph Theory",
+        "trigger": "Minimax edge-effective-resistance optimization could appear to cover the present objective."
+      },
+      {
+        "assessment": "The abstract describes minimizing the sum of all intact-graph pairwise resistances. It is not evidence that all possible later or supplementary special cases have been excluded.",
+        "evidence": "Official abstract states sum over all node pairs and a convex edge-weight allocation formulation.",
+        "identifier_or_url": "DOI:10.1137/050645452; https://www.web.stanford.edu/~boyd/papers/eff_res.html",
+        "material_read": "Official author abstract and published paper metadata only; no claim of full-text negative coverage based on this inspection.",
+        "method": "Compared author abstract against present objective and relied on Johnson-Chertkov full-text description of its objective.",
+        "title": "Minimizing Effective Resistance of a Graph",
+        "trigger": "Foundational conductance allocation and effective-resistance optimization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "337eff31-1715-4dcc-8f89-d8aa7d070f6b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An m-route two-terminal hub network is a canonical multiply redundant series-parallel graph, and worst failed-edge endpoint resistance measures the cost of routing around any failed wire. A single specially priced route is the minimal heterogeneous price perturbation of this symmetric family. The exact all-size allocation and broad plateau t_-(m)<=t<=t_+(m), with width t_+/t_- asymptotic to m^3/4, capture a nontrivial structural tradeoff: price differences do not change the best conductance until the bottleneck failure type switches. Unlike cactus networks the cycles overlap, so the allocation cannot decompose into independent blocks. The full-price regime keeps the expensive route positive, revealing a concrete reliability requirement. These are substantive exact design boundaries, not an arbitrary finite lookup.",
+    "status": "PASS"
+  }
+}
