@@ -1,11 +1,21 @@
-# Scientific review: a matching-price frontier for continuous-time mixing
+# Independent mathematical audit
 
-**Correctness — PASS.** The statement covers all individual nonnegative rates, not only orbit-constant choices. Two orthogonal Rayleigh-trace bounds give a price-dependent global upper envelope; the exact four-block Laplacian spectrum attains its maximum. Equality in the antisymmetric trace bound implies that every antisymmetric zero-sum vector is an eigenvector, which forces all nonmatching rates, and then all matching rates, to be classwise constant when the matching has at least three edges. This proves completeness of the optimal family and uniqueness away from the threshold. Exact-rational finite checks test the eigenbasis, feasible global bounds and the critical interval; they do not prove the universal theorem. The exclusion of the four-cycle endpoint and the zero-conductance cases is explicitly handled.
+## correctness
 
-**Originality — PASS, with residual search uncertainty.** Sun–Boyd–Xiao–Diaconis (2006) provides the general convex continuous-time problem and geometric dual but not this explicit price frontier, unique-global-allocation classification or critical optimal face. Boyd–Diaconis–Parrilo–Xiao (2009) treats the discrete-time SLEM objective, including unpriced complete bipartite graphs; it does not imply the present priced continuous-time threshold. Triyani–Oktriyansa–Nurshiami (2024) gives the fixed-weight crown spectrum, an endpoint that is accounted for, without optimizing a variable-rate network. The new statement is narrower than the generic SDP but has additional explicit structural content. Searches did not identify an equivalent specialized formula; other historical literature may exist.
+PASS
 
-**Value — PASS.** A perfect matching is a natural, fully symmetric class of redundant links in a balanced bipartite network. Pricing that class is a motivated and interpretable two-level network-investment problem. The theorem yields the exact break-even premium, the complete optimal face at equality, uniqueness despite allowing entirely nonsymmetric designs, a first-order jump in rates, and the spectral-gap multiplicity change. These properties are not merely a renamed fixed-weight eigenvalue computation and permit exact design decisions without numerical semidefinite optimization.
+For K_{n,n}, n≥3, with price t on one perfect matching and price 1 otherwise, projection-trace Rayleigh bounds valid for all asymmetric edge weights give λ2≤min{B/(n−1),[2(n−1)A+(n−2)B]/[n(n−1)]}, where tA+B=1. The piecewise-linear envelope maximizes at a=b when t<2(n−1)/(n−2), at A=0 when t>threshold, and over a full interval at equality. Exact block spectrum for orbit-constant weights is 0,2d,nb,2a+(n−2)b with multiplicities 1,1,n−1,n−1. Equality in the second trace bound forces the whole antisymmetric zero-sum space into the λ2 eigenspace; comparison of the two Laplacian blocks forces offmatching weights equal and the diagonal equal, ruling out asymmetric optima. Independent exact rational eigen/projection and threshold checks agree. The optimization is continuous-time Laplacian, not discrete-time SLEM.
 
-**Scientific limitations.** Uniform stationary mass and continuous-time spectral-gap objective are essential assumptions; other objectives, price patterns, and constrained rates are not covered. Literature searches cannot exclude an unpublished or less accessible equivalent treatment. Finite checker output does not independently certify the infinite argument.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The ancestor Sun–Boyd–Xiao–Diaconis 2006 supplies general priced continuous-time SDP and dual; it does not display the distinguished-matching K_{n,n} all-size full optimal-face classification or the edge-rate discontinuity in reviewed sections. Boyd–Diaconis–Parrilo–Xiao discrete-time SLEM examples and crown-graph fixed-weight Laplacian spectrum have different objectives or lack price optimization.
+
+## value
+
+PASS
+
+A common optimization problem—select conductances on a symmetric bipartite network when a predefined set of links is expensive—has an exact discontinuous structural phase boundary in the unique optimal design. Proving the entire face and excluding asymmetric choices yields a reusable global certificate and a decision rule without numerical semidefinite optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

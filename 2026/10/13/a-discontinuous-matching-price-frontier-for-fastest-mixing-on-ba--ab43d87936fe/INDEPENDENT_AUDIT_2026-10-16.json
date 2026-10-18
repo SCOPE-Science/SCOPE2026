@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T17:18:17.777460Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For K_{n,n}, n≥3, with price t on one perfect matching and price 1 otherwise, projection-trace Rayleigh bounds valid for all asymmetric edge weights give λ2≤min{B/(n−1),[2(n−1)A+(n−2)B]/[n(n−1)]}, where tA+B=1. The piecewise-linear envelope maximizes at a=b when t<2(n−1)/(n−2), at A=0 when t>threshold, and over a full interval at equality. Exact block spectrum for orbit-constant weights is 0,2d,nb,2a+(n−2)b with multiplicities 1,1,n−1,n−1. Equality in the second trace bound forces the whole antisymmetric zero-sum space into the λ2 eigenspace; comparison of the two Laplacian blocks forces offmatching weights equal and the diagonal equal, ruling out asymmetric optima. Independent exact rational eigen/projection and threshold checks agree. The optimization is continuous-time Laplacian, not discrete-time SLEM.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boyd et al., SIAM J. Optimization 20 (2009), DOI 10.1137/070689413, works with discrete-time SLEM and includes unpriced complete-bipartite graphs.",
+          "Sun et al. 2006 generalizes the optimization formulation but not the displayed explicit two-price solution."
+        ],
+        "reasoning": "Neither discrete-time eigenvalue modulus nor a general semidefinite problem gives the precise critical t and uniqueness/critical face as a preexisting theorem.",
+        "searches": [
+          "fastest mixing Markov chain graphs symmetries complete bipartite 2009",
+          "fastest mixing continuous time balanced complete bipartite graph distinguished matching edge prices spectral gap optimization all optimal weights"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1137/S0036144504443821 public full PDF sections on continuous-time SDP",
+        "DOI 10.1137/070689413 source and discrete-time objective",
+        "DOI 10.21831/pythagoras.v19i1.60818 crown spectrum statement",
+        "Resultary semantic query: fastest mixing continuous time balanced complete bipartite graph distinguished matching edge prices spectral gap optimization all optimal weights"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full priced SDP covers K_n,n as an instance and is appropriately credited as general method; crown-spectrum theory recovers fixed endpoint eigenvalues."
+        ],
+        "reasoning": "The explicit discontinuous premium threshold, uniqueness away from threshold, complete critical optimal face and full non-symmetric rigidity require the trace-equality argument, not merely setting known graph parameters.",
+        "searches": [
+          "fastest mixing continuous time balanced complete bipartite graph distinguished matching edge prices spectral gap optimization all optimal weights",
+          "Sun et al fastest mixing continuous-time matching two cost edges"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sun et al., SIAM Review 48 (2006), DOI 10.1137/S0036144504443821, gives a continuous-time spectral-gap/SDP framework allowing rate costs and a dual, but its exemplified graphs do not state this matching-price closed form."
+        ],
+        "reasoning": "A general optimization algorithm covers each instance computationally, but the explicit parameterized all-optimizers phase transition is a separate theorem, not an automatic wording equivalence to an SDP specification.",
+        "searches": [
+          "fastest mixing continuous time balanced complete bipartite graph distinguished matching edge prices spectral gap optimization all optimal weights",
+          "fastest mixing Markov process graph price weighted rates Sun Boyd Xiao Diaconis"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Triyani et al., DOI 10.21831/pythagoras.v19i1.60818, gives an unweighted crown graph spectrum, the deleted-matching endpoint only."
+        ],
+        "reasoning": "Fixed-graph eigenvalues are an ingredient; they do not optimize all weighted feasible graphs for all continuous prices, nor prove no asymmetric equality optimizers.",
+        "searches": [
+          "crown graph Laplacian spectrum 2024",
+          "priced perfect matching K_n,n optimum spectral gap threshold"
+        ]
+      },
+      "rationale": "The ancestor Sun–Boyd–Xiao–Diaconis 2006 supplies general priced continuous-time SDP and dual; it does not display the distinguished-matching K_{n,n} all-size full optimal-face classification or the edge-rate discontinuity in reviewed sections. Boyd–Diaconis–Parrilo–Xiao discrete-time SLEM examples and crown-graph fixed-weight Laplacian spectrum have different objectives or lack price optimization.",
+      "residual_risks": [
+        "A less obvious earlier equality-face classification of the same two-orbit weighted graph may exist under an SDP/symmetric-design name.",
+        "No claim is made for discrete-time SLEM, directed rate matrices, n=2 or unequal stationary measures."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General SDP and dual cover method but no observed explicit all-n matched-biclique price frontier in reviewed sections.",
+          "evidence": [
+            "Sun–Boyd–Xiao–Diaconis (2006), DOI 10.1137/S0036144504443821, continuous-time fastest mixing with linear budget."
+          ],
+          "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "material_read": "Full public PDF available; reviewed introduction, continuous-time rate-budget formulation, related semidefinite relaxation and graph examples (paths and cycles), plus rendered title page",
+          "method": "Direct publisher-author full-PDF text and rendered page inspection",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "Direct ancestor for priced continuous-time graph mixing"
+        },
+        {
+          "assessment": "Related but discrete-time second-largest eigenvalue modulus, no distinguished-priced matching; no whole-document noncoverage asserted.",
+          "evidence": [
+            "Boyd et al. 2009 uses a different discrete-time objective."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/070689413",
+          "material_read": "Publisher-indexed paper and section references to §5.4.2; full comparison not independently repeated in this run",
+          "method": "Primary abstract/identified example and inspected frozen-source citation",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Complete-bipartite optimal mixing with symmetry could subsume the current claim"
+        },
+        {
+          "assessment": "Covered endpoint spectrum only; cannot determine all optimal conductances.",
+          "evidence": [
+            "Fixed unweighted crown Laplacian spectrum is not a cost-optimization theorem."
+          ],
+          "identifier_or_url": "https://doi.org/10.21831/pythagoras.v19i1.60818",
+          "material_read": "Published primary paper title and reported unweighted spectrum theorem in frozen source; full independent reread not done",
+          "method": "Bounded title/statement comparison",
+          "title": "Spektrum Laplace Graf Mahkota dan Graf Benteng",
+          "trigger": "Crown graph is the optimum support after matching deletion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A common optimization problem—select conductances on a symmetric bipartite network when a predefined set of links is expensive—has an exact discontinuous structural phase boundary in the unique optimal design. Proving the entire face and excluding asymmetric choices yields a reusable global certificate and a decision rule without numerical semidefinite optimization.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI 10.1137/S0036144504443821 public full PDF sections on continuous-time SDP",
+    "DOI 10.1137/070689413 source and discrete-time objective",
+    "DOI 10.21831/pythagoras.v19i1.60818 crown spectrum statement",
+    "Resultary semantic query: fastest mixing continuous time balanced complete bipartite graph distinguished matching edge prices spectral gap optimization all optimal weights"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "A less obvious earlier equality-face classification of the same two-orbit weighted graph may exist under an SDP/symmetric-design name.",
+    "No claim is made for discrete-time SLEM, directed rate matrices, n=2 or unequal stationary measures."
+  ],
+  "schema_version": 1
+}
