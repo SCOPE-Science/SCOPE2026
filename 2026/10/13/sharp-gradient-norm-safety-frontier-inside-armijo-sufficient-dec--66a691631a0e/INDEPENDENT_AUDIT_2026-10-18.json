@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T04:58:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Armijo on SPD quadratic is alpha q<=2(1-sigma), q=(g^TAg)/(||g||²). Define t=alpha q. Exact squared gradient factor 1-2t+K t², K=(||g||² g^TA²g)/(g^TAg)². Spectral scalar bound lambda²<=(mu+L)lambda-mu L and optimizing over q yields sharp Kmax=(kappa+1)²/(4kappa), with endpoint eigenmode weights. Convexity in t makes supremum maximum of 1 (t to0) and 1-4(1-sigma)+4(1-sigma)² Kmax. Solving endpoint<=1 yields sigma>=((kappa-1)/(kappa+1))². Scaling diag(1,kappa) realizes Armijo equality on any first trial s0; exact Fraction witness sigma=1/4,kappa=4 has g=(2,1), new g=(1/8,-11/4), norm squared ratio 97/64>1 and f decreases 34/15 to61/60. Endpoint attained on unsafe branch; value 1 only supremum at alpha downarrow0 in safe branch.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Section 4 Theorem 4.1/eq 4.3, one-step exact line-search norm ratio.",
+          "Armijo condition f(x+alpha d)<=f(x)+sigma alpha grad f^T d.",
+          "Resultary 2026/10/4 claim threshold kappa~13.16 for two-step perturbation."
+        ],
+        "reasoning": "General spectral moment inequalities and classical gradient oscillation bounds are prior ingredients. Nocedal 2002 Theorem 4.1 applies to exact line search, not the sigma-dependent all-admissible Armijo accepted-step formula.",
+        "searches": [
+          "Resultary: Armijo steepest descent SPD quadratic gradient norm increase line search condition number threshold",
+          "Nocedal Sartenaer Zhu 2002 On the Behavior of the Gradient Norm in the Steepest Descent Method Theorem 4.1",
+          "DOI:10.1023/A:1014897230089 authorized full text pages 11-22",
+          "Ahookhosh Ghaderi On efficiency of nonmonotone Armijo-type line searches 2014"
+        ]
+      },
+      "checked_sources": [
+        {
+          "assessment": "Exact-line-search bound and classical kappa<=3+2sqrt2 prior; no Armijo acceptance parameter in inspected Theorem 4.1",
+          "identifier_or_url": "DOI:10.1023/A:1014897230089",
+          "title": "On the Behavior of the Gradient Norm in the Steepest Descent Method"
+        },
+        {
+          "assessment": "Sufficient decrease concerns objective values, not worst full-gradient norm",
+          "identifier_or_url": "Optimization Online 4488 (2014)",
+          "title": "On efficiency of nonmonotone Armijo-type line searches"
+        },
+        {
+          "assessment": "Two-step Euclidean behavior under exact line search, different target than one-step Armijo gradient",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-three-mode-perturbation-threshold-for-two-step-euclidean-steep--e0c764d6ed12",
+          "title": "A three-mode perturbation threshold for two-step Euclidean steepest descent"
+        }
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Section 4 Theorem 4.1/eq 4.3, one-step exact line-search norm ratio.",
+          "Armijo condition f(x+alpha d)<=f(x)+sigma alpha grad f^T d.",
+          "Resultary 2026/10/4 claim threshold kappa~13.16 for two-step perturbation."
+        ],
+        "reasoning": "Kantorovich's Kmax combined with Armijo scalar interval and endpoint construction is necessary. The exact-line-search theorem cannot imply safety for longer Armijo-accepted steps, as sigma=1/4,kappa=4 counterexample gives 97/64 amplification while exact search is safe through 3+2sqrt2.",
+        "searches": [
+          "Resultary: Armijo steepest descent SPD quadratic gradient norm increase line search condition number threshold",
+          "Nocedal Sartenaer Zhu 2002 On the Behavior of the Gradient Norm in the Steepest Descent Method Theorem 4.1",
+          "DOI:10.1023/A:1014897230089 authorized full text pages 11-22",
+          "Ahookhosh Ghaderi On efficiency of nonmonotone Armijo-type line searches 2014"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Section 4 Theorem 4.1/eq 4.3, one-step exact line-search norm ratio.",
+          "Armijo condition f(x+alpha d)<=f(x)+sigma alpha grad f^T d.",
+          "Resultary 2026/10/4 claim threshold kappa~13.16 for two-step perturbation."
+        ],
+        "reasoning": "Compared inexact Armijo gradient oscillations, exact line-search Kantorovich bound, and first-trial backtracking witness. Exact line search takes a particular alpha and cannot dominate the supremum over all Armijo-admissible alpha.",
+        "searches": [
+          "Resultary: Armijo steepest descent SPD quadratic gradient norm increase line search condition number threshold",
+          "Nocedal Sartenaer Zhu 2002 On the Behavior of the Gradient Norm in the Steepest Descent Method Theorem 4.1",
+          "DOI:10.1023/A:1014897230089 authorized full text pages 11-22",
+          "Ahookhosh Ghaderi On efficiency of nonmonotone Armijo-type line searches 2014"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Section 4 Theorem 4.1/eq 4.3, one-step exact line-search norm ratio.",
+          "Armijo condition f(x+alpha d)<=f(x)+sigma alpha grad f^T d.",
+          "Resultary 2026/10/4 claim threshold kappa~13.16 for two-step perturbation."
+        ],
+        "reasoning": "No tabulation of the specific sigma/kappa equality frontier found in relevant Resultary hits or inspected Armijo and Nocedal sources; exact-line-search threshold 3+2sqrt2 is a different row of conditions.",
+        "searches": [
+          "Resultary: Armijo steepest descent SPD quadratic gradient norm increase line search condition number threshold",
+          "Nocedal Sartenaer Zhu 2002 On the Behavior of the Gradient Norm in the Steepest Descent Method Theorem 4.1",
+          "DOI:10.1023/A:1014897230089 authorized full text pages 11-22",
+          "Ahookhosh Ghaderi On efficiency of nonmonotone Armijo-type line searches 2014"
+        ]
+      },
+      "rationale": "Nocedal-Sartenaer-Zhu 2002 primary full 31-page text was accessed via lawful institutional publisher service and Section 4 Theorem 4.1 explicitly concerns exact-line-search steepest descent with classical threshold 3+2sqrt2; equation and theorem pages 12-14 inspected. It does not impose Armijo-only admissibility, sigma-dependent endpoint, or arbitrary first-trial scaling witness. Classical Kantorovich spectral bound supplies an ingredient but alone does not state the sharp accepted-step frontier. Armijo 2014 work gives sufficient objective decrease, not this independent gradient-norm diagnostic. Related Resultary steepest-descent records compare exact line search and other objectives, no stronger implication located.",
+      "residual_risks": [
+        "Classical Kantorovich/Armijo combination could have been published explicitly as a routine corollary in older line-search textbooks; full historical survey not exhaustive.",
+        "The frontier does not apply to Wolfe curvature safeguards, general nonquadratic objectives, or fixed nonscaled A with predetermined initial trial length."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact-line-search bound and classical kappa<=3+2sqrt2 prior; no Armijo acceptance parameter in inspected Theorem 4.1",
+          "evidence": "Section 4 Theorem 4.1/eq 4.3, one-step exact line-search norm ratio.",
+          "identifier_or_url": "DOI:10.1023/A:1014897230089",
+          "material_read": "Original 31-page publication accessed through authorized institutional PDF; inspected pages 1-3 and 12-14, especially Section 4 Theorem 4.1, proof and exact-line-search condition; not asserting all 31 pages read",
+          "method": "Authorized Oxford publisher PDF text extraction and theorem-level comparison",
+          "title": "On the Behavior of the Gradient Norm in the Steepest Descent Method",
+          "trigger": "Strongest direct full-gradient norm prior for same quadratic"
+        },
+        {
+          "assessment": "Sufficient decrease concerns objective values, not worst full-gradient norm",
+          "evidence": "Armijo condition f(x+alpha d)<=f(x)+sigma alpha grad f^T d.",
+          "identifier_or_url": "Optimization Online 4488 (2014)",
+          "material_read": "Primary rule/abstract as cited in assigned RESULT; not independently inspected in complete text",
+          "method": "Published rule and bibliographic comparison",
+          "title": "On efficiency of nonmonotone Armijo-type line searches",
+          "trigger": "Armijo accepted step rule with sigma"
+        },
+        {
+          "assessment": "Two-step Euclidean behavior under exact line search, different target than one-step Armijo gradient",
+          "evidence": "Resultary 2026/10/4 claim threshold kappa~13.16 for two-step perturbation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-three-mode-perturbation-threshold-for-two-step-euclidean-steep--e0c764d6ed12",
+          "material_read": "Semantic result summary only, full record not read",
+          "method": "Resultary published-record search",
+          "title": "A three-mode perturbation threshold for two-step Euclidean steepest descent",
+          "trigger": "Nearby published Resultary steepest descent safety alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Practical monotone Armijo line searches guarantee objective descent yet may accept gradient-norm-amplifying first trials. The sharp condition-number/Armijo parameter phase frontier makes this distinction quantitative, in all dimensions, and the explicit first-trial counterexample rules out interpreting the failure as an implausible abstract stepsize. A motivated optimization stability boundary, not merely a demonstration that gradients oscillate.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    {
+      "assessment": "Exact-line-search bound and classical kappa<=3+2sqrt2 prior; no Armijo acceptance parameter in inspected Theorem 4.1",
+      "identifier_or_url": "DOI:10.1023/A:1014897230089",
+      "title": "On the Behavior of the Gradient Norm in the Steepest Descent Method"
+    },
+    {
+      "assessment": "Sufficient decrease concerns objective values, not worst full-gradient norm",
+      "identifier_or_url": "Optimization Online 4488 (2014)",
+      "title": "On efficiency of nonmonotone Armijo-type line searches"
+    },
+    {
+      "assessment": "Two-step Euclidean behavior under exact line search, different target than one-step Armijo gradient",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-three-mode-perturbation-threshold-for-two-step-euclidean-steep--e0c764d6ed12",
+      "title": "A three-mode perturbation threshold for two-step Euclidean steepest descent"
+    }
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Independent mathematics is best-of-knowledge, not formal certification.",
+    "Historical priority not exhaustively established; source inspections have explicit material scope.",
+    "The source verify.py was read but not executed as an opaque artifact; independent checks were separately computed.",
+    "No GitHub writes or dispatcher completion endpoint calls made."
+  ],
+  "residual_risks": [
+    "Classical Kantorovich/Armijo combination could have been published explicitly as a routine corollary in older line-search textbooks; full historical survey not exhaustive.",
+    "The frontier does not apply to Wolfe curvature safeguards, general nonquadratic objectives, or fixed nonscaled A with predetermined initial trial length."
+  ],
+  "schema_version": 1
+}

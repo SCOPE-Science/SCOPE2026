@@ -1,42 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. On an SPD quadratic, the Armijo rule for the negative-gradient direction is exactly
-\[
-\alpha
-\frac{g^{\mathsf T}Ag}{\|g\|_2^2}
-\le
-2(1-\sigma).
-\]
-The new-gradient ratio is a convex quadratic in that normalized step. A sharp endpoint spectral-moment bound gives
-\[
-K_{\max}
-=
-\frac{(\kappa+1)^2}{4\kappa},
-\]
-so the interval maximum is attained at the zero-step limit or the Armijo endpoint. The two-dimensional endpoint construction simultaneously attains the moment bound and the maximal allowed step, and positive scaling realizes it at any prescribed first backtracking trial.
+## correctness
 
-The packaged exact-rational checker replays the displayed witness and verifies the algebraic safety equivalence.
+PASS
 
-## Originality
-PASS with stated residual risk. Classical Armijo sufficient decrease and classical exact-line-search gradient-norm oscillation are prior work. The Armijo source inspected in full controls objective decrease, while the exact-line-search source proves the known gradient-norm bound and condition-number threshold for one special step choice.
+Armijo on SPD quadratic is alpha q<=2(1-sigma), q=(g^TAg)/(||g||²). Define t=alpha q. Exact squared gradient factor 1-2t+K t², K=(||g||² g^TA²g)/(g^TAg)². Spectral scalar bound lambda²<=(mu+L)lambda-mu L and optimizing over q yields sharp Kmax=(kappa+1)²/(4kappa), with endpoint eigenmode weights. Convexity in t makes supremum maximum of 1 (t to0) and 1-4(1-sigma)+4(1-sigma)² Kmax. Solving endpoint<=1 yields sigma>=((kappa-1)/(kappa+1))². Scaling diag(1,kappa) realizes Armijo equality on any first trial s0; exact Fraction witness sigma=1/4,kappa=4 has g=(2,1), new g=(1/8,-11/4), norm squared ratio 97/64>1 and f decreases 34/15 to61/60. Endpoint attained on unsafe branch; value 1 only supremum at alpha downarrow0 in safe branch.
 
-The accepted claim instead optimizes over every Armijo-admissible steepest-descent step and yields the sharp
-\[
-\sigma
-=
-\left(
-\frac{\kappa-1}{\kappa+1}
-\right)^2
-\]
-frontier. Targeted searches did not locate an implication-equivalent result or the sharp first-trial backtracking construction.
+## originality
 
-The main residual risk is older line-search literature that may encode the same Kantorovich calculation under different terminology.
+PASS
 
-## Value
-PASS. Armijo decrease and gradient-norm stopping are routinely used together. The theorem identifies exactly when they are compatible on the basic SPD quadratic model and gives a concrete accepted step where the objective decreases while the gradient stopping diagnostic gets worse. The first-trial construction shows the effect is intrinsic to the acceptance rule rather than an artificial choice among admissible steps.
+Nocedal-Sartenaer-Zhu 2002 primary full 31-page text was accessed via lawful institutional publisher service and Section 4 Theorem 4.1 explicitly concerns exact-line-search steepest descent with classical threshold 3+2sqrt2; equation and theorem pages 12-14 inspected. It does not impose Armijo-only admissibility, sigma-dependent endpoint, or arbitrary first-trial scaling witness. Classical Kantorovich spectral bound supplies an ingredient but alone does not state the sharp accepted-step frontier. Armijo 2014 work gives sufficient objective decrease, not this independent gradient-norm diagnostic. Related Resultary steepest-descent records compare exact line search and other objectives, no stronger implication located.
 
-## Closest literature and limitations
-The closest sources are the classical Armijo backtracking framework and Nocedal–Sartenaer–Zhu's exact-line-search gradient-norm theorem. The present result is restricted to quadratic steepest descent under Armijo sufficient decrease alone. Wolfe curvature conditions, nonquadratic objectives, preconditioned directions, and finite precision require separate analysis.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Practical monotone Armijo line searches guarantee objective descent yet may accept gradient-norm-amplifying first trials. The sharp condition-number/Armijo parameter phase frontier makes this distinction quantitative, in all dimensions, and the explicit first-trial counterexample rules out interpreting the failure as an implausible abstract stepsize. A motivated optimization stability boundary, not merely a demonstration that gradients oscillate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
