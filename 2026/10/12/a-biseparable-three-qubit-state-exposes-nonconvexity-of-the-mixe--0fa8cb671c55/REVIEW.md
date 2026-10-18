@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The three pure states are explicitly Bell-pair-times-product states, so each has one vanishing fixed-cut factor and hence zero \(R_2\). Exact partial transposition of their equal mixture gives a negative eigenvalue \(-\sqrt2/6\) for every one-qubit cut. The fixed-cut convex roofs are faithful to fixed-cut separability because their nonnegative continuous pure-state seeds vanish exactly on the corresponding product states and the finite-dimensional convex-roof minima are attained. Hence all three mixed fixed-cut factors are strictly positive and the convexity inequality fails strictly.
+PASS
 
-## Originality
+The three Bell-pair-times-product pure states are each separable across one cut. Their equal mixture has normalized rational density matrix with exact partial-transpose spectra [1/3±sqrt(2)/6, ±sqrt(2)/6, 0,0,1/6,1/6] across each of three one-qubit cuts; the negative eigenvalue -sqrt(2)/6 excludes cut-separability. For finite-dimensional continuous nonnegative faithful pure-cut seeds, each separate convex roof attains its minimum and is zero exactly on the cut-separable set. Thus all three factors in mixed R2 are positive while each pure component has R2=0. This proves strict nonconvexity and positive value on a biseparable mixture; no exact positive R2 numerical value or LOCC counterexample is claimed.
 
-PASS. The defining 2009 source was inspected at its mixed-state definition and lower-bound derivation. It separately convex-roofs each \(\xi_\Gamma\) and then geometrically averages the results, but the inspected text does not analyze convexity or the convex hull of states separable across different cuts. Targeted semantic-record searches, exact source-title searches, convexity/biseparability searches, and the available own-ledger claims found no implication-equivalent result. The closest later geometric-mean construction takes one convex roof after forming the pure-state geometric mean, so its mixed-state theorem does not cover the partitionwise-roof functional here.
+## originality
 
-## Value
+PASS
 
-PASS. The example distinguishes two inequivalent mixed-state notions that coincide on pure states: entanglement across every fixed cut versus failure to belong to the convex hull of cut-separable states. It shows that the order “convex-roof each cut, then geometric mean” can assign a positive value to a biseparable mixed state and can destroy convexity. This is a structural boundary of a published multipartite measure rather than a parameter substitution or a numerical recomputation.
+Checked the defining 2009 primary text and later pure-first-roof GME primary: they define distinct mixed measures. The specific partitionwise-roof nonconvexity and biseparable-positive witness are not asserted in the inspected defining paper and are not implied by the later pure-first-roof theorem. Best-of-knowledge PASS with possible obscure prior observation.
 
-## Closest literature and limitations
+## value
 
-Ichikawa et al. (arXiv:0911.4245) are the defining source. Love et al. (arXiv:quant-ph/0602143) use the same factorwise-roof order for their mixed global-entanglement extension. Li and Shang (arXiv:2112.10509) instead form a pure-state geometric mean and then convex-roof the whole quantity, which is not the same mixed functional. Modern GME literature defines biseparable mixed states as convex combinations whose pure components may use different bipartitions, matching the explicit ensemble used here. The present result is restricted to the exact three-qubit witness and does not claim a complete classification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The counterexample separates a cutwise-entangled mixed state from genuinely multipartite entanglement defined by the convex hull of biseparable pure states. It exposes a concrete structural defect of the order convex-roof-each-partition-then-geometric-mean in a published quantity, and motivates using a single full convex roof rather than mistaking fixed-cut inseparability for genuine multipartite entanglement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
