@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` beside `certificate.json`.
+# Independent mathematical audit
 
-The verifier generates all \(3834\) permitted nonerasing morphisms with \(|h(A)|=1\) and \(|h(B)|+|h(C)|\le5\). Since both formula fragments have length \(2+|h(B)|+|h(C)|\), every restricted fragment image has length from \(4\) through \(7\).
+## correctness
 
-Engine 1 incrementally extends valid prefixes. A new square or formula fragment created by an appended letter must be a suffix, so only suffixes need be checked. Engine 2 independently tests every whole candidate for every square factor and every permitted morphism. The two complete level sets must agree through length \(46\).
+PASS
 
-The verified level counts end with \(36,30,24,18,0\) at lengths \(42,43,44,45,46\). All \(18\) length-\(45\) words are then rescanned directly, and their orbits under letter permutations and reversal are recomputed as sizes \(6\) and \(12\).
+Prefix language is factorial. Allowed morphism count is exactly 3 sum_{L=2}^5 (L-1)3^L=3834 with both images length 4..7. Appending a letter can create only a new square suffix or a new suffix equal to either formula-fragment image whose other fragment appears in the word. Therefore exact suffix-pruning traverses every admissible word at each depth. Independent fresh Python enumerator reproduced all 47 survivor counts, ending 36,30,24,18,0 at lengths 42..46, and directly checked each of the 18 length-45 words against all 3834 morphisms and square condition; orbit under six letter permutations and reversal has sizes 6,12. None at 46 excludes all longer words. This does NOT bound unrestricted formula-avoiding words.
 
-The verification concerns only the restricted square-free certificate language. Independent audit has not been performed.
+## originality
+
+PASS
+
+Ochem & Rosenfeld, arXiv:1706.03233 v2 p9/section6 explicitly state only absence of an infinite square-free ternary word under exactly the restrictions |h(A)|=1, |h(B)|+|h(C)|<=5. Their proof states a computer check without a finite maximum, enumeration or orbit profile. Here 45 and all 18 extremizers are separately computed; an archived unindexed input or code could contain these counts, retained as risk. No whole-paper absence assertion beyond inspected primary section.
+
+## value
+
+PASS
+
+The exact maximum length and equality classes sharpen a natural bounded computational certificate underlying an established 4-avoidability theorem; the cutoff identifies a usable finite search depth and all extremal counterexamples, not an arbitrary slice or known count recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
