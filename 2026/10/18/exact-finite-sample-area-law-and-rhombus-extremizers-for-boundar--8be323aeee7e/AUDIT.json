@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "The proof reduces arbitrary skew parallelograms to sidewise isometric rectangle arclength sampling and derives exact expected area by cyclic consecutive-pair shoelace counting. Distributional fourth differentiation of the rectangle correlation gives the explicit cubic spline, with direct check of jump terms and boundary data. Elementary Beta integration obtains the stated N-dependent expression, and a finite positive binomial expansion valid for every integer N>=3 proves strict imbalance ordering and sharp endpoints. Exact rational and independent boundary-sampling checks of CHECK.py pass; the infinite statement is justified analytically, not by finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "M. Reitzner, C. Schuett, E.M. Werner, arXiv:1911.05917, introductory statement and main theorem, general simple-polytope asymptotics as N tends to infinity, not exact for N=3,4,...",
+        "N. Turchi and F. Wespi, arXiv:1706.02944, smooth convex surfaces, not four-sided polytopes.",
+        "published-finding corpus 2026/10/11/SCOPE-gumbel-transition-and-second-order-hausdorff-error-for-randomly--3fe000dbc9a1 discusses Hausdorff error and a varying number of regular polygon sides, not exact missing area."
+      ],
+      "reasoning": "A theorem applying to all simple polytopes could subsume the proposed special case only if it proved a finite-sample expectation or a general formula from which the one-dimensional shape extremizer follows. The inspected arXiv and Springer text supply asymptotics and no such all-N identity; the smooth-surface work does not cover polygon vertices. The asymptotic leading term alone cannot imply finite-N exact coefficients or sharp shape ordering.",
+      "searches": [
+        "Boundary random parallelogram finite sample mean convex hull area exact N formula dependent only side length ratio, angle independent, rhombi maximize expectation. Random inscribed rectangle area arclength, not interior points",
+        "arclength random polygon inscribed in rectangle expected missed area exact finite sampling law",
+        "The convex hull of random points on the boundary of a simple polytope Reitzner Schuett Werner exact N 2D",
+        "random polytope arclength boundary parallelogram quadrilateral rhombus mean area"
+      ]
+    },
+    "checked_sources": [
+      "Reitzner, Schuett, Werner, arXiv:1911.05917 (first public 2019-11-14)",
+      "Reitzner et al., DOI:10.1007/s00454-022-00460-2",
+      "published-finding corpus 2026/10/11/SCOPE-fourth-chord-moment-amplification-and-angular-phase-transition-f--45b0568cfb6e",
+      "published-finding corpus 2026/10/11/SCOPE-gumbel-transition-and-second-order-hausdorff-error-for-randomly--3fe000dbc9a1",
+      "published-finding corpus 2026/10/11/SCOPE-unique-minimax-area-perimeter-sampling-law-for-random-polygons-i--179adc1046b6",
+      "published-finding corpus 2026/10/11/SCOPE-sharp-uniform-angular-stability-for-the-short-pair-distance-coef--24e8bcd8655b",
+      "Buchta 1984 interior-point square formula via secondary 2022 description"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Reitzner et al., arXiv:1911.05917, the main volume-deficit asymptotic is compatible with the N^-2 order but does not assert the explicit exponential finite correction.",
+        "published-finding corpus 2026/10/11/SCOPE-fourth-chord-moment-amplification-and-angular-phase-transition-f--45b0568cfb6e has Euclidean chord moment ratio not area and its dependence on angle further differentiates its statistic.",
+        "published-finding corpus 2026/10/11/SCOPE-sharp-uniform-angular-stability-for-the-short-pair-distance-coef--24e8bcd8655b concerns short pairwise distances from interior points."
+      ],
+      "reasoning": "The new exact finite-N mean would imply an asymptotic N^-2 area deficit after fixing the shape; the reverse implication is false because infinitely many all-N sequences share the same leading asymptotic. A fourth chord-distance moment of two points does not determine N-point hull area, and its angular behavior differs. These are precise non-implication comparisons, rather than citation-title dissimilarity.",
+      "searches": [
+        "Boundary random parallelogram finite sample mean convex hull area exact N formula dependent only side length ratio, angle independent, rhombi maximize expectation. Random inscribed rectangle area arclength, not interior points",
+        "parallelogram boundary random inscribed polygon expected area n sample exact formula side length aspect ratio",
+        "arXiv:1911.05917 boundary random polytope exact N asymptotic missing volume",
+        "published-finding corpus: finite N boundary-sampled parallelogram random hull area exact mean rhombus square optimum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Reitzner--Schuett--Werner, arXiv:1911.05917, Section 1 and 3, addresses asymptotics rather than all-N formulas; see https://arxiv.org/html/1911.05917v3",
+        "published-finding corpus closest 2026/10/11/SCOPE-fourth-chord-moment-amplification-and-angular-phase-transition-f--45b0568cfb6e describes fourth-distance-moment ratios for TWO random points, which do not recover the all-N area expectation."
+      ],
+      "reasoning": "The proposed functional is the normalized expected Euclidean area of a convex hull of N independent arclength-uniform boundary samples, quantified for every integer N>=3. Equivalent descriptions include expected missed area, random inscribed polygon, and square/rectangle side-weight boundary sampling. Retrieved records do not give an exact expression for this functional or its unique length-ratio extremum. Topic overlap alone is not an implication.",
+      "searches": [
+        "Boundary random parallelogram finite sample mean convex hull area exact N formula dependent only side length ratio, angle independent, rhombi maximize expectation. Random inscribed rectangle area arclength, not interior points",
+        "exact expected area convex hull n random uniformly on boundary of square rectangle 3 points",
+        "\"random points\" \"boundary\" \"rectangle\" \"expected area\"",
+        "\"convex hull\" \"parallelogram\" \"boundary\" \"expected\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published-finding corpus records 2026/10/11/SCOPE-fourth-chord-moment-amplification-and-angular-phase-transition-f--45b0568cfb6e, 2026/10/11/SCOPE-unique-minimax-area-perimeter-sampling-law-for-random-polygons-i--179adc1046b6, and 2026/10/11/SCOPE-gumbel-transition-and-second-order-hausdorff-error-for-randomly--3fe000dbc9a1 do not tabulate the boundary-rectangle hull-area expectation.",
+        "Buchta 1984 square formula, discussed at https://blogs.sas.com/content/iml/2022/11/07/area-random-convex-hull.html, applies to INTERIOR-uniform points, a different sampling measure."
+      ],
+      "reasoning": "The identity determines all N and all aspect ratios and predicts exact square anchors at N=3 and general sample counts. No exact table for the boundary distribution matching or stronger than the formula was found. Interior-square hull expectations cannot substitute for an arclength boundary distribution.",
+      "searches": [
+        "Boundary random parallelogram finite sample mean convex hull area exact N formula dependent only side length ratio, angle independent, rhombi maximize expectation. Random inscribed rectangle area arclength, not interior points",
+        "finite N boundary-sampled parallelogram random hull area exact mean rhombus square optimum",
+        "exact expected area convex hull n random uniformly on boundary of square rectangle 3 points",
+        "expected area square boundary random points formula finite N arclength table",
+        "published-finding corpus: Boundary random parallelogram finite sample mean convex hull area exact N formula dependent only side length ratio, angle independent, rhombi maximize expectation. Random inscribed rectangle area arclength, not interior points"
+      ]
+    },
+    "rationale": "Targeted published-finding corpus searches, own-record overlap checks, public literature queries, and inspection of relevant Reitzner--Schuett--Werner original preprint and journal theorem statements revealed asymptotic random boundary polytope work but no exact N-point parallelogram formula or sharp rhombus extremizers. Related chord moments, Hausdorff limits, and interior square calculations concern non-equivalent observables. Unindexed older fixed-N formulas and incomplete full texts remain risks.",
+    "residual_risks": [
+      "An unindexed historical exact finite-N area calculation for boundary-sampled squares or rectangles could imply part of the formula.",
+      "The full text of the closely related two-point parallelogram chord moment record was not available; its abstract specifies an inapplicable statistic.",
+      "A general all-N identity may exist outside the inspected primary articles; searching cannot prove novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the all-sample-size parallelogram identity or sharp rhombus extremizers; offers asymptotic bounds and expansions for general simple polytopes.",
+        "evidence": "The authors explicitly emphasize expected missing volume as sample size tends to infinity, and the introduction notes the absence of broadly expected finite-N exact expressions.",
+        "identifier_or_url": "https://arxiv.org/html/1911.05917v3",
+        "material_read": "HTML introduction, statement of main theorems, relevant expected missing volume arguments and expressions in main text; searches for parallelogram, square and finite exact special cases.",
+        "method": "Read lawful public arXiv HTML, checked main theorem statements and searched full-text terms.",
+        "title": "The convex hull of random points on the boundary of a simple polytope",
+        "trigger": "The same sampling distribution on boundaries of general simple polytopes could dominate the finite parallelogram problem."
+      },
+      {
+        "assessment": "NOT_COVERING in inspected material; principal theorems are asymptotic rather than all-N rectangle formulas.",
+        "evidence": "The introductory discussion says explicit fixed-N formulae are not generally expected and motivates N tending to infinity.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00454-022-00460-2",
+        "material_read": "HTML introduction and theorem statements and accessible main-text sections, including random boundary model, general asymptotic statement and dimensional conventions.",
+        "method": "Read publisher public HTML theorem and context, compared with arXiv primary preprint.",
+        "title": "The convex hull of random points on the boundary of a simple polytope (journal)",
+        "trigger": "Possibility the later journal version strengthens its preprint into an exact formula."
+      },
+      {
+        "assessment": "Summary describes a different functional, but full source could not be inspected. Residual overlap risk stated.",
+        "evidence": "published-finding corpus identifier 2026/10/11/SCOPE-fourth-chord-moment-amplification-and-angular-phase-transition-f--45b0568cfb6e; formula concerns ratios of fourth moments of Euclidean chord lengths of TWO random points.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-fourth-chord-moment-amplification-and-angular-phase-transition-f--45b0568cfb6e",
+        "material_read": "Available mathematical database summary: fourth distance moment ratio and angle transition; not the full linked writeup.",
+        "method": "Compared returned semantic research-record abstract and mathematical objects, attempted full link retrieval without obtaining a readable body.",
+        "title": "Fourth-chord moment amplification and angular phase transition for parallelograms",
+        "trigger": "Same parallelogram and uniform-boundary random chord geometric setting."
+      },
+      {
+        "assessment": "Uses Hausdorff distance with number of polygon sides varying; no direct finite-N missed-area expectation.",
+        "evidence": "published-finding corpus identifier 2026/10/11/SCOPE-gumbel-transition-and-second-order-hausdorff-error-for-randomly--3fe000dbc9a1",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-gumbel-transition-and-second-order-hausdorff-error-for-randomly--3fe000dbc9a1",
+        "material_read": "Available database abstract only; no full text.",
+        "method": "Compared parameter regimes and observables as described in research record.",
+        "title": "Gumbel transition and second-order Hausdorff error for randomly inscribed regular polygons",
+        "trigger": "Uniform boundary sampling and random inscribed polygons."
+      },
+      {
+        "assessment": "Known expression is for points chosen uniformly in the INTERIOR; unlike this result, the boundary is probability one.",
+        "evidence": "The article explicitly specifies n points uniformly randomly in the unit square, and separately cites Christian Buchta (1984).",
+        "identifier_or_url": "https://blogs.sas.com/content/iml/2022/11/07/area-random-convex-hull.html",
+        "material_read": "Webpage description of the known Buchta 1984 exact square formula; the source is a secondary description, not the primary 1984 paper.",
+        "method": "Checked the explicitly specified sampling measure and area functional.",
+        "title": "On the expected area of the convex hull in a square (Buchta-type formula)",
+        "trigger": "Potential exact N-point square formula could subsume a boundary-square case."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8be323ae-ee7e-4986-b9a8-ff7adabca53c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The expected missing area of boundary-inscribed random polygons is an established nontrivial geometric-probability invariant. The new theorem supplies exact finite-N evaluation, all-N sharp shape ordering and a complete degeneration limit for the full two-parameter side ratio and shear family. The angle-independence gives a structural invariance; the strict rhombus extremality and exponentially small finite corrections cannot be read off from the known general N^-2 asymptotics. The formula is neither a numerical slice nor a routine renaming of an existing identity.",
+    "status": "PASS"
+  }
+}
