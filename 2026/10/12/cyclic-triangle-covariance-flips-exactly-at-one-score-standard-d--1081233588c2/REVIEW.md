@@ -1,24 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Conditioning on one vertex outdegree leaves all edges among the other vertices independent and fair. This gives the exact conditional cyclic-triangle mean and the quadratic score-imbalance correction. Vertex exchangeability then proves the master covariance identity.
+PASS
 
-The two-vertex score-class probability is computed by conditioning on their shared edge, and the cyclic-triangle variance follows because distinct cyclic-triangle indicators are pairwise independent even when the triangles share one edge. The local central-limit profile is a direct substitution into the exact correlation formula.
+Conditioning on one vertex outdegree k gives E[C_n|D_v=k]=binom(q,3)/4+k(q−k)/2, since every mixed neighbor pair forms a cycle with probability 1/2. Subtracting E[C_n]=binom(n,3)/4 yields [q−(2k−q)^2]/8, proving the master covariance by exchangeability. The two-vertex score-class joint probability is p²[1−(2k−q)^2/q²] using the common-edge orientation; summing indicators yields Var(N_k)=n p[1−p(1+δ²/q)]. Distinct triangle indicators are pairwise independent even when triangles share one edge (one required orientation of each disjoint pair after conditioning on shared edge), so Var(C_n)=nq(q−1)/32. The displayed Corr and CLT profile follow algebraically; exactly |k−q/2|=sqrt(q)/2 gives zeros, not independence. Independently enumerated every tournament at n=3,4,5 using edge coins, counted cycles directly from triple orientations, and matched all covariance and variance formulas; inspected full supplied n<=6 checker.
 
-## Originality
+## originality
 
-PASS, with a specific residual risk. The classical full text of Beineke--Harary explicitly gives the deterministic score-sequence formula for cyclic triangles, but not a random covariance with score-class counts. Barbour--Godbole--Qian use the same independent fair random-tournament model for different statistics. Andersson treats asymptotic counts of fixed digraphs, which includes cyclic triangles marginally but does not make the moving degree-class statistic a fixed subgraph count.
+PASS
 
-Targeted searches for score-class/cyclic-triangle covariance, outdegree-class covariance, and the one-standard-deviation sign rule found no matching statement. Andersson's full text was not accessible, so possible implicit overlap there is retained as a risk rather than dismissed.
+Classical score identity C_n=binom(n,3)−sum_v binom(D_v,2) gives deterministic dependence of cyclic triangles on outdegrees but not automatically the random score-class covariance. Older random tournament motif papers study subgraph counts and score structure generally, but the exact mixed class covariance, one-standard-deviation sign rule, and asymptotic profile were not located. Bounded best-of-knowledge originality, with material risk that classical second-moment score identities already imply the formula after routine specialization.
 
-## Value
+## value
 
-PASS. Vertex scores and cyclic triangles are canonical local and global measures of tournament balance. The theorem identifies an exact finite sign phase at the natural score standard deviation, not an arbitrary parameter slice, and the master identity explains the phase structurally through squared score imbalance.
+PASS
 
-The local-limit profile quantifies the effect on the natural central score scale and shows that the sign transition is stable asymptotically rather than a finite-size coincidence.
+An exact covariance law for a natural score-class statistic and cyclic triangle count, with sharp one-standard-deviation sign reversal and universal local-CLT profile, clarifies how cyclicity favors central rather than extreme vertex scores. It provides a reusable joint-moment benchmark, not an arbitrary small instance.
 
-Self-review: passed. Independent audit: not yet performed.
-
-
-Exact replay: `VERIFY_OK tournaments=33864 conditional_checks=18 covariance_checks=18 variance_checks=22 sign_checks=18 master_checks=12`.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

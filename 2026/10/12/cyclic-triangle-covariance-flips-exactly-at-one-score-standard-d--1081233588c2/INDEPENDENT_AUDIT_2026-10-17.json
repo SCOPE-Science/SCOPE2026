@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T12:47:40Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git RESULT.md dc74b63c99c4314da5ccada23e0083a3811c4250",
+        "Git verify_tournament_score_cyclic_covariance.py 21043322120abc3434b1c12165601995f2547f85",
+        "Independent full orientation enumeration n=3,4,5 in scope09_independent_checks_1229.py"
+      ],
+      "rationale": "Conditioning on one vertex outdegree k gives E[C_n|D_v=k]=binom(q,3)/4+k(q−k)/2, since every mixed neighbor pair forms a cycle with probability 1/2. Subtracting E[C_n]=binom(n,3)/4 yields [q−(2k−q)^2]/8, proving the master covariance by exchangeability. The two-vertex score-class joint probability is p²[1−(2k−q)^2/q²] using the common-edge orientation; summing indicators yields Var(N_k)=n p[1−p(1+δ²/q)]. Distinct triangle indicators are pairwise independent even when triangles share one edge (one required orientation of each disjoint pair after conditioning on shared edge), so Var(C_n)=nq(q−1)/32. The displayed Corr and CLT profile follow algebraically; exactly |k−q/2|=sqrt(q)/2 gives zeros, not independence. Independently enumerated every tournament at n=3,4,5 using edge coins, counted cycles directly from triple orientations, and matched all covariance and variance formulas; inspected full supplied n<=6 checker.",
+      "residual_risks": [
+        "The theorem depends on independent fair edge orientations; zero covariance on boundary is not statistical independence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Andersson fixed digraph count framework covers C_n but not a score-class statistic N_k, which is not a fixed-size motif count."
+        ],
+        "reasoning": "The former general subgraph central limit law is not a dominating-parameter theorem for exact n-dependent score-class mixed covariance; full older text remains inaccessible.",
+        "searches": [
+          "Andersson 1998 DOI 10.1002/(SICI)1098-2418(199810/12)13:3/4<249::AID-RSA4>3.0.CO;2-V",
+          "Beineke–Harary 1965"
+        ]
+      },
+      "checked_sources": [
+        "Beineke–Harary 1965 published extract",
+        "Barbour–Godbole–Qian 1997 bibliography",
+        "Andersson 1998 indexed abstract",
+        "Resultary query random tournament outdegree score class cyclic triangle covariance binomial scores"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-SD sign boundary is a structural consequence of the newly computed mixed covariance. Existing deterministic identity might yield it with nontrivial two-vertex score moments, not from a stated prior theorem."
+        ],
+        "reasoning": "The novelty claim is confined to the exact covariance and derived profile; no claim that the cyclic-triangle statistic or tournament score identity itself is new.",
+        "searches": [
+          "Beineke–Harary transitive-triple identity",
+          "Barbour–Godbole–Qian 1997",
+          "Andersson 1998 indexed bibliography"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Deterministic transitive-triple formula Σ_v binom(D_v,2) controls C_n for a fixed tournament; the assessed result is a random mixed second-moment identity for each exact score class."
+        ],
+        "reasoning": "Score sequence versus cyclic-triple determinacy is related but not equivalent to Cov(N_k,C_n) without the joint distribution of all degrees.",
+        "searches": [
+          "random tournament outdegree score class cyclic triangle covariance binomial scores",
+          "web: \"random tournament\" \"covariance\" \"cyclic triangles\" \"score\"; \"binomial\" \"cyclic triangles\" covariance",
+          "Beineke–Harary DOI:10.4153/CMB-1965-035-x",
+          "Barbour–Godbole–Qian 1997 DOI:10.1017/S0963548396002829"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior deterministic sum identity is an exact table of cyclic triples given scores, but not an exact two-statistic mixed covariance table. Resultary returned tournament solution/census studies rather than this statistic."
+        ],
+        "reasoning": "Classical identity is acknowledged as background, no precise same covariance entry found.",
+        "searches": [
+          "random tournament outdegree score class cyclic triangle covariance binomial scores",
+          "Resultary random tournament outdegree score cyclic covariance query",
+          "Kendall–Babington Smith cyclic-triangle consistency index"
+        ]
+      },
+      "rationale": "Classical score identity C_n=binom(n,3)−sum_v binom(D_v,2) gives deterministic dependence of cyclic triangles on outdegrees but not automatically the random score-class covariance. Older random tournament motif papers study subgraph counts and score structure generally, but the exact mixed class covariance, one-standard-deviation sign rule, and asymptotic profile were not located. Bounded best-of-knowledge originality, with material risk that classical second-moment score identities already imply the formula after routine specialization.",
+      "residual_risks": [
+        "High-priority possible older mixed moments obtained by differentiating tournament score generating functions or under Kendall consistency terminology.",
+        "Relevant primary Beineke–Harary and Andersson full PDFs not read. Authorized institutional attempt for Beineke–Harary returned vpn_disconnected; not an originality failure alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classic deterministic triple-count context; cannot exclude a hidden mixed-moment identity without full text",
+          "evidence": "Original note refers to Kendall–Babington Smith on cyclic consistency triples",
+          "identifier_or_url": "Beineke–Harary (1965), DOI:10.4153/CMB-1965-035-x",
+          "material_read": "Published extract/abstract and bibliographic reference; full PDF unavailable from lawful OA; authorized institutional access returned vpn_disconnected, not interpreted as not-covering",
+          "method": "publisher public extract and scholarly bibliographic record only",
+          "title": "The Maximum Number of Strongly Connected Subtournaments",
+          "trigger": "Same cyclic-versus-transitive triangle identity"
+        },
+        {
+          "assessment": "Different random tournament statistic; no whole-paper noncoverage claim",
+          "evidence": "Poisson approximation for unbeaten subsets",
+          "identifier_or_url": "Barbour–Godbole–Qian (1997), DOI:10.1017/S0963548396002829",
+          "material_read": "Published abstract/results descriptions on unbeaten subsets, not full text",
+          "method": "primary bibliographic/abstract inspection",
+          "title": "Imperfections in Random Tournaments",
+          "trigger": "Same random tournament model"
+        },
+        {
+          "assessment": "Fixed-subgraph count scope does not obviously include n-dependent N_k, but implicit formulas not excluded",
+          "evidence": "Random tournament asymptotic fixed-digraph motif counts",
+          "identifier_or_url": "Andersson (1998), DOI:10.1002/(SICI)1098-2418(199810/12)13:3/4<249::AID-RSA4>3.0.CO;2-V",
+          "material_read": "Published bibliographic/abstract data, not full text",
+          "method": "indexed primary-source abstract only",
+          "title": "On the asymptotic distributions of subgraph counts in a random tournament",
+          "trigger": "Potential dominating fixed-subgraph count theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Beineke–Harary (1965) DOI 10.4153/CMB-1965-035-x",
+        "Barbour–Godbole–Qian (1997) DOI 10.1017/S0963548396002829",
+        "Andersson (1998) DOI 10.1002/(SICI)1098-2418(199810/12)13:3/4<249::AID-RSA4>3.0.CO;2-V",
+        "Frozen Git RESULT.md dc74b63c99c4314da5ccada23e0083a3811c4250"
+      ],
+      "rationale": "An exact covariance law for a natural score-class statistic and cyclic triangle count, with sharp one-standard-deviation sign reversal and universal local-CLT profile, clarifies how cyclicity favors central rather than extreme vertex scores. It provides a reusable joint-moment benchmark, not an arbitrary small instance.",
+      "residual_risks": [
+        "All formulas for fair independent tournaments only; no distributional independence conclusion."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the fair independent-orientation tournament on n>=3 vertices and additive score statistic S_phi=sum_v phi(D_v), Cov(S_phi,C_n)=−n/8 Cov(phi(B),(2B−n+1)^2), yielding exact score-class covariance n p_{q,k}(q−(2k−q)^2)/8, variances, one-score-SD sign threshold, and local-CLT scaled correlation profile.",
+  "limitations": [
+    "The theorem depends on independent fair edge orientations; zero covariance on boundary is not statistical independence.",
+    "High-priority possible older mixed moments obtained by differentiating tournament score generating functions or under Kendall consistency terminology.",
+    "Relevant primary Beineke–Harary and Andersson full PDFs not read. Authorized institutional attempt for Beineke–Harary returned vpn_disconnected; not an originality failure alone.",
+    "All formulas for fair independent tournaments only; no distributional independence conclusion."
+  ],
+  "schema_version": 1
+}
