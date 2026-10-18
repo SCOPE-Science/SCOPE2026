@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof-critical finite lemma is reproduced by:
+# Independent mathematical audit
 
-`python3 artifacts/verify.py`
+## correctness
 
-The checker uses only exact arithmetic over \(\mathbb F_2\) and \(\mathbb F_3\). For each canonical residue-and-boundary signature it constructs:
+PASS
 
-- the target exact coefficient space;
-- every valid exact predecessor coefficient space;
-- the quadratic anchor kernel \(K_r=\ker((1,1,1)+e_r)\);
-- every bracket coefficient \(\lambda_w(a)b-\lambda_w(b)a\);
-- the rank of their span.
+Decompose weight w with sum d-1: interior w>=0 exact coefficient ker(lambda_w) if lambda_w≠0 else 0; a boundary w_s=-1 has exact line k e_s if lambda_w≠0 else zero. For anchor r quadratic divergence-free coefficient space ker(1+e_r), predecessor exact space at w-e_r; bracket column lambda_w(a)b-lambda_w(b)a. Every matrix depends only on whether each coordinate is zero/positive and its residue mod p, so a complete all-degree reduction has 50 canonical signatures for p=2 and 108 for p=3 (impossible low-degree signatures excluded). Independently recomputed all finite rank matrices with exhaustive prime-field vector bases: p2 counts 25 interior rank2,21 boundary rank1,four zero; p3 counts 62 interior rank2,42 boundary rank1,four zero; zero rank mismatches. Rank preservation under any same-characteristic field extension proves all fields and all degrees; not merely checking d up to a cutoff.
 
-It exhausts \(50\) signatures in characteristic \(2\) and \(108\) in characteristic \(3\). Every target rank matches the bracket-image rank. The recorded output is in `artifacts/VERIFY.txt` and ends with `CHECK_OK`.
+## originality
 
-The checker certifies the finite linear-algebra lemma after the mathematical reduction; it does not by itself prove that the reduction covers all degrees. That coverage is supplied in `RESULT.md` by showing that the matrices depend only on zero-versus-positive status and coordinate residues modulo the characteristic, with the impossible low-sum signatures excluded for \(d\ge3\).
+PASS
+
+Chao Ma 2026 establishes unrestricted [L2,Ld-1]=E_d in all characteristics, and the stronger restricted-source [L2,E_(d-1)]=E_d for p>=5; the paper explicitly excludes p2,p3 from this stronger theorem. The exact-source predecessor can be a proper subspace, so unrestricted identity does not imply the new low-characteristic recursion. The inspected primary work and semantic search did not establish the claimed dimension-3 small-characteristic result. Priority risk remains for differently titled Cartan-type Lie results.
+
+## value
+
+PASS
+
+The two excluded prime characteristics are precisely the natural gap in a homogeneous exact-source generation theorem; closing both in dimension three gives a characteristic-free statement for that dimension and a complete finite residue-class certificate, a motivated structural lemma rather than a small instance or textbook restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
