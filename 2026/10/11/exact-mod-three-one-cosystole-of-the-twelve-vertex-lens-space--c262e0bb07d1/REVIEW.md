@@ -1,15 +1,21 @@
-# Review of Exact mod-three one-cosystole of the twelve-vertex lens space
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim reduces to finite linear algebra over \(\mathbf F_3\) and exhaustive enumeration of one affine cohomology coset. From the exact 54-facet source list, the checker derives \(66\) edges and \(108\) triangles, verifies \(\operatorname{rank}\partial_1=11\) and \(\operatorname{rank}\partial_2=54\), and therefore \(\dim H^1=1\). The explicit weight-\(28\) cocycle satisfies every triangle equation and is not a coboundary. Fixing one vertex potential to zero enumerates every coboundary exactly once, so all \(3^{11}\) representatives of a nonzero class are checked, not sampled. The same supports serve the second nonzero class by negation. The support orbit calculation independently reconstructs the published six automorphisms from their generators.
+## correctness
 
-## Originality
-PASS. Focused semantic searches for the exact object, cosystole/cocycle support, minimum weight, and the number \(28\) returned no same or stronger statement. The exact primary full text was inspected at the facet list and symmetry section and searched for `cocycle`, `cosyst`, and `cohomology`; none occurs. Datta's exact-object review states the triangulation and ordinary homology but not cochain support. The nearest exact-object prior item is a homology one-systole classification, which does not imply a cohomological Hamming minimum. Residual risk is an unindexed finite computation using different terminology.
+PASS
 
-## Value
-PASS. The mod-three one-cosystole is a natural code-like invariant of a triangulated space: it measures how sparsely the unique projective nonzero class in \(H^1(K;\mathbf F_3)\) can be represented. The exact distance \(28\), the \(18\) minimizing supports, and their four symmetry orbits expose localization structure not determined by the abstract group \(H^1\cong\mathbf F_3\), the face vector, or the previously known homology-cycle systole. The invariant is reproducible and can serve as a finite benchmark for cosystolic calculations on torsion 3-manifolds.
+Actual Lutz 12-vertex facet-list blob af1e826ee89752ca8ba15d23a44a7821ddd1f701 was independently decoded from all 54 tetrahedra. Independent mod-3 boundary construction produces f=(12,66,108,54), ranks rank ∂1=11 and rank ∂2=54 and dim H^1=1. The displayed 28-edge cocycle satisfies every triangular cocycle equation and is not a coboundary (augmented rank 12). An independent finite complete enumeration over all 3^11=177147 vertex potentials p(1)=0 gives exact minimal weight 28 with precisely 18 distinct supports, including independently reproduced full weight histogram. Closing the two published facet-preserving S3 generators gives exactly six automorphisms and support-orbit sizes 3,3,6,6. This finite exhaustive enumeration PROVES the stated finite claim; it does not claim a lens-space invariant across triangulations.
 
-## Closest literature and limitations
-The closest exact sources are Lutz's arXiv:math/0506372v1 and Datta's 2007 review. Broader literature on lens-space triangulations studies vertex/tetrahedron minimality and layered triangulations rather than this edge-support optimization. The result remains object-specific and does not assert a family theorem.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original contribution survives statement-level comparison with current published findings and the accessible primary literature: An element of Z1/B1 and one of Z^1/B^1 require distinct cycles/cocycles; the former 3-edge nonboundary shortest cycle cannot imply the latter minimum nonzero edge count 28.
+
+## value
+
+PASS
+
+A natural metric analogue for the mod-three cohomology code of a classical minimal triangulated torsion manifold: the exact edge-support minimum plus multiplicity and symmetry stratification is a precise dataset about cocycles, not a textbook computation of H1 nor a random arbitrary subslice. It can benchmark topological code distance and sparsest cochain representatives on an explicit standard complex; the bounded finite census is complete.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

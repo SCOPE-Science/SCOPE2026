@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The standalone checker reconstructs the simplicial complex from `source_facets.txt` and verifies the following exact facts over \(\mathbf F_3\):
+# Independent mathematical audit
 
-- the face vector is \(f=(12,66,108,54)\);
-- \(\operatorname{rank}(\partial_1)=11\) and \(\operatorname{rank}(\partial_2)=54\), so \(\dim H^1=1\);
-- the embedded explicit \(1\)-cochain has weight \(28\), is a cocycle, and is not a coboundary;
-- all \(3^{11}=177{,}147\) normalized coboundary shifts are exhausted;
-- minimum weight is exactly \(28\), attained by exactly \(18\) cocycles in each nonzero class;
-- scalar negation pairs the two nonzero classes without changing their \(18\) supports;
-- the full coset weight enumerator agrees with the hard-coded expected table;
-- the published permutations generate a six-element facet-preserving group, and the \(18\) minimum supports split into orbits of sizes \(3,3,6,6\).
+## correctness
 
-The checker uses integer arithmetic and modular Gaussian elimination only. No randomized search or floating-point inference is used. The finite computation proves only the stated invariant of this exact triangulation and coefficient field.
+PASS
+
+Actual Lutz 12-vertex facet-list blob af1e826ee89752ca8ba15d23a44a7821ddd1f701 was independently decoded from all 54 tetrahedra. Independent mod-3 boundary construction produces f=(12,66,108,54), ranks rank ∂1=11 and rank ∂2=54 and dim H^1=1. The displayed 28-edge cocycle satisfies every triangular cocycle equation and is not a coboundary (augmented rank 12). An independent finite complete enumeration over all 3^11=177147 vertex potentials p(1)=0 gives exact minimal weight 28 with precisely 18 distinct supports, including independently reproduced full weight histogram. Closing the two published facet-preserving S3 generators gives exactly six automorphisms and support-orbit sizes 3,3,6,6. This finite exhaustive enumeration PROVES the stated finite claim; it does not claim a lens-space invariant across triangulations.
+
+## originality
+
+PASS
+
+Best-of-knowledge original contribution survives statement-level comparison with current published findings and the accessible primary literature: An element of Z1/B1 and one of Z^1/B^1 require distinct cycles/cocycles; the former 3-edge nonboundary shortest cycle cannot imply the latter minimum nonzero edge count 28.
+
+## value
+
+PASS
+
+A natural metric analogue for the mod-three cohomology code of a classical minimal triangulated torsion manifold: the exact edge-support minimum plus multiplicity and symmetry stratification is a precise dataset about cocycles, not a textbook computation of H1 nor a random arbitrary subslice. It can benchmark topological code distance and sparsest cochain representatives on an explicit standard complex; the bounded finite census is complete.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
