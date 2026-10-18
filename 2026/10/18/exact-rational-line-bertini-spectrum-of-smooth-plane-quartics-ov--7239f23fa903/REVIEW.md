@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Geometric smoothness is equivalent to surjectivity of the explicit degree-ten Macaulay map, by a base-point-free linear-system argument and the socle-degree-nine bound for a regular sequence of three quartics. The binary quartic derivative criterion is exact over the algebraic closure. Every nonzero 15-bit coefficient vector is tested; explicit \(168\)-element group orbit computation verifies the decomposition. The embedded Python verifier passed, as did independent SymPy Gröbner unit tests for all three charts of every smooth orbit representative.
+
+**Originality — PASS, with residual historical risk.** The 2020 Asgarli–Freidin primary article proves bounds for asymptotic density, not the exact \(\mathbf F_2\) quartic profile. The 2018 Asgarli theorem is an existence bound; the 2024 generalization considers other geometric settings. Homma–Kim covers the rational-plane-filling 24-orbit, which is not presented as new in isolation. Dickson's 1915 studies address projective characteristic-two quartic classification and bitangents, including rational-point strata. The closest historical texts were not fully accessible: an unrecognized implication from complete older tables remains the principal novelty risk. The final claim is the complete joint rational-point/transverse-line and projective orbit spectrum rather than those covered components. Searches of mathematical literature, semantic research records and accessible earlier findings did not identify an equivalent complete profile.
+
+**Value — PASS.** The exact finite-degree distribution is a directly motivated refinement of the published Bertini probability problem, at the first degree over the smallest finite field where smooth transverse-free examples can arise. It provides not just examples or a small invariant but a complete incidence profile of all smooth canonical genus-three plane quartics and its arithmetic/projective stratification; it also separates rational tangency from tangency at nonrational geometric points.
+
+**Limitations.** Scope is limited to embedded quartics over the binary field. The finite census is justified by exhaustive code plus a proved geometric criterion, not by sample statistics; bibliographic uniqueness and independent certification are not claimed.
+
+Self-review: passed. Independent audit: not yet performed.
