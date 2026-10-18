@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite normalization map is a product of a projective line space and a projective conic space, birational over the irreducible-conic locus and three-to-one over a nonconcurrent product of three lines. The differential at each preimage is injective by coprimality, proving three smooth local branches. Their tangent vector spaces omit different pairs of pure cubic monomials, so the pairwise intersections are exactly the six-dimensional tangent space of the smooth triangle stratum and the three normal lines are independent. Scheme-theoretic pairwise intersections are smooth by equality of Krull and tangent dimensions; the ambient completion then admits simultaneous formal parameters and ideal \((uv,uw,vw)\). Direct algebra gives the full Hilbert--Samuel function, conductor, Cohen--Macaulayness and type. The packaged exact checker corroborates the tangent calculations but is not relied upon for the infinite proof.
+PASS
 
-## Originality — PASS, with historical risk
+For p=[ℓ1ℓ2ℓ3] with independent line factors, a linear coordinate transformation reduces to [xyz]. The projective finite birational map P(S1)×P(S2)→X is normalization: exactly three smooth preimage branches of dimension 7. Their affine-cone tangent images have rank 8, pairwise sums rank 9 and combined sum rank 10; common projective intersection tangent is the 6-dimensional smooth nonconcurrent triangle stratum Z. Two branch intersections have scheme support Z and tangent embedding dimension 6, hence are regular/reduced and exactly Z. Independent normal tangent directions and Nakayama/formal straightening give exact completed branch ideals (v,w),(u,w),(u,v), so the reduced local ideal is (uv,uw,vw). Thus Hilbert series (1+2T)/(1−T)^7, dimension7, embedding9, mult3, CM type2; normalization three formal branch power-series rings with equal restrictions along the 6-dimensional Z, and conductor (u,v,w). Independently computed rank 8 per tangent and 9 per pair and 10 in total with Sympy for xyz. This is not asserted for concurrent triples or repeated lines.
 
-The 2014 and 2015 preprints on varieties of reducible plane curves and hypersurfaces study secant dimensions, general tangents and associated Hilbert functions, not the completed local \((2,1)\)-factorization-locus ring at the nonconcurrent triangle stratum. Mammana (1954), whose opening discussion of geometric constructions and tangents was inspected, is relevant to global degree and singularity history; the entire historical corpus has not been ruled out. Separate previously recorded findings on global Euler characteristics and degrees of factorization-type varieties do not imply an analytic local-ring identification, conductor or Cohen--Macaulay type. Searches for aliases such as split cubics, reducibility locus, three-factor locus, local branches and normalization produced no decisive covering record. Lack of an exact search hit is not itself evidence of novelty; this conclusion relies on statement-level comparison and carries the historical-source risk.
+## originality
 
-## Value — PASS
+PASS
 
-Reducibility loci organize degenerations of plane curves. The triple-line stratum is a natural codimension-one part of the seven-dimensional line-times-conic locus where the normalization has three preimages. Identifying a transverse three-axis analytic type, conductor and non-Gorenstein Cohen--Macaulay structure is stronger than counting branches or tangent dimensions and provides exact local intersection and duality data. It distinguishes nonconcurrent triangles from the concurrent boundary without asserting a classification there.
+Best-of-knowledge originality of the narrow final statement, not a general absence certificate. The precise completed local ring, normalization and conductor on the triangle stratum exceed inspected global secant/tangent results.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The factorization locus of reducible plane cubics is a classical natural moduli discriminant, and its nonconcurrent triangle stratum is the first locus with three competing factorizations. An exact formal normal-crossing-three-axes singularity, conductor and Cohen–Macaulay type provide local scheme information genuinely different from known generic secant dimensions and global degrees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

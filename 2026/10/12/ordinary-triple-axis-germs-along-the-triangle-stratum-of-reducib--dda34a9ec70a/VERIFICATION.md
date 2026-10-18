@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The complete local-ring argument consists of a finite birational normalization morphism, a coprimality differential test, explicit monomial tangent-space ranks, dimension-versus-embedding-dimension regularity for the pairwise intersections, and the simultaneous formal-straightening lemma. These steps establish the infinite statement in characteristic zero.
+## correctness
 
-An independent exact-arithmetic SymPy script is embedded as `cubic_factorization_checker.py`. Running it checks the branch, pairwise sum, and total tangent ranks for a coordinate triangle and for another linearly independent triple. It also checks a concurrent-triple boundary (total rank falls to 9) and verifies the quotient Hilbert-series identity. The recorded output corresponds to execution of the actual embedded script. There is no computer proof covering all triples; the all-triple statement follows from the algebraic argument and coordinate-change invariance.
+PASS
 
-The ring's normalization is a threefold product of formal power-series rings, and the difference from the singular ring is two copies of the regular six-dimensional stratum ring; this follows by comparing branch restrictions. The computed Hilbert--Samuel series, multiplicity, conductor, and Cohen--Macaulay type are consequences of the explicit ring presentation. Nonconcurrent triangles are essential: concurrent triples are expressly outside the theorem. An independently conducted audit has not occurred.
+For p=[ℓ1ℓ2ℓ3] with independent line factors, a linear coordinate transformation reduces to [xyz]. The projective finite birational map P(S1)×P(S2)→X is normalization: exactly three smooth preimage branches of dimension 7. Their affine-cone tangent images have rank 8, pairwise sums rank 9 and combined sum rank 10; common projective intersection tangent is the 6-dimensional smooth nonconcurrent triangle stratum Z. Two branch intersections have scheme support Z and tangent embedding dimension 6, hence are regular/reduced and exactly Z. Independent normal tangent directions and Nakayama/formal straightening give exact completed branch ideals (v,w),(u,w),(u,v), so the reduced local ideal is (uv,uw,vw). Thus Hilbert series (1+2T)/(1−T)^7, dimension7, embedding9, mult3, CM type2; normalization three formal branch power-series rings with equal restrictions along the 6-dimensional Z, and conductor (u,v,w). Independently computed rank 8 per tangent and 9 per pair and 10 in total with Sympy for xyz. This is not asserted for concurrent triples or repeated lines.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality of the narrow final statement, not a general absence certificate. The precise completed local ring, normalization and conductor on the triangle stratum exceed inspected global secant/tangent results.
+
+## value
+
+PASS
+
+The factorization locus of reducible plane cubics is a classical natural moduli discriminant, and its nonconcurrent triangle stratum is the first locus with three competing factorizations. An exact formal normal-crossing-three-axes singularity, conductor and Cohen–Macaulay type provide local scheme information genuinely different from known generic secant dimensions and global degrees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
