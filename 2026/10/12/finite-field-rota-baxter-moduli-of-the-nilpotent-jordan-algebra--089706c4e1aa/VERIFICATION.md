@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,58 +18,25 @@
   "schema_version": 1
 }
 ---
-The packaged checker `artifacts/verify.py` starts from
-\[
-e_1\circ e_1=2e_2
-\]
-and a general matrix
-\[
-R=
-\begin{pmatrix}
-a&b\\
-c&d
-\end{pmatrix}.
-\]
 
-It reconstructs all four ordered basis-pair Rota–Baxter defects and verifies the complete scalar system.
+# Independent mathematical audit
 
-For odd prime fields it independently derives the predicted solution set, rank distribution, and automorphism orbits under
-\[
-\phi_{s,t}=
-\begin{pmatrix}
-s&0\\
-t&s^2
-\end{pmatrix}.
-\]
+## correctness
 
-It exhaustively checks every \(2\times2\) matrix over
-\[
-\mathbf F_2,\quad
-\mathbf F_3,\quad
-\mathbf F_5,\quad
-\mathbf F_7.
-\]
+PASS
 
-The direct operator counts are
-\[
-16,\quad15,\quad45,\quad91.
-\]
-The odd-field rank profiles are
-\[
-(1,8,6),\quad
-(1,24,20),\quad
-(1,48,42),
-\]
-and the odd-field automorphism-class counts are
-\[
-6,\quad10,\quad14.
-\]
+The basis-pair Rota–Baxter identity for e1∘e1=2e2 yields four equations 2b²=0,2b(a−d)=0,2a(a−2d)=0,4ab=0. In odd characteristic b=0 and a(a−2d)=0; two affine planes intersect in q points, giving 2q²−q matrices and ranks 1,q²−1,q(q−1). The square ideal forces Aut=[[s,0],[t,s²]], and explicit conjugation acts transitively on c at each nonzero d, yielding 1 singleton, 1 orbit of q−1 and 2(q−1) orbits of q (total 2q). In characteristic two the product vanishes identically, all q^4 matrices qualify, their similarity class count is q²+q, and the ordinary 2×2 rank formulas hold. Substituting q^m in point polynomials gives the stated zeta functions. Independent direct basis-pair checks reproduced operator and rank counts for q=2,3,5,7: (16;1,9,6), (15;1,8,6), (45;1,24,20), (91;1,48,42); no finite test is used for universal proof.
 
-For \(\mathbf F_2\), all \(16\) matrices are Rota–Baxter and the checker finds exactly \(6\) similarity classes, agreeing with
-\[
-q^2+q.
-\]
+## originality
 
-The checker returns `VERIFY_OK`.
+PASS
 
-Finite enumeration is a replay check. The arbitrary-prime-power formulas are established by the field-level proof in `RESULT.md`.
+Best-of-knowledge original exact finite-field point/rank/orbit and characteristic-two degeneration classification; Sun et al already give complex raw operators, and no novelty is attributed to their two families. No inspected stronger result implies the entire finite-field quotient formula. Risk remains of old finite-field special enumeration.
+
+## value
+
+PASS
+
+The algebra J5 is the named canonical nilpotent 2D Jordan model in the initiating complete classification. Finite-field point/rank strata and automorphism-conjugacy orbits are its natural arithmetic moduli, not an arbitrary slice. The characteristic-two structure-constant collapse yields a genuinely different fiber and zeta function. Although the raw complex solution planes are prior, the exact simultaneous orbit/field profile is a meaningful structural classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
