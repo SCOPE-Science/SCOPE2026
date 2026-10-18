@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of node-product local rings
+# Independent mathematical audit
 
-The supporting source is Brysiewicz--Gesmundo, arXiv:2602.02668 (first public submission 2 February 2026). The statement concerns only algebraically closed fields of characteristic different from two.
+## correctness
 
-**Exact symbolic checks performed:** Running `python3 check.py` on the embedded copy returned `HSO4_EXACT_CHECK_OK`. The program uses only the Python standard library. It verifies that left-right quaternion action has the claimed diagonal Hadamard matrix with no mixed monomials; the Hadamard matrix has square \(4I\); there are 24 one-node support families and 12 two-node support pairs, doubled by the sign quotient to 24 exceptional points; and the exceptional Jacobian ideal has exactly the six squarefree pairwise quadratic generators of the four-axis scheme.
+PASS
 
-**All-field proof dependencies:** norm-one quaternion pairs give a separable central two-cover of the orthogonal group; at each geometric point, nonzero support coordinates eliminate by the monomial hollow relations, and unit derivatives eliminate two norm equations; finally the explicit Jacobian matrix of \((xy,zw)\) determines a radical Fitting singular ideal. Those steps are written out in RESULT.md and supply the universal proof. The checker itself is a reproducible algebraic sanity check, not an independent audit or a complete machine certification.
+The norm-one quaternion pair UxU covers split SO4 by a finite etale separable central isogeny of degree 2 when characteristic !=2. Exactly the four diagonal entries of the left-right action form an invertible Hadamard transformation of a_h b_h, so the pullback of the whole hollow ideal is a_hb_h=0 for h=0..3. Supports A,B are disjoint nonempty, and two norm equations solve units by implicit functions; r=4-|A|-|B|=0,1,2 zero-support pairs yield formal rings k[[s,t]], k[[t,x,y]]/(xy), k[[x,y,z,w]]/(xy,zw). Fitting2 Jacobian singular ideal at r2 is the six squarefree pair products, radical union of four coordinate axes; at r1 it is (x,y) so reduced. Count 24 r1 support patterns/curves and 12 r2 support pairs times 2 quotient sign orbits=24 four-branch points (three double transpositions times eight determinant-one signs). Fresh independent quaternion Hadamard and combinatorial support count/jacobian check; unbounded-field statement from formal local derivation.
 
-**Limits:** no computation here addresses characteristic two, unrelated orthogonal slices, complete deformation spaces, or the absence of equivalent statements in all unpublished mathematics. Independent scientific audit has not been performed.
+## originality
+
+PASS
+
+Scientific best-of-knowledge assessment after independently reading the frozen RESULT.md and recreating relevant proof/calculation, checking Resultary and named primary source statements. Brysiewicz--Gesmundo 2026 Theorem 1.1 and Sections 2-3 give the identical 14 surface components, 24 pairwise circle curves, and 12 *pairs* of signed permutation intersection points. These incidence counts are explicitly prior and not claimed novel. The full inspected source addresses topological/set-theoretic incidence rather than the completed local rings, their multiplicities, and radical singular Fitting scheme; the new result is a substantive scheme-level refinement.
+
+## value
+
+PASS
+
+The hollow SO4 slice is a concrete high-profile singular algebraic surface with nontrivial multiple-branch intersections. Deriving uniform completed local rings and a reduced scheme-theoretic singular locus distinguishes actual contact orders and multiplicities, data not inferable solely from an incidence complex. Twenty-four 4-branch points and 24 smooth singular curves form a complete natural analytic stratification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

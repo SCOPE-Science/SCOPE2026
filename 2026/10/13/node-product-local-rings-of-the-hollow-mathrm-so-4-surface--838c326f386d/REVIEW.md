@@ -1,15 +1,21 @@
-# Review of the node-product local-ring theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-Over every algebraically closed field of characteristic different from two, the quaternion norm-one-pair map is a finite étale double cover of the special orthogonal group. The Hadamard diagonal identity pulls the four hollow equations back to the ideal of four coordinate products. For every pair of disjoint, nonempty coordinate supports, two norm equations eliminate by unit derivatives and yield the complete local ring with one node for each doubly vanishing coordinate. Only zero, one, or two nodes can occur. Direct Jacobian-minor calculations show that the singular scheme is reduced; the support-pattern count gives twenty-four singular curves and twenty-four exceptional points. The embedded checker was run successfully; all-field validity follows from the proof, not testing. The matrix identity, local norm elimination, étaleness and local Jacobian ideal are the essential steps.
+## correctness
 
-## Originality — PASS, with residual risk
-Brysiewicz and Gesmundo, *Marvelous slices of orthogonal matrices* (arXiv:2602.02668v2, Theorem 1.1 and Sections 2--3), explicitly determine the fourteen surfaces and their set-theoretic incidence (twenty-four circles and twelve pairs of point intersections). Their material inspected does not establish the completed local rings, node-product multiplicity four, or reduced Jacobian singular scheme. A cuboctahedral incidence description does not imply absence of tangencies or scheme-theoretic nilpotents. Focused published-finding searches returned only other varieties with local singularity descriptions; a matching claim was not located. The paper's companion-code README describes components and incidence, not this theorem, but an unstated calculation in the full companion code or in older quaternion literature is a bibliographic risk. A search result alone is not proof of novelty.
+PASS
 
-## Value — PASS
-This is a uniform scheme-theoretic singularity classification of a naturally studied non-generic linear slice of a classical group. It gives explicit completed local algebras, local intersection multiplicities, Gorenstein structure, and the *reduced* Jacobian singular scheme, invariants not determined by the already-known components and incidence. These facts matter for deformation, local intersection theory and interpreting enumerative witness slices, without implying a stronger global theorem.
+The norm-one quaternion pair UxU covers split SO4 by a finite etale separable central isogeny of degree 2 when characteristic !=2. Exactly the four diagonal entries of the left-right action form an invertible Hadamard transformation of a_h b_h, so the pullback of the whole hollow ideal is a_hb_h=0 for h=0..3. Supports A,B are disjoint nonempty, and two norm equations solve units by implicit functions; r=4-|A|-|B|=0,1,2 zero-support pairs yield formal rings k[[s,t]], k[[t,x,y]]/(xy), k[[x,y,z,w]]/(xy,zw). Fitting2 Jacobian singular ideal at r2 is the six squarefree pair products, radical union of four coordinate axes; at r1 it is (x,y) so reduced. Count 24 r1 support patterns/curves and 12 r2 support pairs times 2 quotient sign orbits=24 four-branch points (three double transpositions times eight determinant-one signs). Fresh independent quaternion Hadamard and combinatorial support count/jacobian check; unbounded-field statement from formal local derivation.
 
-## Scientific limits
-The statement excludes characteristic two and other coordinate slices. It does not compute all deformation groups or global cohomology. No independent bibliographic or scientific audit has been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Scientific best-of-knowledge assessment after independently reading the frozen RESULT.md and recreating relevant proof/calculation, checking Resultary and named primary source statements. Brysiewicz--Gesmundo 2026 Theorem 1.1 and Sections 2-3 give the identical 14 surface components, 24 pairwise circle curves, and 12 *pairs* of signed permutation intersection points. These incidence counts are explicitly prior and not claimed novel. The full inspected source addresses topological/set-theoretic incidence rather than the completed local rings, their multiplicities, and radical singular Fitting scheme; the new result is a substantive scheme-level refinement.
+
+## value
+
+PASS
+
+The hollow SO4 slice is a concrete high-profile singular algebraic surface with nontrivial multiple-branch intersections. Deriving uniform completed local rings and a reduced scheme-theoretic singular locus distinguishes actual contact orders and multiplicities, data not inferable solely from an incidence complex. Twenty-four 4-branch points and 24 smooth singular curves form a complete natural analytic stratification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
