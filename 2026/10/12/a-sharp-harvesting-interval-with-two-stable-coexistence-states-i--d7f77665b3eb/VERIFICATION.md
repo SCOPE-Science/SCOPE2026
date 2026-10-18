@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The exact-symbolic script `verify.py` is standalone apart from the publicly available SymPy Python package and checks all algebraic identities and rational sign certificates directly from the equations. Reproduce with Python 3 and SymPy: `python verify.py`. The successful current replay printed three root-bracket sign pairs and the final line `VERIFY_OK`.
+## correctness
 
-The script independently reconstructs the two-dimensional reaction Jacobian, substitutes the equilibrium relations, and proves the determinant identity by zero symbolic difference. It verifies the exact coexistence cubic, six rational sign evaluations, the equilibrium trace polynomial and its positive global minimum. General necessity and sufficiency of the harvesting window are proved analytically by monotonicity of the second derivative, not by finite tests. Source full text and relevant previously published multiple-equilibrium results were compared for scientific coverage.
+PASS
 
-Limits: the proof is specific to the diffusion-free model under the given equal-mortality subfamily, except for local hyperbolic persistence. The experiment-free signs prove local types, not global basins. Independent audit has not been performed.
+For e=1 and gamma=eta, positive predator nullcline gives v=beta u/eta, and exactly h(u)=E/alpha with h=(1-u)(u+A)-beta u/[eta(1+beta u)]. Its derivative has two strictly positive distinct zeros iff beta^2>eta, h′(0)<0<h′(u_i) with u_i=((beta^2/eta)^(1/3)-1)/beta; monotonic ranges then yield iff alpha max(0,h(u_-))<E<alpha min(A,h(u_+)). Jacobian determinant is -alpha beta u^2 h′(u)/(1+beta u)^2, making the middle root a saddle, not asserting outer stability without trace. For alpha=1,A=1/5,beta=8,eta=gamma=6,e=1,E=39/200, independent SymPy reconstructed P(u)=-4800u^3+3240u^2-296u+3 and roots 0.011577...,0.094970...,0.568452..., plus trace polynomial Q(u)=960u^3-144u^2-161u+54 with global minimum Q(7/24)=335/18>0: outer equilibria hyperbolic attracting, saddle in middle, and persistence by implicit-function/hyperbolicity.
+
+## originality
+
+PASS
+
+The Liu–Liang–Li–Ye–Ma 2026 article provides this differential system, cubic coexistence equation, sufficient uniqueness conditions and stability criteria, but its full text does not state this exact positive-harvesting interval or the specific certified two-sink witness. Arancibia-Ibarra et al. 2022 have related bistability in a different Leslie–Gower nullcline model; generic three-equilibrium or ecological bistability is prior art, while the sharp E-interval in this particular rational mortality/prey-harvest subfamily is a distinct parameter theorem.
+
+## value
+
+PASS
+
+The critical harvest-rate interval gives a sharp, biologically motivated multiplicity threshold and exhibits two coexisting locally attracting prey-predator equilibria at the same positive harvest, clarifying alternatives beyond sufficient uniqueness results. All-positive hyperbolic witness has robust off-subfamily significance; does not overclaim basin geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
