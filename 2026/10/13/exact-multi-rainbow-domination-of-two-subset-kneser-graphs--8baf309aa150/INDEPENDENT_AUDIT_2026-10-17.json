@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T09:54:05Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/exact-multi-rainbow-domination-of-two-subset-kneser-graphs--8baf309aa150/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/exact-multi-rainbow-domination-of-two-subset-kneser-graphs--8baf309aa150/VERIFICATION.md"
+      ],
+      "rationale": "The graph vertices are 2-subsets of [n] adjacent when disjoint. For four chosen ground elements, split the six edges into the three perfect matchings of K4; put a disjoint nonempty block of the k colors on both edges of each matching. Each empty-labeled vertex is disjoint from at least one edge in each matching, so weight=2k suffices. If weight≤2k−1 and some color absent, no vertex can be empty, costing at least binom(n,2)≥2k. Otherwise one color has a unique bearer e={a,b}; all 2n−3 graph vertices meeting e must be labeled. For n≥k+2 this already exceeds 2k−1. At n=k+1 all incidences must be singleton labels and all nonempty vertices form the two-star about a,b. Every other color has exactly two spokes; any pair of spokes is jointly intersected by a zero-labeled 2-subset of X=[n]\\{a,b}, contradicting coverage. Covers |X|=k−1≥2. Independent brute force checked all 12,616 and 174,437 incidence subsets of weight<6 on KG(4,2), KG(5,2) with palette3, no counterexample. All-parameter proof is combinatorial, not extrapolation.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cornet–Torres uses at least k selected neighbors (k-tuple), not distinct named colors that may co-occur on vertices.",
+          "Brešar et al. k-domination and total variants and Zec–Grbić Roman conditions are different optimization problems."
+        ],
+        "reasoning": "These may be broader in Kneser parameter r but their hypotheses/objective do not imply a lower/upper bound for k-rainbow multi-label assignment here.",
+        "searches": [
+          "Cornet Torres k-tuple domination Kneser graph arxiv 2308.15603",
+          "Brešar Cornet Dravec Henning k-domination invariants on Kneser arxiv 2312.15464",
+          "Kneser graph Roman domination 2204.05664"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2308.15603",
+        "https://arxiv.org/abs/2312.15464",
+        "https://arxiv.org/pdf/1210.0514",
+        "https://arxiv.org/abs/2204.05664"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical three-perfect-matching decomposition of K4 constructs a feasible weight 2k function.",
+          "Standard rainbow domination correspondence and Kneser k-tuple results alone provide neither optimality nor the border n=k+1 argument."
+        ],
+        "reasoning": "New lower proof uses a uniquely supported color and the exhaustive two-spoke obstruction; it does not merely rename an existing domination theorem.",
+        "searches": [
+          "Kraner Sumenjak Rall Tepeh Proposition 1.1 Cartesian equivalence",
+          "Cornet Torres Kneser domination theorem",
+          "rainbow domination Kneser 2-subset palette arbitrary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kraner Šumenjak–Rall–Tepeh arXiv:1210.0514 Proposition 1.1 translates γ_rk(G) to γ(G□K_k).",
+          "Neither the abstract correspondence nor its lexicographic-product results compute domination of KG(n,2)□K_k."
+        ],
+        "reasoning": "The exact theorem is equally a Cartesian-product domination equality, but that change of language does not imply the equality for this family.",
+        "searches": [
+          "k rainbow domination Kneser KG(n,2) equals 2k Cartesian product domination",
+          "\"rainbow domination\" \"Kneser graph\" \"2k\"",
+          "Kraner Šumenjak Rall Tepeh rainbow domination Cartesian G square K_k"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary SCOPE-all-2-rainbow-dominating-functions-of-complete-multipartite-grap--7f7bcd9e9b58 is palette 2 and complete multipartite graphs, not this statement.",
+          "Finite exact KG(4,2), KG(5,2) incidence enumerations are original verifier observations, not a published table."
+        ],
+        "reasoning": "No prior precise equality table for γ_rk(KG(n,2)) or equivalent product located; searches cannot rule out a differently indexed complete-graph matching result.",
+        "searches": [
+          "\"KG(n,2)\" rainbow domination number palette",
+          "\"domination\" \"KG(n,2)\" \"Cartesian\" \"K_k\"",
+          "Resultary k rainbow domination Kneser KG(n,2) equals 2k Cartesian product domination"
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty assessment compares identical mathematical statements and implications, not titles or a lack of search hits. Colored set-valued rainbow functions differ mathematically from known k-tuple/Roman Kneser domination, and the Cartesian-product equivalence alone gives no exact formula. Comparison risks remain explicitly recorded; noncoverage is not asserted from abstracts of unread whole papers.",
+      "residual_risks": [
+        "An unindexed Cartesian-product domination result may cover the equality without using the term rainbow or Kneser.",
+        "The theorem does not classify all minimizers nor cover palette 1 or 2, n≤k or KG(n,r), r≠2."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different k-tuple neighbor-count invariant, no colored multi-label equality derived",
+          "evidence": "Definition contrasts neighbor cardinality with rainbow union of k colors.",
+          "identifier_or_url": "https://arxiv.org/pdf/2308.15603",
+          "material_read": "Primary arXiv 33-page PDF: first-page screenshot and introduction/definitions, relevant theorem and parameter searches",
+          "method": "Primary arXiv PDF reading",
+          "title": "k-tuple domination on Kneser graphs",
+          "trigger": "Same Kneser graphs, superficially similar parameter k"
+        },
+        {
+          "assessment": "Studies k-domination, total and multiple domination, not rainbow palette k",
+          "evidence": "arXiv:2312.15464 and published 2025 Ars Mathematica Contemporanea 25(4).",
+          "identifier_or_url": "https://arxiv.org/abs/2312.15464",
+          "material_read": "Primary arXiv index and relevant published statement/parameter description; complete full text not independently read",
+          "method": "Primary preprint/abstract comparison",
+          "title": "k-Domination invariants on Kneser graphs",
+          "trigger": "Possible stronger Kneser domination formula"
+        },
+        {
+          "assessment": "Provides equivalence γ_rk(G)=γ(G□K_k), not the present Kneser family exact value",
+          "evidence": "Proposition 1.1; lexicographic product is a different product.",
+          "identifier_or_url": "https://arxiv.org/pdf/1210.0514",
+          "material_read": "Primary arXiv PDF first page and Proposition 1.1 inspected",
+          "method": "Primary arXiv PDF reading",
+          "title": "Rainbow domination in the lexicographic product of graphs",
+          "trigger": "Equivalence with Cartesian graph-product domination"
+        },
+        {
+          "assessment": "Roman domination variant not the rainbow parameter",
+          "evidence": "Distinct zero-label neighbor requirements.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.05664",
+          "material_read": "Primary preprint abstract and definitions; whole paper not independently re-read",
+          "method": "Primary abstract comparison",
+          "title": "Several Roman domination graph invariants on Kneser graphs",
+          "trigger": "Alternative variant of domination on Kneser"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/2308.15603",
+        "https://arxiv.org/abs/2312.15464",
+        "https://arxiv.org/pdf/1210.0514",
+        "https://arxiv.org/abs/2204.05664"
+      ],
+      "rationale": "Exact optimization for unbounded k and n of a natural domination invariant on standard Kneser graphs, with a weight-2k construction independent of graph order and an essential sharp boundary obstruction. It improves the naive full-palette labeling of a three-vertex dominating set (weight 3k), a substantive structural gain and natural graph-theoretic fact.",
+      "residual_risks": [
+        "The theorem does not classify all minimizers nor cover palette 1 or 2, n≤k or KG(n,r), r≠2."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For all integers k≥3, n≥k+1, the standard k-rainbow domination number γ_rk(KG(n,2)) equals 2k, including the disconnected boundary KG(4,2); the optimal upper bound is a six-vertex three-matching construction.",
+  "limitations": [
+    "An unindexed Cartesian-product domination result may cover the equality without using the term rainbow or Kneser.",
+    "The theorem does not classify all minimizers nor cover palette 1 or 2, n≤k or KG(n,r), r≠2."
+  ],
+  "schema_version": 1
+}

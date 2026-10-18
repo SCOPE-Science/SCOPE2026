@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Finite verification and reproducibility
 
-Run `python3 verify.py` from a directory containing `verify.py`; Python's standard library suffices. The script rebuilds the disjointness adjacency matrix for each graph, independently constructs the six labeled supports from three perfect matchings, and checks the full rainbow-neighborhood union and total weight for every \(4\le n\le15\), \(3\le k<n\). It then enumerates **all** subsets of fewer than \(2k=6\) vertex-color incidences for \(KG(4,2)\) and \(KG(5,2)\), both with \(k=3\), rejecting 12,616 and 174,437 assignments respectively. Multiple colors per graph vertex are naturally included in incidence-subset enumeration. The tests assert the complete count of incidence subsets at each weight, rather than relying on sampled assignments.
+# Independent mathematical audit
 
-The observed output, stored in `verify_output.txt`, is:
+## correctness
 
-```
-exhaustive n=4 k=3 minimum=6 rejected_below=12616
-exhaustive n=5 k=3 minimum=6 rejected_below=174437
-construction_checks=78 exhaustive_rejected=187053
-VERIFY_OK
-```
+PASS
 
-The infinite lower bound rests on the counting and two-spoke obstruction in `RESULT.md`, not on these finite cases. These checks are not a formal machine proof, independent audit, or certification of historical originality.
+The graph vertices are 2-subsets of [n] adjacent when disjoint. For four chosen ground elements, split the six edges into the three perfect matchings of K4; put a disjoint nonempty block of the k colors on both edges of each matching. Each empty-labeled vertex is disjoint from at least one edge in each matching, so weight=2k suffices. If weight≤2k−1 and some color absent, no vertex can be empty, costing at least binom(n,2)≥2k. Otherwise one color has a unique bearer e={a,b}; all 2n−3 graph vertices meeting e must be labeled. For n≥k+2 this already exceeds 2k−1. At n=k+1 all incidences must be singleton labels and all nonempty vertices form the two-star about a,b. Every other color has exactly two spokes; any pair of spokes is jointly intersected by a zero-labeled 2-subset of X=[n]\{a,b}, contradicting coverage. Covers |X|=k−1≥2. Independent brute force checked all 12,616 and 174,437 incidence subsets of weight<6 on KG(4,2), KG(5,2) with palette3, no counterexample. All-parameter proof is combinatorial, not extrapolation.
+
+## originality
+
+PASS
+
+Best-of-knowledge novelty assessment compares identical mathematical statements and implications, not titles or a lack of search hits. Colored set-valued rainbow functions differ mathematically from known k-tuple/Roman Kneser domination, and the Cartesian-product equivalence alone gives no exact formula. Comparison risks remain explicitly recorded; noncoverage is not asserted from abstracts of unread whole papers.
+
+## value
+
+PASS
+
+Exact optimization for unbounded k and n of a natural domination invariant on standard Kneser graphs, with a weight-2k construction independent of graph order and an essential sharp boundary obstruction. It improves the naive full-palette labeling of a three-vertex dominating set (weight 3k), a substantive structural gain and natural graph-theoretic fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

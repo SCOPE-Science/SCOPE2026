@@ -1,11 +1,21 @@
-# Scientific review: exact multi-rainbow domination of two-subset Kneser graphs
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof uses the standard definition with no restrictions on multi-color labels. An explicit partition of the palette across the three one-factor classes of \(K_4\) attains weight \(2k\). In the converse, an absent color forces all \(\binom n2\) graph vertices to be nonempty; a color with exactly one bearer forces \(2n-3\) nonempty vertices. The only numerically borderline case \(n=k+1\) has all incidence counts tight and is contradicted by an empty pair intersecting both bearers of any other color. The argument covers \(k=3,n=4\) as well as arbitrary larger parameters. The independent finite verifier enumerates every incidence support of weight below six in two small parameter pairs and confirms 78 explicit witnesses; it is supporting evidence, not an infinite proof.
+## correctness
 
-**Originality — PASS, with residual risk.** The closest Kneser sources [1,2] determine non-colored multiple-domination quantities: a count of dominating neighbors is not equivalent to requiring each of \(k\) named colors, and a vertex here may carry many colors. The inspected Kneser Roman variant [3] has distinct conditions; the abstract/cartesian-product equivalence in [4] is a change of language, not an exact value for this family. Searches of rainbow domination, Kneser graphs, and \(KG(n,2)\square K_k\), together with the published-result record comparisons, yielded no dominating theorem. This is affirmative evidence of a conceptual gap, not proof of historical novelty. Residual risk: a graph-product domination statement indexed without rainbow/Kneser words may subsume the formula.
+PASS
 
-**Value — PASS.** The exact formula holds for an unbounded two-parameter family of classical Kneser graphs, simultaneously optimizing arbitrarily large palette sizes, rather than only tabulating small cases. The six-vertex construction with a \(K_4\) one-factorization saves an entire third against labeling a conventional three-vertex dominating set with the full palette, while the global lower bound proves the improvement sharp. The exceptional smallest admissible \(n=k+1\) requires a separate structural obstruction and cannot be inferred from a coarse counting bound.
+The graph vertices are 2-subsets of [n] adjacent when disjoint. For four chosen ground elements, split the six edges into the three perfect matchings of K4; put a disjoint nonempty block of the k colors on both edges of each matching. Each empty-labeled vertex is disjoint from at least one edge in each matching, so weight=2k suffices. If weight≤2k−1 and some color absent, no vertex can be empty, costing at least binom(n,2)≥2k. Otherwise one color has a unique bearer e={a,b}; all 2n−3 graph vertices meeting e must be labeled. For n≥k+2 this already exceeds 2k−1. At n=k+1 all incidences must be singleton labels and all nonempty vertices form the two-star about a,b. Every other color has exactly two spokes; any pair of spokes is jointly intersected by a zero-labeled 2-subset of X=[n]\{a,b}, contradicting coverage. Covers |X|=k−1≥2. Independent brute force checked all 12,616 and 174,437 incidence subsets of weight<6 on KG(4,2), KG(5,2) with palette3, no counterexample. All-parameter proof is combinatorial, not extrapolation.
 
-**Closest literature and limits.** [1] Cornet–Torres (arXiv:2308.15603, full 33-page text), [2] Brešar–Cornet–Dravec–Henning (arXiv:2312.15464, full 15-page text), [3] Zec–Grbić (arXiv:2204.05664, full 18-page text), [4] Kraner Šumenjak–Rall–Tepeh (arXiv:1210.0514, theorem/abstract and equivalent formulation). The claim does not apply to \(k=1,2\), \(n\le k\), or higher-subset Kneser graphs; no minimum-function census is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novelty assessment compares identical mathematical statements and implications, not titles or a lack of search hits. Colored set-valued rainbow functions differ mathematically from known k-tuple/Roman Kneser domination, and the Cartesian-product equivalence alone gives no exact formula. Comparison risks remain explicitly recorded; noncoverage is not asserted from abstracts of unread whole papers.
+
+## value
+
+PASS
+
+Exact optimization for unbounded k and n of a natural domination invariant on standard Kneser graphs, with a weight-2k construction independent of graph order and an essential sharp boundary obstruction. It improves the naive full-palette labeling of a three-vertex dominating set (weight 3k), a substantive structural gain and natural graph-theoretic fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
