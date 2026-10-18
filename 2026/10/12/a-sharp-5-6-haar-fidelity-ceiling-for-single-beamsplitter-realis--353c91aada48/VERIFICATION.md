@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. The accompanying `verify.py` checks the exact rational consequences
-\[
-p_{\mathrm{MAP}}=\frac34,\qquad
-\mathbb E_{\mathrm{Haar}}\!\left[\lvert\langle\tau\rvert P\lvert\tau\rangle\rvert^2\right]=\frac13,\qquad
-\bar F_{\max}=\frac56.
-\]
+# Independent mathematical audit
 
-The key structural check is not delegated to code: for every polarization-preserving beamsplitter in the stated model, \(\lvert\phi^+\rangle\) and \(\lvert\phi^-\rangle\) have identical photon-count likelihoods because their only difference is a phase between orthogonal all-horizontal and all-vertical sectors. Therefore their combined prior mass contributes at most \(1/4\) to any maximum-posterior label decision, while the two remaining Bell labels contribute at most \(1/2\), proving \(p_{\mathrm{MAP}}\le3/4\).
+## correctness
 
-At 50:50 the standard analyzer distinguishes the two \(\psi\)-states and leaves only the \(\phi\)-pair unresolved, so the bound is attained. A wrong Bell label leaves a nonidentity Pauli on the teleported qubit; Haar rotational symmetry gives average fidelity \(1/3\) for every such wrong correction.
+PASS
 
-The checker also records \(7/8\) for a uniform polar-angle diagnostic. That value is not part of the claim and is not evidence for the source's numerical implementation.
+For every detector outcome in the polarization-preserving photon-count analyzer, phi+ and phi− differ only by phase between orthogonal same-polarization sectors, so their joint outcome probabilities agree. Thus MAP Bell-label success sums to at most 1/4 for the unresolved phi pair and at most 1/2 for psi±; the 50:50 analyzer attains 3/4. The ideal teleportation Bell label has uniform prior independently of the input, and a wrong Pauli correction of Haar-uniform pure qubit gives mean squared Bloch coordinate 1/3. Therefore Fbar=(1+2pMAP)/3≤5/6, equality at 50:50. Independent exact Fraction check 3/4+1/4·1/3=5/6. I inspected the source’s verifier; its rational arithmetic is secondary to the structural polarization argument.
 
-Unproved limits: no claim is made for analyzers with additional nonvacuum ancillas, active or nonlinear optical elements, or for non-Haar input ensembles.
+## originality
+
+PASS
+
+The source article numerically reports about 0.88 for its maximum-posterior beamsplitter protocol but its polarization block structure and Haar measure imply the exact 5/6 ceiling. The closest published Bell-measurement bounds concern unambiguous, failure-allowed detection and do not supply the source-specific always-guess Haar-fidelity correction. Another published finding concerning the same 2000 paper corrects its partially entangled conclusive branch rather than this maximally entangled first protocol.
+
+## value
+
+PASS
+
+Correcting a quantitative teleportation fidelity benchmark in a published physical protocol has direct interpretive value: 5/6 instead of about 0.88, while retaining the >2/3 nonclassical qualitative conclusion. It identifies a concrete averaging normalization error or incompatibility without inventing source code behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
