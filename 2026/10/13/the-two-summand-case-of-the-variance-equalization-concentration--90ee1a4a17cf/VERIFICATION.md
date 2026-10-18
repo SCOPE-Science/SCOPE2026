@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic and universal. `verify.py` supplies an independent exact-rational replay of all algebraic ingredients: the laws \(\nu^m\) and \(T(\alpha)\), convolution, the length-two concentration function, the variance formula, inversion of the variance parameter, and the final equalization inequality.
+# Independent mathematical audit
 
-The checker verifies the identity \(\mathcal Q_2(\nu^r+\nu^s)=1/\max\{r,s\}\) for \(1\le r,s<25\), then checks the closed two-summand formula and strict equalization inequality on \(8001\) rational pairs spanning canonical cells through index \(18\). It also verifies the low-parameter example \((\alpha_1,\alpha_2)=(1/3,1/5)\), for which \(\alpha_*=11/45\), the unequal concentration is \(1/5\), and the equalized concentration is \(97/405\).
+## correctness
 
-Final replay output:
+PASS
 
-`VERIFY_OK`
+Reconstructed ν^r and ν^s as r/s-point parity progressions and counted their central convolution atom: min(r,s)/(rs)=1/max(r,s). The source supplies central-interval maximality for these symmetric unimodal sums. Mixing four component pairs yields Q2=1/(k+1)+τ_aτ_b/(k(k+1)) in a common cell and min(a,b) for different cells. Variance is v(a)=k(k+1)(1-(2k+1)a/3), continuous strictly decreasing. A common cell gives an exact square gap (τ_a-τ_b)^2/(4k(k+1)); differing cells give a strict inequality from the ordering of cell indices and affine variance matching. Equality iff a=b. Independently checked 2,025 rational parameter pairs, including cell boundaries; that finite test is not the proof.
 
-`pairs_checked 8001`
+## originality
 
-`example_alpha_star 11/45`
+PASS
 
-`example_lhs 1/5`
+Conjecture 6.1 in the originating paper is unproved for arbitrary alpha; Kanter covers arbitrary summand count only if all alpha>=1/2. The assigned result settles exactly two summands over every alpha>0, with a new exact Q2 piecewise identity and unique equality case. This is not merely substituting n=2 into Kanter, since low-alpha hypotheses fail.
 
-`example_rhs 97/405`
+## value
 
-These finite checks are not used to infer the theorem on an infinite parameter set. The universal claim follows from the two-case proof in `RESULT.md`. The published premises are the definition of the extremal family and the fact that the central interval attains concentration for its sums.
+PASS
+
+The all-parameter two-summand theorem is a natural full summand-number slice of the exact published variance-equalization conjecture, including every low-concentration cell missed by the stated Kanter implication. Its sharp equality case and bilinear-versus-min structure are meaningful tools for further convolution majorization, rather than an arbitrary numerical case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
