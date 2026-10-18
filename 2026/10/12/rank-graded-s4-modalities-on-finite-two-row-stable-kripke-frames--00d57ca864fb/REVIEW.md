@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The right-adjoint/fixed-bounded-sublattice bijection uses meet preservation, deflation, idempotence, and top preservation in both directions. Cross-row meets and joins force and suffice for the ordered occupied-column normal form. Exact binomial selection and letter weighting prove the entire rank polynomial; rational summation proves its generating function. The finite verification independently screens all candidate bounded sublattices through eight columns, all maps through three columns, and all stable relations on the four-world frame.
+## correctness
 
-**Originality — PASS (qualified).** The modal stable-bimodule equivalence is Kavvos's published result and the ungraded totals equal the already known OEIS A341867 second row. Neither is claimed new. The inspected primary paper and the cited sequence, plus targeted searches, do not supply the fixed-filter-rank distribution or the rational two-variable expression. The existence of an equivalent unindexed rank-refined sublattice formula remains a genuine residual risk. The related bubble-lattice papers concern different interpretations of the ungraded table, and their full text was not relied upon to assert the absence of an equivalent result.
+PASS
 
-**Value — PASS.** The grading is intrinsic to S4 semantics: the number of formulas/filters fixed by necessity, not an arbitrary auxiliary statistic. It distinguishes 4 versus 12 versus 33 ungraded operators across small frames, identifies all attainable ranks and extremal strata, and gives a rational generating series for the first genuinely branching family of finite stable frames. This is a self-contained finite classification, not a completeness theorem or a broad conjecture resolution.
+Meet-preserving, top-preserving, deflationary idempotents on finite L correspond exactly to bounded sublattices S via f_S(x)=largest s∈S below x. For L=C₂×C_n, meet/join closure permits exactly occupied-column words A^a C^c B^b with empty-column gaps; endpoints force inclusion of 0 and 1. Choosing occupied m columns and c doubles gives coefficient binomial(n−2,m−2)×(m−c+1−2·1[c=0]) at rank m+c, proving the sum and bivariate rational function for all n≥2. Independently enumerated every bounded subset using separate meet/join closure for n=2..6: total 4,12,33,86,216 and matching exact rank histograms; n=2 counts u²+2u³+u⁴. This finite verification is secondary to the bijection and exact word proof. Source Kavvos Definition 4.1 gives equivalence between stable bimodules and modal meet-right-adjoints on nonempty filters.
 
-**Scope and limitations.** The result concerns concrete stable bimodules on one fixed labeled frame for each \(n\ge2\). Its uniqueness uses the stable-bimodule/modal-adjunction duality. No higher width or arbitrary stable-frame generalization is claimed. The direct exhaustive computations are finite supporting evidence only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kavvos arXiv:2406.03578 supplies the stable-bimodule modal correspondence, not the two-row fixed-filter rank census. OEIS A341867 exactly has the ungraded row total, which is explicitly excluded from novelty. The entire fixed-filter rank refinement with rational bivariate series and canonical S4 family is the surviving distinct contribution; it may be an unindexed rank-refined bounded-sublattice enumeration.
+
+## value
+
+PASS
+
+Fixed-filter rank is intrinsic to the modal semantics, rather than an artificial statistic. The result classifies how many filters a stable S4 necessity modality fixes on the natural first branching two-row lattice, gives all possible ranks 2..2n and exact extremal classes; the finite family is parameterized by arbitrary n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

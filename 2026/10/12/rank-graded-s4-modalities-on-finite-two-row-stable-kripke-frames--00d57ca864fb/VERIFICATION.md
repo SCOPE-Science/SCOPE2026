@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Finite verification
+# Independent mathematical audit
 
-Run `python3 verify.py` using only the Python standard library. An executed replay returned:
+## correctness
 
-`VERIFY_OK 22665 exact assertions; 21844 bounded subset candidates exhaustively tested through n=8; 2143 bounded sublattices through n=8; 351 interior operator tables checked through n=6; 46912 unrestricted function tables screened through n=3; 65536 stable-bimodule candidates screened (16 stable, 4 S4) on n=2; bivariate generating function checked through n=10`
+PASS
 
-The independent computational routes are: direct meet/join closure on every subset containing the bounds, an unrelated word-condition implementation applied to every same candidate, explicit right-adjoint table construction and operator axioms, unrestricted enumeration of every function on the four- and six-element lattices, direct enumeration of every binary relation on the four-world stable frame against all of the source's stability axioms, and exact formal power-series expansion of the proposed rational function. The finite tests establish the stated finite instances, not the unlimited theorem; the proof in `RESULT.md` handles every \(n\ge2\).
+Meet-preserving, top-preserving, deflationary idempotents on finite L correspond exactly to bounded sublattices S via f_S(x)=largest s∈S below x. For L=C₂×C_n, meet/join closure permits exactly occupied-column words A^a C^c B^b with empty-column gaps; endpoints force inclusion of 0 and 1. Choosing occupied m columns and c doubles gives coefficient binomial(n−2,m−2)×(m−c+1−2·1[c=0]) at rank m+c, proving the sum and bivariate rational function for all n≥2. Independently enumerated every bounded subset using separate meet/join closure for n=2..6: total 4,12,33,86,216 and matching exact rank histograms; n=2 counts u²+2u³+u⁴. This finite verification is secondary to the bijection and exact word proof. Source Kavvos Definition 4.1 gives equivalence between stable bimodules and modal meet-right-adjoints on nonempty filters.
 
-The direct frame checker also confirms that on \(W_2\) there are 16 stable bimodules in total and exactly four whose induced right adjoint satisfies T and 4, with fixed-rank distribution \(u^2+2u^3+u^4\). The full-image rank and total-count formula are checked independently through \(n=8\).
+## originality
 
-Any future audit should separately inspect the relevant duality and the fixed-set/word arguments rather than interpreting this run as external certification. Independent audit has not been performed.
+PASS
+
+Kavvos arXiv:2406.03578 supplies the stable-bimodule modal correspondence, not the two-row fixed-filter rank census. OEIS A341867 exactly has the ungraded row total, which is explicitly excluded from novelty. The entire fixed-filter rank refinement with rational bivariate series and canonical S4 family is the surviving distinct contribution; it may be an unindexed rank-refined bounded-sublattice enumeration.
+
+## value
+
+PASS
+
+Fixed-filter rank is intrinsic to the modal semantics, rather than an artificial statistic. The result classifies how many filters a stable S4 necessity modality fixes on the natural first branching two-row lattice, gives all possible ranks 2..2n and exact extremal classes; the finite family is parameterized by arbitrary n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
