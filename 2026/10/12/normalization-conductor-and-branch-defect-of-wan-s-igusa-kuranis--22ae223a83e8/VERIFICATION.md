@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact proof starts from
-\[
-R=\mathbb C[a,b,c,d,e,f]/(ab,bc,ca,de,ef,fd)
-\]
-and its nine minimal-prime quotients \(\mathbb C[x,y]\). The normalization is their product. The conductor proof uses the exact boundary-compatibility description of the image of \(R\) and the nine component idempotents.
+# Independent mathematical audit
 
-The bundled `verify_normalization_conductor.py` uses exact integer/combinatorial arithmetic. It checks the six original and nine conductor quadratic generators, nine normalized components, the fiber-count pattern \(1,3,9\), and that \(\dim(\widetilde R/R)_0=8\) while \(\dim(\widetilde R/R)_n=12\) for every tested \(1\le n\le19\). The stored output ends in `VERIFY_OK`.
+## correctness
 
-The finite replay is not used as an infinite proof. The conductor equality and Hilbert-series identity are proved symbolically in `RESULT.md`. Primary full-text access was unavailable during source inspection; the exact germ itself is visible in the primary abstract and indexed Theorem 1.5 material, while originality against unseen portions remains a stated residual risk.
+PASS
+
+The ring C[a,b,c,d,e,f]/(ab,bc,ca,de,ef,fd) is reduced with 9 minimal-prime polynomial plane quotients C[x,y], so its normalization is their product. Its diagonal image consists of polynomial families agreeing on common coordinate axes. Multiplying by each component idempotent proves a conductor element vanishes on both axes of every normalized plane, precisely giving cross products (ad,ae,af,bd,be,bf,cd,ce,cf); converse also follows from boundary compatibility. The quotient by this conductor is reduced union of six axes, normalized conductor restricts to (xy) on each plane, branch counts 1/3/9, and exact Hilbert-series subtraction 9/(1-t)^2-(1+2t)^2/(1-t)^2=(8+4t)/(1-t) gives defect multiplicity 12. Independent graded dimension calculation confirms degree0 8 and every positive degree12; this is a theorem for the affine germ, not a claim for its coarse moduli quotient.
+
+## originality
+
+PASS
+
+Wan primary result supplies the nine-plane product-of-axis deformation germ; same-germ published Resultary profile computes type 4, Hilbert--Samuel multiplicity 9, resolution, six-axis singular locus, but does not in its identified results supply conductor IDEAL, normalized branch-fiber counts or defect-module Hilbert series. This is an elementary but genuinely further singularity invariant. Wan full text inaccessible after lawful OA attempts; authorized Oxford endpoint returned vpn_disconnected. The paper cannot be labeled NOT_COVERING wholesale; there is a residual possibility that its later sections give these explicit invariants.
+
+## value
+
+PASS
+
+The conductor and normalization defect are canonical invariants of a specific nine-branch deformation singularity: identify precise gluing along axes, how many branches collide, and a quantitative one-dimensional difference between germ and normalization. This precise information is useful for further algebraic deformation and moduli analysis, independent of the simple monomial nature of the proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

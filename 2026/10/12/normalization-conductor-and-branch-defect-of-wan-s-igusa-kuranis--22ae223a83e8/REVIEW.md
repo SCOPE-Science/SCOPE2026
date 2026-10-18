@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact ring \(R\) is reduced with nine normal plane components. Its image in the product normalization is characterized by equality of boundary restrictions along shared axes. Multiplication by normalized-component idempotents forces conductor elements to vanish on both axes of every plane, hence to be divisible by the relevant \(xy\); the converse follows from the same boundary conditions. This proves the nine-generator conductor. The quotient is the reduced six-axis scheme, fiber counts are \(1,3,9\), and Hilbert-series subtraction gives \((8+4t)/(1-t)\). The bundled exact checker reproduces the finite combinatorial and Hilbert-function checks and ends in `VERIFY_OK`.
+## correctness
 
-## Originality
-PASS. Exact-source, exact-ideal, normalization/conductor, branch-fiber, and normalization-defect searches found one especially close published record: a structural profile of the same Wan germ. It computes Cohen--Macaulay type, resolution, multiplicity, singular locus, and projectivized tangent cone, but not normalization, conductor, normalization fibers, or \(H_{\widetilde R/R}\). The readable primary material states the product-of-three-axis germ and nine components but not these invariants. No checked database item implies the claimed normalization/conductor package. The primary full text could not be directly accessed during source inspection, so hidden equivalent coverage there is retained as a residual risk.
+PASS
 
-## Value
-PASS. For a reducible deformation base, normalization and conductor canonically describe how irreducible branches are glued. Here the conductor identifies the entire nonnormal locus scheme-theoretically with the six singular axes, the normalization fibers quantify the three-branch and nine-branch collisions, and the multiplicity-\(12\) defect module measures the codimension-one failure of normality. These are natural structural invariants of the Kuranishi germ, not an arbitrary slice or a known-table recomputation.
+The ring C[a,b,c,d,e,f]/(ab,bc,ca,de,ef,fd) is reduced with 9 minimal-prime polynomial plane quotients C[x,y], so its normalization is their product. Its diagonal image consists of polynomial families agreeing on common coordinate axes. Multiplying by each component idempotent proves a conductor element vanishes on both axes of every normalized plane, precisely giving cross products (ad,ae,af,bd,be,bf,cd,ce,cf); converse also follows from boundary compatibility. The quotient by this conductor is reduced union of six axes, normalized conductor restricts to (xy) on each plane, branch counts 1/3/9, and exact Hilbert-series subtraction 9/(1-t)^2-(1+2t)^2/(1-t)^2=(8+4t)/(1-t) gives defect multiplicity 12. Independent graded dimension calculation confirms degree0 8 and every positive degree12; this is a theorem for the affine germ, not a claim for its coarse moduli quotient.
 
-## Closest literature and limitations
-Wan supplies the exact deformation germ. The closest published structural profile supplies several local-algebra invariants of the same ring but stops short of normalization/conductor data. The result does not address automorphism quotients or coarse moduli. The main residual originality risk is inaccessible primary full text or an unindexed note carrying the same short calculation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Wan primary result supplies the nine-plane product-of-axis deformation germ; same-germ published Resultary profile computes type 4, Hilbert--Samuel multiplicity 9, resolution, six-axis singular locus, but does not in its identified results supply conductor IDEAL, normalized branch-fiber counts or defect-module Hilbert series. This is an elementary but genuinely further singularity invariant. Wan full text inaccessible after lawful OA attempts; authorized Oxford endpoint returned vpn_disconnected. The paper cannot be labeled NOT_COVERING wholesale; there is a residual possibility that its later sections give these explicit invariants.
+
+## value
+
+PASS
+
+The conductor and normalization defect are canonical invariants of a specific nine-branch deformation singularity: identify precise gluing along axes, how many branches collide, and a quantitative one-dimensional difference between germ and normalization. This precise information is useful for further algebraic deformation and moduli analysis, independent of the simple monomial nature of the proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
