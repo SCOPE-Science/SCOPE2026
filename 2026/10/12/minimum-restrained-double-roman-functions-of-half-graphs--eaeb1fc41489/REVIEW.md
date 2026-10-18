@@ -1,12 +1,21 @@
-# Review of Minimum restrained double Roman functions of half graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. The two four-vertex end blocks each have weight at least \(4\), giving the all-\(n\) lower bound \(8\) for \(n\ge4\). A weight-\(8\) construction exists. Equality in each end-block bound has only three local patterns; the double Roman requirement at \(b_3\) and its symmetric counterpart eliminates every combination except the four-corner labeling. The exceptional cases \(n=2,3\) are exhaustively checked over all \(4^{2n}\) labelings by the included direct-definition verifier. The same checker also confirms the unique optimum for \(n=4,5\).
+## correctness
 
-## Originality
-PASS. The 2021 introducing paper was inspected in full text. It introduces restrained double Roman domination, gives general bounds and several standard graph families, and contains no half-graph or chain-graph occurrence. A second primary paper was inspected for broader coverage; it develops hardness, bounded-clique-width algorithms, tree results, and small-value characterizations rather than a half-graph formula. Exact and semantic searches under half graph, chain graph, Ferrers graph, and restrained double Roman terminology found no equivalent theorem. The closest indexed results concern restrained domination or restrained Roman domination, which are different invariants.
+PASS
 
-## Value
-PASS. Half graphs are the canonical twin-free chain graphs and are a natural structured family for domination parameters. The theorem identifies a constant exact value despite increasing order and proves a sharp optimizer transition: five minima at \(H_2\), nine at \(H_3\), and a unique minimum from \(H_4\) onward. The end-block forcing argument explains the phenomenon structurally rather than reporting a computed sequence.
+For H_n, i<=j bipartite edges and labels 0,1,2,3 with restrained zeros, the two disjoint four-vertex end blocks of H_n (n>=4) each carry weight >=4 using leaf support, 0-neighbor defense and 1-neighbor support. The labeling a_1=b_n=3, b_1=a_n=1, all other labels zero achieves 8 and has no isolated induced zeros. Equality-case enumeration of three possible end-block patterns, followed by b_3/a_2 defense contradictions (including n=4 overlap checks), forces this unique optimum. Independently enumerated 4^(2n) labelings for n=2,3,4,5: weights 6,8,8,8; multiplicities 5,9,1,1 and exactly the stated lists for n=2,3. Arbitrary n>=4 follows from the block proof, not the finite enumeration.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The source definition and complexity results for restrained double Roman domination do not give exact half-graph formulas or a unique-optimum transition. Closest Resultary Roman domination polynomial on chain graphs concerns labels 0/1/2 and a different 0-condition; another restrained domination polynomial concerns 0/1 dominating sets, not the simultaneous double-Roman and zero-induced restrictions. No prior theorem was found implying the exact 6,8 stability plus optimum multiplicities.
+
+## value
+
+PASS
+
+Half graphs are canonical twin-free chain graphs where domination conditions interact with strict nested neighborhoods. Exact best weight and complete optimal function census, especially stabilization at a unique four-corner pattern beginning at n=4, form a motivated infinite structural classification, not a single arbitrary graph computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
