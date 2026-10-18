@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Exact finite-itinerary error decomposition over a fixed compact bin yields uniform O(a exp(-a/n)) error; derivatives (0,1) give monotone trapping; centered logistic coordinate obeys a uniform explicit Euler perturbation of ydot=1-y^2, whence compact-time tanh convergence, signed log-coth profile and the first-passage artanh law. The complete proof handles signs, endpoints and limits; standard-library finite tests supplement it.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2411.01495v1: Sections 2-5, full paper HTML: a.e. convergence to attracting orbit for large a; does not estimate speed for fixed initial data",
+        "published-finding corpus/2026: Singular half-grid selection and exponentially weak attraction in rational EOS maps, RESULT.md full: derivative gap 2a exp(-a/(2n)) gives only local linearization, not fixed-phase capture",
+        "arxiv:1807.06831v1: Family of chaotic maps from game theory: qualitatively different broader dynamics"
+      ],
+      "reasoning": "Qualitative almost-everywhere convergence and local multiplier do not imply a sharp, nonlinear deterministic profile from fixed macroscopic phase. No searched stronger theorem provided this implication.",
+      "searches": [
+        "long time amplitude phase memory loss rational logistic smoothed rotation exponential transient front",
+        "Eulerian rotation-like attractors logistic sigmoid shift lattice midpoint rational rotation k/n exponential shadowing attractor",
+        "arxiv:2411.01495v1: Sections 2-5, full paper HTML",
+        "published-finding corpus/2026: Singular half-grid selection and exponentially weak attraction in rational EOS maps, RESULT.md full",
+        "arxiv:1807.06831v1: Family of chaotic maps from game theory"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2411.01495v1: Sections 2-5, full paper HTML",
+      "published-finding corpus/2026: Singular half-grid selection and exponentially weak attraction in rational EOS maps, RESULT.md full",
+      "arxiv:1807.06831v1: Family of chaotic maps from game theory",
+      "DOI:10.1063/5.0184318: Memory loss can prevent chaos in games dynamics (abstract only)",
+      "arxiv:2201.10992 full manuscript, antecedent to 2024 Chaos journal paper"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "published-finding corpus/2026: Singular half-grid selection and exponentially weak attraction in rational EOS maps, RESULT.md full: published R_a displacement expansion is proved for a phase radius sqrt(q_a) that vanishes as a->infinity",
+        "arxiv:2411.01495v1: Sections 2-5, full paper HTML: attracting rational cycle for large steepness with no uniform entrance-time control"
+      ],
+      "reasoning": "The published half-grid analysis gives a local return expansion for |t-h|<=sqrt(exp(-a/(2n))) and the multiplier, but not a uniform fixed-bin return estimate nor the entrance law for a fixed nonzero offset. The present proof derives the new estimate directly, uniform on [d,1/n-d], then a nonlinear tanh flow. A fixed x0 differs from the grid by a positive constant and eventually lies outside every shrinking neighborhood, so the new uniform bin estimate and nonlinear Euler limit do not follow from this source’s stated local hypotheses.",
+      "searches": [
+        "arxiv:2411.01495v1: Sections 2-5, full paper HTML",
+        "published-finding corpus/2026: Singular half-grid selection and exponentially weak attraction in rational EOS maps, RESULT.md full",
+        "arxiv:1807.06831v1: Family of chaotic maps from game theory",
+        "sigmoid regularized rational rotation fast phase collapse scaling tanh infinite initial condition log tanh near center"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2411.01495v1: Sections 2-5, full paper HTML: near-rotation itinerary and rational attracting cycle; no sharp fixed-phase entrance waveform in inspected full text",
+        "published-finding corpus/2026: Singular half-grid selection and exponentially weak attraction in rational EOS maps, RESULT.md full: local half-grid positional shifts and multiplier, no macroscopic-phase first-passage statement"
+      ],
+      "reasoning": "The published half-grid analysis gives a local return expansion for |t-h|<=sqrt(exp(-a/(2n))) and the multiplier, but not a uniform fixed-bin return estimate nor the entrance law for a fixed nonzero offset. The present proof derives the new estimate directly, uniform on [d,1/n-d], then a nonlinear tanh flow. Searched alternative names: fixed phase, phase capture, smoothing, sigmoid return, entrance clock, hyperbolic tangent scaling.",
+      "searches": [
+        "EOS map logistic rational rotation fixed starting offset t0 k/n universal entry relaxation tanh logarithm slow time exp(a/(2n))/a",
+        "sigmoid regularized rational rotation fast phase collapse scaling tanh infinite initial condition log tanh near center",
+        "nonlinear approach from fixed positive phase to half-grid universal entrance law steep EOS maps tanh",
+        "arxiv:2411.01495v1: Sections 2-5, full paper HTML",
+        "published-finding corpus/2026: Singular half-grid selection and exponentially weak attraction in rational EOS maps, RESULT.md full"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest record published-finding corpus/2026: Singular half-grid selection and exponentially weak attraction in rational EOS maps, RESULT.md full contains a local multiplier and first-order half-grid expansion; indexed summaries contain no fixed-phase entrance-time tables"
+      ],
+      "reasoning": "The claimed invariant is a function-valued scaling limit and continuum first-passage law rather than a finite tabulation. Prior records do not give these data at fixed initial phases.",
+      "searches": [
+        "EOS map logistic rational rotation fixed starting offset t0 k/n universal entry relaxation tanh logarithm slow time exp(a/(2n))/a",
+        "nonlinear approach from fixed positive phase to half-grid universal entrance law steep EOS maps tanh",
+        "published-finding corpus: nonlinear metastable relaxation scaling EOS map rational rotation logistic smoothing time a exp(-a/(2n)) sinh boundary layer phase drift tanh"
+      ]
+    },
+    "rationale": "The strongest inspected published EOS result proves selected half-grid and weak local attraction, with displacement expansion only on exponentially shrinking phases, rather than fixed-bin entrance. Qualitative a.e.-attraction literature gives no sharp entry clock. Actual exact/alias/implication searches found no covering result; priority risk remains because absence of search hits is not uniqueness proof.",
+    "residual_risks": [
+      "Unindexed, inaccessible or differently phrased prior results may contain the same universal fixed-phase entrance law.",
+      "No independent proof or novelty review has been performed.",
+      "Final 2024 journal version was not separately read; the 2022 arXiv manuscript precursor was inspected in full."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers rational attraction, not sharp phase-resolved macroscopic entrance time",
+        "evidence": [
+          "Theorem 3.3: rational rotation-type attracting n-cycle; Section 5 qualitative comparison of numerators"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2411.01495v1",
+        "material_read": "Full accessible HTML text and Sections 2–5",
+        "method": "Read mathematical definitions, theorems and proofs and compare implication to fixed-phase time law",
+        "title": "Interval maps mimicking circle rotations",
+        "trigger": "Motivating exact EOS family and n-cycle theorem"
+      },
+      {
+        "assessment": "Local first correction and multiplier covered, but full-bin first-passage law not implied",
+        "evidence": [
+          "Its proof step 1 restricts |t|<=sqrt(eps), eps=exp(-a/(2n)); its conclusions concern local orbit and period multiplier; current initial x0-h is fixed nonzero"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026",
+        "material_read": "Entire 9005-byte RESULT.md with proof and limitations",
+        "method": "Compare precise shrinking-neighborhood hypotheses, expansions and fixed starting phase quantifiers",
+        "title": "Singular half-grid selection and exponentially weak attraction in rational EOS maps",
+        "trigger": "Closest published quantitative EOS mathematical result identified by semantic search"
+      },
+      {
+        "assessment": "General periodicity/chaos, no discovered equivalent fixed-phase entrance clock",
+        "evidence": [
+          "Prior game-theoretic map dynamics focus on periodicity, chaos and stability"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1807.06831",
+        "material_read": "Accessible arXiv text and synopsis",
+        "method": "Compare subject and statements",
+        "title": "Family of chaotic maps from game theory",
+        "trigger": "Earlier EOS-adjacent game-map dynamics"
+      },
+      {
+        "assessment": "No fixed-phase full-bin first-passage law in the inspected manuscript; 2024 journal differences not independently verified",
+        "evidence": [
+          "Theorem 4.13: memory-dependent period-two attraction; Theorem 4.21: chaos at high asymmetry; no fixed rational rotation k/n nor entrance time limit in these statements."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2201.10992",
+        "material_read": "Entire accessible 2022 arXiv manuscript precursor; 2024 journal abstract only",
+        "method": "Read full manuscript sections 3 and 4, including normal-form map F and global attraction/chaos theorems; compared with fixed-phase rational return entrance asymptotic",
+        "title": "Memory loss can prevent chaos in games dynamics",
+        "trigger": "Related exact sigmoid/game family and possible wider prior coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5ee69e69-2696-43de-b493-af9765b2e4e0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A local spectral multiplier does not control macroscopic phase capture. This theorem quantifies the natural transient from any fixed phase in an entire return bin on the exact exponentially long timescale, proves loss of initial-distance and rotation-numerator memory, and provides a sharp family of hitting-time constants for prescribed inverse-steepness tolerance. These are nontrivial and physically meaningful dynamical distinctions.",
+    "status": "PASS"
+  }
+}
