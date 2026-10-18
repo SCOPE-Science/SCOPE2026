@@ -1,24 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof starts from the exact standardized Gamma density and obtains the exact reflected ratio
-\[
-\log\frac{g_\alpha(z)}{g_\alpha(-z)}=
-2\bigl((\alpha-1)\operatorname{artanh}r-\alpha r\bigr),
-\qquad r=\frac{z}{\sqrt{\alpha}}.
-\]
-For \(0<\alpha\le1\) the sign is immediately negative. For \(\alpha>1\), strict monotonicity of \(\operatorname{artanh}r/r\) gives one and only one crossing. Comparing its power series with the geometric series proves \(1<\kappa_\alpha<\sqrt{3}\), and coefficient matching proves
-\[
-\kappa_\alpha=\sqrt{3}\left(1-\frac{2}{5\alpha}+O(\alpha^{-2})\right).
-\]
-The infinite statement is analytic; numerical checks are not used as proof.
+## correctness
 
-## Originality
-**PASS.** The full public text of arXiv:2303.17487 was inspected because it is the closest motivating source. It proves a one-standard-deviation central-probability comparison and gives examples at other radii, but it does not state a pointwise symmetric-density crossing, the exact \(\operatorname{artanh}\) equation, or the interval \((1,\sqrt{3})\). The published version at DOI 10.1186/s13660-024-03081-w and the related arXiv:2304.11459 were also checked for broader coverage. Four candidate-specific published-finding corpus searches and direct web searches did not locate an equivalent statement. The complete prior own-ledger prefix was searched for claim overlap; the closest own Gamma item concerns integer-shape tail monotonicity and does not imply this result.
+PASS
 
-Residual risk: an older skewness note under different terminology may contain an equivalent density-pair calculation.
+For shape alpha>0 and arbitrary scale beta>0, the density standardized about its mean has support z> -sqrt(alpha). At symmetric common-support points |z|<sqrt(alpha), r=z/sqrt(alpha), the log ratio equals 2[(alpha-1)atanh(r)-alpha*r]. When alpha<=1 it is strictly negative for z>0. If alpha>1, atanh(r)/r is strictly increasing from 1 to infinity, giving exactly one root. Series atanh(r)/r =1+sum_{m>=1}r^(2m)/(2m+1) and coefficient comparisons with 1/(alpha-1) give 1<kappa_alpha<sqrt(3), with upper boundary automatic for alpha<=3. Expanding in alpha^-1 yields kappa^2=3-12/(5alpha)+O(alpha^-2), equivalently kappa=sqrt(3)(1-2/(5alpha)+O(alpha^-2)); as alpha decreases to 1, r tends to 1 and kappa tends to 1. Independent bisection found kappa(1.1)=1.0488088476, kappa(2)=1.3541151769, kappa(7)=1.6305749459, kappa(50)=1.7181466725, kappa(500)=1.7306646916; these are checks, not infinite proofs.
 
-## Value
-**PASS.** The crossing is a natural scale-free descriptor of Gamma asymmetry. It gives a complete classification over all positive shapes, identifies a nontrivial universal interval from one to \(\sqrt{3}\) standard deviations, and shows that the local imbalance reversal approaches \(\sqrt{3}\) even as the standardized law becomes Gaussian. This supplies structural information directly relevant to variation-about-the-mean questions rather than a routine isolated computation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new sharp global pointwise reflection-density classification and scale-free 1-to-sqrt(3) interval. Sun–Hu–Sun 2023/2024 investigate cumulative Gamma probability within one standard deviation, shape-dependent central mass and normal comparison, a different functional; directly reading its relevant results shows no theorem asserting equality of g_alpha(z) and g_alpha(-z) or the exact artanh root. The raw density-ratio computation is elementary, and an older note on Gamma skewness could already encode the crossing; no exact earlier source found. The mathematically substantive package is the all-alpha uniqueness, universal bounds, and two endpoint limits.
+
+## value
+
+PASS
+
+The location at which a skew Gamma law changes which equal-distance side of its mean has greater density is a natural dimensionless symmetry profile, relevant to central-variation/normal-comparison questions. Identifying a single crossing for every shape >1 and sharp 1-to-sqrt(3) standard-deviation bounds is a complete parameter classification rather than an arbitrary numerical threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
