@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T21:06:44Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The XLindley density at rate theta>0 decomposes by direct coefficient comparison into a Gamma(1,theta) / Gamma(2,theta) mixture with weights a=theta(theta+2)/(1+theta)^2 and b=1/(1+theta)^2, a+b=1. A sum of two independent same-rate gamma-mixtures has shapes 2/3/4 and weights a^2, 2ab, b^2. Poisson-gamma integration gives the stated three NB mixture. Separately Poisson(Y1+Y2) equals in law independent Poisson(Y1)+Poisson(Y2), so the defined PTS-XL model equals PXL convolved with PXL; PGF squares. Independent symbolic exact-rational algebra checked a+b, the gamma density, the PXL PGF formula and the NB-mixture generating function for indeterminate theta,z. This is correct mathematics on theta>0.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://www.aimspress.com/article/doi/10.3934/math.20261122",
+          "https://onlinelibrary.wiley.com/doi/10.1155/2022/6503670",
+          "https://link.springer.com/article/10.2991/jsta.d.210607.001"
+        ],
+        "reasoning": "The standard identity Poisson(Y1+...+Yk) =d sum_i independent mixed-Poisson(Y_i) applies to any independent mixing variables and already covers the k=2 XLindley specialization. Gamma convolution and Poisson-gamma conjugacy cover the three-component NB mixture once the elementary XL density is substituted.",
+        "searches": [
+          "Resultary semantic: Poisson two sum XLindley PTS-XL three negative binomial mixture Poisson XLindley convolution square",
+          "Ahmad--El-Awady DOI 10.3934/math.20261122 model definition",
+          "Ahsan-ul-Haq et al DOI 10.1155/2022/6503670 PXL model",
+          "Chouia--Zeghdoudi DOI 10.2991/jsta.d.210607.001 XL density"
+        ]
+      },
+      "checked_sources": [
+        "https://www.aimspress.com/article/doi/10.3934/math.20261122",
+        "https://onlinelibrary.wiley.com/doi/10.1155/2022/6503670",
+        "https://link.springer.com/article/10.2991/jsta.d.210607.001"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://www.aimspress.com/article/doi/10.3934/math.20261122",
+          "https://onlinelibrary.wiley.com/doi/10.1155/2022/6503670",
+          "https://link.springer.com/article/10.2991/jsta.d.210607.001"
+        ],
+        "reasoning": "Let Y1,Y2 iid XL and U_i|Y_i~Pois(Y_i) independently. Then U1+U2|(Y1,Y2)~Pois(Y1+Y2), exactly the published PTS-XL generative definition; each Ui is exactly the prior PXL model. Hence the central purported new distributional statement is already logically implied by prior descriptions. Expanding the published density into rate-theta Gamma(1)/Gamma(2) and squaring only repackages this same law.",
+        "searches": [
+          "Resultary semantic: Poisson two sum XLindley PTS-XL three negative binomial mixture Poisson XLindley convolution square",
+          "Ahmad--El-Awady DOI 10.3934/math.20261122 model definition",
+          "Ahsan-ul-Haq et al DOI 10.1155/2022/6503670 PXL model",
+          "Chouia--Zeghdoudi DOI 10.2991/jsta.d.210607.001 XL density"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://www.aimspress.com/article/doi/10.3934/math.20261122",
+          "https://onlinelibrary.wiley.com/doi/10.1155/2022/6503670",
+          "Poisson superposition theorem"
+        ],
+        "reasoning": "The two defining generative models give the same random variable via independent conditional Poisson additivity; this explicitly covers the 2-fold PXL convolution without needing the formula to appear verbatim. PGF product is a tautological consequence.",
+        "searches": [
+          "Resultary semantic: Poisson two sum XLindley PTS-XL three negative binomial mixture Poisson XLindley convolution square",
+          "Ahmad--El-Awady DOI 10.3934/math.20261122 model definition",
+          "Ahsan-ul-Haq et al DOI 10.1155/2022/6503670 PXL model",
+          "Chouia--Zeghdoudi DOI 10.2991/jsta.d.210607.001 XL density"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://www.aimspress.com/article/doi/10.3934/math.20261122",
+          "https://onlinelibrary.wiley.com/doi/10.1155/2022/6503670",
+          "2026 paper Equation (3.15) source PGF as reproduced in assigned RESULT.md"
+        ],
+        "reasoning": "Original PTS-XL paper reports a squared-rational PGF and PMF, and earlier PXL article provides the single-mixture PGF; their exact coefficients determine all NB-mixture probabilities by algebra. No independent unknown enumerative table remains.",
+        "searches": [
+          "Resultary semantic: Poisson two sum XLindley PTS-XL three negative binomial mixture Poisson XLindley convolution square",
+          "Ahmad--El-Awady DOI 10.3934/math.20261122 model definition",
+          "Ahsan-ul-Haq et al DOI 10.1155/2022/6503670 PXL model",
+          "Chouia--Zeghdoudi DOI 10.2991/jsta.d.210607.001 XL density"
+        ]
+      },
+      "rationale": "FAIL based on implication from identified PRIOR MODEL DEFINITIONS, not merely a failed literature search: the 2026 PTS-XL publication explicitly defines its count as Poisson conditional on the sum of two independent XLindley variables; Ahsan-ul-Haq et al. 2022 define PXL as the count from Poisson mixing with one XLindley variable. The classical Poisson superposition property implies X_PTS-XL =d X_PXL,1+X_PXL,2 immediately, without an additional model-specific assumption or computation. The three NB weights then follow automatically by expressing the published XLindley density in its elementary common-rate gamma mixture and applying standard gamma-convolution and Poisson-gamma facts. The exact squared PGF is already algebraically implied by the published source PGF. Although the specific three-NB decomposition may not be printed, it is a direct re-expression of two published generative definitions, with no independently unentailed theorem.",
+      "residual_risks": [
+        "The 2026 target paper full PDF/body was not retrieved, so absence of explicit NB mixture within it is not asserted; the scientific rejection instead rests on the directly published GENERATIVE DEFINITIONS and general identities.",
+        "No inference claim about whether the representation improves computation beyond algebraic sampling; such gain was not demonstrated.",
+        "The assignment does NOT introduce a single NB model; its three-component mixture is correct but not independent of the published law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defining generative mechanism gives decisive prior implication. No claim of full-text inspection or of exact latent mixture explicitly appearing there.",
+          "evidence": "DOI:10.3934/math.20261122, abstract and references",
+          "identifier_or_url": "https://www.aimspress.com/article/doi/10.3934/math.20261122",
+          "material_read": "Publisher article page title, author/date, complete accessible abstract defining Poisson compounding with Y1+Y2, reference to earlier PXL, bibliography; full 40-page article was not retrievable in extractable form",
+          "method": "publisher open page / abstract (Full Text HTML control did not expose extractable body)",
+          "title": "The Poisson two-sum XLindley distribution: Statistical properties, estimation, regression modeling, and applications",
+          "trigger": "exact target count distribution"
+        },
+        {
+          "assessment": "2022 PXL generative definition makes PTS-XL its convolution square directly from Poisson superposition.",
+          "evidence": "DOI:10.1155/2022/6503670",
+          "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/2022/6503670",
+          "material_read": "Accessible full primary article sections defining PXL Poisson mixture and PGF and results, including Sections 2-3",
+          "method": "open-access publisher HTML main article",
+          "title": "Poisson XLindley Distribution for Count Data: Statistical and Reliability Properties with Estimation Techniques and Inference",
+          "trigger": "earlier single-XLindley mixed-Poisson law"
+        },
+        {
+          "assessment": "The source model is already a classical elementary finite mixture; rearrangement into Gamma(1)/Gamma(2) common-rate weights requires only density coefficients.",
+          "evidence": "DOI:10.2991/jsta.d.210607.001",
+          "identifier_or_url": "https://link.springer.com/article/10.2991/jsta.d.210607.001",
+          "material_read": "Original article open-access abstract describing exponential/Lindley finite mixture, definitions as available; full article not asserted read",
+          "method": "journal article abstract and full-text listing",
+          "title": "The XLindley Distribution: Properties and Application",
+          "trigger": "component continuous mixing density"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: a direct sampler is practically convenient, but under a mathematical value bar this package contains only textbook mixed-Poisson/gamma closure calculations and a renaming of the already-defined double-sum model as a convolution square. No new inferential theorem, sharper tail property, identifiable parameter distinction, or nontrivial model boundary is established. Correct algebra/reproducibility and practical notational convenience alone do not make this already-determined model-specific re-expression a substantive new mathematical contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The 2026 target paper full PDF/body was not retrieved, so absence of explicit NB mixture within it is not asserted; the scientific rejection instead rests on the directly published GENERATIVE DEFINITIONS and general identities.",
+    "No inference claim about whether the representation improves computation beyond algebraic sampling; such gain was not demonstrated.",
+    "The assignment does NOT introduce a single NB model; its three-component mixture is correct but not independent of the published law."
+  ]
+}
