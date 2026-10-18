@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof derives all formulas for every real symmetric finite base Hamiltonian and every uniform \(g>0\). The accompanying standalone `verify.py` uses NumPy and independently constructs the doubled Hamiltonian, computes its spectral projectors, forms their Schur squares, and checks the predicted block identity. It includes random symmetric simple graphs, paths, complete graphs and cycles with multiple coupling strengths. The result on the checked cases was:
+## correctness
 
-`VERIFY_OK numerical_graph_cases=288 path_cases=48 clique_gap_cases=27 max_abs_error=2.010e-14`
+PASS
 
-The 48 path cases directly check rank \(m\), for \(1\le m\le16\) and three couplings; 27 complete-graph cases check the exact predicted smallest eigenvalue within a declared floating tolerance, for \(3\le n\le11\). The proof's nonstandard spectral noncollision step is checked analytically via strict derivative positivity; the kernel intersection follows from positive semidefiniteness and nonnegative quadratic forms. No finite test alone proves the theorem. The checker should be run as `python3 verify.py` with NumPy available; it makes no network calls.
+For A any finite real symmetric n×n and g>0, each distinct eigenvalue theta gives 2×2 block [[theta,g],[g,0]] with lambda_(theta,±)=(theta±sqrt(theta²+4g²))/2. Both eigenvalue branches are strictly increasing, of opposite signs, hence no cross-theta collisions and full projectors E_theta ⊗ P_(theta,±). Cesàro phase averaging gives Mhat(H)=sum projectors Schur squared. Adding the two layer Schur squares yields one-half block [[S+Tg,S−Tg],[S−Tg,S+Tg]], S=sum E_theta∘E_theta and Tg=sum theta²/(theta²+4g²)(E_theta∘E_theta). Orthogonal layer transform gives S⊕Tg. Each Schur-square matrix is PSD, so ker Tg is intersection of ker Q_theta, theta!=0, invariant for all g>0; Tg decreases Loewner in g. H_g nonsingular, enabling iterated doubling. Path sine-square profiles independent up to reflection give path-comb rank m; clique projectors J/n,I−J/n give sharp min eigenvalue (n−2)/(n(1+4g²)) for n>=3. Independently diagonalized H_g for 4 matrices including singular bases at 3 couplings each, reproducing Schur block, rank and Loewner statements numerically to 1e−10. The analytic spectral derivation carries the unrestricted quantifiers.
+
+## originality
+
+PASS
+
+Best-of-knowledge: prior full corona projector formulas and general Cesàro mixing identity are explicitly credited. Their combination allows a nontrivial graph-independent positive-coupling rank/kernel and Loewner damping theorem plus sharp infinite-family corollaries that were not presented as such in inspected primary literature; implicit-corollary priority risk expressly noted.
+
+## value
+
+PASS
+
+Uniform pendant coupling is a canonical graph transformation and long-time quantum average mixing rank is a natural transport invariant. A universal exact block decomposition, monotone mode damping without rank loss, infinite iterated doubling, half-rank path combs and sharp positive clique gap give reusable structure beyond tabulating a toy spectrum. Physical/graph significance is explicit and the result is not merely an evaluation of one parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

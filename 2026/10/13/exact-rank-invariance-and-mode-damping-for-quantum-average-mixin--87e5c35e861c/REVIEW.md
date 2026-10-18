@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The eigenvalues of each pendant \(2\)-by-\(2\) reduction have opposite signs and each branch is strictly increasing in the corresponding base energy; therefore there are no accidental cross-level coincidences. The two rank-one layer projectors have exact Schur-square sum \(\tfrac12\begin{psmallmatrix}1+a^2&1-a^2\\1-a^2&1+a^2\end{psmallmatrix}\), giving the exact stated mixing block formula after summing the base projectors. Schur positivity gives the rank and kernel independent of coupling; an explicit quadratic-form comparison proves Loewner monotonicity. Nonsingularity follows from the block equations. Path sine-square profiles and complete-graph projector eigenvalues establish the two sharp corollaries. Boundary cases, including a singular or zero base Hamiltonian, are included. The checker also passed 288 numerical general-graph cases, 48 path cases and 27 clique-gap cases; no finite computation substitutes for the unrestricted proof.
+## correctness
 
-## Originality — PASS; residual risk
-The *projector formula itself is known*, specifically Proposition 3.2 of Ackelsberg et al. (arXiv:1605.05260), which was inspected in full at the relevant statement and proof. Godsil's general Cesàro identity is likewise known, and Coutinho et al. (arXiv:2208.08971, Section 2) give exact mixing computation in general. The precise claim compared is the joint block identity, \(g\)-independent rank/kernel, Loewner monotonicity, and the two structural applications. Those conclusions do not appear in the inspected corona state-transfer or general mixing papers. Searches for corona/thorny/pendant *average mixing matrix* classifications and semantically similar published results produced no covering statement. The result is algebraically derivable by combining published ingredients; it is not claimed that either ingredient is original, and a previously unlocated explicit statement or stronger theorem remains a risk. Its substantial new content is the graph-independent parameter-invariance theorem and exact infinite-family corollaries, not a numerical evaluation of a single graph.
+PASS
 
-## Value — PASS
-The universality of rank under all positive uniform pendant couplings is a natural structural fact about long-time transport on graphs, distinct from state-transfer studies of coronas. The Loewner damping law quantifies how strong coupling can suppress mixing modes without destroying their rank for any finite positive coupling. Nonsingularity after a single extension turns the rank statement into an exact iteration law. The path and complete-graph corollaries supply contrasting natural infinite graph families: exactly half rank versus strictly positive mixing with a sharp gap. This motivates the invariant and its precise quantitative form independently of numerical reproducibility.
+For A any finite real symmetric n×n and g>0, each distinct eigenvalue theta gives 2×2 block [[theta,g],[g,0]] with lambda_(theta,±)=(theta±sqrt(theta²+4g²))/2. Both eigenvalue branches are strictly increasing, of opposite signs, hence no cross-theta collisions and full projectors E_theta ⊗ P_(theta,±). Cesàro phase averaging gives Mhat(H)=sum projectors Schur squared. Adding the two layer Schur squares yields one-half block [[S+Tg,S−Tg],[S−Tg,S+Tg]], S=sum E_theta∘E_theta and Tg=sum theta²/(theta²+4g²)(E_theta∘E_theta). Orthogonal layer transform gives S⊕Tg. Each Schur-square matrix is PSD, so ker Tg is intersection of ker Q_theta, theta!=0, invariant for all g>0; Tg decreases Loewner in g. H_g nonsingular, enabling iterated doubling. Path sine-square profiles independent up to reflection give path-comb rank m; clique projectors J/n,I−J/n give sharp min eigenvalue (n−2)/(n(1+4g²)) for n>=3. Independently diagonalized H_g for 4 matrices including singular bases at 3 couplings each, reproducing Schur block, rank and Loewner statements numerically to 1e−10. The analytic spectral derivation carries the unrestricted quantifiers.
 
-## Closest literature and limits
-Ackelsberg et al. (2016 preprint; EJC 2017), Proposition 3.2, supplies the underlying corona spectral projectors but studies perfect/pretty-good state transfer. Coutinho et al., *Irrational quantum walks* (arXiv:2208.08971, 2022), Section 2, supplies exact average-mixing methods but not the pendant rank law. Godsil (2013) supplies the Schur-projector identity. The conclusion assumes real symmetric base matrices, uniform positive couplings and infinite-time Cesàro averages; unrestricted heterogeneous couplings and independent validation are not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: prior full corona projector formulas and general Cesàro mixing identity are explicitly credited. Their combination allows a nontrivial graph-independent positive-coupling rank/kernel and Loewner damping theorem plus sharp infinite-family corollaries that were not presented as such in inspected primary literature; implicit-corollary priority risk expressly noted.
+
+## value
+
+PASS
+
+Uniform pendant coupling is a canonical graph transformation and long-time quantum average mixing rank is a natural transport invariant. A universal exact block decomposition, monotone mode damping without rank loss, infinite iterated doubling, half-rank path combs and sharp positive clique gap give reusable structure beyond tabulating a toy spectrum. Physical/graph significance is explicit and the result is not merely an evaluation of one parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T14:08:12.063318Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For A any finite real symmetric n×n and g>0, each distinct eigenvalue theta gives 2×2 block [[theta,g],[g,0]] with lambda_(theta,±)=(theta±sqrt(theta²+4g²))/2. Both eigenvalue branches are strictly increasing, of opposite signs, hence no cross-theta collisions and full projectors E_theta ⊗ P_(theta,±). Cesàro phase averaging gives Mhat(H)=sum projectors Schur squared. Adding the two layer Schur squares yields one-half block [[S+Tg,S−Tg],[S−Tg,S+Tg]], S=sum E_theta∘E_theta and Tg=sum theta²/(theta²+4g²)(E_theta∘E_theta). Orthogonal layer transform gives S⊕Tg. Each Schur-square matrix is PSD, so ker Tg is intersection of ker Q_theta, theta!=0, invariant for all g>0; Tg decreases Loewner in g. H_g nonsingular, enabling iterated doubling. Path sine-square profiles independent up to reflection give path-comb rank m; clique projectors J/n,I−J/n give sharp min eigenvalue (n−2)/(n(1+4g²)) for n>=3. Independently diagonalized H_g for 4 matrices including singular bases at 3 couplings each, reproducing Schur block, rank and Loewner statements numerically to 1e−10. The analytic spectral derivation carries the unrestricted quantifiers.",
+      "risk": [
+        "Uniform positive g required; g=0 has degenerate eigenspaces and can change rank.",
+        "Finite floating-point numerical checks are corroborative; no heterogeneous pendant-coupling assertion."
+      ],
+      "sources": [
+        "RESULT.md blob b91a2655bebeae1399e65e2f54ec54c9023cd66a",
+        "arxiv:1605.05260 Prop3.2 original corona projectors",
+        "arxiv:2208.08971 Section2 mixing rule",
+        "independent_1683_checks.py PENDANT_AVERAGE_MIXING_EXACT_SPECTRAL_PROJECTOR_BLOCKS_OK"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ackelsberg et al. Prop3.2 gives spectral idempotents of G◦K1 as special case but examines state transfer rather than average mixing rank across couplings.",
+          "Godsil/Coutinho give general projector sum defining average mixing and do not state the uniformly damped antisymmetric layer mode."
+        ],
+        "reasoning": "The older general identities imply computation is possible, not a pre-existing all-A coupling-invariant rank theorem, except as unworked corollary; applicability and risk explicit.",
+        "searches": [
+          "arxiv:1605.05260 Quantum State Transfer in Coronas full relevant Sec3",
+          "arxiv:2208.08971 Irrational quantum walks Sec2",
+          "Godsil 2013 JCTA average mixing"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1605.05260",
+        "arxiv:2208.08971",
+        "Godsil:JCTA120(2013)1649-1662"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Applying old corona projectors and old Schur-projector averaging yields a computable expression; it does not directly hand over graph-independent nullspace invariance without positivity/intersection and distinct-branch checks.",
+          "New Loewner ordering and iterative nonsingularity link produce a structural family result."
+        ],
+        "reasoning": "The inputs are genuine prior mathematical implications; acceptance is only for the additional combined all-base consequences, not for rederiving old projector identities. An undiscovered explicit corona mixing specialization could change priority.",
+        "searches": [
+          "arxiv:1605.05260 Prop3.2 eigenprojectors and proof",
+          "arxiv:2208.08971 Sec2 time-average formula",
+          "Godsil 2013 average mixing"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Spectral projectors of corona and Schur squares of projectors are existing equivalent underlying formulas; both are primary theorem inputs.",
+          "New central object is simultaneous block splitting into S⊕T_g and positive coefficient nullspace invariance, not the old projectors alone."
+        ],
+        "reasoning": "Compared identities at statement level; an expert can derive block formula from two known tools, but the coupling-invariant kernel/rank across every symmetric base is an additional structural argument.",
+        "searches": [
+          "quantum average mixing matrix corona pendant extension rank coupling monotonicity",
+          "arxiv:1605.05260 Prop3.2 eigenprojectors",
+          "arxiv:2208.08971 Section2 average mixing spectral formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table of all positive g ranks or path-comb and clique spectra located in Resultary semantic hits.",
+          "These are parametric infinite-family formulas, not a mere known finite graph table."
+        ],
+        "reasoning": "No exact covering stored table found; absence alone is not novelty certification.",
+        "searches": [
+          "quantum average mixing matrix corona pendant extension rank coupling monotonicity",
+          "corona graph quantum average mixing matrix path comb rank coupling",
+          "average mixing matrix K_n corona K_1 smallest eigenvalue"
+        ]
+      },
+      "rationale": "Best-of-knowledge: prior full corona projector formulas and general Cesàro mixing identity are explicitly credited. Their combination allows a nontrivial graph-independent positive-coupling rank/kernel and Loewner damping theorem plus sharp infinite-family corollaries that were not presented as such in inspected primary literature; implicit-corollary priority risk expressly noted.",
+      "residual_risks": [
+        "The block identity is derivable by direct algebra from Ackelsberg corona projectors plus Godsil mixing formula; possibly an implicit previously stated corollary in specialized quantum mixing literature.",
+        "Full historical corpus of corona average mixing and graph products is not exhaustively indexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies corona spectral data but no inspected coupling-parametric average-mixing rank theorem",
+          "evidence": "Prop3.2 spectral projectors and subsequent transfer-focused Proposition3.3.",
+          "identifier_or_url": "arxiv:1605.05260; Electronic Journal of Combinatorics 24(2) P2.24",
+          "material_read": "Full arxiv PDF relevant Section3 pp5–8, Proposition3.2 and next transfer application, including displayed 2×2 idempotents",
+          "method": "arxiv primary PDF text and page6 screenshot",
+          "title": "Quantum State Transfer in Coronas",
+          "trigger": "Precisely matching graph corona and spectral projectors"
+        },
+        {
+          "assessment": "Generic averaging formula, not pendant block-rank classification",
+          "evidence": "Continuous-time Cesàro removes distinct spectral phases, leaving Schur projectors.",
+          "identifier_or_url": "arxiv:2208.08971",
+          "material_read": "Full arxiv PDF relevant Section2 formula for average mixing as sum of entrywise squares of orthogonal projectors",
+          "method": "arxiv primary PDF including relevant pages",
+          "title": "Irrational quantum walks",
+          "trigger": "Independent general Cesàro mixing formula"
+        },
+        {
+          "assessment": "Not claimed to contain or omit uninspected corona corollary",
+          "evidence": "Credited origin of Cesàro mixing spectral identity.",
+          "identifier_or_url": "Godsil, Journal of Combinatorial Theory A 120 (2013) 1649–1662",
+          "material_read": "Main average mixing definition and spectral projector statement as attributed in full later primary source; direct full text not separately reviewed",
+          "method": "DOI/journal bibliographic and cited formula",
+          "title": "Average mixing of continuous quantum walks",
+          "trigger": "Foundational exact average mixing identity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Uniform pendant coupling is a canonical graph transformation and long-time quantum average mixing rank is a natural transport invariant. A universal exact block decomposition, monotone mode damping without rank loss, infinite iterated doubling, half-rank path combs and sharp positive clique gap give reusable structure beyond tabulating a toy spectrum. Physical/graph significance is explicit and the result is not merely an evaluation of one parameter.",
+      "risk": [
+        "Applies only to real symmetric A, uniform g>0 and infinite-time Cesàro mixing; excludes heterogeneous leaves and finite-time mixing."
+      ],
+      "sources": [
+        "arxiv:1605.05260",
+        "arxiv:2208.08971",
+        "Godsil:JCTA120(2013)1649-1662"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Strictly positive uniform pendant coupling, all finite real symmetric A; distinct base eigenvalue projectors are grouped before averaging.",
+    "Historical implicit-corollary coverage by general corona spectral theory is a retained priority risk."
+  ],
+  "schema_version": 1
+}
