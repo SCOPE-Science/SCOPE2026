@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T19:57:22Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git blob RESULT.md:fb937e357ac8db6255b14f6c46f1bc5c82d90220",
+        "Cobeli–Iordache–Zaharescu 2003 Lemma1 Farey denominator uniqueness",
+        "Independent full Farey recurrence versus primitive-coordinate pair-set equality for N=10,20,50,100 and r,s in {2,3}"
+      ],
+      "rationale": "Classical exact ordered denominator correspondence maps neighboring Farey fractions uniquely to positive coprime (b,d) with b,d<=N, b+d>N; b=u^r,d=v^s iff gcd(u,v)=1. Scale u by U=N^(1/r), v by V=N^(1/s); region D={x^r+y^s>1 in (0,1)^2}. Möbius inversion plus O((U+V)/d+1) boundary cell errors yields area UV/zeta(2)+O(max(U,V)log N), with area C=1-Gamma(1+1/r)Gamma(1+1/s)/Gamma(1+1/r+1/s). The bounded product-cutoff area gives weak limit for G=N²/(u^r v^s). Near (0,1) and (1,0), widths ~x^r/s and ~y^s/r give tail terms t^(-1-1/r)/(s(r+1)) and t^(-1-1/s)/(r(s+1)), so alpha=1+1/max(r,s) and positive K; tail integral proves iff moment q<alpha. Independent full-Farey recurrence enumeration and separate primitive power-coordinate enumeration agreed for all 16 tests N=10,20,50,100 and r,s in {2,3}; they do not prove infinite estimates.",
+      "residual_risks": [
+        "r,s fixed >=2, conditional limiting tail not uniform in thresholds t=t(N), reversed orientation exponents differs, bases may themselves be perfect powers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2003 article treats local densities for consecutive odd denominators, positive-density parity constraints, not both adjacent full-Farey denominators independently restricted to powers. 2001 h-spacing and 2010 intermediate-point laws are broader in rational position, not this conditional sparse-event tail."
+        ],
+        "reasoning": "General 2D Farey triangle equidistribution does not automatically transfer to integer points on nonlinear power subgrids of zero density; exponent-specific x^r+y^s scaling, Möbius inversion, tail are additional arguments.",
+        "searches": [
+          "Cobeli–Iordache–Zaharescu 2003 complete 14-page article",
+          "Augustin–Boca–Cobeli–Zaharescu 2001 DOI:10.1017/S0305004101005187",
+          "Cobeli–Vâjâitu–Zaharescu 2010"
+        ]
+      },
+      "checked_sources": [
+        "Cobeli–Iordache–Zaharescu INTEGERS 3 (2003) A07 full PDF",
+        "Augustin et al DOI:10.1017/S0305004101005187",
+        "OEIS A006843,A308483",
+        "Resultary query Farey neighbors denominators both perfect powers primitive lattice points spacing limiting distribution heavy tail"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Farey criterion + generic visible lattice theorem supplies a potential route but not the thin-grid main term without evaluating C_{r,s}; even if count deduced routinely, the sharp conditional gap tail and iff moments require corner expansions at two different exponents."
+        ],
+        "reasoning": "Earlier full-Farey and odd-restricted results do not state or straightforwardly dominate this singular product pushforward for fixed r,s>=2, and no stronger exact table was identified.",
+        "searches": [
+          "Cobeli–Iordache–Zaharescu 2003 Lemma1 and rectifiable-boundary density",
+          "Augustin et al 2001 h-spacings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Adjacent full-Farey neighbor denominators correspond bijectively to visible points in the Farey triangle b+d>N; the power conditions restrict to b=u^r,d=v^s with orientation retained."
+        ],
+        "reasoning": "This is NOT the Farey spacing of a subsequence after filtering by perfect-power denominators: adjacency is still in the complete F_N. Distinguishing filtered neighbors avoids false equivalence.",
+        "searches": [
+          "Farey neighbors denominators both perfect powers primitive lattice points spacing limiting distribution heavy tail",
+          "Cobeli–Iordache–Zaharescu INTEGERS 3 (2003) A07 Lemma 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS denominator or reciprocal gap sequences concern unrestricted Farey neighbors and do not tabulate pair-conditioned two-exponent limiting laws; Resultary semantic search yielded no exact candidate."
+        ],
+        "reasoning": "A finite unrestricted Farey table does not determine the conditional limiting tail exponent or full moment threshold. Failure of indexed search is not proof of novel priority.",
+        "searches": [
+          "Farey neighbors denominators both perfect powers primitive lattice points spacing limiting distribution heavy tail",
+          "OEIS A006843 A308483",
+          "Resultary published Farey perfect-power conditional gaps"
+        ]
+      },
+      "rationale": "Cobeli–Iordache–Zaharescu 2003 full source gives Farey-neighbor denominator criterion and parity-restricted denominator distributions, while Augustin–Boca–Cobeli–Zaharescu study unrestricted Farey h-spacings. Those lead to the method but not directly to the zero-density two-exponent power-denominator event, the explicit beta area C, the limiting conditional gap variable, or its corner tail/moment boundary. These are new specialized implications requiring a distinct nonrectangular thin-grid scaling and corner analysis under best current inspection.",
+      "residual_risks": [
+        "Older thin-denominator/zero-density Farey-neighbor counts or power-condition law under nonlinear Farey triangle may be unindexed; 2001/2010 relevant publisher full texts not obtained this run; failed search is not novelty proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Lemma1 provides full-Farey criterion; rest studies odd filtered sequence, not perfect-power conditional spacing tail.",
+          "evidence": "Lemma1: (q prime,q double-prime) occurs once iff coprime and in Farey triangle; Section3 odd-denominator density changes underlying filter.",
+          "identifier_or_url": "https://emis.dsd.sztaki.hu/journals/INTEGERS/papers/d7/d7.pdf",
+          "material_read": "14-page full open PDF: Section 2 Farey triangle, Lemma 1 around p5, Lemma3 rectifiable lattice estimate and Section 3 odd-denominator local density, relevant pages visually checked",
+          "method": "Parsed full paper, targeted lemma search, page screenshots including Farey-triangle geometry",
+          "title": "The relative size of consecutive odd denominators in Farey series",
+          "trigger": "Nearest source for exact neighbor denominator bijection and conditional densities"
+        },
+        {
+          "assessment": "Unconditioned h-spacing not directly a conditional zero-density perfect-power denominator law; full-text priority risk retained.",
+          "evidence": "Studies spacings between ordinary Farey points, rather than imposing r-th/s-th-power denominator restriction.",
+          "identifier_or_url": "DOI:10.1017/S0305004101005187",
+          "material_read": "Cambridge public publisher abstract, metadata and described h-spacing setting",
+          "method": "Open publisher/abstract-level record; no full text obtained in this run",
+          "title": "The h-spacing distribution between Farey points",
+          "trigger": "Potential dominating full-Farey spacing result"
+        },
+        {
+          "assessment": "Concerns intervening Farey fractions, so distinct from adjacent full-Farey power-denominator event; uninspected full manuscript risk.",
+          "evidence": "The object requires an intermediate fraction between endpoints, while claimed pairs remain full-Farey neighbors.",
+          "identifier_or_url": "https://rms.unibuc.ro/bulletin/pdf/53-3/vajaitu1.pdf",
+          "material_read": "Bibliographic statement and source-link identification, not a full material comparison",
+          "method": "Metadata/abstract-level comparison",
+          "title": "On the intervals of a third between Farey fractions",
+          "trigger": "Potential alternative filtered-neighbor interpretation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Cobeli–Iordache–Zaharescu 2003 full-Farey triangle and visible-points method",
+        "Git RESULT.md tail-corner proof"
+      ],
+      "rationale": "Adjacent full-Farey fractions under independent fixed-perfect-power denominator restrictions form a natural sparse arithmetic sampling problem. The exact asymptotic and explicit weak gap law uncover a heavy-tail exponent with finite mean but potentially infinite variance and a precise moment threshold; this distributional statement is meaningful beyond reproducing classical Farey neighbor criterion or a count table.",
+      "residual_risks": [
+        "Weak limit only, with no uniform moving-threshold law or extension to variable exponents."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed integers r,s>=2; oriented adjacency of unfiltered Farey neighbors, continuous limiting gap law, power bases not primitive; no uniform-in-growing-t assertion."
+  ],
+  "schema_version": 1
+}
