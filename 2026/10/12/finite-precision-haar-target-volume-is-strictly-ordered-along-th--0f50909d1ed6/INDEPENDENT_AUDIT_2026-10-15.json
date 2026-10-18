@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T21:15:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The assigned theorem fixes the exact normalized Haar coordinate-cube target V_a(c) of Watts–O’Connor–Vala, Eq. (48), with a≤c≤π/2, 0<a<π/2. Differentiating gives ∂cV=(sin2c/π)(B−4C cos2c). Substitution t=tan(a/2), 0<t<1 yields C>0 from t>arctan t; for B−4C, the reduction F(t)=6(1−t²)arctan t+8t³−6t satisfies F′=12t G/(1+t²), G′=2t(3t−arctan t)>0 and F(0)=G(0)=0. Independently reconstructed the derivative identities symbolically, hence B>4C>0 and strict ∂cV>0 on [a,π/2), with the zero derivative only at the boundary endpoint. Precision a=0 and a=π/2 correctly excluded.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Musz–Kuś–Życzkowski measure of two-qubit interaction content and entanglers; Watts gives global Weyl density but not universal moving cube monotonicity."
+        ],
+        "reasoning": "General invariant Haar density does not by itself imply the ordering of a family of finite moving targets, nor does an off-edge maximum comparison dominate the edge theorem.",
+        "searches": [
+          "Haar measure two qubit Weyl chamber controlled edge gate effective target volume",
+          "Musz Kus Zyczkowski perfect entangler volume 2013"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/777b2b21e054cb68d855230883c60b5f35c9209a/2026/10/12/finite-precision-haar-target-volume-is-strictly-ordered-along-th--0f50909d1ed6/RESULT.md",
+        "https://doi.org/10.3390/e15061963",
+        "https://doi.org/10.1103/PhysRevA.87.022111"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equal small-target leading scaling among nonlocal controlled gates leaves possibility of finite-a crossings; exact ∂cV positivity eliminates crossings."
+        ],
+        "reasoning": "Prior local scaling is strictly weaker and cannot imply all-scale strict monotonicity; current result is derived from source Eq48 by a nontrivial all-parameter sign certificate, not an independent new Haar measure.",
+        "searches": [
+          "Watts OConnor Vala Eq 48 small target scaling controlled gates",
+          "Huang quantum instruction set design effective target size 2023"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Watts et al Entropy 15 (2013), Eq. (48) has V_a(c)=[A−B cos2c+C cos4c]/(2π); derivative sign needs B>4C>0."
+        ],
+        "reasoning": "An equivalent formulation is target volume increasing with distance from identity along the controlled edge; source displays the integrand/formula but does not derive the global finite-precision sign in inspected material.",
+        "searches": [
+          "Watts O’Connor Vala Eq 48 controlled gate target size c a monotonic CNOT",
+          "Resultary controlled gate Haar Weyl chamber finite precision monotonic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite lists and selected CNOT gate target comparisons sample c positions/precision, while theorem quantifies over every 0<a<π/2 and a≤c≤π/2."
+        ],
+        "reasoning": "A finite gate table cannot settle the all-a all-c strict sign, and no exact table providing the same universal inequality was located; searches alone are not proof.",
+        "searches": [
+          "two-qubit gates finite precision effective target volume tables CNOT controlled phase"
+        ]
+      },
+      "rationale": "The original Watts–O’Connor–Vala article provides the exact formula and leading small-target behavior; the monotonic ordering of every controlled-edge center at finite a is a new sign inequality not stated in inspected original sections. Existing Weyl-chamber gate geometry and global perfect-entangler volumes concern different domains or selected special gates.",
+      "residual_risks": [
+        "Derivative inequality may occur in later gate-design technical appendices under a different name.",
+        "Physical gate cost and noise model can reverse practical preference; theorem is only about source coordinate-cube Haar volume."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_NONCOVERAGE_IN_INSPECTED_MATERIAL: source supplies exact volume but no exhibited B>4C global finite-a sign argument in read section.",
+          "evidence": "Equation (48) target Haar measure; small-target asymptotic in surrounding discussion.",
+          "identifier_or_url": "https://doi.org/10.3390/e15061963",
+          "material_read": "Full 2013 open PDF opened and Eq (48), surrounding normalization and controlled-edge precision discussion inspected; other pages not claimed exhaustively read.",
+          "method": "Compared V formula and c/a domain directly, then derived exact derivative.",
+          "title": "Metric Structure of the Space of Two-Qubit Gates, Perfect Entanglers and Quantum Control",
+          "trigger": "Exact same target cube and parameter c"
+        },
+        {
+          "assessment": "No inspected statement of the same controlled-edge finite-cube monotonicity; full-paper noncoverage not asserted.",
+          "evidence": "Ambient Haar distribution and entangler volumes are different fixed regions.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevA.87.022111",
+          "material_read": "Accessible bibliographic/theorem-level description, not complete publisher paper.",
+          "method": "Compared integrated Haar measure of entanglers and moving coordinate cubes.",
+          "title": "Unitary quantum gates, perfect entanglers, and unistochastic maps",
+          "trigger": "Possible broader Haar-Weyl geometric formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A continuum-wide finite-target Haar measure ordering supplies the exact controlled-gate maximizer at every nondegenerate admissible cube precision, resolving a natural control/compilation design comparison left open by equal leading small-cube scaling. It is a substantive monotonicity theorem, not a tiny numerical gain or a claim about hardware cost.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only source Weyl coordinate cubes and normalized Haar density; comparison neither extends off the controlled edge nor to arbitrary norms or pulse-control costs.",
+    "Degenerate a=0 and a=π/2 exclude strict nontrivial interval."
+  ]
+}
