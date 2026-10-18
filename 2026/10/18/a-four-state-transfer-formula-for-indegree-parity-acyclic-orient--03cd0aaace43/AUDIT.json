@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Proof is complete for m>=3. A wheel orientation is uniquely reconstructed from its rim bits and prescribed rim indegree parities; the local matrix excludes exactly directed triangles, while two constant-rim cases are removed. Every hub-containing directed cycle forces a directed triangle by a spoke-direction switch. An exhaustive constructive parity analysis proves all feasible signatures realized acyclically for even rim length and exactly the nonconstant ones for odd length. The constant even-length cases have exactly two solutions. An actual direct DAG verifier exhausts all 87,360 orientations for 3<=m<=8 and agrees classwise; the unbounded assertion rests on the proof, not the finite computation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 Gravier–Petiteau–Sivignon main theorems establish graph-class feasibility and explicit characterizations for Cartesian products of cycles and paths; the wheel is the join of a cycle and one vertex, not one of those products.",
+        "The 2026 Mühlherr–Poullot paper treats wheel Hamiltonicity for the graph of acyclic orientations and one-variable disagreement polynomials, while treating cycle and multipath cases for the distinct edge-disagreement signature.",
+        "Stanley gives total acyclic orientation count through the chromatic polynomial without conditioning on prescribed vertex indegree parity."
+      ],
+      "reasoning": "A generic feasibility theorem cannot determine individual parity-class counts. A total orientation enumerator or one-variable disagreement-rank enumerator also does not imply the 2^m-vector profile without additional data. Neither accessible source contained a stronger wheel-parity enumeration that specializes to the stated four-state formula.",
+      "searches": [
+        "Exact counts of acyclic orientations of wheel graphs W_n within prescribed indegree parity classes; parity-refined acyclic orientation polynomial and parity fibre spectrum; 2026 prescribed indegree parity orientability",
+        "Graph orientations with prescribed indegree parity and acyclic orientation count on wheel graphs, graph fans, outerplanar graphs; exact distribution not just existence",
+        "acyclic T-odd orientation 2026 Gravier Petiteau Sivignon: parity signatures, number of acyclic realizations for wheels or cones over cycles, unique forbidden all-even/all-odd signatures",
+        "arxiv:2603.09475v1 §§1–5",
+        "arxiv:2609.02249v2 §§2–3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2603.09475v1 (primary first public March 10 2026)",
+      "arxiv:2609.02249v2 (related edge-disagreement polynomial)",
+      "Stanley (1973), Acyclic orientations of graphs",
+      "published-finding corpus: 2026/9/19/SCOPE-acyclic-signatures-complete-graphs-minus-matching--c164cb9690e5",
+      "Accessible prior own ledger claim 40bb307c-91bb-4fb7-97b3-f2bd6d09bcc9",
+      "Accessible prior own ledger claim c0aa7bda-86b4-41fd-a0b7-df975a7cac7d"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source/sink parity necessities in arXiv:2603.09475 explain impossibility for uniform parity on odd-rim wheels; they do not count all acyclic realizations or provide the even-rim construction.",
+        "The complete number 3^m-3 is implied by Stanley’s classical chromatic polynomial theorem and is explicitly treated as a consistency check, not novel.",
+        "The earlier internal distinct graph-family results 40bb307c-91bb-4fb7-97b3-f2bd6d09bcc9 (cactus) and c0aa7bda-86b4-41fd-a0b7-df975a7cac7d (multi-theta) concern graphs whose cycle structure does not include wheels of the stated family and do not imply this wheel transfer."
+      ],
+      "reasoning": "The surviving claim is not a generic fibre-size fact, the known wheel total, or the known necessary source/sink check. It is the complete per-parity acyclic count via a fixed four-state transfer with its exact positivity classification; neither stronger coverage nor a mathematical reduction to the cited prior results was found.",
+      "searches": [
+        "Exact counts of acyclic orientations of wheel graphs W_n within prescribed indegree parity classes; parity-refined acyclic orientation polynomial and parity fibre spectrum; 2026 prescribed indegree parity orientability",
+        "Graph orientations with prescribed indegree parity and acyclic orientation count on wheel graphs, graph fans, outerplanar graphs; exact distribution not just existence",
+        "wheel W_n = C_n join K1; fixed indegree parity of every vertex: count acyclic orientations with the parity vector, exact transfer matrix, wheel signatures existence obstruction for odd rim",
+        "acyclic T-odd orientation 2026 Gravier Petiteau Sivignon: parity signatures, number of acyclic realizations for wheels or cones over cycles, unique forbidden all-even/all-odd signatures",
+        "counting orientations by indegree mod 2 in a triangulated cycle with one hub; binary cycle space fibres and acyclic orientation parity generating functions",
+        "arxiv:2603.09475",
+        "arxiv:2609.02249",
+        "doi:10.1016/0012-365X(73)90108-8"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gravier–Petiteau–Sivignon define a T-odd orientation by the set of vertices having odd indegree; the present rim vector plus the forced hub bit is precisely that data.",
+        "Mühlherr–Poullot define a different acyclic signature as the alternating sum over edge disagreements with a fixed base orientation, not a vector of indegree parities.",
+        "published-finding corpus item 2026/9/19/SCOPE-acyclic-signatures-complete-graphs-minus-matching--c164cb9690e5 uses the edge-disagreement type of signature and a graph obtained from a clique, not wheel vertex indegree parity."
+      ],
+      "reasoning": "Potential aliases T-odd orientation, odd-indegree orientation, parity-constrained DAG and acyclic orientation signature were compared. The source/sink existence constraints refer to these T-odd vectors, but the other literature use of “acyclic signature” is a scalar edge-flip invariant. Neither supplies the full number of realizations of each wheel indegree-parity vector.",
+      "searches": [
+        "Exact counts of acyclic orientations of wheel graphs W_n within prescribed indegree parity classes; parity-refined acyclic orientation polynomial and parity fibre spectrum; 2026 prescribed indegree parity orientability",
+        "wheel W_n = C_n join K1; fixed indegree parity of every vertex: count acyclic orientations with the parity vector, exact transfer matrix, wheel signatures existence obstruction for odd rim",
+        "acyclic T-odd orientation 2026 Gravier Petiteau Sivignon: parity signatures, number of acyclic realizations for wheels or cones over cycles, unique forbidden all-even/all-odd signatures",
+        "arxiv:2603.09475",
+        "arxiv:2609.02249"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The known total number of acyclic wheel orientations is 3^m-3, a specialization of Stanley’s chromatic-polynomial evaluation; the weighted sum of the present fibre counts reproduces that number.",
+        "Direct search results did not identify a table with the per-signature counts of every wheel. The closest published-finding corpus wheel entries involve unrelated topological, cover-free-family or convex-geometric invariants."
+      ],
+      "reasoning": "The established total or graph-level lookup is one integer per wheel, whereas the present formula evaluates 2^m separate prescribed vertex parity classes. No exact database or table covering those counts was located; the negative search result is not by itself proof of novelty.",
+      "searches": [
+        "Graph orientations with prescribed indegree parity and acyclic orientation count on wheel graphs, graph fans, outerplanar graphs; exact distribution not just existence",
+        "wheel W_n = C_n join K1; fixed indegree parity of every vertex: count acyclic orientations with the parity vector, exact transfer matrix, wheel signatures existence obstruction for odd rim",
+        "counting orientations by indegree mod 2 in a triangulated cycle with one hub; binary cycle space fibres and acyclic orientation parity generating functions",
+        "wheel graph acyclic orientation fixed indegree parity vector count",
+        "acyclic orientation prescribed indegree parity wheel graph characterization"
+      ]
+    },
+    "rationale": "After mathematical comparison with actual published-finding corpus searches, accessible own claim history and the relevant open primary papers, no source was found giving all wheel indegree-parity fibre counts or the four-state formula. The 2026 parity-constrained orientation work treats existence and different graph classes; the other 2026 acyclic orientation polynomial records reference-edge flips rather than indegree parity. Known unrefined total and source/sink necessity are credited, not counted as novel.",
+    "residual_risks": [
+      "A mathematically equivalent indegree-parity transfer formula could exist under an unindexed name or in literature not accessible to the searches.",
+      "Source/sink feasibility components may be covered by general existence frameworks; the novel focus is the full exact per-signature count and its uniform transfer formula.",
+      "No independent audit or definitive bibliographic priority certification has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes feasibility/source-sink restrictions and Cartesian grid/cylinder/torus results, but no stated wheel parity-fibre count or four-state orientation transfer.",
+        "evidence": [
+          "arXiv:2603.09475v1, §§1–2 and §6; Theorems 1.3–1.4 on Cartesian products; PDF contains no occurrence of “wheel” or “counting”."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2603.09475",
+        "material_read": "Version 1 abstract and contents, Introduction pp. 2–4, theorem statements 1.1–1.4 and Corollary 1.5, definitions, concluding section, and searchable full-text checks for wheel, counting and enumeration.",
+        "method": "Open-access full PDF inspected visually and via its searchable mathematical text.",
+        "title": "Some polynomial classes for the acyclic orientation with parity constraint problem",
+        "trigger": "Same prescribed indegree-parity problem and first public source for the current direction."
+      },
+      {
+        "assessment": "Studies edge-flip disagreement ranks and graph-of-orientations Hamiltonicity, including wheels; no count of acyclic orientations by prescribed vertex indegree parity.",
+        "evidence": [
+          "arXiv:2609.02249v2, §3.3 defines the scalar acyclic signature as the alternating evaluation Ψ(D;−1); wheel statements concern AO-Hamiltonicity (Examples 2.7 and §3.1)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2609.02249",
+        "material_read": "Version 2 abstract, introduction, §§2.3, 3.2 and 3.3 definitions and principal statements, the wheel references and relevant thick-wheel argument; full-document text searches for indegree.",
+        "method": "Open-access full PDF inspected visually and through searchable text.",
+        "title": "Hamiltonicity of graphs of acyclic orientations and acyclic polynomials",
+        "trigger": "Same family of acyclic orientations, wheel references and potentially ambiguous “acyclic signature” language."
+      },
+      {
+        "assessment": "Gives total acyclic orientations through chromatic evaluation, not per-vertex indegree-parity counts.",
+        "evidence": [
+          "Stanley, Discrete Mathematics 5 (1973), Corollary 1.3 (reprint 2006)."
+        ],
+        "identifier_or_url": "https://math.mit.edu/~rstan/pubs/pubfiles/18.pdf",
+        "material_read": "Theorem 1.2, Corollary 1.3 and their relevant proof in the lawful author-hosted PDF.",
+        "method": "Author-hosted article, visually inspected and text searched.",
+        "title": "Acyclic orientations of graphs",
+        "trigger": "Classical theorem gives unrefined total and could subsume a claimed wheel count."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "03cd0aaa-ce43-46fc-be84-495e13ec6cee",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Prescribed indegree-parity acyclic orientations are an actively studied natural problem. A fixed four-state matrix allows the exact cardinality of each of exponentially many parity fibres to be evaluated with only linear arithmetic operations per signature. The exact parity-dependent support criterion and two-realization boundary cases extend beyond an existence check, the generic cycle-space fibre size and the classical total acyclic orientation count. The result applies to a non-cactus infinite family containing overlapping cycles and covers arbitrarily large rims.",
+    "status": "PASS"
+  }
+}
