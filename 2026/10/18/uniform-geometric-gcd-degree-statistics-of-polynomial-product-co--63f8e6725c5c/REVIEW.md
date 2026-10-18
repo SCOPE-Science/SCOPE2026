@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The source model is specified with nonzero monic polynomials, ordered quadruples, all prime powers and every nonnegative cutoff. Unique factorization identifies two gcds and one coprime pair, whose cardinality follows from the exact polynomial Möbius series. Summing its degrees yields the explicit joint and total counts. A comparison of the normalized joint weights to an independent uniform–geometric law gives the stated total-variation bound through two verified geometric-series estimates. The included finite verifier independently reconstructs the statistics in small finite fields and checks further exact formulas. Finite testing alone is not treated as proof.
+
+**Originality — PASS, with meaningful residual uncertainty.** Afifurrahman's 2026 Theorem 2.1 and equation (4.4) are the closest precursor and provide a powerful coprime parametrization for the same scalar energy. They do not state the two-dimensional gcd-degree enumeration or the quantitative joint independence law. Theorem 2.2 gives four prescribed entry degrees rather than gcd-degree fibers; Section 7 fixes a nonzero shift. Comparisons to function-field divisor correlation literature and searches by aliases, parameter forms and rank-one matrix interpretations did not identify the new joint law. The numerical total count is known and not claimed as new. Because the refinement uses an established parametrization, an unstated or unindexed equivalent result remains possible; absence of a search hit is not a novelty proof.
+
+**Mathematical value — PASS.** The gcds on opposite diagonals encode the natural common factors of a singular polynomial matrix. The exact two-dimensional distribution refines a recently studied multiplicative-energy invariant, and the explicit, uniform total-variation error establishes a non-obvious asymptotic independence phenomenon separating a macroscopic uniform scale from a tight signed geometric imbalance. This is a structural probability law, not merely a recomputation of the scalar energy.
+
+**Limitations.** Monic nonzero factors and common degree cutoff only; no optimality for the error constant. Full historical uniqueness and outside independent assessment remain unestablished.
+
+Self-review: passed. Independent audit: not yet performed.
