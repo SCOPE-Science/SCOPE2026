@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T22:10:37Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Exact assigned RESULT.md 7092c0eb24e3b79f7a5221a4b63c9f20b1e0376f, verify.cpp 934e217ce8d7ba179cda329deefa238523666bc9, ORBITS.csv e72016bed5fd118536c86e0d81d7b49e427b3cbb",
+        "Independent C++17 /mnt/data/independent_pentagon_08.cpp run: 31328 origin maxima; 85 orbits; 391600 labeled; zero size-11; histogram matches source",
+        "Baumert et al 1971 A Combinatorial Packing Problem proves maximum size 10, not these equality multiplicities"
+      ],
+      "rationale": "The 125 word alphabet is (Z/5)^3 and pair compatibility requires cyclic coordinate difference of 2 in at least one position. Fixing 000 by translation leaves exactly 98 compatible candidates. An independently written bitset exact branch-and-bound C++17 clique search (greedy proper graph-color pruning and unique branching) exhaustively finds 31,328 size-9 cliques on these candidates and no size-10 clique, proving alpha(C5 strong-power 3)=10. Translation double counting gives total 125*31328/10=391600 maximum labeled codes. Independent anchor/reflection/coordinate-permutation normalization finds exactly 85 natural isometry orbits, and orbit-size/stabilizer calculation yields histogram 1:53,2:19,3:2,4:7,8:1,10:2,40:1 with sum 391600. The fixed finite census is justified exhaustive enumeration, not random sampling; the generated C++ program was independently run and matched the source package ORBITS.csv.",
+      "residual_risks": [
+        "Classification concerns exactly 3 channel uses and the explicit natural channel-isometry group, not arbitrary powers or potentially larger abstract automorphism group.",
+        "Finite proof remains dependent on exact exhaustive program; complete search bounds and independent count/orbit checksum have been inspected."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The other odd-cycle-power papers classify specified different parameter families or bounds, not the C5 three-use equality space.",
+          "Baumert et al search excludes size >=11 but does not enumerate all size10 cases."
+        ],
+        "reasoning": "A stronger theorem about particular larger odd cycles cannot imply fixed C5^3 equality multiplicities without hypotheses covering that exact graph, which inspected statements lack.",
+        "searches": [
+          "maximum independent sets strong power C5 cubed 3 pentagon code 391600 31328 85 orbits",
+          "Bohman Holzman Natarajan 2009 maximum independent sets odd cycle powers",
+          "Bohman Holzman Natarajan 2013 cubes of odd cycles"
+        ]
+      },
+      "checked_sources": [
+        "Baumert et al 1971 complete scanned source",
+        "Badalyan Mnatsakanyan 2012 DOI:10.46991/PYSUA.2012.46.1.038",
+        "Bohman Holzman Natarajan EJC 2009,2013",
+        "Sonnemann Krafft DOI:10.1016/0095-8956(74)90081-1",
+        "Resultary exact semantic query maximum independent sets strong power C5 cubed 3 pentagon code 391600 31328 85 orbits"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Alpha=10 and no 11 clique are already historical, while the orbit-size sum requires classifying all 10-vertex independent sets.",
+          "Sonnemann-Krafft source identified as plausible but full manuscript could not be read; no negative whole-document assessment is made."
+        ],
+        "reasoning": "The earlier maximum upper bound proves code size only, not number and stabilizers of all equality cases. Inaccessible plausible historical result remains priority risk, not evidence of noncoverage.",
+        "searches": [
+          "Baumert et al 1971 Theorem 4",
+          "Sonnemann Krafft 1974 DOI:10.1016/0095-8956(74)90081-1",
+          "maximum independent sets strong power C5 cubed 3 pentagon code 391600 31328 85 orbits"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Three pentagon zero-error codes are independent sets of the strong cube C5^{boxtimes3}; toroidal packing is the same graph object.",
+          "Maximum independence number 10 is long known, distinct from enumeration and orbit structure of all maximizers."
+        ],
+        "reasoning": "Equivalent channel/isometry/toroidal-packing formulations were checked. They supply the known optimum but not the newly counted equality population.",
+        "searches": [
+          "maximum independent sets strong power C5 cubed 3 pentagon code 391600 31328 85 orbits",
+          "Baumert McEliece Rodemich Rumsey Stanley Taylor A Combinatorial Packing Problem 1971",
+          "Badalyan Mnatsakanyan 2012 C5 powers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original historical max-size table gives 10.",
+          "Fresh exhaustive C++ count finds 31328 fixed-word and 391600 labeled maxima, plus 85 symmetry classes and explicit CSV of representatives."
+        ],
+        "reasoning": "Known exact independence-number tables do not supply equality counts; the candidate creates a new full orbit table as a natural invariant. Exact-count searches found no published equivalent table.",
+        "searches": [
+          "maximum independent sets strong power C5 cubed 3 pentagon code 391600 31328 85 orbits",
+          "OEIS A003012 a003012.pdf",
+          "391600 31328 85 C5^3 codes natural group"
+        ]
+      },
+      "rationale": "The classical theorem alpha(C5 strong-power 3)=10 and a finite nonexistence search belong to Baumert et al 1971. The present original claim is the exact complete 391600/31328 maximum-code census and 85 natural symmetry orbit decomposition. The complete scanned founding primary and related odd-cycle-power results do not report these multiplicities, while exact-count and alias queries including Resultary returned no implication-equivalent source. A potentially relevant Sonnemann-Krafft 1974 paper remained inaccessible in full even after lawful preprint/OA and authorized Oxford retrieval; no snippet used to assert its noncoverage.",
+      "residual_risks": [
+        "Sonnemann-Krafft 1974 product-graph primary full text inaccessible after lawful and authorized attempts; unknown possible earlier matching equality treatment.",
+        "An unindexed equality-code census under toroidal packing language may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ALPHA_10_PRIOR_EQUALITY_ORBITS_NOT_PRESENT_IN_INSPECTED_TEXT",
+          "evidence": "Theorem 4 excludes codes of size 11 or 12 and proves max 10. Inspected content does not tabulate 391600 equality cases or 85 natural-group classes.",
+          "identifier_or_url": "Baumert et al, SIAM-AMS Proceedings 4 (1971), 97-108; https://oeis.org/A003012/a003012.pdf",
+          "material_read": "Lawfully accessible complete scanned 1971 paper; inspected introduction, Theorem 4 and computer enumeration discussion including rendered pages on the 3-dimensional pentagon packing.",
+          "method": "Scanned primary PDF pages and text/visual theorem comparison",
+          "title": "A Combinatorial Packing Problem",
+          "trigger": "Exact classical C5 three-use maximum independent set and packing theorem"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_PRIMARY",
+          "evidence": "Do NOT infer absence of exact equality classification. This source is named as a significant originality risk.",
+          "identifier_or_url": "Sonnemann and Krafft, JCTB 17 (1974), 133-142; DOI:10.1016/0095-8956(74)90081-1",
+          "material_read": "Bibliographic abstract/metadata only; no lawful full PDF text available through preprint/OA attempts. Authorized Oxford request queued under job e276e4bbb8eb6fb5e2790128288c2ec9 and twice timed out after publisher not ready.",
+          "method": "Bibliographic lookup and authorized institutional download attempts, no PDF read",
+          "title": "Independence numbers of product graphs",
+          "trigger": "Potential closely related historical cube-of-odd-cycles treatment"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/13/a-complete-equality-census-for-the-three-use-pentagon-zero-error--832470051112/RESULT.md",
+        "Baumert et al 1971 complete scanned source",
+        "Badalyan Mnatsakanyan 2012 DOI:10.46991/PYSUA.2012.46.1.038"
+      ],
+      "rationale": "The pentagon strong cube is a foundational test case for Shannon zero-error coding. A complete, independently exhaustive equality census and symmetry decomposition of its 391600 optimum codes supplies natural finite extremal invariants, distinct from the previously settled maximum cardinality and useful as a reusable classification benchmark.",
+      "residual_risks": [
+        "No result for higher channel powers or the entire Shannon capacity sequence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Classification concerns exactly 3 channel uses and the explicit natural channel-isometry group, not arbitrary powers or potentially larger abstract automorphism group.",
+    "Finite proof remains dependent on exact exhaustive program; complete search bounds and independent count/orbit checksum have been inspected.",
+    "Sonnemann-Krafft 1974 product-graph primary full text inaccessible after lawful and authorized attempts; unknown possible earlier matching equality treatment.",
+    "An unindexed equality-code census under toroidal packing language may exist.",
+    "No result for higher channel powers or the entire Shannon capacity sequence."
+  ],
+  "schema_version": 1
+}
