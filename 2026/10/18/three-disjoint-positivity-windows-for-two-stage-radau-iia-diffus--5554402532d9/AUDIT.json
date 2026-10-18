@@ -1,0 +1,166 @@
+{
+  "correctness": {
+    "rationale": "On the star with m leaves the Laplacian spectrum consists of 0, 1, and m+1, with explicitly displayed orthogonal projectors. These yield four entry types and two nontrivial diagonal numerators: \\(Q_m(h)\\) and \\(P_m(h)\\); off-diagonal entries are nonnegative by factored identities. The scalar Radau stability function has global minimum (5-3sqrt(3))/2, giving strict positivity for \\(m\\le10\\). For \\(m\\ge11\\), Q_m has two roots separated around 1, and P_m is positive up to h=3, negative at h=8, and positive for large h, while Descartes permits at most two positive roots. Hence exactly three nonnegative-time windows, including boundaries. Separate exact Fraction matrix/rational formula comparisons on 192 graph-timestep samples, plus 990 exact integer sign checks, passed. Finite checks supplement, rather than replace, the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Horváth (1998) treats positivity radii and uniform guarantees on broad classes of positive ODEs, not exact graph-specific late-time reentry.",
+        "Horváth (2005), Section 4, establishes positivity in an attracting restricted cone and reports Radau IIA positivity for a smooth input on a Dirichlet-path heat discretization.",
+        "Hairer–Lubich (2013), full article, studies energy decrease and L-stable Radau eigenmode damping; energy dissipation does not entail coordinatewise positivity.",
+        "The closest published rational-map record 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab concerns the [2/2] Gauss–Legendre method on a pure-birth generator, not [1/2] Radau IIA on a reversible star."
+      ],
+      "reasoning": "Even an arbitrary-generator sufficient timestep radius cannot determine reentrant positivity beyond the first loss at the individual star. The published statements inspected neither specialize to these spectral projectors nor imply their sign-polynomial root locations. A source claiming a full table for Radau IIA on all star sizes would dominate this claim, but none was located.",
+      "searches": [
+        "two-stage Radau IIA L-stable Runge Kutta positive stochastic matrix leaves hub complete bipartite K(1,m) large timestep positivity recovery",
+        "sharp graph-specific positivity thresholds reentrant bands Radau IIA on star graph no step restriction",
+        "doi:10.1016/S0168-9274(98)00050-6",
+        "doi:10.1016/j.apnum.2004.08.026",
+        "doi:10.1093/imanum/drt031"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1016/S0168-9274(98)00050-6",
+      "doi:10.1016/j.apnum.2004.08.026",
+      "doi:10.1093/imanum/drt031",
+      "arxiv:2102.08242",
+      "https://sim.mathematik.uni-halle.de/numdiff10/heft.pdf",
+      "https://ketch.github.io/numipedia/methods/RadauIIA2.html",
+      "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+      "2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+      "2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7",
+      "2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Horváth (2005), page 351 Table 1, reports Radau IIA (two-stage) results for selected inputs to a tridiagonal Dirichlet heat discretization, and concludes general method-class thresholds can be overrestrictive for those inputs.",
+        "Blanes–Iserles–Macnamara (2021), full arXiv paper, motivates positivity-preserving high-order alternatives without this Radau IIA star classification.",
+        "The published SSP-SDIRK2(2) and backward-Euler-filtered Crank–Nicolson results use different method maps, and their positivity domains do not imply the current quartic root geometry."
+      ],
+      "reasoning": "The claimed classification concerns *all initial vectors* on a *fixed star* for a *single Radau IIA map*. Assertions for different integration maps, or for some positive initial data, cannot entail it. Universal order/positivity barriers allow exceptional graph families and do not preclude unconditional positivity on small stars. No known stronger coverage was found.",
+      "searches": [
+        "Runge Kutta Radau IIA Markov transition matrix graph nonnegativity timestep resurgence",
+        "two-stage Radau IIA L-stable Runge Kutta positive stochastic matrix leaves hub complete bipartite K(1,m) large timestep positivity recovery",
+        "doi:10.1016/j.apnum.2004.08.026",
+        "arxiv:2102.08242",
+        "2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7",
+        "2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact stability function is (6-2t)/(t²+4t+6), and the matrices are symmetric stochastic exactly in the stated time windows.",
+        "Horváth (2005), pages 350–354, treats method-specific absolute-monotonicity barriers and restricted invariant cones; its Radau IIA tests are on a one-dimensional Dirichlet finite-difference heat operator.",
+        "The searched terms included Markov, entrywise nonnegative, graph Laplacian and reentrant timestep positivity."
+      ],
+      "reasoning": "An arbitrary-initial-vector entrywise nonnegative rational matrix map on every unweighted star is stronger than preservation on a proper cone or positivity for a selected smooth initial vector. The latter assertions do not quantify over all initial states, and path finite differences have different spectra. No inspected source supplies the two diagonal sign polynomials for Radau IIA stars.",
+      "searches": [
+        "two stage Radau IIA positivity graph Laplacian star Markov chain disjoint positive timestep windows L stable",
+        "Radau IIA stability function (1+z/3)/(1-2z/3+z^2/6) positivity loss star graph",
+        "Runge Kutta Radau IIA Markov transition matrix graph nonnegativity timestep resurgence",
+        "doi:10.1016/j.apnum.2004.08.026"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The two nontrivial thresholds on the 12-vertex star are the positive roots of an explicitly given quartic, rather than empirical grid estimates.",
+        "The Radau IIA method table in Ketcheson’s Numipedia gives the RK coefficients and scalar stability function, not nonnegative-matrix star thresholds.",
+        "The published 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a is for the distinct Crank–Nicolson rational map."
+      ],
+      "reasoning": "Method coefficient tables and finite test tables lack this exact classification. A general table of graph-independent method positivity radii does not entail the disconnected, graph-dependent admissible set.",
+      "searches": [
+        "two stage Radau IIA graph heat diffusion star graph positivity exactly 12 vertices three separated admissible timestep intervals",
+        "stability rational function (1-z/3)/(1+2z/3+z²/6) negative diagonal star complete bipartite",
+        "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a"
+      ]
+    },
+    "rationale": "The exact claim concerns the full, non-convex set of positive Radau IIA endpoint timesteps on a fixed reversible unit star, including exactly three connected components if and only if the star has at least eleven leaves. Inspection of the relevant general positivity results, including Horváth (1998, 2005), shows universal method/problem-class step restrictions or positivity for restricted cones, not the all-initial-vector, star-specific three-interval classification. The Radau IIA numerical tests in Horváth (2005), Section 4.1, use a Dirichlet path heat discretization and selected initial vectors; they do not imply the star formulas, the twelve-vertex cutoff, or the later recovered positivity window. Nearby published numerical positivity records use distinct stability functions or graph families. Searches for alternate representations, parameters, and stronger coverage returned no equivalent claim. Potential unindexed specialized results remain a residual risk, not an assertion of absolute uniqueness.",
+    "residual_risks": [
+      "Search-based novelty evidence is not a proof of uniqueness: other unindexed numerical-analysis papers, theses or tables could already contain these exact star-specific intervals.",
+      "The Numipedia method page itself was checked from an indexed table rather than full webpage text; its method formula was independently verified.",
+      "The current comparison does not assert exhaustion of all historical numerics sources; no independent audit was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General positivity guarantees over classes of positive/dissipative IVPs and a classical-method barrier; no exact reversible-star family or reentrant three-window classification.",
+        "evidence": [
+          "Horváth (1998), Sections 4–5 and Example 2, uses positivity radii and a two-dimensional test problem for a distinct general guarantee."
+        ],
+        "identifier_or_url": "doi:10.1016/S0168-9274(98)00050-6",
+        "material_read": "Article text, 18 pages including positivity radii, examples and final sections",
+        "method": "Full-text comparison of definitions, threshold quantifiers and examples",
+        "title": "Positivity of Runge-Kutta and diagonally split Runge-Kutta methods",
+        "trigger": "Broad potential method-positivity-radius theorem that might dominate the graph-specific claim"
+      },
+      {
+        "assessment": "Section 4 analyzes restricted cones and one-dimensional Dirichlet heat matrices; direct Radau IIA numerical examples hold for selected smooth states, not for arbitrary states on stars or three disjoint admissible timestep intervals.",
+        "evidence": [
+          "Horváth (2005), pp.350–352: Table 1 and Section 4.1 distinguish universal thresholds from positivity of chosen vectors.",
+          "Horváth (2005), pp.352–356: positive cones and step restrictions, not exact intervals on stars."
+        ],
+        "identifier_or_url": "doi:10.1016/j.apnum.2004.08.026",
+        "material_read": "All 16 article pages, including Section 4.1, Table 1 and restricted invariant-cone results",
+        "method": "Full-text reading of the theorems and quantitative examples and comparison with star operators",
+        "title": "On the positivity step size threshold of Runge-Kutta methods",
+        "trigger": "Direct discussion of Radau IIA with two stages and positivity of semidiscretized heat equations"
+      },
+      {
+        "assessment": "Energy-diminishing (norm-based) treatment does not specialize to graph-star transition-entry sign thresholds.",
+        "evidence": [
+          "Hairer–Lubich (2013 preprint/2014 journal), sections on Radau IIA and energy decay, equation mapping the linear operator by its stability function."
+        ],
+        "identifier_or_url": "doi:10.1093/imanum/drt031",
+        "material_read": "Complete nine-page author preprint, including rational matrix functions and stability comments",
+        "method": "Read the full preprint and check results and references for entrywise cone-preservation statements",
+        "title": "Energy-diminishing integration of gradient systems",
+        "trigger": "Archive-era primary study of the same Radau IIA heat-operator rational function"
+      },
+      {
+        "assessment": "Develops different schemes and general positivity motivation; no star-specific Radau IIA rational endpoint matrix classification.",
+        "evidence": [
+          "Blanes–Iserles–Macnamara (arXiv 2102.08242), discussion of positivity constraints and high-order alternatives."
+        ],
+        "identifier_or_url": "arxiv:2102.08242",
+        "material_read": "Complete accessible arXiv PDF; abstract, high-order barriers, construction and discussion reviewed",
+        "method": "Full-document examination including targeted check for Radau IIA-specific classification",
+        "title": "Positivity-preserving methods for ordinary differential equations",
+        "trigger": "Modern high-order positivity methods and potential numerical-method overlap"
+      },
+      {
+        "assessment": "Reports class-wide thresholds and positivity for selected smooth states, without fixed-star exact three-window result.",
+        "evidence": [
+          "Conference abstract describes Radau IIA s=2 diffusion experiments, but no star graph and no disjoint full-orthant timestep windows."
+        ],
+        "identifier_or_url": "https://sim.mathematik.uni-halle.de/numdiff10/heft.pdf",
+        "material_read": "Full two-page Horváth abstract, PDF printed pages 25–26 (PDF pages 25–26)",
+        "method": "Visually examined both pages and compared scope of quantified claims",
+        "title": "NUMDIFF-10 scientific programme and abstracts, Horváth talk",
+        "trigger": "Archival conference text naming exactly two-stage Radau IIA in the context of positivity thresholds"
+      },
+      {
+        "assessment": "Method definition only; not evidence for a novelty assessment of star positivity.",
+        "evidence": [
+          "Tabulated coefficients and stability function reproduced in RESULT.md."
+        ],
+        "identifier_or_url": "https://ketch.github.io/numipedia/methods/RadauIIA2.html",
+        "material_read": "Indexed method table and scalar stability function; site full text not available for direct inspection",
+        "method": "Checked standard tableau and independent symbolic stability-function computation",
+        "title": "Radau IIA2 method table, Numipedia",
+        "trigger": "Identifies the precise method, tableau, scalar rational function"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "55544025-32d9-40f4-8c9f-53905d25c69d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An L-stable third-order implicit integrator can preserve all positive initial states at arbitrarily large timestep on a fixed 12-vertex diffusion network yet fail at two separated intermediate timestep bands. The exact first graph-size threshold and full closed-form admissible set discriminate contractive spectral damping from positive-state preservation, and give an actionable timestep classification for benchmark network diffusion. The exact bound is neither a generic RK stability-region exercise nor an arbitrary parameter slice: unweighted stars are a natural minimally symmetric family exposing hub-versus-leaf obstructions.",
+    "status": "PASS"
+  }
+}

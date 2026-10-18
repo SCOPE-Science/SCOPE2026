@@ -1,0 +1,19 @@
+# Scientific review: three Radau IIA positivity windows on stars
+
+## Correctness — PASS
+
+The proof is an exact eigenprojector calculation on the full unweighted star family, not an experiment extrapolation. Off-diagonal entries have manifestly positive numerators for positive timesteps. The hub and leaf diagonal numerators are respectively a quadratic and a quartic, with positive denominators for every nonnegative timestep. The scalar stability-function global minimum yields unconditional positivity through ten leaves. From eleven leaves onward, the quadratic has two roots below two, and the quartic has exactly two simple positive roots by strict signs at three, eight, and infinity together with Descartes' two-root bound. The two forbidden intervals are disjoint. All endpoints are included by continuity. This proves all graph sizes and real timesteps. A separate standard-library exact rational matrix checker reproduces the formulas at 192 graph/timestep pairs and confirms the rational identities; finite checks are supplemental.
+
+## Originality — PASS (self-review; remaining publication risk)
+
+Directly compared Horváth's 1998 positivity-radius theory and 2005 full text, including the two-stage Radau IIA Dirichlet-grid experiments in Section 4.1. Those are universal sufficient/necessary *problem-class thresholds*, or restricted positive initial-vector cones, not a complete positivity domain for all initial data on unit stars. The archived NUMDIFF-10 abstract also explicitly mentions two-stage Radau IIA, but does not state star-graph intervals. Hairer and Lubich's full preprint gives energy damping and the rational-operator setting, but not coordinatewise positivity intervals. The full Blanes–Iserles–Macnamara paper motivates positivity-preserving alternatives without this specialization. Comparison with the available closest published records distinguishes the Gauss–Legendre [2/2] Padé generator, Crank–Nicolson resolvent, SSP-SDIRK2 and BE-filtered CN from two-stage Radau IIA. Searches included the stability rational function, star/complete-bipartite aliases, Markov transition matrices, reentry, critical size twelve and stronger positivity coverage. These sources do not imply the exact claim. Unindexed prior coverage remains possible; no independent literature audit is claimed.
+
+## Value — PASS
+
+Even unconditional scalar A/L-stability does not reveal nonnegative transition-matrix entries, and a single largest permissible timestep is misleading when positivity returns after failure. The exact first 12-vertex example and the complete sharp, disconnected admissible timestep set provide an interpretable benchmark for positivity diagnostics in high-order stiff integrators and distinguish hub and leaf obstructions. This is a natural family-level structural classification, with a nontrivial sharp cutoff, rather than a new name for a known stability radius.
+
+## Limits and closest work
+
+The theorem applies only to unweighted undirected stars and the end-of-step Radau IIA2 map; individual RK stages, weighted edges, other graphs and large-step accuracy are not covered. Close sources: Z. Horváth, *Positivity of Runge-Kutta and diagonally split Runge-Kutta methods* (1998), doi:10.1016/S0168-9274(98)00050-6; Z. Horváth, *On the positivity step size threshold of Runge–Kutta methods* (online 2004), doi:10.1016/j.apnum.2004.08.026; E. Hairer and C. Lubich, *Energy-diminishing integration of gradient systems* (online 2013), doi:10.1093/imanum/drt031; S. Blanes, A. Iserles and S. Macnamara, *Positivity-preserving methods for ordinary differential equations*, arXiv:2102.08242. The available published positivity examples involving other RK rational functions are not substitutes for the same Radau-star claim.
+
+Self-review: passed. Independent audit: not yet performed.
