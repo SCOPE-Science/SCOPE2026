@@ -1,0 +1,13 @@
+# Mathematical review
+
+**Correctness — PASS.** The proof reduces every invariant numerical class to a Hermitian integral matrix, computes normalized fixed-fiber characters on all \(81\) stabilizer points, and checks that invariant degree-zero twists change only affine terms. This proves the necessary and sufficient congruence condition, not merely one sufficient construction. Ten independent mod-\(3\) symmetric coordinates give the exact index \(3^{10}\). Abelian variety positivity, finite pullback and rank-one matrices give the cone and its extremal rays. The numerical computation is consistent with Ajit's already-known divisor volume \(72\). The included finite-field checker verifies the critical rank and isotropic image calculations.
+
+**Originality — PASS (subject to stated risk).** Ajit's inspected full preprint constructs the scalar quotient and one descending ample bundle, but does not determine the complete numerical Cartier lattice, its index, the full nef cone, or Mori-dream status. The standard Rosati, descent and cone results are cited as prior knowledge. Targeted searches of published mathematical records and scholarly web resources found no specific implication covering the exact matrix congruence for this quotient. Database matching by implicit isomorphism and unindexed general quotient results remain material risks; failed search alone is not claimed as a proof of uniqueness.
+
+**Mathematical value — PASS.** The precise integral descent obstruction for all polarization directions clarifies how the example's unusual ample Cartier class sits among every numerical divisor. The sharp index \(59049\), congruence condition, nonpolyhedral nef cone and consequent failure of the Mori-dream property are motivated structural invariants of a newly central fourfold; they are not arbitrary numerical variations.
+
+**Closest literature.** Ajit, arXiv:2610.09270v1, Sections 3–4, supplies the quotient, fixed-point fiber characters and the descent criterion. General Rosati/Hermitian descriptions of \(\operatorname{NS}(E^4)\) and rational polyhedrality for Mori dream spaces are established tools. The closest retrieved public record concerning nef divisors treated unrelated surfaces rather than the named quotient.
+
+**Scientific limitations.** Characteristic zero only; numerical Cartier divisors only. A general theorem on Picard descent of CM abelian quotients could subsume this result, so external independent originality validation remains advisable. No claim is made about the author's non-vanishing counterexample being new.
+
+Self-review: passed. Independent audit: not yet performed.
