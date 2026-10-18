@@ -1,21 +1,21 @@
-# Scientific review: Two logarithmic fluctuation thresholds for one-dimensional Fermat distances
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact first and second moments follow from the Dirichlet \((1,\ldots,1)\) spacing law. Uniform gamma-ratio expansions for \(\alpha=O(\log N)\) and Stirling's formula yield the squared coefficient-of-variation crossover, including the \(\tfrac12\log\log N\) correction. The Rényi exponential-spacing representation reduces normalized distances to normalized sums of independent exponential powers. The two fixed-ratio regimes follow from second moments or explicitly truncated first and second moments. At the logarithmic boundary, two cutoffs separated by \(O(\log\log N)\), a gamma central limit theorem, and a maximal-exponential bound yield the profile \(\Phi(-s)\). The upper-tail events remain negligible in probability but can dominate second moments, explaining the apparently conflicting limits. Exact identities were separately checked in 597 finite symbolic/numeric cases by the included verifier. That finite checking is not an infinite-parameter proof. The source model requires independent uniform points on \([0,1]\); the exponent grows only in the specified regimes.
+PASS
 
-## Originality — PASS, with bibliographic uncertainty
+For N uniform spacings the exact Dirichlet first and second moments yield 1+C² = Γ(N+α)²/[Γ(N)Γ(N+2α)]·[1+(Bα−1)/N], Bα=Γ(1+2α)/Γ(1+α)². For α=c log N, c>0 fixed, Stirling gives C²~4^α/(N√(πα)), including α=(log N+0.5loglog N)/log4+x and its stated finite limit. Representing Δ_j=E_j/ΣE_l with iid Exp(1), log-scale truncation of W=Σ E_j^α at b log N proves W/EW→1 for c<1 and →0 for c>1; a split at logN ± KloglogN and the Gamma central limit theorem proves W/EW→Φ(−s) when α=logN+s√logN. Normalization ΣE_j/N changes this by o_P(1). Independent exact Dirichlet arithmetic and high-precision critical-window checks passed. No uniformity outside the stated fixed-c or fixed-s regimes is proved.
 
-The closest directly inspected work is Chazal, Ferraris, Groisman, Jonckheere, Pascal and Sapienza, arXiv:2311.18663, Proposition 4.1 and its appendix. It supplies Dirichlet moments and asymptotics for each **fixed** exponent, while the present conclusion requires a joint growing-exponent limit and proves the \(\sqrt{\log N}\) critical profile and the mismatch between variance and convergence-in-probability thresholds. Aly (2020), DOI 10.2174/1876527002010010001, studies weighted uniform-spacings sums under fixed power \(r>0\); its examined theorem statements do not claim the growing-power phase portrait. Searches using Fermat distance, uniform spacings, Dirichlet power sums, Rényi entropy, exponential-power sums, and their logarithmic-parameter equivalents located no covering result. No complete priority claim is warranted: older spacing literature or general triangular-array theorems may contain an equivalent formulation. The source paper's exact moments alone do not state or prove the probability-convergence crossover.
+## originality
 
-## Value — PASS
+PASS
 
-The sample-size-dependent exponent choice is the precise parameter/noise trade-off motivating the source paper. The results identify both a variance-based threshold near \((\log N+\tfrac12\log\log N)/\log4\) and a different typical-sample threshold near \(\log N\). In the intervening natural range, relative variance diverges even though the normalized statistic approaches one in probability; at the latter boundary the exact normal-CDF crossover describes how the limiting typical level collapses. This warns against using the coefficient of variation alone to predict typical distance instability, and is not an arbitrary parameter slice. It does not provide higher-dimensional, nonuniform, or quantitative-rate extensions.
+The source Chazal et al. identifies the one-dimensional Fermat functional and derives fixed-exponent mean/variance, while Aly's weighted-spacing weak-limit analysis fixes the power. Neither inspected full source section provides the growing-logarithmic-exponent pair of distinct transition scales and Φ(−s) critical profile. Best-of-knowledge PASS, not a certified priority statement; asymptotic theories of increasing spacing powers not indexed by these keywords might cover it.
 
-## Closest literature and residual risks
+## value
 
-- Chazal et al., arXiv:2311.18663, Section 4.1 and Appendix A: full text examined for the exact statistic, fixed-power estimates and available proofs.
-- Aly, DOI 10.2174/1876527002010010001: published open-access full text consulted for the fixed-power definition and theorem statements; not a comprehensive review of all its cited older spacing papers.
-- Relevant earlier uniform-spacing and exponential-power sum literature may have an equivalent triangular-array statement under different terminology. No independent priority audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+One-dimensional Fermat path lengths are motivated as geometry/noise choices. The different thresholds c=1/log4 (second-moment explosion) and c=1 (typical-sample concentration) show a mathematically meaningful failure of the naive CV concentration diagnostic in a parameter scaling relevant to the distance itself; the nontrivial Gaussian boundary profile is an exact natural invariant, not a reparameterization of a fixed-exponent result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T16:13:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For N uniform spacings the exact Dirichlet first and second moments yield 1+C² = Γ(N+α)²/[Γ(N)Γ(N+2α)]·[1+(Bα−1)/N], Bα=Γ(1+2α)/Γ(1+α)². For α=c log N, c>0 fixed, Stirling gives C²~4^α/(N√(πα)), including α=(log N+0.5loglog N)/log4+x and its stated finite limit. Representing Δ_j=E_j/ΣE_l with iid Exp(1), log-scale truncation of W=Σ E_j^α at b log N proves W/EW→1 for c<1 and →0 for c>1; a split at logN ± KloglogN and the Gamma central limit theorem proves W/EW→Φ(−s) when α=logN+s√logN. Normalization ΣE_j/N changes this by o_P(1). Independent exact Dirichlet arithmetic and high-precision critical-window checks passed. No uniformity outside the stated fixed-c or fixed-s regimes is proved.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chazal et al. 2023 arXiv:2311.18663 Proposition 4.1 and Appendix A supply finite-α moments, with no uniformity over α~log N established by their displayed theorem.",
+          "Aly 2020 DOI 10.2174/1876527002010010001 concerns powers with fixed exponent in the abstract; its full text was not read."
+        ],
+        "reasoning": "The moment identities are earlier and receive no novelty credit. Growing-α truncation, the split between second moment and typical behavior, and the Φ critical boundary require additional analysis not contained in inspected Chazal theorem.",
+        "searches": [
+          "Chazal Ferraris Groisman Jonckheere Pascal Sapienza choosing parameter Fermat distance 2023 Proposition 4.1",
+          "Aly On The Distribution of Partial Sums of Randomly Weighted Powers of Uniform Spacings 2020",
+          "one dimensional Fermat distance sum powers random uniform spacings logarithmic exponent log N concentration variance phase transition Gamma normal threshold"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2311.18663",
+        "https://doi.org/10.2174/1876527002010010001"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem uses exponential/Gamma triangular-array truncation with α diverging, instead of taking fixed-α asymptotics.",
+          "Both (variance CV tends to infinity) and (normalized distance tends to 1 in probability) hold for c in (1/log4,1)."
+        ],
+        "reasoning": "Earlier fixed-exponent results and exact Dirichlet moments are input identities but do not by themselves imply the two distinct joint-limit phase thresholds. General extreme-value/increasing-power theorems could potentially subsume the statement; no such inspected exact stronger theorem was located.",
+        "searches": [
+          "one dimensional Fermat distance sum powers random uniform spacings logarithmic exponent log N concentration variance phase transition Gamma normal threshold",
+          "arXiv:2311.18663 Fermat distance Proposition 4.1 fixed exponent",
+          "Aly 2020 power spacings fixed alpha"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fermat monotone path on [0,1] is exactly the sum of powers of Dirichlet uniform spacings; exponential normalization gives iid exponential power sum.",
+          "Chazal et al. (arXiv:2311.18663) Proposition 4.1 treats asymptotic moments at fixed α."
+        ],
+        "reasoning": "Converted to normalized uniform-spacing power sums and exponential triangular arrays; fixed-α weak laws cannot be substituted for α=c log N, and no retrieved exact α=logN+s√logN transition theorem is directly implied.",
+        "searches": [
+          "one dimensional Fermat distance sum powers random uniform spacings logarithmic exponent log N concentration variance phase transition Gamma normal threshold",
+          "\"uniform spacings\" \"powers\" exponent grows logarithm sample size"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Fermat article provides a moment formula and experiments for fixed choices of α, not a table of exact logarithmic power-scale limits.",
+          "No matching exact database/table record was identified among first 12 relevant Resultary semantic hits; the absence alone does not establish novelty."
+        ],
+        "reasoning": "This is an infinite-scale probabilistic limit theorem, not an unpublished finite enumeration; a finite table cannot prove or trivially imply its critical fluctuation profile.",
+        "searches": [
+          "one dimensional Fermat distance sum powers random uniform spacings logarithmic exponent log N concentration variance phase transition Gamma normal threshold",
+          "OEIS random uniform spacing power sums logarithmic growing exponent transition table"
+        ]
+      },
+      "rationale": "The source Chazal et al. identifies the one-dimensional Fermat functional and derives fixed-exponent mean/variance, while Aly's weighted-spacing weak-limit analysis fixes the power. Neither inspected full source section provides the growing-logarithmic-exponent pair of distinct transition scales and Φ(−s) critical profile. Best-of-knowledge PASS, not a certified priority statement; asymptotic theories of increasing spacing powers not indexed by these keywords might cover it.",
+      "residual_risks": [
+        "An unlocated general theorem for increasing powers of uniform spacings or exponential triangular arrays may imply the result.",
+        "Aly (2020) full text not inspected; material beyond abstract may contain additional comparisons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides spacings identities and fixed-power asymptotics, not the audited log-growing parameter theorem.",
+          "evidence": "arXiv:2311.18663; Proposition 4.1, Appendix A.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.18663",
+          "material_read": "Full accessible arXiv manuscript; focused Proposition 4.1, Section 4.1 and appendix moments, with PDF pages around 7 and 15.",
+          "method": "Full PDF and rendered page/equation comparison.",
+          "title": "Choosing the parameter of the Fermat distance: navigating geometry and noise",
+          "trigger": "Exact underlying monotone-path Fermat distance and moment identities."
+        },
+        {
+          "assessment": "Fixed-power weak-convergence description; complete source remains an originality risk.",
+          "evidence": "Aly (2020), Open Mathematics, Statistics and Probability Journal 10, pp. 1–7.",
+          "identifier_or_url": "https://doi.org/10.2174/1876527002010010001",
+          "material_read": "Abstract and bibliographic description; full paper not retrieved/read.",
+          "method": "Publisher abstract and targeted title/phrase search.",
+          "title": "On The Distribution of Partial Sums of Randomly Weighted Powers of Uniform Spacings",
+          "trigger": "Plausible power-spacing weak convergence antecedent."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "One-dimensional Fermat path lengths are motivated as geometry/noise choices. The different thresholds c=1/log4 (second-moment explosion) and c=1 (typical-sample concentration) show a mathematically meaningful failure of the naive CV concentration diagnostic in a parameter scaling relevant to the distance itself; the nontrivial Gaussian boundary profile is an exact natural invariant, not a reparameterization of a fixed-exponent result.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2311.18663",
+    "https://doi.org/10.2174/1876527002010010001"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only uniform independent one-dimensional gaps and the indicated growing-power scalings.",
+    "No higher-dimensional or nonuniform sampling theorem; no rates or distributional result beyond convergence in probability."
+  ],
+  "residual_risks": [
+    "An unlocated general theorem for increasing powers of uniform spacings or exponential triangular arrays may imply the result.",
+    "Aly (2020) full text not inspected; material beyond abstract may contain additional comparisons."
+  ],
+  "schema_version": 1
+}
