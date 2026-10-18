@@ -1,0 +1,11 @@
+# Mathematical assessment
+
+**Correctness: PASS.** The fixed-slope rational tongue expression is quoted with attribution. The new argument proves global strict monotonicity of both boundary functions using finite cyclic words: upper mechanical prefixes dominate all their shifts and lower mechanical prefixes are dominated by all their shifts. The resulting boundary cycles remain inside the unit interval except for their single endpoint contact, allowing an exact implicit-derivative identity with strictly negative sign. Both limits, unique inverses and the coefficient-independent vertex law follow algebraically. Exact rational checks of 5,972 parameter triples passed; their finite range is not used as a proof of the theorem.
+
+**Originality: PASS, with residual literature risk.** Laurent--Nogueira's Theorem 3 describes translation variation at fixed slope; Gaivão--Nogueira's Proposition 7 repeats it and expressly identifies the fixed-translation endpoints as missing. The subsequent 2-interval-affine map parameterization also varies a translation-like parameter, and the 2022/2025 dimension paper concerns exceptional-set size rather than exact rational tongue sections. The present fixed-translation inversion, global monotonicity and denominator-only vertex wedge are not stated or implied by those inspected theorems without the new mechanical-word argument. Published-result searches did not surface a covering claim. Older engineering literature on mode locking, including Ding--Hemmer, was not exhaustively checked and remains a documented risk.
+
+**Value: PASS.** This answers an explicit rational-tongue geometry gap identified by Gaivão and Nogueira: at fixed translation it supplies both unique algebraic endpoints and a global interval theorem. The sharp asymptotic supplies a universal denominator-dependent opening rate relevant to rational mode-locking geometry. It is more than simply rewriting the horizontal interval, since both global monotonicity and the exact vertex coefficients require separate proof.
+
+The finding is limited to reduced positive rational rotation numbers and piecewise-affine contractions of a single slope. No full global irrational-parameter classification or uniformity in the denominator is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
