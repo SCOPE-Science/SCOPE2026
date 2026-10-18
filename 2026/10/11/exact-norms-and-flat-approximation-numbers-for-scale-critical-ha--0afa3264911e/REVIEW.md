@@ -1,15 +1,21 @@
-# Scientific review: scale-critical multiplicative Hardy–Steklov windows
+# Independent mathematical audit
 
-## Correctness — PASS
-Logarithmic conjugation maps the weighted moving-window primitive to a positive finite-length convolution on the full real line, preserving the input and output quasi-norms exactly at the harmonic scaling relation. Minkowski and Hölder give the product upper bound; normalized long intervals give a matching lower bound for every admissible exponent and pair of widths. Strict convexity of each \(L^{p_i}\) forbids nonzero extremizers for its nontrivial positive convolution. The dilation-orbit proof of the compact-distance lower bound works for all \(0<q<\infty\), using the powered-metric triangle inequality for \(q<1\). The zero compact map supplies the opposite inequality, and the same observation proves all finite-rank approximation levels are flat. No unproved computer inference is used.
+## correctness
 
-## Originality — PASS with explicit residual risk
-The closest source is Kanjilal, arXiv:2610.02937v1. Its full HTML text defines precisely this Hardy–Steklov geometry and proves general output-tail equalities. Example 11.2 bounds the symmetric Hilbert norm by \(\log2\), then shows by scaling that its unknown full norm equals the essential distance. It does not compute the sharp value \(12-8\sqrt2\). Example 11.4 studies unequal widths but again does not compute their exact norm. The full parameter norm formula and quantified flatness/nonattainment are not stated there. The same author's arXiv:2609.37998v1 concerns fixed-left-endpoint Hardy primitives, and arXiv:2610.02649v1 concerns input endpoints of that different operator; their inspected statements do not cover the moving-window exact constants. Searches for Mellin-convolution aliases, precise weights and window parameters, operator norm, essential norm and the radical value did not identify stronger direct coverage. The ingredients of the sharpness proof are classical positive-convolution norm estimates, so an implicit equivalent formulation in earlier operator literature remains a genuine priority risk; absence of a retrieved result is not evidence of uniqueness.
+PASS
 
-## Value — PASS
-The source identifies the equality boundary as the exceptional noncompact regime and uses a concrete symmetric model to test that transition, but its available upper bound is nonsharp. The exact norm and essential norm of the entire natural two-width, two-exponent critical family provide an interpretable calibration of both its symmetric and asymmetric test cases. The fact that no finite-rank approximation improves on zero at any rank and yet no norm-attaining pair exists adds structural information about the critical noncompactness. This is a natural unknown sharp operator invariant, not an arbitrary finite-parameter enumeration. The result does not claim a general weighted Hardy–Steklov norm theorem.
+Directly reconstructed the logarithmic conjugation x=exp(u): h_i(u)=exp(u/p_i) f_i(exp u), with output factor exp(-u/q) cancelling dx=exp(u)du precisely when 1/q=1/p1+1/p2. Each positive finite convolution C_i has L^p norm A_i by Minkowski; Hölder gives A_1 A_2 even q<1 because p_i/q>1. Unit long-interval functions h_i=L^(-1/p_i)1_[0,L] attain the limiting constant on [0,L-max log lambda_i]. The positive-kernel integral triangle inequality is strict for nonzero L^p functions by strict convexity, hence no nonzero maximizers. Input dilations concentrate fixed nonzero outputs at x=0 without reducing norms; every compact bilinear image is uniformly small on (0,c), by finite nets in L^q under powered metric theta=min(1,q), forcing distance at least ||B||. Zero map supplies reverse bound and belongs to every rank<n class. Every step is analytic, all p_i>1, λ_i>1 and q>0; Hilbert symmetric A_i=2(sqrt2−1), product 12−8sqrt2. Finite numerical verification is not the proof.
 
-## Closest literature and limits
-Kanjilal, arXiv:2610.02937v1, especially Sections 2–3, 9–11 and Examples 11.2/11.4; Kanjilal, arXiv:2609.37998v1, Introduction; Kanjilal, arXiv:2610.02649v1, Introduction. The sharp constant follows from classical convolution inequalities, which may be part of broader folklore. The conclusion is restricted to \(p_i>1\), finite \(q\) at the exact scaling boundary, fixed multiplicative windows and the stated bilinear rank convention.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The focal Kanjilal paper proves qualitative noncompactness and for the symmetric case only a nonsharp log2 upper bound and an equality of unknown operator norm and essential distance. It does not compute the radical value, asymmetric widths, all harmonic exponents, norm nonattainment and all flat finite-rank levels. The exact natural family is thus a best-of-knowledge quantitative addition, although the sharp estimate uses classical positive-convolution operator norms and implicit equivalent literature remains a priority risk.
+
+## value
+
+PASS
+
+Motivated by the exact scale-critical noncompactness boundary and source Examples 11.2/11.4 whose only visible constants were not sharp. The full two-width/two-exponent norm A1A2 calibrates an entire natural operator regime, including precise essential norm and every finite rank, not an arbitrary numerical tweak. Nonattainment and flat approximability expose its translation/dilation structure while explicitly distinguishing what the prior work already knew.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

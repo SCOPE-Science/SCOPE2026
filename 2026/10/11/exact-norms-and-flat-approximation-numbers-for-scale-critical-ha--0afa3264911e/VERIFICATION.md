@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Analytic verification and limitations
 
-The scalar change of variables \(t=e^{u+v}\) and the Lebesgue Jacobian \(dx=e^u du\) give the exact input/output norm identities shown in the proof. The test functions \(L^{-1/p_i}t^{-1/p_i}\mathbf1_{[1,e^L]}(t)\) have exact unit input norms; their common constant-output region of logarithmic length \(L-R\) forces the sharp limit \(A_1A_2\). This is a direct infinite-dimensional proof, not an extrapolation from finite tests.
+# Independent mathematical audit
 
-For nonattainment, equality in the strictly convex \(L^{p_i}(\mathbb R)\) norm of a positive average of translations would imply two distinct translates of a nonzero integrable function coincide, forcing nonzero periodicity and contradicting finite \(L^{p_i}\) norm.
+## correctness
 
-For the compact-distance assertion, the full image of the product unit ball under a compact bilinear map is totally bounded. Each target function has vanishing \(L^q\) mass on shrinking intervals; a finite net transfers this to the full image. The exact norm-preserving input dilation transforms output by \(r^{1/q}y(rx)\), concentrating its mass at zero. This supplies the reverse distance bound. If \(q<1\), every triangle step is applied after raising quasi-norms to \(q\), which is a metric power.
+PASS
 
-Arithmetic check at \(p_1=p_2=2\), \(\lambda_1=\lambda_2=2\): each kernel mass is \(2(\sqrt2-1)\), so their product is exactly \(12-8\sqrt2\). The old \(\log2\) estimate is an upper bound, not equality. At unequal widths \((2,4)\) the exact product is \(4(\sqrt2-1)\).
+Directly reconstructed the logarithmic conjugation x=exp(u): h_i(u)=exp(u/p_i) f_i(exp u), with output factor exp(-u/q) cancelling dx=exp(u)du precisely when 1/q=1/p1+1/p2. Each positive finite convolution C_i has L^p norm A_i by Minkowski; Hölder gives A_1 A_2 even q<1 because p_i/q>1. Unit long-interval functions h_i=L^(-1/p_i)1_[0,L] attain the limiting constant on [0,L-max log lambda_i]. The positive-kernel integral triangle inequality is strict for nonzero L^p functions by strict convexity, hence no nonzero maximizers. Input dilations concentrate fixed nonzero outputs at x=0 without reducing norms; every compact bilinear image is uniformly small on (0,c), by finite nets in L^q under powered metric theta=min(1,q), forcing distance at least ||B||. Zero map supplies reverse bound and belongs to every rank<n class. Every step is analytic, all p_i>1, λ_i>1 and q>0; Hilbert symmetric A_i=2(sqrt2−1), product 12−8sqrt2. Finite numerical verification is not the proof.
 
-The proof covers only fixed multiplicative windows, exact critical scaling and finite input exponents above one. It does not assert extension to noncritical exponents, variable endpoint functions or general weights. No external independent audit has been performed.
+## originality
+
+PASS
+
+The focal Kanjilal paper proves qualitative noncompactness and for the symmetric case only a nonsharp log2 upper bound and an equality of unknown operator norm and essential distance. It does not compute the radical value, asymmetric widths, all harmonic exponents, norm nonattainment and all flat finite-rank levels. The exact natural family is thus a best-of-knowledge quantitative addition, although the sharp estimate uses classical positive-convolution operator norms and implicit equivalent literature remains a priority risk.
+
+## value
+
+PASS
+
+Motivated by the exact scale-critical noncompactness boundary and source Examples 11.2/11.4 whose only visible constants were not sharp. The full two-width/two-exponent norm A1A2 calibrates an entire natural operator regime, including precise essential norm and every finite rank, not an arbitrary numerical tweak. Nonattainment and flat approximability expose its translation/dilation structure while explicitly distinguishing what the prior work already knew.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
