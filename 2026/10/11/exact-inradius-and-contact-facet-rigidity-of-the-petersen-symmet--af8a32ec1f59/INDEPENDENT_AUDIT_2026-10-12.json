@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T17:15:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For G=KG(5,2) on 10 two-subsets and P=conv±(e_u-e_v) in the intrinsic nine-dimensional zero-sum space H, the polar is the bounded polytope of real 1-Lipschitz graph potentials. A polar vertex has connected unit-difference edges and hence an integral labeling modulo constants with range ≤2 (graph diameter 2). For the extreme 0/2 classes A,B, graph adjacency excludes disjoint zero/two sets, so A and B are cross-intersecting families. Counting intersecting 2-subsets of [5] shows a=1 implies b≤6, a=2 implies b≤4, and min(a,b)≥3 is impossible. The exact centered norm squared a+b-(a-b)^2/10 is at most 28/5, with equality only for disjoint extreme pair versus its four cross-pairs; the 15 disjoint pair edges and both signs yield exactly 30 facets with support-distance sqrt(5/28). The concrete three-level potentials have a connected tight-edge graph. The sum of 15 outer products has Gram 6I-5A_J+(12/5)J, eigenvalues 1 (4x) and 16 (5x) on H, forcing every maximal ball center to be orthogonal to a spanning family of tight normals: the unique center is 0. All quantifiers, units and ± facets checked. Independent enumeration over all 3^9 spanning-tree assignments, without executing the source script, produced 2613 Lipschitz potentials, 1410 tight-connected polar vertices, 30 maximizers, score numerator 56; independent integer Gram products match 210/-65/60 before dividing by 25.",
+      "residual_risks": [
+        "Facet count 1410 is finite and independently enumerated; no family of Kneser graphs is proved.",
+        "Metric is the inherited Euclidean metric of H, not an arbitrary unimodular R^9 projection."
+      ],
+      "sources": [
+        "Git tree 44bf38565e8ad7147e0cbcb8b21a375396aa137a/RESULT.md, SHA 380ac8a9362485243677ca203fb59cfeac9c2d0e",
+        "Same Git tree verify.py SHA e4cb6506ab07ad237cf2ad1213788bd43b0b9e13, source inspected",
+        "Independent locally written exact enumeration in /mnt/data/scope05_run18/independent_checks.py",
+        "Braun and Bruegge arXiv:2201.13303 Theorem 2.3"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen et al. Theorem 3 classifies facet subgraphs via maximal spanning bipartite subgraphs.",
+          "Braun–Bruegge Theorem 2.3 states edge difference ≤1 plus connected spanning tight subgraph; no Euclidean norm maximum.",
+          "An intrinsic metric cannot be inferred from combinatorial equivalence alone."
+        ],
+        "reasoning": "The generic theorems supply admissibility and face structure; deriving the exact 28/5 maximum still requires the Petersen-specific cross-intersection bounds and Gram rank computation. Their statements do not dominate the quantitative metric conclusion.",
+        "searches": [
+          "arXiv:2107.12315 Theorem 3 and Theorem 9",
+          "arXiv:2201.13303 Theorem 2.3",
+          "\"Kneser\" \"symmetric edge polytope\" \"inradius\""
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2107.12315",
+        "https://arxiv.org/pdf/2201.13303",
+        "https://arxiv.org/pdf/1705.09725",
+        "https://arxiv.org/abs/1910.05193 (PDF inaccessible)",
+        "Git record RESULT.md, REVIEW.md and AUDIT.json evidence (not used as external corroboration)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Facet-bijection results do not bound centered Euclidean lengths of those facet normals.",
+          "The spread definition provides an equivalence of invariants, but no inspected formula for Petersen spread.",
+          "Adjacency-eigenpolytope, cut/embedding distortion and symmetric edge polytope are distinct objects/invariants."
+        ],
+        "reasoning": "No verified prior theorem immediately implies the sharp count 30, radius sqrt(5/28), and center rigidity; generic structural premises require new cross-intersection/equality analysis.",
+        "searches": [
+          "arXiv:2107.12315 Theorem 3",
+          "arXiv:2201.13303 Theorem 2.3",
+          "arXiv:1705.09725 graph-spread maximum variance",
+          "Petersen graph symmetric edge polytope inradius Lipschitz variance graph spread exact 14/25 thirty contact facets"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1705.09725 §1.1 defines c(G)^2=max uniform Var[X] over 1-Lipschitz X, exactly (28/5)/10=14/25 for Petersen.",
+          "An edge-polytope inradius is 1/sqrt(max centered Lipschitz sum-of-squares), so spread and inradius are equivalent after the ten-vertex normalization."
+        ],
+        "reasoning": "Checked the graph-spread/maximum-variance alias, not just symmetric edge polytope terminology. In the accessible Yancey text, c(G) is defined, but neither the Petersen value nor the 30-contact orbit occurs in inspected/read portions or targeted full-text Petersen search. Residual possible unpublished/different nomenclature remains.",
+        "searches": [
+          "Petersen graph symmetric edge polytope inradius Lipschitz variance graph spread exact 14/25 thirty contact facets",
+          "\"Petersen graph\" \"spread\" \"c(G)\" lipschitz variance",
+          "\"Petersen\" \"maximum variance\" \"1-Lipschitz\"",
+          "arXiv:1705.09725 §1.1 c(G)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected 2021 and 2022 facet literature gives methods/other graph families rather than a Petersen radius table.",
+          "GitHub result discovery returned no reliable positive match; this cannot establish a negative result because the repository index is not complete."
+        ],
+        "reasoning": "A tabulated maximum variance 14/25 would cover the radius itself even if not naming the polytope; searched both forms and record tables. No such tabulation was verified, without claiming exhaustive literature absence.",
+        "searches": [
+          "\"KG(5,2)\" \"Petersen\" \"symmetric edge polytope\" \"5/28\" \"thirty facets\"",
+          "\"Petersen graph\" \"spread\" \"variance\" Lipschitz",
+          "SCOPE public repository search query Petersen"
+        ]
+      },
+      "rationale": "Best-of-knowledge original exact metric optimization within a known symmetric-edge-polytope class. Chen–Davis–Korchevskaia and Braun–Bruegge give general facet/facet-subgraph or integral-potential parametrizations, not the Petersen-specific max norm or contact-normal span. Maximum variance of graph-Lipschitz functions is a genuine mathematical alias; Yancey’s OA related text was inspected and explicitly defines c(G) via variance, with no Petersen-specific claim in its searched text. General names/titles and no hits are not proof of absence. The Resultary indexed comparison failed operationally and is not counted as a negative result.",
+      "residual_risks": [
+        "Resultary indexed search returned temporarily_unavailable, search_completed:false; no successful coverage clearance.",
+        "The corresponding 2020 Yancey journal paper was not read in full; an exact Petersen Lipschitz variance under different terminology remains possible.",
+        "arXiv:1910.05193 complete primary paper was not opened successfully in this run; structural comparison supplemented by other full primary papers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not in inspected theorem calculate Petersen inradius, contact orbit or incenter.",
+          "evidence": [
+            "Theorem 3 (facets↔maximal bipartite facet subgraphs), paper pp.1–3."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2107.12315",
+          "material_read": "20-page OA PDF: abstract, Introduction, §3 definition, Theorem 3 and its description of maximal bipartite facet subgraphs; searched Petersen occurrence.",
+          "method": "Read extracted full document at theorem/intro and rendered key pages.",
+          "title": "Facets and facet subgraphs of symmetric edge polytopes",
+          "trigger": "Same polytope class and facet mechanisms"
+        },
+        {
+          "assessment": "States integral 1-Lipschitz plus connected tight graph, exactly the method used; no metric norm maximum in the inspected result.",
+          "evidence": [
+            "Theorem 2.3 conditions (i) and (ii)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2201.13303",
+          "material_read": "Primary PDF introduction, Theorem 2.3 pp.3–4 and adjacent examples; targeted search.",
+          "method": "Read PDF text and theorem statement.",
+          "title": "Facets of Symmetric Edge Polytopes for Graphs with Few Edges",
+          "trigger": "Polar-integral facet criterion and possible tables"
+        },
+        {
+          "assessment": "Defines variance-optimal 1-Lipschitz observable, but an exact Petersen evaluation was not verified; related 2020 paper should not be equated with this entire preprint.",
+          "evidence": [
+            "§1.1: c(G)=max_X sqrt(Var X)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1705.09725",
+          "material_read": "Open-access 62-page mathematical preprint: §1.1 graph spread definition (p.3), title/abstract/contents and Petersen full-text term search.",
+          "method": "Read rendered p.3, parsed text and searched specific graph name.",
+          "title": "Probabilistic and Geometrical Applications to Graph Theory",
+          "trigger": "Graph spread is a direct equivalent formulation of the claimed extremum"
+        },
+        {
+          "assessment": "Background title alone cannot be a whole-document noncoverage judgment.",
+          "evidence": [
+            "D’Alì–Delucchi–Michałek arXiv:1910.05193, topic symmetric edge polytopes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1910.05193",
+          "material_read": "Current source citation and arXiv metadata; attempted public arXiv PDF which returned access error.",
+          "method": "Checked bibliographic/thematic metadata and recorded retrieval failure; did not inspect full text in this run.",
+          "title": "Many faces of symmetric edge polytopes",
+          "trigger": "Foundational literature named in the assignment source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Petersen graph is the canonical cubic, diameter-two 10-vertex distance-regular graph. The associated nine-dimensional symmetric edge polytope is canonical under its vertex embedding. Its exact Euclidean inradius, complete 30-facet equality orbit, and unique largest-ball center connect discrete Lipschitz variance and convex contact geometry. Those are intrinsically meaningful data for this fixed graph, rather than renaming a known facet-count table. The norm bound and spanning certificate are substantively more than a tiny unmotivated constant check.",
+      "residual_risks": [
+        "No formula or classification for larger Kneser graphs; numerical facet count is auxiliary."
+      ],
+      "sources": [
+        "KG(5,2) intrinsic edge-polytope description and full equality classification in RESULT.md",
+        "Chen–Davis–Korchevskaia, arXiv:2107.12315, general facet framework",
+        "Yancey arXiv:1705.09725 §1.1 graph spread motivation"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": "Specific to KG(5,2) and the ambient R^10 Euclidean metric on the zero-sum subspace; no general Kneser-family theorem and no absolute novelty certificate."
+}
