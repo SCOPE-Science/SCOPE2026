@@ -1,0 +1,186 @@
+{
+  "correctness": {
+    "rationale": "Every noise Kraus operator is an independent-coordinate Pauli flip; the t-fold convolution is the classical hypercube coordinate-flip law. Hadamard conjugation makes a generalized dephasing channel. Explicit measure-and-prepare degradation and Pauli twirling plus established coherent-information concavity yield capacity as dimension minus Shannon entropy. Fixed parity yields the one-qubit floor and the exact relative-entropy identity. Pairing complementary Fourier characters yields an orthogonal expansion of the likelihood ratio on the parity class; a Gaussian-Hermite limit and a uniform exponential-series L2 tail bound imply lognormal convergence with uniformly integrable L log L, giving the claimed constant the exponential critical-window coefficient. Data processing and strict monotonicity of the limit give the crossing time. Exact integer enumeration, Kraus Choi spectra, and high-dimensional radial recurrence computations pass 136 finite checks, not treated as infinite proof.",
+    "risks": [
+      "The asymptotic error is not claimed uniform in growing scaled time.",
+      "Finite numerical samples do not establish an infinite limit."
+    ],
+    "sources": [
+      "Quillen Eq. 58; Fourier eigenvalues Eq. 64",
+      "Devetak–Shor Appendix B Eq. 18",
+      "Yard–Devetak–Hayden 2008 coherent information concavity",
+      "Standalone verification results and full analytic proof in RESULT.md"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Devetak–Shor arxiv:quant-ph/0311131 Appendix B proves one-letterization for every generalized dephasing channel; it therefore covers the abstract single-letter capacity reduction, which is not claimed to be new.",
+        "Pirandola et al. doi:10.1038/ncomms15043 Eq. 41 gives dephasing-channel communication benchmarks; the generic entropy dependence is credited.",
+        "Final record comparisons included 2026/9/11/SCOPE037 (quasi-cyclic lifted-product code) and 2026/9/10/SCOPE035 (code-weight witness), neither covers the quantum random walk entropy theorem.",
+        "Voit doi:10.2307/3215058 abstract compares discrete and continuous Ehrenfest walks in total variation, not the lognormal KL moment or quantum operational first-crossing rate."
+      ],
+      "reasoning": "The final claim includes a concrete model-specific high-dimensional limit and its precise coefficient. Broader known capacity theorems determine Q from an error distribution but do not bound that hypercube distribution entropy in a growing critical window. Classical TV asymptotics give relevant context but are insufficient for the particular KL expectation without additional integrability. We do not claim the general capacity formula or persistence of a Fourier pair as original.",
+      "searches": [
+        "Pauli commuting channel dephasing capacity d-H(p), hypercube random flip noise preserved parity logical qubit",
+        "exact quantum capacity generalized dephasing channel Pauli random walk on hypercube Shannon entropy cutoff",
+        "Exact entropy relaxation profile of a periodic nonlazy Ehrenfest urn and Pauli dephasing capacity first crossing time",
+        "quantum capacity generalized dephasing channel Pauli random walk hypercube one logical qubit",
+        "hypercube random walk relative entropy critical window gaussian lognormal likelihood ratio sharp entropy profile"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2607.04584",
+      "arxiv:quant-ph/0311131",
+      "doi:10.1038/ncomms15043",
+      "doi:10.1002/rsa.3240010105",
+      "doi:10.2307/3215058",
+      "arxiv:quant-ph/0501045 (concavity theorem, bibliographic statement)",
+      "Published mathematical source records including 2026/10/4/SCOPE-equality-cases-for-the-sharp-binary-entropic-uncertainty-princip--3e5f7f5d8512"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Quillen Eqs. 58/64 entail commuting Pauli noise and the elementary Fourier coefficients; these premises are credited.",
+        "Devetak–Shor Appendix B implies the known capacity single-letterization; combined with Pauli symmetry this yields the finite-t entropy expression, likewise credited as a known type of reduction.",
+        "Diaconis–Graham–Morrison 1990 says it evaluates TV distance near the a quarter-dimensional logarithmic window window for a related lazy chain; its stronger internal approximations were not read and could partially dominate the classical half.",
+        "The new proof separately establishes parity pairing, Hermite asymptotics, uniformly summable Fourier L2 tails and KL uniform integrability, yielding the exponential critical-window coefficient."
+      ],
+      "reasoning": "Known general capacity theory combined with Quillen entails the finite-dimensional Q expression, so that component alone is expressly not credited as new. The assessed theorem further states and proves the entire critical KL profile for the periodic, nonlazy walk and an operational crossing-time limit. These are not formal consequences of the cited TV statement without additional uniform integrability, even though the inaccessible 1990 full text could plausibly imply them via stronger estimates. That remaining risk is specifically disclosed.",
+      "searches": [
+        "Hypercube walk cutoff profile relative entropy Kullback Leibler Gaussian Hermite Krawtchouk",
+        "exact quantum capacity generalized dephasing channel Pauli random walk on hypercube Shannon entropy cutoff",
+        "\"Asymptotic analysis of a random walk on a hypercube with many dimensions\" pdf filetype:pdf",
+        "site:arxiv.org \"Asymptotic analysis of a random walk on a hypercube with many dimensions\" Diaconis"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Quillen arxiv:2607.04584 Sec. IV B gives the vertex map and Fourier eigenoperators but not unassisted quantum-capacity or KL critical-window expressions.",
+        "Diaconis–Graham–Morrison doi:10.1002/rsa.3240010105 title and abstract give a *variation-distance* crossover in a lazy nearest-neighbor hypercube walk, not a relative-entropy theorem for the periodic parity class.",
+        "Published records 2026/10/4/SCOPE-equality-cases-for-the-sharp-binary-entropic-uncertainty-princip--3e5f7f5d8512, 2026/9/19/SCOPE-local-cliffords-nonplussed-distinct--1434efbb2fb7, and 2026/9/20/SCOPE-random-linear-syndrome-guesswork-phase-transition--71cabed30d84 concern Boolean entropy/Clifford states/syndrome guesswork, but do not give capacities for the coordinate-flip Haar-coin channel or this time-profile."
+      ],
+      "reasoning": "Equivalent ways to phrase the target would be the parity-coset KL profile, the Gaussian lognormal likelihood-ratio law with KL moment, or the fixed-excess quantum-capacity crossing-time law. Published searches for all three were compared. Total variation does not alone control KL in growing state spaces because arbitrarily rare high-likelihood configurations can contribute O(1) entropy; the proved L2 bound supplies the missing implication.",
+      "searches": [
+        "Exact quantum capacity crossover for Haar random coin hypercube quantum walk, sharp parity-coset entropy relaxation at n log n/4, capacity plateau one qubit",
+        "Random walk on hypercube entropy deficit to parity stationary law, relative entropy limit exp(-4c)/2, lognormal likelihood",
+        "Hypercube walk cutoff profile relative entropy Kullback Leibler Gaussian Hermite Krawtchouk",
+        "Sharp parity-coset entropy excess and quantum capacity of hypercube coordinate flip channel, t=d/4 ln d+cd, limit e^-4c/(2 ln 2), one protected logical qubit",
+        "Exact entropy relaxation profile of a periodic nonlazy Ehrenfest urn and Pauli dephasing capacity first crossing time",
+        "\"relative entropy\" \"hypercube\" \"cutoff\" logarithmic normal profile random walk",
+        "\"hypercube\" \"quantum capacity\" \"random walk\" \"dephasing\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No searched published mathematical entry identified the indexed walk family with an exact entropy/capacity crossover table or profile.",
+        "Quillen published Eqs. 58/64 as an operator-spectral calculation; no capacity-by-time database or KL constant appears in inspected relevant sections.",
+        "The 1990 classical title/abstract identifies a variation-distance curve; the manuscript body remains unverified."
+      ],
+      "reasoning": "The theorem is an all-dimension symbolic law and a full scaled-time limit, not a recomputation of a finite published table. Numerical checks are supporting evidence rather than a claim of originality.",
+      "searches": [
+        "Exact quantum capacity crossover for Haar random coin hypercube quantum walk, sharp parity-coset entropy relaxation at n log n/4, capacity plateau one qubit",
+        "Random walk on hypercube entropy deficit to parity stationary law, relative entropy limit exp(-4c)/2, lognormal likelihood",
+        "Quantum walk Haar-random coin hypercube channel Shannon entropy critical time",
+        "hypercube entropy distance mixing profile e^-4c / 2 at n/4 log n"
+      ]
+    },
+    "rationale": "The originality judgment is confined to the sharp parity-periodic relative-entropy/quantum-capacity critical profile and its fixed-excess first-crossing law. Quillen derives the underlying averaged walk; Devetak–Shor establishes the general one-letter dephasing capacity principle; Diaconis–Graham–Morrison establishes a total-variation profile for a similar but lazy classical chain. Neither general dephasing capacity nor a total-variation profile logically specifies this nonlazy parity-conditioned KL limit with uniform-integrability control. Searches of published mathematical records did not identify this combined sharp statement; the 1990 full-text access gap is explicitly recorded, and priority remains provisional.",
+    "residual_risks": [
+      "The full 1990 primary manuscript was not materially read; its saddle-point density estimates may provide an earlier implicit proof of the KL constant.",
+      "Some established classical Ehrenfest entropy-limit treatments might be unindexed under different names or could imply the final profile.",
+      "Publication priority requires independent specialist literature verification."
+    ],
+    "risks": [
+      "An inaccessible full original 1990 analysis might contain local-limit estimates that imply the KL coefficient with extra work.",
+      "The result may be an unindexed consequence of established classical Ehrenfest/hypercube harmonic analysis."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the channel, Fourier eigenvalues, fixed points and persistent antipodal coherence; does not state the unassisted quantum-capacity/KL transition profile.",
+        "evidence": [
+          "Phys. Rev. A 114 (2026) Eqs. 58 and 64",
+          "Sec. IV B, pp. 8–9; Conclusion pp. 13–14"
+        ],
+        "identifier_or_url": "arxiv:2607.04584; doi:10.1103/rmmp-xdqy",
+        "material_read": "Open-access 15-page published manuscript sections III, IV B, summary; Eqs. 23, 58, 64, 65–72 and accompanying arguments; relevant pages 3, 7, 8, 13 examined.",
+        "method": "Direct PDF text and page rendering",
+        "title": "Quantum random walks on d-regular graphs with Haar-random coin operators",
+        "trigger": "Exact motivating Haar-coin hypercube channel and potentially dominating pre-existing spectral analysis."
+      },
+      {
+        "assessment": "Indeed supplies general single-letter theorem; finite-time dephasing reduction is prior in type, not novel, but no channel-specific hypercube entropy scaling is treated.",
+        "evidence": [
+          "Appendix B Eq. 18, generalized dephasing paragraph",
+          "Introduction and main theorem"
+        ],
+        "identifier_or_url": "arxiv:quant-ph/0311131; doi:10.1007/s00220-005-1317-6",
+        "material_read": "Full-text PDF, Introduction and Appendix B, including Eq. 18 and degradability argument on page 13.",
+        "method": "Direct arXiv PDF text and page rendering",
+        "title": "The capacity of a quantum channel for simultaneous transmission of classical and quantum information",
+        "trigger": "Known generalized-dephasing quantum-capacity result might subsume finite-t formula."
+      },
+      {
+        "assessment": "Provides standard dephasing channel entropy-based capacity machinery, credited; no walk-time KL profile.",
+        "evidence": [
+          "Eq. 40 and Eq. 41",
+          "Dephasing section p. 8–9"
+        ],
+        "identifier_or_url": "doi:10.1038/ncomms15043",
+        "material_read": "Lawful open-access PDF, generalized dephasing discussion and Eqs. 32–41 on pp. 8–9.",
+        "method": "Direct institutional OA PDF text and page rendering",
+        "title": "Fundamental limits of repeaterless quantum communications",
+        "trigger": "Stronger assisted-capacity/dephasing theorem possibly dominating entropy identity."
+      },
+      {
+        "assessment": "Published stated result is a TV crossover for a related lazy chain. Full-text inability prevents excluding implicit local-density or KL consequences; explicitly a priority risk.",
+        "evidence": [
+          "Wiley abstract: variation distance near n/4 log n",
+          "Stanford technical report catalog: EFS NSF 307 (Dec 1988)"
+        ],
+        "identifier_or_url": "doi:10.1002/rsa.3240010105; Stanford report EFS NSF 307",
+        "material_read": "Original Wiley abstract and reference list; Stanford technical-report landing page. The complete manuscript was not accessible.",
+        "method": "Publisher abstract, Stanford institutional bibliography, targeted OA/arXiv and institutional-catalog search; complete manuscript not obtained",
+        "title": "Asymptotic analysis of a random walk on a hypercube with many dimensions",
+        "trigger": "Exact classical model family and same order a quarter-dimensional logarithmic window cutoff, possible stronger coverage."
+      },
+      {
+        "assessment": "Explicitly concerns total variation approximation of discrete and continuous walk distributions, not a reported KL/capacity constant. Full body not inspected.",
+        "evidence": [
+          "Journal of Applied Probability 33 (1996) abstract"
+        ],
+        "identifier_or_url": "doi:10.2307/3215058",
+        "material_read": "Cambridge journal abstract and references only; full text unavailable in retrieved result.",
+        "method": "Publisher article metadata and abstract",
+        "title": "Asymptotic distributions for the Ehrenfest urn and related random walks",
+        "trigger": "Discrete versus continuous Ehrenfest laws and likelihood asymptotics potentially dominating the profile."
+      }
+    ],
+    "sources": [
+      "arxiv:2607.04584, especially published Eqs. 58 and 64 and Sec. IV B",
+      "arxiv:quant-ph/0311131 Appendix B Eq. 18",
+      "doi:10.1038/ncomms15043 Eqs. 40–41",
+      "doi:10.1002/rsa.3240010105 abstract and Stanford institutional catalog",
+      "doi:10.2307/3215058 abstract"
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3a97efa4-7d66-4676-8d38-e4793612091c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact model-specific capacity window answers a motivated information-retention question left qualitative in Quillen 2026: how long Haar-coin averaging takes to reduce transmissible quantum information to the parity-protected qubit. It identifies a nontrivial universal critical coefficient and the first time at which any fixed excess rate vanishes, rather than a small finite lookup. Deriving the KL coefficient demands a parity-class Fourier expansion, Hermite limit, and control of logarithmic moments; known variation distance results are insufficient as stated. The result can benchmark a concrete noisy quantum walk but makes no generic quantum-error-correction or arbitrary-graph claim.",
+    "risks": [
+      "Operational usefulness is model-specific and concerns averaged independent channel uses; extension to particular coin realizations is not proved."
+    ],
+    "sources": [
+      "Quillen 2026 hypercube operator model",
+      "Devetak–Shor known operational capacity meaning",
+      "Diaconis–Graham–Morrison classical transition region"
+    ],
+    "status": "PASS"
+  }
+}
