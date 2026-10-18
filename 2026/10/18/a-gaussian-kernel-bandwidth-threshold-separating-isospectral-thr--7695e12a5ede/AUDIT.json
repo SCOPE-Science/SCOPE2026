@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Gaussian Fourier representation proves strict PD for each h>0. The Markov matrices are uniform-reversible rank-one spectral perturbations with eigenvalues 1,1/2,0 and Dobrushin coefficient 1/2. A two-dimensional Gram quotient has exact attained maximum ab/[4(ab-c²)], with a=1-t, b=1-t/3-2t^4/3, c=(t-t^4)/sqrt(3). Its rational R(t) has strictly positive factored derivative, unique level R=3/4, and determinant expansions giving Gamma~sqrt(3/(32h)). Reflection diagonalizes the comparison kernel in its active modes, proving constant gain 1/2. All maximizers correspond to small positive probability perturbations. The script passed 1105 finite exact/numeric checks; infinite claims are proved symbolically rather than extrapolated.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Demmel UCB/CSD-83-127, accessible PDF pp. 1, 4 and 8, similarity diagonalization bounds",
+        "arxiv:2409.07689, entropy-contraction abstract",
+        "published-finding corpus: 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a"
+      ],
+      "reasoning": "General similarities can estimate norms via condition numbers but do not imply the stated exact Gaussian rational gain or its threshold without an additional Gram-specific computation. Total variation and entropy contraction concern different norms/divergences; there is no known theorem in compared sources forcing Gaussian MMD one-step nonexpansion from an L2 gap.",
+      "searches": [
+        "optimal similarity norm real symmetric 2x2 eigenvalues lambda mu condition number inner product sharp threshold contractivity",
+        "Markov chain absolute L2 spectral gap not contraction in kernel MMD metric least three states",
+        "kernel discrepancy Gaussian three point spectrum Dobrushin identical one step contraction failure"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.13916v1, full HTML",
+      "UCB/CSD-83-127, selected PDF pages",
+      "arxiv:2409.07689 abstract",
+      "published-finding corpus indexed record 2026/10/4/SCOPE-exact-information-loss-of-paired-autocovariances-in-reversible-c--9b73a3cd0fdf",
+      "published-finding corpus indexed record 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+      "published-finding corpus indexed record 2026/10/11/SCOPE-optimal-alphabet-multicritical-transitions-from-gaussian-quadrat--f0a99f9f7b89",
+      "published-finding corpus indexed record 2026/10/4/SCOPE-arithmetic-spectra-are-exactly-the-reversal-symmetric-three-mode--d57dc53a8594"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kachaiev et al. arxiv:2610.13916v1, Proposition 2.1 and Remark 2.3",
+        "Demmel UCB/CSD-83-127, similarity-conditioning theory",
+        "published-finding corpus: 2026/10/4/SCOPE-a-three-mode-perturbation-threshold-for-two-step-euclidean-steep--e0c764d6ed12"
+      ],
+      "reasoning": "The source supplies conditions relating kernel geometry and Markov convergence, but does not construct either matrix, determine sharp gain, or address parameter h. Demmel bounds similarities rather than evaluating the exact Gaussian Gram pencil. General positive Markov kernels are contractive in TV, but their MMD geometry need not align with spectral modes; hence those general statements do not give a stronger claim implying the displayed constants.",
+      "searches": [
+        "Markov Chain Convergence in Kernel-Induced Geometry spectral gap reversible chains finite state exact rate kernel mean embedding",
+        "Maximum mean discrepancy transient amplification reversible finite Markov chain 3 states kernel condition number sharp threshold two eigenvalues",
+        "Gaussian kernel maximum mean discrepancy three state isospectral reversible Markov chains sharp bandwidth threshold 0.107906",
+        "kernel discrepancy Gaussian three point spectrum Dobrushin identical one step contraction failure"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.13916v1, full HTML: kernel-induced relaxation and distinction of one-step contraction from asymptotic rate",
+        "published-finding corpus: 2026/10/4/SCOPE-exact-information-loss-of-paired-autocovariances-in-reversible-c--9b73a3cd0fdf"
+      ],
+      "reasoning": "Equivalent claims could use maximum mean discrepancy one-step amplification, kernel mean embedding nonnormality, singular operator norm or transient norm amplification. The prior paper gives broad norm comparisons without the explicit Gaussian three-site pair and exact threshold. The indexed reversible-chain information-loss record concerns signed spectral moments, not the kernel norm of transitions.",
+      "searches": [
+        "Markov Chain Convergence in Kernel-Induced Geometry spectral gap reversible chains finite state exact rate kernel mean embedding",
+        "Maximum mean discrepancy transient amplification reversible finite Markov chain 3 states kernel condition number sharp threshold two eigenvalues",
+        "Gaussian kernel maximum mean discrepancy three state isospectral reversible Markov chains sharp bandwidth threshold 0.107906",
+        "MMD transient amplification rank one reversible transition Gaussian kernel three equally spaced sites"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus: 2026/10/11/SCOPE-optimal-alphabet-multicritical-transitions-from-gaussian-quadrat--f0a99f9f7b89",
+        "published-finding corpus: 2026/10/4/SCOPE-arithmetic-spectra-are-exactly-the-reversal-symmetric-three-mode--d57dc53a8594"
+      ],
+      "reasoning": "Exact polynomial 4t^6+8t^5+12t^4+2t^3-2t^2-6t-9 and numerical threshold 0.107906 were queried in combinations with Gaussian kernel, Markov and MMD. Retrieved nearest titles are on Gaussian quadrature mean field and spectral modes in optimization, not a table of this kernel/chain example. A database miss does not prove novelty.",
+      "searches": [
+        "Gaussian kernel maximum mean discrepancy three state isospectral reversible Markov chains sharp bandwidth threshold 0.107906",
+        "MMD transient amplification rank one reversible transition Gaussian kernel three equally spaced sites",
+        "kernel discrepancy Gaussian three point spectrum Dobrushin identical one step contraction failure"
+      ]
+    },
+    "rationale": "Direct primary-source comparison and semantic published-finding corpus searches found neither the explicit three-site Gaussian bandwidth crossover nor the isospectral reversible Markov pair with identical Dobrushin coefficient and diverging sharp MMD gain. The kernel-relaxation paper recognizes spectral versus kernel geometry but does not give the exact finite-state result; Demmel supplies general matrix-conditioning background but not this kernel-parametric theorem. This is best-knowledge originality, not a uniqueness certificate.",
+    "residual_risks": [
+      "An unindexed or differently phrased Gaussian-kernel similarity example could cover the exact pair or a general formula that specializes to it.",
+      "The Demmel comparison read only selected material, so a non-obvious broader matrix implication cannot be ruled out by those pages alone.",
+      "Other abstracts and partial-source inspections are not treated as full-text evidence of absence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivates distinction but does not state exact three-point Gaussian phase transition or these two matrices",
+        "evidence": "Proposition 2.1; Remark 2.3; source examples on noisy expanding maps.",
+        "identifier_or_url": "https://arxiv.org/html/2610.13916v1",
+        "material_read": "Full accessible arXiv HTML, including theorem and proposition statements, Section 2, Proposition 2.1, Remark 2.3 and examples",
+        "method": "Read and compare kernel-relaxation norm, one-step contractivity, spectra, assumptions and examples",
+        "title": "Markov Chain Convergence in Kernel-Induced Geometry",
+        "trigger": "Primary Oct 9 recent probability source addressing kernel-induced Markov convergence"
+      },
+      {
+        "assessment": "Generic conditioning bounds not an exact three-state Gaussian bandwidth threshold or isospectral comparison",
+        "evidence": "Demmel (1983), similarity diagonalization bounds and matrix conditioning discussion.",
+        "identifier_or_url": "https://www2.eecs.berkeley.edu/Pubs/TechRpts/1983/CSD-83-127.pdf",
+        "material_read": "Accessible PDF cover/introduction and theorem-related pages indexed 0, 3 and 7, with page screenshots",
+        "method": "Read conditioning results and compare implication against exact Gaussian rank-one operator norm",
+        "title": "The Condition Number of Similarities that Diagonalize Matrices",
+        "trigger": "Possibly stronger similarity-conditioning theory for transformed reversible operator norm"
+      },
+      {
+        "assessment": "Distinct discrepancy family; abstract does not establish Gaussian MMD one-step contraction. Limited reading recorded.",
+        "evidence": "arxiv:2409.07689 abstract explicitly concerns entropy contractions.",
+        "identifier_or_url": "https://arxiv.org/abs/2409.07689",
+        "material_read": "Abstract and search-visible description, not full text",
+        "method": "Compare entropy divergence to Gaussian MMD quadratic distance",
+        "title": "Entropy Contractions in Markov Chains: Half-Step, Full-Step and Continuous-Time",
+        "trigger": "Potential broader Markov divergence-contraction theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7695e12a-5ede-4a22-b22f-4439e3ce26d6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact bandwidth-dependent contraction failure on a minimal three-state geometry separates kernel-based mixing diagnostics from L2 spectrum and total-variation behavior despite equal invariant law and strict positivity. Unique crossover, sharp attained gain and h^-1/2 growth provide a concrete quantitative boundary and a reflection-compatible control; not a parameter substitution or an isolated unmotivated numerical example.",
+    "status": "PASS"
+  }
+}
