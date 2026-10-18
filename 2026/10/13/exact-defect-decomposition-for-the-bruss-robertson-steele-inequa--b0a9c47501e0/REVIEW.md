@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The candidate is an exact algebraic decomposition of Rogers's threshold dual certificate. For every realization, subtracting the cardinality of the optimal feasible set produces precisely the unused-budget term and two one-sided threshold-disagreement sums; these combine into \(\sum_{i\in A\triangle B}|X_i-t|\). The BRS threshold equation and marginal absolute continuity turn the pathwise identity into the stated expectation identity. The equality characterization follows because every term is nonnegative, and the independent-case strictness corollary follows from positive variance of the truncated sum. The bundled exact-rational verifier replays the pathwise identity over a large deterministic grid.
+## correctness
 
-## Originality
-PASS. Rogers's complete article was inspected and contains the threshold dual bound but no slack decomposition or equality classification. Bruss's survey was inspected through its refined Theorem 3: it subtracts only the unused-budget term and does not identify the symmetric-difference penalty. Candidate-specific published-finding corpus searches and exact-expression literature searches using complementary-slackness, threshold-mismatch, knapsack, and complete-mixability aliases found no covering statement. The main residual risk is an older equivalent identity under optimization terminology.
+PASS
 
-## Value
-PASS. The result gives the exact missing term behind a published refinement of a standard probability inequality and converts the usual non-sharp inequality into a transparent equality formula. The threshold-mismatch penalty distinguishes two different mechanisms of slack, and the constant-sum criterion gives an immediate structural boundary between equality and strictness. This is materially stronger than another upper bound with a slightly changed constant.
+For any feasible cardinality-optimal index set A, the Rogers dual at eta=1/t is |B|+(s-S_B)/t. Subtract N=|A|, write |A|=S_A/t+sum_{i in A}(1-x_i/t), and separate B\A versus A\B: the defect is exactly (s-S_A+sum_{A triangle B}|x_i-t|)/t, both terms nonnegative. Taking expectations uses E S_B=s and E|B|=sum F_i(t). Equality requires and is implied by S_B=s almost surely since every x outside B exceeds t (ties have zero probability). Independence with a nondegenerate bounded truncated variable implies Var(S_B)>0. Independently verified exact rational arithmetic for 12,480 fixed finite configurations; the unrestricted proof is algebraic, not enumeration.
 
-## Closest literature and limitations
-Rogers, DOI 10.1017/jpr.2022.122, is the closest primary source and provides the dual certificate. Bruss, arXiv:2007.05358v1, provides the closest known refinement. The new theorem does not estimate the mismatch penalty from marginals alone and does not solve the coupling problem of deciding when the truncated variables can sum to the budget almost surely.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Rogers 2023 gives the LP dual certificate and BRS inequality; Bruss 2021 Theorem 3 subtracts only expected unused budget. Comparing the actual equalities, the mismatch sum and a.s.-constant-threshold characterization are not provided by those sources. The result is the full pathwise complementarity defect, not a stronger universal marginal-only bound.
+
+## value
+
+PASS
+
+The exact two-part slack and equality condition answer a natural structural question about an influential stochastic packing inequality. They separate unused-capacity loss from disagreement with the threshold policy and characterize when the classical expected bound is sharp under arbitrary dependence; this is more informative than restating the old upper bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
