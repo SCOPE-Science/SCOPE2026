@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T16:46:50Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/13/backward-euler-started-adams-moulton-3-has-an-isolated-positivit--6ee3c940efc0/RESULT.md",
+        "2026/10/13/backward-euler-started-adams-moulton-3-has-an-isolated-positivit--6ee3c940efc0/verify.py (Git blob fce0f1bd28b31f05568d135ab506fcd34ae1fc90)"
+      ],
+      "rationale": "The frozen RESULT derives (12+5z)y(n+1)=(12−8z)y(n)+zy(n−1). For z≤3/2 both recurrence coefficients nonnegative. For z>3/2 roots r+>0>r− with |r−|>r+. A second-root coefficient D vanishes iff starter y1=r+, equivalent to p(y1)=−z²(z−6)/((1+z)²(12+5z))=0, which occurs at z=6. For z in (3/2,6) even terms eventually negative; for z>6 odd terms eventually negative. At 6 roots (1/7,−1) and y_n=7^(−n)>0. Independently recomputed symbolic identities and exact recurrences: at z2 y4=−7/3993, at z6 all checked terms match 7^(−n); finite examples only supplement the rigorous root-dominance argument.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hundsdorfer, Ruuth, Spiteri 2002 analyze start-procedure effects for multistep monotonicity, not the displayed z=6 exact resonance under this BE starter."
+        ],
+        "reasoning": "A more general algorithmic stability framework does not imply this counterintuitive disconnected trajectory-specific set without computing its root coefficients.",
+        "searches": [
+          "Adams Moulton third order backward Euler startup positivity decay recurrence stability boundary",
+          "Hundsdorfer Ruuth Spiteri starting procedures Adams Moulton monotonicity"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verify.py",
+        "https://ir.cwi.nl/pub/4231/04231D.pdf",
+        "https://arxiv.org/abs/1609.07858",
+        "Resultary 2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14 and Richardson-accelerated backward Euler"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Resultary BDF2 boundary and Richardson/backward-Euler positivity results concern different methods and recurrences."
+        ],
+        "reasoning": "No implication between the BDF2 or Richardson threshold and the two-step AM3 characteristic coefficients.",
+        "searches": [
+          "Adams Moulton third order backward Euler startup positivity decay recurrence stability boundary",
+          "Resultary 2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14 and Richardson-accelerated backward Euler"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Classical stability identifies z=6 negative-axis boundary but does not specify starter coefficient cancellation; general monotonicity analysis treats all initial data or stronger norms."
+        ],
+        "reasoning": "Absolute stability and uniform monotonicity are not equivalent to strict positivity of the one prescribed started trajectory.",
+        "searches": [
+          "Adams Moulton third order backward Euler startup positivity decay recurrence stability boundary",
+          "AM3 BE starter positivity recurrence isolated z=6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Classical AM3 stability boundary z6 is tabulated, but the single-mode cancellation all-step positivity classification was not found in the inspected sources."
+        ],
+        "reasoning": "Stability tables concern root moduli, not signed coefficients determined by the exact starter.",
+        "searches": [
+          "Adams Moulton third order backward Euler startup positivity decay recurrence stability boundary",
+          "Adams Moulton stability chart z 6 backward Euler initial value"
+        ]
+      },
+      "rationale": "No equivalent statement or dominating theorem was found in the materially inspected same-object prior literature and Resultary results; the exact comparison is specified in the four checks. This is bounded best-of-knowledge, not proof of novelty.",
+      "residual_risks": [
+        "An older recurrence-sign classification in Adams–Moulton starting-polynomial language could subsume the exact trajectory threshold.",
+        "The isolated resonance disappears under general starting values; scope must not be generalized."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General monotonicity results do not show exact z=6 cancellation for this specific decay trajectory",
+          "evidence": [
+            "Hundsdorfer–Ruuth–Spiteri 2002, relevant sections"
+          ],
+          "identifier_or_url": "https://ir.cwi.nl/pub/4231/04231D.pdf",
+          "material_read": "PDF pages for assumptions, monotonicity coefficients, and discussion of specific start methods; inspected visual page images",
+          "method": "Primary PDF text and screenshots",
+          "title": "Monotonicity-preserving linear multistep methods",
+          "trigger": "Primary starting-procedure monotonicity study for Adams multistep formulas"
+        },
+        {
+          "assessment": "No located all-step positivity formula for BE-started AM3; incomplete comparison retained as risk",
+          "evidence": [
+            "Lóczi 2016, abstract and stated scope"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1609.07858",
+          "material_read": "Abstract and related tabular results for BDF and Adams–Bashforth methods",
+          "method": "Accessible metadata and relevant sections",
+          "title": "Exact optimal values of step-size coefficients for boundedness of linear multistep methods",
+          "trigger": "Potential broader recurrence-sign classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/13/backward-euler-started-adams-moulton-3-has-an-isolated-positivit--6ee3c940efc0/RESULT.md",
+        "Frozen RESULT.md and verify.py",
+        "https://ir.cwi.nl/pub/4231/04231D.pdf"
+      ],
+      "rationale": "The isolated positive point at the linear stability boundary is a mathematically motivated exact example showing that a specific standard start procedure can cancel a parasitic multistep mode and create a disconnected all-step positivity parameter set.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Backward-Euler-started third-order Adams–Moulton applied to y′=−λ y, y0=1, y1=(1+z)^(−1), has strictly positive iterates at all n iff 0<z≤3/2 or z=6, where a parasitic −1 mode is exactly canceled.",
+  "limitations": [
+    "An older recurrence-sign classification in Adams–Moulton starting-polynomial language could subsume the exact trajectory threshold.",
+    "The isolated resonance disappears under general starting values; scope must not be generalized.",
+    "Confidential operational provenance occurs in potentially public AUDIT.json/METADATA.json; complete sanitized replacements and verified UTF-8 hashes/guards were not prepared.",
+    "The source tree SHA was provided by the dispatcher but no complete recursive Git tree inventory was available for independent reconstruction; individual inspected file Git blob identities were obtained."
+  ],
+  "schema_version": 1
+}

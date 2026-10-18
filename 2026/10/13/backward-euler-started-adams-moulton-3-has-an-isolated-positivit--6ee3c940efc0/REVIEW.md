@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the initialized AM3 scheme to a two-root recurrence. The signs of the modal coefficients follow from the exact identity \(p(y_1)=-z^2(z-6)/((1+z)^2(12+5z))\), and root dominance gives the eventual sign change whenever \(z>3/2\) except at \(z=6\). The endpoint \(z=3/2\), the isolated point \(z=6\), and an interior stable witness \(z=2\) were checked exactly. Risk: the theorem is only for the stated scalar problem and starter.
+## correctness
 
-## Originality
-PASS. Closest literature is the Hundsdorfer--Ruuth--Spiteri starting-procedure monotonicity theory, the Hundsdorfer--Ruuth implicit multistep bounds, classical Adams--Moulton stability work, and Lóczi's exact SCB analysis. Those sources cover broader monotonicity/stability notions but the inspected material does not state the trajectory-specific disconnected set \((0,3/2]\cup\{6\}\). The inaccessible full text of Brown--Riley--Bennett 1965 is the main residual risk.
+PASS
 
-## Value
-PASS. A canonical scalar dissipative mode gives an exact and counterintuitive separation: stable AM3 steps can eventually become negative, while the stability boundary can remain positive because the backward Euler starter annihilates the alternating mode. This is useful when distinguishing stability from positivity in multistep start-up design.
+The frozen RESULT derives (12+5z)y(n+1)=(12−8z)y(n)+zy(n−1). For z≤3/2 both recurrence coefficients nonnegative. For z>3/2 roots r+>0>r− with |r−|>r+. A second-root coefficient D vanishes iff starter y1=r+, equivalent to p(y1)=−z²(z−6)/((1+z)²(12+5z))=0, which occurs at z=6. For z in (3/2,6) even terms eventually negative; for z>6 odd terms eventually negative. At 6 roots (1/7,−1) and y_n=7^(−n)>0. Independently recomputed symbolic identities and exact recurrences: at z2 y4=−7/3993, at z6 all checked terms match 7^(−n); finite examples only supplement the rigorous root-dominance argument.
 
-## Closest literature and limitations
-The result does not replace SSP/SCB theory and does not extend to arbitrary data, nonlinear systems, variable steps, or other Adams--Moulton orders. It is an exact starter-dependent scalar classification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No equivalent statement or dominating theorem was found in the materially inspected same-object prior literature and Resultary results; the exact comparison is specified in the four checks. This is bounded best-of-knowledge, not proof of novelty.
+
+## value
+
+PASS
+
+The isolated positive point at the linear stability boundary is a mathematically motivated exact example showing that a specific standard start procedure can cancel a parasitic multistep mode and create a disconnected all-step positivity parameter set.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
