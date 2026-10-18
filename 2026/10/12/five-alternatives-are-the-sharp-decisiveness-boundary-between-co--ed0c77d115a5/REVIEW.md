@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Every labeled tournament through five alternatives is enumerated. Copeland membership is computed both from out-neighborhood sizes and from an independently accumulated pairwise score vector. Uncovered membership is computed both from the covering relation and from the two-step king characterization. The implementations agree on every tournament. The first tie-only layer and first decisive layer are each quotient-checked under every relabeling, and the exact orbit sizes sum to the exhaustive labeled counts.
+## correctness
 
-Risk: the theorem is finite and stops at five alternatives.
+PASS
 
-## Originality
-**PASS.** The inclusion \(CO(T)\subseteq UC(T)\), the maximum-outdegree definition of Copeland, and the two-step characterization of the uncovered set are prior and are not claimed as new. The inspected tournament-solutions literature does not state the exact two-threshold classification: one four-alternative tie-only orbit, then \(280\) five-alternative unique-winner disagreements in exactly three orbits with uncovered-set sizes \(3,4,5\). Searches by standard names, equivalent formulations, exact counts, and class structure did not locate that census.
+Independent exhaustive enumeration of all labeled tournaments n=1..5 via 2^{n(n-1)/2} edge masks recreated n=4: total64, CO≠UC24, unique-CO32 and zero unique divergences; n=5: total1024, CO≠UC640, unique-CO600, decisive 280, UC sizes3:120,4:120,5:40. Equivalence of uncovered to two-step kings and exact covering relation supports implementation. The pinned package independently canonicalizes all labeled cases to one n4 class and three n5 classes, with sizes 120,120,40 and score multiset (3,2,2,2,1); no infinite census claim.
 
-Risk: failed search is not proof of bibliographic uniqueness. A historical tournament table, unindexed thesis, or software enumeration could contain the same small-order classification.
+## originality
 
-## Value
-**PASS.** Copeland makes choices by pairwise win count, whereas the uncovered set demands the stronger structural ability to reach every rival within two dominance steps. Distinguishing the first mere set disagreement from the first disagreement involving an unambiguous Copeland winner clarifies when these two notions of decisiveness genuinely separate. The complete first decisive layer is small enough to classify exactly and reveals a rigid common score sequence and strongly connected top cycle.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Classical CO⊆UC and king characterization are prior. The exact two-tier first-separation census for CO/UC, unique winner, and three orbits appears noncovered in the inspected sources; an unindexed historical tournament table may predate it.
+
+## value
+
+PASS
+
+First occurrence of uniquely decisive mismatch between two canonical voting correspondences is a meaningful small-order structural boundary; complete finite classification and rates supply exact reusable benchmark for tournament-solution theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
