@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T19:10:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From D(p^a q^b)=p^{a-1}q^{b-1}(aq+bp) and phi(p^a q^b)=p^{a-1}q^{b-1}(p-1)(q-1), the equation is p(b+1)=(p-a-1)q+1. Positivity of b forces 1<=a<=p-2 for odd fixed smaller p; each a forces exactly one nonzero congruence q=(a+1)^{-1} mod p, uniquely determining positive b for sufficiently large q. Writing c=p-a-1, log(p^a q^b)=(c/p)q log q+O_p(log q), giving q cutoff (p/c) log X/loglog X. PNT in AP for fixed p yields p/[c(p-1)] log X/(loglog X)^2 in that class. Distinct classes sum to p H_(p-2)/(p-1). Independent exact brute factorization for n<=250000 recovered 15,1225,3993,218491; finite regression does not establish the asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Relevant result database record 2026/10/4/SCOPE-fixed-multiplier-level-sets-of-the-arithmetic-derivative--c31759e42cf2 counts D(n)=kn, whereas on p^a q^b one has phi(n)/n=(1-1/p)(1-1/q), not a fixed integer k."
+        ],
+        "reasoning": "The multiplier theorem does not imply a count for D(n)=phi(n). Classical PNT AP, credited as a premise, supplies the prime asymptotic once the novel branch classification is performed.",
+        "searches": [
+          "arithmetic derivative equal Euler totient D(n)=phi(n) solutions p^a q^b fixed p asymptotic harmonic prime counting",
+          "https://oeis.org/A166374"
+        ]
+      },
+      "checked_sources": [
+        "https://oeis.org/A166374",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL6/Ufnarovski/ufnarovski.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-fixed-multiplier-level-sets-of-the-arithmetic-derivative--c31759e42cf2",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/a-harmonic-counting-law-for-two-prime-arithmetic-derivative-toti--6ae5567a606b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The OEIS entry supplies only existence and a linear relation. PNT in AP would yield the asymptotic once the unique exponent/residue classification and size inversion have been derived; no inspected prior source performs the inference."
+        ],
+        "reasoning": "The submitted claim is not a direct corollary without extra branch-specific mathematical arguments; prior existence is properly excluded from novelty.",
+        "searches": [
+          "arithmetic derivative equal Euler totient D(n)=phi(n) solutions p^a q^b fixed p asymptotic harmonic prime counting",
+          "https://oeis.org/A166374"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS A166374 2014 Robert Israel comment writes (p-1)(q-1)=ap+bq and proves existence; our congruence form p(b+1)=(p-a-1)q+1 is the same algebra under exponent labeling."
+        ],
+        "reasoning": "The equation and existence are prior; the counted prime-by-prime asymptotic with harmonic coefficient is not supplied by the equivalence.",
+        "searches": [
+          "arithmetic derivative equal Euler totient D(n)=phi(n) solutions p^a q^b fixed p asymptotic harmonic prime counting",
+          "https://oeis.org/A166374"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A166374 lists numerical solutions and provides a program; the first checked odd-p two-prime members <=250000 are 15,1225,3993,218491. It does not tabulate p H_(p-2)/(p-1) or this rate."
+        ],
+        "reasoning": "Numerical sequence entries cannot themselves imply the infinite asymptotic, and constants are not copied from a known table.",
+        "searches": [
+          "arithmetic derivative equal Euler totient D(n)=phi(n) solutions p^a q^b fixed p asymptotic harmonic prime counting",
+          "https://oeis.org/A166374"
+        ]
+      },
+      "rationale": "The 2014 OEIS comment by Robert Israel describes existence of positive-exponent two-prime solutions to D(n)=phi(n), not their prime-ordered asymptotic; Ufnarovski-Ahlander supply arithmetic derivative identities. A fixed-multiplier level-set asymptotic in the relevant result database concerns D(n)=kn rather than phi(n) and is not a dominating parameter. No inspected source gives this fixed-least-prime harmonic coefficient. Best-of-knowledge originality holds with possible unindexed earlier elementary combination of congruences and PNT-AP.",
+      "residual_risks": [
+        "A short unindexed prior argument could combine OEIS two-prime congruences and PNT in AP into this exact asymptotic.",
+        "Only fixed odd smaller p, not uniform over growing p or all D(n)=phi(n) solutions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXISTENCE_ONLY",
+          "evidence": "Robert Israel writes positive-exponent solution for broad prime pairs; no harmonic counting law in inspected entry.",
+          "identifier_or_url": "https://oeis.org/A166374",
+          "material_read": "Sequence entries, comments including Robert Israel Aug 21 2014 and generator code",
+          "method": "Read HTML entry and mathematical comment, checked named relation and absence of fixed-p asymptotic",
+          "title": "OEIS A166374, Numbers whose arithmetic derivative equals Euler totient",
+          "trigger": "Same exact equation, potential solution table"
+        },
+        {
+          "assessment": "NOT_COVERING_CLAIM",
+          "evidence": "General arithmetic derivative framework supports D(n)/n=sum e_p/p, but is not a fixed-least-prime asymptotic counting theorem.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL6/Ufnarovski/ufnarovski.pdf",
+          "material_read": "Introduction, arithmetic-derivative factorization and theorem context; PDF examined with page image",
+          "method": "Inspected primary publisher PDF and relevant theorem identities",
+          "title": "How to Differentiate a Number, Ufnarovski and Åhlander",
+          "trigger": "Foundational arithmetic-derivative identities and potential earlier classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural counting problem attached to a recorded arithmetic-derivative/totient coincidence equation is settled quantitatively for each fixed odd least prime, yielding explicit, parameter-dependent harmonic constants rather than merely existence. PNT-in-AP plus size inversion is substantive analytic arithmetic and establishes infinitely many members in every fixed-p branch.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "A short unindexed prior argument could combine OEIS two-prime congruences and PNT in AP into this exact asymptotic.",
+    "Only fixed odd smaller p, not uniform over growing p or all D(n)=phi(n) solutions."
+  ]
+}
