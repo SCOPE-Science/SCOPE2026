@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T20:04:11Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md Git blob 0bc00c8ebdfc447183c188cf14034f9ccadf9114",
+        "Independent checker UNITARY_TOTIENT_INDEPENDENT_SIEVE_AND_MERSENNE_IDENTITY_OK",
+        "Tóth 2009 JIS prime-power unitary-totient identity"
+      ],
+      "rationale": "For two exact prime-power blocks X,Y the identity phi*(XY)=(X-1)(Y-1) follows multiplicatively. Writing even=AB with A=2^a and odd=CD, C<D, the orientation AB+1=CD gives C+D=A+B+1 and (D-C)^2-(B-A+1)^2=4(A-1); the reverse orientation gives C+D=A+B-1 and (B-A-1)^2-(D-C)^2=4(A-1). Both even differences factor into positive integers u,v with uv=2^a-1, and solving back produces precisely the three claimed branches with converses verified by products and sums. Filtering exact positive odd prime-power blocks and distinct supports is essential. Under Omega(n),Omega(n+1)<=3 the even block has a<=2; A=2 gives no valid blocks; A=4 gives only (20,21), while (35,36) fails the multiplicity bound. A newly written direct sieve below 300000 recovered [20,35,143,208,2623,5183] and the unique low-Omega point 20. This finite check supports but does not replace the factorization proof.",
+      "residual_risks": [
+        "There is no asserted finiteness or infinitude of unrestricted two-prime-support solutions; prime-power validity is a genuine arithmetic filter."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tóth develops unitary phi identities, average orders and multiplicativity, not this consecutive collision classification.",
+          "The Resultary related family concerns harmonious divisors rather than consecutive equal phi*."
+        ],
+        "reasoning": "No examined stronger theorem yields all three Mersenne factor branches and exact prime-power admissibility.",
+        "searches": [
+          "L. Tóth 2009 On the Bi-Unitary Analogues of Euler’s Arithmetical Function and the Gcd-Sum Function",
+          "Resultary published powers-of-two in two-prime support harmonious pairs 2026/10/4/94f9b7228e53"
+        ]
+      },
+      "checked_sources": [
+        "Tóth 2009 complete JIS HTML",
+        "OEIS A287055 and A047994",
+        "Resultary actual semantic query unitary totient consecutive equal values two prime factors Mersenne"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The multiplicative identity phi*(p^e)=p^e-1 is an input already present in Tóth.",
+          "The novel step is combining consecutiveness with totient equality to force a signed difference of squares whose positive factors multiply to 2^a-1, including both reversed-orientation branches."
+        ],
+        "reasoning": "The source identity alone does not logically give the full three-branch converse classification without the new algebraic elimination and parity/order analysis.",
+        "searches": [
+          "Tóth Journal Integer Sequences 12 (2009) Article 09.5.2 full article",
+          "OEIS A287055 collision list"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS A287055 states phi*(n)=phi*(n+1) and lists 20,35,143,208,2623,5183 among many other hits.",
+          "Resultary returned different unitary divisor sums and two-prime harmonious pairs; those satisfy different equations."
+        ],
+        "reasoning": "The exact equation was searched in alternative notations phi*, unitary Euler totient, and collision; listed values cannot imply exhaustive 2-prime-support parametrization.",
+        "searches": [
+          "OEIS A287055 unitary Euler phi consecutive equality",
+          "Resultary: unitary totient consecutive equal values both have two distinct prime factors Mersenne 2^a-1 parametrization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A287055 records consecutive collisions; A047994 gives values of unitary phi*.",
+          "The source’s direct sieve and independent recomputation below 300000 agree on the two-support list."
+        ],
+        "reasoning": "Databases support particular witnesses, but neither records the universal parametric classification or uniqueness under both Omega<=3, so an explicit table match is not prior coverage.",
+        "searches": [
+          "https://oeis.org/A287055",
+          "https://oeis.org/A047994"
+        ]
+      },
+      "rationale": "Known definitions and small collision values are credited. A direct search of the exact collision database OEIS A287055, the primary unitary-totient literature, published mathematical research records and aliases under consecutive equal unitary Euler phi values located no prior unrestricted exact classification of the two-distinct-prime-support subfamily by Mersenne factor pairs with all orientation branches. OEIS lists instances but does not entail the exhaustive factorization converse. Originality is best of knowledge, with unindexed elementary number-theory notes remaining a plausible priority risk.",
+      "residual_risks": [
+        "Unindexed recreational/arithmetic notes may derive the same elementary conic factorization; absence from a sequence entry is not a proof of historical novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_EXACT_COVERAGE",
+          "evidence": "Defines unitary Euler function and its product formula, but does not contain the claimed three orientation Mersenne factor parameterization of consecutive collisions.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL12/Toth/toth16.html",
+          "material_read": "Complete accessible JIS text, including function definitions and unitary analogues/average order statements",
+          "method": "Publisher open-access HTML full text",
+          "title": "On the Bi-Unitary Analogues of Euler’s Arithmetical Function and the Gcd-Sum Function",
+          "trigger": "Original source defining unitary phi* and prime-power identity"
+        },
+        {
+          "assessment": "EXACT_INSTANCES_ONLY",
+          "evidence": "Sequence enumerates individual collisions, with 20 and 21 both mapping to 12, but no full two-distinct-prime-support factor-pair converse.",
+          "identifier_or_url": "https://oeis.org/A287055",
+          "material_read": "Sequence description and known terms including 20,35,143; not a full proof of exhaustive two-prime subfamily",
+          "method": "OEIS direct online sequence and search",
+          "title": "OEIS A287055: Numbers n such that phi*(n)=phi*(n+1)",
+          "trigger": "Exact collision equation database, possible known classification"
+        },
+        {
+          "assessment": "DIFFERENT_EQUATION",
+          "evidence": "Studies harmonious pairs, not adjacent integers having equal unitary Euler phi*; not claimed whole-document noncoverage.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-powers-of-two-in-two-prime-support-harmonious-pairs--94f9b7228e53",
+          "material_read": "Search title and summary only",
+          "method": "Resultary semantic record search",
+          "title": "Powers of two in two-prime-support harmonious pairs",
+          "trigger": "High-scoring semantic research hit mentioning Mersenne and two-prime support"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "OEIS A287055 problem definition and collision database",
+        "Independent algebraic three-branch and Omega<=3 reconstruction"
+      ],
+      "rationale": "The subfamily with exactly two distinct prime supports on both adjacent integers is a natural arithmetic stratum of the established unitary-totient collision problem. The explicit bijective factor-pair classification includes both parity orientations, identifies necessary exact prime-power filters, and yields a non-computational unique low-total-multiplicity theorem; those facts are useful for collision sieves and are not simply table recomputations.",
+      "residual_risks": [
+        "The main parametrization is conditional on prime-power primality filters and does not settle whether infinitely many such collisions exist."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scientific review complete but publication transport not_ready due to public privacy sanitization and recursive tree verification; no GitHub writes performed.",
+    "The main parametrization is conditional on prime-power primality filters and does not settle whether infinitely many such collisions exist.",
+    "There is no asserted finiteness or infinitude of unrestricted two-prime-support solutions; prime-power validity is a genuine arithmetic filter.",
+    "Unindexed recreational/arithmetic notes may derive the same elementary conic factorization; absence from a sequence entry is not a proof of historical novelty."
+  ],
+  "schema_version": 1
+}

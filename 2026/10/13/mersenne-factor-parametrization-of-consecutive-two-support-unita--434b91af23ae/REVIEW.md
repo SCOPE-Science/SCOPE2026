@@ -1,30 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. For an integer with exactly two prime-power blocks \(X,Y\), multiplicativity gives
-\[
-\phi^*(XY)=(X-1)(Y-1).
-\]
-When the even member is first, combining this equality with consecutiveness yields
-\[
-C+D=A+B+1
-\]
-and then the exact identity
-\[
-(D-C)^2-(B-A+1)^2=4(A-1).
-\]
-When the even member is second, the corresponding identity is
-\[
-(B-A-1)^2-(D-C)^2=4(A-1).
-\]
-Parity makes the half-sums integral, positivity determines the three branches, and direct multiplication proves every stated converse. The \(\Omega\le3\) corollary reduces to \(A=2,4\) and is exhaustive. The packaged checker independently reconstructs the branch for every direct two-support collision below one million and regenerates every admissible branch in that window.
+## correctness
 
-## Originality
-PASS. Tóth’s full primary article supplies the unitary-totient definition and prime-power formula but does not discuss consecutive collisions; targeted full-text searches found no “consecutive” or “collision” statement. A287055 is an exact database for \(\phi^*(n)=\phi^*(n+1)\), but it tabulates values rather than giving the two-support factorization theorem. Semantic and direct statement searches for unitary-totient consecutive collisions, two prime supports, and Mersenne-factor parametrizations found no equivalent or stronger accessible theorem.
+PASS
 
-The closest indexed research hits concern Jordan-totient collisions, unitary divisor ranges, or other low-support arithmetic functions. None implies the three-branch parametrization. The main residual risk is an unindexed elementary observation derived from the collision sequence.
+For two exact prime-power blocks X,Y the identity phi*(XY)=(X-1)(Y-1) follows multiplicatively. Writing even=AB with A=2^a and odd=CD, C<D, the orientation AB+1=CD gives C+D=A+B+1 and (D-C)^2-(B-A+1)^2=4(A-1); the reverse orientation gives C+D=A+B-1 and (B-A-1)^2-(D-C)^2=4(A-1). Both even differences factor into positive integers u,v with uv=2^a-1, and solving back produces precisely the three claimed branches with converses verified by products and sums. Filtering exact positive odd prime-power blocks and distinct supports is essential. Under Omega(n),Omega(n+1)<=3 the even block has a<=2; A=2 gives no valid blocks; A=4 gives only (20,21), while (35,36) fails the multiplicity bound. A newly written direct sieve below 300000 recovered [20,35,143,208,2623,5183] and the unique low-Omega point 20. This finite check supports but does not replace the factorization proof.
 
-## Value
-PASS. Consecutive equality of the unitary totient is an explicitly tabulated arithmetic-function collision problem. Exact two-prime support is a natural first nontrivial multiplicative layer because \(\phi^*\) factors by exact prime-power blocks. The theorem replaces isolated low-support database entries by a complete structural parametrization through divisors of the Mersenne number \(2^a-1\), and the sharp \(\Omega\le3\) corollary identifies a natural low-complexity boundary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known definitions and small collision values are credited. A direct search of the exact collision database OEIS A287055, the primary unitary-totient literature, published mathematical research records and aliases under consecutive equal unitary Euler phi values located no prior unrestricted exact classification of the two-distinct-prime-support subfamily by Mersenne factor pairs with all orientation branches. OEIS lists instances but does not entail the exhaustive factorization converse. Originality is best of knowledge, with unindexed elementary number-theory notes remaining a plausible priority risk.
+
+## value
+
+PASS
+
+The subfamily with exactly two distinct prime supports on both adjacent integers is a natural arithmetic stratum of the established unitary-totient collision problem. The explicit bijective factor-pair classification includes both parity orientations, identifies necessary exact prime-power filters, and yields a non-computational unique low-total-multiplicity theorem; those facts are useful for collision sieves and are not simply table recomputations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
