@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The soft-threshold proximal map is exactly zero throughout the stated basin. In one dimension the two three-term Hestenes--Stiefel correction terms cancel algebraically, leaving \(d_k=-\eta_k\). The source first-stage test and Armijo test both accept the full step under the displayed basin inequalities, yielding the exact recurrence
-\[
-x_{k+1}=\left(1-\frac1\mu\right)x_k.
-\]
-The corrected denominator remains strictly positive for every source-admissible nonnegative correction parameter.
+PASS
 
-## Originality
+Source equations (14)--(23) give mu_k=mu because g is identically zero, soft threshold x^+=0, eta=x/mu. In one scalar dimension beta*d_old=gamma*y_old exactly when denominator is nonzero, so d=-eta. With |x|<=mu*lambda/max(1,T), the first trial t=1 satisfies -lambda|x|/mu <= -T*x^2/mu^2; and the stronger usual decrease inequality at alpha=1 holds since delta<1 and |x|<=mu*lambda. Crucial source nuance: printed Eq. (23) is f_new <= f_old - delta*alpha*eta^T*d; for d=-eta its right side is f_old+delta*alpha*eta^2, so the directly proved stronger decrease also guarantees the printed inequality despite the RESULT.md phrase treating the two as equivalent. On the recurrence y=d/mu and z=y+nu*d, denominator d*z=d^2*(1/mu+nu)>0. The contraction is strictly between 0 and 1; practical tolerance eventually terminates, unlike exact-stationarity stopping.
 
-PASS. The primary full text, source-specific database searches, forward-backward activity-identification literature, and the smooth three-term Hestenes--Stiefel literature were compared at statement and implication level. No inspected source states that the primary PNCG line-search branch can repeatedly bypass a proximal point already equal to the minimizer or gives the exact resulting geometric tail.
+## originality
 
-A residual risk is analogous behavior in broader relaxed forward-backward literature under different terminology.
+PASS
 
-## Value
+A source-specific exact path shows that the NCG branch can bypass a minimizer already returned by its proximal subroutine; neither global convergence of Hamana--Narushima nor forward--backward identification entails identification for this different update rule.
 
-PASS. The source is explicitly aimed at nonsmooth composite and sparse problems, including LASSO. The example isolates a structural cost of the nonlinear-conjugate-gradient branch: it can lose the finite-identification behavior of the proximal map even in the simplest \(\ell_1\) model, and the loss can be arbitrarily slow as \(\mu\) grows. The result therefore informs branch design, parameter selection, and interpretation of sparsity behavior.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The precise failure of finite activity identification despite an exact soft-threshold hit is a motivated algorithmic boundary: line-search descent and convergence need not preserve the active-set identification of the computed prox point. The counterexample is canonical for sparse optimization and shows an arbitrarily slow tail as mu grows, rather than a gratuitous numerical substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

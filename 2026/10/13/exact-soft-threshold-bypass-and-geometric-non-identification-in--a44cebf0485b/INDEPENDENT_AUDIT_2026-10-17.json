@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T11:46:22.479915Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Git blob 996a6a2a94ab2cf640052b822cd76946a28f798f",
+        "Hamana--Narushima arXiv:2604.11150 Eq. (14)--(23), algorithm stages and stopping criterion",
+        "Independent exact Fraction replay for three parameter choices over twelve iterations each; both line-search sign conventions, nonzero curvature denominator and recurrence verified"
+      ],
+      "rationale": "Source equations (14)--(23) give mu_k=mu because g is identically zero, soft threshold x^+=0, eta=x/mu. In one scalar dimension beta*d_old=gamma*y_old exactly when denominator is nonzero, so d=-eta. With |x|<=mu*lambda/max(1,T), the first trial t=1 satisfies -lambda|x|/mu <= -T*x^2/mu^2; and the stronger usual decrease inequality at alpha=1 holds since delta<1 and |x|<=mu*lambda. Crucial source nuance: printed Eq. (23) is f_new <= f_old - delta*alpha*eta^T*d; for d=-eta its right side is f_old+delta*alpha*eta^2, so the directly proved stronger decrease also guarantees the printed inequality despite the RESULT.md phrase treating the two as equivalent. On the recurrence y=d/mu and z=y+nu*d, denominator d*z=d^2*(1/mu+nu)>0. The contraction is strictly between 0 and 1; practical tolerance eventually terminates, unlike exact-stationarity stopping.",
+      "residual_risks": [
+        "The prose in RESULT.md paraphrases the source Eq. (23) sign as a stronger conventional decrease condition; the theorem remains true because that stronger condition holds. Correct the explanatory equation in a future fully guarded scientific-file update.",
+        "The scalar g=0 case and exact-stationarity stopping do not determine high-dimensional identification or practical stop counts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liang--Fadili--Peyré show finite manifold identification for actual FB-type iterates under partial smoothness and nondegeneracy.",
+          "Hamana--Narushima allow fallback x_{k+1}=x_k^+ but also permit an NCG line-search step."
+        ],
+        "reasoning": "An FB identification theorem is not a uniform identification theorem for the NCG branch, which does not update to the proximal point; global asymptotic convergence is compatible with nonidentification.",
+        "searches": [
+          "arXiv:1503.03703 Activity Identification and Local Linear Convergence of Forward--Backward-type methods",
+          "arXiv:2604.11150 global convergence and finite stopping",
+          "Resultary: Proximal nonlinear conjugate gradient soft threshold identification exact geometric tail"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2604.11150",
+        "https://arxiv.org/abs/1503.03703",
+        "DOI:10.1080/10556780701223293"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source chooses a proximal point but updates x+alpha d when both line search stages pass.",
+          "Forward--backward theorem updates by proximal splitting and does not give the line-search path."
+        ],
+        "reasoning": "The conclusion requires a new scalar specialization with a nondegenerate 3-term direction denominator and two accepted full steps; it is not directly asserted by the parent papers.",
+        "searches": [
+          "arXiv:2604.11150 Algorithm 2 and Eqs (14)--(23)",
+          "arXiv:1503.03703 finite activity identification theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026 source establishes stationarity via residual but has no stated scalar bypass recurrence in its algorithm and theorem sections.",
+          "Resultary nearest results addressed different proximal algorithms; no same theorem in inspected results."
+        ],
+        "reasoning": "Equivalent aliases include support/activity identification, proximal-point bypass, and finite active-set hit; the exact 1-1/mu tail is not a statement found in the inspected primary algorithm or earlier FB paper.",
+        "searches": [
+          "Resultary: Proximal nonlinear conjugate gradient soft threshold identification exact geometric tail Hamana Narushima",
+          "Web: 2604.11150 identification l1 support active set",
+          "Web: nonlinear conjugate gradient finite identification proximal nonzero"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned semantic hits did not provide a quantified one-dimensional recurrence of the same algorithm.",
+          "The claim is an analytic path construction rather than an extracted tabulated number."
+        ],
+        "reasoning": "No actual exact table or database entry was found to contain the same iteration sequence; failure of discovery is not independent proof of priority.",
+        "searches": [
+          "Resultary: Proximal nonlinear conjugate gradient soft threshold identification exact geometric tail",
+          "Web: Proximal Nonlinear Conjugate Gradient Methods soft threshold line search identification"
+        ]
+      },
+      "rationale": "A source-specific exact path shows that the NCG branch can bypass a minimizer already returned by its proximal subroutine; neither global convergence of Hamana--Narushima nor forward--backward identification entails identification for this different update rule.",
+      "residual_risks": [
+        "No exhaustive historical search of nonsmooth nonlinear-CG identification was possible; another nonindexed example could cover the same construction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source contains algorithm and global convergence but no exact nonidentification construction; printed Armijo sign differs from conventional paraphrase",
+          "evidence": [
+            "Eq. (16)--(23) direction and line-search equations; Algorithm 2 lines 190--220"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2604.11150",
+          "material_read": "Sections 2--3 including equations (14)--(23), Algorithm 2, termination and LASSO discussion",
+          "method": "Read full accessible arXiv-rendered scientific text",
+          "title": "Proximal Nonlinear Conjugate Gradient Methods for Composite Optimization",
+          "trigger": "Same algorithm and exact parameter/line-search definitions"
+        },
+        {
+          "assessment": "Not a dominating theorem for non-FB NCG iterate updates",
+          "evidence": [
+            "Finite identification stated for FB-type iterates, not arbitrary NCG line-search trajectories"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1503.03703",
+          "material_read": "Abstract and scope statements for partially smooth FB and inertial FB iterates",
+          "method": "Public arXiv summary and publication abstract; not a complete full-text inspection",
+          "title": "Activity Identification and Local Linear Convergence of Forward--Backward-type methods",
+          "trigger": "Potential dominating finite-identification theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2604.11150",
+        "https://arxiv.org/abs/1503.03703"
+      ],
+      "rationale": "The precise failure of finite activity identification despite an exact soft-threshold hit is a motivated algorithmic boundary: line-search descent and convergence need not preserve the active-set identification of the computed prox point. The counterexample is canonical for sparse optimization and shows an arbitrarily slow tail as mu grows, rather than a gratuitous numerical substitution.",
+      "residual_risks": [
+        "The model is one-dimensional and not a demonstrated defect in practical positive-tolerance LASSO runs; the source makes no finite-identification guarantee."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For Algorithm 3.1 (called Algorithm 2 in the rendered preprint) of Hamana--Narushima with g=0,h=lambda|x|,mu_{-1}=mu>1 and nonzero |x0|<=mu*lambda/max(1,T), the exact-step NCG branch has x_k^+=0 but x_k=(1-1/mu)^k x0 !=0 for every finite k; both line-search stages accept 1 and the fallback proximal update would stop in one update.",
+  "limitations": [
+    "Publication not ready: exact original privacy-bearing operational metadata must not be copied publicly; source package and all original bytes remain unchanged.",
+    "No GitHub write, publication, certificate, or dispatcher closeout executed; originality is best-of-knowledge with explicit source-specific residual risks."
+  ],
+  "schema_version": 1
+}
