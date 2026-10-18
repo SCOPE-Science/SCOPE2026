@@ -1,0 +1,11 @@
+# Review of the triangular-book edge-colouring result
+
+**Correctness (PASS).** The open-neighbourhood convention is explicit. The three degree-count equalities are both necessary and sufficient, and clipping the nine page-type multiplicities at three preserves every equality-to-one check. The exhaustive finite lemma checks all \(4^9=262144\) clipped vectors, including the precise list of 18 permitted families for large size; this turns a finite computation into a logically complete proof over all \(n\ge5\). An independently implemented direct edge-neighbourhood predicate exhaustively confirms the stated small counts, and a two-colour contradiction proves the chromatic-index statement. The executable reproduces the finite lemma and the direct checks. Limitation: the short finite lemma uses exhaustive integer enumeration rather than a handwritten nine-variable case split.
+
+**Originality (PASS, with residual priority risk).** The inspected 2026 primary works of Kamyczura and Przybyło give general asymptotic and chromatic-number-based upper bounds, not exact three-colour counts for the graph \(K_2\vee\overline{K_n}\). Equivalent line-graph, triangular-book, and other conflict-free formulations were searched. Searches of available published mathematical research records found nearby proper conflict-free colouring and different graph families, but not this statement or a stronger theorem implying the exact count. The ambiguity between triangular and quadrilateral books was explicitly resolved. Absolute priority is not established; differently titled or unindexed exact enumeration remains possible.
+
+**Value (PASS).** The graph family is a standard common-edge triangle construction, and the open-neighbourhood constraint is a newly active colouring model. The exact optimum and labelled optimum-colouring count reveal a strong structural rigidity: out of exponentially many three-colourings of \(2n+1\) edges, only \(18n(2n-1)\) survive for \(n\ge5\). The 18-family description explains the polynomial census and gives reusable witnesses and obstructions. Neither the generic colouring bound nor a simple substitution supplies this phenomenon.
+
+No independent proof assessment or definitive bibliographic-priority review has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
