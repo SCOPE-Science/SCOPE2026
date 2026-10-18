@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For each length N=2^k>=8, the odd-part rule gives S_N(t)=N/2-1+p_J+p_(J+1), J=ceil(t/(N/2)), so there are at most three ones counts. The complementary values at every pair of consecutive odd indices force the transition count to equal N/2 for matching endpoints and N/2-1 otherwise. Binary two-letter factor counts are then uniquely determined from the ones count and endpoints. For N>=16, j in {1,3,11} and offsets {2,3,4,7} produce every combination; the length-eight base case has twelve explicitly checked starts. The packaged checker tests this logic at dyadic lengths 8 through 4096, but the proof is universal.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1405.3532 Sections 4–7 compute two-abelian complexities of period-doubling and Thue–Morse, not the regular paperfolding word.",
+        "arxiv:1404.3906 Theorem 1.1 treats Thue–Morse and notes paperfolding only as a one-abelian example."
+      ],
+      "reasoning": "General facts that binary two-abelian profiles are determined by bigram counts do not force an exact twelve-class spectrum for a particular substitution sequence. The inspected regularity theorems about two other automatic words do not imply the dyadic paperfolding statement.",
+      "searches": [
+        "\"A New Approach to the 2-Regularity\" paperfolding and block coding",
+        "\"2-abelian complexity\" \"paperfolding\"",
+        "paperfolding sequence 2-abelian complexity powers of two"
+      ]
+    },
+    "checked_sources": [
+      "Madill–Rampersad arxiv:1208.2856 (OA manuscript inspected)",
+      "Parreau–Rigo–Rowland–Vandomme arxiv:1405.3532 (OA manuscript inspected)",
+      "Greinecker arxiv:1404.3906 (OA HTML inspected)",
+      "OEIS A337120 (factor-complexity table identified; distinct invariant)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:1208.2856 implies exactly three one-abelian classes at lengths divisible by powers of four, including powers of two >=4.",
+        "arxiv:1405.3532 provides two-abelian 2-regularity for period-doubling/Thue–Morse, not for regular paperfolding."
+      ],
+      "reasoning": "The known three-class abelian result can be compatible with any refinement count from three up to the full factor complexity; it cannot by itself show that each coarse class splits into four. The new transition identity and twelve explicit families bridge the missing implication. The two-abelian theorems for different sequences do not transfer by an established conjugacy.",
+      "searches": [
+        "arxiv:1208.2856 Theorem 2 abelian complexity recurrence",
+        "arxiv:1405.3532 Sections 4-7 two-abelian complexity",
+        "arxiv:1404.3906 Theorem 1.1 two-abelian Thue-Morse"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1208.2856 defines anagram/1-abelian equivalence rather than bigram-multiset equivalence.",
+        "arxiv:1404.3906 Definition 1.4 gives the two-abelian encoding for another automatic word; it does not supply the paperfolding count."
+      ],
+      "reasoning": "The theorem is invariant under bit complementation and equivalently counts dyadic ordered-bigram profiles with the initial/final letter fixed. The closest one-abelian count gives only three coarse classes, not all endpoint-pair multiplicities. Searches for those formulations did not reveal identical coverage.",
+      "searches": [
+        "\"paperfolding\" \"2-abelian\" \"12\"",
+        "\"paperfolding\" \"2-abelian complexity\"",
+        "\"paperfolding\" \"2-abelian\" \"power of two\" complexity",
+        "\"paperfolding\" \"2-abelian equivalence\" powers of two",
+        "paperfolding Parikh bigram profile start end at powers of two factors 12 equivalence classes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A337120 concerns unrestricted distinct factor counts of the regular paperfolding sequence, not two-abelian equivalence classes.",
+        "arxiv:1208.2856 gives the one-abelian recurrence and corresponding values."
+      ],
+      "reasoning": "No matching exact dyadic two-abelian table was located in the queried resources. This is a bounded search result, not a proof of database absence or independent novelty.",
+      "searches": [
+        "site:oeis.org \"2-abelian complexity\" \"paperfolding\"",
+        "\"paperfolding\" \"2-abelian\" \"12\" dyadic",
+        "\"paperfolding\" \"2-abelian\" \"power of two\" complexity"
+      ]
+    },
+    "rationale": "The closest identified paper on regular paperfolding establishes its 1-abelian factor counts, not the finer dyadic 2-abelian profile. The main 2-abelian automatic-word treatments inspected address Thue–Morse and period doubling, and no retrieved indexed result determines paperfolding's twelve 2-abelian classes at all dyadic lengths. These are statement/implication comparisons, not merely title comparisons; remaining unindexed or implicit derivations are acknowledged.",
+    "residual_risks": [
+      "An unindexed earlier paper or implicit specialization of a broader paperfolding theorem could cover the exact result; no exhaustive bibliographic uniqueness claim is made.",
+      "Broader general-folding versions and complete nondyadic two-abelian complexity are not addressed.",
+      "No independent scientific audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 2 enumerates one-abelian (letter-count) classes. Its dyadic value three provides the coarse classes but does not determine their subdivision by adjacent ordered pairs and endpoints.",
+        "evidence": [
+          "Theorem 2 gives rho(4n)=rho(2n) for one-abelian complexity; initial rho(8)=3.",
+          "The manuscript explicitly defines abelian equivalence by equal symbol multiplicities, not equal two-letter-factor multiplicities."
+        ],
+        "identifier_or_url": "arxiv:1208.2856; https://arxiv.org/pdf/1208.2856",
+        "material_read": "Open-access manuscript: first page, introduction, number-theoretic definition on p.3, Theorem 2 recurrence statement and surrounding definitions on pp.3–4",
+        "method": "Full-text PDF sections inspected using page images and searchable text",
+        "title": "The abelian complexity of the paperfolding word",
+        "trigger": "Same regular-paperfolding factor language; published abelian complexity recurrences could dominate the dyadic claim"
+      },
+      {
+        "assessment": "The detailed 2-abelian computations concern period-doubling and Thue–Morse; paperfolding is cited for one-abelian complexity, with no dyadic paperfolding two-abelian count stated in inspected material.",
+        "evidence": [
+          "Introduction states the period-doubling and Thue–Morse targets, and Sections 4–7 cover their block codings and two-abelian complexities.",
+          "Document-wide paperfolding search locates the earlier Madill–Rampersad bibliographic citation, not a paperfolding two-abelian theorem."
+        ],
+        "identifier_or_url": "arxiv:1405.3532; https://arxiv.org/pdf/1405.3532",
+        "material_read": "Open-access manuscript: abstract, Introduction and contents, Lemma 15, Sections 4–5 target statements, Sections 6–7 targets, paperfolding mentions via document-wide text search",
+        "method": "Full-text PDF section/text inspection plus page-one image",
+        "title": "A new approach to the 2-regularity of the ell-abelian complexity of 2-automatic sequences",
+        "trigger": "Potentially stronger general 2-abelian enumeration for automatic words"
+      },
+      {
+        "assessment": "Theorem concerns the different Thue–Morse word and its two-abelian complexity. Paperfolding appears only as an example with previously known one-abelian regularity.",
+        "evidence": [
+          "Definition 1.4 encodes two-abelian classes by pair counts plus endpoints.",
+          "Theorem 1.1 proves Thue–Morse two-abelian regularity, while the paperfolding citation is to the one-abelian paper."
+        ],
+        "identifier_or_url": "arxiv:1404.3906; https://arxiv.org/html/1404.3906v3",
+        "material_read": "Open-access HTML: abstract, Section 1 statements, Definition 1.4, Theorem 1.1, references and passage citing paperfolding",
+        "method": "Author-paper HTML full-text section inspection",
+        "title": "On the 2-Abelian Complexity of the Thue–Morse Word",
+        "trigger": "Exact two-abelian equivalence definitions and possible dyadic counts for a standard automatic sequence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "15fb1e44-ae86-4c2d-bbb4-8eff801e5772",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "At the natural powers-of-two scales of a canonical automatic word, the previously determined one-abelian complexity is exactly three. The theorem supplies an exact all-scale structural refinement: each such class splits into all four possible endpoint states, and pair-count constraints prove no additional classes occur. This complete infinite-family invariant has a direct interpretation in ordered-bigram reconstruction and is not implied by the classical one-abelian recurrence.",
+    "status": "PASS"
+  }
+}
