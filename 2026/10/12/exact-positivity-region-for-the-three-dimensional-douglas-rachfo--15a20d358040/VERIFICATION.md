@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,47 +18,25 @@
   "schema_version": 1
 }
 ---
-The proof is analytic; the checker replays finite consequences.
 
-For the one-dimensional Dirichlet matrix
-\[
-T_n=\operatorname{tridiag}(-1,2,-1),
-\]
-the continuants satisfy
-\[
-D_0=1,\qquad D_1=1+2s,\qquad
-D_k=(1+2s)D_{k-1}-s^2D_{k-2}.
-\]
-The boundary inverse diagonal is
-\[
-d_n(s)=D_{n-1}(s)/D_n(s).
-\]
+# Independent mathematical audit
 
-The completed three-dimensional Douglas–Rachford step is
-\[
-R_{\mathrm{DR}}
-=
-I+3P_xP_yP_z-P_xP_y-P_xP_z-P_yP_z.
-\]
-On a cube the sharp condition is
-\[
-d_n(s)\ge\frac23.
-\]
+## correctness
 
-The embedded `verify.py` performs the following checks using the Python standard library only:
+PASS
 
-1. exact construction of \(P_2(7/25)\);
-2. exact construction of the full \(8\times8\) step matrix;
-3. certification that its minimum entry is
-\[
--\frac{3241875}{3189506048};
-\]
-4. exact verification of the \(n=2\) threshold polynomial;
-5. bisection of several \(\tau_n\) values and verification that they increase toward
-\[
-(3-\sqrt6)/2.
-\]
+Original three-stage 3D Douglas–Rachford with commuting directional Laplacian lifts eliminates to R=I+3PxPyPz−PxPy−PxPz−PyPz. Entries according to 0,1,2,3 different coordinates have signs determined by 1+3abc−ab−ac−bc, p(3bc−b−c), pq(3c−1), and 3pqr respectively. Positive inverse offdiagonals and minimal endpoint diagonals d_n=D_{n−1}/D_n make each of the three 3d_i d_j≥d_i+d_j necessary and sufficient for n_i≥2 and Δt>0. Continuant D_n recurrence plus monotone resolvent gives cubic d_n≥2/3, unique τ_n↑(3−√6)/2 and τ_2=(√7−1)/6. An independently constructed exact 8×8 rational Kronecker step at s=7/25 yielded min entry −3241875/3189506048 and 24 negative entries. Infinite all-grid result rests on analytic entry classification, not this finite example.
 
-Finite replay is corroborative only. The all-\(n\) and rectangular if-and-only-if statements follow from the displayed tensor-entry proof, not from enumeration.
+## originality
 
-Unproved limits include nonhomogeneous boundary forcing, nonrectangular domains, variable coefficients, intermediate-stage positivity, and later Douglas-type ADI variants.
+PASS
+
+The original 1956 three-dimensional Douglas–Rachford scheme and unconditional stability are established prior facts, but stability does not ensure positivity of every matrix entry. The exact pairwise resolvent-diagonal inequalities and finite-grid sharp thresholds appear absent from inspected modern positive-ADI records. The 1956 paper and 1962 follow-up were blocked in fresh authorized full-text retrieval (Oxford VPN disconnected), so originality is a qualified best-of-knowledge PASS with material historical risk, not a claim of complete original paper noncoverage.
+
+## value
+
+PASS
+
+Monotonicity/positivity is a separate numerical-analysis property from the original Douglas–Rachford unconditional stability. Sharp all-rectangular-grid pairwise conditions, the finite-n cubic threshold curve, and an exact sign counterexample quantify when the original 1956 three-dimensional scheme violates discrete maximum principles. The claim is specific to the identified scheme and avoids claiming later ADI methods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

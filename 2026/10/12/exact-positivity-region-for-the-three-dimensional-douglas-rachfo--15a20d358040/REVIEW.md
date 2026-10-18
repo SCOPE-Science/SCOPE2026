@@ -1,37 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The original three-stage equations eliminate to
-\[
-R_{\mathrm{DR}}
-=
-I+3P_xP_yP_z-P_xP_y-P_xP_z-P_yP_z.
-\]
-Tensor structure makes every matrix entry depend only on how many coordinate indices change. The minimum diagonal of
-\[
-P_n(s)=(I+sT_n)^{-1}
-\]
-is the boundary diagonal
-\[
-d_n(s)=D_{n-1}(s)/D_n(s),
-\]
-so all sign constraints reduce exactly to three pair inequalities. The necessity argument uses strictly positive off-diagonal resolvent entries; the cube threshold follows from strict monotonicity of \(d_n(s)\). The packaged rational checker replays the explicit \(2^3\)-grid failure and threshold identities.
+## correctness
 
-## Originality
-PASS. The 1956 source defines the exact scheme and proves unconditional stability, but the inspected full text does not state an entrywise positivity region. The closest full-text later source studies two-dimensional traditional Douglas–Rachford growth factors and oscillations, not the three-dimensional tensor-entry criterion. Targeted searches under positivity, maximum-principle, nonnegative-matrix, resolvent, and three-space-variable terminology found no implication-equivalent theorem.
+PASS
 
-The closest existing positivity result in the present collection concerns the distinct two-dimensional Peaceman–Rachford map. It factorizes differently and does not imply the three nonlinear pair conditions here.
+Original three-stage 3D Douglas–Rachford with commuting directional Laplacian lifts eliminates to R=I+3PxPyPz−PxPy−PxPz−PyPz. Entries according to 0,1,2,3 different coordinates have signs determined by 1+3abc−ab−ac−bc, p(3bc−b−c), pq(3c−1), and 3pqr respectively. Positive inverse offdiagonals and minimal endpoint diagonals d_n=D_{n−1}/D_n make each of the three 3d_i d_j≥d_i+d_j necessary and sufficient for n_i≥2 and Δt>0. Continuant D_n recurrence plus monotone resolvent gives cubic d_n≥2/3, unique τ_n↑(3−√6)/2 and τ_2=(√7−1)/6. An independently constructed exact 8×8 rational Kronecker step at s=7/25 yielded min entry −3241875/3189506048 and 24 negative entries. Infinite all-grid result rests on analytic entry classification, not this finite example.
 
-A residual risk remains because the complete 1962 Douglas article on three-space-variable ADI methods was not fully retrievable through the inspected source. Its available introduction identifies the 1956 method as an earlier first-order predecessor and develops a different second-order method, but the inaccessible body was not treated as evidence of noncoverage.
+## originality
 
-## Value
-PASS. Unconditional stability does not guarantee preservation of nonnegative temperatures. The theorem gives a natural complete classification for a foundational three-dimensional heat integrator, reduces the full sign problem to three one-dimensional boundary quantities, and exposes a sharp cube constant
-\[
-\frac{3-\sqrt6}{2}.
-\]
-The exact rational counterexample demonstrates that the restriction is not a proof artifact.
+PASS
 
-## Closest literature and limitations
-The closest sources are the original Douglas–Rachford paper, a later full-text study of ADI stability and oscillations, and Douglas's later three-space-variable ADI paper. The result is limited to the original first-order three-stage scheme, rectangular tensor grids, homogeneous Dirichlet data, and completed-step positivity.
+The original 1956 three-dimensional Douglas–Rachford scheme and unconditional stability are established prior facts, but stability does not ensure positivity of every matrix entry. The exact pairwise resolvent-diagonal inequalities and finite-grid sharp thresholds appear absent from inspected modern positive-ADI records. The 1956 paper and 1962 follow-up were blocked in fresh authorized full-text retrieval (Oxford VPN disconnected), so originality is a qualified best-of-knowledge PASS with material historical risk, not a claim of complete original paper noncoverage.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Monotonicity/positivity is a separate numerical-analysis property from the original Douglas–Rachford unconditional stability. Sharp all-rectangular-grid pairwise conditions, the finite-n cubic threshold curve, and an exact sign counterexample quantify when the original 1956 three-dimensional scheme violates discrete maximum principles. The claim is specific to the identified scheme and avoids claiming later ADI methods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
