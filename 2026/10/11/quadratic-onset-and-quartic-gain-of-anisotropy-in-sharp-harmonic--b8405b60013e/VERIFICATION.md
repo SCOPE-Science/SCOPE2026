@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,125 +19,24 @@
 }
 ---
 
-Let
-\[
-\Psi_n(s,r)
-=
-n\log L_{n,r}(e^s)-s.
-\]
-The source proves that this is strictly convex in
-\[
-s
-\]
-and has a unique minimizer
-\[
-s_n(r)=\log q_n(r).
-\]
+# Independent mathematical audit
 
-At
-\[
-r=0,
-\]
-\[
-L_{n,0}(e^s)
-=
-n\,\mathbb E
-\sqrt{1+(e^{2s}-1)t^2},
-\]
-where
-\[
-t
-\]
-is one coordinate of a uniform point on
-\[
-S^{n-1}.
-\]
-Using
-\[
-\mathbb E(t^2)=1/n
-\]
-and
-\[
-\mathbb E(t^4)=3/[n(n+2)]
-\]
-gives
-\[
-H_n
-=
-\partial_s^2\Psi_n(0,0)
-=
-\frac{2(n-1)(n+1)}{n(n+2)}.
-\]
+## correctness
 
-The exact source formulas for the radial and tangential Poisson-gradient components give, after a second-order Taylor expansion,
-\[
-nL_{n,r}'(1)-L_{n,r}(1)
-=
-\frac{(n-2)(n-1)(3n+2)}
-{n^2(n+2)}
-r^2
-+
-O(r^4).
-\]
-Since
-\[
-L_{n,0}(1)=n,
-\]
-\[
-\partial_s\Psi_n(0,r)
-=
-A_n r^2+O(r^4),
-\qquad
-A_n
-=
-\frac{(n-2)(n-1)(3n+2)}
-{n^3(n+2)}.
-\]
+PASS
 
-The implicit-function theorem yields
-\[
-\log q_n(r)
-=
--\frac{A_n}{H_n}r^2+O(r^4),
-\]
-hence
-\[
-q_n(r)
-=
-1-
-\frac{(n-2)(3n+2)}
-{2n^2(n+1)}
-r^2
-+
-O(r^4).
-\]
+Matched the source Theorem9.3 exact L_{n,r}(q) integral and q minimization (not its separate Poisson-information relaxation). Set Psi(s,r)=n log L(e^s)-s. At origin, isotropic spherical moments E t²=1/n,E t⁴=3/[n(n+2)] give H=2(n-1)(n+1)/[n(n+2)]>0. Independently expanded the source Poisson-gradient radial/tangential numerator nLq(1)-L(1) using parity r->-r,t->-t and moments: Psi_s(0,r)=A r²+O(r4), A=(n-2)(n-1)(3n+2)/[n³(n+2)]. Implicit minimizer displacement -A/H r² and quadratic optimization advantage A²/(2H) r⁴ establish c and delta. Independently integrated source exact formula at n=3,4,5,7 and r=.1,.05 with high precision; scaled derivatives approach the analytic A; numerical checks corroborate but do not prove all n.
 
-Strict convexity and Taylor expansion around
-\[
-s=0
-\]
-then give
-\[
-\Psi_n(0,r)-\Psi_n(s_n(r),r)
-=
-\frac{A_n^2}{2H_n}r^4+O(r^6).
-\]
-This is exactly
-\[
-\log
-\frac{\mathcal J_n^{\mathrm{iso}}(r)}
-{\mathcal J_n(r)}.
-\]
-The coefficient simplifies to
-\[
-\delta_n
-=
-\frac{(n-2)^2(n-1)(3n+2)^2}
-{4n^5(n+1)(n+2)}.
-\]
+## originality
 
-The symmetry
-\[
-L_{n,-r}(q)=L_{n,r}(q)
-\]
-justifies the even remainders. The proof is analytic; numerical minimization was used only as a secondary sanity check.
+PASS
+
+Zhong–Kalaj Theorem9.3 identifies the exact variational problem and Prop9.4 proves only qualitative anisotropy q<1; it does not give a local radial curvature or the optimal-to-isotropic gap. Extracting these from the implicit integral demands a dimension-uniform second-order spherical-moment expansion and a fourth-order minimization argument. The other Poisson-information bound is a distinct relaxation, not the scalar q=1 comparator.
+
+## value
+
+PASS
+
+Quantifies two different geometric scales for the new natural extremal family: extremizing derivatives depart from isotropy at order r² while the sharp Jacobian improvement begins at r⁴. Exact dimension-dependent curvature and gain are useful quantitative structure, not a numerical example or arbitrary specialization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

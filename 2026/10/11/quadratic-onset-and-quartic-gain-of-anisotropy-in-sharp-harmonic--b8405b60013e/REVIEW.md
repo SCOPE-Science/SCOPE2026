@@ -1,71 +1,21 @@
-# Review of Quadratic onset and quartic gain of anisotropy in sharp harmonic Jacobians
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source gives the exact smooth one-variable objective
-\[
-\Psi_n(s,r)=n\log L_{n,r}(e^s)-s
-\]
-with a unique minimizer.
+PASS
 
-At the center, the Hessian in the anisotropy variable is
-\[
-H_n
-=
-\frac{2(n-1)(n+1)}{n(n+2)}
->0.
-\]
-A direct second-order expansion of the source's Poisson-gradient formula gives
-\[
-\partial_s\Psi_n(0,r)
-=
-\frac{(n-2)(n-1)(3n+2)}
-{n^3(n+2)}
-r^2
-+
-O(r^4).
-\]
-The implicit-function theorem therefore gives the stated coefficient of
-\[
-q_n(r)-1.
-\]
+Matched the source Theorem9.3 exact L_{n,r}(q) integral and q minimization (not its separate Poisson-information relaxation). Set Psi(s,r)=n log L(e^s)-s. At origin, isotropic spherical moments E t²=1/n,E t⁴=3/[n(n+2)] give H=2(n-1)(n+1)/[n(n+2)]>0. Independently expanded the source Poisson-gradient radial/tangential numerator nLq(1)-L(1) using parity r->-r,t->-t and moments: Psi_s(0,r)=A r²+O(r4), A=(n-2)(n-1)(3n+2)/[n³(n+2)]. Implicit minimizer displacement -A/H r² and quadratic optimization advantage A²/(2H) r⁴ establish c and delta. Independently integrated source exact formula at n=3,4,5,7 and r=.1,.05 with high precision; scaled derivatives approach the analytic A; numerical checks corroborate but do not prove all n.
 
-Strict convexity then gives the optimized objective improvement
-\[
-\frac{A_n^2}{2H_n}r^4+O(r^6),
-\]
-which simplifies to the claimed positive
-\[
-\delta_n.
-\]
+## originality
 
-## Originality
+PASS
 
-PASS. The fresh source introduces
-\[
-q_n(r)
-\]
-and proves only the qualitative fact
-\[
-q_n(r)<1
-\]
-away from the origin. It does not give a small-radius expansion, a radial/tangential anisotropy coefficient, or the quartic determinant gain relative to the scalar trial.
+Zhong–Kalaj Theorem9.3 identifies the exact variational problem and Prop9.4 proves only qualitative anisotropy q<1; it does not give a local radial curvature or the optimal-to-isotropic gap. Extracting these from the implicit integral demands a dimension-uniform second-order spherical-moment expansion and a fourth-order minimization argument. The other Poisson-information bound is a distinct relaxation, not the scalar q=1 comparator.
 
-Searches covering the exact source, the minimizer notation, quadratic anisotropy onset, small-radius Jacobian profile, and quartic isotropic-trial gap returned no implication-equivalent result.
+## value
 
-Earlier harmonic Schwarz and planar Jacobian papers have different objects and do not contain the higher-dimensional radius-dependent minimizer introduced by the new paper.
+PASS
 
-## Value
+Quantifies two different geometric scales for the new natural extremal family: extremizing derivatives depart from isotropy at order r² while the sharp Jacobian improvement begins at r⁴. Exact dimension-dependent curvature and gain are useful quantitative structure, not a numerical example or arbitrary specialization.
 
-PASS. Strict anisotropy is one of the main structural conclusions of the source's exact Jacobian theory. The accepted result identifies its local scale and shows a non-obvious separation of orders: the extremal shape becomes anisotropic at order
-\[
-r^2,
-\]
-but optimizing that anisotropy changes the determinant only at order
-\[
-r^4.
-\]
-
-This supplies a quantitative local model for the newly discovered extremal geometry and an exact benchmark for numerical or analytic approximations to the source's implicit minimizer.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

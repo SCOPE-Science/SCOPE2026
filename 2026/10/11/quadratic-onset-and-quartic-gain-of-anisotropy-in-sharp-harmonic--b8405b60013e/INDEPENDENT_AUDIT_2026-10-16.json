@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T02:44:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/quadratic-onset-and-quartic-gain-of-anisotropy-in-sharp-harmonic--b8405b60013e",
+        "https://arxiv.org/pdf/2609.09316"
+      ],
+      "rationale": "Matched the source Theorem9.3 exact L_{n,r}(q) integral and q minimization (not its separate Poisson-information relaxation). Set Psi(s,r)=n log L(e^s)-s. At origin, isotropic spherical moments E t²=1/n,E t⁴=3/[n(n+2)] give H=2(n-1)(n+1)/[n(n+2)]>0. Independently expanded the source Poisson-gradient radial/tangential numerator nLq(1)-L(1) using parity r->-r,t->-t and moments: Psi_s(0,r)=A r²+O(r4), A=(n-2)(n-1)(3n+2)/[n³(n+2)]. Implicit minimizer displacement -A/H r² and quadratic optimization advantage A²/(2H) r⁴ establish c and delta. Independently integrated source exact formula at n=3,4,5,7 and r=.1,.05 with high precision; scaled derivatives approach the analytic A; numerical checks corroborate but do not prove all n.",
+      "residual_risks": [
+        "Expansion is at fixed n>=3, near r=0, with no full-radius or n->infinity uniformity claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem9.3 exact all-r variational formula and Prop9.4 sign q<1 do not state or directly bound local coefficients c_n,delta_n"
+        ],
+        "reasoning": "An implicit global characterization is not already an explicit curvature law when the dimension-dependent Taylor coefficients require nontrivial spherical-gradient integration.",
+        "searches": [
+          "Resultary harmonic Jacobian query",
+          "https://arxiv.org/pdf/2609.09316"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2609.09316"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source Prop9.4 proves q_n(r)<1; auditted analytic expansion gives the first nonzero derivative and gain with explicit constants"
+        ],
+        "reasoning": "Qualitative anisotropy cannot yield the order r² or the exact r⁴ improvement; new perturbative analysis is genuinely required.",
+        "searches": [
+          "https://arxiv.org/pdf/2609.09316",
+          "Resultary harmonic Jacobian query"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source q_n(r) is an implicit minimizer, and the same source distinguishes its anisotropic extremal from the Poisson-information relaxation"
+        ],
+        "reasoning": "The scalar q=1 trial is a feasible point of the *exact* variational problem; it must not be mistaken for the separate Fisher/Poisson quadratic bound.",
+        "searches": [
+          "Resultary exact harmonic Jacobian anisotropy query",
+          "https://arxiv.org/pdf/2609.09316"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Numerically the primary variational family can be evaluated, but source reports no tabulated c_n or delta_n"
+        ],
+        "reasoning": "No exact coefficient table for all n was found; numerical approximations would not establish the local asymptotic formula.",
+        "searches": [
+          "Resultary harmonic Jacobian query",
+          "https://arxiv.org/pdf/2609.09316"
+        ]
+      },
+      "rationale": "Zhong–Kalaj Theorem9.3 identifies the exact variational problem and Prop9.4 proves only qualitative anisotropy q<1; it does not give a local radial curvature or the optimal-to-isotropic gap. Extracting these from the implicit integral demands a dimension-uniform second-order spherical-moment expansion and a fourth-order minimization argument. The other Poisson-information bound is a distinct relaxation, not the scalar q=1 comparator.",
+      "residual_risks": [
+        "Independent finite-r checks cover n=3,4,5,7 but not a proof of the full n-uniform coefficient.",
+        "Expansion is at fixed n>=3, near r=0, with no full-radius or n->infinity uniformity claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source supplies exact integrals and qualitative sign but not the two audited asymptotic coefficients",
+          "evidence": [
+            "Theorem9.3 eqs (80)–(88), Prop9.4 eq (89), §9.3 different Poisson-information bound"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.09316",
+          "material_read": "Full accessible 36-page primary PDF; Theorems9.1/9.3, Proposition9.4 and Section9.3; page image 27",
+          "method": "PDF text plus page image and theorem-to-proof comparison",
+          "title": "Sharp mean-width and Jacobian bounds for Euclidean and hyperbolic harmonic maps",
+          "trigger": "Identical sharp Jacobian variational problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/quadratic-onset-and-quartic-gain-of-anisotropy-in-sharp-harmonic--b8405b60013e",
+        "https://arxiv.org/pdf/2609.09316"
+      ],
+      "rationale": "Quantifies two different geometric scales for the new natural extremal family: extremizing derivatives depart from isotropy at order r² while the sharp Jacobian improvement begins at r⁴. Exact dimension-dependent curvature and gain are useful quantitative structure, not a numerical example or arbitrary specialization.",
+      "residual_risks": [
+        "Expansion is at fixed n>=3, near r=0, with no full-radius or n->infinity uniformity claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every n>=3 near r=0, the unique sharp harmonic Jacobian minimizer satisfies q_n(r)=1-c_n r^2+O(r^4), c_n=(n-2)(3n+2)/(2n^2(n+1)); the determinant gain versus the isotropic trial is delta_n r^4+O(r^6) with delta_n=(n-2)^2(n-1)(3n+2)^2/[4n^5(n+1)(n+2)].",
+  "limitations": [
+    "Independent finite-r checks cover n=3,4,5,7 but not a proof of the full n-uniform coefficient.",
+    "Expansion is at fixed n>=3, near r=0, with no full-radius or n->infinity uniformity claim."
+  ],
+  "schema_version": 1
+}
