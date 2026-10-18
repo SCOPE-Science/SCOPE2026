@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T17:59:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Both specified scalar randomized RK2 stage formulas solve to R(z,t)=(1+(1-t)z)/(1-tz). For z=-u+iv, u>0, s=|z|², exact identity |R|²-1=[-2u+(1-2t)s]/[1+2tu+t²s]. The stiff real-axis limit is g(t)=((1-t)/t)² (infinite at t=0). Independently expanded exact supporting identity g(t)-[1-8(t-1/2)+12(t-1/2)²]=(1-t)(2t-1)²(3t+1)/t²>=0, so ET=1/2 implies lim E|R|²>=1+12Var(T), with nondegenerate obstruction; a family with small probability mass at T=1 approaches coefficient 12 proving sharpness. For T=a with probability p and T=1 otherwise, the boundary p*=[a/(1-a)]² gives after positive denominator multiplication a strictly negative polynomial for every u>0 and s>=u²; affine mixing proves sufficiency, and the stiff limit p[(1-a)/a]² proves necessity for p>p*. Inspected coefficient-level package verifier; independent SymPy factorization matches identity. These are statements of strict expected squared contraction at every finite Re z<0, not nonlinear A-stability.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alternative random-stage and stochastic-theta schemes use distinct maps or SDE noise terms"
+        ],
+        "reasoning": "Algebraic-stability on realization-wise support [1/2,1] and stochastic-theta SDE mean-square analysis do not imply necessary/sufficient mass below midpoint for this rational map.",
+        "searches": [
+          "randomized implicit two stage Runge Kutta mean square A stability arbitrary stage law theta random parameter",
+          "Eisenmann Jans Kruse Podhajsky arXiv:2607.18928",
+          "Higham stochastic theta method DOI 10.1137/S003614299834736X"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2404.19059",
+        "https://arxiv.org/abs/2607.18928",
+        "randomized implicit two stage Runge Kutta mean square A stability arbitrary stage law theta random parameter",
+        "Resultary published-record semantic search (query recorded above)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uniform-stage failure alone yields no if-and-only-if arbitrary-stage result",
+          "Different randomized tableaux do not dominate original map"
+        ],
+        "reasoning": "The new support-{a,1} threshold and mean-preserving law no-go require inequalities across all complex left-half-plane z, beyond the published bounded uniform stability region.",
+        "searches": [
+          "arXiv:2404.19059",
+          "randomized implicit two stage Runge Kutta mean square A stability arbitrary stage law theta random parameter",
+          "arXiv:2607.18928"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Identical rational R(z,t) but original T uniform on [0,1]",
+          "Derived general ET=1/2 obstruction and two-atom p*(a)"
+        ],
+        "reasoning": "Equivalent stability notion is E|R|²<1 for all left-half-plane z. The published uniform-law negative result is one instance and does not give the sharp all-laws inequality or biased-law positive examples.",
+        "searches": [
+          "randomized implicit two stage Runge Kutta mean square A stability arbitrary stage law theta random parameter",
+          "Bochacik Przybylowicz arXiv:2404.19059"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact p*=(a/(1-a))² and optimal stiff penalty 12 Var not found in inspected source equation/table"
+        ],
+        "reasoning": "A simple one-line derived inequality could exist in specialist notes; no exact database identified; searches are not priority certification.",
+        "searches": [
+          "randomized implicit two stage Runge Kutta mean square A stability arbitrary stage law theta random parameter",
+          "mean square A stability two point random theta a/(1-a) squared threshold"
+        ]
+      },
+      "rationale": "Same amplification map appears in Bochacik–Przybyłowicz’s uniform stage theorem, whose failure of global mean-square A-stability does not already imply the sharp distribution-free variance penalty or nontrivial exact biased two-atom stability frontier. Other implicit randomized tableaux and stochastic-theta SDE schemes are not logically equivalent.",
+      "residual_risks": [
+        "Simple random-theta folklore could contain an equivalent p*(a) mixture criterion even if no indexed search finds it.",
+        "Higher-order/nonlinear RK convergence is deliberately excluded; biased stable distribution generally does not preserve midpoint local-order condition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original uniform random stage has bounded stability region; no general mean=1/2 variance penalty or two-point probability frontier stated in inspected results.",
+          "evidence": [
+            "arXiv:2404.19059 §§2 and 4, Fact 3"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2404.19059",
+          "material_read": "Complete 16-page primary arXiv paper, S1/S2 definitions, uniform random stage, scalar amplification and mean-square stability sections, Fact 3 and conclusions.",
+          "method": "Full-text PDF read with original scheme page image inspected",
+          "title": "Convergence and stability of randomized implicit two-stage Runge–Kutta schemes",
+          "trigger": "Exact original schemes and their random-stage law"
+        },
+        {
+          "assessment": "Different tableau/stage support; do not claim whole-text noncoverage.",
+          "evidence": [
+            "arXiv:2607.18928, abstract and method description"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.18928",
+          "material_read": "Relevant abstract/method discussion of a distinct random singly-diagonal tableau, including random stages constrained [1/2,1]; complete proof not read.",
+          "method": "Open-access article abstract/section-level context inspection",
+          "title": "Error Bound and Stability Analysis for a Randomized Singly Diagonally Implicit Runge–Kutta Method",
+          "trigger": "Potential stronger randomized implicit A-stability covering distributions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact impossibility theorem for preserving midpoint stage mean plus a constructive if-and-only-if design boundary quantify a genuine numerical-analysis stability trade-off for a natural family of randomized implicit RK2 discretizations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2404.19059",
+    "https://arxiv.org/abs/2607.18928",
+    "randomized implicit two stage Runge Kutta mean square A stability arbitrary stage law theta random parameter",
+    "Resultary published-record semantic search (query recorded above)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "IID scalar complex Dahlquist equation and mean-square A-stability; not B-stability, multidimensional algebraic stability or nonlinear convergence."
+  ],
+  "residual_risks": [
+    "Simple random-theta folklore could contain an equivalent p*(a) mixture criterion even if no indexed search finds it.",
+    "Higher-order/nonlinear RK convergence is deliberately excluded; biased stable distribution generally does not preserve midpoint local-order condition."
+  ],
+  "schema_version": 1
+}

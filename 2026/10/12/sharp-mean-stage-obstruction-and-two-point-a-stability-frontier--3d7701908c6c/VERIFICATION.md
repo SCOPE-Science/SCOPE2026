@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and its standard library. The program uses rational polynomial arithmetic to verify two fully expanded identities after clearing denominators: the quadratic supporting bound for the stiff-limit function, and the cancellation identity at the two-point A-stability threshold. It also performs 309 exact-rational evaluations spanning stable two-point laws, stiff witnesses beyond the threshold, and a sequence approaching the optimal variance coefficient. No numerical approximation enters those checks.
+## correctness
 
-The mathematical proof in `RESULT.md` supplies the arguments not established by finite evaluation: strict positivity of the boundary polynomial for every left-half-plane argument, the limit/interchange arguments for arbitrary probability laws including an atom at zero, and the optimality sequence for the universal coefficient. These checks are internal and do not constitute independent validation. Analytic extension to nonlinear systems, correlated stages, full A- or B-stability of a multidimensional update, and general order assertions are not verified.
+PASS
+
+Both specified scalar randomized RK2 stage formulas solve to R(z,t)=(1+(1-t)z)/(1-tz). For z=-u+iv, u>0, s=|z|², exact identity |R|²-1=[-2u+(1-2t)s]/[1+2tu+t²s]. The stiff real-axis limit is g(t)=((1-t)/t)² (infinite at t=0). Independently expanded exact supporting identity g(t)-[1-8(t-1/2)+12(t-1/2)²]=(1-t)(2t-1)²(3t+1)/t²>=0, so ET=1/2 implies lim E|R|²>=1+12Var(T), with nondegenerate obstruction; a family with small probability mass at T=1 approaches coefficient 12 proving sharpness. For T=a with probability p and T=1 otherwise, the boundary p*=[a/(1-a)]² gives after positive denominator multiplication a strictly negative polynomial for every u>0 and s>=u²; affine mixing proves sufficiency, and the stiff limit p[(1-a)/a]² proves necessity for p>p*. Inspected coefficient-level package verifier; independent SymPy factorization matches identity. These are statements of strict expected squared contraction at every finite Re z<0, not nonlinear A-stability.
+
+## originality
+
+PASS
+
+Same amplification map appears in Bochacik–Przybyłowicz’s uniform stage theorem, whose failure of global mean-square A-stability does not already imply the sharp distribution-free variance penalty or nontrivial exact biased two-atom stability frontier. Other implicit randomized tableaux and stochastic-theta SDE schemes are not logically equivalent.
+
+## value
+
+PASS
+
+An exact impossibility theorem for preserving midpoint stage mean plus a constructive if-and-only-if design boundary quantify a genuine numerical-analysis stability trade-off for a natural family of randomized implicit RK2 discretizations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
