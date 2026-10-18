@@ -1,15 +1,21 @@
-# Scientific review: polynomial rare-left-tail Ulam–Kac counts
+# Independent mathematical audit
 
-## Correctness — PASS
-The recurrence \(e_{t+1}=e_t+U_t+e_{U_t}\) follows exactly from the adder definition. Conditioning on the first \(r\) index choices freezes every subsequent index that can occur on a path with final surplus \(r\). The resulting finite generating polynomials yield an exact nonnegative-integer binomial-basis polynomial, for every integer \(n\ge r\ge0\). Comparing its highest three coefficients to the classical inversion-code distribution gives the leading deficit \((r-2)\binom{n-r}{r-2}\) for each fixed \(r\ge3\), and division by the Mahonian leading term gives the inverse-square limit. Exceptional \(r=0,1,2\) cases are excluded from the deficit assertion. The standalone Python verifier completed 164 exact checks, including all index histories to length nine, as finite corroboration only.
+## correctness
 
-## Originality — PASS, with residual risk
-Ben-Naim and Krapivsky (2002, arXiv:cond-mat/0208072v1, pp. 1–2) give only the first two smallest-value probabilities, not a polynomiality result for every fixed surplus. Bonner (2023, arXiv:2303.03606v1, Sections 1–4 and 6) studies moments and first-passage questions rather than the fixed-surplus point-mass law; the related 2025 dissertation Chapter 3 similarly focuses on moments. Mahonian inversion counts and traditional Brauer-chain endpoint counts are prior, but do not imply the claimed fixed-length adder enumeration. Targeted record/literature searches and available previous claims did not reveal covering results. These searches are not proof of priority; older addition-chain literature could contain an equivalent identity.
+PASS
 
-## Value — PASS
-The problem is a natural left-tail enumeration for the Ulam–Kac adder, a standard history-dependent probabilistic model. All fixed surpluses are handled by one constructive finite-prefix formula rather than isolated endpoint checks. The exact inverse-square discrepancy quantifies the first nontrivial effect of history feedback compared with the classical independent-index/Mahonian distribution; its coefficient varies meaningfully with the surplus. This does not solve typical-value or first-passage problems.
+The frozen-prefix decomposition is exact because e_t=X_t-(t+1) satisfies nonnegative e_{t+1}=e_t+u_t+e_{u_t}, so any history with final e_n=r cannot use index j>r after time r. The full later steps then draw from fixed indices 0..r with fixed increment weights j+e_j; expanding (1+B_prefix(z))^(n-r) gives nonnegative integer h_{r,k} coefficients and degree r. The leading h_rr=1 comes from all-zero prefixes, the next coefficient 2(r-1) from exactly one 2-increment or a single early 1-prefix. Comparing to independent inversion codes, feedback requires excess at least four, so all prefixes of excess <=2 agree, while the unique excess-one prefix starting at t=1 invalidates exactly r-2 uses of later index two. Hence the r-2 coefficient difference r-2 and n^2(1-A/M)->r(r-1)(r-2) for fixed r>=3.
 
-## Closest literature and limitations
-G. Bonner, *On the moments of the Ulam-Kac adder*, arXiv:2303.03606v1 (2023); E. Ben-Naim and P. L. Krapivsky, *Growth and Structure of Stochastic Sequences*, arXiv:cond-mat/0208072v1 (2002); Bonner's 2025 dissertation Chapter 3; OEIS A008302 and A008927. The argument is for fixed surplus and finite discrete time; its asymptotic does not cover growing surplus.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Ben-Naim–Krapivsky original 2002 source directly considers this history-dependent process and gives minimum and minimum-plus-one endpoint probabilities; Bonner 2023 centers on moments. The classical Mahonian inversion-code law is the uncorrelated comparison model. These statements neither imply exact fixed-surplus polynomiality for every r nor the universal second-order difference without a nontrivial frozen-prefix combinatorial proof. Complete original full-text related portions and Bonner abstract were inspected; potential unindexed addition-chain results remain a risk.
+
+## value
+
+PASS
+
+Exact rare-left-tail probabilities are natural discrete invariants complementary to typical-value/moment asymptotics, and the sharp 1/n^2 deficit isolates the earliest feedback effect against the canonical inversion-count model. The positive binomial-basis coefficients give an effective finite-prefix algorithm for each fixed surplus and identify structural meaning of the correction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

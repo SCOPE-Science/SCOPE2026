@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T20:10:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen-prefix decomposition is exact because e_t=X_t-(t+1) satisfies nonnegative e_{t+1}=e_t+u_t+e_{u_t}, so any history with final e_n=r cannot use index j>r after time r. The full later steps then draw from fixed indices 0..r with fixed increment weights j+e_j; expanding (1+B_prefix(z))^(n-r) gives nonnegative integer h_{r,k} coefficients and degree r. The leading h_rr=1 comes from all-zero prefixes, the next coefficient 2(r-1) from exactly one 2-increment or a single early 1-prefix. Comparing to independent inversion codes, feedback requires excess at least four, so all prefixes of excess <=2 agree, while the unique excess-one prefix starting at t=1 invalidates exactly r-2 uses of later index two. Hence the r-2 coefficient difference r-2 and n^2(1-A/M)->r(r-1)(r-2) for fixed r>=3.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original paper gives P_n(n+1)=1/n! and P_n(n+2)=(n-1)/n! and enumerates supports through n=15, focusing on typical behavior; Bonner theorem controls logarithms of moments."
+        ],
+        "reasoning": "One or two extreme probabilities and global moments are too weak to recover all fixed r coefficients or the Mahonian leading deficit. No accessible general stronger fixed-tail theorem found.",
+        "searches": [
+          "Ben-Naim–Krapivsky 2002 cond-mat/0208072 Section model I and eq.(6)",
+          "Bonner arXiv:2303.03606 and 2025 dissertation Chapter 3 abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:cond-mat/0208072v1",
+        "arXiv:2303.03606v1",
+        "OEIS A008302",
+        "OEIS A008927"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed r=0 and r=1 follow earlier extreme probabilities; the proof generalizes to arbitrary r and identifies the first feedback discrepancy at binomial degree r-2."
+        ],
+        "reasoning": "The known Mahonian product plus first extreme points does not imply coefficients h_{r,k} of the actual correlated adder. The frozen prefix and exceptional early index-one event provide the extra argument.",
+        "searches": [
+          "Ben-Naim–Krapivsky 2002 exact extremal statements",
+          "Bonner 2023 moment theorem",
+          "Mahonian generating function product_{t=0}^{n-1}(1+...+z^t)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A_{n,r} counts exact histories with fixed additive surplus, whereas Mahonian numbers count sums of independent choice indices. They agree in leading two Newton coefficients but not at degree r-2 for r>=3."
+        ],
+        "reasoning": "Equivalent addition-chain/recursive-history endpoint count formulations could exist. The explicit history-feedback deficiency is not derived from ordinary Mahonian table and is checked by separate combinatorial comparison.",
+        "searches": [
+          "Ulam Kac adder polynomial probability rare events web",
+          "Mahonian permutation inversion code independent uniforms",
+          "Ben-Naim Krapivsky Growth and structure of stochastic sequences 2002"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mahonian A008302 is an exact table for the *comparison* distribution M_{n,r}; A008927 aggregates addition chains differently and omits the fixed length/feedback law."
+        ],
+        "reasoning": "The deficit cannot be obtained by recomputing a known table; the paper derives a new exact identity for correlated histories. An unindexed earlier table remains a limited priority risk.",
+        "searches": [
+          "OEIS A008302 Mahonian triangle",
+          "OEIS A008927 Brauer/star-addition-chain endpoint counts",
+          "SCOPE2026 GitHub code search: Ulam Kac adder Mahonian (no hits)",
+          "Resultary semantic query attempted: Ulam Kac adder exact fixed surplus left tail Mahonian coefficients polynomial path counts inversions"
+        ]
+      },
+      "rationale": "The Ben-Naim–Krapivsky original 2002 source directly considers this history-dependent process and gives minimum and minimum-plus-one endpoint probabilities; Bonner 2023 centers on moments. The classical Mahonian inversion-code law is the uncorrelated comparison model. These statements neither imply exact fixed-surplus polynomiality for every r nor the universal second-order difference without a nontrivial frozen-prefix combinatorial proof. Complete original full-text related portions and Bonner abstract were inspected; potential unindexed addition-chain results remain a risk.",
+      "residual_risks": [
+        "Resultary semantic-search connection was UNAVAILABLE during this run; this is a search-access limitation, not evidence of novelty or an automatic scientific rejection.",
+        "Bonner 2023 full primary and 2025 dissertation Chapter 3 not completely read; no whole-document noncoverage claim.",
+        "Classical addition-chain fixed-length endpoint enumerations may have an equivalent exact fixed-surplus count.",
+        "Asymptotic limit applies fixed r>=3 only, not r growing with n."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives two extreme event probabilities and support enumeration, not the fixed-r Newton polynomial or Mahonian coefficient difference in inspected material.",
+          "evidence": "Original model-I exact P_n(n+1)=1/n!, P_n(n+2)=(n-1)/n!; focus on typical scaling.",
+          "identifier_or_url": "arXiv:cond-mat/0208072v1",
+          "material_read": "ResearchGate mirror of the original full-paper text, model-I recursion, extremal probabilities and support tables, distinction from model II, sections around equations 2–9.",
+          "method": "primary preprint full-text mirror",
+          "title": "Growth and Structure of Stochastic Sequences",
+          "trigger": "Exact original Ulam–Kac-like history-dependent sequence"
+        },
+        {
+          "assessment": "Moment asymptotics do not determine exact fixed-surplus path counts; full text could mention additional small probabilities.",
+          "evidence": "Abstract: for each fixed m, log E[X_n^m]/sqrt n tends to a constant c_m.",
+          "identifier_or_url": "arXiv:2303.03606v1",
+          "material_read": "Original arXiv abstract and mathematical summary inspected; full article not read.",
+          "method": "original abstract only",
+          "title": "On the moments of the Ulam-Kac adder",
+          "trigger": "Most relevant newer same-process theorem"
+        },
+        {
+          "assessment": "Covers M_{n,r} but not history-dependent A_{n,r}.",
+          "evidence": "M=[z^r] product_{t=0}^{n-1}(1+...+z^t).",
+          "identifier_or_url": "https://oeis.org/A008302",
+          "material_read": "Classical inversion-code generating formula and first coefficients recomputed independently; database entry title/identification from literature.",
+          "method": "classical combinatorial derivation",
+          "title": "Mahonian inversion-count triangle",
+          "trigger": "Potential exact prior table for comparison distribution"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact rare-left-tail probabilities are natural discrete invariants complementary to typical-value/moment asymptotics, and the sharp 1/n^2 deficit isolates the earliest feedback effect against the canonical inversion-count model. The positive binomial-basis coefficients give an effective finite-prefix algorithm for each fixed surplus and identify structural meaning of the correction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Resultary semantic-search connection was UNAVAILABLE during this run; this is a search-access limitation, not evidence of novelty or an automatic scientific rejection.",
+    "Bonner 2023 full primary and 2025 dissertation Chapter 3 not completely read; no whole-document noncoverage claim.",
+    "Classical addition-chain fixed-length endpoint enumerations may have an equivalent exact fixed-surplus count.",
+    "Asymptotic limit applies fixed r>=3 only, not r growing with n."
+  ]
+}
