@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,42 +18,25 @@
   "schema_version": 1
 }
 ---
-The packaged checker `artifacts/verify.py` reconstructs the full averaging equations from the dual-number multiplication
-\[
-\varepsilon^2=0.
-\]
 
-For a general matrix
-\[
-T=
-\begin{pmatrix}
-a&c\\
-b&d
-\end{pmatrix},
-\]
-it derives exactly
-\[
-bc=0,\qquad b(a-d)=0,\qquad cd=0,\qquad d(a-d)=0.
-\]
+# Independent mathematical audit
 
-It verifies symbolically that the two claimed affine-plane families satisfy both averaging identities.
+## correctness
 
-It then exhaustively checks
-\[
-\mathbf F_2,\quad\mathbf F_3,\quad\mathbf F_5,\quad\mathbf F_7.
-\]
-For each field it enumerates every linear operator, tests the identity on all ordered basis pairs, enumerates every algebra automorphism, and computes every conjugacy orbit.
+PASS
 
-The observed counts equal
-\[
-2q^2-1
-\]
-operators and
-\[
-4q-1
-\]
-orbits for every tested \(q\).
+For T(1)=a+bε, T(ε)=c+dε, direct bilinear basis substitution into T(x)T(y)=T(T(x)y)=T(xT(y)) yields precisely bc=0, b(a−d)=0, cd=0,d(a−d)=0. If either b or d is nonzero then c=0 and d=a; if both zero, (a,c) arbitrary. Thus two planes with sole intersection 0. Every algebra automorphism sends ε to sε, s in K*, and scales c↦c/s,b↦sb, giving four orbit families with zero one duplication; finite counts follow. Independently exhaustively enumerated all 2×2 maps and conjugacy orbits for F2,F3,F5 giving (7,7),(17,11),(49,19), respectively; no finite enumeration was used in the arbitrary-field proof.
 
-The checker returns `VERIFY_OK`.
+## originality
 
-Finite enumeration is not used to prove the arbitrary-field theorem.
+PASS
+
+No equivalent statement or dominating theorem was found in the materially inspected same-object prior literature and Resultary results; the exact comparison is specified in the four checks. This is bounded best-of-knowledge, not proof of novelty.
+
+## value
+
+PASS
+
+A complete operator variety plus automorphism orbit classification of the simplest nonsemisimple unital associative algebra gives a reusable exact example for averaging-operator deformation and representation problems; characteristic independence is explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

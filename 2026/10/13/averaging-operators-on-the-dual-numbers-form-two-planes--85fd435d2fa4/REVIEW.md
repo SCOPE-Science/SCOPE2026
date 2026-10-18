@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Direct substitution into the averaging identity gives exactly \(bc=0\), \(b(a-d)=0\), \(cd=0\), and \(d(a-d)=0\), whose solution set is the stated union of two affine planes. The dual-number automorphism group is \(K^\times\), acting by independent rescaling of the single off-diagonal coordinate on each plane. This yields the four normal-form families with only the zero duplication. The finite-field formulas follow directly and are independently replayed by exhaustive enumeration over four prime fields.
+PASS
 
-## Originality
+For T(1)=a+bε, T(ε)=c+dε, direct bilinear basis substitution into T(x)T(y)=T(T(x)y)=T(xT(y)) yields precisely bc=0, b(a−d)=0, cd=0,d(a−d)=0. If either b or d is nonzero then c=0 and d=a; if both zero, (a,c) arbitrary. Thus two planes with sole intersection 0. Every algebra automorphism sends ε to sε, s in K*, and scales c↦c/s,b↦sb, giving four orbit families with zero one duplication; finite counts follow. Independently exhaustively enumerated all 2×2 maps and conjugacy orbits for F2,F3,F5 giving (7,7),(17,11),(49,19), respectively; no finite enumeration was used in the arbitrary-field proof.
 
-PASS. The primary 2023 source develops relative averaging operators and their induced dialgebras but does not classify them on the dual numbers. Cao's foundational full text develops general averaging-algebra theory and finite-dimensional induced Lie structures; it contains no dual-number classification. Focused semantic-database and web searches found no two-plane solution variety, four-family automorphism quotient, or finite-field count. A specialized unindexed source remains a residual risk.
+## originality
 
-## Value
+PASS
 
-PASS. The dual numbers are the smallest nonsemisimple unital local algebra and a canonical first-order infinitesimal object. A complete averaging-operator moduli calculation on this algebra is structurally motivated by the source's induced-dialgebra construction, and the exact finite-field orbit census gives a natural reusable invariant.
+No equivalent statement or dominating theorem was found in the materially inspected same-object prior literature and Resultary results; the exact comparison is specified in the four checks. This is bounded best-of-knowledge, not proof of novelty.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A complete operator variety plus automorphism orbit classification of the simplest nonsemisimple unital associative algebra gives a reusable exact example for averaging-operator deformation and representation problems; characteristic independence is explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
