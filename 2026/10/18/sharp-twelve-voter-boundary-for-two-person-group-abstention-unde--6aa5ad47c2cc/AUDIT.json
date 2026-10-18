@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "For three candidates and two seats, first choice maximizes support and doubled second-stage marginal equals \\(2v(b)-v(a,b)\\). Seven nonempty ballot types and unordered multisets exhaust every anonymous residual electorate and unordered two-voter coalition: \\(28\\binom{n+4}{6}\\) cases for each total size n. Exact comparison finds zero violations for \\(3\\le n\\le11\\) and exactly six for \\(n=12\\); all six are one S3 orbit. The representative has abstention outputs {AB,AC} but participating output {AB}, meeting both universal weak and existential strict Kelly comparisons. Adjoining universal-approval voters adds common first-stage 1 and second-stage doubled marginal 1; hence the same failure persists for \\(n\\ge12\\). The packaged rational PAV evaluator separately confirms the representative and six instances. Exhaustive finite tests address a finite cutoff, not untested infinite models.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2007.01795v5, Chapter 2.3, defines seqPAV as stepwise greedy instead of global PAV.",
+        "arxiv:2302.11890v1, Sections 1–3 and conclusions, addresses characterization axioms for sequential rules."
+      ],
+      "reasoning": "The generic k>=3 individual no-show theorem does not govern k=2. A general k<=2 individual-participation guarantee cannot dominate a two-member coalition failure. Definitions and characterization axioms of greedy rules do not provide the claimed exact 12-voter cutoff. Any unexamined stronger theorem implying this exact classification remains a residual risk.",
+      "searches": [
+        "greedy Thiele committee voting coalition abstention when individual participation holds for k=2",
+        "arxiv:2007.01795v5 sequential Thiele participation",
+        "arxiv:2302.11890v1 sequential valuation rules"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2312.08798v1 (public 2023-12-14)",
+      "arxiv:2007.01795v5",
+      "arxiv:2302.11890v1",
+      "published research-record summaries: sharp no-show boundaries for Coombs, Bucklin, IRV"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bullinger et al. Theorem 1 applies to global ABC scoring rules; Theorem 2 requires k>=3 for its broad sequential individual counterexamples; Remark 1 states k<=2 individual-participation for sequential Thiele."
+      ],
+      "reasoning": "Global PAV group participation does not apply to seqPAV: the two rules choose differently even at two seats. Known failure at k>=3 does not imply a failure at k=2, and known individual success at k=2 does not imply success for group abstention. A specific two-person Kelly failure and its minimal threshold require a distinct argument.",
+      "searches": [
+        "sequential proportional approval voting group participation 2 seats 3 candidates two-voter coalition Kelly no-show",
+        "sequential PAV \"coalition\" \"participation\" \"k=2\" \"tie\"",
+        "arxiv:2312.08798v1 group participation committee size k two"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2312.08798v1 defines Kelly group abstention, establishes global-score group participation, and states sequential Thiele individual participation for two-seat elections."
+      ],
+      "reasoning": "Individual no-show and group no-show have different quantifiers; extending k<=2 individual participation to a two-member coalition is invalid. Optimizing PAV differs from greedy PAV, so a global objective group-participation theorem is inapplicable. The new minimal group profile explicitly witnesses the strict distinction.",
+      "searches": [
+        "sequential proportional approval voting group participation 2 seats 3 candidates two-voter coalition Kelly no-show",
+        "sharp 12-voter group participation failure sequential PAV two-seat committee tied outcomes one orbit",
+        "arxiv:2312.08798v1 Sections 2.2, 3.1 and Remark 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected published source and the searched research-record summaries gave no matching exact 12-voter, six-case seqPAV group-abstention table."
+      ],
+      "reasoning": "The six instances result from a complete new enumeration over three-candidate ballot multisets and two-ballot coalitions. Nearby published no-show tables concern ranked single-winner rules and cannot imply this count or its orbit through a known rule equivalence. An incomplete external search cannot prove priority.",
+      "searches": [
+        "sharp 12-voter group participation failure sequential PAV two-seat committee tied outcomes one orbit",
+        "sequential proportional approval voting group no show paradox two committee members 12 voters",
+        "two voter coalition abstention no show paradox sequential proportional approval voting k=2 committee size two candidates three sharp twelve voters"
+      ]
+    },
+    "rationale": "The most relevant 2023 paper proves group participation for globally optimizing ABC scoring rules and individual participation for sequential Thiele with two seats; neither implies group participation for two-seat greedy PAV, and the inspected text did not state this sharp two-person threshold or its six-instance orbit. The survey defines the greedy PAV procedure but does not assert the coalition theorem. Sequential-rule axiomatization does not give the numerical cutoff. Published research records found nearby no-show minima for ranked single-winner rules (Coombs, Bucklin, IRV), whose assumptions and conclusions do not imply the present approval two-seat case. This is a best-knowledge scientific comparison, not a guarantee of priority.",
+    "residual_risks": [
+      "Priority risk: a less discoverable preprint, appendix, or general reduction could already contain an equivalent theorem.",
+      "Tie sensitivity: the Kelly-set-valued assertion is weaker than a strict improvement under every deterministic tie-breaking order.",
+      "Scope is fixed at three candidates, two seats, and precisely two abstainers."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes individual, not coalition, participation for two-seat greedy Thiele; establishes coalition participation for optimizing scoring rules, not the greedy rule; does not state the numerical two-abstainer threshold in inspected material.",
+        "evidence": [
+          "arxiv:2312.08798v1, p.2 Section 2.2, p.3–5 Section 3.1 and Remark 1, pp.10–15 appendices."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2312.08798v1",
+        "material_read": "Definitions in Section 2.2; Theorems 1 and 2, Remark 1, arguments in Section 3.1 and appendix participation proofs and complexity construction inspected using accessible complete 19-page preprint text.",
+        "method": "Full-text preprint retrieval with targeted inspection of relevant sections and appendices",
+        "title": "Participation Incentives in Approval-Based Committee Elections",
+        "trigger": "Closest matching participation framework and the k<=2 individual guarantee"
+      },
+      {
+        "assessment": "Provides greedy rule semantics and example of distinction, but not the present Kelly two-person abstention census.",
+        "evidence": [
+          "arxiv:2007.01795v5, Chapter 2.3, Rule 5 and Example 2.5."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2007.01795v5",
+        "material_read": "Chapter 2.3 definitions and explicit comparison example of optimizing PAV versus sequential PAV, related rule overview.",
+        "method": "Accessible full-text book, relevant chapter read",
+        "title": "Multi-Winner Voting with Approval Preferences",
+        "trigger": "Potentially broader classical theory for seqPAV and comparison to optimizing PAV"
+      },
+      {
+        "assessment": "Axiomatizes greedy approval methods and their tie semantics, but does not provide the exact small-election coalitional threshold.",
+        "evidence": [
+          "arxiv:2302.11890v1, introductory characterization and sequential rule definition."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2302.11890v1",
+        "material_read": "Abstract, Sections 1–2 definitions, characterizations overview and conclusion.",
+        "method": "Accessible full-text preprint, focused section-level reading",
+        "title": "Characterizations of Sequential Valuation Rules",
+        "trigger": "Potential general characterization of sequential rules implying the claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6aa5ad47-c2cc-434c-b79f-eeae200fd877",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The small \\(k=2\\) case is mathematically motivated by the established exception for individual participation of greedy Thiele rules, so asking whether it extends to coalitions is natural. Two abstainers are the smallest group beyond that theorem and three candidates the smallest nontrivial two-seat election. The exact first electorate size 12 and the unique six-case symmetry orbit give a complete finite boundary and transparent mechanism: coalition absence makes a preferred committee available via a tie while never making any member worse off. This advances the structural separation rather than merely counting an arbitrary sample; the tie and preference-extension sensitivity are made explicit.",
+    "status": "PASS"
+  }
+}
