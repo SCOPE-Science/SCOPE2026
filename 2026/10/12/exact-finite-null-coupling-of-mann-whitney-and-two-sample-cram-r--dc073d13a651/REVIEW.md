@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. The proof works entirely in the exact fixed-composition permutation null. It derives the centered rank-sum/bridge-area identity and Anderson normalization, computes the marginal moments, and reduces the mixed fourth moment to sampling-without-replacement inclusion probabilities through order four. The exact checker exhaustively verifies all positive sample-size pairs with total size at most 14.
+# Independent mathematical audit
 
-## Originality
-PASS, with a named residual source risk. Anderson (1962) gives the finite two-sample Cramér–von Mises null distribution. Pettitt (1979) is exceptionally relevant because its abstract explicitly connects Cramér–von Mises component decompositions with Wilcoxon statistics. Open-access retrieval failed and a full-text retrieval attempt reached a publisher verification gate, so the full paper was not inspected and is not characterized as noncovering. Exact-formula and semantic searches did not locate the displayed finite covariance, and no own-ledger claim implies it.
+## correctness
 
-## Value
-PASS. The identity quantifies the exact null dependence between two standard nonparametric procedures and shows that, after natural standardization, the covariance approaches the universal constant \(1/5\) for every proportional allocation. This gives a finite-sample correction and a structural asymptotic benchmark for combined rank tests.
+PASS
 
-## Closest literature and limitations
-The closest accessible classical source is Anderson's exact two-sample Cramér–von Mises work. Pettitt's 1979 component paper is the main unresolved originality risk because full text could not be accessed without human verification. The theorem assumes a continuous common null and Anderson's normalization; it is not a joint-distribution formula.
+PASS: Inspected frozen RESULT.md and checker.py. Uniform binary pooled labels imply B_j=NA_j-mj and the bridge-area sum ΣB_j=−NQ; Anderson's T equals ΣB_j²/(mnN²). Independent exact Fraction enumeration over all m,n>=1 with m+n<=10 reconstructed E(Q²), E(S), E(Q²S) and the stated covariance. For general m,n the fourth mixed moment follows from the proven sampling-without-replacement factorial indicator moments E∏_{i∈J}X_i=(m)_{|J|}/(N)_{|J|}, |J|<=4; expansion and elementary sums supply the closed polynomial. Positive sign follows mn>=N−1 and numerator≥N²−4; N=2 exactly zero. Limit 1/5 from mn~lambda(1-lambda)N². The finite checks do not alone prove the all-N identity.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS (best of knowledge): Anderson's 1962 finite null distribution and Pettitt's 1979 component decomposition involve exactly these rank statistics but the materially accessible primary abstracts do not state the all-(m,n) mixed second/fourth moment or covariance. Independent Resultary semantic comparison found no published stronger identity implying this explicit coefficient. Pettitt is an unusually plausible source whose full text was inaccessible after the protected institutional attempt; novelty is provisional, not a proof of historical absence.
+
+## value
+
+PASS
+
+PASS: The exact dependence between standardized squared location rank component and the omnibus CvM statistic is a natural power/calibration diagnostic; strict sign for every nondegenerate sample and universal proportional-sampling 1/5 are mathematically interpretable invariants, not a random numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

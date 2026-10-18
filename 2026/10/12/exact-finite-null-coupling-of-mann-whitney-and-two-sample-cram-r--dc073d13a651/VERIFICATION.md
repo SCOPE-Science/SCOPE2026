@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The all-sample-size derivation is analytic. `checker.py` supplies an independent finite consistency check only.
+# Independent mathematical audit
 
-For every positive pair \(m,n\) with \(m+n\le14\), the checker enumerates every binary pooled-rank word with exactly \(m\) first-sample labels. Using exact rational arithmetic it verifies:
+## correctness
 
-- the bridge-area identity \(\sum_j B_j=-NQ\);
-- Anderson's normalization \(T=S/(mnN^2)\);
-- \(\mathbb E Q^2=mn(N+1)/12\);
-- \(\mathbb E S=mnN(N+1)/6\);
-- the mixed moment \(\mathbb E(Q^2S)\) used in the proof;
-- the raw and standardized covariance formulas.
+PASS
 
-The checker does not use floating point and does not infer the infinite theorem from finite enumeration.
+PASS: Inspected frozen RESULT.md and checker.py. Uniform binary pooled labels imply B_j=NA_j-mj and the bridge-area sum ΣB_j=−NQ; Anderson's T equals ΣB_j²/(mnN²). Independent exact Fraction enumeration over all m,n>=1 with m+n<=10 reconstructed E(Q²), E(S), E(Q²S) and the stated covariance. For general m,n the fourth mixed moment follows from the proven sampling-without-replacement factorial indicator moments E∏_{i∈J}X_i=(m)_{|J|}/(N)_{|J|}, |J|<=4; expansion and elementary sums supply the closed polynomial. Positive sign follows mn>=N−1 and numerator≥N²−4; N=2 exactly zero. Limit 1/5 from mn~lambda(1-lambda)N². The finite checks do not alone prove the all-N identity.
+
+## originality
+
+PASS
+
+PASS (best of knowledge): Anderson's 1962 finite null distribution and Pettitt's 1979 component decomposition involve exactly these rank statistics but the materially accessible primary abstracts do not state the all-(m,n) mixed second/fourth moment or covariance. Independent Resultary semantic comparison found no published stronger identity implying this explicit coefficient. Pettitt is an unusually plausible source whose full text was inaccessible after the protected institutional attempt; novelty is provisional, not a proof of historical absence.
+
+## value
+
+PASS
+
+PASS: The exact dependence between standardized squared location rank component and the omnibus CvM statistic is a natural power/calibration diagnostic; strict sign for every nondegenerate sample and universal proportional-sampling 1/5 are mathematically interpretable invariants, not a random numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
