@@ -1,19 +1,21 @@
-# Scientific review: sharp finite-horizon amplification of diagonally preconditioned delta-rule erasures
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every finite dimension \(d\ge2\), every diagonal \(D\) with entries in \([1,\kappa]\), and every unit \(k\), direct orthogonal decomposition gives \(\|P(k,D)\|_2=\|Dk\|_2/(k^{\mathsf T}Dk)\). The elementary two-endpoint quadratic bound and its exact maximizer give the universal factor \(C_\kappa=(\kappa+1)/(2\sqrt\kappa)\). The explicit two-coordinate alternating pair is a transpose pair of rank-one projectors with matching norm \(C_\kappa\); its products have norm \(C_\kappa^N\) for every positive length. Embedded exact-rational calculations and finite randomized tests passed. The proof, not the tests, establishes the universally quantified result. The dimension-one exception is explicitly excluded.
+PASS
 
-## Originality — PASS, with residual risk
+The oblique idempotent P=I−k(Dk)^T/(k^TDk) satisfies Pk=0. In the two-plane spanned by k and Dk its matrix is [[0,-tau/mu],[0,1]]; hence ||P||2=||Dk||/(k^TDk). For diagonal entries in [1,kappa], the elementary inequality lambda²≤(1+kappa)lambda−kappa bounds squared norm by ((1+kappa)mu−kappa)/mu²; exact maximum at mu=2kappa/(1+kappa) is C² with C=(kappa+1)/(2sqrt(kappa)). For every integer N≥1, submultiplicativity gives C^N. The explicit d=2 pair P1=C a b^T and P2=C b a^T with orthonormal *unit* a,b (not generally perpendicular) alternating realizes ||P1P2...||=C^N. Zero-target row evolution amplifies exactly C^N while the currently supplied key is annihilated. Independently checked the rank-one identities, projectors, and all powers N≤10 at kappa=2. The proof covers all d≥2 and arbitrary admissible switching; finite tests are corroborative.
 
-The motivating diagonal preconditioner and write-side key substitution are not novel, and the paper's Theorem 5.2 already establishes token-local residual contraction. It does not imply a bound on the norm of the *shared* memory state across changing keys. The classical oblique-projector identity and Kantorovich angular inequality cover the one-factor component; they do not alone give a matching every-length switched-product witness. Published weighted-projection convergence results use structurally constrained weighting or aggregation rather than arbitrary products of independently chosen rank-one erasures; orthogonal projection results address factors of norm one. The accepted distinction is an exact finite-horizon minimax law and two-periodic saturation in a restricted family of online memory updates. Research-record and primary-literature searches found no statement that already supplies that law. Equivalent formulations in older oblique-projection product literature remain a residual risk; the full text of one historically relevant SIAM article was unavailable, although a closely related later full-text article was inspected.
+## originality
 
-## Value — PASS
+PASS
 
-One-token perfect regression correction is frequently used as a local update diagnostic, but its consequences for repeated shared-state updates are subtler. The theorem gives a sharp condition-ratio-dependent global worst-case growth rate, including an explicit two-step example with unit keys, positive diagonal weights at most two, and scalar gate \(3/4\), so the obstruction is not an artifact of unbounded coefficients. The complete finite-horizon classification identifies the precise nonexpansive boundary and a design-relevant distinction between token-local and sequence-level control. It does not purport to prove instability of the learned preconditioner trajectory in any particular implementation.
+The motivating OSDN algorithm paper defines the right-preconditioned delta-rule and a token-local erasure/residual result. It does not provide the exact worst-case all-length norm over independently switched admissible keys and diagonal metrics. Szyld and Kantorovich-type inequalities already give classical oblique-projection geometry and a one-step factor; novel content is simultaneous finite-horizon saturation via an alternating transpose pair and the sharp dynamical dichotomy. Related Resultary optimization and projection products address different operators or constrained iterate rules.
 
-## Closest literature and limitations
+## value
 
-Zhou et al., arXiv:2605.13473v1, Sections 4 and 5 and Appendix A, is the direct motivating source. The one-factor norm geometry is classical; see Szyld (2006). For comparison with diagonal oblique feasibility iterations see Censor–Elfving (2003, full text) and Censor–Elfving (2002, abstract accessible). Kopecká (2020) treats products of orthogonal projections. These sources do not establish an equivalent sharp switching envelope under the stated diagonal bounds, on the inspected material. The result assumes exact arithmetic and arbitrary admissible switching rather than the specific learning law of a deployed optimizer. Older equivalence remains possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp worst-case finite-horizon growth factor for a normalized memory-erasure update directly measures the gap between local exact erasure and global stability, with an explicit two-key periodic witness and a sharp kappa=1 versus kappa>1 dichotomy. This is a motivated, algorithm-specific matrix-product invariant useful when assessing whether token-wise residual tests imply safe recurrence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

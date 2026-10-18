@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification of the sharp finite-horizon product norm
+# Independent mathematical audit
 
-Execute `python verify.py` with standard-library Python 3.9+ in the same directory as this document. The program runs exact rational tests of fifteen square diagonal ratios across eighteen consecutive alternating products, including matrix idempotence, key annihilation, zero determinants, and exact matching of squared operator norms through rank-one trace identities. It also checks a distinct admissible example with \(\kappa=2\) and gate \(3/4\), and performs 48,000 deterministic pseudo-random comparisons of arbitrary products against the claimed bound.
+## correctness
 
-Observed output:
+PASS
 
-`VERIFY_OK exact_fraction_identities= 630 random_product_norm_checks= 48000 two_step_growth_kappa2= 1.125`
+The oblique idempotent P=I−k(Dk)^T/(k^TDk) satisfies Pk=0. In the two-plane spanned by k and Dk its matrix is [[0,-tau/mu],[0,1]]; hence ||P||2=||Dk||/(k^TDk). For diagonal entries in [1,kappa], the elementary inequality lambda²≤(1+kappa)lambda−kappa bounds squared norm by ((1+kappa)mu−kappa)/mu²; exact maximum at mu=2kappa/(1+kappa) is C² with C=(kappa+1)/(2sqrt(kappa)). For every integer N≥1, submultiplicativity gives C^N. The explicit d=2 pair P1=C a b^T and P2=C b a^T with orthonormal *unit* a,b (not generally perpendicular) alternating realizes ||P1P2...||=C^N. Zero-target row evolution amplifies exactly C^N while the currently supplied key is annihilated. Independently checked the rank-one identities, projectors, and all powers N≤10 at kappa=2. The proof covers all d≥2 and arbitrary admissible switching; finite tests are corroborative.
 
-The checker uses the known closed-form two-by-two spectral norm for finite tests and exact fractions for its symbolic examples. It does not enumerate all dimensions or every real diagonal and key, and its numerical checks do not establish an infinite/universal theorem. The proof in `RESULT.md` establishes the general bound and simultaneous equality for every product length.
+## originality
 
-Key limitations: exact arithmetic; positive bounded diagonal metrics; unit keys; at least two key coordinates; arbitrary switching; zero targets for the exhibited growing homogeneous state. No external audit or implementation-level empirical validation was performed.
+PASS
+
+The motivating OSDN algorithm paper defines the right-preconditioned delta-rule and a token-local erasure/residual result. It does not provide the exact worst-case all-length norm over independently switched admissible keys and diagonal metrics. Szyld and Kantorovich-type inequalities already give classical oblique-projection geometry and a one-step factor; novel content is simultaneous finite-horizon saturation via an alternating transpose pair and the sharp dynamical dichotomy. Related Resultary optimization and projection products address different operators or constrained iterate rules.
+
+## value
+
+PASS
+
+A sharp worst-case finite-horizon growth factor for a normalized memory-erasure update directly measures the gap between local exact erasure and global stability, with an explicit two-key periodic witness and a sharp kappa=1 versus kappa>1 dichotomy. This is a motivated, algorithm-specific matrix-product invariant useful when assessing whether token-wise residual tests imply safe recurrence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
