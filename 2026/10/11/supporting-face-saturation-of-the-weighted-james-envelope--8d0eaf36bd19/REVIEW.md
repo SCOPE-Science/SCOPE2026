@@ -1,27 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. For \(0<\lambda\le1/2\), the two norm-one support functionals force both weighted chord norms to be at least
-\[
-\lambda J(X)+1-2\lambda,
-\]
-which is exactly the source upper estimate. The independently proved symmetry
-\[
-J(\lambda,X)=J(1-\lambda,X)
-\]
-then gives the full parameter formula. For the affine-regular hexagon, the classical James value \(3/2\) is reconstructed by a complete dihedral four-edge reduction, and the displayed pair and support functionals satisfy the saturation hypotheses exactly.
+## correctness
 
-## Originality
-PASS. The defining 2021 article was inspected through its weighted-James definition, Theorem 5.2, proof, and nearby corollaries. It gives comparison inequalities but no support-face equality criterion and no affine-regular-hexagon profile. Searches covered exact notation, equality/saturation language, support-functional aliases, the candidate formula, and the same hexagonal norm. The closest same-invariant result is an exact computation on real sequence spaces; the closest same-space records optimize different constants. Available prior-result overlap checks covered weighted-James, defining-source, hexagon, and equality-language variants and found no implication covering the accepted theorem.
+PASS
 
-## Value
-PASS. The theorem identifies a geometric mechanism that makes an entire one-parameter upper envelope exact from one fixed James-extremal pair, rather than merely evaluating another isolated constant. The affine-regular hexagon supplies a canonical uniformly non-square example where this mechanism is sharp for every weight and yields the full profile
-\[
-J(\lambda,H)=1-\frac12\min\{\lambda,1-\lambda\}.
-\]
-This gives a practical support-face template for further polyhedral calculations.
+The functional conditions give simultaneous lower bounds λJ(X)+1−2λ for 0<λ≤1/2 via norm-one f±; the 2021 published upper comparison matches, and swap of x,y proves weight reflection. For H with N(s,t)=max(|s|,|t|,|s−t|), exhaustive dihedral facet cases bound J(H)≤3/2; pair (1,1/2),(0,1) attains it, with f+=(t), f−=(s−t) certifying both faces. Independent exact-Fraction witnesses across all rational 0<λ<1 with denominators ≤40 corroborate, but the facet proof establishes continuum.
 
-## Closest literature and limitations
-Liu, Sarfraz and Li introduced the weighted James constant in *Demonstratio Mathematica* 54 (2021), 299--310 and proved the comparison inequality used here. Exact weighted-James formulas are known for other classical families, but the inspected statements do not imply the support-face criterion or the affine-regular-hexagon profile. The criterion is sufficient, not necessary, and no classification of all equality mechanisms is claimed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Full Liu–Sarfraz–Li Section 5 gives the upper inequality, but not the equality criterion for simultaneous support faces or the complete affine hexagon profile. Indexed regular-octagon weighted profile and affine hexagon Fu–Yang skew profile use different bodies or constants; no dominating same-statement result found.
+
+## value
+
+PASS
+
+A natural equality criterion for a classical sharp upper envelope, plus full parametric weighted James profile of a canonical non-Hilbert hexagon with J=3/2; useful to classify when the upper estimate is genuinely saturated across all weights.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
