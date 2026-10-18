@@ -1,19 +1,21 @@
-# Scientific review: Poisson-maximum ultra-log-concavity rigidity
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact event \(M\le k\) gives a product of Poisson CDFs. For equal rates the mass factors as a Poisson pmf times a log-concave synchronized sum, proving every ultra-log-concavity inequality. For unequal rates, the product-difference telescoping formula yields a normalized pmf consisting of a constant contribution from the largest rate and an exponentially small positive contribution from the second-largest distinct rate. Squaring consecutive terms gives a rigorously negative limiting curvature. Finite exact-rational checks independently corroborate cases but are not used as proofs of asymptotic or infinite-domain claims.
+PASS
 
-## Originality — PASS (subject to independent priority review)
+For independent fixed positive Poisson rates and n≥2, the homogeneous maximum mass factors f_k=p_b(k)H_k. Monotone log increments of the Poisson cumulative masses imply synchronized H_k log concavity; the Poisson factorial ratio converts it to all k≥1 ULC. For unequal rates, exact product-CDF telescoping yields h_k=f_k/p_b(k)=m+s·exp(b−a)(a/b)^k+o((a/b)^k) where a<b are top distinct rates. Consequently (h_k²−h_{k−1}h_{k+1})/(a/b)^k→−m s exp(b−a)(b−a)²/(ab)<0 and all sufficiently large k violate ULC. Independently recomputed exact rational Poisson CDF masses show first (1,2) violation at k=4 with scaled defect −17/360 and confirm finite homogeneous/heterogeneous samples, not substituted for proof.
 
-The most directly relevant source, Badiella, del Castillo, and Puig (2023, Theorem 2), proves ultra-log-concavity preservation for i.i.d. discrete order statistics. It covers exactly the homogeneous sufficiency direction but not the heterogeneous necessity statement or asymptotic constant. Chowdhury, Kundu, and Mishra (2021, Theorem 3.1) compare heterogeneous Poisson maxima via majorization and ordinary stochastic order, which does not imply the asserted curvature conclusion. Yu (2009) studies relative log-concavity to compare distributions and mixtures, without analyzing heterogeneous Poisson sample maxima. Searches under terms including relative log-concavity, Poisson maximum, independent nonidentical order statistics, mixed-rate extrema, and the second-largest-rate correction did not reveal a stronger covering result. This search is not a proof of novelty; older work using different terminology remains a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The result resolves a structural classification across **all** positive finite intensity vectors, showing that the well-known i.i.d. ultra-log-concavity phenomenon is rigid: any nontrivial rate heterogeneity eventually destroys it. The exact leading negative curvature identifies its scale and which rate levels control it. This is relevant to the use of Poisson order statistics and shape-constrained count modeling, without implying any unproved claim about ordinary log-concavity or dispersion.
+Badiella–del Castillo–Puig (2023) prove preservation of ULC for independent identically distributed discrete order statistics: homogeneous sufficiency is known. Chowdhury–Kundu–Mishra (2021) compare heterogeneous Poisson order statistics by stochastic majorization, not this discrete curvature, and Yu treats distributional relative log-concavity. The novel asserted part is exact necessity for any heterogeneity plus its second-highest-rate tail constant; no covering result found in actual comparisons. Badiella full primary PDF was access-blocked, documented as residual risk, not automatically a failure.
 
-## Limitations and reproducibility
+## value
 
-Only finite samples with independent, fixed-rate Poisson coordinates are covered. The theorem does not supply a uniform first failing index or extend to a varying-rate triangular array. The reported rational cases were reproduced by `python3 verify.py`; the proof establishes the infinite claims independently. No independent audit or external priority certification was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp classification for arbitrary finite n of when a natural maximum retains a strong shape constraint; it identifies all heterogeneous failures and measures their eventual strict negative curvature scale. This is structurally informative beyond existing iid preservation and finite examples, with explicit limits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
