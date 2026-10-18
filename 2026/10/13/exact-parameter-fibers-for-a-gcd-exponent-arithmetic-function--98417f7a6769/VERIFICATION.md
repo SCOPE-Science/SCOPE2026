@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-The symbolic proof checks the exact fiber equivalence using unique factorization and the identity
-\[
-\operatorname{lcm}_i\gcd(e_i,\alpha)=\gcd(\operatorname{lcm}_i e_i,\alpha).
-\]
-It then derives the orbit size, the \(\varphi(L/d)\) fiber counts, and minimality of the period.
 
-`verify.py` independently exhausts all exponent tuples with support size at most four and exponents from \(1\) through \(5\), and checks every parameter in one complete period. It reports:
+# Independent mathematical audit
 
-`VERIFY_OK exponent_tuples=780 parameter_pairs=479656 max_exponent=5 max_support=4`
+## correctness
 
-This finite computation is a regression check only; it does not establish the unbounded theorem.
+PASS
+
+Equality of prime factorization values is exactly equality of vector (gcd(e_i,alpha))_i. Taking lcm coordinatewise gives gcd(L,alpha) by primewise max-min identity. Conversely gcd(L,alpha)=gcd(L,beta) implies every exponent gcd agrees. Divisors d|L index all distinct values; phi(L/d) counts parameters in one period; comparing inputs L and L+T proves L divides every period. Independent gcd tuple tests validated every fiber for exponent tuples of small support. Result holds n>1 and positive alpha.
+
+## originality
+
+PASS
+
+Best-of-knowledge refinement from known L-periodicity and sufficient equality to a complete necessary-and-sufficient parameter fiber classification, orbit size, exact multiplicities, and least period. Later Mittou orbit study describes exponential-divisor inclusion, not all parameter fibers.
+
+## value
+
+PASS
+
+The same-function parameter map has a natural finite orbit whose cardinality, period minimality and multiplicity are not supplied by known papers. Although proof uses elementary gcd/lcm, this is a complete motivated classification of the actual arithmetic function, not an arbitrary computed slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
