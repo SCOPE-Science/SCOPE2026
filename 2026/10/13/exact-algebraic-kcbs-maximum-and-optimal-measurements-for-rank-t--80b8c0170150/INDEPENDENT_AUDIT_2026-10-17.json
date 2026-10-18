@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T10:09:47.566389Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Von Neumann trace alignment shows that for a fixed admissible pentagon M=sum Pj the state expectation max equals a m1+b m2. The known complete pentagram characteristic polynomial parametrizes all spectra by z=m1 in [2,sqrt5]. Solving for r and the remaining eigenvalue discriminant gives D(z)=(z-1)(5-z²)/(3-z) and m2=(5-z+sqrt(D))/2. D>0 on (2,sqrt5), D''(z)=2(z-1)(z²-8z+19)/(z-3)^3<0, so for b>0 the objective f(z)=az+(b/2)(5-z+sqrt D) is strictly concave. At z=2 f'=a-b and as z approaches sqrt5 f'→-infinity. Interior 0<b<a therefore has exactly one global maximizer, and N(z)<0 removes extraneous roots upon squaring stationarity to the sextic equation q²N²=(z-1)(5-z²)(3-z)³. Endpoints b=0 yield sqrt5, a=b=1/2 yield 2. Five explicit normalized real rays satisfy cyclic orthogonality and realize every spectral parameter, hence the upper bound is attained even allowing complex projectors. An independent exact symbolic projector characteristic polynomial and derivative check corroborated the analytic proof.",
+      "risk": [
+        "Known complete spectral parameterization is a premise, credited rather than reproved exhaustively.",
+        "Uniqueness is for scalar optimal z, not all optimizer projectors; rank<=2 states only."
+      ],
+      "sources": [
+        "RESULT.md blob dc078bf17a385662c5113d8dd7f4ab27f6fffc1f",
+        "Badziąg et al arXiv:0909.4713 Eq.(7)-(13) complete spectrum",
+        "Soeda et al arXiv:1207.1952 Eq.(12)-(14) and weighted alignment",
+        "Independent_1643_checks.py symbolic pentagon characteristic and concavity"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2009 full spectral polynomial and range of pentagram M is prior; 2012 weighted trace principle prior.",
+          "2015 paper leaves AC unresolved analytically despite numerical results."
+        ],
+        "reasoning": "Known general spectral range is necessary input, not a closed algebraic optimizer branch for each (a,b). Neither inspected stronger primary theorem specializes to the exact sextic selection.",
+        "searches": [
+          "Badziąg et al 2009 arXiv:0909.4713",
+          "Soeda et al 2012 arXiv:1207.1952",
+          "Xu–Su–Chen 2015 arXiv:1504.06942"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1504.06942",
+        "arXiv:0909.4713",
+        "arXiv:1207.1952",
+        "Resultary query: KCBS rank two qutrit maximum algebraic exact optimal measurements pentagram entropy contextuality boundary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Spectral curve fixes feasible eigenvalues; trace inequality reduces to scalar optimization, which prior papers had not solved analytically for rank-two."
+        ],
+        "reasoning": "The prior statements permit numerical maximization but do not imply a unique sign-selected sextic root or globally maximizing projector construction without additional concavity/elimination work.",
+        "searches": [
+          "arXiv:0909.4713 Eq.(7)-(13),(19)",
+          "arXiv:1207.1952 Eq.(12)-(14)",
+          "arXiv:1504.06942 paragraph before Eq.(1)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The rank-two boundary of contextuality vs linear entropy is the same problem as optimizing a m1+b m2 over all admissible pentagrams.",
+          "2015 primary paper explicitly says no analytical expression is found for rank-two curve AC."
+        ],
+        "reasoning": "Compared contextuality entropy-purity curve, rank-two weighted spectral optimization and pentagram root parametrizations as equivalent aliases.",
+        "searches": [
+          "Resultary semantic search: KCBS rank two qutrit maximum algebraic exact optimal measurements pentagram entropy contextuality boundary",
+          "Xu–Su–Chen arXiv:1504.06942 curve AC",
+          "Badziąg et al arXiv:0909.4713 pentagram eigenvalues"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2015 displays numerical maximum-vs-entropy curve AC, explicitly labels analytic expression unavailable."
+        ],
+        "reasoning": "A plotted/numerical boundary is not an exact algebraic root with strict branch uniqueness and explicit measurement realization.",
+        "searches": [
+          "2015 Xu–Su–Chen Fig.2 and Eq.(1)",
+          "2009 Badziąg et al eigenvalue spectral diagrams",
+          "Resultary KCBS semantic search top15"
+        ]
+      },
+      "rationale": "Badziąg et al 2009 supply complete pentagon spectral geometry, and Soeda et al 2012 reduce mixed-state optimization to eigenvalue alignment. Xu–Su–Chen 2015 explicitly identify the rank-two curve AC as lacking an analytic expression. The assessed new contribution is a universally selected unique sextic root and a realizing pentagon for every rank-two density, not the known spectral curve or KCBS bound.",
+      "residual_risks": [
+        "An equivalent later selected-root solution under another spectral parameter may exist; no exhaustive priority proof.",
+        "The pentagram spectrum and weighted trace reduction are prior and must stay credited, not claimed as discoveries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE STATES EXACT ANALYTIC CURVE AC MISSING",
+          "evidence": "Text explicitly says analytic expression of rank-two boundary curve AC is not obtained.",
+          "identifier_or_url": "arXiv:1504.06942v1",
+          "material_read": "Entire short four-page lawful arXiv preprint, especially pp1-3 Eq.(1), Fig.2 and explicit statement about AC analyticity",
+          "method": "arXiv PDF full text with relevant pages inspected",
+          "title": "Quantum contextuality of a qutrit state",
+          "trigger": "Direct origin of missing rank-two mixed-state contextuality curve"
+        },
+        {
+          "assessment": "COVERS complete spectrum only; not the unique rank-two sextic max as presented",
+          "evidence": "Source establishes one-parameter cubic spectrum and weighted spectral constraints.",
+          "identifier_or_url": "arXiv:0909.4713v1",
+          "material_read": "Full accessible 2009 preprint, Sections 2-3, Eq.(7)-(13) and weighted expectation Eq.(19)",
+          "method": "arXiv PDF, relevant equations and spectral discussion",
+          "title": "Pentagrams and Paradoxes",
+          "trigger": "Strong earlier complete KCBS pentagram spectrum"
+        },
+        {
+          "assessment": "COVERS reduction to pentagram spectra, not closed global rank-two optimizer",
+          "evidence": "Mixed-state criterion uses eigenvalue ordering and numerical comparisons.",
+          "identifier_or_url": "arXiv:1207.1952",
+          "material_read": "Full short preprint, Eqs.(12)-(14) and contextuality optimization discussion",
+          "method": "arXiv PDF sections II-III",
+          "title": "The relation between nonlocality and contextuality for a biphoton",
+          "trigger": "Potential mixed-state weighted spectral maximization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The rank-two states form the exact natural purity boundary of qutrit density matrices. A 2015 primary source identifies the analytic contextuality boundary there as missing. Solving the global maximization through a single unambiguous sextic root for all those states, proving endpoints and exhibiting feasible optimal five-projector rays fills a specifically motivated mathematical gap and removes uncontrolled numerical optimization.",
+      "risk": [
+        "Does not give an analytic full-rank qutrit contextuality surface or classify all optimal projectors."
+      ],
+      "sources": [
+        "Xu–Su–Chen arXiv:1504.06942 Fig.2 and paragraph announcing missing curve AC",
+        "Complete explicit optimizer and sign-controlled strict concavity in frozen RESULT.md"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only rank<=2 qutrit states, five-projector KCBS probability sum, and cyclic-adjacent rank-one orthogonality.",
+    "Optimal spectral z is unique in interior; optimizer projectors need not be unique.",
+    "Prior 2009 complete pentagram spectral theorem is cited foundational input."
+  ],
+  "schema_version": 1
+}

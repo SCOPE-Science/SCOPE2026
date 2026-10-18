@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is the full rank-at-most-two qutrit spectrum \((a,b,0)\) with \(a\ge b\ge0\), \(a+b=1\), and all admissible complex cyclic-orthogonal rank-one KCBS projectors. The earlier spectral completeness theorem is used with explicit attribution. Direct trace alignment gives an attained upper bound. The reduction to the single largest eigenvalue \(z\in[2,\sqrt5]\) and the discriminant \(D(z)\) are reconstructed from the characteristic polynomial. Its strictly negative second derivative makes the objective strictly concave for positive \(b\), and endpoint derivative signs prove unique global maximality. The sign of \(N(z)\) prevents extraneous sextic roots. Both boundary cases and the explicit realizing pentagon are checked. Exact symbolic identities and independently diagonalized examples pass the packaged verification script; the analytic proof, not those examples, covers infinitely many states.
+PASS
 
-## Originality — PASS with residual risk
+Von Neumann trace alignment shows that for a fixed admissible pentagon M=sum Pj the state expectation max equals a m1+b m2. The known complete pentagram characteristic polynomial parametrizes all spectra by z=m1 in [2,sqrt5]. Solving for r and the remaining eigenvalue discriminant gives D(z)=(z-1)(5-z²)/(3-z) and m2=(5-z+sqrt(D))/2. D>0 on (2,sqrt5), D''(z)=2(z-1)(z²-8z+19)/(z-3)^3<0, so for b>0 the objective f(z)=az+(b/2)(5-z+sqrt D) is strictly concave. At z=2 f'=a-b and as z approaches sqrt5 f'→-infinity. Interior 0<b<a therefore has exactly one global maximizer, and N(z)<0 removes extraneous roots upon squaring stationarity to the sextic equation q²N²=(z-1)(5-z²)(3-z)³. Endpoints b=0 yield sqrt5, a=b=1/2 yield 2. Five explicit normalized real rays satisfy cyclic orthogonality and realize every spectral parameter, hence the upper bound is attained even allowing complex projectors. An independent exact symbolic projector characteristic polynomial and derivative check corroborated the analytic proof.
 
-Xu–Su–Chen explicitly leave curve AC without an analytic expression (arXiv:1504.06942v1, p. 2, Eq. (1)). The strongest nearby prior works are Badziąg et al. (arXiv:0909.4713v1, Secs. 2–3) and Soeda et al. (arXiv:1207.1952, Secs. II–III). The former already proves the one-parameter spectrum and observes a weighted expectation, and the latter already states the spectral optimization principle. Neither inspected material supplies the universal selected sextic root, strict global-root uniqueness, or an algebraic optimal projectors recipe for every rank-two mixed qutrit state. The contribution is the solved extremum, not the known spectrum. A differently parametrized derivation later in the literature, or an implication in a stronger optimization theorem, remains a material originality risk; the search and comparisons are not a guarantee of worldwide novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The family consists of *every* rank-two qutrit state, the natural purity boundary of the qutrit eigenvalue simplex. The motivating 2015 paper specifically identifies the missing analytic maximal-contextuality curve in its central figure. The exact unique real algebraic branch removes numerical optimization and supplies matching optimal measurement rays throughout the entire boundary, including the delicate transition from degenerate to regular pentagons. It is not a new foundational contextuality inequality or a solution for arbitrary full-rank states, and the underlying spectral analysis is not claimed as new.
+Badziąg et al 2009 supply complete pentagon spectral geometry, and Soeda et al 2012 reduce mixed-state optimization to eigenvalue alignment. Xu–Su–Chen 2015 explicitly identify the rank-two curve AC as lacking an analytic expression. The assessed new contribution is a universally selected unique sextic root and a realizing pentagon for every rank-two density, not the known spectral curve or KCBS bound.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The rank-two states form the exact natural purity boundary of qutrit density matrices. A 2015 primary source identifies the analytic contextuality boundary there as missing. Solving the global maximization through a single unambiguous sextic root for all those states, proving endpoints and exhibiting feasible optimal five-projector rays fills a specifically motivated mathematical gap and removes uncontrolled numerical optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
