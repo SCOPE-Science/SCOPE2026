@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Proposition 2.13 makes an existential value the join of all witness values. Double negation is a nucleus, so the fixed regular elements form a Boolean algebra and \(j(\bigvee_bu_b)\) is the Boolean join of the \(ju_b\). In a finite Boolean algebra every atom below that join lies below one member of the finite set of distinct \(ju_b\)'s. Selecting one witness per target atom therefore proves Aratake's finite-witness condition. The exact optimum is the corresponding atom set-cover number. The Set Cover reduction in the powerset case is literal.
+PASS
 
-## Originality
+In finite Heyting H, j=double negation is a nucleus and Reg(H)=B is a finite atomic Boolean algebra. For existential witness values u_b, E=join_b u_b and T=jE; finite atom covering gives F of at most |At B| with E <= j(join_{b in F} u_b). This is precisely Aratake Theorem 3.14 finite-witness condition (under the original function-symbol assumption), so every maximal filter is generic and Łoś holds in the specified sense. Minimizing witnesses is exactly minimum set cover of atoms beneath T by atom sets beneath j(u_b). Singleton witnesses in a k-atom Boolean algebra show sharpness. A powerset Boolean algebra with one unary predicate encodes Set Cover and proves restricted NP-completeness with standard explicit finite bitvector input. Inspected verify.py that enumerates all labeled posets of at most 4 points and all distinct witness-value families, while separately checking a 4-atom Boolean cover example. This finite replay is ancillary to the general proof.
 
-PASS, with a substantial “short corollary” caveat. Aratake's primary paper contains the general all-maximal-filter characterization and its Stone-compactness proof, but no finite-Heyting corollary, atom bound, set-cover optimum, or complexity statement was located. Pierobon–Viale makes the finite Boolean special case immediate and is explicitly treated as prior rather than new. Candidate-specific published-finding corpus searches, exact web searches, full-text inspections, and the two cumulative owned ledgers did not surface the finite Heyting statement or the optimization formulation.
+## originality
 
-## Value
+PASS
 
-PASS. The result removes a nontrivial semantic hypothesis on an entire finite-truth-value regime: finiteness alone forces the witness condition needed for Łoś at every maximal filter. The regular skeleton gives a sharper structural bound than the naive \(|H|\) bound, and the exact Set Cover translation identifies the optimization difficulty and supplies a sharp family of examples.
+Best-of-knowledge PASS for the complete finite Heyting regular-atom witness optimization and restricted complexity theorem. Aratake states a general Łoś iff finite witness condition and uses Boolean regular elements, so automatic finite-frame genericity is a short special case and not claimed as a wholly new forcing theorem. Pierobon–Viale proves Boolean-valued fullness, already covering automatic finite-Boolean fullness; it does not state the finite-Heyting regular-skeleton atom minimum or its exact NP-completeness formulation in the inspected section. The substantive new deliverable is the exact atom cover identity and optimization complexity.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Finite valued semantics and minimal witness certificates are a natural intrinsic optimization problem, and the exact regular-skeleton atom cover gives a sharp bound and an NP-complete restricted decision problem. Though the genericity corollary itself is quick, the exact coverage criterion and complexity provide a motivated reusable classification of witnesses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
