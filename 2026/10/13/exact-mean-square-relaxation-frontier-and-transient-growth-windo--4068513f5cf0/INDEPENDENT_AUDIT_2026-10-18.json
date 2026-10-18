@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T06:48:32.347545Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Git blob cf14725163d66de32c070abe2b9d01b2966e648f",
+        "verify.py Git blob 8717d5e0fbde3586bf4561ed69c06514fb94cee4",
+        "Independent exact rational determinant and transient witness checks"
+      ],
+      "rationale": "In row sum/difference orthobasis the random update has diagonal entries 1-alpha p and 1-alpha r and off-diagonal -alpha sqrt(pr) xi with E xi=0, E xi^2=1/q. This closes expected squared-coordinate moments under the symmetric nonnegative T with entries ((1-alpha p)^2, alpha^2 pr/q, (1-alpha r)^2). Every nonzero deterministic initial squared-coordinate vector pairs strictly positively with the Perron eigenvector, making rho(T) necessary/sufficient. Independent exact-rational evaluations confirmed det(I-T)=alpha^2 pr[4-2alpha+alpha^2 pr(1-q^-2)] across c=1/3,3/5,5/13 and q=1,2,3,6, and confirmed the growth-but-convergence witness q=2,c=3/5,alpha=9/4: one-step gain 209/200 and det(I-T)=3483/40000. The two principal minors prove the global boundary. Mean-square rate is a strictly convex simple top eigenvalue; derivative sign changes between alpha=1 and alpha=2 give unique optimizer, with a perturbative Schur expansion as c approaches 1 giving the stated sqrt(1-c) coefficient. Finite evaluations supplement analytic exactness.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Richtarik--Takac, Stochastic Reformulations of Linear Systems, arXiv:1706.01108 develops broader sketch-and-project stochastic algorithms and convergence-rate guarantees; Moorman source optimizes a one-step rate guarantee."
+        ],
+        "reasoning": "An upper bound on error shrinkage is not a dominating exact stochastic second-moment threshold when the bound exceeds one while the process is stable; exact covariance spectral analysis is additional.",
+        "searches": [
+          "two row averaged randomized Kaczmarz minibatch exact mean square convergence relaxation spectral radius transient amplification",
+          "Richtarik--Takac, Stochastic Reformulations of Linear Systems, arXiv:1706.01108"
+        ]
+      },
+      "checked_sources": [
+        "Moorman--Tu--Molitor--Needell, Randomized Kaczmarz with Averaging, 2019 primary author-hosted 8-page full text, https://jacob.moorman.me/research/2019ita.pdf",
+        "Richtarik--Takac, Stochastic Reformulations of Linear Systems, arXiv:1706.01108",
+        "doi:10.1007/s11075-022-01473-x",
+        "Resultary:2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At q=2,c=3/5,alpha=9/4 the exact first-step gain is 209/200>1 while I-T is positive definite.",
+          "Moorman primary Corollary 3 is an E||e_next||^2 contraction-factor bound for each iteration."
+        ],
+        "reasoning": "A one-step factor above one cannot prove or disprove true geometric mean-square convergence; Perron T recovers it and explicitly separates the two criteria. Rate minimization of the bound need not coincide with minimization of the true spectral rate.",
+        "searches": [
+          "two row averaged randomized Kaczmarz minibatch exact mean square convergence relaxation spectral radius transient amplification",
+          "Moorman--Tu--Molitor--Needell, Randomized Kaczmarz with Averaging, 2019 primary author-hosted 8-page full text, https://jacob.moorman.me/research/2019ita.pdf",
+          "2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Moorman et al Algorithm 1 averages independent rows at the same current iterate; source Theorem 2 bounds E||e_next||^2 and its Corollary 3 simplifies for uniform weights."
+        ],
+        "reasoning": "The fixed 2-row case is a specialisation of the algorithm, but a sufficient one-step bound is not an all-iterations necessary/sufficient spectral-radius condition.",
+        "searches": [
+          "two row averaged randomized Kaczmarz minibatch exact mean square convergence relaxation spectral radius transient amplification",
+          "Moorman--Tu--Molitor--Needell, Randomized Kaczmarz with Averaging, 2019 primary author-hosted 8-page full text, https://jacob.moorman.me/research/2019ita.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1 addresses two-row CYCLIC Kaczmarz finite-horizon norm versus asymptotically optimal sweep, not independent-with-replacement minibatches."
+        ],
+        "reasoning": "Neither cited numerical sample nor Resultary indexed finding supplies the exact all-(q,c) closed-form mean-square frontier or distinct one-step frontier.",
+        "searches": [
+          "two row averaged randomized Kaczmarz minibatch exact mean square convergence relaxation spectral radius transient amplification",
+          "2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1"
+        ]
+      },
+      "rationale": "Moorman et al define the same simultaneous averaged RK update; their theorem/corollary give a ONE-STEP spectral error guarantee, and its optimizer targets that guarantee. The inspected full author-hosted 2019 version does not give the two-row exact infinite-time Perron stability frontier, including stable transient expansion. Resultary hits concern cyclic Kaczmarz and greedy/coherence Kaczmarz, not the same independent uniform minibatch covariance. The general stochastic linear-system literature is broad; a spectral mean-square specialization remains possible but not demonstrated.",
+      "residual_risks": [
+        "A general mean-square stochastic linear iteration result might imply this exact two-row spectral condition after specialization.",
+        "The fixed-q high-coherence expansion is not a uniform limit in q.",
+        "Additional 2020 journal version of Moorman et al was not read page-by-page in this run."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_AS_STATED",
+          "evidence": "Shows one-step expected-error matrix bound and optimal parameter for its guarantee, rather than exact two-row repeated mean-square Perron threshold.",
+          "identifier_or_url": "Moorman--Tu--Molitor--Needell, Randomized Kaczmarz with Averaging, 2019 primary author-hosted 8-page full text, https://jacob.moorman.me/research/2019ita.pdf",
+          "material_read": "Eight-page public primary author manuscript, Algorithm 1, Theorem 2, uniform-weight Corollary 3, consistent-system Corollary 5, experimental relaxation discussion, and appendix derivations.",
+          "method": "Public author-hosted PDF; targeted complete theorem/algorithm/proof reading and figures.",
+          "title": "Randomized Kaczmarz with Averaging",
+          "trigger": "Exactly same parallel row-sampling algorithm and parameter alpha."
+        },
+        {
+          "assessment": "COVERAGE_NOT_PROVED",
+          "evidence": "Broader class does not by itself furnish equality for this exact two-row sampling covariance; implicit specialization remains a risk.",
+          "identifier_or_url": "arXiv:1706.01108",
+          "material_read": "Abstract and relevant bound descriptions; complete article not independently reread in this run.",
+          "method": "ArXiv/primary metadata and bounded statement comparison.",
+          "title": "Stochastic Reformulations of Linear Systems: Algorithms and Convergence Theory",
+          "trigger": "Plausible broader averaged stochastic-projection analysis."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Moorman--Tu--Molitor--Needell, Randomized Kaczmarz with Averaging, 2019 primary author-hosted 8-page full text, https://jacob.moorman.me/research/2019ita.pdf",
+        "Richtarik--Takac, Stochastic Reformulations of Linear Systems, arXiv:1706.01108",
+        "doi:10.1007/s11075-022-01473-x",
+        "Resultary:2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1"
+      ],
+      "rationale": "The sharp strict gap between guaranteed stepwise monotonicity and true long-run mean-square stability is a structural quantitative boundary for simultaneous row averaging; the exact rate optimizer and fixed-q near-coincident-row asymptotic are useful for tuning and for understanding transient amplification in a natural minimal correlated system.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For two nonparallel unit rows of correlation c in (0,1), independent equally weighted minibatch size q>=1 and constant alpha>0, exact all-initial-condition mean-square convergence iff alpha<4/(1+sqrt(c^2+(1-c^2)/q^2)); one-step nonexpansion iff alpha<=4/(1+c+(1-c)/q). For q>1 these differ strictly. The Perron mean-square rate has a unique minimizer alpha* in (1,2), with its stated fixed-q high-coherence asymptotic.",
+  "limitations": [
+    "Only real 2x2 consistent systems, two normalized nonparallel unit rows, unbiased independent row draws with replacement and fixed q.",
+    "Global mean-square criterion is not the per-iteration decrease criterion, and fastest rate is not finite-horizon optimum.",
+    "No claims for noisy, unequal, adaptive, asynchronous or more than two rows."
+  ],
+  "schema_version": 1
+}

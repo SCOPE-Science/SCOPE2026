@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The simultaneous averaged-row update is reconstructed in the orthonormal bisector basis, with independent centered minibatch sign variable of variance \(1/q\). The diagonal covariance recurrence closes exactly and is a nonnegative symmetric two-by-two matrix with positive Perron vector; every nonzero deterministic error has nonzero projection on that vector. The determinant of \(I-T_q\), the positive-definiteness inequalities, and the upper-root exclusion prove necessity, sufficiency, and behavior at equality. A separate exact conditional-square computation gives the strict one-step gap. The fastest-relaxation claim follows from a simple largest eigenvalue, strictly positive second derivative and opposite endpoint derivative signs; its high-coherence expansion follows by the rescaled eigenvalue derivative equation. The embedded checker passes 1,220 tests. Finite checks do not replace the analytic proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+In row sum/difference orthobasis the random update has diagonal entries 1-alpha p and 1-alpha r and off-diagonal -alpha sqrt(pr) xi with E xi=0, E xi^2=1/q. This closes expected squared-coordinate moments under the symmetric nonnegative T with entries ((1-alpha p)^2, alpha^2 pr/q, (1-alpha r)^2). Every nonzero deterministic initial squared-coordinate vector pairs strictly positively with the Perron eigenvector, making rho(T) necessary/sufficient. Independent exact-rational evaluations confirmed det(I-T)=alpha^2 pr[4-2alpha+alpha^2 pr(1-q^-2)] across c=1/3,3/5,5/13 and q=1,2,3,6, and confirmed the growth-but-convergence witness q=2,c=3/5,alpha=9/4: one-step gain 209/200 and det(I-T)=3483/40000. The two principal minors prove the global boundary. Mean-square rate is a strictly convex simple top eigenvalue; derivative sign changes between alpha=1 and alpha=2 give unique optimizer, with a perturbative Schur expansion as c approaches 1 giving the stated sqrt(1-c) coefficient. Finite evaluations supplement analytic exactness.
 
-The defining averaged-Kaczmarz source [1] contains a one-step spectral error bound and a parameter choice minimizing that bound, but not the exact two-row long-horizon Perron factor nor an above-bound transient-growth regime. The cited broader sketch-and-project study [2] likewise optimizes rate guarantees; the related sparse averaging study [3] has a different state update and guarantee; the classical exact-MSE study [4] treats single-row Kaczmarz. Previously indexed coherence, cyclic bias, and delayed Gauss-Seidel results concern different sampling/update rules. Neither the already-known one-step inequality nor those neighboring results implies the stated long-horizon covariance threshold. An equivalent unindexed specialized calculation remains a real residual risk. Source [4]'s full PDF could not be inspected; its abstract was examined, so whole-document noncoverage is not asserted.
+## originality
 
-## Value — PASS
+PASS
 
-The exact gap between uniform one-step decrease and long-term convergence identifies a meaningful limitation of conservative relaxation rules for a published parallel solver. The rational witness exhibits a genuine positive first-step mean-square spike while every nonzero initial error ultimately decays; the unique rate-optimal relaxation and its near-coherent asymptotic identify a concrete tuning tradeoff. This is restricted to a natural exact two-row model, not presented as a general algorithmic speedup or new method.
+Moorman et al define the same simultaneous averaged RK update; their theorem/corollary give a ONE-STEP spectral error guarantee, and its optimizer targets that guarantee. The inspected full author-hosted 2019 version does not give the two-row exact infinite-time Perron stability frontier, including stable transient expansion. Resultary hits concern cyclic Kaczmarz and greedy/coherence Kaczmarz, not the same independent uniform minibatch covariance. The general stochastic linear-system literature is broad; a spectral mean-square specialization remains possible but not demonstrated.
 
-## Limits and literature
+## value
 
-The conclusion assumes two normalized independent rows, noiseless consistency, fixed independent uniform minibatches and constant relaxation. See the named comparisons and residual priority risks in `AUDIT.json`. Independent validation of the work is absent.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp strict gap between guaranteed stepwise monotonicity and true long-run mean-square stability is a structural quantitative boundary for simultaneous row averaging; the exact rate optimizer and fixed-q near-coincident-row asymptotic are useful for tuning and for understanding transient amplification in a natural minimal correlated system.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
