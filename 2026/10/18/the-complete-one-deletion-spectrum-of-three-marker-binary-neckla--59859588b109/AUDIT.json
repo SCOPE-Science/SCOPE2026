@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "A weight-three cyclic binary word is a necklace of three ordered nonnegative zero gaps. For marker deletion, the two remaining gaps are unordered, yielding O as the number of distinct min(g,s-g). For zero deletion, distinct results are rotations of the three decremented triples. The only distinct positive-gap coincidences follow from one- and two-position cyclic shifts: all equal, or (t,t,t-1). These outputs have three ones and cannot collide with marker-deleted two-one outputs. A full case split and stars-and-bars/inclusion-exclusion and Burnside give each C_{s,j}, total, exact mean and asymptotics. A word-based checker independently corroborated every necklace at s<=36 (3055) and 450 larger cases. A finite test is not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Narayanan–Ren Theorem 1.6 studies distinguishing trace distributions, not cardinalities of the one-deletion output support modulo rotations.",
+        "Bar-Lev–Etzion–Yaakobi computes equal-length linear Levenshtein ball statistics with insertion, whereas here output length decreases by one and rotations are identified.",
+        "Ota–Manada reconstructs from substring-count spectra and minimal absent factors, rather than deletion descendants."
+      ],
+      "reasoning": "Although these sources treat larger families of words in their respective models, none has a stronger theorem whose specialization is the exact five-value histogram given here. Linear balls, circular trace probabilities, and substring profiles are not this observation channel.",
+      "searches": [
+        "arxiv:2009.01346 Circular Trace Reconstruction Section 5",
+        "arxiv:2103.01681 On Levenshtein Balls with Radius One",
+        "10.1587/transfun.2023TAP0015 A Reconstruction of Circular Binary String Using Substrings and Minimal Absent Words"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2009.01346",
+      "arxiv:2103.01681",
+      "doi:10.1587/transfun.2023TAP0015",
+      "Published research-result records for cyclic deletion spheres, exact sphere distributions, and sparse binary necklaces",
+      "Previously disclosed mathematical results relevant to circular words, deletion channels, and sparse-string invariants"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The first record concerns worst pairwise ambiguity after three deletions on linear binary words; the second counts triangles in the linear one-deletion confusability graph; the third gives binary two-deletion sphere-size variance.",
+        "Narayanan–Ren bounds circular trace-reconstruction sample complexity using a specially constructed three-marker pair, not all three-marker one-deletion degree classes."
+      ],
+      "reasoning": "Worst-case intersections or graph triangle counts do not determine the complete distribution of individual cyclic one-deletion sphere sizes. The circular trace model ability to sample all deletions at many lengths does not furnish the explicit rotation-class collision classification. The new theorem fixes weight three, divides both inputs and outputs by rotation, and counts each distinct immediate output exactly once.",
+      "searches": [
+        "2026/10/4/SCOPE-exact-preasymptotic-profile-for-n-n-3-3-in-binary-deletion-recon--6fda50f1a93d",
+        "2026/10/4/SCOPE-exact-triangle-count-in-the-binary-single-deletion-graph--a53aac659908",
+        "2026/10/4/SCOPE-exact-variance-of-binary-two-deletion-sphere-size--6c9fe70986cc",
+        "arxiv:2009.01346 Section 5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The present count is of output rotation orbits of exact-one-position deletions, not probability-weighted circular deletion traces.",
+        "Narayanan–Ren Section 5 features weight-three circular strings but proves a statistical trace-separation assertion."
+      ],
+      "reasoning": "Equivalent aliases include circular deletion spheres, cyclic subsequence descendants, fixed-weight necklace deletion degree, and circular trace supports. None of the inspected statements evaluates the fixed-weight-three histogram, and trace complexity bounds do not imply its enumerative identity.",
+      "searches": [
+        "circular single-deletion ball size binary necklaces",
+        "necklace one deletion unique outputs run positions rotational equivalence",
+        "single deletion circular word reconstruction necklaces deletion deck",
+        "cyclic three-marker deletion ball run composition necklace degree distribution"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published research-record searches returned deletion graph triangle counts, linear two-deletion variance, and length-specific code tables, none tabulating the three-marker circular sphere distribution.",
+        "Previously disclosed mathematical statements on circular minimal absent factors, circular subsequence universality, cyclic k-mer profiles, and binary deletion channels concern different invariants."
+      ],
+      "reasoning": "No same domain and function table emerged. Generic necklace census via Burnside only determines N_s, not the distribution of deletion-output class sizes; an exhaustive exact table for all lengths is not a consequence of those unrelated recorded counts.",
+      "searches": [
+        "exact distribution one-deletion necklace descendant counts three marker binary circular words gap lengths",
+        "three ones binary cyclic string single deletion distinct traces six outputs circular necklaces",
+        "enumeration of cyclic subsequence descendants sparse binary necklaces minimum maximal sphere"
+      ]
+    },
+    "rationale": "The nearest accessible primary literature addresses circular trace-sample complexity, linear Levenshtein spheres, or cyclic substring reconstruction. Their theorems do not directly give the exact one-deletion rotation-quotiented descendant-size spectrum for all three-one binary necklaces. Published research-record and accessible prior-claim comparisons found no equivalent claim; risk of unindexed work remains.",
+    "residual_risks": [
+      "An identical enumeration could occur in unindexed older work on necklace deletion graphs or circular trace supports.",
+      "Relevant published literature and accessible research records were searched but completeness of indexing and access cannot be guaranteed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related model but does not supply cardinality distribution of exact-one-deletion descendants modulo rotation.",
+        "evidence": "Section 5 uses special sparse circular strings to bound trace-sample complexity, rather than counting deletion-neighbor rotation orbits for every triple.",
+        "identifier_or_url": "https://arxiv.org/abs/2009.01346",
+        "material_read": "ArXiv full-text introduction and theorem statements, including Theorem 1.6 and Section 5 discussion of three-marker construction.",
+        "method": "Read accessible arXiv source text and compare exact statements, domain and output interpretation.",
+        "title": "Circular Trace Reconstruction",
+        "trigger": "Closest shared deletion model and use of three-marker circular words."
+      },
+      {
+        "assessment": "Linear, fixed-output-length insertion/deletion balls, not cyclic exact single-deletion supports.",
+        "evidence": "Combining an insertion and a deletion preserves length and counts non-cyclic words; neither is the present output equivalence.",
+        "identifier_or_url": "https://arxiv.org/abs/2103.01681",
+        "material_read": "Accessible arXiv full-text sections I–III discussing channel definitions and exact radius-one Levenshtein balls.",
+        "method": "Compared length of received words and treatment of circular symmetries.",
+        "title": "On Levenshtein Balls with Radius One",
+        "trigger": "Possible stronger one-edit ball-size formulas."
+      },
+      {
+        "assessment": "Studies circular contiguous substrings and minimal absent factors; no matching one-deletion histogram in inspected results.",
+        "evidence": "Its reconstruction data comprise substring frequencies and minimal absent words, rather than outputs from removing one symbol.",
+        "identifier_or_url": "https://doi.org/10.1587/transfun.2023TAP0015",
+        "material_read": "Open PDF sections 2–4, plus page images for title and definitions.",
+        "method": "Compared observed statistics and reconstruction object with deletion-support counts.",
+        "title": "A Reconstruction of Circular Binary String Using Substrings and Minimal Absent Words",
+        "trigger": "Potential circular reconstruction equivalence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "59859588-b109-49be-b375-166b770e9736",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Complete and exact distribution of a natural observable in a well-motivated sparse cyclic one-deletion channel, for all lengths. Nontrivial rotation-orbit collisions distinguish degree four and five, a sharp degree-six threshold occurs at length nine, and the uniform-necklace mean tends to six with an explicit first correction. These give interpretable reconstruction/code-design sphere profiles rather than arbitrary small-number tables. No claim beyond the fixed-three-marker model is made.",
+    "status": "PASS"
+  }
+}
