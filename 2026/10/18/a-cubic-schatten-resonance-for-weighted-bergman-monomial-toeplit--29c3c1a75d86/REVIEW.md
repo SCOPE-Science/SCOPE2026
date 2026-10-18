@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** Every bounded monomial symbol has the exact weighted Bergman matrix coefficient given in `RESULT.md`. The fixed-degree Gamma ratio has a uniform-for-fixed-parameters asymptotic expansion; the quadratic coefficient is \((\alpha+1)(qr-ps)\), and if this cancels, integer primitiveness reduces the next coefficient to \(-(\alpha+1)abuv(a-b)(u-v)\). Exhaustive degeneracy cases commute identically. A weighted single-diagonal operator has singular values equal to its absolute weights, so the counting and Schatten deductions are valid. The companion checker verifies the algebra and independent finite matrices. No finite test is asserted to prove an infinite limit.
+
+**Originality — PASS, with priority risk.** The 2008 Čučković–Louhichi published text and the 2014 Dong–Zhou arXiv preprint/2016 version were inspected in their relevant monomial and analytic Bergman sections. They establish finite-rank behavior, not the two quantitative singular asymptotic coefficients or critical residue. Precise searches on quasihomogeneous Bergman Schatten commutators and proportional exponent resonance, together with mathematical-result searches, did not reveal an equivalent or stronger covering statement. Later monomial-type work concerns higher-dimensional commuting/finite-rank classifications. This is best-knowledge originality; alternate terminology and inaccessible recent full text are residual risks, not evidence of proven uniqueness.
+
+**Value — PASS.** Approximation numbers distinguish two geometrically natural types of monomial pair: a nonzero determinant/Poisson bracket produces a quadratic tail, whereas parallel but nonidentical nonradial monomials produce a cubic tail. The resulting exact \(\mathcal S_t\) thresholds, leading constants and critical logarithmic residues quantify spectral smoothing and recover the power-weight parameter from the commutator tail. The result is not a mere restatement of the published finite-rank classification.
+
+Closest literature: Čučković–Louhichi (2008), Dong–Zhou (arXiv:1411.0213), and Jiang–Dong–Zhou (2019). The last paper concerns different domains and was available only in abstract/metadata and preprint index during this review. No independent proof or priority audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
