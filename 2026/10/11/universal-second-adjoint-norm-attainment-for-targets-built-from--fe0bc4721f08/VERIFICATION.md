@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Analytic verification
+# Independent mathematical audit
 
-The verification is an explicit review of the proof rather than a finite experiment. The finite-dimensional hypothesis is used **only** to extract a coordinatewise norm-convergent subsequence of the image sequence. Countability of active blocks follows from \(\ell_1\)-summability even for an uncountable original index set.
+## correctness
 
-The finite-support induction proves \(\|z_{n_j}-b_j\|<2^{-j}\) with the supports of \(b_j\) disjoint. The exact norm inequality
-\[
-0\le \|u\|+\|b_j\|-\|u+b_j\|\le2\|P_{D_j}u\|
-\]
-is checked by splitting into \(D_j\) and its complement. Summability and disjointness give convergence of the right side to zero, hence \(\|b_j\|\to1-\|u\|\).
+PASS
 
-For each \(\varepsilon>0\) a single dual functional \(f_\varepsilon\), patched from norming functionals on a finite head and all sufficiently late disjoint blocks, has dual norm at most one and satisfies \(\operatorname{Re}f_\varepsilon(u)\ge\|u\|-2\varepsilon\) together with \(f_\varepsilon(b_j)=\|b_j\|\) eventually. The weak-star ultralimit therefore has norm at least \(1-2\varepsilon\), and the opposite inequality follows from \(\|T\|=1\). This proves the infinite-dimensional assertion without a computational extrapolation.
+Let norm-one T:X→Y=(⊕Fγ)_ℓ1, all Fγ finite dimensional; choose x_n∈S_X with ||Tx_n||→1. Union of countable supports of Tx_n is countable; diagonal compactness gives coordinatewise block-norm limit u∈Y with t=||u||≤1 (Fatou). A gliding-hump subsequence splits Tx_{n_j}=u+b_j+o_Y(1) with pairwise disjoint finite block supports and ||b_j||→1−t because the u-mass on those supports vanishes. The free-ultrafilter ξ=w*-lim J_X x_{n_j} has ||ξ||≤1, T**ξ=J_Yu+w*-lim J_Yb_j. For any ε>0 pick a finite H supporting ≥t−ε of u and ONE functional fε in unit Y* simultaneously supporting u on H and each sufficiently late b_j on their disjoint blocks. Thus Re(T**ξ)(fε)≥1−2ε and ||T**ξ||=||T||=1, which forces ||ξ||=1. Works for arbitrary nonseparable X/Γ and real or complex scalars via Re. Infinite-dimensional blocks genuinely excluded: Hilbert diagonal T e_n=(n/(n+1))e_n fails second-adjoint norm attainment. Proof checked directly against frozen RESULT.md; no verification-code reliance.
 
-The scalar block case was not counted as novel, because it follows from the cited \(\ell_1\)-endomorphism theorem by a metric-quotient argument. The non-scalar finite-dimensional target case is the asserted extension. The boundary example in \(\ell_2\) is a direct norm comparison, not a classification of all possible infinite-dimensional blocks.
+## originality
 
-Independent audit has not been performed. Unindexed literature equivalences remain possible.
+PASS
+
+Best-of-knowledge statement-level comparison of original claim, aliases and stronger coverage: Broader-looking prior wording "finite-dimensional sums" is checked at exact ℓ1/c0 normalization; no strong theorem read that logically implies the new target-pair statement without further argument.
+
+## value
+
+PASS
+
+A universal operator-pair theorem with arbitrary sources and arbitrary finite-dimensional geometry and unbounded block sizes fills a natural structural gap beyond classical scalar ℓ1 endomorphisms. The disjoint-support geometry and finite-block compactness yield a reusable boundary for second-adjoint norm attainment, while infinite-dimensional block counterexample shows genuine dependence on the hypothesis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

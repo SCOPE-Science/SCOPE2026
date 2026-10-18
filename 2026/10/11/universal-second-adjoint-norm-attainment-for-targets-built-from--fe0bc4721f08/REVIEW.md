@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-A full operator-theoretic proof was reconstructed for every nonzero real or complex domain and every nonempty arbitrary-index finite-dimensional \(\ell_1\)-block range. The proof uses coordinatewise compactness, a genuinely norm-controlled disjoint-block approximation, a fixed bounded functional for the entire late-block tail, and a weak-star ultralimit. The key inequality is \(\|T^{**}\xi\|\ge1-2\varepsilon\) for every \(\varepsilon>0\) after normalizing \(\|T\|=1\). This proves operator-norm attainment, not just a limit of maximizing norms. The zero map and nonseparable cases are addressed explicitly.
+## correctness
 
-## Originality — PASS, with residual risk
-Theorem 3.17 and Remark 3.20 of Dantas–Jung–Martín already give the scalar \(\ell_1\) endomorphism result. Via an \(\ell_1\)-metric quotient, they also imply the arbitrary-domain scalar \(\ell_1\) target special case. Remark 3.4 concerns *\(c_0\)-sum* finite-dimensional endomorphisms. These are credited as prior, and the novelty claim is restricted to universal codomains built from arbitrary finite-dimensional \(\ell_1\)-blocks (including unbounded Hilbert-block dimension), not scalar targets. A published third-adjoint result for \(\ell_1\)-predual pairs was inspected in full and does not imply this second-adjoint target theorem. Actual targeted database and external searches did not reveal a covering statement. An unindexed equivalent in general L-embedded-space theory remains possible; literature search is not proof of uniqueness.
+PASS
 
-## Value — PASS
-The theorem determines a whole natural class of ranges admitting universal second-adjoint norm attainment, without source restrictions or uniform finite-dimensional geometry assumptions. A single infinite-dimensional Hilbert block can destroy the conclusion, showing the assumption marks a substantive boundary. This gives a useful counterpart to the diagonal \(\ell_1\) result and to the separate \(c_0\)-sum theorem, not a renamed scalar corollary.
+Let norm-one T:X→Y=(⊕Fγ)_ℓ1, all Fγ finite dimensional; choose x_n∈S_X with ||Tx_n||→1. Union of countable supports of Tx_n is countable; diagonal compactness gives coordinatewise block-norm limit u∈Y with t=||u||≤1 (Fatou). A gliding-hump subsequence splits Tx_{n_j}=u+b_j+o_Y(1) with pairwise disjoint finite block supports and ||b_j||→1−t because the u-mass on those supports vanishes. The free-ultrafilter ξ=w*-lim J_X x_{n_j} has ||ξ||≤1, T**ξ=J_Yu+w*-lim J_Yb_j. For any ε>0 pick a finite H supporting ≥t−ε of u and ONE functional fε in unit Y* simultaneously supporting u on H and each sufficiently late b_j on their disjoint blocks. Thus Re(T**ξ)(fε)≥1−2ε and ||T**ξ||=||T||=1, which forces ||ξ||=1. Works for arbitrary nonseparable X/Γ and real or complex scalars via Re. Infinite-dimensional blocks genuinely excluded: Hilbert diagonal T e_n=(n/(n+1))e_n fails second-adjoint norm attainment. Proof checked directly against frozen RESULT.md; no verification-code reliance.
 
-## Closest work and limits
-Dantas, Jung and Martín, arXiv:2609.00794v1 (2026-09-01), Theorem 3.17 and Remarks 3.4/3.20. Another public result gives universal third-adjoint norm attainment for isometric \(\ell_1\)-predual pairs, a different setting. The present theorem does not assert first-adjoint norm attainment, arbitrary infinite-dimensional block inclusion, or stability under equivalent renorming.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-level comparison of original claim, aliases and stronger coverage: Broader-looking prior wording "finite-dimensional sums" is checked at exact ℓ1/c0 normalization; no strong theorem read that logically implies the new target-pair statement without further argument.
+
+## value
+
+PASS
+
+A universal operator-pair theorem with arbitrary sources and arbitrary finite-dimensional geometry and unbounded block sizes fills a natural structural gap beyond classical scalar ℓ1 endomorphisms. The disjoint-support geometry and finite-block compactness yield a reusable boundary for second-adjoint norm attainment, while infinite-dimensional block counterexample shows genuine dependence on the hypothesis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
