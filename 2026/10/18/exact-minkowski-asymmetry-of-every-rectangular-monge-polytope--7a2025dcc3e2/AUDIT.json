@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "For each adjacent Monge facet, normalized corner-ray vertices give exact maximum 1/min(i(q-j),(p-i)j); for each coordinate facet the proof handles both rectangle types and the equal-area half-weight boundary using i(p-i)≥p-1. The explicit candidate sums q column rays and (p-1)(q-1) normalized corner-ray combinations and simultaneously dominates every facet maximum. For the lower bound the exact mass identity with weights w and λ≥0 gives s+1≥q+(p-1)(q-1), equal to the primal construction. Quantifiers are every pair p,q≥2, with p>q by transpose. Source facet theorem is a stated mathematical premise; the included exact-rational verifier passed for 60 pairs, 4452 enumerated vertices, and 4392 facet inequalities, including all coefficient basis checks. No finite experiment substitutes for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The classical dimension bound yields only s≤pq−1 because the normalized Monge polytope has affine dimension pq−1.",
+        "Theorem A of arXiv:2609.09508v1 gives a normalized volume formula; its other main invariant is the Ehrhart series, not an affine asymmetry coefficient.",
+        "A full-dimensional normalized Monge cost-matrix polytope is not the distinct transportation-plan polytope: arXiv:2311.07522v2, p. 2 and arXiv:2609.09508v1, pp. 1–2 explicitly distinguish those objects."
+      ],
+      "reasoning": "Neither the universal convex-body bound s≤d nor known volume/Ehrhart formulas yield the strict exact defect min(p,q)-1 or the constructed minimizing center. Comparison uses mathematical consequences rather than paper titles. A new stronger inequality for all normalized Monge cones could cover this theorem, but no such implication emerged in inspected material.",
+      "searches": [
+        "Minkowski asymmetry convex body inequality s(K) ≤ dimension equality simplex Grunbaum",
+        "Monge polytope convex geometry optimal centers Erickson Kretschmann",
+        "Monge array polytope Minkowski center facet ratio dual certificate maximum normalized Monge slack",
+        "arXiv:2609.09508, introduction and Theorem A"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2311.07522v2 (original domain, full relevant vertex/facet statements and proofs, pp. 10–12)",
+      "arXiv:2609.09508v1 (same object; introduction, Theorem A on volume/Ehrhart)",
+      "Published mathematical result summaries returned for explicit Monge asymmetry, center, submodular-array, and polytope-asymmetry queries; closest visible asymmetry results concerned different body classes."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The earlier complete facet theorem gives the local inequalities and extremal vertices; the new result computes maxima of each slack and solves a coupled max-min center problem.",
+        "The new dual identity with w_ij=min(i(q-j),(p-i)j) and nonnegative grid coefficients supplies an all-parameter optimality certificate, not stated in the inspected Monge-polytope texts.",
+        "The 2026 volume theorem supplies an unrelated scalar invariant and no inequality comparing reflected copies."
+      ],
+      "reasoning": "The exact vertex/facet classification does not automatically imply an explicit value for the optimized asymmetry; further nontrivial proof of simultaneous facet dominance and a dual lower bound is required. No inspected stronger statement was found from which the formula follows as a corollary without those new arguments.",
+      "searches": [
+        "arXiv:2311.07522v2, Proposition 5.1, Theorem 5.3 and their proofs",
+        "arXiv:2609.09508v1, contents, introduction, Theorem A and search for asymmetry",
+        "\"Monge polytope\" \"Minkowski asymmetry\"",
+        "Exact Minkowski asymmetry and Minkowski centers of Monge polytopes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2311.07522v2, pp. 10–11: all vertices are normalized northeast/southwest corner rectangles and complete row/column strips; facets are coordinates and adjacent Monge inequalities.",
+        "arXiv:2311.07522v2, pp. 1–2, 10–12: target invariants are face structure, combinatorial edges, and volume, not a reflection-dilation coefficient.",
+        "A Monge matrix is a two-dimensional submodular array under the displayed sign convention; searches using submodular and normalized-cost terminology yielded no equivalent asymmetry formula."
+      ],
+      "reasoning": "The claim is an affine reflection-dilation optimum with sharp value min(p,q)(max(p,q)-1) and a positive certificate. Equivalent terminology includes the Minkowski measure of symmetry of the nonnegative submodular-array simplex section. Published extremal-ray/face descriptions are necessary inputs, but do not by their statements assert the optimized affine invariant or the specific dual identity. No checked result has the same quantified formula or an equivalent inclusion theorem.",
+      "searches": [
+        "\"Monge polytope\" \"Minkowski asymmetry\"",
+        "\"Monge matrices\" \"measure of symmetry\" polytope",
+        "Minkowski asymmetry of rectangular Monge polytopes normalized nonnegative Monge matrices pq minus min(p,q) explicit optimal center",
+        "Affine symmetry measure of nonnegative submodular matrix polytope",
+        "arXiv:2311.07522, Proposition 5.1 and Theorem 5.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Erickson–Kretschmann Example 5.5 records the 2-by-2 Monge polytope as a triangular prism; their tables count vertices/facets/edges and their volume formula concerns 2-by-q normalized volume, not asymmetry values.",
+        "Published-result search rankings contained exact asymmetry formulas for unrelated classes, such as regular polygons, but no matrix-shape indexed table of Monge asymmetry.",
+        "The theorem proves a general exact formula for every p,q≥2 rather than recomputing a finite case from a known table."
+      ],
+      "reasoning": "The closest tables concern faces and volumes, which are not exact entries of the target affine-invariant table. Similar numerical parameters alone do not establish implication. A failed indexed search is not proof that no overlooked table exists.",
+      "searches": [
+        "Exact Minkowski asymmetry and Minkowski centers of Monge polytopes",
+        "Normalized nonnegative Monge matrices polytope Minkowski symmetry constant",
+        "Monge polytope center radius as coefficient average corner rectangles adjacent inequalities",
+        "\"Monge polytope\" \"center\" \"asymmetry\"",
+        "arXiv:2311.07522, Example 5.5 and Theorem 5.6"
+      ]
+    },
+    "rationale": "The closest full-text primary source supplies the vertex/facet structure but not an affine reflection-dilation optimum. A newer paper on the identical polytope addresses volume and Ehrhart series. Targeted searches across published mathematical results, synonyms, and Monge-array terminology identified no logically covering exact formula or general asymmetry theorem. The proof adds explicit sharp primal and dual certificates absent from the inspected earlier claims. Residual risk: an unlocated equivalent submodular-grid center theorem; independent priority certification is not claimed.",
+    "residual_risks": [
+      "No independent exhaustive priority assessment; alternative terminology or unindexed work may supply a stronger general principle.",
+      "The 2026 same-object volume paper was inspected for its stated main claims and targeted terms, not line-by-line across every proof.",
+      "Generic Minkowski-asymmetry inequalities are known, and a currently unidentified specialized theorem may improve on the standard upper bound in exactly this family."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING in material read: describes vertices/facets/edges and selected volumes, not the quantitative reflection-dilation invariant; exact facet theorem is explicitly used as premise.",
+        "evidence": "Proposition 5.1 enumerates 2(p-1)(q-1)+p+q normalized vertices. Theorem 5.3 identifies pq+(p-1)(q-1) facets. Example 5.5 identifies the 2-by-2 case as a triangular prism. Neither defines or computes Minkowski asymmetry.",
+        "identifier_or_url": "arXiv:2311.07522v2; https://arxiv.org/pdf/2311.07522",
+        "material_read": "Original submission record, introduction, conventions and dimension, section 5.1 Proposition 5.1 and its proof, Theorem 5.3 and its proof, Theorem 5.4 and Example 5.5, and paper discussion of results/open problems.",
+        "method": "Direct inspection of primary PDF text and displayed pages 1–3, 10–12, with cross-comparison of precise mathematical statements and facet types.",
+        "title": "The structure and normalized volume of Monge polytopes",
+        "trigger": "Identical normalized nonnegative Monge-polytope domain and its primary facets and vertices are needed to prove every bound."
+      },
+      {
+        "assessment": "The inspected theorem is a Delannoy-path volume calculation and Ehrhart series, with no indicated implication for an affine Minkowski asymmetry. Residual risk remains for uninspected passages.",
+        "evidence": "Theorem A expresses normalized volume as a sum over Z-avoiding Delannoy paths. The abstract and contents list volume, Stanley decompositions, and Ehrhart series; neither announces an asymmetry-center classification.",
+        "identifier_or_url": "arXiv:2609.09508v1; https://arxiv.org/pdf/2609.09508",
+        "material_read": "Title, abstract, table of contents, introduction and statement of main volume/Ehrhart result; targeted checks for asymmetry and Minkowski center. Full 31-page proof not inspected.",
+        "method": "Direct primary PDF examination and in-document term/statement comparison.",
+        "title": "A lattice path model for the volume of the Monge polytope",
+        "trigger": "Contemporary primary study of precisely the same normalized cost-matrix object might contain a broader theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7a2025dc-c3e2-4e18-91cc-611cdb6c4716",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determines a natural affine invariant for all normalized p-by-q nonnegative Monge cost-matrix polytopes, with two unconstrained integer dimensions. The exact formula has a meaningful dimension-sensitive defect from the simplex bound, a constructive finite convex average of natural extreme points, and an exact positive duality identity. It addresses an invariant distinct from the motivating source’s face enumerations and volumes and is not merely a normalization change or a known-table computation.",
+    "status": "PASS"
+  }
+}
