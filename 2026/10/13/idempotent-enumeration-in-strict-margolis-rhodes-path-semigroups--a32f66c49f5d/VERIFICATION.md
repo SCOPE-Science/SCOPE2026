@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,30 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof has two independent components.
+# Independent mathematical audit
 
-First, Lemma 3.3 of arXiv:2609.39370 gives the normal form of a strict element: a matching edge \(e_i\) is collapsed to an independent image vertex \(v_i\). For an idempotent, every image vertex must be in the domain and fixed. Because domain edges are disjoint and image vertices are distinct, this is equivalent to \(v_i\in e_i\) for every \(i\). Conversely, that endpoint condition visibly fixes every image point.
+## correctness
 
-Second, on \(P_n\) this becomes a tiling by monomers and oriented dominoes. The selected endpoints fail independence in exactly one local configuration: an \(R\)-domino immediately followed by an \(L\)-domino. The weighted transfer recurrence is therefore
-\[
-I_n(y)=I_{n-1}(y)+2yI_{n-2}(y)-y^2I_{n-4}(y),
-\]
-with
-\[
-I_0(y)=1,\quad I_1(y)=1,\quad I_2(y)=1+2y,\quad I_3(y)=1+4y.
-\]
-This yields
-\[
-\sum_{n\ge0}I_n(y)x^n=\frac{1}{1-x-2yx^2+y^2x^4}.
-\]
-Expanding the right-hand side geometrically and extracting \(x^ny^k\) gives the stated factorial sum exactly.
+PASS
 
-The bundled `check_idempotents.py` does not assume the tiling model when checking small paths. It enumerates all partial maps on \(P_n\) for \(1\le n\le6\), tests vertex-fiber strictness and edge-preimage continuity from the definitions, and then tests idempotency. It independently obtains totals
-\[
-1,3,5,10,19,36.
-\]
-It separately checks the closed rank formula and recurrence through \(n=14\) and ends with `CHECK_OK`.
+The inspected Margolis–Rhodes strict semigroup Lemma 3.3 represents each partial map by a matching in the domain, independent image and edge-to-image bijection. From f²=f every image point must be fixed, and since its domain matching edges are disjoint, the image of each edge must lie on that same edge; converse is immediate. For a path these objects are monomer–domino tilings, with each domino oriented L/R by its chosen endpoint. Independence forbids exactly adjacent R,L dominoes; all other pairs of chosen endpoints are separated. Conditioning on final monomer or domino gives I_n=I_(n-1)+2y I_(n-2)-y² I_(n-4) with I_0=I_1=1, I_2=1+2y, I_3=1+4y. Thus OGF 1/(1-x-2yx²+y²x⁴), whose direct multinomial expansion gives e_{n,k}=sum_j(-1)^j2^{k-2j}(n-k-j)!/[(n-2k)!(k-2j)!j!]. Independent tiling enumeration through n=12 matched coefficient recurrence and yielded P6 ranks 1,10,21,4. This all-n result is symbolic, not finite extrapolation.
 
-The finite checks do not prove the infinite formulas; the symbolic argument above does. No closed enumeration for cycles or arbitrary graphs is asserted.
+## originality
+
+PASS
+
+The endpoint-collapse characterization is largely anticipated in the source Theorem 7.2 and not attributed independent priority. The newly quantified result is a natural all-path, rank-refined enumeration and rational generating function; primary full text computes entire St(P_n) order but does not give idempotent counts or this forbidden-orientation recurrence.
+
+## value
+
+PASS
+
+Idempotents control regularity, local units and Green structure of transformation semigroups. For a natural canonical graph family, the theorem determines every idempotent rank, exact multiplicity, recurrence and generating function, unlike the previously published total-order count. The enumeration is compact and independently useful for semigroup structural and combinatorial comparisons. Its simple transfer-matrix technology does not make the new full family census a mere textbook substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

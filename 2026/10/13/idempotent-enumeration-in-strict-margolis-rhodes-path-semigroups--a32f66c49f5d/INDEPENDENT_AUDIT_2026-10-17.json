@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T15:49:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md @ a3dd8085355f4121d55e563fc4fda7ded1386ec8",
+        "Frozen check_idempotents.py @ 7683405351e538c40bc573cc6afea02da97df4d9",
+        "Margolis–Rhodes arXiv:2609.39370v2, Definition 3.2/Lemma 3.3/Theorems 7.2,7.3/Section 8"
+      ],
+      "rationale": "The inspected Margolis–Rhodes strict semigroup Lemma 3.3 represents each partial map by a matching in the domain, independent image and edge-to-image bijection. From f²=f every image point must be fixed, and since its domain matching edges are disjoint, the image of each edge must lie on that same edge; converse is immediate. For a path these objects are monomer–domino tilings, with each domino oriented L/R by its chosen endpoint. Independence forbids exactly adjacent R,L dominoes; all other pairs of chosen endpoints are separated. Conditioning on final monomer or domino gives I_n=I_(n-1)+2y I_(n-2)-y² I_(n-4) with I_0=I_1=1, I_2=1+2y, I_3=1+4y. Thus OGF 1/(1-x-2yx²+y²x⁴), whose direct multinomial expansion gives e_{n,k}=sum_j(-1)^j2^{k-2j}(n-k-j)!/[(n-2k)!(k-2j)!j!]. Independent tiling enumeration through n=12 matched coefficient recurrence and yielded P6 ranks 1,10,21,4. This all-n result is symbolic, not finite extrapolation.",
+      "residual_risks": [
+        "The tiling restriction R followed by L must use immediate consecutive dominoes; insertion of a monomer removes the obstruction.",
+        "The empty-path n=0 convention is artificial and should not be mistaken for an original semigroup definition."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior |St(P_n)|=sum_k C(n-k,k) C(n-k+1,k) k! counts all maps, including nonidempotents.",
+          "Lemma 3.3 describes matchings/independent sets but does not impose each chosen image vertex lies on its own edge and thus does not directly give the idempotent generating function."
+        ],
+        "reasoning": "A general all-element census dominates neither the idempotent subcount nor its rank-weighted generating function; additional endpoint restrictions and forbidden-dimer enumeration are required.",
+        "searches": [
+          "Margolis–Rhodes 2026 arXiv:2609.39370 Section 8 full order formula",
+          "Margolis–Rhodes 2020 arXiv:2005.02606 strict continuous maps"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.39370v2 full accessible HTML",
+        "arXiv:2005.02606 PDF",
+        "Resultary Margolis–Rhodes strict path idempotent search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original Lemma 3.3 plus elementary f²=f yields the endpoint-collapse description; this piece alone is substantially covered.",
+          "The forbidden adjacent RL orientation and rational generating function require a separate tiling count not stated in the prior result."
+        ],
+        "reasoning": "Explicitly credits prior characterization and only claims the complete rank/census refinement as novel. Prior whole-semigroup order is not a logical implication of the new idempotent generating series; the new computation remains a natural consequence of prior structure but is not merely a parameter substitution.",
+        "searches": [
+          "arXiv:2609.39370, Theorem 7.2 and Section 8 (full text)",
+          "arXiv:2005.02606, Lemma 2.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Strict idempotents on P_n correspond to oriented matchings with no adjacent RL dominoes, not to all domain matchings.",
+          "The prior theorem observes idempotents collapse each edge onto an endpoint inside its regularity construction, but does not enumerate the full set."
+        ],
+        "reasoning": "Checked semigroup, oriented-dimer, independent transversal and forbidden-word formulations. Existing strict-map/regularity results encode the objects but not the rank distribution.",
+        "searches": [
+          "Resultary: Margolis Rhodes strict path semigroup idempotent enumerator generating function oriented matchings",
+          "arXiv:2609.39370 Lemma 3.3/Theorem 7.2",
+          "arXiv:2005.02606 Lemma 2.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent idempotent totals through P_12 are 1,3,5,10,19,36,69,131,250,476,907,1728.",
+          "A superficially matching integer-sequence result diverges after its initial terms and does not identify strict semigroup idempotents."
+        ],
+        "reasoning": "No matching rank-refined path-idempotent table was identified in inspected literature or Resultary. Coinciding initial integer sequences do not establish equivalence, and absence of hits cannot prove priority.",
+        "searches": [
+          "Resultary idempotent St(P_n) denominator 1-x-2yx^2+y^2x^4 search",
+          "Margolis–Rhodes 2026 path section",
+          "Search for 1,3,5,10,19,36,69,131,250 sequence and idempotents"
+        ]
+      },
+      "rationale": "The endpoint-collapse characterization is largely anticipated in the source Theorem 7.2 and not attributed independent priority. The newly quantified result is a natural all-path, rank-refined enumeration and rational generating function; primary full text computes entire St(P_n) order but does not give idempotent counts or this forbidden-orientation recurrence.",
+      "residual_risks": [
+        "Oriented-matching tiling count may be catalogued in combinatorics without semigroup terminology.",
+        "Endpoint-collapse criterion itself is not original; correctness/value are attached to complete rank enumeration, not that standalone observation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN_STRUCTURAL_PART_BUT_NEW_COUNT_NOT_STATED",
+          "evidence": "Idempotent endpoint collapse appears in regularity proof; path total |St(P_n)| given, not rank-idempotent OGF 1/(1-x-2yx²+y²x⁴).",
+          "identifier_or_url": "https://arxiv.org/abs/2609.39370",
+          "material_read": "Complete accessible HTML manuscript, Definition 3.2, Lemma 3.3, Theorems 7.1–7.3, path order Section 8 and idempotent discussion",
+          "method": "primary full HTML manuscript and relevant sections read",
+          "title": "The Margolis-Rhodes Monoid of a Graph",
+          "trigger": "Same exact strict semigroup and same path family"
+        },
+        {
+          "assessment": "BACKGROUND_NOT_COVERING_ENUMERATION",
+          "evidence": "Strict map structural characterization, not the restricted all-path idempotent rank polynomial.",
+          "identifier_or_url": "https://arxiv.org/pdf/2005.02606",
+          "material_read": "Full PDF examined, including Lemma 2.5, Corollary 2.10 and stricter monoid distinctions",
+          "method": "primary PDF text inspection and page image",
+          "title": "Degree 2 Transformation Semigroups as Continuous Maps on Graphs: Foundations and Structure",
+          "trigger": "Earlier foundational strict continuity and edge matching interpretation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Actual strict path semigroup RESULT.md and symbolic recurrence",
+        "Primary Margolis–Rhodes 2026 path order/regularity sections",
+        "Independent tiling enumeration through n=12"
+      ],
+      "rationale": "Idempotents control regularity, local units and Green structure of transformation semigroups. For a natural canonical graph family, the theorem determines every idempotent rank, exact multiplicity, recurrence and generating function, unlike the previously published total-order count. The enumeration is compact and independently useful for semigroup structural and combinatorial comparisons. Its simple transfer-matrix technology does not make the new full family census a mere textbook substitution.",
+      "residual_risks": [
+        "Some combinatorialists may regard the finite-state forbidden-dimer count as elementary; scientific worth is the complete natural semigroup invariant rather than methodological difficulty."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the strict Margolis–Rhodes semigroup St(P_n), idempotents are matchings with each domain edge collapsed to a selected endpoint, the selected endpoints independent. The complete idempotent rank-refined generating function over paths is 1/(1-x-2yx²+y²x⁴) and the exact factorial alternating-sum coefficient formula of frozen RESULT.md; total counts obey a_n=a_(n-1)+2a_(n-2)-a_(n-4).",
+  "limitations": [
+    "Closed enumerator applies to paths, not arbitrary graphs or the full Margolis–Rhodes monoid MR(P_n).",
+    "The general-graph endpoint-collapse characterization is prior/elementary; completeness of rank census specific to strict path semigroups."
+  ],
+  "schema_version": 1
+}
