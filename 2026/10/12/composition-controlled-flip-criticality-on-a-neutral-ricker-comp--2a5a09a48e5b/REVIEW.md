@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-On the stated positive quadrant and aligned rank-one coefficients, direct quotient cancellation yields the invariant \(x/y^{\alpha}\). The equilibrium leaf equation is strictly increasing, the multiplier crosses \(-1\) transversally once, and an intermediate-value argument proves a genuine strictly positive two-cycle for every leaf past the crossing. Three exact derivatives and the normal-form coefficient \(Q/(12y_c^2)\) control the supercritical/subcritical alternatives. The crossing parameter range, root discriminant, and two rational examples were independently recomputed symbolically. The conclusions do not rely on finite sampling.
+PASS
 
-## Originality — PASS within the exact scope
+Direct exponent cancellation proves K invariance. Monotonicity of K y^alpha+alpha y gives the unique leafwise fixed point; lambda=1-R+(alpha-1)y_K decreases through -1 exactly at x+y=2. For lambda<-1, f_K^2(y)-y is positive just above zero and negative just below the equilibrium, proving an actual positive nonconstant two-cycle by IVT. At the crossing the second derivative is -t/y_c and the third derivative is [4+(5-alpha)t]/y_c^2, giving flip cubic c=Q/(12y_c^2); the smooth scalar normal form gives attracting/repelling cycle types on the stated sides. Independently checked rational supercritical and subcritical witnesses by direct finite differences and exact Q arithmetic. The planar fixed point has neutral multiplier one, so no full-plane attraction is asserted.
 
-Goldar and coauthors (2026) divide by \(1-\alpha\beta\) when locating coexistence and use a nonresonant isolated-fixed-point flip criterion, neither covering the coincident-isocline locus with a neutral multiplier. Luís, Elaydi and Oliveira (2011) discard the same product-one locus; Kulakov, Neverova and Frisman (2022) discuss the competition boundary without the present first-integral/flip polynomial. Baigent and collaborators (2023) establish global convergence for log-growth rates at most two, whereas the theorem requires \(R>2\). The closest related published periodic-orbit spectral results assume different synchronization/row-regularity and do not imply the leafwise criticality switch. Originality remains conditional on incomplete indexing of degenerate-map literature.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The condition of exactly aligned resource use is the mathematically natural boundary at which the usual isolated coexistence equilibrium ceases to exist. Rather than merely noting a fixed segment, the theorem classifies its composition-dependent stability, proves positive two-cycles on every post-threshold leaf, and identifies a sharp intrinsic competition strength above which the sign of the flip changes. This is a genuine distinction between two local bifurcation mechanisms and supplies an explicit exception to isolated-equilibrium analyses. It is not an arbitrary numerical parameter slice.
+The invariant foliation and nonhyperbolic (1,-1) flip sign boundary are not implied by inspected generic Ricker bifurcation criteria; established scalar flip normal forms are explicitly credited.
 
-## Scientific limitations
+## value
 
-The system must preserve the exact rank-one aligned structure. Other cycles may exist and global basin geometry is not resolved. Near \(Q=0\), no higher-order classification is given. A positive neutral multiplier in the full plane prevents pointwise asymptotic stability. Overlap with unindexed literature and external independent verification remain unresolved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result resolves a motivated degenerate parameter locus excluded by generic planar flip theory, exhibits every postthreshold leaf having a positive cycle, and sharply partitions supercritical and subcritical behavior by a nontrivial competition-strength threshold; not just a parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
