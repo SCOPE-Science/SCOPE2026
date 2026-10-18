@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T06:14:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For centered Y=P(x-X1)/Delta the selected-pair contraction Aij=I-mu(ei-ej)(ei-ej)^T and centered pair noise yield exact conditional squared-norm drift E[S_{k+1}|Y]=[1-4mu(1-mu)/(N-1)]S+2(N-1)/N under constant utility, with unique stationary second moment (N-1)^2/[2Nmu(1-mu)]. The exact random-pair quadratic difference average is 2S/(N-1); the fast mean is (N-1)/[Nmu(1-mu)]. For nonlinear smooth log U, pair bias is tanh[(ell_j-ell_i)/2], and near-consensus localization by fourth moments makes rejected interactions negligible on k=O(Delta^-2). A centered-fast-observable telescoping/martingale estimate replaces pair squares by stationary moment; Gaussian selected-pair mean noise gives diffusion coefficient 1/N under accelerated time s=kDelta²/N. The drift is (N-1)ell_prime/[N(1-mu)], hence the integrable invariant Gibbs density has exponent (N-1)/(1-mu). Independent exact-rational contraction/mean-drift tests for N=2,3,5,10 and mu=1/4,1/2,3/4 corroborate coefficients, not the functional CLT. Hypotheses ensure Lipschitz drift and a unique diffusion; finite-horizon limitation is honored.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original studies general multi-cluster heuristics and approximate Gibbs density but not fixed-N weak limit under these hypotheses",
+          "Other gossip papers concern stubborn-agent or deterministic limits"
+        ],
+        "reasoning": "A physically broader model and several approximate regimes do not imply the rigorous finite-N weak-noise diffusion or exact exponent.",
+        "searches": [
+          "Resultary semantic query: utility-driven bounded confidence finite population stochastic opinion dynamics weak noise Gibbs exponent N-1 1-mu",
+          "arXiv:2605.21844v1 single-cluster regime, Appendices A–F",
+          "arXiv:2301.05352v4 gossip with stubborn agents"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.21844v1 Model, Eq.(15), Appendices A–F",
+        "Resultary semantic query: utility-driven bounded confidence finite population stochastic opinion dynamics weak noise Gibbs exponent N-1 1-mu",
+        "arXiv:2301.05352v4 contextual"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original assumes pair mean square difference approximately 2sigma² and arrives at sigma²≈Delta²/[2mu(1-mu)]",
+          "New exact centered stationary variance multiplies this by ((N-1)/N)^2 for neutral unrestricted pairs and exact pair spread yields (N-1)/N drift reduction"
+        ],
+        "reasoning": "Original closure explicitly neglects finite-N centered covariance and does not itself establish a fixed-N path-space convergence theorem; no implication of the corrected result without additional proof.",
+        "searches": [
+          "arXiv:2605.21844v1 Eqs.(9)–(15), Appendix F",
+          "arXiv:2605.21844v1 Appendix A equations S8–S15"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published p*(x)∝U(x)^{N/(1-mu)} is a small-spread approximation",
+          "Assessed p∞∝U^{(N-1)/(1-mu)} arises from exact centered disagreement covariance"
+        ],
+        "reasoning": "The exponents differ by 1/(1-mu), so the published approximation is not algebraically equivalent to the exact fixed-N conclusion.",
+        "searches": [
+          "Resultary semantic query: utility-driven bounded confidence finite population stochastic opinion dynamics weak noise Gibbs exponent N-1 1-mu",
+          "Siebenmorgen–Restrepo arXiv:2605.21844v1 Eq.(15), Appendices A–F"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact finite-N Gibbs exponent table found in targeted source/model searches; source formulas give distinct N exponent"
+        ],
+        "reasoning": "A failed search is not novelty proof; the positive comparison is the explicit mismatch and omitted finite-population anticorrelation correction.",
+        "searches": [
+          "Resultary semantic query: utility-driven bounded confidence finite population stochastic opinion dynamics weak noise Gibbs exponent N-1 1-mu",
+          "Web: Siebenmorgen Restrepo 2026 utility-driven bounded confidence model finite population appendix A covariance Gibbs"
+        ]
+      },
+      "rationale": "Siebenmorgen–Restrepo arXiv:2605.21844v1 original Eq.(15) and Appendix F use approximate pair decorrelation, yielding N/(1-mu). The exact finite-population projection covariance and rigorous fixed-N weak-noise path limit are not supplied there. The N-1 shift is a genuine different statement at every fixed N; it vanishes relatively as N grows and is not falsely presented as contradicting the original leading approximation. Gossip with stubborn agents and stochastic approximation does not dominate the same utility-driven fixed-N finite-horizon theorem.",
+      "residual_risks": [
+        "Unindexed exact homogenization results for near-consensus utility-biased gossip could subsume the diffusion correction.",
+        "Uniform-in-time and microscopic stationary convergence are not established, only limiting diffusion stationarity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING finite-N exact exponent/rigorous finite-time weak-noise convergence; DOES_COVER model and heuristic scaling",
+          "evidence": [
+            "Main Eq.(15) gives N/(1-mu); Appendix F uses single-agent approximate Gaussian closure; Appendix E uses approximate E[(delta_i-delta_j)^2]=2sigma²."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2605.21844v1",
+          "material_read": "Full HTML relevant model, single-cluster analysis, Appendices A–F and scope of model; Eq.(15) and Appendices D–F read directly",
+          "method": "lawful arXiv full HTML",
+          "title": "A Utility-Driven Bounded-Confidence Model for Opinion Dynamics",
+          "trigger": "Same update model and original Gibbs exponent"
+        },
+        {
+          "assessment": "Different stubborn-agent model; residual full-source comparison risk",
+          "evidence": [
+            "Stubborn-agent concentration does not identify utility-driven weak-noise mean diffusion Gibbs exponent."
+          ],
+          "identifier_or_url": "arXiv:2301.05352v4",
+          "material_read": "Bibliographic abstract and scoped comparison in package only; full primary text not inspected in this run",
+          "method": "source scope comparison",
+          "title": "Concentration in Gossip Opinion Dynamics over Random Graphs",
+          "trigger": "Potential stronger finite-population gossip convergence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact finite-population correction determines the invariant law of the limiting diffusion in a widely motivated stochastic interaction model and separates a rigorous weak-noise statement from a heuristic large-N closure. This changes quantitative prediction at small N (e.g., N=2), supplies a natural covariance identity, and proves concentration failure probability vanishes on finite horizons; importance does not rely on full stationary interchange.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Fixed N, 0<mu<1, initial Delta-near-consensus, independent Gaussian selected-pair noise, C3 positive utility with bounded log-derivatives, fixed confidence eps>0.",
+    "Only finite accelerated-time weak path limit and invariant law of limiting diffusion. No interchange with original finite-noise stationary regime or simultaneous N limit."
+  ]
+}
