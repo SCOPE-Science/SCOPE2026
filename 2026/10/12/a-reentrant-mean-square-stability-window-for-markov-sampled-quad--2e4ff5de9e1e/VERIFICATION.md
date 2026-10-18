@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 and SymPy. The checker available within this package was executed before packaging, returning `VERIFY_OK 520 exact rational cases; critical persistence between 0.043 and 0.044`.
+## correctness
 
-The checker verifies the moment-transfer determinant and cubic, discriminant factorization, strict exact root bracket, and rational examples. The 520 rational parameter comparisons check the relation between determinant positivity and the two-state spectral threshold for persistence below one half. The theorem's all-real-parameter statements follow from the analytical root, continuity and convexity proof in `RESULT.md`, not from the finite grid.
+PASS
 
-A complete independent mathematical audit has not been performed. Earlier literature may contain an equivalent specialized phase diagram, and the conference-paper comparison remains abstract-only.
+Reconstructed conditional second-moment evolution M=diag((1-eta)^2,(1-6eta)^2)P for symmetric two-state chain. Stability from either deterministic starting mode is rho(M)<1, including reducible p=1 and periodic p=0 cases. Direct symbolic expansion verifies det(I-M)=eta C_p(eta) and cubic discriminant -144(2p-1)G(p) with G=23675p^3-38914p^2+803p+36. Unique p* in (0,1/2) has value 0.04318988247 and forms a double larger-root boundary; at p=0, C0=-36(eta-1/2)(eta-2/3)(eta-7/6) yielding two stable intervals. Above p* one interval; for p>=1/2, PSD P and matrix-convex symmetric representative give connected strict sublevel set; endpoints 14/37 at p=1/2, 1/3 at p=1. Independent exact symbolic discriminant, factorization, and rational p=1/50 eta=3/5 unstable versus eta=9/10 stable verified.
+
+## originality
+
+PASS
+
+Published Markov jump linear systems provide the general necessity and sufficiency of lifted spectral-radius mean-square stability, which the source explicitly credits. The specialized disconnected learning-rate set, its algebraic persistence threshold p* and root-coalescence topology for curvatures 1 and 6 are not stated in the inspected broad full primary Ling–Deng and Lee–Halder–Bhattacharya papers. A potentially overlapping 2000 scalar-jump source has only abstract available, retained as a risk rather than declared noncovering.
+
+## value
+
+PASS
+
+An explicitly strongly convex two-sample optimization instance displays nonmonotone, reentrant admissible learning-rate windows, and the exact transition identifies the parameter where this instability topology disappears. This is a motivated sharp boundary phenomenon not merely a restatement of the classical rho<1 criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

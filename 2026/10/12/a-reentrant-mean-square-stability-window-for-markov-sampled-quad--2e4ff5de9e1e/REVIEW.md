@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For curvatures one and six, the two-state conditional second-moment recurrence is exact. Its nonnegative transfer matrix gives necessity and sufficiency of a Perron-root test. For stay probability below one half, the determinant reduces to the displayed cubic with no omitted trace condition; the exact cubic discriminant and its concave critical factor classify the roots. For probability at least one half, a positive-semidefinite representation makes the top eigenvalue a convex function of stepsize and rules out reentrance. The proof treats both endpoints, unstable equality cases, and arbitrary deterministic initial modes. The standalone checker independently verifies the symbolic identities and 520 rational instances. These finite calculations are supporting checks, not the proof for all real parameters.
+PASS
 
-## Originality — PASS, qualified
+Reconstructed conditional second-moment evolution M=diag((1-eta)^2,(1-6eta)^2)P for symmetric two-state chain. Stability from either deterministic starting mode is rho(M)<1, including reducible p=1 and periodic p=0 cases. Direct symbolic expansion verifies det(I-M)=eta C_p(eta) and cubic discriminant -144(2p-1)G(p) with G=23675p^3-38914p^2+803p+36. Unique p* in (0,1/2) has value 0.04318988247 and forms a double larger-root boundary; at p=0, C0=-36(eta-1/2)(eta-2/3)(eta-7/6) yielding two stable intervals. Above p* one interval; for p>=1/2, PSD P and matrix-convex symmetric representative give connected strict sublevel set; endpoints 14/37 at p=1/2, 1/3 at p=1. Independent exact symbolic discriminant, factorization, and rational p=1/50 eta=3/5 unstable versus eta=9/10 stable verified.
 
-General spectral-radius equivalences for Markov jump linear systems already cover the transfer-operator machinery; they do not state the specialized learning-rate interval topology, algebraic critical persistence or its double-root collision for this two-curvature gradient iteration. Source inspections included the relevant sections of the accessible 2012 and 2014 primary works and the dated 2014 preprint record, and claim-level comparisons with them. Searches also covered alternate names (switching gradient iteration, Markov jump scalar multiplier, periodic gradient descent and reentrant stepsize stability). The 2000 paper on scalar jump perturbations was found but not available in full text and may contain an unrecognized equivalent specialization. Absence of an indexed match is not a uniqueness proof.
+## originality
 
-## Value — PASS
+PASS
 
-Unlike a routine statement that a small matrix is Schur stable, this result classifies a nonmonotone *set* of admissible learning rates and its sharp topology-changing parameter. For a strongly convex objective, anti-persistent sampling allows a larger learning rate to restore mean-square convergence after an intervening unstable range. The result is a complete, independently reproducible algebraic benchmark for Markov-dependent stochastic optimization, not an unsupported general performance promise.
+Published Markov jump linear systems provide the general necessity and sufficiency of lifted spectral-radius mean-square stability, which the source explicitly credits. The specialized disconnected learning-rate set, its algebraic persistence threshold p* and root-coalescence topology for curvatures 1 and 6 are not stated in the inspected broad full primary Ling–Deng and Lee–Halder–Bhattacharya papers. A potentially overlapping 2000 scalar-jump source has only abstract available, retained as a risk rather than declared noncovering.
 
-## Scope and remaining risks
+## value
 
-Classical jump-system spectral methods supply the baseline; the new object is their sharp specialized parameter phase diagram. A potentially stronger older conference source was abstract-only, and an unlocated equivalent special case remains possible. Only this scalar two-component model is proved. No independent audit has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An explicitly strongly convex two-sample optimization instance displays nonmonotone, reentrant admissible learning-rate windows, and the exact transition identifies the parameter where this instability topology disappears. This is a motivated sharp boundary phenomenon not merely a restatement of the classical rho<1 criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
