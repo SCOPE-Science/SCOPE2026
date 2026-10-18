@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The verification artifact `verify.py` performs exact symbolic-coefficient checks without numerical approximation. It verifies the Pluecker identity for the displayed parametrization, the factorization \(p_{34}=ad(1-xy)\), the coefficient convolution giving \(1+3t+4t^2+3t^3+t^4\), the Hodge--Deligne expansion, and the source formula at \(d=4\).
+# Independent mathematical audit
 
-The algebraic isomorphism itself is established by the explicit mutually inverse regular maps in `RESULT.md`. The homology statement uses Alexander duality for \(\mathbb C^2\setminus\mathbb C^*\) and the integral Kunneth theorem; the script is a consistency check, not a substitute for those arguments.
+## correctness
 
-Unproved limits: no assertion is made for other cycle arrangements, for arbitrary relabelings not induced by the stated coordinate instance, for real topology, or for the full mixed Hodge structure.
+PASS
+
+In the global p12≠0 Grassmannian big cell the unique matrix [[1,0,a,b],[0,1,c,d]] gives p14=d, p23=−a, p34=ad−bc. Setting x=b/a and y=c/d is a regular isomorphism to (C*)²×{xy≠1} with inverse (a,d,x,y)↦(a,ax,dy,d). Alexander duality for the deleted smooth C* curve in C² gives integral homology H0,H1,H2 each Z; torsion-free Künneth yields Betti (1,3,4,3,1). Motivic subtraction gives (L−1)²(L²−L+1) and compactly supported Hodge polynomial (q−1)²(q²−q+1); Euler 0 agrees with the primary table. The coordinate change, rather than finite testing, proves the algebraic assertion.
+
+## originality
+
+PASS
+
+Mazzucchelli–Pavlov–Wang give the exact four-Plücker cycle arrangement and Euler characteristic zero. Neither this source nor targeted Resultary results supplied its algebraic global product chart, integral Betti numbers and Hodge polynomial. The more familiar all-six-coordinate open Grassmannian is a distinct (strictly smaller) open set.
+
+## value
+
+PASS
+
+The precise four-cycle complement is a natural small test case in the source cycle-arrangement family. Its algebraic product decomposition determines the complete integral Betti polynomial, torsion freeness and motivic/Hodge invariant, going beyond the previously tabulated Euler characteristic. Although the coordinates are elementary, complete integral topology is a self-contained useful fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
