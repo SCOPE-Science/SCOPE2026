@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T07:02:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For SPD quadratic and exact line search, source SRMIL/SMRMIL coefficient reduces to β_{k+1}=g_{k+1}·(g_{k+1}−g_k)/||d_k||² and spectral factor becomes one. Exact orthogonality yields β1=||g1||²/||g0||² and d0ᵀAd1=0. Under g1,g2 !=0, the first conjugacy and search conditions force g2⊥g1, giving β2=||g2||²/||d1||², α1 d1ᵀAd1=||g1||², g2ᵀAd1=||g2||²/α1; substituting gives d2ᵀAd1=(d1ᵀAd1)||g2||²(1/||d1||²−1/||g1||²)<0 because ||d1||²=||g1||²+β1²||d0||²>||g1||². In dimensions 1,2 first 1,2 conjugate directions suffice. Independent SymPy exact SPD A=diag(1,2,3), x0=(1,1,1) gave alphas 7/18,342/581,9764867/13418142, defect −38/4067 and nonzero g3=(32871,52536,−45981)/9769349. The witness proves failure of dimension-step termination, not universal divergence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Recent revised methods incorporate conjugacy conditions by modifying parameters; original RMIL denominator ||d_k||² remains the audited method.",
+          "Classical SPD conjugate gradients exhibit A-conjugacy and n-step termination with different coefficients."
+        ],
+        "reasoning": "Statements on modified spectral parameters/global convergence do not imply this exact unsafeguarded three-direction defect; do not confuse global convergence with finite termination. Recent Salihu full text not established as read.",
+        "searches": [
+          "Salihu Kumam Ibrahim Phiangsungnoen adaptive spectral conjugate gradient integrated conjugacy conditions DOI 10.1002/mma.70858",
+          "SRMIL SMRMIL RMIL exact line search quadratic conjugacy denominator d norm failure third direction"
+        ]
+      },
+      "checked_sources": [
+        "https://www.researchgate.net/publication/403327566_Applications_of_two_sufficient_descent_spectral_conjugate_gradient_methods_in_image_denoising",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/bb51cd72c959a3871b26f4537e3e25ff5cb2b772/2026/10/13/exact-third-direction-conjugacy-break-for-srmil-and-smrmil--45a8332d7e12",
+        "Resultary semantic query: SRMIL SMRMIL RMIL exact line search quadratic conjugacy denominator d norm failure third direction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source statement that RMIL and MRMIL coincide under exact line search establishes the recurrence, but does not provide the derived sign-defect formula.",
+          "Classical conjugate-gradient finite termination does not imply finite termination of this nonstandard β."
+        ],
+        "reasoning": "The original source entails the algebraic recurrence, not explicitly its universal third-direction failure/minimal-dimension counterexample. Derivation is additional precise analysis with an exact witness.",
+        "searches": [
+          "Cai Yue Mo Applications of two sufficient descent spectral conjugate gradient methods in image denoising 2026",
+          "Rivaie Mamat June Ismail 2012 RMIL conjugate gradient"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cai–Yue–Mo 2026 defines d-dependent RMIL coefficient and notes exact-search equivalence; inspected equations 274–310 and surrounding descent direction discussion.",
+          "Submitted universal strict negative defect follows from exact-search orthogonality, distinct from standard FR/PR/HS conjugate-gradient coincidence."
+        ],
+        "reasoning": "Exact quadratic conjugacy defect is not merely renaming the source spectral coefficient; it quantifies the failure after two searches for every unsolved SPD quadratic.",
+        "searches": [
+          "SRMIL SMRMIL RMIL exact line search quadratic conjugacy denominator d norm failure third direction",
+          "Cai Yue Mo SRMIL SMRMIL exact line search RMIL MRMIL beta coefficient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The pinned RESULT.md exact three-dimensional rational witness was independently reconstructed.",
+          "No earlier matching exact certificate arose from Resultary semantic search; search outcome not a novelty proof."
+        ],
+        "reasoning": "Not a lookup-table result; exact arithmetic verifies witness while the analytic all-SPD sign theorem supplies the nonfinite structural contribution.",
+        "searches": [
+          "SRMIL SMRMIL RMIL exact line search quadratic conjugacy denominator d norm failure third direction",
+          "SRMIL exact diagonal (1,2,3) line search -38/4067"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: foundational SRMIL/SMRMIL paper states exact-search coefficient coincidence and descent but the inspected text does not state the universal strictly negative third-direction A-conjugacy formula or minimal dimension three with exact finite-termination counterexample. Older CG conjugacy theory is comparator, not this coefficient result; recent revised spectral conjugacy papers motivate a different method rather than logically implying the sign-defect identity.",
+      "residual_risks": [
+        "A specialized, possibly unindexed older paper may give this exact universal RMIL quadratic defect.",
+        "Proof says nothing about Wolfe/Armijo practical divergence or convergence rates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No matching universal strict third-direction formula identified in inspected sections",
+          "evidence": "Original coefficient denominator ||d_{k−1}||² and exact-search reduction.",
+          "identifier_or_url": "https://www.researchgate.net/publication/403327566_Applications_of_two_sufficient_descent_spectral_conjugate_gradient_methods_in_image_denoising",
+          "material_read": "Full accessible article HTML discussion of RMIL/MRMIL formulas, exact line-search coincidence, descent and numerical statements",
+          "method": "Read full web article text, specifically definitions/formulas near source sections 2–3",
+          "title": "Applications of two sufficient descent spectral conjugate gradient methods in image denoising",
+          "trigger": "Defines EXACT SRMIL and SMRMIL coefficients/directions and line-search reduction"
+        },
+        {
+          "assessment": "Potential close comparison, residual risk explicitly retained",
+          "evidence": "Revised spectral conjugacy coefficients are not automatic implications about old RMIL method.",
+          "identifier_or_url": "https://doi.org/10.1002/mma.70858",
+          "material_read": "Bibliographic and source-result descriptions only, not verified full document",
+          "method": "Literature search/metadata",
+          "title": "An Adaptive Spectral Conjugate Gradient Method With Integrated Conjugacy Conditions and Its Application",
+          "trigger": "A plausible 2026 alternative design tackling conjugacy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: a structural theorem about when a proposed nonlinear CG variant stops preserving quadratic conjugacy, sharp onset at the third direction and smallest failing dimension, plus a fully exact counterexample. This specifically determines a rigorous boundary of classical finite-step termination and helps interpret algorithmic assertions, without confusing loss of conjugacy with practical nonconvergence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Strict inequality excludes termination at g1=0 or g2=0 and requires SPD matrix and exact line search.",
+    "No global convergence failure follows merely from nonconjugacy."
+  ],
+  "schema_version": 1
+}

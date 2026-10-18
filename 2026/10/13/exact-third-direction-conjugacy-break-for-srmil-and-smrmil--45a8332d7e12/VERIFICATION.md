@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof checks the exact-line reduction, the first \(A\)-conjugacy identity, the induced gradient orthogonalities, and the strict third-direction defect. No finite experiment is used to prove the universal statement.
+# Independent mathematical audit
 
-The packaged `verify.py` uses `fractions.Fraction` only. It reconstructs the witness with \(A=\operatorname{diag}(1,2,3)\), \(b=0\), and \(x_0=(1,1,1)^{\mathsf T}\), verifies the exact line searches and RMIL coefficients, checks \(d_1^{\mathsf T}Ad_0=0\), checks \(d_2^{\mathsf T}Ad_1=-38/4067\), and verifies that the third exact line search leaves \(\lVert g_3\rVert^2=5954786298/95440179883801>0\). A successful replay prints `VERIFY_OK`.
+## correctness
 
-Limits: exact arithmetic and exact line search only; no claim is made about convergence speed under Wolfe or Armijo searches or about failure on every three-dimensional quadratic.
+PASS
+
+For SPD quadratic and exact line search, source SRMIL/SMRMIL coefficient reduces to β_{k+1}=g_{k+1}·(g_{k+1}−g_k)/||d_k||² and spectral factor becomes one. Exact orthogonality yields β1=||g1||²/||g0||² and d0ᵀAd1=0. Under g1,g2 !=0, the first conjugacy and search conditions force g2⊥g1, giving β2=||g2||²/||d1||², α1 d1ᵀAd1=||g1||², g2ᵀAd1=||g2||²/α1; substituting gives d2ᵀAd1=(d1ᵀAd1)||g2||²(1/||d1||²−1/||g1||²)<0 because ||d1||²=||g1||²+β1²||d0||²>||g1||². In dimensions 1,2 first 1,2 conjugate directions suffice. Independent SymPy exact SPD A=diag(1,2,3), x0=(1,1,1) gave alphas 7/18,342/581,9764867/13418142, defect −38/4067 and nonzero g3=(32871,52536,−45981)/9769349. The witness proves failure of dimension-step termination, not universal divergence.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: foundational SRMIL/SMRMIL paper states exact-search coefficient coincidence and descent but the inspected text does not state the universal strictly negative third-direction A-conjugacy formula or minimal dimension three with exact finite-termination counterexample. Older CG conjugacy theory is comparator, not this coefficient result; recent revised spectral conjugacy papers motivate a different method rather than logically implying the sign-defect identity.
+
+## value
+
+PASS
+
+PASS: a structural theorem about when a proposed nonlinear CG variant stops preserving quadratic conjugacy, sharp onset at the third direction and smallest failing dimension, plus a fully exact counterexample. This specifically determines a rigorous boundary of classical finite-step termination and helps interpret algorithmic assertions, without confusing loss of conjugacy with practical nonconvergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
