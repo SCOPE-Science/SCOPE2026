@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-The focal preprint was checked for its first public version, primary MSC classification, explicit Möbius construction, and kernel factorization.
 
-For correctness, the kernel transport was replayed symbolically. On \(A^2_{\alpha-1,\mathcal E}\) with \(\alpha>0\), multiplication by a bounded analytic operator-valued function has norm equal to its supremum norm; the same holds on \(H^2_{\mathcal E}\) at \(\alpha=0\). Spectral calculus then gives
-\[
-\|M_{L_A}\|=\|M_{L_A^{-1}}\|=\sqrt{\frac{1+\|A\|}{1-\|A\|}}.
-\]
-The specialization \(\|A\|=3/4\) gives \(\sqrt7\).
+# Independent mathematical audit
 
-Literature checks included the focal full text, the 2026 vector-valued predecessor, the scalar RKHS predecessor arXiv:1807.08366, and targeted searches for equivalent formulas and aliases. No implication-equivalent exact two-sided operator-valued distortion was found. A residual risk remains that an older formulation under multiplier condition numbers may contain the same statement.
+## correctness
 
-The regime \(-1<\alpha<0\) was not verified and is excluded from the claim. No independent audit has been performed.
+PASS
+
+Independently expanded the Möbius factors to confirm I-B_A(z)B_A(w)^*=(1-zar w)(I-zA)^(-1)(I-A²)(I-ar w A)^(-1) for positive self-adjoint A: numerator cancellation is (1-zar w)(I-A²). Thus the source sub-Bergman kernel is transported by invertible L_A(z)=(I-A²)^(1/2)(I-zA)^(-1), giving ||f||_sub=||L_A^(-1) f|| on weighted Bergman. For alpha>0 weighted-area integration bounds analytic operator multipliers above by H∞ norm, and normalized reproducing kernels give equality; at alpha=0 use Hardy kernels. Spectral calculus over sigma(A) subset [0,a] with a in spectrum shows sup multipliers L_A and L_A^(-1) both equal sqrt((1+a)/(1-a)), attained as boundary z->1 and z->-1 respectively (spectral limit if a not an eigenvalue). Checked scalar endpoint expressions at a=0,.2,.75,.99 and sqrt7 at a=.75. The focal source kernel is an explicit algebraic identity; full focal text unavailability is a provenance risk, not an unchecked mathematical hypothesis.
+
+## originality
+
+PASS
+
+The focal Luo–Shen preprint concerns equality as sets in a vector-valued Möbius construction; accessible abstract identifies that structural problem but its complete primary text was blocked, so the possibility that exact constants occur inside is a concrete significant residual risk. Cheng Chu already has the same sqrt((1+|b(0)|)/(1-|b(0)|)) scalar factor in a related one-sided comparison, but an upper bound in a scalar RKHS is not an exact simultaneous two-sided identity distortion for arbitrary positive operator A. Earlier vector-valued sub-Bergman work emphasizes structural properties. Best-of-knowledge originality passes only for the sharp two-sided operator-valued norm invariant, not the square-root function per se.
+
+## value
+
+PASS
+
+Source-level set equivalence for a nonrigid vector-valued model naturally raises the precise norm-geometry question. The optimal two-direction constants form a useful quantitative condition-number invariant for arbitrary positive A and all alpha>=0, and turn a concrete nonrigidity example into exact sqrt7 rather than an unspecified equivalence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

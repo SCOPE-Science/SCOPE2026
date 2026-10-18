@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the focal kernel factorization and then identifies the two best identity constants with the exact multiplier norms of \(L_A\) and \(L_A^{-1}\). For \(\alpha>0\), the weighted-area realization gives the upper multiplier bound and reproducing kernels give the matching lower bound; \(\alpha=0\) is the Hardy case. Spectral calculus gives both norms as \(\sqrt{(1+a)/(1-a)}\). No finite experiment stands in for an infinite-dimensional proof.
+## correctness
 
-## Originality
-PASS. The focal source proves set equality but does not state the sharp norm distortion. Searches covered the source identifier, norm-equivalence terminology, Möbius and Blaschke--Potapov aliases, the \(\sqrt7\) specialization, and the implication direction from scalar predecessors. A scalar predecessor contains a related one-sided square-root bound, but it does not imply simultaneous sharpness of the two operator-valued identity maps. No implication-equivalent result was located.
+PASS
 
-## Value
-PASS. Exact norm distortion is the natural quantitative invariant left open by a set-level equivalence. The formula applies to a parameterized operator family and is uniform in \(\alpha\ge0\), while the source's explicit nonrigidity example becomes the concrete exact constant \(\sqrt7\).
+Independently expanded the Möbius factors to confirm I-B_A(z)B_A(w)^*=(1-zar w)(I-zA)^(-1)(I-A²)(I-ar w A)^(-1) for positive self-adjoint A: numerator cancellation is (1-zar w)(I-A²). Thus the source sub-Bergman kernel is transported by invertible L_A(z)=(I-A²)^(1/2)(I-zA)^(-1), giving ||f||_sub=||L_A^(-1) f|| on weighted Bergman. For alpha>0 weighted-area integration bounds analytic operator multipliers above by H∞ norm, and normalized reproducing kernels give equality; at alpha=0 use Hardy kernels. Spectral calculus over sigma(A) subset [0,a] with a in spectrum shows sup multipliers L_A and L_A^(-1) both equal sqrt((1+a)/(1-a)), attained as boundary z->1 and z->-1 respectively (spectral limit if a not an eigenvalue). Checked scalar endpoint expressions at a=0,.2,.75,.99 and sqrt7 at a=.75. The focal source kernel is an explicit algebraic identity; full focal text unavailability is a provenance risk, not an unchecked mathematical hypothesis.
 
-## Closest literature and limitations
-The closest quantitative comparison found is Cheng Chu's scalar RKHS argument, which uses the same square-root functional form as a bound. The focal and vector-valued predecessor papers emphasize structural set equality and rigidity. The present statement is limited to \(\alpha\ge0\) and to \(\mathcal A_\alpha(B_A)\); it does not claim the adjoint-symbol analogue or the regime \(-1<\alpha<0\).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The focal Luo–Shen preprint concerns equality as sets in a vector-valued Möbius construction; accessible abstract identifies that structural problem but its complete primary text was blocked, so the possibility that exact constants occur inside is a concrete significant residual risk. Cheng Chu already has the same sqrt((1+|b(0)|)/(1-|b(0)|)) scalar factor in a related one-sided comparison, but an upper bound in a scalar RKHS is not an exact simultaneous two-sided identity distortion for arbitrary positive operator A. Earlier vector-valued sub-Bergman work emphasizes structural properties. Best-of-knowledge originality passes only for the sharp two-sided operator-valued norm invariant, not the square-root function per se.
+
+## value
+
+PASS
+
+Source-level set equivalence for a nonrigid vector-valued model naturally raises the precise norm-geometry question. The optimal two-direction constants form a useful quantitative condition-number invariant for arbitrary positive A and all alpha>=0, and turn a concrete nonrigidity example into exact sqrt7 rather than an unspecified equivalence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
