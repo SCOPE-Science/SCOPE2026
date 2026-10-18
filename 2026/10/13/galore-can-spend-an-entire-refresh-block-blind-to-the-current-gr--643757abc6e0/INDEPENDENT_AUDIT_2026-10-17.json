@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T18:13:37.507685Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/galore-can-spend-an-entire-refresh-block-blind-to-the-current-gr--643757abc6e0/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/galore-can-spend-an-entire-refresh-block-blind-to-the-current-gr--643757abc6e0/VERIFICATION.md",
+        "Independent /mnt/data/independent_1723_checks.py (bounded tests)"
+      ],
+      "rationale": "For F(W)=||W||_F^2/2, the gradient equals W. With strict descending positive diagonal and rank r dividing m, the exact top-r left projector at t=kT is the next contiguous r-block. Unit projected-SGD annihilates those entries in one step, leaving remaining nonzero rows orthogonal to the held projector. Therefore each nonterminal block has precisely T-1 zero compact-gradient updates even while full gradient is nonzero, and the first zero matrix is W_{(m/r-1)T+1}. Inductive proof covers every K>=2, T>=2, rank r; test cases m/r=2,3,4 show exact blind indices and termination. No stochastic or Adam conclusion follows.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv 2403.03507, Definition 3.6 and Eq. (10)",
+          "arXiv:2410.11289v2 introduction and Sections on noise-free case",
+          "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/galore-can-spend-an-entire-refresh-block-blind-to-the-current-gr--643757abc6e0/RESULT.md"
+        ],
+        "reasoning": "He et al prove deterministic convergence and give a stochastic noise-dominant counterexample; these statements do not give an exact no-op block on a noiseless condition-one quadratic. Original GaLore defines the wrapper and warns of stale gradients but gives no such closed trajectory in inspected material.",
+        "searches": [
+          "GaLore blind entire refresh block zero projected gradient",
+          "\"GaLore\" \"orthogonal\" \"projected gradient\" after step",
+          "https://arxiv.org/html/2403.03507",
+          "https://arxiv.org/pdf/2410.11289",
+          "Resultary published-record semantic search on this theorem and equivalences"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2403.03507 full HTML Sec 3.3; arXiv:2410.11289v2 full PDF relevant introduction and guarantee/counterexample sections; Resultary query",
+        "2026/10/13 assigned RESULT.md and finite checker source"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv 2403.03507, Definition 3.6 and Eq. (10)",
+          "arXiv:2410.11289v2 introduction and Sections on noise-free case",
+          "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/galore-can-spend-an-entire-refresh-block-blind-to-the-current-gr--643757abc6e0/RESULT.md"
+        ],
+        "reasoning": "A frozen projector can annihilate gradients in its nullspace, but that static fact does not guarantee a real GaLore top-SVD projector from a prior nonzero gradient realizes a full blind refresh block under a valid update. The explicit induction supplies this missing dynamical implication.",
+        "searches": [
+          "GaLore blind entire refresh block zero projected gradient",
+          "\"GaLore\" \"orthogonal\" \"projected gradient\" after step",
+          "https://arxiv.org/html/2403.03507",
+          "https://arxiv.org/pdf/2410.11289",
+          "Resultary published-record semantic search on this theorem and equivalences"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv 2403.03507, Definition 3.6 and Eq. (10)",
+          "arXiv:2410.11289v2 introduction and Sections on noise-free case",
+          "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/galore-can-spend-an-entire-refresh-block-blind-to-the-current-gr--643757abc6e0/RESULT.md"
+        ],
+        "reasoning": "The obstruction is a deterministic stale-top-SVD-subspace trajectory, not the known static observation that some nonzero gradient lies in a fixed projector kernel. No equivalent T-1-stall law was identified in the checked algorithm texts.",
+        "searches": [
+          "GaLore blind entire refresh block zero projected gradient",
+          "\"GaLore\" \"orthogonal\" \"projected gradient\" after step",
+          "https://arxiv.org/html/2403.03507",
+          "https://arxiv.org/pdf/2410.11289",
+          "Resultary published-record semantic search on this theorem and equivalences"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "arXiv 2403.03507, Definition 3.6 and Eq. (10)",
+          "arXiv:2410.11289v2 introduction and Sections on noise-free case",
+          "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/galore-can-spend-an-entire-refresh-block-blind-to-the-current-gr--643757abc6e0/RESULT.md"
+        ],
+        "reasoning": "An arbitrary optimizer experiment table cannot imply a quantified diagonal construction for all r,T,K; no exactly matching trajectory or table was identified in the queried sources.",
+        "searches": [
+          "GaLore blind entire refresh block zero projected gradient",
+          "\"GaLore\" \"orthogonal\" \"projected gradient\" after step",
+          "https://arxiv.org/html/2403.03507",
+          "https://arxiv.org/pdf/2410.11289",
+          "Resultary published-record semantic search on this theorem and equivalences"
+        ]
+      },
+      "rationale": "Best-of-knowledge: prior GaLore defines periodic top-SVD wrapper, warns about stale projectors, and later papers show stochastic nullspace failure and deterministic convergence. The deterministic unit-step diagonal staircase with T-1 exact blind steps and closed termination time is not entailed by the compared results.",
+      "residual_risks": [
+        "Earlier GaLore or related subspace optimization supplemental example could exhibit the same diagonal stale-block trajectory.",
+        "Only plain SGD, exact unit step, one-sided left projection, diagonal positive initialization; not Adam or stochastic training."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The generic projection wrapper covers the exact SGD specialization; no identical diagonal staircase statement located in inspected theory",
+          "evidence": "arXiv 2403.03507, Definition 3.6 and Eq. (10)",
+          "identifier_or_url": "https://arxiv.org/html/2403.03507",
+          "material_read": "Read primary HTML sections 3.2–3.3 and projected update equation (10)",
+          "method": "arXiv full HTML",
+          "title": "Zhao et al., GaLore: Memory-Efficient LLM Training by Gradient Low-Rank Projection",
+          "trigger": "Defining algorithm and projector reuse"
+        },
+        {
+          "assessment": "Failure construction concerns noise-dominant SVD selection; noise-free convergence consistent with finite exact stale periods",
+          "evidence": "arXiv:2410.11289v2 introduction and Sections on noise-free case",
+          "identifier_or_url": "https://arxiv.org/pdf/2410.11289",
+          "material_read": "Read PDF abstract, Section 1 and relevant deterministic/noisy convergence and counterexample passages; inspected page image",
+          "method": "arXiv full PDF v2 and page screenshot",
+          "title": "He et al., Subspace Optimization for Large Language Models with Convergence Guarantees",
+          "trigger": "Prior GaLore counterexample and deterministic convergence theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/galore-can-spend-an-entire-refresh-block-blind-to-the-current-gr--643757abc6e0/RESULT.md",
+        "https://arxiv.org/html/2403.03507",
+        "https://arxiv.org/pdf/2410.11289"
+      ],
+      "rationale": "A fully deterministic exact obstruction on a smooth, condition-number-one objective isolates projector staleness from gradient noise and ill conditioning. The quantified refresh-delay law is a motivated algorithmic counterexample and diagnostic for stale-subspace methods, not a broad impossibility theorem. The phenomenon does not assert practical training impact or non-convergence.",
+      "residual_risks": [
+        "Only plain SGD, exact unit step, one-sided left projection, diagonal positive initialization; not Adam or stochastic training."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Earlier GaLore or related subspace optimization supplemental example could exhibit the same diagonal stale-block trajectory.",
+    "Only plain SGD, exact unit step, one-sided left projection, diagonal positive initialization; not Adam or stochastic training."
+  ],
+  "schema_version": 1
+}

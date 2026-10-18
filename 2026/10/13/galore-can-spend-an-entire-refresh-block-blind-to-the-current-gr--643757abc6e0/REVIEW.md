@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. On the isotropic quadratic, the gradient is the parameter matrix. Strictly ordered diagonal entries uniquely determine the refreshed top-\(r\) singular subspace. The unit projected step annihilates exactly that block, and projector reuse then yields zero compact gradient for \(T-1\) steps. Induction gives the closed convergence time.
+PASS
 
-Risk: the exact zero blocks use a unit SGD step; nearby steps yield near-zero rather than exactly zero retention.
+For F(W)=||W||_F^2/2, the gradient equals W. With strict descending positive diagonal and rank r dividing m, the exact top-r left projector at t=kT is the next contiguous r-block. Unit projected-SGD annihilates those entries in one step, leaving remaining nonzero rows orthogonal to the held projector. Therefore each nonterminal block has precisely T-1 zero compact-gradient updates even while full gradient is nonzero, and the first zero matrix is W_{(m/r-1)T+1}. Inductive proof covers every K>=2, T>=2, rank r; test cases m/r=2,3,4 show exact blind indices and termination. No stochastic or Adam conclusion follows.
 
-## Originality
+## originality
 
-PASS. The defining paper gives a qualitative warning that infrequent subspace changes can leave GaLore optimizing a no-longer-important region. Later convergence work notes that a fixed projector can annihilate a nonzero gradient. The inspected literature does not state the stronger dynamic fact that GaLore's own current top-SVD projector can create this exact orthogonality after one deterministic step on a condition-number-one quadratic, nor the repeated dead blocks and exact staircase time.
+PASS
 
-Residual risk: later subspace-tracking papers discuss closely related staleness phenomena, and an equivalent elementary example may exist in unindexed notes.
+Best-of-knowledge: prior GaLore defines periodic top-SVD wrapper, warns about stale projectors, and later papers show stochastic nullspace failure and deterministic convergence. The deterministic unit-step diagonal staircase with T-1 exact blind steps and closed termination time is not entailed by the compared results.
 
-## Value
+## value
 
-PASS. GaLore's refresh period controls a central compute-versus-tracking trade-off. The result gives a sharp, parameter-transparent boundary case in which a previously optimal projector retains none of the current gradient for an entire block, directly separating progress inside a stored subspace from coverage of the current gradient.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A fully deterministic exact obstruction on a smooth, condition-number-one objective isolates projector staleness from gradient noise and ill conditioning. The quantified refresh-delay law is a motivated algorithmic counterexample and diagnostic for stale-subspace methods, not a broad impossibility theorem. The phenomenon does not assert practical training impact or non-convergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
