@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The forbidden-pair relation is derived directly from the three neighbors of every prism vertex, including the small cyclic boundaries. Closed state walks are in bijection with labeled open packings. The determinant is an exact sixteen-state polynomial calculation reproducibly checked by integer Newton identities, rather than estimated numerically. The two-step graph is explicitly identified with one or two squared cycles by a Cayley-group argument; cyclic gap compositions prove the full coefficient formula without code. The matrix trace identity independently proves the formal generating function for all lengths, and binomial coefficient extraction proves all six extremal regimes. Exact-cover arguments prove the complete classification and enumeration of partitions into maximum open packings. A direct open-neighborhood checker confirms every subset at lengths 3–8; finite experiments do not substitute for the stated symbolic proof.
+## correctness
 
-## Originality — PASS
-The earlier general exact-distance product decomposition of Brešar–Gastineau–Klavžar–Togni (arXiv:1810.10198, Theorem 2.2) already describes a powerful graph-operation reduction; it is acknowledged rather than reclaimed. It does not state the squared-cycle coset identification or resulting prism open-packing polynomial and perfect-partition counts. The closest packing-number result, Brešar–Klavžar–Rall (arXiv:2309.04963, Theorem 2.2), supplies a **scalar maximum** for even-base bipartite prisms. It neither gives the complete polynomial nor counts maximizing packings or perfect maximum-packing partitions, and its hypotheses omit odd cycles. The earlier injective-coloring papers arXiv:2106.09823 and arXiv:2306.01488 supply the two-step-graph framework and graph-product coloring bounds, not the specific enumerator, six-residue maximum counts, or perfect partition classification in their inspected portions. Relevant semantic searches in the published-finding corpus research index and public-literature searches did not reveal a dominating result. Absence from these searches does not certify worldwide novelty; a related Cartesian-product injective-coloring paper not examined in full remains a specific residual risk.
+PASS
 
-## Value — PASS
-This supplies a full all-cardinality enumerator for a standard infinite cubic family, in which parity makes the existing scalar prism theorem inapplicable to half the cases. The alternating one-or-two-component structure, the unusually small factored characteristic determinant, and the six residue-dependent maximal-packing multiplicities illuminate the interaction between local neighborhood exclusion and cyclic closure. The exact classification of when a perfect partition into maximum packings exists, together with all partition counts, also answers a natural injective-coloring question motivated by the foundational prism paper. Both the complete invariant and extremal counts have an independently understandable combinatorial motivation; this is not an arbitrary bounded computation.
+For n>=3, the common-neighbor (two-step) graph of C_n square K2 is Cayley by ±h,±2h for h=(1,1); order(h)=2n if n odd and n if n even, hence respectively C_{2n}^2 or 2 disjoint C_n^2. A cyclic k-set is independent in C_N^2 iff all k circular gaps >=3, yielding I_N(x)=1+sum_{1<=k<=floor N/3} N/(N-2k)*binom(N-2k,k)x^k. Therefore P_n=I_{2n} (odd) or I_n^2 (even). The 16-state transfer-matrix determinant factors as the asserted D(t,x), and formal trace/log identity yields universal generating function. Extremal coefficients and residue-class cases follow the polynomial, and divisibility plus exact cover/matching arguments give perfect partition counts 1 for odd multiples of3, 6 for even multiples of3, 24 for n4, 1176 for n8, zero otherwise. Independently enumerated graph open packings for n3..9 and compared full polynomials with squared-cycle coefficient formula; all matched, including small triangular and square boundaries. Infinite proof is structural, not finite extrapolation.
 
-## Limits and closest literature
-Counts refer to subsets, not color partitions; no broader graph-product factorization is claimed. For odd prisms, the result is not inferred from the bipartite theorem. Since exact-distance product decompositions and cyclic independence counting are established tools, earlier implicit deductions of this specialized family remain a substantive novelty risk; uninspected work on Cartesian-product injective coloring might also contain it. The finite symbolic identity is fully included and replayable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exact distance graph theory and open-packing/injective-coloring correspondence are established (Brešar et al. 2018, 2021); Brešar--Klavžar--Rall 2023 gives maximal cardinality for bipartite prisms, covering even-cycle max-size only. The complete open-packing independence polynomial, all six extremizer multiplicities and exceptional perfect partition counts (n=4,8) are not implied by those identified theorems without this explicit graph decomposition and enumeration.
+
+## value
+
+PASS
+
+A complete exact enumerative invariant of a natural cyclic graph family, including all packing sizes, numbers of optimum configurations and exact decomposition into optimum classes. The perfect partition boundary and exceptional n=8 matching count provide useful extremal/injective-coloring information, not merely recomputation of known maximum cardinality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
