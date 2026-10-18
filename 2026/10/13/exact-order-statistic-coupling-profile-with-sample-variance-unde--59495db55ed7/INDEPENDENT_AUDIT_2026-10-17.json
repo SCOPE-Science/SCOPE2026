@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T16:18:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With n≥2 iid Uniform[0,1] and S²=(ΣX_i²−(ΣX_i)²/n)/(n−1), conditioning on X_(k)=x splits other observations into independent k−1 Uniform[0,x] and n−k Uniform[x,1] groups. The resulting conditional E[S²|x] is quadratic; integrating x times that polynomial against Beta(k,n+1−k) moments yields Cov(X_(k),S²)=k(n+1−k)(2k−n−1)/[6n(n−1)(n+1)(n+3)]. Independent SymPy symbolic reduction of those conditional moments gave exact zero difference for symbolic n,k. Uniform Var(S²)=(2n+3)/[360n(n−1)] and Beta order variance give the stated correlation; the squared bulk limit is (5/4)z²(1−z²) with z=2u−1 and maximum 5/16. Symmetry and the median-zero boundary follow directly. For Uniform[a,b], covariance scales (b−a)^3, correlation invariant. Source exact-rational checker was inspected; finite n≤1000 tests do not prove the universal identity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known beta order moments determine Var(X_(k)) but not Cov(X_(k),S²) without additional joint moments.",
+          "Papadatos arXiv:1405.6884 studies expected range bounds under mean/variance assumptions, not the paired same-sample statistic in its available description."
+        ],
+        "reasoning": "General order-statistic moment methods can potentially derive the identity, but the currently examined prior statements did not dominate the explicit all-rank mixed covariance and asymptotic maximum.",
+        "searches": [
+          "Resultary semantic published findings search: covariance uniform order statistic X_(k) with unbiased sample variance S squared exact correlation rank profile",
+          "doi:10.5897/SRE.9000790",
+          "arXiv:1405.6884",
+          "GitHub Resultary/2026 exact-code search: sample variance order statistic uniform"
+        ]
+      },
+      "checked_sources": [
+        "Assigned Git tree 8a786a46da177bfb8bc7f5933c0b2c8906ef0221: RESULT.md, checker.py",
+        "doi:10.5897/SRE.9000790 abstract",
+        "arXiv:1405.6884 description",
+        "Resultary semantic order-statistic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Conditional uniform-group identities plus beta moments produce the explicit cubic mixed-moment coefficient.",
+          "A single-order beta variance or expected-range bound alone does not determine this same-sample covariance."
+        ],
+        "reasoning": "The claim requires a specific mixed third moment and its simplification; checked older statements do not explicitly imply the exact sign and bulk-extremal package absent a further calculation.",
+        "searches": [
+          "Resultary semantic published findings search: covariance uniform order statistic X_(k) with unbiased sample variance S squared exact correlation rank profile",
+          "doi:10.5897/SRE.9000790",
+          "arXiv:1405.6884",
+          "GitHub Resultary/2026 exact-code search: sample variance order statistic uniform"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Order-statistic/variance covariance is a third-degree mixed moment of sample coordinates; Dirichlet spacings are an equivalent computation.",
+          "Bekçi discusses recurrence relations for single and product moments of uniform order statistics, possibly encompassing the algebra."
+        ],
+        "reasoning": "Investigated beta conditional-split, Dirichlet-spacing and mixed product-moment aliases; no accessible formula was verified to equal the complete same-sample covariance profile.",
+        "searches": [
+          "Resultary semantic published findings search: covariance uniform order statistic X_(k) with unbiased sample variance S squared exact correlation rank profile",
+          "doi:10.5897/SRE.9000790",
+          "arXiv:1405.6884",
+          "GitHub Resultary/2026 exact-code search: sample variance order statistic uniform"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search hits concerned minimum-maximum order correlations, rank permutations or discrete three-atom laws rather than sample variance.",
+          "No actual full Bekçi table was available, so its noncoverage cannot be certified."
+        ],
+        "reasoning": "Searched direct exact formula and related moment tables; do not infer novelty solely from absent search hits; retain the potentially covering inaccessible 2009 article.",
+        "searches": [
+          "Resultary semantic published findings search: covariance uniform order statistic X_(k) with unbiased sample variance S squared exact correlation rank profile",
+          "doi:10.5897/SRE.9000790",
+          "arXiv:1405.6884",
+          "GitHub Resultary/2026 exact-code search: sample variance order statistic uniform"
+        ]
+      },
+      "rationale": "The precise same-sample rank-by-rank mixed covariance/correlation curve, exact median sign law and sharp bulk-correlation peak are distinguished from classical single/product order-statistic moments and bounds on expected ranges. Bekçi has directly relevant moment recurrences, but its full text was inaccessible; an equivalent formula could be derivable and remains a named residual risk, not automatic scientific failure.",
+      "residual_risks": [
+        "Bekçi 2009 potentially derives the exact mixed moments; full text could not be inspected because authorized Oxford access reported VPN disconnected.",
+        "Formula follows classical moment methods, so uncatalogued equivalent statistics textbook identity remains plausible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Coverage unknown, substantial bibliographic risk; no full-text noncoverage claim",
+          "evidence": "DOI 10.5897/SRE.9000790, publication abstract; institutional access blocked by disconnected VPN.",
+          "identifier_or_url": "doi:10.5897/SRE.9000790",
+          "material_read": "Journal landing page/abstract describing single and product order-statistic moment recurrences; complete paper unavailable; authorized Oxford request returned vpn_disconnected",
+          "method": "OA/arXiv exploration, authorized institutional access request (no bypass)",
+          "title": "Recurrence relations for the moments of order statistics from uniform distribution",
+          "trigger": "Potential identical uniform order-statistic mixed-moment recurrence"
+        },
+        {
+          "assessment": "Different objective (expected range/mean-variance bounds); not evidence for same-sample variance equality",
+          "evidence": "Papadatos focuses on range expectation bounds, not directly a covariance with unbiased S².",
+          "identifier_or_url": "arXiv:1405.6884",
+          "material_read": "Accessible paper description/abstract, not independently complete checked text in this run",
+          "method": "Open-access bibliographic/abstract comparison",
+          "title": "Maximizing the expected range from dependent observations under mean-variance information",
+          "trigger": "Nearby order-statistic covariance and moment background"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact dependence between an individual sample quantile and the same-sample dispersion estimate, including sign transition and nontrivial bulk correlation maximum, is an interpretable finite-sample statistical invariant. It could be used in joint quantile-variance inference; not just a beta marginal identity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned Git tree 8a786a46da177bfb8bc7f5933c0b2c8906ef0221: RESULT.md, checker.py",
+    "doi:10.5897/SRE.9000790 abstract",
+    "arXiv:1405.6884 description",
+    "Resultary semantic order-statistic query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Bekçi 2009 potentially derives the exact mixed moments; full text could not be inspected because authorized Oxford access reported VPN disconnected.",
+    "Formula follows classical moment methods, so uncatalogued equivalent statistics textbook identity remains plausible."
+  ],
+  "residual_risks": [
+    "Bekçi 2009 potentially derives the exact mixed moments; full text could not be inspected because authorized Oxford access reported VPN disconnected.",
+    "Formula follows classical moment methods, so uncatalogued equivalent statistics textbook identity remains plausible."
+  ],
+  "schema_version": 1
+}
