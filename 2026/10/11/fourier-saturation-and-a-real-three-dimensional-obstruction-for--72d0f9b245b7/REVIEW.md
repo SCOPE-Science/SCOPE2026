@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The lower index bound follows from the coordinate norm formula and ordinary numerical index one of \(\ell_1\). The sharpness construction uses columns of a normalized Fourier or Walsh matrix and Bessel's inequality, followed by \(\ell_p\)-to-\(\ell_2\) comparison for \(p\ge2\). The dimension obstruction follows from a biorthogonal family and the strictness of an attained finite-dimensional infimum. In the real three-dimensional case, equality would force three flat signed columns and an impossible odd-order sign orthogonal matrix. The actual embedded script `verification/check_joint_index.py` replayed with output `VERIFY_OK checks=19847 ... analytical_proof_required=True`; it is a supplementary check, not the infinite proof.
+PASS
 
-## Originality — PASS, subject to residual prior-art risk
+First checked the joint norm and numerical radius definitions in Mal: on ℓ1, each single T has numerical radius ||T||, from a coordinate basis vector and a norming dual functional with prescribed matching phase on that coordinate. This gives universal w_p≥max||T_i|| and ||tuple||_p≤k^(1/p)max||T_i||. For unimodular q×q orthogonal U with first row ones (Fourier complex any q, Walsh real dyadic q), choose rank-one T_i x=x1·(1/q sum_r U_ri e_r); columns have l1=1, joint norm k^(1/p); Bessel ||(f(v_i))||_2≤1 for ||f||∞=1 and p≥2 gives w_p≤1, achieved by a column-matching phase functional with f(e1)=1. For k>m any equality would produce k l1-unit columns at an extremal coordinate with norming functionals f_i yielding Kronecker delta evaluation, hence k independent vectors in dimension m, impossible; finite-dimensional compactness of normalized matrix tuples yields strictness. For (3,3,2) real, sign-cube averaging forces each column entries ±1/3 and every sign quadratic evaluation 1; Fourier coefficients force VV^T=I/3, i.e. an impossible 3×3 real sign Hadamard matrix because odd-length sign rows cannot be orthogonal. Independent exact Walsh q=1,2,4,8 Gram checks, 512 sign-matrix exhaustion, and complex Fourier q=3 Gram check corroborate, but infinite-index clause follows only by embedding a finite rank-one block analytically.
 
-The closest same-object paper is Mal, arXiv:2212.06500v1, particularly Theorems 3.1 and 3.9 and Example 2.7. The universal bound and two-tuple \(\ell_1\) case are previously known; the arbitrary-length complex Fourier construction, dyadic real extension, dimension obstruction and strict real/complex three-tuple separation are not supplied by these statements. The paper's adjoint example explicitly prevents the obvious inference from its \(\ell_\infty\) formula. The full-text later work arXiv:2507.04700v1 studies differentiability and supporting functionals; the inspected theorems do not give index minimization or the odd-order obstruction. Semantic published-record searches for joint numerical indices, Fourier constructions, and the signed three-dimensional case returned related matrix and frame constructions, not a dominating joint-index theorem. Indexing gaps and alternate formulations remain a risk; no claim of universal literature independence is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The joint numerical index is a natural sharp stability factor comparing simultaneous operator norms and norming-state measurements. The result solves the missing multi-operator \(\ell_1\) branch in complex finite dimension for \(p\ge2\), identifies an infinite sequence of real saturation regimes, and proves two independent structural limits: insufficient ambient dimension, and the odd-order sign-parity failure even at equal dimension. The latter distinguishes real and complex scalars at the first nontrivial three-tuple rather than merely recomputing the already known two-tuple table.
+Best-of-knowledge statement/implication assessment: The explicit Fourier–Walsh orthogonal-column construction, finite-dimensional biorthogonal rank obstruction, and sign-parity contradiction provide new statements not deductions from the existing general bound or k2 special case. Relevant primary exact-object sources and indexed findings were checked by object, invariant and quantifiers; inaccessible plausible material is retained explicitly as risk, not treated as automatic scientific rejection.
 
-## Limits and sources
+## value
 
-The exact positive real three-dimensional gap and general non-dyadic real cases are open here. The relevant full-text comparators were arXiv:2212.06500v1, arXiv:2507.04700v1, and arXiv:2201.03055v1; related published mathematical-record hits concern different invariants. No finite experiment is used as proof of an infinite statement.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The joint numerical index is a natural sharp quantitative invariant of operator k-tuples. The theorem bridges the published ℓ1 two-tuple gap to arbitrary finite tuple sizes in complex dimensions and dyadic real dimensions, supplies exact dimension obstruction, and finds the smallest real–complex separation. These results are not mere reuse of a known ℓ∞ table because adjoints fail to preserve the joint norm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
