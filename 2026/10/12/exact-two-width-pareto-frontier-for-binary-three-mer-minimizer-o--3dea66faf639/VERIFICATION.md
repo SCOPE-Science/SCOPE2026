@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Compile each source independently with a C++17 compiler:
+## correctness
 
-```sh
-c++ -std=c++17 -O3 verify_transfer.cpp -o transfer
-./transfer
-c++ -std=c++17 -O3 verify_direct.cpp -o direct
-./direct
-```
+PASS
 
-Both binaries were executed and returned `VERIFY_OK`. `verify_transfer.cpp` enumerates all 40320 total rankings and counts charged windows using rank-filtered directed-walk dynamic programming. `verify_direct.cpp` counts the four- and nine-window objective scores by explicit examination of every binary word of length seven (128 cases) or twelve (4096 cases). Both independently check the complete two-dimensional Pareto list, its multiplicities, and absence of a joint scalar minimizer. The transfer program also checks all-width two-through-eight simultaneous optima. No external solver or randomization is used. Independent audit remains unperformed.
+All 8!=40320 rankings of eight binary 3-mers exhaustively enumerated by a new independent C++17 program implementing leftmost-tie winner-change criterion on all 2^(w+3) iid bit strings for w=2..9. Direct counts produced exactly 1145 distinct (N4,N9) pairs; nondominated pairs (46,759) count48 and (50,750) count32, yielding stated densities /128 and /4096. Individual minima for widths 2..9 were (20,29,46,76,130,229,413,750) with multiplicities (3668,176,48,48,48,48,164,48). Exactly 48 rankings minimize all w=2..8; their first four types are 3206 or 4571 (24 each), and none minimizes w=9. The algorithm enumerates every permutation and every word (exact integer counts), not a Monte Carlo sample; rank shift and tie convention match the result. Only k=3 fair binary inputs and common strict ranking are covered.
+
+## originality
+
+PASS
+
+2018 Marçais–DeBlasio–Kingsford full OA author manuscript materially read: definitions, density, k,w-dependent scalar ordering bounds, and prior exhaustive individual density statements for k=3, but not a two-objective Pareto frontier (w4,w9) nor multiplicities of simultaneous optima in the inspected material. New claim credits pre-existing exact scalar minima and asks common-order compatibility. Resultary targeted cross-width Pareto search did not yield equivalent result; supplementary order matrices or other computational sources could contain cross-width joint values, remaining risk.
+
+## value
+
+PASS
+
+Choice of one global k-mer order across multiple window widths is a natural design constraint in genome minimizer/winnowing systems. An exact Pareto tradeoff and first incompatibility threshold identifies genuinely reusable multi-parameter limitations; all 40320 orders exhaustively covered. Not just an arbitrary fixed scalar optimum or a recomputation of one-width known tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
