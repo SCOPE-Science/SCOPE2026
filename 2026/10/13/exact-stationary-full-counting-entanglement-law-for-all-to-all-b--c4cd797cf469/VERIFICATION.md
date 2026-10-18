@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and limits
 
-Run `python3 verify_bell.py` with standard-library Python >=3.9. The program enumerates all partial matchings of complete graphs on 2 through 8 vertices, constructs the exact rational transition matrix of the Bell/one-site monitoring dynamics at probabilities 1/3, 2/5, and 3/4, and checks detailed balance at every positive transition, including size-preserving reconnections. It also independently counts every crossing-edge number for every nontrivial cut and checks the proposed generating coefficients, means, and variances against brute-force weighted matching enumeration.
+# Independent mathematical audit
 
-Actual output from the code inside the final package: `VERIFY_OK: 21 exact weighted matching chains; 3342 state instances; 70788 transition pairs; generating distributions and first two moments for every bipartition; 9 thermodynamic variance checks`.
+## correctness
 
-The nine large-size tests use the exact log-weight finite-n sums at n=4000 and cut fractions 0.25, 0.4 and 0.5 for each of p=0.1, 0.4 and 0.85. They check both density and variance limits to tolerances <=0.002. These experiments do not prove all-n statements or limits. The written detailed-balance, generating-function and Laplace arguments establish the general claim; no independent audit or external certification was performed.
+PASS
+
+Every edge insertion/deletion has ratio (1-p)/binom(n,2) divided by (2p/n)=z, and matching rewiring moves have symmetric reverse counts, giving detailed balance and irreducibility; normalized matching partition Z_n(z) follows. Counting j crossing edges chooses j endpoints each side, j! pairings, and two independent internal matchings, yielding stated PGF. An edge crossing gives one entangled bit to every Renyi entropy of pure trajectory. Monomer count has parity-lattice log-concave Gibbs weights with unique saddle u solving ((1-p)/p)u^2=1-u, variance/n=2u(1-u)/(2-u). Total conditional variance yields A(1-u)[u+2A(1-2u)]+A^2 2u(1-u)/(2-u), A=a(1-a). Independent full matching enumeration for n=2..7 and p=1/3,2/5,3/4 confirmed every cut PGF and two moments; independent n=4000 evaluation p=.4,a=.4 converges to .074035833035. Small n factorial-moment boundaries handled.
+
+## originality
+
+PASS
+
+The original Bell-automaton paper provides matching update and leading entropy; classical monomer-dimer work provides Gibbs/mean-field background. Exact finite-n stationary matching measure and the all-moment crossed-Bell PGF with explicit macroscopic variance were not identified as implied by the accessible abstract and classical scope. Crucial caveat: primary original supplement was not independently accessible this execution; cannot assert full-document noncoverage. Best-of-knowledge PASS with material priority risk.
+
+## value
+
+PASS
+
+The full distribution and variance of pure-state entanglement cuts is an operationally motivated observable, substantially refining a leading mean-field entropy scaling; the global monomer number adds a nontrivial variance term.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

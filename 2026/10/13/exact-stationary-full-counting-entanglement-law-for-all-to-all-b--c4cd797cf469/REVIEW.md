@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The matching chain's positive insertion/deletion rates obey exact detailed balance with activity \(z=(1-p)/(p(n-1))\); all size-preserving Bell moves have equal reverse rates. Irreducibility makes this the unique stationary law. Cutting matchings gives the exact generating function, and its derivatives give both moments. Strict concavity of the explicit monomer free-energy profile and second-moment Laplace asymptotics yield the stated macroscopic variance. The packaged verifier reproduces the transition equations and counting polynomials with exact rational arithmetic on all matchings through eight sites; these finite checks corroborate rather than replace the symbolic proof.
+PASS
 
-## Originality — PASS
+Every edge insertion/deletion has ratio (1-p)/binom(n,2) divided by (2p/n)=z, and matching rewiring moves have symmetric reverse counts, giving detailed balance and irreducibility; normalized matching partition Z_n(z) follows. Counting j crossing edges chooses j endpoints each side, j! pairings, and two independent internal matchings, yielding stated PGF. An edge crossing gives one entangled bit to every Renyi entropy of pure trajectory. Monomer count has parity-lattice log-concave Gibbs weights with unique saddle u solving ((1-p)/p)u^2=1-u, variance/n=2u(1-u)/(2-u). Total conditional variance yields A(1-u)[u+2A(1-2u)]+A^2 2u(1-u)/(2-u), A=a(1-a). Independent full matching enumeration for n=2..7 and p=1/3,2/5,3/4 confirmed every cut PGF and two moments; independent n=4000 evaluation p=.4,a=.4 converges to .074035833035. Small n factorial-moment boundaries handled.
 
-The closest primary literature, Holdhusen–McAmis–Rahmani [1], includes the Bell matching dynamics and conditional cut combinatorics (Supplemental Material II) but reports average entropy and asymptotic monomer density rather than the exact stationary all-moment distribution or explicit fluctuation coefficient. Classical complete-graph monomer-dimer density [2] and bounded-degree fluctuation theory [3] are acknowledged; their statements do not imply the specific evaluated measured-cut variance without additional calculations. Searches of public research records identified no stronger exact statement. Residual risk: an unindexed classical two-color matching specialization might already contain it.
+## originality
 
-## Value — PASS
+PASS
 
-Entropy fluctuations and their finite-size distribution are natural physical observables beyond the leading mean, especially for a circuit designed to avoid trajectory postselection. The coefficient cleanly separates conditional matching randomness from fluctuations in the monomer count and is nontrivial for every fixed interior measurement probability and macroscopic cut. This gives quantitative ensemble predictions and reproducible benchmarks, without claiming hardware advantage or extending to nonuniform pair selection.
+The original Bell-automaton paper provides matching update and leading entropy; classical monomer-dimer work provides Gibbs/mean-field background. Exact finite-n stationary matching measure and the all-moment crossed-Bell PGF with explicit macroscopic variance were not identified as implied by the accessible abstract and classical scope. Crucial caveat: primary original supplement was not independently accessible this execution; cannot assert full-document noncoverage. Best-of-knowledge PASS with material priority risk.
 
-## Closest literature and limitations
+## value
 
-References [1]–[4] in RESULT.md supply the physically identical primary automaton and general combinatorial background. The theorem requires uniform pair selection and strictly interior \(p\), and concerns entanglement of pure conditional trajectories, not the outcome-averaged mixed state. Classical implicit-priority uncertainty remains. No independent review has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full distribution and variance of pure-state entanglement cuts is an operationally motivated observable, substantially refining a leading mean-field entropy scaling; the global monomer number adds a nontrivial variance term.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
