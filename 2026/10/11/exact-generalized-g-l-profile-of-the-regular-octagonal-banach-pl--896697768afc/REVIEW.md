@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces every admissible equilateral pair to one of 48 exact edge-family intervals. On each interval the two shifted norms are convex piecewise-affine functions, so endpoint maxima are decisive; the exact checker additionally evaluates all support changes. It proves the separate bounds \(N(x+y)\le2\sqrt2-1\) and \(N(2x-y)\le2\sqrt2-1\), and the displayed pair attains both. The all-\(p\) formula follows for every \(p\ge1\).
+## correctness
 
-## Originality
-PASS. The defining paper introduces \(G_L(X,p)\) but does not evaluate the regular octagon. The closest exact regular-octagon result covers only \(p=2\), while the closest same-configuration \(T_G\) result controls a product rather than each factor. These prior statements do not imply the new coordinatewise bound, so they do not imply the full profile. Residual risk remains that an uncatalogued equivalent formula exists.
+PASS
 
-## Value
-PASS. The full exponent profile is a natural invariant requested by the defining framework, and the proof reveals a structural feature stronger than the previously known special cases: both shifted norms share one sharp uniform cap and a common extremizer. This is useful for any monotone functional of the same two shifted norms, not merely for recomputing the \(p=2\) case.
+The max-of-eight-support-functionals octagonal norm and the constraints N(x)=N(y)=N(x-y)=1 reduce to 8^3 ordered edge triples. Each feasible rank-two affine intersection is an interval; convexity makes every shifted norm attain its maximum at an endpoint. The inspected Q(sqrt(2)) verifier handles exact interval endpoints/support changes and reports 48 feasible families and 128 checked breakpoints. An independently coded numerical re-enumeration (all 512 triples) confirmed 48 feasible rank-two families, the exact predicted bound to floating tolerance, and no counterexamples; 32 rank-one triples have all parallel supporting edges and cannot be equilateral because a common norming functional of x-y would be in {-2,0,2} rather than +/-1. Independently checked explicit witness x=(1,sqrt(2)-1),y=(3-2sqrt(2),1) satisfies all three unit constraints and both shifted norms equal 2sqrt(2)-1. These finite checks are exhaustive only because of the proven convex-polyhedral reduction; numerical replay is corroboration, not sole proof.
 
-## Closest literature and limitations
-The closest inspected source is Chen–Liu–Li's defining paper, arXiv:2112.05922 / DOI 10.3390/sym14010072. Closest exact same-object records cover \(G_L(X_8)=G_L(X_8,2)\) and the product-type \(T_G(X_8)\). The claim is limited to the real regular octagonal plane and finite \(p\ge1\); the literature search is finite.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS: the exact all-real-p family relies on a simultaneous coordinatewise upper bound. The same-object published p=2 sum and the product-based T_G value do not imply two separate uniform bounds, so they do not cover the new all-p profile.
+
+## value
+
+PASS
+
+Natural extension of a named equilateral-triangle Banach-space invariant from one exponent to every real p>=1, with a structural common extremizer and sharp individual two-norm inequalities. This is more than a substitution of the known p=2 number; a researcher using generalized geometric constants can require the full profile.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
