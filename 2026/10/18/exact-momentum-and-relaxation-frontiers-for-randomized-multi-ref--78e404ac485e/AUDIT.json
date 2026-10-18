@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "The exact Algorithm 2 reflection parity yields a Bernoulli scalar second-order recurrence with mu=1-2alpha*q and variance 4alpha^2*q(1-q). The analytic Lyapunov Gramian G=(1+beta)/[(1-beta)(1-mu)(1+mu+2beta)] and nonnegative renewal identity prove both sides of the sharp threshold and the positive boundary limit, including beta>=1 via the signed mean. Implicit characteristic differentiation proves the local acceleration transition. Reproduced symbolic identities and 1007 finite assertions are corroborative only; all essential infinite-time steps appear explicitly in RESULT.md.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Han–Su–Xie, arXiv:2207.04291, Theorem 4.1: sufficient gamma1+gamma2<1, not an exact stability characterization; Appendix proof uses inequalities.",
+        "Bollapragada–Chen–Ward, arXiv:2206.07553, pp. 1–4 and Theorem 1.3: minibatch stochastic gradient heavy-ball convergence bounds, a different sampling operator.",
+        "Previous KGSM exact diagonal system statement treats zero or positive smoothing and full projection without arbitrary relaxation."
+      ],
+      "reasoning": "Known general sufficient DR and minibatch-HBM bounds do not dominate the exact closed frontier. A generic Kronecker-moment spectral-radius test can in principle decide any finite model, but neither source gives the all-m all-r alpha-beta identity-system formula or the exact local acceleration sign. A future full-text comparison against other exact relaxed Kaczmarz analyses could revise this assessment.",
+      "searches": [
+        "Randomized r sets Douglas Rachford identity matrix product reflections parity odd binomial multi sweeps heavy-ball momentum exact threshold",
+        "Moment spectral radius stochastic matrix products randomized projections orthonormal coordinate system momentum variance 2 alpha parity",
+        "Stochastic linear recursion multiplicative Bernoulli coefficient heavy ball a_n 1 or 1-2 alpha exact mean square stability via H2 small gain",
+        "Han Su Xie 2022 randomized r-sets Douglas Rachford heavy-ball mRrDR randomized reflections mean-square convergence orthonormal A=I exact threshold",
+        "\"randomized Douglas\" \"heavy ball\" \"necessary and sufficient\" \"mean-square\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2207.04291v4 Algorithm 2 and Theorem 4.1/Appendix (direct inspected primary)",
+      "arXiv:2206.07553v5 Minibatch-HBM definition and Theorem 1.3 (selected primary sections)",
+      "Published KGSM exact stability mathematical record (statement only)",
+      "Agaskar–Wang–Lu exact Kaczmarz MSE (repository abstract only)",
+      "2026 own claim ledger entries 1–69, including diagonal smoothed-momentum Kaczmarz"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Han–Su–Xie source Theorem 3.1 and Remark 7.4 make a sharp claim without momentum; it does not determine raw momentum threshold.",
+        "Han–Su–Xie source Theorem 4.1 has a strict sufficient condition beta<(sqrt(3)-1)/4 at alpha=1/2,m=2, whereas sharp boundary equals 1/sqrt(2).",
+        "The KGSM published special-case M<1/sqrt(2) is mathematically implied and therefore not part of the claimed novel contribution.",
+        "The local derivative rho-prime(0)=4alpha*q*(1-2alpha*q)*(2alpha-1)/v is not entailed by the unrelaxed KGSM endpoint alone."
+      ],
+      "reasoning": "Published nonmomentum tightness and unrelaxed momentum cases overlap portions. The combined relaxation-resolved beta frontier for every m,r and the local acceleration transition require analyzing the varying scalar coefficient law and covariance resonance, and were not found in inspected source results. Broader stochastic control Lyapunov methods entail a way to recompute it, not an explicit covered formula.",
+      "searches": [
+        "Sharp mean-square stability threshold heavy-ball momentum randomized r-sets Douglas Rachford orthogonal rows exact covariance spectral radius arbitrary number reflections",
+        "Randomized Douglas Rachford with heavy-ball momentum exact mean square stability beta 1/sqrt2 orthonormal linear system",
+        "Stochastic second-order linear recurrence Bernoulli dropout coefficient 0 or 1 critical momentum variance instability",
+        "Randomized r sets Douglas Rachford identity matrix product reflections parity odd binomial multi sweeps heavy-ball momentum exact threshold",
+        "Moment spectral radius stochastic matrix products randomized projections orthonormal coordinate system momentum variance 2 alpha parity",
+        "Stochastic linear recursion multiplicative Bernoulli coefficient heavy ball a_n 1 or 1-2 alpha exact mean square stability via H2 small gain",
+        "Han Su Xie 2022 randomized r-sets Douglas Rachford heavy-ball mRrDR randomized reflections mean-square convergence orthonormal A=I exact threshold",
+        "mRrDR 2022 sampling with replacement reflection parity r m orthonormal rows exact stability",
+        "2024 randomized Douglas Rachford with heavy ball momentum sharp stability coefficient beta",
+        "\"randomized Douglas Rachford\" \"momentum\" \"orthonormal\" \"mean-square\"",
+        "\"randomized Douglas Rachford\" \"momentum\" \"sharp\" stability",
+        "\"random coefficient\" \"autoregressive\" \"mean square stability\" AR 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Algorithm 2 of arXiv:2207.04291v4 is a random product of affine hyperplane reflections with raw momentum.",
+        "Published KGSM frontier has beta=0 smoothing specialization M<1/sqrt(2) on two orthogonal rows; it is already known and not claimed new.",
+        "Generic scalar Bernoulli AR(2) can be represented by a 2-by-2 state-space random matrix; the exact relaxation and parity dependence must be specialized."
+      ],
+      "reasoning": "At alpha=1/2 and r=1 the candidate is equivalent in coordinate second moments to existing relaxed-free momentum Kaczmarz. The surviving theorem varies alpha throughout (0,1) and reflection count r with binomial parity q, leading to a new closed frontier and local spectral-derivative sign switch. Related control covariance machinery is acknowledged. No equivalent published full statement was located; this does not certify global novelty.",
+      "searches": [
+        "Sharp mean-square stability threshold heavy-ball momentum randomized r-sets Douglas Rachford orthogonal rows exact covariance spectral radius arbitrary number reflections",
+        "Randomized Douglas Rachford with heavy-ball momentum exact mean square stability beta 1/sqrt2 orthonormal linear system",
+        "Stochastic second-order linear recurrence Bernoulli dropout coefficient 0 or 1 critical momentum variance instability",
+        "\"Kaczmarz\" \"momentum\" \"orthogonal\" \"mean square\" condition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus searched as nine distinct semantic queries, including raw momentum, RrDR abbreviations, Bernoulli AR(2), binomial reflection parity, and alternative stochastic second-moment phrasing.",
+        "Closest records included the KGSM frontier and a FRB/RFB skew rotation rate result, neither displaying the candidate arbitrary-alpha multi-reflection law."
+      ],
+      "reasoning": "No exact table or mathematical-record entry for the complete stated frontier was returned. Search nonmatches are weak evidence and not proof of absence; existing KGSM special-case coverage is explicitly retained.",
+      "searches": [
+        "Han Su Xie 2022 randomized r-sets Douglas Rachford heavy-ball mRrDR randomized reflections mean-square convergence orthonormal A=I exact threshold",
+        "mRrDR 2022 sampling with replacement reflection parity r m orthonormal rows exact stability",
+        "2024 randomized Douglas Rachford with heavy ball momentum sharp stability coefficient beta",
+        "\"randomized Kaczmarz\" \"momentum\" \"square root\" stability rate"
+      ]
+    },
+    "rationale": "The source paper supplies a sufficient gamma1+gamma2<1 momentum criterion, while its sharp equal-singular-value result covers momentum-free runs. Existing KGSM work covers the alpha=1/2, r=1 single-reflection special case, explicitly excluded from priority. Inspected sources and searched mathematical records did not supply the complete arbitrary-alpha, dimension and reflection-count necessary-and-sufficient mean-square frontier together with the relaxation-1/2 local-rate sign switch. A general covariance/AR(2) framework is proof machinery rather than a stated closed method-specific law; equivalent unlocated formulations remain possible.",
+    "residual_risks": [
+      "Equivalent results might be embedded in uninspected parts of stochastic heavy-ball or relaxed Kaczmarz papers.",
+      "Generic exact covariance criteria can derive the boundary by specialization, though no closed RrDR relaxation formula was located.",
+      "Mathematical-record semantic retrieval is incomplete by design, and the special unrelaxed Kaczmarz instance is explicitly covered."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same random multi-reflection momentum method and sufficient bound, but selected inspected theorem/proof uses generic inequalities; sharp momentum-free special cases exist and are acknowledged.",
+        "evidence": [
+          "Algorithm 2 on PDF p. 12",
+          "Theorem 4.1 and gamma1,gamma2 on PDF p. 12",
+          "Remark 7.4 and proof of Theorem 4.1 beginning on pp. 28–29"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2207.04291",
+        "material_read": "arXiv v4 PDF pp. 1–4, 8–12, 27–29; source HTML sections 1.2, 3 and 4, Theorems 3.1 and 4.1 and relevant proof opening",
+        "method": "PDF extracted text, figure screenshots of p. 12 and p. 29; HTML theorem and source history",
+        "title": "Randomized Douglas–Rachford Methods for Linear Systems: Improved Accuracy and Efficiency",
+        "trigger": "Exact motivating Algorithm 2, Theorem 4.1 and appendix comparison"
+      },
+      {
+        "assessment": "Defines minibatch stochastic-gradient heavy-ball, not the RrDR reflection-parity update. Inspected sections supply convergence bounds, not the full present formula; uninspected portions remain a residual comparison risk.",
+        "evidence": [
+          "Minibatch-HBM update on PDF p. 2",
+          "Theorem 1.3 on PDF p. 4"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2206.07553",
+        "material_read": "PDF pp. 1–4, including definition of Minibatch-HBM and Theorem 1.3, checked by page screenshots",
+        "method": "PDF text and screenshots on pp. 1 and 4",
+        "title": "On the fast convergence of minibatch heavy ball momentum",
+        "trigger": "Strong plausible related stochastic heavy-ball gradient analysis"
+      },
+      {
+        "assessment": "Already covers unrelaxed single-reflection alpha=1/2 cases (including beta-critical 1/sqrt(2) on two rows), but not arbitrary alpha or RrDR reflection-count parity law.",
+        "evidence": [
+          "Reported diagonal KGSM frontier F(p,beta,M), with beta=0 reducing to Kaczmarz momentum",
+          "The known M<1/sqrt(2) for p=1/2"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-mean-square-stability-frontier-and-a-signed-mean-blind-spo--e15c00248209",
+        "material_read": "Available published title and summary, plus recoverable exact diagonal KGSM claim",
+        "method": "Mathematical-record semantic retrieval and comparison of exact stated formulas",
+        "title": "Exact mean-square stability frontier and a signed-mean blind spot in KGSM",
+        "trigger": "Nearest prior mathematical record with overlapping orthogonal-row momentum special case"
+      },
+      {
+        "assessment": "Exact MSE for randomized Kaczmarz without the current raw multi-reflection momentum; no claim about its uninspected complete text.",
+        "evidence": [
+          "Repository abstract: exact MSE and annealed/quenched error exponents"
+        ],
+        "identifier_or_url": "https://dash.harvard.edu/entities/publication/73120379-2750-6bd4-e053-0100007fdf3b",
+        "material_read": "Accessible abstract and bibliographic description only",
+        "method": "Repository abstract and metadata",
+        "title": "Randomized Kaczmarz algorithms: Exact MSE analysis and optimal sampling probabilities",
+        "trigger": "Earlier exact MSE analysis of related row-action methods"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "78e404ac-485e-4d98-9db0-4c32a869d3d1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete model-specific mean-square stability phase diagram of a published randomized multi-reflection method gives a practical sharp benchmark for coupling relaxation and momentum. The all-m all-r parity law resolves when more reflections actually enlarge the stable momentum range. The sharp local acceleration sign transition at alpha=1/2, independent of dimension/count, provides substantive parameter-design insight beyond an already known fixed-alpha special case. It sharpens source sufficient bounds and exhibits an open signed-mean/second-moment separation; no general theorem or cost-normalized speedup is claimed.",
+    "status": "PASS"
+  }
+}
