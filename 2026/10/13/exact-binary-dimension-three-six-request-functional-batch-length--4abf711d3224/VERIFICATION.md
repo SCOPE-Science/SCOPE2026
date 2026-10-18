@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` in a directory containing both `verify.py` and `certificates.tsv` (UTF-8). The checker confirms the exact columns `1,2,3,4,5,6,7,1,2,4,7`, rank three, all 924 sorted request patterns with no duplicates or omissions, precisely six disjoint nonempty recovery sets for each pattern, allowed coordinate indices and the spanning condition over the binary field. It also computes all seven nonzero codeword weights and obtains minimum distance six.
+# Independent mathematical audit
 
-Observed: `VERIFY_OK 924/924 recovery lists; rank=3; minimum distance=6; sizes= {1: 3798, 2: 1669, 3: 77}`. There are 5,544 validated recovery sets and no recovery set exceeds three coordinates.
+## correctness
 
-The certificate establishes the finite upper bound for this displayed matrix and all requests. The lower bound is a general Hamming-distance/Griesmer proof in `RESULT.md`. No unspecified computation or unavailable external package is used. This verification is an internal finite reproducibility check, not independent scientific validation.
+PASS
+
+Any six-recovery all-symbol PIR generator forces all seven nonzero codewords to have weight >=6: choose a stored column detected by each nonzero information covector; each disjoint recovery of that target must meet the support. The binary dimension-three Griesmer bound gives n>=6+3+2=11. Independently read all 924 actual certificates.tsv rows (blob 5a9d3704278c0abefc12c0e22bcc2b0e3dff37bf) and checked in a separately implemented JS decoder that all sorted six-request multisets occur once, every target lies in the XOR span of its indicated distinct 1-based coordinates, groups are pairwise disjoint, and block-size counts are 3798 singleton/1669 pair/77 triple (5,544 groups; zero errors). Zero-target recovery follows because a span contains 0. Exhaustion is only over the finite specified six-request alphabet; the lower bound is general.
+
+## originality
+
+PASS
+
+Prior functional PIR at these parameters establishes eleven for repeated requests, which does not imply mixed-request service. The actual 924-request certificate closes this strictly stronger functional batch case; the 2026 all-symbol paper and published Resultary neighboring t=5 result do not supply a t=6 mixed certificate.
+
+## value
+
+PASS
+
+Simultaneous arbitrary linear-functional service is a natural strictly stronger retrieval objective than repeated-target PIR or all-symbol requests. It is mathematically informative that six arbitrary queries can be served at the classical minimum Griesmer length, using at most triples of coordinates. This exact naturally defined small parameter is a meaningful benchmark for code constructions, not a toy perturbation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

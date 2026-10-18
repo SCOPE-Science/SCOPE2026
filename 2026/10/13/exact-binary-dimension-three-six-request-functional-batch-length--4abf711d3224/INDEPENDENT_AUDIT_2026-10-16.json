@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T15:49:40Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Any six-recovery all-symbol PIR generator forces all seven nonzero codewords to have weight >=6: choose a stored column detected by each nonzero information covector; each disjoint recovery of that target must meet the support. The binary dimension-three Griesmer bound gives n>=6+3+2=11. Independently read all 924 actual certificates.tsv rows (blob 5a9d3704278c0abefc12c0e22bcc2b0e3dff37bf) and checked in a separately implemented JS decoder that all sorted six-request multisets occur once, every target lies in the XOR span of its indicated distinct 1-based coordinates, groups are pairwise disjoint, and block-size counts are 3798 singleton/1669 pair/77 triple (5,544 groups; zero errors). Zero-target recovery follows because a span contains 0. Exhaustion is only over the finite specified six-request alphabet; the lower bound is general.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kılıç–Ravagnani–Salizzoni emphasize dimension-two exact functional lengths and families; the all-symbol 2026 source gives smaller request counts.",
+          "Prior Resultary finding has five requests and optimum ten, not six requests and optimum eleven."
+        ],
+        "reasoning": "A stronger all-dimensional or all-request-count functional batch theorem at these parameters was not evidenced by the reviewed sources; known lower bound is insufficient without a mixed-service upper bound.",
+        "searches": [
+          "Resultary semantic query: functional batch binary dimension 3 six requests length 11 generator mixed six vectors all symbol PIR",
+          "arXiv:2508.02586",
+          "arXiv:2601.12302",
+          "Resultary SCOPE exact binary dimension-three five-request all-symbol lengths"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1901.01605 (Zhang–Etzion–Yaakobi)",
+        "arXiv:2601.04041 (Boruchovsky et al.)",
+        "arXiv:2508.02586",
+        "arXiv:2601.12302",
+        "Resultary t=5 all-symbol length 10",
+        "Resultary t=5 locality-two functional batch length 11"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "FP(3,6,2)=11 follows from the weaker table, but FP optimality does not imply FB(3,6,2)<=11.",
+          "The explicit generator and complete disjoint six-multiset certificate establishes that missing implication constructively."
+        ],
+        "reasoning": "Prior table gives a shared lower bound but not the stronger mixed-functional length upper bound; distinction validated by actual definition and request quantifiers.",
+        "searches": [
+          "arXiv:2601.04041 sections on exact small t",
+          "arXiv:1901.01605 functional PIR table"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Functional PIR requests are six repetitions of a single target, unlike an arbitrary multiset of six targets.",
+          "All-symbol batch limits targets to stored symbols; here every nonzero F2^3 vector appears, so the explicit witness does provide functional batch service."
+        ],
+        "reasoning": "The same numerical optimum for the weaker FP code does not imply that all arbitrary mixed requests have disjoint recoveries; exhaustive constructive witnesses prove the stronger new condition.",
+        "searches": [
+          "Resultary semantic query: functional batch binary dimension 3 six requests length 11 generator mixed six vectors all symbol PIR",
+          "arXiv:1901.01605",
+          "arXiv:2601.04041"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published record covers t=5 ASB/ASP length ten; 2019 tabulation FP(3,6)=11 counts the repeated-target variant."
+        ],
+        "reasoning": "This is an exact finite code-length parameter but different quantification than the prior database/table entry; match of n=11 is not statement equivalence.",
+        "searches": [
+          "Resultary semantic query: functional batch binary dimension 3 six requests length 11 generator mixed six vectors all symbol PIR",
+          "Resultary: 2026/10/4/SCOPE-exact-binary-dimension-three-five-request-all-symbol-lengths--d7ec902390af",
+          "arXiv:1901.01605"
+        ]
+      },
+      "rationale": "Prior functional PIR at these parameters establishes eleven for repeated requests, which does not imply mixed-request service. The actual 924-request certificate closes this strictly stronger functional batch case; the 2026 all-symbol paper and published Resultary neighboring t=5 result do not supply a t=6 mixed certificate.",
+      "residual_risks": [
+        "Unindexed length-eleven six-functional recovery construction could exist outside searched publications.",
+        "Finite certificate validated for exact listed six-request patterns, not a classification of all optimal generators."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines weaker ASB and ASP notions and treats neighboring request counts; no inspected theorem implies six arbitrary-functional requests on eleven coordinates.",
+          "evidence": [
+            "The ASB constraints apply to stored symbols; functional batch allows any element of F2^3.",
+            "The exact smaller t findings do not entail the six-request construction."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2601.04041v1",
+          "material_read": "Open full-text definitions, stated exact small-request results, and construction/bounds sections examined.",
+          "method": "Open arXiv full-text HTML and source comparison",
+          "title": "Serving Every Symbol: All-Symbol PIR and Batch Codes",
+          "trigger": "Closest same-dimension new all-symbol framework"
+        },
+        {
+          "assessment": "COVERS FP(3,6,2)=11 only, a weaker property.",
+          "evidence": [
+            "FP repeated functional target vs FB arbitrarily mixed functional targets."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1901.01605",
+          "material_read": "Published functional PIR tabulation and statement of its repeated-request quantifier examined; not a complete independent whole-document reading.",
+          "method": "Primary abstract/tabular comparison",
+          "title": "Bounds on the Length of Functional PIR and Batch Codes",
+          "trigger": "Exact FP length same n=11"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Simultaneous arbitrary linear-functional service is a natural strictly stronger retrieval objective than repeated-target PIR or all-symbol requests. It is mathematically informative that six arbitrary queries can be served at the classical minimum Griesmer length, using at most triples of coordinates. This exact naturally defined small parameter is a meaningful benchmark for code constructions, not a toy perturbation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "FB(3,6,2)=ASB(3,6,2)=ASP(3,6,2)=11 for six simultaneous binary functional requests; a length-11 generator with nonzero columns 1..7 and repeats 1,2,4,7 serves all 924 nonzero request multisets with disjoint recovery sets of size <=3.",
+  "limitations": [
+    "Binary dimension three and precisely six requests; no extension to higher dimension/field/t.",
+    "The explicit witness is not a uniqueness classification; priority remains best-of-knowledge."
+  ],
+  "schema_version": 1
+}
