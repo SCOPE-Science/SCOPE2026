@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T15:12:07.972088Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/12/sharp-quadratic-stability-for-four-equicorrelated-gaussian-fourt--e80dff736104/RESULT.md @9f2673c893506ce846c2485de9bb053a429fd9f9",
+        "2026/10/12/sharp-quadratic-stability-for-four-equicorrelated-gaussian-fourt--e80dff736104/verify.py"
+      ],
+      "rationale": "The admissible covariance interval is exactly [-1/3,1] by the eigenvalues 1-rho (triple) and 1+3rho. Independently recomputed Wick pairings for (4,4,4,4) yield E product X_i^4 = 81 + 3888rho^2 + 20736rho^3 + 110160rho^4 + 290304rho^5 + 570240rho^6 + 663552rho^7 + 368064rho^8. For rho=-t, dividing by rho^2 gives 1296q(t), q=284t^6-512t^5+440t^4-224t^3+85t^2-16t+3. Exact degree-4 Bernstein coefficients of q''(u/3) are (170,58,394/9,878/27,934/27), all positive, and q'(0)=-16<0<178/27=q'(1/3); hence unique interior minimizer tau approximately 0.1655387555 with coefficient C*=2510.5126513. For positive rho the ratio >=3888, so the negative minimizer is globally sharp. At rho=0 equality is trivial; singular endpoints follow by polynomial continuity. These are symbolic identities and a convexity argument, not a finite-grid extrapolation.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Strong GPI holds for every positive exponent and covariance but gives only Delta>=0 (arXiv:2609.20234 Theorem 1).",
+          "Hirose abstract establishes nonnegativity for equicorrelated families."
+        ],
+        "reasoning": "Greater domain for a sign theorem does not dominate a positive sharp coefficient. A quantitative improvement may exist in Hirose's unread body, recorded as access risk rather than ruled out.",
+        "searches": [
+          "arXiv:2609.20234 Theorem 1",
+          "Hirose DOI:10.1016/j.jmaa.2026.130776 abstract",
+          "arXiv:2209.01505"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.20234",
+        "https://doi.org/10.1016/j.jmaa.2026.130776",
+        "https://arxiv.org/abs/2209.01505",
+        "Resultary semantic search: Resultary: sharp quantitative stability coefficient equicorrelated Gaussian product fourth moments four variables negative rho moment inequality",
+        "Pinned assigned Git package, 2026/10/12/sharp-quadratic-stability-for-four-equicorrelated-gaussian-fourt--e80dff736104/RESULT.md @9f2673c893506ce846c2485de9bb053a429fd9f9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Strong GPI: delta>=0, with equality at independent nondegenerate coordinates.",
+          "Bernstein-positive q'' and q' endpoints needed to establish interior sharp ratio."
+        ],
+        "reasoning": "The older zero lower bound cannot logically furnish C*>0, much less sharpness and optimizer. Source-specific convexity and moment extraction are essential. Complete Hirose manuscript was not read.",
+        "searches": [
+          "arXiv:2609.20234 §§1–4",
+          "Hirose DOI:10.1016/j.jmaa.2026.130776",
+          "Resultary semantic query gauss"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ouimet (2022) multinomial covariance Gaussian product inequality reformulation",
+          "Ouimet–Greaves (2026) Theorem 1 product inequality, equality only at independence"
+        ],
+        "reasoning": "The same fourth-moment product statistic is within older Gaussian-product terminology; none of the inspected statements supplies the optimum normalized by rho^2 or identifies tau.",
+        "searches": [
+          "Resultary: sharp quantitative stability coefficient equicorrelated Gaussian product fourth moments four variables negative rho moment inequality",
+          "arXiv:2209.01505",
+          "arXiv:2609.20234"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Direct Wick polynomial computed in assigned RESULT.md and independently reproduced: coefficient list 81,0,3888,20736,110160,290304,570240,663552,368064.",
+          "Hirose search located qualitative journal article, not a fourth-power minimizer table."
+        ],
+        "reasoning": "No inspected exact table or previously published optimized polynomial equals C*. An explicit general moment formula alone is not an exact pre-existing table of this sharp invariant.",
+        "searches": [
+          "Resultary: sharp quantitative stability coefficient equicorrelated Gaussian product fourth moments four variables negative rho moment inequality",
+          "Hirose Gaussian equicorrelated fourth moment explicit coefficients 2026"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the sharp *positive* coefficient and unique negative minimizer. Existing strong/general and equicorrelated Gaussian product inequalities supply qualitative nonnegativity, not the global optimal 2510.5126513 remainder; generic Wick formulae permit but do not tabulate/optimize this specific polynomial. Hirose full text is inaccessible and could contain a concealed quantitative comparison.",
+      "residual_risks": [
+        "Hirose's full JMAA 563 (2026) paper was inaccessible: institutional route returned vpn_disconnected; duplicate normalized exact fourth-moment formula in body cannot be ruled out.",
+        "General Wick formula literature may contain a tabulation of this exact polynomial under different normalization.",
+        "Numerical enclosure is derived from an exact rational derivative bracket; report only the stated bracket."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers arbitrary positive exponents, but theorem asserts product inequality with zero remainder; no same explicit quadratic sharp coefficient located",
+          "evidence": [
+            "Theorem 1: E product |Xi|^alpha_i >= product E|Xi|^alpha_i; equality iff independent."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.20234",
+          "material_read": "Available arXiv HTML full 325-line article; Theorem 1, introduction and consequence discussion, searched for stability/equicorrelation",
+          "method": "Full-text reading/search",
+          "title": "A proof of the strong Gaussian product inequality conjecture",
+          "trigger": "Same four-coordinate Gaussian moment is a special case"
+        },
+        {
+          "assessment": "Qualitative sign theorem verified from abstract, but whole-document quantitative noncoverage NOT established",
+          "evidence": [
+            "Public abstract describes minimization over a symmetric domain and proof of equicorrelated product inequality; full article unavailable."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2026.130776",
+          "material_read": "Title, published summary/abstract and bibliographic metadata only; full text not obtained; authorized retrieval returned vpn_disconnected",
+          "method": "Public web OA/preprint search then institution-authorized access attempt",
+          "title": "The Gaussian product inequality for equicorrelated variables",
+          "trigger": "Exactly same equicorrelation setting and possible hidden fourth-moment computation"
+        },
+        {
+          "assessment": "Provides product-inequality motivation, not verified to state sharp four-coordinate remainder",
+          "evidence": [
+            "2022 multinomial Gaussian product conjecture and combinatorial reformulation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2209.01505",
+          "material_read": "Source claim/abstract and surrounding contextual formulation as described in the primary review; full text not re-fetched in this execution",
+          "method": "Public arXiv metadata and comparison",
+          "title": "The Gaussian product inequality conjecture for multinomial covariances",
+          "trigger": "Negative multinomial correlation is within admissible four-point family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/12/sharp-quadratic-stability-for-four-equicorrelated-gaussian-fourt--e80dff736104/RESULT.md",
+        "https://arxiv.org/abs/2609.20234",
+        "https://doi.org/10.1016/j.jmaa.2026.130776",
+        "https://arxiv.org/abs/2209.01505"
+      ],
+      "rationale": "The Gaussian product deficit is a natural and already studied dependence functional. Its best positive quadratic margin for a concrete four-coordinate quartic family supplies a calibrated stability invariant; the worst correlation being interior and negative is informative and not an arbitrary table entry. Scope is deliberately one covariance parameter and fourth powers, not arbitrary covariance/exponents.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Hirose's full JMAA 563 (2026) paper was inaccessible: institutional route returned vpn_disconnected; duplicate normalized exact fourth-moment formula in body cannot be ruled out.",
+    "General Wick formula literature may contain a tabulation of this exact polynomial under different normalization.",
+    "Numerical enclosure is derived from an exact rational derivative bracket; report only the stated bracket.",
+    "Source METADATA.json and AUDIT.json contain public-inappropriate operational scope_run_id; the scientific verdict is complete but publication is withheld.",
+    "No external certification or expert/Lean verification is asserted; VERIFY_OK is not O or V evidence."
+  ],
+  "schema_version": 1
+}

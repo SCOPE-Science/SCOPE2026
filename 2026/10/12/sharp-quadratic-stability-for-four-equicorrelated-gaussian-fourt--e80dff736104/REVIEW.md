@@ -1,11 +1,21 @@
-# Review of the sharp four-coordinate quadratic Gaussian moment deficit
+# Independent mathematical audit
 
-**Correctness — PASS.** Wick's recursion gives the exact degree-eight equicorrelation moment polynomial. A rational Bernstein certificate proves strict convexity of its normalized negative-correlation deficit, and endpoint derivatives isolate its unique interior minimizer. The runnable exact checker validates all polynomial coefficients, Bernstein coefficients, endpoint signs and root enclosure. The result covers both positive-semidefinite boundary matrices by continuity.
+## correctness
 
-**Originality — PASS, subject to bibliographic risk.** The 2022 multinomial covariance paper provides a general reformulation of a nonnegative moment difference but not the sharp fourth-moment stability coefficient. The later general Gaussian product inequality papers establish its nonnegativity, not the precise best positive \(\rho^2\) coefficient or its unique interior optimizer. Searches of the directly relevant Gaussian product literature and mathematical research records did not identify this quantitative statement. Hirose's 2026 full journal text was not obtained, so an undiscovered quantitative formula remains possible.
+PASS
 
-**Value — PASS.** The Gaussian product deficit is a canonical dependence diagnostic. Its *optimal* second-order stability constant in the first equicorrelated four-coordinate quartic case is a natural exact invariant, usable to calibrate how much negative covariance can reduce a strict fourth-moment separation. The unexpected interior sharpness, not a singular boundary, materially changes its worst-case behavior. The contribution is explicitly quantitative and narrow, not a claimed reproof of the settled general Gaussian product inequality.
+The admissible covariance interval is exactly [-1/3,1] by the eigenvalues 1-rho (triple) and 1+3rho. Independently recomputed Wick pairings for (4,4,4,4) yield E product X_i^4 = 81 + 3888rho^2 + 20736rho^3 + 110160rho^4 + 290304rho^5 + 570240rho^6 + 663552rho^7 + 368064rho^8. For rho=-t, dividing by rho^2 gives 1296q(t), q=284t^6-512t^5+440t^4-224t^3+85t^2-16t+3. Exact degree-4 Bernstein coefficients of q''(u/3) are (170,58,394/9,878/27,934/27), all positive, and q'(0)=-16<0<178/27=q'(1/3); hence unique interior minimizer tau approximately 0.1655387555 with coefficient C*=2510.5126513. For positive rho the ratio >=3888, so the negative minimizer is globally sharp. At rho=0 equality is trivial; singular endpoints follow by polynomial continuity. These are symbolic identities and a convexity argument, not a finite-grid extrapolation.
 
-**Relationship to existing results.** Closest sources: Ouimet (2022), Hirose (2026), Ouimet–Greaves (2026), and Hu–Zhao–Zhou (2023). The first poses the covariance-moment question and supplies an exact combinatorial characterization; the second and third cover the *sign* in much broader generality; the fourth treats two-coordinate quantitative bounds. Residual risk is a previously published sharp four-coordinate coefficient in an inaccessible or differently named source.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the sharp *positive* coefficient and unique negative minimizer. Existing strong/general and equicorrelated Gaussian product inequalities supply qualitative nonnegativity, not the global optimal 2510.5126513 remainder; generic Wick formulae permit but do not tabulate/optimize this specific polynomial. Hirose full text is inaccessible and could contain a concealed quantitative comparison.
+
+## value
+
+PASS
+
+The Gaussian product deficit is a natural and already studied dependence functional. Its best positive quadratic margin for a concrete four-coordinate quartic family supplies a calibrated stability invariant; the worst correlation being interior and negative is informative and not an arbitrary table entry. Scope is deliberately one covariance parameter and fourth powers, not arbitrary covariance/exponents.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
