@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,42 +18,25 @@
   "schema_version": 1
 }
 ---
-For
-\[
-X_{n,k}=\operatorname{IG}(k,2n),
-\qquad
-d=\frac{k(4n-3k+1)}2,
-\]
-the type-\(C_n\) Weyl product gives
-\[
-D_{n,k}
-=
-2^{\binom{k}{2}}d!\,
-\frac{\prod_{i=0}^{k-1}i!}{\prod_{i=1}^{k}(2n-2i+1)!}.
-\]
 
-Applying
-\[
-\nu_2(m!)=m-s_2(m)
-\]
-and
-\[
-s_2(2r+1)=s_2(r)+1
-\]
-gives
-\[
-\nu_2(D_{n,k})
-=
-\frac{k(k+1)}2
--s_2(d)
-+\sum_{j=n-k}^{n-1}s_2(j)
--\sum_{j=1}^{k-1}s_2(j).
-\]
+# Independent mathematical audit
 
-The bundled checker independently computes the degree from the positive-root factors and from the factorial quotient for every
-\[
-1\le k\le n\le60.
-\]
-It verifies the digit-sum valuation by direct exact valuation on all \(1830\) pairs, checks the Catalan edge through \(n=500\), and checks the maximal Lagrangian edge through \(n=200\).
+## correctness
 
-Finite computation is regression evidence only.
+PASS
+
+From the actual type-C root product for fundamental weight ω_k, multiplying all non-Levi positive-root contributions gives the stated factorial degree. Legendre v2(m!)=m−s₂(m) and s₂(2j+1)=s₂(j)+1 yield the complete formula for 1≤k≤n. Independently recomputed exact factorial degrees and valuations for every 55 pairs 1≤k≤n≤10; boundaries k=1,2,n checked. Finite checks do not prove the unrestricted claim; explicit root product and identities do.
+
+## originality
+
+PASS
+
+The classical degree of Sp(2n)/P_k and the maximal Lagrangian v₂ edge are known. Semantic searches and inspected BKT primary work locate no all-(n,k) closed digit-sum valuation. The general Weyl factorial expression determines it after a short Legendre simplification; hence novelty is limited and could be an implicit known corollary. With this strong restriction, best-of-knowledge originality is accepted for the uniform explicit arithmetic theorem, not the geometric method or boundary cases.
+
+## value
+
+PASS
+
+Exact two-primary content of the natural projective degree for every symplectic isotropic rank is an invariant usable in arithmetic geometry and Schubert computations; extends between known Catalan and Lagrangian edges. The Legendre reduction is short, but its uniform explicit formula for a natural all-rank class is independently useful, not an arbitrary small instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

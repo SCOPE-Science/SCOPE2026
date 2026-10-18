@@ -1,25 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the Pluecker degree from the type-\(C_n\) positive roots for
-\[
-Sp_{2n}/P_k
-\]
-and the Weyl dimension formula. The root product simplifies to
-\[
-2^{\binom{k}{2}}d!\,
-\frac{\prod_{i=0}^{k-1}i!}{\prod_{i=1}^{k}(2n-2i+1)!}.
-\]
-Legendre's formula at \(2\) then yields the stated binary digit-sum expression, with all linear terms checked symbolically. The \(k=2\) and \(k=n\) boundaries agree with independent known formulas.
+## correctness
 
-The bundled checker compares root-product and factorial degrees and verifies the exact valuation for \(1830\) parameter pairs. These finite checks are regression evidence only.
+PASS
 
-## Originality
-PASS. The archival isotropic-Grassmannian source covers the full geometric family and its Schubert calculus, while general homogeneous-variety literature supplies the Weyl method. The maximal Lagrangian specialization is already covered and is not claimed as new. Targeted searches did not locate the displayed exact two-adic formula for all non-maximal symplectic isotropic ranks.
+From the actual type-C root product for fundamental weight ω_k, multiplying all non-Levi positive-root contributions gives the stated factorial degree. Legendre v2(m!)=m−s₂(m) and s₂(2j+1)=s₂(j)+1 yield the complete formula for 1≤k≤n. Independently recomputed exact factorial degrees and valuations for every 55 pairs 1≤k≤n≤10; boundaries k=1,2,n checked. Finite checks do not prove the unrestricted claim; explicit root product and identities do.
 
-Residual risk: the arithmetic simplification is short once the factorial degree formula is arranged, so an unindexed representation-theoretic source could contain it.
+## originality
 
-## Value
-PASS. The Pluecker degree is a central enumerative invariant of these homogeneous varieties. The theorem gives a uniform exact prime-two law across the entire symplectic isotropic family, interpolating the Catalan and Lagrangian boundaries.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The classical degree of Sp(2n)/P_k and the maximal Lagrangian v₂ edge are known. Semantic searches and inspected BKT primary work locate no all-(n,k) closed digit-sum valuation. The general Weyl factorial expression determines it after a short Legendre simplification; hence novelty is limited and could be an implicit known corollary. With this strong restriction, best-of-knowledge originality is accepted for the uniform explicit arithmetic theorem, not the geometric method or boundary cases.
+
+## value
+
+PASS
+
+Exact two-primary content of the natural projective degree for every symplectic isotropic rank is an invariant usable in arithmetic geometry and Schubert computations; extends between known Catalan and Lagrangian edges. The Legendre reduction is short, but its uniform explicit formula for a natural all-rank class is independently useful, not an arbitrary small instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
