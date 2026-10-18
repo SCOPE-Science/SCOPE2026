@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the sharp boundedness criterion
+# Independent mathematical audit
 
-The analytical check is the exact identity \(T=JC=S^{-1}J(D\oplus D)S\) for every proposed bounded symplectic congruence and the contraction bound for the regularized polar factor \(K_\varepsilon=T(-T^2+\varepsilon I)^{-1/2}\). Direct multiplication gives \(-T^2=M_{c^2pq}\oplus M_{c^2pq}\) and the norm of \(K_\varepsilon\). Its monotone limit is \(\sqrt R\) without requiring any bounded inverse of \(C=A+B\). The explicit diagonal squeezing map meets the bound when \(R<\infty\).
+## correctness
 
-Execute `python3 verify.py` with Python 3 standard library to check the two-coordinate symplectic identities, both congruences, and condition number on a finite nonuniform coefficient family. That finite check is illustrative and cannot certify the infinite result. No external formal proof or independent audit has been performed. Critical logical assumptions are strict positivity almost everywhere of \(p,q,a+b\), essential boundedness of all four weighted coefficients, and bounded invertibility of each normalizer being optimized.
+PASS
+
+For every bounded symplectic S, T=J(A+B) is similar to J(D⊕D). Thus Kε=T(-T²+εI)^{-1/2} is similar to a contraction and bounded by cond(S). Its explicit multiplier norm increases to √esssup max(p/q,q/p), giving necessity/lower bound even with mixing and noncoercivity. The bounded diagonal s=(p/q)^{1/4} attains √R when R finite; worked (0,1) t² boundary demonstrates nonexistence. Finite script tests only fibers.
+
+## originality
+
+PASS
+
+Kamat–Tonny's arXiv:2610.04583 Theorem 3.1 constructs generally unbounded simultaneous normalizers under symplectic commutation and does not characterize boundedness or minimal bounded condition number. Bhat–John's bounded theorem assumes invertible coercivity; our injective noncoercive multiplier counterexample escapes it. Resultary query returned same assigned result but no distinct stronger criterion; best-of-knowledge O PASS, generic hidden similarity criteria remain risk.
+
+## value
+
+PASS
+
+The bounded-versus-unbounded normalizer boundary and least distortion among ALL symplectic transforms control a natural analytic obstruction for noncoercive Hamiltonian pairs. This quantitatively distinguishes finite/coercive classical Williamson theory from continuous-spectrum behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
