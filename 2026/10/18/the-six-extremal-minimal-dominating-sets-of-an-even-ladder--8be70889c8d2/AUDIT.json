@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Local domination and private-witness equivalence with radius-two column dependence establishes exact automaton recognition. Every complete path scores |D|-n. Verified all 471 integer potential inequalities and max terminal potential 0, proving the upper bound for arbitrary length; exact 91-state tight-path product excludes nonlisted equality words. All six word families are tested via explicit constructive reasoning and boundary parity; independent direct subset enumeration n≤9 confirms count and entire families, but is not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2610.03785v2, §§2,8-9",
+        "arxiv:2408.08053, abstract and introduction"
+      ],
+      "reasoning": "The more general scalar Γ(P_m □ P_n)=ceil(mn/2) covers the numerical value but not optimizer enumeration. Mertens counts all dominating sets by size, not precisely the inclusion-minimal ones. No broader result inspected implies the six periodic forms without extra analysis.",
+      "searches": [
+        "upper domination rectangular grid enumeration optimizer count graph 2026",
+        "upper domination grids P2 Pn maximum minimal dominating sets classification",
+        "S. Mertens domination polynomial rectangular grid all dominating sets arxiv:2408.08053"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.03785v2",
+      "arxiv:2408.08053",
+      "OEIS:A290379",
+      "OEIS:A347558",
+      "published-finding corpus published finding: Upper k-tuple domination of complete multipartite graphs (different graph/problem)",
+      "published-finding corpus published finding: Sharp paired-total domination gap in trees (different graph and total paired parameter)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sahbi arxiv:2610.03785v2 Theorems 2.4 and 8.1, §§8–9",
+        "Mertens arxiv:2408.08053 §§1-2",
+        "OEIS:A290379"
+      ],
+      "reasoning": "The six-word theorem implies the known Γ(L_n)=n, not conversely: equality Γ=α allows additional nonindependent extremizers, such as full/empty rung words. The domination polynomial does not filter inclusion-minimal sets, while a total number of minimal sets does not identify extremal sizes. Therefore the specific complete optimizer assertion is not a corollary explicitly supplied by these sources.",
+      "searches": [
+        "maximum-cardinality minimal dominating sets of ladder graphs P2 Cartesian Pn classification all upper domination sets four six two checkerboards full rows paired-column patterns",
+        "upper domination ladder graph exact number of maximum minimal dominating sets 4 for odd n 6 for even n",
+        "upper domination rectangular grid enumeration optimizer count graph 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.03785v2, §8, Theorem 8.1",
+        "OEIS:A290379 (total minimal dominating set counts)"
+      ],
+      "reasoning": "Equivalent terminology considered: upper domination, maximum minimal dominating sets, extremal dominating sets, upper-domination optimizers, ladder graph. The scalar Γ=n is covered, while the entire maximizing family and parity-dependent counts are not stated in examined sources.",
+      "searches": [
+        "maximum-cardinality minimal dominating sets of ladder graphs P2 Cartesian Pn classification all upper domination sets four six two checkerboards full rows paired-column patterns",
+        "upper domination ladder graph exact number of maximum minimal dominating sets 4 for odd n 6 for even n",
+        "\"ladder\" \"upper domination\" \"minimal dominating\" count"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS:A290379; sequence begins 2,6,7,18,39,75,155,310,638",
+        "OEIS:A347558 is minimum-size domination, not the upper extremal family"
+      ],
+      "reasoning": "A290379 gives one total count for all minimal dominating sets at each length; this is strictly coarser than the number and description of maximum-cardinality sets. The direct exhaustive check agrees with its first nine terms. No relevant explicit cardinality-by-cardinality database table was identified.",
+      "searches": [
+        "OEIS A290379 number minimal dominating sets n ladder",
+        "OEIS A347558 minimum dominating sets ladder",
+        "OEIS A286847 array minimal dominating sets grids"
+      ]
+    },
+    "rationale": "The scalar upper-domination number of bipartite grids is previously known (Sahbi Theorem 8.1); the separate, completely specified optimizer family and constant 4/6 enumeration were not identified in the examined primary texts or the actual named-source searches. The coefficient profile of all minimal dominating sets in the OEIS is not supplied, so its total alone does not imply the exact optimizer count. Unindexed coverage remains an explicit residual risk.",
+    "residual_risks": [
+      "Equivalent historical width-two optimizer enumeration might exist under maximal irredundant set/upper domination terminology outside inspected indexed texts.",
+      "The full Mertens paper was not read beyond the object-defining primary sections; it could contain a related narrower calculation, though its stated enumeration has different predicates.",
+      "Self-review alone is not independent certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS SCALAR only; no complete width-two optimizer count or six periodic classes identified",
+        "evidence": [
+          "Theorem 8.1 (p.10 PDF): upper domination value by bipartite equality and matching",
+          "Theorem 2.4: Γ=α in bipartite graphs; §9 discusses parameter comparisons"
+        ],
+        "identifier_or_url": "arxiv:2610.03785v2",
+        "material_read": "Full twelve-page primary preprint, especially §§2, 8, 9, theorem and discussion",
+        "method": "Full-text PDF examination including theorem 8.1, proof and conclusion",
+        "title": "Upper k-Star-Forming Sets, k-Independence, and Upper Domination",
+        "trigger": "Direct initiating result Γ(P_m□P_n)=ceil(mn/2)"
+      },
+      {
+        "assessment": "Counts every dominating set by size, not its inclusion-minimal extremizers; residual risk in uninspected later parts",
+        "evidence": [
+          "Abstract: domination polynomial and all dominating set counts for grids",
+          "Definition counts vertex subsets dominating, without minimality restriction"
+        ],
+        "identifier_or_url": "arxiv:2408.08053",
+        "material_read": "Primary PDF abstract, introduction and definitions of domination polynomial; long-paper full coverage not claimed",
+        "method": "First sections and principal counted object checked in primary text",
+        "title": "Domination Polynomials of the Grid, the Cylinder, the Torus, and the King Graph",
+        "trigger": "Potential stronger all-set enumeration over all grid widths"
+      },
+      {
+        "assessment": "Total minimal-set counts, no cardinality resolution; directly matches brute-force totals through n=9",
+        "evidence": [
+          "Definition: number of minimal dominating sets in n-ladder",
+          "Terms: 2,6,7,18,39,75,155,310,638"
+        ],
+        "identifier_or_url": "OEIS:A290379",
+        "material_read": "Full online sequence entry, terms, formula, cross-references",
+        "method": "Read sequence definition and generating function and cross references",
+        "title": "Number of minimal dominating sets in the n-ladder graph",
+        "trigger": "Exact enumerative database for same graph and minimality notion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8be70889-c8d2-4b3c-80c5-7f064f0bee82",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The precisely motivated equality case problem for a new rectangular-grid upper-domination theorem is completely solved over an infinite, canonical width-two family. Four/six extremizers are classified despite exponentially many minimal dominating sets. The even-length paired-rung extremizers are nonindependent, revealing structure absent from the known numerical Γ=α identity. This is neither an arbitrary parameter slice nor a routine direct corollary.",
+    "status": "PASS"
+  }
+}
