@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,32 +18,25 @@
   "schema_version": 1
 }
 ---
-`artifacts/verify.py` uses only the Python standard library.
 
-It reconstructs the points of
-\[
-\operatorname{PG}(4,2)
-\]
-as the nonzero vectors of \(\mathbb F_2^5\), then enumerates all projective lines and planes by binary spans. It verifies that there are \(31\) points, \(155\) lines, and \(155\) planes, and that every line contains \(3\) points and lies in \(7\) planes.
+# Independent mathematical audit
 
-The script checks the numerical convexity bounds used in the proof:
-\[
-\min_{\sum d_P=102}\sum_P\binom{d_P}{2}=120
-\]
-over \(31\) point degrees, and, after fixing three degree-two points for a doubled line at \(m=33\),
-\[
-3\binom22+
-\min_{\sum_{28}d_P=93}
-\sum\binom{d_P}{2}
-=114.
-\]
+## correctness
 
-It also checks the five possible plane-occupancy triples of a hypothetical simple \(33\)-line configuration.
+PASS
 
-Finally, an explicit set of \(32\) distinct projective lines is verified. Every one of the \(155\) planes contains either zero or two selected lines, with distribution
-\[
-43:112
-\]
-for occupancies \(0:2\).
+Derived independently the 31-point/155-plane/155-line counts in PG(4,2), 7 planes per line. For each pair of selected line copies, intersecting distinct lines contribute 1 to point-pair S and plane-pair J, repeated lines contribute 3 and 7, yielding J=S+4D. At m=34, degree convexity gives S>=120 but J<=floor(238/2)=119, contradiction. At m=33 a doubled line forbids any other selected line meeting it, giving S>=114, D>=1, J>=118>floor(231/2)=115. If simple, S=J ranges 111..115, yielding five triples. Independently enumerated all 155 planes and 155 lines and checked the cited 32-line witness has occupancy 43 empty and 112 double planes. This proves a 33 upper bound, not equality.
 
-Successful replay prints `VERIFY_OK`.
+## originality
+
+PASS
+
+The exact statement was compared against the primary literature with special-case implications and pre-existing formulas separated from the contribution. Priority is a bounded best-of-knowledge assessment; see all four explicit comparisons and residual risks. The proved m<=33 follows from new point-pair/plane-pair accounting and is not a corollary of published m<=34.
+
+## value
+
+PASS
+
+A direct incidence theorem improves the best cited 32–34 range for the first unresolved binary parameter to 32–33, and constrains any extremizer to a sharply limited simple incidence spectrum. It removes an actual natural finite-geometric possibility, not just a numerical improvement without context.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

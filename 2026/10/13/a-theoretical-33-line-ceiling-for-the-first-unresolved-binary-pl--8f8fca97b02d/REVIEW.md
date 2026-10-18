@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Exact pair accounting gives \(J=S+4D\), where equal line copies contribute the required extra four because a line has three points but lies in seven planes. At \(m=34\), convexity forces \(S\ge120\), while plane occupancy at most two forces \(J\le119\), so \(34\) is impossible. At \(m=33\), a doubled line isolates its three points and forces \(S\ge114\), hence \(J\ge118>115\); therefore a \(33\)-configuration must be simple. The remaining point- and plane-incidence equations give the five plane spectra. A standalone reconstruction of \(\operatorname{PG}(4,2)\) checks every incidence constant and an explicit \(32\)-line witness.
+PASS
 
-## Originality
+Derived independently the 31-point/155-plane/155-line counts in PG(4,2), 7 planes per line. For each pair of selected line copies, intersecting distinct lines contribute 1 to point-pair S and plane-pair J, repeated lines contribute 3 and 7, yielding J=S+4D. At m=34, degree convexity gives S>=120 but J<=floor(238/2)=119, contradiction. At m=33 a doubled line forbids any other selected line meeting it, giving S>=114, D>=1, J>=118>floor(231/2)=115. If simple, S=J ranges 111..115, yielding five triples. Independently enumerated all 155 planes and 155 lines and checked the cited 32-line witness has occupancy 43 empty and 112 double planes. This proves a 33 upper bound, not equality.
 
-PASS. The inspected primary source gives only \(32\le n_2(5,2,2;2)\le34\), explicitly using ILP for the simple-case upper endpoint. Searches under exact notation, direct line-plane language, additive-code language, and blocking-set aliases found no prior \(33\) ceiling or the accompanying rigidity statement. The published lower bound \(32\) is not claimed as new.
+## originality
 
-## Value
+PASS
 
-PASS. The result removes one of the three values left by the recent source, replaces that part of the computational upper-bound gap with a transparent theoretical obstruction, and reduces the unresolved case to a tightly constrained simple configuration with only five possible plane-occupancy spectra.
+The exact statement was compared against the primary literature with special-case implications and pre-existing formulas separated from the contribution. Priority is a bounded best-of-knowledge assessment; see all four explicit comparisons and residual risks. The proved m<=33 follows from new point-pair/plane-pair accounting and is not a corollary of published m<=34.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A direct incidence theorem improves the best cited 32–34 range for the first unresolved binary parameter to 32–33, and constrains any extremizer to a sharply limited simple incidence spectrum. It removes an actual natural finite-geometric possibility, not just a numerical improvement without context.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
