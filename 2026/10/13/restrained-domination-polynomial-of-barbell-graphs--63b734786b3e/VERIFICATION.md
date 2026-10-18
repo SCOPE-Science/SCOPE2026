@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The symbolic proof establishes the theorem for every integer \(n\ge3\). The finite checker is only a consistency test.
+## correctness
 
-`verify.py` constructs \(B_n\) directly, enumerates all vertex subsets for \(3\le n\le8\), tests restrained domination from the definition, independently tests the structural complement criterion, and compares the resulting coefficient vector with the claimed closed formula. It also checks the unclaimed boundary \(n=2\), where the barbell is \(P_4\).
+PASS
 
-Replay command:
+Any restrained dominating D must meet each clique; then domination of remaining vertices is automatic, while no isolated omitted vertices requires complement singleton only at a bridge endpoint with the other endpoint omitted. Exhaustive disjoint complement cases give C_n(q)^2 plus bridge-rescue configurations; inverse-variable transform yields exact formula and min layer. Independently enumerated all vertex subsets for n=3,4,5,6: valid 21,134,705,3310 respectively, and n² minimum sets; original verification extends n=3..8. The structural proof covers every n≥3 and the fixed bridge geometry.
 
-`python verify.py`
+## originality
 
-Expected output:
+PASS
 
-`VERIFY_OK n_range=3..8 subset_checks=87360 valid_sets=79957 coefficient_checks=72 boundary_n2=P4_checked max_order=16`
+The closest same-graph paper Jahari–Alikhani proves single bridge irrelevant for ordinary domination polynomial, but the additional restrained complementary-isolation condition changes the polynomial by an explicit nonnegative correction. Published restrained-domination-polynomial studies cover complete graphs, paths, cycles, joins/coronas in accessible abstracts rather than this family. The relevant 2019 full paper was inaccessible (Oxford VPN disconnected); best-of-knowledge priority, with explicit risk, supports the natural exact enumerator.
 
-Limits: the finite enumeration reaches order \(16\) only and does not constitute an infinite proof. No external solver, certificate service, or probabilistic test is used.
+## value
+
+PASS
+
+A single bridge changes a canonical complement-constrained domination statistic even though it leaves ordinary domination polynomial unchanged; the complete all-cardinality enumerator and exact correction are reusable structural examples on a standard graph family and not a trivial relabeling of ordinary domination.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
