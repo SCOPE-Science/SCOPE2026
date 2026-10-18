@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and proof verification
+# Independent mathematical audit
 
-The analytical argument in `RESULT.md` supplies the quantified proof; finite computation is not treated as proof of a universal dynamical statement. In particular, the transfer-operator variation bound and the Fourier common-composition lemma are the two nonstandard steps needed for strict positivity. The one-sided derivative is obtained by differentiating a uniformly convergent operator resolvent, and all boundary restrictions appear in the theorem.
+## correctness
 
-The embedded file `checks/variance_fourier.py` requires only Python 3 standard-library `fractions`. Invoke `python3 checks/variance_fourier.py`. It evaluates exactly (with rational arithmetic) finitely supported cosine coefficients under inverse transfer operators and compares stationary norm-difference variance with independent arithmetic formulas. It tests positive-noise probabilities, pure-map endpoints, divisible slopes, resonant powers and the first-order coefficient for additional trigonometric coboundaries. The expected final marker is `CHECK_OK`; it does not validate the entire infinite-dimensional proof or priority claim.
+PASS
 
-Independent audit has not been performed. No external certification, formal proof assistant, or nonpublic source is asserted.
+Integer circle maps preserve Haar measure and their transfer operators satisfy total-variation contraction by 1/m. On centered BV, P_epsilon=(1-epsilon)P_a+epsilon P_b has uniform geometric norm contraction; h=(I-P)^-1 phi exists with bounded BV norm. The Green–Kubo variance is ||h||_2^2-||P h||_2^2; the reversed stationary Markov chain gives a bounded martingale-coboundary CLT with ergodic conditional variance. At positive mixing weights zero conditional variance implies a common value on every inverse branch, yielding H(ax)=H(bx) a.e. Writing a/gcd=r,b/gcd=s coprime, Fourier frequency comparison c_k=0 unless s divides k, else c_k=c_{rk/s}; repeated s-divisibility forces every nonzero Fourier coefficient zero and H constant. Therefore only phi=0 has zero variance. For phi=psi-U_a psi, telescoping gives h0=-U_a psi and P_a h0=-psi; differentiating the Poisson resolvent/variance at epsilon=0 cancels h0 derivative terms and gives exactly ||U_a psi-U_b psi||_2^2>0. Exact Fourier cosine computations independently confirmed sigma^2=epsilon for (a,b)=(2,3),(3,2),(6,10) and sigma^2=epsilon-epsilon^2 for (4,2) over rational test probabilities. These finite tests are diagnostics; the BV/CLT conclusion is analytic.
+
+## originality
+
+PASS
+
+Abstract annealed CLT, zero-variance common-coboundary criterion, density stability and general variance differentiability are preexisting. The surviving addition is complete arithmetic no-degeneracy for any distinct integer slopes (including divisibility) and evaluated endpoint variance response for every deterministic BV coboundary.
+
+## value
+
+PASS
+
+This cleanly characterizes noise-induced destruction of deterministic zero-variance obstructions for the natural Bernoulli random-beta family, with a positive exact linear coefficient and an arithmetic resonance boundary. The coefficient quantifies sensitivity of CLT fluctuations rather than merely invoking generic differentiability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

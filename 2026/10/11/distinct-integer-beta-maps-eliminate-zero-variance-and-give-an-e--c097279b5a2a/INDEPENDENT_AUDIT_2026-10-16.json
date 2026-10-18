@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T23:52:06Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Integer circle maps preserve Haar measure and their transfer operators satisfy total-variation contraction by 1/m. On centered BV, P_epsilon=(1-epsilon)P_a+epsilon P_b has uniform geometric norm contraction; h=(I-P)^-1 phi exists with bounded BV norm. The Green–Kubo variance is ||h||_2^2-||P h||_2^2; the reversed stationary Markov chain gives a bounded martingale-coboundary CLT with ergodic conditional variance. At positive mixing weights zero conditional variance implies a common value on every inverse branch, yielding H(ax)=H(bx) a.e. Writing a/gcd=r,b/gcd=s coprime, Fourier frequency comparison c_k=0 unless s divides k, else c_k=c_{rk/s}; repeated s-divisibility forces every nonzero Fourier coefficient zero and H constant. Therefore only phi=0 has zero variance. For phi=psi-U_a psi, telescoping gives h0=-U_a psi and P_a h0=-psi; differentiating the Poisson resolvent/variance at epsilon=0 cancels h0 derivative terms and gives exactly ||U_a psi-U_b psi||_2^2>0. Exact Fourier cosine computations independently confirmed sigma^2=epsilon for (a,b)=(2,3),(3,2),(6,10) and sigma^2=epsilon-epsilon^2 for (4,2) over rational test probabilities. These finite tests are diagnostics; the BV/CLT conclusion is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General variance response theorem treats other (quenched) setting/regularity; it does not supply the explicit two-integer Bernoulli endpoint coefficient.",
+          "Suzuki analyzes invariant densities, not the all-pairs exact variance opening."
+        ],
+        "reasoning": "These general prior statements do not by themselves imply the precise sharp coefficient or strict nonzero variance for every distinct integer pair and every nonzero centered BV observable.",
+        "searches": [
+          "Dragičević–Hafouta, Effective quenched linear response for random dynamical systems, arXiv:2403.04907, variance differentiability sections",
+          "Suzuki, Absolutely continuous invariant measures for random dynamical systems of beta-transformations, arXiv:2303.17521",
+          "Aimino–Nicol–Vaienti arXiv:1310.4359"
+        ]
+      },
+      "checked_sources": [
+        "frozen Git tree 26df71a255c26b58c1524b5447db2754e3d98fee, RESULT.md 7730194a767af91a717fd7f1a8097c501728188a, checks/variance_fourier.py 9ee6a63fd0b381625e0508b6cc1bcfd0e8cc1847",
+        "arXiv:1310.4359 Prop3.4, Thm3.5, Example7.3",
+        "arXiv:2303.17521",
+        "arXiv:2403.04907",
+        "Resultary sharp second-moment expanding circle-map pair correlations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The CLT component is an application of established martingale/transfer theory.",
+          "Fourier rigidity plus endpoint Poisson-variance derivative evaluates a previously general diagnostic."
+        ],
+        "reasoning": "Novelty rests on the exact arithmetic no-zero condition and coefficient, not on re-proving the established random expanding-map CLT. Separate random pair-correlation inflation has no statement/implication covering these additive observable variances.",
+        "searches": [
+          "arXiv:1310.4359 Proposition 3.4 and Theorem 3.5",
+          "arXiv:2403.04907 Section 4",
+          "Resultary pair-correlation RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 3.4 states the common-coboundary criterion; Example 7.3 studies integer multiplication maps.",
+          "The submitted proof evaluates the criterion for every pair a≠b and derives a specific first derivative, not just existence of a variance."
+        ],
+        "reasoning": "The abstract coboundary characterization is not the arithmetic classification of the common identity H(ax)=H(bx), and no evaluated switching derivative follows from the abstract criterion without additional Poisson/Fourier analysis.",
+        "searches": [
+          "Aimino–Nicol–Vaienti, Annealed and quenched limit theorems for random expanding dynamical systems, arXiv:1310.4359 Proposition 3.4, Example 7.3",
+          "Resultary semantic query for randomly chosen distinct integer beta maps zero variance Fourier rigidity and noise-onset coefficient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearby expanding-map record analyzes a single deterministic orbit’s shrinking-window pair-correlation statistic; it is not the additive observable CLT under random map switching."
+        ],
+        "reasoning": "Search returned no exact two-slope coefficient database/tables other than the same submitted finding; that absence is limited search evidence, not a novelty proof.",
+        "searches": [
+          "Resultary semantic: Annealed central limit theorem two random integer beta transformations multiplication maps common coboundary Fourier rigidity strict variance and derivative of asymptotic variance with Bernoulli probabilities",
+          "Resultary nearby record: Sharp second-moment inflation for expanding circle-map pair correlations"
+        ]
+      },
+      "rationale": "Abstract annealed CLT, zero-variance common-coboundary criterion, density stability and general variance differentiability are preexisting. The surviving addition is complete arithmetic no-degeneracy for any distinct integer slopes (including divisibility) and evaluated endpoint variance response for every deterministic BV coboundary.",
+      "residual_risks": [
+        "A general Markov-chain linear-response formula could contain this coefficient as an unstated immediate specialization; complete all-publisher cross-comparison is not possible.",
+        "No strict positivity at epsilon=0 or epsilon=1 is claimed, and no assertion for noninteger beta maps."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides abstract probabilistic mechanism and integer-map examples; not displayed pairwise arithmetic rigidity plus evaluated Bernoulli endpoint coefficient.",
+          "evidence": [
+            "Prop. 3.4 and Thm. 3.5; Example 7.3"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1310.4359",
+          "material_read": "Full 38-page PDF, Proposition 3.4 zero-variance common-coboundary, Theorem 3.5 CLT, Example 7.3 integer maps, and their assumptions",
+          "method": "Lawful OA/arXiv PDF, theorem text, targeted proof pages and screenshot",
+          "title": "Annealed and quenched limit theorems for random expanding dynamical systems",
+          "trigger": "Same random expanding-map operator and zero-asymptotic-variance criterion"
+        },
+        {
+          "assessment": "Measures pair correlations on one deterministic T_b orbit, not annealed sums under iid T_a,T_b; no coverage.",
+          "evidence": [
+            "Its R_N(s;U) statistic and asymptotic variance differ from sigma_epsilon^2(phi)"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-second-moment-inflation-for-expanding-circle-map-pair-corr--d5c688b954c6",
+          "material_read": "Entire published RESULT.md including exact claim, Fourier kernel, and limitations",
+          "method": "Read Git public science source",
+          "title": "Sharp second-moment inflation for expanding circle-map pair correlations",
+          "trigger": "Potentially related variance theorem for integer expanding circle map"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This cleanly characterizes noise-induced destruction of deterministic zero-variance obstructions for the natural Bernoulli random-beta family, with a positive exact linear coefficient and an arithmetic resonance boundary. The coefficient quantifies sensitivity of CLT fluctuations rather than merely invoking generic differentiability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Mean-zero real BV on circle; annealed stationary Lebesgue probability, iid two integer slopes; eps in (0,1) for variance positivity.",
+    "Endpoint formula only along fixed T_a-coboundaries and as eps→0+, not uniform across all observables.",
+    "Quenched limit theorems are not asserted.",
+    "A general Markov-chain linear-response formula could contain this coefficient as an unstated immediate specialization; complete all-publisher cross-comparison is not possible.",
+    "No strict positivity at epsilon=0 or epsilon=1 is claimed, and no assertion for noninteger beta maps."
+  ],
+  "schema_version": 1
+}
