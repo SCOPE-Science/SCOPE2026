@@ -1,22 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Distinct binary-sum weights isolate the coordinate tensor lines as the ambient fixed points. For each dual coordinate tensor, choosing kernel vectors in two factors gives an explicit Segre point at which the functional annihilates every tangent summand. Hence every ambient fixed point lies in the projective dual, and there are no other fixed points of the restricted action.
+## correctness
 
-Euler localization for an algebraic \(\mathbb C^*\)-action gives
-\[
-\chi_{\mathrm{top}}(X^\vee)=\prod_i m_i.
-\]
-Constructible additivity then gives zero compactly supported Euler characteristic for the complement. The argument does not assume that the dual is a hypersurface or smooth.
+PASS
 
-The bundled checker independently replays the finite weight separation and tangent-point availability over a finite format grid. Finite computation is regression evidence only.
+Assign distinct powers-of-two weights to every factor-basis vector, so all coordinate tensor weights differ and the ambient dual C*-fixed locus is exactly its M coordinate points. Each coordinate product functional vanishes on the Segre tangent space at a point whose first two factors lie in its respective kernels. Thus all M fixed points lie on the invariant dual, with none other. For possibly singular projective varieties, compact-supported Euler characteristic localizes to C*-fixed loci; projectivity turns this into ordinary χ=M, and additive complement χ_c vanishes. This is an infinite-format geometric proof, not an inference from bounded checker.
 
-## Originality
-PASS. The inspected full hyperdeterminant source develops the same Segre tangent spaces, projective duals, and hypersurface criterion but contains no Euler-characteristic or fixed-point statement. Targeted searches in equivalent hyperdeterminant, open-complement, characteristic-class, and torus-localization language did not locate the uniform higher-format formula.
+## originality
 
-The two-factor case is already covered by generic determinantal geometry and is excluded from the claim. Existing higher-Segre findings concern projective degree arithmetic rather than Euler characteristic. The main residual risk is an older unindexed equivariant observation.
+PASS
 
-## Value
-PASS. Segre duals and hyperdeterminants are basic nonlinear boundaries in tensor space. The theorem determines a global topological invariant for every higher format, including dual-defective formats, and gives the uniform complement vanishing \(\chi_c=0\). It exposes a sharp limitation of Euler characteristic on a central family of singular projective dual varieties.
+Best-of-knowledge: despite classical projective-dual/hyperdeterminant theory and localization, the all-format statement χ(X^vee)=∏m_i, including defective formats, was not identified as a published consequence in the accessible substantive materials. The candidate explicitly proves each ambient coordinate hyperplane tangent, which is the decisive specialization. Primary full-text access limitations remain substantial and are not concealed.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A uniform closed topological invariant of singular, sometimes dual-defective Segre dual varieties is a motivated geometric fact, not a degree renaming or finite sample. It distinguishes Euler characteristic from finer topological invariants and relates dual geometry to an explicit torus-fixed-point count in arbitrarily many formats.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
