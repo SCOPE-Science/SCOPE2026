@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The analytic proof in `RESULT.md` covers all real Banach spaces and all bounded injective operators, with no finite-dimensional approximation assumptions. Its critical steps are the finite-codimensional near-kernel lemma, the factor-four monotonicity calculation, weak convergence against every continuous linear functional, and the sharp normality/closed-range equivalence.
+## correctness
 
-The standalone Python 3 script `CHECK.py` uses only the standard library and exact fractions; run with `python3 CHECK.py` in the unpacked folder. Observed result:
+PASS
 
-`VERIFY_OK rational_profiles=64 annihilator_tests=128 exact_order_pairs=746 infinite_net_proof_is_analytic=True`
+Analytic proof verified: bounded-below T gives ||x_e−x_d|| <= c^{-1}(t_e−t_d), hence norm-Cauchy from scalar weak limit. Nonclosed T implies no bounded-below restriction to any finite-codimensional kernel; else T(X) closed. Directed net (F,n) annihilates each functional eventually and δ=4^{-(|F|+n)} forces positivity via ||T(u_e−u_d)||<=δ_e+δ_d<=2(δ_d−δ_e), yet ||z_d||→1. Order interval bound gives normality iff T bounded below. Zero-domain edge case omitted from infimum; no finite experiments used for infinite claim.
 
-This finite stress test checks sample scalar functional annihilators, norm bounds and comparable cone increments for the weighted diagonal operator. It is **not** exhaustive and does **not** prove weak convergence of the entire infinite net; those facts are established solely by the analytic argument. The theorem has undergone same-model review, not an independent audit.
+## originality
+
+PASS
+
+Best-of-knowledge new closed-range iff weak-Dini-net iff normality criterion for operator-gauge cones, resolving the explicit weighted-ell1 net question. Glueck 2024 poses this particular net issue rather than proving it; its sequence theorem excludes nonnormal Schur spaces. No covering comparison found. Inaccessible Wong-Ng 1975 is a stated risk, not by itself a reason to reject.
+
+## value
+
+PASS
+
+A resolved explicitly highlighted weak-net versus Schur-sequence question and a genuine structural iff for gauge cones with arbitrary Banach-domain operator are motivated nontrivial mathematics; bounded nonnorm monotone witness is useful, unlike a routine Dini reformulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
