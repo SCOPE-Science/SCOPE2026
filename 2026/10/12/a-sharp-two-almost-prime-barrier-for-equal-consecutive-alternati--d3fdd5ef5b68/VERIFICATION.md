@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,39 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof in `RESULT.md` is universal. It does not infer the theorem from finite computation.
+# Independent mathematical audit
 
-The attached `verify.py` computes the least-prime-factor table through
-\[
-2{,}000{,}000,
-\]
-evaluates \(\Omega\) and \(\beta\) exactly, and checks every
-\[
-1\le n<2{,}000{,}000
-\]
-satisfying
-\[
-\Omega(n)\le2,\qquad \Omega(n+1)\le2.
-\]
-Among these candidates, the equality
-\[
-\beta(n)=\beta(n+1)
-\]
-occurs only at
-\[
-n=1.
-\]
+## correctness
 
-The verifier also checks the sharpness witness
-\[
-\beta(20)=\beta(21)=12,
-\]
-together with
-\[
-\Omega(20)=3,\qquad\Omega(21)=2,
-\]
-and validates the prime-square and squarefree-semiprime formulas used in the proof over many exact instances.
+PASS
 
-The infinite conclusion rests on the complete symbolic case split in `RESULT.md`; the finite replay is corroborative only.
+For multiplicative beta(p^a)=(p^(a+1)+(-1)^a)/(p+1), beta(m)<m when m>1 and beta(pq)=(p-1)(q-1) for distinct primes. If beta(n)=beta(n+1) and Omega(n),Omega(n+1)<=2, n+1 cannot be prime; n prime also excluded by elementary cases. Both composite force even member 2q (q odd prime), beta=q-1, and odd neighbor either r^2 or rs (odd primes); matching values with adjacency yields impossible r^2-2r+3=0 or r^2-2r+5=0, or (r-2)(s-2)=1 with r=s=3 contrary to distinctness, or (r-2)(s-2)=-1. Thus n=1 uniquely, and n=20 attains sharp multiplicity Omega(20)=3, Omega(21)=2 and beta values 12. Independently enumerated n<10000 as corroboration, not an infinite proof; actual source verify.py independently enumerates n<2 million.
+
+## originality
+
+PASS
+
+Tóth established the alternating divisor function and posed the consecutive-equality question, listing the first solutions 1,20,116,...; OEIS A206368 records the same sequence. The assigned theorem is not that 20 is first numerical term but a universal theorem that no larger solution can have both numbers of at most two prime factors counted with multiplicity. No matching low-factor-complexity obstruction located after Resultary, sequence and same-author comparisons; possible unindexed elementary observation is retained.
+
+## value
+
+PASS
+
+This exact first nontrivial prime-factor complexity threshold directly refines the open Diophantine equation beta(n)=beta(n+1) highlighted by Tóth; it rules out all prime/semiprime pair families rather than just extending a search table. Witness 20 makes cutoff optimal. The constraint is meaningful even without resolving infinitely many solutions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

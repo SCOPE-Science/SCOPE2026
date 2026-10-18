@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof exhausts all possibilities forced by \(\Omega(n),\Omega(n+1)\le2\). A prime right endpoint is impossible because \(\beta(m)<m\) for \(m>1\); a prime left endpoint is eliminated directly. Once both endpoints are composite, the even member must be \(2q\) with \(q\) odd prime, hence has \(\beta\)-value \(q-1\). The odd member is then either \(r^2\) or \(rs\). Substitution reduces the square case to quadratics with negative discriminant and the squarefree case to \((r-2)(s-2)=1\) or \(-1\), both impossible for distinct odd primes. The surviving \(n=1\) is checked directly, and \(n=20\) proves sharpness.
+## correctness
 
-## Originality
-PASS. The primary source states the consecutive-equality problem and gives initial numerical solutions but no multiplicity barrier. OEIS A206368 records the exact same equation and begins \(1,20,116,\ldots\), again without this theorem. Targeted searches for semiprime, prime-square, \(\Omega\le2\), and equivalent formulations returned no same or stronger result. A later same-author paper on the same \(\beta\) studies alternating summatory identities and reciprocal sums rather than consecutive equality. Nearby low-complexity results for \(\sigma(n)=\sigma(n+1)\) and for the separate divisibility problem \(\beta(n)\mid n-1\) do not imply this statement.
+PASS
 
-## Value
-PASS. Tóth explicitly asks whether the consecutive-equality equation has infinitely many solutions. Prime-factor multiplicity is a natural first structural complexity measure for such an equation, and the theorem determines its exact minimum nontrivial level: two-almost-prime pairs are impossible, while the first listed nontrivial solution \(20,21\) attains multiplicity \(3\) on one side. This is an infinite structural obstruction, not a bounded extension of the table.
+For multiplicative beta(p^a)=(p^(a+1)+(-1)^a)/(p+1), beta(m)<m when m>1 and beta(pq)=(p-1)(q-1) for distinct primes. If beta(n)=beta(n+1) and Omega(n),Omega(n+1)<=2, n+1 cannot be prime; n prime also excluded by elementary cases. Both composite force even member 2q (q odd prime), beta=q-1, and odd neighbor either r^2 or rs (odd primes); matching values with adjacency yields impossible r^2-2r+3=0 or r^2-2r+5=0, or (r-2)(s-2)=1 with r=s=3 contrary to distinctness, or (r-2)(s-2)=-1. Thus n=1 uniquely, and n=20 attains sharp multiplicity Omega(20)=3, Omega(21)=2 and beta values 12. Independently enumerated n<10000 as corroboration, not an infinite proof; actual source verify.py independently enumerates n<2 million.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Tóth established the alternating divisor function and posed the consecutive-equality question, listing the first solutions 1,20,116,...; OEIS A206368 records the same sequence. The assigned theorem is not that 20 is first numerical term but a universal theorem that no larger solution can have both numbers of at most two prime factors counted with multiplicity. No matching low-factor-complexity obstruction located after Resultary, sequence and same-author comparisons; possible unindexed elementary observation is retained.
+
+## value
+
+PASS
+
+This exact first nontrivial prime-factor complexity threshold directly refines the open Diophantine equation beta(n)=beta(n+1) highlighted by Tóth; it rules out all prime/semiprime pair families rather than just extending a search table. Witness 20 makes cutoff optimal. The constraint is meaningful even without resolving infinitely many solutions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
