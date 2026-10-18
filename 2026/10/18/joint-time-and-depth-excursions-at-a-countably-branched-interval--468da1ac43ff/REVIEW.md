@@ -1,0 +1,19 @@
+# Self-review
+
+## Correctness — PASS
+
+The theorem assumes \(0<\lambda<1\) and a normalized Lebesgue-uniform initial point in \(V_5\). The exact affine images make the itinerary an independent-geometric-increment Markov chain until its first visit to \(V_4\). Backward substitution in the finite absorbing-chain equations proves the joint probability-generating-function ratio; the denominator's positive-root formula excludes poles on \(0\le z\le1\). The cycle lemma reconstructs every unbounded first-hitting coefficient. Harmonic stopping with a geometric overshoot proves the exact maximum-cell-index tail, including the repeated-root case at \(\lambda=1/2\). Uniform Stirling asymptotics and a summable bound justify both near-critical time crossover limits. The finite-parameter and exact-rational script at `artifacts/verify.py` passed. Remaining issue: it is not a check of every infinite orbit; analytic arguments carry that burden.
+
+## Originality — PASS, with residual priority uncertainty
+
+The most important preceding source is Bruin and Todd, *Transience and thermodynamic formalism for infinitely branched interval maps* (arXiv:1104.5452, 2011). Its map has an identical translated transition kernel on the relevant tail, and its critical binomial matrix computations and recurrence threshold provide significant partial coverage. Ji and Ma, *Phase transition for piecewise linear fibonacci bimodal map* (2023), introduced the companion map under the present indexing and stated the same qualitative recurrence transition. The 2015 García-Millán–Font-Clos–Corral work addresses geometric Galton–Watson survival, already covering the **separate** height crossover after the explicit identification of its marginal with generation survival. The Catalan **separate** time law is also classical. These are credited rather than claimed as novel. None of the inspected full texts states or immediately supplies as its own asserted conclusion the exact **joint finite-ceiling duration/max-index transform**, and no directly equivalent published record was located in targeted searches. The chief residual risk is that a general skip-free-walk resolvent or branching-process paper outside the inspected set contains the same bivariate identity; historical priority is not certified.
+
+## Value — PASS
+
+The full finite-ceiling generating function is a natural, parameter-wide joint distribution for the key excursion that crosses the conservative-to-dissipative boundary. It determines all exact probabilities of returning at a given time **without** having visited arbitrarily deep cells. Knowledge of the classical duration marginal and geometric-branching survival marginal alone does not determine these correlations. The exact rational polynomial recurrence offers practical finite-resolution evaluation, while the two distinct observation scales explain how duration and depth behave near criticality. This is a meaningful exact joint classification of a source-motivated excursion rather than an arbitrary numerical slice. The interpretation is deliberately restricted to the auxiliary map, avoiding an unsupported claim about the original bimodal dynamics.
+
+## Closest literature and limits
+
+Ji–Ma (2023), DOI 10.3934/math.2023424, full text sections on the auxiliary map and random walk; Bruin–Todd (arXiv:1104.5452), original definitions, Markov recurrence and critical appendix; García-Millán–Font-Clos–Corral (2015), DOI 10.1103/PhysRevE.91.042122, full six-page article including geometric offspring. A complete publication-priority guarantee is unavailable. Numerical checks do not prove infinite-horizon results. The probability statement does not transfer automatically to the original Fibonacci bimodal map, because its auxiliary model is not semiconjugate.
+
+Self-review: passed. Independent audit: not yet performed.
