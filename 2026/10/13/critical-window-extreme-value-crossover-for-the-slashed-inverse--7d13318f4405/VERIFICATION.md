@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-Run `python verify_sir_crossover.py` with Python 3, `mpmath`, and `scipy`. The checker directly evaluates the exact incomplete-gamma survival, independently integrates \(\Pr(Z_q>z)=\mathbb E[1-\exp\{-\theta/(z^2Y_q^2)\}]\), compares three tail regimes as context, and tests first- and second-order critical-window expressions. All scripted numerical checks passed, including 14 cross-representation comparisons and five moving-parameter second-order tests.
+# Independent mathematical audit
 
-The proof in `RESULT.md` is independent of numerical results. The critical nonstandard step is the uniform remainder estimate: after removing the elementary singular kernel, \(R_0(\eta)\) is continuously differentiable for \(|\eta|<1/2\) and equals \(-\gamma_{\mathrm E}\) at zero. The omitted interval \((0,a)\), when multiplied by \(a^\eta\), has error \(O(a)\). These estimates justify the two-term expansion; finite numerical observations alone cannot establish any asymptotic limit.
+## correctness
 
-Limitations: \(w\) and \(\kappa\) are restricted to compact sets for uniform errors, and the extreme-value normalization applies to a rowwise independent triangular array with \(q_n=2+2\kappa/\log n\). The test environment does not constitute external validation. No independent audit has been performed.
+PASS
+
+Independently integrating inverse-Rayleigh density gives F_X(x)=exp(-theta/x^2); conditioning on Y~Beta(q,1) gives the exact survival 1-exp(-a)+a^{q/2}Gamma(1-q/2,a), a=theta/z^2. For q=2+2w/L, L=log(1/a), eta=w/L, singular integral on [a,1] is exactly L Phi(w). The analytic remainder R(eta) has R(0)=-EulerGamma and uniform bounded derivative near zero; its lower cutoff produces only O(a), yielding S=a[L Phi(w)+1-EulerGamma exp(-w)+O_K(1/L)]. With q_n=2+2kappa/log n and b_n=sqrt(theta n log n), expansion of L=log n+log log n+2log x yields the stated two-term nS, the Fréchet-type limit exp(-Phi(kappa)/x^2), and bounded compact uniform error. Independent 60-digit incomplete-gamma calculation at z=10^22 and w=-1,0,1 checked scaled two-term remainders 0.0263, 3.4e-19, 0.00362 respectively; finite values corroborate analytic estimates.
+
+## originality
+
+PASS
+
+The source authors give a fixed-q slashed inverse-Rayleigh survival distribution and regular variation, but their Proposition 8 does not establish the moving q=2+O(1/log z) critical bridge with Euler-constant correction or triangular-array maximum coefficient. Product-tail theorems for fixed laws do not immediately imply this exact double scaling.
+
+## value
+
+PASS
+
+An explicit uniform crossover across a heavy-tail exponent boundary determines nonstationary maxima and provides a quantitative 1/log n correction that fixed-parameter extreme-value theory cannot supply. This is a motivated singular asymptotic window of a published law, not just another numerical parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

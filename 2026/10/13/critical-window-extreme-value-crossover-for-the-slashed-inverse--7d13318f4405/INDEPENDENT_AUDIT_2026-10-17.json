@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T04:10:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned 2026/10/13/critical-window-extreme-value-crossover-for-the-slashed-inverse--7d13318f4405/RESULT.md Git blob 6bea2fae1db1099f98474edd31eff00795e95c1f",
+        "Pinned 2026/10/13/critical-window-extreme-value-crossover-for-the-slashed-inverse--7d13318f4405/verify_sir_crossover.py Git blob 1cc046edf7b8aff92e8ffb66d242f296c2c79baf",
+        "https://doi.org/10.3934/math.2026938"
+      ],
+      "rationale": "Independently integrating inverse-Rayleigh density gives F_X(x)=exp(-theta/x^2); conditioning on Y~Beta(q,1) gives the exact survival 1-exp(-a)+a^{q/2}Gamma(1-q/2,a), a=theta/z^2. For q=2+2w/L, L=log(1/a), eta=w/L, singular integral on [a,1] is exactly L Phi(w). The analytic remainder R(eta) has R(0)=-EulerGamma and uniform bounded derivative near zero; its lower cutoff produces only O(a), yielding S=a[L Phi(w)+1-EulerGamma exp(-w)+O_K(1/L)]. With q_n=2+2kappa/log n and b_n=sqrt(theta n log n), expansion of L=log n+log log n+2log x yields the stated two-term nS, the Fréchet-type limit exp(-Phi(kappa)/x^2), and bounded compact uniform error. Independent 60-digit incomplete-gamma calculation at z=10^22 and w=-1,0,1 checked scaled two-term remainders 0.0263, 3.4e-19, 0.00362 respectively; finite values corroborate analytic estimates.",
+      "residual_risks": [
+        "One primary-paper printed CDF expression appears inconsistent with its own density; proof uses the normalized density and correctly integrated F_X=exp(-theta/x^2). Uniformity only |w| bounded and x on compact subsets of (0,infty)."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gómez–Gallardo–Bourguignon–Venegas Proposition 8 addresses fixed q regular variation; Denisov–Zwart treat products of fixed heavy-tailed random variables under moment conditions."
+        ],
+        "reasoning": "Neither supplies a uniform triangular-array theorem for q_n tending 2 at inverse-log speed with model-specific gamma constant without new matched asymptotic calculation.",
+        "searches": [
+          "https://doi.org/10.3934/math.2026938; https://doi.org/10.1239/jap/1197908822"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.3934/math.2026938",
+        "https://doi.org/10.1239/jap/1197908822",
+        "Resultary semantic search: slashed inverse Rayleigh X / Beta(q,1) q tends 2 logarithmic critical window triangular array extreme value Frechet Phi crossover"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact formula from density is known; original fixed-q asymptotic has three regimes around 2, while uniform w controls coalescing singular terms and second-order q_n dependence."
+        ],
+        "reasoning": "Pointwise regular variation with fixed q fails to control q_n−2=O(1/log n), so the submitted result is not a mechanical corollary of Proposition 8.",
+        "searches": [
+          "Gómez et al. 2026 pp.23262–23281 Proposition 8; Denisov Zwart 2007"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No matched Resultary published SCOPE result giving Phi(w) or second term; original 2026 paper establishes fixed-q survival and regular variation."
+        ],
+        "reasoning": "Model density equivalences and gamma integral are prior; the uniform q(z,w) asymptotic is distinct from pointwise q limits.",
+        "searches": [
+          "Resultary Q2; inverse-Rayleigh beta slash q=2 logarithmic crossover uniform incomplete gamma"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No known finite distribution table gives the parameter-window function Phi(w), nor maxima at q_n=2+2kappa/log n."
+        ],
+        "reasoning": "A table at finitely many fixed q cannot imply the required uniform small-drift limit; negative search is not priority certification.",
+        "searches": [
+          "Resultary Q2; slashed inverse-Rayleigh q=2 exact tail table and moving beta"
+        ]
+      },
+      "rationale": "The source authors give a fixed-q slashed inverse-Rayleigh survival distribution and regular variation, but their Proposition 8 does not establish the moving q=2+O(1/log z) critical bridge with Euler-constant correction or triangular-array maximum coefficient. Product-tail theorems for fixed laws do not immediately imply this exact double scaling.",
+      "residual_risks": [
+        "A result not indexed by the searched resources or a broader implicit theorem may overlap; these best-of-knowledge searches do not certify novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FIXED q CLAIMS PRIOR; CRITICAL TWO-TERM MOVING WINDOW NOT FOUND",
+          "evidence": "Proposition 8 compares fixed q regular variation; the derivative of the inverse-Rayleigh CDF printed in one passage does not match the formula, so the primary density was independently integrated.",
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2026/7/PDF/math-11-07-938.pdf",
+          "material_read": "Full original 20-page paper, density and ratio construction, survival formula, Proposition 8 and asymptotic discussion",
+          "method": "Read original PDF text and inspected screenshot of relevant tail proposition and distribution definition",
+          "title": "EM algorithm in the slashed inverse Rayleigh regression model with an application",
+          "trigger": "Identical distribution X/Beta(q,1), parameter q and Proposition 8"
+        },
+        {
+          "assessment": "POTENTIALLY RELEVANT GENERAL BACKGROUND; NO WHOLE-DOCUMENT NONCOVERAGE CLAIM",
+          "evidence": "Fixed-product tail regular variation context; exact moving-q two-term expansion has no demonstrated implication from the inspected material.",
+          "identifier_or_url": "https://doi.org/10.1239/jap/1197908822",
+          "material_read": "Abstract and available theorem-level context, not the whole paper",
+          "method": "Read accessible primary bibliographic/abstract material",
+          "title": "On a theorem of Breiman and a class of random difference equations",
+          "trigger": "General heavy-tail product theory potentially dominating"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://doi.org/10.3934/math.2026938",
+        "https://doi.org/10.1239/jap/1197908822"
+      ],
+      "rationale": "An explicit uniform crossover across a heavy-tail exponent boundary determines nonstationary maxima and provides a quantitative 1/log n correction that fixed-parameter extreme-value theory cannot supply. This is a motivated singular asymptotic window of a published law, not just another numerical parameter slice.",
+      "residual_risks": [
+        "Asymptotic limits only; no exact high-quantile finite-sample guarantees or unbounded-κ uniformity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "theta>0, q>0; fixed compact w; q_n=2+2kappa/log n with κ fixed; independent observations within each row; x away from 0 and infinity for uniform finite-size expansion."
+  ]
+}
