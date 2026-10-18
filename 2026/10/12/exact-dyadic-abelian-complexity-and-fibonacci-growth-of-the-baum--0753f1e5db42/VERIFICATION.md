@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Finite corroboration and proof boundaries
+# Independent mathematical audit
 
-Run the included `verify.py` with Python 3.9 or later:
+## correctness
 
-`python3 verify.py`
+PASS
 
-The recorded executable output was:
+Four-letter substitution sigma(A)=AB, sigma(B)=CB, sigma(C)=BD, sigma(D)=DD with coding A/B to 1 and C/D to 0 yields recurrences of the binary-digit Baum--Sweet definition. At every level, D_k is zero and A_k=B_k+C_k coordinatewise; therefore each aligned block is coordinatewise bounded by A_k. Each length-2^k shifted window is a suffix and prefix of adjacent aligned blocks and is dominated by a cyclic rotation of A_k, proving the sharp maximum. Block weights satisfy Fibonacci recursion with initial 1,2; arbitrarily long D blocks and one-step window changes give complete interval spectra. Monotonicity sandwiches all n between dyadic scales to prove growth. An independently written digit-word/window enumeration checked dyadic maxima through k=12 and complete spectra through k=9, but the all-n proof is symbolic.
 
-`VERIFY_OK digit_positions=131072 substitution_levels=17 dyadic_window_cases=2097153 full_parikh_levels=13 last_maximum=2584`
+## originality
 
-The script directly computes the binary-digit definition and separately generates the four-state substitution; their first 131072 positions agree. It checks the coordinatewise domination identity and Fibonacci count for levels 0 through 16, and every shifted dyadic window lying in this same finite prefix. It also verifies all Parikh weights for levels 0 through 12. The finite prefix does not exhaust the infinite word.
+PASS
 
-For the infinite statements, inspect the proof in `RESULT.md`. The essential checked-on-paper identities are \(D_k=0^{2^k}\), \(A_k=B_k+C_k\) coordinatewise, and the overlap decomposition into two consecutive aligned blocks. The sum of the cyclic rotation of \(A_k\) is constant, giving an upper bound for arbitrary shifted factors; the prefix itself attains it. The Fibonacci weight recurrence then determines the exact dyadic maximum. Arbitrarily long \(D\)-blocks guarantee zero-weight factors, and sliding windows traverse all intermediate weights. Monotonicity of maximal weight bounds nondyadic lengths between powers of two. No external audit or unbounded computation is represented as completed.
+The Merta source contains the digit recurrences and infinite zero runs, while Cicalese--Liptak--Rossi establish general abelian-complexity / prefix-normal relationships. Neither materially inspected primary paper states the coordinatewise four-block domination of all shifted Baum--Sweet factors, exact Fibonacci dyadic spectra or this exponent. A general complexity-computability algorithm is weaker than a closed exact formula.
+
+## value
+
+PASS
+
+The word is a classical automatic sequence, and abelian complexity is a standard natural combinatorial invariant. An explicit infinitely long dyadic spectrum and global noninteger exponent answer a substantive structure question, not a rediscovery of the Fibonacci one-count of prefixes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

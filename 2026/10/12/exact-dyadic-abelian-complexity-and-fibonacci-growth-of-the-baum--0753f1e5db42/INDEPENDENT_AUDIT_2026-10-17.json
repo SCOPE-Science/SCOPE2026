@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T09:44:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Four-letter substitution sigma(A)=AB, sigma(B)=CB, sigma(C)=BD, sigma(D)=DD with coding A/B to 1 and C/D to 0 yields recurrences of the binary-digit Baum--Sweet definition. At every level, D_k is zero and A_k=B_k+C_k coordinatewise; therefore each aligned block is coordinatewise bounded by A_k. Each length-2^k shifted window is a suffix and prefix of adjacent aligned blocks and is dominated by a cyclic rotation of A_k, proving the sharp maximum. Block weights satisfy Fibonacci recursion with initial 1,2; arbitrarily long D blocks and one-step window changes give complete interval spectra. Monotonicity sandwiches all n between dyadic scales to prove growth. An independently written digit-word/window enumeration checked dyadic maxima through k=12 and complete spectra through k=9, but the all-n proof is symbolic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Merta provides arithmetic recurrences, not shifted-factor maxima; the prefix-normal paper gives general identities and a complexity algorithm for binary-uniform morphisms, whereas Baum--Sweet is a coding of a four-state uniform substitution."
+        ],
+        "reasoning": "Neither inspected theorem supplies Fibonacci exact dyadic Parikh counts as an immediate corollary without the four-block domination induction.",
+        "searches": [
+          "Merta 1803.00292; Cicalese Liptak Rossi 1811.06273 prefix normal words abelian complexity"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1803.00292 Merta full PDF",
+        "arXiv:1811.06273 Cicalese--Liptak--Rossi full PDF",
+        "Resultary Baum--Sweet/Parikh/automatic semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fibonacci counts of prefix ones and general relation of abelian complexity to extremal one-counts do not imply the prefix is extremal among all shifted factors."
+        ],
+        "reasoning": "Coordinatewise block domination is the essential new implication bridging them.",
+        "searches": [
+          "arXiv:1803.00292 Baum Sweet recurrence and arXiv:1811.06273 generic abelian complexity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For binary words the number of Parikh vectors is maximum ones minus minimum ones plus one when sliding-window counts fill the interval; Baum--Sweet zero runs force minimum zero."
+        ],
+        "reasoning": "Thus a result phrased in maximum factor weight or prefix normality could cover the theorem, but inspected general identities have no Baum--Sweet-specific maximum formula.",
+        "searches": [
+          "Baum Sweet word abelian complexity maximal ones factors dyadic prefix normal fibonacci automatic sequence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest Resultary records concern paperfolding prefix-normal defect, Sturmian spectra and Fibonacci-word invariants, not exact Baum--Sweet dyadic Parikh spectra."
+        ],
+        "reasoning": "No exact-table hit found; absence is not absolute novelty evidence.",
+        "searches": [
+          "Resultary semantic: Baum Sweet automatic word abelian complexity dyadic Fibonacci prefix normal factor maximum ones"
+        ]
+      },
+      "rationale": "The Merta source contains the digit recurrences and infinite zero runs, while Cicalese--Liptak--Rossi establish general abelian-complexity / prefix-normal relationships. Neither materially inspected primary paper states the coordinatewise four-block domination of all shifted Baum--Sweet factors, exact Fibonacci dyadic spectra or this exponent. A general complexity-computability algorithm is weaker than a closed exact formula.",
+      "residual_risks": [
+        "Baum--Sweet factor complexity may appear in older automatic-sequence theses under a different name or convention.",
+        "Nondyadic exact values are not supplied; finite checks do not replace all-length proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING inspected shifted-factor extremal theorem",
+          "evidence": [
+            "No exact abelian-complexity dyadic spectrum in the inspected relevant claims"
+          ],
+          "identifier_or_url": "arXiv:1803.00292",
+          "material_read": "Introductory definitions, Baum--Sweet recurrences, zero-block statements and main claims about related inverse sequences",
+          "method": "Primary arXiv PDF, mathematical text inspected",
+          "title": "L. Merta, Composition inverses of the variations of the Baum--Sweet sequence",
+          "trigger": "Same Baum--Sweet word and arithmetic recurrence"
+        },
+        {
+          "assessment": "BACKGROUND_NOT_IMPLYING",
+          "evidence": [
+            "Generic identities require specific maximal factor weights not determined here"
+          ],
+          "identifier_or_url": "arXiv:1811.06273",
+          "material_read": "Definitions, general identities for factor one-counts and the uniform-morphism complexity theorem",
+          "method": "Primary arXiv PDF, mathematical statements inspected",
+          "title": "F. Cicalese, Z. Liptak and M. Rossi, On Infinite Prefix Normal Words",
+          "trigger": "General bridge from max-one-counts to abelian complexity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The word is a classical automatic sequence, and abelian complexity is a standard natural combinatorial invariant. An explicit infinitely long dyadic spectrum and global noninteger exponent answer a substantive structure question, not a rediscovery of the Fibonacci one-count of prefixes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the Baum--Sweet binary word b(0)=1, every length 2^k factor has at most F_(k+2) ones, attained by the initial prefix; psi_b(2^k)=F_(k+2)+1, and globally psi_b(n)=Theta(n^(log_2 phi)) with the exact exponent in the log limit.",
+  "limitations": [
+    "Dyadic exact count only, global Theta and exponent all lengths, convention b(0)=1 essential."
+  ],
+  "schema_version": 1
+}

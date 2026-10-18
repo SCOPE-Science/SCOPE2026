@@ -1,22 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem concerns every dyadic length \(2^k\), for \(k\ge0\), and the all-length asymptotic exponent. The four-state substitution is shown to agree with the digit definition, including the convention \(b(0)=1\). At each dyadic scale, the identities \(A_k=B_k+C_k\) coordinatewise and \(D_k=0^{2^k}\) are proved inductively. Every factor is a suffix/prefix of aligned blocks, and each is bounded by a rotation of \(A_k\), so the initial dyadic prefix maximizes ones. Fibonacci counts, zero-factor availability, and the intermediate-value property of sliding one-counts give all Parikh vectors. Monotonicity extends the exponent to every length. The included finite test passed, but the infinite argument does not rely on extrapolation.
+PASS
 
-## Originality — PASS, subject to stated risks
+Four-letter substitution sigma(A)=AB, sigma(B)=CB, sigma(C)=BD, sigma(D)=DD with coding A/B to 1 and C/D to 0 yields recurrences of the binary-digit Baum--Sweet definition. At every level, D_k is zero and A_k=B_k+C_k coordinatewise; therefore each aligned block is coordinatewise bounded by A_k. Each length-2^k shifted window is a suffix and prefix of adjacent aligned blocks and is dominated by a cyclic rotation of A_k, proving the sharp maximum. Block weights satisfy Fibonacci recursion with initial 1,2; arbitrarily long D blocks and one-step window changes give complete interval spectra. Monotonicity sandwiches all n between dyadic scales to prove growth. An independently written digit-word/window enumeration checked dyadic maxima through k=12 and complete spectra through k=9, but the all-n proof is symbolic.
 
-Merta's 2018 Baum–Sweet study supplies recurrences, zero runs and Fibonacci-related information, without the required maximum over *every shifted* dyadic window. Cicalese–Lipták–Rossi give the general relationship between binary abelian complexity and extremal counts, but do not evaluate this invariant for the Baum–Sweet word. The block-domination proof supplies an extra upper bound not implied by knowing the Fibonacci count in the initial prefix. Targeted terminology, known tables, and published-result comparisons did not identify a stronger or equivalent statement. Unindexed equivalent work remains possible; search absence does not prove novelty.
+## originality
 
-## Value — PASS
+PASS
 
-A natural combinatorics-on-words invariant receives an exact formula at every intrinsic substitution scale, plus a sharp growth exponent at *all* lengths. The structural insight is the extremality of the Baum–Sweet dyadic initial factor under arbitrary shifts, not merely a Fibonacci recomputation. No nondyadic exact expression, whole-word prefix-normality, or independent validation is claimed.
+The Merta source contains the digit recurrences and infinite zero runs, while Cicalese--Liptak--Rossi establish general abelian-complexity / prefix-normal relationships. Neither materially inspected primary paper states the coordinatewise four-block domination of all shifted Baum--Sweet factors, exact Fibonacci dyadic spectra or this exponent. A general complexity-computability algorithm is weaker than a closed exact formula.
 
-## Closest literature and limitations
+## value
 
-- Ł. Merta, *Composition inverses of the variations of the Baum–Sweet sequence*, arXiv:1803.00292v1, 2018.
-- F. Cicalese, Z. Lipták, M. Rossi, *On Infinite Prefix Normal Words*, arXiv:1811.06273v1, 2018.
+PASS
 
-The proof is symbolic; the packaged verifier supplies finite corroboration only. The scope excludes an exact abelian-complexity formula for nondyadic lengths. Priority uncertainty from unindexed equivalent work persists.
+The word is a classical automatic sequence, and abelian complexity is a standard natural combinatorial invariant. An explicit infinitely long dyadic spectrum and global noninteger exponent answer a substantive structure question, not a rediscovery of the Fibonacci one-count of prefixes.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
