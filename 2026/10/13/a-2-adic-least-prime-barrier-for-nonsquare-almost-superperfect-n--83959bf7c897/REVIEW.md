@@ -1,18 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Fang's proved facts imply that a nonsquare almost superperfect \(n>1\) is odd, while \(\sigma(n)\) is an even square; hence \(b=v_2(\sigma(n))\) is positive and even. The exact identity
-\[
-I(n)I(\sigma(n))=2-\frac1n<2
-\]
-combined with \(I(n)\ge\prod_{p\mid n}(1+1/p)\) and \(I(\sigma(n))\ge I(2^b)=2-2^{-b}\) gives the claimed strict product bound. The least-prime inequality follows algebraically. The formula for \(b\) follows from the standard \(2\)-adic LTE identity on each odd prime power with odd exponent; even exponents contribute no factor of \(2\).
+## correctness
 
-## Originality
-PASS. The full Fang paper was inspected statement-by-statement. Its relevant results are: \(\sigma(n)\) is a square, no even solution exists, prime powers are excluded, and a multiple of \(3\) must be a square. It does not state a least-prime threshold, the product bound with the full \(2^b\) local factor, the explicit \(v_2(\sigma(n))\) formula in this context, or coprimality with \(210\). indexed literature and web searches over these aliases found no stronger covering statement. The closest indexed records concern other divisor-function equations.
+PASS
 
-Residual risk remains because the problem dates to 1981 and some historical discussion is not searchable in full text. This risk does not create a decisive unresolved comparison with the closest primary paper, which was read in full.
+For n>1 odd nonsquare satisfying sigma(sigma(n))=2n-1, Fang establishes odd n and square sigma(n). Odd nonsquare implies even sigma(n), so b=v2(sigma(n)) is positive even. Since I(n)I(sigma(n))=2-1/n<2, I(sigma(n))>=I(2^b)=2-2^-b and I(n)>=product over prime support (1+1/p), the strict product bound <2^(b+1)/(2^(b+1)-1) and least prime P>2^(b+1)-1 follow. 2-adic LTE on sigma(p^a) for odd a gives v2(p+1)+v2(a+1)-1. Independent exact checks for odd primes<60 and exponents1..19 confirmed parity and LTE. No existence or nonsquare solution is claimed.
 
-## Value
-PASS. The existence problem is open, so structural restrictions on any hypothetical solution are directly motivated. The result upgrades the previously published single-prime obstruction at \(3\) to an exact exponential least-prime barrier controlled by the natural invariant \(v_2(\sigma(n))\), immediately excluding \(2,3,5,7\) from every nonsquare solution and providing a reusable sieve for further work.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fang supplies indispensable premises square sigma(n), odd n, a special 3-divisor implication and the abundancy identity, but its inspected complete four-page text does not state the stronger b-dependent least-prime threshold or exclude 5 and 7 for a nonsquare branch. The result combines those premises with a previously unused full 2^b local index, yielding an invariant-sensitive exponential bound. The derivation uses elementary known tools and could appear as an informal earlier corollary, but no direct prior stronger statement was located.
+
+## value
+
+PASS
+
+The almost-superperfect equation is an unresolved Diophantine classification. A necessary prime-support sieve P>=11 that becomes exponentially stronger with even b is a mathematically motivated obstruction for hypothetical nonsquare solutions, not merely a parity or normalization check. The explicit prime-factor LTE formula permits further structural pruning. The result is conditional and does not resolve existence or all square solutions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
