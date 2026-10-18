@@ -1,0 +1,197 @@
+{
+  "correctness": {
+    "rationale": "For each eigenmode the independent-epoch scalar recursion gives exact variances; without-replacement pair covariance is -s_j^2/(n-1). The geometric-series factorization establishes the sign over the entire stable interval; Cauchy-Schwarz and the explicit n=2 limit prove sharp global two-factor bound. Finite exact rational enumeration tests several cases separately.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liu 2026 bounds averages at tuned rates, not fixed-step matched terminal instancewise risks.",
+        "Safran--Shamir supply upper/lower rates, not exact all-step signed risk identity.",
+        "De Sa uses noncommuting/different curvature."
+      ],
+      "reasoning": "A general upper rate comparison is not a pointwise comparison of exact losses. Neither observed dominating bound nor noncommuting counterexample entails the signed all-epoch common-Hessian theorem or dimension-independent sharp ratio.",
+      "searches": [
+        "arXiv:2606.32005 averaged iterate dominance",
+        "arXiv:2106.06880 commuting quadratic theorem",
+        "COLT 2020 Safran Shamir univariate quadratics",
+        "De Sa 2020 noncommutative RR",
+        "arXiv:2609.04578 last-epoch rate"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.32005 (2026, full primary)",
+      "PMLR 336 Liu 2026",
+      "Safran--Shamir COLT 2020 full PDF",
+      "Safran--Shamir arXiv:2106.06880 full PDF",
+      "De Sa NeurIPS 2020 full PDF",
+      "Domingo-Enrich arXiv:2206.00632 full PDF",
+      "Shuffling the Data, Stretching the Step-size 2026 full PDF",
+      "Li arXiv:2609.04578 abstract only",
+      "Metric-aware reshuffling 2026 author summary only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The derived difference contains strictly positive S_{n,K} for all finite K and a signed geometric-sum polynomial; stationarity does not determine this transient.",
+        "RR and SGD share the deterministic contraction but have distinct weighted finite-population covariances; the complete finite-K risk identity yields the threshold and the factor-two supremum."
+      ],
+      "reasoning": "A stationary limit could partly imply a K-infinity specialization and is not treated as novel. The targeted novel conjunction is full finite-epoch equality, spectral sign classification over every stable step, mixed-spectrum reversal and sharp global amplification ceiling; no inspected full primary theorem gives or logically dominates that conjunction.",
+      "searches": [
+        "arXiv:2606.32005 Theorem averaged rate vs terminal risk",
+        "arXiv:2206.00632 stationary PSD vs finite K",
+        "arXiv:2106.06880 tight worst-case rate vs exact same-instance difference",
+        "COLT2020 univariate upper bound vs signed all-stable-step equality"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fresh-permutation covariance equals finite-population correction of a weighted sum.",
+        "The natural aliases are random permutation sampling, shuffled SGD, without-replacement SGD, finite-sum terminal risk, and stationary shuffled-gradient covariance."
+      ],
+      "reasoning": "Stationary PSD formulas may give the K to infinity limit, but a stationary-noise theorem is not an all-K exact last-epoch comparison. Rate bounds for quadratic random reshuffling do not state an exact same-step sign threshold.",
+      "searches": [
+        "published-finding corpus: Random reshuffling versus with-replacement SGD two quadratic components balanced opposing gradients exact epoch variance threshold eta times curvature one noise floor reversal",
+        "published-finding corpus: random reshuffling SGD scalar quadratics two components exact finite-epoch mean squared error reversal stepsize eta lambda > 1",
+        "published-finding corpus: random reshuffling instance wise SGD comparison mean square equal Hessians random permutations with replacement boundary",
+        "Safran and Shamir 2020, 2021 quadratic rates",
+        "arXiv:2206.00632 finite-horizon spectral shuffling"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Returned close records concern SARAH, Loopless SVRG, STORM, out-of-sample curvature selection, or rounded stratification.",
+        "No returned exact table addresses common-Hessian RR-versus-with-replacement last-epoch risk sign or sharp factor two."
+      ],
+      "reasoning": "published-finding corpus search is semantic and nonexhaustive; actual hits were compared by mathematical implication, not titles. Neither a published-finding corpus partition nor unsuccessful queries establish uniqueness.",
+      "searches": [
+        "published-finding corpus: Random reshuffling versus with-replacement SGD two quadratic components balanced opposing gradients exact epoch variance threshold eta times curvature one noise floor reversal",
+        "published-finding corpus: random reshuffling SGD scalar quadratics two components exact finite-epoch mean squared error reversal stepsize eta lambda > 1",
+        "published-finding corpus: random reshuffling instance wise SGD comparison mean square equal Hessians random permutations with replacement boundary",
+        "published-finding corpus: exact expected last iterate objective loss random reshuffling versus with replacement SGD common Hessian quadratic eigenvalues step size 1/L inversion finite epoch noninterpolating",
+        "published-finding corpus: random reshuffling with replacement scalar affine quadratic gradient noise eigenmode covariance Qn minus Wn squared finite K stepsize eta lambda >1",
+        "published-finding corpus: 2026 Liu arXiv 2606.32005 Random Reshuffling Dominates Stochastic Gradient Descent weighted average upper bound instancewise counterexample",
+        "published-finding corpus: Domingo-Enrich 2206.00632 shuffle PSD stationary covariance large steps negative eigenvalue finite horizon spectral sign",
+        "published-finding corpus: Safran Shamir 2020 univariate quadratic SGD random reshuffling constant step exact 1-eta lambda negative reversal",
+        "published-finding corpus ids: 2026/10/4/SCOPE-exact-random-residual-floor-for-a-single-infinite-sarah-inner-lo--3a03442a77b1",
+        "published-finding corpus ids: 2026/10/4/SCOPE-sharp-mean-square-stability-frontier-for-two-client-loopless-svr--3a5c82c9e834",
+        "published-finding corpus ids: 2026/10/4/SCOPE-exact-stationary-covariance-and-stability-factorization-for-cons--fd5004e04a73",
+        "published-finding corpus ids: 2026/9/18/SCOPE-rounded-cluster-allocation-variance-reversal--3aa05569afb8",
+        "published-finding corpus ids: 2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6"
+      ]
+    },
+    "rationale": "The prior claims most similar in topic provide averaged-iterate rate guarantees, quadratic worst-case upper/lower rates, stationary shuffled-noise spectra, or noncommuting-matrix counterexamples. The exact same-step, finite-epoch last-risk difference across common-Hessian spectra, its universal threshold and sharp factor-two ceiling were not found as statements or immediate corollaries in full-text primary inspections; inaccessible 2026 manuscripts remain risks. Semantic database searches completed successfully and old own claims were compared for overlap only.",
+    "residual_risks": [
+      "Li arXiv:2609.04578 primary full text not retrieved, only abstract and structured metadata.",
+      "Metric-aware reshuffling 2026 full manuscript not retrieved; author summary suggests a different multiplicative matrix setting.",
+      "Finite-horizon formula might be implicit in older spectral sampling calculations, though their inspected published claims do not provide its all-epoch sign and sharp-factor conclusion.",
+      "Semantic search and inspected literature are not an exhaustive novelty certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "its \"dominates\" is a comparison of available worst-case rates for averaged output, not a same-instance last-iterate loss comparison at a common step",
+        "evidence": [
+          "Theorem on averaged iterate expected objective gap with step-dependent upper rate",
+          "PMLR 336 (2026), 4859-4882; first arXiv 2026-06-30"
+        ],
+        "identifier_or_url": "arXiv:2606.32005; https://proceedings.mlr.press/v336/liu26d.html",
+        "material_read": "full preprint, theorem and proof sections; proceedings theorem and abstract",
+        "method": "read mathematical statement and scope of averaged-iterate convergence rates",
+        "title": "Random Reshuffling Dominates Stochastic Gradient Descent",
+        "trigger": "2026 motivation and potentially stronger dominance statement"
+      },
+      {
+        "assessment": "same basic scalar class, but results bound terminal error by rates; do not imply the exact two-method all-step sign identity or sharp factor two by their stated bounds",
+        "evidence": [
+          "COLT 2020, quadratic special-case upper and lower rates",
+          "does not explicitly compare identical finite-step terminal RR and SGD risks by signed formula"
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v125/safran20a/safran20a.pdf",
+        "material_read": "full 35-page paper, lower/upper rate results and proof assumptions",
+        "method": "compare last-iterate rate bound quantifiers and allowable step regimes with exact comparative identity",
+        "title": "How Good is SGD with Random Shuffling?",
+        "trigger": "univariate quadratic with constant curvature and random reshuffling"
+      },
+      {
+        "assessment": "tight worst-case rates up to logarithms with commuting quadratic terms, distinct from exact finite-K, spectral sign law for fixed same-step inputs",
+        "evidence": [
+          "Theorem 1, Theorem 2, and upper bounds in Section 4",
+          "theorem aims at condition-number-dependent worst-case rate, not instancewise dominance"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2106.06880",
+        "material_read": "full 33-page PDF including introduction, theorems, related-work and proof sections",
+        "method": "check theorem bounds, step constraints, and whether any establishes fixed-step instancewise comparison",
+        "title": "Random Shuffling Beats SGD Only After Many Epochs on Ill-Conditioned Problems",
+        "trigger": "same commuting-quadratic class and terminal loss"
+      },
+      {
+        "assessment": "counterexample rests on noncommuting/different Hessians, so it neither covers nor implies the common-Hessian additive-noise finite-epoch spectral transition",
+        "evidence": [
+          "analysis of products of distinct per-component update matrices",
+          "our deterministic propagation identical under all index orders"
+        ],
+        "identifier_or_url": "De Sa, NeurIPS 2020; https://proceedings.neurips.cc/paper/2020",
+        "material_read": "full accessible 11-page primary PDF",
+        "method": "inspect matrix product counterexample and component Hessian assumptions",
+        "title": "Random Reshuffling is Not Always Better",
+        "trigger": "negative superiority result potentially subsuming reversal"
+      },
+      {
+        "assessment": "stationary/small-step approximation overlaps the infinite-horizon noise problem but does not state the present finite-K RR-minus-SGD sharp spectral ordering and factor-two ceiling",
+        "evidence": [
+          "stationary spectral risk integral and small-step leading variance",
+          "paper explicitly does not model initial transient"
+        ],
+        "identifier_or_url": "arXiv:2206.00632; https://arxiv.org/pdf/2206.00632",
+        "material_read": "full 42-page PDF, derivations of power spectra and stationary variance",
+        "method": "compare stationary Fourier-domain claims and limits with finite-K last-epoch variance and sign",
+        "title": "Computing the Variance of Shuffling Stochastic Gradient Algorithms via Power Spectral Density Analysis",
+        "trigger": "exact shuffled-noise covariance, possibly dominating formulas"
+      },
+      {
+        "assessment": "asymptotic extrapolation and small-step MSE rather than arbitrary stable-step finite-horizon reversal",
+        "evidence": [
+          "Richardson-Romberg bias cancellation and asymptotic MSE"
+        ],
+        "identifier_or_url": "2026-04-11 open manuscript",
+        "material_read": "full 48-page manuscript",
+        "method": "check scope of Richardson-Romberg bias, small steps and limit asymptotics",
+        "title": "Shuffling the Data, Stretching the Step-size",
+        "trigger": "recent strong reshuffling MSE result"
+      },
+      {
+        "assessment": "abstract reports rates and composite extensions, not exact comparison; full-text exclusion NOT asserted",
+        "evidence": [
+          "2026-09-04 abstract on last-epoch O(T^{-2}+n^2T^{-3})",
+          "full text inaccessible; coverage risk recorded"
+        ],
+        "identifier_or_url": "arXiv:2609.04578",
+        "material_read": "abstract and accessible extended metadata only; full text inaccessible",
+        "method": "compare available stated last-epoch rate with same-instance two-method sign law",
+        "title": "Centered Permutation Prefixes for SGD with Random Reshuffling",
+        "trigger": "recent last-epoch theorem on reshuffling"
+      },
+      {
+        "assessment": "different stated mechanism, but full-text exclusion NOT asserted",
+        "evidence": [
+          "special noncommuting regular-simplex / De Sa matrix families in accessible summary"
+        ],
+        "identifier_or_url": "2026-08-21 open author summary; complete PDF not retrieved",
+        "material_read": "author scientific summary only; full text inaccessible",
+        "method": "compare described noncommuting multiplicative matrix products to common-Hessian additive forcing",
+        "title": "Metric-aware random shuffling study",
+        "trigger": "a possibly relevant statement about permutation inequalities"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "786210a7-1465-49ab-a559-0a375f9354fd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Natural last-iterate algorithm-comparison problem with fixed matched computational cost: the exact universal phase boundary eta*lambda=1 separates benefit from harm under stable steps, mixed spectral allocation reverses the sign even at a fixed H, and the sharp factor-two upper envelope bounds the harm. The result clarifies a tempting but invalid interpretation of recent averaged-rate dominance claims.",
+    "status": "PASS"
+  }
+}
