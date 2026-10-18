@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The six incidence equations are sections of the six tautological dual normal lines over the smooth oriented ambient product. Lemma 3.1 of Olberding--Walker proves regularity along the quadrangle locus. The determinant-line exact sequence therefore gives the first Stiefel--Whitney class, and connectedness of the orientation-preserving similarity group permits equivariant descent. Six explicitly constructed one-double-vertex loops are entirely inside the nondegenerate-triangle locus. The restriction of the six normal-line bundles to these loops is the diagonal pattern of one Möbius line and five constant lines, so the cohomological evaluation matrix is exactly the identity. This proves the asserted independence and nonorientability. No experimental enumeration is used as a universal argument.
+## correctness
 
-**Originality — PASS, with residual literature risk.** Olberding--Walker prove smoothness, quotient existence, form/aspect constructions, and partial moduli structure, not the orientation class or six-dimensional direction subspace. Martin's earlier graph picture-variety analysis addresses incidence varieties, equations and algebraic components rather than real quotient Stiefel--Whitney classes. Focused semantic searches across corresponding terminology found no covering published statement. The main residual risk is an implicit general characteristic-class formula for real picture spaces; searches cannot exclude unpublished or differently phrased results.
+PASS
 
-**Value — PASS.** For a recently introduced four-dimensional moduli manifold, orientability and the first cohomology of line-direction local systems are basic structural invariants needed for global geometry and twisted integration. The six collision loops do more than give an isolated nonorientability example: they identify six distinct, geometrically canonical mod-two classes and show that the orientation obstruction is their sum. The calculation is not implied by smoothness or the quotient construction alone. No claim about full first cohomology or other similarity groups is made.
+The incidence constraints are regular zero-set sections of E=⊕_six λ_e^∨ in oriented ambient R^8×(RP1)^6, using original Olberding–Walker Lemma3.1; Whitney sum gives w1(TQ)=Σw1(λ_e). For connected G=Sim^+(R²), equivariant determinant and vertical Lie algebra orientation descend this to w1(TB)=Σu_e without wrongly relying on injectivity of pullback. For each edge ij, hold vi=vj=0, vk=(1,0),vl=(0,1); their three connecting lines form a nondegenerate triangle for every direction of the free ij-line, so rotating that RP1 gives a genuine closed loop. Exactly its tautological λ_ij is Möbius and the other five are fixed/trivial: six-by-six mod-2 evaluation matrix identity. Therefore six classes independent and the sum is nonzero; both quotient and upstairs nonorientable, dim H1>=6. Checked collision admissibility (no triple coincident) and freely oriented group quotient.
 
-**Boundaries.** Characteristic two cohomology only; the full cohomology ring and integral invariants are not computed. The cited 2026 paper is the initiating source, not evidence of an already published version of this specific claim. The originality assessment is same-model only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Olberding–Walker original full primary (Definition2.1, Lemma3.1, quotient theorem and invariant sections) proves smoothness and constructs moduli, but the inspected paper does not derive six independent first Stiefel–Whitney classes, orientation obstruction or collision-loop duality. Martin graph picture-space analogs address incidence varieties over projective fields, not mod-two orientation characteristic classes of this real Nash quotient. Resultary nearest geometry hits concern different moduli. Best-of-knowledge originality PASS for explicit six-dimensional H1 subspace/first SW computation, not for constructing the manifold.
+
+## value
+
+PASS
+
+Computing the orientation character and six explicit independent H1 generators is an exact intrinsic topological invariant of a naturally defined moduli space, constraining orientation, cohomology and possible further classification. It is a robust structural theorem using geometric collision loops, not a cosmetic reformulation or arbitrary small case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

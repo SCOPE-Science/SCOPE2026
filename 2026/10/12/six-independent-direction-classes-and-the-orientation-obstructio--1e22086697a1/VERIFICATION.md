@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the direction-characteristic-class calculation
 
-The six incidence equations \(\langle n_{ij},v_i-v_j\rangle=0\) define the zero locus of a section of \(\bigoplus\lambda_{ij}^{\vee}\). Their differential is surjective on the open quadrangle locus by the two-case proof of Lemma 3.1 in the initiating article: if vertices are distinct, the corresponding projective-slope derivative is nonzero; if a pair coincides, its vertex-coordinate gradient has a nonzero block unavailable to any other coincident-pair gradient because triple coincidences are excluded. This independently identifies the exact normal bundle used in the determinant calculation.
+# Independent mathematical audit
 
-For every unordered pair \(ij\), fix positions \(v_i=v_j=(0,0)\), \(v_k=(1,0)\), and \(v_l=(0,1)\). The three fixed lines joining the three distinct positions form a nondegenerate triangle; the remaining free line passes through the double vertex and can rotate through all projective angles. Along its rotation the respective tautological normal line is the Möbius bundle, while the other five normal lines are trivial. The resulting six-by-six mod-two evaluation matrix is exactly the identity, independent of any numerical approximation. Its row sums give orientation evaluation one along every collision loop.
+## correctness
 
-Connectedness of the orientation-preserving similarity group implies it preserves the orientation on the ambient product and on its own adjoint representation. This verifies that the upstairs determinant identity descends to the quotient rather than assuming injectivity of pullback in degree one.
+PASS
 
-No independent audit or external validation has been performed. The argument does not compute the full cohomology of the quotient or assert the same formula for the reflection-containing similarity group.
+The incidence constraints are regular zero-set sections of E=⊕_six λ_e^∨ in oriented ambient R^8×(RP1)^6, using original Olberding–Walker Lemma3.1; Whitney sum gives w1(TQ)=Σw1(λ_e). For connected G=Sim^+(R²), equivariant determinant and vertical Lie algebra orientation descend this to w1(TB)=Σu_e without wrongly relying on injectivity of pullback. For each edge ij, hold vi=vj=0, vk=(1,0),vl=(0,1); their three connecting lines form a nondegenerate triangle for every direction of the free ij-line, so rotating that RP1 gives a genuine closed loop. Exactly its tautological λ_ij is Möbius and the other five are fixed/trivial: six-by-six mod-2 evaluation matrix identity. Therefore six classes independent and the sum is nonzero; both quotient and upstairs nonorientable, dim H1>=6. Checked collision admissibility (no triple coincident) and freely oriented group quotient.
+
+## originality
+
+PASS
+
+Olberding–Walker original full primary (Definition2.1, Lemma3.1, quotient theorem and invariant sections) proves smoothness and constructs moduli, but the inspected paper does not derive six independent first Stiefel–Whitney classes, orientation obstruction or collision-loop duality. Martin graph picture-space analogs address incidence varieties over projective fields, not mod-two orientation characteristic classes of this real Nash quotient. Resultary nearest geometry hits concern different moduli. Best-of-knowledge originality PASS for explicit six-dimensional H1 subspace/first SW computation, not for constructing the manifold.
+
+## value
+
+PASS
+
+Computing the orientation character and six explicit independent H1 generators is an exact intrinsic topological invariant of a naturally defined moduli space, constraining orientation, cohomology and possible further classification. It is a robust structural theorem using geometric collision loops, not a cosmetic reformulation or arbitrary small case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
