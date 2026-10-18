@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The included `verify.py` uses Python 3's standard library and reconstructs all graph, metric, simplicial and chain data from definitions; invoke with `python3 verify.py`.
+# Independent mathematical audit
 
-Actual replay checks include 16 vertices and 24 edges, every vertex's distance profile, every antipodal scale-five facet, the 120 pairwise scale-four facet intersections, 1,090 independence faces, 542 matched incidences, acyclicity of 4,272 oriented Hasse incidences, exactly six critical faces, and all 542 exact integer unit pivots with vanishing remaining integral Morse differentials. A separately assembled mod-two boundary calculation obtains ranks 15, 81, 191, 181, 58, 14, and 2 in positive dimensions one through seven. The script prints `VERIFY_OK` after every assertion passes.
+## correctness
 
-The infinite continuum of filtration scales is handled by the graph Čech even/odd neighborhood lemma and the proof's threshold identifications. The verifier is an exact finite certificate, not an independent mathematical audit or an assertion about the unspecified low-dimensional persistence groups.
+PASS
+
+Verified G(8,3) as 16-vertex 24-edge cubic graph, including all vertex distance spheres (1,3,6,5,1). Independently checked every edge N2[x]∪N2[y]=V\{τ(x),τ(y)} and τ permutes the 24 edges. This proves the exact closed-ball Čech_5 equals combinatorial Alexander dual Ind(G)^*. Independently enumerated all 1,090 nonempty independent faces, generated 542 distinct toggled pairs, topologically sorted all 4,272 oriented incidences (acyclic), and algebraically cancelled all 542 ±1 pivots over integers; critical cells are one vertex, four 3-cells, one 4-cell with zero integer differentials. Thus reduced integral Ind homology Z^4 in degree3 and Z in degree4, with no torsion, and Alexander duality on 16 vertices gives Čech_5 reduced H10=Z^4,H9=Z. Also reproduced GF2 ranks (15,81,191,181,58,14,2) as secondary check. At radius4 all 16 facets size10 and intersections ≤7, so no 9-cycle and no H≥10; at radius6 the 16 facets form ∂Δ15=S14, radius7 a full simplex. Given left-closed critical scales these establish every j≥9 barcode interval, without claiming low-degree persistence.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality PASS for the exact intrinsic closed-ball Čech filtration high-degree barcode and special equality C5(M)=Ind(M)^*. Adams–Shukla–Singh supplies the generic graph Čech nerve formula; known Möbius–Kantor independence homotopy supplies Betti groups at one level, but neither supplies the metric antipodal identity, all scale thresholds and persistence maps. The indexed full Rips filtration uses pairwise-distance Vietoris–Rips simplices, not common-intersection Čech simplices. The entire high-degree barcode is a new combined concrete statement on the evidence read, subject to the named inaccessible graph manuscript.
+
+## value
+
+PASS
+
+Determines the complete high-degree integral barcode at a natural persistent-homology test graph with unusually sharp simultaneous dimension-nine/ten births and a later dimension-fourteen class. The geometric Čech–Alexander equality and exact integral Morse cancellation are useful structural benchmarks not obtainable from a single Betti table. Scope is a meaningful natural whole invariant (all degrees j≥9) rather than a random Betti entry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
