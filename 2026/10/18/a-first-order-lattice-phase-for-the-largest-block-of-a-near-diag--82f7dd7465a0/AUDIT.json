@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "An exact normalized count W0/S(n,n-r) is expanded via profile ratios; tripletons contribute 2uλ−2λ²−λ and a single four-block u²/3, while multiple four-blocks and blocks of size >=5 have summable O(r^-2) weight. Reciprocal expansion yields F(u)=2u/3−7u²/9. Explicit fractional-part expansion gives two disjoint limits at t=1. verify.py passed 96 exact arithmetic and high-precision checks; only the analytic bounds prove the infinite result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2016 Theorem 3.3 proves only a leading Poisson limit and supplies O(log² n/sqrt n) error.",
+        "2018 Theorem 1.2 gives O(r³/n²) total-variation error; no order-r^{-1} coefficient.",
+        "The 2014 Stirling paper summarizes bounds and leading asymptotics in the sqrt-n regime. Louchard 2013 treats explicit noncentral exponents above 1/2 in the abstract/introduction."
+      ],
+      "reasoning": "Broader Stirling saddlepoint theories may be capable of yielding this first-order coefficient on further expansion, but no inspected explicit conclusion subsumes the moving-parameter coefficient plus the floor-induced continuum of limits. Residual historical-priority risk is recorded.",
+      "searches": [
+        "Near-diagonal Stirling numbers second kind sparse collisions 1 2 3 block profile Poisson transition when deficit n-k is sqrt n",
+        "Asymptotic expansion P largest block size 2 random set partition n with n minus floor(t sqrt n) blocks first order in 1/sqrt n",
+        "arxiv:1404.3007 Proposition 1 near-diagonal Stirling",
+        "Louchard 2013 asymptotics Stirling m=n-n^alpha alpha>1/2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1606.04642v2, Theorem 3.3 and Conjectures 3.7–3.8",
+      "arxiv:1807.03926, Theorem 1.2 and §4",
+      "arxiv:1404.3007, introduction and overview",
+      "Louchard, DOI 10.2298/AADM130612011L, pp. 193–195",
+      "published-finding corpus: 2026/10/4/SCOPE-block-size-counts-switch-covariance-sign-at-the-lambert-w-scale--8198e77842ad",
+      "published-finding corpus: 2026/10/11/SCOPE-a-poisson-asymptotic-for-sharp-fourier-projection-norms-on-unifo--65a32e191d85"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "At t=1 the present analytic formula gives two different limits -e^(-2/3)/9 and 11e^(-2/3)/9.",
+        "A claim of one fixed C(1) in the 2016 conjecture would force both subsequences to share a limit.",
+        "The 2018 bound O(r³/n²)=O(1/r) allows different order-1/r subsequential coefficients and therefore does not dominate the assertion."
+      ],
+      "reasoning": "The contrary subsequences prove the proposed 2016 coefficient cannot exist as stated. These distinctions remain after equivalence transformations and parameter conversions, since r=floor(t sqrt n) is exactly its normalization.",
+      "searches": [
+        "Arratia DeSalvo Conjecture 3.7 3.8 first-order expansion set partitions near diagonal Stirling asymptotic floor square root lattice phases",
+        "arxiv:1606.04642 Conjectures 3.7-3.8 and Remark 3.10",
+        "arxiv:1807.03926 Theorems 1.2 and 4.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A fixed-block set partition is counted by S(n,n-r); probability of maximum block two is W0/S(n,n-r). The 2016 paper expressly states the e^(-2t²/3)+C(t)/r+o(1/r) conjecture with r=floor(t sqrt n).",
+        "The 2018 paper uses an equivalent rook-alignment model but reports Poisson total-variation errors, not a first-order coefficient."
+      ],
+      "reasoning": "Compared the exact identity W0/S(n,n-r) and rook-alignment reparametrization; first-order phase differs from the 2016 proposed single coefficient. The 2018 total-variation bound is of the same order but does not force convergence of the rescaled error.",
+      "searches": [
+        "Poisson limit tripleton blocks in uniform set partitions of n with n-d blocks when d scales square root n, parameter 2d squared over 3n; singleton doubleton non Gaussian rank one fluctuations",
+        "Arratia DeSalvo Conjecture 3.7 3.8 first-order expansion set partitions near diagonal Stirling asymptotic floor square root lattice phases",
+        "arxiv:1606.04642 Conjectures 3.7-3.8",
+        "arxiv:1807.03926 Theorem 1.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest published-finding corpus set-partition hit is 2026/10/4/SCOPE-block-size-counts-switch-covariance-sign-at-the-lambert-w-scale--8198e77842ad, which concerns covariance with total block count.",
+        "2026/10/11/SCOPE-a-poisson-asymptotic-for-sharp-fourier-projection-norms-on-unifo--65a32e191d85 concerns common-pair intersections of fixed-size block partitions, not the largest block of a near-diagonal unrestricted set partition."
+      ],
+      "reasoning": "Neither research-index result is an exact table for W0/S(n,n-r) or a coefficient for its floor-parametrized first-order expansion. A negative index search alone is not treated as a proof of novelty.",
+      "searches": [
+        "Joint distribution asymptotic in total variation block-size counts in uniform set partitions conditioned on block number n-O(sqrt n)",
+        "Stirling second kind near diagonal sharp expansion probability all blocks singletons and pairs r = floor t sqrt n",
+        "published-finding corpus semantic queries for near-diagonal Stirling first-order floor phase"
+      ]
+    },
+    "rationale": "The 2016 source proves leading Poisson approximation but explicitly conjectures one fixed order-1/r coefficient; the new phase theorem disproves that single coefficient and provides a complete corrected next-order law. The later 2018 paper gives an O(1/r) bound but not its coefficient. General Stirling saddlepoint work remains a historical-priority risk.",
+    "residual_risks": [
+      "Broad saddlepoint expansions (Moser–Wyman, Louchard and successors) might entail the numerical next-order coefficient following additional algebra.",
+      "The 2018 follow-up was read in directly relevant portions, not all 21 pages; no claim of exhaustive priority certification.",
+      "Research-index coverage is incomplete and the absence of a search hit alone does not establish novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Leading Poisson probability is proved there; the fixed first-order coefficient is an explicit unproved conjecture, not coverage of the phase theorem.",
+        "evidence": [
+          "arXiv:1606.04642v2 lines 450–497; conjecture (48) and ratios (50)–(53)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1606.04642v2",
+        "material_read": "Full-text HTML, Section 3.2 Theorem 3.3, Corollary 3.4, Conjectures 3.6–3.8, Remarks 3.9–3.10 and detailed exact profile ratios (46),(50)–(53).",
+        "method": "Compared probability event, r=floor(t sqrt n), error order, and explicit one-four-block weight.",
+        "title": "Poisson and independent process approximation for random combinatorial structures with a given number of components, and near-universal behavior for low rank assemblies",
+        "trigger": "Theorem 3.3 and published Conjectures 3.7–3.8 directly concern the same probability and scaling."
+      },
+      {
+        "assessment": "Order O(r³/n²) in total variation is compatible with and weaker than the evaluated 1/r coefficient; no direct first-order expansion found in the inspected relevant material.",
+        "evidence": [
+          "arXiv:1807.03926 Theorem 1.2, bound (2), §4 Theorem 4.2."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1807.03926",
+        "material_read": "PDF abstract, Theorem 1.2 at p. 2, rook-model descriptions at pp. 3–4, application and Theorem 4.2 at pp. 16–18.",
+        "method": "Inspected displayed distributional bounds and arithmetic order against the proposed sharp probability coefficient.",
+        "title": "Attacks and alignments: rooks, set partitions, and permutations",
+        "trigger": "Same authors and same near-diagonal uniform set-partition model after the conjecture."
+      },
+      {
+        "assessment": "No explicit first-order floor-phase coefficient in inspected material; classic saddlepoint equivalence remains a residual risk.",
+        "evidence": [
+          "arXiv:1404.3007 pp. 1–2, including Proposition 1 summary."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1404.3007",
+        "material_read": "PDF abstract and introduction pp. 1–2, including stated parameter range and discussion of Moser–Wyman and Louchard expansions.",
+        "method": "Compared stated leading approximation and error bounds with the evaluated first-order probability ratio.",
+        "title": "Completely effective error bounds for Stirling numbers of the first and second kind via Poisson approximation",
+        "trigger": "Potential stronger asymptotic coverage at exactly r asymptotic to sqrt n."
+      },
+      {
+        "assessment": "The prominently developed noncentral regime has exponent strictly greater than 1/2; general saddlepoint expansion may imply the new expression after nontrivial expansion, not excluded by limited inspection.",
+        "evidence": [
+          "Louchard (2013), abstract and introductory formulas in pp. 193–195."
+        ],
+        "identifier_or_url": "https://pefmath.etf.bg.ac.rs/vol7num2/AADM-Vol7-No2-193-210.pdf",
+        "material_read": "PDF pp. 193–195: abstract, historical range discussion, introduction and displayed asymptotic formulas.",
+        "method": "Compared asymptotic exponent ranges and displayed normalization to critical r proportional to sqrt n.",
+        "title": "Asymptotics of the Stirling numbers of the second kind revisited",
+        "trigger": "Potential earlier saddlepoint formulas broad enough to imply a near-diagonal probability expansion."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "82f7dd74-65a0-4bec-ad47-a17edd60ff72",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An explicit correction to a published stochastic-combinatorial asymptotic conjecture is intrinsically motivated; it shows that the floor discretization and rare four-block component act at the same first-order scale. The precise continuum of subsequential coefficients and uniform corrected expansion are structural boundary phenomena, not a routine finite count or cosmetic normalization.",
+    "status": "PASS"
+  }
+}
