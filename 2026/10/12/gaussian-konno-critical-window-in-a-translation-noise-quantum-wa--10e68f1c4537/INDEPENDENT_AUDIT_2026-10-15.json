@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T21:15:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The channel consists of U_θ with probability q_t and spatially homogeneous global translations R,R^{-1} with p_t/2 each. Since R commutes with U_θ, every t-step Kraus word becomes a translation times U_θ^k; summing independent Bernoulli choice counts yields exactly X_t =d Q_{K_t}+S_{t−K_t}, K_t∼Bin(t,q_t). Independently built the full mixed-state channel on a 21-position periodic embedding with four steps, angle 0.7 and p=0.3; channel position probabilities match the explicit convolution to maximum error 5.55×10^−17. The coherent Konno limit for the fixed specified coin phase, binomial K_t concentration, classical CLT conditional on K_t, and |Q_k|≤k prove the q_t√t→0,→λ>0,→∞ regimes. Integrating the standard Konno density gives Var V=1−sinθ and κ4 V=−(1/2)(1−sinθ)^2(4−sinθ), strictly negative. This validates the limiting convolution and non-Gaussianity, not a local density limit or monitored first returns.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ahlbrecht et al general methods and commuting-Kraus discussion; Chisaki et al measurement/restart model; standard Konno pure-walk velocity limit.",
+          "Yoshino et al Entropy 27 (2025), Theorem 1, normal variance mixture with arcsine for correlated persistent walk at fixed p, with a special-model intersection; not the same general translation channel/critical edge."
+        ],
+        "reasoning": "Pure-walk weak law and classical Gaussian CLT are components, not the sharp triangular array of a specific global-translation channel. Ahlbrecht generic diffusive theorem has a peripheral spectral simplicity hypothesis absent here, per source comparison. Closely relevant Yoshino et al (2025) was read directly: it studies a persistent-walk channel and fixed-p normal-variance mixture, not a global-shift channel with q_t sqrt(t) crossover; the models intersect at a particular coin angle but stated weak limits differ.",
+        "searches": [
+          "Ahlbrecht Vogts Werner asymptotic evolution quantum walks random coin commuting Kraus 2011",
+          "Chisaki Konno Segawa Shikano crossovers measured restart quantum walk 2011",
+          "Yoshino Shiratori Yamagami Horisaki Segawa 2025 interpolating walk normal variance mixture arcsine"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/777b2b21e054cb68d855230883c60b5f35c9209a/2026/10/12/gaussian-konno-critical-window-in-a-translation-noise-quantum-wa--10e68f1c4537/RESULT.md",
+        "https://quantum-journal.org/papers/q-2026-01-22-1982/pdf/",
+        "https://arxiv.org/abs/quant-ph/0206053",
+        "https://www.rintonpress.com/xxqic11/qic-11-910/0741-0760.pdf",
+        "https://doi.org/10.3390/e27070670"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Quantum 10 (2026) 1982 defines identical channel and studies monitored first return; Konno 2005 gives ballistic law for no noise."
+        ],
+        "reasoning": "The current theorem is an additional implication of commuting spatial Kraus shifts and the pure coherent asymptotic, not a new Konno theorem. Monitored-first-return results do not dominate unmonitored X_t under varying p_t; measured/restarted models likewise differ.",
+        "searches": [
+          "Stefanak Potoc ek Yalcinkaya quantum stochastic walk Eq 9 11 monitored recurrence",
+          "Konno quantum random walks one dimension density limit"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same channel Eq 9–11 in Štefaňák et al, with commuting spatial translations; assigned equality X_t =d Q_K+S_{t−K}."
+        ],
+        "reasoning": "Equivalent random-time mixture is a binomially subordinated coherent walk convolved with simple random walk. Checked same channel paper treats monitored returns instead of the unconditional position marginal; recurrence laws do not immediately state the three-scale weak limits.",
+        "searches": [
+          "Recurrence in discrete-time quantum stochastic walks unmonitored spatial shift stochastic channel critical window",
+          "Resultary Gaussian Konno crossover translation noise random time quantum walk"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite Kraus/convolution check at t=4 p=0.3 θ=.7; all-t convolution derived by commuting Kraus operators."
+        ],
+        "reasoning": "An exact finite-time coefficient table could validate cases but does not imply all t or the λ-dependent weak limits. No indexed exact database asserted the same family.",
+        "searches": [
+          "exact finite time quantum walk translation random binomial convolution distribution",
+          "Konno Gaussian quantum walk crossover noise critical exponent 1/2"
+        ]
+      },
+      "rationale": "The same channel appears in Štefaňák et al but their inspected source analyzes monitored return observables, not this unmonitored position crossover; the pure Konno limit is known and expressly credited. Earlier measured-restart quantum-walk crossovers have different channels; general commuting-Kraus work may implicitly encode the random-time factorization but no inspected earlier full critical-window theorem established this triangular-array convolution.",
+      "residual_risks": [
+        "An abstract commuting-channel theorem may yield this precise triangular-array crossover as an unstated corollary; no exhaustive priority guarantee.",
+        "The finite periodic embedding was used only for four steps with no wrap, not for the infinite-volume convergence.",
+        "The 2025 Yoshino et al interpolation intersects with this channel at a special angle, but its fixed-p and near-p=0 regimes do not state the assessed q_t sqrt(t)→λ Gaussian–Konno critical limit near p_t=1; an implicit reduction is possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INSPECTED_SECTIONS_NOT_COVERING the stated unmonitored q_t√t critical window; not a blanket statement about unexamined appendix.",
+          "evidence": "Coin-independent translations ± and coherent U with probabilities p/2,p/2,1−p; monitored first-return observable.",
+          "identifier_or_url": "https://quantum-journal.org/papers/q-2026-01-22-1982/pdf/",
+          "material_read": "Open 2026 full Quantum journal PDF inspected channel equations (9)–(11), their surrounding model definitions and monitored recurrence result sections.",
+          "method": "Match Kraus operators and contrast monitored return with unmonitored position readout.",
+          "title": "Recurrence in discrete-time quantum stochastic walks",
+          "trigger": "Exact same noisy channel and possible implicit asymptotics"
+        },
+        {
+          "assessment": "COVERING_COMPONENT: standard coherent Konno velocity law is prior knowledge and must be credited.",
+          "evidence": "Symmetric supported density f_θ on |v|<cosθ.",
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/0206053",
+          "material_read": "Accessible abstract and theorem-level pure-walk limit summary, no claim to have read every page.",
+          "method": "Compare pure Konno velocity distribution against new noisy mixture.",
+          "title": "Quantum random walks in one dimension",
+          "trigger": "Exact same pure-walk ballistic law component"
+        },
+        {
+          "assessment": "DIFFERENT_CHANNEL at accessible-scope level; full-document exclusion not claimed.",
+          "evidence": "Interrupted measured walks, rather than commuting global translations.",
+          "identifier_or_url": "https://www.rintonpress.com/xxqic11/qic-11-910/0741-0760.pdf",
+          "material_read": "Accessible bibliographic model and restart/measurement description, not full-paper proof read.",
+          "method": "Distinguished restart measurement from unmonitored global-translation noise.",
+          "title": "Crossovers induced by discrete-time quantum walks",
+          "trigger": "Possible dominating critical-window quantum-to-classical crossover"
+        },
+        {
+          "assessment": "NOT_DIRECTLY_COVERING: different stochastic operator outside the special intersection, and published normal-variance-mixture law for fixed p instead of Gaussian plus scaled Konno velocity at q_t→0. The model intersection at one coin angle is noted, not concealed.",
+          "evidence": "Theorem 1 fixed-p law is an arcsine normal variance mixture; Section 5 explicitly proposes near-p=0 scaling as future study and compares its model with the 2026 recurrence walk.",
+          "identifier_or_url": "https://doi.org/10.3390/e27070670",
+          "material_read": "Full open MDPI HTML, especially Sections 1, the displayed Theorem 1, Section 3.2, and Section 5 discussion including the model intersection with the Štefaňák walk at one angle and proposed p=gamma/s future regime.",
+          "method": "Compared the Kraus interpolation: this paper uses a persistent (coin-correlated) classical step and a fixed p in its main theorem, with a normal variance mixture of an arcsine law; the audited channel uses independent global ± translations, all θ, and q_t sqrt(t) critical scaling at p_t→1.",
+          "title": "Normal Variance Mixture with Arcsine Law of an Interpolating Walk Between Persistent Random Walk and Quantum Walk",
+          "trigger": "A 2025 primary paper specifically describing an interpolating quantum-to-classical walk and a non-Gaussian limit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact channel-to-random-time convolution converts a natural translation-noise quantum stochastic walk into an analyzable mixture and identifies a sharp Gaussian/ballistic transition with an explicit non-Gaussian critical law. It is a motivated scaling-classification boundary of an actual published model, not simply changing a sample size in an established CLT.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The model is an unmonitored walk on the homogeneous infinite line; p_t constant within each t-step experiment; fixed initial phase (R+iL)/√2; θ∈(0,π/2).",
+    "Weak limits and specified cumulants only, not pointwise local-limit rates, other noise channels, finite boundaries or monitored return statistics."
+  ]
+}

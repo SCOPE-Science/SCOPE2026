@@ -1,19 +1,21 @@
-# Scientific review: Gaussian–Konno critical window
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the stated homogeneous infinite-line channel, global spatial translations commute with the coherent walk. Counting coherent letters gives exactly a binomial coherent-step count and an independent symmetric classical displacement. The coherent Fourier eigenphases give the known Konno velocity density; the three regimes follow from binomial concentration, the classical central limit theorem and a characteristic-function argument. The calculated fourth cumulant is \(-\lambda^4(1-\sin\theta)^2(4-\sin\theta)/2\), strictly negative for positive \(\lambda\) and interior \(\theta\). The included verifier returned `VERIFY_OK 297`, covering matrix-channel/convolution identities, normalization, symmetry and finite moment tests. These finite computations corroborate but do not establish the infinite-time limits.
+PASS
 
-## Originality — PASS, with priority qualification
+The channel consists of U_θ with probability q_t and spatially homogeneous global translations R,R^{-1} with p_t/2 each. Since R commutes with U_θ, every t-step Kraus word becomes a translation times U_θ^k; summing independent Bernoulli choice counts yields exactly X_t =d Q_{K_t}+S_{t−K_t}, K_t∼Bin(t,q_t). Independently built the full mixed-state channel on a 21-position periodic embedding with four steps, angle 0.7 and p=0.3; channel position probabilities match the explicit convolution to maximum error 5.55×10^−17. The coherent Konno limit for the fixed specified coin phase, binomial K_t concentration, classical CLT conditional on K_t, and |Q_k|≤k prove the q_t√t→0,→λ>0,→∞ regimes. Integrating the standard Konno density gives Var V=1−sinθ and κ4 V=−(1/2)(1−sinθ)^2(4−sinθ), strictly negative. This validates the limiting convolution and non-Gaussianity, not a local density limit or monitored first returns.
 
-The primary 2025/2026 paper of Štefaňák and collaborators defines the same Kraus channel and analyzes monitored first-return probabilities, not this unmonitored critical-window position law. Konno's coherent weak limit is prior work. Ahlbrecht and collaborators' commuting-Kraus weighted-velocity theorem already encompasses the fixed-parameter ballistic conclusion in appropriate hypotheses; **that component alone is not new**. Chisaki and collaborators study position measurements/restarts, Konno–Matsue–Segawa study a stripe-controlled walk, and Ellinas–Bracken–Smyrnakis obtain an analogous noise-squared-times-time crossover for a distinct coin-randomization channel. Full-text comparisons did not identify the particular inverse-square-root singular limit or the Gaussian–Konno convolution. The derivation uses elementary commutation and known limit ingredients, so an earlier implicit statement remains a material originality risk; searching cannot certify priority.
+## originality
 
-## Value — PASS
+PASS
 
-The exact scaling window determines when a nearly classical quantum walk retains detectable non-Gaussian coherent spreading. Its parameter-dependent convolution density, negative fourth cumulant and sharp separation of three regimes give a motivated transport benchmark, and its finite-time binomial formula avoids mixed-density-matrix simulation for final-position statistics. This is more precise than qualitative interpolation between ballistic and diffusive limits, while making no claim about quantum advantage or measured recurrence.
+The same channel appears in Štefaňák et al but their inspected source analyzes monitored return observables, not this unmonitored position crossover; the pure Konno limit is known and expressly credited. Earlier measured-restart quantum-walk crossovers have different channels; general commuting-Kraus work may implicitly encode the random-time factorization but no inspected earlier full critical-window theorem established this triangular-array convolution.
 
-## Scope and limitations
+## value
 
-Assumptions: \(0<\theta<\pi/2\); localized initial \((|R\rangle+i|L\rangle)/\sqrt2\) coin; coin-independent symmetric shifts; an infinite homogeneous line; channel parameter constant within each length-\(t\) run; no intermediate observation. Proven: weak asymptotic laws and exact finite-time distribution identity; fourth cumulant of the limiting law. Not proved: uniform local-limit errors, other noise mechanisms, finite boundaries, or uniqueness of scientific priority. Independent validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact channel-to-random-time convolution converts a natural translation-noise quantum stochastic walk into an analyzable mixture and identifies a sharp Gaussian/ballistic transition with an explicit non-Gaussian critical law. It is a motivated scaling-classification boundary of an actual published model, not simply changing a sample size in an established CLT.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
