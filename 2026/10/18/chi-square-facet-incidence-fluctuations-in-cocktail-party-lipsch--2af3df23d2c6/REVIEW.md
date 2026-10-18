@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The theorem follows from the exact rank characterization of a facet's connected spanning tight-edge graph. The complete classification distinguishes binary potentials from the \(2m\) three-height exceptions; the symbolic trinomial incidence formula correctly subtracts both constant assignments and all \(4m\) disconnected singleton assignments. Independent first- and second-moment derivations use the centered three-valued i.i.d. pair variable, giving zero covariance for distinct pair products. The central limit theorem and law of large numbers, coupled with an exponentially small difference between binary assignments and uniform genuine facets, establish the precise non-Gaussian limit. The maximum-incidence parity argument and orbit-stabilizer counting exhaust every case, with an explicit \(m=3\) exception. Exact enumeration and symmetry tests for \(m=3,4,5,6\) passed using the packaged executable.
+
+## Originality — PASS, with bibliographic residual risk
+The direct source is Higashitani–Jochemko–Michałek, *Arithmetic aspects of symmetric edge polytopes* (2018), Proposition 3.5: it classifies facets and already gives the aggregate number for every multipartite graph, thus subsuming every claim consisting only of the raw facet count or binary-potential types. These are explicitly excluded from novelty. D'Alì–Delucchi–Michałek (2019/2022) again describes facet vertices as oriented tight edges, but its inspected sections do not evaluate this family-wide incidence polynomial, chi-square fluctuation law, or complete orbit sizes. Chen–Davis–Korchevskaia (2021) and Mori–Mori–Ohsugi (2023) concern general facet subgraphs and facet counts. Research-record comparisons found the related inball contact study on dense edge-deleted graphs, which is a different statistic, and studies of chi-square fluctuations in random hyperplane sections, which involve different random objects. An obscure graph-specific data table or alternate derivation remains possible.
+
+## Value — PASS
+The canonical cocktail-party metric supplies a natural infinite family of finite-dimensional real Banach spaces. The claim determines the **entire distribution** of facet vertex incidences, their exact two moments and extremal multiplicities, a non-Gaussian fluctuation law that persists in growing dimension, and a polynomial-size orbit classification despite exponentially many facets. Incidence counts control facet degree and make a reproducible dataset for geometric/combinatorial comparisons; the limit law adds a structural probabilistic phenomenon beyond a routine aggregate count.
+
+## Limitations
+This is a theorem about natural graph automorphisms and global negation, not a classification under arbitrary linear polytope symmetries; it applies to the stated unweighted real metrics only. Finite enumeration does not establish the infinite limit. The 2018 classification is prior work, and originality is subject to residual bibliographic risk. There has been no independent scientific audit.
+
+Self-review: passed. Independent audit: not yet performed.
