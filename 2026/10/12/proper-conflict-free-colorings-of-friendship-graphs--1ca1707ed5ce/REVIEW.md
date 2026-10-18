@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. In every proper coloring of \(F_k\), the center color is absent from the leaves and the two endpoints of each leaf edge have distinct colors. Hence every leaf automatically has a uniquely colored neighbor, while the center is conflict-free exactly when some leaf color has multiplicity one. This proves the structural equivalence.
+PASS
 
-For \(k\ge2\), two leaf colors occur once on every matching edge and therefore each have multiplicity \(k\), so three leaf colors are necessary. The displayed three-leaf-color construction is sufficient. Recoloring one occurrence of a repeated leaf color by a fresh color proves every color count up to the all-distinct leaf coloring.
+For F_k=K_1∨kK_2 each leaf has two differently colored neighbors in every proper coloring; only the hub requires a singleton color among leaves. Two leaf colors cannot yield a singleton for k≥2, while the explicit 3-color matching assignment does. Recoloring repeated leaves realizes every total palette size 4 through 2k+1. For a specified singleton color, 2k choices of vertex times 2^k choices of remaining matching edges; disjoint singleton events for k≥3 yield 24k·2^k with four choices of center color, while k=2 inclusion-exclusion subtracts 3·8 overlaps giving 96. k=1 gives K3 and 6. Exact independent enumeration k=1..4 confirms 6,96,576,1536. The all-k proof is combinatorial, not finite enumeration.
 
-For the minimum-color count, a specified singleton leaf color has \(2k\,2^k\) proper assignments. Two specified singleton colors cannot coexist for \(k\ge3\); for \(k=2\), each specified pair has exactly eight common assignments. Inclusion-exclusion gives the stated formulas. Direct computation independently agrees.
+## originality
 
-## Originality
+PASS
 
-PASS. Searches covered friendship and windmill terminology, cographs and \(P_4\)-sparse graphs, exact chromatic number, singleton-leaf formulations, the full used-color spectrum, and labeled minimum-color counts. The closest published-finding corpus result is the crown-graph PCF theorem, and the closest owned result is the complete-multipartite PCF theorem; neither applies to friendship graphs for \(k\ge2\).
+The original all-colorings characterization, used-color spectrum and exact labeled optimal counts are not covered by inspected PCF graph-class results. Caro et al. supply values for trees/cycles/hypercubes etc but no windmill theorem; Sharma et al. give general P4-sparse bounds, which do not determine the labeled enumeration. Closest published SCOPE results classify crown and complete-multipartite graphs, which are not this family for k≥2. Best of knowledge with full-conference-source access limitation.
 
-A 2026 paper gives broad upper bounds for \(P_4\)-sparse graphs, a class containing friendship graphs. Its accessible abstract does not imply the accepted all-coloring characterization, spectrum, or enumeration. Its full text was not available through the inspected open route, so a friendship-specific scalar example remains a residual risk rather than evidence covering the final claim.
+## value
 
-## Value
+PASS
 
-PASS. The result is a complete structural and enumerative theorem on a standard infinite graph family, not merely a four-color existence proof. The singleton-leaf criterion explains the invariant exactly, the spectrum records every feasible color count, and the optimal-color formula gives additional information not supplied by broad graph-class bounds.
+Friendship/windmill graphs are a canonical infinite family with a common hub; the singleton-witness obstruction produces an exact structural theorem, full feasible-color spectrum and a nontrivial closed labeled minimum-color enumeration. These are natural PCF invariants beyond an arbitrary tiny case or a broad four-color upper bound.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

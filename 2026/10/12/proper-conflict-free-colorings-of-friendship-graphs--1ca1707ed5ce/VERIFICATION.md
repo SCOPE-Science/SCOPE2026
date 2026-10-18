@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof in `RESULT.md` is the primary evidence.
+# Independent mathematical audit
 
-`artifacts/verify.py` reconstructs \(F_k\), properness, and the proper conflict-free condition directly from adjacency. It exhaustively checks \(F_1,F_2,F_3\) for every palette size through the number of vertices and compares the direct definition with the singleton-leaf characterization.
+## correctness
 
-It also constructs a PCF coloring for every claimed used-color count for all \(2\le k\le20\). Independently, it enumerates every proper three-coloring of the \(kK_2\) leaf matching for \(2\le k\le8\) and verifies the closed minimum-color count.
+PASS
 
-Replay output:
+For F_k=K_1∨kK_2 each leaf has two differently colored neighbors in every proper coloring; only the hub requires a singleton color among leaves. Two leaf colors cannot yield a singleton for k≥2, while the explicit 3-color matching assignment does. Recoloring repeated leaves realizes every total palette size 4 through 2k+1. For a specified singleton color, 2k choices of vertex times 2^k choices of remaining matching edges; disjoint singleton events for k≥3 yield 24k·2^k with four choices of center color, while k=2 inclusion-exclusion subtracts 3·8 overlaps giving 96. k=1 gives K3 and 6. Exact independent enumeration k=1..4 confirms 6,96,576,1536. The all-k proof is combinatorial, not finite enumeration.
 
-`ALL CHECKS PASSED; proper_colorings_checked=247410; pcf_colorings_checked=234798; spectrum_constructions=380; minimum_count_formula_k=2..8; minimum_counts={2: 96, 3: 576, 4: 1536, 5: 3840, 6: 9216, 7: 21504, 8: 49152}`
+## originality
 
-These computations are finite corroboration only. The arbitrary-\(k\) statements follow from the exact neighborhood argument and inclusion-exclusion proof.
+PASS
+
+The original all-colorings characterization, used-color spectrum and exact labeled optimal counts are not covered by inspected PCF graph-class results. Caro et al. supply values for trees/cycles/hypercubes etc but no windmill theorem; Sharma et al. give general P4-sparse bounds, which do not determine the labeled enumeration. Closest published SCOPE results classify crown and complete-multipartite graphs, which are not this family for k≥2. Best of knowledge with full-conference-source access limitation.
+
+## value
+
+PASS
+
+Friendship/windmill graphs are a canonical infinite family with a common hub; the singleton-witness obstruction produces an exact structural theorem, full feasible-color spectrum and a nontrivial closed labeled minimum-color enumeration. These are natural PCF invariants beyond an arbitrary tiny case or a broad four-color upper bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
