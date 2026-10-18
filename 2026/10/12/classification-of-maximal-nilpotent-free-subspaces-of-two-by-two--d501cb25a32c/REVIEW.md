@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-Every rank-one square-zero matrix is \(v\varphi\) with \(\varphi(v)=0\). Membership in \(H_C\) is exactly \(\varphi(Cv)=0\), equivalent to a rational eigenvector of \(C\). Counting Frobenius pairs of nonrational quadratic elements gives the irreducible-polynomial count. The centralizer of an irreducible companion is \(\mathbb F_{q^2}^\times\); scalar projectivization and trace normalization give the stated orbit sizes in both parities. Complete finite enumeration for \(q=2,3,4,5\) independently matches the formulas. Computation is supplementary, not the basis for the infinite proof.
+## correctness
 
-## Originality — PASS, with residual risk
-The nearest published construction proves only existence of one extremal three-space for each finite field, not the complete census or conjugation orbits. Wigderson's Conjecture 8 motivates existence rather than enumeration. The inspected older hyperplane paper concerns commutator images, not nilpotent avoidance. Equivalent projective-conic formulations could have appeared in older geometry treatments; absence was not proved, and the result should receive an independent literature audit.
+PASS
 
-## Value — PASS
-The theorem classifies **every** extremal three-dimensional solution to a new finite-field matrix-space problem in the smallest nontrivial dimension, determines the exact locus size, and separates the characteristic-two and odd-characteristic conjugation orbit structures. This is a natural completeness question refining existence rather than an arbitrary parameter slice. The trace-zero orbit in odd characteristic is a real symmetry jump (half-sized) absent in even characteristic.
+For any field every three-dimensional subspace H_C is trace-orthogonal to a projective nonzero C. Any nonzero nilpotent 2×2 N has rank one, N=vφ with φ(v)=0; tr(CN)=φ(Cv), vanishing iff Cv lies in span(v). Thus H_C avoids nilpotents iff C has no eigenvalue over F_q, equivalently irreducible characteristic quadratic. Count (q²−q)/2 irreducible quadratics, q(q−1) matrices per polynomial, and identify q−1 scalar multiples to obtain q²(q−1)/2 hyperplanes. Scalar-similarity orbit arguments give q/2 orbits size q(q−1) for even q; odd q has (q−1)/2 trace-normalized orbits of that size plus one trace-zero orbit size q(q−1)/2. Independent exact F3 exhaustive matrix/hyperplane/G-action enumeration found nine good H, orbits [3,6]. Actual source verifier and proof inspected; finite case not taken as universal proof.
 
-## Source boundaries
-The claim is confined to two-by-two finite-field matrices; earlier finite-field n=2 existence and higher-dimensional binary results do not imply orbit counts for this family. Primary inspected works: Wigderson, arXiv:2609.29177v1 (full PDF, Conjecture 8 and context); de Seguins Pazzis, *Commutators from a Hyperplane of Matrices* (complete 16-page PDF, especially Proposition 1.5). Residual risk: older projective-geometry formulations may encode the census implicitly.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Wigderson Conjecture 8 asks existence of a maximal nilpotent-free space; its n=2 solution and the published Resultary Galois-twist result give existence only, without exhaustive parameterization, hyperplane counts, or scalar-conjugacy classes. de Seguins Pazzis Proposition 1.5 classifies [H,H] for M2 hyperplanes, a different invariant; it has no nilpotent-free census. Irreducible-quadratic algebra is classical and the resulting enumeration remains exposed to earlier geometry-of-matrix-spaces literature.
+
+## value
+
+PASS
+
+The complete classification and orbit-size decomposition of extremizers at the n=2 boundary of a current matrix-space conjecture is a natural finite invariant; existence was already solved, but the exact extremal locus and conjugation moduli provide information not implied by the existence construction and useful for checking higher-dimensional analogues.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
