@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T07:21:03.959217Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The final claim is exactly for n>=2 with total prime-factor multiplicity Omega(n)=3 and beta(n)=sum of distinct prime divisors dividing 2^n-1. The factorization shapes p^3, p^2 q, pqr exhaust Omega=3, including repeated primes. The p^3 branch is excluded by Fermat and parity; all-odd p^2q and even squarefree pqr are excluded by beta parity. For 4q, with q odd prime and m=q+2, every prime ell|m has ord_ell(2)|4q and ord_ell(2)|ell-1; a proper divisor ell of m has ell<q, and if ell=m then gcd(4q,q+1)|4. Hence every such order divides 4 and m=3^a5^b. The valuation of 16^q-1 at 3 and 5 is 1 whenever the corresponding prime divides m because q=m-2 is nonzero modulo those primes. Thus m=5 or 15 and q=3 or 13. For 2q^2, all orders divide 2, hence m=3^a with a>=2, contrary to nu_3(4^(q^2)-1)=1. Directly 5|2^12-1 and 15|2^52-1. An independently written modular-power enumeration through n=100000 reproduced only nonsquarefree/even hits 12 and 52 (44 total Omega=3 hits); finite enumeration is corroboration, not the unbounded proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "OEIS states no semiprimes and closure n->dn for d|n; Banks–Luca gives global counting estimates; Luca–Tipu treats beta(n)|2^(n-1)-1."
+        ],
+        "reasoning": "No-prime/no-semiprime and density or multiplicative closure do not identify every nonsquarefree term at Omega=3; changing n to n-1 in the exponent changes multiplicative orders.",
+        "searches": [
+          "OEIS A336657 comments: no semiprimes, multiplicative closure",
+          "Banks–Luca, Houston J. Math. 33 (2007), 403–413 abstract",
+          "Luca–Tipu, J. Integer Sequences 12 (2009), 09.3.1"
+        ]
+      },
+      "checked_sources": [
+        "Exact assigned RESULT.md and verify.py Git blobs at frozen SHA 8cbb598e20a1056fe3f5b78cf8948058958d10cc",
+        "Banks–Luca (2007), Houston Journal of Mathematics 33, 403–413 (abstract only)",
+        "OEIS A336657 full entry",
+        "Luca–Tipu (2009), Journal of Integer Sequences 12, 09.3.1",
+        "Resultary targeted semantic search on beta Mersenne Omega three"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The established lower bound Omega(n)>=3 leaves the first permitted multiplicity layer open; the submitted argument isolates exactly 4q and excludes 2q^2."
+        ],
+        "reasoning": "None of the inspected theorem statements logically forces the exact two-element nonsquarefree classification. The inaccessible full Banks–Luca article remains an explicit possible exception.",
+        "searches": [
+          "Banks Luca Mersenne sum distinct prime factors 2007",
+          "OEIS A336657 absence semiprime and closure",
+          "Luca Tipu 2009 beta(n) divides 2^(n-1)-1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Banks–Luca 2007 formulates beta(n)|2^n-1; OEIS A336657 lists 12,52 and other terms without proving exhaustion in Omega=3."
+        ],
+        "reasoning": "Matching the equation beta(n)|2^n-1 and both Omega/multiplicity and even/prime-power aliases did not disclose an equivalent unbounded classification in actually accessible material. A list of examples does not imply exhaustiveness.",
+        "searches": [
+          "Banks Luca 2007 \"Sums of prime divisors and Mersenne numbers\" beta(n) 2^n-1",
+          "OEIS:A336657 beta(n) nonsquarefree even 12 52",
+          "Resultary query \"sum of distinct prime divisors divides 2^n-1 n with three prime factors 12 52\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A336657 includes 12,24,36,48,52 and comments no semiprimes and odd terms including 345,385; no count of Omega=3 nonsquarefree terms is stated."
+        ],
+        "reasoning": "Sequence tables supply finite witnesses and motivate the lowest multiplicity but cannot prove the universal two-element classification.",
+        "searches": [
+          "OEIS A336657 https://oeis.org/A336657; 2026-09 last update",
+          "OEIS A008472 distinct prime factor sums"
+        ]
+      },
+      "rationale": "PASS: the classification is a sharp structural first multiplicity layer for the Banks-Luca Mersenne divisor-sum problem. The accessible exact database confirms no semiprime solutions but does not supply the unbounded nonsquarefree Omega=3 exclusion; the primary Banks-Luca full body was unavailable, so priority remains best-of-knowledge with that explicit risk.",
+      "residual_risks": [
+        "Banks–Luca 2007 full body was not accessible; an earlier equivalent observation is possible. Institutional access returned vpn_disconnected; human login not bypassed.",
+        "OEIS is an indexed sequence, not exhaustive proof, and other unindexed arithmetic work may treat the same low-factor layer."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact defining object confirmed, but no scientifically valid claim about whole-document noncoverage",
+          "evidence": [
+            "Abstract: studies sum of distinct prime factors dividing the nth Mersenne number; full article not readable."
+          ],
+          "identifier_or_url": "Houston J. Math. 33 (2007), 403–413; https://www.researchgate.net/publication/253800395_Sums_of_prime_divisors_and_Mersenne_numbers",
+          "material_read": "Article title, authors, publication data, electronic indexed abstract; linked full text inaccessible",
+          "method": "Lawful indexed abstract and journal metadata review; external OA PDF attempt failed; authorized institutional retrieval reported VPN disconnected",
+          "title": "Sums of prime divisors and Mersenne numbers",
+          "trigger": "Foundational exact beta(n)|2^n-1 source and possible same-theorem coverage"
+        },
+        {
+          "assessment": "Shows 12 and 52; records absence of semiprimes and closure; no universal nonsquarefree Omega=3 classification visible",
+          "evidence": [
+            "Comments: no semiprimes; odd terms relatively rare; if k term and d|k then dk is term; formula gives global density bounds."
+          ],
+          "identifier_or_url": "https://oeis.org/A336657",
+          "material_read": "Definition, initial sequence, comments, formula, example, references",
+          "method": "Full accessible OEIS entry read",
+          "title": "OEIS A336657",
+          "trigger": "Exact database of beta(n)|2^n-1"
+        },
+        {
+          "assessment": "Not implication-equivalent due to exponent n-1 versus n",
+          "evidence": [
+            "The exponent n-1 replaces n in the neighboring condition."
+          ],
+          "identifier_or_url": "Journal of Integer Sequences 12 (2009), Article 09.3.1",
+          "material_read": "Relationship, changed exponent beta(n)|2^(n-1)-1 and cited source as represented in paper/package; full text reported available in prior audit",
+          "method": "Compared distinct divisibility statements and multiplicative-order consequences",
+          "title": "On Positive Integers n with a Certain Divisibility Property",
+          "trigger": "Nearby exponent variant by Luca and Tipu"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The beta(n)|2^n-1 solutions form a recognized arithmetic sequence with no prime or semiprime terms. Omega=3 is thus the first nonempty factor-count layer, and a complete structural dichotomy nonsquarefree/even versus odd-squarefree is a motivated exact classification rather than an arbitrary finite search. The two isolated exceptional nonsquarefree values are proved for all primes by the order and valuation argument; the unsolved odd squarefree layer is not misrepresented as classified.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Exact assigned RESULT.md and verify.py Git blobs at frozen SHA 8cbb598e20a1056fe3f5b78cf8948058958d10cc",
+    "Banks–Luca (2007), Houston Journal of Mathematics 33, 403–413 (abstract only)",
+    "OEIS A336657 full entry",
+    "Luca–Tipu (2009), Journal of Integer Sequences 12, 09.3.1",
+    "Resultary targeted semantic search on beta Mersenne Omega three"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Banks–Luca 2007 full body was not accessible; an earlier equivalent observation is possible. Institutional access returned vpn_disconnected; human login not bypassed.",
+    "OEIS is an indexed sequence, not exhaustive proof, and other unindexed arithmetic work may treat the same low-factor layer."
+  ],
+  "schema_version": 1
+}
