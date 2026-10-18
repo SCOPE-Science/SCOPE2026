@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Use arXiv:2306.03459v4, Theorems 5.2 and 5.3, to obtain Apéry and genus. The greedy digits have at most one lower value 2 and top digit<=1 since M<2(2^k-1), so T(j)<=k+1; N_{-M} gives c>=M^2+1. With e=k+1 and n>=3, m>=3 odd, obtain the polynomial margin and positivity from M>=3*2^n>4n+5>=2k+5+6/(k-1). An independent Dijkstra implementation compared 599039 exact Apéry entries in 119 allowed semigroups and verified g,F,Wilf bounds. This finite check is not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2025 source provides exact all-m genus and Apéry data, but not Wilf or its polynomial margin.",
+        "General sufficient criterion e>=multiplicity/2 from Sammartano (2011) is inapplicable to large M with e=O(log M).",
+        "The conductor<=3*multiplicity criterion of Eliahou (2018) is inapplicable to the studied conductor c>=M^2+1 and multiplicity M+1 for M>=24."
+      ],
+      "reasoning": "The 2025 Apéry formula is stronger structural information and the current claim is consciously a deduction using a new bounded-greedy-weight argument; it is NOT independent of or stronger than that Apéry formula. Neither the explicitly published Proth-Wilf special case nor the cited general structural criteria state or automatically conclude the quantified full-parameter bound without the present estimates. This creates a genuine implicit-corollary originality risk.",
+      "searches": [
+        "\"Proth\" \"Wilf\" \"Liu\" \"Xin\" semigroup",
+        "\"Proth numerical semigroups\" \"Wilf's conjecture\" 2026",
+        "https://arxiv.org/html/2306.03459v4 Theorems 5.2-5.3, Proposition 2.7",
+        "https://arxiv.org/abs/1111.1863"
+      ]
+    },
+    "checked_sources": [
+      "Srivastava–Thakkar 2023 arXiv:2311.12462v1 sections 1,2,6",
+      "Liu–Xin–Ye–Yin arXiv:2306.03459v4 Proposition 2.7 and section 5",
+      "Sammartano arXiv:1111.1863 abstract, condition inapplicable",
+      "Eliahou JEMS 20 (2018) theorem abstract c<=3 multiplicity, condition inapplicable",
+      "Published records on multiplicity-five Wilf estimates and prime-multiplicity Kunz-layer estimates; neither involves arbitrary Proth generators"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 Theorem 6.1 is restricted to m=2^r+1.",
+        "The 2025 Apéry representatives and genus formula hold for arbitrary odd m, and permit (but do not themselves state) the simple coefficient and conductor inequalities proved here."
+      ],
+      "reasoning": "The full-family inequality is not a rewording of the special-family theorem. It is a consequence of published general Apéry data plus additional estimates established in the present proof. The proximity of those estimates to published formulas is disclosed as a nontrivial risk; the proof does not claim a new Apéry computation, genus formula, or independence from prior work.",
+      "searches": [
+        "https://arxiv.org/html/2311.12462v1 Theorem 6.1",
+        "https://arxiv.org/html/2306.03459v4 Theorems 5.2 and 5.3",
+        "\"Proth\" \"Wilf\" \"all\" \"semigroups\" 2025"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wilf is equivalent to e(c-g)-c>=0 since the number of nongaps below conductor is c-g.",
+        "Theorem 6.1 (2023) proves the special family m=2^r+1 and no all-m quantitative bound."
+      ],
+      "reasoning": "The direct equivalents Wilf number, left-element count, conductor/genus inequality and all-odd-parameter family were compared. The published special-family Wilf theorem cannot imply the all-m statement: it does not include odd m outside m=2^r+1.",
+      "searches": [
+        "\"Proth numerical semigroups\" \"Wilf\" arbitrary k 2025 2026",
+        "\"Proth\" \"Wilf's conjecture\" \"odd\" 2025 numerical semigroup",
+        "All Proth numerical semigroups satisfy Wilf's conjecture P_m(n) arbitrary odd m via Apéry greedy genus",
+        "https://arxiv.org/html/2311.12462v1 §§1,6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical-results searches returned general Wilf and semigroup records but no exact all-odd-m Wilf-margin polynomial.",
+        "Theorem 5.3 of arXiv:2306.03459v4 records genus as a greedy-digit sum rather than tabulating the present bound."
+      ],
+      "reasoning": "No exact theorem or tabulated all-m margin was located. No database absence or search result is treated as a proof of novelty.",
+      "searches": [
+        "Proth numerical semigroups exact genus P_{2^r+1}(n) Apéry 2023 Srivastava Thakkar formula",
+        "Frobenius genus of Proth numerical semigroup k 2^n+1 exact gaps Apery set",
+        "\"Proth numerical semigroups\" \"Wilf\" arbitrary k 2025 2026"
+      ]
+    },
+    "rationale": "The original 2023 Proth Wilf theorem concerns only m=2^r+1; the 2025 arbitrary-m paper gives stronger structural formulas but does not state the uniform Wilf margin. The all-odd-m quantified positivity inequality is derived by new explicit greedy-digit and conductor estimates. The principal residual risk is that this short inequality is an implicit or unindexed corollary of prior work.",
+    "residual_risks": [
+      "Published exact Apéry/genus formulas mathematically facilitate the new inequality: independent assessors may consider it already an implicit simple corollary.",
+      "Automated and indexed literature coverage is non-exhaustive; a not-found search is not a proof of global originality.",
+      "Other sources not inspected in full may contain equivalent all-parameter Wilf results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 2.3 confirms e=n+r+1 for all odd parameters; Theorem 6.1 establishes Wilf only for m=2^r+1.",
+        "evidence": [
+          "Theorem 2.3, lines 112-117",
+          "Theorem 6.1, lines 431-462"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2311.12462v1",
+        "material_read": "Full-text Introduction, Theorems 2.2-2.3 in section 2 and Theorem 6.1 with proof and conclusion in section 6",
+        "method": "Open-access arXiv HTML, statement-by-statement mathematical comparison",
+        "title": "The Frobenius Problem for the Proth Numbers",
+        "trigger": "Closest exact-object Wilf theorem and all-parameter embedding dimension"
+      },
+      {
+        "assessment": "Provides exact all-odd-m Apéry/genus formulas used here; does not state the all-m Wilf inequality. The bound is a consequential new deduction if not previously recorded elsewhere.",
+        "evidence": [
+          "Proposition 2.7, lines 222-239",
+          "Theorems 5.2-5.3, lines 599-630",
+          "No occurrences of “Wilf” in arXiv HTML v4"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2306.03459v4",
+        "material_read": "Introduction; Proposition 2.7; full section 5 discussion including Theorems 5.2-5.5 and Table 1",
+        "method": "Open-access arXiv HTML, full relevant section and formula checking against proof",
+        "title": "On the Frobenius Number and Genus of a Collection of Semigroups Generalizing Repunit Numerical Semigroups",
+        "trigger": "Exact general Proth Apéry/genus formulas potentially subsume the claim"
+      },
+      {
+        "assessment": "Criterion 2e>=multiplicity cannot cover all Proth n,m because e=n+r+1 grows only linearly in n while multiplicity M+1 grows exponentially.",
+        "evidence": [
+          "arXiv:1111.1863 abstract gives 2e>=multiplicity criterion"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1111.1863",
+        "material_read": "ArXiv abstract and hypotheses of reported sufficient theorem",
+        "method": "Parameter comparison with statement",
+        "title": "Numerical semigroups with large embedding dimension satisfy Wilf's conjecture",
+        "trigger": "Potential stronger general Wilf criterion covering Proth"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ef9498e0-4b77-423e-ae0e-ddb871e6a497",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The explicit strictly positive polynomial Wilf margin addresses a natural stated arithmetic inequality for the entire odd-parameter Proth family beyond the special 2^r+1 theorem. It supplies a quantitative all-parameter assertion without assuming exact Frobenius maximization, and is a motivated infinite-family extension of the 2023 Wilf result. It does not claim a general resolution of Wilf or a new genus formula; its simplicity and dependence on established Apéry data are acknowledged.",
+    "status": "PASS"
+  }
+}
