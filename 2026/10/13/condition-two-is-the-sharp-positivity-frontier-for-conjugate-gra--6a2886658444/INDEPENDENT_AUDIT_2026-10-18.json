@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T07:58:00.069258Z",
+  "axes": {
+    "correctness": {
+      "rationale": "CG residual p_k is the normalized degree-k orthogonal polynomial for the positive b_i^2 spectral measure. Ritz zeros in [mu,L] give |1-lambda/theta|<=1 when L<=2mu and hence |p_k(lambda)|<=1; x_{k,i}=b_i/lambda_i*(1-p_k(lambda_i))>=0. At convergence residual zero. Two-mode systems converge within two steps. For kappa>2, diag(1,kappa/2,kappa), b=(1,1,eps) has p2(kappa)->kappa-1>1 and negative third coordinate for small eps. Identical exact-line-search Broyden iterates follow a cited existing CG equivalence. Independent rational recurrence reproduced the kappa=4 negative second iterate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Standard CG finite termination and polynomial roots imply the 2D observation but do not themselves state the dimension-free positivity frontier.",
+          "Published Broyden equivalence covers algorithm transfer, not the positivity premise."
+        ],
+        "reasoning": "A general previously proved positive-cone theorem for every positive diagonal Krylov projection would dominate, but inspected theory and nearest published same-family records lack that implication.",
+        "searches": [
+          "Conjugate gradient exact-line-search BFGS positive diagonal SPD nonnegative iterates condition number two sharp sign loss second iterate Ritz polynomial",
+          "Resultary/2026@main:2026/10/4/SCOPE-three-dimensions-are-minimal-for-positivity-loss-in-conjugate-gr--a3e3bd9186a5/RESULT.md",
+          "Resultary/2026@main:2026/10/4/SCOPE-condition-two-is-the-sharp-second-iterate-positivity-frontier-fo--16f98e7689a7/RESULT.md",
+          "arXiv:1407.1268"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1407.1268",
+        "Resultary/2026@main:2026/10/4/SCOPE-three-dimensions-are-minimal-for-positivity-loss-in-conjugate-gr--a3e3bd9186a5/RESULT.md",
+        "Resultary/2026@main:2026/10/4/SCOPE-condition-two-is-the-sharp-second-iterate-positivity-frontier-fo--16f98e7689a7/RESULT.md",
+        "DOI:10.1007/s10589-014-9677-5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "CG 3D minimality is ALREADY COVERED by the cited prior CG Stieltjes finding and is not independently novel.",
+          "Steepest-descent kappa=2 is about a different polynomial and only its second step; CG kappa=2 all steps still requires Ritz-root argument.",
+          "The Broyden extension is a direct corollary of the new CG theorem and the prior equivalence, not separate original work."
+        ],
+        "reasoning": "Accepted claim is the all-iterate sharp diagonal CG safety theorem, not older minimal-dimension lemma or algorithm equivalence.",
+        "searches": [
+          "Resultary/2026@main:2026/10/4/SCOPE-three-dimensions-are-minimal-for-positivity-loss-in-conjugate-gr--a3e3bd9186a5/RESULT.md",
+          "Resultary/2026@main:2026/10/4/SCOPE-condition-two-is-the-sharp-second-iterate-positivity-frontier-fo--16f98e7689a7/RESULT.md",
+          "arXiv:1407.1268",
+          "Conjugate gradient exact-line-search BFGS positive diagonal SPD nonnegative iterates condition number two sharp sign loss second iterate Ritz polynomial"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "CG Stieltjes published finding proves 3D minimality but no uniform diagonal kappa=2 all-iterate theorem; steepest descent result uses repeated Rayleigh steps, not orthogonal-polynomial CG residuals.",
+          "Forsgren–Odland describes CG-parallel Broyden search directions under exact line search, without sign/orthant claims."
+        ],
+        "reasoning": "Searches included Ritz-polynomial, positivity, BFGS and diagonal CG aliases; neither a nonlinear-cone nor linear-system reformulation in inspected sources states the whole CG invariant.",
+        "searches": [
+          "Conjugate gradient exact-line-search BFGS positive diagonal SPD nonnegative iterates condition number two sharp sign loss second iterate Ritz polynomial",
+          "Resultary/2026@main:2026/10/4/SCOPE-three-dimensions-are-minimal-for-positivity-loss-in-conjugate-gr--a3e3bd9186a5/RESULT.md",
+          "Resultary/2026@main:2026/10/4/SCOPE-condition-two-is-the-sharp-second-iterate-positivity-frontier-fo--16f98e7689a7/RESULT.md",
+          "arXiv:1407.1268"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published steepest-descent result uses the same diagonal 3D spectral family but with a distinct recurrence; its table is not a CG rank/sign table.",
+          "The CG Stieltjes finding provides a distinct 3D tridiagonal numerical witness without the sharp diagonal spectral frontier."
+        ],
+        "reasoning": "No exact table of all-iterate CG orthant positivity or sharp kappa=2 diagonal boundary was found. A known same-number threshold for a different algorithm is not coverage.",
+        "searches": [
+          "Conjugate gradient exact-line-search BFGS positive diagonal SPD nonnegative iterates condition number two sharp sign loss second iterate Ritz polynomial",
+          "Resultary/2026@main:2026/10/4/SCOPE-condition-two-is-the-sharp-second-iterate-positivity-frontier-fo--16f98e7689a7/RESULT.md",
+          "Resultary/2026@main:2026/10/4/SCOPE-three-dimensions-are-minimal-for-positivity-loss-in-conjugate-gr--a3e3bd9186a5/RESULT.md"
+        ]
+      },
+      "rationale": "Neither the published 3D CG Stieltjes sign-loss construction nor the steepest-descent condition-two theorem covers the all-iterate positivity theorem for diagonal CG; the CG–Broyden equivalence transfers the property but does not imply positivity. The exact orthogonal-polynomial sign certificate and universal sharp condition-number frontier survive source/implication comparison.",
+      "residual_risks": [
+        "Unindexed orthogonal-polynomial positivity theorem may encode the same sharp CG consequence.",
+        "Two-dimensional minimum and quasi-Newton transfer are already derivable from known results and not separately original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS algorithm equivalence only; does not itself establish coordinate sign criterion",
+          "evidence": "Broyden update directions parallel to CG in well-defined exact-line-search setting; positivity nowhere assumed.",
+          "identifier_or_url": "arXiv:1407.1268",
+          "material_read": "PDF introduction, CG Krylov and finite-termination framework, and section on exact-line-search directions parallel to CG",
+          "method": "Read relevant original mathematical statements and compared their hypotheses to positivity assertion",
+          "title": "On the connection between the conjugate gradient method and quasi-Newton methods on quadratic problems",
+          "trigger": "Directly determines claimed Broyden/BFGS transfer"
+        },
+        {
+          "assessment": "PARTIALLY COVERS minimal dimension, NOT all-diagonal all-step kappa2 guarantee",
+          "evidence": "Its condition a>4 belongs to a fixed tridiagonal Stieltjes family; it does not prove diagonal uniform kappa<=2.",
+          "identifier_or_url": "Resultary/2026@main:2026/10/4/SCOPE-three-dimensions-are-minimal-for-positivity-loss-in-conjugate-gr--a3e3bd9186a5/RESULT.md",
+          "material_read": "Complete RESULT.md Finding, Proof, Relationship to prior work and Limitations",
+          "method": "Read complete GitHub prior source, compared matrix class, quantifiers and boundary",
+          "title": "Three dimensions are minimal for positivity loss in conjugate gradients on Stieltjes systems",
+          "trigger": "Potentially dominating same-algorithm theorem"
+        },
+        {
+          "assessment": "NOT IMPLICATION-EQUIVALENT",
+          "evidence": "Exact-line-search steepest-descent recurrence differs from CG conjugate direction recurrence; prior statement restricts second iterate.",
+          "identifier_or_url": "Resultary/2026@main:2026/10/4/SCOPE-condition-two-is-the-sharp-second-iterate-positivity-frontier-fo--16f98e7689a7/RESULT.md",
+          "material_read": "Complete RESULT.md theorem, proof, verification and limitations",
+          "method": "Compared residual polynomials and iteration indices",
+          "title": "Condition two is the sharp second-iterate positivity frontier for steepest descent",
+          "trigger": "Same numeric frontier and explicit 3D spectral family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Coordinatewise positivity is a natural feasibility invariant for iterative solvers with nonnegative solutions, not controlled by standard CG energy-norm convergence. A dimension-free all-step safe region plus the minimal dimension and iteration of failure gives a sharp structural boundary usable when selecting unsafeguarded CG/BFGS on nonnegative diagonal problems.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE-Science/SCOPE2026@40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/condition-two-is-the-sharp-positivity-frontier-for-conjugate-gra--6a2886658444 (tree c8a78c20e0ff0cf1c4bc2a188507c0af24e8a26e)",
+    "AUDIT.json:83a30f535a2f43daa2501b0d8675cb071f99a826",
+    "METADATA.json:8e086dbd87a96d4c1b6e36b0ddfac501247880f6",
+    "RESULT.md:daa6d9bca1a0a89f583e9f189255cd873bfb30ab",
+    "REVIEW.md:1d0b8f4e8f828f0342c9bacec7bc18ed7ee9124e",
+    "SLOGAN.txt:314bd0d22eec4dc92874260feeeeea58434cf410",
+    "VERIFICATION.md:19cf7ef3fcfb29c12bfb9d76ea1ca7be74bbd302",
+    "verify.py:739f4687a1540e76154b204a74d0832a0ad1235a",
+    "arXiv:1407.1268",
+    "Resultary/2026@main:2026/10/4/SCOPE-three-dimensions-are-minimal-for-positivity-loss-in-conjugate-gr--a3e3bd9186a5/RESULT.md",
+    "Resultary/2026@main:2026/10/4/SCOPE-condition-two-is-the-sharp-second-iterate-positivity-frontier-fo--16f98e7689a7/RESULT.md",
+    "DOI:10.1007/s10589-014-9677-5"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Exact arithmetic; positive diagonal in tested coordinate basis, zero start and b>=0; does not extend unchanged to general SPD basis or finite precision.",
+    "Unindexed orthogonal-polynomial positivity theorem may encode the same sharp CG consequence.",
+    "Two-dimensional minimum and quasi-Newton transfer are already derivable from known results and not separately original."
+  ]
+}

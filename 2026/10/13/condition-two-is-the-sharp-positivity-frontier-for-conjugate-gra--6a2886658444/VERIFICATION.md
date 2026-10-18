@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,28 +18,25 @@
   "schema_version": 1
 }
 ---
-The all-dimensional proof is analytic.
 
-For active diagonal data, CG gives
-\[
-r_k=p_k(A)b,
-\qquad
-p_k(0)=1,
-\]
-and residual orthogonality makes \(p_k\) the degree-\(k\) orthogonal polynomial for the positive spectral measure \(\sum_i b_i^2\delta_{\lambda_i}\). Its roots are Ritz values in the active spectral interval, so when \(\kappa\le2\) every factor \(1-\lambda_i/\theta_j\) lies in \([-1,1]\). This gives \(|p_k(\lambda_i)|\le1\) and hence coordinatewise nonnegativity.
+# Independent mathematical audit
 
-Sharpness uses the three-mode family
-\[
-A_\kappa=\operatorname{diag}(1,\kappa/2,\kappa),
-\qquad
-b_\varepsilon=(1,1,\varepsilon)^{\mathsf T}.
-\]
-As \(\varepsilon\downarrow0\), its degree-two CG residual polynomial converges to
-\[
-(1-\lambda)(1-2\lambda/\kappa),
-\]
-whose value at the high mode is \(\kappa-1>1\) when \(\kappa>2\).
+## correctness
 
-The embedded `verify.py` uses exact rational arithmetic. It replays the explicit \(\kappa=4\) three-dimensional counterexample and a two-dimensional exact-termination example. Those finite checks corroborate displayed witnesses only.
+PASS
 
-Unproved limits include nondiagonal systems, finite-precision loss of CG orthogonality, nonzero starting points, inexact line search, and quasi-Newton updates outside the stated identical-iterate setting.
+CG residual p_k is the normalized degree-k orthogonal polynomial for the positive b_i^2 spectral measure. Ritz zeros in [mu,L] give |1-lambda/theta|<=1 when L<=2mu and hence |p_k(lambda)|<=1; x_{k,i}=b_i/lambda_i*(1-p_k(lambda_i))>=0. At convergence residual zero. Two-mode systems converge within two steps. For kappa>2, diag(1,kappa/2,kappa), b=(1,1,eps) has p2(kappa)->kappa-1>1 and negative third coordinate for small eps. Identical exact-line-search Broyden iterates follow a cited existing CG equivalence. Independent rational recurrence reproduced the kappa=4 negative second iterate.
+
+## originality
+
+PASS
+
+Neither the published 3D CG Stieltjes sign-loss construction nor the steepest-descent condition-two theorem covers the all-iterate positivity theorem for diagonal CG; the CG–Broyden equivalence transfers the property but does not imply positivity. The exact orthogonal-polynomial sign certificate and universal sharp condition-number frontier survive source/implication comparison.
+
+## value
+
+PASS
+
+Coordinatewise positivity is a natural feasibility invariant for iterative solvers with nonnegative solutions, not controlled by standard CG energy-norm convergence. A dimension-free all-step safe region plus the minimal dimension and iteration of failure gives a sharp structural boundary usable when selecting unsafeguarded CG/BFGS on nonnegative diagonal problems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
