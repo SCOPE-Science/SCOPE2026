@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "For every integer \\(m\\ge4\\) and gain \\(\\kappa>0\\), the grounded Laplacian is SPD. Its block inverse trace is \\(F_i=s_A+s_B+(s_Bt_A+s_At_B)/(1-s_As_B)\\). All three differences \\(F_2-F_0\\), \\(F_0-F_1\\), \\(F_2-F_1\\) have explicitly displayed polynomial numerators and positive denominators. For \\(4\\le m\\le10\\) the polynomial signs and ordered exact rational root brackets yield every claimed interval and transition tie; for \\(m\\ge11\\) \\(P_{01}\\) is everywhere positive (coefficient/discriminant proof), and \\(P_{21}\\) has exactly one positive root (Descartes rule and endpoint signs). No unproved root ordering or finite enumeration is needed. A package-local exact-rational inverter independently checks 81 direct matrix traces and 96 parameter pairs for cleared-denominator identities. These tests are supplementary, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1302.0450 §III supplies convex relaxation and greedy/ADMM algorithms on arbitrary connected networks, not an explicit parametric global minimizer on this family.",
+        "arXiv:1708.06873 §IV states explicit graph solutions for paths, cycles, and certain trees; its introduction enumerates them, while its general resistance formula applies to other graphs without resolving their optimizer.",
+        "arXiv:1407.1569 §V confines finite-gain exact joint-centrality theorems to one or two leaders."
+      ],
+      "reasoning": "The general optimization problems cover the same graph and leader count as input but provide algorithms or objective identities, not a statement that implies the exact rational thresholds and nonmonotone all-m phase diagram. No published stronger graph-uniform theorem settling these minimizers was identified. Coverage of the objective alone is not coverage of the optimizer classification.",
+      "searches": [
+        "graph grounded Laplacian trace inverse complete bipartite 4 leaders exact gain thresholds",
+        "optimal leader selection complete bipartite network noisy consensus coherence pinning leaders",
+        "Algorithms for leader selection stochastically forced consensus networks arxiv:1302.0450",
+        "A Resistance Distance-Based Approach optimal leader selection arxiv:1708.06873"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1302.0450 (Lin--Fardad--Jovanović, first posted 2013-02-03)",
+      "arXiv:1407.1569 (Fitch--Leonard, first posted 2014-07-07)",
+      "arXiv:1708.06873 (Patterson--Yi--Zhang, first posted 2017-08-23)",
+      "Public summary of exact fragile-sensor placement on complete multipartite graphs (different reliability objective)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lin et al. identify general Boolean combinatorial constraints, not exact graph-parameter phase boundaries.",
+        "Fitch--Leonard theorem on finite-gain joint centrality takes precisely two leaders, whereas the claim fixes four.",
+        "Patterson--Yi--Zhang §IV optimizes two noisy leaders on cycles and noise-free leaders on certain paths and trees, not four noisy leaders on \\(K_{2,m}\\)."
+      ],
+      "reasoning": "The new theorem is not inferred from a previously stated special case or a previously stated stronger optimal design: the published general identities determine numerical objective values after choosing leaders but do not already compare all three possible counts for every m and kappa. The exact exception sizes \\(m=9,10\\) require an additional algebraic sign proof. Residual uncertainty about unlocated equivalent work is retained.",
+      "searches": [
+        "four noisy leaders complete bipartite graph K_2,m trace inverse Laplacian finite positive gain three phase optimal allocation",
+        "A Resistance Distance-Based Approach for Optimal Leader Selection in Noisy Consensus Networks",
+        "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lin--Fardad--Jovanović arXiv:1302.0450 §II states the trace-of-inverse grounded Laplacian objective for finite-gain noisy leaders.",
+        "Fitch--Leonard arXiv:1407.1569 §§II,V gives the same stochastic noise model and a modified joint-centrality criterion for one and two finite-gain leaders.",
+        "Patterson--Yi--Zhang arXiv:1708.06873 §§II-IV gives electrical-resistance versions of noisy leader coherence."
+      ],
+      "reasoning": "Stationary trace of a grounded inverse, H2 coherence, noisy leader selection and absolute-measurement sensor placement were compared as mathematically equivalent objectives under matching noise normalization. These generic equivalent formulations have no stated four-leader \\(K_{2,m}\\) winner-count transitions or all-size exception list in the inspected explicit theorems. The new claim does not assert novelty for the trace objective or block inversion alone.",
+      "searches": [
+        "four noisy leaders complete bipartite graph K_2,m trace inverse Laplacian finite positive gain three phase optimal allocation",
+        "modified joint centrality complete bipartite graph finite gain four node leader selection stationary variance",
+        "finite gain noisy leader selection graph topology complete bipartite optimal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest surfaced complete-multipartite sensor result treats failure reliability and discrete monitoring, not noisy consensus stationary covariance.",
+        "arXiv:1302.0450 numerical examples concern generic networks; no table of exact four-leader \\(K_{2,m}\\) transition roots appears in the inspected sections."
+      ],
+      "reasoning": "No exact published table containing these rational difference polynomials, transition algebraic numbers, or the complete m-size classification was located. Absence of a search hit alone does not establish novelty; the claim is compared substantively against the principal objective and specialized optimization literature.",
+      "searches": [
+        "K2m bipartite graph optimal leader pinning finite gains 4 leaders trace inverse",
+        "pinning leader selection complete bipartite K_{2,n} four leaders gain reentrant 2 0 1 partition",
+        "complete bipartite graphs leader selection H2 coherence four noisy leaders"
+      ]
+    },
+    "rationale": "Prior work establishes the finite-gain grounded-Laplacian inverse-trace objective and broad algorithms, but inspected sources do not state the exact all-integer four-leader \\(K_{2,m}\\) phase classification. The result is not an isolated numerical example: it separates three regimes at exactly \\(m=9,10\\), two regimes at \\(m=7,8\\) and \\(m\\ge11\\), and one regime at \\(m=4,5,6\\) with provable algebraic transitions. Existing generic formulas reduce computation to an optimization objective but do not imply the sign comparison and size classification without new deductions. Historical priority is not certified.",
+    "residual_risks": [
+      "A historically equivalent fixed-four-leader complete-bipartite phase theorem may be unlocated; database and web search are not proofs of novelty.",
+      "The earlier 2011 conference version by Lin, Fardad, and Jovanović was not obtained at the attempted public PDF link; the extended 2013 open preprint was materially inspected.",
+      "No independent proof review or historical-priority assessment is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_OBJECTIVE_NOT_OPTIMAL_PHASE_CLASSIFICATION",
+        "evidence": "arXiv:1302.0450 pp.1-6 and appendix on sensor equivalence; LS1 objective and algorithmic relaxations, with no exact \\(K_{2,m}\\) four-leader phase theorem found.",
+        "identifier_or_url": "https://arxiv.org/pdf/1302.0450",
+        "material_read": "PDF abstract, Introduction, problem formulation and trace-inverse objective in §§I-II, algorithm statements and selected appendix material; text searched for bipartite graph coverage",
+        "method": "Public open-access PDF section reading and in-document phrase searches",
+        "title": "Algorithms for Leader Selection in Stochastically Forced Consensus Networks",
+        "trigger": "Same objective, same finite-gain noisy leader model, arbitrary graphs and leader counts"
+      },
+      {
+        "assessment": "TWO_FINITE_GAIN_LEADERS_NOT_FOUR",
+        "evidence": "arXiv:1407.1569 §V Theorem 2 formulates noise-corrupted joint centrality for two leaders; explicit specializations are cycles/paths; no four-leader bipartite classification.",
+        "identifier_or_url": "https://arxiv.org/pdf/1407.1569",
+        "material_read": "PDF abstract, Introduction, model, §V two-leader finite-gain theorem and special graph optimizers, concluding overview, and relevant appendix; searched complete bipartite graph references",
+        "method": "Public open-access PDF targeted full-section reading, document-wide relevant phrase search",
+        "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+        "trigger": "Finite gain, stochastic tracking objective, and possible many-leader joint-centrality reduction"
+      },
+      {
+        "assessment": "GENERAL_NOISY_COHERENCE_FORMULA_WITH_OTHER_EXPLICIT_CLASSES",
+        "evidence": "arXiv:1708.06873 Introduction lists special solutions for cycles, paths, and trees; §IV includes no explicit four-noisy-leader \\(K_{2,m}\\) threshold theorem.",
+        "identifier_or_url": "https://arxiv.org/pdf/1708.06873",
+        "material_read": "PDF abstract, §§I-II and §IV stated special-class graph optimizers, and relevant tree appendices; document searched for complete bipartite specialization",
+        "method": "Public open-access PDF targeted section reading and full-document searches",
+        "title": "A Resistance Distance-Based Approach for Optimal Leader Selection in Noisy Consensus Networks",
+        "trigger": "General noisy leader resistance formulas may dominate a graph-specific optimization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5b299daa-2230-4c4e-b465-6aa6c541fcf7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The problem is a natural finite-gain sensor/leader allocation on the smallest nonsymmetric complete bipartite family with three leader-orbit possibilities. A full exact integer-size and positive-gain phase diagram supplies quantitative design choices and all degeneracies. The exceptional 2-to-0-to-1 transition at precisely \\(m=9,10\\) is structurally counterintuitive; proving its isolation for an infinite family is a non-routine optimization boundary, beyond calculating a known inverse or listing a few cases.",
+    "status": "PASS"
+  }
+}
