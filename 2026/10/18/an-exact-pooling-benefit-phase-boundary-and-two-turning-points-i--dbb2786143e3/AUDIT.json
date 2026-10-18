@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Direct beta integral gives exact pool-negative probability; first differences factor through H_k-1 and H consecutive ratios have linear sign 2beta+(1-alpha)k. F consecutive ratios have sign beta+(1-alpha)k. Gamma-ratio asymptotics prove the boundary cases alpha<=1, and integer monotonicity gives exact maximum at K for alpha>1. Exact rational H4,H5,H28,H29 prove two crossings in the beta(3/2,5/2) witness and C5<1. check_exact.py independently sums beta-binomial masses and tests 14,520 rational identities; finite checks are not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Landolfi–Lall 2023, pp.1–5,13–16, optimize generic partitions by integer-partition methods rather than proving beta-dependent cost shape.",
+        "Basso et al. 2021, Proposition 2 and Appendix B establish a comparison with binomial optimal pool sizes and partial binomial unimodality, without the all-integer beta turn-count theorem in the read material."
+      ],
+      "reasoning": "Generic algorithms can numerically find the optimal pool under a specified bounded population, but do not imply an explicit beta parameter phase boundary or structural theorem with at most two turns without supplementary analysis. Basso gives the closest specialized quantitative model. Remaining possibility of an uninspected equivalent derivation is disclosed.",
+      "searches": [
+        "\"Optimal Dorfman Group Testing for Symmetric Distributions\" full text",
+        "\"The effect of correlation and false negatives in pool testing strategies for COVID-19\" full text",
+        "\"beta-binomial\" \"group testing\" \"optimal pool\" \"unimodal\""
+      ]
+    },
+    "checked_sources": [
+      "DOI 10.1111/j.1541-0420.2011.01674.x (2011 online abstract, indexed portions)",
+      "DOI 10.1007/s10729-021-09578-w (2021 full PDF relevant sections)",
+      "arXiv:2308.11050 (2023 full PDF relevant sections)",
+      "arXiv:2111.07517 (2021 full PDF relevant sections)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Basso 2021 Proposition 1: correlated pooled testing uses no more tests than independent model under suitable testing accuracy; Proposition 2: beta-binomial optimal pool is at least as large as binomial under perfect testing.",
+        "Lendle et al. 2011 abstract and publicly indexed manuscript portions concern dependence and expected efficiency; full text retrieval remained unavailable.",
+        "The new witness has exact first-difference signs H4<1<H5 and H28>1>H29, giving a nonunimodal all-integer cost sequence."
+      ],
+      "reasoning": "Neither a dependence-efficiency comparison nor a general optimal-partition algorithm entails that the pool-size cost sequence has exactly two sign reversals or gives a one-parameter pooling feasibility boundary. The nontrivial numerical witness and universal crossing bound are additional statements; specialist mathematical literature could still dominate them.",
+      "searches": [
+        "Group Testing for Case Identification with Correlated Responses, DOI 10.1111/j.1541-0420.2011.01674.x",
+        "\"beta binomial\" \"Dorfman\" \"pool size\" monotonicity optimal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Basso et al., DOI 10.1007/s10729-021-09578-w, Section 3 and Appendix A model beta-binomial negative pools.",
+        "Landolfi–Lall arXiv:2308.11050 Section 2 and Section 4 treat general exchangeable screening and partition optimization."
+      ],
+      "reasoning": "The natural aliases are beta-binomial, hierarchical two-stage testing, exchangeable/Dorfman screening, and latent beta mixture. The known equivalence of cost formulas is expressly excluded from novelty; the new structural sign law and global phase boundary are not reported in inspected specific comparisons.",
+      "searches": [
+        "\"beta binomial\" \"Dorfman\" \"pool size\" monotonicity optimal",
+        "\"beta-binomial\" \"group testing\" \"optimal pool\" \"unimodal\"",
+        "\"exchangeable\" \"Dorfman\" \"non-unimodal\" pool size"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Basso et al. 2021 Table 1 reports numerically optimized practical capped pooling sizes, not an exact classification for all integer sizes."
+      ],
+      "reasoning": "Neither the actual database comparisons nor the specialized tabulations inspected provided the stated exact full-domain phase boundary and rational witness. Search non-detection alone is not treated as novelty proof.",
+      "searches": [
+        "\"beta binomial\" \"Dorfman\" \"pool size\" monotonicity optimal"
+      ]
+    },
+    "rationale": "Lendle et al. 2011 treats correlated case identification; Basso et al. 2021 derives precisely the beta-binomial pool efficiency and compares optimal pool size against the independent model, including Propositions 1 and 2; Landolfi and Lall 2023 treats arbitrary exchangeable partitions algorithmically. The present additional claim is the all-integer beta-shape pooling-benefit criterion, exact sign-sequence classification and attained double-turn example, not the known cost formula or generic partition algorithm. The checked sections did not state or imply the complete double-turn classification, though inaccessible full text and undiscovered specialists remain risks.",
+    "residual_risks": [
+      "Lendle et al. 2010 technical report was publicly listed with month only and 2011 journal full text was not accessible, so an equivalent derivation might be contained therein.",
+      "An unlocated statistics/diagnostics paper could already establish the beta-specific sign-ratio and phase boundary.",
+      "Scope is equal-size unbounded ideal pools, whereas practical test reliability and allowed sizes differ."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST: same probability model and finite/capped numerical optimization; inspected passages do not establish claimed global two-turn classification",
+        "evidence": "DOI 10.1007/s10729-021-09578-w; PDF §§3–4 and Appendix A–B",
+        "identifier_or_url": "https://link.springer.com/content/pdf/10.1007/s10729-021-09578-w.pdf",
+        "material_read": "PDF, Section 3 model and pool cost, Section 4 optimization, Appendix A-B portions including Proposition 1-2 and Lemma 6",
+        "method": "full-text PDF text, cited relevant lines and equations",
+        "title": "The effect of correlation and false negatives in pool testing strategies for COVID-19",
+        "trigger": "Identical beta-binomial model and optimal pool-size question"
+      },
+      {
+        "assessment": "Generic partition algorithm is broader in model class, but exact beta shape cost-turn theorem is not among inspected results",
+        "evidence": "arXiv:2308.11050 Sections 1–2,4–5",
+        "identifier_or_url": "https://arxiv.org/pdf/2308.11050",
+        "material_read": "PDF pages 1–5 and 13–16, model, contributions and application/results",
+        "method": "public arXiv full-text inspection",
+        "title": "Optimal Dorfman Group Testing for Symmetric Distributions",
+        "trigger": "Stronger coverage via general exchangeable partition optimization"
+      },
+      {
+        "assessment": "Cannot certify full document not covering; residual risk retained",
+        "evidence": "PMID 21950447; DOI 10.1111/j.1541-0420.2011.01674.x; UNC technical report dated October 2010 at month granularity",
+        "identifier_or_url": "https://doi.org/10.1111/j.1541-0420.2011.01674.x",
+        "material_read": "Public abstract and indexed introduction passages; complete manuscript inaccessible",
+        "method": "PubMed, publisher abstract, openly indexed PMC snippets and institution preprint page; attempted legitimate download; no full text obtained",
+        "title": "Group Testing for Case Identification with Correlated Responses",
+        "trigger": "Early correlated group medical screening and possible antecedent"
+      },
+      {
+        "assessment": "Different concentration-dependent error model; emphasizes practical limits, does not imply idealized all-integer beta shape law",
+        "evidence": "arXiv:2111.07517 Section 1–2",
+        "identifier_or_url": "https://arxiv.org/pdf/2111.07517",
+        "material_read": "PDF pages 1–5, assumptions, contributions, dilution discussion",
+        "method": "public arXiv full-text inspection",
+        "title": "Correlation Improves Group Testing: Modeling Concentration-Dependent Test Errors",
+        "trigger": "Clinical sensitivity/dilution could limit significance or imply stronger statement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dbb27861-43e3-4797-8f5f-e6525489be34",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Whether correlated specimen pooling saves scarce infectious-disease screening tests is a genuine medical resource question. A single-integer feasibility test for the beta regime and a proof that cost can turn down-up-down warn against assuming global unimodality. The exact witness uses small rational shape parameters and pool size five for its unique global optimum; no arbitrary numeric subcase is needed for the universal theorem.",
+    "status": "PASS"
+  }
+}

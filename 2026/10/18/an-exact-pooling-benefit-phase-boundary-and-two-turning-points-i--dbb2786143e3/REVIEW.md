@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness: PASS.** Under the explicitly stated common beta latent prevalence and independent conditional infection statuses, the pool-negative probability and expected tests per specimen follow by beta integration. Two rational adjacent-ratio identities determine the global savings phase and permit at most two turning points. The finite witness's exact fractions were checked independently by summing beta-binomial probabilities. The proof treats all positive real shape parameters and all integer pool sizes, distinguishes individual testing from a size-one redundant pooled test, and uses the asymptotic \(Q_k\sim Ck^{-\alpha}\) only for the tail. Limitation: no real-world assay error or pool-size cap.
+
+**Originality: PASS, subject to the recorded bibliographic risk.** Lendle–Hudgens–Qaqish (2011) analyzes correlated group screening; Basso et al. (2021) already derive the same beta-binomial testing model and compare optimal sizes to an independent model; Landolfi–Lall (2023) provide generic exchangeable integer-partition optimization. The present claim is not the cost formula, the model, or generic search. It is the complete shape-parameter pooling-versus-individual phase test, the sharp two-turn shape classification, and the rational double-turn witness. The inspected primary texts did not directly establish this combined exact result; the 2011 full text was inaccessible at the final check and could conceivably contain equivalent special results. No search alone certifies novelty.
+
+**Value: PASS.** Tests per screened person is the natural scarce-resource objective in medical screening. A sharp criterion can rule pooling in or out without scanning unbounded pool sizes, while the provably possible down–up–down cost sequence shows why unrestricted unimodality assumptions can mislead pooling-size searches. The small rational example makes the obstruction concrete. These structural facts are useful independently of any claim to optimized modern clinical protocols.
+
+Closest prior work: DOI 10.1111/j.1541-0420.2011.01674.x (2011), DOI 10.1007/s10729-021-09578-w (2021), arXiv:2308.11050 (2023). Stronger models allowing dilution or errors require separate analysis. The 2011 manuscript was partly accessible through indexed text but no full PDF was retrieved.
+
+Self-review: passed. Independent audit: not yet performed.
