@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T12:46:16Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/a-three-state-multivariate-p-3-convexity-polynomial-for-block-gr--af818a6c215c/RESULT.md",
+        "https://api.github.com/repos/SCOPE-Science/SCOPE2026/git/trees/fc4063d3f41bdfdbdb40d488fc069ff4852dde95",
+        "/mnt/data/scope09_20261018_1229/source/independent_checks.py"
+      ],
+      "rationale": "For each rooted vertex v, P/Q/R track v omitted with 0/1 selected descendant neighbors or selected. Every child clique block B rooted at v yields L00/L01/L1. When v omitted, the clique may contain at most one selected child: zero case multiplies ∏(P_w+Q_w), one case ∑_w R_w ∏_{u≠w}P_u; when v selected, a mixed selected/omitted set of children violates the P3 constraint, leaving ∏P_w+∏R_w. The given update recurrences enumerate exactly those disjoint cases; induction on the block-incidence forest proves the full multivariate polynomial, and each incidence is processed O(1) times. Independent direct-subset evaluation confirmed windmill formulas for t<=4,m<=4 where bounded, and exact local clique logic was reconstructed; numerical checks do not substitute for induction. Univariate O(n^3) refers to naive coefficient arithmetic, not bit operations.",
+      "residual_risks": [
+        "Expanded multivariate polynomial can have exponentially many monomials; linear bound is circuit arithmetic operations only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Courcelle–Makowsky–Rotics 2001; Golumbic–Rotics 2000"
+        ],
+        "reasoning": "Courcelle–Makowsky–Rotics MSO-counting plus bounded clique-width of distance-hereditary block graphs DOES imply polynomial-time countability, including weighted cardinality specializations. Hence mere tractability is covered, but the concrete positive 3-state linear-size multivariate arithmetic circuit is more specific.",
+        "searches": [
+          "Resultary: block graphs P3 convex sets multivariate generating polynomial 3 state dynamic programming",
+          "arXiv:2603.04706 full text counting P3 convex sets",
+          "Courcelle Makowsky Rotics 2001 bounded clique width MSO counting",
+          "Barbosa Coelho Dourado Rautenbach Szwarcfiter 2012 Carathéodory P3 block graphs"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2603.04706",
+        "https://doi.org/10.1016/S0166-218X(00)00221-3",
+        "https://doi.org/10.1137/110828678",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/a-three-state-multivariate-p-3-convexity-polynomial-for-block-gr--af818a6c215c/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proof in pinned RESULT.md; general MSO-counting metatheorems"
+        ],
+        "reasoning": "No general prior theorem inspected supplies the exact local 3-state positive recurrence with arithmetic O(n) when clique-block forest is given. Qualitative bounded-clique-width polynomial-time counting follows from existing theorems and is explicitly disclaimed.",
+        "searches": [
+          "Resultary: block graphs P3 convex sets multivariate generating polynomial 3 state dynamic programming",
+          "arXiv:2603.04706 full text counting P3 convex sets",
+          "Courcelle Makowsky Rotics 2001 bounded clique width MSO counting",
+          "Barbosa Coelho Dourado Rautenbach Szwarcfiter 2012 Carathéodory P3 block graphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dourado et al. arXiv:2603.04706, tree and threshold sections"
+        ],
+        "reasoning": "P3-convexity is the all-paths-on-three-vertices condition that outside vertices have at most one selected neighbor, not induced-P3 convexity. Existing tree/threshold algorithms have different decomposition schemes; no explicit general block-incidence recurrence was present in the inspected initiating work.",
+        "searches": [
+          "Resultary: block graphs P3 convex sets multivariate generating polynomial 3 state dynamic programming",
+          "arXiv:2603.04706 full text counting P3 convex sets",
+          "Courcelle Makowsky Rotics 2001 bounded clique width MSO counting",
+          "Barbosa Coelho Dourado Rautenbach Szwarcfiter 2012 Carathéodory P3 block graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Barbosa et al. 2012 abstract; Dourado et al. 2026 full paper"
+        ],
+        "reasoning": "Prior block-graph Carathéodory results concern the minimal convex-hull witness parameter rather than the sum of every convex set, and general MSO algorithm statements contain no reported windmill polynomial 1+tm x+x(1+x^m)^t.",
+        "searches": [
+          "Resultary: block graphs P3 convex sets multivariate generating polynomial 3 state dynamic programming",
+          "arXiv:2603.04706 full text counting P3 convex sets",
+          "Courcelle Makowsky Rotics 2001 bounded clique width MSO counting",
+          "Barbosa Coelho Dourado Rautenbach Szwarcfiter 2012 Carathéodory P3 block graphs"
+        ]
+      },
+      "rationale": "The exact statement was compared against the primary literature with special-case implications and pre-existing formulas separated from the contribution. Priority is a bounded best-of-knowledge assessment; see all four explicit comparisons and residual risks. No general prior theorem inspected supplies the exact local 3-state positive recurrence with arithmetic O(n) when clique-block forest is given. Qualitative bounded-clique-width polynomial-time counting follows from existing theorems and is explicitly disclaimed.",
+      "residual_risks": [
+        "Bounded-clique-width MSO meta-theorems preempt any standalone novelty claim for polynomial-time tractability.",
+        "Full text of 2012 P3 block-graph Carathéodory source inaccessible; a hidden related DP may exist.",
+        "Expanded multivariate polynomial can have exponentially many monomials; linear bound is circuit arithmetic operations only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Tree/threshold algorithm not the three-state all-block-graph polynomial recurrence",
+          "evidence": "Sections 2–4; searched full text for block graph",
+          "identifier_or_url": "https://arxiv.org/abs/2603.04706",
+          "material_read": "Full 27-page initiating paper, especially tree algorithm, threshold graph algorithm, and general exponential algorithm sections, visually inspected",
+          "method": "public arXiv full PDF with screenshot",
+          "title": "Counting P3-convex sets in graphs",
+          "trigger": "Same polynomial-related counting problem"
+        },
+        {
+          "assessment": "Covers existence of polynomial-time countability, not concrete three-state circuit",
+          "evidence": "MSO definability plus bounded clique-width",
+          "identifier_or_url": "https://doi.org/10.1016/S0166-218X(00)00221-3",
+          "material_read": "Core metatheorem and bibliographic scope; full-text inspection not established",
+          "method": "published theorem comparison",
+          "title": "On the fixed parameter complexity of graph enumeration problems definable in monadic second-order logic",
+          "trigger": "Broad prior theorem potentially dominating novelty"
+        },
+        {
+          "assessment": "Known Carathéodory-number invariant differs; cannot exclude unindexed recurrence inside",
+          "evidence": "Different hull-witness scalar, not enumerator",
+          "identifier_or_url": "https://doi.org/10.1137/110828678",
+          "material_read": "Publisher abstract and bibliographic scope only; inaccessible primary body",
+          "method": "public publisher abstract",
+          "title": "On the Carathéodory Number for the Convexity of Paths of Order Three",
+          "trigger": "Same P3 convexity on block graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2603.04706",
+        "https://doi.org/10.1016/S0166-218X(00)00221-3",
+        "https://doi.org/10.1137/110828678",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/a-three-state-multivariate-p-3-convexity-polynomial-for-block-gr--af818a6c215c/RESULT.md"
+      ],
+      "rationale": "An explicit positive, local, three-state circuit for a natural convexity enumerator over all block graphs is a constructive combinatorial structure, including weighted and full cardinality counts regardless of unbounded clique sizes. The exact clique-bouquet formula adds a useful family; value is not grounded merely in already known bounded-clique-width tractability.",
+      "residual_risks": [
+        "Expanded multivariate polynomial can have exponentially many monomials; linear bound is circuit arithmetic operations only."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "On all finite block graphs, including disconnected and isolated, the exact multivariate polynomial of vertex subsets with every outside vertex having at most one selected neighbor admits a positive three-state linear-size vertex–clique-block-incidence arithmetic circuit; the windmill K1∨tKm has C(x)=1+tm x+x(1+x^m)^t, with no novelty claimed for qualitative polynomial-time solvability.",
+  "limitations": [
+    "Bounded-clique-width MSO meta-theorems preempt any standalone novelty claim for polynomial-time tractability.",
+    "Full text of 2012 P3 block-graph Carathéodory source inaccessible; a hidden related DP may exist.",
+    "Expanded multivariate polynomial can have exponentially many monomials; linear bound is circuit arithmetic operations only.",
+    "The scientific assessment is completed but publication is not ready; no independence or external certification is invented."
+  ],
+  "schema_version": 1
+}

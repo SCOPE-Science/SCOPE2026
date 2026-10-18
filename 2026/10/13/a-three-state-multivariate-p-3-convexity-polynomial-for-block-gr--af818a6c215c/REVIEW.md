@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-Every omitted vertex is allowed at most one selected neighbor. The block-incidence forest lets different descendant blocks communicate through only one shared vertex. When the parent vertex of a clique block is omitted, exactly zero or one child can be selected. When that parent is selected, either all children are omitted with no selected descendant neighbors, or all are selected. These disjoint cases yield the exact three-state recurrence; combining blocks at an omitted vertex enforces the total neighbor cap. Induction proves the multivariate circuit, with isolated vertices and disconnected components included. Independent direct subset checking verified all 8,368 labeled block graphs of order at most six, 700 larger clique-glued instances, 562 nonuniform weighted evaluations, and 60 explicit clique-bouquet profiles. Finite checks are corroborative only.
+PASS
 
-## Originality: PASS, with access and broader-theorem limitations
+For each rooted vertex v, P/Q/R track v omitted with 0/1 selected descendant neighbors or selected. Every child clique block B rooted at v yields L00/L01/L1. When v omitted, the clique may contain at most one selected child: zero case multiplies ∏(P_w+Q_w), one case ∑_w R_w ∏_{u≠w}P_u; when v selected, a mixed selected/omitted set of children violates the P3 constraint, leaving ∏P_w+∏R_w. The given update recurrences enumerate exactly those disjoint cases; induction on the block-incidence forest proves the full multivariate polynomial, and each incidence is processed O(1) times. Independent direct-subset evaluation confirmed windmill formulas for t<=4,m<=4 where bounded, and exact local clique logic was reconstructed; numerical checks do not substitute for induction. Univariate O(n^3) refers to naive coefficient arithmetic, not bit operations.
 
-The full 2026 initiating paper on \(P_3\)-convex-set counting was read. It gives linear-time algorithms for trees and threshold graphs but does not state the positive three-state block-graph recurrence. The nearest historical papers on the same graph family determine the \(P_3\)-Carathéodory number, a different scalar hull-witness parameter. Full text of the 2012 block-graph paper was inaccessible, so an unadvertised related intermediate identity remains a residual risk.
+## originality
 
-A crucial prior implication is conceded: general monadic-second-order counting on bounded-clique-width graph classes already implies polynomial-time countability on block graphs. Thus **mere polynomial-time solvability is not a novel claim**. The originality assessment concerns the concrete local three-state multivariate arithmetic identity, linear-size positive circuit, and its exact clique-bouquet polynomial. Searches of block-graph and clique-bouquet \(P_3\)-convex polynomial formulations found no such explicit statement.
+PASS
 
-## Value: PASS
+The exact statement was compared against the primary literature with special-case implications and pre-existing formulas separated from the contribution. Priority is a bounded best-of-knowledge assessment; see all four explicit comparisons and residual risks. No general prior theorem inspected supplies the exact local 3-state positive recurrence with arithmetic O(n) when clique-block forest is given. Qualitative bounded-clique-width polynomial-time counting follows from existing theorems and is explicitly disclaimed.
 
-The direct recurrence gives every coefficient of a natural convex-set polynomial, including weighted and cardinality enumerators, on all block graphs regardless of clique size. Its three local states and transparent clique case-split are usable mathematical structure rather than an existential algorithmic metatheorem; the windmill specialization produces a closed two-parameter polynomial and count. The result strengthens the new counting perspective without claiming the general tractability consequence as new.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+An explicit positive, local, three-state circuit for a natural convexity enumerator over all block graphs is a constructive combinatorial structure, including weighted and full cardinality counts regardless of unbounded clique sizes. The exact clique-bouquet formula adds a useful family; value is not grounded merely in already known bounded-clique-width tractability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
