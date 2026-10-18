@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The Dirichlet barycentric Gram matrix and its rank-one inverse give K(x,y)=A(A+1)sum_i x_i y_i/alpha_i−A and exact affine reproduction. The pointwise norm is strictly vertex-maximal by a strict-integral triangle inequality. Each vertex integral reduces to F_A(alpha_i) via a beta tail and truncated first moment. Gamma splitting constructs E[Z_a|Y_b]=Z_b when a<b, and positive probability mass across zero makes Jensen strict. Fixed-budget balanced minimax follows from min_i alpha_i≤A/m. Gamma(a)/a converges to zero in probability and a bounded negative-part argument gives nonattained supremum 1+2A. The beta CLT plus uniformly bounded scaled second moments proves the sqrt(A) prefactor. All finite and limiting quantifiers are explicit; 241 deterministic checker assertions passed, but finite checks are not proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Griffiths–Spanò 2013 provides general Dirichlet orthogonal-polynomial kernels and spectral structures, which algebraically include the degree-one kernel but do not provide sharp endpoint norms for arbitrary shape vectors.",
+        "Yuan Xu, arXiv:1309.1510, multivariate orthogonal polynomial framework: only an abstract was accessible for this review."
+      ],
+      "reasoning": "A broader all-degree reproducing-kernel identity does not logically determine the sign-integrated sharp norm, its strict shape monotonicity or the resulting allocation optimum. No accessible stronger quantitative norm theorem covering these statements was identified; the incompletely read Xu source is an explicit residual risk.",
+      "searches": [
+        "Dirichlet distribution arbitrary positive concentration alpha vector affine polynomial orthogonal projection L infinity Lebesgue constant maximum occurs at minimum alpha coordinate optimal uniform concentration",
+        "Dirichlet affine orthogonal polynomial kernel sharp endpoint norm beta regularized incomplete beta unequal parameters exact minimax concentration",
+        "Orthogonal polynomial kernels and canonical correlations for Dirichlet measures arxiv 1003.5131",
+        "Hahn Jacobi Krawtchouk polynomials multivariate projection kernel Lebesgue constant"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1003.5131",
+      "https://warwick.ac.uk/fac/sci/statistics/staff/academic-research/spano/pub/bej403.pdf",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34",
+      "https://arxiv.org/abs/1309.1510",
+      "https://doi.org/10.1111/stan.12233",
+      "doi:10.3150/11-BEJ403"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Griffiths–Spanò known Q1 degree-one kernel and Dirichlet beta marginals imply the expression for each fixed vertex, but contain no explicit strict comparison between changing beta shape pairs at fixed sum.",
+        "Published uniform-simplex projector norm applies at alpha_i=1 and hence follows as a specialization of the current expression, not conversely.",
+        "Arab–Oliveira–Wiklund (2021), convex-transform order for beta distributions, concerns a different order relation; its examined results do not state the parameterized projector norm."
+      ],
+      "reasoning": "Separate generic ingredients (kernel, beta marginal, convex transforms) cannot be cited as novelty; the new content is a specific conditional-mean-preserving coupling proving strict sharp norm ordering, coupled with complete geometric and optimization consequences. None of the examined prior theorem statements has those as a direct corollary without proving this new comparison.",
+      "searches": [
+        "Beta(a,A-a) normalized by a convex ordering in shape parameter projections minimal least shape parameter exact negativity bias",
+        "Jacobi polynomial Dirichlet simplex degree-one reproducing kernel L1 L infinity projection constants asymmetric",
+        "https://arxiv.org/abs/1003.5131",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34",
+        "https://doi.org/10.1111/stan.12233"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Griffiths and Spanò, Bernoulli 19 (2013), Section 2.2: the degree-one Dirichlet kernel is given as a building block; its reproducing-kernel identity is recovered, while the conditional beta-spread ordering and sharp minimax allocation are not stated.",
+        "The public uniform-simplex projection note gives the exact constant only for alpha_i=1, a restricted symmetric Dirichlet law."
+      ],
+      "reasoning": "The same exact affine kernel is a known formula and is not a novel claim. Taking its L1 absolute mass is not equivalent to the full strict ordering over all unequal Dirichlet vectors; the latter needs a cross-parameter conditional expectation argument. Same-object and equal-concentration aliases were searched. A possible earlier proof under another terminology remains a bibliographic risk.",
+      "searches": [
+        "Dirichlet distribution affine linear least squares projection Lebesgue constant unequal parameters vertex maximizing norm",
+        "Dirichlet distribution arbitrary positive concentration alpha vector affine polynomial orthogonal projection L infinity Lebesgue constant maximum occurs at minimum alpha coordinate optimal uniform concentration",
+        "Jacobi polynomial Dirichlet simplex degree-one reproducing kernel L1 L infinity projection constants asymmetric",
+        "https://arxiv.org/abs/1003.5131"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published published-finding corpus uniform-simplex exact L-infinity norm: 2(d+1)((d+1)/(d+2))^d−1; recovered as the special case m=d+1 and alpha_i=1.",
+        "The asymmetric formula has beta-integral arguments alpha_min/(A+1), differing by individual coordinate shape, not a finite known-table entry."
+      ],
+      "reasoning": "A table/formula covering the symmetric submanifold of parameters is not the proposed entire heterogeneous family or unique minimax ordering. The closest available indexed mathematical record is a strictly narrower special case, not a covering exact database or table.",
+      "searches": [
+        "Dirichlet distribution affine linear least squares projection Lebesgue constant unequal parameters vertex maximizing norm",
+        "Dirichlet affine orthogonal polynomial kernel sharp endpoint norm beta regularized incomplete beta unequal parameters exact minimax concentration",
+        "Lebesgue constant polynomial projection Dirichlet simplex asymmetric weighted alpha exact beta",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34"
+      ]
+    },
+    "rationale": "The examined degree-one Dirichlet reproducing kernel (Griffiths–Spanò, 2013) and known symmetric/simplex special cases do not state or by themselves imply that smaller individual Dirichlet shape yields a strictly larger endpoint projection norm across *unequal* probability measures. The proof supplies the missing beta-gamma conditional martingale coupling, identifies exactly all worst vertices, solves the fixed-total concentration minimax and boundary extremal problem, and establishes an asymptotic outside the symmetric formulas. Targeted published-finding corpus searches and full-text comparisons found no statement of these additional implications. This is best-knowledge originality, not proof of historical uniqueness.",
+    "residual_risks": [
+      "Priority is not certified: a preexisting result under beta convex-order, multivariate Jacobi or weighted Lebesgue-function terminology could imply the same comparison.",
+      "Yuan Xu arXiv:1309.1510 could only be examined at abstract level; that absence is not taken as whole-document noncoverage.",
+      "Independent scientific and bibliographic reviews have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The first-degree kernel is explicitly prior mathematics; no sharp unequal-parameter endpoint norm, strict worst-vertex classification or minimax allocation identified in the examined material",
+        "evidence": "R. C. Griffiths and D. Spanò, Bernoulli 19 (2013), 548–598, DOI 10.3150/11-BEJ403, Section 2.2.",
+        "identifier_or_url": "https://warwick.ac.uk/fac/sci/statistics/staff/academic-research/spano/pub/bej403.pdf",
+        "material_read": "Full-text PDF, main definitions and kernel identities in pp. 548–552, 560–564; remaining text searched for norm and Lebesgue terminology",
+        "method": "Opened preprint and published full-text PDF; inspected relevant kernel equations and mathematical scope",
+        "title": "Orthogonal polynomial kernels and canonical correlations for Dirichlet measures",
+        "trigger": "Exact Dirichlet polynomial reproducing kernel and potential coverage of its norm"
+      },
+      {
+        "assessment": "Proves uniform-simplex special case alpha_i=1, with no asymmetric concentration comparison or fixed-total minimax",
+        "evidence": "Published result gives 2(d+1)((d+1)/(d+2))^d−1; this matches the symmetric alpha=1 specialization.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34",
+        "material_read": "Full published RESULT.md: finding, definitions, proof, relationship to prior and limitations",
+        "method": "Read the entire source-result file and compared objects and quantifiers",
+        "title": "Exact positivity defect and max norm of the affine least-squares projector on a simplex",
+        "trigger": "Closest published-finding corpus indexed exact affine simplex projector constant"
+      },
+      {
+        "assessment": "Studies transform order rather than sharp parameterized affine Dirichlet projector norms; does not provide the claimed minimax theorem",
+        "evidence": "Arab, Oliveira, Wiklund, Statistica Neerlandica 75 (2021), 238–256.",
+        "identifier_or_url": "https://doi.org/10.1111/stan.12233",
+        "material_read": "Accessible full-text HTML introduction, definitions of convex transform order, main theorem sections and consequences",
+        "method": "Read relevant sections and compared transform-order statement to mean-preserving conditional beta coupling",
+        "title": "Convex transform order of Beta distributions with some consequences",
+        "trigger": "Potential prior beta parameter-order theorem implying strict shape effect"
+      },
+      {
+        "assessment": "Not classed as noncovering; retained as a residual bibliographic risk",
+        "evidence": "Y. Xu, arXiv:1309.1510 (2013), abstract; full text inaccessible in this examination.",
+        "identifier_or_url": "https://arxiv.org/abs/1309.1510",
+        "material_read": "Only abstract and bibliographic description available",
+        "method": "Attempted open and repository preprint access; insufficient complete text to rule out equivalent results",
+        "title": "Hahn, Jacobi, and Krawtchouck polynomials of several variables",
+        "trigger": "Broad multivariate orthogonal polynomials, possible explicit projector norms"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5c9fbf13-aa23-46a2-be4d-42a328593484",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Stability of a weighted affine least-squares projector depends on an entire allocation of Dirichlet mass. The exact two-norm formula and strict smallest-shape vertex rigidity solve the natural arbitrary-weight optimization, give a unique balanced design minimizing worst-case amplification at fixed concentration, and quantify a sharp nonattained boundary cost. The conditional beta-convex-order lemma and Gaussian concentrated-law regime expose genuine structural behavior not contained in the published uniform-weight or symmetric-parameter tables; this is a substantive sharp optimization invariant rather than a cosmetic substitution.",
+    "status": "PASS"
+  }
+}
