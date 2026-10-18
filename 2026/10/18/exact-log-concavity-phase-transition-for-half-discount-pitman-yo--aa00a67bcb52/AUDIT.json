@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For all n>=3 and theta>-1/2, reconstruct the partition recursion and Lagrange coefficient formula, which give R_{n,k}=2(n-k)(k+2theta)/(k(2n-k-1)). Its neighboring difference has a strictly positive denominator times H linear with positive slope in theta. At theta=-1/[2(n-1)], H=n(k-2)(kn-2k+n)/(n-1)>=0 with equality solely at k=2. The k=2 inequality is negative below the threshold, proving sharp necessity. Exact independent rational checks cover 19,764 identities, but the proof is symbolic and infinite.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dolera–Favaro derive an exchangeable-partition sampling model, mixed compound-Poisson representation and large-sample diversity, without a finite-n log-concavity classification.",
+        "Zhao establishes inequalities for generalized Stirling arrays but gives no criterion for the strength-weighted block-count PMF.",
+        "Han–Seo proves coefficient log-concavity, which is weaker than the asserted weighted classification."
+      ],
+      "reasoning": "None of these statements compares all successive probability ratios after introducing the strength-dependent rising factorial. The negative-strength necessity and exact equality classification are not corollaries of their stated results.",
+      "searches": [
+        "web: Pitman Yor alpha one half generalized Stirling coefficients log concavity distribution K_n number blocks strength negative",
+        "web: Bessel polynomial coefficients Pitman Yor number of blocks 1/2 negative theta log concavity",
+        "arxiv:2111.02731v1, Theorem 2 and discussion",
+        "DOI:10.37236/2228, generalized Stirling paper"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2111.02731v1 (full HTML)",
+      "arxiv:math/0406378v2 (full HTML)",
+      "doi:10.37236/2228 (open paper)",
+      "doi:10.1111/sjos.12575 (open HTML)",
+      "targeted searches of partition-count log-concavity and Bessel coefficient aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The previously known log-concavity concerns a(n,k), with S(n,k)=2^{-(n-k)} a(n,k), and is independent of theta.",
+        "The candidate explicitly classifies the product of S(n,k) and the theta-dependent block-creation factors.",
+        "theta=-1/4, n=4 disproves inference of log-concavity from the Bessel factor alone."
+      ],
+      "reasoning": "Classical parameter-free coefficient log-concavity neither supplies the theta threshold nor implies weighted log-concavity; the source partition formula identifies the object without settling the inequality. A proof of one cannot be treated as proof of the other.",
+      "searches": [
+        "arxiv:math/0406378v2 Theorem 4.2 and Eq. (5)",
+        "arxiv:2111.02731v1 Eq. (1), Theorem 2",
+        "DOI:10.1111/sjos.12575 §2.1 Pitman formula",
+        "web: \"Pitman-Yor\" \"log-concave\" \"number of tables\"",
+        "web: \"Ewens-Pitman\" \"log-concave\" \"number of blocks\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Han–Seo, arXiv:math/0406378v2, Eq. (5) and Theorem 4.2: log-concavity of signless Bessel coefficient rows.",
+        "For discount one-half, generalized Stirling coefficients equal a(n,k) times 2^{-(n-k)}; the partition PMF has a further factor depending on strength.",
+        "At n=4, theta=-1/4, partition masses (40,20,12,5)/77 violate log-concavity, while Bessel coefficients remain log-concave."
+      ],
+      "reasoning": "The unweighted Bessel result applies to a factor of the new probability law, not to the weighted law. It cannot imply the claimed nontrivial negative-strength boundary, and the explicit violating example proves why a direct transfer is invalid.",
+      "searches": [
+        "web: \"Pitman-Yor\" \"log-concave\" \"block\" \"probabilities\"",
+        "web: \"Pitman-Yor\" \"log-concave\" \"number of tables\"",
+        "web: \"Ewens-Pitman\" \"log-concave\" \"number of blocks\"",
+        "arxiv:math/0406378v2, full text §§1 and 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected 2021 paper states block-count formulas and asymptotics, not a table of negative-strength shape transitions.",
+        "The inspected Bessel paper gives exact coefficient formulas and log-concavity, but no strength-dependent Pitman–Yor probability table.",
+        "Direct symbolic and exact-fraction computations reproduce the proposed boundary and witness without using published tables."
+      ],
+      "reasoning": "No exact table covering the weighted probability phase transition was located in the inspected materials. This is a limited searched-source conclusion, not a global uniqueness assertion.",
+      "searches": [
+        "web: \"Pitman-Yor\" \"log-concave\" \"block\" \"probabilities\"",
+        "web: \"Ewens-Pitman\" \"log-concave\" \"number of blocks\"",
+        "web: \"Pitman Yor\" \"K_n\" \"log-concavity\"",
+        "arxiv:2111.02731v1, inspect full text and search for log-concavity/unimodality"
+      ]
+    },
+    "rationale": "Comparisons with the fully inspected 2021 partition model and 2004 Bessel log-concavity result show neither implies the strength-weighted sharp threshold: the latter applies only before multiplication by the theta-dependent factor, and an explicit admissible weighted counterexample defeats inference. Related generalized Stirling and two-parameter inference sources were also compared; targeted published searches found no matching result, with residual unindexed-literature risk.",
+    "residual_risks": [
+      "An unindexed treatment of the negative-strength half-discount partition law could contain the same criterion.",
+      "Earlier generalized-Stirling results could admit a non-obvious reinterpretation not evident in the compared theorem statements; no such implication was identified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact weighted strength threshold; gives probabilistic representation and asymptotics",
+        "evidence": "Eq. (1); §2 Theorem 2 and discussion; no log-concavity theorem stated.",
+        "identifier_or_url": "https://arxiv.org/html/2111.02731v1",
+        "material_read": "Full accessible HTML §§1–3, including sampling formula, generalized factorial coefficients, Theorem 2, and discussion",
+        "method": "Direct reading of statements and proofs plus searches for log-concavity and unimodality",
+        "title": "A compound Poisson perspective of Ewens-Pitman sampling model",
+        "trigger": "Exact two-parameter model and block-count distribution; potentially dominating broad source"
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE unweighted coefficients, NOT_COVERING weighted probability threshold",
+        "evidence": "Eq. (5); Theorem 4.2; n=4 theta=-1/4 weighted law fails despite coefficient log-concavity.",
+        "identifier_or_url": "https://arxiv.org/html/math/0406378v2",
+        "material_read": "Full accessible HTML §§1–4, particularly coefficient formula (5), Theorem 4.2 and its proof",
+        "method": "Compare explicit coefficient formulas and the logical effect of multiplying by model-specific strength weights",
+        "title": "Combinatorial proofs of inverse relations and log-concavity for Bessel numbers",
+        "trigger": "Bessel coefficient row is equivalent to the half-discount generalized Stirling coefficient row up to geometric scaling"
+      },
+      {
+        "assessment": "NOT_COVERING the half-discount strength-weighted distribution criterion",
+        "evidence": "Generalized Stirling row and polynomial inequalities; no parameter-threshold theorem for the Pitman–Yor block-count law.",
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v19i2p11/pdf",
+        "material_read": "Definitions, theorem statements and relevant proof sections of available open text",
+        "method": "Compare arrays, index of concavity, and presence of rising-factorial parameter weights",
+        "title": "On log-concavity of a class of generalized Stirling numbers",
+        "trigger": "Likely generalization with possible stronger log-concavity coverage"
+      },
+      {
+        "assessment": "NOT_COVERING the block-count PMF curvature classification",
+        "evidence": "§2.1 formula (3) and §2.2 formula (4); paper studies parameter inference.",
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1111/sjos.12575",
+        "material_read": "Accessible open HTML including §2.1 Pitman sampling formula and §2.2 restaurant representation plus inference sections",
+        "method": "Inspect probability-law definitions and statistical objectives; search for log-concavity",
+        "title": "Learning the two parameters of the Poisson–Dirichlet distribution with a forensic application",
+        "trigger": "Same random partition sampling law; potential statistical treatment of block count"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "aa00a67b-cb52-4817-abc3-216feeb5f358",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a complete, sharp, infinite-n classification of an intrinsic random partition block-count distribution at the distinguished Brownian/half-discount parameter. It identifies the precise negative-strength sample-size phase transition, equality case, and obstruction by the very first interior inequality, extending beyond known coefficient-only log-concavity.",
+    "status": "PASS"
+  }
+}
