@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-11",
+  "audited_at_utc": "2026-10-11T19:43:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Kouznetsov, Bisson, Li and Ueda, Self-pulsing laser as oscillator Toda: approximations through elementary functions (2007), DOI:10.1088/1751-8113/40/9/016",
+        "Marín--Villadelprat, arXiv:2203.12966v1",
+        "assigned RESULT.md blob ab2e19c491d24b8ccbd36a9d9b6ff31dd793f2cc",
+        "assigned check.py blob 53790a5654554d42f2d1cdfc909fd4447fc7b877"
+      ],
+      "rationale": "The change \\(q=-\\log(1-x),\\ p=-y\\) is invertible for \\(x<1\\) and preserves physical time, giving \\(\\dot q=p\\), \\(\\dot p=e^{-q}-1\\), and conserved \\(H=p^2/2+q+e^{-q}-1\\). The coercive strictly convex potential yields a unique closed energy oval. Positive turning point satisfies \\(a_E=E+1+o(1)\\); negative turning magnitude \\(r_E=O(\\log E)\\). Exact identity \\(E-V(a_E-w)=w-e^{-a_E}(e^w-1)\\) bounds positive descent uniformly between \\(\\sqrt{2w}\\) and \\(\\sqrt{2w}/\\sqrt{1-\\eta_E}\\), \\(\\eta_E=O(E^{-1})\\). On the negative branch \\(E-V(-r_E+w)=(E+r_E+1)(1-e^{-w})-w\\), yielding \\(t_-=O(\\log E/\\sqrt E)\\), while \\(t_+=\\sqrt{2E}(1+O(E^{-1}))\\). Thus negative excursion shrinks in normalized phase; positive branch gives the uniform parabolic limit. The energy identity and sign of \\(p\\) yield the asserted pointwise-off-midpoint and dominated \\(L^1\\) momentum limit. Since \\(x(sT)ds=-(\\sqrt{2E}/T)dP_E\\), integration by parts transfers the momentum jump to signed measure \\(ds-\\delta_{1/2}\\). For all continuous tests the extension is justified by \\(x\\le1\\), zero mean over an orbit, hence \\(\\int|x|ds\\le2\\). Pushforward density is the two-branch inverse derivative of the limiting parabola. The inspected \\(check.py\\) makes only bounded finite quadrature sanity checks and is not relied on as asymptotic proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same oscillator has a known high-energy period and quasi-energy description.",
+          "The Loud family period papers study criticality or monotonicity, not weak-* force limits."
+        ],
+        "reasoning": "Stronger antecedents for period asymptotics do not determine the signed delta mass and its exact location and coefficient.",
+        "searches": [
+          "Kouznetsov et al 2007 original undamped Toda treatment",
+          "Marín--Villadelprat 2022 outer-boundary Loud critical periods",
+          "Chouikha 2005 period monotonicity"
+        ]
+      },
+      "checked_sources": [
+        "Kouznetsov, Bisson, Li and Ueda, Self-pulsing laser as oscillator Toda: approximations through elementary functions (2007), DOI:10.1088/1751-8113/40/9/016",
+        "arXiv:2203.12966v1",
+        "Chouikha, period monotonicity of Loud quadratic centers (2005)",
+        "GitHub SCOPE targeted search",
+        "Resultary temporarily unavailable"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An approximate oscillation shape does not imply weak-* signed-force convergence without uniform variation bounds and a distributional integration-by-parts argument.",
+          "The limiting pushforward distribution follows from uniform convergence of the correctly normalized physical-time phase, not merely from a period estimate."
+        ],
+        "reasoning": "The full final claim has genuinely additional asymptotic content over the known quadrature and period results.",
+        "searches": [
+          "Kouznetsov et al 2007 Sections 3--4 period and undamped waveform",
+          "Marín--Villadelprat 2022"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original model matches after reversing the logarithmic coordinate; its undamped section develops quadratures, asymptotics and explicit waveform approximations.",
+          "No signed weak-* concentration theorem occurs in the inspected original-results sections."
+        ],
+        "reasoning": "The signed physical-time observable is not equivalent to a numerical waveform approximation or period asymptotic.",
+        "searches": [
+          "DOI:10.1088/1751-8113/40/9/016 original 18-page PDF, Sections 2--4 and 6--8",
+          "arXiv:2203.12966v1",
+          "web: Loud Toda oscillator high-energy impulse delta signed measure"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Targeted accessible searches did not identify an exact table or previously stated signed mass-one impulse law.",
+          "Resultary did not complete."
+        ],
+        "reasoning": "The result concerns a limiting signed measure rather than a finite invariant table; exact same-equation and limit searches were appropriate.",
+        "searches": [
+          "web: Loud quadratic center Toda signed measure physical-time delta",
+          "GitHub SCOPE math search: Loud quadratic center physical time impulse (no unrelated match)",
+          "Resultary query attempted: Loud high-energy signed impulse limit; service returned temporarily_unavailable"
+        ]
+      },
+      "rationale": "The primary same-Toda oscillator paper contains the energy quadrature, limiting high-energy period behavior and approximate waveforms, all acknowledged. Its sections on undamped solutions, phase, output power and physical interpretation were examined; they do not assert the weak-* signed physical-force measure \\(ds-\\delta_{1/2}\\) or the joint uniform normalized phase and exact time-sampling density. Loud period-criticality results address a different invariant. The signed delta limit adds a precise original-time dynamical singularity rather than presenting the known period asymptotic as new.",
+      "residual_risks": [
+        "General hard-impact and singular-oscillator literature may contain an equivalent weak-* impulse under different variables; not exhaustively accessible.",
+        "Strong-pulsing waveforms are approximated in the 2007 source, but finite approximations cannot by themselves certify the new distributional limit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN_PERIOD_QUADRATURE_AND_WAVEFORM_NOT_SIGNED_FORCE_LIMIT",
+          "evidence": "Source supplies energy quadrature and strong-pulsing frequency/elementary waveform approximations, with physical photon-output discussion but no theorem in inspected sections asserting the signed weak-* original-coordinate limit.",
+          "identifier_or_url": "DOI:10.1088/1751-8113/40/9/016; https://mizugadro.mydns.jp/PAPERS/toda.pdf",
+          "material_read": "Original accessible 18-page PDF: model and logarithmic coordinate in Sections 2--3, full undamped oscillator/period/waveform discussion in Section 4, phase in Section 6, output and physical constraints in Sections 7--8, and conclusions",
+          "method": "Author-hosted lawful primary full-PDF text with page-image inspection; targeted sections read",
+          "title": "Self-pulsing laser as oscillator Toda: approximations through elementary functions",
+          "trigger": "Same undamped Toda potential and high-energy oscillation whose physical-time singular behavior is claimed"
+        },
+        {
+          "assessment": "PERIOD_CRITICALITY_NOT_IMPULSE",
+          "evidence": "Period-function critical points and parameter classification do not state phase-normalized force concentration.",
+          "identifier_or_url": "arXiv:2203.12966v1",
+          "material_read": "Abstract and primary theorem scope for critical periods, plus parameter-family context",
+          "method": "Public arXiv bibliographic and theorem comparison",
+          "title": "The criticality of reversible quadratic centers at the outer boundary of its period annulus",
+          "trigger": "Same general Loud two-parameter family includes the audited parameter"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Kouznetsov, Bisson, Li and Ueda, Self-pulsing laser as oscillator Toda: approximations through elementary functions (2007), DOI:10.1088/1751-8113/40/9/016",
+        "arXiv:2203.12966v1"
+      ],
+      "rationale": "The signed mass-one force impulse in unmodified physical time describes a singular boundary layer of a classic integrable Loud/Toda oscillator and determines an exact phase-statistical law. This supplies qualitative limiting information not obtained from the known period asymptotic, with a motivated dynamical observable and nontrivial weak-* normalization.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the Loud system \\(\\dot x=-y(1-x),\\ \\dot y=x\\) on \\(x<1\\) at energy \\(E>0\\), choose phase zero at the positive turning point, physical minimal period \\(T(E)\\), and define \\(Q_E(s)=-\\log(1-x(sT(E)))/E\\), \\(P_E(s)=-y(sT(E))/\\sqrt{2E}\\). As \\(E\\to\\infty\\), \\(T(E)/(2\\sqrt{2E})\\to1\\), \\(Q_E\\) converges uniformly to \\(1-4s^2\\) before midpoint and \\(1-4(1-s)^2\\) afterward, \\(P_E\\) converges in \\(L^1\\) to \\(-2s\\) before midpoint and \\(2(1-s)\\) afterward, the signed physical-time observable satisfies \\(x(sT(E))\\,ds\\stackrel{*}{\\rightharpoonup}ds-\\delta_{1/2}\\), and the time-sampling pushforward of \\(Q_E\\) converges to the density \\(1/(2\\sqrt{1-u})\\) on \\((0,1)\\).",
+  "limitations": [
+    "Single reversible Loud parameter and invariant half-plane \\(x<1\\), not the complete quadratic-center family.",
+    "Convergence of physical-coordinate observables is weak-* as signed measures, not density \\(L^1\\); no finite-energy uniform rates claimed."
+  ],
+  "schema_version": 1
+}
