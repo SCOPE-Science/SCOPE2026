@@ -1,17 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim
-For the Petersen graph \(P\), the \(2\)-matching complex \(M_2(P)\) is homotopy equivalent to a wedge of four \(7\)-spheres: \(M_2(P)\simeq\bigvee^{4}S^{7}\).
-is certified by a complete finite reconstruction. The face set is enumerated directly from the degree-at-most-\(2\) definition. The repeated-toggle matching is checked pair-by-pair and then independently checked for acyclicity on the full directed Hasse diagram. Its only critical cells occur in dimensions \(0\) and \(7\), with counts \(1\) and \(4\), respectively. Discrete Morse theory therefore yields the stated wedge. An independent mod-\(2\) homology computation agrees.
+## correctness
 
-## Originality
-PASS with residual literature risk. The closest primary source is Vega's arXiv:1909.10406, which defines \(2\)-matching complexes and develops the repeated-toggle / matching-tree framework, but its stated families are clawed graphs, wheels, and caterpillars rather than the Petersen graph. Singh's arXiv:2006.13632 treats selected complete and complete-bipartite higher matching complexes and states that exact higher-matching homotopy types are known for only a few classes. Direct searches for “Petersen graph” together with “2-matching complex,” “higher matching complex,” and “bounded degree complex” did not locate a covering statement. Result-database searches under the same aliases returned unrelated Petersen-graph invariants rather than this topology claim.
+PASS
 
-## Value
-PASS. The Petersen graph is a canonical cubic graph, while the literature on higher matching complexes stresses the scarcity of exact homotopy types outside special graph families. A fully explicit homotopy type for this natural non-tree, non-wheel, non-complete cubic example supplies a compact benchmark for bounded-degree-complex methods and a test case for broader cubic-graph questions.
+Independently reconstructed the 15-edge Petersen graph, enumerated all 10,869 nonempty degree-at-most-two edge subsets, obtaining f-vector (15,105,445,1245,2358,2985,2400,1095,215,6). Rebuilt sequential vertex-toggle discrete Morse matching on the entire face poset: 5,432 disjoint Hasse pairs, exactly one critical vertex and four critical 7-simplices. Oriented all 63,780 covers and independently topologically sorted all 10,869 faces without a cycle. Discrete Morse gives a CW complex with one 0-cell and four 7-cells, necessarily wedge^4 S^7. This is an exhaustive FINITE graph check, not a family theorem.
 
-## Closest literature and limitations
-The result is intentionally narrow: it gives one exact homotopy type and does not generalize to all cubic or generalized Petersen graphs. The finite certificate verifies the mathematical claim but does not establish exhaustive bibliographic novelty.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The exact higher (degree <=2) matching complex on the Petersen graph is not implied by published ordinary-matching or Morse-complex homotopy results. Vega treats 2-matching complexes of other families, and Singh treats complete/complete-bipartite higher matching complexes. The published SCOPE Petersen ordinary matching/Morse-complex entries concern distinct complexes. Resultary self-mirror is not independent coverage; novel only to searched best of knowledge.
+
+## value
+
+PASS
+
+Petersen is the canonical cubic non-bipartite graph, and the integral homotopy type of its bounded-degree-2 matching complex is a natural exact invariant not determined by the ordinary matching complex or homology alone. An explicit all-face Morse collapse to four 7-spheres gives reusable benchmark and topology with motivated object/invariant, not arbitrary parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

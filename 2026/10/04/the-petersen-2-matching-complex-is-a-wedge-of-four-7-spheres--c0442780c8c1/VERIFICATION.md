@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The verifier is self-contained and uses only the Python standard library.
+# Independent mathematical audit
 
-It reconstructs the Petersen graph from the fixed fifteen-edge list, enumerates every nonempty face of the \(2\)-matching complex from the degree-at-most-\(2\) condition, and checks the exact face vector
-\[
-(15,105,445,1245,2358,2985,2400,1095,215,6).
-\]
+## correctness
 
-It then rebuilds the repeated-toggle matching in the fixed edge order. The expected result is \(5432\) matched cover pairs and five critical cells: one in dimension \(0\) and four in dimension \(7\). The script constructs every cover relation in the nonempty face poset, reverses exactly the matched covers, and checks acyclicity by topological sorting all \(10869\) faces across all \(63780\) Hasse edges.
+PASS
 
-As a separate check, the script computes boundary ranks over \(\mathbf F_2\) and confirms reduced Betti number \(4\) in degree \(7\), with all other reduced Betti numbers zero.
+Independently reconstructed the 15-edge Petersen graph, enumerated all 10,869 nonempty degree-at-most-two edge subsets, obtaining f-vector (15,105,445,1245,2358,2985,2400,1095,215,6). Rebuilt sequential vertex-toggle discrete Morse matching on the entire face poset: 5,432 disjoint Hasse pairs, exactly one critical vertex and four critical 7-simplices. Oriented all 63,780 covers and independently topologically sorted all 10,869 faces without a cycle. Discrete Morse gives a CW complex with one 0-cell and four 7-cells, necessarily wedge^4 S^7. This is an exhaustive FINITE graph check, not a family theorem.
 
-The computation is finite and exhaustive for this graph. It does not verify any family-level generalization or bibliographic novelty.
+## originality
+
+PASS
+
+The exact higher (degree <=2) matching complex on the Petersen graph is not implied by published ordinary-matching or Morse-complex homotopy results. Vega treats 2-matching complexes of other families, and Singh treats complete/complete-bipartite higher matching complexes. The published SCOPE Petersen ordinary matching/Morse-complex entries concern distinct complexes. Resultary self-mirror is not independent coverage; novel only to searched best of knowledge.
+
+## value
+
+PASS
+
+Petersen is the canonical cubic non-bipartite graph, and the integral homotopy type of its bounded-degree-2 matching complex is a natural exact invariant not determined by the ordinary matching complex or homology alone. An explicit all-face Morse collapse to four 7-spheres gives reusable benchmark and topology with motivated object/invariant, not arbitrary parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
