@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete proof conditions on one Haar-unitary row, identifies its squared magnitudes as Dirichlet, computes the orthogonal spectral residual exactly, and uses rotational invariance of the next row to identify an independent beta variable. The two-level specialization follows by Dirichlet aggregation, the moment formula by a beta integral, and the rank scaling by gamma ratios. All dimensions \(d\ge2\), ranks \(1\le k<d\), scalar spectra, and the degenerate \(d=2\) factor are addressed. The standalone seeded numerical experiment and exact second-moment identity agree with the analytic formulas, but finite computations do not certify infinite families. The proof establishes distributions of individual entries and mean coherence, not mutual independence of distinct entries.
+PASS
 
-## Originality — PASS with stated residual risk
+Condition on the first Haar unitary row x: squared moduli P_j have the Dirichlet(1,...,1) distribution. The second row is uniform in x-perp, so the squared normalized inner product with z=(Lambda-mu I)x has Beta(1,d-2) law conditionally independent of x; for d=2 it is identically 1. The norm of z squared is the nonnegative Dirichlet spectral variance. For two-level eigenvalues, the aggregate Dirichlet mass X is Beta(k,d-k), and beta moments give the stated all-s>0 formula. Multiplying the s=1 entry moment by d(d-1) gives the exact projector mean coherence; gamma-ratio asymptotics separately cover fixed k, k/d→alpha in (0,1), and fixed corank m. Scalar spectra/Delta=0 and d=2 cases are handled correctly. The variance second-moment identity [d*tr(Lambda^2)-(tr Lambda)^2]/[d(d^2-1)] follows independently.
 
-Cheng–Hall (arXiv:1508.03240, Sec. IV A) defines the same Haar-averaged \(\ell_1\) observable but establishes bounds rather than the fixed-rank closed form. Singh–Zhang–Pati (arXiv:1509.08939) treats pure-state randomness; the familiar pure-state endpoint is not claimed as novel. Zhang–Singh–Pati (arXiv:1510.08859) obtains average relative-entropy coherence for different random mixed-state measures. Zhang (arXiv:1607.02294) covers relative-entropy coherence in Wishart-induced mixed-state ensembles. Meckes–Meckes (arXiv:1711.02710) gives asymptotic Gaussian approximations, not the exact independent Dirichlet–Beta spectral-variance sampler. General matrix-beta/Jacobi and orbital-corner distributions encode related information and might admit the present marginal after transformation and integration; this is an explicit residual overlap risk, not a claim that general orbital laws are absent. Targeted searches for equivalent sampling, matrix-beta reductions, fixed-spectrum coherence moments, and rank asymptotics identified no publication that states the combined exact result.
+## originality
 
-## Value — PASS
+PASS
 
-Uniform rank-\(k\) spectral projections are canonical mixed-state orbits, with rank varying from pure to nearly maximally mixed. The calculation evaluates a physical coherence average that motivated the 2015 bounds, yields all noninteger absolute moments of a matrix entry rather than only purity-based second moments, and shows three distinct rank-scaling regimes for a natural geometric family. The arbitrary-spectrum factorization is also a constructive sampling reduction for harder fixed-spectrum integrals. Its value does not rely on claiming a new quantum coherence measure, a conjecture resolution for all spectra, or a general downstream theorem.
+Standard Haar row Dirichlet distributions and random projection matrix beta laws are existing theory; the claimed explicit independent conditional Beta factorization is a clean finite-dimensional specialization with evaluated all-rank l1-coherence gamma law and three distinct regimes. Cheng and Hall Sec. IV.A derive Haar-average purity bounds rather than this exact fixed-spectrum formula; their accessible full text explicitly discusses inability to evaluate the general l1 mean analytically. Pure-state coherence and relative-entropy coherence papers cover distinct observables and/or k=1 only. A classical Jacobi/orbital-corner identity might imply the scalar marginal after evaluation, leaving genuine overlap risk, but no decisive prior full claim was located.
 
-## Limitations and closest literature
+## value
 
-The explicit gamma moment evaluation assumes at most two spectral levels. The general exact factorization is valid for any spectrum but does not evaluate the remaining Dirichlet integral in closed elementary form. The original pure-state case and standard Haar/Dirichlet facts are prior knowledge. General finite-dimensional orbital-corner densities, projection matrix-beta distributions and equivalent probability-theoretic descriptions are the main residual search risk; this work makes no assertion of independence from these frameworks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Mean l1-coherence of a Haar-rotated rank-k maximally mixed state is a natural basis-dependent quantum information invariant; exact finite-dimensional evaluation, all off-diagonal absolute moments, and the transition from linear to square-root to bounded growth across rank regimes answer motivated spectral-orbit questions beyond a mere normalization identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification of the Haar-orbit formulas
+# Independent mathematical audit
 
-The analytic argument in `RESULT.md` establishes the full infinite family. This record provides independent finite-dimensional checks, not a replacement for proof.
+## correctness
 
-The decisive conditional-distribution fact is that, after fixing the first Haar row, the second lies uniformly in its complex orthogonal complement. A unit vector's first-coordinate squared magnitude has the \(\operatorname{Beta}(1,d-2)\) law in complex dimension \(d-1\). Hence the Dirichlet spectral variance factor and the beta factor can be independent. For \(d=2\) the latter is a point mass at one. This verifies the normalization and both edge cases in the proof.
+PASS
 
-The independently derived covariance check for every real spectrum is
-\[
- \mathbb E|(U\Lambda U^\dagger)_{12}|^2
- =\frac{d\operatorname{tr}(\Lambda^2)-(\operatorname{tr}\Lambda)^2}{d(d^2-1)}.
-\]
-For a rank-\(k\) normalized projector this equals \((d-k)/[kd(d^2-1)]\). Both expressions agree algebraically with the beta-product moment formula at \(s=2\).
+Condition on the first Haar unitary row x: squared moduli P_j have the Dirichlet(1,...,1) distribution. The second row is uniform in x-perp, so the squared normalized inner product with z=(Lambda-mu I)x has Beta(1,d-2) law conditionally independent of x; for d=2 it is identically 1. The norm of z squared is the nonnegative Dirichlet spectral variance. For two-level eigenvalues, the aggregate Dirichlet mass X is Beta(k,d-k), and beta moments give the stated all-s>0 formula. Multiplying the s=1 entry moment by d(d-1) gives the exact projector mean coherence; gamma-ratio asymptotics separately cover fixed k, k/d→alpha in (0,1), and fixed corank m. Scalar spectra/Delta=0 and d=2 cases are handled correctly. The variance second-moment identity [d*tr(Lambda^2)-(tr Lambda)^2]/[d(d^2-1)] follows independently.
 
-To replay from the accompanying standalone script, run `python verify.py` in an environment with NumPy. The script verifies the exact pure and corank-one endpoint coefficients, independently compares second moments for all \(2\le d\le15\) and \(1\le k<d\), and checks three rational multiples of \(\pi\) from the gamma formula. It then samples independently generated complex Haar unitaries by phase-corrected Gaussian QR and compares \(21000\) seeded Monte Carlo coherence values to the analytic means. Successful replay prints `VERIFY_OK endpoints=passed gamma_cases=3 second_moments=passed Haar_samples=21000`.
+## originality
 
-The Monte Carlo tolerances are probabilistic numerical diagnostics; passing them does not establish any formula for untested dimensions, prove independence in law, or exclude previously published equivalent formulations. No claims about concentration of the sum of entries, general elementary Dirichlet integrations, or uniqueness of this sampling representation are made.
+PASS
+
+Standard Haar row Dirichlet distributions and random projection matrix beta laws are existing theory; the claimed explicit independent conditional Beta factorization is a clean finite-dimensional specialization with evaluated all-rank l1-coherence gamma law and three distinct regimes. Cheng and Hall Sec. IV.A derive Haar-average purity bounds rather than this exact fixed-spectrum formula; their accessible full text explicitly discusses inability to evaluate the general l1 mean analytically. Pure-state coherence and relative-entropy coherence papers cover distinct observables and/or k=1 only. A classical Jacobi/orbital-corner identity might imply the scalar marginal after evaluation, leaving genuine overlap risk, but no decisive prior full claim was located.
+
+## value
+
+PASS
+
+Mean l1-coherence of a Haar-rotated rank-k maximally mixed state is a natural basis-dependent quantum information invariant; exact finite-dimensional evaluation, all off-diagonal absolute moments, and the transition from linear to square-root to bounded growth across rank regimes answer motivated spectral-orbit questions beyond a mere normalization identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
