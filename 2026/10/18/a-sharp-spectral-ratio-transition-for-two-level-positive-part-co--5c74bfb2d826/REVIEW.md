@@ -1,0 +1,15 @@
+# Review: A sharp spectral-ratio transition for two-level positive-part conditioning
+
+## Correctness
+The local derivative is the divided-difference Schur mask \(\left(\begin{smallmatrix}1&q\\q&0\end{smallmatrix}\right)\) in the mixed-sign eigenbasis. Maximizing its operator norm over selfadjoint symmetries is a one-variable exact calculation, with a branch change at \(q=1/\sqrt2\). Trace-pairing self-adjointness gives the same sharp trace-norm constant; explicit rank-one perturbations attain it. The Hilbert–Schmidt norm is one directly from the mask. Along any Hermitian two-by-two matrix segment, singular crossings form a finite set unless the determinant vanishes identically, in which case the rank-one segment is handled separately. This establishes the global constants without extrapolating finite tests. A standalone checker passes 1,892 reproducible finite-dimensional tests. No check is an independent mathematical certification.
+
+## Originality
+The main object is the **full local spectral-ratio profile and its strict nonexpansion threshold**, not the known endpoint triangular-mask constant. Levene, *Norms of idempotent Schur multipliers*, arXiv:1302.4849, Proposition 5.1, identifies the \(2/\sqrt3\) norm of an **idempotent** two-by-two Schur mask, equivalent to the limiting mask here as \(q\to1\). It does not specify the continuous non-idempotent family, its threshold, or the positive-part spectral interpretation. Aleksandrov–Peller (arXiv:0907.3049), Bhatia (DOI 10.1007/s13226-010-0014-0), and Caspers et al. (arXiv:1309.3378) study operator-function regularity and global estimates, not this finite-dimensional sharp local profile. Christensen (arXiv:2505.24670) gives a general exact *variational* Schur-norm characterization but does not evaluate the one-parameter closed form. A recent positivity-restricted triangular mask in dimension three addresses a different input cone and different map. Equivalently parameterized old multiplier calculations are a genuine residual priority risk; the available literature comparison does not prove universal priority.
+
+## Value
+The result completely resolves a natural local conditioning invariant for positive-semidefinite spectral clipping at the smallest noncommutative matrix size. It isolates the sharp eigenvalue-ratio boundary where trace- and operator-norm amplification begins, while Frobenius nonexpansion persists. This is useful quantitative sensitivity information rather than a numerical sample, a renamed special case of the \(q=1\) idempotent, or an arbitrary choice of matrix entries.
+
+## Limitations
+No claim for higher matrix sizes, additional Schatten exponents, or derivatives at zero eigenvalues. Earlier general multiplier norm-factorization methods can encode the problem implicitly; historically equivalent explicitly evaluated families have not been ruled out. The standalone finite-dimensional checks do not establish all-parameter statements without the analytic proof.
+
+Self-review: passed. Independent audit: not yet performed.
