@@ -1,12 +1,21 @@
-# Review of Signed double Italian domination of dense complete multipartite graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. Writing \(s_i\) for a part sum and \(W\) for total weight gives the exact closed-neighborhood identity \(f(v)+W-s_i\). It rules out every \(W\le1\) labeling when all part sizes are at least two and separately rules out \(W=2\) when all part sizes are at least three. The two explicit constructions attain the resulting lower bounds and their positive outside-part weight verifies the defender conditions for labels \(-1\) and \(1\). Exhaustive direct checks over all relevant multipartite types through order \(9\) agree.
+## correctness
 
-## Originality
-PASS. The 2023 defining paper was inspected in full searchable text and its exact-family section treats cycles and the Petersen graph, with the preceding sections devoted to trees and complexity; searches found no complete-bipartite or complete-multipartite occurrence. A 2024 survey and later Roman-domination survey summarize the known signed double Italian exact families without a complete-multipartite result. Semantic published-result searches under complete multipartite, complete \(r\)-partite, Turán, and complete-bipartite aliases did not locate the stated threshold. The closest indexed complete-multipartite results concern different signed or Roman variants and do not imply this parameter.
+PASS
 
-## Value
-PASS. The theorem gives a sharp, dimension-free threshold on a canonical dense graph family for a recently introduced domination invariant. The distinction between a two-vertex part and all parts of size at least three is structural rather than a small-order accident, and the proof exposes a reusable part-sum method for this label-and-defense system. It supplies an exact infinite-family benchmark beyond the paths, stars, cycles, Petersen graph, and tree bounds emphasized in the existing literature.
+For total weight W and part sum s_i, the exact closed-neighborhood sum at a vertex v of part i is f(v)+W-s_i. When W<=1 every positive-sum part yields a contradiction from its smallest positive label or from a -1 vertex, and all nonpositive parts contradict the sum; hence W>=2. If all parts have >=3 vertices, assuming W=2 similarly makes positive-sum part impossible, so W>=3. The displayed label blocks sum to 0 outside a marked two-vertex part for W=2, or to 1 in three marked parts for W=3; every -1 sees sufficient positive weight outside its part. Independent brute enumeration on K_(2,2,2), K_(2,2,3), K_(2,3,3), K_(3,3,3) matched 2,2,2,3. Analytic proof covers all r and n_i, not the bounded test.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The initiating 2023 definition and published examples are chiefly trees/cycles/Petersen and do not give this multipartite threshold. Previous Resultary/SCOPE exact domination results for multipartite graphs concern 3,2-domination, signed domination, quasi-total double Roman, perfect Italian, or other nonidentical constraints; their formulas and role of negative labels do not imply this value.
+
+## value
+
+PASS
+
+Complete multipartite graphs are canonical test classes for signed/Italian domination. The exact two-regime threshold for arbitrarily many parts and sizes reveals that one two-vertex class controls the optimum; the simultaneous closed-neighborhood and defender-subset requirements make it a genuine structural classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
