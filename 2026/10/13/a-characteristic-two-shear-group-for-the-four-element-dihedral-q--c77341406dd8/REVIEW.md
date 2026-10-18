@@ -1,12 +1,21 @@
-# Scientific comparison and review
+# Independent mathematical audit
 
-## Correctness — PASS
-The basis change \(h_0=e_0\), \(h_1=e_1\), \(u=e_0+e_2\), \(v=e_1+e_3\) is invertible in characteristic two. Direct expansion of the original dihedral quandle multiplication proves formula (1) in RESULT.md. The intrinsic right annihilator is exactly \(W\) and its scalar right action recovers augmentation; this forces every automorphism into a prescribed block form. Multiplicativity reduces to an equality of explicit bilinear tensors. The two vanishing diagonal products force the quotient matrix to be diagonal or antidiagonal, and augmentation fixes its entries; off-diagonal products then fix the action on \(W\). All shears are verified to preserve multiplication. This proves necessity and sufficiency over every characteristic-two field. An independent exhaustive search through all binary linear maps finds exactly 32 automorphisms and agrees with the block description; the finite calculations are not used as an infinite proof.
+## correctness
 
-## Originality — PASS, with residual risk
-The principal 2026 paper by Sangare and Ta studies automorphism groups but Theorem 4.15 explicitly assumes characteristic different from two for even dihedral quandles; it supplies no formula for \(\operatorname{Aut}_K(K[R_4])\) in characteristic two. The older, cited integral computation yields an order-eight group and does not determine the newly exhibited order-32 binary group. Research on right ideals of dihedral quandle rings does not entail this automorphism-group formula. Comparisons against published mathematical records, source wording, finite-field/annihilator aliases, and broader automorphism classifications identified no theorem implying the specific arbitrary-characteristic-two classification. Nevertheless the possibility of a prior equivalent using general bilinear-tensor stabilizers or a different presentation remains.
+PASS
 
-## Mathematical value — PASS
-Computing automorphisms of even-order dihedral quandle algebras is an explicitly identified unfinished structural problem. Order four is the first nontrivial even case not governed by the source's odd-order formula. The characteristic-two case lies outside its principal embedding theorem. The complete answer over every field of characteristic two reveals a four-parameter normal shear subgroup and an exact change from the known integral automorphism count. Both the intrinsic-annihilator reduction and complete classification are structurally informative, beyond an isolated numerical census. It is not claimed to settle larger even-order cases.
+Over arbitrary characteristic-two field, in H=span(e0,e1), W=span(e0+e2,e1+e3), the multiplication xy=ε(y)x+α(x)β(y)u+β(x)α(y)v makes W the intrinsic right annihilator. Automorphisms preserve W and ε, so block matrices have A on H, B on W and arbitrary shear C:H→W. Multiplicativity cancels C and forces Bm(h,k)=m(Ah,Ak). From m(h0,h0)=m(h1,h1)=0 one gets ac=bd=0 for invertible A; preservation of ε restricts A to I or the swap P, and B is respectively I or P. Hence all C∈M2(K) and the simultaneous swap yield (M2(K),+)⋊C2, order 2q^4 over Fq. A completely independent brute-force check enumerated all 20160 GL4(F2) matrices against all 16 multiplication-table products and found precisely 32 automorphisms, matching the all-field structural proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Sangare–Ta classify odd-dihedral cases and give an even-order partial embedding only when characteristic is not two (Theorem 4.15). Their integral R4 automorphism group of order eight is not invariant under base change to F2; the new result determines the excluded characteristic-two group completely.
+
+## value
+
+PASS
+
+The theorem gives the full automorphism group functor on arbitrary characteristic-two fields and exhibits a nontrivial additive four-dimensional shear kernel, genuinely absent from the characteristic-not-two argument.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

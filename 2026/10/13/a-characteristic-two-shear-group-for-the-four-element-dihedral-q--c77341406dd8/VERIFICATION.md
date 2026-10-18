@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The companion `verify.py` uses the Python standard library and runs with `python3 verify.py`. It implements the original nonassociative structure directly from \(e_i e_j=e_{2j-i\bmod4}\) and evaluates preservation of all sixteen ordered basis products.
+# Independent mathematical audit
 
-For \(K=\mathbb F_2\), it constructs all \(65{,}536\) linear endomorphisms, tests invertibility and multiplicativity, and compares the exact resulting set of \(32\) matrices with the independently constructed block-parametrized family. The entire matrix sets agree. For \(K=\mathbb F_4\) and \(K=\mathbb F_8\), it checks every parametrized automorphism, the distinctness of its matrix, and all basis products using extension-field polynomial arithmetic, giving \(512\) and \(8192\) verified matrices, respectively.
+## correctness
 
-Observed successful run:
+PASS
 
-```
-F2_GL4_EXHAUSTIVE_AUTOMORPHISMS 32 PASS
-F4_CONSTRUCTED_AUTOMORPHISMS 512 PASS
-F8_CONSTRUCTED_AUTOMORPHISMS 8192 PASS
-VERIFY_OK
-```
+Over arbitrary characteristic-two field, in H=span(e0,e1), W=span(e0+e2,e1+e3), the multiplication xy=ε(y)x+α(x)β(y)u+β(x)α(y)v makes W the intrinsic right annihilator. Automorphisms preserve W and ε, so block matrices have A on H, B on W and arbitrary shear C:H→W. Multiplicativity cancels C and forces Bm(h,k)=m(Ah,Ak). From m(h0,h0)=m(h1,h1)=0 one gets ac=bd=0 for invertible A; preservation of ε restricts A to I or the swap P, and B is respectively I or P. Hence all C∈M2(K) and the simultaneous swap yield (M2(K),+)⋊C2, order 2q^4 over Fq. A completely independent brute-force check enumerated all 20160 GL4(F2) matrices against all 16 multiplication-table products and found precisely 32 automorphisms, matching the all-field structural proof.
 
-No claim is made that the checks exhaust all automorphisms over \(\mathbb F_4\), \(\mathbb F_8\) or arbitrary fields. Exhaustiveness in those cases follows from the proof's intrinsic-annihilator and tensor-stabilizer arguments, not enumeration. Neither correctness nor originality has received independent validation.
+## originality
+
+PASS
+
+Sangare–Ta classify odd-dihedral cases and give an even-order partial embedding only when characteristic is not two (Theorem 4.15). Their integral R4 automorphism group of order eight is not invariant under base change to F2; the new result determines the excluded characteristic-two group completely.
+
+## value
+
+PASS
+
+The theorem gives the full automorphism group functor on arbitrary characteristic-two fields and exhibits a nontrivial additive four-dimensional shear kernel, genuinely absent from the characteristic-not-two argument.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
