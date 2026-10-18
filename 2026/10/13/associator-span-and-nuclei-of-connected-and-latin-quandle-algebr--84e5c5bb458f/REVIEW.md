@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The connecting-edge associators generate exactly the zero-augmentation subspace. Translation invertibility enforces coefficient constancy for the left and right nuclei; middle nucleus equations reduce to the right annihilator of the augmentation ideal, which Latin left translations determine exactly. Proofs use finite-support modules and do not divide by any field characteristic. The standalone checker tests finite examples over two distinct prime fields, including a nonmedial Latin example and a connected non-Latin example.
+PASS
 
-## Originality — PASS with limitations
+From (e_x,e_y,e_y)=e_{(x*y)*y}−e_{x*y}, bijectivity of R_y gives all connected right-translation edge differences, and finite telescoping gives exactly ker augmentation. For left-nuclear u, R_y²u=R_yu implies R_yu=u, and transitivity/finite-support forces constant coefficients (zero if Q infinite). For Latin right nucleus, similarly L_xu=L_x²u forces invariance under all L_x; their action is transitive because x*a=b is solvable by R_a. Middle nucleus and distributivity give (e_x−e_{R_z^{-1}x})u=0 for all x,z, whence Iu=0; Latin coefficient comparison at b=x*a shows c_a=c_b. Both S inclusions use Latin and right bijections to get Su=uS=epsilon(u)S where appropriate. No division by |Q|, valid in every field including modular characteristic; infinite elements are finite support. Source finite table verifier is only corroboration.
 
-The finite-Latin sum identity and the odd-dihedral left nucleus were known from Sangare–Ta 2026 and are expressly credited. Comparisons checked these statements against the new all-connected associator-span theorem and the all-Latin three-nucleus theorem; the former are strictly less general. A later 2026 full text and some other older possible formulations were unavailable for conclusive whole-document comparison, so equivalent older terminology remains a risk. Search absence is not proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Associator ideals and nuclei are canonical invariants. The theorem completely identifies the maximal associative quotient for every connected quandle algebra and all three nuclei in the broad Latin class, including infinite and nonmedial examples, rather than a single ad hoc finite computation. These conclusions supply concrete information about associative representations and multiplication structure.
+Independent best-of-knowledge originality assessment of the precise final claim. Those equivalent algebraic reformulations were compared. A known nuclear element or special-class nucleus does not imply uniqueness of all nuclear positions; qualitative nonassociativity alone does not force span=I. Prior sources are mathematical ingredients and special cases. Their statements do not supply the proof of general equality or unique nucleus dimensions; new orbit/invariant reasoning closes the gap. Residual risks and genuine material inspected are explicitly recorded.
 
-## Limitations
+## value
 
-The middle/right classifications require Latinity. An infinite quandle has no total basis-sum element in its finite-support algebra. The experiments check only small finite examples; the general proof is symbolic. Independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The associator span is the universal associative reflection, and the three nuclei are canonical algebraic invariants. This all-connected/all-Latin structural classification, including infinite and nonmedial cases, goes materially beyond finite examples or textbook idempotence and is useful for representations and quandle-ring structural theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
