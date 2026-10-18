@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and evidence limits
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 with only its standard library. The script independently constructs the induced hypercube graph from nonconstant binary strings; it does not use the proof's harmonic basis when computing the direct Laplacian. Modular Gaussian elimination compares the direct characteristic determinant with the derived polynomial at 53 evaluation points across dimensions \(3\) through \(7\). A fraction-free exact integer determinant computes Kirchhoff cofactors and matches the closed spanning-tree formula for \(3\le n\le6\). Both groups passed when executed from the actual packaged source path.
+## correctness
 
-The proof independently establishes every dimension \(n\ge3\) by the Boolean-lattice commutator, tridiagonal continuants, the radial path cofactor, and the first-harmonic endpoint determinant identity. A finite verifier is corroborating evidence, not a proof for all dimensions. In particular, modular equality at finitely many evaluation points does not independently certify polynomial identity in arbitrary dimension. No independent external mathematical audit was conducted.
+PASS
+
+The graphical arrangement identifies vertices with acyclic cycle orientations, exactly Q_n with the two directed cyclic orientations removed; the induced cube loses one degree at Hamming weights 1,n-1. The Boolean raising/lowering commutator DU-UD=(n-2j)I yields all H_r strings with dimension d_r. Deleted extreme ranks affect only the r=0 string and degree changes affect r=0,1; their exact continuant blocks plus the r>=2 even-eigenvalue strings exhaust 2^n-2 coordinates. The radial path cofactor and rank-two endpoint determinant identity evaluate D_n and the nonzero eigenvalue product, and Kirchhoff yields the displayed tree formula. Fresh independently constructed integer Laplacians for n=3,4,5 have exactly the predicted characteristic polynomials and tree counts 6, 331776, 97955205120000000. The infinite proof uses the symbolic decomposition, not those checks.
+
+## originality
+
+PASS
+
+The cycle graphical zonotope and its full f-polynomial, and the full hypercube spanning-tree product, are known. Neither source supplies the complete Laplacian of the graph after deleting the two antipodes. The exactly evaluated Boolean-harmonic continuants and first-harmonic determinant are nontrivial additional computations. Searches of cycle-zonotope, deleted cube and proper Boolean-lattice aliases did not locate an equivalent preexisting polynomial; residual risks are explicit.
+
+## value
+
+PASS
+
+The cycle graphical zonotope is a canonical graph-derived polytope with an unexpectedly concrete graph model Q_n minus its antipodes. An evaluated all-dimensional Laplacian polynomial with exact multiplicities and tree product is a natural spectral/complexity invariant, beyond the known face polynomial and unpunctured-cube enumeration; its Boolean-harmonic decomposition is structural and repeatable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

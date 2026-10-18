@@ -1,15 +1,21 @@
-# Scientific review: spectrum and tree complexity of cycle graphical zonotopes
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is a universal statement for every integer \(n\ge3\), for an unweighted combinatorial graph Laplacian. Its graph identification follows from the graphical arrangement's acyclic-orientation chambers, with exactly the two cyclic orientations removed. The Boolean-lattice raising/lowering commutator supplies an exhaustive orthogonal decomposition; the two exceptional low-harmonic tridiagonal blocks and the remaining integral spectral blocks account for all \(2^n-2\) eigenvalues. The rank-symmetric path cofactor gives the complete radial pseudodeterminant, and a separate rank-two determinant lemma evaluates the first harmonic determinant. Kirchhoff then proves the tree product. Critical recurrences and normalizations were reconstructed, and exact integer and modular checks were executed from the packaged verifier. No infinite claim relies on finite tests. Risk: independent mathematical review and formal certification have not been performed.
+## correctness
 
-## Originality — PASS, with residual risk
-Acyclic-orientation parametrization, the defining-cycle graphical zonotope, the classical hypercube spectrum, and Kirchhoff's theorem are prior art. Inspected Padrol–Pilaud–Poullot, arXiv:2111.12422v2, Sections 1.3 and 2, treats the normal fan and deformations, not an evaluated spectrum or spanning-tree product of its *one-skeleton*. Its cited zonotope-volume/spanning-tree identity counts trees of the defining cycle, which is a different graph. Inspected Bernardi, arXiv:1207.0896v3, establishes the unpunctured hypercube spanning-tree formula and augmented-hypercube refinements; neither implies the result after removing two opposite vertices without a new spectral calculation. Inspected Cardinal–Hoang–Merino–Mička–Mütze, arXiv:2212.03915v1, Introduction and Sections 2–4, concerns acyclic-orientation flip graphs, Gray codes, and Hamilton paths, not this characteristic polynomial. Grujić, arXiv:1604.06931v2, Proposition 5.2, already calculates the full face polynomial of precisely the cycle zonotope; it gives \(2^n-2\) vertices but no evaluated one-skeleton Laplacian or spanning-tree complexity. The prior cycle-specific f-vector result is explicitly credited rather than treated as new. Explicit published-finding corpus and public literature searches for deleted antipodes, the proper Boolean-lattice Hasse graph, cycle-orientation flip graph, exact spectra and spanning-tree products found no direct evaluated equivalent. No search can establish universal uniqueness; an unindexed equivalent graph-theoretic formula remains a residual risk.
+PASS
 
-## Value — PASS
-The defining cycle is the first genuinely cyclic graph after trees, and its graphical zonotope is a canonical, non-simple generalized permutohedron. Its one-skeleton is a natural size-\(2^n-2\) induced subgraph of the hypercube, not an arbitrarily selected exceptional graph. The result provides both the entire Laplacian characteristic polynomial in efficient finite-order continuants and a closed all-dimensional spanning-tree product. The block decomposition explains the distinction between perturbations of low Boolean harmonics and unaffected high harmonics. The invariant is not supplied merely by face counts, defining-cycle zonotope volume, or the unpunctured hypercube formula. No downstream theorem is asserted or needed for the motivated exact classification.
+The graphical arrangement identifies vertices with acyclic cycle orientations, exactly Q_n with the two directed cyclic orientations removed; the induced cube loses one degree at Hamming weights 1,n-1. The Boolean raising/lowering commutator DU-UD=(n-2j)I yields all H_r strings with dimension d_r. Deleted extreme ranks affect only the r=0 string and degree changes affect r=0,1; their exact continuant blocks plus the r>=2 even-eigenvalue strings exhaust 2^n-2 coordinates. The radial path cofactor and rank-two endpoint determinant identity evaluate D_n and the nonzero eigenvalue product, and Kirchhoff yields the displayed tree formula. Fresh independently constructed integer Laplacians for n=3,4,5 have exactly the predicted characteristic polynomials and tree counts 6, 331776, 97955205120000000. The infinite proof uses the symbolic decomposition, not those checks.
 
-## Scientific limitations and closest sources
-This is a mathematical same-model reconstruction, not an independent audit. The explicit polynomial factors are not closed radical formulas for the roots of the two continuants. The strongest plausible prior equivalence is an exact Laplacian formula for the antipodally vertex-deleted hypercube or the nonempty-proper-subset Boolean Hasse graph, possibly indexed under different names. Source inspections and exact query terms are retained in the structured review.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The cycle graphical zonotope and its full f-polynomial, and the full hypercube spanning-tree product, are known. Neither source supplies the complete Laplacian of the graph after deleting the two antipodes. The exactly evaluated Boolean-harmonic continuants and first-harmonic determinant are nontrivial additional computations. Searches of cycle-zonotope, deleted cube and proper Boolean-lattice aliases did not locate an equivalent preexisting polynomial; residual risks are explicit.
+
+## value
+
+PASS
+
+The cycle graphical zonotope is a canonical graph-derived polytope with an unexpectedly concrete graph model Q_n minus its antipodes. An evaluated all-dimensional Laplacian polynomial with exact multiplicities and tree product is a natural spectral/complexity invariant, beyond the known face polynomial and unpunctured-cube enumeration; its Boolean-harmonic decomposition is structural and repeatable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
