@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "For \\(u=(c,s)^{\\mathsf T}\\), \\(v=(1,0)^{\\mathsf T}\\), and \\(0<\\delta<1\\), each exact error update is the symmetric matrix \\(U\\), \\(V_0\\), or \\(V_\\delta\\) displayed in RESULT.md. Enumerating all four ordered two-update products establishes the displayed exact \\(D_2\\). The one-step difference is \\(\\delta^2vv^{\\mathsf T}/2\\). Its two-step trace is positive and its determinant is exactly \\(-c^2s^2\\delta^2[1-s^2\\delta(\\delta+2)-\\delta^4]/16\\). The quartic transition function increases strictly from zero to a value greater than one, giving the unique transition; the spectral theorem verifies strictness and the equality line for every admissible real parameter. Exact rational arithmetic independently checks 1,729 representative triples and the witness, whereas symbolic algebra proves the continuum statement. The smallest eigenvalue has leading term \\(-cs\\delta/4\\). No larger-dimensional or long-term result is asserted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Marshall and Mickelin, arXiv:2202.12224v4: optimizes learning-rate schedules under a different noisy setting and rate bound.",
+        "Censor et al. (2008): convergence conditions for diagonally relaxed projection families; no comparison of this precise two-step expected norm matrix.",
+        "published-finding corpus ID 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705: scalar spectral Richardson products, not randomly selected noncommuting row projections."
+      ],
+      "reasoning": "The matrix-expectation formalism can represent the present situation, but neither general convergence hypotheses nor Richardson spectral polynomial bounds imply the exact sign threshold for random volume-ratio relaxation. In particular deterministic cyclic, adaptive stale-read, and fixed-work stochastic-mask models have different operators and quantifiers.",
+      "searches": [
+        "two random projector alternating relaxation expected error two steps strict improvement over exact projections",
+        "randomized orthogonal projection overrelaxation exact two step mean square horizon reversal uniform sampling matrix products spectral threshold",
+        "finite horizon mean square reversal one step versus two step relaxed randomized Kaczmarz volume determinant uniform sampling",
+        "arXiv:2202.12224v4 schedule relaxation",
+        "DOI:10.1137/050639399 diagonally relaxed orthogonal projection"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.12346v1, full 19-page PDF",
+      "arXiv:1502.00190v1, full 5-page PDF",
+      "arXiv:2202.12224v4, full 19-page PDF",
+      "DOI:10.1137/050639399, complete author-accessible text",
+      "DOI:10.1109/GlobalSIP.2014.7032145, bibliographic record only",
+      "2026/9/20/SCOPE-reverse-order-cancels-kaczmarz-underrelaxation-bias--a94e87f5f881",
+      "2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f",
+      "2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac",
+      "2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "ArXiv:2610.12346v1 Theorem 2 gives \\(\\omega_i(2-\\omega_i)=\\|a_i\\|^2/v_{\\max}\\), yielding exact one-step operator; cross-step products remain untreated.",
+        "2026/9/20/SCOPE-reverse-order-cancels-kaczmarz-underrelaxation-bias--a94e87f5f881 treats reversal of deterministic cyclic row order and least-squares bias, not iid finite-horizon relaxed-vs-unrelaxed squared error.",
+        "2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f treats maximal-residual selection, not uniform sampling and volume-based relaxation."
+      ],
+      "reasoning": "No inspected stronger statement implies the sharp determinant-based threshold. The source one-step inequality alone cannot order two-step mean-square outcomes, while published cyclic-order, delayed-update and sampling-law results optimize different variables. The exact counterexample and phase boundary therefore give a distinct mathematical statement. Potential equivalence in other literature remains acknowledged.",
+      "searches": [
+        "volume ratio relaxed uniform randomized alternating projection first-step versus second-step advantage",
+        "iid random 2x2 orthogonal projections overrelaxation versus unit relaxation two iteration expected norm",
+        "2026/9/20/SCOPE-reverse-order-cancels-kaczmarz-underrelaxation-bias--a94e87f5f881",
+        "2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem 2 of arXiv:2610.12346v1 gives the one-step conditional expectation, not a two-update matrix inequality.",
+        "arXiv:1502.00190v1 supplies general unrelaxed MSE calculations; its second-moment representation is not itself a two-method sign theorem."
+      ],
+      "reasoning": "Reformulating as a second-moment operator sign, product of noncommuting orthogonal projections, or a covariance-lifting recurrence does not turn the one-step operator order into a two-step order: the computed determinant is negative below the explicit quartic root. General moment computation is a method, not the asserted classification. No exact equivalent identified after searches and primary-PDF comparisons.",
+      "searches": [
+        "arxiv:2610.12346 volume-ratio relaxation two-step matrix difference Kaczmarz sharp quartic threshold",
+        "volume ratio relaxed uniform randomized alternating projection first-step versus second-step advantage",
+        "Entezari Banerjee Kalantari two-step relaxation frontier Kaczmarz",
+        "arXiv:1502.00190v1 exact MSE formula",
+        "arXiv:2610.12346v1 Theorem 2 Eq 5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-literature search matches for explicit quartic claim had no identified matching threshold; closest results concern two-coordinate Gauss-Seidel, Kaczmarz coherence, and Richardson.",
+        "Motivating primary manuscript presents numerical experiments and one-step bounds rather than a table of exact two-step order signs."
+      ],
+      "reasoning": "The object is a universal continuous-parameter phase diagram, not a pretabulated finite invariant. Neither an exact-parameter table nor a stronger result implying the displayed quartic division was identified; negative search evidence alone is not proof of novelty.",
+      "searches": [
+        "arxiv:2610.12346 volume-ratio relaxation two-step matrix difference Kaczmarz sharp quartic threshold",
+        "sharp quartic threshold for two-step mean square overrelaxation in two-row Kaczmarz relaxed exact projection",
+        "two-step randomized Kaczmarz relaxation determinant phase threshold quartic",
+        "arxiv:2610.12346v1 volume relaxation small two rows"
+      ]
+    },
+    "rationale": "Compared statements and implications against the full 2026 source Theorem 2, full exact-MSE and scheduled-rate articles, general diagonal-relaxation theory, relevant published neighboring results and related mathematical statements. The source one-step conditional expectation is strictly weaker than the newly derived exact two-step sign classification; general covariance-lifting and convergence results do not supply its quartic threshold. No matching prior statement or stronger cover identified. Risk: an equivalent derivation may exist in older projection-product literature, notably the unaccessed GlobalSIP 2014 full text.",
+    "residual_risks": [
+      "An equivalent two-step formula may be embedded in older stochastic-projection or random-matrix-product literature not uncovered by searches.",
+      "Full text of the plausible GlobalSIP 2014 exact-MSE conference paper remained inaccessible; the expanded 2015 article was inspected, so the remaining risk is documented rather than dismissed.",
+      "Bibliographic and semantic searches are not exhaustive or proof of uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides one-step conditional expected squared-error identity, convergence bounds and experiments, but not the exact two-step difference matrix or its quartic sign frontier. The source compares some iteration-rate statistics, which do not imply a pointwise sign classification at exactly two updates.",
+        "evidence": [
+          "arXiv:2610.12346v1, Theorem 2, Eq. (5), page 5; proof pp. 10-11",
+          "arXiv:2610.12346v1, Sections 5.1-5.2, Figures 2-3"
+        ],
+        "identifier_or_url": "arXiv:2610.12346v1 | https://arxiv.org/pdf/2610.12346",
+        "material_read": "Theorem 2 (Equation 5), proof on pages 10-11, Sections 5.1 and 5.2, discussion and references of the complete 19-page open PDF.",
+        "method": "Primary preprint full-text inspection, formula-level comparison with the exact two-step second-moment matrix.",
+        "title": "Volume Sampling and Spectral Equalization in Randomized Alternating Projections",
+        "trigger": "Introduces the exact volume-ratio relaxation rule and experimental comparison used in the statement."
+      },
+      {
+        "assessment": "Develops exact MSE covariance formulas for ordinary orthogonal Kaczmarz; these may compute the ordinary baseline but do not cover the 2026 row-norm-dependent relaxed uniform variant or classify signs between algorithms at two steps.",
+        "evidence": [
+          "arXiv:1502.00190v1, exact MSE model, eq. (5), and numerical examples"
+        ],
+        "identifier_or_url": "arXiv:1502.00190v1 | https://arxiv.org/pdf/1502.00190",
+        "material_read": "The full five-page open PDF, including setup, moment-matrix recurrence, theorems and conclusions.",
+        "method": "Primary preprint full-text reading and comparison of the update law and available formulas.",
+        "title": "Randomized Kaczmarz Algorithm for Inconsistent Linear Systems: An Exact MSE Analysis",
+        "trigger": "A potentially dominating general exact covariance or second-moment recurrence."
+      },
+      {
+        "assessment": "Its optimization of time-indexed learning rates and noisy-system bounds differs from the fixed row-norm-dependent relaxation and the exact two-step Loewner comparison. No covering implication found.",
+        "evidence": [
+          "arXiv:2202.12224v4, optimization objective and scheduled-rate theorem"
+        ],
+        "identifier_or_url": "arXiv:2202.12224v4 | https://arxiv.org/pdf/2202.12224",
+        "material_read": "Full open 19-page preprint, assumptions, theorem on scheduled learning rates, and proof sections.",
+        "method": "Read primary PDF and compare schedule/measurement-noise/bounds with exact singleton volume-ratio update and deterministic initial-condition phase diagram.",
+        "title": "An Optimal Scheduled Learning Rate for a Randomized Kaczmarz Algorithm",
+        "trigger": "Relevant older optimization of Kaczmarz relaxation over multiple steps."
+      },
+      {
+        "assessment": "Addresses deterministic general projections and convergence, not the particular stochastic two-step finite-horizon phase or volume-ratio choice; general convergence does not imply the asserted strict two-step comparison.",
+        "evidence": [
+          "Censor et al. (2008), definitions and theorems 2.9-2.10"
+        ],
+        "identifier_or_url": "DOI:10.1137/050639399 | https://doi.org/10.1137/050639399",
+        "material_read": "Lawful author-hosted complete article copy, introduction and theorems 2.9-2.10 and discussion.",
+        "method": "Read accessible full text, compare deterministic diagonal relaxation convergence hypotheses and quantifiers to iid second-moment sign.",
+        "title": "On Diagonally Relaxed Orthogonal Projection Methods",
+        "trigger": "Possible general relaxed-projection theorem implying two-step comparison."
+      },
+      {
+        "assessment": "Potential framework for general two-step MSE computation, but no verified specific result for the new 2026 volume-ratio relaxation; cannot assert comprehensive noncoverage without full text.",
+        "evidence": [
+          "Agaskar, Wang, Lu (GlobalSIP 2014) DOI:10.1109/GlobalSIP.2014.7032145",
+          "Expanded arXiv:1502.00190v1 inspected separately"
+        ],
+        "identifier_or_url": "DOI:10.1109/GlobalSIP.2014.7032145",
+        "material_read": "Bibliographic record and relevant publicly available descriptions; full text could not be retrieved after bounded attempts.",
+        "method": "Read metadata/summary and compare with inspected expanded 2015 follow-up.",
+        "title": "Randomized Kaczmarz Algorithms: Exact MSE Analysis and Optimal Sampling Probabilities",
+        "trigger": "Earlier exact covariance-lifting work potentially covering two-step products."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4868d77f-a457-4a04-9ccb-594bd8426af6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The recent primary algorithm introduces a norm-dependent overrelaxation whose proven one-step loss is no better than ordinary uniform projections, yet longer experimental runs motivate understanding cross-step effects. For the smallest genuinely noncommuting instance, an exact quartic phase boundary and strict two-update reversal identify when this local order can reverse, plus when relaxation becomes universally worse. This is a concrete, motivated structural performance diagnostic, not merely a recomputation of known spectral tables or a cosmetic parameter substitution. It supplies the exact witness, equality line and sharp small-distortion advantage while explicitly limiting claims to two updates.",
+    "status": "PASS"
+  }
+}
