@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,49 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The checker constructs the half graph
-\[
-H_n
-\]
-directly from
-\[
-a_i b_j\in E(H_n)\quad\Longleftrightarrow\quad i\le j.
-\]
+# Independent mathematical audit
 
-For every tested labeling it applies the defining \([k]\)-Roman condition directly: if \(f(v)<k\), it computes the active neighbors of \(v\), the closed-neighborhood label sum, and checks
-\[
-f(N[v])\ge k+|AN(v)|.
-\]
+## correctness
 
-It exhausts all labelings of total weight at most
-\[
-2(k+1)
-\]
-for
-\[
-2\le k\le5,\qquad 3\le n\le5.
-\]
+PASS
 
-Recorded output:
+For the half graph H_n with a_i b_j iff i<=j, k>=2, n>=3, the defining inequality for every f(v)<k is f(N[v])>=k+|AN(v)|. Its endpoint leaf-support pairs have disjoint weight L,R>=k; equality L=k forces (a_1,b_1)=(0,k), and R=k forces (a_n,b_n)=(k,0). The submitted nested-neighborhood analysis excludes weight 2k+2 when either pair equals k. Otherwise L=R=k+1 and all interior labels vanish; a_2 and b_(n-1) force precisely f(a_1)=f(b_n)=k+1. This exhibits an admissible function of weight 2(k+1) and proves uniqueness. Independent direct constrained-composition enumeration tested every labeling of weight <=2(k+1) for n=3,4,5 and k=2,3: exactly 65,694 candidate labelings checked, all six instances had one endpoint optimum, no smaller valid label. This finite test is corroboration, not the universal proof.
 
-```text
-VERIFY_OK
-k=2, n=3: gamma_[kR]=6, minimum_functions=1
-k=2, n=4: gamma_[kR]=6, minimum_functions=1
-k=2, n=5: gamma_[kR]=6, minimum_functions=1
-k=3, n=3: gamma_[kR]=8, minimum_functions=1
-k=3, n=4: gamma_[kR]=8, minimum_functions=1
-k=3, n=5: gamma_[kR]=8, minimum_functions=1
-k=4, n=3: gamma_[kR]=10, minimum_functions=1
-k=4, n=4: gamma_[kR]=10, minimum_functions=1
-k=4, n=5: gamma_[kR]=10, minimum_functions=1
-k=5, n=3: gamma_[kR]=12, minimum_functions=1
-k=5, n=4: gamma_[kR]=12, minimum_functions=1
-k=5, n=5: gamma_[kR]=12, minimum_functions=1
-bounded_labelings_checked = 1035068
-all minima matched the unique endpoint labeling
-```
+## originality
 
-Thus the computation is exhaustive for every labeling relevant to the minimum and minimum-function claims in the tested parameter range. It is finite corroboration only; the arbitrary-\(k\), arbitrary-\(n\) theorem is established by the symbolic proof in `RESULT.md`.
+PASS
+
+The scalar k=2 value gamma_dR(H_n)=6 is already a consequence of Padamutham and Reddy 2020 (non-complete-bipartite connected chain graphs). The reviewed added fact is rigidity of every k=2 minimum function and the exact bound plus uniqueness for every k>=3. A published 2023 [k]-Roman general bound and 2024/2026 graph-family papers concern broad bounds/other families; from materials actually inspected they do not imply this complete specific optimizer classification. Search is not proof of novelty.
+
+## value
+
+PASS
+
+The half graph is a canonical connected chain graph with two nested leaf-support extremes; exact optimizer rigidity on the whole infinite k,n domain is a motivated structural classification beyond its previously known scalar invariant. The unique optimal defensive configuration can be used as an exact benchmark for studying all minimum [k]-RDFs in ordered bipartite graph families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

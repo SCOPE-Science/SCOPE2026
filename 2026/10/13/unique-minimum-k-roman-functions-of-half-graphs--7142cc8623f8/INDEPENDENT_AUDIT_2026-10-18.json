@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T13:15:38Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the half graph H_n with a_i b_j iff i<=j, k>=2, n>=3, the defining inequality for every f(v)<k is f(N[v])>=k+|AN(v)|. Its endpoint leaf-support pairs have disjoint weight L,R>=k; equality L=k forces (a_1,b_1)=(0,k), and R=k forces (a_n,b_n)=(k,0). The submitted nested-neighborhood analysis excludes weight 2k+2 when either pair equals k. Otherwise L=R=k+1 and all interior labels vanish; a_2 and b_(n-1) force precisely f(a_1)=f(b_n)=k+1. This exhibits an admissible function of weight 2(k+1) and proves uniqueness. Independent direct constrained-composition enumeration tested every labeling of weight <=2(k+1) for n=3,4,5 and k=2,3: exactly 65,694 candidate labelings checked, all six instances had one endpoint optimum, no smaller valid label. This finite test is corroboration, not the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2023 primary accessible abstract and text excerpts: general upper bound (2k+1)n/4, trees and complexity; 2024 full primary Sections 1-3 provide general bounds; 2026 indexed primary presents several families."
+        ],
+        "reasoning": "General upper/lower bounds and class-wide algorithms do not force the unique endpoint labeling or equality classification for a nontrivial nested-neighborhood subclass; full 2023 paper remained unavailable and is a risk.",
+        "searches": [
+          "Khalili et al. 2023 DOI:10.1080/09728600.2023.2241531",
+          "Valenzuela-Tripodoro et al. 2024 DOI:10.1007/s41980-024-00872-1",
+          "Valenzuela-Tripodoro et al. 2026 DOI:10.3390/math14091535"
+        ]
+      },
+      "checked_sources": [
+        "Padamutham–Reddy 2020 §4 DOI:10.1016/j.akcej.2020.01.005",
+        "Khalili et al. 2023 DOI:10.1080/09728600.2023.2241531 (partial)",
+        "Valenzuela-Tripodoro et al. 2024 DOI:10.1007/s41980-024-00872-1 (full)",
+        "Valenzuela-Tripodoro et al. 2026 DOI:10.3390/math14091535 (indexed)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2020 paper Section 4 connected chain graphs supplies gamma_dR=6 (covers the k=2 value); 2024 paper defines the same f(N[v]) inequality and gives broad bounds, not optimizer rigidity."
+        ],
+        "reasoning": "The paper explicitly excludes k=2 scalar gamma=6 from novelty. Neither a min-value nor a class-wide bound logically classifies its minimizers, and the source derives an independent rigidity proof.",
+        "searches": [
+          "Padamutham–Reddy 2020 DOI:10.1016/j.akcej.2020.01.005",
+          "Springer 2024 DOI:10.1007/s41980-024-00872-1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Half graph = canonical chain graph; k=2 is double Roman; k>=3 general [k]-Roman. The Resultary Roman domination polynomial counts ordinary Roman f in chain graphs, not [k]>=2."
+        ],
+        "reasoning": "The aliases matter: scalar k=2 gamma=6 is covered, while minimum-function uniqueness is not implied by knowing only gamma or a k=1 enumerator.",
+        "searches": [
+          "[k]-Roman domination half graphs chain graphs unique optimum double roman",
+          "\"half graph\" \"chain graph\" \"triple Roman\" \"[k]-Roman\"",
+          "Resultary:2026/10/4/SCOPE-roman-domination-polynomial-of-chain-graphs--e846e0fa619b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest result is an enumerator for ordinary Roman domination on chain graphs, and 2020 gamma_dR=6 gives value but no minimum multiplicity table."
+        ],
+        "reasoning": "No actual table of all minimal [k]-Roman functions of half graphs was found; this negative search is not itself a novelty proof.",
+        "searches": [
+          "[k]-Roman domination half graphs chain graphs unique optimum double roman",
+          "Resultary Roman chain graphs and Roman domination polynomial variants"
+        ]
+      },
+      "rationale": "The scalar k=2 value gamma_dR(H_n)=6 is already a consequence of Padamutham and Reddy 2020 (non-complete-bipartite connected chain graphs). The reviewed added fact is rigidity of every k=2 minimum function and the exact bound plus uniqueness for every k>=3. A published 2023 [k]-Roman general bound and 2024/2026 graph-family papers concern broad bounds/other families; from materials actually inspected they do not imply this complete specific optimizer classification. Search is not proof of novelty.",
+      "residual_risks": [
+        "Full Khalili et al. 2023 text could not be inspected, Oxford authorization requires owner VPN connection; no inference from missing sections.",
+        "An older minimum-function uniqueness result for half graphs under different double/triple-Roman naming could exist.",
+        "Only k>=2,n>=3, ordinary Roman k=1 and n=2 excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS k=2 scalar gamma=6; optimizer count not established in text materially available",
+          "evidence": "Section 4 studies double Roman number on chain graphs; no minimum-function uniqueness statement verified.",
+          "identifier_or_url": "DOI:10.1016/j.akcej.2020.01.005",
+          "material_read": "Full primary text indexed by web search including section 4, theorem setup; direct open blocked HTTP 403",
+          "method": "Read indexed open-access primary text extract and compare classification and definitions",
+          "title": "Padamutham and Reddy, Complexity of Roman {2}-domination and the double Roman domination in graphs",
+          "trigger": "Same chain graph class, k=2 value"
+        },
+        {
+          "assessment": "NOT covering the exact half-graph minimum-function rigidity in inspected results",
+          "evidence": "Section 1 defines [k]-RDF for f(v)<k and bounds; general graph class results do not imply unique half-graph optimum.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s41980-024-00872-1",
+          "material_read": "Full open-access HTML Sections 1-3 including notation and general bounds, special family results",
+          "method": "Primary full-text theorem and statement comparison",
+          "title": "Valenzuela-Tripodoro et al., Further Results on the [k]-Roman Domination in Graphs",
+          "trigger": "Same invariant all k; possible stronger family theorem"
+        },
+        {
+          "assessment": "NOT FULLY ASSESSED; plausible source-access risk, no blanket noncoverage claim",
+          "evidence": "Abstract gives general graph bound, trees and hardness but does not state half-graph result.",
+          "identifier_or_url": "DOI:10.1080/09728600.2023.2241531",
+          "material_read": "Publisher full HTML/PDF attempted, HTTP 403; public abstract and introductory excerpt read; institutional authenticated retrieval returned vpn_disconnected",
+          "method": "Source-access comparison without assuming unread results",
+          "title": "Khalili et al., On [k]-Roman Domination in Graphs",
+          "trigger": "Original introduction of general invariant and possible chain special case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The half graph is a canonical connected chain graph with two nested leaf-support extremes; exact optimizer rigidity on the whole infinite k,n domain is a motivated structural classification beyond its previously known scalar invariant. The unique optimal defensive configuration can be used as an exact benchmark for studying all minimum [k]-RDFs in ordered bipartite graph families.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full Khalili et al. 2023 text could not be inspected, Oxford authorization requires owner VPN connection; no inference from missing sections.",
+    "An older minimum-function uniqueness result for half graphs under different double/triple-Roman naming could exist.",
+    "Only k>=2,n>=3, ordinary Roman k=1 and n=2 excluded."
+  ],
+  "schema_version": 1
+}
