@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproduction and limitations
+# Independent mathematical audit
 
-From this directory execute:
+## correctness
 
-`python3 verify.py`
+PASS
 
-The verifier is standard-library-only. It implements two structurally distinct enumerations: direct vertex-level finite tree closures and color-preserving isomorphism keys, and a bounded recursive multiset construction. It independently calculates unbounded generating-function coefficients by formal series arithmetic; it checks partition coefficients using Euler's generalized-pentagonal recurrence, not a partition-sequence lookup.
+Finite tcl-closed colored rooted subtrees are uniquely classified by a mandatory rooted subtree per label-1 child and arbitrary finite multisets of subtrees per infinity child. The stated Pólya exponent/product recursion follows by induction on plan height. If infinity plan nodes are an antichain, each contributes a free nonnegative multiplicity with fixed size s_sigma, giving the rational product and simplex lattice-point cumulative asymptotic. A nested pair yields branch types of sizes b+cj and at least 2^k distinct multisets of O(k^2) total size, hence exp(c sqrt N) cumulative lower bound. Induction on height shows F_sigma(r)<infinity for all 0<r<1, implying log A(N)=o(N); superpolynomial growth excludes rationality. Empty infinity plan/d=0 case explicitly handled.
 
-Recorded output:
+## originality
 
-`VERIFY_OK 42474 exact assertions; 1444 labelled finite-node selections screened; 7 tree-plan shapes compared by direct isomorphism invariants; 4283 exhaustive small plans incl. 2107 antichain plans`
+PASS
 
-The enumeration exhaustively covers all selected-node configurations for the seven chosen actual finite colored trees with two successor copies per infinity label. In addition, it enumerates every increasing-parent plan encoding with at most six nodes, every root-respecting infinity labelling, and the corresponding rational identity for antichain-label plans. These are finite regression checks, not exhaustive checks of all plans or a computational proof of the infinite growth assertions. The latter follow from the complete structural argument in RESULT.md. Independent mathematical audit has not been performed.
+Mirabi 2023 defines the exact colored generic tree, closure operator and polynomial-size uniform finite approximants. His cardinality polynomial |Gamma(m)| counts vertices of special finite approximants, not isomorphism types of all tcl-closed finite subtrees graded by size; the depth-two infinity plan demonstrates the distinction (1+m+m^2 vs partition numbers). Falque–Thiéry 2020 classify polynomial subset-orbit profiles rather than this closure-cardinality invariant. Classical unlabeled multiset/partition tools are credited. No inspected stronger theorem gives the complete infinity-node comparability dichotomy; equivalence in age/Pólya theory remains a risk.
+
+## value
+
+PASS
+
+Defines and exactly computes a natural new closure-type spectrum attached to every finite colored tree plan, including a sharp combinatorial phase transition (eventually quasipolynomial versus strictly intermediate growth) and asymptotic dimension; relevant to counting finite substructures of omega-categorical generic trees. This is a meaningful uniform classification, not a generic unmotivated slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The source's tree closure includes precisely the deterministic singleton descendants of included vertices and all ancestors. The color predicates distinguish plan children, and the generic supplies countably many freely permutable children of each infinity color; these facts yield a complete recursive product/multiset normal form. In the antichain case, a closed subtree is uniquely determined by integer multiplicities of forced-size infinity branches, so the restricted-partition series and cumulative lattice-point asymptotic are exact. For nested infinity-nodes, distinct branch sizes give an injective family of \(2^k\) types using \(O(k^2)\) vertices. Analytic convergence of the recursive series in \(|z|<1\) proves subexponential upper growth. The independent direct finite construction and exact coefficient replay agree. The asymptotic proof, not the finite test, supports the universal quantifiers.
+PASS
 
-## Originality
+Finite tcl-closed colored rooted subtrees are uniquely classified by a mandatory rooted subtree per label-1 child and arbitrary finite multisets of subtrees per infinity child. The stated Pólya exponent/product recursion follows by induction on plan height. If infinity plan nodes are an antichain, each contributes a free nonnegative multiplicity with fixed size s_sigma, giving the rational product and simplex lattice-point cumulative asymptotic. A nested pair yields branch types of sizes b+cj and at least 2^k distinct multisets of O(k^2) total size, hence exp(c sqrt N) cumulative lower bound. Induction on height shows F_sigma(r)<infinity for all 0<r<1, implying log A(N)=o(N); superpolynomial growth excludes rationality. Empty infinity plan/d=0 case explicitly handled.
 
-**PASS, with meaningful residual risk.** Mirabi's primary full text develops the same tree plans, closure operator, and polynomial element counts for uniform finite approximants, but does not count finite closed-subtree isomorphism types or establish the nested-infinity growth dichotomy. An SU-rank analysis and the source's node-count polynomial address different element-level invariants and do not imply this closure-type enumeration. Falque–Thiéry's general polynomial oligomorphic profile theorem counts subset orbits of a permutation group; it does not supply this closure-size recursion. Classical partition/multiset enumeration explains the mechanism but not the tree-plan-specific all-plan classification. Direct full-text inspection and candidate-specific searches located no equivalent claim; a folklore species-style derivation remains possible.
+## originality
 
-## Value
+PASS
 
-**PASS.** The invariant counts finitely closed hull shapes in a canonical family of countable model-theoretic trees, rather than arbitrary graph slices. It gives a uniform exact algorithm for every finite plan, a structural criterion deciding polynomial versus intermediate complexity directly from the plan, the sharp polynomial degree and leading cumulative constant, and a striking contrast with Mirabi's uniformly polynomial finite-model cardinality \(|\Gamma(m)|\). This supplies a natural measurable invariant for comparing tree plans and connects model-theoretic closure to partition growth.
+Mirabi 2023 defines the exact colored generic tree, closure operator and polynomial-size uniform finite approximants. His cardinality polynomial |Gamma(m)| counts vertices of special finite approximants, not isomorphism types of all tcl-closed finite subtrees graded by size; the depth-two infinity plan demonstrates the distinction (1+m+m^2 vs partition numbers). Falque–Thiéry 2020 classify polynomial subset-orbit profiles rather than this closure-cardinality invariant. Classical unlabeled multiset/partition tools are credited. No inspected stronger theorem gives the complete infinity-node comparability dichotomy; equivalence in age/Pólya theory remains a risk.
 
-## Closest literature and limitations
+## value
 
-Primary: Mirabi, *Asymptotic Classes of Trees and \(\aleph_0\)-Categoricity* (arXiv:2307.07899v1), especially Sections 3–5. General profile comparison: Falque–Thiéry, *Classification of P-Oligomorphic Groups, Conjectures of Cameron and Macpherson* (arXiv:2005.05296v2). Standard generating-function theory accounts for the multiset construction. The result counts color-preserving types of Mirabi-closed finite subtrees, not ordinary finite subsets or arbitrary uncolored induced subtrees. An unindexed derivation could reduce originality. The finite computation is not a substitute for the infinite proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Defines and exactly computes a natural new closure-type spectrum attached to every finite colored tree plan, including a sharp combinatorial phase transition (eventually quasipolynomial versus strictly intermediate growth) and asymptotic dimension; relevant to counting finite substructures of omega-categorical generic trees. This is a meaningful uniform classification, not a generic unmotivated slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T20:10:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Finite tcl-closed colored rooted subtrees are uniquely classified by a mandatory rooted subtree per label-1 child and arbitrary finite multisets of subtrees per infinity child. The stated Pólya exponent/product recursion follows by induction on plan height. If infinity plan nodes are an antichain, each contributes a free nonnegative multiplicity with fixed size s_sigma, giving the rational product and simplex lattice-point cumulative asymptotic. A nested pair yields branch types of sizes b+cj and at least 2^k distinct multisets of O(k^2) total size, hence exp(c sqrt N) cumulative lower bound. Induction on height shows F_sigma(r)<infinity for all 0<r<1, implying log A(N)=o(N); superpolynomial growth excludes rationality. Empty infinity plan/d=0 case explicitly handled.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mirabi Definition 3.0.5 fixes closure and Γ(m) finite approximants; his polynomial P(Γ;m)=|Γ(m)| is a different counting function. Falque–Thiéry treat subset-orbit profiles with a distinct size grading."
+        ],
+        "reasoning": "The special approximation sizes can be polynomial even when the full closure-type cumulative profile grows like integer partitions. Thus Mirabi polynomiality does not imply the stated dichotomy; classical oligomorphic-profile conclusions do not subsume this invariant without extra identification.",
+        "searches": [
+          "Mostafa Mirabi arXiv:2307.07899 §§3–5",
+          "Falque–Thiéry arXiv:2005.05296 2020 polynomial orbit profiles"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2307.07899v1",
+        "arXiv:2005.05296v2",
+        "classical Euler partition generating identity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mirabi counts vertices of Γ(m), and tcl-closed subsets can have arbitrary multisets of infinity child types; these are not counted by |Γ(m)|."
+        ],
+        "reasoning": "The general multiset formula plus Mirabi closure definitions supply the machinery, but neither cited prior theorem states the polynomial-vs-intermediate boundary or its exact asymptotic; this audit independently reconstructed that connection.",
+        "searches": [
+          "Mirabi 2023 Def.3.0.5 and Sections 4–5",
+          "Falque–Thiéry arXiv:2005.05296",
+          "classical unlabeled multiset formula exp(sum F(z^j)/j)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Full finite tcl-closed types correspond to unordered colored branch multisets. Classical partition generating functions appear in the first nested example but not the full iff growth theorem for plan label patterns."
+        ],
+        "reasoning": "The recursive enumeration is an instance of unlabeled multiset species; a general species theorem might imply it if coupled with the plan-specific tcl operator. No accessible prior supplied the explicit comparability criterion and cumulative asymptotic for Mirabi plans.",
+        "searches": [
+          "Mirabi tree plan finite tree closure isomorphism classes generating function web",
+          "Falque Thiéry P-oligomorphic orbit profiles paper 2020",
+          "Pólya species finite colored rooted tree multiset generating functions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact partition generating function is classical, but describes only the depth-two case; the assigned theorem classifies all finite plans by infinity comparability."
+        ],
+        "reasoning": "Existing partition tables are used as sanity checks and cannot replace the all-plan recursion and antichain/nested proof; complete indexed record comparison limited by Resultary outage.",
+        "searches": [
+          "Resultary semantic query attempted: Mirabi tree plans generic trees finite tree closure isomorphism types partition multiset profile polynomial intermediate growth nested infinity",
+          "SCOPE2026 GitHub code search: tree-closure type growth (no hits)",
+          "partition function p(n) classical first nested example"
+        ]
+      },
+      "rationale": "Mirabi 2023 defines the exact colored generic tree, closure operator and polynomial-size uniform finite approximants. His cardinality polynomial |Gamma(m)| counts vertices of special finite approximants, not isomorphism types of all tcl-closed finite subtrees graded by size; the depth-two infinity plan demonstrates the distinction (1+m+m^2 vs partition numbers). Falque–Thiéry 2020 classify polynomial subset-orbit profiles rather than this closure-cardinality invariant. Classical unlabeled multiset/partition tools are credited. No inspected stronger theorem gives the complete infinity-node comparability dichotomy; equivalence in age/Pólya theory remains a risk.",
+      "residual_risks": [
+        "Resultary semantic-search connection was UNAVAILABLE during this run; this is a search-access limitation, not evidence of novelty or an automatic scientific rejection.",
+        "Possible earlier species/age-theory formulation of the exact plan growth dichotomy.",
+        "The lower bound exp(Omega(sqrt N)) and upper exp(o(N)) are not a sharp intermediate exponent for every nested plan."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes definitions and separate polynomial |Γ(m)|, not this closure-type generating series.",
+          "evidence": "Definition 3.0.5 closes downwards and adds all singleton-label children; first nested infinity plan has partition growth despite |Γ(m)| polynomial.",
+          "identifier_or_url": "arXiv:2307.07899v1",
+          "material_read": "Full text mirrored on ResearchGate read in relevant Definitions 3.0.1–3.0.5, Remark 3.0.6, and Sections 4–5; exact tcl recursion checked, survey of polynomial finite-approximant count.",
+          "method": "primary preprint full-text mirror HTML",
+          "title": "Asymptotic Classes of Trees and aleph_0-categoricity",
+          "trigger": "Same structure, closure operation and finite approximation parameter"
+        },
+        {
+          "assessment": "Counts orbits of subsets of fixed cardinality, potentially related but not a demonstrated reduction to tcl-closure cardinality.",
+          "evidence": "Polynomial subset-orbit profiles do not directly determine finite-closure-size types.",
+          "identifier_or_url": "arXiv:2005.05296v2",
+          "material_read": "Arxiv abstract and theorem description inspected; complete primary PDF not read this run.",
+          "method": "abstract and primary bibliographic summary",
+          "title": "Classification of P-Oligomorphic Groups, Conjectures of Cameron and Macpherson",
+          "trigger": "Plausible dominating general orbit-profile theory"
+        },
+        {
+          "assessment": "Classical special case credited, not claimed as discovery.",
+          "evidence": "F=z prod_{k>=1}(1-z^k)^-1 implies a_n=p(n-1).",
+          "identifier_or_url": "Euler partition theorem / Euler pentagonal recurrence",
+          "material_read": "Standard product identity and independent partition-coefficient calculation through degree nine.",
+          "method": "direct mathematical derivation",
+          "title": "Classical partition generating function",
+          "trigger": "Exact two-infinity special case and possible known table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Defines and exactly computes a natural new closure-type spectrum attached to every finite colored tree plan, including a sharp combinatorial phase transition (eventually quasipolynomial versus strictly intermediate growth) and asymptotic dimension; relevant to counting finite substructures of omega-categorical generic trees. This is a meaningful uniform classification, not a generic unmotivated slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Resultary semantic-search connection was UNAVAILABLE during this run; this is a search-access limitation, not evidence of novelty or an automatic scientific rejection.",
+    "Possible earlier species/age-theory formulation of the exact plan growth dichotomy.",
+    "The lower bound exp(Omega(sqrt N)) and upper exp(o(N)) are not a sharp intermediate exponent for every nested plan."
+  ]
+}
