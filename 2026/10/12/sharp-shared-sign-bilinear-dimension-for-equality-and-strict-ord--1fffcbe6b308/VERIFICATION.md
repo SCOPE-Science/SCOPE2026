@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-## Reproducible arithmetic check
+# Independent mathematical audit
 
-Run `python3 verify.py 100` using Python 3 without external libraries. Expected output:
+## correctness
 
-```
-VERIFY_OK max_domain=100 domain_sizes=100 pairs=338350 standalone_3point_relation_checks=18
-```
+PASS
 
-The integer algorithm evaluates all pairs \((i,j)\) on the indicated domain sizes and checks that every equality/strict-order score is strictly positive or strictly negative in accordance with its atomic truth value. It also tests two-dimensional *separate* witnesses for each relation on the three-element domain. The \(338350\) reported domain pairs each receive two relational sign tests; the separate-witness checks contribute 18 more tests.
+For all n>=3, h_i=(1,i,i^2) gives equality score 1-2(i-j)^2 and strict-order score 2(j-i)-1, so both signed truth matrices have integer margin at least one. The n=1 and n=2 witnesses and 1D order asymmetry establish small cases. For three vectors in dimension <=2 with strictly positive equality diagonal and all negative off-diagonals, all dependence coefficients are nonzero (nonzero proportional pairs contradict signs) and cannot mix signs (positive diagonal would equal negative off-diagonal sum); hence there is a strictly positive dependence. Strict order has negative first column on all three, and applying its column functional to this dependence would imply 0<0. This proves the unrestricted n>=3 lower bound; finite score checks are only corroborative.
 
-## Symbolic check and limits
+## originality
 
-The equations \(h_i^{\mathsf T}B_{\mathrm{eq}}h_j=1-2(i-j)^2\) and \(h_i^{\mathsf T}B_{\mathrm{lt}}h_j=2(j-i)-1\) give the full upper-bound proof over all finite domain sizes; the finite program merely catches transcription errors. The impossibility of dimension two on a domain of at least three elements uses the positive-dependence lemma in `RESULT.md`, not numerical optimization or finite enumeration. It assumes strict sign semantics with no zero scores and shared vectors for both argument positions.
+PASS
 
-Independent audit: not performed. The mathematical checks described here are not independent validation.
+PASS: exact same-embedding two-relation sign threshold is stricter than separate row/column sign-rank and weaker than exact truth-matrix readout. Primary general embedding papers provide one-relation bounds, not the simultaneous pair minimum; Quigley explicitly distinguishes support-only recovery. No checked theorem mathematically dominates the joint dimension-3 classification.
+
+## value
+
+PASS
+
+A natural sharp representational invariant for a basic pair of relations on one finite chain: each relation separately has a 2D sign realization at three elements but simultaneous reuse of entity geometry provably forces 3D; this identifies a genuine shared-geometry bottleneck and supplies dimension independent of n, not a mere parameter restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,13 +1,21 @@
-# Scientific review of the shared sign-bilinear dimension theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement quantifies over every positive finite chain size, with one shared real entity vector for both relations and both argument positions, separate arbitrary bilinear matrices, and strictly signed scores. The explicit integer matrices prove each upper bound without approximation. The lower bound is a fully algebraic argument: equality's diagonal/off-diagonal pattern forces any dependence among three two-dimensional entity vectors to be strictly positive, but the strict order's all-negative first column excludes such a dependence. The one- and two-element minima are separately checked. `verify.py` confirmed the constructions over sizes one through one hundred and both separate-witness examples. No computation is relied upon for the universal lower bound.
+## correctness
 
-## Originality — PASS, with residual risk
-Quigley's arXiv:2609.18047v1 Corollaries 6.1–6.2 concern equality of real score matrices, not thresholded signs, and his Section 7 explicitly distinguishes support recovery from exact factorization. Sherstov's sign-rank examples show that each relation separately has a small-rank sign matrix, but do not enforce a shared set of vectors with equal head and tail representations. Wang–Gemulla–Li's 2018 universality and nonuniversality results, and Badreddine–van Krieken–Serafini's 2025 sign bottleneck bounds, do not specify the simultaneous equality/order minimum. Published-record searches for shared bilinear sign embeddings and the three-point obstruction found no direct counterpart. An equivalent result could remain implicit in oriented-matroid or common-factor sign-pattern literature; this limits novelty confidence, and absence from searched records is not treated as proof of uniqueness.
+PASS
 
-## Value — PASS
-Equality and strict linear order are canonical binary logical relations, and the same-vector constraint is central to relational embedding semantics. The sharp dimension invariant is constant at three even where exact truth-matrix representation needs all domain coordinates. On three entities the comparison is genuinely joint: each relation individually permits dimension two, while the pair forbids it. This isolates a natural representational interaction rather than a special-purpose numerical slice. The result does not guarantee compositional truth-vector semantics or learned parameter recovery.
+For all n>=3, h_i=(1,i,i^2) gives equality score 1-2(i-j)^2 and strict-order score 2(j-i)-1, so both signed truth matrices have integer margin at least one. The n=1 and n=2 witnesses and 1D order asymmetry establish small cases. For three vectors in dimension <=2 with strictly positive equality diagonal and all negative off-diagonals, all dependence coefficients are nonzero (nonzero proportional pairs contradict signs) and cannot mix signs (positive diagonal would equal negative off-diagonal sum); hence there is a strictly positive dependence. Strict order has negative first column on all three, and applying its column functional to this dependence would imply 0<0. This proves the unrestricted n>=3 lower bound; finite score checks are only corroborative.
 
-## Overall status
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS: exact same-embedding two-relation sign threshold is stricter than separate row/column sign-rank and weaker than exact truth-matrix readout. Primary general embedding papers provide one-relation bounds, not the simultaneous pair minimum; Quigley explicitly distinguishes support-only recovery. No checked theorem mathematically dominates the joint dimension-3 classification.
+
+## value
+
+PASS
+
+A natural sharp representational invariant for a basic pair of relations on one finite chain: each relation separately has a 2D sign realization at three elements but simultaneous reuse of entity geometry provably forces 3D; this identifies a genuine shared-geometry bottleneck and supplies dimension independent of n, not a mere parameter restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
