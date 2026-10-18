@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-11",
+  "audited_at_utc": "2026-10-11T15:42:25Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "7c3188be84ab12edae4f1a8b753b25fef377fbb6",
+        "26ffc0144368b1291fe27ba5afc6662beb9a6bae",
+        "Adamaszek et al., arXiv:1410.4336, Theorem 3.6",
+        "Govc, arXiv:2006.05333"
+      ],
+      "rationale": "In a tournament an acyclic/transitive vertex set has a source. In the cyclic block, that source forces all other vertices into one interval of length \\(m+1\\), while any subset of such an interval is transitive; hence its flag complex is the cyclic nerve \\(N(n,m)\\), homotopy equivalent to \\(S^1\\) for \\(1\\le m<n/2\\) by the primary circular-arc nerve classification. No transitive face intersects all three blocks, so the full complex is the cyclic union of the three pairwise joins. Its two-stage homotopy pushout has three join summands, three suspensions and one extra \\(S^1\\) from the two-component final intersection. Thus the claimed wedge follows with \\(X*X\\simeq S^3\\) and \\(\\Sigma X\\simeq S^2\\). The actual verify.py enumerates transitive faces and boundary ranks for \\(n=3,5\\), gives \\(n=5\\) face vector \\((15,105,315,450,300,75)\\) and Betti vector \\((1,1,3,3,0,0)\\); this agrees with, but does not replace, the proof. Each vertex has outdegree \\(m+n=(3n-1)/2\\); common out-neighbor counts vary, excluding double regularity.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cyclic-nerve classification gives \\(\\operatorname{dFl}(R_n)\\simeq S^1\\) for all odd \\(n\\).",
+          "Govc regular tournament tables end at 13 vertices; the current family has \\(3n\\) vertices."
+        ],
+        "reasoning": "The published cyclic nerve result proves the block lemma, not the homotopy pushout topology of this regular non-doubly-regular lexicographic composition.",
+        "searches": [
+          "Govc arXiv:2006.05333, Section 3.1",
+          "Adamaszek et al. arXiv:1410.4336, Theorem 3.6",
+          "Govc–Levi–Smith DOI:10.1007/s41468-021-00068-0"
+        ]
+      },
+      "checked_sources": [
+        "Govc arXiv:2006.05333",
+        "Adamaszek et al. arXiv:1410.4336",
+        "Govc–Levi–Smith DOI:10.1007/s41468-021-00068-0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The nerve theorem fixes the homotopy type of \\(R_n\\) as a block.",
+          "The three-block cycle forbids faces meeting all three blocks; two homotopy pushouts determine extra wedge summands."
+        ],
+        "reasoning": "The full formula follows from a source-specific block decomposition not stated in the source nerve theorem, so no checked prior statement directly covers the final family.",
+        "searches": [
+          "Adamaszek et al., Theorem 3.6",
+          "Govc, Section 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Govc studies transitive-subtournament directed flag complexes; Adamaszek et al. identify cyclic interval nerves homotopically."
+        ],
+        "reasoning": "Directed clique/flag complex, transitive-subtournament complex, and tournament substitution all describe the same constructed object; the searched sources do not state this three-block all-odd-n wedge theorem.",
+        "searches": [
+          "Web: cyclic tournament directed flag complex lexicographic product directed three cycle homotopy wedge",
+          "Resultary semantic request: directed flag complex lexicographic cyclic tournament composition three blocks [search failed: search_internal_error]"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The order-nine example in Govc can have the same wedge type.",
+          "Regular tournament tables through 13 vertices do not encompass \\(3n\\ge15\\)."
+        ],
+        "reasoning": "Low-order coincidence is acknowledged; no finite table can by itself prove an infinite construction.",
+        "searches": [
+          "Govc 2020 regular tournament census tables",
+          "Web directed flag complex regular tournament enumeration"
+        ]
+      },
+      "rationale": "The strongest same-object census is Govc (2020), which classifies regular tournaments only to order 13, including the \\(n=3\\), order-nine member; it cannot contain the infinite tail beginning at order 15. The circular nerve theorem supplies only the block homotopy type and not the three-block tournament construction and wedge. Related directed tournaplex and directed-flag work also does not state the all-odd-block lexicographic family. Searches for equivalent tournament substitution/lexicographic formulations located no covering formula, although the relevant published-result service was temporarily unavailable and cannot be counted as a negative search.",
+      "residual_risks": [
+        "The temporarily unavailable published-results service prevents this execution from independently excluding all existing published records.",
+        "An unindexed general composition theorem for directed flag complexes could imply this wedge decomposition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FINITE_REGULAR_CENSUS_ONLY",
+          "evidence": "Regular tournament examples through 13 vertices include order-nine low member; no infinite substitution family theorem in the inspected portions.",
+          "identifier_or_url": "arXiv:2006.05333",
+          "material_read": "Primary full 28-page PDF accessible; read abstract, tournament classification and regular tournament Section 3.1, including order bounds and cyclic circle examples.",
+          "method": "Open-access PDF reading with page-image confirmation",
+          "title": "Computing Homotopy Types of Directed Flag Complexes",
+          "trigger": "Regular tournament directed flag homotopy census"
+        },
+        {
+          "assessment": "PROVES_BLOCK_S1",
+          "evidence": "Theorem 3.6 puts cyclic nerves with interval length parameter below half the circle in homotopy type \\(S^1\\).",
+          "identifier_or_url": "arXiv:1410.4336",
+          "material_read": "Primary full 17-page PDF, including Theorem 3.6 and corresponding page image on circle-homotopy regime.",
+          "method": "Open-access primary PDF",
+          "title": "Nerve complexes of circular arcs",
+          "trigger": "Exact cyclic nerve result needed for each block"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Govc 2020",
+        "Govc–Levi–Smith 2021"
+      ],
+      "rationale": "A uniform infinite family of regular, non-doubly-regular tournaments with a prescribed mixed-dimensional sphere wedge is a natural structural extension beyond low-order enumerations. The result relates tournament substitution to explicit directed-flag homotopy types and is not merely re-enumeration of the order-nine table.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every odd \\(n=2m+1\\ge3\\), let \\(R_n\\) be the cyclic regular tournament, and replace each vertex of a directed 3-cycle with \\(R_n\\). The resulting regular but not doubly regular tournament \\(T_n\\) has directed flag complex \\(\\operatorname{dFl}(T_n)\\simeq S^1\\vee\\bigvee^3S^2\\vee\\bigvee^3S^3\\).",
+  "limitations": [
+    "The assertion is for the specified three-block lexicographic tournament with odd block size; it does not classify all regular tournaments or equivariant/simple homotopy types.",
+    "The finite verifier checks the first two block sizes only; the proof of the universal statement uses the cyclic-nerve theorem and homotopy pushouts."
+  ],
+  "schema_version": 1
+}

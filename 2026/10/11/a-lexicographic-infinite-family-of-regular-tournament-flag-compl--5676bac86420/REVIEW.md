@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact block decomposition and two homotopy-pushout steps were reconstructed. Regularity and failure of double regularity were checked algebraically. The cyclic-block premise \(\operatorname{dFl}(R_n)\simeq S^1\) was checked against the inspected primary source, and finite reconstructions for \(n=3,5\) reproduce the predicted homology. The finite checks do not stand in for the universal proof.
+## correctness
 
-## Originality — PASS
-The closest primary paper classifies regular tournaments only through 13 vertices and doubly regular tournaments separately through 27 vertices. The family here is non-doubly-regular, and the new tail begins at 15 vertices. The order-9 member and its wedge type are already covered and are explicitly excluded from the novelty claim. published-finding corpus and literature searches under directed flag, directed clique, transitive-subtournament, lexicographic product, tournament composition and tournament substitution did not locate a stronger or equivalent all-parameter statement.
+PASS
 
-## Value — PASS
-The result gives a natural infinite family rather than a one-off computation, extends a topology census at its first uncovered regular order, and gives a structural explanation for a mixed-dimensional wedge type. The join/pushout mechanism is reusable for other tournament substitutions.
+In a tournament an acyclic/transitive vertex set has a source. In the cyclic block, that source forces all other vertices into one interval of length \(m+1\), while any subset of such an interval is transitive; hence its flag complex is the cyclic nerve \(N(n,m)\), homotopy equivalent to \(S^1\) for \(1\le m<n/2\) by the primary circular-arc nerve classification. No transitive face intersects all three blocks, so the full complex is the cyclic union of the three pairwise joins. Its two-stage homotopy pushout has three join summands, three suspensions and one extra \(S^1\) from the two-component final intersection. Thus the claimed wedge follows with \(X*X\simeq S^3\) and \(\Sigma X\simeq S^2\). The actual verify.py enumerates transitive faces and boundary ranks for \(n=3,5\), gives \(n=5\) face vector \((15,105,315,450,300,75)\) and Betti vector \((1,1,3,3,0,0)\); this agrees with, but does not replace, the proof. Each vertex has outdegree \(m+n=(3n-1)/2\); common out-neighbor counts vary, excluding double regularity.
 
-## Closest literature and limitations
-Govc, arXiv:2006.05333, is the closest source: it supplies the directed-flag tournament framework, the cyclic circle case, and the finite regular census. A residual originality risk remains from unindexed literature using modular-decomposition terminology. No claim is made about simple-homotopy type, equivariant refinements, or other outer tournaments.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest same-object census is Govc (2020), which classifies regular tournaments only to order 13, including the \(n=3\), order-nine member; it cannot contain the infinite tail beginning at order 15. The circular nerve theorem supplies only the block homotopy type and not the three-block tournament construction and wedge. Related directed tournaplex and directed-flag work also does not state the all-odd-block lexicographic family. Searches for equivalent tournament substitution/lexicographic formulations located no covering formula, although the relevant published-result service was temporarily unavailable and cannot be counted as a negative search.
+
+## value
+
+PASS
+
+A uniform infinite family of regular, non-doubly-regular tournaments with a prescribed mixed-dimensional sphere wedge is a natural structural extension beyond low-order enumerations. The result relates tournament substitution to explicit directed-flag homotopy types and is not merely re-enumeration of the order-nine table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
