@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T15:12:51.770836Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For f=1-x²-y², direct symbolic differentiation gives f_prime=-2fxy(y-a x+z), preserving its positive sign; on interior |z_prime|≤1+|b| ensures both-time completeness. Independent SymPy exact expansion confirmed Phi_prime=f[f+(x-y/a)²+(1+a^-2-b)y²] for a≠0 and (z+bx)_prime=f at a=0. If b≤B=1+a^-2 then Phi_prime≥f², forbidding complete compact invariant interior sets; a=0 is similarly monotone. If Phi is bounded above, f² integrable; bounded z and f_prime imply f uniformly continuous, so f→0; otherwise monotonic Phi→∞ and bounded x imply z→∞. For b>B explicit E±=(±1/(a√b),±1/√b,0) have f=1-B/b>0 and exhaust interior equilibria. For b=B equilibria on boundary only. The printed script check_es9.py was read; independent exact symbolic identity test was run locally.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "These results construct Lyapunov or stationary identities for Sprott-Q/Qi but use different vector fields and parameters"
+        ],
+        "reasoning": "No general theorem on all cylinder-factor flows dominates the exact ES9 coefficient identity for all real a,b.",
+        "searches": [
+          "ES9 flow circular cylinder equilibria Lyapunov recurrence interior compact invariant threshold b>1+1/a^2",
+          "Resultary 2026/10/4 generalized Sprott-Q compact-recurrence",
+          "Resultary 2026/10/4 Qi chaotic flow sharp recurrence threshold"
+        ]
+      },
+      "checked_sources": [
+        "Assigned Git RESULT.md 7f9141c76ed8b9728c8e2bc4ed800e7204cbdcf2; check_es9.py 9fedcccd257c42131eb3ebc8045cd799faee130e",
+        "Exact independent symbolic check of a≠0 and a=0 identities (2026-10-13)",
+        "Resultary query ES9 flow circular cylinder equilibria Lyapunov recurrence interior compact invariant threshold b>1+1/a^2",
+        "Jafari et al. 2016 author PDF",
+        "Li et al. 2021 author PDF"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equilibrium cylinder is known from multiplier 1-x²-y²",
+          "Strict Phi derivative ≥f² and integral plus uniform continuity yield a global dichotomy not present in those papers"
+        ],
+        "reasoning": "The prior formulas provide the object, not the critical Lyapunov certificate or global if-and-only-if dynamics.",
+        "searches": [
+          "ES9 flow circular cylinder equilibria Lyapunov recurrence interior compact invariant threshold b>1+1/a^2",
+          "Jafari 2016 full text",
+          "Li 2021 full text"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact polynomial ES9 vector field is matched to source tables",
+          "Sources discuss special parameters and numerical attractors, not all-real Lyapunov threshold"
+        ],
+        "reasoning": "Parameter aliases and cylinder multiplier are the same, but the theorem covers sharp recurrence exclusion and asymptotic flow behavior absent from original numeric reports.",
+        "searches": [
+          "ES9 flow circular cylinder equilibria Lyapunov recurrence interior compact invariant threshold b>1+1/a^2",
+          "Jafari et al. DOI:10.1007/s11071-016-2968-x Table 1 ES9",
+          "Li et al. DOI:10.1142/S0218127421300147 Table 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Numerical table has a=5,b=7 and isolated equilibria",
+          "No tabulation of the all-real recurrence threshold b=1+a^-2 or two-sided orbit alternative"
+        ],
+        "reasoning": "The special parameter tables do not imply absence of compact invariant nonequilibrium motion in the exclusion range.",
+        "searches": [
+          "ES9 flow circular cylinder equilibria Lyapunov recurrence interior compact invariant threshold b>1+1/a^2",
+          "Jafari 2016 ES9 parameter table",
+          "Li 2021 ES9 variants table"
+        ]
+      },
+      "rationale": "Jafari et al. 2016 Table 1 ES9 defines the system at a=5,b=7 and numerically observes an equilibrium cylinder; Li et al. 2021 reproduces ES9 variants. Neither inspected source derives the sharp all-real parameter boundary, global strict Lyapunov identity, nor the infinite-time cylinder-or-escape dichotomy. Resultary related Sprott recurrences concern different vector fields. The complete implication goes beyond simply solving the interior equilibrium equations.",
+      "residual_risks": [
+        "The theorem covers only strict cylinder interior and says nothing about exterior or chaos above threshold.",
+        "Earlier unindexed Lyapunov observations in ES9 literature may exist, although inspected primary sources do not state this boundary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "does not establish all-real parameter invariant-set threshold",
+          "evidence": "Table 1 ES9 at a=5,b=7 with factor 1-x²-y²; no displayed global Lyapunov identity",
+          "identifier_or_url": "https://sprott.physics.wisc.edu/pubs/paper465.pdf",
+          "material_read": "Full PDF table of flow cases including ES9 plus related narrative of equilibria and numerical chaos",
+          "method": "lawful author-hosted PDF, text and page image material inspected",
+          "title": "Simple chaotic 3D flows with surfaces of equilibria",
+          "trigger": "original ES9 flow definition"
+        },
+        {
+          "assessment": "no matching sharp cylinder-interior recurrence theorem",
+          "evidence": "ES9 parameter variations and equilibrium-surface descriptions, not bounded forward-trajectory integral dichotomy",
+          "identifier_or_url": "https://sprott.physics.wisc.edu/pubs/paper512.pdf",
+          "material_read": "Full PDF Table 1 and discussions of ES9 variants and equilibrium surfaces",
+          "method": "lawful author-hosted PDF, page image/material inspected",
+          "title": "Coexisting Infinite Equilibria and Chaos",
+          "trigger": "subsequent reuse of ES9 system"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp all-parameter boundary between possible interior compact recurrence and its exclusion is motivated by the system’s equilibrium cylinder and numerical chaos interpretation. The global escape/boundary dichotomy rules out hidden interior compact dynamics despite potential lack of equilibria and provides useful rigorous understanding of a named nonlinear flow.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The theorem covers only strict cylinder interior and says nothing about exterior or chaos above threshold.",
+    "Earlier unindexed Lyapunov observations in ES9 literature may exist, although inspected primary sources do not state this boundary."
+  ],
+  "schema_version": 1
+}
