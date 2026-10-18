@@ -1,19 +1,21 @@
-# Review of the first-harmonic four-cycle bifurcation theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The increasing change of state \(z=\operatorname{sgn}(x)\log(1+|x|)\) is exact and maps the original equation to bounded perturbation drift. The global uniform displacement estimate excludes any additional cycles, including cycles with diverging initial conditions. The convolution identity \(I''-I=-4/\sqrt{4-s^2}\), elementary strict inequality \(I(0)>2\), and Wronskian calculation establish precisely two strict symmetric maxima and one central minimum of the response profile. Transverse-crossing differentiability establishes persistence, uniqueness and hyperbolicity of every simple root. The proof explicitly excludes critical levels. The standalone checker reproduced the four root brackets for a numerical illustration; this is supporting evidence, not an exhaustive proof.
+PASS
 
-## Originality
+For fixed 0<p<r and ε>0, the C¹ increasing bijection z=sgn(x)log(1+|x|) exactly transforms xdot=(2sin t+εp)|x|+2sin t−ε(r−p) into zdot=2sin t+ε[p−r exp(−|z|)]. At ε=0 all solutions are s−2cos t. Integrating for one turn yields displacement εr(λ−J_ε(s)), λ=2πp/r; the uniform global bound |J_ε−I|≤(2π)² ε(p+r) excludes remote roots. The convolution I(s)=2∫_{−2}²exp(−|s−u|)/(4−u²)^{1/2}du is even and satisfies I−I=−4/(4−s²)^{1/2} on |s|<2. I0>2 is certified by the explicit elementary lower-integral bound. With h=I′, (h′sinh s−h cosh s)′=−4s sinh s/(4−s²)^{3/2}<0, giving one positive maximum at s* and the two/four/zero simple-root regimes. Uniform C¹ convergence of J_ε near simple roots also holds at grazing s=±2: |z_ε−(s−2cos t)|=O(ε), ∂_s z_ε=1+O(ε), and uniformly in s the set {|s−2cos t|≤Cε} has measure O(√ε), so the sign discontinuity in the derivative contributes o(1) even when the source text’s transverse-crossing simplification is inapplicable. Thus each simple root persists uniquely and no others appear for small ε. The derivative of the return map is 1−εr I′(s_j)+o(ε), giving alternating hyperbolic stability, and I(2)<2<I0 ensures all four in the middle regime cross zero. The two critical response levels are explicitly excluded.
 
-**PASS, subject to publication-priority limitations.** The full arXiv manuscript of Bravo–Fernández–Ojeda (arXiv:2307.15578v1, 16 pages) contains the global-center criterion, cycle finiteness and an upper bound of 22 but does not give a first-harmonic perturbation wedge with four simple cycles or its two–four–zero diagram. The 2007 periodic-solution distribution theorem is abstract; the 2023 at-most-two theorem requires one coefficient to retain fixed sign, unlike the present family. The 2024 Tian–Zhao theorem covers arbitrarily many cycles only for unrestricted smooth coefficients, not a first-harmonic coefficient budget. The 2026 higher-harmonic global-center paper concerns centers rather than cycles bifurcating away from them. Source priority remains at risk because the full 2024 Tian–Zhao paper and the 2007 original manuscript were not available for complete examination.
+## originality
 
-## Value
+PASS
 
-**PASS.** The first-harmonic coefficient restriction is the natural finite-dimensional Hilbert-number regime motivating the 2023 classification. Producing exactly four cycles within this smallest oscillatory degree, as well as a sharp bifurcation count and stability ordering, establishes concrete, mathematically nontrivial lower-bound geometry beyond abstract smooth-coefficient constructions and loose global upper bounds.
+PASS best of knowledge: the exact same first-harmonic piecewise scalar class is covered in Bravo–Fernández–Ojeda 2023/24, whose Theorem 2.14 proves an upper bound of 34 (potentially 22) and whose center criterion covers the unperturbed system; it does not give this singular-bias perturbation, arcsine–Laplace response graph or local 2/4/0 exact cycle diagram. Tian–Zhao 2024 gives unbounded counts with freely varying smooth time coefficients, and at-most-two when all signed coefficient functions obey one-sided restrictions. Neither implies four hyperbolic cycles with strictly first harmonic coefficients. No covering same-class Resultary finding located other than this assigned record.
 
-## Scientific limitations
+## value
 
-The result is local to sufficiently small positive perturbation and excludes two critical levels. The illustrative rational coefficient choice is verified numerically and is not claimed to have an independent interval-arithmetic proof. Missing full text of certain broadly relevant prior articles creates residual publication-priority risk. The submitted proof is not an independent certification.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS: an explicit lower-bound four-cycle construction using only the first trigonometric harmonic addresses the independently motivated Hilbert number problem for scalar piecewise equations, and the rigorous local exact two–four–zero diagram and stable/unstable alternation identify a nontrivial bifurcation region. This is more than renaming a known cycle or numerical observation, despite not attaining the global upper bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

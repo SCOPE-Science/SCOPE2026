@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T00:11:36Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026@026b884693e594bc52ea00eb4cefced8d8e1df95:2026/10/11/four-hyperbolic-cycles-from-a-first-harmonic-piecewise-scalar-ce--67e74a2df2d3/RESULT.md (blob 3b54dc30703cd48bfc50045b253781ab232757e4)",
+        "https://arxiv.org/pdf/2307.15578",
+        "https://www.researchgate.net/publication/380374532_The_Limit_Cycles_for_a_Class_of_Non-autonomous_Piecewise_Differential_Equations",
+        "Frozen verifier code blob be161310528555e787986200c3b1acbd3d683ffe"
+      ],
+      "rationale": "For fixed 0<p<r and ε>0, the C¹ increasing bijection z=sgn(x)log(1+|x|) exactly transforms xdot=(2sin t+εp)|x|+2sin t−ε(r−p) into zdot=2sin t+ε[p−r exp(−|z|)]. At ε=0 all solutions are s−2cos t. Integrating for one turn yields displacement εr(λ−J_ε(s)), λ=2πp/r; the uniform global bound |J_ε−I|≤(2π)² ε(p+r) excludes remote roots. The convolution I(s)=2∫_{−2}²exp(−|s−u|)/(4−u²)^{1/2}du is even and satisfies I−I=−4/(4−s²)^{1/2} on |s|<2. I0>2 is certified by the explicit elementary lower-integral bound. With h=I′, (h′sinh s−h cosh s)′=−4s sinh s/(4−s²)^{3/2}<0, giving one positive maximum at s* and the two/four/zero simple-root regimes. Uniform C¹ convergence of J_ε near simple roots also holds at grazing s=±2: |z_ε−(s−2cos t)|=O(ε), ∂_s z_ε=1+O(ε), and uniformly in s the set {|s−2cos t|≤Cε} has measure O(√ε), so the sign discontinuity in the derivative contributes o(1) even when the source text’s transverse-crossing simplification is inapplicable. Thus each simple root persists uniquely and no others appear for small ε. The derivative of the return map is 1−εr I′(s_j)+o(ε), giving alternating hyperbolic stability, and I(2)<2<I0 ensures all four in the middle regime cross zero. The two critical response levels are explicitly excluded.",
+      "residual_risks": [
+        "Only sufficiently small ε>0 for fixed parameters away from λ=I0 and λ=I*; no critical-level or all-ε classification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Unbounded counts in the class of arbitrary smooth time-dependent coefficients require access to higher harmonics; first-harmonic complexity is bounded by an earlier result, not saturated by its bound."
+        ],
+        "reasoning": "Broader unrestricted-smooth-coefficient existence cannot imply existence of a specific four-cycle wedge under only first harmonic; sign-definite at-most-two theorems exclude this sign-changing coefficient choice.",
+        "searches": [
+          "piecewise scalar first-harmonic periodic ODE 2 sin t absolute value perturbation four hyperbolic periodic orbits cycles",
+          "Bravo–Fernández–Ojeda arXiv:2307.15578",
+          "Tian–Zhao 2024 abstract/publisher first-page preview"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2307.15578",
+        "https://www.researchgate.net/publication/380374532_The_Limit_Cycles_for_a_Class_of_Non-autonomous_Piecewise_Differential_Equations",
+        "https://doi.org/10.3934/cpaa.2023016",
+        "https://doi.org/10.3934/cpaa.2007.6.213"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An upper bound ≤34 or ≤22 does not establish ≥4, and a sign-definite ≤2 theorem has violated coefficient hypotheses: for small ε both 2sin t+εp and 2sin t−ε(r−p) change sign."
+        ],
+        "reasoning": "The nonlinear averaged response and global return bound are needed to prove a new lower-bound construction; no inspected prior theorem supplies that implication.",
+        "searches": [
+          "piecewise scalar first-harmonic periodic ODE 2 sin t absolute value perturbation four hyperbolic periodic orbits cycles",
+          "Bravo et al. 2023 arXiv PDF Theorem 2.14 p12",
+          "Gasull–Zhao 2023 sign-constant theorem DOI:10.3934/cpaa.2023016"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source family x′=a(t)|x|+b(t) with both first-harmonic a,b is exactly Eq.(2.3) of Bravo–Fernández–Ojeda; their theorem gives an upper bound, not the current four-cycle example."
+        ],
+        "reasoning": "Exact same ambient family comparison shows the new count is not a mere renaming of a different equation; the older statement does not imply the asserted lower-bound witness.",
+        "searches": [
+          "piecewise scalar first-harmonic periodic ODE 2 sin t absolute value perturbation four hyperbolic periodic orbits cycles",
+          "Bravo–Fernández–Ojeda arXiv:2307.15578, Theorem 2.14",
+          "Tian–Zhao 2024 DOI:10.1007/s12346-024-01050-8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two–four–zero pattern and exact I(s) convolution are a functional bifurcation diagram, not a known static database or exact combinatorial table; inspected primary has only global cycle upper bounds."
+        ],
+        "reasoning": "No identical evaluated response-level parameter table found. Search failure alone would not prove novelty, so primary statement comparison is used.",
+        "searches": [
+          "piecewise scalar first-harmonic periodic ODE 2 sin t absolute value perturbation four hyperbolic periodic orbits cycles",
+          "2023/24 Hilbert-number paper §2 and appendix",
+          "Resultary search of scalar first harmonic periodics"
+        ]
+      },
+      "rationale": "PASS best of knowledge: the exact same first-harmonic piecewise scalar class is covered in Bravo–Fernández–Ojeda 2023/24, whose Theorem 2.14 proves an upper bound of 34 (potentially 22) and whose center criterion covers the unperturbed system; it does not give this singular-bias perturbation, arcsine–Laplace response graph or local 2/4/0 exact cycle diagram. Tian–Zhao 2024 gives unbounded counts with freely varying smooth time coefficients, and at-most-two when all signed coefficient functions obey one-sided restrictions. Neither implies four hyperbolic cycles with strictly first harmonic coefficients. No covering same-class Resultary finding located other than this assigned record.",
+      "residual_risks": [
+        "Relevant 2024 Tian–Zhao full article unavailable, only first-page preview inspected; residual possibility of a stronger specialty example, but no decisive coverage found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the specified ε→0 lower-bound four-cycle wedge: establishes center criteria and global upper bound 34 (22 under remark).",
+          "evidence": "Theorem 2.14 explicitly bounds number of limit cycles; Eq.(2.3) same coefficient form; no constructed four-simple-zero response I(s).",
+          "identifier_or_url": "https://arxiv.org/pdf/2307.15578",
+          "material_read": "Inspected the complete available 16-page arXiv primary PDF, with close reading of its introduction, Eq.(2.3), Proposition 2.1, the §2 cycle-count proof, Theorem 2.14 on p12, and appendix context; viewed relevant page images.",
+          "method": "Full arXiv PDF text with page inspection",
+          "title": "Hilbert Number for a Family of Piecewise Nonautonomous Equations",
+          "trigger": "Exact first-harmonic family and center-case classification"
+        },
+        {
+          "assessment": "POTENTIALLY RELEVANT but not decisive covering: it claims unbounded cycle counts over general smooth coefficient functions and ≤2 under sign restrictions; exact first-harmonic four-cycle wedge not identified from available material.",
+          "evidence": "Tian–Zhao abstract: no global bound for arbitrary smooth a_i(t); under fixed common sign at most two, unlike source sign-changing a(t), b(t).",
+          "identifier_or_url": "https://doi.org/10.1007/s12346-024-01050-8",
+          "material_read": "Publisher-approved first-page preview/abstract available; full proof and appendices not obtained; did not treat this preview as whole-document inspection.",
+          "method": "ResearchGate hosted publisher preview, bibliographic search",
+          "title": "The Limit Cycles for a Class of Non-autonomous Piecewise Differential Equations",
+          "trigger": "Same piecewise scalar model but general smooth coefficients and unlimited cycles"
+        },
+        {
+          "assessment": "INAPPLICABLE as direct ≤2 obstruction: both source first-harmonic coefficients change sign at small ε.",
+          "evidence": "Hypothesis: either a(t) or b(t) does not change sign; source violates both.",
+          "identifier_or_url": "https://doi.org/10.3934/cpaa.2023016",
+          "material_read": "Accessible abstract/source description about coefficient-sign restrictions and all periodic solutions",
+          "method": "Publisher metadata and cited summary",
+          "title": "Existence of at most two limit cycles for some non-autonomous differential equations",
+          "trigger": "Potential stronger cycle count obstruction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026@026b884693e594bc52ea00eb4cefced8d8e1df95:2026/10/11/four-hyperbolic-cycles-from-a-first-harmonic-piecewise-scalar-ce--67e74a2df2d3/RESULT.md (blob 3b54dc30703cd48bfc50045b253781ab232757e4)",
+        "https://arxiv.org/pdf/2307.15578",
+        "https://www.researchgate.net/publication/380374532_The_Limit_Cycles_for_a_Class_of_Non-autonomous_Piecewise_Differential_Equations"
+      ],
+      "rationale": "PASS: an explicit lower-bound four-cycle construction using only the first trigonometric harmonic addresses the independently motivated Hilbert number problem for scalar piecewise equations, and the rigorous local exact two–four–zero diagram and stable/unstable alternation identify a nontrivial bifurcation region. This is more than renaming a known cycle or numerical observation, despite not attaining the global upper bound.",
+      "residual_risks": [
+        "Only sufficiently small ε>0 for fixed parameters away from λ=I0 and λ=I*; no critical-level or all-ε classification.",
+        "The RESULT.md transverse-crossing sentence needs clarifying at |s|=2; independent O(√ε) uniform sublevel measure supplies the missing C¹ argument without changing the theorem.",
+        "Relevant 2024 Tian–Zhao full article unavailable, only first-page preview inspected; residual possibility of a stronger specialty example, but no decisive coverage found."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only sufficiently small ε>0 for fixed parameters away from λ=I0 and λ=I*; no critical-level or all-ε classification.",
+    "The RESULT.md transverse-crossing sentence needs clarifying at |s|=2; independent O(√ε) uniform sublevel measure supplies the missing C¹ argument without changing the theorem.",
+    "Relevant 2024 Tian–Zhao full article unavailable, only first-page preview inspected; residual possibility of a stronger specialty example, but no decisive coverage found."
+  ]
+}
