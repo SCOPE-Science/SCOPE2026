@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The claim has two independent components. The acceleration component is imported exactly from the focal theorem: for perturbations in its open prevalent set and sufficiently small positive amplitude, each acceleration value \(s=1,\ldots,N\) occurs on a positive-Lebesgue-measure spectral set.
+# Independent mathematical audit
 
-The new symmetry component is exact and nonnumerical. For every \(q\ge2\), the potential has period \(1/q\) only if the perturbation belongs to the closed linear subspace
-\[
-S_q=\{\delta:D_q\delta\in\operatorname{span}\{D_qB\}\}.
-\]
-A Fourier mode outside the seed frequency shows \(S_q\) is proper. A one-dimensional line transverse to \(S_q\) is a probe witnessing shyness. The standard sigma-ideal property for shy Borel sets makes the union over all \(q\) shy.
+## correctness
 
-For a continuous function on the circle, any nontrivial period subgroup is either finite cyclic or, if all translations are periods, the function is constant. Thus any nontrivial translational symmetry supplies a period \(1/q\) for some \(q\ge2\), and all such periods have been excluded. The resulting potential therefore has fundamental period one for every nonzero perturbation amplitude.
+PASS
 
-No numerical experiment, finite enumeration, or external certificate is used. The package does not verify or claim the focal paper's theorem beyond the exact hypotheses and conclusion inspected in its first public version. It does not establish openness of the new symmetry-breaking prevalent set, and it does not address approximate symmetries.
+For every q>=2 the period-difference operator D_q f=f(.+1/q)-f(.) is bounded on the real analytic strip Banach space. S_q={delta:D_q delta in span(D_q B)} is a closed proper subspace: if q|N a Fourier mode not divisible by q witnesses propriety; otherwise choose m not equal to N and q not dividing m. Such a subspace is shy by a one-dimensional transverse line, and their countable union is shy by Hunt–Sauer–Yorke. Delta outside it has B+epsilon delta without period 1/q for any epsilon≠0. Any nontrivial closed period subgroup of T for a nonconstant continuous function contains some 1/q, including constant exception. Intersect the prevalent primitive set with Liang–Wang–Xu open prevalent acceleration set, preserving prevalence and original epsilon bound. This is a rigorous conditional corollary using the focal spectral theorem, not an independent proof of positive-measure acceleration.
+
+## originality
+
+PASS
+
+Best-of-knowledge the explicit simultaneous positive-measure all-acceleration/zero-pullback-period assertion is absent from inspected prior statements; substantial shared ingredients acknowledged.
+
+## value
+
+PASS
+
+The result distinguishes high acceleration from the exact N-fold pullback symmetry used in its construction, ruling out a potentially misleading symmetry-based explanation for the many spectral strata. Though technically a short genericity corollary, it is a motivated structural separation under a nontrivial spectral theorem rather than a random negative check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

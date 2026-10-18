@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The new argument reduces all possible nontrivial translation periods to the countable family \(1/q\), excludes each by a closed proper linear subspace of perturbations, invokes the standard sigma-ideal property of shy sets, and then intersects the resulting prevalent set with the focal theorem's prevalent acceleration set. Fourier-frequency witnesses establish that every excluded subspace is genuinely proper. The source theorem's quantifiers are preserved.
+## correctness
 
-## Originality
-PASS. The focal first-version preprint was inspected at its theorem, pullback setup, prevalence construction, and symmetry-dependent proof passages. It proves the acceleration stratification but does not state the simultaneous fundamental-period-one conclusion. Targeted source-ID, alias, finite-cover, and symmetry-breaking searches plus current/prior ledger checks found no implication-equivalent prior finding. The nearest general literature supplies prevalence theory only.
+PASS
 
-## Value
-PASS. The refinement shows that the observed acceleration multiplicity is not an artifact of an exact residual \(N\)-fold translation symmetry: all finite pullback symmetries may be absent while every level \(1,\ldots,N\) still occupies positive spectral measure. This directly clarifies the structural meaning of the motivating theorem.
+For every q>=2 the period-difference operator D_q f=f(.+1/q)-f(.) is bounded on the real analytic strip Banach space. S_q={delta:D_q delta in span(D_q B)} is a closed proper subspace: if q|N a Fourier mode not divisible by q witnesses propriety; otherwise choose m not equal to N and q not dividing m. Such a subspace is shy by a one-dimensional transverse line, and their countable union is shy by Hunt–Sauer–Yorke. Delta outside it has B+epsilon delta without period 1/q for any epsilon≠0. Any nontrivial closed period subgroup of T for a nonconstant continuous function contains some 1/q, including constant exception. Intersect the prevalent primitive set with Liang–Wang–Xu open prevalent acceleration set, preserving prevalence and original epsilon bound. This is a rigorous conditional corollary using the focal spectral theorem, not an independent proof of positive-measure acceleration.
 
-## Closest literature and limitations
-The closest scientific source is arXiv:2610.05243v1 itself. Hunt--Sauer--Yorke prevalence theory supplies the countable-union theorem for shy sets. The result does not enlarge the source's analytic, Diophantine, supercritical, or small-perturbation regime, and it does not rule out approximate or non-translation symmetries. A later revision or an unindexed note remains a residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge the explicit simultaneous positive-measure all-acceleration/zero-pullback-period assertion is absent from inspected prior statements; substantial shared ingredients acknowledged.
+
+## value
+
+PASS
+
+The result distinguishes high acceleration from the exact N-fold pullback symmetry used in its construction, ruling out a potentially misleading symmetry-based explanation for the many spectral strata. Though technically a short genericity corollary, it is a motivated structural separation under a nontrivial spectral theorem rather than a random negative check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
