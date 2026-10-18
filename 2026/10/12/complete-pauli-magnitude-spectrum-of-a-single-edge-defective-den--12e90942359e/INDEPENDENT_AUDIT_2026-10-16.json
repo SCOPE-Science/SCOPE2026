@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T02:09:53.134060Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md rank-kernel reduction and moment proof",
+        "Kagamihara–Tsuchiya arXiv:2602.23687v2 Theorem 1 quadratic rank rule",
+        "Chen–Yan–Zhou Quantum 8 1351 2024 Theorem 5/Proposition 5",
+        "independent_math_checks.py direct GF2 ranks n4..9"
+      ],
+      "rationale": "The exact state is the Boolean cubic phase f_n(x)=binom(|x|,3)+x1*x2*x3 mod2. Its translated difference has alternating GF2 polar matrix entries B_ij=s+a_i+a_j plus the missing-triple correction when i,j in {1,2,3}. Partitioning coordinates by exceptional/outside and bit value into at most four groups reduces the rank computation to a <=4 dimensional matrix, accounting for even/odd group sizes and empty groups. Enumerating h=0..3 and w=0..n-3 symbolically yields five rank-count contributions for both parity classes; their sum is 2^n and colliding ranks at n=4 or 5 are explicitly additive. For quadratic Walsh transforms of rank r, exactly 2^r Fourier values have magnitude 2^{-r/2}, yielding all Pauli magnitudes and m_alpha=2^{-n} sum_r N_r 2^{(1-alpha)r}. The order-two specialization is 11/256+77/2^{n+4} (even) or +70/2^{n+4} (odd), and the alpha>1 limit follows from fixed-rank fractions. Independent direct GF2 matrix elimination reconstructed the full rank histogram for every translation at n=4..9 and exact m2 rational values; universal statement is based on the explicit 4-group linear-algebra reduction, not finite extrapolation.",
+      "residual_risks": [
+        "No Pauli sign distribution, coherent error model or multi-defect classification.",
+        "The all-order expression uses alpha>0 for zero-contribution convention; M_alpha excludes alpha=1 except limiting interpretation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 in 2602.23687v2 applies to arbitrary 3-uniform hypergraph phase but leaves the rank histogram as instance-specific computation.",
+          "2024 ensemble theorem computes only random expectation of the fourth-power magnitude average, not rank-by-rank Pauli distribution."
+        ],
+        "reasoning": "A general computable rank formula is not the closed solved rank histogram for this special defective family; all-order rank multiplicities are not recoverable from a single order-two moment.",
+        "searches": [
+          "Kagamihara Tsuchiya 2602.23687v2 Theorem 1 complete hypergraph",
+          "Chen Yan Zhou 2024 Theorem 5 random 3-uniform hypergraph all-order moment",
+          "Boolean phase binomial Hamming weight 3 one missing triple Walsh spectrum"
+        ]
+      },
+      "checked_sources": [
+        "Kagamihara–Tsuchiya arXiv:2602.23687v2 full primary PDF",
+        "Chen–Yan–Zhou Quantum 8 1351 full primary PDF",
+        "Resultary query one missing CCZ full Pauli spectrum"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Full Quantum 2024 PDF Theorem 5 gives p-dependent order-two ensemble expectation; by exchangeability its derivative at p=1 encodes one-deletion m2.",
+          "Full 2026 PDF Theorem 1 reduces m_alpha to rank counts without solving them for one-edge-defective complete graph."
+        ],
+        "reasoning": "Prior work DOES imply isolated scalar second moment, which is excluded from claimed independent novelty; it does NOT imply the full rank multiplicities without a new group-kernel analysis.",
+        "searches": [
+          "Chen Yan Zhou Theorem 5 derivative at p=1 one absent hyperedge",
+          "Kagamihara Tsuchiya general rank formula moment m_alpha"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kagamihara–Tsuchiya arXiv:2602.23687v2 Theorem 1 is general rank-to-moment expression; Sections III.D–E concern one/two-dimensional hypergraphs.",
+          "Chen–Yan–Zhou Quantum 8:1351 Proposition 5 treats intact complete state, Theorem 5 random-edge average m2."
+        ],
+        "reasoning": "An equivalent theorem might enumerate ranks of the derivative quadratic forms of the symmetric cubic Boolean function with one monomial removed, or give exact Walsh magnitude multiplicities. The two primary sources do not exhibit such an enumerator.",
+        "searches": [
+          "Resultary complete 3 uniform hypergraph one deleted CCZ Pauli expectation magnitude rank spectrum",
+          "one missing hyperedge almost complete 3-uniform hypergraph Pauli weight histogram",
+          "Kagamihara Tsuchiya hypergraph rank spectrum 2602.23687"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Chen et al intact-state m2=1/8+small and ensemble m2; no reported rank histogram for missing one edge.",
+          "Nearest Resultary results concern different hypergraph or quantum phase invariants."
+        ],
+        "reasoning": "Matching the scalar m2 would be prior coverage only for that corollary, not the multiset of all 4^n amplitudes. Exact five-term rank histogram is separately checked.",
+        "searches": [
+          "one-deleted-CCZ hypergraph 11/256 77 70 rank counts",
+          "single-edge-defective 3-complete hypergraph 2^-r/2 Pauli spectrum",
+          "Resultary dense CCZ missing edge full rank distribution"
+        ]
+      },
+      "rationale": "Kagamihara–Tsuchiya establish the general binary-matrix rank characterization for 3-uniform hypergraph states (already prior). Chen–Yan–Zhou establish fully complete hypergraph state moments and random-retention ensemble average order-two moment. Differentiating the ensemble average at full retention determines a scalar m2 for exactly one missing gate, so that scalar is explicitly NOT independently original. Neither inspected primary full article computes the five-term rank-count histogram for the exactly one-edge-deleted complete family; that rank/magnitude distribution genuinely supplies all-order PL moments.",
+      "residual_risks": [
+        "A differently indexed symmetric Boolean cubic Walsh-spectrum result could imply the rank distribution.",
+        "General full-text query across all Boolean function literature not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General rank representation and one-dimensional exact SRE, no all-n single-edge-defective dense rank histogram",
+          "evidence": "Theorem 1, Section III",
+          "identifier_or_url": "arXiv:2602.23687v2; https://arxiv.org/pdf/2602.23687",
+          "material_read": "Full public 11-page primary PDF, definitions Eq.(11), Theorem 1 Eq.(12) and Sections III.D–E; page 3 image inspected",
+          "method": "primary PDF text and page image",
+          "title": "Stabilizer Rényi entropy of 3-uniform hypergraph states",
+          "trigger": "Same family of CCZ hypergraph states and binary-rank formula"
+        },
+        {
+          "assessment": "Intact complete and randomized ensemble order-two known; scalar one-deletion consequence conceded, full magnitude histogram not reported",
+          "evidence": "Theorem 5, Proposition 5, Appendix E",
+          "identifier_or_url": "DOI:10.22331/q-2024-05-21-1351; https://quantum-journal.org/papers/q-2024-05-21-1351/pdf/",
+          "material_read": "Primary 37-page CC-BY PDF: full abstract, complete-state Proposition 5, random-retention Theorem 5 and Appendix E; page 14 image inspected",
+          "method": "primary PDF text and page image",
+          "title": "Magic of quantum hypergraph states",
+          "trigger": "Exact complete-state model and stronger randomized missing-edge coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Kagamihara–Tsuchiya rank-based SRE framework",
+        "Chen–Yan–Zhou complete-state and ensemble magic results",
+        "RESULT.md exact rank histogram"
+      ],
+      "rationale": "A complete single-gate deletion is the most basic structural fault of a dense permutation-symmetric non-Clifford resource state. The exact distribution of individual Pauli magnitudes is a natural spectral invariant and yields all Rényi orders, not merely a scalar already implied by an ensemble average. Showing the order-two magic increases from the intact limit 3 to log2(256/11) for n>=6 makes a concrete counterintuitive boundary.",
+      "residual_risks": [
+        "No general fault tolerance claim or operational computational advantage is proved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No bibliographic priority certification; originality is best-of-knowledge and explicit source-access risks are separately recorded.",
+    "Potentially public operational provenance scope_run_id appears in METADATA.json and AUDIT.json; publication withheld and source evidence not altered.",
+    "Scientific acceptance is not publication synchronization nor expert/Lean attestation."
+  ],
+  "schema_version": 1
+}
