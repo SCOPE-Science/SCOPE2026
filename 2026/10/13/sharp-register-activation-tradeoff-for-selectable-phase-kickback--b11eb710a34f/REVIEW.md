@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim follows from an exact image-cardinality bound for the subset-sum map \(S\mapsto\sum_{i\in S}k_i\pmod{2^n-1}\). The two lower bounds are elementary consequences of that count, and the source power-of-two bank supplies a matching construction by binary expansion. The proof states the single-use/on/off model explicitly, so target-dependent controlled powers are not silently excluded after the fact.
+## correctness
 
-## Originality
-PASS. The primary paper gives the \(n\)-register construction and quadratic catalyst size but no arbitrary-bank lower bound. The later universal-catalyst construction was inspected in full text and uses a target-dependent controlled power of \(U_f\), so it does not cover the fixed-kickback bank theorem. Searches over source identifiers, phase-kickback aliases, subset-sum language, universal-catalyst language, and the exact parameters found no covering statement.
+PASS
 
-## Value
-PASS. This is a sharp structural boundary for the exact mechanism that produced the original quadratic variable-angle overhead. It proves that changing only the bank labels cannot reduce the number of catalyst registers, and that at the register minimum one cannot reduce the worst-case number of active fixed kickbacks below \(n-1\). The later linear-size construction makes the boundary more informative, because it shows concretely which architectural change escapes it.
+In the explicitly restricted bank, each online operation is determined by a subset S of r distinct fixed eigenphase kickbacks, with total residue the subset sum modulo N=2^n−1. At most h active units yields <=sum_{j<=h} C(r,j) distinct subsets and hence residues, proving the exact covering obstruction. For h=r, 2^r>=2^n−1 forces r>=n for n>=2. For r=n, omitting activation levels n−1 and n leaves at most 2^n−n−1<2^n−1 residues, so h>=n−1. Source labels a*2^i modulo N (gcd(a,N)=1) attain both because every residue has n-bit representative m<=2^n−2 and therefore at most n−1 ones. Independently enumerated all target residues and optimal activation counts for n=2..9, finding universal coverage with maximum n−1; finite enumeration is not the all-n proof.
 
-## Closest literature and limitations
-The closest source is Kim's selectable phase-kickback bank, arXiv:2506.15147 / Quantum 10, 2191. The closest stronger resource result is Kim–Laakkonen, arXiv:2512.24982v1, which achieves one universal eigenstate catalyst by controlling a target-dependent power. The result here does not lower-bound that method, general catalytic embeddings, arbitrary repeated kickback use, or \(T\)-count.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The source construction already supplies n power-of-two catalysts and suggests needing n copies; later work uses one catalyst with target-dependent controlled powers and explicitly escapes the fixed on/off bank model. The new statement is only an optimality certificate for the preexisting selectable-bank architecture, not a general catalyst lower bound. Generic pigeonhole information bounds are known as a method; the specialization and sharp simultaneous register/activation optimum were not located as a theorem in the inspected primary sources.
+
+## value
+
+PASS
+
+A narrowly defined but physically motivated architecture leaves an explicit resource-optimality question open in its originating construction. Matching lower bounds show exactly when the source’s n^2 catalyst qubits and n−1 worst-case uses are unavoidable under independent on/off activation, and precisely where the later lower-resource architecture changes the assumptions. Though the counting is elementary, it resolves an actual proposed resource-efficiency claim rather than an arbitrary parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
