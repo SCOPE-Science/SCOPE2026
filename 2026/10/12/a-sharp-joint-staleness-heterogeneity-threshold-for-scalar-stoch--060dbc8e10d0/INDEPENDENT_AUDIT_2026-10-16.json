@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T22:53:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Directly reconstructed conditional moments of z=x-s C x_{k-D}; the explicit positive quadratic V=(1+ps)x²-2psxy+p vartheta s²(1+ps)y² has exact conditional drift s[vartheta(s+p s²)-2]x². For p>0, determinant p s²[vartheta(1+ps)²-p]>0; summable E[x_k²] gives sufficiency, while nondecreasing positive E[V] rules out convergence at and above equality. At p=0 the unused lag coordinate drops out; independent symbolic polynomial check agrees. Two-point curvature (.5,1.5), p=.5, s=1.2 gives lhs 2.4, versus 1.5 without lag and 1.92 without variability. Verification is a consistency check, not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Duchi–Chaturapruek–Ré treat broad asynchronous convex optimization with diminishing stepsizes; Mulayoff–Michaeli exact SGD stability is for current-iterate stochastic gradients; Gomez et al. treat fixed-coefficient delayed feedback."
+        ],
+        "reasoning": "Neither broader convergence theorem gives a matching sharp constant-step mixed-curvature and Bernoulli-lag threshold; specialization to p=0 is covered by existing SGD analysis.",
+        "searches": [
+          "Resultary semantic search: sharp mean-square stability scalar stochastic gradient descent iid sampled curvature Bernoulli one-step delay threshold vartheta(s+p s^2)<2",
+          "arXiv:1508.00882; arXiv:2306.07850; DOI:10.1109/ACC.2014.6859470"
+        ]
+      },
+      "checked_sources": [
+        "https://websites.umich.edu/~orosz/articles/ACC_2014_paper2.pdf",
+        "https://arxiv.org/abs/2306.07850",
+        "https://arxiv.org/abs/1508.00882"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed-feedback matrix delay does not carry independent time-varying sampled scalar curvature; current-iterate SGD has p=0."
+        ],
+        "reasoning": "The p=0 and vartheta=1 specializations are known or classical, but neither inspected theorem implies the displayed two-mechanism exact frontier by direct parameter substitution. Historical equivalences remain a risk.",
+        "searches": [
+          "Resultary semantic search: sharp mean-square stability scalar stochastic gradient descent iid sampled curvature Bernoulli one-step delay threshold vartheta(s+p s^2)<2",
+          "2014 Gomez et al. exact random-delay paper; 2023 Mulayoff–Michaeli SGD stability"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gomez et al. 2014 ACC, fixed-feedback stochastic delay second-moment operator; no random resampled curvature coupling"
+        ],
+        "reasoning": "The algebraic three-coordinate moment transfer has det(I-T)=s[2-vartheta(s+p s²)], but the general method of moment lifting itself predates this result; known fixed-coefficient delay equations do not state the same law for random A_k.",
+        "searches": [
+          "Resultary semantic search: sharp mean-square stability scalar stochastic gradient descent iid sampled curvature Bernoulli one-step delay threshold vartheta(s+p s^2)<2",
+          "moment lift; Markov jump linear recurrence with independent random coefficient and 0/1 delay"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No relevant finite classification table: theorem is a parametric iff analytic stability frontier, not enumeration."
+        ],
+        "reasoning": "No database/table would itself constitute a proof of the all-distribution two-moment criterion. Absence of a returned search hit is not proof of originality.",
+        "searches": [
+          "Resultary semantic search: sharp mean-square stability scalar stochastic gradient descent iid sampled curvature Bernoulli one-step delay threshold vartheta(s+p s^2)<2",
+          "Resultary search above; original-source scans for delay stability exact tables"
+        ]
+      },
+      "rationale": "The contribution is the coupled sharp p-vartheta stability boundary and exact mixed-noise synergy, not the generic second-moment lift, the no-lag SGD bound s<2/vartheta, or fixed-coefficient random delay stability. Inspected earlier stochastic-delay and stochastic-gradient references address different combinations. Priority against unindexed older stochastic feedback recurrences is not absolute.",
+      "residual_risks": [
+        "Beidas and Papavassilopoulos (Parallel Computing 19 (1993), DOI:10.1016/0167-8191(93)90038-M) plausible older stochastic-delay paper was identified; abstract/metadata were checked but full text was not obtained for complete mathematical implication comparison. This is a concrete best-of-knowledge priority limitation, not an automatic scientific failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same methodology; fixed coefficient delay rather than iid random positive curvatures",
+          "evidence": [
+            "Fixed-feedback delayed system has no sampled independent C_k varying each iteration."
+          ],
+          "identifier_or_url": "https://websites.umich.edu/~orosz/articles/ACC_2014_paper2.pdf",
+          "material_read": "Inspected primary PDF model, equations and stability/second-moment analysis describing fixed matrices under random delay",
+          "method": "Lawful author-hosted open PDF",
+          "title": "Exact Stability Analysis of Discrete-Time Linear Systems with Stochastic Delays",
+          "trigger": "Directly plausible exact second-moment stability for one-step stochastic delay"
+        },
+        {
+          "assessment": "Covers no-delay limit, not lag-coupled joint law",
+          "evidence": [
+            "Current iterate A_k x_k, not iid Bernoulli stale A_k x_{k-D_k}."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2306.07850",
+          "material_read": "Inspected available open preprint statement and SGD iterate model for current-iterate gradients and spectral stability",
+          "method": "arXiv publicly accessible text",
+          "title": "Exact Mean Square Linear Stability Analysis for SGD",
+          "trigger": "Potential broad exact stochastic-gradient stability coverage"
+        },
+        {
+          "assessment": "No exact constant-step scalar p-vartheta stability iff in checked material",
+          "evidence": [
+            "Asynchronous convergence context uses different schedules/hypotheses."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1508.00882",
+          "material_read": "Inspected accessible main result/convergence hypotheses for nonconstant stepsizes",
+          "method": "arXiv open preprint",
+          "title": "Asynchronous Stochastic Convex Optimization",
+          "trigger": "Broader asynchronous optimization convergence theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete necessary-and-sufficient threshold for a natural minimal model of asynchronous, heterogeneous interpolating SGD distinguishes two individually stable mechanisms that jointly destabilize. Explicit energy and exact strict boundary can be reused in analyzing step-size choice and limits of naive separately sufficient criteria.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://websites.umich.edu/~orosz/articles/ACC_2014_paper2.pdf",
+    "https://arxiv.org/abs/2306.07850",
+    "https://arxiv.org/abs/1508.00882"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": "Only iid independent one-step Bernoulli stale reads, positive iid scalar curvature with finite second moment, fixed step, mean-square convergence. No claim about correlated delays, asynchronous execution collisions, additive noise, higher dimensions or almost-sure rates.",
+  "source_inspections": [
+    {
+      "assessment": "Same methodology; fixed coefficient delay rather than iid random positive curvatures",
+      "evidence": [
+        "Fixed-feedback delayed system has no sampled independent C_k varying each iteration."
+      ],
+      "identifier_or_url": "https://websites.umich.edu/~orosz/articles/ACC_2014_paper2.pdf",
+      "material_read": "Inspected primary PDF model, equations and stability/second-moment analysis describing fixed matrices under random delay",
+      "method": "Lawful author-hosted open PDF",
+      "title": "Exact Stability Analysis of Discrete-Time Linear Systems with Stochastic Delays",
+      "trigger": "Directly plausible exact second-moment stability for one-step stochastic delay"
+    },
+    {
+      "assessment": "Covers no-delay limit, not lag-coupled joint law",
+      "evidence": [
+        "Current iterate A_k x_k, not iid Bernoulli stale A_k x_{k-D_k}."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2306.07850",
+      "material_read": "Inspected available open preprint statement and SGD iterate model for current-iterate gradients and spectral stability",
+      "method": "arXiv publicly accessible text",
+      "title": "Exact Mean Square Linear Stability Analysis for SGD",
+      "trigger": "Potential broad exact stochastic-gradient stability coverage"
+    },
+    {
+      "assessment": "No exact constant-step scalar p-vartheta stability iff in checked material",
+      "evidence": [
+        "Asynchronous convergence context uses different schedules/hypotheses."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1508.00882",
+      "material_read": "Inspected accessible main result/convergence hypotheses for nonconstant stepsizes",
+      "method": "arXiv open preprint",
+      "title": "Asynchronous Stochastic Convex Optimization",
+      "trigger": "Broader asynchronous optimization convergence theory"
+    }
+  ]
+}

@@ -1,9 +1,21 @@
-# Scientific review — one-step stochastic staleness and curvature heterogeneity
+# Independent mathematical audit
 
-**Correctness — PASS.** The stated model specifies the complete iid independence structure, finite normalized second moment, strictly positive stepsize, and every deterministic two-state initialization. Direct expansion gives the two conditional moments, and a parameter-explicit positive-definite quadratic energy has the exact drift \(s[\vartheta(s+ps^2)-2]x_k^2\). Telescoping proves convergence below the boundary; nondecreasing positive energy rules out mean-square convergence at and above it. The degenerate \(p=0\) boundary is handled separately. The general polynomial identities and 2,800 rational expectation identities were reproduced by `checks/verify_exact.py`. Risks: none identified within the stated iid scalar model; general asynchronous systems are not covered.
+## correctness
 
-**Originality — PASS, with an explicit historical uncertainty.** The result does not claim the familiar zero-delay SGD bound, general second-moment lifting, or deterministic-coefficient stochastic-delay analysis as new. Full-text comparisons with Niu et al. (2011), Duchi et al. (2015), Gomez et al. (2013, 2014), and Mulayoff–Michaeli (2023) do not give the sharp joint curvature-moment/delay law. The closest published two-coordinate randomized Gauss–Seidel delay law has a different coordinate-overwrite recurrence and fixed coupling; the closest published random-curvature SGD calculation has no stale reads. Generic stochastic-linear-system results can test spectral radii but do not themselves evaluate this natural model's exact step boundary. Residual risk: Beidas–Papavassilopoulos (1993) and some older random-coefficient delay literature were not checked in complete full text, so a specialized equivalent formula remains possible.
+PASS
 
-**Value — PASS.** The exact two-parameter frontier is a naturally motivated criterion for constant-step asynchronous optimization on interpolating quadratics. It identifies interaction between independent staleness and curvature heterogeneity that cannot be inferred from either isolated stability test: at one explicit rational parameter choice the two isolated systems both converge in mean square, whereas the combined model fails. It also provides a reusable quadratic Lyapunov certificate for a family of all finite-second-moment curvature laws, not a table recomputation or a finite-enumeration curiosity. Practical claims are restricted to the iid one-step scalar model.
+Directly reconstructed conditional moments of z=x-s C x_{k-D}; the explicit positive quadratic V=(1+ps)x²-2psxy+p vartheta s²(1+ps)y² has exact conditional drift s[vartheta(s+p s²)-2]x². For p>0, determinant p s²[vartheta(1+ps)²-p]>0; summable E[x_k²] gives sufficiency, while nondecreasing positive E[V] rules out convergence at and above equality. At p=0 the unused lag coordinate drops out; independent symbolic polynomial check agrees. Two-point curvature (.5,1.5), p=.5, s=1.2 gives lhs 2.4, versus 1.5 without lag and 1.92 without variability. Verification is a consistency check, not the proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The contribution is the coupled sharp p-vartheta stability boundary and exact mixed-noise synergy, not the generic second-moment lift, the no-lag SGD bound s<2/vartheta, or fixed-coefficient random delay stability. Inspected earlier stochastic-delay and stochastic-gradient references address different combinations. Priority against unindexed older stochastic feedback recurrences is not absolute.
+
+## value
+
+PASS
+
+A complete necessary-and-sufficient threshold for a natural minimal model of asynchronous, heterogeneous interpolating SGD distinguishes two individually stable mechanisms that jointly destabilize. Explicit energy and exact strict boundary can be reused in analyzing step-size choice and limits of naive separately sufficient criteria.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

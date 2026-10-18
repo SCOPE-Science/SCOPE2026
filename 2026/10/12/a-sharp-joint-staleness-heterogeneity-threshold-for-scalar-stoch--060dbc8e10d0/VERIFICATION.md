@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and analytical limits
+# Independent mathematical audit
 
-The accompanying standalone script `checks/verify_exact.py` uses Python 3 and SymPy. Execute it as `python checks/verify_exact.py` from the extracted package root. The observed output from the exact script is `VERIFY_OK symbolic_drift=1 symbolic_moment_matrix=1 exact_cases=2800`.
+## correctness
 
-The symbolic part independently recomputes the conditional squared-state and cross-state expectation polynomials, verifies the exact quadratic-energy drift for formal parameters, verifies the second-moment transfer determinant, and checks the energy-matrix determinant. The finite part enumerates 2,800 exact-rational cases, with two positive scalar curvatures of equal probability and independently sampled Bernoulli lag, comparing the expectation of the quadratic energy against its proved drift formula. It also checks the specified rational stable/unstable witness.
+PASS
 
-The infinite-parameter claims and the strict boundary follow from the analytical proof in `RESULT.md`: positive definiteness for \(p>0\), summability under negative drift, and obstruction from nondecreasing energy at and above the threshold. These logical steps, not the finite test suite, establish the theorem. The checker does not certify any real-world asynchronous system, correlated sampling scheme, convergence rate, or unpublished-priority claim.
+Directly reconstructed conditional moments of z=x-s C x_{k-D}; the explicit positive quadratic V=(1+ps)x²-2psxy+p vartheta s²(1+ps)y² has exact conditional drift s[vartheta(s+p s²)-2]x². For p>0, determinant p s²[vartheta(1+ps)²-p]>0; summable E[x_k²] gives sufficiency, while nondecreasing positive E[V] rules out convergence at and above equality. At p=0 the unused lag coordinate drops out; independent symbolic polynomial check agrees. Two-point curvature (.5,1.5), p=.5, s=1.2 gives lhs 2.4, versus 1.5 without lag and 1.92 without variability. Verification is a consistency check, not the proof.
+
+## originality
+
+PASS
+
+The contribution is the coupled sharp p-vartheta stability boundary and exact mixed-noise synergy, not the generic second-moment lift, the no-lag SGD bound s<2/vartheta, or fixed-coefficient random delay stability. Inspected earlier stochastic-delay and stochastic-gradient references address different combinations. Priority against unindexed older stochastic feedback recurrences is not absolute.
+
+## value
+
+PASS
+
+A complete necessary-and-sufficient threshold for a natural minimal model of asynchronous, heterogeneous interpolating SGD distinguishes two individually stable mechanisms that jointly destabilize. Explicit energy and exact strict boundary can be reused in analyzing step-size choice and limits of naive separately sufficient criteria.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
