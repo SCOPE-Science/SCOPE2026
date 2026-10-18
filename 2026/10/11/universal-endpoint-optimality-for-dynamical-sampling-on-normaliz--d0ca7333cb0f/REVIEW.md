@@ -1,17 +1,21 @@
-# Scientific review of universal path-sensor determinant optimality
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is exact over every integer path length \(M\ge1\), every vertex, and every real spectral function that separates the normalized-adjacency eigenvalues. A normalized cosine eigenbasis and the finite Vandermonde determinant yield a universal factorization. A root-of-unity product then gives either the precise zero-mode count \(g_j\) or the exact sensor ratio \(d_j^{M+1}2^{2(g_j-M)}\). The strict optimizer statement follows from \(g_j\le M/3\) for admissible interior locations; the two exceptional small sizes are explicitly checked in the proof. For adjacency evolution, differentiating \((x^2-1)U_{M-1}(x)\) at every Chebyshev–Lobatto node gives the exact endpoint constant. The dependency-free reproducer ran successfully with 1,399 additional finite checks; none is used as a substitute for the proof. Risk: the usual floating-point regression is only a supplementary test, and the determinant does not control the least frame bound.
+## correctness
 
-## Originality — PASS (residual literature-access risk)
-The September 21, 2026 preprint of Bulai–Cabrelli–Cordero–Molter–Saliani develops graph dynamical sampling and, according to its available abstract and preview, uses numerical experiments on normalized path graphs for sensor placement and conditioning. Its full manuscript could not be materially opened through the accessible lawful routes; this is explicitly an unresolved duplication risk, **not** a claim that the entire work lacks the result. The full-text-accessible 2019 path-controllability article of Hsu–Yang addresses qualitative single-leader controllability for combinatorial graph-Laplacian settings, not an exact normalized-adjacency information-volume ratio invariant under arbitrary injective spectral filters. The known general eigenvector-visibility and Vandermonde criteria are tools rather than the claimed quantitative classification. Actual published-record searches for normalized paths, spectral Vandermonde determinants, D-optimal sensor placement, and the exact power-of-two constant found no stronger covering assertion. The accessible current and preceding mathematical records were checked for overlap. Risk: an unindexed earlier equivalent theorem or a formula in the inaccessible sections of the 2026 preprint may cover the assertion.
+PASS
 
-## Value — PASS
-The natural finite-path benchmark discussed in the motivating paper now has a complete, all-size solution for an experimental-design quantity: exact visibility/rank at every vertex; a closed information determinant for every allowed spectral evolution; explicit optimum locations; and an unexpectedly simple \(2^{1-M^2}\) endpoint determinant for adjacency evolution. Universal endpoint optimality is not just a special-case numerical observation: it holds without dependence on the choice of injective graph-spectral dynamics, including heat flow. This gives a quantitative robustness benchmark for graph dynamical sampling and a precise diagnosis of the arithmetic singularities at nonendpoint sensors. It is not an assertion of optimal lower-frame bounds, minimum noise amplification, or arbitrary-time design.
+For normalized symmetric path adjacency S on M+1 vertices (M≥1), the cosine eigenvectors have squared vertex amplitudes d_j cos²(πkj/M)/M for k=1,...,M−1 and d_j/(2M) at modes 0,M. In the eigenbasis, consecutive-time observability is a Vandermonde matrix times diagonal amplitudes: determinant Gramian = V_φ·∏|v_k(j)|² for any injective spectral φ. With g=gcd(j,M), if M/g even exactly g amplitude columns vanish, yielding rank M+1−g and zero determinant; otherwise the root-of-unity cosine product is 2^{g−M}, giving the stated d_j^{M+1}2^{2(g−M)} ratio. For interior nonzero determinant g≤M/3, so strict endpoint improvement when M≥4; M=3 all four vertices tie, and M=1,2 only endpoints. Chebyshev–Lobatto discriminant gives endpoint determinant 2^{1−M²} at φ(s)=s. Independently verified the arithmetic determinant ratios and rank-parity/optimizer classification for all 65 sensor positions M=1,...,10; proof is analytic all M.
 
-## Checked literature and residual risks
-- I. M. Bulai et al., *Dynamical Sampling in Graph Paley–Wiener Spaces*, arXiv:2609.25472v1 (2026-09-21): abstract and mathematical scope inspected; source full text inaccessible through the available routes. Same normalized-path experimental model; possible but unverified exact determinant comparison remains a genuine risk.
-- S.-P. Hsu and P.-Y. Yang, *Generalizing Laplacian Controllability of Paths*, arXiv:1902.05671 (2019), accessible Wiley full-text introduction and controllability statements: qualitative graph-Laplacian leader criterion, not the normalized-adjacency determinant formula.
-- Classical normalized-cosine path spectrum, Vandermonde determinant, and Chebyshev second-kind polynomial identities: used with full details, so their standard nature is not counted as originality.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS with significant primary access risk. General PBH observability and Vandermonde formulas are classical and not claimed as novel. The closest 2026 Bulai–Cabrelli–Cordero–Molter–Saliani preprint considers graph dynamical sampling and mentions numerical path-graph sensor experiments; the accessible abstract does not assert this exact normalized-path single-sensor information determinant formula, gcd-rank classification or universal optimization for every injective spectral evolution. Full manuscript could not be lawfully read (arXiv/OA did not yield text and authorized Oxford reported disconnected institutional VPN). This is a genuine potential priority overlap, recorded without automatically failing the originality axis.
+
+## value
+
+PASS
+
+Exact D-optimal sensor placement with every injective spectral filter is a natural graph sampling design classification, including degeneracy ranks and exceptional short paths. Distinguishing determinant from qualitative observability and worst-case frame bounds gives a precise mathematical invariant that is not a textbook restatement of PBH.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
