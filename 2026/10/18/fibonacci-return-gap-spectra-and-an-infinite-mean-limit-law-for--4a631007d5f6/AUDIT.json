@@ -1,0 +1,153 @@
+{
+  "correctness": {
+    "rationale": "The disjoint ordered decomposition T_l=T_(l-2) union (2^(l-1)+T_(l-1)) is established from token language; its unique bridge has length h_l. Labeled bridge recurrence yields F_(l-j+1), and summing all shell contributions gives the claimed exact histogram including the h_2=h_3 collision. Dyadic boundary gap parity is exact. Pointwise limiting weights sum to one, ensuring a proper limit measure; the mean diverges because 2/phi>1. Independent direct enumeration N=1..18 is consistent; it is not relied upon for infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Allouche (1993) surveys the Baum–Sweet automaton, which supplies the standard word representation but does not determine dyadic gap histograms.",
+        "General automatic-sequence gap theorems constrain possible sparsity, but do not supply this exact classical-word return-time law."
+      ],
+      "reasoning": "The all-length regular-language description is stronger object-level background, but has no explicit all-N Fibonacci multiset count. The quantitative conclusion is additional and not established as a named corollary in inspected sources.",
+      "searches": [
+        "Baum Sweet word exact first return words to 1 or gaps between consecutive 1 letters, spectrum 1, 2, 3, 6, 9, 18, 33, 66, 129, powers of two plus parity",
+        "\"Baum Sweet\" \"gap\" \"Fibonacci\" consecutive ones frequency",
+        "https://www.mat.univie.ac.at/~slc/opapers/s30allouche.pdf"
+      ]
+    },
+    "checked_sources": [
+      "OEIS A060142 (entire displayed record)",
+      "OEIS A219608 (entire displayed record)",
+      "OEIS A219609 (entire displayed and internal-format record)",
+      "Allouche 1993, relevant automaton sections",
+      "Kimberling 2000, full article",
+      "Kimberling 2014, abstract and first page",
+      "General automatic-sequence gap theorem (Cobham) summary"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kimberling (2000) treats a different generating operation, namely x→2x and x→4x−1, versus x→2x+1 and x→4x in A060142.",
+        "The A219609 identity with S gaps provides full indexed terms, but does not state exact Fibonacci counts at every binary cutoff or a limit distribution."
+      ],
+      "reasoning": "Unlike a restatement of A219609, the final claim demands exact multiplicity for all d,N and a proof of tight probability law with infinite expected return. No accessible inspected theorem states or immediately specializes to that claim. The existing gap sequence data permit computational extraction for finite windows but do not replace the infinite proof.",
+      "searches": [
+        "automatic Baum-Sweet digit language binary 1(1|00)* lexicographic consecutive integer gap enumeration, return lengths and maximal zero runs",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL3/goldentext.html",
+        "https://oeis.org/A219609"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A060142 lists exactly the support of ones; A219608 is the odd subsequence and A219609 is half of its first differences. The odd support is 2S+1, hence A219609 is the complete pre-existing gap sequence.",
+        "A219609 has a 10,000-entry gap table but no Fibonacci cutoff multiplicity theorem or limiting return-gap distribution in its displayed record."
+      ],
+      "reasoning": "An exact indexed gap list is not itself a stated all-N frequency classification or a limit theorem. The new claim excludes novelty for the list and proves a uniform structured histogram and heavy-tail law. This is a highly relevant potential implication: the list defines the problem but obtaining the all-N formula requires a new recurrence and bridge genealogy.",
+      "searches": [
+        "Baum Sweet consecutive occurrences of ones, return word gaps length spectrum regular language 1(1|00)*",
+        "https://oeis.org/A060142",
+        "https://oeis.org/A219609",
+        "https://oeis.org/A219608"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A219609 explicitly gives the exact prior sequence of gaps and offers n=1..10000 table.",
+        "A060142 lists the generating rules for the selected indices and provides a 10,000-entry support table."
+      ],
+      "reasoning": "This directly covers any claim to discovery of the gap sequence, of individual gaps, or of a finite prefix, and therefore those are NOT presented as new. The all-dyadic frequency formula and limiting measure are not displayed as a table/formula in the inspected records.",
+      "searches": [
+        "https://oeis.org/A219609",
+        "https://oeis.org/A060142",
+        "https://oeis.org/A219608"
+      ]
+    },
+    "rationale": "The previously known support and complete indexed gap sequence from A060142/A219609 are explicitly acknowledged and excluded from novelty. The new result is an all-dyadic exact Fibonacci multiplicity theorem and limiting infinite-mean distribution, neither given in the inspected full OEIS records, early automaton survey, or nearby self-generation literature. Search coverage is bounded and unindexed equivalent derivations remain possible.",
+    "residual_risks": [
+      "OEIS A219609 tabulates the full prior gap sequence: any supposed novelty for this sequence alone is already covered; new only uniform histogram and distribution.",
+      "An earlier derivation of exact Fibonacci gap histograms or a limiting frequency law could be unindexed or outside inspected sources.",
+      "Kimberling 2014 full text beyond abstract not systematically inspected, but the inspected abstract indicates a different polynomial topic."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains known support sequence, self-generation and Fibonacci-word rank facts, but no exact return-gap histogram or limiting probability law.",
+        "evidence": [
+          "A060142 heading and initial support values",
+          "Comments identify A219608 and Baum–Sweet indices; no frequency theorem stated."
+        ],
+        "identifier_or_url": "https://oeis.org/A060142",
+        "material_read": "Complete displayed OEIS entry including comments, links, example and code.",
+        "method": "Read original database record and compared formulas and all comments.",
+        "title": "Ordered set S defined by these rules (A060142)",
+        "trigger": "Exact support and generating rules for Baum–Sweet ones"
+      },
+      {
+        "assessment": "Strongest direct prior: exact full gap sequence already tabulated. Explicit Fibonacci all-cutoff multiplicity and infinite-mean distribution not found in record.",
+        "evidence": [
+          "A219609 a(n)=(A219608(n+1)-A219608(n))/2",
+          "10,000-entry list noted, not mistaken for full-document theorem."
+        ],
+        "identifier_or_url": "https://oeis.org/A219609",
+        "material_read": "Full displayed OEIS entry including internal format, definition, table link and sample values.",
+        "method": "Traced A219609 to A219608 and 2S+1, checked direct equivalence with Baum–Sweet gap sequence.",
+        "title": "Half of first differences of A219608 (A219609)",
+        "trigger": "Exact sequence and 10,000-entry table of return gaps"
+      },
+      {
+        "assessment": "Makes every A219609 term the corresponding gap of S; prior gap sequence is acknowledged.",
+        "evidence": [
+          "A219608=filter odd(A060142); A219609 is half the consecutive differences."
+        ],
+        "identifier_or_url": "https://oeis.org/A219608",
+        "material_read": "Full displayed OEIS entry, comments and code.",
+        "method": "Verified odd subsequence is precisely 2S+1 because odd allowed expansions end in 1.",
+        "title": "Odd terms in A060142 (A219608)",
+        "trigger": "Establish exact equivalence of A219609 to the original support gaps"
+      },
+      {
+        "assessment": "Surveys standard automatic representation and arithmetic context, not the all-scale Fibonacci return-gap distribution.",
+        "evidence": [
+          "Sections 1 and 2.2 discuss automatic sequences and examples."
+        ],
+        "identifier_or_url": "https://www.mat.univie.ac.at/~slc/opapers/s30allouche.pdf",
+        "material_read": "PDF pages 1–5, especially the automatic-sequence examples; remaining pages not individually checked.",
+        "method": "Read text and inspected relevant automaton page image.",
+        "title": "Finite automata and arithmetic",
+        "trigger": "Early primary exposition of the Baum–Sweet automaton"
+      },
+      {
+        "assessment": "Concerns set generated by 1→2x,4x−1; not A060142, and theorem concerns Wythoff ranks, not gap multiplicities.",
+        "evidence": [
+          "Article abstract and introduction state rules 2x and 4x−1, main theorem gives even term positions."
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL3/goldentext.html",
+        "material_read": "Full HTML article including main result and distinct generation rules.",
+        "method": "Compared exact generating maps and theorem conclusion.",
+        "title": "A Self-Generating Set and the Golden Mean",
+        "trigger": "Cross-reference from A060142 and plausible stronger Fibonacci self-generation"
+      },
+      {
+        "assessment": "Paper addresses sequences of polynomials and infinite matrices, not Baum–Sweet return gaps; remaining full text not systematically reviewed.",
+        "evidence": [
+          "Abstract describes fusion/fission of polynomial matrices and Fibonacci polynomials."
+        ],
+        "identifier_or_url": "https://www.fq.math.ca/Papers1/52-3/Kimberling11132013.pdf",
+        "material_read": "First PDF page including title, abstract and intro, plus text searches for Baum, gap, difference; rest not inspected.",
+        "method": "Checked abstract scope and searchable terms, examined first page image.",
+        "title": "Fusion, Fission, and Factors",
+        "trigger": "Listed as a related source at A060142 and plausibly about numerical factors"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4a631007-d5f6-4305-9193-d43365f2ee01",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For a classical sparse automatic sequence with known arbitrarily long zero runs, an exact frequency law for every return gap at all substitution scales gives structural information not evident from its enumerated gap sequence. The Fibonacci bridge count and explicit geometric masses produce a nontrivial heavy-tail infinite-mean phenomenon and a complete class-frequency classification. It is not an arbitrary cutoff extension or textbook renaming.",
+    "status": "PASS"
+  }
+}
