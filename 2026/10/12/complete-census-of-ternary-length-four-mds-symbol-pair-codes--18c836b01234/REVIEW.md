@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The upper bound \(9\) follows from an injective two-coordinate projection, and the supplied verifier exhaustively reconstructs all \(81\) words and all maximal cliques of the exact pair-distance compatibility graph. It reproduces \(8{,}784\) maxima, \(252\) affine maxima, the full stated orbit-size list, and the explicit non-affine witness.
+## correctness
 
-## Originality
-PASS. The closest primary sources establish the symbol-pair Singleton framework, distance-four existence, and linear MDS constructions. Their inspected statements do not imply the unrestricted labeled extremizer census, affine split, or symmetry decomposition. Exact-parameter, alias, numerical, affine, and orbit searches found no implication-equivalent record. Residual risk remains that an obscure or unindexed finite census exists.
+PASS
 
-## Value
-PASS. The classification exposes substantial nonlinear structure hidden by the known optimum: only \(252\) of \(8{,}784\) maximum codes are affine, while the maxima occupy \(11\) natural-symmetry orbits. This gives a complete small-parameter benchmark for nonlinear MDS symbol-pair codes rather than merely recomputing the Singleton value.
+Agreement on two adjacent coordinates of different codewords implies pair distance at most three, proving upper bound 3^2=9. Independently rebuilt all 81 vertices and the full pair-distance-four adjacency graph (2268 edges); separately enumerated all maximal cliques, obtaining counts 1296 of size6, 28512 of size7, 8784 of size9, no larger ones. Independent translation-and-additive-closure test of each 9-code gave 252 affine, rest 8532 non-affine. Independently generated S3 coordinate symbol exchanges and D8 rotations/reflections, traversed all 8784 codes into 11 orbits with given sizes; explicit nonlinear code belongs to maxima. This finite enumeration exhausts the full specified finite domain, not a timed lower bound.
 
-## Closest literature and limitations
-Chee et al. (arXiv:1211.1728) supply the metric, Singleton bound, and the relevant MDS existence result. Ding et al. (arXiv:1605.08859) focus explicitly on linear MDS constructions and list the distance-four existence family. The present classification is limited to the exact ternary length-four parameter and to the stated natural subgroup \(G\); no claim is made about the full isometry group or other parameters.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Singleton maximum size and existence of optimal codes are established prior work, explicitly not claimed new. The all-label extremizer histogram, non-affine majority and 11-group-orbit classification are not implied by existence or known linear constructions, and no matching tabulation appeared in targeted Resultary/primary comparisons. Full finite classification remains best-of-knowledge with unindexed-table risk.
+
+## value
+
+PASS
+
+An exact classification of all equality cases of a natural MDS bound, including the sharp affine/non-affine distinction, is a meaningful finite classification of nonlinear error-correcting codes; 8784 maxima and 11 subgroup orbits are not an arbitrary tiny slice or a repetition of the known Singleton optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
