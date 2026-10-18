@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Direct verification and limitations
+# Independent mathematical audit
 
-The ordinary mathematical proof in `RESULT.md` establishes all integers \(k\ge3\), \(n\ge2k\). Reproduce the finite exhaustive incidence check using:
+## correctness
 
-`c++ -O2 -std=c++17 verify.cpp -o verify && ./verify`
+PASS
 
-The checker tests every subset of vertex-color incidences with total weight at most \(2k\), reconstructs the vertex subset labels, tests all empty vertices against their actual open neighborhoods, checks the structural family classification and computes the Stirling prediction directly. Expected output includes:
+For k>=3 and n>=2k, a 2k-incidence witness colors the endpoints of one deleted matching pair with every color. If weight<2k, each n-vertex shore contains an empty vertex and hence each opposite shore must carry at least k color incidences: contradiction. At weight 2k, when both shores contain empties, each color occurs once per shore and an empty matched partner forces identical index supports; two independent surjections onto common T exhaust all cases. When one entire shore is occupied, equality forces n=2k, singleton labels on all its vertices and twice each color. Counts by Stirling surjections and permutations follow bijectively. Independent new enumeration of all incidence subsets of weight<=6 found 1,446 valid functions among 2,391,496 for (k,n)=(3,6) and 2,023 among 6,220,768 for (3,7), with no smaller-weight case; finite tests only supplement the universal proof.
 
-`k=3 n=6 tested=2391496 accepted=1446 predicted=1446 matched=1266 boundary=180 suboptimal_accepted=0`
+## originality
 
-`k=3 n=7 tested=6220768 accepted=2023 predicted=2023 matched=2023 boundary=0 suboptimal_accepted=0`
+PASS
 
-The run ends with `VERIFY_OK`. Tests for smaller \(k\) serve only as boundary consistency checks; the novel theorem is for \(k\ge3\). The direct program checks finite graphs only, and cannot by itself prove the general theorem. A 2018 one-page abstract on crown-graph \(3\)-rainbow bounds is known; possible fuller coverage remains a literature limitation. External independent audit was not performed.
+The unrestricted k>=3 support-family classification and exact labeled count are not implied by the known scalar upper bound or published k=2 cases. The 2018 closest same-object conference abstract mentions bounds for k=3 but contains no family count; a longer publication remains a genuine priority risk.
+
+## value
+
+PASS
+
+The optimizer count is an exact unknown invariant of natural crown graphs for infinitely many k,n and reveals a sharp new class at n=2k. The full support description, asymptotic k! n^k, and correspondence to minimum dominating sets in the Cartesian product add substantive structural content over a mere bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The weight lower bound uses an empty vertex on each shore for hypothetical weight below \(2k\). At equality, color-incidence counting forces exactly one copy of each color per shore whenever both shores contain empties; the missing cross-edge forces identical support index sets, giving precisely two arbitrary independent surjections onto their common set. If a shore contains no empty vertices, equality forces \(n=2k\), exactly one color per vertex there and exactly two appearances of each color, characterizing the exceptional family. Every proposed pattern directly satisfies the definition, and bijective combinatorial counts yield the displayed formula. Direct incidence enumeration for \((k,n)=(3,6),(3,7)\) confirms 1446 and 2023 minimum functions but is not the infinite proof.
+PASS
 
-## Originality
+For k>=3 and n>=2k, a 2k-incidence witness colors the endpoints of one deleted matching pair with every color. If weight<2k, each n-vertex shore contains an empty vertex and hence each opposite shore must carry at least k color incidences: contradiction. At weight 2k, when both shores contain empties, each color occurs once per shore and an empty matched partner forces identical index supports; two independent surjections onto common T exhaust all cases. When one entire shore is occupied, equality forces n=2k, singleton labels on all its vertices and twice each color. Counts by Stirling surjections and permutations follow bijectively. Independent new enumeration of all incidence subsets of weight<=6 found 1,446 valid functions among 2,391,496 for (k,n)=(3,6) and 2,023 among 6,220,768 for (3,7), with no smaller-weight case; finite tests only supplement the universal proof.
 
-**PASS, subject to stated coverage risks.** The 2008 founding full text states the general \(G\square K_k\) correspondence and bounds but no crown support/optimizer theorem. The closest pre-existing explicit crown classification concerns only \(k=2\), and the new claim requires \(k\ge3\). A 2018 conference abstract, “On 3-Rainbow Domination in Crown Graphs,” explicitly covers crown-graph \(3\)-rainbow bounds and was visually read on printed p.39; it does not report the count or support classification. Its possible longer version, not located, remains a real originality risk and absence of an accessible copy is not asserted as novelty proof. The full support-and-count theorem is not implied by the scalar value alone.
+## originality
 
-## Value
+PASS
 
-**PASS.** The theorem determines every optimizer, not only a minimum weight, and reveals a sharp qualitative exception at the natural boundary \(n=2k\). The two-surjection description gives a closed Stirling-number expression and, by the standard prism correspondence, counts minimum dominating sets in an associated product graph for infinitely many parameters. This information is not a routine reformulation of the known general bound or the pre-existing \(k=2\) classification.
+The unrestricted k>=3 support-family classification and exact labeled count are not implied by the known scalar upper bound or published k=2 cases. The 2018 closest same-object conference abstract mentions bounds for k=3 but contains no family count; a longer publication remains a genuine priority risk.
 
-## Closest sources and limitations
+## value
 
-Brešar–Henning–Rall, “Rainbow Domination in Graphs” (2008), DOI:10.11650/twjm/1500602498, is the closest foundational full text. Sivagami's ICONSET 2018 printed abstract p.39, ISBN 978-93-86675-42-2, is the closest same-object special-parameter source and has the residual access/coverage uncertainty described above. The theorem is restricted to \(k\ge3\), \(n\ge2k\) and distinguishable colors on labeled vertices; the finite checker covers only the listed small cases. The public record has no independent external audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The optimizer count is an exact unknown invariant of natural crown graphs for infinitely many k,n and reveals a sharp new class at n=2k. The full support description, asymptotic k! n^k, and correspondence to minimum dominating sets in the Cartesian product add substantive structural content over a mere bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
