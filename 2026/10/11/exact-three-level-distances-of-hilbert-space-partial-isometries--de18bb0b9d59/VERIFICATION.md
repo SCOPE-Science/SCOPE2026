@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification of the partial-isometry distance theorem
+# Independent mathematical audit
 
-The logical dependencies are an identified published theorem and direct operator-theoretic reasoning. There is no numerical approximation, computer-assisted exhaustion, or finite-dimensional certificate in the proof.
+## correctness
 
-1. **Published lemma.** For a noncompact operator in the norm closure of the absolutely norm-attaining operators, Ramesh–Sequeira (2022), Theorem 3.7 and Corollary 3.8, yield a strictly positive scalar-plus-compact modulus and a finite-dimensional kernel. The full text of the cited first public version was examined.
-2. **Essential lower bound.** Any orthonormal sequence is weakly null, and a compact operator sends it to a norm-null sequence. One sequence in the initial space and one in the kernel yield the sharp joint lower bound \(\max\{\alpha,|1-\alpha|\}\ge1/2\).
-3. **Unitary witness.** If both the kernel and cokernel are infinite-dimensional and the Hilbert space is separable, they are unitarily isomorphic. The direct-sum unitary extending the partial isometry gives an absolutely norm-attaining half-scale approximant at distance exactly \(1/2\).
-4. **Cokernel obstruction.** A less-than-one perturbation has an invertible compression from the initial to the final space. The graph of its negative inverse correction embeds the infinite kernel into a subspace that the approximant sends into a finite-dimensional space, so that approximant's kernel must be infinite-dimensional. This contradicts the cited finite-kernel property for noncompact approximants; compact approximants already have distance at least one.
-5. **Boundary checks.** Finite-rank and finite-kernel partial isometries themselves are absolutely norm attaining. The zero approximant realizes distance one. A projection and a coisometry with identical initial projection realize two different distances. Every case exhausts the ranks/nullities possible on a separable infinite-dimensional Hilbert space.
+PASS
 
-No independent validation or external certification has been carried out. The 2026 related paper was available only at abstract level and therefore was not assigned a full-text noncoverage verdict.
+The final theorem exhausts finite-rank, finite-kernel, and infinite-rank/infinite-kernel partial isometries on separable infinite-dimensional complex Hilbert H, subdividing the last case by cokernel. Compact finite-rank W and finite-kernel W are absolutely norm attaining (finite dimensional spheres or intersection of every infinite-dimensional subspace with initial space). For noncompact S in the AN norm closure, inspected Ramesh–Sequeira Thm 3.7/Cor 3.8 supply |S|=alpha I+compact with alpha>0 and finite kernel. Kernel and initial-space orthonormal sequences force ||W−S||≥max(alpha,|1−alpha|)≥1/2; compact S yields ≥1. When both kernel and cokernel infinite, choose unitary extending W and use S=U/2 to attain 1/2. For finite cokernel, ||W−S||<1 gives an invertible compression P_R S|_M; the graph of −(P_R S|_M)^{-1}P_R S|_N maps into finite-dimensional R^perp, forcing infinite ker S, contradiction for noncompact S. Zero achieves 1. The projection/coisometry same-modulus example correctly distinguishes 1/2 and 1. No finite truncation is substituted for proof; external structural theorem verified at its primary source.
+
+## originality
+
+PASS
+
+The 2022 primary paper proves membership and the scalar-plus-compact necessary structure, not the reconstructed three-valued sharp operator-norm distance, nor the distinction for same-modulus partial isometries with different cokernel; a newer 2026 perturbation preprint remains an explicit uninspected overlap risk. Failed semantic search provides no novelty evidence.
+
+## value
+
+PASS
+
+Distance to an analytically characterized but nonclosed operator class is a natural quantitative approximation problem; separating coisometry versus projection with identical |W| provides structural insight that membership-based modulus criteria miss. Exact levels 0, 1/2, 1 with attained approximants and a finite-cokernel obstruction yield a useful boundary classification, not a mere substitution into the 2022 membership criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

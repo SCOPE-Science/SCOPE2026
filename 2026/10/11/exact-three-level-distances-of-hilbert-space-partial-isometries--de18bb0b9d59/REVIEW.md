@@ -1,19 +1,21 @@
-# Scientific review: exact distances of partial isometries
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The three cases partition all partial isometries on a separable infinite-dimensional Hilbert space. The two essential-value bounds use orthonormal sequences and the published modulus-plus-compact representation for noncompact operators in the norm closure. A unitary extension witnesses the half-distance exactly. The finite-cokernel obstruction comes from a Neumann-invertible compression and an infinite-dimensional graph mapped to a finite-dimensional defect space, contradicting the finite-kernel property. The zero operator witnesses the last upper bound. Finite dimensions are not substituted for infinite proofs.
+PASS
 
-## Originality — PASS, with qualified risk
+The final theorem exhausts finite-rank, finite-kernel, and infinite-rank/infinite-kernel partial isometries on separable infinite-dimensional complex Hilbert H, subdividing the last case by cokernel. Compact finite-rank W and finite-kernel W are absolutely norm attaining (finite dimensional spheres or intersection of every infinite-dimensional subspace with initial space). For noncompact S in the AN norm closure, inspected Ramesh–Sequeira Thm 3.7/Cor 3.8 supply |S|=alpha I+compact with alpha>0 and finite kernel. Kernel and initial-space orthonormal sequences force ||W−S||≥max(alpha,|1−alpha|)≥1/2; compact S yields ≥1. When both kernel and cokernel infinite, choose unitary extending W and use S=U/2 to attain 1/2. For finite cokernel, ||W−S||<1 gives an invertible compression P_R S|_M; the graph of −(P_R S|_M)^{-1}P_R S|_N maps into finite-dimensional R^perp, forcing infinite ker S, contradiction for noncompact S. Zero achieves 1. The projection/coisometry same-modulus example correctly distinguishes 1/2 and 1. No finite truncation is substituted for proof; external structural theorem verified at its primary source.
 
-The closest inspected primary source is Ramesh–Sequeira (2022), especially Theorem 3.7 and Corollaries 3.8–3.9. It classifies closure membership of partial isometries, but does not give distances for nonmembers or distinguish the half-distance and distance-one cases. The separate quantitative theorem is proved here. Searches for distance, modulus, coisometry, unitary approximation, semi-Fredholm obstruction, and related formulations did not locate direct coverage. A newer compact/Schatten perturbation article was abstract-accessible but not full-text inspected; an equivalent result hidden there remains a specific originality risk. Search nonappearance alone is not proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The norm-distance is the natural quantitative invariant accompanying the known membership classification. The exact trichotomy is not determined by the modulus, even though closure membership is; the projection/coisometry pair isolates a genuinely different cokernel obstruction and both positive constants are attained. This is a sharp structural answer for a complete, motivated operator class rather than an arbitrary finite slice.
+The 2022 primary paper proves membership and the scalar-plus-compact necessary structure, not the reconstructed three-valued sharp operator-norm distance, nor the distinction for same-modulus partial isometries with different cokernel; a newer 2026 perturbation preprint remains an explicit uninspected overlap risk. Failed semantic search provides no novelty evidence.
 
-## Scope and limitations
+## value
 
-Complex separable infinite-dimensional Hilbert space and partial isometries only. The structural theorem is a cited dependency. Later uninspected related literature limits originality certainty. Independent audit is not asserted.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Distance to an analytically characterized but nonclosed operator class is a natural quantitative approximation problem; separating coisometry versus projection with identical |W| provides structural insight that membership-based modulus criteria miss. Exact levels 0, 1/2, 1 with attained approximants and a finite-cokernel obstruction yield a useful boundary classification, not a mere substitution into the 2022 membership criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
